@@ -1,5 +1,5 @@
 .. _traefik-section:
 
 =====================
-Layer 3 and web proxy
+Layer 4 and web proxy
 =====================

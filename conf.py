@@ -58,6 +58,7 @@ html_static_path = ['_static']
 html_theme_options = {
     "repository_url": "https://github.com/NethServer/ns8-docs",
     "use_repository_button": True,
+    "logo_only": True,
 }
 
 html_tile = "NS8 documentation"
