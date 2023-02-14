@@ -36,9 +36,11 @@ Please enter the following VPN details:
 * ``VPN endpoint port``: it's the public port of the VPN, the port should be accessible to any future node
 * ``VPN CIDR``: the VPN network address, make sure this network is not already used inside your existing network environment
 
+If unsure, you can keep the proposed defaults which should be good for most environments.
+
 Finally, click on :guilabel:`Create cluster` button. Your NS8 is now ready to run :ref:`applications <modules-section>`.
 
-Now sure where to start?
+Now sure where to go from here?
 You can install an :ref:`LDAP <openldap-section>` or :ref:`Active Directory <active_directory-section>` user domain,
 take a look to :ref:`system logs <loki-section>`, add :ref:`new nodes <cluster-section>` or setup a :ref:`metric dashboard <metrics-section>`.
 
