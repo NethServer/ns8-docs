@@ -1,3 +1,5 @@
+.. _cluster-section:
+
 ==================
 Cluster management
 ==================

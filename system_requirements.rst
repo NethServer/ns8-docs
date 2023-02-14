@@ -16,7 +16,9 @@ similar hardware and the same distribution installed on the leader node.
 
 Always install NethServer 8 on a clean server machine, do not install it on a desktop.
 
-Supported distributions and versions:
+.. _supported-distros-section:
+
+Supported GNU/Linux distributions and versions:
 
 - `Rocky Linux <https://rockylinux.org/>`_ >= 9.1
 - `CentOS Stream <https://www.centos.org/centos-stream/>`_ 9 x86-64

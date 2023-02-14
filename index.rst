@@ -40,8 +40,9 @@ NethServer 8 administrator manual
 
 .. toctree::
    :maxdepth: 2
-   :caption: Modules
+   :caption: Applications
 
+   modules
    mail
    webtop
    nextcloud
