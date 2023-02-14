@@ -31,9 +31,10 @@ Even if running on a single node, the system will setup a Virtual Private Networ
 With the VPN in place, you will able to add more nodes in the future.
 
 Please enter the following VPN details:
-- ``VPN endpoint address``: it's the public name of the leader node, it should be a valid (Fully Qualified Domain Named) FQDN with a public DNS record
-- ``VPN endpoint port``: it's the public port of the VPN, the port should be accessible to any future node
-- ``VPN CIDR``: the VPN network address, make sure this network is not already used inside your existing network environment
+
+* ``VPN endpoint address``: it's the public name of the leader node, it should be a valid (Fully Qualified Domain Named) FQDN with a public DNS record
+* ``VPN endpoint port``: it's the public port of the VPN, the port should be accessible to any future node
+* ``VPN CIDR``: the VPN network address, make sure this network is not already used inside your existing network environment
 
 Finally, click on :guilabel:`Create cluster` button. Your NS8 is now ready to run :ref:`applications <modules-section>`.
 
