@@ -1,5 +1,7 @@
 .. _loki-section:
 
-==========
-Log server
-==========
+===========
+System logs
+===========
+
+TODO

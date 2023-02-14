@@ -28,7 +28,6 @@ NethServer 8 administrator manual
    :caption: Configuration
 
    cluster
-   modules
    user_domains
    log_server
    proxy
