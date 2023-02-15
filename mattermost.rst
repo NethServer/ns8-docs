@@ -7,14 +7,14 @@ The Mattemost module installs `Mattermost Team Edition <https://mattermost.com>`
 Mattermost is an Open Source, private cloud :index:`Slack`-alternative. Check out the `official documentation <https://docs.mattermost.com/>`_ 
 for further details.
 
-You can install multiple Mattermost instances on the same node.
+You can install multiple Mattermost instances on the same node from the :ref:`software-center-section`.
 
 Configuration
 =============
 
-Mattermost installation needs a dedicated virtual host, a FQDN like ``chat.nethserver.org``.
+Mattermost needs a dedicated virtual host, a FQDN like ``chat.nethserver.org``.
 
-Before proceeding with the configuration, make sure to create the corresponding name record inside DNS server.
+Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
 If you are planning to use a Let's Encrypt certificate as default, make also sure to have a corresponding public DNS record.
 
 .. warning::
@@ -23,10 +23,10 @@ If you are planning to use a Let's Encrypt certificate as default, make also sur
 
 How to configure:
 
-1. Access the application configuration page and enter a valid FQDN inside ``Mattermost FQDN`` field
-2. Enable ``Let's Encrypt`` and ``HTTP to HTTPS`` accordingly to your needs
+1. access the application configuration page and enter a valid FQDN inside ``Mattermost FQDN`` field
+2. enable ``Let's Encrypt`` and ``HTTP to HTTPS`` options accordingly to your needs
 3. Click the :guilabel:`Save` button
-4. Open the entered host name inside the browser, eg: ``https://chat.nethserver.org``.
+4. open the entered host name inside the browser, eg: ``https://chat.nethserver.org``.
    At first access, a wizard will create the administrator user
 
 Mattermost authentication is *not* integrated with any user domain.
