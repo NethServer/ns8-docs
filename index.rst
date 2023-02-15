@@ -45,6 +45,7 @@ NethServer 8 administrator manual
    mail
    webtop
    nextcloud
+   collabora
    web_server
    mattermost
 
