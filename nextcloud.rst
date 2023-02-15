@@ -15,20 +15,31 @@ basic editing right on the web.
 * integration with NethServer 8 :ref:`user-domains-section`
 * automatic backup
 
-You can install multiple Nextcloud instances on the same node.
+You can install multiple Nextcloud instances on the same node from the :ref:`software-center-section`.
 
-Installation
-============
+Configuration
+=============
 
-Install the module from the :ref:`software-center-section`.
+Nextcloud needs a dedicated virtual host, a FQDN like ``nextcloud.nethserver.org``.
+
+Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
+If you are planning to use a Let's Encrypt certificate as default, make also sure to have a corresponding public DNS record.
+
 After the installation:
 
-* click on the :menuselection:`Applications > Nextcloud` item title or open the URL ``https://your_nethserver_ip/nextcloud``
-* use **admin/Nethesis,1234** as default credentials
-* change the default password
+1. access the ``Settings`` page of the newly installed instance
+2. enter a valid FQDN inside the ``Host name`` field
+3. enable ``Let's Encrypt`` option accordingly to your needs
+4. click the :guilabel:`Save` button
 
-All users configured inside any user provider (see :ref:`users_and_groups-section`) can automatically access the Nextcloud installation.
-After the installation a new application widget is added to the |product| web interface dashboard.
+Then click on ``Configure Nextcloud`` to run the first configuration wizard.
+The wizard will ask to setup an administrator user and password.
+If during the wizard you are going to install recommended apps, please note that the built-in Collabora server (Nextcloud Office) will not work.
+If you want to integrate with Collabora online see :ref:`below <collabora-integration-section>`.
+
+After the wizard has been completed, return to the NethServer page and reload it.
+You can now connect Nextcloud to an existing :ref:`user domain <user-domains-section>` by selecting the domain under the ``User domain`` field.
+All users configured inside the domain will be able to access the Nextcloud installation.
 
 .. note::   Nextcloud update/upgrade procedure may disables the apps to avoid incompatibility problems.
             Server logs keep track of which apps were disabled. After a successful update/upgrade procedure
@@ -41,64 +52,21 @@ All users are listed inside the administrator panel of Nextcloud using a unique 
 This is because the system ensures that there are no duplicate internal user names as reported 
 in section `Internal Username` of `Official Nextcloud documentation <https://docs.nextcloud.com>`_.
 
-.. note::       If |product| is bound to a remote Active Directory account provider
-                a dedicated user account in AD is required by the module to be fully
-                operational! See :ref:`join-existing-ad-section`.
 
-Configuration
-=============
-
-After installation, the application can be configured from the new Server Manager.
-
-Custom virtual host
--------------------
-
-Sometimes it's better to reserve a full virtual host for accessing Nextcloud like ``nextcloud.nethserver.org``.
-To configure the virtualhost, enable the :guilabel:`Use a virtual host for Nextcloud` option and fill the :guilabel:`Virtual host name` field.
-
-Please note that after the configuration of a custom virtual host, Nextcloud will no longer be accessible from the default URL ``https://your_nethserver_ip/nextcloud``.
-
-If the machine is using :ref:`Let's Encrypt <server_certificate-section>`, remember to add the virtual host domain name to list of valid certificate domains.
-
-Trusted domains
----------------
-
-Trusted domains are a list of domains that users can log into. Default trusted domains are:
-
-* domain name
-* IP address
-
-The list of trusted domains can be customized using :guilabel:`Trusted domains` field: add one domain per line.
-
-CalDAV and CardDAV
-------------------
-
-Some CalDAV and CardDAV clients may have problems finding the proper sync URL and need automatic service discovery.
-Service discovery is enabled by default if a custom virtual host for Nextcloud has been configured.
-
-To enable the service discovery even if Nextcloud is running on the default URL,
-check the :guilabel:`Enable CalDAV and CardDAV auto-discovery` field.
-
-.. note:: When enabling DAV auto-discovery, please make sure WebTop or SOGo are *not* already installed.
-
+.. _collabora-integration-section:
 
 Collabora Online
 ----------------
 
-See :ref:`Collabora Online module from NethForge <collabora-section>`.
+First, install and configure a :ref:`Collabora Online <collabora-section>` instance.
 
+Then, access the ``Settings`` page of Nextcloud module. 
 
-ONLYOFFICE
-----------
+You will find an option named ``CODE server host name``.
+Select one of the existing Collabora instances or enter a domain of another Collabora installation.
 
-Since Nextcloud 18, ONLYOFFICE Community Document Server can be installed directly to the system without further configuration.
-To enable built-in ONLYOFFICE integration, access Nextcloud with the ``admin`` user then:
+The Collabora instance will be accessed using HTTPS protocol, so remember to disable the ``Verify TLS certification`` option
+if the Collabora does not have a valid TLS certificate.
 
-- Go to :guilabel:`Apps` page and access :guilabel:`Office & text` section
-- Download and enable the ``ONLYOFFICE`` application
-- Download and enable the ``Community Document Server`` application.  Please be patient, download and install will take a while.
-- Go to the :guilabel:`Settings` page and access the :guilabel:`ONLYOFFICE` application under :guilabel:`Administration` section
-- Verify the :guilabel:`Document Editing Service address` already contains the public address of your Nextcloud server
-
-.. note:: Installation of full ONLYOFFICE server is not supported on |product|.
-
+Finally, click the :guilabel:`Save` button.
+You will now be able to edit documents directly inside Nextcloud.
