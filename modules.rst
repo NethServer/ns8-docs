@@ -6,6 +6,11 @@ Modules
 
 TODO
 
+.. _software-center-section:
+
+Software center
+===============
+
 Software repositories
 =====================
 

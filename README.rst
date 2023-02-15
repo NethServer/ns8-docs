@@ -102,38 +102,12 @@ You can find more info about **RST Inline Markup** here: rst-cheatsheet_
 .. _rst-cheatsheet: https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst
  
 
-Do not use *NethServer* name inside documentation. Any time you need to add the product name, 
-use the *product* macro::
-
-  |product| has this amazing feature!
-
-Output will be::
-
-  NethServer has this amazing feature!
-
-The same applies to *download_site* macro.
-
 Use semantic markup whenever possible. Recommended RST roles are:
 
 * guilabel
 * file
 * command
 * menuselection
-
-Remember to emphasize system object with *:dfn:*, only the first time you mention them inside a section.
-For example if you are naming a system user::
-
- The :dfn:`admin` user is mighty powerful.
-
-Also take care of indexing important content. You must index a word only one time per section::
- 
- The :dfn:`admin` user is mighty powerful.
- Remember to change the :index:`admin` password.
-
-The output will be a paragraph where the first *admin* word will be italic, the latter will use standard font
-but it will be indexed.
-
-See also: http://sphinx-doc.org/markup/inline.html
 
 Use a spell checker program before submitting a pull request. For instance run ::
 
@@ -142,19 +116,21 @@ Use a spell checker program before submitting a pull request. For instance run :
 Build documentation
 ===================
 
-Whenever there are modifications, a build process will be launched from Read the Docs site.
+Whenever there are modifications, a build process will be launched from CI.
 
-If you wish to build documentation locally on your machine, make sure to install all Sphinx packages.
+If you wish to build documentation locally on your machine, make sure to install the Sphinx package.
 
-On Fedora 24 or later use: ::
+On Fedora 37 or later use: ::
 
-  sudo dnf install python2-sphinx python2-sphinx-bootstrap-theme
+  sudo dnf install python3-sphinx python3-pip make
 
-Then, install all required modules: ::
+Then clone the repository, enter the inside the cloned directory and install all required extra modules ::
 
-  sudo pip install -r requirements.txt
+  git clone https://github.com/NethServer/ns8-docs.git
+  cd ns8-docs
+  pip install -r requirements.txt
 
-First clone the repository, enter the inside the cloned directoru and type ::
+FInally, build the doc: ::
 
    make html
 
@@ -169,12 +145,12 @@ Generate po files for a new language: ::
 Documentation style guidelines
 ==============================
 
-Please follow 
+When editing documents, please remind the following guidelines:
 
-https://www.writethedocs.org/blog/newsletter-december-2016/#simplifying-and-tightening-your-writing
-https://www.writethedocs.org/blog/newsletter-october-2022/#gerunds-in-headings
-https://www.writethedocs.org/blog/newsletter-september-2022/#when-to-use-acronyms
-https://www.writethedocs.org/blog/newsletter-november-2019/#you-sing-the-second-person-in-documentation
-https://www.writethedocs.org/blog/newsletter-may-2018/#using-imperatives-in-documentation
-https://www.writethedocs.org/blog/newsletter-july-2017/#documenting-unlabeled-buttons
-https://learn.microsoft.com/en-us/style-guide/global-communications/writing-tips
+* https://www.writethedocs.org/blog/newsletter-december-2016/#simplifying-and-tightening-your-writing
+* https://www.writethedocs.org/blog/newsletter-october-2022/#gerunds-in-headings
+* https://www.writethedocs.org/blog/newsletter-september-2022/#when-to-use-acronyms
+* https://www.writethedocs.org/blog/newsletter-november-2019/#you-sing-the-second-person-in-documentation
+* https://www.writethedocs.org/blog/newsletter-may-2018/#using-imperatives-in-documentation
+* https://www.writethedocs.org/blog/newsletter-july-2017/#documenting-unlabeled-buttons
+* https://learn.microsoft.com/en-us/style-guide/global-communications/writing-tips
