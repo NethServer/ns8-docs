@@ -6,7 +6,7 @@ Modules
 
 TODO
 
-.. _software-center-section:
+.. _software_center-section:
 
 Software center
 ===============

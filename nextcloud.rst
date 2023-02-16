@@ -15,7 +15,7 @@ basic editing right on the web.
 * integration with NethServer 8 :ref:`user-domains-section`
 * automatic backup
 
-You can install multiple Nextcloud instances on the same node from the :ref:`software-center-section`.
+You can install multiple Nextcloud instances on the same node from the :ref:`software_center-section`.
 
 Configuration
 =============

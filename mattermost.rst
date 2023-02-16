@@ -7,7 +7,7 @@ The Mattemost module installs `Mattermost Team Edition <https://mattermost.com>`
 Mattermost is an Open Source, private cloud :index:`Slack`-alternative. Check out the `official documentation <https://docs.mattermost.com/>`_ 
 for further details.
 
-You can install multiple Mattermost instances on the same node from the :ref:`software-center-section`.
+You can install multiple Mattermost instances on the same node from the :ref:`software_center-section`.
 
 Configuration
 =============

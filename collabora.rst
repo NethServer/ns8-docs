@@ -9,7 +9,7 @@ major document, spreadsheet and presentation file formats, which you can integra
 in your own infrastructure.
 Please see the `official website <https://www.collaboraoffice.com/collabora-online/>`_.
 
-You can install multiple Collabora Online instances on the same node from the :ref:`software-center-section`.
+You can install multiple Collabora Online instances on the same node from the :ref:`software_center-section`.
 
 Configuration
 =============
