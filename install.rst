@@ -40,6 +40,12 @@ If unsure, you can keep the proposed defaults which should be good for most envi
 
 Finally, click on :guilabel:`Create cluster` button. Your NS8 is now ready to run :ref:`applications <modules-section>`.
 
+Each cluster has an auto-generated name. If you whish to change it:
+
+* go to ``Settings`` page and click on ``Cluster`` card
+* enter a name inside the ``Cluster label`` field
+* click the :guilabel:`Save settings` button
+
 Now sure where to go from here?
 You can install an :ref:`LDAP <openldap-section>` or :ref:`Active Directory <active_directory-section>` user domain,
 take a look to :ref:`system logs <loki-section>`, add :ref:`new nodes <cluster-section>` or setup a :ref:`metric dashboard <metrics-section>`.
