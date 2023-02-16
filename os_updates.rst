@@ -1,4 +1,4 @@
-.. os_updates-section:
+.. _os_updates-section:
 
 ========================
 Operating system updates
@@ -19,3 +19,5 @@ Please, take a look to your distribution documentation:
 
    It's not recommended to enable automatic updates on CentOS Stream, since it is considered a preview of next RHEL stable release.
    Updates could bring major releases of podman and SELinux policies introducing unexpected bugs.
+
+If your looking for core and modules see :ref:`updates-section`.
