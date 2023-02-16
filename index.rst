@@ -54,6 +54,6 @@ NethServer 8 administrator manual
    :caption: Best practices
 
    os_updates
-   disk_partitions
+   disk_usage
    migration
 
