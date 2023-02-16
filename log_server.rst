@@ -35,6 +35,8 @@ Logs are now shown side-by-side to easily correlate events.
 Command line
 ============
 
+.. highlight:: bash
+
 If you're familiar with the command line, recent logs are available using ``journalctl`` command
 and services can be inspected using ``systemctl`` command.
 As root use ``journalctl`` to see messages from agents, rootfull and rootless modules.
