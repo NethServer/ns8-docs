@@ -22,7 +22,7 @@ Core updates
 The core is composed by the following modules:
 
 - ``core`` contains the web user interface, the API server, the agents that manage the containers and backup engines
-- ``LDAP proxy`` it's an `Nginx <https://www.nginx.com/>`_ instance that handles all connections from applications to :ref:`user-domains-section`
+- ``LDAP proxy`` it's an `NGINX <https://www.nginx.com/>`_ instance that handles all connections from applications to :ref:`user-domains-section`
 - :ref:`Loki log server <loki-section>`
 - :ref:`Promtail <loki-section>`
 - :ref:`Traefik proxy <traefik-section>`
