@@ -43,11 +43,14 @@ NethServer 8 administrator manual
 
    modules
    mail
+   roundcube
    webtop
    nextcloud
    collabora
    web_server
    mattermost
+   mariadb
+   nginx
 
 .. toctree::
    :maxdepth: 2
