@@ -41,7 +41,9 @@ Then launch the script by passing the mount location as parameter, like: ::
 
   migrate /mnt/temp_disk
 
-The ``migrate`` script: ::
+The ``migrate`` script:.
+
+.. code-block:: bash
 
   #!/bin/bash
   set -e
