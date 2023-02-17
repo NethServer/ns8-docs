@@ -51,3 +51,15 @@ You can install an :ref:`LDAP <openldap-section>` or :ref:`Active Directory <act
 take a look to :ref:`system logs <loki-section>`, add :ref:`new nodes <cluster-section>` or setup a :ref:`metric dashboard <metrics-section>`.
 
 To customize the installation, please reference to `developer manual <https://nethserver.github.io/ns8-core>`_.
+
+Uninstall
+=========
+
+You can uninstall NS8 from your Linux distribution.
+
+The uninstall command attempts to stop and erase core components and additional modules.
+Handle it with care because it erases everything under ``/home`` and ``/var/lib/nethserver`` directories.
+
+To uninstall NS8, execute: ::
+
+  bash /var/lib/nethserver/node/uninstall.sh
