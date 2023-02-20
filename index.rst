@@ -51,6 +51,8 @@ NethServer 8 administrator manual
    mattermost
    mariadb
    nginx
+   dokuwiki
+   minio
 
 .. toctree::
    :maxdepth: 2
