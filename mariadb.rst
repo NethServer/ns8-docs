@@ -13,7 +13,7 @@ Configuration
 How to configure:
 
 1. access the application configuration page and enter the path for phpMyAdmin, eg. ``/phpmyadmin``
-2. enable option accordingly to your needs
+2. enable ``HTTP to HTTPS`` option accordingly to your needs
 3. Click the :guilabel:`Save` button
 
 At the end of the configuration the web interface will display the public TCP port to access
