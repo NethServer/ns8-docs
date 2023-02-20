@@ -16,10 +16,6 @@ WebTop needs a dedicated virtual host, a FQDN like ``webtop.nethserver.org``.
 Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
 If you are planning to use a Let's Encrypt certificate as default, make also sure to have a corresponding public DNS record.
 
-.. warning::
-
-   Please note that the mobile app **cannot connect to servers with self-signed certificates**!
-
 How to configure:
 
 1. access the application configuration page and enter a valid FQDN inside ``WebTop virtual host`` field
