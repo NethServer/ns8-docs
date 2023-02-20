@@ -1,3 +1,5 @@
+.. _webtop-section:
+
 ======
 Webtop
 ======
