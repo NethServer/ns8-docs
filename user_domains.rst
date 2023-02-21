@@ -53,8 +53,8 @@ Once the provider is installed, you will be asked to enter the following paramet
 
 .. note::
 
-    The Active Directory :guilabel:`Domain name` and  :guilabel:`NetBIOS
-    domain name` values cannot be changed once that the domain has been created
+    The Active Directory :guilabel:`Domain` and  :guilabel:`NetBIOS
+    domain` values cannot be changed once that the domain has been created
 
 At the end, you will see a new user domain with one connected provider.
 You can now :ref:`manage users and groups <user_groups-section>`, :ref:`add a replica <provider_replica-section>`
