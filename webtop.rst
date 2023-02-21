@@ -22,7 +22,7 @@ How to configure:
 2. enable ``Request Let's Encrypt certificate``
 3. bind the WebTop instance to an existing ``Mail server``
 4. select the ``Default locale`` and the ``Default timezone``
-4. click the :guilabel:`Save` button
+5. click the :guilabel:`Save` button
 
 Inside the ``Advanced`` section, you can also configure:
 
