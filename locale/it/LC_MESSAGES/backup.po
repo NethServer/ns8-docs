@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Nethesis Srl and the NethServer project contributors
+# This file is distributed under the same license as the NS8 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NS8 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 08:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../backup.rst:3
+msgid "Backup and restore"
+msgstr ""
+
+#: ../../backup.rst:5
+msgid ""
+"The full cluster backup is composed by configuration and applications "
+"data. Access the ``Backup`` page to manage the backup and restore."
+msgstr ""
+
+#: ../../backup.rst:9
+msgid "Backup repository"
+msgstr ""
+
+#: ../../backup.rst:11
+msgid ""
+"First, you will need to configure a backup repository where the data will"
+" be saved. A backup repository keeps all backup data encrypted using "
+"`restic <https://restic.readthedocs.io>`_ engine."
+msgstr ""
+
+#: ../../backup.rst:14
+msgid ""
+"Access the ``Backup`` page, click on :guilabel:`Add repository` button "
+"and choose a provider. Currently supported providers are:"
+msgstr ""
+
+#: ../../backup.rst:17
+msgid "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
+msgstr ""
+
+#: ../../backup.rst:18
+msgid "`Amazon S3 <https://aws.amazon.com/it/s3/>`_"
+msgstr ""
+
+#: ../../backup.rst:20
+msgid "Fill in the required fields depending on the chosen provider."
+msgstr ""
+
+#: ../../backup.rst:22
+msgid ""
+"A new encryption key will be automatically created for new repositories. "
+"If you are accessing a repository which already contains a NS8 backup, "
+"remember also to enter the ``Repository password`` under the ``Advanced``"
+" section."
+msgstr ""
+
+#: ../../backup.rst:27
+msgid "Application backup"
+msgstr ""
+
+#: ../../backup.rst:29
+msgid ""
+"Once at least one repository has been configured, you can schedule the "
+"backup of existing applications:"
+msgstr ""
+
+#: ../../backup.rst:31
+msgid "click on :guilabel:`Schedule backup` button"
+msgstr ""
+
+#: ../../backup.rst:32
+msgid "select which application instances should be added to the backup"
+msgstr ""
+
+#: ../../backup.rst:33
+msgid "choose one backup repository"
+msgstr ""
+
+#: ../../backup.rst:34
+msgid "setup day and time of the backup and the retention policy"
+msgstr ""
+
+#: ../../backup.rst:35
+msgid "enter a name of the backup"
+msgstr ""
+
+#: ../../backup.rst:36
+msgid "save the configuration by clicking the :guilabel:`Schedule backup` button"
+msgstr ""
+
+#: ../../backup.rst:38
+msgid ""
+"Whenever you want to manually execute the backup, click the ``Run backup "
+"now`` item from the three-dots menu of the scheduled backup."
+msgstr ""
+
+#: ../../backup.rst:40
+msgid ""
+"To add more instances to an existing backup, click the ``Edit`` item from"
+" the three-dots menu of the scheduled backup."
+msgstr ""
+
+#: ../../backup.rst:43
+msgid "Application restore"
+msgstr ""
+
+#: ../../backup.rst:45
+msgid ""
+"You can restore an application only if there is at least one repository "
+"configured:"
+msgstr ""
+
+#: ../../backup.rst:47
+msgid "click on the :guilabel:`Restore an app` button."
+msgstr ""
+
+#: ../../backup.rst:48
+msgid ""
+"a dialog box will list all applications inside the existing backup, "
+"select the application you want to restore"
+msgstr ""
+
+#: ../../backup.rst:49
+msgid ""
+"as default the restore procedure will create a new instance, if you want "
+"to replace the existing one select the ``Replace existing app`` option"
+msgstr ""
+
+#: ../../backup.rst:50
+msgid "select the target node"
+msgstr ""
+
+#: ../../backup.rst:51
+msgid "click on the :guilabel:`Restore` button"
+msgstr ""
+
+#: ../../backup.rst:56
+msgid "Cluster backup"
+msgstr ""
+
+#: ../../backup.rst:58
+msgid ""
+"The cluster configuration backup contains all required data to execute a "
+":ref:`disaster_recovery-section`. It is a compressed JSON file encrypted "
+"with GPG. The encryption key is the hash of the password of the ``admin``"
+" user."
+msgstr ""
+
+#: ../../backup.rst:62
+msgid ""
+"To download the cluster configuration backup, click on "
+":guilabel:`Download backup` button under the ``Cluster configuration`` "
+"section of the ``Backup`` page."
+msgstr ""
+
+#: ../../backup.rst:65
+msgid ""
+"Please, download the cluster configuration backup and keep it on a safe "
+"place."
+msgstr ""
+
+#: ../../backup.rst:68
+msgid ""
+"In case you lose the configuration backup, you can still restore "
+"applications to another cluster only if you know the encryption password "
+"of the backup repository."
+msgstr ""
+
+#: ../../backup.rst:73
+msgid ""
+"To inspect the content of the backup use this command, where ``<pass>`` "
+"is the admin password: ::"
+msgstr ""
+
+#: ../../backup.rst:80
+msgid "Disaster recovery"
+msgstr ""
+
+#: ../../backup.rst:82
+msgid ""
+"You can restore a previously configured cluster using the disaster "
+"recovery procedure. To follow this procedure you will need a :ref:`a "
+"cluster configuration backup <cluster_backup-section>`:"
+msgstr ""
+
+#: ../../backup.rst:85
+msgid ""
+":ref:`install <install-section>` a new cluster and login using default "
+"credentials"
+msgstr ""
+
+#: ../../backup.rst:86
+msgid "change the default administrator password"
+msgstr ""
+
+#: ../../backup.rst:87
+msgid "click on :guilabel:`Restore cluster`"
+msgstr ""
+
+#: ../../backup.rst:88
+msgid ""
+"you can now choose whether to restore a cluster configuration hosted on a"
+" remote HTTP server or upload the backup from your browser"
+msgstr ""
+
+#: ../../backup.rst:90
+msgid ""
+"if on step 2 you entered the same password of the old cluster, the system"
+" will automatically decrypt the configuration backup; otherwise enter the"
+" encryption secret inside the ``Backup password`` field"
+msgstr ""
+
+#: ../../backup.rst:92
+msgid "select the applications to restore"
+msgstr ""
+

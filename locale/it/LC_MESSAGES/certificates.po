@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Nethesis Srl and the NethServer project contributors
+# This file is distributed under the same license as the NS8 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NS8 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 08:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../certificates.rst:5
+msgid "TLS certificates"
+msgstr ""
+
+#: ../../certificates.rst:7
+msgid ""
+"An SSL/TLS certificate is a digital object issued by a Certificate "
+"Authority (CA). The certificate is used to verify the identity of an host"
+" and to establish encrypted communication channels."
+msgstr ""
+
+#: ../../certificates.rst:10
+msgid ""
+"Upon install, NethServer 8 uses a default self-signed certificate for all"
+" TLS services, including the Web user interface. NethServer 8 can request"
+" valid `Let's Encrypt <https://letsencrypt.org/>`_ certificates using "
+"`traefik <https://traefik.io/>`_."
+msgstr ""
+
+#: ../../certificates.rst:13
+msgid ""
+"Requesting Let's Encrypt is possible if the following requirements are "
+"met:"
+msgstr ""
+
+#: ../../certificates.rst:15
+msgid ""
+"the server must be reachable from outside on port 80. Make sure your port"
+" 80 is open to the public Internet (you can check with sites like `CSM "
+"<http://www.canyouseeme.org/>`_)"
+msgstr ""
+
+#: ../../certificates.rst:17
+msgid ""
+"the domains that you want the certificate for must be public domain names"
+" associated to server own public IP. Make sure you have public DNS name "
+"pointing to your server (you can check with sites like `VDNS "
+"<http://viewdns.info/>`_)"
+msgstr ""
+
+#: ../../certificates.rst:21
+msgid "Wild card certificates (i.e. ``*.nethserver.org``) are not supported."
+msgstr ""
+
+#: ../../certificates.rst:23
+msgid ""
+"If above requirements are met, you can obtain a valid certificate for a "
+"domain by following these steps:"
+msgstr ""
+
+#: ../../certificates.rst:25
+msgid "access the ``Settings`` page and click the ``TLS certificates`` card"
+msgstr ""
+
+#: ../../certificates.rst:26 ../../certificates.rst:28
+msgid "click on :guilabel:`Request certificate` button"
+msgstr ""
+
+#: ../../certificates.rst:27
+msgid "enter the node FQDN and select the node"
+msgstr ""
+
+#: ../../certificates.rst:30
+msgid ""
+"The procedure will take a while, but the system will notify you when the "
+"certificate is ready. The Let's Encrypt certificate is automatically "
+"renewed 30 days before expiration date."
+msgstr ""
+

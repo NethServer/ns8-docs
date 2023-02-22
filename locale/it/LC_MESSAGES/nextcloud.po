@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Nethesis Srl and the NethServer project contributors
+# This file is distributed under the same license as the NS8 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NS8 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 08:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../nextcloud.rst:5
+msgid "Nextcloud"
+msgstr ""
+
+#: ../../nextcloud.rst:7
+msgid ""
+"`Nextcloud <http://nextcloud.com/>`_ provides universal access to your "
+"files via the web, your computer or your mobile devices wherever you are."
+" It also provides a platform to easily view and synchronize your "
+"contacts, calendars and bookmarks across all your devices and enables "
+"basic editing right on the web."
+msgstr ""
+
+#: ../../nextcloud.rst:12
+msgid "**Key features:**"
+msgstr ""
+
+#: ../../nextcloud.rst:14
+msgid "configure :index:`Nextcloud` with MariaDB and Redis cache"
+msgstr ""
+
+#: ../../nextcloud.rst:15
+msgid "integration with NethServer 8 :ref:`user-domains-section`"
+msgstr ""
+
+#: ../../nextcloud.rst:16
+msgid "automatic backup"
+msgstr ""
+
+#: ../../nextcloud.rst:18
+msgid ""
+"You can install multiple Nextcloud instances on the same node from the "
+":ref:`software_center-section`."
+msgstr ""
+
+#: ../../nextcloud.rst:21
+msgid "Configuration"
+msgstr ""
+
+#: ../../nextcloud.rst:23
+msgid ""
+"Nextcloud needs a dedicated virtual host, a FQDN like "
+"``nextcloud.nethserver.org``."
+msgstr ""
+
+#: ../../nextcloud.rst:25
+msgid ""
+"Before proceeding with the configuration, make sure to create the "
+"corresponding name record inside your DNS server. If you are planning to "
+"use a Let's Encrypt certificate as default, make also sure to have a "
+"corresponding public DNS record."
+msgstr ""
+
+#: ../../nextcloud.rst:28
+msgid "After the installation:"
+msgstr ""
+
+#: ../../nextcloud.rst:30
+msgid "access the ``Settings`` page of the newly installed instance"
+msgstr ""
+
+#: ../../nextcloud.rst:31
+msgid "enter a valid FQDN inside the ``Host name`` field"
+msgstr ""
+
+#: ../../nextcloud.rst:32
+msgid "enable ``Let's Encrypt`` option accordingly to your needs"
+msgstr ""
+
+#: ../../nextcloud.rst:33
+msgid "click the :guilabel:`Save` button"
+msgstr ""
+
+#: ../../nextcloud.rst:35
+msgid ""
+"Then click on ``Configure Nextcloud`` to run the first configuration "
+"wizard. The wizard will ask to setup an administrator user and password. "
+"If during the wizard you are going to install recommended apps, please "
+"note that the built-in Collabora server (Nextcloud Office) will not work."
+" If you want to integrate with Collabora online see :ref:`below "
+"<collabora-integration-section>`."
+msgstr ""
+
+#: ../../nextcloud.rst:40
+msgid ""
+"After the wizard has been completed, return to the NethServer page and "
+"reload it. You can now connect Nextcloud to an existing :ref:`user domain"
+" <user-domains-section>` by selecting the domain under the ``User "
+"domain`` field. All users configured inside the domain will be able to "
+"access the Nextcloud installation."
+msgstr ""
+
+#: ../../nextcloud.rst:44
+msgid ""
+"Nextcloud update/upgrade procedure may disables the apps to avoid "
+"incompatibility problems. Server logs keep track of which apps were "
+"disabled. After a successful update/upgrade procedure you can use the "
+"Applications page to update and re-enable the apps."
+msgstr ""
+
+#: ../../nextcloud.rst:49
+msgid "User list"
+msgstr ""
+
+#: ../../nextcloud.rst:51
+msgid ""
+"All users are listed inside the administrator panel of Nextcloud using a "
+"unique identifier containing letters and numbers. This is because the "
+"system ensures that there are no duplicate internal user names as "
+"reported in section `Internal Username` of `Official Nextcloud "
+"documentation <https://docs.nextcloud.com>`_."
+msgstr ""
+
+#: ../../nextcloud.rst:59
+msgid "Collabora Online"
+msgstr ""
+
+#: ../../nextcloud.rst:61
+msgid ""
+"First, install and configure a :ref:`Collabora Online <collabora-"
+"section>` instance."
+msgstr ""
+
+#: ../../nextcloud.rst:63
+msgid "Then, access the ``Settings`` page of Nextcloud module."
+msgstr ""
+
+#: ../../nextcloud.rst:65
+msgid ""
+"You will find an option named ``CODE server host name``. Select one of "
+"the existing Collabora instances or enter a domain of another Collabora "
+"installation."
+msgstr ""
+
+#: ../../nextcloud.rst:68
+msgid ""
+"The Collabora instance will be accessed using HTTPS protocol, so remember"
+" to disable the ``Verify TLS certification`` option if the Collabora does"
+" not have a valid TLS certificate."
+msgstr ""
+
+#: ../../nextcloud.rst:71
+msgid ""
+"Finally, click the :guilabel:`Save` button. You will now be able to edit "
+"documents directly inside Nextcloud."
+msgstr ""
+

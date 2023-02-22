@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Nethesis Srl and the NethServer project contributors
+# This file is distributed under the same license as the NS8 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NS8 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 08:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../disk_usage.rst:3
+msgid "Disk usage"
+msgstr ""
+
+#: ../../disk_usage.rst:7
+msgid ""
+"NethServer 8 uses `podman <https://podman.io/>`_ to mance OCI containers."
+" When running multiple containers the disk usage will grow quite fast and"
+" you could quickly run out of space."
+msgstr ""
+
+#: ../../disk_usage.rst:10
+msgid ""
+"Rootless containers put their data inside the user home directory "
+"``/home``. So if you plan to run many services on the same host, consider"
+" to mount an extra disk or partition at ``/home`` path."
+msgstr ""
+
+#: ../../disk_usage.rst:13
+msgid ""
+"Rootfull containers usually save images and volumes inside the "
+"``/var/lib/containers/storage`` directory."
+msgstr ""
+
+#: ../../disk_usage.rst:15
+msgid ""
+"To inspect podman storage configuration of your distribution, you can use"
+" the following command: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:19
+msgid ""
+"There is another growning directory ``/var/lib/nethserver``: it contains "
+"the user interface and actions of rootfull modules."
+msgstr ""
+
+#: ../../disk_usage.rst:22
+msgid "Add more space"
+msgstr ""
+
+#: ../../disk_usage.rst:24
+msgid ""
+"If you’re running out of disk space, consider to expand the ``/home`` "
+"filesystem."
+msgstr ""
+
+#: ../../disk_usage.rst:26
+msgid ""
+"On a physical machine, the best option is to setup LVM during the "
+"distribution installation. On the other hand, on a virtual machine you "
+"could easily expand the whole root filesystem."
+msgstr ""
+
+#: ../../disk_usage.rst:29
+msgid ""
+"If you can't do any of the above, consider adding a new disk and migrate "
+"existing data using below script. The script will:"
+msgstr ""
+
+#: ../../disk_usage.rst:32
+msgid "stop all rootless containers"
+msgstr ""
+
+#: ../../disk_usage.rst:33
+msgid "copy all rootless containers inside the new disk"
+msgstr ""
+
+#: ../../disk_usage.rst:34
+msgid "reclaim space from the root filesystem"
+msgstr ""
+
+#: ../../disk_usage.rst:35
+msgid "mount the new disk under ``/home``"
+msgstr ""
+
+#: ../../disk_usage.rst:36
+msgid "restart all rootless containrs"
+msgstr ""
+
+#: ../../disk_usage.rst:38
+msgid ""
+"Before running the script, make sure to attach the disk to the machine, "
+"format it and mount to a custom location like ``/mnt/temp_disk``. Then "
+"launch the script by passing the mount location as parameter, like: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:44
+msgid "The ``migrate`` script:."
+msgstr ""
+

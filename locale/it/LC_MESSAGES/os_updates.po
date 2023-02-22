@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Nethesis Srl and the NethServer project contributors
+# This file is distributed under the same license as the NS8 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NS8 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 08:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../os_updates.rst:5
+msgid "Operating system updates"
+msgstr ""
+
+#: ../../os_updates.rst:7
+msgid ""
+"NethServer 8 is installed on top of GNU/Linux distributions and tries to "
+"preserve default configuration as much as possible. It's up to the system"
+" administrator to choose how the operating system updates are applied."
+msgstr ""
+
+#: ../../os_updates.rst:10
+msgid ""
+"Usually, it's a good practice to apply security updates as soon as "
+"possible. But, even if NethServer depends on few packages, not all system"
+" administrators feel confident about automatic updates."
+msgstr ""
+
+#: ../../os_updates.rst:13
+msgid "Please, take a look to your distribution documentation:"
+msgstr ""
+
+#: ../../os_updates.rst:15
+msgid ""
+"`Rocky Linux/AlmaLinux "
+"<https://docs.rockylinux.org/guides/security/dnf_automatic/>`_"
+msgstr ""
+
+#: ../../os_updates.rst:16
+msgid "`Debian <https://wiki.debian.org/UnattendedUpgrades>`_"
+msgstr ""
+
+#: ../../os_updates.rst:20
+msgid ""
+"It's not recommended to enable automatic updates on CentOS Stream, since "
+"it is considered a preview of next RHEL stable release. Updates could "
+"bring major releases of podman and SELinux policies introducing "
+"unexpected bugs."
+msgstr ""
+
+#: ../../os_updates.rst:23
+msgid "If your looking for core and modules see :ref:`updates-section`."
+msgstr ""
+

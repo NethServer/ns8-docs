@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Nethesis Srl and the NethServer project contributors
+# This file is distributed under the same license as the NS8 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NS8 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 08:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../mattermost.rst:3
+msgid "Mattermost"
+msgstr ""
+
+#: ../../mattermost.rst:5
+msgid ""
+"The Mattemost module installs `Mattermost Team Edition "
+"<https://mattermost.com>`_ platform."
+msgstr ""
+
+#: ../../mattermost.rst:7
+msgid ""
+"Mattermost is an Open Source, private cloud :index:`Slack`-alternative. "
+"Check out the `official documentation <https://docs.mattermost.com/>`_ "
+"for further details."
+msgstr ""
+
+#: ../../mattermost.rst:10
+msgid ""
+"You can install multiple Mattermost instances on the same node from the "
+":ref:`software_center-section`."
+msgstr ""
+
+#: ../../mattermost.rst:13
+msgid "Configuration"
+msgstr ""
+
+#: ../../mattermost.rst:15
+msgid ""
+"Mattermost needs a dedicated virtual host, a FQDN like "
+"``chat.nethserver.org``."
+msgstr ""
+
+#: ../../mattermost.rst:17
+msgid ""
+"Before proceeding with the configuration, make sure to create the "
+"corresponding name record inside your DNS server. If you are planning to "
+"use a Let's Encrypt certificate as default, make also sure to have a "
+"corresponding public DNS record."
+msgstr ""
+
+#: ../../mattermost.rst:22
+msgid ""
+"Please note that the mobile app **cannot connect to servers with self-"
+"signed certificates**!"
+msgstr ""
+
+#: ../../mattermost.rst:24
+msgid "How to configure:"
+msgstr ""
+
+#: ../../mattermost.rst:26
+msgid ""
+"access the application configuration page and enter a valid FQDN inside "
+"``Mattermost FQDN`` field"
+msgstr ""
+
+#: ../../mattermost.rst:27
+msgid ""
+"enable ``Let's Encrypt`` and ``HTTP to HTTPS`` options accordingly to "
+"your needs"
+msgstr ""
+
+#: ../../mattermost.rst:28
+msgid "Click the :guilabel:`Save` button"
+msgstr ""
+
+#: ../../mattermost.rst:29
+msgid ""
+"open the entered host name inside the browser, eg: "
+"``https://chat.nethserver.org``. At first access, a wizard will create "
+"the administrator user"
+msgstr ""
+
+#: ../../mattermost.rst:32
+msgid ""
+"Mattermost authentication is *not* integrated with any user domain. The "
+"Mattermost administrator should take care of users and teams creation."
+msgstr ""
+
+#: ../../mattermost.rst:37
+msgid ""
+"The administrator should always use Mattermost wizard to create the admin"
+" user, then send team invitation link to each user."
+msgstr ""
+

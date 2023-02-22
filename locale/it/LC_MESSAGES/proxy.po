@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Nethesis Srl and the NethServer project contributors
+# This file is distributed under the same license as the NS8 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NS8 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 08:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../proxy.rst:5
+msgid "Proxy"
+msgstr ""
+
+#: ../../proxy.rst:7
+msgid ""
+"`Traefik <https://traefik.io/>`_ proxy is part of NethServer core and it "
+"handles all HTTP routes. The proxy is installed on each cluster node."
+msgstr ""
+
+#: ../../proxy.rst:10
+msgid ""
+"Access the ``HTTP routes`` card inside the ``Settings`` page to see all "
+"configured routes. Applications usually automatically setup the proxy "
+"during the configuration phase. Automatic routes can't be modified."
+msgstr ""
+
+#: ../../proxy.rst:14
+msgid ""
+"You can add a custom route by clicking :guilabel:`Create route` button. "
+"Then enter the following details:"
+msgstr ""
+
+#: ../../proxy.rst:17
+msgid "``Name``: a unique name to identify the route"
+msgstr ""
+
+#: ../../proxy.rst:18
+msgid "``Node``: the node where the proxy instance is running"
+msgstr ""
+
+#: ../../proxy.rst:19
+msgid "``URL``: target URL of the route"
+msgstr ""
+
+#: ../../proxy.rst:20
+msgid ""
+"``Host``: fill this field with a valid FQDN if you want a host-based "
+"route, sometimes also referred as virtual host; the application will be "
+"available on a URL like ``https://myapp.nethserver.org``"
+msgstr ""
+
+#: ../../proxy.rst:22
+msgid ""
+"``Path``: fill this field with a valid path if you want a path-based "
+"route accessible from the cluster FQDN; the application will be available"
+" on a URL like ``https://cluster.nethserver.org/myapp``"
+msgstr ""
+
+#: ../../proxy.rst:24
+msgid ""
+"``Strip URL path prefix``: when ``Path`` field is not empty, strip the "
+"path before routing the request to the target URL"
+msgstr ""
+
+#: ../../proxy.rst:25
+msgid ""
+"``Request Let's Encrypt certificate`` enable this option to request a "
+"valid certificate, please remember :ref:`all requirements "
+"<certificate_manager-section>`"
+msgstr ""
+
