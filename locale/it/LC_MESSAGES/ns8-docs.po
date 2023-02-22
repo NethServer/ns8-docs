@@ -1,0 +1,3185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Nethesis Srl and the NethServer project contributors
+# This file is distributed under the same license as the NS8 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: NS8 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 16:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../backup.rst:3
+msgid "Backup and restore"
+msgstr ""
+
+#: ../../backup.rst:5
+msgid ""
+"The full cluster backup is composed by configuration and applications "
+"data. Access the ``Backup`` page to manage the backup and restore."
+msgstr ""
+
+#: ../../backup.rst:9
+msgid "Backup repository"
+msgstr ""
+
+#: ../../backup.rst:11
+msgid ""
+"First, you will need to configure a backup repository where the data will"
+" be saved. A backup repository keeps all backup data encrypted using "
+"`restic <https://restic.readthedocs.io>`_ engine."
+msgstr ""
+
+#: ../../backup.rst:14
+msgid ""
+"Access the ``Backup`` page, click on :guilabel:`Add repository` button "
+"and choose a provider. Currently supported providers are:"
+msgstr ""
+
+#: ../../backup.rst:17
+msgid "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
+msgstr ""
+
+#: ../../backup.rst:18
+msgid "`Amazon S3 <https://aws.amazon.com/it/s3/>`_"
+msgstr ""
+
+#: ../../backup.rst:20
+msgid "Fill in the required fields depending on the chosen provider."
+msgstr ""
+
+#: ../../backup.rst:22
+msgid ""
+"A new encryption key will be automatically created for new repositories. "
+"If you are accessing a repository which already contains a NS8 backup, "
+"remember also to enter the ``Repository password`` under the ``Advanced``"
+" section."
+msgstr ""
+
+#: ../../backup.rst:27
+msgid "Application backup"
+msgstr ""
+
+#: ../../backup.rst:29
+msgid ""
+"Once at least one repository has been configured, you can schedule the "
+"backup of existing applications:"
+msgstr ""
+
+#: ../../backup.rst:31
+msgid "click on :guilabel:`Schedule backup` button"
+msgstr ""
+
+#: ../../backup.rst:32
+msgid "select which application instances should be added to the backup"
+msgstr ""
+
+#: ../../backup.rst:33
+msgid "choose one backup repository"
+msgstr ""
+
+#: ../../backup.rst:34
+msgid "setup day and time of the backup and the retention policy"
+msgstr ""
+
+#: ../../backup.rst:35
+msgid "enter a name of the backup"
+msgstr ""
+
+#: ../../backup.rst:36
+msgid "save the configuration by clicking the :guilabel:`Schedule backup` button"
+msgstr ""
+
+#: ../../backup.rst:38
+msgid ""
+"Whenever you want to manually execute the backup, click the ``Run backup "
+"now`` item from the three-dots menu of the scheduled backup."
+msgstr ""
+
+#: ../../backup.rst:40
+msgid ""
+"To add more instances to an existing backup, click the ``Edit`` item from"
+" the three-dots menu of the scheduled backup."
+msgstr ""
+
+#: ../../backup.rst:43
+msgid "Application restore"
+msgstr ""
+
+#: ../../backup.rst:45
+msgid ""
+"You can restore an application only if there is at least one repository "
+"configured:"
+msgstr ""
+
+#: ../../backup.rst:47
+msgid "click on the :guilabel:`Restore an app` button."
+msgstr ""
+
+#: ../../backup.rst:48
+msgid ""
+"a dialog box will list all applications inside the existing backup, "
+"select the application you want to restore"
+msgstr ""
+
+#: ../../backup.rst:49
+msgid ""
+"as default the restore procedure will create a new instance, if you want "
+"to replace the existing one select the ``Replace existing app`` option"
+msgstr ""
+
+#: ../../backup.rst:50
+msgid "select the target node"
+msgstr ""
+
+#: ../../backup.rst:51
+msgid "click on the :guilabel:`Restore` button"
+msgstr ""
+
+#: ../../backup.rst:56
+msgid "Cluster backup"
+msgstr ""
+
+#: ../../backup.rst:58
+msgid ""
+"The cluster configuration backup contains all required data to execute a "
+":ref:`disaster_recovery-section`. It is a compressed JSON file encrypted "
+"with GPG. The encryption key is the hash of the password of the ``admin``"
+" user."
+msgstr ""
+
+#: ../../backup.rst:62
+msgid ""
+"To download the cluster configuration backup, click on "
+":guilabel:`Download backup` button under the ``Cluster configuration`` "
+"section of the ``Backup`` page."
+msgstr ""
+
+#: ../../backup.rst:65
+msgid ""
+"Please, download the cluster configuration backup and keep it on a safe "
+"place."
+msgstr ""
+
+#: ../../backup.rst:68
+msgid ""
+"In case you lose the configuration backup, you can still restore "
+"applications to another cluster only if you know the encryption password "
+"of the backup repository."
+msgstr ""
+
+#: ../../backup.rst:73
+msgid ""
+"To inspect the content of the backup use this command, where ``<pass>`` "
+"is the admin password: ::"
+msgstr ""
+
+#: ../../backup.rst:80
+msgid "Disaster recovery"
+msgstr ""
+
+#: ../../backup.rst:82
+msgid ""
+"You can restore a previously configured cluster using the disaster "
+"recovery procedure. To follow this procedure you will need a :ref:`a "
+"cluster configuration backup <cluster_backup-section>`:"
+msgstr ""
+
+#: ../../backup.rst:85
+msgid ""
+":ref:`install <install-section>` a new cluster and login using default "
+"credentials"
+msgstr ""
+
+#: ../../backup.rst:86
+msgid "change the default administrator password"
+msgstr ""
+
+#: ../../backup.rst:87
+msgid "click on :guilabel:`Restore cluster`"
+msgstr ""
+
+#: ../../backup.rst:88
+msgid ""
+"you can now choose whether to restore a cluster configuration hosted on a"
+" remote HTTP server or upload the backup from your browser"
+msgstr ""
+
+#: ../../backup.rst:90
+msgid ""
+"if on step 2 you entered the same password of the old cluster, the system"
+" will automatically decrypt the configuration backup; otherwise enter the"
+" encryption secret inside the ``Backup password`` field"
+msgstr ""
+
+#: ../../backup.rst:92
+msgid "select the applications to restore"
+msgstr ""
+
+#: ../../certificates.rst:5
+msgid "TLS certificates"
+msgstr ""
+
+#: ../../certificates.rst:7
+msgid ""
+"An SSL/TLS certificate is a digital object issued by a Certificate "
+"Authority (CA). The certificate is used to verify the identity of an host"
+" and to establish encrypted communication channels."
+msgstr ""
+
+#: ../../certificates.rst:10
+msgid ""
+"Upon install, NethServer 8 uses a default self-signed certificate for all"
+" TLS services, including the Web user interface. NethServer 8 can request"
+" valid `Let's Encrypt <https://letsencrypt.org/>`_ certificates using "
+"`traefik <https://traefik.io/>`_."
+msgstr ""
+
+#: ../../certificates.rst:13
+msgid ""
+"Requesting Let's Encrypt is possible if the following requirements are "
+"met:"
+msgstr ""
+
+#: ../../certificates.rst:15
+msgid ""
+"the server must be reachable from outside on port 80. Make sure your port"
+" 80 is open to the public Internet (you can check with sites like `CSM "
+"<http://www.canyouseeme.org/>`_)"
+msgstr ""
+
+#: ../../certificates.rst:17
+msgid ""
+"the domains that you want the certificate for must be public domain names"
+" associated to server own public IP. Make sure you have public DNS name "
+"pointing to your server (you can check with sites like `VDNS "
+"<http://viewdns.info/>`_)"
+msgstr ""
+
+#: ../../certificates.rst:21
+msgid "Wild card certificates (i.e. ``*.nethserver.org``) are not supported."
+msgstr ""
+
+#: ../../certificates.rst:23
+msgid ""
+"If above requirements are met, you can obtain a valid certificate for a "
+"domain by following these steps:"
+msgstr ""
+
+#: ../../certificates.rst:25
+msgid "access the ``Settings`` page and click the ``TLS certificates`` card"
+msgstr ""
+
+#: ../../certificates.rst:26 ../../certificates.rst:28
+msgid "click on :guilabel:`Request certificate` button"
+msgstr ""
+
+#: ../../certificates.rst:27
+msgid "enter the node FQDN and select the node"
+msgstr ""
+
+#: ../../certificates.rst:30
+msgid ""
+"The procedure will take a while, but the system will notify you when the "
+"certificate is ready. The Let's Encrypt certificate is automatically "
+"renewed 30 days before expiration date."
+msgstr ""
+
+#: ../../cluster.rst:5
+msgid "Cluster management"
+msgstr ""
+
+#: ../../cluster.rst:7
+msgid ""
+"A NethServer 8 `cluster "
+"<https://en.wikipedia.org/wiki/Computer_cluster>`_ is composed of one "
+"**leader** node and multiple **worker** nodes."
+msgstr ""
+
+#: ../../cluster.rst:10
+msgid ""
+"An NS8 cluster composed only of the leader node, is a fully functional "
+"system. Worker nodes can be added or removed at any time. NS8 clusters "
+"support a maximum of 4 nodes."
+msgstr ""
+
+#: ../../cluster.rst:14
+msgid ""
+"All nodes are managed by the Web user interface running on the leader "
+"node."
+msgstr ""
+
+#: ../../cluster.rst:17
+msgid "Adding a node"
+msgstr ""
+
+#: ../../cluster.rst:19
+msgid ""
+"You can join a worker node to an existing cluster. The process consists "
+"of three steps:"
+msgstr ""
+
+#: ../../cluster.rst:22
+msgid "install the new node"
+msgstr ""
+
+#: ../../cluster.rst:23
+msgid "obtain the join code from the leader node"
+msgstr ""
+
+#: ../../cluster.rst:24
+msgid "enter the join code into the worker node"
+msgstr ""
+
+#: ../../cluster.rst:26
+msgid ""
+"First, prepare a machine with the same Linux distribution used for the "
+"leader node, then follow the :ref:`install instruction <install-section>`"
+" until the login to the Web user interface."
+msgstr ""
+
+#: ../../cluster.rst:29
+msgid ""
+"On the leader node, access the ``Nodes`` page and click on :guilabel:`Add"
+" node to cluster` and copy the join code from the dialog box."
+msgstr ""
+
+#: ../../cluster.rst:31
+msgid ""
+"Return to the worker node and click the :guilabel:`Join cluster` button. "
+"Then paste the code inside the ``Join code`` field and click the "
+":guilabel:`Join cluster`` button. If the leader node does not have a "
+"valid TLS certificate, remember to disable the ``TLS certification "
+"validation`` option before clicking the join button. When the node "
+"registration is complete, you can return to the leader user interface and"
+" install applications running on the new worker node."
+msgstr ""
+
+#: ../../cluster.rst:38
+msgid "Administrators"
+msgstr ""
+
+#: ../../cluster.rst:40
+msgid ""
+"Cluster administrators can fully manage the cluster. It's recommended to "
+"create a personal user for each cluster administrator. All actions "
+"executed by a cluster administrator are collected inside a security :ref"
+":`audit-trail-section`."
+msgstr ""
+
+#: ../../cluster.rst:44
+msgid ""
+"To add a new cluster administrator go to the ``Settings`` page and select"
+" the ``Cluster administrators`` card. Then click on :guilabel:`Create "
+"admin` button and fill the required fields."
+msgstr ""
+
+#: ../../cluster.rst:47
+msgid ""
+"An administrator can't delete its own user. To delete an administrator, "
+"you must log in with another existing cluster administrator."
+msgstr ""
+
+#: ../../cluster.rst:50
+msgid ""
+"Administrators can change their own password from the ``Account`` card "
+"inside the ``Settings`` page."
+msgstr ""
+
+#: ../../cluster.rst:53
+msgid "Two-factor authentication (2FA)"
+msgstr ""
+
+#: ../../cluster.rst:55
+msgid ""
+"Two-factor authentication (2FA) can be used to add an extra layer of "
+"security required to access the cluster management user interface."
+msgstr ""
+
+#: ../../cluster.rst:58
+msgid ""
+"The administrator can enable 2FA from the ``Account`` card inside the "
+"``Settings`` page by clicking the :guilabel:`Enable 2FA` button."
+msgstr ""
+
+#: ../../cluster.rst:61
+msgid "The user will have to:"
+msgstr ""
+
+#: ../../cluster.rst:63
+msgid "download and install the preferred 2FA application on the smartphone"
+msgstr ""
+
+#: ../../cluster.rst:64
+msgid "scan the QR code with the 2FA application"
+msgstr ""
+
+#: ../../cluster.rst:65
+msgid ""
+"generate a new code and copy it inside the verification field, then click"
+" :guilabel:`Verify code`"
+msgstr ""
+
+#: ../../cluster.rst:68
+msgid "Smartphone applications"
+msgstr ""
+
+#: ../../cluster.rst:70
+msgid "There are several commercial and open source 2FA applications:"
+msgstr ""
+
+#: ../../cluster.rst:72
+msgid "Available for both Android and iOS:"
+msgstr ""
+
+#: ../../cluster.rst:74
+msgid ""
+"`FreeOTP <https://freeotp.github.io/>`_: available for both Android and "
+"iOS"
+msgstr ""
+
+#: ../../cluster.rst:75
+msgid ""
+"`Authenticator <https://mattrubin.me/authenticator/>`_: available on iOS "
+"only"
+msgstr ""
+
+#: ../../cluster.rst:76
+msgid "`2FAS <https://2fas.com/>`_: available for both Android and iOS"
+msgstr ""
+
+#: ../../cluster.rst:81
+msgid "Audit trail"
+msgstr ""
+
+#: ../../cluster.rst:83
+msgid ""
+"Inside the audit trail page, cluster administrators can inspect all "
+"actions executed by any other administrator. Each event of the audit "
+"trail contains at least:"
+msgstr ""
+
+#: ../../cluster.rst:86
+msgid "date and time of the action"
+msgstr ""
+
+#: ../../cluster.rst:87
+msgid "user name of the cluster administrator"
+msgstr ""
+
+#: ../../cluster.rst:88
+msgid "name of the action"
+msgstr ""
+
+#: ../../cluster.rst:90
+msgid ""
+"Audit trail events can be filtered by user, date, action type, and custom"
+" text match."
+msgstr ""
+
+#: ../../collabora.rst:5 ../../nextcloud.rst:59
+msgid "Collabora Online"
+msgstr ""
+
+#: ../../collabora.rst:7
+msgid ""
+"Collabora Online is a powerful LibreOffice-based online office that "
+"supports all major document, spreadsheet and presentation file formats, "
+"which you can integrate in your own infrastructure. Please see the "
+"`official website <https://www.collaboraoffice.com/collabora-online/>`_."
+msgstr ""
+
+#: ../../collabora.rst:12
+msgid ""
+"You can install multiple Collabora Online instances on the same node from"
+" the :ref:`software_center-section`."
+msgstr ""
+
+#: ../../collabora.rst:15 ../../dokuwiki.rst:10 ../../index.rst:26
+#: ../../mail.rst:32 ../../mariadb.rst:11 ../../mattermost.rst:13
+#: ../../minio.rst:10 ../../nextcloud.rst:21 ../../nginx.rst:11
+#: ../../roundcube.rst:19 ../../webtop.rst:12
+msgid "Configuration"
+msgstr ""
+
+#: ../../collabora.rst:17
+msgid ""
+"Collabora needs a dedicated virtual host, a FQDN like "
+"``collabora.nethserver.org``."
+msgstr ""
+
+#: ../../collabora.rst:19 ../../dokuwiki.rst:14 ../../mattermost.rst:17
+#: ../../nextcloud.rst:25 ../../roundcube.rst:23 ../../webtop.rst:16
+msgid ""
+"Before proceeding with the configuration, make sure to create the "
+"corresponding name record inside your DNS server. If you are planning to "
+"use a Let's Encrypt certificate as default, make also sure to have a "
+"corresponding public DNS record."
+msgstr ""
+
+#: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../mariadb.rst:13
+#: ../../mattermost.rst:24 ../../minio.rst:17 ../../nginx.rst:13
+#: ../../roundcube.rst:30 ../../webtop.rst:19
+msgid "How to configure:"
+msgstr ""
+
+#: ../../collabora.rst:24 ../../nextcloud.rst:30
+msgid "access the ``Settings`` page of the newly installed instance"
+msgstr ""
+
+#: ../../collabora.rst:25
+msgid "enter a valid FQDN inside the ``Collabora FQDN`` field"
+msgstr ""
+
+#: ../../collabora.rst:26
+msgid ""
+"enter a strong password the the ``admin`` user which can be used to "
+"access the admin console"
+msgstr ""
+
+#: ../../collabora.rst:27 ../../dokuwiki.rst:20 ../../mattermost.rst:27
+msgid ""
+"enable ``Let's Encrypt`` and ``HTTP to HTTPS`` options accordingly to "
+"your needs"
+msgstr ""
+
+#: ../../collabora.rst:28 ../../nextcloud.rst:33 ../../roundcube.rst:35
+#: ../../webtop.rst:25
+msgid "click the :guilabel:`Save` button"
+msgstr ""
+
+#: ../../collabora.rst:30
+msgid ""
+"You can access the admin console by accessing the ``Status`` page and "
+"clicking the ``Open console`` link."
+msgstr ""
+
+#: ../../collabora.rst:32
+msgid ""
+"To integrate Collabora with Nextcloud, see :ref:`collabora-integration-"
+"section`."
+msgstr ""
+
+#: ../../disk_usage.rst:3
+msgid "Disk usage"
+msgstr ""
+
+#: ../../disk_usage.rst:7
+msgid ""
+"NethServer 8 uses `podman <https://podman.io/>`_ to mance OCI containers."
+" When running multiple containers the disk usage will grow quite fast and"
+" you could quickly run out of space."
+msgstr ""
+
+#: ../../disk_usage.rst:10
+msgid ""
+"Rootless containers put their data inside the user home directory "
+"``/home``. So if you plan to run many services on the same host, consider"
+" to mount an extra disk or partition at ``/home`` path."
+msgstr ""
+
+#: ../../disk_usage.rst:13
+msgid ""
+"Rootfull containers usually save images and volumes inside the "
+"``/var/lib/containers/storage`` directory."
+msgstr ""
+
+#: ../../disk_usage.rst:15
+msgid ""
+"To inspect podman storage configuration of your distribution, you can use"
+" the following command: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:19
+msgid ""
+"There is another growning directory ``/var/lib/nethserver``: it contains "
+"the user interface and actions of rootfull modules."
+msgstr ""
+
+#: ../../disk_usage.rst:22
+msgid "Add more space"
+msgstr ""
+
+#: ../../disk_usage.rst:24
+msgid ""
+"If you’re running out of disk space, consider to expand the ``/home`` "
+"filesystem."
+msgstr ""
+
+#: ../../disk_usage.rst:26
+msgid ""
+"On a physical machine, the best option is to setup LVM during the "
+"distribution installation. On the other hand, on a virtual machine you "
+"could easily expand the whole root filesystem."
+msgstr ""
+
+#: ../../disk_usage.rst:29
+msgid ""
+"If you can't do any of the above, consider adding a new disk and migrate "
+"existing data using below script. The script will:"
+msgstr ""
+
+#: ../../disk_usage.rst:32
+msgid "stop all rootless containers"
+msgstr ""
+
+#: ../../disk_usage.rst:33
+msgid "copy all rootless containers inside the new disk"
+msgstr ""
+
+#: ../../disk_usage.rst:34
+msgid "reclaim space from the root filesystem"
+msgstr ""
+
+#: ../../disk_usage.rst:35
+msgid "mount the new disk under ``/home``"
+msgstr ""
+
+#: ../../disk_usage.rst:36
+msgid "restart all rootless containrs"
+msgstr ""
+
+#: ../../disk_usage.rst:38
+msgid ""
+"Before running the script, make sure to attach the disk to the machine, "
+"format it and mount to a custom location like ``/mnt/temp_disk``. Then "
+"launch the script by passing the mount location as parameter, like: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:44
+msgid "The ``migrate`` script:."
+msgstr ""
+
+#: ../../dokuwiki.rst:3
+msgid "DokuWiki"
+msgstr ""
+
+#: ../../dokuwiki.rst:5
+msgid ""
+"`DokuWiki <https://www.dokuwiki.org>`_ is a simple and highly versatile "
+"open source Wiki."
+msgstr ""
+
+#: ../../dokuwiki.rst:7
+msgid ""
+"You can install multiple DokuWiki instances on the same node from the "
+":ref:`software_center-section`."
+msgstr ""
+
+#: ../../dokuwiki.rst:12
+msgid ""
+"DokuWiki needs a dedicated virtual host, a FQDN like "
+"``wilki.nethserver.org``."
+msgstr ""
+
+#: ../../dokuwiki.rst:19
+msgid "access the application configuration page and enter a all required fields"
+msgstr ""
+
+#: ../../dokuwiki.rst:21 ../../mariadb.rst:17 ../../mattermost.rst:28
+#: ../../minio.rst:24 ../../nginx.rst:18
+msgid "Click the :guilabel:`Save` button"
+msgstr ""
+
+#: ../../dokuwiki.rst:22
+msgid ""
+"open the entered host name inside the browser, eg: "
+"``https://chat.nethserver.org``."
+msgstr ""
+
+#: ../../firewall.rst:3
+msgid "Firewall"
+msgstr ""
+
+#: ../../firewall.rst:5
+msgid "NethServer 8 comes with a simple built-in firewall."
+msgstr ""
+
+#: ../../firewall.rst:7
+msgid ""
+"The cluster VPN network interface ``wg0`` is part of a trusted zones "
+"where all traffic is permitted. All other network interfaces are part of "
+"public zone where only specific ports are open. By default, NS8 will be "
+"open the following ports:"
+msgstr ""
+
+#: ../../firewall.rst:12
+msgid "cluster VPN endpoint, default is 5580 UDP"
+msgstr ""
+
+#: ../../firewall.rst:13
+msgid "HTTP and HTTPS, 80 and 443 TCP"
+msgstr ""
+
+#: ../../firewall.rst:14
+msgid "SSH, 22 TCP"
+msgstr ""
+
+#: ../../firewall.rst:15
+msgid "Cockpit (if installed), 9090 TCP"
+msgstr ""
+
+#: ../../firewall.rst:17
+msgid ""
+"Modules which requires publicly open ports, like mail server, will "
+"automatically configure the firewall."
+msgstr ""
+
+#: ../../index.rst:12
+msgid "About"
+msgstr ""
+
+#: ../../index.rst:19 ../../install.rst:5
+msgid "Installation"
+msgstr ""
+
+#: ../../index.rst:40
+msgid "Applications"
+msgstr ""
+
+#: ../../index.rst:57
+msgid "Best practices"
+msgstr ""
+
+#: ../../index.rst:8
+msgid "NethServer 8 administrator manual"
+msgstr ""
+
+#: ../../index.rst:10 ../../migration.rst:7 ../../release_notes.rst:5
+msgid "This is an ALPHA release, do not use it on production!"
+msgstr ""
+
+#: ../../install.rst:9
+msgid ""
+"Pick your preferred distribution between :ref:`supported ones <supported-"
+"distros-section>` and ensure that the system firewall is not blocking any"
+" connection."
+msgstr ""
+
+#: ../../install.rst:12
+msgid "First, make sure the system is up to date and ``curl`` is installed:"
+msgstr ""
+
+#: ../../install.rst:14
+msgid "for CentOS/AlmaLinux/RockyLinux: ``dnf update -y && dnf install -y curl``"
+msgstr ""
+
+#: ../../install.rst:15
+msgid ""
+"for Debian: ``apt-get update && apt-get upgrade -y && apt-get install -y "
+"curl``"
+msgstr ""
+
+#: ../../install.rst:17
+msgid "Start the installation procedure as ``root``: ::"
+msgstr ""
+
+#: ../../install.rst:21
+msgid ""
+"At the end of the install script access the Web user interface at "
+"**https://\\<server_ip_or_fqdn\\>/cluster-admin/**."
+msgstr ""
+
+#: ../../install.rst:23
+msgid "First, you will need to login using default credentials:"
+msgstr ""
+
+#: ../../install.rst:25 ../../mariadb.rst:25 ../../nginx.rst:26
+msgid "user: ``admin``"
+msgstr ""
+
+#: ../../install.rst:26
+msgid "password: ``Nethesis,1234``"
+msgstr ""
+
+#: ../../install.rst:28
+msgid ""
+"Then, choose :guilabel:`Create cluster` to create a new single-node "
+"cluster and setup a new administrator password."
+msgstr ""
+
+#: ../../install.rst:30
+msgid ""
+"Even if running on a single node, the system will setup a Virtual Private"
+" Network (VPN) for the cluster. With the VPN in place, you will able to "
+"add more nodes in the future."
+msgstr ""
+
+#: ../../install.rst:33
+msgid "Please enter the following VPN details:"
+msgstr ""
+
+#: ../../install.rst:35
+msgid ""
+"``VPN endpoint address``: it's the public name of the leader node, it "
+"should be a valid (Fully Qualified Domain Named) FQDN with a public DNS "
+"record"
+msgstr ""
+
+#: ../../install.rst:36
+msgid ""
+"``VPN endpoint port``: it's the public port of the VPN, the port should "
+"be accessible to any future node"
+msgstr ""
+
+#: ../../install.rst:37
+msgid ""
+"``VPN CIDR``: the VPN network address, make sure this network is not "
+"already used inside your existing network environment"
+msgstr ""
+
+#: ../../install.rst:39
+msgid ""
+"If unsure, you can keep the proposed defaults which should be good for "
+"most environments."
+msgstr ""
+
+#: ../../install.rst:41
+msgid ""
+"Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
+"ready to run :ref:`applications <modules-section>`."
+msgstr ""
+
+#: ../../install.rst:43
+msgid "Each cluster has an auto-generated name. If you whish to change it:"
+msgstr ""
+
+#: ../../install.rst:45
+msgid "go to ``Settings`` page and click on ``Cluster`` card"
+msgstr ""
+
+#: ../../install.rst:46
+msgid "enter a name inside the ``Cluster label`` field"
+msgstr ""
+
+#: ../../install.rst:47
+msgid "click the :guilabel:`Save settings` button"
+msgstr ""
+
+#: ../../install.rst:49
+msgid ""
+"Now sure where to go from here? You can install an :ref:`LDAP <openldap-"
+"section>` or :ref:`Active Directory <active_directory-section>` user "
+"domain, take a look to :ref:`system logs <loki-section>`, add :ref:`new "
+"nodes <cluster-section>` or setup a :ref:`metric dashboard <metrics-"
+"section>`."
+msgstr ""
+
+#: ../../install.rst:53
+msgid ""
+"To customize the installation, please reference to `developer manual "
+"<https://nethserver.github.io/ns8-core>`_."
+msgstr ""
+
+#: ../../install.rst:56
+msgid "Uninstall"
+msgstr ""
+
+#: ../../install.rst:58
+msgid "You can uninstall NS8 from your Linux distribution."
+msgstr ""
+
+#: ../../install.rst:60
+msgid ""
+"The uninstall command attempts to stop and erase core components and "
+"additional modules. Handle it with care because it erases everything "
+"under ``/home`` and ``/var/lib/nethserver`` directories."
+msgstr ""
+
+#: ../../install.rst:63
+msgid "To uninstall NS8, execute: ::"
+msgstr ""
+
+#: ../../introduction.rst:3
+msgid "Introduction"
+msgstr ""
+
+#: ../../introduction.rst:6
+msgid "About NethServer 8 (NS8)"
+msgstr ""
+
+#: ../../introduction.rst:8
+msgid ""
+"NethServer 8 (NS8) is a `GNU/Linux "
+"<https://en.wikipedia.org/wiki/Linux>`_ application server designed for "
+"small offices and medium enterprises. Applications can be managed from a "
+"simple Web user interface."
+msgstr ""
+
+#: ../../introduction.rst:11
+msgid ""
+"Under the hood, NS8 is a container `orchestrator "
+"<https://en.wikipedia.org/wiki/Orchestration_(computing)>`_. It can hosts"
+" different applications on a single machine or spread the load across "
+"multiple nodes."
+msgstr ""
+
+#: ../../introduction.rst:14
+msgid ""
+"NethServer 8 (NS8), is the evolution of `NethServer 7 (NS7) "
+"<https://docs.nethserver.org/en/v7/>`_."
+msgstr ""
+
+#: ../../introduction.rst:17
+msgid "Get support"
+msgstr ""
+
+#: ../../introduction.rst:19
+msgid ""
+"You want to know more or are you searching for some help? Check out our "
+"great `community <https://community.nethserver.org>`_!"
+msgstr ""
+
+#: ../../introduction.rst:22
+msgid ""
+"If you're looking for more technical details, take a look to the "
+"`developer manual <https://nethserver.github.io/ns8-core/>`_."
+msgstr ""
+
+#: ../../introduction.rst:24
+msgid ""
+"Bugs can be discussed and reported inside the `community forum "
+"<https://community.nethserver.org>`_. Public tracker is available at "
+"`GitHub <https://github.com/NethServer/dev/issues>`_."
+msgstr ""
+
+#: ../../log_server.rst:5
+msgid "System logs"
+msgstr ""
+
+#: ../../log_server.rst:7
+msgid ""
+"Almost everything is logged inside journalctl and sent to the local log "
+"server."
+msgstr ""
+
+#: ../../log_server.rst:9
+msgid ""
+"By default, `Grafana Loki <https://grafana.com/oss/loki/>`_ is installed "
+"inside the leader node, it collects the logs from all cluster nodes. A "
+"rootfull `Promtail "
+"<https://grafana.com/docs/loki/latest/clients/promtail/>`_ container runs"
+" on all nodes, including the leader one. It sends all logs to the Loki "
+"server."
+msgstr ""
+
+#: ../../log_server.rst:14
+msgid "From the leader node, it is possible to query the logs of all nodes."
+msgstr ""
+
+#: ../../log_server.rst:16
+msgid ""
+"Logs are accessible from ``System logs`` page. You can filter logs by "
+"date, a text query or context. Available contexts are:"
+msgstr ""
+
+#: ../../log_server.rst:19
+msgid "``cluster``: all logs from any source"
+msgstr ""
+
+#: ../../log_server.rst:20
+msgid "``node``: all logs from a given node"
+msgstr ""
+
+#: ../../log_server.rst:21
+msgid ""
+"``app``: logs from a given application instance, regardless where it's "
+"currently running"
+msgstr ""
+
+#: ../../log_server.rst:23
+msgid ""
+"You can see just a subset of the lines or follow the log to see what's "
+"happening in real time."
+msgstr ""
+
+#: ../../log_server.rst:25
+msgid ""
+"Sometimes is useful to compare the logs of two applications side-by-side."
+" You can do it by following these steps:"
+msgstr ""
+
+#: ../../log_server.rst:28
+msgid "setup the filter for a refined search"
+msgstr ""
+
+#: ../../log_server.rst:29
+msgid "click on :guilabel:`Add search` button"
+msgstr ""
+
+#: ../../log_server.rst:30
+msgid "setup the new filter"
+msgstr ""
+
+#: ../../log_server.rst:31
+msgid "select ``Vertical layout`` from the three-dots menu"
+msgstr ""
+
+#: ../../log_server.rst:33
+msgid "Logs are now shown side-by-side to easily correlate events."
+msgstr ""
+
+#: ../../log_server.rst:36
+msgid "Command line"
+msgstr ""
+
+#: ../../log_server.rst:40
+msgid ""
+"If you're familiar with the command line, recent logs are available using"
+" ``journalctl`` command and services can be inspected using ``systemctl``"
+" command. As root use ``journalctl`` to see messages from agents, "
+"rootfull and rootless modules."
+msgstr ""
+
+#: ../../log_server.rst:44
+msgid ""
+"You can also use the ``api-server-logs`` to query directly the Loki "
+"server. Example to inspect the log of `traefik1` module: ::"
+msgstr ""
+
+#: ../../log_server.rst:49
+msgid ""
+"You can also enable the automatic completion for the above command. "
+"First, install the ``bash-completion`` package."
+msgstr ""
+
+#: ../../log_server.rst:52
+msgid "On RHEL-like distributions: ::"
+msgstr ""
+
+#: ../../log_server.rst:56
+msgid "On Debian distribution: ::"
+msgstr ""
+
+#: ../../log_server.rst:60
+msgid "Then, generate the completion script: ::"
+msgstr ""
+
+#: ../../log_server.rst:64
+msgid "Logout and login from the shell to enable the completion."
+msgstr ""
+
+#: ../../mail.rst:5
+msgid "Mail server"
+msgstr ""
+
+#: ../../mail.rst:7
+msgid "The Email module is split into three main parts:"
+msgstr ""
+
+#: ../../mail.rst:9
+msgid ""
+"`Postfix <https://www.postfix.org/>`_: `SMTP "
+"<https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol>`_ server "
+"for sending and receiving"
+msgstr ""
+
+#: ../../mail.rst:10
+msgid ""
+"`Dovecot <https://www.dovecot.org/>`_: `IMAP "
+"<https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol>`_ and "
+"`POP3 <https://en.wikipedia.org/wiki/Post_Office_Protocol>`_ server to "
+"read email, and `Sieve "
+"<https://en.wikipedia.org/wiki/Sieve_(mail_filtering_language)>`_ "
+"language to organize it"
+msgstr ""
+
+#: ../../mail.rst:13
+msgid ""
+"`RSPAMD <https://rspamd.com/>`_: antispam filter, antivirus and "
+"attachments blocker"
+msgstr ""
+
+#: ../../mail.rst:15
+msgid "Benefits are"
+msgstr ""
+
+#: ../../mail.rst:17
+msgid "complete autonomy in electronic mail management"
+msgstr ""
+
+#: ../../mail.rst:18
+msgid "avoid problems due to the Internet Service Provider"
+msgstr ""
+
+#: ../../mail.rst:19
+msgid "ability to track the route of messages in order to detect errors"
+msgstr ""
+
+#: ../../mail.rst:20
+msgid "optimized antivirus and antispam scan"
+msgstr ""
+
+#: ../../mail.rst:22
+msgid "See also the following related topics:"
+msgstr ""
+
+#: ../../mail.rst:24
+msgid "How `electronic mail <https://en.wikipedia.org/wiki/Email>`_ works"
+msgstr ""
+
+#: ../../mail.rst:25
+msgid "`MX DNS <https://en.wikipedia.org/wiki/MX_record>`_ record"
+msgstr ""
+
+#: ../../mail.rst:26
+msgid ""
+"`Simple Mail Transfer Protocol "
+"<https://en.wikipedia.org/wiki/MX_record>`_ (SMTP)"
+msgstr ""
+
+#: ../../mail.rst:27
+msgid ""
+"`Domain Keys Identified Mail signature "
+"<https://en.wikipedia.org/wiki/MX_record>`_ (DKIM)"
+msgstr ""
+
+#: ../../mail.rst:29
+msgid ""
+"You can install only one mail server per node from the :ref"
+":`software_center-section`."
+msgstr ""
+
+#: ../../mail.rst:34
+msgid ""
+"The mail module requires at least one :ref:`user domain <user-domains-"
+"section>` already configured."
+msgstr ""
+
+#: ../../mail.rst:36
+msgid "The first configuration wizard will require the following information:"
+msgstr ""
+
+#: ../../mail.rst:38
+msgid ""
+"``Mail server hostname``: insert the mail server name, this should be the"
+" same name configured inside your MX DNS record"
+msgstr ""
+
+#: ../../mail.rst:40
+msgid ""
+"``Primary mail domain``: insert the mail domain, like ``nethserver.org``;"
+" you will be able to add more domains later"
+msgstr ""
+
+#: ../../mail.rst:43
+msgid ""
+"Then, select the user domain to be connected to the mail server. An email"
+" address will be created for every user in the selected domain."
+msgstr ""
+
+#: ../../mail.rst:50
+msgid "Domains"
+msgstr ""
+
+#: ../../mail.rst:52
+msgid ""
+"NethServer can handle an unlimited number of mail domains, configurable "
+"from the ``Domains`` page."
+msgstr ""
+
+#: ../../mail.rst:55
+msgid ""
+"If a domain is deleted, email will not be deleted; any message already "
+"received is preserved."
+msgstr ""
+
+#: ../../mail.rst:58
+msgid ""
+"You can add a new domain by clicking on the :guilabel:`Create domain` "
+"button and fill the ``Name`` field with the mail domain, like "
+"``mymail.org``."
+msgstr ""
+
+#: ../../mail.rst:61
+msgid ""
+"If the fist option is disabled, you can enable the ``Accept unknown "
+"recipients`` switch and select a mailbox that will catch all messages "
+"sent to non-existing addresses."
+msgstr ""
+
+#: ../../mail.rst:64
+msgid ""
+"NethServer allows storing an hidden copy of all messages directed to a "
+"particular domain: they will be delivered to the final recipient *and "
+"also* to a custom email address. The hidden copy is enabled by the "
+":guilabel:`Copy inbound messages` switch."
+msgstr ""
+
+#: ../../mail.rst:69
+msgid ""
+"On some countries, enabling the *Copy inbound messages* switch can be "
+"against privacy laws."
+msgstr ""
+
+#: ../../mail.rst:72
+msgid ""
+"If the final recipient cannot be established (i.e. the recipient address "
+"does not exist), the message is normally rejected. Sometimes (i.e. when a"
+" mail domain is migrated) it could be useful to accept it and silently "
+"deliver the message to a catch-all mailbox. This behavior can be obtained"
+" by enabling the ``Accept unknown recipients`` option. This configuration"
+" is available only if ``Add user address from user domain`` option is "
+"disabled."
+msgstr ""
+
+#: ../../mail.rst:80
+msgid "DKIM signature"
+msgstr ""
+
+#: ../../mail.rst:82
+msgid "DKIM is not currently configurable from the web user interface."
+msgstr ""
+
+#: ../../mail.rst:84
+msgid ""
+"DomainKeys Identified Mail (DKIM) provides a way to validate the sending "
+"MTA, which adds a cryptographic signature to the outbound message MIME "
+"headers."
+msgstr ""
+
+#: ../../mail.rst:88
+msgid ""
+"The DKIM signature headers are added only to messages sent through TCP "
+"ports 587 (submission) and 465 (smtps)."
+msgstr ""
+
+#: ../../mail.rst:91
+msgid ""
+"To work effectively, the public DNS must be configured properly. Refer to"
+" the instructions of your DNS provider to run the following steps:"
+msgstr ""
+
+#: ../../mail.rst:94
+msgid ""
+"Add a TXT record to your public DNS service provider with key "
+"\"default._domainKey\""
+msgstr ""
+
+#: ../../mail.rst:96
+msgid "Copy and paste the given key text in the DNS record data (RDATA) section"
+msgstr ""
+
+#: ../../mail.rst:102
+msgid "Mailboxes"
+msgstr ""
+
+#: ../../mail.rst:104
+msgid ""
+"Each user has a personal mailbox and any user name in the form "
+"*<username>@<domain>* is also a valid email address to deliver messages "
+"into it."
+msgstr ""
+
+#: ../../mail.rst:107
+msgid ""
+"The list of mailboxes is shown by the ``Mailboxes`` page. There are two "
+"types of mailboxes: users and public mailboxes."
+msgstr ""
+
+#: ../../mail.rst:111
+msgid "Users mailboxes"
+msgstr ""
+
+#: ../../mail.rst:113
+msgid ""
+"You can disable each mailbox by selecting the ``Disable`` item from the "
+"three-dots menu on the mailbox line."
+msgstr ""
+
+#: ../../mail.rst:115
+msgid ""
+"By clicking the ``Edit`` item from the three-dots menu it's possible to "
+"setup the following options:"
+msgstr ""
+
+#: ../../mail.rst:117
+msgid "``Forward messages``: forward all messages to another mail address"
+msgstr ""
+
+#: ../../mail.rst:118
+msgid ""
+"``Custom mailbox quota``: override the quota configured from the :ref"
+":`mail_settings-section`"
+msgstr ""
+
+#: ../../mail.rst:119
+msgid ""
+"``Custom spam retention``: override the retention configured from the "
+":ref:`mail_settings-section`"
+msgstr ""
+
+#: ../../mail.rst:122
+msgid "Public mailboxes"
+msgstr ""
+
+#: ../../mail.rst:124
+msgid ""
+"Public mailboxes can be shared among groups of users. The "
+":guilabel:`Create public mailbox` button allows creating a new public "
+"mailbox and defining one or more owning groups and users. Public "
+"mailboxes can also be created by any IMAP client supporting IMAP ACL "
+"protocol extension (RFC 4314)."
+msgstr ""
+
+#: ../../mail.rst:129
+msgid ""
+"When a new public mailbox is created, the mail server will automatically "
+"add a new address for all existing mail domains."
+msgstr ""
+
+#: ../../mail.rst:136
+msgid "Addresses"
+msgstr ""
+
+#: ../../mail.rst:138
+msgid ""
+"In addition to the users, groups and public mailboxes addresses, "
+"described in the previous section, the system enables the creation of an "
+"unlimited number of email addresses, from the ``Addresses`` page. Each "
+"mail address is associated with one or more destinations. A destination "
+"can be of the following types:"
+msgstr ""
+
+#: ../../mail.rst:144
+msgid "user mailbox"
+msgstr ""
+
+#: ../../mail.rst:145
+msgid "public mailbox"
+msgstr ""
+
+#: ../../mail.rst:146
+msgid "external email address"
+msgstr ""
+
+#: ../../mail.rst:148
+msgid ""
+"A mail address can be bound to any mail domain or be specific to one mail"
+" domain. For example:"
+msgstr ""
+
+#: ../../mail.rst:151
+msgid "First domain: ``mydomain.net``"
+msgstr ""
+
+#: ../../mail.rst:152
+msgid "Second domain: ``example.com``"
+msgstr ""
+
+#: ../../mail.rst:153
+msgid ""
+"Email address *info* bound to any domain: ``info@mydomain.net``, "
+"``info@example.com``"
+msgstr ""
+
+#: ../../mail.rst:155
+msgid "Email address *goofy* specific to one domain: ``goofy@example.com``"
+msgstr ""
+
+#: ../../mail.rst:157
+msgid ""
+"Sometimes a company forbids communications from outside the organization "
+"using personal email addresses. The ``Internal`` check box blocks the "
+"possibility of an address to receive messages from the outside. Still an "
+"*internal* address can be used to exchange messages with other accounts "
+"of the system."
+msgstr ""
+
+#: ../../mail.rst:166
+msgid "Filter"
+msgstr ""
+
+#: ../../mail.rst:168
+msgid "All transiting email messages are subjected to a list of checks:"
+msgstr ""
+
+#: ../../mail.rst:170 ../../mail.rst:176
+msgid "Antivirus"
+msgstr ""
+
+#: ../../mail.rst:171 ../../mail.rst:185
+msgid "Antispam"
+msgstr ""
+
+#: ../../mail.rst:178
+msgid ""
+"The antivirus component finds email messages containing viruses. Infected"
+" messages are discarded. The virus signature database is updated "
+"periodically."
+msgstr ""
+
+#: ../../mail.rst:187
+msgid ""
+"The antispam component RSPAMD analyzes emails by detecting and "
+"classifying `SPAM <https://en.wikipedia.org/wiki/Spamming>`_ messages "
+"using heuristic criteria, predetermined rules and statistical evaluations"
+" on the content of messages."
+msgstr ""
+
+#: ../../mail.rst:192
+msgid ""
+"The filter can also check if sender server is listed in one or more block"
+" lists (`DNSBL <https://en.wikipedia.org/wiki/Spamming>`_). A score is "
+"associated to each rule."
+msgstr ""
+
+#: ../../mail.rst:195
+msgid ""
+"Total spam score collected at the end of the analysis allows the server "
+"to decide what to do with a message."
+msgstr ""
+
+#: ../../mail.rst:198
+msgid ""
+"Statistical filters, called `Bayesian <https://www.blu-system.com"
+"/sicurezza-informatica-pavia-blu-system>`_, are special rules that evolve"
+" and quickly adapt analyzing messages marked as **spam** or **ham**."
+msgstr ""
+
+#: ../../mail.rst:205
+msgid "Settings"
+msgstr ""
+
+#: ../../mail.rst:207
+msgid "From the ``Settings`` page, you can configure the ``Default mail quota``."
+msgstr ""
+
+#: ../../mail.rst:209
+msgid ""
+"If the general mailbox quota is enabled, the ``Mailboxes`` page "
+"summarizes the quota usage for each user. This summary is updated when a "
+"user logs in or a message is delivered."
+msgstr ""
+
+#: ../../mail.rst:213
+msgid ""
+"Messages marked as **spam** (see :ref:`email_filter`) can be "
+"automatically moved into the ``Junk`` folder by enabling the option "
+"``Move spam to junk folder``. Spam messages can be expunged automatically"
+" after a period of time. You can configure it from the ``Default spam "
+"retention`` option."
+msgstr ""
+
+#: ../../mail.rst:218
+msgid ""
+"From the ``Master users`` section, you can setup a user than can "
+"impersonate another user, gaining full rights to any mailbox contents and"
+" folder permissions."
+msgstr ""
+
+#: ../../mail.rst:221
+msgid "Credentials are accepted by the IMAP server:"
+msgstr ""
+
+#: ../../mail.rst:223
+msgid "user name of the master user, eg. ``master``"
+msgstr ""
+
+#: ../../mail.rst:224
+msgid "master user password"
+msgstr ""
+
+#: ../../mail.rst:226
+msgid ""
+"For instance, to access as ``john`` with root password ``secr3t``, use "
+"the following credentials:"
+msgstr ""
+
+#: ../../mail.rst:229
+msgid "user name: ``john*master``"
+msgstr ""
+
+#: ../../mail.rst:230
+msgid "password: ``secr3t``"
+msgstr ""
+
+#: ../../mail.rst:236
+msgid "Client configuration"
+msgstr ""
+
+#: ../../mail.rst:238
+msgid ""
+"The server supports standard-compliant email clients using the following "
+"IANA ports:"
+msgstr ""
+
+#: ../../mail.rst:241
+msgid "imap/143"
+msgstr ""
+
+#: ../../mail.rst:242
+msgid "pop3/110"
+msgstr ""
+
+#: ../../mail.rst:243
+msgid "smtp/587"
+msgstr ""
+
+#: ../../mail.rst:244
+msgid "sieve/4190"
+msgstr ""
+
+#: ../../mail.rst:246
+msgid ""
+"Authentication requires the STARTTLS command and supports the following "
+"variants:"
+msgstr ""
+
+#: ../../mail.rst:249
+msgid "LOGIN"
+msgstr ""
+
+#: ../../mail.rst:250
+msgid "PLAIN"
+msgstr ""
+
+#: ../../mail.rst:252
+msgid ""
+"Also the following SSL-enabled ports are available for legacy software "
+"that still does not support STARTTLS:"
+msgstr ""
+
+#: ../../mail.rst:255
+msgid "imaps/993"
+msgstr ""
+
+#: ../../mail.rst:256
+msgid "pop3s/995"
+msgstr ""
+
+#: ../../mail.rst:257
+msgid "smtps/465"
+msgstr ""
+
+#: ../../mail.rst:261
+msgid ""
+"The standard SMTP port 25 is reserved for mail transfers between MTA "
+"servers. Mail user agents (MUA) must use the submission port."
+msgstr ""
+
+#: ../../mail.rst:264
+msgid "If you're looking for web email clients, take a look to:"
+msgstr ""
+
+#: ../../mail.rst:266
+msgid ":ref:`roundcube-section`"
+msgstr ""
+
+#: ../../mail.rst:267
+msgid ":ref:`webtop-section`"
+msgstr ""
+
+#: ../../mariadb.rst:3
+msgid "MariaDB"
+msgstr ""
+
+#: ../../mariadb.rst:5
+msgid ""
+"This module installs `MariaDB <https://mariadb.org/>`_, a popular open "
+"source relational database, and `phpMyAdmin "
+"<https://www.phpmyadmin.net/>`_ a tool to manage the database from a web "
+"interface."
+msgstr ""
+
+#: ../../mariadb.rst:8
+msgid ""
+"You can install multiple MariaDB instances on the same node from the :ref"
+":`software_center-section`."
+msgstr ""
+
+#: ../../mariadb.rst:15
+msgid ""
+"access the application configuration page and enter the path for "
+"phpMyAdmin, eg. ``/phpmyadmin``"
+msgstr ""
+
+#: ../../mariadb.rst:16 ../../nginx.rst:17
+msgid "enable ``HTTP to HTTPS`` option accordingly to your needs"
+msgstr ""
+
+#: ../../mariadb.rst:19 ../../nginx.rst:20
+msgid ""
+"At the end of the configuration the web interface will display the public"
+" TCP port to access the MariaDB instance."
+msgstr ""
+
+#: ../../mariadb.rst:22
+msgid ""
+"The phpMyAdmin instance will be available at the "
+"``https://<server_fqn>/<path>``. Default credentials for phpMyAdmin are:"
+msgstr ""
+
+#: ../../mariadb.rst:26 ../../nginx.rst:27
+msgid "password: ``admin``"
+msgstr ""
+
+#: ../../mariadb.rst:28 ../../nginx.rst:29
+msgid "Please change them after the first login."
+msgstr ""
+
+#: ../../mattermost.rst:3
+msgid "Mattermost"
+msgstr ""
+
+#: ../../mattermost.rst:5
+msgid ""
+"The Mattemost module installs `Mattermost Team Edition "
+"<https://mattermost.com>`_ platform."
+msgstr ""
+
+#: ../../mattermost.rst:7
+msgid ""
+"Mattermost is an Open Source, private cloud :index:`Slack`-alternative. "
+"Check out the `official documentation <https://docs.mattermost.com/>`_ "
+"for further details."
+msgstr ""
+
+#: ../../mattermost.rst:10
+msgid ""
+"You can install multiple Mattermost instances on the same node from the "
+":ref:`software_center-section`."
+msgstr ""
+
+#: ../../mattermost.rst:15
+msgid ""
+"Mattermost needs a dedicated virtual host, a FQDN like "
+"``chat.nethserver.org``."
+msgstr ""
+
+#: ../../mattermost.rst:22 ../../roundcube.rst:28
+msgid ""
+"Please note that the mobile app **cannot connect to servers with self-"
+"signed certificates**!"
+msgstr ""
+
+#: ../../mattermost.rst:26
+msgid ""
+"access the application configuration page and enter a valid FQDN inside "
+"``Mattermost FQDN`` field"
+msgstr ""
+
+#: ../../mattermost.rst:29
+msgid ""
+"open the entered host name inside the browser, eg: "
+"``https://chat.nethserver.org``. At first access, a wizard will create "
+"the administrator user"
+msgstr ""
+
+#: ../../mattermost.rst:32
+msgid ""
+"Mattermost authentication is *not* integrated with any user domain. The "
+"Mattermost administrator should take care of users and teams creation."
+msgstr ""
+
+#: ../../mattermost.rst:37
+msgid ""
+"The administrator should always use Mattermost wizard to create the admin"
+" user, then send team invitation link to each user."
+msgstr ""
+
+#: ../../metrics.rst:5
+msgid "Metrics"
+msgstr ""
+
+#: ../../metrics.rst:7
+msgid "NethServer 8 uses a widely adopted stack composed by:"
+msgstr ""
+
+#: ../../metrics.rst:9
+msgid ""
+"`Node exporter <https://prometheus.io/docs/guides/node-exporter/>`_ "
+"gathers all system metrics from nodes"
+msgstr ""
+
+#: ../../metrics.rst:10
+msgid ""
+"`Prometheus <https://prometheus.io/>`_ scrapes all metrics endpoint and "
+"store them on local disk"
+msgstr ""
+
+#: ../../metrics.rst:11
+msgid "`Grafana <https://grafana.com/>`_ visualizes the collected metrics"
+msgstr ""
+
+#: ../../metrics.rst:14
+msgid ""
+"You can install only one instance of Prometheus, usually on the leader "
+"node. Prometheus does not require any configuration and it will be "
+"exposed on a random URL. The URL is available at Prometheus instance "
+"``Status`` page. You can access it from the software center or from the "
+"application menu on the top-right corner."
+msgstr ""
+
+#: ../../metrics.rst:19
+msgid ""
+"You should install the node exporter on each cluster node. To install it,"
+" access the :ref:`software_center-section` and look for the "
+"``node_exporter`` application. Each time a new node with the exporter is "
+"installed, Prometheus will automatic collect the node metrics."
+msgstr ""
+
+#: ../../metrics.rst:23
+msgid ""
+"Grafana can be installed only on the leader node. After install, you will"
+" need to configure the ``Host name`` with a valid FQDN to access the "
+"Grafana instance. Enable ``Let's Encrypt`` and ``HTTP to HTTPS`` options "
+"accordingly to your needs."
+msgstr ""
+
+#: ../../metrics.rst:27
+msgid ""
+"Grafana will automatically display metrics from Prometheus and :ref:`Loki"
+" <loki-section>`."
+msgstr ""
+
+#: ../../migration.rst:3
+msgid "NethServer 7 migration"
+msgstr ""
+
+#: ../../migration.rst:9
+msgid ""
+"Migration is the process to convert a NethServer 7 machine (*source*) "
+"into a NethServer 8 (*destination*)."
+msgstr ""
+
+#: ../../migration.rst:11
+msgid "Before starting you will need:"
+msgstr ""
+
+#: ../../migration.rst:13
+msgid "SSH and Cockpit access to the source NethServer 7 machine"
+msgstr ""
+
+#: ../../migration.rst:14
+msgid ""
+"a new server containing a :ref:`freshly installed NethServer 8 cluster "
+"<install-section>`"
+msgstr ""
+
+#: ../../migration.rst:16
+msgid "Also make sure that"
+msgstr ""
+
+#: ../../migration.rst:18
+msgid ""
+"if the source is connected to an external account provider, such account "
+"provider is reachable also from the destination"
+msgstr ""
+
+#: ../../migration.rst:20
+msgid ""
+"you have access to your authoritative DNS server: you will need to change"
+" some DNS records after the migration of each application"
+msgstr ""
+
+#: ../../migration.rst:24
+msgid ""
+"The migration procedure will add the source machine as special node of "
+"NethServer 8 cluster."
+msgstr ""
+
+#: ../../migration.rst:26
+msgid ""
+"First, you are going to install the migration tool on the source machine."
+" Access the source server using SSH as root user, then execute: ::"
+msgstr ""
+
+#: ../../migration.rst:31
+msgid ""
+"You can now open the just installed ``NS8 migration`` application from "
+"Cockpit."
+msgstr ""
+
+#: ../../migration.rst:33
+msgid ""
+"Now, connect the NethServer 7 server to an existing new NethServer 8 "
+"cluster by entering the following fields:"
+msgstr ""
+
+#: ../../migration.rst:35
+msgid ""
+"``NS8 leader node``: the host name or IP address of NethServer 8 cluster "
+"leader node"
+msgstr ""
+
+#: ../../migration.rst:36
+msgid ""
+"``NS8 admin username`` and ``NS8 admin password``: administrator "
+"credentials for the leader node"
+msgstr ""
+
+#: ../../migration.rst:37
+msgid ""
+"uncheck the ``TLS validation`` option if the leader node does not have a "
+"valid TLS certificate"
+msgstr ""
+
+#: ../../migration.rst:39
+msgid "Then, click the :guilabel:`Connect` button."
+msgstr ""
+
+#: ../../migration.rst:41
+msgid ""
+"The web interface will display the list of all applications installed "
+"inside NethServer 7. Choose an application and click on the "
+":guilabel:`Start migration` button. In this phase the migration process "
+"will install the application into the NethServer 8 cluster and start the "
+"first data synchronization. If the NethServer 8 cluster is composed by 2 "
+"or more nodes, you will be asked to select a destination node."
+msgstr ""
+
+#: ../../migration.rst:48
+msgid ""
+"You can now click the :guilabel:`Sync data` button multiple time to keep "
+"in sync the application data between NethServer 7 and NethServer 8."
+msgstr ""
+
+#: ../../migration.rst:51
+msgid ""
+"When you're ready for the final migration, click the :guilabel:`Finish "
+"migration` button. If the migrated application requires extra parameters,"
+" the system will display a dialog box before proceeding. Please note that"
+" most web application will need a dedicated FQDN (virtual host) after the"
+" migration. Make sure the DNS record points to the NS8 node."
+msgstr ""
+
+#: ../../migration.rst:57
+msgid "At the end of the application migration, the system will:"
+msgstr ""
+
+#: ../../migration.rst:59
+msgid "start the module inside NethServer 8"
+msgstr ""
+
+#: ../../migration.rst:60
+msgid "disable the application inside NethServer 7"
+msgstr ""
+
+#: ../../migration.rst:62
+msgid ""
+"If the migrated application was connected to a local account provider, "
+"the application will still be able to access the provider running on "
+"NethServer 7 using the cluster VPN."
+msgstr ""
+
+#: ../../migration.rst:66
+msgid "Account provider should always be migrated after all other applications."
+msgstr ""
+
+#: ../../migration.rst:68
+msgid "No custom template is migrated during the migration process."
+msgstr ""
+
+#: ../../minio.rst:3
+msgid "MinIO"
+msgstr ""
+
+#: ../../minio.rst:5
+msgid ""
+"`MinIO <https://min.io/>`_ offers high-performance, S3 compatible object "
+"storage."
+msgstr ""
+
+#: ../../minio.rst:7
+msgid ""
+"You can install multiple MinIO instances on the same node from the :ref"
+":`software_center-section`."
+msgstr ""
+
+#: ../../minio.rst:12
+msgid ""
+"MinIO needs two dedicated virtual host, a FQDN like ``minio-"
+"api.nethserver.org`` and ``minio-ui.nethserver.org``."
+msgstr ""
+
+#: ../../minio.rst:14
+msgid ""
+"Before proceeding with the configuration, make sure to create the "
+"corresponding name records inside your DNS server. If you are planning to"
+" use a Let's Encrypt certificate as default, make also sure to have "
+"corresponding public DNS records."
+msgstr ""
+
+#: ../../minio.rst:19
+msgid ""
+"access the application configuration page and enter the ``API server host"
+" name``: this will be the FQDN used by hosts to connect to S3 services"
+msgstr ""
+
+#: ../../minio.rst:21
+msgid ""
+"fill the ``Web interface host name``: you will be able to configure your "
+"MinIO instance from this FQDN"
+msgstr ""
+
+#: ../../minio.rst:23 ../../nextcloud.rst:32
+msgid "enable ``Let's Encrypt`` option accordingly to your needs"
+msgstr ""
+
+#: ../../minio.rst:25
+msgid ""
+"open the entered host name inside the browser, eg: ``https://minio-"
+"ui.nethserver.org``."
+msgstr ""
+
+#: ../../modules.rst:5
+msgid "Modules"
+msgstr ""
+
+#: ../../modules.rst:7
+msgid ""
+"A module is a NS8 application which is usually composed of a backend and "
+"a frontend. An application backend can contain one or more containers."
+msgstr ""
+
+#: ../../modules.rst:10
+msgid ""
+"Every time a module instance is added to the cluster, the new instance is"
+" named as the module itself followed by a progressive number starting "
+"from 1. Given a module named ``myapp``, instances will be named "
+"``myapp1``, ``myapp2`` and so on. You can add a more meaningful label to "
+"the instance from the software center."
+msgstr ""
+
+#: ../../modules.rst:15
+msgid ""
+"Some modules require specific resources that cannot be shared. As an "
+"example, the Samba module needs to reserve DNS and SMB well-known TCP "
+"ports. You can install only one instance per node of this type of "
+"modules."
+msgstr ""
+
+#: ../../modules.rst:19
+msgid ""
+"Modules that don't require exclusive access to resources can be installed"
+" multiple times on the same node. As an example, you can install multiple"
+" OpenLDAP server on a single node."
+msgstr ""
+
+#: ../../modules.rst:22
+msgid "bento"
+msgstr ""
+
+#: ../../modules.rst:24
+msgid ""
+"Installed applications are always available from the application drawer, "
+"by clicking on the |bento| menu on the top right corner."
+msgstr ""
+
+#: ../../modules.rst:30
+msgid "Software center"
+msgstr ""
+
+#: ../../modules.rst:32
+msgid "The software center lists all available modules from repositories."
+msgstr ""
+
+#: ../../modules.rst:34
+msgid ""
+"To install a new application just click on the :guilabel:`Install` "
+"button. If the cluster has multiple nodes, you will be required also to "
+"select the target node."
+msgstr ""
+
+#: ../../modules.rst:37
+msgid ""
+"To install another instance of an existing application, click on the "
+"``Instances`` link inside the application card. Then click on "
+":guilabel:`Install new instance`."
+msgstr ""
+
+#: ../../modules.rst:40
+msgid ""
+"Be careful! The user interfaces currently does not check if an "
+"application supports multiple instances on the same node."
+msgstr ""
+
+#: ../../modules.rst:42
+msgid ""
+"You can also perform multiple actions on installed applications by "
+"clicking on the three-dots menu:"
+msgstr ""
+
+#: ../../modules.rst:44
+msgid ""
+"``Add to favorites``: the application will be always listed on top of the"
+" application drawer"
+msgstr ""
+
+#: ../../modules.rst:45
+msgid "``Edit instance label``: add a name to the instance"
+msgstr ""
+
+#: ../../modules.rst:46
+msgid "``Clone``: clone the application, see :ref:`move_clone-section`"
+msgstr ""
+
+#: ../../modules.rst:47
+msgid ""
+"``Move``: move the application to another node, see :ref:`move_clone-"
+"section`"
+msgstr ""
+
+#: ../../modules.rst:48
+msgid "``Uninstall``: remove the application and all related data"
+msgstr ""
+
+#: ../../modules.rst:53
+msgid "Clone and move applications"
+msgstr ""
+
+#: ../../modules.rst:55
+msgid ""
+"A module instance can be cloned inside a cluster node. The clone "
+"procedure creates a new module instance that is equivalent to the source "
+"one."
+msgstr ""
+
+#: ../../modules.rst:58
+msgid ""
+"The cluster node where the destination instance runs can be the same of "
+"the source instance. Generally there should be no limitation on running "
+"multiple module instances on the same node. In some cases the services "
+"provided by the instance might require exclusive access to a particular "
+"system resource, as binding a fixed TCP port number. In this case cloning"
+" becomes impossible."
+msgstr ""
+
+#: ../../modules.rst:63
+msgid "In a nutshell the clone procedure"
+msgstr ""
+
+#: ../../modules.rst:65 ../../modules.rst:76
+msgid "creates a new module instance for the destination"
+msgstr ""
+
+#: ../../modules.rst:66 ../../modules.rst:77
+msgid ""
+"starts the data transfer between the instances, during this phase the "
+"source is still up&running"
+msgstr ""
+
+#: ../../modules.rst:67 ../../modules.rst:78
+msgid "stops briefly the source instance"
+msgstr ""
+
+#: ../../modules.rst:68 ../../modules.rst:79
+msgid "executes the final data synchronization"
+msgstr ""
+
+#: ../../modules.rst:69
+msgid "starts the source and the destination instances"
+msgstr ""
+
+#: ../../modules.rst:71
+msgid ""
+"Instead, when moving an application, you must select a target node other "
+"the one where the instance is currently running."
+msgstr ""
+
+#: ../../modules.rst:74
+msgid "The move procedure"
+msgstr ""
+
+#: ../../modules.rst:80
+msgid "starts the destination instance and removes the source one"
+msgstr ""
+
+#: ../../modules.rst:82
+msgid ""
+"If the moved application is referenced using an FQDN, remember also to "
+"change the DNS record and point it to the address of the target node."
+msgstr ""
+
+#: ../../modules.rst:88
+msgid "Software repositories"
+msgstr ""
+
+#: ../../modules.rst:90
+msgid "Software repositories are the sources of modules metadata."
+msgstr ""
+
+#: ../../modules.rst:92
+msgid ""
+"The list of configured repositories is accessible by clicking on the "
+"``Software repository`` item under the three-dots menu on the top right "
+"corner of the software center."
+msgstr ""
+
+#: ../../modules.rst:95
+msgid ""
+"NethServer comes with a set of software repositories. To add your own "
+"repository click on the :guilabel:`Add repository` button. Then fill all "
+"required fields:"
+msgstr ""
+
+#: ../../modules.rst:99
+msgid "``Name`` a unique name for the repository"
+msgstr ""
+
+#: ../../modules.rst:100
+msgid ""
+"``URL`` public URL of the repository, it must be a valid `NS8 repository "
+"<https://nethserver.github.io/ns8-core/modules/metadata/>`_"
+msgstr ""
+
+#: ../../modules.rst:101
+msgid "``Status`` check this option to enable the repository"
+msgstr ""
+
+#: ../../modules.rst:102
+msgid ""
+"``Testing`` check this option to access also non-stable releases of "
+"modules from this repository"
+msgstr ""
+
+#: ../../modules.rst:104
+msgid ""
+"You can force the metadata refresh by clicking on the :guilabel:`Reload "
+"repositories` button."
+msgstr ""
+
+#: ../../modules.rst:109
+msgid "SMTP smarthost"
+msgstr ""
+
+#: ../../modules.rst:111
+msgid "Many applications requires access to a SMTP server to send mails."
+msgstr ""
+
+#: ../../modules.rst:113
+msgid ""
+"You can configure a smarthost for all installed applications by accessing"
+" the ``Smarthost`` card inside the ``Settings`` page."
+msgstr ""
+
+#: ../../modules.rst:116
+msgid ""
+"Then, enable the feature by clicking on ``Smarthost provider`` and fill "
+"the required details."
+msgstr ""
+
+#: ../../nextcloud.rst:5
+msgid "Nextcloud"
+msgstr ""
+
+#: ../../nextcloud.rst:7
+msgid ""
+"`Nextcloud <http://nextcloud.com/>`_ provides universal access to your "
+"files via the web, your computer or your mobile devices wherever you are."
+" It also provides a platform to easily view and synchronize your "
+"contacts, calendars and bookmarks across all your devices and enables "
+"basic editing right on the web."
+msgstr ""
+
+#: ../../nextcloud.rst:12
+msgid "**Key features:**"
+msgstr ""
+
+#: ../../nextcloud.rst:14
+msgid "configure :index:`Nextcloud` with MariaDB and Redis cache"
+msgstr ""
+
+#: ../../nextcloud.rst:15
+msgid "integration with NethServer 8 :ref:`user-domains-section`"
+msgstr ""
+
+#: ../../nextcloud.rst:16
+msgid "automatic backup"
+msgstr ""
+
+#: ../../nextcloud.rst:18
+msgid ""
+"You can install multiple Nextcloud instances on the same node from the "
+":ref:`software_center-section`."
+msgstr ""
+
+#: ../../nextcloud.rst:23
+msgid ""
+"Nextcloud needs a dedicated virtual host, a FQDN like "
+"``nextcloud.nethserver.org``."
+msgstr ""
+
+#: ../../nextcloud.rst:28
+msgid "After the installation:"
+msgstr ""
+
+#: ../../nextcloud.rst:31
+msgid "enter a valid FQDN inside the ``Host name`` field"
+msgstr ""
+
+#: ../../nextcloud.rst:35
+msgid ""
+"Then click on ``Configure Nextcloud`` to run the first configuration "
+"wizard. The wizard will ask to setup an administrator user and password. "
+"If during the wizard you are going to install recommended apps, please "
+"note that the built-in Collabora server (Nextcloud Office) will not work."
+" If you want to integrate with Collabora online see :ref:`below "
+"<collabora-integration-section>`."
+msgstr ""
+
+#: ../../nextcloud.rst:40
+msgid ""
+"After the wizard has been completed, return to the NethServer page and "
+"reload it. You can now connect Nextcloud to an existing :ref:`user domain"
+" <user-domains-section>` by selecting the domain under the ``User "
+"domain`` field. All users configured inside the domain will be able to "
+"access the Nextcloud installation."
+msgstr ""
+
+#: ../../nextcloud.rst:44
+msgid ""
+"Nextcloud update/upgrade procedure may disables the apps to avoid "
+"incompatibility problems. Server logs keep track of which apps were "
+"disabled. After a successful update/upgrade procedure you can use the "
+"Applications page to update and re-enable the apps."
+msgstr ""
+
+#: ../../nextcloud.rst:49
+msgid "User list"
+msgstr ""
+
+#: ../../nextcloud.rst:51
+msgid ""
+"All users are listed inside the administrator panel of Nextcloud using a "
+"unique identifier containing letters and numbers. This is because the "
+"system ensures that there are no duplicate internal user names as "
+"reported in section `Internal Username` of `Official Nextcloud "
+"documentation <https://docs.nextcloud.com>`_."
+msgstr ""
+
+#: ../../nextcloud.rst:61
+msgid ""
+"First, install and configure a :ref:`Collabora Online <collabora-"
+"section>` instance."
+msgstr ""
+
+#: ../../nextcloud.rst:63
+msgid "Then, access the ``Settings`` page of Nextcloud module."
+msgstr ""
+
+#: ../../nextcloud.rst:65
+msgid ""
+"You will find an option named ``CODE server host name``. Select one of "
+"the existing Collabora instances or enter a domain of another Collabora "
+"installation."
+msgstr ""
+
+#: ../../nextcloud.rst:68
+msgid ""
+"The Collabora instance will be accessed using HTTPS protocol, so remember"
+" to disable the ``Verify TLS certification`` option if the Collabora does"
+" not have a valid TLS certificate."
+msgstr ""
+
+#: ../../nextcloud.rst:71
+msgid ""
+"Finally, click the :guilabel:`Save` button. You will now be able to edit "
+"documents directly inside Nextcloud."
+msgstr ""
+
+#: ../../nginx.rst:3
+msgid "NGINX PHP stack"
+msgstr ""
+
+#: ../../nginx.rst:5
+msgid ""
+"This module installs `NGINX <https://www.nginx.com/>_` web server with "
+"`PHP <https://www.php.net/>`_ stack and `SFTPGo "
+"<https://github.com/drakkan/sftpgo>`_ to upload files."
+msgstr ""
+
+#: ../../nginx.rst:8
+msgid ""
+"You can install multiple NGINX instances on the same node from the :ref"
+":`software_center-section`."
+msgstr ""
+
+#: ../../nginx.rst:15
+msgid ""
+"access the application ``Settings`` page and enter the path for SFTPGo, "
+"eg. ``/sftpgo``"
+msgstr ""
+
+#: ../../nginx.rst:16
+msgid "choose a public TCP port for the sFTP server"
+msgstr ""
+
+#: ../../nginx.rst:23
+msgid ""
+"The SFTPGo instance will be available at the "
+"``https://<server_fqn>/<path>``. Default credentials for ``Web Admin`` of"
+" SFTPGo are:"
+msgstr ""
+
+#: ../../nginx.rst:32
+msgid "Virtual hosts"
+msgstr ""
+
+#: ../../nginx.rst:34
+msgid ""
+"You can host multiple sites by creating a virtual host for each site "
+"inside the ``Virtual hosts`` page. To create a virtual host click on "
+":guilabel:`Create a virtual host` button."
+msgstr ""
+
+#: ../../nginx.rst:37
+msgid ""
+"A new SFTP user will be created for each virtual host. Default user "
+"credentials will be displayed inside the virtual host card."
+msgstr ""
+
+#: ../../nginx.rst:40
+msgid ""
+"You can now use the SFTPGo web interface, or a sFTP client, to upload "
+"files to your virtual host."
+msgstr ""
+
+#: ../../os_updates.rst:5
+msgid "Operating system updates"
+msgstr ""
+
+#: ../../os_updates.rst:7
+msgid ""
+"NethServer 8 is installed on top of GNU/Linux distributions and tries to "
+"preserve default configuration as much as possible. It's up to the system"
+" administrator to choose how the operating system updates are applied."
+msgstr ""
+
+#: ../../os_updates.rst:10
+msgid ""
+"Usually, it's a good practice to apply security updates as soon as "
+"possible. But, even if NethServer depends on few packages, not all system"
+" administrators feel confident about automatic updates."
+msgstr ""
+
+#: ../../os_updates.rst:13
+msgid "Please, take a look to your distribution documentation:"
+msgstr ""
+
+#: ../../os_updates.rst:15
+msgid ""
+"`Rocky Linux/AlmaLinux "
+"<https://docs.rockylinux.org/guides/security/dnf_automatic/>`_"
+msgstr ""
+
+#: ../../os_updates.rst:16
+msgid "`Debian <https://wiki.debian.org/UnattendedUpgrades>`_"
+msgstr ""
+
+#: ../../os_updates.rst:20
+msgid ""
+"It's not recommended to enable automatic updates on CentOS Stream, since "
+"it is considered a preview of next RHEL stable release. Updates could "
+"bring major releases of podman and SELinux policies introducing "
+"unexpected bugs."
+msgstr ""
+
+#: ../../os_updates.rst:23
+msgid "If your looking for core and modules see :ref:`updates-section`."
+msgstr ""
+
+#: ../../proxy.rst:5
+msgid "Proxy"
+msgstr ""
+
+#: ../../proxy.rst:7
+msgid ""
+"`Traefik <https://traefik.io/>`_ proxy is part of NethServer core and it "
+"handles all HTTP routes. The proxy is installed on each cluster node."
+msgstr ""
+
+#: ../../proxy.rst:10
+msgid ""
+"Access the ``HTTP routes`` card inside the ``Settings`` page to see all "
+"configured routes. Applications usually automatically setup the proxy "
+"during the configuration phase. Automatic routes can't be modified."
+msgstr ""
+
+#: ../../proxy.rst:14
+msgid ""
+"You can add a custom route by clicking :guilabel:`Create route` button. "
+"Then enter the following details:"
+msgstr ""
+
+#: ../../proxy.rst:17
+msgid "``Name``: a unique name to identify the route"
+msgstr ""
+
+#: ../../proxy.rst:18
+msgid "``Node``: the node where the proxy instance is running"
+msgstr ""
+
+#: ../../proxy.rst:19
+msgid "``URL``: target URL of the route"
+msgstr ""
+
+#: ../../proxy.rst:20
+msgid ""
+"``Host``: fill this field with a valid FQDN if you want a host-based "
+"route, sometimes also referred as virtual host; the application will be "
+"available on a URL like ``https://myapp.nethserver.org``"
+msgstr ""
+
+#: ../../proxy.rst:22
+msgid ""
+"``Path``: fill this field with a valid path if you want a path-based "
+"route accessible from the cluster FQDN; the application will be available"
+" on a URL like ``https://cluster.nethserver.org/myapp``"
+msgstr ""
+
+#: ../../proxy.rst:24
+msgid ""
+"``Strip URL path prefix``: when ``Path`` field is not empty, strip the "
+"path before routing the request to the target URL"
+msgstr ""
+
+#: ../../proxy.rst:25
+msgid ""
+"``Request Let's Encrypt certificate`` enable this option to request a "
+"valid certificate, please remember :ref:`all requirements "
+"<certificate_manager-section>`"
+msgstr ""
+
+#: ../../release_notes.rst:3
+msgid "Release notes"
+msgstr ""
+
+#: ../../release_notes.rst:7
+msgid "No official releases available yet!"
+msgstr ""
+
+#: ../../release_notes.rst:9
+msgid "Releases glossary:"
+msgstr ""
+
+#: ../../release_notes.rst:11
+msgid ""
+"**Alpha**: the software is not thoroughly tested and may not contain all "
+"planned features. Do not use this release on production. You can use this"
+" release to see what's coming on the upcoming version. Updates from alpha"
+" release to other releases is not supported."
+msgstr ""
+
+#: ../../release_notes.rst:15
+msgid ""
+"**Beta**: the software can be considered feature complete but may still "
+"contain many known and unknown bugs. Do not use this release on "
+"production. You can use this release to test the software before using it"
+" on production environments. Updates from beta release to RC and stable "
+"are supported but may require manual procedure."
+msgstr ""
+
+#: ../../release_notes.rst:20
+msgid ""
+"**Release Candidate (RC)**: the software is feature complete, it contains"
+" no known bugs and can be promoted to stable if no major issues arise. "
+"Updates from RC to stable is supported and should be almost automatic. "
+"Use this release on production only if you already have some experience "
+"with the software."
+msgstr ""
+
+#: ../../release_notes.rst:25
+msgid "**Stable**: the software can be safely used on production environments."
+msgstr ""
+
+#: ../../roundcube.rst:5
+msgid "Roundcube"
+msgstr ""
+
+#: ../../roundcube.rst:7
+msgid ""
+"`Roundcube <https://roundcube.net/>`_  is a web mail client. Roundcube's "
+"main features are:"
+msgstr ""
+
+#: ../../roundcube.rst:10
+msgid "simple and fast"
+msgstr ""
+
+#: ../../roundcube.rst:11
+msgid "built-in address book integrated with internal LDAP"
+msgstr ""
+
+#: ../../roundcube.rst:12
+msgid "support for HTML messages"
+msgstr ""
+
+#: ../../roundcube.rst:13
+msgid "shared folders support"
+msgstr ""
+
+#: ../../roundcube.rst:14
+msgid "plugins"
+msgstr ""
+
+#: ../../roundcube.rst:16
+msgid ""
+"You can install multiple Roundcube instances on the same node from the "
+":ref:`software_center-section`."
+msgstr ""
+
+#: ../../roundcube.rst:21
+msgid ""
+"Roundcube needs a dedicated virtual host, a FQDN like "
+"``webmail.nethserver.org``."
+msgstr ""
+
+#: ../../roundcube.rst:32
+msgid ""
+"access the application configuration page and enter a valid FQDN inside "
+"``Roundcube hostname`` field"
+msgstr ""
+
+#: ../../roundcube.rst:33
+msgid ""
+"enable ``Request LE certificate`` and ``HTTP to HTTPS`` options "
+"accordingly to your needs"
+msgstr ""
+
+#: ../../roundcube.rst:34
+msgid "bind the Roundcube instance to an existing ``Mail server``"
+msgstr ""
+
+#: ../../roundcube.rst:37
+msgid ""
+"Inside the ``Advanced`` section, you can also configure a list of :ref"
+":`roundcube_plugins-section` and the ``Maximum size for attachments``."
+msgstr ""
+
+#: ../../roundcube.rst:43
+msgid "Plugins"
+msgstr ""
+
+#: ../../roundcube.rst:45
+msgid ""
+"Roundcube supports many plugins that are already bundled within the "
+"installation."
+msgstr ""
+
+#: ../../roundcube.rst:47
+msgid "The plugins that are enabled by default are:"
+msgstr ""
+
+#: ../../roundcube.rst:49
+msgid "archive"
+msgstr ""
+
+#: ../../roundcube.rst:50
+msgid "Zip download"
+msgstr ""
+
+#: ../../roundcube.rst:52
+msgid "Recommended plugins:"
+msgstr ""
+
+#: ../../roundcube.rst:54
+msgid "New mail notifier"
+msgstr ""
+
+#: ../../roundcube.rst:55
+msgid "Emoticons"
+msgstr ""
+
+#: ../../roundcube.rst:56
+msgid "VCard support"
+msgstr ""
+
+#: ../../roundcube.rst:57
+msgid "Manage sieve: manage filters for incoming mail"
+msgstr ""
+
+#: ../../roundcube.rst:58
+msgid ""
+"Mark as junk: mark the selected messages as Junk and move them to the "
+"configured Junk folder"
+msgstr ""
+
+#: ../../system_requirements.rst:3
+msgid "System requirements"
+msgstr ""
+
+#: ../../system_requirements.rst:5
+msgid ""
+"NethServer 8 can be deployed on a single machine or on more nodes in a "
+"cluster scenario. NS8 is currently available only for `x86-64 "
+"architecture <https://en.wikipedia.org/wiki/X86-64>`."
+msgstr ""
+
+#: ../../system_requirements.rst:8
+msgid "Minimum hardware requirements for a single node installation:"
+msgstr ""
+
+#: ../../system_requirements.rst:10
+msgid "2 vCPU/cores"
+msgstr ""
+
+#: ../../system_requirements.rst:11
+msgid "2GB RAM"
+msgstr ""
+
+#: ../../system_requirements.rst:12
+msgid "20GB disk"
+msgstr ""
+
+#: ../../system_requirements.rst:14
+msgid ""
+"More nodes can be added later. When adding a new node, you should use "
+"similar hardware and the same distribution installed on the leader node."
+msgstr ""
+
+#: ../../system_requirements.rst:17
+msgid ""
+"Always install NethServer 8 on a clean server machine, do not install it "
+"on a desktop."
+msgstr ""
+
+#: ../../system_requirements.rst:21
+msgid "Supported GNU/Linux distributions and versions:"
+msgstr ""
+
+#: ../../system_requirements.rst:23
+msgid "`Rocky Linux <https://rockylinux.org/>`_ >= 9.1"
+msgstr ""
+
+#: ../../system_requirements.rst:24
+msgid "`CentOS Stream <https://www.centos.org/centos-stream/>`_ 9 x86-64"
+msgstr ""
+
+#: ../../system_requirements.rst:25
+msgid "`AlmaLinux <https://almalinux.org>`_ >= 9.1"
+msgstr ""
+
+#: ../../system_requirements.rst:26
+msgid "`Debian <https://www.debian.org/>`_ 11"
+msgstr ""
+
+#: ../../updates.rst:5
+msgid "Updates"
+msgstr ""
+
+#: ../../updates.rst:7
+msgid "NethServer 8 can handle two different types of updates:"
+msgstr ""
+
+#: ../../updates.rst:9
+msgid ":ref:`core updates <core_updates-section>`"
+msgstr ""
+
+#: ../../updates.rst:10
+msgid ":ref:`module updates <module_updates-section>`"
+msgstr ""
+
+#: ../../updates.rst:12
+msgid ""
+":ref:`Operating system updates <os_updates-section>` are demanded to the "
+"underlying Linux distribution."
+msgstr ""
+
+#: ../../updates.rst:14
+msgid ""
+"You can see if there are any available updates by accessing the ``Cluster"
+" status`` page. Updates are applied from the :ref:`software_center-"
+"section`."
+msgstr ""
+
+#: ../../updates.rst:20
+msgid "Core updates"
+msgstr ""
+
+#: ../../updates.rst:22
+msgid "The core is composed by the following modules:"
+msgstr ""
+
+#: ../../updates.rst:24
+msgid ""
+"``core`` contains the web user interface, the API server, the agents that"
+" manage the containers and backup engines"
+msgstr ""
+
+#: ../../updates.rst:25
+msgid ""
+"``LDAP proxy`` it's an `NGINX <https://www.nginx.com/>`_ instance that "
+"handles all connections from applications to :ref:`user-domains-section`"
+msgstr ""
+
+#: ../../updates.rst:26
+msgid ":ref:`Loki log server <loki-section>`"
+msgstr ""
+
+#: ../../updates.rst:27
+msgid ":ref:`Promtail <loki-section>`"
+msgstr ""
+
+#: ../../updates.rst:28
+msgid ":ref:`Traefik proxy <traefik-section>`"
+msgstr ""
+
+#: ../../updates.rst:29
+msgid ":ref:`active_directory-section`"
+msgstr ""
+
+#: ../../updates.rst:30
+msgid ":ref:`openldap-section`"
+msgstr ""
+
+#: ../../updates.rst:32
+msgid ""
+"Core module updates are always applied altogether to avoid version "
+"mismatch."
+msgstr ""
+
+#: ../../updates.rst:34
+msgid ""
+"When a core update is available, it will be listed on the top of "
+"``Updates`` tab inside the :ref:`software_center-section`. Click on "
+"``Update details`` to see the list of modules that require an update. "
+"Click on :guilabel:`Update core` button to apply the updates."
+msgstr ""
+
+#: ../../updates.rst:40
+msgid "Module updates"
+msgstr ""
+
+#: ../../updates.rst:42
+msgid ""
+"The list of available updates is listed inside the ``Updates`` tab of "
+":ref:`software_center-section`. The software center displays a card for "
+"each application with available updates."
+msgstr ""
+
+#: ../../updates.rst:45
+msgid ""
+"You can apply all module updates by clicking the :guilabel:`Update all "
+"apps` button."
+msgstr ""
+
+#: ../../updates.rst:47
+msgid ""
+"By clicking the ``Update details`` link on the application card, you will"
+" see all module instances that require an update. You can update each "
+"instance separately by clicking on the :guilabel:`Update` button. If you "
+"prefer to update all instances of the same module, just click "
+":guilabel:`Update all instances` button."
+msgstr ""
+
+#: ../../user_domains.rst:5
+msgid "User domains"
+msgstr ""
+
+#: ../../user_domains.rst:7
+msgid ""
+"Users and groups are stored in an LDAP database, served by one **account "
+"provider module**. Multiple modules can work together to serve the same "
+"LDAP database as replicas. An LDAP database represents an account "
+"**domain**."
+msgstr ""
+
+#: ../../user_domains.rst:12
+msgid ""
+"The NS8 cluster can host multiple local account domains from different "
+"implementations. It is possible to configure and connect external LDAP "
+"services, too. Supported LDAP schema are"
+msgstr ""
+
+#: ../../user_domains.rst:16
+msgid "Active Directory - `Samba <https://www.samba.org/>`_"
+msgstr ""
+
+#: ../../user_domains.rst:17
+msgid ""
+"Unix attributes `RFC2307 <https://www.rfc-editor.org/rfc/rfc2307>`_ - "
+"`OpenLDAP <https://www.openldap.org/>`_"
+msgstr ""
+
+#: ../../user_domains.rst:19
+msgid ""
+"Besides choosing to bind an external provider or install a internal one, "
+"the administrator has to decide which backend type suits his needs. The "
+"*File server* (coming soon) application can authenticate SMB/CIFS clients"
+" only when using an Active Directory domain. On the other hand, the "
+"internal OpenLDAP provider is more easy to install and configure. In the "
+"end, if the SMB file sharing protocol support is not required, an LDAP "
+"provider is the best choice."
+msgstr ""
+
+#: ../../user_domains.rst:28
+msgid ""
+"Also note that you can host multiple OpenLDAP instances on the same node,"
+" while you can install only one Samba instance per node."
+msgstr ""
+
+#: ../../user_domains.rst:34
+msgid "Active Directory"
+msgstr ""
+
+#: ../../user_domains.rst:36
+msgid ""
+"To install a new user domain with a local Samba Active Directory as "
+"provider:"
+msgstr ""
+
+#: ../../user_domains.rst:38 ../../user_domains.rst:91
+#: ../../user_domains.rst:142
+msgid "access the ``Domains and users`` page"
+msgstr ""
+
+#: ../../user_domains.rst:39 ../../user_domains.rst:92
+msgid "click on :guilabel:`Create domain` button and choose ``Internal``"
+msgstr ""
+
+#: ../../user_domains.rst:40
+msgid "select ``Samba`` on the dialog box and click :guilabel:`Install provider`"
+msgstr ""
+
+#: ../../user_domains.rst:42 ../../user_domains.rst:95
+msgid ""
+"Once the provider is installed, you will be asked to enter the following "
+"parameters:"
+msgstr ""
+
+#: ../../user_domains.rst:44
+msgid ""
+"``Domain``: the user domain, it should be a valid FQDN. It defines the "
+"DNS suffix of the new domain. The Domain Controller (DC) acts as an "
+"authoritative DNS server for that domain. If unsure, keep the proposed "
+"value."
+msgstr ""
+
+#: ../../user_domains.rst:46
+msgid ""
+"``NetBIOS domain``: a valid `NetBIOS "
+"<https://en.wikipedia.org/wiki/NetBIOS>`_ domain (also known as \"domain "
+"short name\", \"NT domain name\"), it is the alternative Active Directory"
+" domain identifier, compatible with older clients.  Maximum length is 15 "
+"ASCII characters. If unsure, keep the proposed value."
+msgstr ""
+
+#: ../../user_domains.rst:49
+msgid "``Samba admin username`` and ``Samba admin password``: admin credentials"
+msgstr ""
+
+#: ../../user_domains.rst:50
+msgid ""
+"``IP address``: select an available network controller; choose a physical"
+" network interface if you are going to join machines to the Active "
+"Directory, otherwise you can select the VPN interface ``wg0``"
+msgstr ""
+
+#: ../../user_domains.rst:52
+msgid ""
+"``Hostname``: the Domain Controller (DC) host name. If unsure, keep the "
+"proposed value."
+msgstr ""
+
+#: ../../user_domains.rst:56
+msgid ""
+"The Active Directory :guilabel:`Domain` and  :guilabel:`NetBIOS domain` "
+"values cannot be changed once that the domain has been created"
+msgstr ""
+
+#: ../../user_domains.rst:59
+msgid ""
+"At the end, you will see a new user domain with one connected provider. "
+"You can now :ref:`manage users and groups <user_groups-section>`, "
+":ref:`add a replica <provider_replica-section>` or copy the :ref:`bind "
+"settings <domain_bind-section>` to connect an external application."
+msgstr ""
+
+#: ../../user_domains.rst:64
+msgid "DNS and AD domain"
+msgstr ""
+
+#: ../../user_domains.rst:66
+msgid ""
+"An Active Directory domain requires a reserved DNS domain to work. It is "
+"a good choice to allocate a sub-domain of the public DNS domain for it. "
+"The AD sub-domain can be accessible only from LAN networks."
+msgstr ""
+
+#: ../../user_domains.rst:70
+msgid "Example:"
+msgstr ""
+
+#: ../../user_domains.rst:72
+msgid "public (*external*) domain: ``nethserver.org``"
+msgstr ""
+
+#: ../../user_domains.rst:73
+msgid "server FQDN: ``mail.nethserver.org``"
+msgstr ""
+
+#: ../../user_domains.rst:74
+msgid "Active Directory (*internal* LAN only) domain: ``ad.nethserver.org``"
+msgstr ""
+
+#: ../../user_domains.rst:75
+msgid "domain controller FQDN: ``dc.ad.nethserver.org``"
+msgstr ""
+
+#: ../../user_domains.rst:79
+msgid ""
+"When choosing a domain for Active Directory use an *internal* domain "
+"which is a sub-domain of the *external* domain [#MsDnsBestPratices]_"
+msgstr ""
+
+#: ../../user_domains.rst:82
+msgid ""
+"https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
+"directory-best-practices-for-internal-domain-and-network-"
+"names.aspx#Recommendation"
+msgstr ""
+
+#: ../../user_domains.rst:87
+msgid "LDAP server RFC2307"
+msgstr ""
+
+#: ../../user_domains.rst:89
+msgid "To install a new user domain with a local OpenLDAP as provider:"
+msgstr ""
+
+#: ../../user_domains.rst:93
+msgid ""
+"select ``OpenLDAP`` on the dialog box and click :guilabel:`Install "
+"provider`"
+msgstr ""
+
+#: ../../user_domains.rst:97
+msgid ""
+"``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
+"the proposed value."
+msgstr ""
+
+#: ../../user_domains.rst:98
+msgid ""
+"``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
+"credentials"
+msgstr ""
+
+#: ../../user_domains.rst:100
+msgid ""
+"At the end, you will see a new user domain with one connected provider. "
+"You can now :ref:`manage users and groups <user_groups-section>` or "
+":ref:`add a replica <provider_replica-section>`."
+msgstr ""
+
+#: ../../user_domains.rst:103
+msgid "OpenLDAP provider is not currently accessible from outside the cluster."
+msgstr ""
+
+#: ../../user_domains.rst:108
+msgid "Provider replicas"
+msgstr ""
+
+#: ../../user_domains.rst:110
+msgid ""
+"Provider replicas implement the fault tolerance for user domains. To "
+"achieve real fault tolerance, replicas should be installed on different "
+"nodes."
+msgstr ""
+
+#: ../../user_domains.rst:113
+msgid ""
+"You can add a replica from the ``Domains and users`` page by selecting "
+"the ``Configuration`` link from the three-dots menu. Then click the "
+":guilabel:`Add provider` button, select the target node and proceed with "
+"installation."
+msgstr ""
+
+#: ../../user_domains.rst:116
+msgid "Replicas are configured in master-master mode."
+msgstr ""
+
+#: ../../user_domains.rst:118
+msgid ""
+"Active Directory provider do not replicate SysVol volume. Therefore "
+"Microsoft's Group Policy Object (GPO) will not be synchronized between "
+"replicas."
+msgstr ""
+
+#: ../../user_domains.rst:124
+msgid "LDAP bind settings"
+msgstr ""
+
+#: ../../user_domains.rst:126
+msgid ""
+"External applications can connect only to a local Active Directory "
+"provider."
+msgstr ""
+
+#: ../../user_domains.rst:128
+msgid ""
+"Binding is the process where the LDAP server authenticates the client "
+"and, if the client is successfully authenticated, the server allows the "
+"client access."
+msgstr ""
+
+#: ../../user_domains.rst:131
+msgid ""
+"Many applications may require to be bound to an existing NethServer 8 "
+"user domain. Bind settings can be accessed by selecting the "
+"``Configuration`` link from the three-dots menu: user domain details are "
+"displayed on the top of the page."
+msgstr ""
+
+#: ../../user_domains.rst:138
+msgid "External LDAP server"
+msgstr ""
+
+#: ../../user_domains.rst:140
+msgid "You can connect the NethServer 8 cluster to an existing LDAP server:"
+msgstr ""
+
+#: ../../user_domains.rst:143
+msgid "click on :guilabel:`Create domain` button and choose ``External``"
+msgstr ""
+
+#: ../../user_domains.rst:144
+msgid "fill all required fields"
+msgstr ""
+
+#: ../../user_domains.rst:145
+msgid "click on :guilabel:`Configure domain` button"
+msgstr ""
+
+#: ../../user_domains.rst:147
+msgid ""
+"At the end, you will be able to bind locally installed applications with "
+"the external LDAP server."
+msgstr ""
+
+#: ../../user_domains.rst:152
+msgid "User and groups"
+msgstr ""
+
+#: ../../user_domains.rst:154
+msgid ""
+"You can mange user and groups of a domain by clicking on ``User and "
+"groups`` link from the ``Domains and users`` page."
+msgstr ""
+
+#: ../../user_domains.rst:156
+msgid ""
+"If an external user domain was configured, the page shows read-only "
+"lists. Changes to the user base must be done on the original server."
+msgstr ""
+
+#: ../../user_domains.rst:159
+msgid ""
+"On the other hand, if a local AD or LDAP account provider was installed, "
+"the page allows to create, modify and delete users and groups."
+msgstr ""
+
+#: ../../user_domains.rst:162
+msgid "When creating a user, the following fields are mandatory:"
+msgstr ""
+
+#: ../../user_domains.rst:164
+msgid "User name"
+msgstr ""
+
+#: ../../user_domains.rst:165
+msgid "Full name (name and surname)"
+msgstr ""
+
+#: ../../user_domains.rst:166
+msgid "Password"
+msgstr ""
+
+#: ../../user_domains.rst:168
+msgid "A user can be added to one or more groups."
+msgstr ""
+
+#: ../../user_domains.rst:170
+msgid ""
+"Sometimes you need to block user access to services without deleting the "
+"account. The safest approach is:"
+msgstr ""
+
+#: ../../user_domains.rst:173
+msgid "(optionally) change the user's password with a random one"
+msgstr ""
+
+#: ../../user_domains.rst:174
+msgid "disable the user using the ``Disable`` action from the three-dots menu"
+msgstr ""
+
+#: ../../user_domains.rst:176
+msgid "When a user is deleted, user data will not be removed."
+msgstr ""
+
+#: ../../web_server.rst:3
+msgid "Web server"
+msgstr ""
+
+#: ../../web_server.rst:5
+msgid "TODO"
+msgstr ""
+
+#: ../../webtop.rst:5
+msgid "Webtop"
+msgstr ""
+
+#: ../../webtop.rst:7
+msgid ""
+"WebTop is a full-featured groupware which implements ActiveSync, CalDAV "
+"and CardDAV protocols."
+msgstr ""
+
+#: ../../webtop.rst:9
+msgid ""
+"You can install multiple WebTop instances on the same node from the :ref"
+":`software_center-section`."
+msgstr ""
+
+#: ../../webtop.rst:14
+msgid ""
+"WebTop needs a dedicated virtual host, a FQDN like "
+"``webtop.nethserver.org``."
+msgstr ""
+
+#: ../../webtop.rst:21
+msgid ""
+"access the application configuration page and enter a valid FQDN inside "
+"``WebTop virtual host`` field"
+msgstr ""
+
+#: ../../webtop.rst:22
+msgid "enable ``Request Let's Encrypt certificate``"
+msgstr ""
+
+#: ../../webtop.rst:23
+msgid "bind the WebTop instance to an existing ``Mail server``"
+msgstr ""
+
+#: ../../webtop.rst:24
+msgid "select the ``Default locale`` and the ``Default timezone``"
+msgstr ""
+
+#: ../../webtop.rst:27
+msgid "Inside the ``Advanced`` section, you can also configure:"
+msgstr ""
+
+#: ../../webtop.rst:29
+msgid "the debug mode"
+msgstr ""
+
+#: ../../webtop.rst:30
+msgid "log levels"
+msgstr ""
+
+#: ../../webtop.rst:31
+msgid "minimum and maximum memory"
+msgstr ""
+
