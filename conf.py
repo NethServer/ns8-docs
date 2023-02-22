@@ -42,7 +42,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.rst']
 
 # -- Options for translations ------------------------------------------------
 locale_dirs = ['locale/']
-gettext_compact = False
+gettext_compact = 'ns8-docs'
 
 # -- Options for HTML output -------------------------------------------------
 
