@@ -137,10 +137,14 @@ FInally, build the doc: ::
 Localization workflow
 ---------------------
 
-Generate po files for a new language: ::
+The CI will update source translation files at each commit.
+
+To generate po files locally for a new language: ::
 
    make gettext
    sphinx-intl update -p _build/gettext -l it
+
+You can contribute to the translation by accessing [Weblate](https://hosted.weblate.org/projects/ns8/).
 
 Documentation style guidelines
 ==============================
