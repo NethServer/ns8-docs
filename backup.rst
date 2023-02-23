@@ -57,10 +57,12 @@ Cluster backup
 
 The cluster configuration backup contains all required data to execute a :ref:`disaster_recovery-section`.
 It is a compressed JSON file encrypted with GPG.
-The encryption key is the hash of the password of the ``admin`` user.
 
-To download the cluster configuration backup, click on :guilabel:`Download backup` button under
+To download the cluster configuration backup, click on :guilabel:`Download cluster backup` button under
 the ``Cluster configuration`` section of the ``Backup`` page.
+At every download, you will be asked to enter an encryption password.
+
+Make sure to remember the encryption password, you will need it for the disaster recovery.
 
 Please, download the cluster configuration backup and keep it on a safe place.
 
@@ -70,9 +72,10 @@ Please, download the cluster configuration backup and keep it on a safe place.
 
 .. highlight:: bash
 
-To inspect the content of the backup use this command, where ``<pass>`` is the admin password: ::
+To inspect the content of the backup use the following command, where ``<pass>`` is the encryption password
+entered before the download: ::
 
-   echo -n <pass> | sha256sum | awk '{print $1}' | gpg --batch --passphrase-fd 0 --decrypt backup.json.gz.gpg | gunzip | jq
+   echo <pass> | gpg --batch --passphrase-fd 0 --decrypt backup.json.gz.gpg | gunzip | jq
 
 .. _disaster_recovery-section:
 
