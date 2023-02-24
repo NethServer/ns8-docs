@@ -907,8 +907,6 @@ To send SMS from the address book, right-click on a contact that has the mobile 
 Custom link buttons in launcher
 ===============================
 
-FIXME
-
 To configure the buttons access the WebTop administration panel and select -> :guilabel:`Domains` -> :guilabel:`NethServer` ->  :guilabel:`Launcher` :
 
 .. image:: _static/webtop_launchers.png
