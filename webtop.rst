@@ -1204,19 +1204,6 @@ To enable the modification of the subject for received and sent emails, access t
 Troubleshooting
 ===============
 
-Blank page after login
-----------------------
-
-FIXME
-
-You can access WebTop using system admin user (NethServer Administrator) using the full login name, eg: ``admin@nethserver.org``.
-
-If the login fails, mostly when upgrading from WebTop 4, it means that the admin user doesn't have a mail address.
-
-To fix the problem, execute the following command: ::
-
-    curl -s https://git.io/vNuPf | bash -x
-
 Delete automatically suggested email addresses
 ----------------------------------------------
 
