@@ -827,11 +827,7 @@ Jitsi integration and support for links to third-party video calls
 ==================================================================
 
 With this integration it is possible to start a new video conference and send the invitation via email, or schedule one by creating the event directly from the calendar.
-To activate the integration it is necessary to configure the `Jitsi <https://jitsi.org/>`_ instance that you would like to use directly from the cockpit interface, in the advanced settings for WebTop:
-
-.. image:: _static/webtop_cockpit_panel_jitsi.png
-
-By clicking on the :guilabel:`Save` button, the new configuration will be applied and WebTop restarted.
+To activate the integration it is necessary to configure the `Jitsi <https://jitsi.org/>`_ instance that you would like to use directly from admin panel by modifying the `documented global settings <https://www.sonicle.com/docs/webtop5/core.html#meeting-integration-settings>`_
 
 By default, the videoconferencing service is disabled for all users.
 To enable it, for all users it is necessary to add a specific authorization from the administration panel:
