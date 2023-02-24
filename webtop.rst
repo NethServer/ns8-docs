@@ -1201,33 +1201,9 @@ To enable the modification of the subject for received and sent emails, access t
 
 ``message.edit.subject`` = true  (default is false)
 
-Troubleshooting
-===============
-
 Delete automatically suggested email addresses
-----------------------------------------------
+==============================================
 
 When compiling the recipient of a mail, some automatically saved email addresses are suggested.
 If you need to delete someone because it is wrong, move with the arrow keys until you select the one you want to delete
 (without clicking on it), then delete it with :guilabel:`Shift + Canc`
-
-
-Google integration
-==================
-
-Users can add their own Google Drive accounts inside WebTop.
-Before proceeding, the administrator must create a pair of API access credentials.
-
-Google API
-----------
-
-* Access https://console.developers.google.com/project and create a new project
-* Create new credentials by selecting "OAuth 2.0 clientID" type and remember to compile
-  "OAuth consent screen" section
-* Insert new credentials (Client ID e Client Secret) inside WebTop configuration
-
-It is possible to do this from web interface by accessing the administration panel -> :guilabel:`Properties (system)` -> :guilabel:`Add` -> select :guilabel:`com.sonicle.webtop.core (WebTop)` and enter the data in the :guilabel:`Key` and :guilabel:`Value` fields according to the key to be configured:
-
-``googledrive.clientid`` = (Google API client_ID)
-
-``googledrive.clientsecret`` = (Google API client_secret)
