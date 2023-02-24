@@ -926,9 +926,7 @@ For each button, enter these three values
 .. warning::
    The URL of the icon from which to retrieve the vector image must always be publicly reachable by the browser with which you connect.
 
-If you can not retrieve an Internet link of the icon image, you can copy the image locally on the server in two different ways:
-
-#. copying the file (for example ``icon.svg``) directly into the ``/var/www/html/`` directory of the server and using this type of URL for the 'Icon URL' field: ``https://<public_name_server>/<icon.svg>``
+If you can not retrieve an Internet link of the icon image, you can copy the image locally on the server in this ways:
 
 #. uploading the icon file to the public cloud of WebTop (where images are uploaded for mailcards) via the administration
    panel -> :guilabel:`Cloud` -> :guilabel:`Public Images` and insert a URL of this type for the 'Icon URL' field: ``https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>``
