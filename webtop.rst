@@ -272,13 +272,6 @@ CalDAV/CardDAV support is built-in on iOS, so to configure it:
 - select :guilabel:`Other` -> Add :guilabel:`CalDAV` or :guilabel:`CardDAV` account;
 - insert the server name (i.e. *server.nethserver.org*), complete username (i.e. *goofy@nethserver.org*) and password.
 
-By default the synchronization ``URL`` uses the server principal name (``FQDN``), if you need to change it: ::
-
- config setprop webtop DavServerUrl https://<new_name_server>/webtop-dav/server.php
- signal-event nethserver-webtop5-update
-
-FIXME
-
 Desktop clients
 -----------------------------
 
