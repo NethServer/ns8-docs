@@ -1090,8 +1090,7 @@ With this feature, it is possible to receive an email that notifies you through 
 
   By default, this feature is disabled for all users to avoid too many "unintentional" false positives on first login.
 
-
-FIXME
+To activate the notification for all users, send these notification emails to other email addresses in BCC and avoid sending the notification for all new accesses performed by one (or more) network subnets modify these `global settings <https://www.sonicle.com/docs/webtop5/core.html#security-settings>`_ from the admin panel
 
 .. note::
 
