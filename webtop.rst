@@ -114,24 +114,6 @@ Proceed as follows:
   Custom logo will be shown only when accessing Webtop using  its public URL.
   The default public URL is the server FQDN, but it could be changed as described in the section below.
 
-Change the public URL
-=====================
-
-FIXME
-
-By default, the public WebTop URL is configured with the FQDN name set in the server-manager.
-
-If you want to change URL from this: ``http://server.domain.local/webtop`` to: ``http://mail.publicdomain.com/webtop``
-
-execute these commands ::
-
-  config setprop webtop PublicUrl http://mail.publicdomain.com/webtop
-  signal-event nethserver-webtop5-update
-
-.. note::
-
-  When using a valid SSL certificate - for example Let's Encrypt - it is rrecommended to configure the public URL using ``https``
-
 User settings management
 ========================
 
