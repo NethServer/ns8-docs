@@ -80,9 +80,9 @@ domain part of server FQDN.
 Change admin password
 =====================
 
-Access WebTop using the ``admin`` user, then open user settings by clicking on the menu in the top-right corner.
+.. |hamburger| image:: _static/webtop-hamburger.png
 
-.. image:: _static/webtop-settings.png
+Access WebTop using the ``admin`` user, then open user settings by clicking on the |hamburger| menu in the top-right corner.
 
 Go to :guilabel:`Settings` then click on :guilabel:`Change password`.
 
