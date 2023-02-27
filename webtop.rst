@@ -560,9 +560,10 @@ and click on the icon on the left:
 Customize proactive security on emails
 ===============================================
 
-FIXME: describe what is
+The Proactive Security module (PAS) warns the end user of possible security risks and suspicious senders inside the emails.
+The user will also be warned when trying to open potentially dangerous attachments or links contained in emails.
 
-The proactive security function on email messages allows some customization both for the **end user** and the WebTop **admin**.
+The PAS function allows some customization both for the **end user** and the WebTop **admin**.
 
 For the **end user** it is possible to mark a sender as trusted when it is recognized as such by the yellow shield.
 To do so, it is possible to click directly on the shield or right click on the sender and select the :guilabel:`Mark as trusted` entry.
