@@ -1,8 +1,8 @@
 .. _webtop-section:
 
-======
-Webtop
-======
+================
+WebTop groupware
+================
 
 WebTop is a full-featured groupware which implements ActiveSync, CalDAV and CardDAV protocols.
 
@@ -288,8 +288,8 @@ The Open Source `CalDAV Synchronizer <https://caldavsynchronizer.org/>`_ plugin 
    The use of CalDAV/CardDAV through third-party clients **cannot be considered a web interface alternative**.
 
 
-Shareing email
-==============
+Sharing email
+=============
 
 It is possible to share a single folder or the entire account with all included subfoldes.
 Select the folder to share -> right click -> :guilabel:`Manage sharing`:
