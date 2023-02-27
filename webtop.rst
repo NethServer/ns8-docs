@@ -352,10 +352,9 @@ In order to manage the Shared labels it is necessary to activate a specific auth
 - add (+) -> :guilabel:`Services` -> :guilabel:`com.sonicle.webtop.core (WebTop)` -> :guilabel:`Resource` -> :guilabel:`TAGS` -> :guilabel:`Action` -> :guilabel:`MANAGE`
 - click :guilabel:`OK` then :guilabel:`Save and exit`
 
+.. |tools| image:: _static/webtop-tools.png
 
-The management of labels can be reached from this button at the top right:
-
-.. image:: _static/webtop-tags1.png
+The management of labels can be reached from this |tools| button at the top right.
 
 The same functionality can also be reached from the individual modules (Mail, Address Book, Calendar and Tasks) by right clicking -> :guilabel:`Labels` -> :guilabel:`Manage labels`.
 
