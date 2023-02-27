@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NS8\n"
+"Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 16:42+0000\n"
+"POT-Creation-Date: 2023-02-27 09:48+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
 "Language: it\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>"
+"\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../backup.rst:3
@@ -154,75 +154,81 @@ msgstr ""
 msgid ""
 "The cluster configuration backup contains all required data to execute a "
 ":ref:`disaster_recovery-section`. It is a compressed JSON file encrypted "
-"with GPG. The encryption key is the hash of the password of the ``admin``"
-" user."
+"with GPG."
 msgstr ""
 
-#: ../../backup.rst:62
+#: ../../backup.rst:61
 msgid ""
 "To download the cluster configuration backup, click on "
-":guilabel:`Download backup` button under the ``Cluster configuration`` "
-"section of the ``Backup`` page."
+":guilabel:`Download cluster backup` button under the ``Cluster "
+"configuration`` section of the ``Backup`` page. At every download, you "
+"will be asked to enter an encryption password."
 msgstr ""
 
 #: ../../backup.rst:65
+msgid ""
+"Make sure to remember the encryption password, you will need it for the "
+"disaster recovery."
+msgstr ""
+
+#: ../../backup.rst:67
 msgid ""
 "Please, download the cluster configuration backup and keep it on a safe "
 "place."
 msgstr ""
 
-#: ../../backup.rst:68
+#: ../../backup.rst:70
 msgid ""
 "In case you lose the configuration backup, you can still restore "
 "applications to another cluster only if you know the encryption password "
 "of the backup repository."
 msgstr ""
 
-#: ../../backup.rst:73
+#: ../../backup.rst:75
 msgid ""
-"To inspect the content of the backup use this command, where ``<pass>`` "
-"is the admin password: ::"
+"To inspect the content of the backup use the following command, where "
+"``<pass>`` is the encryption password entered before the download: ::"
 msgstr ""
 
-#: ../../backup.rst:80
+#: ../../backup.rst:83
 msgid "Disaster recovery"
 msgstr ""
 
-#: ../../backup.rst:82
+#: ../../backup.rst:85
 msgid ""
 "You can restore a previously configured cluster using the disaster "
 "recovery procedure. To follow this procedure you will need a :ref:`a "
 "cluster configuration backup <cluster_backup-section>`:"
 msgstr ""
 
-#: ../../backup.rst:85
+#: ../../backup.rst:88
 msgid ""
 ":ref:`install <install-section>` a new cluster and login using default "
 "credentials"
 msgstr ""
 
-#: ../../backup.rst:86
+#: ../../backup.rst:89
 msgid "change the default administrator password"
 msgstr ""
 
-#: ../../backup.rst:87
+#: ../../backup.rst:90
 msgid "click on :guilabel:`Restore cluster`"
 msgstr ""
 
-#: ../../backup.rst:88
+#: ../../backup.rst:91
 msgid ""
 "you can now choose whether to restore a cluster configuration hosted on a"
 " remote HTTP server or upload the backup from your browser"
 msgstr ""
 
-#: ../../backup.rst:90
+#: ../../backup.rst:93
 msgid ""
 "if on step 2 you entered the same password of the old cluster, the system"
 " will automatically decrypt the configuration backup; otherwise enter the"
 " encryption secret inside the ``Backup password`` field"
 msgstr ""
 
-#: ../../backup.rst:92
+#: ../../backup.rst:95
 msgid "select the applications to restore"
 msgstr ""
 
@@ -3182,3 +3188,27 @@ msgstr ""
 #: ../../webtop.rst:31
 msgid "minimum and maximum memory"
 msgstr ""
+
+#~ msgid ""
+#~ "The cluster configuration backup contains "
+#~ "all required data to execute a "
+#~ ":ref:`disaster_recovery-section`. It is a "
+#~ "compressed JSON file encrypted with GPG."
+#~ " The encryption key is the hash "
+#~ "of the password of the ``admin`` "
+#~ "user."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To download the cluster configuration "
+#~ "backup, click on :guilabel:`Download backup`"
+#~ " button under the ``Cluster configuration``"
+#~ " section of the ``Backup`` page."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To inspect the content of the "
+#~ "backup use this command, where "
+#~ "``<pass>`` is the admin password: ::"
+#~ msgstr ""
+
