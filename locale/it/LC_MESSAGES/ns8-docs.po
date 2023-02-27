@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-27 09:48+0000\n"
+"POT-Creation-Date: 2023-02-27 13:10+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -3187,6 +3187,2283 @@ msgstr ""
 
 #: ../../webtop.rst:31
 msgid "minimum and maximum memory"
+msgstr ""
+
+#: ../../webtop.rst:34
+msgid "Authentication"
+msgstr ""
+
+#: ../../webtop.rst:36
+msgid ""
+"Always use the full user name format ``<user>@<domain>`` for login to the"
+" web application and Active Sync."
+msgstr ""
+
+#: ../../webtop.rst:39 ../../webtop.rst:74
+msgid "**Example**"
+msgstr ""
+
+#: ../../webtop.rst:41 ../../webtop.rst:76
+msgid "Server name: mymail.mightydomain.com"
+msgstr ""
+
+#: ../../webtop.rst:42
+msgid "Alternative mail domain: baddomain.net"
+msgstr ""
+
+#: ../../webtop.rst:43
+msgid "User: goofy"
+msgstr ""
+
+#: ../../webtop.rst:44
+msgid "Login: goofy@mightydomain.com"
+msgstr ""
+
+#: ../../webtop.rst:47
+msgid ""
+"Active Sync protocol is supported only on Android and iOS devices. "
+"Outlook is not supported."
+msgstr ""
+
+#: ../../webtop.rst:54
+msgid "Admin user"
+msgstr ""
+
+#: ../../webtop.rst:56
+msgid ""
+"After installation, WebTop will be accessible using the administrator "
+"user. The administrator user can change global settings and login as any "
+"other user, however, it's not a system user and can't access any other "
+"service like Mail, Calendar, etc."
+msgstr ""
+
+#: ../../webtop.rst:60
+msgid "Default credentials are:"
+msgstr ""
+
+#: ../../webtop.rst:62
+msgid "User: *admin*"
+msgstr ""
+
+#: ../../webtop.rst:63
+msgid "Password: *admin*"
+msgstr ""
+
+#: ../../webtop.rst:65
+msgid ""
+"The administrator user's password must be changed from within the WebTop "
+"interface."
+msgstr ""
+
+#: ../../webtop.rst:68
+msgid "Remember to change the admin password after installation!"
+msgstr ""
+
+#: ../../webtop.rst:71
+msgid ""
+"To check the mail of the system's user admin account use the following "
+"login: admin@<domain> where ``<domain>`` is the domain part of server "
+"FQDN."
+msgstr ""
+
+#: ../../webtop.rst:77
+msgid "User: admin"
+msgstr ""
+
+#: ../../webtop.rst:78
+msgid "Login: admin@mightydomain.com"
+msgstr ""
+
+#: ../../webtop.rst:81
+msgid "Change admin password"
+msgstr ""
+
+#: ../../webtop.rst:83
+msgid "hamburger"
+msgstr ""
+
+#: ../../webtop.rst:85
+msgid ""
+"Access WebTop using the ``admin`` user, then open user settings by "
+"clicking on the |hamburger| menu in the top-right corner."
+msgstr ""
+
+#: ../../webtop.rst:87
+msgid "Go to :guilabel:`Settings` then click on :guilabel:`Change password`."
+msgstr ""
+
+#: ../../webtop.rst:91
+msgid "Changing the logo"
+msgstr ""
+
+#: ../../webtop.rst:93
+msgid ""
+"To modify and customize the initial logo that appears on the login page "
+"of WebTop, you must upload the custom image file on the public images of "
+"the admin user and rename it ``login.png``."
+msgstr ""
+
+#: ../../webtop.rst:96
+msgid "Proceed as follows:"
+msgstr ""
+
+#: ../../webtop.rst:98
+msgid "log in with the WebTop user admin"
+msgstr ""
+
+#: ../../webtop.rst:100
+msgid "select the cloud service and public images:"
+msgstr ""
+
+#: ../../webtop.rst:104
+msgid ""
+"upload the image (via the Upload button at the bottom left or simply "
+"dragging with a drag & drop)"
+msgstr ""
+
+#: ../../webtop.rst:106
+msgid ""
+"rename the loaded image so that its name is **\"login.png\"** (use right "
+"click -> Rename):"
+msgstr ""
+
+#: ../../webtop.rst:110
+msgid "the next login will show the new logo on the login page"
+msgstr ""
+
+#: ../../webtop.rst:113
+msgid "User settings management"
+msgstr ""
+
+#: ../../webtop.rst:115
+msgid ""
+"Most user settings can be directly managed by the user itself via the "
+"settings menu. Locked settings require administration privileges."
+msgstr ""
+
+#: ../../webtop.rst:118
+msgid ""
+"The administrator can :index:`impersonate` users, to check existing "
+"accounts using special login credentials:"
+msgstr ""
+
+#: ../../webtop.rst:120
+msgid "**User name**: ``admin!<username>``"
+msgstr ""
+
+#: ../../webtop.rst:121
+msgid "**Password**: ``<WebTop admin password>``"
+msgstr ""
+
+#: ../../webtop.rst:123
+msgid ""
+"While impersonating you receive similar user privileges, allowing you to "
+"control exactly what the user can see. Full administration of user "
+"settings is available directly in the administration interface, by right "
+"clicking on a user: the settings menu will open the full user settings "
+"panel, with all options unlocked."
+msgstr ""
+
+#: ../../webtop.rst:126
+msgid "You can also change the email of all selected users:"
+msgstr ""
+
+#: ../../webtop.rst:128
+msgid "select the users (Click + CTRL for multiple selection)"
+msgstr ""
+
+#: ../../webtop.rst:129
+msgid "right-click on :guilabel:`Bulk update email domain`"
+msgstr ""
+
+#: ../../webtop.rst:132
+msgid "Two factor authentication (2FA)"
+msgstr ""
+
+#: ../../webtop.rst:134
+msgid ""
+"WebTop support the :index:`two factor authentication`. The user can "
+"choose between:"
+msgstr ""
+
+#: ../../webtop.rst:137
+msgid ""
+"Google Authenticator app (`Android "
+"<https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2>`_,"
+" `iOS <https://apps.apple.com/it/app/google-authenticator/id388497605>`_)"
+msgstr ""
+
+#: ../../webtop.rst:138
+msgid "secondary mail address"
+msgstr ""
+
+#: ../../webtop.rst:140
+msgid "To enable 2FA:"
+msgstr ""
+
+#: ../../webtop.rst:142
+msgid ""
+"click on the menu button on the top-right corner and select the "
+":guilabel:`Settings` icon"
+msgstr ""
+
+#: ../../webtop.rst:143
+msgid ""
+"then select :guilabel:`Security` and click on the :guilabel:`Activate "
+"button`"
+msgstr ""
+
+#: ../../webtop.rst:149
+msgid "ActiveSync (EAS) synchronization"
+msgstr ""
+
+#: ../../webtop.rst:151
+msgid ""
+"Mobile devices can be synchronized using ActiveSync. :index:`ActiveSync` "
+"can be used only for **contacts** and **calendars**."
+msgstr ""
+
+#: ../../webtop.rst:155 ../../webtop.rst:264
+msgid "Apple iOS"
+msgstr ""
+
+#: ../../webtop.rst:157
+msgid ""
+"Access your :index:`iOS device`, navigate to Settings and add an Exchange"
+" account following the `official guide <https://support.apple.com/en-"
+"us/HT201729>`_."
+msgstr ""
+
+#: ../../webtop.rst:159 ../../webtop.rst:177
+msgid "Fill the required fields with:"
+msgstr ""
+
+#: ../../webtop.rst:161
+msgid "**E-mail**: add your mail address, eg: goofy@nethserver.org"
+msgstr ""
+
+#: ../../webtop.rst:162
+msgid "**Server**: add your server public name, eg: mail.nethserver.org"
+msgstr ""
+
+#: ../../webtop.rst:163
+msgid "**Domain**: leave blank"
+msgstr ""
+
+#: ../../webtop.rst:164 ../../webtop.rst:179
+msgid "**User name**: enter your full user name, eg: goofy@nethserver.org"
+msgstr ""
+
+#: ../../webtop.rst:165 ../../webtop.rst:180 ../../webtop.rst:241
+msgid "**Password**: enter your password"
+msgstr ""
+
+#: ../../webtop.rst:169
+msgid ""
+"iOS devices require a valid SSL certificate on the server. See :ref"
+":`certificate_manager-section`"
+msgstr ""
+
+#: ../../webtop.rst:173 ../../webtop.rst:254
+msgid "Google Android"
+msgstr ""
+
+#: ../../webtop.rst:175
+msgid ""
+"Access your :index:`Android device`, navigate to Settings, then select "
+":guilabel:`Add account` -> :guilabel:`Exchange` (or `Company` for older "
+"releases)."
+msgstr ""
+
+#: ../../webtop.rst:182
+msgid ""
+"Then select :guilabel:`Manual configuration` and change the name of the "
+"*Server* field accordingly to your server public name. Finally, if you "
+"have a self-signed certificate on your server, make sure to select "
+":guilabel:`SSL/TLS (accept all certificates)` option."
+msgstr ""
+
+#: ../../webtop.rst:188
+msgid ""
+"On some Android releases (notably Samsung), the User name and Domain must"
+" be entered in the same line. In this case, leave blank the field before "
+"the backslash character ``\\``, and enter the user name in the following "
+"format: ``\\goofy@nethserver.org``"
+msgstr ""
+
+#: ../../webtop.rst:192
+msgid "Multiple calendars and contacts"
+msgstr ""
+
+#: ../../webtop.rst:194
+msgid ""
+"Shared calendars and address books can be synchronized using the "
+"ActiveSync protocol."
+msgstr ""
+
+#: ../../webtop.rst:196
+msgid ""
+"Shared resources are displayed with the owner's name and category. The "
+"number in square brackets is the internal id. Private events are not "
+"synchronized."
+msgstr ""
+
+#: ../../webtop.rst:199
+msgid ""
+"Mobile devices based on Apple iOS fully support folders / categories for "
+"calendar, contacts and activities (called reminders), including original "
+"colors."
+msgstr ""
+
+#: ../../webtop.rst:201
+msgid ""
+"Mobile devices based on Android support only calendars and contacts, "
+"activities are not supported. Using the Google Calendar application all "
+"items will have the same color."
+msgstr ""
+
+#: ../../webtop.rst:204
+msgid ""
+"Installing and using the `CloudCal <https://pselis.com/cloudcal/>`_ "
+"application, you can change the colors associated with each calendar, "
+"including shared ones."
+msgstr ""
+
+#: ../../webtop.rst:207
+msgid ""
+"On Android devices, contacts from shared phone books are merged with the "
+"personal phone book and displayed in a single view. Contacts can be "
+"modified and changes will be saved it the original source."
+msgstr ""
+
+#: ../../webtop.rst:212
+msgid ""
+"In order to receive data via EAS on mobile devices, it is necessary to "
+"verify that the shared resources (Calendars and Contacts) have "
+"synchronization enabled (Full or Read only):"
+msgstr ""
+
+#: ../../webtop.rst
+msgid "Multiple synchronization"
+msgstr ""
+
+#: ../../webtop.rst:218
+msgid ""
+"It is possible to enable or disable the synchronization for each shared "
+"resource."
+msgstr ""
+
+#: ../../webtop.rst:220
+msgid ""
+"To do so, just right click on the shared resource "
+":menuselection:`Customize → Devices sync.`:"
+msgstr ""
+
+#: ../../webtop.rst
+msgid "Sync shared EAS"
+msgstr ""
+
+#: ../../webtop.rst:225
+msgid "The default setting is ``Not active``."
+msgstr ""
+
+#: ../../webtop.rst:228
+msgid "CalDAV and CardDAV synchronization"
+msgstr ""
+
+#: ../../webtop.rst:230
+msgid ""
+"Calendars and address books can be synchronized also through "
+":index:`CalDAV and CardDAV protocols`."
+msgstr ""
+
+#: ../../webtop.rst:232
+msgid ""
+"To synchronize a calendar, pick up its ``URL`` link right-clicking on the"
+" calendar and selecting :guilabel:`Links to this calendar`, then use it "
+"to configure your third-party client."
+msgstr ""
+
+#: ../../webtop.rst:235
+msgid ""
+"To synchronize an address book, pick up its ``URL`` link right-clicking "
+"on the address book and selecting :guilabel:`Links to this address book`,"
+" then use it to configure your third-party client."
+msgstr ""
+
+#: ../../webtop.rst:238
+msgid "To authenticate, provide your credentials in the following form:"
+msgstr ""
+
+#: ../../webtop.rst:240
+msgid "**User name**: enter your full user name (i.e. *goofy@nethserver.org*)"
+msgstr ""
+
+#: ../../webtop.rst:243
+msgid ""
+"Some third-party clients allow to simplify the configuration through the "
+"*auto-discovery* feature that automatically discovers the synchronizable "
+"resources, as in the case of mobile devices clients (i.e. Android or iOS "
+"devices)."
+msgstr ""
+
+#: ../../webtop.rst:249
+msgid ""
+"If you are using clients that do not support auto-discovery, you need to "
+"use the full URL: ``https://<server_name>/webtop-dav/server.php``"
+msgstr ""
+
+#: ../../webtop.rst:251
+msgid ""
+"If you are using clients that support auto-discovery use URL: "
+"``https://<server_name>``"
+msgstr ""
+
+#: ../../webtop.rst:256
+msgid ""
+"A good, free, Android third-party client is `Opensync "
+"<https://deependhulla.com/android-apps/opensync-app>`_."
+msgstr ""
+
+#: ../../webtop.rst:258
+msgid "install the suggested app from the market"
+msgstr ""
+
+#: ../../webtop.rst:259
+msgid ""
+"add a new account clicking on :guilabel:`+` key and select "
+":guilabel:`Login with URL and username` method"
+msgstr ""
+
+#: ../../webtop.rst:260
+msgid ""
+"insert the ``URL`` (``https://<server_name>``), complete username (i.e. "
+"*goofy@nethserver.org*) and password"
+msgstr ""
+
+#: ../../webtop.rst:261
+msgid "click on the new profile and select the resources you want to synchronize"
+msgstr ""
+
+#: ../../webtop.rst:266
+msgid "CalDAV/CardDAV support is built-in on iOS, so to configure it:"
+msgstr ""
+
+#: ../../webtop.rst:268
+msgid ""
+"go to :guilabel:`Settings` -> :guilabel:`Account and Password` -> "
+":guilabel:`Add account`"
+msgstr ""
+
+#: ../../webtop.rst:269
+msgid ""
+"select :guilabel:`Other` -> Add :guilabel:`CalDAV` or :guilabel:`CardDAV`"
+" account"
+msgstr ""
+
+#: ../../webtop.rst:270
+msgid ""
+"insert the server name (i.e. *server.nethserver.org*), complete username "
+"(i.e. *goofy@nethserver.org*) and password"
+msgstr ""
+
+#: ../../webtop.rst:273
+msgid "Desktop clients"
+msgstr ""
+
+#: ../../webtop.rst:275
+msgid "**Thunderbird**"
+msgstr ""
+
+#: ../../webtop.rst:277
+msgid ""
+"Thunderbird already includes supports for CalDAV calendars. To "
+"synchronize the contacts with CardDAV you need a third-party add-on like "
+"`Cardbook "
+"<https://addons.thunderbird.net/it/thunderbird/addon/cardbook/>`_."
+msgstr ""
+
+#: ../../webtop.rst:280
+msgid "**Outlook**"
+msgstr ""
+
+#: ../../webtop.rst:282
+msgid ""
+"The Open Source `CalDAV Synchronizer <https://caldavsynchronizer.org/>`_ "
+"plugin for Outlook supports both CardDAV and CalDAV."
+msgstr ""
+
+#: ../../webtop.rst:286
+msgid ""
+"Webtop is a **client-less groupware**: its functionalities are fully "
+"available **only using the web interface**!"
+msgstr ""
+
+#: ../../webtop.rst:288
+msgid ""
+"The use of CalDAV/CardDAV through third-party clients **cannot be "
+"considered a web interface alternative**."
+msgstr ""
+
+#: ../../webtop.rst:292
+msgid "Shareing email"
+msgstr ""
+
+#: ../../webtop.rst:294
+msgid ""
+"It is possible to share a single folder or the entire account with all "
+"included subfoldes. Select the folder to share -> right click -> "
+":guilabel:`Manage sharing`:"
+msgstr ""
+
+#: ../../webtop.rst:299
+msgid "select the user to share the resource (1)"
+msgstr ""
+
+#: ../../webtop.rst:300
+msgid ""
+"select if you want to share your identity with the user and possibly even"
+" if you force your signature (2)"
+msgstr ""
+
+#: ../../webtop.rst:301
+msgid "choose the level of permissions associated with this share (3)"
+msgstr ""
+
+#: ../../webtop.rst:302
+msgid ""
+"if you need to further change the permission levels, select ``Advanced`` "
+"(4)"
+msgstr ""
+
+#: ../../webtop.rst:303
+msgid ""
+"finally, choose whether to apply sharing only to the folder from which "
+"you started, or only to the branch of subfolders or to the entire account"
+" (5)"
+msgstr ""
+
+#: ../../webtop.rst:309
+msgid ""
+"The :guilabel:`Force mailcard` option can be used only if the mailcard "
+"has been associated to the mail address."
+msgstr ""
+
+#: ../../webtop.rst:312
+msgid "Sharing calendars and contacts"
+msgstr ""
+
+#: ../../webtop.rst:315
+msgid "Sharing Calendar"
+msgstr ""
+
+#: ../../webtop.rst:317
+msgid ""
+"You can share each personal calendar individually. Select the calendar to"
+" share -> right click -> :guilabel:`Sharing and permissions`:"
+msgstr ""
+
+#: ../../webtop.rst:322
+msgid ""
+"Select the recipient user of the share (or Group) and enable permissions "
+"for both the folder and the individual items:"
+msgstr ""
+
+#: ../../webtop.rst:327
+msgid "Sharing Contacts"
+msgstr ""
+
+#: ../../webtop.rst:329
+msgid ""
+"In the same way, you can always share your contacts by selecting the "
+"directory you want to share -> right click -> :guilabel:`Sharing and "
+"permissions`. Select the recipient user of the share (or Group), and "
+"enable permissions for both the folder and the individual items."
+msgstr ""
+
+#: ../../webtop.rst:334
+msgid "Custom labels"
+msgstr ""
+
+#: ../../webtop.rst:336
+msgid ""
+"It is possible to add one or more labels to an email, a calendar event or"
+" a task."
+msgstr ""
+
+#: ../../webtop.rst:338
+msgid "There are two types of labels:"
+msgstr ""
+
+#: ../../webtop.rst:340
+msgid "**Private**: not usable for custom fields and not visible to other users"
+msgstr ""
+
+#: ../../webtop.rst:341
+msgid "**Shared**: usable for custom field panels and visible to other users"
+msgstr ""
+
+#: ../../webtop.rst:343
+msgid ""
+"The user can normally only manage Private labels. In order to manage the "
+"Shared labels it is necessary to activate a specific authorization via "
+"the admin panel:"
+msgstr ""
+
+#: ../../webtop.rst:346 ../../webtop.rst:371
+msgid ""
+"go to  Administration menu, then choose :guilabel:`Domains` -> "
+":guilabel:`NethServer` -> :guilabel:`Groups` -> :guilabel:`Users` -> "
+":guilabel:`Authorization`"
+msgstr ""
+
+#: ../../webtop.rst:347
+msgid ""
+"add (+) -> :guilabel:`Services` -> :guilabel:`com.sonicle.webtop.core "
+"(WebTop)` -> :guilabel:`Resource` -> :guilabel:`TAGS` -> "
+":guilabel:`Action` -> :guilabel:`MANAGE`"
+msgstr ""
+
+#: ../../webtop.rst:348
+msgid "click :guilabel:`OK` then :guilabel:`Save and exit`"
+msgstr ""
+
+#: ../../webtop.rst:350
+msgid "tools"
+msgstr ""
+
+#: ../../webtop.rst:352
+msgid ""
+"You can manage the labeles from the tools |tools| button icon at the top "
+"right corner."
+msgstr ""
+
+#: ../../webtop.rst:354
+msgid ""
+"The same functionality can also be reached from the individual modules by"
+" right clicking -> :guilabel:`Labels` -> :guilabel:`Manage labels`."
+msgstr ""
+
+#: ../../webtop.rst:356
+msgid ""
+"Visibility can be set only during label creation. To change the label "
+"visibility you need to delete the label and recreate it again."
+msgstr ""
+
+#: ../../webtop.rst:358
+msgid ""
+"The created labels can be used on any other module like Mail, Address "
+"Book, Calendar and Tasks."
+msgstr ""
+
+#: ../../webtop.rst:363
+msgid "Custom fields"
+msgstr ""
+
+#: ../../webtop.rst:365
+msgid ""
+"With custom fields it is possible to provide information and additional "
+"data for each contact, event or activity."
+msgstr ""
+
+#: ../../webtop.rst:367
+msgid ""
+"Custom fields are only available for the Address Book, Calendar, and "
+"Tasks modules and are specific to each different module."
+msgstr ""
+
+#: ../../webtop.rst:369
+msgid ""
+"In order to manage custom fields and its panels, the user must have a "
+"specific authorization, obtained through the administration panel:"
+msgstr ""
+
+#: ../../webtop.rst:372
+msgid ""
+"add (+) -> :guilabel:`Services` -> :guilabel:`com.sonicle.webtop.core "
+"(WebTop)` -> :guilabel:`Resource` -> :guilabel:`CUSTOM_FIELDS` -> "
+":guilabel:`Action` -> :guilabel:`MANAGE`"
+msgstr ""
+
+#: ../../webtop.rst:373
+msgid "click :guilabel:`OK` then save and exit"
+msgstr ""
+
+#: ../../webtop.rst:375
+msgid ""
+"Users who have this authorization will find the specific button available"
+" at the top right:"
+msgstr ""
+
+#: ../../webtop.rst:379
+msgid ""
+"To create a new custom field it is necessary to fill in at least the "
+":guilabel:`Name` field and select the :guilabel:`Type`:"
+msgstr ""
+
+#: ../../webtop.rst:383
+msgid ""
+"For the :guilabel:`Name` field only alphanumeric characters (including "
+"``-`` and ``_``) are allowed. **Spaces are not allowed**. The "
+":guilabel:`Description` field is used to add details to the field and the"
+" :guilabel:`Label` field represents the label that will be sshow anlong "
+"with the field."
+msgstr ""
+
+#: ../../webtop.rst:387
+msgid "For each field it is possible to enable two options:"
+msgstr ""
+
+#: ../../webtop.rst:389
+msgid ""
+":guilabel:`Show in search bar`: the field is added in the multiple search"
+" window (a new access will be required)"
+msgstr ""
+
+#: ../../webtop.rst:390
+msgid ""
+":guilabel:`Show in preview`: the field is shown in the preview window of "
+"a contact"
+msgstr ""
+
+#: ../../webtop.rst:392
+msgid ""
+"Additional specific properties, that are also customizable, are available"
+" for each type."
+msgstr ""
+
+#: ../../webtop.rst:394
+msgid ""
+"For the :guilabel:`List box` type it is necessary to fill in the values "
+"to be selected:"
+msgstr ""
+
+#: ../../webtop.rst:398
+msgid ""
+"Using the :guilabel:`Clone` button you can copy the custom field to "
+"create similar ones:"
+msgstr ""
+
+#: ../../webtop.rst:403
+msgid ""
+"With the **FREE version**, installed by default, it is possible to create"
+" up to a **maximum of 3 custom fields** for each different module (3 in "
+"Address Book + 3 in Calendar + 3 in Activities). To remove this limit it "
+"is necessary to upgrade to the **PREMIUM version** by purchasing a "
+"dedicated license on `Nethesis shop <https://nethshop.nethesis.it/product"
+"/campi-custom-webtop/>`_"
+msgstr ""
+
+#: ../../webtop.rst:406
+msgid "Searches on custom fields"
+msgstr ""
+
+#: ../../webtop.rst:408
+msgid ""
+"One of the best functionalities of custom fields is the possibility to "
+"perform multiple searches on all modules and fields for which the option "
+":guilabel:`Show in search bar` has been activated."
+msgstr ""
+
+#: ../../webtop.rst:412
+msgid "Custom panels"
+msgstr ""
+
+#: ../../webtop.rst:414
+msgid ""
+"Custom panels display the `:ref:`custom_fields-section` and associated "
+"them to resources."
+msgstr ""
+
+#: ../../webtop.rst:416
+msgid ""
+"Users with the authorization to manage custom fields can access the "
+"configuration panel using the button at the top right:"
+msgstr ""
+
+#: ../../webtop.rst:420
+msgid ""
+"When creating a new panel it is mandatory to indicate the "
+":guilabel:`Name` that will appear in the resource. You can also insert a "
+":guilabel:`Description` and a :guilabel:`Title`."
+msgstr ""
+
+#: ../../webtop.rst:422
+msgid ""
+"Using shared labels, you can easily assign panels to specific resource "
+"categories. A panel without an associated label will be visible for every"
+" available resource: all contacts, all events or all activities."
+msgstr ""
+
+#: ../../webtop.rst:425
+msgid "Use the :guilabel:`Add` button to add a custom fields inside the panel."
+msgstr ""
+
+#: ../../webtop.rst:428
+msgid "Mailcards"
+msgstr ""
+
+#: ../../webtop.rst:430
+msgid ""
+"One of the main features of managing signatures on WebTop is the "
+"opportunity to integrate images or custom fields profiled per user."
+msgstr ""
+
+#: ../../webtop.rst:432
+msgid ""
+"To use the images you need to upload them to the public cloud through the"
+" WebTop admin user like this:"
+msgstr ""
+
+#: ../../webtop.rst:436
+msgid ""
+"You can use the :guilabel:`Upload` button to load an image which is at "
+"the bottom or simply via a drag & drop."
+msgstr ""
+
+#: ../../webtop.rst:440
+msgid ""
+"Remember that the public images inserted in the signature are actually "
+"connected with a public link. To be visible to email recipients, the "
+"server must be reachable remotely on port 80 (http) and its FQDN name "
+"must be publicly resolvable."
+msgstr ""
+
+#: ../../webtop.rst:443
+msgid ""
+"Alternatively, you can configure a global setting to turn images "
+"automatically into inline attachments instead of public internet links"
+msgstr ""
+
+#: ../../webtop.rst:445
+msgid ""
+"It is possible to do this from web interface by accessing the "
+"administration panel -> :guilabel:`Properties (system)` -> "
+":guilabel:`Add` -> select :guilabel:`com.sonicle.webtop.mail (Mail)` and "
+"enter the data in the :guilabel:`Key` and :guilabel:`Value` fields "
+"according to the key to be configured:"
+msgstr ""
+
+#: ../../webtop.rst:447
+msgid "``public.resource.links.as.inline.attachments`` = true (default = false)"
+msgstr ""
+
+#: ../../webtop.rst:450
+msgid ""
+"To change your signature, each user can access the "
+":menuselection:`Settings --> Mail --> Editing --> Edit User mailcard`:"
+msgstr ""
+
+#: ../../webtop.rst:454
+msgid "You can use the uploaded image inside the mailcard with this button:"
+msgstr ""
+
+#: ../../webtop.rst:460
+msgid ""
+"The personal mailcard can be associated with the user or the mail "
+"address. Users with access to the mail address, will also be able to use "
+"the mailcard."
+msgstr ""
+
+#: ../../webtop.rst:463
+msgid ""
+"By accessing the user settings from the WebTop administration panel ( "
+":menuselection:`Domains --> NethServer --> Users --> Right click on user`"
+" ) it is also possible to set up a general domain mailcard that will be "
+"automatically set for all users who have not configured their personal "
+"mailcard.:"
+msgstr ""
+
+#: ../../webtop.rst:467
+msgid "Furthermore, it will also be possible to modify personal information:"
+msgstr ""
+
+#: ../../webtop.rst:471
+msgid ""
+"that can be used within the template-based fields within the domain "
+"mailcard editor:"
+msgstr ""
+
+#: ../../webtop.rst:475
+msgid ""
+"In this way it is possible to create a single mailcard that will be "
+"automatically customized for every user who does not use his own "
+"mailcard."
+msgstr ""
+
+#: ../../webtop.rst:478
+msgid "Multiple mailcards"
+msgstr ""
+
+#: ../../webtop.rst:480
+msgid ""
+"It is possible to configure multiple mailcards (HTML signatures) for each"
+" user."
+msgstr ""
+
+#: ../../webtop.rst:482
+msgid ""
+"Access the :menuselection:`Settings --> Mail --> Identities` and create "
+"multiple identities:"
+msgstr ""
+
+#: ../../webtop.rst:486
+msgid ""
+"To edit every single signature select :menuselection:`Settings --> Mail "
+"--> Identities` then select each individual signature and click on the "
+":guilabel:`edit mailcard` button"
+msgstr ""
+
+#: ../../webtop.rst:491
+msgid "When finished, close the window and click YES:"
+msgstr ""
+
+#: ../../webtop.rst:495
+msgid "to use multiple mailcards, create a new email, and choose the signature:"
+msgstr ""
+
+#: ../../webtop.rst:500
+msgid "Mail inline preview"
+msgstr ""
+
+#: ../../webtop.rst:502
+msgid ""
+"By default, the mail page will display a preview of the content of latest"
+" received messages."
+msgstr ""
+
+#: ../../webtop.rst:504
+msgid ""
+"This feature can be enabled or disabled from the :guilabel:`Settings` "
+"menu, under the :guilabel:`Mail` tab, the check box is named "
+":guilabel:`Show quick preview on message row`."
+msgstr ""
+
+#: ../../webtop.rst:508
+msgid "Mail archiving"
+msgstr ""
+
+#: ../../webtop.rst:510
+msgid ""
+"Archiving is useful for keeping your inbox folder organized by manually "
+"moving messages."
+msgstr ""
+
+#: ../../webtop.rst:513
+msgid "Mail archiving is not a backup."
+msgstr ""
+
+#: ../../webtop.rst:515
+msgid "The system automatically creates a new special Archives folder"
+msgstr ""
+
+#: ../../webtop.rst:519
+msgid ""
+"If the :guilabel:`Archives` folder does not appear immediately upon "
+"login, it will appear at the first archiving."
+msgstr ""
+
+#: ../../webtop.rst:521
+msgid "There are three archiving criteria:"
+msgstr ""
+
+#: ../../webtop.rst:523
+msgid "**Single folder:** a single root for all archived emails"
+msgstr ""
+
+#: ../../webtop.rst:524
+msgid "**Per year:** a root for each year"
+msgstr ""
+
+#: ../../webtop.rst:525
+msgid "**By year / month:** a root for each year and month"
+msgstr ""
+
+#: ../../webtop.rst:529
+msgid ""
+"To maintain the original structure of the folders is possible to activate"
+" :guilabel:`Keep folder structure`"
+msgstr ""
+
+#: ../../webtop.rst:533
+msgid ""
+"The archiving operation is accessible from the contextual menu (right "
+"click). Click on :guilabel:`Archive`"
+msgstr ""
+
+#: ../../webtop.rst:537
+msgid "The system will process archiving according to the last settings chosen."
+msgstr ""
+
+#: ../../webtop.rst:540
+msgid "IMAP folders subscription"
+msgstr ""
+
+#: ../../webtop.rst:542
+msgid ""
+"By default, all IMAP folders on the server are automatically subscribed "
+"and therefore visible since the first login."
+msgstr ""
+
+#: ../../webtop.rst:544
+msgid ""
+"If you want to hide from the view some folders, which is equivalent to "
+"removing the subscription, you can do so by simply clicking the right "
+"mouse button on the folder to hide and select from the interactive menu "
+"the item :guilabel:`Hide from the list`."
+msgstr ""
+
+#: ../../webtop.rst:547
+msgid ""
+"For example, if you want to hide the subfolder ``folder1`` from this "
+"list, just right-click on it and select :guilabel:`Hide from the list`:"
+msgstr ""
+
+#: ../../webtop.rst:551
+msgid ""
+"It is possible to manage the visibility of hidden folders by selecting "
+"the :guilabel:`Manage visibility` function:"
+msgstr ""
+
+#: ../../webtop.rst:555
+msgid ""
+"For example, if you want to restore the subscription of the "
+":guilabel:`folder1` just hidden, just select it from the list of hidden "
+"folders and click on the icon on the left:"
+msgstr ""
+
+#: ../../webtop.rst:561
+msgid "Customize proactive security on emails"
+msgstr ""
+
+#: ../../webtop.rst:563
+msgid ""
+"The Proactive Security module (PAS) warns the end user of possible "
+"security risks and suspicious senders inside the emails. The user will "
+"also be warned when trying to open potentially dangerous attachments or "
+"links contained in emails."
+msgstr ""
+
+#: ../../webtop.rst:566
+msgid ""
+"The PAS function allows some customization both for the **end user** and "
+"the WebTop **admin**."
+msgstr ""
+
+#: ../../webtop.rst:568
+msgid ""
+"For the **end user** it is possible to mark a sender as trusted when it "
+"is recognized as such by the yellow shield. To do so, it is possible to "
+"click directly on the shield or right click on the sender and select the "
+":guilabel:`Mark as trusted` entry."
+msgstr ""
+
+#: ../../webtop.rst:573
+msgid ""
+"This type of customization is only valid for the user that performed the "
+"action. It is possible to mark a sender as trusted only if the shield is "
+"yellow."
+msgstr ""
+
+#: ../../webtop.rst:576
+msgid ""
+"The **admin user** can disable all or just some of the rules that are "
+"part of the PAS (ProActive Security), both for single users and groups. "
+"To do so, it is necessary to add a specific authorization (to the single "
+"user or the group of users) for the Service ``com.sonicle.webtop.mail "
+"(Mail)`` and for the ``PRO_ACTIVE_SECURITY`` resource:"
+msgstr ""
+
+#: ../../webtop.rst:581
+msgid "Below is an explanation of every single entry available as ``Action`` :"
+msgstr ""
+
+#: ../../webtop.rst:583
+msgid "``DISABLED``: completely disables PAS"
+msgstr ""
+
+#: ../../webtop.rst:584
+msgid ""
+"``NO_LINK_DOMAIN_CHECK``: do not check domains different form the "
+"sender’s domain"
+msgstr ""
+
+#: ../../webtop.rst:585
+msgid ""
+"``NO_MY_DOMAIN_CHECK``: do not verify if the sender’s domain is in my "
+"domain"
+msgstr ""
+
+#: ../../webtop.rst:586
+msgid ""
+"``NO_FREQUENT_CONTACT_CHECK``: do not check if the sender is in my "
+"contacts which are saved automatically"
+msgstr ""
+
+#: ../../webtop.rst:587
+msgid ""
+"``NO_ANY_CONTACTS_CHECK``: do not check if the sender is among one of my "
+"contacts"
+msgstr ""
+
+#: ../../webtop.rst:588
+msgid ""
+"``NO_FAKE_PATTERNS_CHECK``: do not verify the presence of false patterns "
+"in the sender (e.g. email address of the name shown is different from the"
+" sender’s email address)"
+msgstr ""
+
+#: ../../webtop.rst:589
+msgid ""
+"``NO_UNSUBSCRIBE_DIRECTIVES_CHECK``: do not check the entry for the "
+"unsubscribe directives to the mailing list (only if the spam status is "
+"green)"
+msgstr ""
+
+#: ../../webtop.rst:590
+msgid ""
+"``NO_DISPLAYNAME_CHECK``: do not compare the contact’s display name with "
+"the contact in my address book with the same email"
+msgstr ""
+
+#: ../../webtop.rst:591
+msgid ""
+"``NO_SPAM_SCORE_VISUALIZATION``: do not show/check the spam score "
+"displayed in the message header"
+msgstr ""
+
+#: ../../webtop.rst:592
+msgid "``NO_LINK_CLICK_PROMPT``: do not check the click action on links"
+msgstr ""
+
+#: ../../webtop.rst:593
+msgid "``NO_ZIP_CHECK``: do not give warning about zip attachments"
+msgstr ""
+
+#: ../../webtop.rst:595
+msgid ""
+"This way it is possible to customize and create special profiles for some"
+" users who might not want all the actions to be active."
+msgstr ""
+
+#: ../../webtop.rst:597
+msgid ""
+"The administrator can also choose the list of **file extensions for "
+"attachments** which are considered a threat. As default, these are the "
+"extensions which are considered dangerous: "
+"``exe,bat,dll,com,cmd,bin,cab,js,jar``"
+msgstr ""
+
+#: ../../webtop.rst:600
+msgid "To modify this list it is necessary to add this global setting:"
+msgstr ""
+
+#: ../../webtop.rst:602
+msgid ":guilabel:`Service` = ``com.sonicle.webtop.mail``"
+msgstr ""
+
+#: ../../webtop.rst:603
+msgid ":guilabel:`Key` = ``pas.dangerous.extensions``"
+msgstr ""
+
+#: ../../webtop.rst:605
+msgid ""
+"For example, if you wanted to add the HTML extension among those that are"
+" considered dangerous, the value field should contain the following:"
+msgstr ""
+
+#: ../../webtop.rst:607
+msgid ""
+":guilabel:`Value` = ``exe,bat,dll,com,cmd,bin,cab,js,jar,html``  (Values "
+"always need to be separated by a comma)"
+msgstr ""
+
+#: ../../webtop.rst:611
+msgid "Export events (CSV)"
+msgstr ""
+
+#: ../../webtop.rst:613
+msgid ""
+"To export calendars events in CSV (Comma Separated Value) format, click "
+"on the |tools| button on top right corner and selecting :guilabel:`ERP "
+"export (CSV)`"
+msgstr ""
+
+#: ../../webtop.rst:615
+msgid ""
+"Finally, select a time interval and click on :guilabel:`Next` to export "
+"into a CSV file."
+msgstr ""
+
+#: ../../webtop.rst:618
+msgid "Tasks"
+msgstr ""
+
+#: ../../webtop.rst:621
+msgid "Quick view filters"
+msgstr ""
+
+#: ../../webtop.rst:623
+msgid ""
+"In the toolbar above the grid there are 7 buttons that allow you to "
+"select the most suitable quick view. The first two buttons refer to "
+"today's activities or to those planned within the next 7 days:"
+msgstr ""
+
+#: ../../webtop.rst:628
+msgid ""
+"**Today**: shows unfinished tasks without a start date or with a start "
+"date up to today (inclusive) and those completed with an end date up to "
+"today (inclusive)"
+msgstr ""
+
+#: ../../webtop.rst:629
+msgid ""
+"**Next 7 days**: shows uncompleted tasks with no start date or starting "
+"up to 7 days from today and completed tasks with completion date up to "
+"now (inclusive)"
+msgstr ""
+
+#: ../../webtop.rst:631
+msgid ""
+"The remaining 5 buttons allow you to obtain these other types of quick "
+"views:"
+msgstr ""
+
+#: ../../webtop.rst:635
+msgid ""
+"**Not started**: shows only activities with status \"To be started\" and "
+"starting today (inclusive)"
+msgstr ""
+
+#: ../../webtop.rst:636
+msgid ""
+"**Late**: shows only uncompleted tasks with start date up to today "
+"(inclusive) and completion date previous to the current one"
+msgstr ""
+
+#: ../../webtop.rst:637
+msgid ""
+"**Completed**: shows all activities with status completed and with any "
+"date range"
+msgstr ""
+
+#: ../../webtop.rst:638
+msgid ""
+"**Not completed**: shows all activities with status other than completed "
+"and start date within 1 year (for recurring tasks, only the first "
+"instance of the series still to be completed is shown)"
+msgstr ""
+
+#: ../../webtop.rst:639
+msgid ""
+"**All**: shows all activities in any status (for recurring tasks the "
+"series icon main is shown)"
+msgstr ""
+
+#: ../../webtop.rst:642
+msgid "Recurring tasks"
+msgstr ""
+
+#: ../../webtop.rst:644
+msgid "It is possible to configure any type of recurrence:"
+msgstr ""
+
+#: ../../webtop.rst:648
+msgid "Editing a recurring activity can be done in two different ways:"
+msgstr ""
+
+#: ../../webtop.rst:650
+msgid ""
+"on the individual task by opening it with a double click from a view "
+"other than :guilabel:`All` In this case the task will be **removed** from"
+" the recurrence and its icon will become this one:"
+msgstr ""
+
+#: ../../webtop.rst:655
+msgid ""
+"on the entire series with a double click from the :guilabel:`All` view or"
+" by using the following button on the single task already open:"
+msgstr ""
+
+#: ../../webtop.rst:660
+msgid "Sub-tasks"
+msgstr ""
+
+#: ../../webtop.rst:662
+msgid ""
+"On any task it is always possible to add related sub-tasks (one "
+"Master/Slave level only) simply by using the right button and selecting "
+":guilabel:`Add sub-task` Within the connected tasks, both in the master "
+"and in the slave ones, a link is available at the bottom right to open "
+"the related tasks:"
+msgstr ""
+
+#: ../../webtop.rst:667
+msgid ""
+"It is possible to **Move** or **Copy** this type of activity (right click"
+" -> :guilabel:`Move/Copy`) by choosing to copy or move the sub-activities"
+" through an option active by default."
+msgstr ""
+
+#: ../../webtop.rst:670
+msgid "Multiple searches"
+msgstr ""
+
+#: ../../webtop.rst:672
+msgid ""
+"In the bar at the top there is a quick search that is executed on all "
+"fields. You can also narrow the search by filling multiple search fields."
+msgstr ""
+
+#: ../../webtop.rst:678
+msgid "Nextcloud integration"
+msgstr ""
+
+#: ../../webtop.rst:680
+msgid ""
+"Before proceeding, verify that the **Nextcloud** module has been "
+"installed from the :ref:`software_center-section`."
+msgstr ""
+
+#: ../../webtop.rst:683
+msgid ""
+"By default, Nextcloud integration is disabled for all users. To enable "
+"it, use the administration panel which can be accessed using the webtop "
+"admin password"
+msgstr ""
+
+#: ../../webtop.rst:686
+msgid "If you want to enable the service for all users, proceed as follows:"
+msgstr ""
+
+#: ../../webtop.rst:688
+msgid "access the administrative panel and select :guilabel:`Groups`:"
+msgstr ""
+
+#: ../../webtop.rst:692
+msgid ""
+"modify the properties of the \"users\" group by double clicking and "
+"select the button related to the Authorizations:"
+msgstr ""
+
+#: ../../webtop.rst:696
+msgid ""
+"add to existing authorizations those relating to both the ``STORE_CLOUD``"
+" and ``STORE_OTHER`` resources by selecting the items as shown below:"
+msgstr ""
+
+#: ../../webtop.rst:703
+msgid "so get this:"
+msgstr ""
+
+#: ../../webtop.rst:708
+msgid "save and close."
+msgstr ""
+
+#: ../../webtop.rst:710
+msgid ""
+"At this point from any user it will be possible to insert the Nextcloud "
+"resource (local or remote) in your personal Cloud."
+msgstr ""
+
+#: ../../webtop.rst:712
+msgid ""
+"To do this, simply select the Cloud button and add a new Nextcloud "
+"resource by right clicking on :guilabel:`My resources` and then "
+":guilabel:`Add resource` in this way:"
+msgstr ""
+
+#: ../../webtop.rst:716
+msgid "A pre-filled wizard will open:"
+msgstr ""
+
+#: ../../webtop.rst:722
+msgid ""
+"Remember to fill in the User name and Password fields related to access "
+"to the Nextcloud resource, otherwise it will not be possible to use the "
+"public link to the shared files"
+msgstr ""
+
+#: ../../webtop.rst:727
+msgid ""
+"If Nextcloud has been configured with a custom virtual host (eg. "
+"``nextcloud.mydomain.com``) the :guilabel:`Path` must be changed from "
+"`/nextcloud/remote.php/webdav` to `/remote.php/webdav`, please note that "
+"`/nextcloud` prefix has been removed. Also make sure to enter the name of"
+" the custom virtual host inside the :guilabel:`Host` (eg. "
+"``nextcloud.mydomain.com``)."
+msgstr ""
+
+#: ../../webtop.rst:729
+msgid "Proceed with the Next button until the Wizard is complete."
+msgstr ""
+
+#: ../../webtop.rst:732
+msgid "Personal Cloud"
+msgstr ""
+
+#: ../../webtop.rst:734
+msgid ""
+"The personal Cloud module allows you to send and receive documents "
+"through web links."
+msgstr ""
+
+#: ../../webtop.rst:737
+msgid "How to create a link to send a document"
+msgstr ""
+
+#: ../../webtop.rst:739
+msgid "To create the link, select the button at the top right:"
+msgstr ""
+
+#: ../../webtop.rst:743
+msgid ""
+"Follow the wizard to generate the link, use field :guilabel:`date` to set"
+" the deadline."
+msgstr ""
+
+#: ../../webtop.rst:747
+msgid "you can create a :guilabel:`password` to protect it:"
+msgstr ""
+
+#: ../../webtop.rst:751
+msgid "The link will be generated and will be inserted in the new mail:"
+msgstr ""
+
+#: ../../webtop.rst:756
+msgid "Downloading the file, generates a notification to the sender:"
+msgstr ""
+
+#: ../../webtop.rst:761
+msgid "Request for a document"
+msgstr ""
+
+#: ../../webtop.rst:762
+msgid ""
+"To create the request, insert the subject of the email than select the "
+"button at the top right:"
+msgstr ""
+
+#: ../../webtop.rst:766
+msgid ""
+"Follow the wizard. You can set both an expiration date and a password. "
+"The link will be automatically inserted into the message:"
+msgstr ""
+
+#: ../../webtop.rst:770
+msgid "A request email will be sent to upload the document to the Cloud:"
+msgstr ""
+
+#: ../../webtop.rst:774
+msgid ""
+"The sender will receive a notification for each file that will be "
+"uploaded:"
+msgstr ""
+
+#: ../../webtop.rst:778
+msgid ""
+"To download the files just access your personal :menuselection:`Cloud -->"
+" Uploads --> Folder` with date and name:"
+msgstr ""
+
+#: ../../webtop.rst:783
+msgid "Chat integration"
+msgstr ""
+
+#: ../../webtop.rst:785
+msgid "Web chat integration installation is disabled by default for all users."
+msgstr ""
+
+#: ../../webtop.rst:787
+msgid "To enable chat integration:"
+msgstr ""
+
+#: ../../webtop.rst:789
+msgid "Install \"Instant messaging\"\" module from :guilabel:`Software Center`."
+msgstr ""
+
+#: ../../webtop.rst:791
+msgid "Access WebTop as admin user then enable the web chat authorization:"
+msgstr ""
+
+#: ../../webtop.rst:793 ../../webtop.rst:806
+msgid ""
+"Access the :guilabel:`Administration` menu, then :menuselection:`Domains "
+"--> NethServer --> Groups --> Users --> Authorizations`"
+msgstr ""
+
+#: ../../webtop.rst:794
+msgid ""
+":menuselection:`Add (+) --> Services --> com.sonicle.webtop.core (WebTop)"
+" --> Resource --> WEBCHAT --> Action --> ACCESS`"
+msgstr ""
+
+#: ../../webtop.rst:795 ../../webtop.rst:808
+msgid "Click :guilabel:`OK` then save and close"
+msgstr ""
+
+#: ../../webtop.rst:798
+msgid "Jitsi integration"
+msgstr ""
+
+#: ../../webtop.rst:800
+msgid ""
+"With this integration it is possible to start a new video conference and "
+"send the invitation via email, or schedule one by creating the event "
+"directly from the calendar. To activate the integration it is necessary "
+"to configure the `Jitsi <https://jitsi.org/>`_ instance that you would "
+"like to use directly from admin panel by modifying the `documented global"
+" settings <https://www.sonicle.com/docs/webtop5/core.html#meeting-"
+"integration-settings>`_"
+msgstr ""
+
+#: ../../webtop.rst:803
+msgid ""
+"By default, the videoconferencing service is disabled for all users. To "
+"enable it, for all users it is necessary to add a specific authorization "
+"from the administration panel:"
+msgstr ""
+
+#: ../../webtop.rst:807
+msgid ""
+":menuselection:`Add (+) --> Services --> com.sonicle.webtop.core (WebTop)"
+" --> Resource MEETING --> Action --> CREATE`"
+msgstr ""
+
+#: ../../webtop.rst:810
+msgid "The conference will be available for the users after a new login."
+msgstr ""
+
+#: ../../webtop.rst:812
+msgid ""
+"To create a new video conference meeting, you can start from these two "
+"buttons:"
+msgstr ""
+
+#: ../../webtop.rst:814
+msgid "(top left)"
+msgstr ""
+
+#: ../../webtop.rst:818
+msgid "(top right)"
+msgstr ""
+
+#: ../../webtop.rst:822
+msgid ""
+"It is also possible to do this from a new email window or a new calendar "
+"event."
+msgstr ""
+
+#: ../../webtop.rst:824
+msgid ""
+"For each new meeting you have to decide whether it should start "
+"immediately (instant meeting) or if it should be scheduled by invitation."
+msgstr ""
+
+#: ../../webtop.rst:826
+msgid "There are several ways to share the new meeting link:"
+msgstr ""
+
+#: ../../webtop.rst:830
+msgid ""
+":guilabel:`Start now` allows you to immediately access the newly created "
+"meeting room and copy the link via the button available next to the URL"
+msgstr ""
+
+#: ../../webtop.rst:831
+msgid ""
+":guilabel:`Send invitation` -> :guilabel:`Copy meeting invite`: in this "
+"case an invitation message, which also includes the meeting link, will be"
+" copied (e.g: To join the meeting on Jitsi Meet, click this link: …)"
+msgstr ""
+
+#: ../../webtop.rst:832
+msgid ""
+":guilabel:`Send invitation` -> :guilabel:`Share by email`: you will be "
+"asked if you would like to change the subject and date of the meeting, "
+"which will then be inserted in the newly generated email:"
+msgstr ""
+
+#: ../../webtop.rst:836
+msgid ""
+":guilabel:`Send invitation` -> :guilabel:`Plan event`: also in this case "
+"you will be asked if you would like to change the subject and date/time "
+"of the meeting before creating the calendar event that will allow you to "
+"invite other participants."
+msgstr ""
+
+#: ../../webtop.rst:838
+msgid ""
+"If an event contains a link to a third-party video conference, the "
+"buttons that will allow you to access the meeting directly:"
+msgstr ""
+
+#: ../../webtop.rst:844
+msgid "Third-party video calls"
+msgstr ""
+
+#: ../../webtop.rst:846
+msgid ""
+"The video conferencing services that are currently supported, in addition"
+" to Jitsi, are: Google Meet, MS Teams and Zoom. It is possible to add "
+"additional platforms through a `global setting "
+"<https://www.sonicle.com/docs/webtop5/core.html#meeting-integration-"
+"settings>`_."
+msgstr ""
+
+#: ../../webtop.rst:851
+msgid "SMS integration"
+msgstr ""
+
+#: ../../webtop.rst:853
+msgid ""
+"It is possible to send SMS (Short Message Service) messages to a contact "
+"that has the mobile number in the address book. To activate sending SMS, "
+"first you need to choose one of the two supported providers: `smshosting "
+"<https://www.smshosting.it/it>`_ or `twilio <https://www.twilio.com/>`_."
+msgstr ""
+
+#: ../../webtop.rst:856
+msgid ""
+"Once registered to the service of the chosen provider, retrieve the API "
+"keys (``AUTH_KEY`` and ``AUTH_SECRET``) to be inserted in the WebTop "
+"configuration db. The settings to configure are those shown `here "
+"<https://www.sonicle.com/docs/webtop5/core.html#sms-settings>`_ ."
+msgstr ""
+
+#: ../../webtop.rst:859
+msgid ""
+"You can do it by accessing the administration panel -> "
+":guilabel:`Properties (system)` -> :guilabel:`Add` -> select "
+":guilabel:`com.sonicle.webtop.core (WebTop)` and enter the data in the "
+":guilabel:`Key` and :guilabel:`Value` fields according to the key to be "
+"configured:"
+msgstr ""
+
+#: ../../webtop.rst:861
+msgid "``sms.provider`` = smshosting or twilio"
+msgstr ""
+
+#: ../../webtop.rst:863
+msgid "``sms.provider.webrest.user`` = API AUTH_KEY"
+msgstr ""
+
+#: ../../webtop.rst:865
+msgid "``sms.provider.webrest.password`` = API AUTH_SECRET"
+msgstr ""
+
+#: ../../webtop.rst:867
+msgid "``sms.sender`` = (default optional)"
+msgstr ""
+
+#: ../../webtop.rst:869
+msgid ""
+"The ``sms.sender`` key is optional and is used to specify the default "
+"sender when sending SMS. It is possible to indicate a number (max 16 "
+"characters) or a text (max 11 characters)."
+msgstr ""
+
+#: ../../webtop.rst:874
+msgid ""
+"Each user always has the possibility to overwrite the sender by "
+"customizing it as desired through its settings panel: :guilabel:`WebTop` "
+"-> :guilabel:`Switchboard VOIP and SMS` -> :guilabel:`SMS Hosting service"
+" configured` -> :guilabel:`Default sender`"
+msgstr ""
+
+#: ../../webtop.rst:876
+msgid ""
+"To send SMS from the address book, right-click on a contact that has the "
+"mobile field filled in -> :guilabel:`Send SMS`"
+msgstr ""
+
+#: ../../webtop.rst:879
+msgid "Launcher customization"
+msgstr ""
+
+#: ../../webtop.rst:881
+msgid ""
+"The launcher is the icon menu on the left of the page. You can add custom"
+" buttont the launcher."
+msgstr ""
+
+#: ../../webtop.rst:884
+msgid ""
+"To configure the buttons access the WebTop administration panel and "
+"select -> :guilabel:`Domains` -> :guilabel:`NethServer` ->  "
+":guilabel:`Launcher` :"
+msgstr ""
+
+#: ../../webtop.rst:889
+msgid "For each button, enter these three values"
+msgstr ""
+
+#: ../../webtop.rst:891
+msgid "``Name`` : tab descriptive text that appears with mouse-over"
+msgstr ""
+
+#: ../../webtop.rst:892
+msgid "``Link URL`` : URL opened in a new browser"
+msgstr ""
+
+#: ../../webtop.rst:893
+msgid ""
+"``Icon URL`` : icon image URL, it should always be a publicly reachable "
+"address. To avoid scaling problems, use vector images"
+msgstr ""
+
+#: ../../webtop.rst:895
+msgid ""
+"If you ca't find a public URL for the icon image, you can upload the icon"
+" on Webtop public cloud. WebTop public cloud already hosts mailcards "
+"images. Access the administrator panel and click on :guilabel:`Cloud` -> "
+":guilabel:`Public Images`, then insert a URL like "
+"``https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>``."
+msgstr ""
+
+#: ../../webtop.rst:900
+msgid ""
+"The configured custom link buttons will be shown to all users at the next"
+" login."
+msgstr ""
+
+#: ../../webtop.rst:904
+msgid "Browser notifications"
+msgstr ""
+
+#: ../../webtop.rst:906
+msgid "WebTop can notifies new mail messages and upcoming calendar events."
+msgstr ""
+
+#: ../../webtop.rst:908
+msgid "To activate it, simply access the general settings of your user:"
+msgstr ""
+
+#: ../../webtop.rst:912
+msgid "It is possible to enable desktop notification in two modes:"
+msgstr ""
+
+#: ../../webtop.rst:914
+msgid ""
+":guilabel:`Always`: notifications will always be shown, even with the "
+"browser open"
+msgstr ""
+
+#: ../../webtop.rst:915
+msgid ""
+":guilabel:`Auto (in background only)`: notifications will be shown only "
+"when the browser is in the background"
+msgstr ""
+
+#: ../../webtop.rst:917
+msgid "Make sure to allow notifications inside your browser."
+msgstr ""
+
+#: ../../webtop.rst:919
+msgid ""
+"If you need to enable this consent later on a different browser just "
+"click on the appropriate button:"
+msgstr ""
+
+#: ../../webtop.rst:925
+msgid "External IMAP accounts (Beta)"
+msgstr ""
+
+#: ../../webtop.rst:927
+msgid ""
+"External IMAP accounts can be accessed in read-only mode. Each user can "
+"have maximum 3 external accounts."
+msgstr ""
+
+#: ../../webtop.rst:930
+msgid "To enable the feature:"
+msgstr ""
+
+#: ../../webtop.rst:932
+msgid ""
+"Access the administration panel, then selected :guilabel:`Properties "
+"(system)`"
+msgstr ""
+
+#: ../../webtop.rst:933
+msgid ""
+"Click on :guilabel:`Add` button and selected "
+":guilabel:`com.sonicle.webtop.mail`"
+msgstr ""
+
+#: ../../webtop.rst:934
+msgid "Create a new key named ``external-account.enabled`` with value ``true``"
+msgstr ""
+
+#: ../../webtop.rst:935
+msgid "Give a specific authorization to the user by setting:"
+msgstr ""
+
+#: ../../webtop.rst:937
+msgid "Service: ``com.sonicle.webtop-mail``"
+msgstr ""
+
+#: ../../webtop.rst:938
+msgid "Resource: ``EXTERNAL_ACCOUNT_SETTINGS``"
+msgstr ""
+
+#: ../../webtop.rst:939
+msgid "Action: ``CHANGE``"
+msgstr ""
+
+#: ../../webtop.rst:941
+msgid ""
+"Users can now configure personal external accounts by accessing the "
+":guilabel:`Settings` section."
+msgstr ""
+
+#: ../../webtop.rst:944
+msgid "Subscribing remote resources"
+msgstr ""
+
+#: ../../webtop.rst:946
+msgid ""
+"WebTop supports subscription to remote calendars and contacts (directory)"
+" using CardDAV, CalDAV and iCal."
+msgstr ""
+
+#: ../../webtop.rst:949
+msgid "Remote calendars"
+msgstr ""
+
+#: ../../webtop.rst:951
+msgid ""
+"An Internet Calendar can be added and synchronized. To do so just click "
+"the right button on personal calendars, :guilabel:`Add Internet "
+"Calendar`. Two types of remote calendars are supported: WebCal (ICS "
+"format) and CalDAV."
+msgstr ""
+
+#: ../../webtop.rst:957
+msgid ""
+"Synchronization of Webcal calendars (ICS) is always done by downloading "
+"every event on the remote resource every time, while only the differences"
+" are synchronized with the CalDAV mode"
+msgstr ""
+
+#: ../../webtop.rst:960
+msgid "Example of Google Cal remote calendar (Webcal only - ICS)"
+msgstr ""
+
+#: ../../webtop.rst:962
+msgid ""
+"Take the public access ICS link from your Google calendar: "
+":guilabel:`Calendar options -> Settings and sharing -> Secret address in "
+"iCal format`"
+msgstr ""
+
+#: ../../webtop.rst:964
+msgid ""
+"On WebTop, add an Internet calendar of type Webcal and paste the copied "
+"URL without entering the authentication credentials in step 1 of the "
+"wizard."
+msgstr ""
+
+#: ../../webtop.rst:966
+msgid ""
+"The wizard will connect to the calendar, giving the possibility to change"
+" the name and color, and then perform the first synchronization."
+msgstr ""
+
+#: ../../webtop.rst:970
+msgid ""
+"The first synchronization may fail due to Google's security settings. If "
+"you receive a notification that warns you about accessing your resources "
+"you need to allow them to be used confirming that it is a legitimate "
+"attempt."
+msgstr ""
+
+#: ../../webtop.rst:974
+msgid "Remote contacts (directory)"
+msgstr ""
+
+#: ../../webtop.rst:977
+msgid "Google CardDAV remote address book"
+msgstr ""
+
+#: ../../webtop.rst:979
+msgid "Steps:"
+msgstr ""
+
+#: ../../webtop.rst:981
+msgid ""
+"on Webtop, configure a new Internet address book, right-click on "
+":guilabel:`Personal Categories -> Add Internet address book` and and "
+"enter a URL of this type in step 1 of the wizard: "
+"``https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/``"
+" Replace the ``X`` with your GMail account"
+msgstr ""
+
+#: ../../webtop.rst:985
+msgid ""
+"enter the authentication credentials (as user name use the full address "
+"of gmail):"
+msgstr ""
+
+#: ../../webtop.rst:989
+msgid ""
+"the wizard in the following steps will connect to the phonebook, giving "
+"the possibility to change the name and color, and then perform the first "
+"synchronization"
+msgstr ""
+
+#: ../../webtop.rst:991
+msgid ""
+"You must enable the synchronization into your Google account and enable "
+"access for `App Password "
+"<https://support.google.com/accounts/answer/185833>`_."
+msgstr ""
+
+#: ../../webtop.rst:993
+msgid ""
+"Synchronization of remote resources can be performed manually or "
+"automatically."
+msgstr ""
+
+#: ../../webtop.rst:996
+msgid "Automatic synchronization"
+msgstr ""
+
+#: ../../webtop.rst:998
+msgid ""
+"To synchronize automatically you can choose between three time intervals:"
+" 15, 30 and 60 minutes. The choice of the time interval can be made in "
+"the creation phase or later by changing the options. To do this, right-"
+"click on the phonebook (or on the calendar), :guilabel:`Edit Category`, "
+":guilabel:`Internet Addressbook` (or :guilabel:`Internet Calendar`):"
+msgstr ""
+
+#: ../../webtop.rst:1005
+msgid "Manual synchronization"
+msgstr ""
+
+#: ../../webtop.rst:1007
+msgid ""
+"To update a remote address book, for example, click on it with the right "
+"mouse button and then select the item \"Synchronize\":"
+msgstr ""
+
+#: ../../webtop.rst:1011
+msgid ""
+"For CardDAV address books, as well as for remote CalDAV calendars, you "
+"can select whether to perform a full synchronization or only for changes."
+" To do this, right-click on the phonebook (or on the calendar), "
+":guilabel:`Edit Category`:"
+msgstr ""
+
+#: ../../webtop.rst:1016
+msgid "Select the desired mode next to the synchronization button:"
+msgstr ""
+
+#: ../../webtop.rst:1021
+msgid "User access and user session logs"
+msgstr ""
+
+#: ../../webtop.rst:1023
+msgid ""
+"The table showing the entire log of accesses and sessions for each user "
+"is available under the administrator panel. Access the "
+":guilabel:`Administration` menu, then :guilabel:`Domains` --> "
+":guilabel:`NethServer` --> :guilabel:`Audit (domain)` --> "
+":guilabel:`Access log`."
+msgstr ""
+
+#: ../../webtop.rst:1026
+msgid ""
+"For each access, the table reports the following data in columns: session"
+" ID, user name, date and time, session duration, authentication status "
+"and any login errors."
+msgstr ""
+
+#: ../../webtop.rst:1028
+msgid ""
+"You can enable public IP geolocation. First, you need to register an "
+"account on `ipstack <https://ipstack.com/>`_ and obtain the ``API KEY`` "
+"to insert in the configuration db."
+msgstr ""
+
+#: ../../webtop.rst:1030
+msgid ""
+"Login to the administration panel -> :guilabel:`Property (system)` -> "
+":guilabel:`add` -> :guilabel:`com.sonicle.webtop.core (WebTop)` -> enter "
+"the following data in the fields :guilabel:`Key` e :guilabel:`Value` :"
+msgstr ""
+
+#: ../../webtop.rst:1032
+msgid "``geolocation.provider`` = ``ipstack``"
+msgstr ""
+
+#: ../../webtop.rst:1033
+msgid "``geolocation.ipstack.apikey``  = ``<API KEY FROM PROVIDER>``"
+msgstr ""
+
+#: ../../webtop.rst:1035
+msgid ""
+"Then, logout and a login again. To show the IP geolocation please click "
+"on the icon at the far right of the row:"
+msgstr ""
+
+#: ../../webtop.rst:1039
+msgid "**Impersonate login**"
+msgstr ""
+
+#: ../../webtop.rst:1041
+msgid ""
+"By default, the logins made through impersonate (``admin!<user>``) are "
+"not shown in the access logs table. In order to also add this type of "
+"access, you need to add the following key for the core service:"
+msgstr ""
+
+#: ../../webtop.rst:1044
+msgid "``key`` = ``audit.logimpersonated``"
+msgstr ""
+
+#: ../../webtop.rst:1045
+msgid "``value`` = ``true``"
+msgstr ""
+
+#: ../../webtop.rst:1048
+msgid "New device notification"
+msgstr ""
+
+#: ../../webtop.rst:1050
+msgid ""
+"You can receive an email that notifies when a new device accesses the "
+"account for the first time."
+msgstr ""
+
+#: ../../webtop.rst:1052
+msgid ""
+"By default, this feature is disabled for all users to avoid too many "
+"unintentional false positives on first login."
+msgstr ""
+
+#: ../../webtop.rst:1054
+msgid ""
+"You can `customize this feature "
+"<https://www.sonicle.com/docs/webtop5/core.html#security-settings>`_ by "
+"access ing the administrator panel."
+msgstr ""
+
+#: ../../webtop.rst:1058
+msgid ""
+"Accesses made through impersonate (``admin!<user>``) will never send an "
+"email notification"
+msgstr ""
+
+#: ../../webtop.rst:1061
+msgid "Maximum file size limit"
+msgstr ""
+
+#: ../../webtop.rst:1063
+msgid "There are pre-configured limits related to the maximum file size:"
+msgstr ""
+
+#: ../../webtop.rst:1065
+msgid "Maximum file size for chat uploads (internal default = 10 MB)"
+msgstr ""
+
+#: ../../webtop.rst:1066
+msgid "Maximum file size single message attachment (internal default = 10 MB)"
+msgstr ""
+
+#: ../../webtop.rst:1067
+msgid "Maximum file size for cloud internal uploads (internal default = 500 MB)"
+msgstr ""
+
+#: ../../webtop.rst:1068
+msgid "Maximum file size for cloud public uploads (internal default = 100 MB)"
+msgstr ""
+
+#: ../../webtop.rst:1070
+msgid ""
+"To change these default values for all users, the following keys can be "
+"added via the admin interface: :guilabel:`Properties (system) -> Add`. "
+"The value must be expressed in ``bytes``. Example: ``10MB = 10485760 "
+"bytes``."
+msgstr ""
+
+#: ../../webtop.rst:1073
+msgid "**Maximum file size for chat uploads**"
+msgstr ""
+
+#: ../../webtop.rst:1075
+msgid "Service: ``com.sonicle.webtop.core``"
+msgstr ""
+
+#: ../../webtop.rst:1076
+msgid "Key: ``im.upload.maxfilesize``"
+msgstr ""
+
+#: ../../webtop.rst:1078
+msgid "**Maximum file size for single message attachment**"
+msgstr ""
+
+#: ../../webtop.rst:1080
+msgid "Service: ``com.sonicle.webtop.mail``"
+msgstr ""
+
+#: ../../webtop.rst:1081
+msgid "Key: ``attachment.maxfilesize``"
+msgstr ""
+
+#: ../../webtop.rst:1083
+msgid "**Maximum file size for cloud internal uploads**"
+msgstr ""
+
+#: ../../webtop.rst:1085 ../../webtop.rst:1090
+msgid "Service: ``com.sonicle.webtop.vfs``"
+msgstr ""
+
+#: ../../webtop.rst:1086
+msgid "Key: ``upload.private.maxfilesize``"
+msgstr ""
+
+#: ../../webtop.rst:1088
+msgid "**Maximum file size for cloud public uploads**"
+msgstr ""
+
+#: ../../webtop.rst:1091
+msgid "Key: ``upload.public.maxfilesize``"
+msgstr ""
+
+#: ../../webtop.rst:1095
+msgid "Import contacts and calendars"
+msgstr ""
+
+#: ../../webtop.rst:1097
+msgid ""
+"WebTop supports importing contacts and calendars from various file "
+"formats."
+msgstr ""
+
+#: ../../webtop.rst:1100
+msgid "Contacts"
+msgstr ""
+
+#: ../../webtop.rst:1102
+msgid "Supported contacts format:"
+msgstr ""
+
+#: ../../webtop.rst:1104
+msgid "CSV  - Comma Separated values (\\*.txt, \\*.csv)"
+msgstr ""
+
+#: ../../webtop.rst:1105
+msgid "Excel (\\.*xls, \\*.xlsx)"
+msgstr ""
+
+#: ../../webtop.rst:1106
+msgid "VCard (\\*.vcf, \\*.vcard)"
+msgstr ""
+
+#: ../../webtop.rst:1107
+msgid "LDIF (\\*.ldif)"
+msgstr ""
+
+#: ../../webtop.rst:1110
+msgid "To import contacts:"
+msgstr ""
+
+#: ../../webtop.rst:1112
+msgid ""
+"right click on the target phone book, then select :guilabel:`Import "
+"contacts`"
+msgstr ""
+
+#: ../../webtop.rst:1116
+msgid ""
+"select the import format and make sure that fields on the file match the "
+"ones available on WebTop"
+msgstr ""
+
+#: ../../webtop.rst:1120
+msgid ""
+"If you are importing a phone book exported from Outlook, make sure to set"
+" :guilabel:`Text qualifier` to ``\"`` value."
+msgstr ""
+
+#: ../../webtop.rst:1126
+msgid "Calendars"
+msgstr ""
+
+#: ../../webtop.rst:1128
+msgid "Supported calendar format: iCalendar (\\*.ics, \\*.ical, \\*.icalendar)"
+msgstr ""
+
+#: ../../webtop.rst:1130
+msgid "To import events:"
+msgstr ""
+
+#: ../../webtop.rst:1132
+msgid "right click on the target calendar, then select :guilabel:`Import events`"
+msgstr ""
+
+#: ../../webtop.rst:1136
+msgid "select the import format"
+msgstr ""
+
+#: ../../webtop.rst:1140
+msgid ""
+"then choose if you want to delete all existing events and import new "
+"ones, or just append imported data to existing calendar events"
+msgstr ""
+
+#: ../../webtop.rst:1146
+msgid "Mail composer customization"
+msgstr ""
+
+#: ../../webtop.rst:1149
+msgid "Hide auto-suggested recipient in lookups"
+msgstr ""
+
+#: ../../webtop.rst:1151
+msgid ""
+"You can disable the suggestion of automatically saved addresses. Access "
+"the web administration panel -> :guilabel:`Properties (system)` -> "
+":guilabel:`Add` ->, select :guilabel:`com.sonicle.webtop.core (WebTop)` "
+"and enter the data in the :guilabel:`Key` and :guilabel:`Value` fields "
+"according to the key to be configured:"
+msgstr ""
+
+#: ../../webtop.rst:1155
+msgid "``recipient.provider.auto.enabled`` = false  (default is true)"
+msgstr ""
+
+#: ../../webtop.rst:1158
+msgid "Edit subject of a mail and save it"
+msgstr ""
+
+#: ../../webtop.rst:1160
+msgid ""
+"To enable the modification of the subject for received and sent emails, "
+"access the web administration panel -> :guilabel:`Properties (system)` ->"
+" :guilabel:`Add` -> select :guilabel:`com.sonicle.webtop.mail (Mail)` and"
+" enter the data in the :guilabel:`Key` and :guilabel:`Value` fields "
+"according to the key to be configured:"
+msgstr ""
+
+#: ../../webtop.rst:1162
+msgid "``message.edit.subject`` = true  (default is false)"
+msgstr ""
+
+#: ../../webtop.rst:1165
+msgid "Delete automatically suggested email addresses"
+msgstr ""
+
+#: ../../webtop.rst:1167
+msgid ""
+"When compiling the recipient of a mail, some automatically saved email "
+"addresses are suggested. If you need to delete someone because it is "
+"wrong, move with the arrow keys until you select the one you want to "
+"delete (without clicking on it), then delete it with :guilabel:`Shift + "
+"Canc`"
 msgstr ""
 
 #~ msgid ""
