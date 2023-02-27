@@ -65,7 +65,7 @@ Default credentials are:
 The administrator user's password must be changed from within the WebTop interface.
 
 .. warning::
-   **Remember to change the admin password after installation!**
+   Remember to change the admin password after installation!
 
 
 To check the mail of the system's user admin account use the following login: admin@<domain> where ``<domain>`` is the
@@ -78,7 +78,7 @@ domain part of server FQDN.
 * Login: admin@mightydomain.com
 
 Change admin password
-=====================
+---------------------
 
 .. |hamburger| image:: _static/webtop-hamburger.png
 
@@ -91,7 +91,7 @@ Changing the logo
 =================
 
 To modify and customize the initial logo that appears on the login page of WebTop,
-you must upload the custom image file on the public images of the admin user and rename it with "login.png".
+you must upload the custom image file on the public images of the admin user and rename it ``login.png``.
 
 Proceed as follows:
 
@@ -109,11 +109,6 @@ Proceed as follows:
 
 5. the next login will show the new logo on the login page
 
-.. note::
-
-  Custom logo will be shown only when accessing Webtop using  its public URL.
-  The default public URL is the server FQDN, but it could be changed as described in the section below.
-
 User settings management
 ========================
 
@@ -128,27 +123,30 @@ The administrator can :index:`impersonate` users, to check existing accounts usi
 While impersonating you receive similar user privileges, allowing you to control exactly what the user can see.
 Full administration of user settings is available directly in the administration interface, by right clicking on a user: the settings menu will open the full user settings panel, with all options unlocked.
 
-It is also possible to make a massive change of the email domain of the selected users: select the users (Click + CTRL for multiple selection) to which you want to apply this change then right-click on :guilabel:`Bulk update email domain`.
+You can also change the email of all selected users: 
+
+1. select the users (Click + CTRL for multiple selection)
+2. right-click on :guilabel:`Bulk update email domain`
 
 Two factor authentication (2FA)
 ===============================
 
-WebTop support :index:`two factor authentication`.
+WebTop support the :index:`two factor authentication`.
 The user can choose between:
 
-- Google Authenticator: the code will be generated using Google Authenticator app (https://support.google.com/accounts/answer/1066447?co=GENIE.Platform%3DAndroid)
-- Secondary mail: the access code will be sent to selected mail address
+- Google Authenticator app (`Android <https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2>`_, `iOS <https://apps.apple.com/it/app/google-authenticator/id388497605>`_)
+- secondary mail address
 
 To enable 2FA:
 
-- Click on the menu button on the top-right corner and select the :guilabel:`Settings` icon
-- Then select :guilabel:`Security` and click on the :guilabel:`Activate button`.
+- click on the menu button on the top-right corner and select the :guilabel:`Settings` icon
+- then select :guilabel:`Security` and click on the :guilabel:`Activate button`
 
 .. image:: _static/webtop-2fa.png
 
 
-Synchronization with ActiveSync (EAS)
-=====================================
+ActiveSync (EAS) synchronization
+================================
 
 Mobile devices can be synchronized using ActiveSync.
 :index:`ActiveSync` can be used only for **contacts** and **calendars**.
@@ -156,7 +154,7 @@ Mobile devices can be synchronized using ActiveSync.
 Apple iOS
 ---------
 
-Access your :index:`iOS device`, navigate to Settings and add an Exchange account following the official guide: https://support.apple.com/en-us/HT201729
+Access your :index:`iOS device`, navigate to Settings and add an Exchange account following the `official guide <https://support.apple.com/en-us/HT201729>`_.
 
 Fill the required fields with:
 
@@ -174,7 +172,7 @@ Fill the required fields with:
 Google Android
 --------------
 
-Access your :index:`Android device`, navigate to Settings, then select :guilabel:`Add account` -> :guilabel:`Exchange` (or "Company" for older releases).
+Access your :index:`Android device`, navigate to Settings, then select :guilabel:`Add account` -> :guilabel:`Exchange` (or `Company` for older releases).
 
 Fill the required fields with:
 
@@ -188,20 +186,20 @@ Finally, if you have a self-signed certificate on your server, make sure to sele
 .. note::
 
    On some Android releases (notably Samsung), the User name and Domain must be entered in the same line.
-   In this case, leave blank the field before the backslash character (\), and enter the user name in the following format: ``\goofy@nethserver.org``
+   In this case, leave blank the field before the backslash character ``\``, and enter the user name in the following format: ``\goofy@nethserver.org``
 
 Multiple calendars and contacts
 -------------------------------
 
-Calendars and address books shared by others with the user can be synchronized using the ActiveSync protocol.
+Shared calendars and address books can be synchronized using the ActiveSync protocol.
 
-Shared resources are displayed with the owner's name and category (the number in square brackets is the internal id).
+Shared resources are displayed with the owner's name and category. The number in square brackets is the internal id.
 Private events are not synchronized.
 
 Mobile devices based on Apple iOS fully support folders / categories for calendar, contacts and activities (called reminders), including original colors.
 
-Mobile devices based on Android support only calendars and contacts (activities are not supported),
-but using the Google Calendar application all items will have the same color.
+Mobile devices based on Android support only calendars and contacts, activities are not supported.
+Using the Google Calendar application all items will have the same color.
 
 Installing and using the `CloudCal <https://pselis.com/cloudcal/>`_ application,
 you can change the colors associated with each calendar, including shared ones.
@@ -217,18 +215,17 @@ a single view. Contacts can be modified and changes will be saved it the origina
   .. image:: _static/webtop-multiple_sync.png
                :alt: Multiple synchronization
 
-It is possible to enable or disable the synchronization for each shared resource (calendars and contacts).
-The user can customize every resource sharing with him by deciding the type of synchronization.
+It is possible to enable or disable the synchronization for each shared resource.
 
-To do so, just right click on the shared resource → Customize → Devices sync.:
+To do so, just right click on the shared resource :menuselection:`Customize → Devices sync.`:
 
   .. image:: _static/webtop-sync_shared_eas.png
                :alt: Sync shared EAS
 
-The default setting is “Not active”.
+The default setting is ``Not active``.
 
-Synchronization with CalDAV and CardDAV
-=======================================
+CalDAV and CardDAV synchronization
+==================================
 
 Calendars and address books can be synchronized also through :index:`CalDAV and CardDAV protocols`.
 
@@ -258,33 +255,31 @@ Google Android
 
 A good, free, Android third-party client is `Opensync <https://deependhulla.com/android-apps/opensync-app>`_.
 
-- install the suggested app from the market;
-- add a new account clicking on :guilabel:`+` key and select :guilabel:`Login with URL and username` method;
-- insert the ``URL`` (``https://<server_name>``), complete username (i.e. *goofy@nethserver.org*) and password;
-- click on the new profile and select the resources you want to synchronize.
+- install the suggested app from the market
+- add a new account clicking on :guilabel:`+` key and select :guilabel:`Login with URL and username` method
+- insert the ``URL`` (``https://<server_name>``), complete username (i.e. *goofy@nethserver.org*) and password
+- click on the new profile and select the resources you want to synchronize
 
 Apple iOS
 ---------
 
 CalDAV/CardDAV support is built-in on iOS, so to configure it:
 
-- go to Settings -> Account and Password -> Add account;
-- select :guilabel:`Other` -> Add :guilabel:`CalDAV` or :guilabel:`CardDAV` account;
-- insert the server name (i.e. *server.nethserver.org*), complete username (i.e. *goofy@nethserver.org*) and password.
+- go to :guilabel:`Settings` -> :guilabel:`Account and Password` -> :guilabel:`Add account`
+- select :guilabel:`Other` -> Add :guilabel:`CalDAV` or :guilabel:`CardDAV` account
+- insert the server name (i.e. *server.nethserver.org*), complete username (i.e. *goofy@nethserver.org*) and password
 
 Desktop clients
------------------------------
+---------------
 
 **Thunderbird**
 
-To use CalDAV and CardDAV on Thunderbird you need third-party add-ons like :guilabel:`Cardbook` (for contacts) and :guilabel:`Lightning` (for calendars).
-
-- :guilabel:`Cardbook` add-on works fine, with easy setup and auto-discovery support.
-- :guilabel:`Lightning` add-on doesn't support auto-discovery: any calendar must be manually added.
+Thunderbird already includes supports for CalDAV calendars.
+To synchronize the contacts with CardDAV you need a third-party add-on like `Cardbook <https://addons.thunderbird.net/it/thunderbird/addon/cardbook/>`_.
 
 **Outlook**
 
-- open source :guilabel:`Outlook CalDav Synchronizer` client works fine, supporting both CardDAV and CalDAV.
+The Open Source `CalDAV Synchronizer <https://caldavsynchronizer.org/>`_ plugin for Outlook supports both CardDAV and CalDAV.
 
 .. warning::
 
@@ -293,19 +288,19 @@ To use CalDAV and CardDAV on Thunderbird you need third-party add-ons like :guil
    The use of CalDAV/CardDAV through third-party clients **cannot be considered a web interface alternative**.
 
 
-Sharing email folders or the entire account
-===========================================
+Shareing email
+==============
 
-It is possible to share a single folder or the entire account with all the subfolders included.
+It is possible to share a single folder or the entire account with all included subfoldes.
 Select the folder to share -> right click -> :guilabel:`Manage sharing`:
 
 .. image:: _static/webtop-sharing_mail_folder_1.png
 
-- select the user to share the resource (1).
-- select if you want to share your identity with the user and possibly even if you force your signature (2).
-- choose the level of permissions associated with this share (3).
-- if you need to further change the permission levels, select "Advanced" (4).
-- finally, choose whether to apply sharing only to the folder from which you started, or only to the branch of subfolders or to the entire account (5).
+- select the user to share the resource (1)
+- select if you want to share your identity with the user and possibly even if you force your signature (2)
+- choose the level of permissions associated with this share (3)
+- if you need to further change the permission levels, select ``Advanced`` (4)
+- finally, choose whether to apply sharing only to the folder from which you started, or only to the branch of subfolders or to the entire account (5)
 
 .. image:: _static/webtop-sharing_mail_folder_2.png
 
@@ -331,7 +326,7 @@ Select the recipient user of the share (or Group) and enable permissions for bot
 Sharing Contacts
 ----------------
 
-In the same way, you can always share your contacts by selecting the directory you want to share -> right click -> "Sharing and permissions".
+In the same way, you can always share your contacts by selecting the directory you want to share -> right click -> :guilabel:`Sharing and permissions`.
 Select the recipient user of the share (or Group), and enable permissions for both the folder and the individual items.
 
 
@@ -354,14 +349,15 @@ In order to manage the Shared labels it is necessary to activate a specific auth
 
 .. |tools| image:: _static/webtop-tools.png
 
-The management of labels can be reached from this |tools| button at the top right.
+You can manage the labeles from the tools |tools| button icon at the top right corner.
 
-The same functionality can also be reached from the individual modules (Mail, Address Book, Calendar and Tasks) by right clicking -> :guilabel:`Labels` -> :guilabel:`Manage labels`.
+The same functionality can also be reached from the individual modules by right clicking -> :guilabel:`Labels` -> :guilabel:`Manage labels`.
 
 Visibility can be set only during label creation. To change the label visibility you need to delete the label and recreate it again.
 
-The created labels (both Private and Shared) can be used on any other module (Mail, Address Book, Calendar and Tasks).
+The created labels can be used on any other module like Mail, Address Book, Calendar and Tasks.
 
+.. _custom_fields-section:
 
 Custom fields
 =============
@@ -385,11 +381,10 @@ To create a new custom field it is necessary to fill in at least the :guilabel:`
 .. image:: _static/webtop-cf2.png
 
 For the :guilabel:`Name` field only alphanumeric characters (including ``-`` and ``_``) are allowed. **Spaces are not allowed**.
-The :guilabel:`Description` field is used to add details to the field and the :guilabel:`Label` field represents the label that will be shown in correspondence with the field within the panel in which it will be used.
+The :guilabel:`Description` field is used to add details to the field and the :guilabel:`Label` field represents the label that will be sshow anlong
+with the field.
 
-For each field it is possible to enable these two options:
-
-.. image:: _static/webtop-cf3.png
+For each field it is possible to enable two options:
 
 - :guilabel:`Show in search bar`: the field is added in the multiple search window (a new access will be required)
 - :guilabel:`Show in preview`: the field is shown in the preview window of a contact
@@ -400,7 +395,7 @@ For the :guilabel:`List box` type it is necessary to fill in the values to be se
 
 .. image:: _static/webtop-cf4.png
 
-Using the :guilabel:`Clone` button you can copy the custom field to create a similar one:
+Using the :guilabel:`Clone` button you can copy the custom field to create similar ones:
 
 .. image:: _static/webtop-cf5.png
 
@@ -416,7 +411,7 @@ One of the best functionalities of custom fields is the possibility to perform m
 Custom panels
 =============
 
-With custom panels you can use the custom fields already created and associate them to the resources in each module (contacts, events and activities).
+Custom panels display the `:ref:`custom_fields-section` and associated them to resources.
 
 Users with the authorization to manage custom fields can access the configuration panel using the button at the top right:
 
@@ -425,31 +420,12 @@ Users with the authorization to manage custom fields can access the configuratio
 When creating a new panel it is mandatory to indicate the :guilabel:`Name` that will appear in the resource. You can also insert a :guilabel:`Description` and a :guilabel:`Title`.
 
 Using shared labels, you can easily assign panels to specific resource categories.
-A panel without any associated label will be assigned to every available resource (all contacts, all events or all activities).
+A panel without an associated label will be visible for every available resource: all contacts, all events or all activities.
 
-Through the :guilabel:`Add` button it will be possible to select which custom fields to use among those already created in the panel.
+Use the :guilabel:`Add` button to add a custom fields inside the panel.
 
-Manage identities
-=================
-
-In :menuselection:`settings --> mail --> identities` click :guilabel:`Add` and fill in the fields
-
-.. image:: _static/webtop_manageident1.png
-
-It is possible to associate the new identity with a folder in your account or of a shared account
-
-**Local account:**
-
-.. image:: _static/webtop_manageident2.png
-
-**Shared account:**
-
-.. image:: _static/webtop_manageident3.png
-
-Otherwise the sent mails will always end up in the "Sent Items" folder of your personal account.
-
-Mailcards of user and domain
-============================
+Mailcards
+=========
 
 One of the main features of managing signatures on WebTop is the opportunity to integrate images or custom fields profiled per user.
 
@@ -475,7 +451,7 @@ To change your signature, each user can access the :menuselection:`Settings --> 
 
 .. image:: _static/webtop-edit_mailcard.png
 
-Yuu can use the uploaded image inside the mailcard with this button:
+You can use the uploaded image inside the mailcard with this button:
 
 .. image:: _static/webtop-public_signature.png
 
@@ -498,8 +474,8 @@ that can be used within the template-based fields within the domain mailcard edi
 
 In this way it is possible to create a single mailcard that will be automatically customized for every user who does not use his own mailcard.
 
-Configure multiple mailcards for a single user
-==============================================
+Multiple mailcards
+------------------
 
 It is possible to configure multiple mailcards (HTML signatures) for each user.
 
@@ -542,7 +518,7 @@ The system automatically creates a new special Archives folder
 
 If the :guilabel:`Archives` folder does not appear immediately upon login, it will appear at the first archiving.
 
- There are three archiving criteria in :menuselection:`Settings -> Mail -> Archiving`
+There are three archiving criteria:
 
 * **Single folder:** a single root for all archived emails
 * **Per year:** a root for each year
@@ -560,15 +536,15 @@ The archiving operation is accessible from the contextual menu (right click). Cl
 
 The system will process archiving according to the last settings chosen.
 
-Subscription of IMAP folders
-============================
+IMAP folders subscription
+=========================
 
-On WebTop, by default, all IMAP folders on the server are automatically subscribed and therefore visible since the first login.
+By default, all IMAP folders on the server are automatically subscribed and therefore visible since the first login.
 
 If you want to hide from the view some folders, which is equivalent to removing the subscription,
-you can do so by simply clicking the right mouse button on the folder to hide and select from the interactive menu the item "Hide from the list".
+you can do so by simply clicking the right mouse button on the folder to hide and select from the interactive menu the item :guilabel:`Hide from the list`.
 
-For example, if you want to hide the subfolder "folder1" from this list, just right-click on it and select "Hide from the list":
+For example, if you want to hide the subfolder ``folder1`` from this list, just right-click on it and select :guilabel:`Hide from the list`:
 
 .. image:: _static/webtop-sub_imap_folder1.png
 
@@ -583,6 +559,8 @@ and click on the icon on the left:
 
 Customize proactive security on emails
 ===============================================
+
+FIXME: describe what is
 
 The proactive security function on email messages allows some customization both for the **end user** and the WebTop **admin**.
 
@@ -700,15 +678,13 @@ You can also narrow the search by filling multiple search fields.
 Nextcloud integration
 =====================
 
-.. note::
-
-   Before proceeding, verify that the **Nextcloud** module has been installed
-   from :guilabel:`Software Center`
+Before proceeding, verify that the **Nextcloud** module has been installed
+from the :ref:`software_center-section`.
 
 By default, Nextcloud integration is disabled for all users.
 To enable it, use the administration panel which can be accessed using the webtop admin password
 
-For example, if you want to activate the service for all webtop users, proceed as follows:
+If you want to enable the service for all users, proceed as follows:
 
 1. access the administrative panel and select :guilabel:`Groups`:
 
@@ -753,17 +729,14 @@ A pre-filled wizard will open:
   
 Proceed with the Next button until the Wizard is complete.
 
-Use the personal Cloud to send and receive documents
-====================================================
+Personal Cloud
+==============
 
-Cloud module allows you to send and receive documents through web links.
-
-.. note::
-
-   The server must be reachable in HTTP on port 80
+The personal Cloud module allows you to send and receive documents through web links.
 
 How to create a link to send a document
 ---------------------------------------
+
 To create the link, select the button at the top right:
 
 .. image:: _static/webtop-doc_cloud1.png
@@ -822,8 +795,8 @@ To enable chat integration:
    - :menuselection:`Add (+) --> Services --> com.sonicle.webtop.core (WebTop) --> Resource --> WEBCHAT --> Action --> ACCESS`
    - Click :guilabel:`OK` then save and close
 
-Jitsi integration and support for links to third-party video calls
-==================================================================
+Jitsi integration
+=================
 
 With this integration it is possible to start a new video conference and send the invitation via email, or schedule one by creating the event directly from the calendar.
 To activate the integration it is necessary to configure the `Jitsi <https://jitsi.org/>`_ instance that you would like to use directly from admin panel by modifying the `documented global settings <https://www.sonicle.com/docs/webtop5/core.html#meeting-integration-settings>`_
@@ -867,20 +840,24 @@ If an event contains a link to a third-party video conference, the buttons that 
 
 .. image:: _static/webtop_jitsi5.png
 
+
+Third-party video calls
+-----------------------
+
 The video conferencing services that are currently supported, in addition to Jitsi, are: Google Meet, MS Teams and Zoom.
 It is possible to add additional platforms through a `global setting <https://www.sonicle.com/docs/webtop5/core.html#meeting-integration-settings>`_.
 
 
-Send SMS from contacts
-======================
+SMS integration
+===============
 
-It is possible to send SMS messages to a contact that has the mobile number in the address book.
-To activate sending SMS, first you need to choose one of the two supported providers: `SMSHOSTING <https://www.smshosting.it/it>`_ or `TWILIO <https://www.twilio.com/>`_.
+It is possible to send SMS (Short Message Service) messages to a contact that has the mobile number in the address book.
+To activate sending SMS, first you need to choose one of the two supported providers: `smshosting <https://www.smshosting.it/it>`_ or `twilio <https://www.twilio.com/>`_.
 
-Once registered to the service of the chosen provider, retrieve the API keys (AUTH_KEY and AUTH_SECRET) to be inserted in the WebTop configuration db.
+Once registered to the service of the chosen provider, retrieve the API keys (``AUTH_KEY`` and ``AUTH_SECRET``) to be inserted in the WebTop configuration db.
 The settings to configure are those shown `here <https://www.sonicle.com/docs/webtop5/core.html#sms-settings>`_ .
 
-It is possible to do this from web interface by accessing the administration panel -> :guilabel:`Properties (system)` -> :guilabel:`Add` -> select :guilabel:`com.sonicle.webtop.core (WebTop)` and enter the data in the :guilabel:`Key` and :guilabel:`Value` fields according to the key to be configured:
+You can do it by accessing the administration panel -> :guilabel:`Properties (system)` -> :guilabel:`Add` -> select :guilabel:`com.sonicle.webtop.core (WebTop)` and enter the data in the :guilabel:`Key` and :guilabel:`Value` fields according to the key to be configured:
 
 ``sms.provider`` = smshosting or twilio
 
@@ -899,8 +876,11 @@ It is possible to indicate a number (max 16 characters) or a text (max 11 charac
 
 To send SMS from the address book, right-click on a contact that has the mobile field filled in -> :guilabel:`Send SMS`
 
-Custom link buttons in launcher
-===============================
+Launcher customization
+======================
+
+The launcher is the icon menu on the left of the page.
+You can add custom buttont the launcher.
 
 To configure the buttons access the WebTop administration panel and select -> :guilabel:`Domains` -> :guilabel:`NethServer` ->  :guilabel:`Launcher` :
 
@@ -909,30 +889,22 @@ To configure the buttons access the WebTop administration panel and select -> :g
 
 For each button, enter these three values
 
-``Name`` : tab descriptive text that appears with mouse-over
+* ``Name`` : tab descriptive text that appears with mouse-over
+* ``Link URL`` : URL opened in a new browser
+* ``Icon URL`` : icon image URL, it should always be a publicly reachable address. To avoid scaling problems, use vector images
 
-``Link URL`` : URL opened in a new browser
+If you ca't find a public URL for the icon image, you can upload the icon on Webtop public cloud.
+WebTop public cloud already hosts mailcards images.
+Access the administrator panel and click on :guilabel:`Cloud` -> :guilabel:`Public Images`,
+then insert a URL like ``https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>``.
 
-``Icon URL`` : icon image URL (to avoid scaling problems, use vector images)
-
-
-.. warning::
-   The URL of the icon from which to retrieve the vector image must always be publicly reachable by the browser with which you connect.
-
-If you can not retrieve an Internet link of the icon image, you can copy the image locally on the server in this ways:
-
-#. uploading the icon file to the public cloud of WebTop (where images are uploaded for mailcards) via the administration
-   panel -> :guilabel:`Cloud` -> :guilabel:`Public Images` and insert a URL of this type for the 'Icon URL' field: ``https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>``
-
-.. note::
-
-   The configured custom link buttons will be shown to all users at the next login.
+The configured custom link buttons will be shown to all users at the next login.
 
 
 Browser notifications
 =====================
 
-With WebTop, the desktop notification mode integrated with the browser was introduced.
+WebTop can notifies new mail messages and upcoming calendar events.
 
 To activate it, simply access the general settings of your user:
 
@@ -943,9 +915,7 @@ It is possible to enable desktop notification in two modes:
 - :guilabel:`Always`: notifications will always be shown, even with the browser open
 - :guilabel:`Auto (in background only)`: notifications will be shown only when the browser is in the background
 
-Once the mode is selected, a browser consent request will appear at the top left:
-
-.. image:: _static/webtop-chrome_notifications.png
+Make sure to allow notifications inside your browser.
 
 If you need to enable this consent later on a different browser just click on the appropriate button:
 
@@ -974,18 +944,18 @@ Users can now configure personal external accounts by accessing the :guilabel:`S
 Subscribing remote resources
 ============================
 
-WebTop supports subscription to remote calendars and contacts (directory) using cardDAV, calDav and iCal.
+WebTop supports subscription to remote calendars and contacts (directory) using CardDAV, CalDAV and iCal.
 
 Remote calendars
 ----------------
 
 An Internet Calendar can be added and synchronized.
 To do so just click the right button on personal calendars, :guilabel:`Add Internet Calendar`.
-Two types of remote calendars are supported: Webcal (ics format) and CalDAV.
+Two types of remote calendars are supported: WebCal (ICS format) and CalDAV.
 
 .. note::
 
-   Synchronization of Webcal calendars (ics) is always done by downloading every event on the remote resource every time, while only the differences are synchronized with the CalDAV mode
+   Synchronization of Webcal calendars (ICS) is always done by downloading every event on the remote resource every time, while only the differences are synchronized with the CalDAV mode
 
 Example of Google Cal remote calendar (Webcal only - ICS)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1004,23 +974,23 @@ Example of Google Cal remote calendar (Webcal only - ICS)
 Remote contacts (directory)
 ---------------------------
 
-Example of Google CardDAV remote address book
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Google CardDAV remote address book
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1) On Webtop, configure a new Internet address book, right-click on :guilabel:`Personal Categories -> Add Internet address book` and enter a URL of this type in step 1 of the wizard:
-https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/
-(replace the X your gmail account)
+Steps:
 
-2) Enter the authentication credentials (as user name use the full address of gmail):
+1. on Webtop, configure a new Internet address book, right-click on :guilabel:`Personal Categories -> Add Internet address book` 
+   and enter a URL of this type in step 1 of the wizard: ``https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/``
+   Replace the ``X `` with your GMail account
 
-.. image:: _static/webtop-remote_phonebook.png
+2. enter the authentication credentials (as user name use the full address of gmail):
 
-3) The wizard in the following steps will connect to the phonebook, giving the possibility to change the name and color, and then perform the first synchronization.
+   .. image:: _static/webtop-remote_phonebook.png
 
-.. note::
+3. the wizard in the following steps will connect to the phonebook, giving the possibility to change the name and color, and then perform the first synchronization.
 
-    To be able to complete the synchronization it is necessary to enable on your account Google,
-    in the security settings, the use of apps considered less secure (here a guide on how to do: https://support.google.com/accounts/answer/6010255?hl=it).
+
+You must enable the synchronization into your Google account and enable access for `App Password <https://support.google.com/accounts/answer/185833>`_.
 
 Synchronization of remote resources can be performed manually or automatically.
 
@@ -1040,7 +1010,7 @@ To update a remote address book, for example, click on it with the right mouse b
 
 .. image:: _static/webtop-sync_google.png
 
-For CardDav address books, as well as for remote CalDAV calendars, you can select whether to perform a full synchronization or only for changes.
+For CardDAV address books, as well as for remote CalDAV calendars, you can select whether to perform a full synchronization or only for changes.
 To do this, right-click on the phonebook (or on the calendar), :guilabel:`Edit Category`:
 
 .. image:: _static/webtop-edit_sync_google.png
@@ -1056,21 +1026,17 @@ The table showing the entire log of accesses and sessions for each user is avail
 Access the :guilabel:`Administration` menu, then :guilabel:`Domains` --> :guilabel:`NethServer` --> :guilabel:`Audit (domain)` --> :guilabel:`Access log`.
 
 For each access, the table reports the following data in columns: session ID, user name, date and time, session duration, authentication status and any login errors.
-It is possible to activate the geolocation for the access by public IP addresses detected.
-To activate this feature, you need to register an account on `ipstack <https://ipstack.com/>`_ (only this provider is currently supported) and obtain the API KEY to insert in the configuration db.
+
+You can enable public IP geolocation. First, you need to register an account on `ipstack <https://ipstack.com/>`_ and obtain the ``API KEY`` to insert in the configuration db.
 
 Login to the administration panel -> :guilabel:`Property (system)` -> :guilabel:`add` -> :guilabel:`com.sonicle.webtop.core (WebTop)` -> enter the following data in the fields :guilabel:`Key` e :guilabel:`Value` :
 
-   - ``geolocation.provider`` = ``ipstack``
-   - ``geolocation.ipstack.apikey``  = ``<API KEY FROM PROVIDER>``
+* ``geolocation.provider`` = ``ipstack``
+* ``geolocation.ipstack.apikey``  = ``<API KEY FROM PROVIDER>``
 
-Then, after a logout and a login, to show the geolocation of the public IPs please click on the icon at the far right of the row:
+Then, logout and a login again. To show the IP geolocation please click on the icon at the far right of the row:
 
 .. image:: _static/webtop_geologip.png
-
-Through the multiple search it is possible to quickly find the data of interest:
-
-.. image:: _static/webtop_search_access_log.png
 
 **Impersonate login**
 
@@ -1080,59 +1046,55 @@ In order to also add this type of access, you need to add the following key for 
    - ``key`` = ``audit.logimpersonated``
    - ``value`` = ``true``
 
-Login notification for each new device
-======================================
+New device notification
+=======================
 
-With this feature, it is possible to receive an email that notifies you through a security alert every time a new device accesses the account for the first time.
+You can receive an email that notifies when a new device accesses the account for the first time.
 
-.. note::
+By default, this feature is disabled for all users to avoid too many unintentional false positives on first login.
 
-  By default, this feature is disabled for all users to avoid too many "unintentional" false positives on first login.
-
-To activate the notification for all users, send these notification emails to other email addresses in BCC and avoid sending the notification for all new accesses performed by one (or more) network subnets modify these `global settings <https://www.sonicle.com/docs/webtop5/core.html#security-settings>`_ from the admin panel
+You can `customize this feature <https://www.sonicle.com/docs/webtop5/core.html#security-settings>`_ by access ing the administrator panel.
 
 .. note::
 
   Accesses made through impersonate (``admin!<user>``) will never send an email notification
 
-Change default limit "Maximum file size"
-========================================
+Maximum file size limit
+=======================
 
-There are hard-coded configured limits related to the maximum file size:
+There are pre-configured limits related to the maximum file size:
 
 - Maximum file size for chat uploads (internal default = 10 MB)
 - Maximum file size single message attachment (internal default = 10 MB)
 - Maximum file size for cloud internal uploads (internal default = 500 MB)
 - Maximum file size for cloud public uploads (internal default = 100 MB)
 
-To change these default values for all users, the following keys can be added via the admin interface: :guilabel:`Properties (system) -> Add`
+To change these default values for all users, the following keys can be added via the admin interface: :guilabel:`Properties (system) -> Add`.
+The value must be expressed in ``bytes``. Example: ``10MB = 10485760 bytes``.
 
 **Maximum file size for chat uploads**
 
-  - Service: ``com.sonicle.webtop.core``
-  - Key: ``im.upload.maxfilesize``
+* Service: ``com.sonicle.webtop.core``
+* Key: ``im.upload.maxfilesize``
 
 **Maximum file size for single message attachment**
 
-  - Service: ``com.sonicle.webtop.mail``
-  - Key: ``attachment.maxfilesize``
+* Service: ``com.sonicle.webtop.mail``
+* Key: ``attachment.maxfilesize``
 
 **Maximum file size for cloud internal uploads**
 
-  - Service: ``com.sonicle.webtop.vfs``
-  - Key: ``upload.private.maxfilesize``
+* Service: ``com.sonicle.webtop.vfs``
+* Key: ``upload.private.maxfilesize``
 
 **Maximum file size for cloud public uploads**
 
-  - Service: ``com.sonicle.webtop.vfs``
-  - Key: ``upload.public.maxfilesize``
+* Service: ``com.sonicle.webtop.vfs``
+* Key: ``upload.public.maxfilesize``
 
-.. note::
 
-  The value must be expressed in Bytes (Example 10MB = 10485760)
-
-Importing contacts and calendars
-================================
+Import contacts and calendars
+=============================
 
 WebTop supports importing contacts and calendars from various file formats.
 
@@ -1149,11 +1111,11 @@ Supported contacts format:
 
 To import contacts:
 
-1. Right click on the target phone book, then select :guilabel:`Import contacts`
+1. right click on the target phone book, then select :guilabel:`Import contacts`
 
    .. image:: _static/webtop-import_contacts1.png
 
-2. Select the import format and make sure that fields on the file match the ones available on WebTop
+2. select the import format and make sure that fields on the file match the ones available on WebTop
 
    .. image:: _static/webtop-import_contacts2.png
 
@@ -1169,34 +1131,40 @@ Supported calendar format: iCalendar (\*.ics, \*.ical, \*.icalendar)
 
 To import events:
 
-1. Right click on the target calendar, then select :guilabel:`Import events`
+1. right click on the target calendar, then select :guilabel:`Import events`
 
    .. image:: _static/webtop-import_calendars1.png
 
-2. Select the import format
+2. select the import format
 
    .. image:: _static/webtop-import_calendars2.png
 
-3. Then choose if you want to delete all existing events and import new ones, or just append imported data to existing calendar events
+3. then choose if you want to delete all existing events and import new ones, or just append imported data to existing calendar events
 
    .. image:: _static/webtop-import_calendars3.png
 
-Hide auto-suggested recipient in lookups
-========================================
 
-To disable the suggestion of automatically saved addresses, access the web administration panel -> :guilabel:`Properties (system)` -> :guilabel:`Add` -> select :guilabel:`com.sonicle.webtop.core (WebTop)` and enter the data in the :guilabel:`Key` and :guilabel:`Value` fields according to the key to be configured:
+Mail composer customization
+===========================
+
+Hide auto-suggested recipient in lookups
+----------------------------------------
+
+You can disable the suggestion of automatically saved addresses.
+Access the web administration panel -> :guilabel:`Properties (system)` -> :guilabel:`Add` ->,
+select :guilabel:`com.sonicle.webtop.core (WebTop)` and enter the data in the :guilabel:`Key` and :guilabel:`Value` fields according to the key to be configured:
 
 ``recipient.provider.auto.enabled`` = false  (default is true)
 
 Edit subject of a mail and save it
-==================================
+----------------------------------
 
 To enable the modification of the subject for received and sent emails, access the web administration panel -> :guilabel:`Properties (system)` -> :guilabel:`Add` -> select :guilabel:`com.sonicle.webtop.mail (Mail)` and enter the data in the :guilabel:`Key` and :guilabel:`Value` fields according to the key to be configured:
 
 ``message.edit.subject`` = true  (default is false)
 
 Delete automatically suggested email addresses
-==============================================
+----------------------------------------------
 
 When compiling the recipient of a mail, some automatically saved email addresses are suggested.
 If you need to delete someone because it is wrong, move with the arrow keys until you select the one you want to delete
