@@ -610,9 +610,7 @@ For example, if you wanted to add the HTML extension among those that are consid
 Export events (CSV)
 ===================
 
-To export calendars events in CSV (Comma Separated Value) format, click on the icon on top right corner.
-
-.. image:: _static/webtop-export_calendar_csv.png
+To export calendars events in CSV (Comma Separated Value) format, click on the |tools| button on top right corner and selecting :guilabel:`ERP export (CSV)` 
 
 Finally, select a time interval and click on :guilabel:`Next` to export into a CSV file.
 
