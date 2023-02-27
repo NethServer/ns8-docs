@@ -978,16 +978,15 @@ Google CardDAV remote address book
 
 Steps:
 
-1. on Webtop, configure a new Internet address book, right-click on :guilabel:`Personal Categories -> Add Internet address book` 
-   and enter a URL of this type in step 1 of the wizard: ``https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/``
-   Replace the ``X `` with your GMail account
+* on Webtop, configure a new Internet address book, right-click on :guilabel:`Personal Categories -> Add Internet address book` and
+  and enter a URL of this type in step 1 of the wizard: ``https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/``
+  Replace the ``X`` with your GMail account
 
-2. enter the authentication credentials (as user name use the full address of gmail):
+* enter the authentication credentials (as user name use the full address of gmail):
 
    .. image:: _static/webtop-remote_phonebook.png
 
-3. the wizard in the following steps will connect to the phonebook, giving the possibility to change the name and color, and then perform the first synchronization.
-
+* the wizard in the following steps will connect to the phonebook, giving the possibility to change the name and color, and then perform the first synchronization
 
 You must enable the synchronization into your Google account and enable access for `App Password <https://support.google.com/accounts/answer/185833>`_.
 
