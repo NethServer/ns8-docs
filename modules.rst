@@ -4,10 +4,10 @@
 Modules
 =======
 
-A module is a NS8 application which is usually composed of a backend and a frontend.
+A module is an NS8 application that is usually composed of a backend and a frontend.
 An application backend can contain one or more containers.
 
-Every time a module instance is added to the cluster, the new instance is named as the module itself followed by
+Every time a module instance is added to the cluster, the new instance is named like the module itself followed by
 a progressive number starting from 1. Given a module named ``myapp``, instances will be named ``myapp1``, ``myapp2``
 and so on.
 You can add a more meaningful label to the instance from the software center.
@@ -17,12 +17,12 @@ As an example, the Samba module needs to reserve DNS and SMB well-known TCP port
 You can install only one instance per node of this type of modules.
 
 Modules that don't require exclusive access to resources can be installed multiple times on the same node.
-As an example, you can install multiple OpenLDAP server on a single node.
+As an example, you can install multiple OpenLDAP servers on a single node.
 
 .. |bento| image:: _static/bento.png
 
 Installed applications are always available from the application drawer,
-by clicking on the |bento| menu on the top right corner.
+by clicking on the |bento| menu in the top right corner.
 
 .. _software_center-section:
 
@@ -32,12 +32,12 @@ Software center
 The software center lists all available modules from repositories.
 
 To install a new application just click on the :guilabel:`Install` button.
-If the cluster has multiple nodes, you will be required also to select the target node.
+If the cluster has multiple nodes, you will be alse required to select the target node.
 
 To install another instance of an existing application, click on the ``Instances`` link inside the application card.
 Then click on :guilabel:`Install new instance`.
 
-.. note:: Be careful! The user interfaces currently does not check if an application supports multiple instances on the same node.
+.. note:: Be careful! The user interface does not currently check if an application supports multiple instances on the same node.
 
 You can also perform multiple actions on installed applications by clicking on the three-dots menu:
 
@@ -55,9 +55,9 @@ Clone and move applications
 A module instance can be cloned inside a cluster node.
 The clone procedure creates a new module instance that is equivalent to the source one.
 
-The cluster node where the destination instance runs can be the same of the source instance. 
-Generally there should be no limitation on running multiple module instances on the same node.
-In some cases the services provided by the instance might require exclusive access to a particular system resource, as binding a fixed TCP port number.
+The cluster node where the destination instance runs can be the same as the source instance. 
+Generally, there should be no limitation on running multiple module instances on the same node.
+In some cases, the services provided by the instance might require exclusive access to a particular system resource, such as binding a fixed TCP port number.
 In this case cloning becomes impossible.
 
 In a nutshell the clone procedure
@@ -68,7 +68,7 @@ In a nutshell the clone procedure
 4. executes the final data synchronization
 5. starts the source and the destination instances
 
-Instead, when moving an application, you must select a target node other the one where the instance
+Instead, when moving an application, you must select a target node other than the one where the instance
 is currently running.
 
 The move procedure
@@ -108,7 +108,7 @@ You can force the metadata refresh by clicking on the :guilabel:`Reload reposito
 SMTP smarthost
 ==============
 
-Many applications requires access to a SMTP server to send mails.
+Many applications require access to an SMTP server to send mail.
 
 You can configure a smarthost for all installed applications by accessing the ``Smarthost``
 card inside the ``Settings`` page.
