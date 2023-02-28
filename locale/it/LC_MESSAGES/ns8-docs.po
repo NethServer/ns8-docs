@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-28 17:45+0000\n"
+"POT-Creation-Date: 2023-02-28 18:12+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -559,8 +559,8 @@ msgid ""
 "your needs"
 msgstr ""
 
-#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../nextcloud.rst:33
-#: ../../roundcube.rst:35 ../../webtop.rst:25
+#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:24
+#: ../../nextcloud.rst:33 ../../roundcube.rst:35 ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
 msgstr ""
 
@@ -1609,8 +1609,7 @@ msgstr ""
 msgid "enable ``HTTP to HTTPS`` option accordingly to your needs"
 msgstr ""
 
-#: ../../mariadb.rst:17 ../../mattermost.rst:28 ../../minio.rst:24
-#: ../../nginx.rst:18
+#: ../../mariadb.rst:17 ../../mattermost.rst:28 ../../nginx.rst:18
 msgid "Click the :guilabel:`Save` button"
 msgstr ""
 
@@ -1949,14 +1948,14 @@ msgstr ""
 
 #: ../../modules.rst:7
 msgid ""
-"A module is a NS8 application which is usually composed of a backend and "
+"A module is an NS8 application that is usually composed of a backend and "
 "a frontend. An application backend can contain one or more containers."
 msgstr ""
 
 #: ../../modules.rst:10
 msgid ""
 "Every time a module instance is added to the cluster, the new instance is"
-" named as the module itself followed by a progressive number starting "
+" named like the module itself followed by a progressive number starting "
 "from 1. Given a module named ``myapp``, instances will be named "
 "``myapp1``, ``myapp2`` and so on. You can add a more meaningful label to "
 "the instance from the software center."
@@ -1974,7 +1973,7 @@ msgstr ""
 msgid ""
 "Modules that don't require exclusive access to resources can be installed"
 " multiple times on the same node. As an example, you can install multiple"
-" OpenLDAP server on a single node."
+" OpenLDAP servers on a single node."
 msgstr ""
 
 #: ../../modules.rst:22
@@ -1984,7 +1983,7 @@ msgstr ""
 #: ../../modules.rst:24
 msgid ""
 "Installed applications are always available from the application drawer, "
-"by clicking on the |bento| menu on the top right corner."
+"by clicking on the |bento| menu in the top right corner."
 msgstr ""
 
 #: ../../modules.rst:30
@@ -1998,7 +1997,7 @@ msgstr ""
 #: ../../modules.rst:34
 msgid ""
 "To install a new application just click on the :guilabel:`Install` "
-"button. If the cluster has multiple nodes, you will be required also to "
+"button. If the cluster has multiple nodes, you will be alse required to "
 "select the target node."
 msgstr ""
 
@@ -2011,8 +2010,8 @@ msgstr ""
 
 #: ../../modules.rst:40
 msgid ""
-"Be careful! The user interfaces currently does not check if an "
-"application supports multiple instances on the same node."
+"Be careful! The user interface does not currently check if an application"
+" supports multiple instances on the same node."
 msgstr ""
 
 #: ../../modules.rst:42
@@ -2058,12 +2057,12 @@ msgstr ""
 
 #: ../../modules.rst:58
 msgid ""
-"The cluster node where the destination instance runs can be the same of "
-"the source instance. Generally there should be no limitation on running "
-"multiple module instances on the same node. In some cases the services "
+"The cluster node where the destination instance runs can be the same as "
+"the source instance. Generally, there should be no limitation on running "
+"multiple module instances on the same node. In some cases, the services "
 "provided by the instance might require exclusive access to a particular "
-"system resource, as binding a fixed TCP port number. In this case cloning"
-" becomes impossible."
+"system resource, such as binding a fixed TCP port number. In this case "
+"cloning becomes impossible."
 msgstr ""
 
 #: ../../modules.rst:63
@@ -2095,7 +2094,7 @@ msgstr ""
 #: ../../modules.rst:71
 msgid ""
 "Instead, when moving an application, you must select a target node other "
-"the one where the instance is currently running."
+"than the one where the instance is currently running."
 msgstr ""
 
 #: ../../modules.rst:74
@@ -2165,7 +2164,7 @@ msgid "SMTP smarthost"
 msgstr ""
 
 #: ../../modules.rst:111
-msgid "Many applications requires access to a SMTP server to send mails."
+msgid "Many applications require access to an SMTP server to send mail."
 msgstr ""
 
 #: ../../modules.rst:113
@@ -5812,5 +5811,81 @@ msgstr ""
 #~ "impersonate another user, gaining full "
 #~ "rights to any mailbox contents and "
 #~ "folder permissions."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A module is a NS8 application "
+#~ "which is usually composed of a "
+#~ "backend and a frontend. An application"
+#~ " backend can contain one or more "
+#~ "containers."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Every time a module instance is "
+#~ "added to the cluster, the new "
+#~ "instance is named as the module "
+#~ "itself followed by a progressive number"
+#~ " starting from 1. Given a module "
+#~ "named ``myapp``, instances will be named"
+#~ " ``myapp1``, ``myapp2`` and so on. "
+#~ "You can add a more meaningful "
+#~ "label to the instance from the "
+#~ "software center."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Modules that don't require exclusive "
+#~ "access to resources can be installed "
+#~ "multiple times on the same node. "
+#~ "As an example, you can install "
+#~ "multiple OpenLDAP server on a single "
+#~ "node."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Installed applications are always available"
+#~ " from the application drawer, by "
+#~ "clicking on the |bento| menu on "
+#~ "the top right corner."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To install a new application just "
+#~ "click on the :guilabel:`Install` button. "
+#~ "If the cluster has multiple nodes, "
+#~ "you will be required also to "
+#~ "select the target node."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Be careful! The user interfaces "
+#~ "currently does not check if an "
+#~ "application supports multiple instances on "
+#~ "the same node."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The cluster node where the destination"
+#~ " instance runs can be the same "
+#~ "of the source instance. Generally there"
+#~ " should be no limitation on running"
+#~ " multiple module instances on the "
+#~ "same node. In some cases the "
+#~ "services provided by the instance might"
+#~ " require exclusive access to a "
+#~ "particular system resource, as binding a"
+#~ " fixed TCP port number. In this "
+#~ "case cloning becomes impossible."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Instead, when moving an application, you"
+#~ " must select a target node other "
+#~ "the one where the instance is "
+#~ "currently running."
+#~ msgstr ""
+
+#~ msgid "Many applications requires access to a SMTP server to send mails."
 #~ msgstr ""
 
