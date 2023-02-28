@@ -23,7 +23,7 @@ How to configure:
 
 1. access the ``Settings`` page of the newly installed instance
 2. enter a valid FQDN inside the ``Collabora FQDN`` field
-3. enter a strong password the the ``admin`` user which can be used to access the admin console
+3. enter a strong password for the ``admin`` user which can be used to access the admin console
 4. enable ``Let's Encrypt`` and ``HTTP to HTTPS`` options accordingly to your needs
 5. click the :guilabel:`Save` button
 
