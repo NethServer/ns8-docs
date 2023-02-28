@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-28 15:06+0000\n"
+"POT-Creation-Date: 2023-02-28 15:13+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -582,21 +582,21 @@ msgstr ""
 
 #: ../../disk_usage.rst:7
 msgid ""
-"NethServer 8 uses `podman <https://podman.io/>`_ to mance OCI containers."
-" When running multiple containers the disk usage will grow quite fast and"
-" you could quickly run out of space."
+"NethServer 8 uses `podman <https://podman.io/>`_ to manage OCI "
+"containers. When running multiple containers the disk usage will grow "
+"quite fast and you could quickly run out of space."
 msgstr ""
 
 #: ../../disk_usage.rst:10
 msgid ""
 "Rootless containers put their data inside the user home directory "
 "``/home``. So if you plan to run many services on the same host, consider"
-" to mount an extra disk or partition at ``/home`` path."
+" mounting an extra disk or partition at the ``/home`` path."
 msgstr ""
 
 #: ../../disk_usage.rst:13
 msgid ""
-"Rootfull containers usually save images and volumes inside the "
+"Rootful containers usually save images and volumes inside the "
 "``/var/lib/containers/storage`` directory."
 msgstr ""
 
@@ -608,8 +608,8 @@ msgstr ""
 
 #: ../../disk_usage.rst:19
 msgid ""
-"There is another growning directory ``/var/lib/nethserver``: it contains "
-"the user interface and actions of rootfull modules."
+"There is another growing directory ``/var/lib/nethserver``: it contains "
+"the user interface and actions of rootful modules."
 msgstr ""
 
 #: ../../disk_usage.rst:22
@@ -618,7 +618,7 @@ msgstr ""
 
 #: ../../disk_usage.rst:24
 msgid ""
-"If you’re running out of disk space, consider to expand the ``/home`` "
+"If you’re running out of disk space, consider expanding the ``/home`` "
 "filesystem."
 msgstr ""
 
@@ -631,8 +631,8 @@ msgstr ""
 
 #: ../../disk_usage.rst:29
 msgid ""
-"If you can't do any of the above, consider adding a new disk and migrate "
-"existing data using below script. The script will:"
+"If you can't do any of the above, consider adding a new disk and "
+"migrating existing data using the script below. The script will:"
 msgstr ""
 
 #: ../../disk_usage.rst:32
@@ -652,7 +652,7 @@ msgid "mount the new disk under ``/home``"
 msgstr ""
 
 #: ../../disk_usage.rst:36
-msgid "restart all rootless containrs"
+msgid "restart all rootless containers"
 msgstr ""
 
 #: ../../disk_usage.rst:38
@@ -5545,5 +5545,52 @@ msgstr ""
 #~ "enter a strong password the the "
 #~ "``admin`` user which can be used "
 #~ "to access the admin console"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NethServer 8 uses `podman "
+#~ "<https://podman.io/>`_ to mance OCI "
+#~ "containers. When running multiple containers"
+#~ " the disk usage will grow quite "
+#~ "fast and you could quickly run out"
+#~ " of space."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Rootless containers put their data "
+#~ "inside the user home directory "
+#~ "``/home``. So if you plan to run"
+#~ " many services on the same host, "
+#~ "consider to mount an extra disk or"
+#~ " partition at ``/home`` path."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Rootfull containers usually save images "
+#~ "and volumes inside the "
+#~ "``/var/lib/containers/storage`` directory."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "There is another growning directory "
+#~ "``/var/lib/nethserver``: it contains the user"
+#~ " interface and actions of rootfull "
+#~ "modules."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you’re running out of disk "
+#~ "space, consider to expand the ``/home``"
+#~ " filesystem."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you can't do any of the "
+#~ "above, consider adding a new disk "
+#~ "and migrate existing data using below"
+#~ " script. The script will:"
+#~ msgstr ""
+
+#~ msgid "restart all rootless containrs"
 #~ msgstr ""
 
