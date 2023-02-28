@@ -21,5 +21,5 @@ How to configure:
 2. fill the ``Web interface host name``: you will be able to configure your
    MinIO instance from this FQDN
 3. enable ``Let's Encrypt`` option accordingly to your needs
-4. Click the :guilabel:`Save` button
+4. click the :guilabel:`Save` button
 5. open the entered host name inside the browser, eg: ``https://minio-ui.nethserver.org``.
