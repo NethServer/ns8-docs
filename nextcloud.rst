@@ -20,7 +20,7 @@ You can install multiple Nextcloud instances on the same node from the :ref:`sof
 Configuration
 =============
 
-Nextcloud needs a dedicated virtual host, a FQDN like ``nextcloud.nethserver.org``.
+Nextcloud needs a dedicated virtual host, an FQDN like ``nextcloud.nethserver.org``.
 
 Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
 If you are planning to use a Let's Encrypt certificate as default, make also sure to have a corresponding public DNS record.
@@ -41,7 +41,7 @@ After the wizard has been completed, return to the NethServer page and reload it
 You can now connect Nextcloud to an existing :ref:`user domain <user-domains-section>` by selecting the domain under the ``User domain`` field.
 All users configured inside the domain will be able to access the Nextcloud installation.
 
-.. note::   Nextcloud update/upgrade procedure may disables the apps to avoid incompatibility problems.
+.. note::   Nextcloud update/upgrade procedure may disable the apps to avoid incompatibility problems.
             Server logs keep track of which apps were disabled. After a successful update/upgrade procedure
             you can use the Applications page to update and re-enable the apps.
 
