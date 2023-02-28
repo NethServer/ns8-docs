@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-28 17:08+0000\n"
+"POT-Creation-Date: 2023-02-28 17:18+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -787,20 +787,20 @@ msgstr ""
 
 #: ../../install.rst:21
 msgid ""
-"At the end of the install script access the Web user interface at "
+"When the installation script ends, access the Web user interface at "
 "**https://\\<server_ip_or_fqdn\\>/cluster-admin/**."
 msgstr ""
 
 #: ../../install.rst:23
-msgid "First, you will need to login using default credentials:"
+msgid "First, you will need to login using the default credentials:"
 msgstr ""
 
-#: ../../install.rst:25 ../../mariadb.rst:25 ../../nginx.rst:26
-msgid "user: ``admin``"
+#: ../../install.rst:25
+msgid "Username: ``admin``"
 msgstr ""
 
 #: ../../install.rst:26
-msgid "password: ``Nethesis,1234``"
+msgid "Password: ``Nethesis,1234``"
 msgstr ""
 
 #: ../../install.rst:28
@@ -812,8 +812,8 @@ msgstr ""
 #: ../../install.rst:30
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
-" Network (VPN) for the cluster. With the VPN in place, you will able to "
-"add more nodes in the future."
+" Network (VPN) for the cluster. With the VPN in place, you will be able "
+"to add more nodes in the future."
 msgstr ""
 
 #: ../../install.rst:33
@@ -852,11 +852,11 @@ msgid ""
 msgstr ""
 
 #: ../../install.rst:43
-msgid "Each cluster has an auto-generated name. If you whish to change it:"
+msgid "Each cluster has an auto-generated name. If you wish to change it:"
 msgstr ""
 
 #: ../../install.rst:45
-msgid "go to ``Settings`` page and click on ``Cluster`` card"
+msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr ""
 
 #: ../../install.rst:46
@@ -871,14 +871,14 @@ msgstr ""
 msgid ""
 "Now sure where to go from here? You can install an :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
-"domain, take a look to :ref:`system logs <loki-section>`, add :ref:`new "
+"domain, take a look at :ref:`system logs <loki-section>`, add :ref:`new "
 "nodes <cluster-section>` or setup a :ref:`metric dashboard <metrics-"
 "section>`."
 msgstr ""
 
 #: ../../install.rst:53
 msgid ""
-"To customize the installation, please reference to `developer manual "
+"To customize the installation, please refer to the `developer manual "
 "<https://nethserver.github.io/ns8-core>`_."
 msgstr ""
 
@@ -1624,6 +1624,10 @@ msgstr ""
 msgid ""
 "The phpMyAdmin instance will be available at the "
 "``https://<server_fqn>/<path>``. Default credentials for phpMyAdmin are:"
+msgstr ""
+
+#: ../../mariadb.rst:25 ../../nginx.rst:26
+msgid "user: ``admin``"
 msgstr ""
 
 #: ../../mariadb.rst:26 ../../nginx.rst:27
@@ -5623,5 +5627,49 @@ msgstr ""
 #~ "Modules which requires publicly open "
 #~ "ports, like mail server, will "
 #~ "automatically configure the firewall."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "At the end of the install script"
+#~ " access the Web user interface at "
+#~ "**https://\\<server_ip_or_fqdn\\>/cluster-admin/**."
+#~ msgstr ""
+
+#~ msgid "First, you will need to login using default credentials:"
+#~ msgstr ""
+
+#~ msgid "password: ``Nethesis,1234``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Even if running on a single node,"
+#~ " the system will setup a Virtual "
+#~ "Private Network (VPN) for the cluster."
+#~ " With the VPN in place, you "
+#~ "will able to add more nodes in "
+#~ "the future."
+#~ msgstr ""
+
+#~ msgid "Each cluster has an auto-generated name. If you whish to change it:"
+#~ msgstr ""
+
+#~ msgid "go to ``Settings`` page and click on ``Cluster`` card"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Now sure where to go from here?"
+#~ " You can install an :ref:`LDAP "
+#~ "<openldap-section>` or :ref:`Active Directory "
+#~ "<active_directory-section>` user domain, take"
+#~ " a look to :ref:`system logs "
+#~ "<loki-section>`, add :ref:`new nodes "
+#~ "<cluster-section>` or setup a :ref:`metric"
+#~ " dashboard <metrics-section>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To customize the installation, please "
+#~ "reference to `developer manual "
+#~ "<https://nethserver.github.io/ns8-core>`_."
 #~ msgstr ""
 
