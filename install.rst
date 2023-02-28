@@ -18,17 +18,17 @@ Start the installation procedure as ``root``: ::
 
    curl https://raw.githubusercontent.com/NethServer/ns8-core/main/core/install.sh | bash
 
-At the end of the install script access the Web user interface at **https://\<server_ip_or_fqdn\>/cluster-admin/**.
+When the installation script ends, access the Web user interface at **https://\<server_ip_or_fqdn\>/cluster-admin/**.
 
-First, you will need to login using default credentials:
+First, you will need to login using the default credentials:
 
-* user: ``admin``
-* password: ``Nethesis,1234``
+* Username: ``admin``
+* Password: ``Nethesis,1234``
 
 Then, choose :guilabel:`Create cluster` to create a new single-node cluster and setup a new administrator password.
 
 Even if running on a single node, the system will setup a Virtual Private Network (VPN) for the cluster.
-With the VPN in place, you will able to add more nodes in the future.
+With the VPN in place, you will be able to add more nodes in the future.
 
 Please enter the following VPN details:
 
@@ -40,17 +40,17 @@ If unsure, you can keep the proposed defaults which should be good for most envi
 
 Finally, click on :guilabel:`Create cluster` button. Your NS8 is now ready to run :ref:`applications <modules-section>`.
 
-Each cluster has an auto-generated name. If you whish to change it:
+Each cluster has an auto-generated name. If you wish to change it:
 
-* go to ``Settings`` page and click on ``Cluster`` card
+* go to the ``Settings`` page and click on the ``Cluster`` card
 * enter a name inside the ``Cluster label`` field
 * click the :guilabel:`Save settings` button
 
 Now sure where to go from here?
 You can install an :ref:`LDAP <openldap-section>` or :ref:`Active Directory <active_directory-section>` user domain,
-take a look to :ref:`system logs <loki-section>`, add :ref:`new nodes <cluster-section>` or setup a :ref:`metric dashboard <metrics-section>`.
+take a look at :ref:`system logs <loki-section>`, add :ref:`new nodes <cluster-section>` or setup a :ref:`metric dashboard <metrics-section>`.
 
-To customize the installation, please reference to `developer manual <https://nethserver.github.io/ns8-core>`_.
+To customize the installation, please refer to the `developer manual <https://nethserver.github.io/ns8-core>`_.
 
 Uninstall
 =========
