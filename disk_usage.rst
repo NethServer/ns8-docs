@@ -4,36 +4,36 @@ Disk usage
 
 .. highlight:: bash
 
-NethServer 8 uses `podman <https://podman.io/>`_ to mance OCI containers.
+NethServer 8 uses `podman <https://podman.io/>`_ to manage OCI containers.
 When running multiple containers the disk usage will grow quite fast and you could quickly run out of space.
 
 Rootless containers put their data inside the user home directory ``/home``.
-So if you plan to run many services on the same host, consider to mount an extra disk or partition at ``/home`` path.
+So if you plan to run many services on the same host, consider mounting an extra disk or partition at the ``/home`` path.
 
-Rootfull containers usually save images and volumes inside the ``/var/lib/containers/storage`` directory.
+Rootful containers usually save images and volumes inside the ``/var/lib/containers/storage`` directory.
 
 To inspect podman storage configuration of your distribution, you can use the following command: ::
 
   podman info -f json | jq .store.graphRoot
 
-There is another growning directory ``/var/lib/nethserver``: it contains the user interface and actions of rootfull modules.
+There is another growing directory ``/var/lib/nethserver``: it contains the user interface and actions of rootful modules.
 
 Add more space
 ==============
 
-If you’re running out of disk space, consider to expand the ``/home`` filesystem.
+If you’re running out of disk space, consider expanding the ``/home`` filesystem.
 
 On a physical machine, the best option is to setup LVM during the distribution installation.
 On the other hand, on a virtual machine you could easily expand the whole root filesystem.
 
-If you can't do any of the above, consider adding a new disk and migrate existing data using below script.
+If you can't do any of the above, consider adding a new disk and migrating existing data using the script below.
 The script will:
 
 * stop all rootless containers
 * copy all rootless containers inside the new disk
 * reclaim space from the root filesystem
 * mount the new disk under ``/home``
-* restart all rootless containrs
+* restart all rootless containers
 
 Before running the script, make sure to attach the disk to the machine, format it and mount to a custom
 location like ``/mnt/temp_disk``.
