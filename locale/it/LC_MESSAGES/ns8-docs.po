@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-28 15:13+0000\n"
+"POT-Creation-Date: 2023-02-28 15:24+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -559,8 +559,8 @@ msgid ""
 "your needs"
 msgstr ""
 
-#: ../../collabora.rst:28 ../../nextcloud.rst:33 ../../roundcube.rst:35
-#: ../../webtop.rst:25
+#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../nextcloud.rst:33
+#: ../../roundcube.rst:35 ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
 msgstr ""
 
@@ -684,23 +684,18 @@ msgstr ""
 
 #: ../../dokuwiki.rst:12
 msgid ""
-"DokuWiki needs a dedicated virtual host, a FQDN like "
-"``wilki.nethserver.org``."
+"DokuWiki needs a dedicated virtual host, an FQDN like "
+"``wiki.nethserver.org``."
 msgstr ""
 
 #: ../../dokuwiki.rst:19
-msgid "access the application configuration page and enter a all required fields"
-msgstr ""
-
-#: ../../dokuwiki.rst:21 ../../mariadb.rst:17 ../../mattermost.rst:28
-#: ../../minio.rst:24 ../../nginx.rst:18
-msgid "Click the :guilabel:`Save` button"
+msgid "access the application configuration page and enter all required fields"
 msgstr ""
 
 #: ../../dokuwiki.rst:22
 msgid ""
-"open the entered host name inside the browser, eg: "
-"``https://chat.nethserver.org``."
+"use your browser to go to the selected FQDN, eg: "
+"``https://wiki.nethserver.org``."
 msgstr ""
 
 #: ../../firewall.rst:3
@@ -1612,6 +1607,11 @@ msgstr ""
 
 #: ../../mariadb.rst:16 ../../nginx.rst:17
 msgid "enable ``HTTP to HTTPS`` option accordingly to your needs"
+msgstr ""
+
+#: ../../mariadb.rst:17 ../../mattermost.rst:28 ../../minio.rst:24
+#: ../../nginx.rst:18
+msgid "Click the :guilabel:`Save` button"
 msgstr ""
 
 #: ../../mariadb.rst:19 ../../nginx.rst:20
@@ -5592,5 +5592,20 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "restart all rootless containrs"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "DokuWiki needs a dedicated virtual host,"
+#~ " a FQDN like ``wilki.nethserver.org``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "access the application configuration page "
+#~ "and enter a all required fields"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "open the entered host name inside "
+#~ "the browser, eg: ``https://chat.nethserver.org``."
 #~ msgstr ""
 
