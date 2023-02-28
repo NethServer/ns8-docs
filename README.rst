@@ -2,15 +2,15 @@
 NS8 documentation
 =================
 
-Sphinx documentation sources for NS8 documentations.
+Sphinx documentation sources for NS8 documentation.
 
-Under the root directory there are some specials files:
+Under the root directory there are some special files:
 
 * conf.py: Sphinx configuration
 * Makefile: Sphinx build makefile
 * index.rst: document structure
 
-All other ``.rst`` files are chapters of the manual.  If you wish to add a new
+All other ``.rst`` files are chapters of the manual. If you wish to add a new
 chapter, create a new file and add it to the index.rst file.
 
 How to contribute
@@ -62,7 +62,7 @@ To create cross-references set a label before headers, with ``-section`` suffix:
 
 In other documents refer to "My title" with the ``:ref:`` command::
     
-    More informations are explained on :ref:`mytitle-section`
+    More information can be found at :ref:`mytitle-section`
     
 
 Use the \* character for unordered list ::
@@ -85,7 +85,7 @@ A field description can also contain a bullet list ::
 
 Highlight important words ::
    
-    This is and *important* word.
+    This is an *important* word.
     
 Add notes with ::
     
@@ -93,7 +93,7 @@ Add notes with ::
 
 Add warnings with ::
 
-    .. warning:: Warning text fragments
+    .. warning:: Warning text fragment
 
 
     
@@ -118,26 +118,26 @@ Build documentation
 
 Whenever there are modifications, a build process will be launched from CI.
 
-If you wish to build documentation locally on your machine, make sure to install the Sphinx package.
+If you want to build the documentation locally on your machine, make sure to install the Sphinx package.
 
 On Fedora 37 or later use: ::
 
   sudo dnf install python3-sphinx python3-pip make
 
-Then clone the repository, enter the inside the cloned directory and install all required extra modules ::
+Then clone the repository, change into the cloned directory and install all required extra modules ::
 
   git clone https://github.com/NethServer/ns8-docs.git
   cd ns8-docs
   pip install -r requirements.txt
 
-FInally, build the doc: ::
+Finally, build the doc: ::
 
    make html
 
 Localization workflow
 ---------------------
 
-The CI will update source translation files at each commit.
+The CI will update source translation files after every commit.
 
 To generate po files locally for a new language: ::
 
@@ -149,7 +149,7 @@ You can contribute to the translation by accessing [Weblate](https://hosted.webl
 Documentation style guidelines
 ==============================
 
-When editing documents, please remind the following guidelines:
+When editing documents, please keep in mind the following guidelines:
 
 * https://www.writethedocs.org/blog/newsletter-december-2016/#simplifying-and-tightening-your-writing
 * https://www.writethedocs.org/blog/newsletter-october-2022/#gerunds-in-headings
