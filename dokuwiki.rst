@@ -9,15 +9,15 @@ You can install multiple DokuWiki instances on the same node from the :ref:`soft
 Configuration
 =============
 
-DokuWiki needs a dedicated virtual host, a FQDN like ``wilki.nethserver.org``.
+DokuWiki needs a dedicated virtual host, an FQDN like ``wiki.nethserver.org``.
 
 Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
 If you are planning to use a Let's Encrypt certificate as default, make also sure to have a corresponding public DNS record.
 
 How to configure:
 
-1. access the application configuration page and enter a all required fields
+1. access the application configuration page and enter all required fields
 2. enable ``Let's Encrypt`` and ``HTTP to HTTPS`` options accordingly to your needs
-3. Click the :guilabel:`Save` button
-4. open the entered host name inside the browser, eg: ``https://chat.nethserver.org``.
+3. click the :guilabel:`Save` button
+4. use your browser to go to the selected FQDN, eg: ``https://wiki.nethserver.org``.
 
