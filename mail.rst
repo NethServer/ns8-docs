@@ -12,7 +12,7 @@ The Email module is split into three main parts:
   and `Sieve <https://en.wikipedia.org/wiki/Sieve_(mail_filtering_language)>`_ language to organize it
 * `RSPAMD <https://rspamd.com/>`_: antispam filter, antivirus and attachments blocker
 
-Benefits are
+Benefits are:
 
 * complete autonomy in electronic mail management
 * avoid problems due to the Internet Service Provider
@@ -58,10 +58,10 @@ from the ``Domains`` page.
 You can add a new domain by clicking on the :guilabel:`Create domain` button and fill
 the ``Name`` field with the mail domain, like ``mymail.org``.
 
-If the fist option is disabled, you can enable the ``Accept unknown recipients`` switch and select
+If the first option is disabled, you can enable the ``Accept unknown recipients`` switch and select
 a mailbox that will catch all messages sent to non-existing addresses.
 
-NethServer allows storing an hidden copy of all messages
+NethServer allows storing a hidden copy of all messages
 directed to a particular domain: they will be delivered to the final
 recipient *and also* to a custom email address. The hidden copy is
 enabled by the :guilabel:`Copy inbound messages` switch.
@@ -69,10 +69,10 @@ enabled by the :guilabel:`Copy inbound messages` switch.
 .. warning:: On some countries, enabling the *Copy inbound messages*
              switch can be against privacy laws.
 
-If the final recipient cannot be established (i.e. the recipient address does
+If the final recipient cannot be reached (i.e. the recipient address does
 not exist), the message is normally rejected. Sometimes (i.e. when a mail domain
 is migrated) it could be useful to accept it and silently deliver the message to
-a catch-all mailbox. This behavior can be obtained by enabling the
+a catch-all mailbox. This behavior can be achieved by enabling the
 ``Accept unknown recipients`` option.
 This configuration is available only if ``Add user address from user domain`` option is disabled.
 
@@ -104,7 +104,7 @@ Mailboxes
 Each user has a personal mailbox and any user name in the form
 *<username>@<domain>* is also a valid email address to deliver messages into it.
 
-The list of mailboxes is shown by the ``Mailboxes`` page. There
+The list of mailboxes is shown on the ``Mailboxes`` page. There
 are two types of mailboxes: users and public mailboxes.
 
 Users mailboxes
@@ -186,11 +186,11 @@ Antispam
 
 The antispam component RSPAMD analyzes emails by detecting
 and classifying `SPAM <https://en.wikipedia.org/wiki/Spamming>`_ messages using heuristic
-criteria, predetermined rules and statistical evaluations on the
+criteria, predetermined rules and statistical evaluations of the
 content of messages.
 
-The filter can also check if sender server is listed in one or more block lists
-(`DNSBL <https://en.wikipedia.org/wiki/Spamming>`_). A score is associated to each rule.
+The filter can also check if the sending server is listed in one or more block lists
+(`DNSBL <https://en.wikipedia.org/wiki/Spamming>`_). A score is associated with each rule.
 
 Total spam score collected at the end of the analysis allows the server to
 decide what to do with a message.
@@ -215,7 +215,7 @@ moved into the ``Junk`` folder by enabling the option ``Move spam to junk folder
 Spam messages can be expunged automatically after a period of time.
 You can configure it from the ``Default spam retention`` option.
 
-From the ``Master users`` section, you can setup a user than can impersonate another user, gaining full rights
+From the ``Master users`` section, you can setup a user that can impersonate another user, gaining full rights
 to any mailbox contents and folder permissions. 
 
 Credentials are accepted by the IMAP server:
