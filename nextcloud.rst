@@ -34,7 +34,7 @@ After the installation:
 5. click the :guilabel:`Save` button
 
 As default, Nextcloud has its own user database.
-You can also connect the instance to an existing :ref:`user domain <user_domain-section>`: all users from the
+You can also connect the instance to an existing :ref:`user domain <user-domains-section>`: all users from the
 domain will be able to login with their own credentials.
 The built-in ``admin`` user is always enabled.
 
