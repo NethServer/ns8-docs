@@ -30,16 +30,17 @@ After the installation:
 1. access the ``Settings`` page of the newly installed instance
 2. enter a valid FQDN inside the ``Host name`` field
 3. enable ``Let's Encrypt`` option accordingly to your needs
-4. click the :guilabel:`Save` button
+4. setup a ``Password for user 'admin'``, or leave the default one
+5. click the :guilabel:`Save` button
 
-Then click on ``Configure Nextcloud`` to run the first configuration wizard.
-The wizard will ask to setup an administrator user and password.
-If during the wizard you are going to install recommended apps, please note that the built-in Collabora server (Nextcloud Office) will not work.
-If you want to integrate with Collabora online see :ref:`below <collabora-integration-section>`.
+As default, Nextcloud has its own user database.
+You can also connect the instance to an existing :ref:`user domain <user_domain-section>`: all users from the
+domain will be able to login with their own credentials.
+The built-in ``admin`` user is always enabled.
 
-After the wizard has been completed, return to the NethServer page and reload it.
-You can now connect Nextcloud to an existing :ref:`user domain <user-domains-section>` by selecting the domain under the ``User domain`` field.
-All users configured inside the domain will be able to access the Nextcloud installation.
+If you want to integrate with Collabora (CODE) online see :ref:`below <collabora-integration-section>`,
+The option will be available after Nextcloud has been initialized on first start-up:
+it usually takes less then a minute.
 
 .. note::   Nextcloud update/upgrade procedure may disable the apps to avoid incompatibility problems.
             Server logs keep track of which apps were disabled. After a successful update/upgrade procedure
