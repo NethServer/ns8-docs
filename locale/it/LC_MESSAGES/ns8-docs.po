@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-28 18:18+0000\n"
+"POT-Creation-Date: 2023-03-01 13:43+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -493,7 +493,7 @@ msgid ""
 " text match."
 msgstr ""
 
-#: ../../collabora.rst:5 ../../nextcloud.rst:59
+#: ../../collabora.rst:5 ../../nextcloud.rst:60
 msgid "Collabora Online"
 msgstr ""
 
@@ -560,7 +560,7 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:24
-#: ../../nextcloud.rst:33 ../../roundcube.rst:35 ../../webtop.rst:25
+#: ../../nextcloud.rst:34 ../../roundcube.rst:35 ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
 msgstr ""
 
@@ -2228,26 +2228,27 @@ msgstr ""
 msgid "enter a valid FQDN inside the ``Host name`` field"
 msgstr ""
 
-#: ../../nextcloud.rst:35
-msgid ""
-"Then click on ``Configure Nextcloud`` to run the first configuration "
-"wizard. The wizard will ask to setup an administrator user and password. "
-"If during the wizard you are going to install recommended apps, please "
-"note that the built-in Collabora server (Nextcloud Office) will not work."
-" If you want to integrate with Collabora online see :ref:`below "
-"<collabora-integration-section>`."
+#: ../../nextcloud.rst:33
+msgid "setup a ``Password for user 'admin'``, or leave the default one"
 msgstr ""
 
-#: ../../nextcloud.rst:40
+#: ../../nextcloud.rst:36
 msgid ""
-"After the wizard has been completed, return to the NethServer page and "
-"reload it. You can now connect Nextcloud to an existing :ref:`user domain"
-" <user-domains-section>` by selecting the domain under the ``User "
-"domain`` field. All users configured inside the domain will be able to "
-"access the Nextcloud installation."
+"As default, Nextcloud has its own user database. You can also connect the"
+" instance to an existing :ref:`user domain <user_domain-section>`: all "
+"users from the domain will be able to login with their own credentials. "
+"The built-in ``admin`` user is always enabled."
 msgstr ""
 
-#: ../../nextcloud.rst:44
+#: ../../nextcloud.rst:41
+msgid ""
+"If you want to integrate with Collabora (CODE) online see :ref:`below "
+"<collabora-integration-section>`, The option will be available after "
+"Nextcloud has been initialized on first start-up: it usually takes less "
+"then a minute."
+msgstr ""
+
+#: ../../nextcloud.rst:45
 msgid ""
 "Nextcloud update/upgrade procedure may disable the apps to avoid "
 "incompatibility problems. Server logs keep track of which apps were "
@@ -2255,11 +2256,11 @@ msgid ""
 "Applications page to update and re-enable the apps."
 msgstr ""
 
-#: ../../nextcloud.rst:49
+#: ../../nextcloud.rst:50
 msgid "User list"
 msgstr ""
 
-#: ../../nextcloud.rst:51
+#: ../../nextcloud.rst:52
 msgid ""
 "All users are listed inside the administrator panel of Nextcloud using a "
 "unique identifier containing letters and numbers. This is because the "
@@ -2268,31 +2269,31 @@ msgid ""
 "documentation <https://docs.nextcloud.com>`_."
 msgstr ""
 
-#: ../../nextcloud.rst:61
+#: ../../nextcloud.rst:62
 msgid ""
 "First, install and configure a :ref:`Collabora Online <collabora-"
 "section>` instance."
 msgstr ""
 
-#: ../../nextcloud.rst:63
+#: ../../nextcloud.rst:64
 msgid "Then, access the ``Settings`` page of Nextcloud module."
 msgstr ""
 
-#: ../../nextcloud.rst:65
+#: ../../nextcloud.rst:66
 msgid ""
 "You will find an option named ``CODE server host name``. Select one of "
 "the existing Collabora instances or enter a domain of another Collabora "
 "installation."
 msgstr ""
 
-#: ../../nextcloud.rst:68
+#: ../../nextcloud.rst:69
 msgid ""
 "The Collabora instance will be accessed using HTTPS protocol, so remember"
 " to disable the ``Verify TLS certification`` option if the Collabora does"
 " not have a valid TLS certificate."
 msgstr ""
 
-#: ../../nextcloud.rst:71
+#: ../../nextcloud.rst:72
 msgid ""
 "Finally, click the :guilabel:`Save` button. You will now be able to edit "
 "documents directly inside Nextcloud."
@@ -5917,5 +5918,31 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "If your looking for core and modules see :ref:`updates-section`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Then click on ``Configure Nextcloud`` to"
+#~ " run the first configuration wizard. "
+#~ "The wizard will ask to setup an"
+#~ " administrator user and password. If "
+#~ "during the wizard you are going to"
+#~ " install recommended apps, please note "
+#~ "that the built-in Collabora server "
+#~ "(Nextcloud Office) will not work. If "
+#~ "you want to integrate with Collabora "
+#~ "online see :ref:`below <collabora-"
+#~ "integration-section>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "After the wizard has been completed, "
+#~ "return to the NethServer page and "
+#~ "reload it. You can now connect "
+#~ "Nextcloud to an existing :ref:`user "
+#~ "domain <user-domains-section>` by "
+#~ "selecting the domain under the ``User"
+#~ " domain`` field. All users configured "
+#~ "inside the domain will be able to"
+#~ " access the Nextcloud installation."
 #~ msgstr ""
 
