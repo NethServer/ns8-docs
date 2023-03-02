@@ -95,20 +95,15 @@ Add warnings with ::
 
     .. warning:: Warning text fragment
 
+Other conventions:
 
+* use double backtick to quote labels and links from the web user interface
+* use ``guilabel`` markup for buttons
     
 You can find more info about **RST Inline Markup** here: rst-cheatsheet_
 
 .. _rst-cheatsheet: https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst
  
-
-Use semantic markup whenever possible. Recommended RST roles are:
-
-* guilabel
-* file
-* command
-* menuselection
-
 Use a spell checker program before submitting a pull request. For instance run ::
 
   hunspell -d en_US <filename>
