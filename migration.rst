@@ -53,6 +53,7 @@ If the migrated application requires extra parameters, the system will display a
 before proceeding.
 Please note that most web application will need a dedicated FQDN (virtual host) after the migration.
 Make sure the DNS record points to the NS8 node.
+You can still configure :ref:`manual routes <migrated_routes-section>` for the migrated applications.
 
 At the end of the application migration, the system will:
 
@@ -66,3 +67,34 @@ using the cluster VPN.
 Account provider should always be migrated after all other applications.
 
 .. note:: No custom template is migrated during the migration process.
+
+.. _migrated_routes-section:
+
+Manual routes
+=============
+
+In NethServer 7, most web applications were accessible using path-style routes.
+As an example, given a server named ``server.nethserver.org`` the WebTop installation
+was available at ``https://server.nethserver.org/webtop``.
+
+On the other side, when the application is migrated you will be asked to enter a FQDN
+so WebTop will be available on a URL like ``https://webtop.nethserver.org``.
+
+If you have already migrated the FQDN DNS record to the new server, you can also manually
+recreate the old HTTP routes from the :ref:`proxy page <traefik-section>`.
+
+Example for adding WebTop routes:
+
+1. open the ``HTTP routes`` section from the ``Settings`` page
+2. click on the Webtop instance name, like ``webtop1``, a modal dialog will show the route details
+3. copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``
+4. click on the :guilabel:`Create route` button
+5. choose a ``Name`` for the root and select the ``Node`` where the WebTop instance is running
+6. paste the value copied before (``http://127.0.0.1:20033``) inside the ``URL`` field
+7. leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` field
+8. repeat steps from 4 to 7 for all other WebTop routes:
+
+   * ``/Microsoft-Server-ActiveSync``
+   * ``/.well-known``
+   * ``/webtop-dav``
+
