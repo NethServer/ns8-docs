@@ -88,7 +88,7 @@ Example for adding WebTop routes:
 1. open the ``HTTP routes`` section from the ``Settings`` page
 2. click on the Webtop instance name, like ``webtop1``, a modal dialog will show the route details
 3. copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``
-4. click on the :guilabel:`Crete route` button
+4. click on the :guilabel:`Create route` button
 5. choose a ``Name`` for the root and select the ``Node`` where the WebTop instance is running
 6. paste the value copied before (``http://127.0.0.1:20033``) inside the ``URL`` field
 7. leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` field
