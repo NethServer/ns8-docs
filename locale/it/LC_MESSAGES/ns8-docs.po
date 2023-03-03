@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-03 14:57+0000\n"
+"POT-Creation-Date: 2023-03-03 16:05+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -402,7 +402,7 @@ msgid ""
 "inside the ``Settings`` page."
 msgstr ""
 
-#: ../../cluster.rst:53
+#: ../../cluster.rst:53 ../../webtop.rst:132
 msgid "Two-factor authentication (2FA)"
 msgstr ""
 
@@ -3239,7 +3239,7 @@ msgstr ""
 
 #: ../../webtop.rst:14
 msgid ""
-"WebTop needs a dedicated virtual host, a FQDN like "
+"WebTop needs a dedicated virtual host, an FQDN like "
 "``webtop.nethserver.org``."
 msgstr ""
 
@@ -3396,7 +3396,7 @@ msgid "Proceed as follows:"
 msgstr ""
 
 #: ../../webtop.rst:98
-msgid "log in with the WebTop user admin"
+msgid "login with the WebTop user admin"
 msgstr ""
 
 #: ../../webtop.rst:100
@@ -3426,7 +3426,7 @@ msgstr ""
 #: ../../webtop.rst:115
 msgid ""
 "Most user settings can be directly managed by the user itself via the "
-"settings menu. Locked settings require administration privileges."
+"settings menu. Locked settings require administrative privileges."
 msgstr ""
 
 #: ../../webtop.rst:118
@@ -3447,7 +3447,7 @@ msgstr ""
 msgid ""
 "While impersonating you receive similar user privileges, allowing you to "
 "control exactly what the user can see. Full administration of user "
-"settings is available directly in the administration interface, by right "
+"settings is available directly in the administration interface, by right-"
 "clicking on a user: the settings menu will open the full user settings "
 "panel, with all options unlocked."
 msgstr ""
@@ -3464,14 +3464,10 @@ msgstr ""
 msgid "right-click on :guilabel:`Bulk update email domain`"
 msgstr ""
 
-#: ../../webtop.rst:132
-msgid "Two factor authentication (2FA)"
-msgstr ""
-
 #: ../../webtop.rst:134
 msgid ""
-"WebTop support the :index:`two factor authentication`. The user can "
-"choose between:"
+"WebTop supports :index:`two factor authentication`. The user can choose "
+"between:"
 msgstr ""
 
 #: ../../webtop.rst:137
@@ -3598,9 +3594,9 @@ msgstr ""
 
 #: ../../webtop.rst:199
 msgid ""
-"Mobile devices based on Apple iOS fully support folders / categories for "
-"calendar, contacts and activities (called reminders), including original "
-"colors."
+"Mobile devices based on Apple iOS fully support folders/categories for "
+"calendars, contacts and activities (called reminders), including original"
+" colors."
 msgstr ""
 
 #: ../../webtop.rst:201
@@ -3621,14 +3617,14 @@ msgstr ""
 msgid ""
 "On Android devices, contacts from shared phone books are merged with the "
 "personal phone book and displayed in a single view. Contacts can be "
-"modified and changes will be saved it the original source."
+"modified and changes will be saved in the original source."
 msgstr ""
 
 #: ../../webtop.rst:212
 msgid ""
-"In order to receive data via EAS on mobile devices, it is necessary to "
-"verify that the shared resources (Calendars and Contacts) have "
-"synchronization enabled (Full or Read only):"
+"In order to receive data via EAS on mobile devices, shared resources "
+"(Calendars and Contacts) should have synchronization enabled (Full or "
+"Read-only):"
 msgstr ""
 
 #: ../../webtop.rst
@@ -3643,7 +3639,7 @@ msgstr ""
 
 #: ../../webtop.rst:220
 msgid ""
-"To do so, just right click on the shared resource "
+"To do so, just right-click on the shared resource "
 ":menuselection:`Customize → Devices sync.`:"
 msgstr ""
 
@@ -3661,7 +3657,7 @@ msgstr ""
 
 #: ../../webtop.rst:230
 msgid ""
-"Calendars and address books can be synchronized also through "
+"Calendars and address books can be synchronized also through the "
 ":index:`CalDAV and CardDAV protocols`."
 msgstr ""
 
@@ -3689,9 +3685,9 @@ msgstr ""
 
 #: ../../webtop.rst:243
 msgid ""
-"Some third-party clients allow to simplify the configuration through the "
+"Some third-party clients allow simplifying the configuration through the "
 "*auto-discovery* feature that automatically discovers the synchronizable "
-"resources, as in the case of mobile devices clients (i.e. Android or iOS "
+"resources, as in the case of mobile devices (i.e. Android or iOS "
 "devices)."
 msgstr ""
 
@@ -3703,7 +3699,7 @@ msgstr ""
 
 #: ../../webtop.rst:251
 msgid ""
-"If you are using clients that support auto-discovery use URL: "
+"If you are using clients that support auto-discovery use the URL: "
 "``https://<server_name>``"
 msgstr ""
 
@@ -3714,7 +3710,7 @@ msgid ""
 msgstr ""
 
 #: ../../webtop.rst:258
-msgid "install the suggested app from the market"
+msgid "install the suggested app from the store"
 msgstr ""
 
 #: ../../webtop.rst:259
@@ -3725,7 +3721,7 @@ msgstr ""
 
 #: ../../webtop.rst:260
 msgid ""
-"insert the ``URL`` (``https://<server_name>``), complete username (i.e. "
+"insert the ``URL`` (``https://<server_name>``), full username (i.e. "
 "*goofy@nethserver.org*) and password"
 msgstr ""
 
@@ -3751,7 +3747,7 @@ msgstr ""
 
 #: ../../webtop.rst:270
 msgid ""
-"insert the server name (i.e. *server.nethserver.org*), complete username "
+"insert the server name (i.e. *server.nethserver.org*), full username "
 "(i.e. *goofy@nethserver.org*) and password"
 msgstr ""
 
@@ -3765,9 +3761,8 @@ msgstr ""
 
 #: ../../webtop.rst:277
 msgid ""
-"Thunderbird already includes supports for CalDAV calendars. To "
-"synchronize the contacts with CardDAV you need a third-party add-on like "
-"`Cardbook "
+"Thunderbird already includes support for CalDAV calendars. To synchronize"
+" the contacts with CardDAV you need a third-party add-on like `Cardbook "
 "<https://addons.thunderbird.net/it/thunderbird/addon/cardbook/>`_."
 msgstr ""
 
@@ -3800,7 +3795,7 @@ msgstr ""
 #: ../../webtop.rst:294
 msgid ""
 "It is possible to share a single folder or the entire account with all "
-"included subfoldes. Select the folder to share -> right click -> "
+"subfolders. Select the folder to share -> right click -> "
 ":guilabel:`Manage sharing`:"
 msgstr ""
 
@@ -3810,8 +3805,8 @@ msgstr ""
 
 #: ../../webtop.rst:300
 msgid ""
-"select if you want to share your identity with the user and possibly even"
-" if you force your signature (2)"
+"select if you want to share your identity with the user and even to force"
+" your signature (2)"
 msgstr ""
 
 #: ../../webtop.rst:301
@@ -3819,9 +3814,7 @@ msgid "choose the level of permissions associated with this share (3)"
 msgstr ""
 
 #: ../../webtop.rst:302
-msgid ""
-"if you need to further change the permission levels, select ``Advanced`` "
-"(4)"
+msgid "if you need to further change permissions, select ``Advanced`` (4)"
 msgstr ""
 
 #: ../../webtop.rst:303
@@ -3863,10 +3856,10 @@ msgstr ""
 
 #: ../../webtop.rst:329
 msgid ""
-"In the same way, you can always share your contacts by selecting the "
-"directory you want to share -> right click -> :guilabel:`Sharing and "
-"permissions`. Select the recipient user of the share (or Group), and "
-"enable permissions for both the folder and the individual items."
+"In the same way, you can share your contacts by selecting the directory "
+"you want to share -> right click -> :guilabel:`Sharing and permissions`. "
+"Select the recipient user of the share (or Group), and enable permissions"
+" for both the folder and the individual items."
 msgstr ""
 
 #: ../../webtop.rst:334
@@ -3894,13 +3887,13 @@ msgstr ""
 #: ../../webtop.rst:343
 msgid ""
 "The user can normally only manage Private labels. In order to manage the "
-"Shared labels it is necessary to activate a specific authorization via "
-"the admin panel:"
+"Shared labels it is necessary to enable a specific authorization via the "
+"admin panel:"
 msgstr ""
 
 #: ../../webtop.rst:346 ../../webtop.rst:371
 msgid ""
-"go to  Administration menu, then choose :guilabel:`Domains` -> "
+"go to the Administration menu, then choose :guilabel:`Domains` -> "
 ":guilabel:`NethServer` -> :guilabel:`Groups` -> :guilabel:`Users` -> "
 ":guilabel:`Authorization`"
 msgstr ""
@@ -3922,25 +3915,25 @@ msgstr ""
 
 #: ../../webtop.rst:352
 msgid ""
-"You can manage the labeles from the tools |tools| button icon at the top "
+"You can manage the labels from the tools |tools| button icon at the top "
 "right corner."
 msgstr ""
 
 #: ../../webtop.rst:354
 msgid ""
 "The same functionality can also be reached from the individual modules by"
-" right clicking -> :guilabel:`Labels` -> :guilabel:`Manage labels`."
+" right-clicking -> :guilabel:`Labels` -> :guilabel:`Manage labels`."
 msgstr ""
 
 #: ../../webtop.rst:356
 msgid ""
 "Visibility can be set only during label creation. To change the label "
-"visibility you need to delete the label and recreate it again."
+"visibility you need to delete the label and create it again."
 msgstr ""
 
 #: ../../webtop.rst:358
 msgid ""
-"The created labels can be used on any other module like Mail, Address "
+"The created labels can be used in any other module like Mail, Address "
 "Book, Calendar and Tasks."
 msgstr ""
 
@@ -3950,7 +3943,7 @@ msgstr ""
 
 #: ../../webtop.rst:365
 msgid ""
-"With custom fields it is possible to provide information and additional "
+"With custom fields, it is possible to provide information and additional "
 "data for each contact, event or activity."
 msgstr ""
 
@@ -3962,7 +3955,7 @@ msgstr ""
 
 #: ../../webtop.rst:369
 msgid ""
-"In order to manage custom fields and its panels, the user must have a "
+"In order to manage custom fields and their panels, the user must have a "
 "specific authorization, obtained through the administration panel:"
 msgstr ""
 
@@ -3994,7 +3987,7 @@ msgid ""
 "For the :guilabel:`Name` field only alphanumeric characters (including "
 "``-`` and ``_``) are allowed. **Spaces are not allowed**. The "
 ":guilabel:`Description` field is used to add details to the field and the"
-" :guilabel:`Label` field represents the label that will be sshow anlong "
+" :guilabel:`Label` field represents the label that will be shown along "
 "with the field."
 msgstr ""
 
@@ -4060,7 +4053,7 @@ msgstr ""
 #: ../../webtop.rst:414
 msgid ""
 "Custom panels display the `:ref:`custom_fields-section` and associated "
-"them to resources."
+"them with resources."
 msgstr ""
 
 #: ../../webtop.rst:416
@@ -4084,7 +4077,7 @@ msgid ""
 msgstr ""
 
 #: ../../webtop.rst:425
-msgid "Use the :guilabel:`Add` button to add a custom fields inside the panel."
+msgid "Use the :guilabel:`Add` button to add a custom field inside the panel."
 msgstr ""
 
 #: ../../webtop.rst:428
@@ -4106,7 +4099,7 @@ msgstr ""
 #: ../../webtop.rst:436
 msgid ""
 "You can use the :guilabel:`Upload` button to load an image which is at "
-"the bottom or simply via a drag & drop."
+"the bottom or simply via drag & drop."
 msgstr ""
 
 #: ../../webtop.rst:440
@@ -4120,7 +4113,7 @@ msgstr ""
 #: ../../webtop.rst:443
 msgid ""
 "Alternatively, you can configure a global setting to turn images "
-"automatically into inline attachments instead of public internet links"
+"automatically into inline attachments instead of public internet links."
 msgstr ""
 
 #: ../../webtop.rst:445
@@ -4138,7 +4131,7 @@ msgstr ""
 
 #: ../../webtop.rst:450
 msgid ""
-"To change your signature, each user can access the "
+"To change the signature, each user can access the "
 ":menuselection:`Settings --> Mail --> Editing --> Edit User mailcard`:"
 msgstr ""
 
@@ -4149,7 +4142,7 @@ msgstr ""
 #: ../../webtop.rst:460
 msgid ""
 "The personal mailcard can be associated with the user or the mail "
-"address. Users with access to the mail address, will also be able to use "
+"address. Users with access to the mail address will also be able to use "
 "the mailcard."
 msgstr ""
 
@@ -4159,11 +4152,11 @@ msgid ""
 ":menuselection:`Domains --> NethServer --> Users --> Right click on user`"
 " ) it is also possible to set up a general domain mailcard that will be "
 "automatically set for all users who have not configured their personal "
-"mailcard.:"
+"mailcard:"
 msgstr ""
 
 #: ../../webtop.rst:467
-msgid "Furthermore, it will also be possible to modify personal information:"
+msgid "Furthermore, it will also be possible to modify personal details:"
 msgstr ""
 
 #: ../../webtop.rst:471
@@ -4216,8 +4209,8 @@ msgstr ""
 
 #: ../../webtop.rst:502
 msgid ""
-"By default, the mail page will display a preview of the content of latest"
-" received messages."
+"By default, the mail page will display a preview of the content of the "
+"latest received messages."
 msgstr ""
 
 #: ../../webtop.rst:504
@@ -4275,7 +4268,7 @@ msgstr ""
 
 #: ../../webtop.rst:533
 msgid ""
-"The archiving operation is accessible from the contextual menu (right "
+"The archiving operation is accessible from the contextual menu (right-"
 "click). Click on :guilabel:`Archive`"
 msgstr ""
 
@@ -4295,10 +4288,10 @@ msgstr ""
 
 #: ../../webtop.rst:544
 msgid ""
-"If you want to hide from the view some folders, which is equivalent to "
-"removing the subscription, you can do so by simply clicking the right "
-"mouse button on the folder to hide and select from the interactive menu "
-"the item :guilabel:`Hide from the list`."
+"If you want to hide some folders from the view, which is equivalent to "
+"removing the subscription, you can simply right-click on the folder to "
+"hide and select from the interactive menu the item :guilabel:`Hide from "
+"the list`."
 msgstr ""
 
 #: ../../webtop.rst:547
@@ -4355,11 +4348,11 @@ msgstr ""
 
 #: ../../webtop.rst:576
 msgid ""
-"The **admin user** can disable all or just some of the rules that are "
-"part of the PAS (ProActive Security), both for single users and groups. "
-"To do so, it is necessary to add a specific authorization (to the single "
-"user or the group of users) for the Service ``com.sonicle.webtop.mail "
-"(Mail)`` and for the ``PRO_ACTIVE_SECURITY`` resource:"
+"The **admin user** can disable all or some of the rules that are part of "
+"the PAS (ProActive Security), both for single users and groups. To do so,"
+" it is necessary to add a specific authorization (to the single user or "
+"the group of users) for the Service ``com.sonicle.webtop.mail (Mail)`` "
+"and for the ``PRO_ACTIVE_SECURITY`` resource:"
 msgstr ""
 
 #: ../../webtop.rst:581
@@ -4372,7 +4365,7 @@ msgstr ""
 
 #: ../../webtop.rst:584
 msgid ""
-"``NO_LINK_DOMAIN_CHECK``: do not check domains different form the "
+"``NO_LINK_DOMAIN_CHECK``: do not check domains different from the "
 "sender’s domain"
 msgstr ""
 
@@ -4438,7 +4431,7 @@ msgstr ""
 msgid ""
 "The administrator can also choose the list of **file extensions for "
 "attachments** which are considered a threat. As default, these are the "
-"extensions which are considered dangerous: "
+"extensions that are considered dangerous: "
 "``exe,bat,dll,com,cmd,bin,cab,js,jar``"
 msgstr ""
 
@@ -4462,7 +4455,7 @@ msgstr ""
 
 #: ../../webtop.rst:607
 msgid ""
-":guilabel:`Value` = ``exe,bat,dll,com,cmd,bin,cab,js,jar,html``  (Values "
+":guilabel:`Value` = ``exe,bat,dll,com,cmd,bin,cab,js,jar,html`` (Values "
 "always need to be separated by a comma)"
 msgstr ""
 
@@ -4473,7 +4466,7 @@ msgstr ""
 #: ../../webtop.rst:613
 msgid ""
 "To export calendars events in CSV (Comma Separated Value) format, click "
-"on the |tools| button on top right corner and selecting :guilabel:`ERP "
+"on the |tools| button in the top right corner and select :guilabel:`ERP "
 "export (CSV)`"
 msgstr ""
 
@@ -4583,8 +4576,8 @@ msgid ""
 "On any task it is always possible to add related sub-tasks (one "
 "Master/Slave level only) simply by using the right button and selecting "
 ":guilabel:`Add sub-task` Within the connected tasks, both in the master "
-"and in the slave ones, a link is available at the bottom right to open "
-"the related tasks:"
+"and in the slave, a link is available at the bottom right to open the "
+"related tasks:"
 msgstr ""
 
 #: ../../webtop.rst:667
@@ -4631,18 +4624,18 @@ msgstr ""
 
 #: ../../webtop.rst:692
 msgid ""
-"modify the properties of the \"users\" group by double clicking and "
-"select the button related to the Authorizations:"
+"modify the properties of the \"users\" group by double-clicking and "
+"selecting the button related to the Authorizations:"
 msgstr ""
 
 #: ../../webtop.rst:696
 msgid ""
-"add to existing authorizations those relating to both the ``STORE_CLOUD``"
-" and ``STORE_OTHER`` resources by selecting the items as shown below:"
+"add to existing authorizations those related to both the ``STORE_CLOUD`` "
+"and ``STORE_OTHER`` resources by selecting the items as shown below:"
 msgstr ""
 
 #: ../../webtop.rst:703
-msgid "so get this:"
+msgid "to get this:"
 msgstr ""
 
 #: ../../webtop.rst:708
@@ -4651,14 +4644,14 @@ msgstr ""
 
 #: ../../webtop.rst:710
 msgid ""
-"At this point from any user it will be possible to insert the Nextcloud "
-"resource (local or remote) in your personal Cloud."
+"Fron now on, any user it will be able to insert the Nextcloud resource "
+"(local or remote) in the personal Cloud."
 msgstr ""
 
 #: ../../webtop.rst:712
 msgid ""
 "To do this, simply select the Cloud button and add a new Nextcloud "
-"resource by right clicking on :guilabel:`My resources` and then "
+"resource by right-clicking on :guilabel:`My resources` and then "
 ":guilabel:`Add resource` in this way:"
 msgstr ""
 
@@ -4693,8 +4686,8 @@ msgstr ""
 
 #: ../../webtop.rst:734
 msgid ""
-"The personal Cloud module allows you to send and receive documents "
-"through web links."
+"The personal Cloud module allows you to send and receive documents via "
+"web links."
 msgstr ""
 
 #: ../../webtop.rst:737
@@ -4707,8 +4700,8 @@ msgstr ""
 
 #: ../../webtop.rst:743
 msgid ""
-"Follow the wizard to generate the link, use field :guilabel:`date` to set"
-" the deadline."
+"Follow the wizard to generate the link, use the field :guilabel:`date` to"
+" set the deadline."
 msgstr ""
 
 #: ../../webtop.rst:747
@@ -4720,7 +4713,7 @@ msgid "The link will be generated and will be inserted in the new mail:"
 msgstr ""
 
 #: ../../webtop.rst:756
-msgid "Downloading the file, generates a notification to the sender:"
+msgid "Downloading the file generates a notification to the sender:"
 msgstr ""
 
 #: ../../webtop.rst:761
@@ -4729,7 +4722,7 @@ msgstr ""
 
 #: ../../webtop.rst:762
 msgid ""
-"To create the request, insert the subject of the email than select the "
+"To create the request, insert the subject of the email then select the "
 "button at the top right:"
 msgstr ""
 
@@ -4768,7 +4761,7 @@ msgid "To enable chat integration:"
 msgstr ""
 
 #: ../../webtop.rst:789
-msgid "Install \"Instant messaging\"\" module from :guilabel:`Software Center`."
+msgid "Install the \"Instant messaging\" module from :guilabel:`Software Center`."
 msgstr ""
 
 #: ../../webtop.rst:791
@@ -4954,16 +4947,16 @@ msgstr ""
 
 #: ../../webtop.rst:874
 msgid ""
-"Each user always has the possibility to overwrite the sender by "
-"customizing it as desired through its settings panel: :guilabel:`WebTop` "
-"-> :guilabel:`Switchboard VOIP and SMS` -> :guilabel:`SMS Hosting service"
-" configured` -> :guilabel:`Default sender`"
+"Each user can overwrite the sender by customizing it as desired through "
+"its settings panel: :guilabel:`WebTop` -> :guilabel:`Switchboard VOIP and"
+" SMS` -> :guilabel:`SMS Hosting service configured` -> :guilabel:`Default"
+" sender`"
 msgstr ""
 
 #: ../../webtop.rst:876
 msgid ""
-"To send SMS from the address book, right-click on a contact that has the "
-"mobile field filled in -> :guilabel:`Send SMS`"
+"To send an SMS from the address book, right-click on a contact that has "
+"the mobile field filled in -> :guilabel:`Send SMS`"
 msgstr ""
 
 #: ../../webtop.rst:879
@@ -4972,13 +4965,13 @@ msgstr ""
 
 #: ../../webtop.rst:881
 msgid ""
-"The launcher is the icon menu on the left of the page. You can add custom"
-" buttont the launcher."
+"The launcher is the icon-based menu on the left of the page. You can add "
+"custom buttons to the launcher."
 msgstr ""
 
 #: ../../webtop.rst:884
 msgid ""
-"To configure the buttons access the WebTop administration panel and "
+"To configure the buttons, access the WebTop administration panel and "
 "select -> :guilabel:`Domains` -> :guilabel:`NethServer` ->  "
 ":guilabel:`Launcher` :"
 msgstr ""
@@ -4992,7 +4985,7 @@ msgid "``Name`` : tab descriptive text that appears with mouse-over"
 msgstr ""
 
 #: ../../webtop.rst:892
-msgid "``Link URL`` : URL opened in a new browser"
+msgid "``Link URL`` : URL to be opened in a new browser"
 msgstr ""
 
 #: ../../webtop.rst:893
@@ -5003,8 +4996,8 @@ msgstr ""
 
 #: ../../webtop.rst:895
 msgid ""
-"If you ca't find a public URL for the icon image, you can upload the icon"
-" on Webtop public cloud. WebTop public cloud already hosts mailcards "
+"If you can't find a public URL for the icon image, you can upload the "
+"icon on Webtop public cloud. WebTop public cloud already hosts mailcards "
 "images. Access the administrator panel and click on :guilabel:`Cloud` -> "
 ":guilabel:`Public Images`, then insert a URL like "
 "``https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>``."
@@ -5021,7 +5014,7 @@ msgid "Browser notifications"
 msgstr ""
 
 #: ../../webtop.rst:906
-msgid "WebTop can notifies new mail messages and upcoming calendar events."
+msgid "WebTop can notify new mail messages and upcoming calendar events."
 msgstr ""
 
 #: ../../webtop.rst:908
@@ -5029,7 +5022,7 @@ msgid "To activate it, simply access the general settings of your user:"
 msgstr ""
 
 #: ../../webtop.rst:912
-msgid "It is possible to enable desktop notification in two modes:"
+msgid "It is possible to enable desktop notifications in two modes:"
 msgstr ""
 
 #: ../../webtop.rst:914
@@ -5061,7 +5054,7 @@ msgstr ""
 #: ../../webtop.rst:927
 msgid ""
 "External IMAP accounts can be accessed in read-only mode. Each user can "
-"have maximum 3 external accounts."
+"have a maximum of 3 external accounts."
 msgstr ""
 
 #: ../../webtop.rst:930
@@ -5076,7 +5069,7 @@ msgstr ""
 
 #: ../../webtop.rst:933
 msgid ""
-"Click on :guilabel:`Add` button and selected "
+"Click on :guilabel:`Add` button and select "
 ":guilabel:`com.sonicle.webtop.mail`"
 msgstr ""
 
@@ -5112,8 +5105,8 @@ msgstr ""
 
 #: ../../webtop.rst:946
 msgid ""
-"WebTop supports subscription to remote calendars and contacts (directory)"
-" using CardDAV, CalDAV and iCal."
+"WebTop supports subscriptions to remote calendars and contacts "
+"(directory) using CardDAV, CalDAV and iCal."
 msgstr ""
 
 #: ../../webtop.rst:949
@@ -5336,7 +5329,7 @@ msgstr ""
 msgid ""
 "You can `customize this feature "
 "<https://www.sonicle.com/docs/webtop5/core.html#security-settings>`_ by "
-"access ing the administrator panel."
+"accessing the administrator panel."
 msgstr ""
 
 #: ../../webtop.rst:1058
@@ -5467,8 +5460,8 @@ msgstr ""
 
 #: ../../webtop.rst:1116
 msgid ""
-"select the import format and make sure that fields on the file match the "
-"ones available on WebTop"
+"select the import format and make sure that the fields on the file match "
+"the ones available on WebTop"
 msgstr ""
 
 #: ../../webtop.rst:1120
@@ -6160,5 +6153,482 @@ msgstr ""
 #~ "AD or LDAP account provider was "
 #~ "installed, the page allows to create,"
 #~ " modify and delete users and groups."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "WebTop needs a dedicated virtual host,"
+#~ " a FQDN like ``webtop.nethserver.org``."
+#~ msgstr ""
+
+#~ msgid "log in with the WebTop user admin"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Most user settings can be directly "
+#~ "managed by the user itself via the"
+#~ " settings menu. Locked settings require "
+#~ "administration privileges."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "While impersonating you receive similar "
+#~ "user privileges, allowing you to control"
+#~ " exactly what the user can see. "
+#~ "Full administration of user settings is"
+#~ " available directly in the administration"
+#~ " interface, by right clicking on a"
+#~ " user: the settings menu will open"
+#~ " the full user settings panel, with"
+#~ " all options unlocked."
+#~ msgstr ""
+
+#~ msgid "Two factor authentication (2FA)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "WebTop support the :index:`two factor "
+#~ "authentication`. The user can choose "
+#~ "between:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Mobile devices based on Apple iOS "
+#~ "fully support folders / categories for"
+#~ " calendar, contacts and activities (called"
+#~ " reminders), including original colors."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "On Android devices, contacts from shared"
+#~ " phone books are merged with the "
+#~ "personal phone book and displayed in "
+#~ "a single view. Contacts can be "
+#~ "modified and changes will be saved "
+#~ "it the original source."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In order to receive data via EAS"
+#~ " on mobile devices, it is necessary"
+#~ " to verify that the shared resources"
+#~ " (Calendars and Contacts) have "
+#~ "synchronization enabled (Full or Read "
+#~ "only):"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To do so, just right click on "
+#~ "the shared resource :menuselection:`Customize "
+#~ "→ Devices sync.`:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Calendars and address books can be "
+#~ "synchronized also through :index:`CalDAV and"
+#~ " CardDAV protocols`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Some third-party clients allow to "
+#~ "simplify the configuration through the "
+#~ "*auto-discovery* feature that automatically "
+#~ "discovers the synchronizable resources, as "
+#~ "in the case of mobile devices "
+#~ "clients (i.e. Android or iOS devices)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are using clients that "
+#~ "support auto-discovery use URL: "
+#~ "``https://<server_name>``"
+#~ msgstr ""
+
+#~ msgid "install the suggested app from the market"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "insert the ``URL`` (``https://<server_name>``), "
+#~ "complete username (i.e. *goofy@nethserver.org*) "
+#~ "and password"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "insert the server name (i.e. "
+#~ "*server.nethserver.org*), complete username (i.e."
+#~ " *goofy@nethserver.org*) and password"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Thunderbird already includes supports for "
+#~ "CalDAV calendars. To synchronize the "
+#~ "contacts with CardDAV you need a "
+#~ "third-party add-on like `Cardbook "
+#~ "<https://addons.thunderbird.net/it/thunderbird/addon/cardbook/>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "It is possible to share a single"
+#~ " folder or the entire account with"
+#~ " all included subfoldes. Select the "
+#~ "folder to share -> right click ->"
+#~ " :guilabel:`Manage sharing`:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "select if you want to share your"
+#~ " identity with the user and possibly"
+#~ " even if you force your signature "
+#~ "(2)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "if you need to further change the"
+#~ " permission levels, select ``Advanced`` (4)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the same way, you can always"
+#~ " share your contacts by selecting the"
+#~ " directory you want to share -> "
+#~ "right click -> :guilabel:`Sharing and "
+#~ "permissions`. Select the recipient user "
+#~ "of the share (or Group), and "
+#~ "enable permissions for both the folder"
+#~ " and the individual items."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The user can normally only manage "
+#~ "Private labels. In order to manage "
+#~ "the Shared labels it is necessary "
+#~ "to activate a specific authorization via"
+#~ " the admin panel:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "go to  Administration menu, then choose"
+#~ " :guilabel:`Domains` -> :guilabel:`NethServer` ->"
+#~ " :guilabel:`Groups` -> :guilabel:`Users` -> "
+#~ ":guilabel:`Authorization`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can manage the labeles from "
+#~ "the tools |tools| button icon at "
+#~ "the top right corner."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The same functionality can also be "
+#~ "reached from the individual modules by"
+#~ " right clicking -> :guilabel:`Labels` ->"
+#~ " :guilabel:`Manage labels`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Visibility can be set only during "
+#~ "label creation. To change the label "
+#~ "visibility you need to delete the "
+#~ "label and recreate it again."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The created labels can be used on"
+#~ " any other module like Mail, Address"
+#~ " Book, Calendar and Tasks."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "With custom fields it is possible "
+#~ "to provide information and additional "
+#~ "data for each contact, event or "
+#~ "activity."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In order to manage custom fields "
+#~ "and its panels, the user must have"
+#~ " a specific authorization, obtained through"
+#~ " the administration panel:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For the :guilabel:`Name` field only "
+#~ "alphanumeric characters (including ``-`` and"
+#~ " ``_``) are allowed. **Spaces are not"
+#~ " allowed**. The :guilabel:`Description` field "
+#~ "is used to add details to the "
+#~ "field and the :guilabel:`Label` field "
+#~ "represents the label that will be "
+#~ "sshow anlong with the field."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Custom panels display the `:ref"
+#~ ":`custom_fields-section` and associated them "
+#~ "to resources."
+#~ msgstr ""
+
+#~ msgid "Use the :guilabel:`Add` button to add a custom fields inside the panel."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can use the :guilabel:`Upload` "
+#~ "button to load an image which is"
+#~ " at the bottom or simply via a"
+#~ " drag & drop."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Alternatively, you can configure a "
+#~ "global setting to turn images "
+#~ "automatically into inline attachments instead"
+#~ " of public internet links"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To change your signature, each user "
+#~ "can access the :menuselection:`Settings -->"
+#~ " Mail --> Editing --> Edit User "
+#~ "mailcard`:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The personal mailcard can be associated"
+#~ " with the user or the mail "
+#~ "address. Users with access to the "
+#~ "mail address, will also be able to"
+#~ " use the mailcard."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "By accessing the user settings from "
+#~ "the WebTop administration panel ( "
+#~ ":menuselection:`Domains --> NethServer --> "
+#~ "Users --> Right click on user` )"
+#~ " it is also possible to set up"
+#~ " a general domain mailcard that will"
+#~ " be automatically set for all users"
+#~ " who have not configured their "
+#~ "personal mailcard.:"
+#~ msgstr ""
+
+#~ msgid "Furthermore, it will also be possible to modify personal information:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "By default, the mail page will "
+#~ "display a preview of the content "
+#~ "of latest received messages."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The archiving operation is accessible "
+#~ "from the contextual menu (right click)."
+#~ " Click on :guilabel:`Archive`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you want to hide from the "
+#~ "view some folders, which is equivalent"
+#~ " to removing the subscription, you "
+#~ "can do so by simply clicking the"
+#~ " right mouse button on the folder "
+#~ "to hide and select from the "
+#~ "interactive menu the item :guilabel:`Hide "
+#~ "from the list`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The **admin user** can disable all "
+#~ "or just some of the rules that "
+#~ "are part of the PAS (ProActive "
+#~ "Security), both for single users and "
+#~ "groups. To do so, it is necessary"
+#~ " to add a specific authorization (to"
+#~ " the single user or the group "
+#~ "of users) for the Service "
+#~ "``com.sonicle.webtop.mail (Mail)`` and for the"
+#~ " ``PRO_ACTIVE_SECURITY`` resource:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``NO_LINK_DOMAIN_CHECK``: do not check domains"
+#~ " different form the sender’s domain"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The administrator can also choose the"
+#~ " list of **file extensions for "
+#~ "attachments** which are considered a "
+#~ "threat. As default, these are the "
+#~ "extensions which are considered dangerous: "
+#~ "``exe,bat,dll,com,cmd,bin,cab,js,jar``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":guilabel:`Value` = "
+#~ "``exe,bat,dll,com,cmd,bin,cab,js,jar,html``  (Values "
+#~ "always need to be separated by a"
+#~ " comma)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To export calendars events in CSV "
+#~ "(Comma Separated Value) format, click on"
+#~ " the |tools| button on top right "
+#~ "corner and selecting :guilabel:`ERP export "
+#~ "(CSV)`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "On any task it is always possible"
+#~ " to add related sub-tasks (one "
+#~ "Master/Slave level only) simply by using"
+#~ " the right button and selecting "
+#~ ":guilabel:`Add sub-task` Within the "
+#~ "connected tasks, both in the master "
+#~ "and in the slave ones, a link "
+#~ "is available at the bottom right "
+#~ "to open the related tasks:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "modify the properties of the \"users\""
+#~ " group by double clicking and select"
+#~ " the button related to the "
+#~ "Authorizations:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "add to existing authorizations those "
+#~ "relating to both the ``STORE_CLOUD`` and"
+#~ " ``STORE_OTHER`` resources by selecting the"
+#~ " items as shown below:"
+#~ msgstr ""
+
+#~ msgid "so get this:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "At this point from any user it "
+#~ "will be possible to insert the "
+#~ "Nextcloud resource (local or remote) in"
+#~ " your personal Cloud."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To do this, simply select the "
+#~ "Cloud button and add a new "
+#~ "Nextcloud resource by right clicking on"
+#~ " :guilabel:`My resources` and then "
+#~ ":guilabel:`Add resource` in this way:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The personal Cloud module allows you "
+#~ "to send and receive documents through"
+#~ " web links."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Follow the wizard to generate the "
+#~ "link, use field :guilabel:`date` to set"
+#~ " the deadline."
+#~ msgstr ""
+
+#~ msgid "Downloading the file, generates a notification to the sender:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To create the request, insert the "
+#~ "subject of the email than select "
+#~ "the button at the top right:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Install \"Instant messaging\"\" module from"
+#~ " :guilabel:`Software Center`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Each user always has the possibility "
+#~ "to overwrite the sender by customizing"
+#~ " it as desired through its settings"
+#~ " panel: :guilabel:`WebTop` -> "
+#~ ":guilabel:`Switchboard VOIP and SMS` -> "
+#~ ":guilabel:`SMS Hosting service configured` ->"
+#~ " :guilabel:`Default sender`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To send SMS from the address book,"
+#~ " right-click on a contact that "
+#~ "has the mobile field filled in ->"
+#~ " :guilabel:`Send SMS`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The launcher is the icon menu on"
+#~ " the left of the page. You can"
+#~ " add custom buttont the launcher."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To configure the buttons access the "
+#~ "WebTop administration panel and select "
+#~ "-> :guilabel:`Domains` -> :guilabel:`NethServer` "
+#~ "->  :guilabel:`Launcher` :"
+#~ msgstr ""
+
+#~ msgid "``Link URL`` : URL opened in a new browser"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you ca't find a public URL "
+#~ "for the icon image, you can upload"
+#~ " the icon on Webtop public cloud. "
+#~ "WebTop public cloud already hosts "
+#~ "mailcards images. Access the administrator "
+#~ "panel and click on :guilabel:`Cloud` ->"
+#~ " :guilabel:`Public Images`, then insert a"
+#~ " URL like "
+#~ "``https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>``."
+#~ msgstr ""
+
+#~ msgid "WebTop can notifies new mail messages and upcoming calendar events."
+#~ msgstr ""
+
+#~ msgid "It is possible to enable desktop notification in two modes:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "External IMAP accounts can be accessed"
+#~ " in read-only mode. Each user "
+#~ "can have maximum 3 external accounts."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Click on :guilabel:`Add` button and "
+#~ "selected :guilabel:`com.sonicle.webtop.mail`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "WebTop supports subscription to remote "
+#~ "calendars and contacts (directory) using "
+#~ "CardDAV, CalDAV and iCal."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can `customize this feature "
+#~ "<https://www.sonicle.com/docs/webtop5/core.html#security-"
+#~ "settings>`_ by access ing the "
+#~ "administrator panel."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "select the import format and make "
+#~ "sure that fields on the file match"
+#~ " the ones available on WebTop"
 #~ msgstr ""
 
