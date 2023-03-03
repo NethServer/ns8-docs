@@ -11,16 +11,16 @@ LDAP database as replicas. An LDAP database represents an account
 
 The NS8 cluster can host multiple local account domains from different
 implementations. It is possible to configure and connect external LDAP
-services, too. Supported LDAP schema are
+services, too. Supported LDAP schemas are
 
 * Active Directory - `Samba <https://www.samba.org/>`_
 * Unix attributes `RFC2307 <https://www.rfc-editor.org/rfc/rfc2307>`_ - `OpenLDAP <https://www.openldap.org/>`_
 
-Besides choosing to bind an external provider or install a internal one, the
+Besides choosing to bind an external provider or install an internal one, the
 administrator has to decide which backend type suits his needs.
 The *File server* (coming soon) application 
 can authenticate SMB/CIFS clients only when using an Active Directory domain.
-On the other hand, the internal OpenLDAP provider is more easy to install and
+On the other hand, the internal OpenLDAP provider is easier to install and
 configure.
 In the end, if the SMB file sharing protocol support is not required, an
 LDAP provider is the best choice.
@@ -49,7 +49,7 @@ Once the provider is installed, you will be asked to enter the following paramet
 - ``Samba admin username`` and ``Samba admin password``: admin credentials
 - ``IP address``: select an available network controller; choose a physical network interface if you are going to join machines to
   the Active Directory, otherwise you can select the VPN interface ``wg0``
-- ``Hostname``: the Domain Controller (DC) host name. If unsure, keep the proposed value.
+- ``Hostname``: the Domain Controller (DC) hostname. If unsure, keep the proposed value.
 
 .. note::
 
@@ -65,7 +65,7 @@ DNS and AD domain
 
 An Active Directory domain requires a reserved DNS domain to work. It is a good
 choice to allocate a sub-domain of the public DNS domain for it. The AD sub-domain
-can be accessible only from LAN networks.
+can be accessed only from local networks.
 
 Example:
 
@@ -97,7 +97,7 @@ Once the provider is installed, you will be asked to enter the following paramet
 - ``Domain``: the user domain, it should be a valid FQDN. If unsure, keep the proposed value.
 - ``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin credentials
 
-At the end, you will see a new user domain with one connected provider.
+Finally, you will see a new user domain with one connected provider.
 You can now :ref:`manage users and groups <user_groups-section>` or :ref:`add a replica <provider_replica-section>`.
 
 .. note:: OpenLDAP provider is not currently accessible from outside the cluster.
@@ -107,15 +107,15 @@ You can now :ref:`manage users and groups <user_groups-section>` or :ref:`add a 
 Provider replicas
 =================
 
-Provider replicas implement the fault tolerance for user domains.
+Provider replicas implement fault tolerance for user domains.
 To achieve real fault tolerance, replicas should be installed on different nodes.
 
 You can add a replica from the ``Domains and users`` page by selecting the ``Configuration`` link from the three-dots menu.
-Then click the :guilabel:`Add provider` button, select the target node and proceed with installation.
+Then click the :guilabel:`Add provider` button, select the target node and proceed with the installation.
 
 Replicas are configured in master-master mode.
 
-.. warning:: Active Directory provider do not replicate SysVol volume.
+.. warning:: Active Directory provider does not replicate the SysVol volume.
    Therefore Microsoft's Group Policy Object (GPO) will not be synchronized between replicas.
 
 .. _domain_bind-section:
@@ -126,7 +126,7 @@ LDAP bind settings
 .. note:: External applications can connect only to a local Active Directory provider. 
 
 Binding is the process where the LDAP server authenticates the client and, if the client is successfully authenticated, 
-the server allows the client access.
+the server allows client access.
 
 Many applications may require to be bound to an existing NethServer 8 user domain.
 Bind settings can be accessed by selecting the ``Configuration`` link from the three-dots menu: user domain
@@ -144,19 +144,19 @@ You can connect the NethServer 8 cluster to an existing LDAP server:
 * fill all required fields
 * click on :guilabel:`Configure domain` button
 
-At the end, you will be able to bind locally installed applications with the external LDAP server.
+In the end, you will be able to bind locally installed applications with the external LDAP server.
 
 .. _user_groups-section:
 
 User and groups
 ===============
 
-You can mange user and groups of a domain by clicking on ``User and groups`` link from the ``Domains and users`` page.
+You can manage users and groups of a domain by clicking on ``User and groups`` link from the ``Domains and users`` page.
 
-If an external user domain was configured, the page shows read-only lists.
-Changes to the user base must be done on the original server.
+If an external user domain has been configured, the page shows read-only lists.
+Changes to the user base must be done on the external server.
 
-On the other hand, if a local AD or LDAP account provider was installed, the page
+On the other hand, if a local AD or LDAP account provider has been installed, the page
 allows to create, modify and delete users and groups.
 
 When creating a user, the following fields are mandatory:
