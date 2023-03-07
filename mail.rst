@@ -58,7 +58,7 @@ from the ``Domains`` page.
 You can add a new domain by clicking on the :guilabel:`Create domain` button and fill
 the ``Name`` field with the mail domain, like ``mymail.org``.
 
-If the first option is disabled, you can enable the ``Accept unknown recipients`` switch and select
+If the ``Add user addresses from user domain`` option is disabled, you can enable the ``Accept unknown recipients`` switch and select
 a mailbox that will catch all messages sent to non-existing addresses.
 
 NethServer allows storing a hidden copy of all messages
