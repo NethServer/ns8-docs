@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 08:20+0000\n"
+"POT-Creation-Date: 2023-03-15 13:59+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -822,52 +822,54 @@ msgstr ""
 
 #: ../../install.rst:35
 msgid ""
-"``VPN endpoint address``: it's the public name of the leader node, it "
-"should be a valid (Fully Qualified Domain Named) FQDN with a public DNS "
-"record"
+"``VPN endpoint address``: this is the address of the leader node of your "
+"cluster, and must be reachable by any other nodes you may add to your "
+"cluster. Local network names and IP addresses will prevent you from "
+"adding systems to your cluster which aren’t on the same network as the "
+"leader node"
 msgstr ""
 
-#: ../../install.rst:36
+#: ../../install.rst:38
 msgid ""
 "``VPN endpoint port``: it's the public port of the VPN, the port should "
 "be accessible to any future node"
 msgstr ""
 
-#: ../../install.rst:37
+#: ../../install.rst:39
 msgid ""
 "``VPN CIDR``: the VPN network address, make sure this network is not "
 "already used inside your existing network environment"
 msgstr ""
 
-#: ../../install.rst:39
+#: ../../install.rst:41
 msgid ""
 "If unsure, you can keep the proposed defaults which should be good for "
 "most environments."
 msgstr ""
 
-#: ../../install.rst:41
+#: ../../install.rst:43
 msgid ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
 "ready to run :ref:`applications <modules-section>`."
 msgstr ""
 
-#: ../../install.rst:43
+#: ../../install.rst:45
 msgid "Each cluster has an auto-generated name. If you wish to change it:"
 msgstr ""
 
-#: ../../install.rst:45
+#: ../../install.rst:47
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr ""
 
-#: ../../install.rst:46
+#: ../../install.rst:48
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr ""
 
-#: ../../install.rst:47
+#: ../../install.rst:49
 msgid "click the :guilabel:`Save settings` button"
 msgstr ""
 
-#: ../../install.rst:49
+#: ../../install.rst:51
 msgid ""
 "Now sure where to go from here? You can install an :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
@@ -876,28 +878,28 @@ msgid ""
 "section>`."
 msgstr ""
 
-#: ../../install.rst:53
+#: ../../install.rst:55
 msgid ""
 "To customize the installation, please refer to the `developer manual "
 "<https://nethserver.github.io/ns8-core>`_."
 msgstr ""
 
-#: ../../install.rst:56
+#: ../../install.rst:58
 msgid "Uninstall"
 msgstr ""
 
-#: ../../install.rst:58
+#: ../../install.rst:60
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr ""
 
-#: ../../install.rst:60
+#: ../../install.rst:62
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 
-#: ../../install.rst:63
+#: ../../install.rst:65
 msgid "To uninstall NS8, execute: ::"
 msgstr ""
 
@@ -6678,5 +6680,13 @@ msgstr ""
 #~ "recipients`` switch and select a mailbox"
 #~ " that will catch all messages sent"
 #~ " to non-existing addresses."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``VPN endpoint address``: it's the "
+#~ "public name of the leader node, it"
+#~ " should be a valid (Fully Qualified"
+#~ " Domain Named) FQDN with a public "
+#~ "DNS record"
 #~ msgstr ""
 
