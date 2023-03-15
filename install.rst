@@ -32,7 +32,9 @@ With the VPN in place, you will be able to add more nodes in the future.
 
 Please enter the following VPN details:
 
-* ``VPN endpoint address``: it's the public name of the leader node, it should be a valid (Fully Qualified Domain Named) FQDN with a public DNS record
+* ``VPN endpoint address``: this is the address of the leader node of your cluster, and must be reachable by any other nodes you may
+  add to your cluster. Local network names and IP addresses will prevent you from adding systems to your
+  cluster which aren’t on the same network as the leader node
 * ``VPN endpoint port``: it's the public port of the VPN, the port should be accessible to any future node
 * ``VPN CIDR``: the VPN network address, make sure this network is not already used inside your existing network environment
 
