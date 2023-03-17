@@ -66,7 +66,12 @@ using the cluster VPN.
 
 Account provider should always be migrated after all other applications.
 
-.. note:: No custom template is migrated during the migration process.
+.. rubric:: Configurations excluded from migration
+
+The following configurations will not be migrated:
+
+- custom templates
+- SMTP mail relay rules
 
 .. _migrated_routes-section:
 
