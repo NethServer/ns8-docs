@@ -53,7 +53,7 @@ If the migrated application requires extra parameters, the system will display a
 before proceeding.
 Please note that most web application will need a dedicated FQDN (virtual host) after the migration.
 Make sure the DNS record points to the NS8 node.
-You can still configure :ref:`manual routes <migrated_routes-section>` for the migrated applications.
+You can still configure :ref:`custom HTTP routes <migrated_routes-section>` for the migrated applications.
 
 At the end of the application migration, the system will:
 
@@ -75,8 +75,8 @@ The following configurations will not be migrated:
 
 .. _migrated_routes-section:
 
-Manual routes
-=============
+Manual HTTP routes
+==================
 
 In NethServer 7, most web applications were accessible using path-style routes.
 As an example, given a server named ``server.nethserver.org`` the WebTop installation
