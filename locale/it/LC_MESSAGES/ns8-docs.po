@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-15 13:59+0000\n"
+"POT-Creation-Date: 2023-03-17 14:35+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -1890,15 +1890,27 @@ msgstr ""
 msgid "Account provider should always be migrated after all other applications."
 msgstr ""
 
-#: ../../migration.rst:69
-msgid "No custom template is migrated during the migration process."
+#: ../../migration.rst:70
+msgid "Configurations excluded from migration"
+msgstr ""
+
+#: ../../migration.rst:71
+msgid "The following configurations will not be migrated:"
+msgstr ""
+
+#: ../../migration.rst:73
+msgid "custom templates"
 msgstr ""
 
 #: ../../migration.rst:74
+msgid "SMTP mail relay rules"
+msgstr ""
+
+#: ../../migration.rst:79
 msgid "Manual routes"
 msgstr ""
 
-#: ../../migration.rst:76
+#: ../../migration.rst:81
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -1906,73 +1918,73 @@ msgid ""
 "``https://server.nethserver.org/webtop``."
 msgstr ""
 
-#: ../../migration.rst:80
+#: ../../migration.rst:85
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
 "``https://webtop.nethserver.org``."
 msgstr ""
 
-#: ../../migration.rst:83
+#: ../../migration.rst:88
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
 "<traefik-section>`."
 msgstr ""
 
-#: ../../migration.rst:86
+#: ../../migration.rst:91
 msgid "Example for adding WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:88
+#: ../../migration.rst:93
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr ""
 
-#: ../../migration.rst:89
+#: ../../migration.rst:94
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
 msgstr ""
 
-#: ../../migration.rst:90
+#: ../../migration.rst:95
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr ""
 
-#: ../../migration.rst:91
+#: ../../migration.rst:96
 msgid "click on the :guilabel:`Create route` button"
 msgstr ""
 
-#: ../../migration.rst:92
+#: ../../migration.rst:97
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
 msgstr ""
 
-#: ../../migration.rst:93
+#: ../../migration.rst:98
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
 msgstr ""
 
-#: ../../migration.rst:94
+#: ../../migration.rst:99
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
 msgstr ""
 
-#: ../../migration.rst:95
+#: ../../migration.rst:100
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:97
+#: ../../migration.rst:102
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr ""
 
-#: ../../migration.rst:98
+#: ../../migration.rst:103
 msgid "``/.well-known``"
 msgstr ""
 
-#: ../../migration.rst:99
+#: ../../migration.rst:104
 msgid "``/webtop-dav``"
 msgstr ""
 
@@ -6688,5 +6700,8 @@ msgstr ""
 #~ " should be a valid (Fully Qualified"
 #~ " Domain Named) FQDN with a public "
 #~ "DNS record"
+#~ msgstr ""
+
+#~ msgid "No custom template is migrated during the migration process."
 #~ msgstr ""
 
