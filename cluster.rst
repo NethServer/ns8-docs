@@ -34,6 +34,8 @@ If the leader node does not have a valid TLS certificate, remember to disable th
 clicking the join button.
 When the node registration is complete, you can return to the leader user interface and install applications running on the new worker node.
 
+.. _administrators-section:
+
 Administrators
 ==============
 

@@ -33,7 +33,11 @@ You can now open the just installed ``NS8 migration`` application from Cockpit.
 Now, connect the NethServer 7 server to an existing new NethServer 8 cluster by entering the following fields:
 
 - ``NS8 leader node``: the host name or IP address of NethServer 8 cluster leader node
-- ``NS8 admin username`` and ``NS8 admin password``: administrator credentials for the leader node
+- ``NS8 admin username`` and ``NS8 admin password``: administrator credentials for the leader node.
+
+  As best practice, you can create a dedicated user from the :ref:`administrators-section` page and delete
+  the user once the migration has been completed.
+  Please note that the user must have 2FA disabled.
 - uncheck the ``TLS validation`` option if the leader node does not have a valid TLS certificate
 
 Then, click the :guilabel:`Connect` button.
