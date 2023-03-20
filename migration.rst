@@ -70,6 +70,11 @@ using the cluster VPN.
 
 Account provider should always be migrated after all other applications.
 
+At the end of the migration, you can configure a Samba NS8 user domain as external account provider
+for NS7. Bear in mind that NS7 must be able to access the :ref:`IP address <active_directory-section>` where Samba is bound.
+This configuration could be useful if you have modules still running on NS7 that require
+access to the account provider.
+
 .. rubric:: Configurations excluded from migration
 
 The following configurations will not be migrated:
