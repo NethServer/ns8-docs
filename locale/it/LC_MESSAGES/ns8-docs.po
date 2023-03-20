@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-17 14:35+0000\n"
+"POT-Creation-Date: 2023-03-20 16:25+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -1863,8 +1863,8 @@ msgid ""
 " the system will display a dialog box before proceeding. Please note that"
 " most web application will need a dedicated FQDN (virtual host) after the"
 " migration. Make sure the DNS record points to the NS8 node. You can "
-"still configure :ref:`manual routes <migrated_routes-section>` for the "
-"migrated applications."
+"still configure :ref:`custom HTTP routes <migrated_routes-section>` for "
+"the migrated applications."
 msgstr ""
 
 #: ../../migration.rst:58
@@ -1907,7 +1907,7 @@ msgid "SMTP mail relay rules"
 msgstr ""
 
 #: ../../migration.rst:79
-msgid "Manual routes"
+msgid "Manual HTTP routes"
 msgstr ""
 
 #: ../../migration.rst:81
@@ -6703,5 +6703,24 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "No custom template is migrated during the migration process."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When you're ready for the final "
+#~ "migration, click the :guilabel:`Finish "
+#~ "migration` button. If the migrated "
+#~ "application requires extra parameters, the "
+#~ "system will display a dialog box "
+#~ "before proceeding. Please note that most"
+#~ " web application will need a "
+#~ "dedicated FQDN (virtual host) after the"
+#~ " migration. Make sure the DNS record"
+#~ " points to the NS8 node. You "
+#~ "can still configure :ref:`manual routes "
+#~ "<migrated_routes-section>` for the migrated "
+#~ "applications."
+#~ msgstr ""
+
+#~ msgid "Manual routes"
 #~ msgstr ""
 
