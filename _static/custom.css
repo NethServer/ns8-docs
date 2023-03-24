@@ -1,7 +1,10 @@
-@media (min-width:992px) {
- aside.sidebar:not(.margin),
- div.sidebar:not(.margin) {
+aside.sidebar:not(.margin),
+div.sidebar:not(.margin) {
   width:35%;
-  margin:0 -35% 0 3%
- }
+  padding: 10px;
+  background-color: #fff;
+  margin: 0px;
+}
+aside.sidebar p.sidebar-title {
+  border-bottom: 0px;
 }
