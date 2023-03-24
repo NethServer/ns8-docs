@@ -17,7 +17,7 @@ import datetime
 # -- Project information -----------------------------------------------------
 
 project = 'NS8'
-#author = 'Nethesis Srl and the NethServer project contributors'
+author = 'Nethesis Srl and the NethServer project contributors'
 #copyright = u'%d, %s' % (datetime.date.today().year, author)
 
 copyright = u'%d, Nethesis Srl and the NethServer project contributors' % datetime.date.today().year
@@ -61,6 +61,7 @@ html_theme_options = {
     "repository_url": "https://github.com/NethServer/ns8-docs",
     "use_repository_button": True,
     "logo_only": True,
+    "use_download_button": False
 }
 
 html_tile = "NS8 documentation"
