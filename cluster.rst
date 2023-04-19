@@ -13,10 +13,10 @@ NS8 clusters support a maximum of 4 nodes.
 
 All nodes are managed by the Web user interface running on the leader node.
 
-Adding a node
-=============
+Add a node
+==========
 
-You can join a worker node to an existing cluster.
+You can add (join) a worker node to an existing cluster.
 The process consists of three steps:
 
 * install the new node
