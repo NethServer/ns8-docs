@@ -62,6 +62,64 @@ When a node is removed from the cluster the applications running on it are
 not affected and they are left in a running state. Shutdown and switch
 off the node to finalize the node removal.
 
+
+Promote a node to leader
+========================
+
+Adding and removing nodes might raise the need of changing the cluster
+**leader node**.
+
+A good leader node
+
+* never changes its IP address(es)
+* must be reachable by any other worker node
+
+If DNS is used to find the leader IP address, every worker node must
+properly resolve the leader host name and that must be the same for every
+worker node.
+
+Depending on the current leader node state there are two possible
+procedures:
+
+* Reachable leader node
+* Unreachable leader node
+
+Reachable leader node
+---------------------
+
+If the current leader node is working properly, access the ``Nodes`` page,
+go to the three-dots menu of the node to promote and click on ``Promote to
+leader``.
+
+Confirm or enter the leader host name in the ``VPN endpoint address``
+field. An IP address is accepted, too.
+
+Confirm or enter the ``VPN endpoint port`` number. Every worker node will
+connect the leader on that UDP port number.
+
+When the confirmation string is typed, the :guilabel:`I understand,
+promote the node` button becomes active and it is possible to complete the
+node promotion.
+
+The ``Check node connectivity`` checkbox verifies the connection of every
+node with the selected one.  The check might fail due to settings of other
+network devices. In this case, if you are sure the entered configuration
+is correct, it is possible to disable the check: do it at your own risk!
+
+Unreachable leader node
+-----------------------
+
+If the current leader node is not reachable, it is necessary to run a
+command on any other worker node.  Be prepared in advance for this
+situation by enabling SSH, console or Cockpit **terminal root access** to
+the nodes.
+
+For example, to promote node with ID ``3``, VPN endpoint
+``node3.example.com`` UDP port ``55820``, run the following command on
+every worker node: ::
+
+  switch-leader --node 3 --endpoint node3.example.com:55820
+
 .. _administrators-section:
 
 Administrators
