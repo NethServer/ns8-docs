@@ -63,6 +63,8 @@ not affected and they are left in a running state. Shutdown and switch
 off the node to finalize the node removal.
 
 
+.. _node-promotion-section:
+
 Promote a node to leader
 ========================
 
@@ -83,6 +85,14 @@ procedures:
 
 * Reachable leader node
 * Unreachable leader node
+
+In any case, after leader promotion it is necessary to perform these additional tasks:
+
+1. The cluster backup password must be set again. See also
+   :ref:`cluster_backup-section`.
+
+1. 2FA is disabled for all users. See :ref:`configure-2fa-section` to
+   enable it again on your account.
 
 Reachable leader node
 ---------------------
@@ -137,6 +147,8 @@ existing cluster administrator.
 
 Administrators can change their own password from the ``Account`` card inside the ``Settings`` page.
 
+.. _configure-2fa-section:
+
 Two-factor authentication (2FA)
 -------------------------------
 
@@ -151,6 +163,10 @@ The user will have to:
 1. download and install the preferred 2FA application on the smartphone
 2. scan the QR code with the 2FA application
 3. generate a new code and copy it inside the verification field, then click :guilabel:`Verify code`
+
+.. warning::
+
+  2FA is disabled after :ref:`node-promotion-section`: it is necessary to enable it again.
 
 Smartphone applications
 ^^^^^^^^^^^^^^^^^^^^^^^
