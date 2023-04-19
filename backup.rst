@@ -58,11 +58,12 @@ Cluster backup
 The cluster configuration backup contains all required data to execute a :ref:`disaster_recovery-section`.
 It is a compressed JSON file encrypted with GPG.
 
+The first time ``Backup`` page is accessed an encryption password must be
+set and stored in a safe place. A new encryption password is needed also
+after a new leader node is elected (see :ref:`node-promotion-section`).
+
 To download the cluster configuration backup, click on :guilabel:`Download cluster backup` button under
 the ``Cluster configuration`` section of the ``Backup`` page.
-At every download, you will be asked to enter an encryption password.
-
-Make sure to remember the encryption password, you will need it for the disaster recovery.
 
 Please, download the cluster configuration backup and keep it on a safe place.
 
