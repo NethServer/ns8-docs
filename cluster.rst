@@ -34,6 +34,34 @@ If the leader node does not have a valid TLS certificate, remember to disable th
 clicking the join button.
 When the node registration is complete, you can return to the leader user interface and install applications running on the new worker node.
 
+Remove a node
+=============
+
+Worker nodes can be removed from the cluster. Before removing a given
+worker node, ensure no account provider replica is running on it. In the
+``Domains and users`` page, for each domain follow the ``N providers``
+link to see the node where a provider replica is installed on, then remove
+it.
+
+.. warning::
+
+    If the node is not reachable or is not responding the provider replica
+    removal must be completed manually after the node removal.
+
+Access the ``Nodes`` page, go to the three-dots menu of the node and click
+on ``Remove from cluster`` to open a confirmation window. Applications
+installed on the node are listed: review that list carefully because node
+removal is not recoverable.
+
+If the node removal window is confirmed by pushing the :guilabel:`I
+understand, remove node` button, the node and its applications are
+disconnected, their authorizations are revoked and they cannot access the
+cluster any more.
+
+When a node is removed from the cluster the applications running on it are
+not affected and they are left in a running state. Shutdown and switch
+off the node to finalize the node removal.
+
 .. _administrators-section:
 
 Administrators
