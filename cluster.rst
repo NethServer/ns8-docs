@@ -29,7 +29,7 @@ until the login to the Web user interface.
 On the leader node, access the ``Nodes`` page and click on :guilabel:`Add node to cluster` and copy the join code from the dialog box.
 
 Return to the worker node and click the :guilabel:`Join cluster` button. Then paste the code inside the ``Join code`` field and click the
-:guilabel:`Join cluster`` button.
+:guilabel:`Join cluster` button.
 If the leader node does not have a valid TLS certificate, remember to disable the ``TLS certification validation`` option before
 clicking the join button.
 When the node registration is complete, you can return to the leader user interface and install applications running on the new worker node.
