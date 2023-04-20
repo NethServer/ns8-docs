@@ -45,7 +45,7 @@ it.
 
 .. warning::
 
-    If the node is not reachable or is not responding the provider replica
+    If the node is not reachable, or is not responding, the provider replica
     removal must be completed manually after the node removal.
 
 Access the ``Nodes`` page, go to the three-dots menu of the node and click
@@ -71,17 +71,14 @@ Promote a node to leader
 Adding and removing nodes might raise the need of changing the cluster
 **leader node**.
 
-A good leader node
-
-* never changes its IP address(es)
-* must be reachable by any other worker node
+A good leader node must be reachable by any other worker node.
 
 If DNS is used to find the leader IP address, every worker node must
 properly resolve the leader host name and that must be the same for every
 worker node.
 
 Depending on the current leader node state there are two possible
-procedures:
+procedures to promote a node to leader role:
 
 * Reachable leader node
 * Unreachable leader node
