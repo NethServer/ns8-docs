@@ -91,6 +91,8 @@ In any case, after leader promotion it is necessary to perform these additional 
 1. 2FA is disabled for all users. See :ref:`configure-2fa-section` to
    enable it again on your account.
 
+See also the note in :ref:`audit-trail-section` about node promotion.
+
 Reachable leader node
 ---------------------
 
@@ -189,3 +191,9 @@ Each event of the audit trail contains at least:
 * name of the action
 
 Audit trail events can be filtered by user, date, action type, and custom text match.
+
+.. note::
+
+    Audit trail information is stored in the leader node disk. In case of
+    :ref:`new leader promotion <node-promotion-section>` the audit trail
+    information in the old leader is no longer accessible.
