@@ -74,7 +74,7 @@ Choose a ``qcow2`` image if you are using a KVM-based platform like `Proxmox <ht
 or a ``vmdk`` image if your using something like `VMware <https://www.vmware.com>`_.
 You can also upload the image to a cloud provider and create a public virtual machine.
 
-When using the image on a cloud-provider with cloud-init support, the machine will be configured with the host name
+When using the image on a cloud provider with cloud-init support, the machine will be configured with the host name
 chosen during the setup phase. Otherwise, when running on a local KVM-based platform, the machine will have the default host name
 ``builder.nethserver.org``.
 
