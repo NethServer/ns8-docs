@@ -75,8 +75,10 @@ or a ``vmdk`` image if your using something like `VMware <https://www.vmware.com
 You can also upload the image to a cloud provider and create a public virtual machine.
 
 When using the image on a cloud provider with cloud-init support, the machine will be configured with the host name
-chosen during the setup phase. Otherwise, when running on a local KVM-based platform, the machine will have the default host name
-``builder.nethserver.org``.
+chosen during the setup phase.
+Otherwise, when running on a local KVM-based platform, the machine will have the default host name
+``node.ns8.test``. Please remember to change the host name by following `Debian <https://wiki.debian.org/Hostname>`_
+or `RHEL-based distros <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html-single/configuring_and_managing_networking/index#assembly_changing-a-hostname_configuring-and-managing-networking>`_ documentation.
 
 Known bugs:
 
