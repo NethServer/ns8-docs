@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-20 08:29+0000\n"
+"POT-Creation-Date: 2023-04-26 10:23+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -932,65 +932,76 @@ msgstr ""
 
 #: ../../install.rst:9
 msgid ""
+"You can install NethServer 8 starting :ref:`from scratch <install_linux-"
+"section>` or use one of :ref:`pre-built images <install_image-section>`. "
+"Both methods require a working Internet connection."
+msgstr ""
+
+#: ../../install.rst:15
+msgid "Install from scratch"
+msgstr ""
+
+#: ../../install.rst:17
+msgid ""
 "Pick your preferred distribution between :ref:`supported ones <supported-"
 "distros-section>` and ensure that the system firewall is not blocking any"
 " connection."
 msgstr ""
 
-#: ../../install.rst:12
+#: ../../install.rst:20
 msgid "First, make sure the system is up to date and ``curl`` is installed:"
 msgstr ""
 
-#: ../../install.rst:14
+#: ../../install.rst:22
 msgid "for CentOS/AlmaLinux/RockyLinux: ``dnf update -y && dnf install -y curl``"
 msgstr ""
 
-#: ../../install.rst:15
+#: ../../install.rst:23
 msgid ""
 "for Debian: ``apt-get update && apt-get upgrade -y && apt-get install -y "
 "curl``"
 msgstr ""
 
-#: ../../install.rst:17
+#: ../../install.rst:25
 msgid "Start the installation procedure as ``root``: ::"
 msgstr ""
 
-#: ../../install.rst:21
+#: ../../install.rst:29
 msgid ""
 "When the installation script ends, access the Web user interface at "
 "**https://\\<server_ip_or_fqdn\\>/cluster-admin/**."
 msgstr ""
 
-#: ../../install.rst:23
+#: ../../install.rst:31
 msgid "First, you will need to login using the default credentials:"
 msgstr ""
 
-#: ../../install.rst:25
+#: ../../install.rst:33
 msgid "Username: ``admin``"
 msgstr ""
 
-#: ../../install.rst:26
+#: ../../install.rst:34
 msgid "Password: ``Nethesis,1234``"
 msgstr ""
 
-#: ../../install.rst:28
+#: ../../install.rst:36
 msgid ""
 "Then, choose :guilabel:`Create cluster` to create a new single-node "
 "cluster and setup a new administrator password."
 msgstr ""
 
-#: ../../install.rst:30
+#: ../../install.rst:38
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
 " Network (VPN) for the cluster. With the VPN in place, you will be able "
 "to add more nodes in the future."
 msgstr ""
 
-#: ../../install.rst:33
+#: ../../install.rst:41
 msgid "Please enter the following VPN details:"
 msgstr ""
 
-#: ../../install.rst:35
+#: ../../install.rst:43
 msgid ""
 "``VPN endpoint address``: this is the address of the leader node of your "
 "cluster, and must be reachable by any other nodes you may add to your "
@@ -999,47 +1010,47 @@ msgid ""
 "leader node"
 msgstr ""
 
-#: ../../install.rst:38
+#: ../../install.rst:46
 msgid ""
 "``VPN endpoint port``: it's the public port of the VPN, the port should "
 "be accessible to any future node"
 msgstr ""
 
-#: ../../install.rst:39
+#: ../../install.rst:47
 msgid ""
 "``VPN CIDR``: the VPN network address, make sure this network is not "
 "already used inside your existing network environment"
 msgstr ""
 
-#: ../../install.rst:41
+#: ../../install.rst:49
 msgid ""
 "If unsure, you can keep the proposed defaults which should be good for "
 "most environments."
 msgstr ""
 
-#: ../../install.rst:43
+#: ../../install.rst:51
 msgid ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
 "ready to run :ref:`applications <modules-section>`."
 msgstr ""
 
-#: ../../install.rst:45
+#: ../../install.rst:53
 msgid "Each cluster has an auto-generated name. If you wish to change it:"
 msgstr ""
 
-#: ../../install.rst:47
+#: ../../install.rst:55
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr ""
 
-#: ../../install.rst:48
+#: ../../install.rst:56
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr ""
 
-#: ../../install.rst:49
+#: ../../install.rst:57
 msgid "click the :guilabel:`Save settings` button"
 msgstr ""
 
-#: ../../install.rst:51
+#: ../../install.rst:59
 msgid ""
 "Now sure where to go from here? You can install an :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
@@ -1048,28 +1059,78 @@ msgid ""
 "section>`."
 msgstr ""
 
-#: ../../install.rst:55
+#: ../../install.rst:63
 msgid ""
 "To customize the installation, please refer to the `developer manual "
 "<https://nethserver.github.io/ns8-core>`_."
 msgstr ""
 
-#: ../../install.rst:58
+#: ../../install.rst:68
+msgid "Pre-built images"
+msgstr ""
+
+#: ../../install.rst:70
+msgid ""
+"Download one of latest available images from the `release page "
+"<https://github.com/NethServer/ns8-core/releases>`_."
+msgstr ""
+
+#: ../../install.rst:72
+msgid ""
+"Select your preferred distribution flavor, download the image and start "
+"it inside your virtualization platform. Choose a ``qcow2`` image if you "
+"are using a KVM-based platform like `Proxmox <https://www.proxmox.com/>`_"
+" or a ``vmdk`` image if your using something like `VMware "
+"<https://www.vmware.com>`_. You can also upload the image to a cloud "
+"provider and create a public virtual machine."
+msgstr ""
+
+#: ../../install.rst:77
+msgid ""
+"When using the image on a cloud provider with cloud-init support, the "
+"machine will be configured with the host name chosen during the setup "
+"phase. Otherwise, when running on a local KVM-based platform, the machine"
+" will have the default host name ``node.ns8.test``. Please remember to "
+"change the host name by following `Debian "
+"<https://wiki.debian.org/Hostname>`_ or `RHEL-based distros "
+"<https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9"
+"/html-"
+"single/configuring_and_managing_networking/index#assembly_changing-a"
+"-hostname_configuring-and-managing-networking>`_ documentation."
+msgstr ""
+
+#: ../../install.rst:83
+msgid "Known bugs:"
+msgstr ""
+
+#: ../../install.rst:85
+msgid ""
+"Debian image could be currently used only for local virtualization "
+"platform"
+msgstr ""
+
+#: ../../install.rst:86
+msgid ""
+"When using RHEL-based images on Proxmox, change the default CPU model to "
+"anything other than ``kvm64``"
+msgstr ""
+
+#: ../../install.rst:89
 msgid "Uninstall"
 msgstr ""
 
-#: ../../install.rst:60
+#: ../../install.rst:91
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr ""
 
-#: ../../install.rst:62
+#: ../../install.rst:93
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 
-#: ../../install.rst:65
+#: ../../install.rst:96
 msgid "To uninstall NS8, execute: ::"
 msgstr ""
 
