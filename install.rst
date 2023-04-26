@@ -6,7 +6,7 @@ Installation
 
 .. highlight:: bash
 
-You can install NethServer 8 starting :ref:`from a scratch <install_linux-section>` or use one of :ref:`pre-built images <install_image-section>`.
+You can install NethServer 8 starting :ref:`from scratch <install_linux-section>` or use one of :ref:`pre-built images <install_image-section>`.
 Both methods require a working Internet connection.
 
 .. _install_linux-section:
