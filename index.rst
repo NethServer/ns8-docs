@@ -67,4 +67,5 @@ NethServer 8 administrator manual
    os_updates
    disk_usage
    migration
+   faq
 

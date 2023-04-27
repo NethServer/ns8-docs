@@ -1,3 +1,5 @@
+.. _migration-section:
+
 ======================
 NethServer 7 migration
 ======================
