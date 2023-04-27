@@ -1,3 +1,5 @@
+.. _system-requirements-section:
+
 ===================
 System requirements
 ===================
