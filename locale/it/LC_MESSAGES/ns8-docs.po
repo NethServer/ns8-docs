@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-27 09:23+0000\n"
+"POT-Creation-Date: 2023-04-28 09:13+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -2195,51 +2195,50 @@ msgstr ""
 #: ../../migration.rst:28
 msgid ""
 "First, you are going to install the migration tool on the source machine."
-" Access the source server using SSH as root user, then execute: ::"
+" Access Cockpit on the source server and install \"Migration to NS8\" "
+"from the Software Center."
+msgstr ""
+
+#: ../../migration.rst:31
+msgid "You can now open the just installed ``NS8 migration`` application."
 msgstr ""
 
 #: ../../migration.rst:33
-msgid ""
-"You can now open the just installed ``NS8 migration`` application from "
-"Cockpit."
-msgstr ""
-
-#: ../../migration.rst:35
 msgid ""
 "Now, connect the NethServer 7 server to an existing new NethServer 8 "
 "cluster by entering the following fields:"
 msgstr ""
 
-#: ../../migration.rst:37
+#: ../../migration.rst:35
 msgid ""
 "``NS8 leader node``: the host name or IP address of NethServer 8 cluster "
 "leader node"
 msgstr ""
 
-#: ../../migration.rst:38
+#: ../../migration.rst:36
 msgid ""
 "``NS8 admin username`` and ``NS8 admin password``: administrator "
 "credentials for the leader node."
 msgstr ""
 
-#: ../../migration.rst:40
+#: ../../migration.rst:38
 msgid ""
 "As best practice, you can create a dedicated user from the :ref"
 ":`administrators-section` page and delete the user once the migration has"
 " been completed. Please note that the user must have 2FA disabled."
 msgstr ""
 
-#: ../../migration.rst:43
+#: ../../migration.rst:41
 msgid ""
 "uncheck the ``TLS validation`` option if the leader node does not have a "
 "valid TLS certificate"
 msgstr ""
 
-#: ../../migration.rst:45
+#: ../../migration.rst:43
 msgid "Then, click the :guilabel:`Connect` button."
 msgstr ""
 
-#: ../../migration.rst:47
+#: ../../migration.rst:45
 msgid ""
 "The web interface will display the list of all applications installed "
 "inside NethServer 7. Choose an application and click on the "
@@ -2249,13 +2248,13 @@ msgid ""
 "or more nodes, you will be asked to select a destination node."
 msgstr ""
 
-#: ../../migration.rst:54
+#: ../../migration.rst:52
 msgid ""
 "You can now click the :guilabel:`Sync data` button multiple time to keep "
 "in sync the application data between NethServer 7 and NethServer 8."
 msgstr ""
 
-#: ../../migration.rst:57
+#: ../../migration.rst:55
 msgid ""
 "When you're ready for the final migration, click the :guilabel:`Finish "
 "migration` button. If the migrated application requires extra parameters,"
@@ -2266,30 +2265,30 @@ msgid ""
 "the migrated applications."
 msgstr ""
 
-#: ../../migration.rst:64
+#: ../../migration.rst:62
 msgid "At the end of the application migration, the system will:"
 msgstr ""
 
-#: ../../migration.rst:66
+#: ../../migration.rst:64
 msgid "start the module inside NethServer 8"
 msgstr ""
 
-#: ../../migration.rst:67
+#: ../../migration.rst:65
 msgid "disable the application inside NethServer 7"
 msgstr ""
 
-#: ../../migration.rst:69
+#: ../../migration.rst:67
 msgid ""
 "If the migrated application was connected to a local account provider, "
 "the application will still be able to access the provider running on "
 "NethServer 7 using the cluster VPN."
 msgstr ""
 
-#: ../../migration.rst:73
+#: ../../migration.rst:71
 msgid "Account provider should always be migrated after all other applications."
 msgstr ""
 
-#: ../../migration.rst:75
+#: ../../migration.rst:73
 msgid ""
 "At the end of the migration, you can configure a Samba NS8 user domain as"
 " external account provider for NS7. Bear in mind that NS7 must be able to"
@@ -2298,27 +2297,27 @@ msgid ""
 "running on NS7 that require access to the account provider."
 msgstr ""
 
-#: ../../migration.rst:81
+#: ../../migration.rst:79
 msgid "Configurations excluded from migration"
 msgstr ""
 
-#: ../../migration.rst:82
+#: ../../migration.rst:80
 msgid "The following configurations will not be migrated:"
 msgstr ""
 
-#: ../../migration.rst:84
+#: ../../migration.rst:82
 msgid "custom templates"
 msgstr ""
 
-#: ../../migration.rst:85
+#: ../../migration.rst:83
 msgid "SMTP mail relay rules"
 msgstr ""
 
-#: ../../migration.rst:90
+#: ../../migration.rst:88
 msgid "Manual HTTP routes"
 msgstr ""
 
-#: ../../migration.rst:92
+#: ../../migration.rst:90
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -2326,73 +2325,73 @@ msgid ""
 "``https://server.nethserver.org/webtop``."
 msgstr ""
 
-#: ../../migration.rst:96
+#: ../../migration.rst:94
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
 "``https://webtop.nethserver.org``."
 msgstr ""
 
-#: ../../migration.rst:99
+#: ../../migration.rst:97
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
 "<traefik-section>`."
 msgstr ""
 
-#: ../../migration.rst:102
+#: ../../migration.rst:100
 msgid "Example for adding WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:104
+#: ../../migration.rst:102
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr ""
 
-#: ../../migration.rst:105
+#: ../../migration.rst:103
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
 msgstr ""
 
-#: ../../migration.rst:106
+#: ../../migration.rst:104
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr ""
 
-#: ../../migration.rst:107
+#: ../../migration.rst:105
 msgid "click on the :guilabel:`Create route` button"
 msgstr ""
 
-#: ../../migration.rst:108
+#: ../../migration.rst:106
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
 msgstr ""
 
-#: ../../migration.rst:109
+#: ../../migration.rst:107
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
 msgstr ""
 
-#: ../../migration.rst:110
+#: ../../migration.rst:108
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
 msgstr ""
 
-#: ../../migration.rst:111
+#: ../../migration.rst:109
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:113
+#: ../../migration.rst:111
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr ""
 
-#: ../../migration.rst:114
+#: ../../migration.rst:112
 msgid "``/.well-known``"
 msgstr ""
 
-#: ../../migration.rst:115
+#: ../../migration.rst:113
 msgid "``/webtop-dav``"
 msgstr ""
 
@@ -7177,5 +7176,19 @@ msgstr ""
 #~ " you can return to the leader "
 #~ "user interface and install applications "
 #~ "running on the new worker node."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "First, you are going to install "
+#~ "the migration tool on the source "
+#~ "machine. Access the source server using"
+#~ " SSH as root user, then execute: "
+#~ "::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can now open the just "
+#~ "installed ``NS8 migration`` application from"
+#~ " Cockpit."
 #~ msgstr ""
 
