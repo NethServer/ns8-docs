@@ -2,8 +2,6 @@
 Release notes
 =============
 
-.. warning:: This is an ALPHA release, do not use it on production!
-
 No official releases available yet!
 
 Releases glossary:

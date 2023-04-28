@@ -6,8 +6,6 @@ NethServer 7 migration
 
 .. highlight:: bash
 
-.. warning:: This is an ALPHA release, do not use it on production!
-
 Migration is the process to convert a NethServer 7 machine (*source*) into a NethServer 8 (*destination*).
 
 Before starting you will need:
