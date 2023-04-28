@@ -26,11 +26,9 @@ Also make sure that
 The migration procedure will add the source machine as special node of NethServer 8 cluster.
 
 First, you are going to install the migration tool on the source machine.
-Access the source server using SSH as root user, then execute: ::
+Access Cockpit on the source server and install "Migration to NS8" from the Software Center.
 
-  yum --enablerepo=nethserver-testing install -y nethserver-ns8-migration
-
-You can now open the just installed ``NS8 migration`` application from Cockpit.
+You can now open the just installed ``NS8 migration`` application.
 
 Now, connect the NethServer 7 server to an existing new NethServer 8 cluster by entering the following fields:
 
