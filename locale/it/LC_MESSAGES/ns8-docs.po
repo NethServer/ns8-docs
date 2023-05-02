@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-28 09:13+0000\n"
+"POT-Creation-Date: 2023-05-02 12:53+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -673,10 +673,10 @@ msgid ""
 " the :ref:`software_center-section`."
 msgstr ""
 
-#: ../../collabora.rst:15 ../../dokuwiki.rst:10 ../../index.rst:32
-#: ../../mail.rst:32 ../../mariadb.rst:11 ../../mattermost.rst:13
-#: ../../minio.rst:10 ../../nextcloud.rst:21 ../../nginx.rst:11
-#: ../../roundcube.rst:19 ../../webtop.rst:12
+#: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
+#: ../../index.rst:32 ../../mail.rst:32 ../../mariadb.rst:11
+#: ../../mattermost.rst:13 ../../minio.rst:10 ../../nextcloud.rst:21
+#: ../../nginx.rst:11 ../../roundcube.rst:19 ../../webtop.rst:12
 msgid "Configuration"
 msgstr ""
 
@@ -736,6 +736,68 @@ msgstr ""
 msgid ""
 "To integrate Collabora with Nextcloud, see :ref:`collabora-integration-"
 "section`."
+msgstr ""
+
+#: ../../crowdsec.rst:3
+msgid "CrowdSec"
+msgstr ""
+
+#: ../../crowdsec.rst:5
+msgid ""
+"`CrowdSec <https://www.crowdsec.net/>`_ is a malicious activity detection"
+" tool. It looks for known patterns, like malicious login attempts, inside"
+" the applications logs and blocks the attacker IP address."
+msgstr ""
+
+#: ../../crowdsec.rst:9
+msgid "You can install only one CrowdSec instance for each node."
+msgstr ""
+
+#: ../../crowdsec.rst:15
+msgid ""
+"Once installed, CrowdSec is already fully functional and protect many NS8"
+" applications."
+msgstr ""
+
+#: ../../crowdsec.rst:17
+msgid ""
+"To get a list of protected applications, access the server using SSH and "
+"type:"
+msgstr ""
+
+#: ../../crowdsec.rst:23
+msgid "From the web interface you can configure:"
+msgstr ""
+
+#: ../../crowdsec.rst:25
+msgid ""
+"mail notification by adding one address per line inside ``Email "
+"notifications`` field: notifications will work only if :ref:`smarthost-"
+"section` has been configured"
+msgstr ""
+
+#: ../../crowdsec.rst:28
+msgid "IP and network which will never be blocked"
+msgstr ""
+
+#: ../../crowdsec.rst:30
+msgid "dynamic and static ban time"
+msgstr ""
+
+#: ../../crowdsec.rst:32
+msgid ""
+"As default, CrowdSec will send some telemetry to remote CrowdSec-owned "
+"servers. The servers use such data to compose a community blocklist which"
+" is sent back to your installation. If you do not want to share such data"
+" and disable the community blocklist, you can do it by disabling the "
+"``Enable central API`` option under the ``Advanced`` section."
+msgstr ""
+
+#: ../../crowdsec.rst:37
+msgid ""
+"You can also connect your instance to `CrowdSec console "
+"<https://app.crowdsec.net>`_ by filling the ``Enroll the CrowdSec "
+"instance`` field."
 msgstr ""
 
 #: ../../disk_usage.rst:3
@@ -1071,7 +1133,7 @@ msgstr ""
 msgid "Applications"
 msgstr ""
 
-#: ../../index.rst:63
+#: ../../index.rst:64
 msgid "Best practices"
 msgstr ""
 
