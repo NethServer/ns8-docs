@@ -18,7 +18,7 @@ To get a list of protected applications, access the server using SSH and type:
 
 ::
 
-  cscli bouncer list
+  cscli collection list
  
 From the web interface you can configure:
 
@@ -32,7 +32,7 @@ From the web interface you can configure:
 As default, CrowdSec will send some telemetry to remote CrowdSec-owned servers.
 The servers use such data to compose a community blocklist which is sent back to your installation.
 If you do not want to share such data and disable the community blocklist, you can do it by
-enabling the ``Disable central API`` option under the ``Advanced`` section.
+disabling the ``Enable central API`` option under the ``Advanced`` section.
 
 You can also connect your instance to `CrowdSec console <https://app.crowdsec.net>`_
 by filling the ``Enroll the CrowdSec instance`` field.
