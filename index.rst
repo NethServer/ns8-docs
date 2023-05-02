@@ -59,6 +59,7 @@ NethServer 8 administrator manual
    nginx
    dokuwiki
    minio
+   crowdsec
 
 .. toctree::
    :maxdepth: 2
