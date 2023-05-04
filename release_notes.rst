@@ -17,18 +17,20 @@ Major changes on 2023-xx-xx
 Releases glossary
 =================
 
-* **Alpha**: the software is not thoroughly tested and may not contain all planned features.
-  Do not use this release on production. You can use this release to see what's coming on the upcoming version.
-  Updates from alpha release to other releases is not supported.
+The software release cycle includes four stages: Alpha, Beta, Release Candidate (RC), and Stable.
 
-* **Beta**: the software can be considered feature complete but may still contain many known and unknown bugs.
-  Do not use this release on production. You can use this release to test the software before using it
-  on production environments.
-  Updates from beta release to RC and stable are supported but may require manual procedure.
+During the **Alpha** stage, the software is not thoroughly tested and may not include all planned features.
+This release is not suitable for production environments. However, it can be used to preview what's coming in the upcoming version.
+Please note that updates from an Alpha release to other releases are not supported.
 
-* **Release Candidate (RC)**: the software is feature complete, it contains no known bugs and can be
-  promoted to stable if no major issues arise.
-  Updates from RC to stable is supported and should be almost automatic.
-  Use this release on production only if you already have some experience with the software.
+The **Beta** stage indicates that the software is feature complete, but it may still contain many known and unknown bugs.
+This release should not be used on production environments. However, it can be used to test the software before deploying it to production.
+Updates from a Beta release to an RC or Stable release are supported but may require a manual procedure.
 
-* **Stable**: the software can be safely used on production environments.
+During the **Release Candidate (RC)** stage, the software is feature complete, and it contains no known bugs.
+If no major issues arise, it can be promoted to Stable. Updates from an RC release to a Stable release are supported
+and should be almost automatic.
+However, if you're new to the software, it's best to use it on production only if you already have some experience with it.
+
+The **Stable** release is the most reliable and safe to use on production environments.
+It has been thoroughly tested and is considered to be free of major bugs.
