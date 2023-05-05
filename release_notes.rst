@@ -18,7 +18,7 @@ Main core features includes:
 - Node management: add and remove nodes from the system
 - Centralized logging: collect all logs into one place for easy monitoring
 - Configuration and data backups: regularly save cluster settings and data application to remote providers like Amazon S3 and Backblaze B2
-- Authentication: support for both Active Directory (RFC2307) and Lightweight Directory Access Protocol (LDAP) user directories
+- Authentication: support for both Active Directory and LDAP (RFC2307) user directories
 - File server: features an SMB (Server Message Block) file server that enables seamless integration with Windows-based networks
 - Auditing: track changes made within the system to ensure security and accountability
 - Email relay: use a smart host to route outgoing email traffic through a trusted server
