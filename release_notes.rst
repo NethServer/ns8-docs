@@ -11,8 +11,36 @@ NethServer 8 releases.
 Major changes on 2023-xx-xx
 ===========================
 
-- First Beta 1 release
+**Beta 1** release.
 
+Main core features includes:
+
+- Node management: add and remove nodes from the system
+- Centralized logging: collect all logs into one place for easy monitoring
+- Configuration and data backups: regularly save cluster settings and data application to remote providers like Amazon S3 and Backblaze B2
+- Authentication: support for both Active Directory (RFC2307) and Lightweight Directory Access Protocol (LDAP) user directories
+- File server: features an SMB (Server Message Block) file server that enables seamless integration with Windows-based networks
+- Auditing: track changes made within the system to ensure security and accountability
+- Email relay: use a smart host to route outgoing email traffic through a trusted server
+- Custom web routing: define custom URLs to handle specific requests
+- Multi-factor authentication: enable two-step verification for administrator accounts
+- Built-in firewall: protect against unauthorized access at the network level by implementing a local firewall
+
+Additional modules:
+
+- Collaborative tools: includes Dovecot/Postfix/Rspamd mail server, WebTop, Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, Mattermost
+- Development utilities: features MariaDB and NGINX web server for creating dynamic applications and services
+- Monitoring and analysis: offers Grafana, Prometheus, and node_exporter for tracking performance metrics and identifying potential issues
+- Data storage: uses MinIO for managing large amounts of structured and unstructured data
+- Network defense: implements CrowdSec for protecting local applications against remote attacks
+
+The following known limitations will be resolved in future updates:
+
+- remote removal of offline nodes from the cluster is currently unavailable
+- currently, the system only uses TLS certificates issued by Let's Encrypt or self-signed certificates generated locally
+- user login is not supported on worker nodes
+- the mail module does not offer sender-based or destination-based message relay options
+- only a limited number of cloud storage providers are available for backing up data
 
 Releases glossary
 =================
