@@ -31,7 +31,7 @@ Additional modules:
 - Collaborative tools: includes Dovecot/Postfix/Rspamd mail server, WebTop, Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, Mattermost
 - Development utilities: features MariaDB and NGINX web server for creating dynamic applications and services
 - Monitoring and analysis: offers Grafana, Prometheus, and node_exporter for tracking performance metrics and identifying potential issues
-- Data storage: uses MinIO for managing large amounts of structured and unstructured data
+- Data storage: offers MinIO for managing large amounts of structured and unstructured data
 - Network defense: implements CrowdSec for protecting local applications against remote attacks
 
 The following known limitations will be resolved in future updates:
