@@ -13,7 +13,7 @@ Major changes on 2023-xx-xx
 
 **Beta 1** release.
 
-Main core features includes:
+Main core features include:
 
 - Node management: add and remove nodes from the system
 - Centralized logging: collect all logs into one place for easy monitoring
