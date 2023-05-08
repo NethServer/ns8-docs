@@ -25,6 +25,7 @@ Main core features includes:
 - Custom web routing: define custom URLs to handle specific requests
 - Multi-factor authentication: enable two-step verification for administrator accounts
 - Built-in firewall: protect against unauthorized access at the network level by implementing a local firewall
+- Migration: :ref:`Cockpit module <migration-section>` to import NethServer 7 applications
 
 Additional modules:
 
