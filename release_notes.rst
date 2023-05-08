@@ -37,7 +37,6 @@ Additional modules:
 
 The following known limitations will be resolved in future updates:
 
-- remote removal of offline nodes from the cluster is currently unavailable
 - currently, the system only uses TLS certificates issued by Let's Encrypt or self-signed certificates generated locally
 - user login is not supported on worker nodes
 - the mail module does not offer sender-based or destination-based message relay options
