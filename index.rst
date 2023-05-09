@@ -49,6 +49,7 @@ NethServer 8 administrator manual
 
    modules
    mail
+   file_server
    roundcube
    webtop
    nextcloud

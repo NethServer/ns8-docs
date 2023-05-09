@@ -29,7 +29,7 @@ by clicking on the |bento| menu in the top right corner.
 Software center
 ===============
 
-The software center lists all available modules from repositories.
+The software center lists all available modules from repositories [#fileserver]_\ .
 
 To install a new application just click on the :guilabel:`Install` button.
 If the cluster has multiple nodes, you will be alse required to select the target node.
@@ -114,3 +114,8 @@ You can configure a smarthost for all installed applications by accessing the ``
 card inside the ``Settings`` page.
 
 Then, enable the feature by clicking on ``Smarthost provider`` and fill the required details.
+
+
+.. rubric:: Footnotes
+
+.. [#fileserver] Except for :ref:`file-server-section`, that is installed with :ref:`active_directory-section`
