@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-10 09:14+0000\n"
+"POT-Creation-Date: 2023-05-10 10:26+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -676,7 +676,7 @@ msgstr ""
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
 #: ../../index.rst:30 ../../mail.rst:32 ../../mariadb.rst:11
 #: ../../mattermost.rst:13 ../../minio.rst:10 ../../nextcloud.rst:21
-#: ../../nginx.rst:11 ../../roundcube.rst:19 ../../webtop.rst:12
+#: ../../nginx.rst:14 ../../roundcube.rst:19 ../../webtop.rst:12
 msgid "Configuration"
 msgstr ""
 
@@ -696,7 +696,7 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../mariadb.rst:13
-#: ../../mattermost.rst:24 ../../minio.rst:17 ../../nginx.rst:13
+#: ../../mattermost.rst:24 ../../minio.rst:17 ../../nginx.rst:16
 #: ../../roundcube.rst:30 ../../webtop.rst:19
 msgid "How to configure:"
 msgstr ""
@@ -1246,7 +1246,7 @@ msgstr ""
 msgid "Applications"
 msgstr ""
 
-#: ../../index.rst:63
+#: ../../index.rst:62
 msgid "Best practices"
 msgstr ""
 
@@ -2170,15 +2170,15 @@ msgid ""
 "phpMyAdmin, eg. ``/phpmyadmin``"
 msgstr ""
 
-#: ../../mariadb.rst:16 ../../nginx.rst:17
+#: ../../mariadb.rst:16 ../../nginx.rst:20
 msgid "enable ``HTTP to HTTPS`` option accordingly to your needs"
 msgstr ""
 
-#: ../../mariadb.rst:17 ../../mattermost.rst:28 ../../nginx.rst:18
+#: ../../mariadb.rst:17 ../../mattermost.rst:28 ../../nginx.rst:21
 msgid "Click the :guilabel:`Save` button"
 msgstr ""
 
-#: ../../mariadb.rst:19 ../../nginx.rst:20
+#: ../../mariadb.rst:19 ../../nginx.rst:23
 msgid ""
 "At the end of the configuration the web interface will display the public"
 " TCP port to access the MariaDB instance."
@@ -2190,15 +2190,15 @@ msgid ""
 "``https://<server_fqn>/<path>``. Default credentials for phpMyAdmin are:"
 msgstr ""
 
-#: ../../mariadb.rst:25 ../../nginx.rst:26
+#: ../../mariadb.rst:25 ../../nginx.rst:29
 msgid "user: ``admin``"
 msgstr ""
 
-#: ../../mariadb.rst:26 ../../nginx.rst:27
+#: ../../mariadb.rst:26 ../../nginx.rst:30
 msgid "password: ``admin``"
 msgstr ""
 
-#: ../../mariadb.rst:28 ../../nginx.rst:29
+#: ../../mariadb.rst:28 ../../nginx.rst:32
 msgid "Please change them after the first login."
 msgstr ""
 
@@ -2983,58 +2983,58 @@ msgid ""
 "documents directly inside Nextcloud."
 msgstr ""
 
-#: ../../nginx.rst:3
-msgid "NGINX PHP stack"
+#: ../../nginx.rst:5
+msgid "Nginx PHP stack"
 msgstr ""
 
-#: ../../nginx.rst:5
+#: ../../nginx.rst:7
 msgid ""
-"This module installs `NGINX <https://www.nginx.com/>_` web server with "
-"`PHP <https://www.php.net/>`_ stack and `SFTPGo "
+"This module installs `nginx <https://www.nginx.com/>`_ web server with "
+"`PHP <https://www.php.net/>`_ programming language and `SFTPGo "
 "<https://github.com/drakkan/sftpgo>`_ to upload files."
 msgstr ""
 
-#: ../../nginx.rst:8
+#: ../../nginx.rst:11
 msgid ""
-"You can install multiple NGINX instances on the same node from the :ref"
+"You can install multiple Nginx instances on the same node from the :ref"
 ":`software_center-section`."
 msgstr ""
 
-#: ../../nginx.rst:15
+#: ../../nginx.rst:18
 msgid ""
 "access the application ``Settings`` page and enter the path for SFTPGo, "
 "eg. ``/sftpgo``"
 msgstr ""
 
-#: ../../nginx.rst:16
+#: ../../nginx.rst:19
 msgid "choose a public TCP port for the sFTP server"
 msgstr ""
 
-#: ../../nginx.rst:23
+#: ../../nginx.rst:26
 msgid ""
 "The SFTPGo instance will be available at the "
 "``https://<server_fqn>/<path>``. Default credentials for ``Web Admin`` of"
 " SFTPGo are:"
 msgstr ""
 
-#: ../../nginx.rst:32
+#: ../../nginx.rst:35
 msgid "Virtual hosts"
 msgstr ""
 
-#: ../../nginx.rst:34
+#: ../../nginx.rst:37
 msgid ""
 "You can host multiple sites by creating a virtual host for each site "
 "inside the ``Virtual hosts`` page. To create a virtual host click on "
 ":guilabel:`Create a virtual host` button."
 msgstr ""
 
-#: ../../nginx.rst:37
+#: ../../nginx.rst:40
 msgid ""
 "A new SFTP user will be created for each virtual host. Default user "
 "credentials will be displayed inside the virtual host card."
 msgstr ""
 
-#: ../../nginx.rst:40
+#: ../../nginx.rst:43
 msgid ""
 "You can now use the SFTPGo web interface, or a sFTP client, to upload "
 "files to your virtual host."
@@ -3975,14 +3975,6 @@ msgstr ""
 
 #: ../../user_domains.rst:186
 msgid "When a user is deleted, user data will not be removed."
-msgstr ""
-
-#: ../../web_server.rst:3
-msgid "Web server"
-msgstr ""
-
-#: ../../web_server.rst:5
-msgid "TODO"
 msgstr ""
 
 #: ../../webtop.rst:5
@@ -7608,5 +7600,28 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Major changes on 2023-xx-xx"
+#~ msgstr ""
+
+#~ msgid "NGINX PHP stack"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This module installs `NGINX "
+#~ "<https://www.nginx.com/>_` web server with "
+#~ "`PHP <https://www.php.net/>`_ stack and "
+#~ "`SFTPGo <https://github.com/drakkan/sftpgo>`_ to "
+#~ "upload files."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can install multiple NGINX instances"
+#~ " on the same node from the :ref"
+#~ ":`software_center-section`."
+#~ msgstr ""
+
+#~ msgid "Web server"
+#~ msgstr ""
+
+#~ msgid "TODO"
 #~ msgstr ""
 
