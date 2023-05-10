@@ -7,8 +7,6 @@
 NethServer 8 administrator manual
 =================================
 
-.. warning:: This is an ALPHA release, do not use it on production!
-
 .. sidebar:: Looking for ...
 
         * `Developer manual <https://nethserver.github.io/ns8-core/>`_
