@@ -43,18 +43,28 @@ Once the provider is installed, you will be asked to enter the following paramet
 
 - ``Domain``: the user domain, it should be a valid FQDN. It defines the DNS suffix of the new domain.
   The Domain Controller (DC) acts as an authoritative DNS server for that domain. If unsure, keep the proposed value.
+
 - ``NetBIOS domain``: a valid `NetBIOS <https://en.wikipedia.org/wiki/NetBIOS>`_ domain (also known as "domain short name", "NT
   domain name"), it is the alternative Active Directory domain identifier, compatible
   with older clients.  Maximum length is 15 ASCII characters. If unsure, keep the proposed value.
-- ``Samba admin username`` and ``Samba admin password``: admin credentials
-- ``IP address``: select an available network controller; choose a physical network interface if you are going to join machines to
-  the Active Directory, otherwise you can select the VPN interface ``wg0``
+
+- ``Samba admin username`` and ``Samba admin password``: set the initial
+  administrative account credentials; it is possible to use
+  ``administrator`` (default) or any other user name.  In the latter case,
+  the given user name is added to the ``Domain Admins`` group, whilst
+  ``administrator`` user is disabled and a random password is set on it
+
 - ``Hostname``: the Domain Controller (DC) hostname. If unsure, keep the proposed value.
+
+- ``Provide file shares and authentication to Windows clients``. If
+  enabled the DC shared folders are accessible from the local network.
+  Only one DC of the Active Directory domain can offer shared folders. See
+  :ref:`File server <file-server-section>` for more information.
 
 .. note::
 
-    The Active Directory :guilabel:`Domain` and  :guilabel:`NetBIOS
-    domain` values cannot be changed once that the domain has been created
+    Apart from the administrative credentials, other Active Directory
+    parameters cannot be changed once that the domain has been created
 
 At the end, you will see a new user domain with one connected provider.
 You can now :ref:`manage users and groups <user_groups-section>`, :ref:`add a replica <provider_replica-section>`
