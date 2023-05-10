@@ -52,7 +52,6 @@ NethServer 8 administrator manual
    webtop
    nextcloud
    collabora
-   web_server
    mattermost
    mariadb
    nginx

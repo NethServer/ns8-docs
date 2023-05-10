@@ -1,11 +1,14 @@
+.. _nginx-php-stack-section:
+
 ===============
-NGINX PHP stack
+Nginx PHP stack
 ===============
 
-This module installs `NGINX <https://www.nginx.com/>_` web server with `PHP <https://www.php.net/>`_ stack
-and `SFTPGo <https://github.com/drakkan/sftpgo>`_ to upload files.
+This module installs `nginx <https://www.nginx.com/>`_ web server with
+`PHP <https://www.php.net/>`_ programming language and `SFTPGo
+<https://github.com/drakkan/sftpgo>`_ to upload files.
 
-You can install multiple NGINX instances on the same node from the :ref:`software_center-section`.
+You can install multiple Nginx instances on the same node from the :ref:`software_center-section`.
 
 Configuration
 =============
