@@ -15,7 +15,7 @@ authentication to Windows clients`` switch enabled.
 Shared folders
 ==============
 
-From the application configuration page, select ``Shared folders`` from
+Open Samba application from the app drawer, select ``Shared folders`` from
 the left menu and click on :guilabel:`Create shared folder`.
 
 The following parameters are required to create the new shared folder:

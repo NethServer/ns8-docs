@@ -51,8 +51,8 @@ Once the provider is installed, you will be asked to enter the following paramet
 - ``Samba admin username`` and ``Samba admin password``: set the initial
   administrative account credentials; it is possible to use
   ``administrator`` (default) or any other user name.  In the latter case,
-  ``administrator`` gets a random password and the given user name is
-  added to the ``Domain Admins`` group.
+  the given user name is added to the ``Domain Admins`` group, whilst
+  ``administrator`` user is disabled and a random password is set on it
 
 - ``Hostname``: the Domain Controller (DC) hostname. If unsure, keep the proposed value.
 
