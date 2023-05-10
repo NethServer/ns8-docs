@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-02 12:53+0000\n"
+"POT-Creation-Date: 2023-05-10 08:06+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -1083,6 +1083,119 @@ msgid ""
 "local running services."
 msgstr ""
 
+#: ../../file_server.rst:5
+msgid "File server"
+msgstr ""
+
+#: ../../file_server.rst:7
+msgid ""
+"The ``File server`` application is built with `Samba "
+"<http://www.samba.org>`_. It provides shared folders and home directories"
+" to users and groups of an Active Directory domain."
+msgstr ""
+
+#: ../../file_server.rst:11
+msgid ""
+"This application is available by installing a Samba account provider (see"
+" :ref:`active_directory-section`) with the ``Provide file shares and "
+"authentication to Windows clients`` switch enabled."
+msgstr ""
+
+#: ../../file_server.rst:16
+msgid "Shared folders"
+msgstr ""
+
+#: ../../file_server.rst:18
+msgid ""
+"Open Samba application from the app drawer, select ``Shared folders`` "
+"from the left menu and click on :guilabel:`Create shared folder`."
+msgstr ""
+
+#: ../../file_server.rst:21
+msgid "The following parameters are required to create the new shared folder:"
+msgstr ""
+
+#: ../../file_server.rst:23
+msgid "``Name``: the name of the shared folder"
+msgstr ""
+
+#: ../../file_server.rst:25
+msgid ""
+"``Description``: free text, displayed to SMB clients as the \"share "
+"comment\""
+msgstr ""
+
+#: ../../file_server.rst:27
+msgid ""
+"``Main group``: select a domain group to assign initial permissions to "
+"the share"
+msgstr ""
+
+#: ../../file_server.rst:29
+msgid ""
+"``Initial permissions``: pick one of the three available choices. Note "
+"that in any case the ``Domain Admins`` group is initially granted full "
+"privileges."
+msgstr ""
+
+#: ../../file_server.rst:33
+msgid "Main group can read and write, everyone else can read"
+msgstr ""
+
+#: ../../file_server.rst:35
+msgid "Main group can read and write, everyone else has no access"
+msgstr ""
+
+#: ../../file_server.rst:37
+msgid "Everyone can read and write, main group included"
+msgstr ""
+
+#: ../../file_server.rst:41
+msgid ""
+"To access the shared folder it is necessary to provide valid domain "
+"credentials. Anonymous or guest access is not allowed for security "
+"reasons [#anon]_\\ ."
+msgstr ""
+
+#: ../../file_server.rst:45
+msgid ""
+"Once created, from the three-dots menu, the following actions are "
+"available on the shared folder:"
+msgstr ""
+
+#: ../../file_server.rst:48
+msgid "``Edit description``: change the share descriptive text"
+msgstr ""
+
+#: ../../file_server.rst:50
+msgid ""
+"``Set permissions``: remove any existing ACLs and recursively grant new "
+"initial ACLs"
+msgstr ""
+
+#: ../../file_server.rst:53
+msgid "``Delete``: remove the shared folder and its contents"
+msgstr ""
+
+#: ../../file_server.rst:55
+msgid ""
+"The :guilabel:`Show ACLs` button displays the filesystem ACLs applied to "
+"the shared folder root directory. It is possible to edit ACLs with a SMB "
+"client, like the Windows Explorer application installed with Windows Pro "
+"flavours, or the ``smbcacls`` command provided by the Samba project."
+msgstr ""
+
+#: ../../file_server.rst:61 ../../modules.rst:120
+msgid "Footnotes"
+msgstr ""
+
+#: ../../file_server.rst:62
+msgid ""
+"*Guest access in SMB2 and SMB3 disabled by default in Windows* `link to "
+"learn.microsoft.com <https://learn.microsoft.com/en-us/troubleshoot"
+"/windows-server/networking/guest-access-in-smb2-is-disabled-by-default>`_"
+msgstr ""
+
 #: ../../firewall.rst:3
 msgid "Firewall"
 msgstr ""
@@ -1133,7 +1246,7 @@ msgstr ""
 msgid "Applications"
 msgstr ""
 
-#: ../../index.rst:64
+#: ../../index.rst:65
 msgid "Best practices"
 msgstr ""
 
@@ -2558,7 +2671,9 @@ msgid "Software center"
 msgstr ""
 
 #: ../../modules.rst:32
-msgid "The software center lists all available modules from repositories."
+msgid ""
+"The software center lists all available modules from repositories "
+"[#fileserver]_\\ ."
 msgstr ""
 
 #: ../../modules.rst:34
@@ -2744,6 +2859,12 @@ msgstr ""
 msgid ""
 "Then, enable the feature by clicking on ``Smarthost provider`` and fill "
 "the required details."
+msgstr ""
+
+#: ../../modules.rst:121
+msgid ""
+"Except for :ref:`file-server-section`, that is installed with :ref"
+":`active_directory-section`"
 msgstr ""
 
 #: ../../nextcloud.rst:5
@@ -3408,12 +3529,12 @@ msgid ""
 "provider:"
 msgstr ""
 
-#: ../../user_domains.rst:38 ../../user_domains.rst:91
-#: ../../user_domains.rst:142
+#: ../../user_domains.rst:38 ../../user_domains.rst:101
+#: ../../user_domains.rst:152
 msgid "access the ``Domains and users`` page"
 msgstr ""
 
-#: ../../user_domains.rst:39 ../../user_domains.rst:92
+#: ../../user_domains.rst:39 ../../user_domains.rst:102
 msgid "click on :guilabel:`Create domain` button and choose ``Internal``"
 msgstr ""
 
@@ -3421,7 +3542,7 @@ msgstr ""
 msgid "select ``Samba`` on the dialog box and click :guilabel:`Install provider`"
 msgstr ""
 
-#: ../../user_domains.rst:42 ../../user_domains.rst:95
+#: ../../user_domains.rst:42 ../../user_domains.rst:105
 msgid ""
 "Once the provider is installed, you will be asked to enter the following "
 "parameters:"
@@ -3435,7 +3556,7 @@ msgid ""
 "value."
 msgstr ""
 
-#: ../../user_domains.rst:46
+#: ../../user_domains.rst:47
 msgid ""
 "``NetBIOS domain``: a valid `NetBIOS "
 "<https://en.wikipedia.org/wiki/NetBIOS>`_ domain (also known as \"domain "
@@ -3444,30 +3565,36 @@ msgid ""
 "ASCII characters. If unsure, keep the proposed value."
 msgstr ""
 
-#: ../../user_domains.rst:49
-msgid "``Samba admin username`` and ``Samba admin password``: admin credentials"
-msgstr ""
-
-#: ../../user_domains.rst:50
+#: ../../user_domains.rst:51
 msgid ""
-"``IP address``: select an available network controller; choose a physical"
-" network interface if you are going to join machines to the Active "
-"Directory, otherwise you can select the VPN interface ``wg0``"
+"``Samba admin username`` and ``Samba admin password``: set the initial "
+"administrative account credentials; it is possible to use "
+"``administrator`` (default) or any other user name.  In the latter case, "
+"the given user name is added to the ``Domain Admins`` group, whilst "
+"``administrator`` user is disabled and a random password is set on it"
 msgstr ""
 
-#: ../../user_domains.rst:52
+#: ../../user_domains.rst:57
 msgid ""
 "``Hostname``: the Domain Controller (DC) hostname. If unsure, keep the "
 "proposed value."
 msgstr ""
 
-#: ../../user_domains.rst:56
+#: ../../user_domains.rst:59
 msgid ""
-"The Active Directory :guilabel:`Domain` and  :guilabel:`NetBIOS domain` "
-"values cannot be changed once that the domain has been created"
+"``Provide file shares and authentication to Windows clients``. If enabled"
+" the DC shared folders are accessible from the local network. Only one DC"
+" of the Active Directory domain can offer shared folders. See :ref:`File "
+"server <file-server-section>` for more information."
 msgstr ""
 
-#: ../../user_domains.rst:59
+#: ../../user_domains.rst:66
+msgid ""
+"Apart from the administrative credentials, other Active Directory "
+"parameters cannot be changed once that the domain has been created"
+msgstr ""
+
+#: ../../user_domains.rst:69
 msgid ""
 "At the end, you will see a new user domain with one connected provider. "
 "You can now :ref:`manage users and groups <user_groups-section>`, "
@@ -3475,98 +3602,98 @@ msgid ""
 "settings <domain_bind-section>` to connect an external application."
 msgstr ""
 
-#: ../../user_domains.rst:64
+#: ../../user_domains.rst:74
 msgid "DNS and AD domain"
 msgstr ""
 
-#: ../../user_domains.rst:66
+#: ../../user_domains.rst:76
 msgid ""
 "An Active Directory domain requires a reserved DNS domain to work. It is "
 "a good choice to allocate a sub-domain of the public DNS domain for it. "
 "The AD sub-domain can be accessed only from local networks."
 msgstr ""
 
-#: ../../user_domains.rst:70
+#: ../../user_domains.rst:80
 msgid "Example:"
 msgstr ""
 
-#: ../../user_domains.rst:72
+#: ../../user_domains.rst:82
 msgid "public (*external*) domain: ``nethserver.org``"
 msgstr ""
 
-#: ../../user_domains.rst:73
+#: ../../user_domains.rst:83
 msgid "server FQDN: ``mail.nethserver.org``"
 msgstr ""
 
-#: ../../user_domains.rst:74
+#: ../../user_domains.rst:84
 msgid "Active Directory (*internal* LAN only) domain: ``ad.nethserver.org``"
 msgstr ""
 
-#: ../../user_domains.rst:75
+#: ../../user_domains.rst:85
 msgid "domain controller FQDN: ``dc.ad.nethserver.org``"
 msgstr ""
 
-#: ../../user_domains.rst:79
+#: ../../user_domains.rst:89
 msgid ""
 "When choosing a domain for Active Directory use an *internal* domain "
 "which is a sub-domain of the *external* domain [#MsDnsBestPratices]_"
 msgstr ""
 
-#: ../../user_domains.rst:82
+#: ../../user_domains.rst:92
 msgid ""
 "https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
 "directory-best-practices-for-internal-domain-and-network-"
 "names.aspx#Recommendation"
 msgstr ""
 
-#: ../../user_domains.rst:87
+#: ../../user_domains.rst:97
 msgid "LDAP server RFC2307"
 msgstr ""
 
-#: ../../user_domains.rst:89
+#: ../../user_domains.rst:99
 msgid "To install a new user domain with a local OpenLDAP as provider:"
 msgstr ""
 
-#: ../../user_domains.rst:93
+#: ../../user_domains.rst:103
 msgid ""
 "select ``OpenLDAP`` on the dialog box and click :guilabel:`Install "
 "provider`"
 msgstr ""
 
-#: ../../user_domains.rst:97
+#: ../../user_domains.rst:107
 msgid ""
 "``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
 "the proposed value."
 msgstr ""
 
-#: ../../user_domains.rst:98
+#: ../../user_domains.rst:108
 msgid ""
 "``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
 "credentials"
 msgstr ""
 
-#: ../../user_domains.rst:100
+#: ../../user_domains.rst:110
 msgid ""
 "Finally, you will see a new user domain with one connected provider. You "
 "can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
 " a replica <provider_replica-section>`."
 msgstr ""
 
-#: ../../user_domains.rst:103
+#: ../../user_domains.rst:113
 msgid "OpenLDAP provider is not currently accessible from outside the cluster."
 msgstr ""
 
-#: ../../user_domains.rst:108
+#: ../../user_domains.rst:118
 msgid "Provider replicas"
 msgstr ""
 
-#: ../../user_domains.rst:110
+#: ../../user_domains.rst:120
 msgid ""
 "Provider replicas implement fault tolerance for user domains. To achieve "
 "real fault tolerance, replicas should be installed on different nodes."
 msgstr ""
 
-#: ../../user_domains.rst:113
+#: ../../user_domains.rst:123
 msgid ""
 "You can add a replica from the ``Domains and users`` page by selecting "
 "the ``Configuration`` link from the three-dots menu. Then click the "
@@ -3574,35 +3701,35 @@ msgid ""
 "the installation."
 msgstr ""
 
-#: ../../user_domains.rst:116
+#: ../../user_domains.rst:126
 msgid "Replicas are configured in master-master mode."
 msgstr ""
 
-#: ../../user_domains.rst:118
+#: ../../user_domains.rst:128
 msgid ""
 "Active Directory provider does not replicate the SysVol volume. Therefore"
 " Microsoft's Group Policy Object (GPO) will not be synchronized between "
 "replicas."
 msgstr ""
 
-#: ../../user_domains.rst:124
+#: ../../user_domains.rst:134
 msgid "LDAP bind settings"
 msgstr ""
 
-#: ../../user_domains.rst:126
+#: ../../user_domains.rst:136
 msgid ""
 "External applications can connect only to a local Active Directory "
 "provider."
 msgstr ""
 
-#: ../../user_domains.rst:128
+#: ../../user_domains.rst:138
 msgid ""
 "Binding is the process where the LDAP server authenticates the client "
 "and, if the client is successfully authenticated, the server allows "
 "client access."
 msgstr ""
 
-#: ../../user_domains.rst:131
+#: ../../user_domains.rst:141
 msgid ""
 "Many applications may require to be bound to an existing NethServer 8 "
 "user domain. Bind settings can be accessed by selecting the "
@@ -3610,89 +3737,89 @@ msgid ""
 "displayed on the top of the page."
 msgstr ""
 
-#: ../../user_domains.rst:138
+#: ../../user_domains.rst:148
 msgid "External LDAP server"
 msgstr ""
 
-#: ../../user_domains.rst:140
+#: ../../user_domains.rst:150
 msgid "You can connect the NethServer 8 cluster to an existing LDAP server:"
 msgstr ""
 
-#: ../../user_domains.rst:143
+#: ../../user_domains.rst:153
 msgid "click on :guilabel:`Create domain` button and choose ``External``"
 msgstr ""
 
-#: ../../user_domains.rst:144
+#: ../../user_domains.rst:154
 msgid "fill all required fields"
 msgstr ""
 
-#: ../../user_domains.rst:145
+#: ../../user_domains.rst:155
 msgid "click on :guilabel:`Configure domain` button"
 msgstr ""
 
-#: ../../user_domains.rst:147
+#: ../../user_domains.rst:157
 msgid ""
 "In the end, you will be able to bind locally installed applications with "
 "the external LDAP server."
 msgstr ""
 
-#: ../../user_domains.rst:152
+#: ../../user_domains.rst:162
 msgid "User and groups"
 msgstr ""
 
-#: ../../user_domains.rst:154
+#: ../../user_domains.rst:164
 msgid ""
 "You can manage users and groups of a domain by clicking on ``User and "
 "groups`` link from the ``Domains and users`` page."
 msgstr ""
 
-#: ../../user_domains.rst:156
+#: ../../user_domains.rst:166
 msgid ""
 "If an external user domain has been configured, the page shows read-only "
 "lists. Changes to the user base must be done on the external server."
 msgstr ""
 
-#: ../../user_domains.rst:159
+#: ../../user_domains.rst:169
 msgid ""
 "On the other hand, if a local AD or LDAP account provider has been "
 "installed, the page allows to create, modify and delete users and groups."
 msgstr ""
 
-#: ../../user_domains.rst:162
+#: ../../user_domains.rst:172
 msgid "When creating a user, the following fields are mandatory:"
 msgstr ""
 
-#: ../../user_domains.rst:164
+#: ../../user_domains.rst:174
 msgid "User name"
 msgstr ""
 
-#: ../../user_domains.rst:165
+#: ../../user_domains.rst:175
 msgid "Full name (name and surname)"
 msgstr ""
 
-#: ../../user_domains.rst:166
+#: ../../user_domains.rst:176
 msgid "Password"
 msgstr ""
 
-#: ../../user_domains.rst:168
+#: ../../user_domains.rst:178
 msgid "A user can be added to one or more groups."
 msgstr ""
 
-#: ../../user_domains.rst:170
+#: ../../user_domains.rst:180
 msgid ""
 "Sometimes you need to block user access to services without deleting the "
 "account. The safest approach is:"
 msgstr ""
 
-#: ../../user_domains.rst:173
+#: ../../user_domains.rst:183
 msgid "(optionally) change the user's password with a random one"
 msgstr ""
 
-#: ../../user_domains.rst:174
+#: ../../user_domains.rst:184
 msgid "disable the user using the ``Disable`` action from the three-dots menu"
 msgstr ""
 
-#: ../../user_domains.rst:176
+#: ../../user_domains.rst:186
 msgid "When a user is deleted, user data will not be removed."
 msgstr ""
 
@@ -7252,5 +7379,29 @@ msgstr ""
 #~ "You can now open the just "
 #~ "installed ``NS8 migration`` application from"
 #~ " Cockpit."
+#~ msgstr ""
+
+#~ msgid "The software center lists all available modules from repositories."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``Samba admin username`` and ``Samba "
+#~ "admin password``: admin credentials"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``IP address``: select an available "
+#~ "network controller; choose a physical "
+#~ "network interface if you are going "
+#~ "to join machines to the Active "
+#~ "Directory, otherwise you can select the"
+#~ " VPN interface ``wg0``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Active Directory :guilabel:`Domain` and"
+#~ "  :guilabel:`NetBIOS domain` values cannot "
+#~ "be changed once that the domain "
+#~ "has been created"
 #~ msgstr ""
 
