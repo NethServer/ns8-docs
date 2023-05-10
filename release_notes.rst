@@ -8,7 +8,7 @@ NethServer 8 releases.
 - Discussions around `possible bugs <http://community.nethserver.org/c/bug>`_
 
 
-Major changes on 2023-xx-xx
+Major changes on 2023-05-10
 ===========================
 
 **Beta 1** release.
