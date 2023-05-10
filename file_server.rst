@@ -5,7 +5,7 @@ File server
 ===========
 
 The ``File server`` application is built with `Samba
-<http://www.samba.org>`_. It provide shared folders and home directories to
+<http://www.samba.org>`_. It provides shared folders and home directories to
 users and groups of an Active Directory domain.
 
 This application is available by installing a Samba account provider (see
@@ -27,14 +27,14 @@ The following parameters are required to create the new shared folder:
 - ``Main group``: select a domain group to assign initial permissions to the share
 
 - ``Initial permissions``: pick one of the three available choices. Note
-  that in any case the ``Domain Admins`` group is initally and recursively
+  that in any case the ``Domain Admins`` group is initially 
   granted full privileges.
 
   1. Main group can read and write, everyone else can read
 
   2. Main group can read and write, everyone else has no access
 
-  3. Everyone can read and write (main group included)
+  3. Everyone can read and write, main group included
 
 .. note::
 
@@ -42,8 +42,8 @@ The following parameters are required to create the new shared folder:
     credentials. Anonymous or guest access is not allowed for security
     reasons [#anon]_\ .
 
-Once created, from the three-dots menu, the following actions on the
-shared folder are available:
+Once created, from the three-dots menu, the following actions are available on the
+shared folder:
 
 - ``Edit description``: change the share descriptive text
 
