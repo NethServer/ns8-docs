@@ -26,7 +26,9 @@ Start the installation procedure as ``root``: ::
 
    curl https://raw.githubusercontent.com/NethServer/ns8-core/main/core/install.sh | bash
 
-When the installation script ends, access the Web user interface at **https://\<server_ip_or_fqdn\>/cluster-admin/**.
+When the installation script ends, access the Web user interface at ::
+
+    https://<server_ip_or_fqdn>/cluster-admin/
 
 First, you will need to login using the default credentials:
 
