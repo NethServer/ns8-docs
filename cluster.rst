@@ -178,6 +178,20 @@ Available for both Android and iOS:
 - `Authenticator <https://mattrubin.me/authenticator/>`_: available on iOS only
 - `2FAS <https://2fas.com/>`_: available for both Android and iOS
 
+Reset the cluster administrator password
+----------------------------------------
+
+If you are locked out of the web user interface and you can still access a
+system command-line shell as ``root`` (e.g. by the system recovery console
+or SSH), run the following command to disable 2FA and reset the password:
+
+::
+
+  api-cli run alter-user --data '{"user":"admin","set":{"password":"Nethesis,1234","2fa":false}}'
+
+Replace the ``admin`` and ``Nethesis,1234`` default credentials as needed.
+
+
 .. _audit-trail-section:
 
 Audit trail
