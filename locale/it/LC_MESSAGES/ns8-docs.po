@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-15 10:26+0000\n"
+"POT-Creation-Date: 2023-05-16 07:46+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -619,36 +619,52 @@ msgstr ""
 msgid "`2FAS <https://2fas.com/>`_: available for both Android and iOS"
 msgstr ""
 
+#: ../../cluster.rst:182
+msgid "Reset the cluster administrator password"
+msgstr ""
+
 #: ../../cluster.rst:184
+msgid ""
+"If you are locked out of the web user interface and you can still access "
+"a system command-line shell as ``root`` (e.g. by the system recovery "
+"console or SSH), run the following command to disable 2FA and reset the "
+"password:"
+msgstr ""
+
+#: ../../cluster.rst:192
+msgid "Replace the ``admin`` and ``Nethesis,1234`` default credentials as needed."
+msgstr ""
+
+#: ../../cluster.rst:198
 msgid "Audit trail"
 msgstr ""
 
-#: ../../cluster.rst:186
+#: ../../cluster.rst:200
 msgid ""
 "Inside the audit trail page, cluster administrators can inspect all "
 "actions executed by any other administrator. Each event of the audit "
 "trail contains at least:"
 msgstr ""
 
-#: ../../cluster.rst:189
+#: ../../cluster.rst:203
 msgid "date and time of the action"
 msgstr ""
 
-#: ../../cluster.rst:190
+#: ../../cluster.rst:204
 msgid "user name of the cluster administrator"
 msgstr ""
 
-#: ../../cluster.rst:191
+#: ../../cluster.rst:205
 msgid "name of the action"
 msgstr ""
 
-#: ../../cluster.rst:193
+#: ../../cluster.rst:207
 msgid ""
 "Audit trail events can be filtered by user, date, action type, and custom"
 " text match."
 msgstr ""
 
-#: ../../cluster.rst:197
+#: ../../cluster.rst:211
 msgid ""
 "Audit trail information is stored in the leader node disk. In case of "
 ":ref:`new leader promotion <node-promotion-section>` the audit trail "
@@ -1299,41 +1315,39 @@ msgid "Start the installation procedure as ``root``: ::"
 msgstr ""
 
 #: ../../install.rst:29
-msgid ""
-"When the installation script ends, access the Web user interface at "
-"**https://\\<server_ip_or_fqdn\\>/cluster-admin/**."
-msgstr ""
-
-#: ../../install.rst:31
-msgid "First, you will need to login using the default credentials:"
+msgid "When the installation script ends, access the Web user interface at ::"
 msgstr ""
 
 #: ../../install.rst:33
+msgid "First, you will need to login using the default credentials:"
+msgstr ""
+
+#: ../../install.rst:35
 msgid "Username: ``admin``"
 msgstr ""
 
-#: ../../install.rst:34
+#: ../../install.rst:36
 msgid "Password: ``Nethesis,1234``"
 msgstr ""
 
-#: ../../install.rst:36
+#: ../../install.rst:38
 msgid ""
 "Then, choose :guilabel:`Create cluster` to create a new single-node "
 "cluster and setup a new administrator password."
 msgstr ""
 
-#: ../../install.rst:38
+#: ../../install.rst:40
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
 " Network (VPN) for the cluster. With the VPN in place, you will be able "
 "to add more nodes in the future."
 msgstr ""
 
-#: ../../install.rst:41
+#: ../../install.rst:43
 msgid "Please enter the following VPN details:"
 msgstr ""
 
-#: ../../install.rst:43
+#: ../../install.rst:45
 msgid ""
 "``VPN endpoint address``: this is the address of the leader node of your "
 "cluster, and must be reachable by any other nodes you may add to your "
@@ -1342,47 +1356,47 @@ msgid ""
 "leader node"
 msgstr ""
 
-#: ../../install.rst:46
+#: ../../install.rst:48
 msgid ""
 "``VPN endpoint port``: it's the public port of the VPN, the port should "
 "be accessible to any future node"
 msgstr ""
 
-#: ../../install.rst:47
+#: ../../install.rst:49
 msgid ""
 "``VPN CIDR``: the VPN network address, make sure this network is not "
 "already used inside your existing network environment"
 msgstr ""
 
-#: ../../install.rst:49
+#: ../../install.rst:51
 msgid ""
 "If unsure, you can keep the proposed defaults which should be good for "
 "most environments."
 msgstr ""
 
-#: ../../install.rst:51
+#: ../../install.rst:53
 msgid ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
 "ready to run :ref:`applications <modules-section>`."
 msgstr ""
 
-#: ../../install.rst:53
+#: ../../install.rst:55
 msgid "Each cluster has an auto-generated name. If you wish to change it:"
 msgstr ""
 
-#: ../../install.rst:55
+#: ../../install.rst:57
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr ""
 
-#: ../../install.rst:56
+#: ../../install.rst:58
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr ""
 
-#: ../../install.rst:57
+#: ../../install.rst:59
 msgid "click the :guilabel:`Save settings` button"
 msgstr ""
 
-#: ../../install.rst:59
+#: ../../install.rst:61
 msgid ""
 "Now sure where to go from here? You can install an :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
@@ -1391,23 +1405,23 @@ msgid ""
 "section>`."
 msgstr ""
 
-#: ../../install.rst:63
+#: ../../install.rst:65
 msgid ""
 "To customize the installation, please refer to the `developer manual "
 "<https://nethserver.github.io/ns8-core>`_."
 msgstr ""
 
-#: ../../install.rst:68
+#: ../../install.rst:70
 msgid "Pre-built images"
 msgstr ""
 
-#: ../../install.rst:70
+#: ../../install.rst:72
 msgid ""
 "Download one of latest available images from the `release page "
 "<https://github.com/NethServer/ns8-core/releases>`_."
 msgstr ""
 
-#: ../../install.rst:72
+#: ../../install.rst:74
 msgid ""
 "Select your preferred distribution flavor, download the image and start "
 "it inside your virtualization platform. Choose a ``qcow2`` image if you "
@@ -1417,7 +1431,7 @@ msgid ""
 "provider and create a public virtual machine."
 msgstr ""
 
-#: ../../install.rst:77
+#: ../../install.rst:79
 msgid ""
 "When using the image on a cloud provider with cloud-init support, the "
 "machine will be configured with the host name chosen during the setup "
@@ -1431,38 +1445,38 @@ msgid ""
 "-hostname_configuring-and-managing-networking>`_ documentation."
 msgstr ""
 
-#: ../../install.rst:83
+#: ../../install.rst:85
 msgid "Known bugs:"
 msgstr ""
 
-#: ../../install.rst:85
+#: ../../install.rst:87
 msgid ""
 "Debian image could be currently used only for local virtualization "
 "platform"
 msgstr ""
 
-#: ../../install.rst:86
+#: ../../install.rst:88
 msgid ""
 "When using RHEL-based images on Proxmox, change the default CPU model to "
 "anything other than ``kvm64``"
 msgstr ""
 
-#: ../../install.rst:89
+#: ../../install.rst:91
 msgid "Uninstall"
 msgstr ""
 
-#: ../../install.rst:91
+#: ../../install.rst:93
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr ""
 
-#: ../../install.rst:93
+#: ../../install.rst:95
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 
-#: ../../install.rst:96
+#: ../../install.rst:98
 msgid "To uninstall NS8, execute: ::"
 msgstr ""
 
@@ -7639,5 +7653,11 @@ msgstr ""
 #~ "the SMB file sharing protocol support"
 #~ " is not required, an LDAP provider"
 #~ " is the best choice."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When the installation script ends, "
+#~ "access the Web user interface at "
+#~ "**https://\\<server_ip_or_fqdn\\>/cluster-admin/**."
 #~ msgstr ""
 
