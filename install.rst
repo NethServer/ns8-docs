@@ -6,15 +6,15 @@ Installation
 
 .. highlight:: bash
 
-You can install NethServer 8 starting :ref:`from scratch <install_linux-section>` or use one of :ref:`pre-built images <install_image-section>`.
+You can install NethServer 8 :ref:`on a supported distribution <install_linux-section>` or use one of :ref:`pre-built images <install_image-section>`.
 Both methods require a working Internet connection.
 
 .. _install_linux-section:
 
-Install from scratch
-====================
+Install on a supported distribution
+===================================
 
-Pick your preferred distribution between :ref:`supported ones <supported-distros-section>` and
+Pick your preferred Linux distribution between :ref:`supported ones <supported-distros-section>` and
 ensure that the system firewall is not blocking any connection.
 
 First, make sure the system is up to date and ``curl`` is installed:
