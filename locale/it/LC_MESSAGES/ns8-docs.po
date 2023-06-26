@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-29 08:20+0000\n"
+"POT-Creation-Date: 2023-06-26 09:13+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -440,11 +440,11 @@ msgid ""
 "procedures to promote a node to leader role:"
 msgstr ""
 
-#: ../../cluster.rst:83 ../../cluster.rst:97
+#: ../../cluster.rst:83 ../../cluster.rst:94
 msgid "Reachable leader node"
 msgstr ""
 
-#: ../../cluster.rst:84 ../../cluster.rst:119
+#: ../../cluster.rst:84 ../../cluster.rst:116
 msgid "Unreachable leader node"
 msgstr ""
 
@@ -461,42 +461,36 @@ msgid ""
 msgstr ""
 
 #: ../../cluster.rst:91
-msgid ""
-"2FA is disabled for all users. See :ref:`configure-2fa-section` to enable"
-" it again on your account."
-msgstr ""
-
-#: ../../cluster.rst:94
 msgid "See also the note in :ref:`audit-trail-section` about node promotion."
 msgstr ""
 
-#: ../../cluster.rst:99
+#: ../../cluster.rst:96
 msgid ""
 "If the current leader node is working properly, access the ``Nodes`` "
 "page, go to the three-dots menu of the node to promote and click on "
 "``Promote to leader``."
 msgstr ""
 
-#: ../../cluster.rst:103
+#: ../../cluster.rst:100
 msgid ""
 "Confirm or enter the leader host name in the ``VPN endpoint address`` "
 "field. An IP address is accepted, too."
 msgstr ""
 
-#: ../../cluster.rst:106
+#: ../../cluster.rst:103
 msgid ""
 "Confirm or enter the ``VPN endpoint port`` number. Every worker node will"
 " connect the leader on that UDP port number."
 msgstr ""
 
-#: ../../cluster.rst:109
+#: ../../cluster.rst:106
 msgid ""
 "When the confirmation string is typed, the :guilabel:`I understand, "
 "promote the node` button becomes active and it is possible to complete "
 "the node promotion."
 msgstr ""
 
-#: ../../cluster.rst:113
+#: ../../cluster.rst:110
 msgid ""
 "The ``Check node connectivity`` checkbox verifies the connection of every"
 " node with the selected one.  The check might fail due to settings of "
@@ -505,7 +499,7 @@ msgid ""
 "your own risk!"
 msgstr ""
 
-#: ../../cluster.rst:121
+#: ../../cluster.rst:118
 msgid ""
 "If the current leader node is not reachable, it is necessary to run a "
 "command on any other worker node.  Be prepared in advance for this "
@@ -513,18 +507,18 @@ msgid ""
 " the nodes."
 msgstr ""
 
-#: ../../cluster.rst:126
+#: ../../cluster.rst:123
 msgid ""
 "For example, to promote node with ID ``3``, VPN endpoint "
 "``node3.example.com`` UDP port ``55820``, run the following command on "
 "every worker node: ::"
 msgstr ""
 
-#: ../../cluster.rst:135
+#: ../../cluster.rst:132
 msgid "Administrators"
 msgstr ""
 
-#: ../../cluster.rst:137
+#: ../../cluster.rst:134
 msgid ""
 "Cluster administrators can fully manage the cluster. It's recommended to "
 "create a personal user for each cluster administrator. All actions "
@@ -532,98 +526,92 @@ msgid ""
 ":`audit-trail-section`."
 msgstr ""
 
-#: ../../cluster.rst:141
+#: ../../cluster.rst:138
 msgid ""
 "To add a new cluster administrator go to the ``Settings`` page and select"
 " the ``Cluster administrators`` card. Then click on :guilabel:`Create "
 "admin` button and fill the required fields."
 msgstr ""
 
-#: ../../cluster.rst:144
+#: ../../cluster.rst:141
 msgid ""
 "An administrator can't delete its own user. To delete an administrator, "
 "you must log in with another existing cluster administrator."
 msgstr ""
 
-#: ../../cluster.rst:147
+#: ../../cluster.rst:144
 msgid ""
 "Administrators can change their own password from the ``Account`` card "
 "inside the ``Settings`` page."
 msgstr ""
 
-#: ../../cluster.rst:152 ../../webtop.rst:132
+#: ../../cluster.rst:149 ../../webtop.rst:132
 msgid "Two-factor authentication (2FA)"
 msgstr ""
 
-#: ../../cluster.rst:154
+#: ../../cluster.rst:151
 msgid ""
 "Two-factor authentication (2FA) can be used to add an extra layer of "
 "security required to access the cluster management user interface."
 msgstr ""
 
-#: ../../cluster.rst:157
+#: ../../cluster.rst:154
 msgid ""
 "The administrator can enable 2FA from the ``Account`` card inside the "
 "``Settings`` page by clicking the :guilabel:`Enable 2FA` button."
 msgstr ""
 
-#: ../../cluster.rst:160
+#: ../../cluster.rst:157
 msgid "The user will have to:"
 msgstr ""
 
-#: ../../cluster.rst:162
+#: ../../cluster.rst:159
 msgid "download and install the preferred 2FA application on the smartphone"
 msgstr ""
 
-#: ../../cluster.rst:163
+#: ../../cluster.rst:160
 msgid "scan the QR code with the 2FA application"
 msgstr ""
 
-#: ../../cluster.rst:164
+#: ../../cluster.rst:161
 msgid ""
 "generate a new code and copy it inside the verification field, then click"
 " :guilabel:`Verify code`"
 msgstr ""
 
-#: ../../cluster.rst:168
-msgid ""
-"2FA is disabled after :ref:`node-promotion-section`: it is necessary to "
-"enable it again."
-msgstr ""
-
-#: ../../cluster.rst:171
+#: ../../cluster.rst:164
 msgid "Smartphone applications"
 msgstr ""
 
-#: ../../cluster.rst:173
+#: ../../cluster.rst:166
 msgid "There are several commercial and open source 2FA applications:"
 msgstr ""
 
-#: ../../cluster.rst:175
+#: ../../cluster.rst:168
 msgid "Available for both Android and iOS:"
 msgstr ""
 
-#: ../../cluster.rst:177
+#: ../../cluster.rst:170
 msgid ""
 "`FreeOTP <https://freeotp.github.io/>`_: available for both Android and "
 "iOS"
 msgstr ""
 
-#: ../../cluster.rst:178
+#: ../../cluster.rst:171
 msgid ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: available on iOS "
 "only"
 msgstr ""
 
-#: ../../cluster.rst:179
+#: ../../cluster.rst:172
 msgid "`2FAS <https://2fas.com/>`_: available for both Android and iOS"
 msgstr ""
 
-#: ../../cluster.rst:182
+#: ../../cluster.rst:175
 msgid "Reset the cluster administrator password"
 msgstr ""
 
-#: ../../cluster.rst:184
+#: ../../cluster.rst:177
 msgid ""
 "If you are locked out of the web user interface and you can still access "
 "a system command-line shell as ``root`` (e.g. by the system recovery "
@@ -631,40 +619,40 @@ msgid ""
 "password:"
 msgstr ""
 
-#: ../../cluster.rst:192
+#: ../../cluster.rst:185
 msgid "Replace the ``admin`` and ``Nethesis,1234`` default credentials as needed."
 msgstr ""
 
-#: ../../cluster.rst:198
+#: ../../cluster.rst:191
 msgid "Audit trail"
 msgstr ""
 
-#: ../../cluster.rst:200
+#: ../../cluster.rst:193
 msgid ""
 "Inside the audit trail page, cluster administrators can inspect all "
 "actions executed by any other administrator. Each event of the audit "
 "trail contains at least:"
 msgstr ""
 
-#: ../../cluster.rst:203
+#: ../../cluster.rst:196
 msgid "date and time of the action"
 msgstr ""
 
-#: ../../cluster.rst:204
+#: ../../cluster.rst:197
 msgid "user name of the cluster administrator"
 msgstr ""
 
-#: ../../cluster.rst:205
+#: ../../cluster.rst:198
 msgid "name of the action"
 msgstr ""
 
-#: ../../cluster.rst:207
+#: ../../cluster.rst:200
 msgid ""
 "Audit trail events can be filtered by user, date, action type, and custom"
 " text match."
 msgstr ""
 
-#: ../../cluster.rst:211
+#: ../../cluster.rst:204
 msgid ""
 "Audit trail information is stored in the leader node disk. In case of "
 ":ref:`new leader promotion <node-promotion-section>` the audit trail "
@@ -7692,5 +7680,17 @@ msgstr ""
 #~ " could be useful if you have "
 #~ "modules still running on NS7 that "
 #~ "require access to the account provider."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "2FA is disabled for all users. See"
+#~ " :ref:`configure-2fa-section` to enable "
+#~ "it again on your account."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "2FA is disabled after :ref:`node-"
+#~ "promotion-section`: it is necessary to "
+#~ "enable it again."
 #~ msgstr ""
 
