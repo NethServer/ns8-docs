@@ -88,9 +88,6 @@ In any case, after leader promotion it is necessary to perform these additional 
 1. The cluster backup password must be set again. See also
    :ref:`cluster_backup-section`.
 
-1. 2FA is disabled for all users. See :ref:`configure-2fa-section` to
-   enable it again on your account.
-
 See also the note in :ref:`audit-trail-section` about node promotion.
 
 Reachable leader node
@@ -162,10 +159,6 @@ The user will have to:
 1. download and install the preferred 2FA application on the smartphone
 2. scan the QR code with the 2FA application
 3. generate a new code and copy it inside the verification field, then click :guilabel:`Verify code`
-
-.. warning::
-
-  2FA is disabled after :ref:`node-promotion-section`: it is necessary to enable it again.
 
 Smartphone applications
 ^^^^^^^^^^^^^^^^^^^^^^^
