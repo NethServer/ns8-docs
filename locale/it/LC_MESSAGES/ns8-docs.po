@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-26 09:13+0000\n"
+"POT-Creation-Date: 2023-06-26 10:02+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -240,31 +240,36 @@ msgstr ""
 msgid ""
 "An SSL/TLS certificate is a digital object issued by a Certificate "
 "Authority (CA). The certificate is used to verify the identity of a host "
-"and to establish encrypted communication channels."
+"and to establish encrypted communication channels. Upon installation, "
+"NethServer 8 uses a default self-signed certificate for all TLS services,"
+" including the Web user interface."
 msgstr ""
 
-#: ../../certificates.rst:10
+#: ../../certificates.rst:12
+msgid "Let's Encrypt certificates"
+msgstr ""
+
+#: ../../certificates.rst:14
 msgid ""
-"Upon installation, NethServer 8 uses a default self-signed certificate "
-"for all TLS services, including the Web user interface. NethServer 8 can "
-"request valid `Let's Encrypt <https://letsencrypt.org/>`_ certificates "
-"using `traefik <https://traefik.io/>`_."
+"NethServer 8 can request valid `Let's Encrypt "
+"<https://letsencrypt.org/>`_ certificates using `traefik "
+"<https://traefik.io/>`_."
 msgstr ""
 
-#: ../../certificates.rst:13
+#: ../../certificates.rst:16
 msgid ""
 "Requesting Let's Encrypt is possible if the following requirements are "
 "met:"
 msgstr ""
 
-#: ../../certificates.rst:15
+#: ../../certificates.rst:18
 msgid ""
 "the server must be reachable from outside on port 80. Make sure your port"
 " 80 is open to the public Internet (you can check with sites like `CSM "
 "<http://www.canyouseeme.org/>`_)"
 msgstr ""
 
-#: ../../certificates.rst:17
+#: ../../certificates.rst:20
 msgid ""
 "the domains that you want the certificate for must be public domain names"
 " associated to the server own public IP. Make sure you have public DNS "
@@ -272,33 +277,74 @@ msgid ""
 "<http://viewdns.info/>`_)"
 msgstr ""
 
-#: ../../certificates.rst:21
+#: ../../certificates.rst:24
 msgid "Wildcard certificates (i.e. ``*.nethserver.org``) are not supported."
 msgstr ""
 
-#: ../../certificates.rst:23
+#: ../../certificates.rst:26
 msgid ""
 "If the above requirements are met, you can obtain a valid certificate for"
 " a domain by following these steps:"
 msgstr ""
 
-#: ../../certificates.rst:25
+#: ../../certificates.rst:28
 msgid "access the ``Settings`` page and click the ``TLS certificates`` card"
 msgstr ""
 
-#: ../../certificates.rst:26 ../../certificates.rst:28
+#: ../../certificates.rst:29 ../../certificates.rst:31
 msgid "click on :guilabel:`Request certificate` button"
 msgstr ""
 
-#: ../../certificates.rst:27
+#: ../../certificates.rst:30
 msgid "enter the node FQDN and select the node"
 msgstr ""
 
-#: ../../certificates.rst:30
+#: ../../certificates.rst:33
 msgid ""
 "The procedure will take a while, but the system will notify you when the "
 "certificate is ready. The Let's Encrypt certificate is automatically "
 "renewed 30 days before expiration."
+msgstr ""
+
+#: ../../certificates.rst:38
+msgid "Custom certificates"
+msgstr ""
+
+#: ../../certificates.rst:40
+msgid ""
+"If you are already in possession of a certificate and its private key, "
+"you can upload them to the cluster. You can follow this procedure to "
+"install the certificate:"
+msgstr ""
+
+#: ../../certificates.rst:43
+msgid "access ``Settings`` page and click the ``TLS Certificates`` card"
+msgstr ""
+
+#: ../../certificates.rst:44
+msgid "click on :guilabel:`Upload certificate`"
+msgstr ""
+
+#: ../../certificates.rst:45
+msgid ""
+"once the modal is open, select the Traefik instance where the certificate"
+" will be installed to"
+msgstr ""
+
+#: ../../certificates.rst:46
+msgid ""
+"upload the key file and the certificate file. They are checked on upload "
+"and if the key does not match the certificate, you receive an error"
+msgstr ""
+
+#: ../../certificates.rst:47
+msgid "once selected the files for the upload, click on :guilabel:`Upload`"
+msgstr ""
+
+#: ../../certificates.rst:49
+msgid ""
+"You receive an error if something with the upload goes wrong, otherwise "
+"the modal closes itself and the certificate list is refreshed."
 msgstr ""
 
 #: ../../cluster.rst:5
@@ -7692,5 +7738,24 @@ msgstr ""
 #~ "2FA is disabled after :ref:`node-"
 #~ "promotion-section`: it is necessary to "
 #~ "enable it again."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "An SSL/TLS certificate is a digital "
+#~ "object issued by a Certificate Authority"
+#~ " (CA). The certificate is used to "
+#~ "verify the identity of a host and"
+#~ " to establish encrypted communication "
+#~ "channels."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Upon installation, NethServer 8 uses a"
+#~ " default self-signed certificate for "
+#~ "all TLS services, including the Web "
+#~ "user interface. NethServer 8 can request"
+#~ " valid `Let's Encrypt "
+#~ "<https://letsencrypt.org/>`_ certificates using "
+#~ "`traefik <https://traefik.io/>`_."
 #~ msgstr ""
 
