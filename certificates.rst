@@ -45,5 +45,5 @@ You can follow this procedure to install the certificate:
 - once the modal is open, select the Traefik instance where the certificate will be installed to
 - upload the key file and the certificate file. They are checked on upload and if the key does not match the certificate, you receive an error
 - once selected the files for the upload, click on :guilabel:`Upload`
--
+
 You receive an error if something with the upload goes wrong, otherwise the modal closes itself and the certificate list is refreshed.
