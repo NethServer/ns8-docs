@@ -22,7 +22,7 @@ Always install NethServer 8 on a clean server machine, do not install it on a de
 
 Supported GNU/Linux distributions and versions:
 
-- `Rocky Linux <https://rockylinux.org/>`_ >= 9.1
-- `CentOS Stream <https://www.centos.org/centos-stream/>`_ 9 x86-64
-- `AlmaLinux <https://almalinux.org>`_ >= 9.1
-- `Debian <https://www.debian.org/>`_ 11
+- `Rocky Linux <https://rockylinux.org/>`_ 9
+- `CentOS Stream <https://www.centos.org/centos-stream/>`_ 9
+- `AlmaLinux <https://almalinux.org>`_ 9
+- `Debian <https://www.debian.org/>`_ 12
