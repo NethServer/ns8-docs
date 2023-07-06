@@ -56,6 +56,7 @@ NethServer 8 administrator manual
    mariadb
    nginx
    dokuwiki
+   ejabberd
    minio
    crowdsec
 
