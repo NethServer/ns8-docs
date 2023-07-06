@@ -24,7 +24,7 @@ First, make sure the system is up to date and ``curl`` is installed:
 
 Start the installation procedure as ``root``: ::
 
-   curl https://raw.githubusercontent.com/NethServer/ns8-core/main/core/install.sh | bash
+   curl https://raw.githubusercontent.com/NethServer/ns8-core/ns8-stable/core/install.sh | bash
 
 When the installation script ends, access the Web user interface at ::
 
