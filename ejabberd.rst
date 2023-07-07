@@ -1,3 +1,5 @@
+.. _ejabberd-section: 
+
 ==========
 Ejabberd
 ==========
@@ -9,8 +11,7 @@ The Ejabberd module installs the ejabberd Community Server Docker Image (standar
 
 .. note::
    Ejabberd does not expose anymore the BOSH protocol (so NethCTI integration will not work)
-   Ejabberd serves as chat server to WebTop
-   Ejabberd serves as chat server to network clients
+
 
 
 The Ejabberd module installs `ejabberd Community Server <https://hub.docker.com/r/ejabberd/ecs>`_ Docker Image.
@@ -34,12 +35,12 @@ How to configure:
 2. enable ``Let's Encrypt`` option accordingly to your needs
 3. Select the LDAP user Domain to identify users
 4. Click the :guilabel:`Save` button
-5. open the entered host name inside the browser, eg: ``https://ejabberd.nethserver.org``.
+5. connect a XMMP client with a valid user on the domain to the entered host name, eg: ``https://ejabberd.nethserver.org``.
   
 .. note::
    Ejabberd authentication is integrated with LDAP user domain that you can configure at :ref:`user-domains-section`.
 
-The Ejabberd administrators are allowed to use the web admin page allowed on port 5280
+The Ejabberd administrators are allowed to use the web admin page on port 5280
 
 Under the Advanced options section, the administrator can also configure:
 
