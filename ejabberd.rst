@@ -4,43 +4,43 @@
 Ejabberd
 ==========
 
-The Ejabberd module installs the ejabberd Community Server Docker Image (standard protocol Jabber/XMPP) and support TLS on standard ports (5222 or 5223).
+The Ejabberd module installs the ejabberd Community Server Docker Image (standard protocol Jabber/XMPP) and supports TLS on standard ports (5222 or 5223).
 
 .. warning::
-   You can install only one install per node due that we open not random TCP ports
+   Only one instance of Ejabberd can run in a node because of TCP port requirements
 
 .. note::
-   Ejabberd does not expose anymore the BOSH protocol (so NethCTI integration will not work)
+   Ejabberd does not expose anymore the BOSH protocol (NethCTI and other browser-based applications might not work)
 
 
 
 The Ejabberd module installs `ejabberd Community Server <https://hub.docker.com/r/ejabberd/ecs>`_ Docker Image.
 
-Ejabberd is an Open Source chat server directly integrated to webtop and for networks client. Check out the `official documentation <https://docs.ejabberd.im//>`_ 
+Ejabberd is an Open Source chat server directly integrated to Webtop and for networks client. Check out the `official documentation <https://docs.ejabberd.im/>`_ 
 for further details.
 
 Configuration
 =============
 
-Ejabberd needs a dedicated virtual host, a FQDN like ``ejabberd.nethserver.org``, **self-signed certificates** could be used but a trusted Let's Encrypt certificate is recommended.
+Ejabberd needs a dedicated virtual host name, a FQDN like ``ejabberd.nethserver.org``. A self-signed TLS certificate could be used but a trusted Let's Encrypt certificate is recommended.
 
 Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
 
 .. warning::
-   Let's Encrypt certificate is a mandatory for file sharing client, the client refuses to connect to the server if the certificate is self-signed
+   Let's Encrypt certificate is a mandatory for file sharing clients. Such clients refuse to connect to the server if the certificate is self-signed
 
 How to configure:
 
-1. access the application configuration page and enter a valid FQDN inside ``Ejabberd FQDN`` field
-2. enable ``Let's Encrypt`` option accordingly to your needs
+1. Access the application configuration page and enter a valid FQDN inside ``Ejabberd FQDN`` field
+2. Enable ``Let's Encrypt`` option accordingly to your needs
 3. Select the LDAP user Domain to identify users
 4. Click the :guilabel:`Save` button
-5. connect a XMMP client with a valid user on the domain to the entered host name, eg: ``https://ejabberd.nethserver.org``.
+5. Connect a XMMP client with a valid user on the domain to the entered host name, e.g.: ``https://ejabberd.nethserver.org``.
   
 .. note::
    Ejabberd authentication is integrated with LDAP user domain that you can configure at :ref:`user-domains-section`.
 
-The Ejabberd administrators are allowed to use the web admin page on port 5280
+The Ejabberd administrators are allowed to use the web admin page on port 5280.
 
 Under the Advanced options section, the administrator can also configure:
 
