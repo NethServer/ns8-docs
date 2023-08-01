@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-26 10:51+0000\n"
+"POT-Creation-Date: 2023-08-01 09:37+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -563,7 +563,7 @@ msgid ""
 "every worker node: ::"
 msgstr ""
 
-#: ../../cluster.rst:132
+#: ../../cluster.rst:132 ../../ejabberd.rst:79
 msgid "Administrators"
 msgstr ""
 
@@ -727,9 +727,10 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
-#: ../../index.rst:30 ../../mail.rst:32 ../../mariadb.rst:11
-#: ../../mattermost.rst:13 ../../minio.rst:10 ../../nextcloud.rst:21
-#: ../../nginx.rst:14 ../../roundcube.rst:19 ../../webtop.rst:12
+#: ../../ejabberd.rst:23 ../../index.rst:30 ../../mail.rst:32
+#: ../../mariadb.rst:11 ../../mattermost.rst:13 ../../minio.rst:10
+#: ../../nextcloud.rst:21 ../../nginx.rst:14 ../../roundcube.rst:19
+#: ../../webtop.rst:12
 msgid "Configuration"
 msgstr ""
 
@@ -748,9 +749,9 @@ msgid ""
 "corresponding public DNS record."
 msgstr ""
 
-#: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../mariadb.rst:13
-#: ../../mattermost.rst:24 ../../minio.rst:17 ../../nginx.rst:16
-#: ../../roundcube.rst:30 ../../webtop.rst:19
+#: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../ejabberd.rst:32
+#: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:17
+#: ../../nginx.rst:16 ../../roundcube.rst:30 ../../webtop.rst:19
 msgid "How to configure:"
 msgstr ""
 
@@ -973,6 +974,224 @@ msgstr ""
 msgid ""
 "use your browser to go to the selected FQDN, eg: "
 "``https://wiki.nethserver.org``."
+msgstr ""
+
+#: ../../ejabberd.rst:5
+msgid "Ejabberd"
+msgstr ""
+
+#: ../../ejabberd.rst:7
+msgid ""
+"The Ejabberd module installs the ejabberd Community Server Docker Image "
+"(standard protocol Jabber/XMPP) and supports TLS on standard ports (5222 "
+"or 5223)."
+msgstr ""
+
+#: ../../ejabberd.rst:10
+msgid ""
+"Only one instance of Ejabberd can run in a node because of TCP port "
+"requirements"
+msgstr ""
+
+#: ../../ejabberd.rst:13
+msgid ""
+"Ejabberd does not expose anymore the BOSH protocol (NethCTI and other "
+"browser-based applications might not work)"
+msgstr ""
+
+#: ../../ejabberd.rst:17
+msgid ""
+"The Ejabberd module installs `ejabberd Community Server "
+"<https://hub.docker.com/r/ejabberd/ecs>`_ Docker Image."
+msgstr ""
+
+#: ../../ejabberd.rst:19
+msgid ""
+"Ejabberd is an Open Source chat server directly integrated to Webtop and "
+"for networks client. Check out the `official documentation "
+"<https://docs.ejabberd.im/>`_ for further details."
+msgstr ""
+
+#: ../../ejabberd.rst:25
+msgid ""
+"Ejabberd needs a dedicated virtual host name, a FQDN like "
+"``ejabberd.nethserver.org``. A self-signed TLS certificate could be used "
+"but a trusted Let's Encrypt certificate is recommended."
+msgstr ""
+
+#: ../../ejabberd.rst:27
+msgid ""
+"Before proceeding with the configuration, make sure to create the "
+"corresponding name record inside your DNS server."
+msgstr ""
+
+#: ../../ejabberd.rst:30
+msgid ""
+"Let's Encrypt certificate is a mandatory for file sharing clients. Such "
+"clients refuse to connect to the server if the certificate is self-signed"
+msgstr ""
+
+#: ../../ejabberd.rst:34
+msgid ""
+"Access the application configuration page and enter a valid FQDN inside "
+"``Ejabberd FQDN`` field"
+msgstr ""
+
+#: ../../ejabberd.rst:35
+msgid "Enable ``Let's Encrypt`` option accordingly to your needs"
+msgstr ""
+
+#: ../../ejabberd.rst:36
+msgid "Select the LDAP user Domain to identify users"
+msgstr ""
+
+#: ../../ejabberd.rst:37 ../../mariadb.rst:17 ../../mattermost.rst:28
+#: ../../nginx.rst:21
+msgid "Click the :guilabel:`Save` button"
+msgstr ""
+
+#: ../../ejabberd.rst:38
+msgid ""
+"Connect a XMMP client with a valid user on the domain to the entered host"
+" name, e.g.: ``https://ejabberd.nethserver.org``."
+msgstr ""
+
+#: ../../ejabberd.rst:41
+msgid ""
+"Ejabberd authentication is integrated with LDAP user domain that you can "
+"configure at :ref:`user-domains-section`."
+msgstr ""
+
+#: ../../ejabberd.rst:43
+msgid ""
+"The Ejabberd administrators are allowed to use the web admin page on port"
+" 5280."
+msgstr ""
+
+#: ../../ejabberd.rst:45
+msgid "Under the Advanced options section, the administrator can also configure:"
+msgstr ""
+
+#: ../../ejabberd.rst:47
+msgid "enable built-in web administration interface"
+msgstr ""
+
+#: ../../ejabberd.rst:48
+msgid "S2S federation"
+msgstr ""
+
+#: ../../ejabberd.rst:49
+msgid "message archive management"
+msgstr ""
+
+#: ../../ejabberd.rst:50
+msgid "file upload to exchange data among clients using URL"
+msgstr ""
+
+#: ../../ejabberd.rst:51
+msgid "file transfer speed"
+msgstr ""
+
+#: ../../ejabberd.rst:54
+msgid "Server to server (S2S)"
+msgstr ""
+
+#: ../../ejabberd.rst:56
+msgid ""
+"The XMPP system is federated by nature. If :index:`S2S` is enabled, users"
+" with accounts on one server can communicate with users on remote "
+"servers. S2S allows for servers communicating seamlessly with each other,"
+" forming a global 'federated' IM network."
+msgstr ""
+
+#: ../../ejabberd.rst:60
+msgid ""
+"For this purpose, the SRV DNS record must be configured for your domain "
+"(https://wiki.xmpp.org/web/SRV_Records#XMPP_SRV_records) and the server "
+"must have a valid SSL/TLS certificate."
+msgstr ""
+
+#: ../../ejabberd.rst:64
+msgid "Message Archive Management"
+msgstr ""
+
+#: ../../ejabberd.rst:66
+msgid ""
+"Message Archive Management (mod_mam) implements Message Archive "
+"Management as described in `XEP-0313 "
+"<http://xmpp.org/extensions/xep-0313.html>`_. When enabled, all messages "
+"will be stored inside the server and compatible XMPP clients can use it "
+"to store their chat history on the server."
+msgstr ""
+
+#: ../../ejabberd.rst:69
+msgid ""
+"The database can store a maximum of 2GB of messages, archived messages "
+"can be purged automatically. To configure message retention policy, set "
+":guilabel:`Clean messages older than X days` option."
+msgstr ""
+
+#: ../../ejabberd.rst:74
+msgid ""
+"If enabled, this module will store every message sent between users. This"
+" behavior will affect the privacy of your users."
+msgstr ""
+
+#: ../../ejabberd.rst:81
+msgid ""
+"All users listed in the text area are considered administrators of the "
+"chat server."
+msgstr ""
+
+#: ../../ejabberd.rst:83
+msgid "Administrators can:"
+msgstr ""
+
+#: ../../ejabberd.rst:85
+msgid "Send broadcast messages"
+msgstr ""
+
+#: ../../ejabberd.rst:86
+msgid "Check the status of connected users"
+msgstr ""
+
+#: ../../ejabberd.rst:89
+msgid "Clients"
+msgstr ""
+
+#: ../../ejabberd.rst:91
+msgid "Jabber clients are available for all desktop and mobile platforms."
+msgstr ""
+
+#: ../../ejabberd.rst:93
+msgid "Some widespread clients:"
+msgstr ""
+
+#: ../../ejabberd.rst:95
+msgid "Pidgin is available for Windows and Linux"
+msgstr ""
+
+#: ../../ejabberd.rst:96
+msgid "Adium for Mac OS X"
+msgstr ""
+
+#: ../../ejabberd.rst:97
+msgid "BeejibelIM for Android and iOS, Xabber only for Android"
+msgstr ""
+
+#: ../../ejabberd.rst:99
+msgid ""
+"When you configure the client, make sure TLS (or SSL) is enabled. Enter "
+"the user name and the domain of the machine."
+msgstr ""
+
+#: ../../ejabberd.rst:102
+msgid ""
+"With TLS capabilities, strictly configured servers or clients could "
+"reject connections with your Ejabberd server if the SSL/TLS certificate "
+"doesn't match the domain name. Also, the certificate should contain two "
+"sub-domains ``pubsub.*`` and ``conference.*``. This certificate can be "
+"obtained for free with Let's Encrypt."
 msgstr ""
 
 #: ../../faq.rst:3
@@ -1299,7 +1518,7 @@ msgstr ""
 msgid "Applications"
 msgstr ""
 
-#: ../../index.rst:62
+#: ../../index.rst:63
 msgid "Best practices"
 msgstr ""
 
@@ -2224,10 +2443,6 @@ msgstr ""
 
 #: ../../mariadb.rst:16 ../../nginx.rst:20
 msgid "enable ``HTTP to HTTPS`` option accordingly to your needs"
-msgstr ""
-
-#: ../../mariadb.rst:17 ../../mattermost.rst:28 ../../nginx.rst:21
-msgid "Click the :guilabel:`Save` button"
 msgstr ""
 
 #: ../../mariadb.rst:19 ../../nginx.rst:23
