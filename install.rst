@@ -22,8 +22,8 @@ First, make sure the system is up to date and ``curl`` is installed:
 * for CentOS/AlmaLinux/RockyLinux: ``dnf update -y && dnf install -y curl``
 * for Debian: ``apt-get update && apt-get upgrade -y && apt-get install -y curl``
 
-Then verify that the fully qualified domain name of your server is correctly set. To reach your server the FQDN must have DNS entries from your DNS registrar. If the FQDN has to be changed you must refer to the manual of your linux distribution.
-to verify :``hostname -f``
+Then verify that the fully qualified domain name of your server is correctly set. To reach your server the FQDN must have DNS entries from your DNS registrar. If the FQDN has to be changed you must refer to the manual of your Linux distribution.
+To check current configured hostname use: ``hostname -f``
 
 Start the installation procedure as ``root``: ::
 
