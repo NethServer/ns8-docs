@@ -5,7 +5,7 @@ System requirements
 ===================
 
 NethServer 8 can be deployed on a single machine or on more nodes in a cluster scenario.
-NS8 is currently available only for `x86-64 architecture <https://en.wikipedia.org/wiki/X86-64>`.
+NS8 is currently available only for `x86-64 architecture <https://en.wikipedia.org/wiki/X86-64>`_.
 
 Minimum hardware requirements for a single node installation:
 
