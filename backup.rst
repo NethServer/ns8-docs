@@ -39,6 +39,8 @@ Whenever you want to manually execute the backup, click the ``Run backup now`` i
 
 To add more instances to an existing backup, click the ``Edit`` item from the three-dots menu of the scheduled backup.
 
+.. _application_restore-section:
+
 Application restore
 ===================
 

@@ -57,6 +57,42 @@ the shared folder root directory. It is possible to edit ACLs with a SMB
 client, like the Windows Explorer application installed with Windows Pro
 flavours, or the ``smbcacls`` command provided by the Samba project.
 
+
+Restore file server from backup
+===============================
+
+.. warning::
+
+    To avoid reconfiguring network clients the system should provide the
+    same IP address used in the file server backup.
+
+First of all, apply the procedure described in
+:ref:`application_restore-section` by selecting the backup of the **Samba
+module**.
+
+If the restored controller is the first of the domain there are
+two alternatives:
+
+1. If the system IP address is the same used in the backup set, DC
+   services are started automatically and no further actions are required.
+
+2. If the previous condition does not apply, DC services are started using
+   the system VPN IP address as fallback. A similar command is required to
+   select another IP address in a second time: ::
+
+     api-cli run module/samba0/set-ipaddress --data '{"ipaddress": "10.15.21.100"}'
+
+   Replace `samba0` with the correct module identifier. Replace the
+   `ipaddress` value with the correct IP address.
+
+Otherwise, if one or more domain controllers already exist:
+
+- go to ``Domain and users`` page and open the :guilabel:`Unconfigured
+  provider` link;
+
+- fill the form to join a new DC to the domain.
+
+
 .. rubric:: Footnotes
 
 .. [#anon] *Guest access in SMB2 and SMB3 disabled by default in Windows*
