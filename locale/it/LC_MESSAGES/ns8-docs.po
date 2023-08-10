@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 11:03+0000\n"
+"POT-Creation-Date: 2023-08-10 07:27+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -115,123 +115,123 @@ msgid ""
 " the three-dots menu of the scheduled backup."
 msgstr ""
 
-#: ../../backup.rst:43
+#: ../../backup.rst:45
 msgid "Application restore"
 msgstr ""
 
-#: ../../backup.rst:45
+#: ../../backup.rst:47
 msgid ""
 "You can restore an application only if there is at least one repository "
 "configured:"
 msgstr ""
 
-#: ../../backup.rst:47
+#: ../../backup.rst:49
 msgid "click on the :guilabel:`Restore an app` button."
 msgstr ""
 
-#: ../../backup.rst:48
+#: ../../backup.rst:50
 msgid ""
 "a dialog box will list all applications inside the existing backup, "
 "select the application you want to restore"
 msgstr ""
 
-#: ../../backup.rst:49
+#: ../../backup.rst:51
 msgid ""
 "as default the restore procedure will create a new instance, if you want "
 "to replace the existing one select the ``Replace existing app`` option"
 msgstr ""
 
-#: ../../backup.rst:50
+#: ../../backup.rst:52
 msgid "select the target node"
 msgstr ""
 
-#: ../../backup.rst:51
+#: ../../backup.rst:53
 msgid "click on the :guilabel:`Restore` button"
 msgstr ""
 
-#: ../../backup.rst:56
+#: ../../backup.rst:58
 msgid "Cluster backup"
 msgstr ""
 
-#: ../../backup.rst:58
+#: ../../backup.rst:60
 msgid ""
 "The cluster configuration backup contains all required data to execute a "
 ":ref:`disaster_recovery-section`. It is a compressed JSON file encrypted "
 "with GPG."
 msgstr ""
 
-#: ../../backup.rst:61
+#: ../../backup.rst:63
 msgid ""
 "The first time ``Backup`` page is accessed an encryption password must be"
 " set and stored in a safe place. A new encryption password is needed also"
 " after a new leader node is elected (see :ref:`node-promotion-section`)."
 msgstr ""
 
-#: ../../backup.rst:65
+#: ../../backup.rst:67
 msgid ""
 "To download the cluster configuration backup, click on "
 ":guilabel:`Download cluster backup` button under the ``Cluster "
 "configuration`` section of the ``Backup`` page."
 msgstr ""
 
-#: ../../backup.rst:68
+#: ../../backup.rst:70
 msgid ""
 "Please, download the cluster configuration backup and keep it on a safe "
 "place."
 msgstr ""
 
-#: ../../backup.rst:71
+#: ../../backup.rst:73
 msgid ""
 "In case you lose the configuration backup, you can still restore "
 "applications to another cluster only if you know the encryption password "
 "of the backup repository."
 msgstr ""
 
-#: ../../backup.rst:76
+#: ../../backup.rst:78
 msgid ""
 "To inspect the content of the backup use the following command, where "
 "``<pass>`` is the encryption password entered before the download: ::"
 msgstr ""
 
-#: ../../backup.rst:84
+#: ../../backup.rst:86
 msgid "Disaster recovery"
 msgstr ""
 
-#: ../../backup.rst:86
+#: ../../backup.rst:88
 msgid ""
 "You can restore a previously configured cluster using the disaster "
 "recovery procedure. To follow this procedure you will need a :ref:`a "
 "cluster configuration backup <cluster_backup-section>`:"
 msgstr ""
 
-#: ../../backup.rst:89
+#: ../../backup.rst:91
 msgid ""
 ":ref:`install <install-section>` a new cluster and login using default "
 "credentials"
 msgstr ""
 
-#: ../../backup.rst:90
+#: ../../backup.rst:92
 msgid "change the default administrator password"
 msgstr ""
 
-#: ../../backup.rst:91
+#: ../../backup.rst:93
 msgid "click on :guilabel:`Restore cluster`"
 msgstr ""
 
-#: ../../backup.rst:92
+#: ../../backup.rst:94
 msgid ""
 "you can now choose whether to restore a cluster configuration hosted on a"
 " remote HTTP server or upload the backup from your browser"
 msgstr ""
 
-#: ../../backup.rst:94
+#: ../../backup.rst:96
 msgid ""
 "if on step 2 you entered the same password of the old cluster, the system"
 " will automatically decrypt the configuration backup; otherwise enter the"
 " encryption secret inside the ``Backup password`` field"
 msgstr ""
 
-#: ../../backup.rst:96
+#: ../../backup.rst:98
 msgid "select the applications to restore"
 msgstr ""
 
@@ -1457,11 +1457,66 @@ msgid ""
 "flavours, or the ``smbcacls`` command provided by the Samba project."
 msgstr ""
 
-#: ../../file_server.rst:61 ../../modules.rst:120
+#: ../../file_server.rst:62
+msgid "Restore file server from backup"
+msgstr ""
+
+#: ../../file_server.rst:66
+msgid ""
+"To avoid reconfiguring network clients the system should provide the same"
+" IP address used in the file server backup."
+msgstr ""
+
+#: ../../file_server.rst:69
+msgid ""
+"First of all, apply the procedure described in :ref:`application_restore-"
+"section` by selecting the backup of the **Samba module**."
+msgstr ""
+
+#: ../../file_server.rst:73
+msgid ""
+"If the restored controller is the first of the domain there are two "
+"alternatives:"
+msgstr ""
+
+#: ../../file_server.rst:76
+msgid ""
+"If the system IP address is the same used in the backup set, DC services "
+"are started automatically and no further actions are required."
+msgstr ""
+
+#: ../../file_server.rst:79
+msgid ""
+"If the previous condition does not apply, DC services are started using "
+"the system VPN IP address as fallback. A similar command is required to "
+"select another IP address in a second time: ::"
+msgstr ""
+
+#: ../../file_server.rst:85
+msgid ""
+"Replace `samba0` with the correct module identifier. Replace the "
+"`ipaddress` value with the correct IP address."
+msgstr ""
+
+#: ../../file_server.rst:88
+msgid "Otherwise, if one or more domain controllers already exist:"
+msgstr ""
+
+#: ../../file_server.rst:90
+msgid ""
+"go to ``Domain and users`` page and open the :guilabel:`Unconfigured "
+"provider` link;"
+msgstr ""
+
+#: ../../file_server.rst:93
+msgid "fill the form to join a new DC to the domain."
+msgstr ""
+
+#: ../../file_server.rst:97 ../../modules.rst:120
 msgid "Footnotes"
 msgstr ""
 
-#: ../../file_server.rst:62
+#: ../../file_server.rst:98
 msgid ""
 "*Guest access in SMB2 and SMB3 disabled by default in Windows* `link to "
 "learn.microsoft.com <https://learn.microsoft.com/en-us/troubleshoot"
