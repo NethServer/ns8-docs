@@ -20,6 +20,9 @@ Always install NethServer 8 on a clean server machine, do not install it on a de
 
 .. _supported-distros-section:
 
+Linux distribution
+==================
+
 Supported GNU/Linux distributions and versions:
 
 - `Rocky Linux <https://rockylinux.org/>`_ 9
