@@ -54,3 +54,32 @@ the FQDN is in the TLS certificate before exchanging data with it.
    ``jupiter`` and domain suffix ``example.org``: the resulting FQDN is
    ``jupiter.example.org``.
 
+
+.. _worker-node-reqs:
+
+Worker node requirements
+========================
+
+.. highlight:: text
+
+Among network clients, a NethServer 8 worker node has some special
+requirements to be installed and configured.
+
+A worker node reaches the leader during the join procedure at the
+following URL: ::
+
+    https://<leader_fqdn>/cluster-admin/
+
+Ensure the following requirements are met:
+
+1. the worker node must resolve the leader FQDN to the correct routable
+   address
+
+2. the HTTPS server (TCP port 443) at that address must handle the API
+   request
+
+3. the API server response contains the leader ``VPN endpoint``: it is a
+   host address with a UDP port number used to set up a Wireguard VPN. The
+   VPN endpoint is configured during the :ref:`cluster creation
+   <post-install-steps>` procedure. Ensure it is not blocked by other
+   network appliances.
