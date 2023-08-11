@@ -42,6 +42,11 @@ Choose a ``qcow2`` image if you are using a KVM-based platform like `Proxmox <ht
 or a ``vmdk`` image if your using something like `VMware <https://www.vmware.com>`_.
 You can also upload the image to a cloud provider and create a public virtual machine.
 
+Default OS administrative credentials are
+
+* Username: ``root``
+* Password: ``Nethesis,1234``
+
 Known bugs:
 
 - Debian image could be currently used only for local virtualization platform
