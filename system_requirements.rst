@@ -29,3 +29,28 @@ Supported GNU/Linux distributions and versions:
 - `CentOS Stream <https://www.centos.org/centos-stream/>`_ 9
 - `AlmaLinux <https://almalinux.org>`_ 9
 - `Debian <https://www.debian.org/>`_ 12
+
+
+.. _dns-reqs:
+
+DNS configuration
+=================
+
+As you are configuring a server, network clients must resolve its fully
+qualified domain name (FQDN) to a routable IP address with the DNS. This
+is a requirement to connect with the server.
+
+A correct FQDN and DNS setup is also a requirement for TLS encryption to
+work properly. Once connected with the server, network clients check if
+the FQDN is in the TLS certificate before exchanging data with it.
+
+1. Depending on your sever purpose, DNS can be provided by a public
+   internet service, a private network appliance, or even both of them.
+   Read carefully and understand their documentation.
+
+2. Decide the FQDN of your server and register it in the DNS with the
+   server public IP address. A FQDN is composed by the host name prefix (a
+   single word) and the DNS domain suffix. For instance, host name can be
+   ``jupiter`` and domain suffix ``example.org``: the resulting FQDN is
+   ``jupiter.example.org``.
+
