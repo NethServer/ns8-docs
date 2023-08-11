@@ -31,6 +31,14 @@ Supported GNU/Linux distributions and versions:
 - `Debian <https://www.debian.org/>`_ 12
 
 
+.. _static-ip-reqs:
+
+Static IP address
+=================
+
+The server must be assigned a static IP address. DHCP and any other
+dynamic IP discovery protocols are not allowed.
+
 .. _dns-reqs:
 
 DNS configuration
