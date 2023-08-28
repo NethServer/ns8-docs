@@ -62,4 +62,4 @@ As system root user, follow these steps for a disk named ``scsi-disk1``:
    chown minio1:minio1 /mnt/data/
 
 Finally, within the module's user interface, configure the ``Storage path`` to be `/mnt/data`.
-Pleaste note that the above path won't be part of the backup.
+Please note that the above path won't be part of the backup.
