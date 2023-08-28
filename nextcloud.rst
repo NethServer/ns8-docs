@@ -75,7 +75,7 @@ You will now be able to edit documents directly inside Nextcloud.
 Data retention policy
 =====================
 
-When it comes to account deletion in Nextcloud, a specific data retention policy is employed based on the user's origin:
+When it comes to account deletion in Nextcloud, a specific data retention policy is employed based on the user's account origin:
 
 - if the account originates from the LDAP account provider, its data isn't subject to automatic removal.
   You can find detailed information about this policy in the documentation: `LDAP Cleanup <https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_auth_ldap_cleanup.html>`_.
