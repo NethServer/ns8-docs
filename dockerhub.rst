@@ -7,7 +7,7 @@ This limit is in place to manage server load and ensure fair usage of Docker Hub
 
 1. Anonymous users: those without a Docker Hub account have the lowest pull rate limit. Once this limit is exceeded, you'll encounter errors when attempting to pull images.
 
-2. Authenticate users: registered users with free accounts have a certain number of free image pulls allowed in a given time window. After reaching this limit, you might need to wait or for more pulls.
+2. Authenticated users: registered users with free accounts have a certain number of free image pulls allowed in a given time window. After reaching this limit, you might need to wait or for more pulls.
 
 If NethServer shares its public IP with other systems, it might encounter such rate limit.
 
