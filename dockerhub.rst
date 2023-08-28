@@ -25,7 +25,7 @@ It's advisable to generate a read-only access token specifically for the NS8 sys
 Refer to the Docker Hub documentation for guidance on generating tokens.
 
 The access token returned by docker.io is stored in the ``/etc/nethserver/registry.json`` file.
-Make sure the file remains world-readable, as it's required by every Unix user on the system, including NS8 modules.
+Make sure the file remains world-readable, as it's required by NS8 modules.
 
 To adjust the permissions accordingly, run the command:
 
