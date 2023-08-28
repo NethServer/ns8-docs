@@ -21,7 +21,7 @@ In a root shell prompt, execute the following command:
    runagent podman login docker.io
 
 This command prompts for Docker Hub credentials. 
-It's advisable to consider generating a read-only access token specifically for the NS8 system.
+It's advisable to generate a read-only access token specifically for the NS8 system.
 Refer to the Docker Hub documentation for guidance on generating tokens.
 
 The access token returned by docker.io is stored in the ``/etc/nethserver/registry.json`` file.
