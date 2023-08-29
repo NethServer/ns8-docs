@@ -15,7 +15,9 @@ Access the ``Backup`` page, click on :guilabel:`Add repository` button and choos
 Currently supported providers are:
 
 * `Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_
-* `Amazon S3 <https://aws.amazon.com/it/s3/>`_
+* `Amazon S3 <https://aws.amazon.com/s3/>`_
+* `Azure blob storage <https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction>`_
+*  Generic S3, like :ref:`MinIO <minio-section>`
 
 Fill in the required fields depending on the chosen provider.
 
@@ -68,6 +70,9 @@ To download the cluster configuration backup, click on :guilabel:`Download clust
 the ``Cluster configuration`` section of the ``Backup`` page.
 
 Please, download the cluster configuration backup and keep it on a safe place.
+
+In addition, the cluster configuration backup is automatically copied to the designated repository each time a scheduled operation occurs.
+This ensures that the repository holds up-to-date backups of both your data and the specific cluster setup, including all its configurations.
 
 .. note:: 
    In case you lose the configuration backup, you can still restore applications to another cluster only if you know the
