@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 07:27+0000\n"
+"POT-Creation-Date: 2023-08-29 08:03+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -3304,6 +3304,33 @@ msgstr ""
 msgid ""
 "Finally, click the :guilabel:`Save` button. You will now be able to edit "
 "documents directly inside Nextcloud."
+msgstr ""
+
+#: ../../nextcloud.rst:76
+msgid "Data retention policy"
+msgstr ""
+
+#: ../../nextcloud.rst:78
+msgid ""
+"When it comes to account deletion in Nextcloud, a specific data retention"
+" policy is employed based on the user's account origin:"
+msgstr ""
+
+#: ../../nextcloud.rst:80
+msgid ""
+"if the account originates from the LDAP account provider, its data isn't "
+"subject to automatic removal. You can find detailed information about "
+"this policy in the documentation: `LDAP Cleanup "
+"<https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_auth_ldap_cleanup.html>`_."
+msgstr ""
+
+#: ../../nextcloud.rst:83
+msgid ""
+"in the case of accounts stored within the internal Nextcloud database, "
+"their associated data is immediately and automatically removed upon "
+"deletion. Further insights can be accessed here: `Deleting Users "
+"<https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_configuration.html"
+"#deleting-users>`_."
 msgstr ""
 
 #: ../../nginx.rst:5
