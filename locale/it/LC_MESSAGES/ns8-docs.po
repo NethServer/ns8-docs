@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-29 08:03+0000\n"
+"POT-Creation-Date: 2023-08-29 08:07+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -942,6 +942,94 @@ msgstr ""
 
 #: ../../disk_usage.rst:44
 msgid "The ``migrate`` script:."
+msgstr ""
+
+#: ../../dockerhub.rst:3
+msgid "Docker Hub pull limit"
+msgstr ""
+
+#: ../../dockerhub.rst:5
+msgid ""
+"The Docker Hub pull limit is a restriction on the number of container "
+"image pulls you can perform from Docker Hub's repository within a "
+"specific time period. This limit is in place to manage server load and "
+"ensure fair usage of Docker Hub's resources. The limits vary based on the"
+" type of account you have:"
+msgstr ""
+
+#: ../../dockerhub.rst:8
+msgid ""
+"Anonymous users: those without a Docker Hub account have the lowest pull "
+"rate limit. Once this limit is exceeded, you'll encounter errors when "
+"attempting to pull images."
+msgstr ""
+
+#: ../../dockerhub.rst:10
+msgid ""
+"Authenticated users: registered users with free accounts have a certain "
+"number of free image pulls allowed in a given time window. After reaching"
+" this limit, you might need to wait or for more pulls."
+msgstr ""
+
+#: ../../dockerhub.rst:12
+msgid ""
+"If NethServer shares its public IP with other systems, it might encounter"
+" such rate limit."
+msgstr ""
+
+#: ../../dockerhub.rst:14
+msgid ""
+"To increase your pull limit and avoid errors, log in to your Docker Hub "
+"account when pulling images. This authentication can grant you access to "
+"a higher pull rate limit based on your account type."
+msgstr ""
+
+#: ../../dockerhub.rst:17
+msgid "In a root shell prompt, execute the following command:"
+msgstr ""
+
+#: ../../dockerhub.rst:23
+msgid ""
+"This command prompts for Docker Hub credentials. It's advisable to "
+"generate a read-only access token specifically for the NS8 system. Refer "
+"to the Docker Hub documentation for guidance on generating tokens."
+msgstr ""
+
+#: ../../dockerhub.rst:27
+msgid ""
+"The access token returned by docker.io is stored in the "
+"``/etc/nethserver/registry.json`` file. Make sure the file remains world-"
+"readable, as it's required by NS8 modules."
+msgstr ""
+
+#: ../../dockerhub.rst:30
+msgid "To adjust the permissions accordingly, run the command:"
+msgstr ""
+
+#: ../../dockerhub.rst:36
+msgid "Repeat this process for every node within the cluster."
+msgstr ""
+
+#: ../../dockerhub.rst:38
+msgid "For more information, consult the following references:"
+msgstr ""
+
+#: ../../dockerhub.rst:40
+msgid ""
+"`Download rate limit | Docker Documentation <https://docs.docker.com"
+"/docker-hub/download-rate-limit/>`_"
+msgstr ""
+
+#: ../../dockerhub.rst:41
+msgid ""
+"`podman-login — Podman documentation "
+"<https://docs.podman.io/commands/login>`_"
+msgstr ""
+
+#: ../../dockerhub.rst:42
+msgid ""
+"`Create and manage access tokens | Docker Documentation "
+"<https://docs.docker.com/docker-hub/access-tokens/>`_"
 msgstr ""
 
 #: ../../dokuwiki.rst:3
