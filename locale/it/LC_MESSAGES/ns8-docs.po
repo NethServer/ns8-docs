@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-29 08:07+0000\n"
+"POT-Creation-Date: 2023-08-29 10:26+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -54,14 +54,24 @@ msgid "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
 msgstr ""
 
 #: ../../backup.rst:18
-msgid "`Amazon S3 <https://aws.amazon.com/it/s3/>`_"
+msgid "`Amazon S3 <https://aws.amazon.com/s3/>`_"
+msgstr ""
+
+#: ../../backup.rst:19
+msgid ""
+"`Azure blob storage <https://learn.microsoft.com/en-"
+"us/azure/storage/blobs/storage-blobs-introduction>`_"
 msgstr ""
 
 #: ../../backup.rst:20
-msgid "Fill in the required fields depending on the chosen provider."
+msgid "Generic S3, like :ref:`MinIO <minio-section>`"
 msgstr ""
 
 #: ../../backup.rst:22
+msgid "Fill in the required fields depending on the chosen provider."
+msgstr ""
+
+#: ../../backup.rst:24
 msgid ""
 "A new encryption key will be automatically created for new repositories. "
 "If you are accessing a repository which already contains a NS8 backup, "
@@ -69,169 +79,177 @@ msgid ""
 " section."
 msgstr ""
 
-#: ../../backup.rst:27
+#: ../../backup.rst:29
 msgid "Application backup"
 msgstr ""
 
-#: ../../backup.rst:29
+#: ../../backup.rst:31
 msgid ""
 "Once at least one repository has been configured, you can schedule the "
 "backup of existing applications:"
 msgstr ""
 
-#: ../../backup.rst:31
+#: ../../backup.rst:33
 msgid "click on :guilabel:`Schedule backup` button"
 msgstr ""
 
-#: ../../backup.rst:32
+#: ../../backup.rst:34
 msgid "select which application instances should be added to the backup"
 msgstr ""
 
-#: ../../backup.rst:33
+#: ../../backup.rst:35
 msgid "choose one backup repository"
 msgstr ""
 
-#: ../../backup.rst:34
+#: ../../backup.rst:36
 msgid "setup day and time of the backup and the retention policy"
 msgstr ""
 
-#: ../../backup.rst:35
+#: ../../backup.rst:37
 msgid "enter a name of the backup"
 msgstr ""
 
-#: ../../backup.rst:36
+#: ../../backup.rst:38
 msgid "save the configuration by clicking the :guilabel:`Schedule backup` button"
 msgstr ""
 
-#: ../../backup.rst:38
+#: ../../backup.rst:40
 msgid ""
 "Whenever you want to manually execute the backup, click the ``Run backup "
 "now`` item from the three-dots menu of the scheduled backup."
 msgstr ""
 
-#: ../../backup.rst:40
+#: ../../backup.rst:42
 msgid ""
 "To add more instances to an existing backup, click the ``Edit`` item from"
 " the three-dots menu of the scheduled backup."
 msgstr ""
 
-#: ../../backup.rst:45
+#: ../../backup.rst:47
 msgid "Application restore"
 msgstr ""
 
-#: ../../backup.rst:47
+#: ../../backup.rst:49
 msgid ""
 "You can restore an application only if there is at least one repository "
 "configured:"
 msgstr ""
 
-#: ../../backup.rst:49
+#: ../../backup.rst:51
 msgid "click on the :guilabel:`Restore an app` button."
 msgstr ""
 
-#: ../../backup.rst:50
+#: ../../backup.rst:52
 msgid ""
 "a dialog box will list all applications inside the existing backup, "
 "select the application you want to restore"
 msgstr ""
 
-#: ../../backup.rst:51
+#: ../../backup.rst:53
 msgid ""
 "as default the restore procedure will create a new instance, if you want "
 "to replace the existing one select the ``Replace existing app`` option"
 msgstr ""
 
-#: ../../backup.rst:52
+#: ../../backup.rst:54
 msgid "select the target node"
 msgstr ""
 
-#: ../../backup.rst:53
+#: ../../backup.rst:55
 msgid "click on the :guilabel:`Restore` button"
 msgstr ""
 
-#: ../../backup.rst:58
+#: ../../backup.rst:60
 msgid "Cluster backup"
 msgstr ""
 
-#: ../../backup.rst:60
+#: ../../backup.rst:62
 msgid ""
 "The cluster configuration backup contains all required data to execute a "
 ":ref:`disaster_recovery-section`. It is a compressed JSON file encrypted "
 "with GPG."
 msgstr ""
 
-#: ../../backup.rst:63
+#: ../../backup.rst:65
 msgid ""
 "The first time ``Backup`` page is accessed an encryption password must be"
 " set and stored in a safe place. A new encryption password is needed also"
 " after a new leader node is elected (see :ref:`node-promotion-section`)."
 msgstr ""
 
-#: ../../backup.rst:67
+#: ../../backup.rst:69
 msgid ""
 "To download the cluster configuration backup, click on "
 ":guilabel:`Download cluster backup` button under the ``Cluster "
 "configuration`` section of the ``Backup`` page."
 msgstr ""
 
-#: ../../backup.rst:70
+#: ../../backup.rst:72
 msgid ""
 "Please, download the cluster configuration backup and keep it on a safe "
 "place."
 msgstr ""
 
-#: ../../backup.rst:73
+#: ../../backup.rst:74
+msgid ""
+"In addition, the cluster configuration backup is automatically copied to "
+"the designated repository each time a scheduled operation occurs. This "
+"ensures that the repository holds up-to-date backups of both your data "
+"and the specific cluster setup, including all its configurations."
+msgstr ""
+
+#: ../../backup.rst:78
 msgid ""
 "In case you lose the configuration backup, you can still restore "
 "applications to another cluster only if you know the encryption password "
 "of the backup repository."
 msgstr ""
 
-#: ../../backup.rst:78
+#: ../../backup.rst:83
 msgid ""
 "To inspect the content of the backup use the following command, where "
 "``<pass>`` is the encryption password entered before the download: ::"
 msgstr ""
 
-#: ../../backup.rst:86
+#: ../../backup.rst:91
 msgid "Disaster recovery"
 msgstr ""
 
-#: ../../backup.rst:88
+#: ../../backup.rst:93
 msgid ""
 "You can restore a previously configured cluster using the disaster "
 "recovery procedure. To follow this procedure you will need a :ref:`a "
 "cluster configuration backup <cluster_backup-section>`:"
 msgstr ""
 
-#: ../../backup.rst:91
+#: ../../backup.rst:96
 msgid ""
 ":ref:`install <install-section>` a new cluster and login using default "
 "credentials"
 msgstr ""
 
-#: ../../backup.rst:92
+#: ../../backup.rst:97
 msgid "change the default administrator password"
 msgstr ""
 
-#: ../../backup.rst:93
+#: ../../backup.rst:98
 msgid "click on :guilabel:`Restore cluster`"
 msgstr ""
 
-#: ../../backup.rst:94
+#: ../../backup.rst:99
 msgid ""
 "you can now choose whether to restore a cluster configuration hosted on a"
 " remote HTTP server or upload the backup from your browser"
 msgstr ""
 
-#: ../../backup.rst:96
+#: ../../backup.rst:101
 msgid ""
 "if on step 2 you entered the same password of the old cluster, the system"
 " will automatically decrypt the configuration backup; otherwise enter the"
 " encryption secret inside the ``Backup password`` field"
 msgstr ""
 
-#: ../../backup.rst:98
+#: ../../backup.rst:103
 msgid "select the applications to restore"
 msgstr ""
 
@@ -728,7 +746,7 @@ msgstr ""
 
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
 #: ../../ejabberd.rst:23 ../../index.rst:30 ../../mail.rst:32
-#: ../../mariadb.rst:11 ../../mattermost.rst:13 ../../minio.rst:10
+#: ../../mariadb.rst:11 ../../mattermost.rst:13 ../../minio.rst:12
 #: ../../nextcloud.rst:21 ../../nginx.rst:14 ../../roundcube.rst:19
 #: ../../webtop.rst:12
 msgid "Configuration"
@@ -750,7 +768,7 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../ejabberd.rst:32
-#: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:17
+#: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:19
 #: ../../nginx.rst:16 ../../roundcube.rst:30 ../../webtop.rst:19
 msgid "How to configure:"
 msgstr ""
@@ -775,7 +793,7 @@ msgid ""
 "your needs"
 msgstr ""
 
-#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:24
+#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:26
 #: ../../nextcloud.rst:34 ../../roundcube.rst:35 ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
 msgstr ""
@@ -2977,29 +2995,29 @@ msgstr ""
 msgid "``/webtop-dav``"
 msgstr ""
 
-#: ../../minio.rst:3
+#: ../../minio.rst:5
 msgid "MinIO"
 msgstr "MinIO"
 
-#: ../../minio.rst:5
+#: ../../minio.rst:7
 msgid ""
 "`MinIO <https://min.io/>`_ offers high-performance, S3 compatible object "
 "storage."
 msgstr ""
 
-#: ../../minio.rst:7
+#: ../../minio.rst:9
 msgid ""
 "You can install multiple MinIO instances on the same node from the :ref"
 ":`software_center-section`."
 msgstr ""
 
-#: ../../minio.rst:12
+#: ../../minio.rst:14
 msgid ""
 "MinIO needs two dedicated virtual host, a FQDN like ``minio-"
 "api.nethserver.org`` and ``minio-ui.nethserver.org``."
 msgstr ""
 
-#: ../../minio.rst:14
+#: ../../minio.rst:16
 msgid ""
 "Before proceeding with the configuration, make sure to create the "
 "corresponding name records inside your DNS server. If you are planning to"
@@ -3007,26 +3025,105 @@ msgid ""
 "corresponding public DNS records."
 msgstr ""
 
-#: ../../minio.rst:19
+#: ../../minio.rst:21
 msgid ""
 "access the application configuration page and enter the ``API server host"
 " name``: this will be the FQDN used by hosts to connect to S3 services"
 msgstr ""
 
-#: ../../minio.rst:21
+#: ../../minio.rst:23
 msgid ""
 "fill the ``Web interface host name``: you will be able to configure your "
 "MinIO instance from this FQDN"
 msgstr ""
 
-#: ../../minio.rst:23 ../../nextcloud.rst:32
+#: ../../minio.rst:25 ../../nextcloud.rst:32
 msgid "enable ``Let's Encrypt`` option accordingly to your needs"
 msgstr ""
 
-#: ../../minio.rst:25
+#: ../../minio.rst:27
 msgid ""
 "open the entered host name inside the browser, eg: ``https://minio-"
 "ui.nethserver.org``."
+msgstr ""
+
+#: ../../minio.rst:30
+msgid "Configure local disks"
+msgstr ""
+
+#: ../../minio.rst:32
+msgid ""
+"Setting up MinIO with a locally attached USB/SCSI disk provides two key "
+"benefits:"
+msgstr ""
+
+#: ../../minio.rst:34
+msgid ""
+"data privacy: if you're cautious about sharing data with cloud providers,"
+" this setup allows you to retain control over your information and "
+"prevent third-party access"
+msgstr ""
+
+#: ../../minio.rst:35
+msgid ""
+"local data ownership: by utilizing a local disk, you maintain complete "
+"data control within your own environment. This improves security and "
+"minimizes dependence on external services"
+msgstr ""
+
+#: ../../minio.rst:39
+msgid "Instructions"
+msgstr ""
+
+#: ../../minio.rst:41
+msgid "As system root user, follow these steps for a disk named ``scsi-disk1``:"
+msgstr ""
+
+#: ../../minio.rst:43
+msgid ""
+"**Create a mount point:** make a directory to serve as the mount point "
+"for the disk::"
+msgstr ""
+
+#: ../../minio.rst:46
+msgid "mkdir -p /mnt/data"
+msgstr ""
+
+#: ../../minio.rst:48
+msgid ""
+"**Automate mount at boot:** ensure the disk is automatically mounted "
+"during boot by modifying ``/etc/fstab``::"
+msgstr ""
+
+#: ../../minio.rst:51
+msgid ""
+"echo '/dev/disk/by-id/scsi-disk1 /mnt/data ext4 defaults,nofail,discard 0"
+" 0' >> /etc/fstab systemctl daemon-reload"
+msgstr ""
+
+#: ../../minio.rst:54
+msgid "**Mount the disk:** physically attach the disk using the mount command::"
+msgstr ""
+
+#: ../../minio.rst:57
+msgid "mount /mnt/data"
+msgstr ""
+
+#: ../../minio.rst:59
+msgid ""
+"**Ensure MinIO access:** allow the MinIO instance (e.g., ``minio1``) to "
+"access the disk::"
+msgstr ""
+
+#: ../../minio.rst:62
+msgid "chown minio1:minio1 /mnt/data/"
+msgstr ""
+
+#: ../../minio.rst:64
+msgid ""
+"Finally, within the module's user interface, configure the ``Storage "
+"path`` to be `/mnt/data`. Please note that the above path won't be part "
+"of the backup."
 msgstr ""
 
 #: ../../modules.rst:5
@@ -6941,5 +7038,8 @@ msgstr ""
 #~ "in a cluster scenario. NS8 is "
 #~ "currently available only for `x86-64 "
 #~ "architecture <https://en.wikipedia.org/wiki/X86-64>`."
+#~ msgstr ""
+
+#~ msgid "`Amazon S3 <https://aws.amazon.com/it/s3/>`_"
 #~ msgstr ""
 
