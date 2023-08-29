@@ -71,3 +71,14 @@ if the Collabora does not have a valid TLS certificate.
 
 Finally, click the :guilabel:`Save` button.
 You will now be able to edit documents directly inside Nextcloud.
+
+Data retention policy
+=====================
+
+When it comes to account deletion in Nextcloud, a specific data retention policy is employed based on the user's account origin:
+
+- if the account originates from the LDAP account provider, its data isn't subject to automatic removal.
+  You can find detailed information about this policy in the documentation: `LDAP Cleanup <https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_auth_ldap_cleanup.html>`_.
+
+- in the case of accounts stored within the internal Nextcloud database, their associated data is immediately and automatically removed upon deletion.
+  Further insights can be accessed here: `Deleting Users <https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_configuration.html#deleting-users>`_.
