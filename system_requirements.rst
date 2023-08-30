@@ -52,7 +52,7 @@ A correct FQDN and DNS setup is also a requirement for TLS encryption to
 work properly. Once connected with the server, network clients check if
 the FQDN is in the TLS certificate before exchanging data with it.
 
-1. Depending on your sever purpose, DNS can be provided by a public
+1. Depending on your server purpose, DNS can be provided by a public
    internet service, a private network appliance, or even both of them.
    Read carefully and understand their documentation.
 
