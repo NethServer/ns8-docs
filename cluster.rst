@@ -26,12 +26,18 @@ The process consists of three steps:
 First, prepare a machine with the same Linux distribution used for the leader node, then follow the :ref:`install instruction <install-section>`
 until the login to the Web user interface.
 
+After the login on the worker node, click the :guilabel:`Join cluster` button.
+
+Ensure the worker node FQDN (fully qualified domain name) is correct, and
+respects the :ref:`DNS requirements <dns-reqs>`.
+
 On the leader node, access the ``Nodes`` page and click on :guilabel:`Add node to cluster` and copy the join code from the dialog box.
 
-Return to the worker node and click the :guilabel:`Join cluster` button. Then paste the code inside the ``Join code`` field and click the
+Return to the worker node and paste the code inside the ``Join code`` field and click the
 :guilabel:`Join cluster` button.
 If the leader node does not have a valid TLS certificate, remember to disable the ``TLS certification validation`` option before
 clicking the join button.
+
 When the node registration is complete, you can return to the leader user interface and install applications running on the new worker node.
 
 Remove a node
