@@ -64,6 +64,7 @@ NethServer 8 administrator manual
    :maxdepth: 2
    :caption: Best practices
 
+   os_network
    os_updates
    disk_usage
    migration
