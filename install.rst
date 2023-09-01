@@ -6,13 +6,16 @@ Installation
 
 .. highlight:: bash
 
+Installation methods
+====================
+
 You can install NethServer 8 :ref:`on a supported distribution <install_linux-section>` or use one of :ref:`pre-built images <install_image-section>`.
 Both methods require a working Internet connection.
 
 .. _install_linux-section:
 
 Install on a supported distribution
-===================================
+-----------------------------------
 
 Pick your preferred Linux distribution between :ref:`supported ones <supported-distros-section>` and
 ensure that the system firewall is not blocking any connection.
@@ -26,48 +29,11 @@ Start the installation procedure as ``root``: ::
 
    curl https://raw.githubusercontent.com/NethServer/ns8-core/ns8-stable/core/install.sh | bash
 
-When the installation script ends, access the Web user interface at ::
-
-    https://<server_ip_or_fqdn>/cluster-admin/
-
-First, you will need to login using the default credentials:
-
-* Username: ``admin``
-* Password: ``Nethesis,1234``
-
-Then, choose :guilabel:`Create cluster` to create a new single-node cluster and setup a new administrator password.
-
-Even if running on a single node, the system will setup a Virtual Private Network (VPN) for the cluster.
-With the VPN in place, you will be able to add more nodes in the future.
-
-Please enter the following VPN details:
-
-* ``VPN endpoint address``: this is the address of the leader node of your cluster, and must be reachable by any other nodes you may
-  add to your cluster. Local network names and IP addresses will prevent you from adding systems to your
-  cluster which aren’t on the same network as the leader node
-* ``VPN endpoint port``: it's the public port of the VPN, the port should be accessible to any future node
-* ``VPN CIDR``: the VPN network address, make sure this network is not already used inside your existing network environment
-
-If unsure, you can keep the proposed defaults which should be good for most environments.
-
-Finally, click on :guilabel:`Create cluster` button. Your NS8 is now ready to run :ref:`applications <modules-section>`.
-
-Each cluster has an auto-generated name. If you wish to change it:
-
-* go to the ``Settings`` page and click on the ``Cluster`` card
-* enter a name inside the ``Cluster label`` field
-* click the :guilabel:`Save settings` button
-
-Now sure where to go from here?
-You can install an :ref:`LDAP <openldap-section>` or :ref:`Active Directory <active_directory-section>` user domain,
-take a look at :ref:`system logs <loki-section>`, add :ref:`new nodes <cluster-section>` or setup a :ref:`metric dashboard <metrics-section>`.
-
-To customize the installation, please refer to the `developer manual <https://nethserver.github.io/ns8-core>`_.
 
 .. _install_image-section:
 
 Pre-built images
-================
+----------------
 
 Download one of latest available images from the `release page <https://github.com/NethServer/ns8-core/releases>`_.
 
@@ -76,16 +42,65 @@ Choose a ``qcow2`` image if you are using a KVM-based platform like `Proxmox <ht
 or a ``vmdk`` image if your using something like `VMware <https://www.vmware.com>`_.
 You can also upload the image to a cloud provider and create a public virtual machine.
 
-When using the image on a cloud provider with cloud-init support, the machine will be configured with the host name
-chosen during the setup phase.
-Otherwise, when running on a local KVM-based platform, the machine will have the default host name
-``node.ns8.test``. Please remember to change the host name by following `Debian <https://wiki.debian.org/Hostname>`_
-or `RHEL-based distros <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html-single/configuring_and_managing_networking/index#assembly_changing-a-hostname_configuring-and-managing-networking>`_ documentation.
+Default OS administrative credentials are
+
+* Username: ``root``
+* Password: ``Nethesis,1234``
 
 Known bugs:
 
 - Debian image could be currently used only for local virtualization platform
 - When using RHEL-based images on Proxmox, change the default CPU model to anything other than ``kvm64``
+
+.. _post-install-steps:
+
+Post-installation steps
+=======================
+
+When the installation script ends or the pre-built image has started,
+access the Web user interface at ::
+
+    https://<server_ip_or_fqdn>/cluster-admin/
+
+Use the default credentials to login:
+
+* Username: ``admin``
+* Password: ``Nethesis,1234``
+
+Choose :guilabel:`Create cluster` and follow the procedure to create a new
+single-node cluster.
+
+For security reasons, the admin password must be changed immediately if it
+is still at the default value.
+
+Ensure the node Fully Qualified Domain Name (FQDN) is correct, and
+respects the :ref:`DNS requirements <dns-reqs>`.
+
+Even if running on a single node, the system will setup a Virtual Private Network (VPN) for the cluster.
+With the VPN in place, you will be able to add more nodes in the future.
+
+Enter the following VPN details:
+
+* ``VPN endpoint address``: this is the address of the leader node of your cluster, and must be reachable by any other nodes you may
+  add to your cluster. Local network names and IP addresses will prevent you from adding systems to your
+  cluster which aren't on the same network as the leader node
+* ``VPN endpoint port``: it's the public port of the VPN, the port should be accessible to any future node
+* ``VPN CIDR``: the VPN network address, make sure this network is not already used inside your existing network environment
+
+If unsure, you can keep the proposed defaults which should be good for most environments.
+
+Finally, click on :guilabel:`Create cluster` button. Your NS8 is now ready to run :ref:`applications <modules-section>`.
+
+A new cluster has assigned the default name ``NethServer 8``. If you wish to
+change it:
+
+* go to the ``Settings`` page and click on the ``Cluster`` card
+* enter a name inside the ``Cluster label`` field
+* click the :guilabel:`Save settings` button
+
+Now sure where to go from here?
+You can install a :ref:`LDAP <openldap-section>` or :ref:`Active Directory <active_directory-section>` user domain,
+take a look at :ref:`system logs <loki-section>`, add :ref:`new nodes <cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`.
 
 Uninstall
 =========
