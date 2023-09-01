@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-29 10:26+0000\n"
+"POT-Creation-Date: 2023-09-01 08:24+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -1646,25 +1646,51 @@ msgid ""
 msgstr ""
 
 #: ../../firewall.rst:12
-msgid "cluster VPN endpoint, default is 5580 UDP"
-msgstr ""
-
-#: ../../firewall.rst:13
-msgid "HTTP and HTTPS, 80 and 443 TCP"
-msgstr ""
-
-#: ../../firewall.rst:14
-msgid "SSH, 22 TCP"
+msgid ""
+"cluster VPN endpoint, default is 55820 UDP. It can be changed during :ref"
+":`post-installation steps <post-install-steps>` and :ref:`node promotion "
+"<node-promotion-section>`"
 msgstr ""
 
 #: ../../firewall.rst:15
-msgid "Cockpit (if installed), 9090 TCP"
+msgid "HTTP and HTTPS, 80 and 443 TCP"
+msgstr ""
+
+#: ../../firewall.rst:16
+msgid "SSH, 22 TCP"
 msgstr ""
 
 #: ../../firewall.rst:17
+msgid "Cockpit (not installed by default), 9090 TCP"
+msgstr ""
+
+#: ../../firewall.rst:19
 msgid ""
 "Modules which requires publicly open ports, like the mail server, will "
 "automatically configure the firewall."
+msgstr ""
+
+#: ../../firewall.rst:21
+msgid ""
+"To allow connections to the listening port of a third-party service, use "
+"``firewall-cmd``. For instance, the following command opens TCP port "
+"9000: ::"
+msgstr ""
+
+#: ../../firewall.rst:26
+msgid "To close the same port: ::"
+msgstr ""
+
+#: ../../firewall.rst:30
+msgid ""
+"Changes to the firewall configuration are lost after a firewall restart "
+"or system reboot, unless the same command is invoked a second time, "
+"adding also the ``--permanent`` flag. Refer to the ``firewall-cmd`` "
+"manual page for more information."
+msgstr ""
+
+#: ../../firewall.rst:35
+msgid "To see the list of allowed services and ports, run ::"
 msgstr ""
 
 #: ../../index.rst:16
@@ -7041,5 +7067,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "`Amazon S3 <https://aws.amazon.com/it/s3/>`_"
+#~ msgstr ""
+
+#~ msgid "cluster VPN endpoint, default is 5580 UDP"
+#~ msgstr ""
+
+#~ msgid "Cockpit (if installed), 9090 TCP"
 #~ msgstr ""
 
