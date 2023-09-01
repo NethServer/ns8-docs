@@ -73,7 +73,7 @@ single-node cluster.
 For security reasons, the admin password must be changed immediately if it
 is still at the default value.
 
-Ensure the node FQDN (fully qualified domain name) is correct, and
+Ensure the node Fully Qualified Domain Name (FQDN) is correct, and
 respects the :ref:`DNS requirements <dns-reqs>`.
 
 Even if running on a single node, the system will setup a Virtual Private Network (VPN) for the cluster.

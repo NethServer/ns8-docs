@@ -28,7 +28,7 @@ until the login to the Web user interface.
 
 After the login on the worker node, click the :guilabel:`Join cluster` button.
 
-Ensure the worker node FQDN (fully qualified domain name) is correct, and
+Ensure the node Fully Qualified Domain Name (FQDN) is correct, and
 respects the :ref:`DNS requirements <dns-reqs>`.
 
 On the leader node, access the ``Nodes`` page and click on :guilabel:`Add node to cluster` and copy the join code from the dialog box.

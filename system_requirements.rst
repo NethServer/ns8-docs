@@ -36,7 +36,7 @@ Supported GNU/Linux distributions and versions:
 Static IP address
 =================
 
-The server must be assigned a static IP address. DHCP and any other
+Assign a static IP address to the server. DHCP and any other
 dynamic IP discovery protocols are not allowed.
 
 .. _dns-reqs:
@@ -50,7 +50,7 @@ is a requirement to connect with the server.
 
 A correct FQDN and DNS setup is also a requirement for TLS encryption to
 work properly. Once connected with the server, network clients check if
-the FQDN is in the TLS certificate before exchanging data with it.
+the TLS certificate is valid for the given FQDN.
 
 1. Depending on your server purpose, DNS can be provided by a public
    internet service, a private network appliance, or even both of them.
@@ -70,10 +70,10 @@ Worker node requirements
 
 .. highlight:: text
 
-Among network clients, a NethServer 8 worker node has some special
+Among network clients, a worker node has some special
 requirements to be installed and configured.
 
-A worker node reaches the leader during the join procedure at the
+The worker node reaches the leader during the join procedure at the
 following URL: ::
 
     https://<leader_fqdn>/cluster-admin/
