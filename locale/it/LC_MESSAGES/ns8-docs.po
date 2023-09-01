@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-01 08:24+0000\n"
+"POT-Creation-Date: 2023-09-01 14:50+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -423,26 +423,41 @@ msgstr ""
 
 #: ../../cluster.rst:29
 msgid ""
+"After the login on the worker node, click the :guilabel:`Join cluster` "
+"button."
+msgstr ""
+
+#: ../../cluster.rst:31 ../../install.rst:76
+msgid ""
+"Ensure the node Fully Qualified Domain Name (FQDN) is correct, and "
+"respects the :ref:`DNS requirements <dns-reqs>`."
+msgstr ""
+
+#: ../../cluster.rst:34
+msgid ""
 "On the leader node, access the ``Nodes`` page and click on :guilabel:`Add"
 " node to cluster` and copy the join code from the dialog box."
 msgstr ""
 
-#: ../../cluster.rst:31
+#: ../../cluster.rst:36
 msgid ""
-"Return to the worker node and click the :guilabel:`Join cluster` button. "
-"Then paste the code inside the ``Join code`` field and click the "
-":guilabel:`Join cluster` button. If the leader node does not have a valid"
-" TLS certificate, remember to disable the ``TLS certification "
-"validation`` option before clicking the join button. When the node "
-"registration is complete, you can return to the leader user interface and"
-" install applications running on the new worker node."
+"Return to the worker node and paste the code inside the ``Join code`` "
+"field and click the :guilabel:`Join cluster` button. If the leader node "
+"does not have a valid TLS certificate, remember to disable the ``TLS "
+"certification validation`` option before clicking the join button."
 msgstr ""
 
-#: ../../cluster.rst:38
+#: ../../cluster.rst:41
+msgid ""
+"When the node registration is complete, you can return to the leader user"
+" interface and install applications running on the new worker node."
+msgstr ""
+
+#: ../../cluster.rst:44
 msgid "Remove a node"
 msgstr ""
 
-#: ../../cluster.rst:40
+#: ../../cluster.rst:46
 msgid ""
 "Worker nodes can be removed from the cluster. Before removing a given "
 "worker node, ensure no account provider replica is running on it. In the "
@@ -451,13 +466,13 @@ msgid ""
 "remove it."
 msgstr ""
 
-#: ../../cluster.rst:48
+#: ../../cluster.rst:54
 msgid ""
 "If the node is not reachable, or is not responding, the provider replica "
 "removal must be completed manually after the node removal."
 msgstr ""
 
-#: ../../cluster.rst:51
+#: ../../cluster.rst:57
 msgid ""
 "Access the ``Nodes`` page, go to the three-dots menu of the node and "
 "click on ``Remove from cluster`` to open a confirmation window. "
@@ -465,7 +480,7 @@ msgid ""
 " because node removal is not recoverable."
 msgstr ""
 
-#: ../../cluster.rst:56
+#: ../../cluster.rst:62
 msgid ""
 "If the node removal window is confirmed by pushing the :guilabel:`I "
 "understand, remove node` button, the node and its applications are "
@@ -473,91 +488,91 @@ msgid ""
 " cluster any more."
 msgstr ""
 
-#: ../../cluster.rst:61
+#: ../../cluster.rst:67
 msgid ""
 "When a node is removed from the cluster the applications running on it "
 "are not affected and they are left in a running state. Shutdown and "
 "switch off the node to finalize the node removal."
 msgstr ""
 
-#: ../../cluster.rst:69
+#: ../../cluster.rst:75
 msgid "Promote a node to leader"
 msgstr ""
 
-#: ../../cluster.rst:71
+#: ../../cluster.rst:77
 msgid ""
 "Adding and removing nodes might raise the need of changing the cluster "
 "**leader node**."
 msgstr ""
 
-#: ../../cluster.rst:74
+#: ../../cluster.rst:80
 msgid "A good leader node must be reachable by any other worker node."
 msgstr ""
 
-#: ../../cluster.rst:76
+#: ../../cluster.rst:82
 msgid ""
 "If DNS is used to find the leader IP address, every worker node must "
 "properly resolve the leader host name and that must be the same for every"
 " worker node."
 msgstr ""
 
-#: ../../cluster.rst:80
+#: ../../cluster.rst:86
 msgid ""
 "Depending on the current leader node state there are two possible "
 "procedures to promote a node to leader role:"
 msgstr ""
 
-#: ../../cluster.rst:83 ../../cluster.rst:94
+#: ../../cluster.rst:89 ../../cluster.rst:100
 msgid "Reachable leader node"
 msgstr ""
 
-#: ../../cluster.rst:84 ../../cluster.rst:116
+#: ../../cluster.rst:90 ../../cluster.rst:122
 msgid "Unreachable leader node"
 msgstr ""
 
-#: ../../cluster.rst:86
+#: ../../cluster.rst:92
 msgid ""
 "In any case, after leader promotion it is necessary to perform these "
 "additional tasks:"
 msgstr ""
 
-#: ../../cluster.rst:88
+#: ../../cluster.rst:94
 msgid ""
 "The cluster backup password must be set again. See also :ref"
 ":`cluster_backup-section`."
 msgstr ""
 
-#: ../../cluster.rst:91
+#: ../../cluster.rst:97
 msgid "See also the note in :ref:`audit-trail-section` about node promotion."
 msgstr ""
 
-#: ../../cluster.rst:96
+#: ../../cluster.rst:102
 msgid ""
 "If the current leader node is working properly, access the ``Nodes`` "
 "page, go to the three-dots menu of the node to promote and click on "
 "``Promote to leader``."
 msgstr ""
 
-#: ../../cluster.rst:100
+#: ../../cluster.rst:106
 msgid ""
 "Confirm or enter the leader host name in the ``VPN endpoint address`` "
 "field. An IP address is accepted, too."
 msgstr ""
 
-#: ../../cluster.rst:103
+#: ../../cluster.rst:109
 msgid ""
 "Confirm or enter the ``VPN endpoint port`` number. Every worker node will"
 " connect the leader on that UDP port number."
 msgstr ""
 
-#: ../../cluster.rst:106
+#: ../../cluster.rst:112
 msgid ""
 "When the confirmation string is typed, the :guilabel:`I understand, "
 "promote the node` button becomes active and it is possible to complete "
 "the node promotion."
 msgstr ""
 
-#: ../../cluster.rst:110
+#: ../../cluster.rst:116
 msgid ""
 "The ``Check node connectivity`` checkbox verifies the connection of every"
 " node with the selected one.  The check might fail due to settings of "
@@ -566,7 +581,7 @@ msgid ""
 "your own risk!"
 msgstr ""
 
-#: ../../cluster.rst:118
+#: ../../cluster.rst:124
 msgid ""
 "If the current leader node is not reachable, it is necessary to run a "
 "command on any other worker node.  Be prepared in advance for this "
@@ -574,18 +589,18 @@ msgid ""
 " the nodes."
 msgstr ""
 
-#: ../../cluster.rst:123
+#: ../../cluster.rst:129
 msgid ""
 "For example, to promote node with ID ``3``, VPN endpoint "
 "``node3.example.com`` UDP port ``55820``, run the following command on "
 "every worker node: ::"
 msgstr ""
 
-#: ../../cluster.rst:132 ../../ejabberd.rst:79
+#: ../../cluster.rst:138 ../../ejabberd.rst:79
 msgid "Administrators"
 msgstr ""
 
-#: ../../cluster.rst:134
+#: ../../cluster.rst:140
 msgid ""
 "Cluster administrators can fully manage the cluster. It's recommended to "
 "create a personal user for each cluster administrator. All actions "
@@ -593,92 +608,92 @@ msgid ""
 ":`audit-trail-section`."
 msgstr ""
 
-#: ../../cluster.rst:138
+#: ../../cluster.rst:144
 msgid ""
 "To add a new cluster administrator go to the ``Settings`` page and select"
 " the ``Cluster administrators`` card. Then click on :guilabel:`Create "
 "admin` button and fill the required fields."
 msgstr ""
 
-#: ../../cluster.rst:141
+#: ../../cluster.rst:147
 msgid ""
 "An administrator can't delete its own user. To delete an administrator, "
 "you must log in with another existing cluster administrator."
 msgstr ""
 
-#: ../../cluster.rst:144
+#: ../../cluster.rst:150
 msgid ""
 "Administrators can change their own password from the ``Account`` card "
 "inside the ``Settings`` page."
 msgstr ""
 
-#: ../../cluster.rst:149 ../../webtop.rst:132
+#: ../../cluster.rst:155 ../../webtop.rst:132
 msgid "Two-factor authentication (2FA)"
 msgstr ""
 
-#: ../../cluster.rst:151
+#: ../../cluster.rst:157
 msgid ""
 "Two-factor authentication (2FA) can be used to add an extra layer of "
 "security required to access the cluster management user interface."
 msgstr ""
 
-#: ../../cluster.rst:154
+#: ../../cluster.rst:160
 msgid ""
 "The administrator can enable 2FA from the ``Account`` card inside the "
 "``Settings`` page by clicking the :guilabel:`Enable 2FA` button."
 msgstr ""
 
-#: ../../cluster.rst:157
+#: ../../cluster.rst:163
 msgid "The user will have to:"
 msgstr ""
 
-#: ../../cluster.rst:159
+#: ../../cluster.rst:165
 msgid "download and install the preferred 2FA application on the smartphone"
 msgstr ""
 
-#: ../../cluster.rst:160
+#: ../../cluster.rst:166
 msgid "scan the QR code with the 2FA application"
 msgstr ""
 
-#: ../../cluster.rst:161
+#: ../../cluster.rst:167
 msgid ""
 "generate a new code and copy it inside the verification field, then click"
 " :guilabel:`Verify code`"
 msgstr ""
 
-#: ../../cluster.rst:164
+#: ../../cluster.rst:170
 msgid "Smartphone applications"
 msgstr ""
 
-#: ../../cluster.rst:166
+#: ../../cluster.rst:172
 msgid "There are several commercial and open source 2FA applications:"
 msgstr ""
 
-#: ../../cluster.rst:168
+#: ../../cluster.rst:174
 msgid "Available for both Android and iOS:"
 msgstr ""
 
-#: ../../cluster.rst:170
+#: ../../cluster.rst:176
 msgid ""
 "`FreeOTP <https://freeotp.github.io/>`_: available for both Android and "
 "iOS"
 msgstr ""
 
-#: ../../cluster.rst:171
+#: ../../cluster.rst:177
 msgid ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: available on iOS "
 "only"
 msgstr ""
 
-#: ../../cluster.rst:172
+#: ../../cluster.rst:178
 msgid "`2FAS <https://2fas.com/>`_: available for both Android and iOS"
 msgstr ""
 
-#: ../../cluster.rst:175
+#: ../../cluster.rst:181
 msgid "Reset the cluster administrator password"
 msgstr ""
 
-#: ../../cluster.rst:177
+#: ../../cluster.rst:183
 msgid ""
 "If you are locked out of the web user interface and you can still access "
 "a system command-line shell as ``root`` (e.g. by the system recovery "
@@ -686,40 +701,40 @@ msgid ""
 "password:"
 msgstr ""
 
-#: ../../cluster.rst:185
+#: ../../cluster.rst:191
 msgid "Replace the ``admin`` and ``Nethesis,1234`` default credentials as needed."
 msgstr ""
 
-#: ../../cluster.rst:191
+#: ../../cluster.rst:197
 msgid "Audit trail"
 msgstr ""
 
-#: ../../cluster.rst:193
+#: ../../cluster.rst:199
 msgid ""
 "Inside the audit trail page, cluster administrators can inspect all "
 "actions executed by any other administrator. Each event of the audit "
 "trail contains at least:"
 msgstr ""
 
-#: ../../cluster.rst:196
+#: ../../cluster.rst:202
 msgid "date and time of the action"
 msgstr ""
 
-#: ../../cluster.rst:197
+#: ../../cluster.rst:203
 msgid "user name of the cluster administrator"
 msgstr ""
 
-#: ../../cluster.rst:198
+#: ../../cluster.rst:204
 msgid "name of the action"
 msgstr ""
 
-#: ../../cluster.rst:200
+#: ../../cluster.rst:206
 msgid ""
 "Audit trail events can be filtered by user, date, action type, and custom"
 " text match."
 msgstr ""
 
-#: ../../cluster.rst:204
+#: ../../cluster.rst:210
 msgid ""
 "Audit trail information is stored in the leader node disk. In case of "
 ":ref:`new leader promotion <node-promotion-section>` the audit trail "
@@ -1721,7 +1736,11 @@ msgstr ""
 msgid "Help on `Community <http://community.nethserver.org>`_"
 msgstr ""
 
-#: ../../install.rst:9
+#: ../../install.rst:10
+msgid "Installation methods"
+msgstr ""
+
+#: ../../install.rst:12
 msgid ""
 "You can install NethServer 8 :ref:`on a supported distribution "
 "<install_linux-section>` or use one of :ref:`pre-built images "
@@ -1729,143 +1748,46 @@ msgid ""
 "connection."
 msgstr ""
 
-#: ../../install.rst:15
+#: ../../install.rst:18
 msgid "Install on a supported distribution"
 msgstr ""
 
-#: ../../install.rst:17
+#: ../../install.rst:20
 msgid ""
 "Pick your preferred Linux distribution between :ref:`supported ones "
 "<supported-distros-section>` and ensure that the system firewall is not "
 "blocking any connection."
 msgstr ""
 
-#: ../../install.rst:20
+#: ../../install.rst:23
 msgid "First, make sure the system is up to date and ``curl`` is installed:"
 msgstr ""
 
-#: ../../install.rst:22
+#: ../../install.rst:25
 msgid "for CentOS/AlmaLinux/RockyLinux: ``dnf update -y && dnf install -y curl``"
 msgstr ""
 
-#: ../../install.rst:23
+#: ../../install.rst:26
 msgid ""
 "for Debian: ``apt-get update && apt-get upgrade -y && apt-get install -y "
 "curl``"
 msgstr ""
 
-#: ../../install.rst:25
+#: ../../install.rst:28
 msgid "Start the installation procedure as ``root``: ::"
 msgstr ""
 
-#: ../../install.rst:29
-msgid "When the installation script ends, access the Web user interface at ::"
-msgstr ""
-
-#: ../../install.rst:33
-msgid "First, you will need to login using the default credentials:"
-msgstr ""
-
-#: ../../install.rst:35
-msgid "Username: ``admin``"
-msgstr ""
-
 #: ../../install.rst:36
-msgid "Password: ``Nethesis,1234``"
-msgstr ""
-
-#: ../../install.rst:38
-msgid ""
-"Then, choose :guilabel:`Create cluster` to create a new single-node "
-"cluster and setup a new administrator password."
-msgstr ""
-
-#: ../../install.rst:40
-msgid ""
-"Even if running on a single node, the system will setup a Virtual Private"
-" Network (VPN) for the cluster. With the VPN in place, you will be able "
-"to add more nodes in the future."
-msgstr ""
-
-#: ../../install.rst:43
-msgid "Please enter the following VPN details:"
-msgstr ""
-
-#: ../../install.rst:45
-msgid ""
-"``VPN endpoint address``: this is the address of the leader node of your "
-"cluster, and must be reachable by any other nodes you may add to your "
-"cluster. Local network names and IP addresses will prevent you from "
-"adding systems to your cluster which aren’t on the same network as the "
-"leader node"
-msgstr ""
-
-#: ../../install.rst:48
-msgid ""
-"``VPN endpoint port``: it's the public port of the VPN, the port should "
-"be accessible to any future node"
-msgstr ""
-
-#: ../../install.rst:49
-msgid ""
-"``VPN CIDR``: the VPN network address, make sure this network is not "
-"already used inside your existing network environment"
-msgstr ""
-
-#: ../../install.rst:51
-msgid ""
-"If unsure, you can keep the proposed defaults which should be good for "
-"most environments."
-msgstr ""
-
-#: ../../install.rst:53
-msgid ""
-"Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
-"ready to run :ref:`applications <modules-section>`."
-msgstr ""
-
-#: ../../install.rst:55
-msgid "Each cluster has an auto-generated name. If you wish to change it:"
-msgstr ""
-
-#: ../../install.rst:57
-msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
-msgstr ""
-
-#: ../../install.rst:58
-msgid "enter a name inside the ``Cluster label`` field"
-msgstr ""
-
-#: ../../install.rst:59
-msgid "click the :guilabel:`Save settings` button"
-msgstr ""
-
-#: ../../install.rst:61
-msgid ""
-"Now sure where to go from here? You can install an :ref:`LDAP <openldap-"
-"section>` or :ref:`Active Directory <active_directory-section>` user "
-"domain, take a look at :ref:`system logs <loki-section>`, add :ref:`new "
-"nodes <cluster-section>` or setup a :ref:`metric dashboard <metrics-"
-"section>`."
-msgstr ""
-
-#: ../../install.rst:65
-msgid ""
-"To customize the installation, please refer to the `developer manual "
-"<https://nethserver.github.io/ns8-core>`_."
-msgstr ""
-
-#: ../../install.rst:70
 msgid "Pre-built images"
 msgstr ""
 
-#: ../../install.rst:72
+#: ../../install.rst:38
 msgid ""
 "Download one of latest available images from the `release page "
 "<https://github.com/NethServer/ns8-core/releases>`_."
 msgstr ""
 
-#: ../../install.rst:74
+#: ../../install.rst:40
 msgid ""
 "Select your preferred distribution flavor, download the image and start "
 "it inside your virtualization platform. Choose a ``qcow2`` image if you "
@@ -1875,52 +1797,151 @@ msgid ""
 "provider and create a public virtual machine."
 msgstr ""
 
-#: ../../install.rst:79
-msgid ""
-"When using the image on a cloud provider with cloud-init support, the "
-"machine will be configured with the host name chosen during the setup "
-"phase. Otherwise, when running on a local KVM-based platform, the machine"
-" will have the default host name ``node.ns8.test``. Please remember to "
-"change the host name by following `Debian "
-"<https://wiki.debian.org/Hostname>`_ or `RHEL-based distros "
-"<https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9"
-"/html-"
-"single/configuring_and_managing_networking/index#assembly_changing-a"
-"-hostname_configuring-and-managing-networking>`_ documentation."
+#: ../../install.rst:45
+msgid "Default OS administrative credentials are"
 msgstr ""
 
-#: ../../install.rst:85
+#: ../../install.rst:47
+msgid "Username: ``root``"
+msgstr ""
+
+#: ../../install.rst:48 ../../install.rst:68
+msgid "Password: ``Nethesis,1234``"
+msgstr ""
+
+#: ../../install.rst:50
 msgid "Known bugs:"
 msgstr ""
 
-#: ../../install.rst:87
+#: ../../install.rst:52
 msgid ""
 "Debian image could be currently used only for local virtualization "
 "platform"
 msgstr ""
 
-#: ../../install.rst:88
+#: ../../install.rst:53
 msgid ""
 "When using RHEL-based images on Proxmox, change the default CPU model to "
 "anything other than ``kvm64``"
 msgstr ""
 
-#: ../../install.rst:91
+#: ../../install.rst:58
+msgid "Post-installation steps"
+msgstr ""
+
+#: ../../install.rst:60
+msgid ""
+"When the installation script ends or the pre-built image has started, "
+"access the Web user interface at ::"
+msgstr ""
+
+#: ../../install.rst:65
+msgid "Use the default credentials to login:"
+msgstr ""
+
+#: ../../install.rst:67
+msgid "Username: ``admin``"
+msgstr ""
+
+#: ../../install.rst:70
+msgid ""
+"Choose :guilabel:`Create cluster` and follow the procedure to create a "
+"new single-node cluster."
+msgstr ""
+
+#: ../../install.rst:73
+msgid ""
+"For security reasons, the admin password must be changed immediately if "
+"it is still at the default value."
+msgstr ""
+
+#: ../../install.rst:79
+msgid ""
+"Even if running on a single node, the system will setup a Virtual Private"
+" Network (VPN) for the cluster. With the VPN in place, you will be able "
+"to add more nodes in the future."
+msgstr ""
+
+#: ../../install.rst:82
+msgid "Enter the following VPN details:"
+msgstr ""
+
+#: ../../install.rst:84
+msgid ""
+"``VPN endpoint address``: this is the address of the leader node of your "
+"cluster, and must be reachable by any other nodes you may add to your "
+"cluster. Local network names and IP addresses will prevent you from "
+"adding systems to your cluster which aren't on the same network as the "
+"leader node"
+msgstr ""
+
+#: ../../install.rst:87
+msgid ""
+"``VPN endpoint port``: it's the public port of the VPN, the port should "
+"be accessible to any future node"
+msgstr ""
+
+#: ../../install.rst:88
+msgid ""
+"``VPN CIDR``: the VPN network address, make sure this network is not "
+"already used inside your existing network environment"
+msgstr ""
+
+#: ../../install.rst:90
+msgid ""
+"If unsure, you can keep the proposed defaults which should be good for "
+"most environments."
+msgstr ""
+
+#: ../../install.rst:92
+msgid ""
+"Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
+"ready to run :ref:`applications <modules-section>`."
+msgstr ""
+
+#: ../../install.rst:94
+msgid ""
+"A new cluster has assigned the default name ``NethServer 8``. If you wish"
+" to change it:"
+msgstr ""
+
+#: ../../install.rst:97
+msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
+msgstr ""
+
+#: ../../install.rst:98
+msgid "enter a name inside the ``Cluster label`` field"
+msgstr ""
+
+#: ../../install.rst:99
+msgid "click the :guilabel:`Save settings` button"
+msgstr ""
+
+#: ../../install.rst:101
+msgid ""
+"Now sure where to go from here? You can install a :ref:`LDAP <openldap-"
+"section>` or :ref:`Active Directory <active_directory-section>` user "
+"domain, take a look at :ref:`system logs <loki-section>`, add :ref:`new "
+"nodes <cluster-section>`, or setup a :ref:`metric dashboard <metrics-"
+"section>`."
+msgstr ""
+
+#: ../../install.rst:106
 msgid "Uninstall"
 msgstr ""
 
-#: ../../install.rst:93
+#: ../../install.rst:108
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr ""
 
-#: ../../install.rst:95
+#: ../../install.rst:110
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 
-#: ../../install.rst:98
+#: ../../install.rst:113
 msgid "To uninstall NS8, execute: ::"
 msgstr ""
 
@@ -4059,24 +4080,113 @@ msgid ""
 "on a desktop."
 msgstr ""
 
-#: ../../system_requirements.rst:23
-msgid "Supported GNU/Linux distributions and versions:"
-msgstr ""
-
-#: ../../system_requirements.rst:25
-msgid "`Rocky Linux <https://rockylinux.org/>`_ 9"
+#: ../../system_requirements.rst:24
+msgid "Linux distribution"
 msgstr ""
 
 #: ../../system_requirements.rst:26
-msgid "`CentOS Stream <https://www.centos.org/centos-stream/>`_ 9"
-msgstr ""
-
-#: ../../system_requirements.rst:27
-msgid "`AlmaLinux <https://almalinux.org>`_ 9"
+msgid "Supported GNU/Linux distributions and versions:"
 msgstr ""
 
 #: ../../system_requirements.rst:28
+msgid "`Rocky Linux <https://rockylinux.org/>`_ 9"
+msgstr ""
+
+#: ../../system_requirements.rst:29
+msgid "`CentOS Stream <https://www.centos.org/centos-stream/>`_ 9"
+msgstr ""
+
+#: ../../system_requirements.rst:30
+msgid "`AlmaLinux <https://almalinux.org>`_ 9"
+msgstr ""
+
+#: ../../system_requirements.rst:31
 msgid "`Debian <https://www.debian.org/>`_ 12"
+msgstr ""
+
+#: ../../system_requirements.rst:37
+msgid "Static IP address"
+msgstr ""
+
+#: ../../system_requirements.rst:39
+msgid ""
+"Assign a static IP address to the server. DHCP and any other dynamic IP "
+"discovery protocols are not allowed."
+msgstr ""
+
+#: ../../system_requirements.rst:45
+msgid "DNS configuration"
+msgstr ""
+
+#: ../../system_requirements.rst:47
+msgid ""
+"As you are configuring a server, network clients must resolve its fully "
+"qualified domain name (FQDN) to a routable IP address with the DNS. This "
+"is a requirement to connect with the server."
+msgstr ""
+
+#: ../../system_requirements.rst:51
+msgid ""
+"A correct FQDN and DNS setup is also a requirement for TLS encryption to "
+"work properly. Once connected with the server, network clients check if "
+"the TLS certificate is valid for the given FQDN."
+msgstr ""
+
+#: ../../system_requirements.rst:55
+msgid ""
+"Depending on your server purpose, DNS can be provided by a public "
+"internet service, a private network appliance, or even both of them. Read"
+" carefully and understand their documentation."
+msgstr ""
+
+#: ../../system_requirements.rst:59
+msgid ""
+"Decide the FQDN of your server and register it in the DNS with the server"
+" public IP address. A FQDN is composed by the host name prefix (a single "
+"word) and the DNS domain suffix. For instance, host name can be "
+"``jupiter`` and domain suffix ``example.org``: the resulting FQDN is "
+"``jupiter.example.org``."
+msgstr ""
+
+#: ../../system_requirements.rst:69
+msgid "Worker node requirements"
+msgstr ""
+
+#: ../../system_requirements.rst:73
+msgid ""
+"Among network clients, a worker node has some special requirements to be "
+"installed and configured."
+msgstr ""
+
+#: ../../system_requirements.rst:76
+msgid ""
+"The worker node reaches the leader during the join procedure at the "
+"following URL: ::"
+msgstr ""
+
+#: ../../system_requirements.rst:81
+msgid "Ensure the following requirements are met:"
+msgstr ""
+
+#: ../../system_requirements.rst:83
+msgid ""
+"the worker node must resolve the leader FQDN to the correct routable "
+"address"
+msgstr ""
+
+#: ../../system_requirements.rst:86
+msgid ""
+"the HTTPS server (TCP port 443) at that address must handle the API "
+"request"
+msgstr ""
+
+#: ../../system_requirements.rst:89
+msgid ""
+"the API server response contains the leader ``VPN endpoint``: it is a "
+"host address with a UDP port number used to set up a Wireguard VPN. The "
+"VPN endpoint is configured during the :ref:`cluster creation <post-"
+"install-steps>` procedure. Ensure it is not blocked by other network "
+"appliances."
 msgstr ""
 
 #: ../../updates.rst:5
@@ -7073,5 +7183,87 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Cockpit (if installed), 9090 TCP"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Return to the worker node and "
+#~ "click the :guilabel:`Join cluster` button. "
+#~ "Then paste the code inside the "
+#~ "``Join code`` field and click the "
+#~ ":guilabel:`Join cluster` button. If the "
+#~ "leader node does not have a valid"
+#~ " TLS certificate, remember to disable "
+#~ "the ``TLS certification validation`` option"
+#~ " before clicking the join button. "
+#~ "When the node registration is complete,"
+#~ " you can return to the leader "
+#~ "user interface and install applications "
+#~ "running on the new worker node."
+#~ msgstr ""
+
+#~ msgid "When the installation script ends, access the Web user interface at ::"
+#~ msgstr ""
+
+#~ msgid "First, you will need to login using the default credentials:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Then, choose :guilabel:`Create cluster` to "
+#~ "create a new single-node cluster "
+#~ "and setup a new administrator password."
+#~ msgstr ""
+
+#~ msgid "Please enter the following VPN details:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``VPN endpoint address``: this is the"
+#~ " address of the leader node of "
+#~ "your cluster, and must be reachable "
+#~ "by any other nodes you may add "
+#~ "to your cluster. Local network names "
+#~ "and IP addresses will prevent you "
+#~ "from adding systems to your cluster "
+#~ "which aren’t on the same network "
+#~ "as the leader node"
+#~ msgstr ""
+
+#~ msgid "Each cluster has an auto-generated name. If you wish to change it:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Now sure where to go from here?"
+#~ " You can install an :ref:`LDAP "
+#~ "<openldap-section>` or :ref:`Active Directory "
+#~ "<active_directory-section>` user domain, take"
+#~ " a look at :ref:`system logs "
+#~ "<loki-section>`, add :ref:`new nodes "
+#~ "<cluster-section>` or setup a :ref:`metric"
+#~ " dashboard <metrics-section>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To customize the installation, please "
+#~ "refer to the `developer manual "
+#~ "<https://nethserver.github.io/ns8-core>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When using the image on a cloud"
+#~ " provider with cloud-init support, "
+#~ "the machine will be configured with "
+#~ "the host name chosen during the "
+#~ "setup phase. Otherwise, when running on"
+#~ " a local KVM-based platform, the "
+#~ "machine will have the default host "
+#~ "name ``node.ns8.test``. Please remember to "
+#~ "change the host name by following "
+#~ "`Debian <https://wiki.debian.org/Hostname>`_ or "
+#~ "`RHEL-based distros "
+#~ "<https://access.redhat.com/documentation/en-"
+#~ "us/red_hat_enterprise_linux/9/html-"
+#~ "single/configuring_and_managing_networking/index#assembly_changing-a"
+#~ "-hostname_configuring-and-managing-networking>`_ "
+#~ "documentation."
 #~ msgstr ""
 
