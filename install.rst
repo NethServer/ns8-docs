@@ -62,6 +62,10 @@ access the Web user interface at ::
 
     https://<server_ip_or_fqdn>/cluster-admin/
 
+.. hint::
+
+   If the node is unreachable see :ref:`os-network-section`
+
 Use the default credentials to login:
 
 * Username: ``admin``
