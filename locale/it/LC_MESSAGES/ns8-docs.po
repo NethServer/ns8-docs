@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-04 09:45+0000\n"
+"POT-Creation-Date: 2023-09-06 07:34+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -526,7 +526,7 @@ msgstr ""
 msgid "Reachable leader node"
 msgstr ""
 
-#: ../../cluster.rst:90 ../../cluster.rst:122
+#: ../../cluster.rst:90 ../../cluster.rst:123
 msgid "Unreachable leader node"
 msgstr ""
 
@@ -555,14 +555,14 @@ msgstr ""
 
 #: ../../cluster.rst:106
 msgid ""
-"Confirm or enter the leader host name in the ``VPN endpoint address`` "
+"Confirm or enter the leader host name in the ``VPN public address`` "
 "field. An IP address is accepted, too."
 msgstr ""
 
 #: ../../cluster.rst:109
 msgid ""
-"Confirm or enter the ``VPN endpoint port`` number. Every worker node will"
-" connect the leader on that UDP port number."
+"Confirm or enter the ``VPN public UDP port`` number. Every worker node "
+"will connect the leader on that UDP port number."
 msgstr ""
 
 #: ../../cluster.rst:112
@@ -576,12 +576,12 @@ msgstr ""
 msgid ""
 "The ``Check node connectivity`` checkbox verifies the connection of every"
 " node with the selected one.  The check might fail due to settings of "
-"other network devices. In this case, if you are sure the entered "
-"configuration is correct, it is possible to disable the check: do it at "
-"your own risk!"
+"other devices in the network, like port-forwarding. In this case, if you "
+"are sure the entered configuration is correct, it is possible to disable "
+"the check: do it at your own risk!"
 msgstr ""
 
-#: ../../cluster.rst:124
+#: ../../cluster.rst:125
 msgid ""
 "If the current leader node is not reachable, it is necessary to run a "
 "command on any other worker node.  Be prepared in advance for this "
@@ -589,18 +589,18 @@ msgid ""
 " the nodes."
 msgstr ""
 
-#: ../../cluster.rst:129
+#: ../../cluster.rst:130
 msgid ""
 "For example, to promote node with ID ``3``, VPN endpoint "
 "``node3.example.com`` UDP port ``55820``, run the following command on "
 "every worker node: ::"
 msgstr ""
 
-#: ../../cluster.rst:138 ../../ejabberd.rst:79
+#: ../../cluster.rst:139 ../../ejabberd.rst:79
 msgid "Administrators"
 msgstr ""
 
-#: ../../cluster.rst:140
+#: ../../cluster.rst:141
 msgid ""
 "Cluster administrators can fully manage the cluster. It's recommended to "
 "create a personal user for each cluster administrator. All actions "
@@ -608,92 +608,92 @@ msgid ""
 ":`audit-trail-section`."
 msgstr ""
 
-#: ../../cluster.rst:144
+#: ../../cluster.rst:145
 msgid ""
 "To add a new cluster administrator go to the ``Settings`` page and select"
 " the ``Cluster administrators`` card. Then click on :guilabel:`Create "
 "admin` button and fill the required fields."
 msgstr ""
 
-#: ../../cluster.rst:147
+#: ../../cluster.rst:148
 msgid ""
 "An administrator can't delete its own user. To delete an administrator, "
 "you must log in with another existing cluster administrator."
 msgstr ""
 
-#: ../../cluster.rst:150
+#: ../../cluster.rst:151
 msgid ""
 "Administrators can change their own password from the ``Account`` card "
 "inside the ``Settings`` page."
 msgstr ""
 
-#: ../../cluster.rst:155 ../../webtop.rst:132
+#: ../../cluster.rst:156 ../../webtop.rst:132
 msgid "Two-factor authentication (2FA)"
 msgstr ""
 
-#: ../../cluster.rst:157
+#: ../../cluster.rst:158
 msgid ""
 "Two-factor authentication (2FA) can be used to add an extra layer of "
 "security required to access the cluster management user interface."
 msgstr ""
 
-#: ../../cluster.rst:160
+#: ../../cluster.rst:161
 msgid ""
 "The administrator can enable 2FA from the ``Account`` card inside the "
 "``Settings`` page by clicking the :guilabel:`Enable 2FA` button."
 msgstr ""
 
-#: ../../cluster.rst:163
+#: ../../cluster.rst:164
 msgid "The user will have to:"
 msgstr ""
 
-#: ../../cluster.rst:165
+#: ../../cluster.rst:166
 msgid "download and install the preferred 2FA application on the smartphone"
 msgstr ""
 
-#: ../../cluster.rst:166
+#: ../../cluster.rst:167
 msgid "scan the QR code with the 2FA application"
 msgstr ""
 
-#: ../../cluster.rst:167
+#: ../../cluster.rst:168
 msgid ""
 "generate a new code and copy it inside the verification field, then click"
 " :guilabel:`Verify code`"
 msgstr ""
 
-#: ../../cluster.rst:170
+#: ../../cluster.rst:171
 msgid "Smartphone applications"
 msgstr ""
 
-#: ../../cluster.rst:172
+#: ../../cluster.rst:173
 msgid "There are several commercial and open source 2FA applications:"
 msgstr ""
 
-#: ../../cluster.rst:174
+#: ../../cluster.rst:175
 msgid "Available for both Android and iOS:"
 msgstr ""
 
-#: ../../cluster.rst:176
+#: ../../cluster.rst:177
 msgid ""
 "`FreeOTP <https://freeotp.github.io/>`_: available for both Android and "
 "iOS"
 msgstr ""
 
-#: ../../cluster.rst:177
+#: ../../cluster.rst:178
 msgid ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: available on iOS "
 "only"
 msgstr ""
 
-#: ../../cluster.rst:178
+#: ../../cluster.rst:179
 msgid "`2FAS <https://2fas.com/>`_: available for both Android and iOS"
 msgstr ""
 
-#: ../../cluster.rst:181
+#: ../../cluster.rst:182
 msgid "Reset the cluster administrator password"
 msgstr ""
 
-#: ../../cluster.rst:183
+#: ../../cluster.rst:184
 msgid ""
 "If you are locked out of the web user interface and you can still access "
 "a system command-line shell as ``root`` (e.g. by the system recovery "
@@ -701,40 +701,40 @@ msgid ""
 "password:"
 msgstr ""
 
-#: ../../cluster.rst:191
+#: ../../cluster.rst:192
 msgid "Replace the ``admin`` and ``Nethesis,1234`` default credentials as needed."
 msgstr ""
 
-#: ../../cluster.rst:197
+#: ../../cluster.rst:198
 msgid "Audit trail"
 msgstr ""
 
-#: ../../cluster.rst:199
+#: ../../cluster.rst:200
 msgid ""
 "Inside the audit trail page, cluster administrators can inspect all "
 "actions executed by any other administrator. Each event of the audit "
 "trail contains at least:"
 msgstr ""
 
-#: ../../cluster.rst:202
+#: ../../cluster.rst:203
 msgid "date and time of the action"
 msgstr ""
 
-#: ../../cluster.rst:203
+#: ../../cluster.rst:204
 msgid "user name of the cluster administrator"
 msgstr ""
 
-#: ../../cluster.rst:204
+#: ../../cluster.rst:205
 msgid "name of the action"
 msgstr ""
 
-#: ../../cluster.rst:206
+#: ../../cluster.rst:207
 msgid ""
 "Audit trail events can be filtered by user, date, action type, and custom"
 " text match."
 msgstr ""
 
-#: ../../cluster.rst:210
+#: ../../cluster.rst:211
 msgid ""
 "Audit trail information is stored in the leader node disk. In case of "
 ":ref:`new leader promotion <node-promotion-section>` the audit trail "
@@ -1863,89 +1863,61 @@ msgstr ""
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
 " Network (VPN) for the cluster. With the VPN in place, you will be able "
-"to add more nodes in the future."
+"to add more nodes in the future. The proposed default values should be "
+"good for most environments, anyway make sure ``VPN network (CIDR)`` does "
+"not conflict with your existing network environment, because it cannot be"
+" changed once it has been set."
 msgstr ""
 
-#: ../../install.rst:86
-msgid "Enter the following VPN details:"
-msgstr ""
-
-#: ../../install.rst:88
+#: ../../install.rst:90
 msgid ""
-"``VPN endpoint address``: this is the address of the leader node of your "
-"cluster, and must be reachable by any other nodes you may add to your "
-"cluster. Local network names and IP addresses will prevent you from "
-"adding systems to your cluster which aren't on the same network as the "
-"leader node"
-msgstr ""
-
-#: ../../install.rst:91
-msgid ""
-"``VPN endpoint port``: it's the public port of the VPN, the port should "
-"be accessible to any future node"
+"Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
+"ready."
 msgstr ""
 
 #: ../../install.rst:92
-msgid ""
-"``VPN CIDR``: the VPN network address, make sure this network is not "
-"already used inside your existing network environment"
-msgstr ""
-
-#: ../../install.rst:94
-msgid ""
-"If unsure, you can keep the proposed defaults which should be good for "
-"most environments."
-msgstr ""
-
-#: ../../install.rst:96
-msgid ""
-"Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
-"ready to run :ref:`applications <modules-section>`."
-msgstr ""
-
-#: ../../install.rst:98
 msgid ""
 "A new cluster has assigned the default name ``NethServer 8``. If you wish"
 " to change it:"
 msgstr ""
 
-#: ../../install.rst:101
+#: ../../install.rst:95
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr ""
 
-#: ../../install.rst:102
+#: ../../install.rst:96
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr ""
 
-#: ../../install.rst:103
+#: ../../install.rst:97
 msgid "click the :guilabel:`Save settings` button"
 msgstr ""
 
-#: ../../install.rst:105
+#: ../../install.rst:99
 msgid ""
 "Now sure where to go from here? You can install a :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
-"domain, take a look at :ref:`system logs <loki-section>`, add :ref:`new "
-"nodes <cluster-section>`, or setup a :ref:`metric dashboard <metrics-"
-"section>`."
+"domain, read an introduction about :ref:`modules <modules-section>`, take"
+" a look at :ref:`system logs <loki-section>`, add :ref:`new nodes "
+"<cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`."
 msgstr ""
 
-#: ../../install.rst:110
+#: ../../install.rst:105
 msgid "Uninstall"
 msgstr ""
 
-#: ../../install.rst:112
+#: ../../install.rst:107
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr ""
 
-#: ../../install.rst:114
+#: ../../install.rst:109
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 
-#: ../../install.rst:117
+#: ../../install.rst:112
 msgid "To uninstall NS8, execute: ::"
 msgstr ""
 
@@ -7361,5 +7333,92 @@ msgstr ""
 #~ "single/configuring_and_managing_networking/index#assembly_changing-a"
 #~ "-hostname_configuring-and-managing-networking>`_ "
 #~ "documentation."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Confirm or enter the leader host "
+#~ "name in the ``VPN endpoint address`` "
+#~ "field. An IP address is accepted, "
+#~ "too."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Confirm or enter the ``VPN endpoint "
+#~ "port`` number. Every worker node will"
+#~ " connect the leader on that UDP "
+#~ "port number."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The ``Check node connectivity`` checkbox "
+#~ "verifies the connection of every node"
+#~ " with the selected one.  The check"
+#~ " might fail due to settings of "
+#~ "other network devices. In this case, "
+#~ "if you are sure the entered "
+#~ "configuration is correct, it is possible"
+#~ " to disable the check: do it at"
+#~ " your own risk!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Even if running on a single node,"
+#~ " the system will setup a Virtual "
+#~ "Private Network (VPN) for the cluster."
+#~ " With the VPN in place, you "
+#~ "will be able to add more nodes "
+#~ "in the future."
+#~ msgstr ""
+
+#~ msgid "Enter the following VPN details:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``VPN endpoint address``: this is the"
+#~ " address of the leader node of "
+#~ "your cluster, and must be reachable "
+#~ "by any other nodes you may add "
+#~ "to your cluster. Local network names "
+#~ "and IP addresses will prevent you "
+#~ "from adding systems to your cluster "
+#~ "which aren't on the same network "
+#~ "as the leader node"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``VPN endpoint port``: it's the public"
+#~ " port of the VPN, the port "
+#~ "should be accessible to any future "
+#~ "node"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``VPN CIDR``: the VPN network address,"
+#~ " make sure this network is not "
+#~ "already used inside your existing "
+#~ "network environment"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If unsure, you can keep the "
+#~ "proposed defaults which should be good"
+#~ " for most environments."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Finally, click on :guilabel:`Create cluster`"
+#~ " button. Your NS8 is now ready "
+#~ "to run :ref:`applications <modules-section>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Now sure where to go from here?"
+#~ " You can install a :ref:`LDAP "
+#~ "<openldap-section>` or :ref:`Active Directory "
+#~ "<active_directory-section>` user domain, take"
+#~ " a look at :ref:`system logs "
+#~ "<loki-section>`, add :ref:`new nodes "
+#~ "<cluster-section>`, or setup a :ref:`metric"
+#~ " dashboard <metrics-section>`."
 #~ msgstr ""
 
