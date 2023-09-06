@@ -35,11 +35,25 @@ Start the installation procedure as ``root``: ::
 Pre-built images
 ----------------
 
-Download one of latest available images from the `release page <https://github.com/NethServer/ns8-core/releases>`_.
+NethServer 8 provides an officially supported image built upon the stable foundation of `Rocky Linux <https://rockylinux.org/>`_,
+making it suitable for a wide range of server applications.
 
-Select your preferred distribution flavor, download the image and start it inside your virtualization platform.
+NS8 on Rocky Linux 9:
+
+* `QEMU/Proxmox (qcow2) <https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.qcow2>`_
+* `VMWare (vmdk) <https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.vmdk>`_
+
+For `Debian <https://www.debian.org/>`_ enthusiasts or specific software requirements, a community-maintained image is available.
+
+NS8 on Debian 12:
+
+* `QEMU/Proxmox (qcow2) <https://distfeed.nethserver.org/ns8-images/ns8-debian-12-ns8-stable.qcow2>`_
+* `VMWare (vmdk) <https://distfeed.nethserver.org/ns8-images/ns8-debian-12-ns8-stable.vmdk>`_
+
+Select your preferred distribution flavor, download the image from the above links and start it inside your virtualization platform.
 Choose a ``qcow2`` image if you are using a KVM-based platform like `Proxmox <https://www.proxmox.com/>`_
 or a ``vmdk`` image if your using something like `VMware <https://www.vmware.com>`_.
+
 You can also upload the image to a cloud provider and create a public virtual machine.
 
 Default OS administrative credentials are
@@ -47,9 +61,12 @@ Default OS administrative credentials are
 * Username: ``root``
 * Password: ``Nethesis,1234``
 
-Known bugs:
+You will be forced to change the default password after the first login with ``root`` user.
+
+Virtualization platform specific notes:
 
 - Debian image could be currently used only for local virtualization platform
+- On VMWare, you must configure the virtual machine to use IDE driver for the disk
 - When using RHEL-based images on Proxmox, change the default CPU model to anything other than ``kvm64``
 
 .. _post-install-steps:
