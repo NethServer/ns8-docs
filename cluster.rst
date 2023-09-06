@@ -103,11 +103,11 @@ If the current leader node is working properly, access the ``Nodes`` page,
 go to the three-dots menu of the node to promote and click on ``Promote to
 leader``.
 
-Confirm or enter the leader host name in the ``VPN endpoint address``
+Confirm or enter the leader host name in the ``VPN public address``
 field. An IP address is accepted, too.
 
-Confirm or enter the ``VPN endpoint port`` number. Every worker node will
-connect the leader on that UDP port number.
+Confirm or enter the ``VPN public UDP port`` number. Every worker node
+will connect the leader on that UDP port number.
 
 When the confirmation string is typed, the :guilabel:`I understand,
 promote the node` button becomes active and it is possible to complete the
@@ -115,8 +115,9 @@ node promotion.
 
 The ``Check node connectivity`` checkbox verifies the connection of every
 node with the selected one.  The check might fail due to settings of other
-network devices. In this case, if you are sure the entered configuration
-is correct, it is possible to disable the check: do it at your own risk!
+devices in the network, like port-forwarding. In this case, if you are
+sure the entered configuration is correct, it is possible to disable the
+check: do it at your own risk!
 
 Unreachable leader node
 -----------------------

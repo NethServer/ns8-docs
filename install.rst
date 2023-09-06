@@ -80,20 +80,14 @@ is still at the default value.
 Ensure the node Fully Qualified Domain Name (FQDN) is correct, and
 respects the :ref:`DNS requirements <dns-reqs>`.
 
-Even if running on a single node, the system will setup a Virtual Private Network (VPN) for the cluster.
-With the VPN in place, you will be able to add more nodes in the future.
+Even if running on a single node, the system will setup a Virtual Private
+Network (VPN) for the cluster. With the VPN in place, you will be able to
+add more nodes in the future. The proposed default values should be good
+for most environments, anyway make sure ``VPN network (CIDR)`` does not
+conflict with your existing network environment, because it cannot be
+changed once it has been set.
 
-Enter the following VPN details:
-
-* ``VPN endpoint address``: this is the address of the leader node of your cluster, and must be reachable by any other nodes you may
-  add to your cluster. Local network names and IP addresses will prevent you from adding systems to your
-  cluster which aren't on the same network as the leader node
-* ``VPN endpoint port``: it's the public port of the VPN, the port should be accessible to any future node
-* ``VPN CIDR``: the VPN network address, make sure this network is not already used inside your existing network environment
-
-If unsure, you can keep the proposed defaults which should be good for most environments.
-
-Finally, click on :guilabel:`Create cluster` button. Your NS8 is now ready to run :ref:`applications <modules-section>`.
+Finally, click on :guilabel:`Create cluster` button. Your NS8 is now ready.
 
 A new cluster has assigned the default name ``NethServer 8``. If you wish to
 change it:
@@ -104,6 +98,7 @@ change it:
 
 Now sure where to go from here?
 You can install a :ref:`LDAP <openldap-section>` or :ref:`Active Directory <active_directory-section>` user domain,
+read an introduction about :ref:`modules <modules-section>`,
 take a look at :ref:`system logs <loki-section>`, add :ref:`new nodes <cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`.
 
 Uninstall
