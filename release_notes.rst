@@ -96,6 +96,17 @@ Project milestone **Beta 2**
   now available.  After running the core update, do an hard browser page
   reload with ``CTRL + Shift + R`` or any other equivalent method.
 
+- **Logs backend improved** -- The Logs page backend has been improved to
+  be faster and more accurate in capturing the logs of every cluster
+  component. The core module now runs Promtail as a system service. After
+  running the core update, it is safe to uninstall Promtail core modules
+  by running this command on the leader node: ::
+
+    api-cli run list-installed-modules | jq -r '.["ghcr.io/nethserver/promtail"] | .[].id' | xargs -l remove-module --no-preserve
+
+  Note that the new Logs page cannot access old log entries. To see log
+  entries before the Beta 2 upgrade, use the `logcli` command.
+
 
 Major changes on 2023-05-10
 ===========================
