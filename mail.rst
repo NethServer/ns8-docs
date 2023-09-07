@@ -204,7 +204,13 @@ marked as **spam** or **ham**.
 Settings
 ========
 
-From the ``Settings`` page, you can configure the ``Default mail quota``.
+Module settings are split up and accessible under the cards described by
+the following sections.
+
+Mailboxes
+---------
+
+Under the ``Mailboxes`` card you can configure the ``Default mail quota``.
  
 If the general mailbox quota is enabled, the ``Mailboxes`` page summarizes the quota usage for
 each user. This summary is updated when a user logs in or a message is
@@ -215,7 +221,11 @@ moved into the ``Junk`` folder by enabling the option ``Move spam to junk folder
 Spam messages can be expunged automatically after a period of time.
 You can configure it from the ``Default spam retention`` option.
 
-From the ``Master users`` section, you can setup a user that can impersonate another user, gaining full rights
+
+Master users
+------------
+
+Under the ``Master users`` card, you can setup a user that can impersonate another user, gaining full rights
 to any mailbox contents and folder permissions. 
 
 Credentials are accepted by the IMAP server:
