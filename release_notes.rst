@@ -112,6 +112,9 @@ Project milestone **Beta 2**
   the private key associated to it. See the section
   :ref:`certificate_manager-section`.
 
+- **Additional backup providers** -- Backup repositories can now created
+  also on Microsoft Azure and S3-compatible cloud storage providers.
+
 
 Major changes on 2023-05-10
 ===========================
