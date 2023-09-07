@@ -43,14 +43,7 @@ NS8 on Rocky Linux 9:
 * `QEMU/Proxmox (qcow2) <https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.qcow2>`_
 * `VMWare (vmdk) <https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.vmdk>`_
 
-For `Debian <https://www.debian.org/>`_ enthusiasts or specific software requirements, a community-maintained image is available.
-
-NS8 on Debian 12:
-
-* `QEMU/Proxmox (qcow2) <https://distfeed.nethserver.org/ns8-images/ns8-debian-12-ns8-stable.qcow2>`_
-* `VMWare (vmdk) <https://distfeed.nethserver.org/ns8-images/ns8-debian-12-ns8-stable.vmdk>`_
-
-Select your preferred distribution flavor, download the image from the above links and start it inside your virtualization platform.
+Download the image from the above links and start it inside your virtualization platform.
 Choose a ``qcow2`` image if you are using a KVM-based platform like `Proxmox <https://www.proxmox.com/>`_
 or a ``vmdk`` image if your using something like `VMware <https://www.vmware.com>`_.
 
@@ -65,9 +58,8 @@ You will be forced to change the default password after the first login with ``r
 
 Virtualization platform specific notes:
 
-- Debian image could be currently used only for local virtualization platform
 - On VMWare, you must configure the virtual machine to use IDE driver for the disk
-- When using RHEL-based images on Proxmox, change the default CPU model to anything other than ``kvm64``
+- When using the image on Proxmox, change the default CPU model to anything other than ``kvm64``
 
 .. _post-install-steps:
 
