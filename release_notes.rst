@@ -107,6 +107,11 @@ Project milestone **Beta 2**
   Note that the new Logs page cannot access old log entries. To see log
   entries before the Beta 2 upgrade, use the `logcli` command.
 
+- **TLS certificate upload** -- The ``TLS certificates`` card under the
+  ``Settings`` page was extended to allow the upload of a certificate and
+  the private key associated to it. See the section
+  :ref:`certificate_manager-section`.
+
 
 Major changes on 2023-05-10
 ===========================
