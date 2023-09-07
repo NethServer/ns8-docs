@@ -14,6 +14,9 @@ Major changes on 2023-09-13
 
 Project milestone **Beta 2**
 
+- **Pre-built image** -- Images are based on Rocky Linux. Available
+  formats are ``.qcow2`` for QEMU/Proxmox and ``.vmdk`` for VMware. See
+  :ref:`install_image-section` for image download links.
 
 Major changes on 2023-05-10
 ===========================
