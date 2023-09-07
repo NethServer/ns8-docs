@@ -18,6 +18,16 @@ Project milestone **Beta 2**
   formats are ``.qcow2`` for QEMU/Proxmox and ``.vmdk`` for VMware. See
   :ref:`install_image-section` for image download links.
 
+- **FQDN requirement** -- The cluster creation procedure now asks to
+  review and set the current system host name. The host name is expected
+  in short form (a single word, with no domain suffix). The procedure also
+  fixes the ``/etc/hosts`` file by adding a record to properly resolve the
+  fully qualified domain name of the system (FQDN). For example ::
+
+    127.0.1.1 node1.example.org node1
+
+  See also :ref:`dns-reqs`.
+
 Major changes on 2023-05-10
 ===========================
 
