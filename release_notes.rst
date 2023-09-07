@@ -115,6 +115,16 @@ Project milestone **Beta 2**
 - **Additional backup providers** -- Backup repositories can now created
   also on Microsoft Azure and S3-compatible cloud storage providers.
 
+- **Mail module improvements**
+
+  1. New installations of the Mail module have the ``Shared seen`` option
+     enabled by default. Existing installations will find the switch
+     disabled. See also the section about :ref:`settings for mailboxes
+     <mail-mailboxes-settings>`.
+
+  2. Added the open source Dovecot plugin *Flatcurve* to enable full text
+     search (FTS) of email messages.
+
 
 Major changes on 2023-05-10
 ===========================
