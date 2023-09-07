@@ -42,6 +42,7 @@ NS8 on Rocky Linux 9:
 
 * `QEMU/Proxmox (qcow2) <https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.qcow2>`_
 * `VMWare (vmdk) <https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.vmdk>`_
+* `Images SHA256 checksum <<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_
 
 Download the image from the above links and start it inside your virtualization platform.
 Choose a ``qcow2`` image if you are using a KVM-based platform like `Proxmox <https://www.proxmox.com/>`_
