@@ -91,6 +91,11 @@ Project milestone **Beta 2**
 
   Apply the same procedure for each cluster node.
 
+- **UI security enhancements** -- Since the Beta 1 release an important
+  security update has been released, and other security improvements are
+  now available.  After running the core update, do an hard browser page
+  reload with ``CTRL + Shift + R`` or any other equivalent method.
+
 
 Major changes on 2023-05-10
 ===========================
