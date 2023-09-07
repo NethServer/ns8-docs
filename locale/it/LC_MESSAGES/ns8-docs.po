@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 08:57+0000\n"
+"POT-Creation-Date: 2023-09-07 09:36+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -427,7 +427,7 @@ msgid ""
 "button."
 msgstr ""
 
-#: ../../cluster.rst:31 ../../install.rst:89
+#: ../../cluster.rst:31 ../../install.rst:90
 msgid ""
 "Ensure the node Fully Qualified Domain Name (FQDN) is correct, and "
 "respects the :ref:`DNS requirements <dns-reqs>`."
@@ -1804,7 +1804,13 @@ msgid ""
 "linux-9-ns8-stable.vmdk>`_"
 msgstr ""
 
-#: ../../install.rst:46
+#: ../../install.rst:45
+msgid ""
+"`Images SHA256 checksum "
+"<<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_"
+msgstr ""
+
+#: ../../install.rst:47
 msgid ""
 "Download the image from the above links and start it inside your "
 "virtualization platform. Choose a ``qcow2`` image if you are using a KVM-"
@@ -1812,81 +1818,81 @@ msgid ""
 "image if your using something like `VMware <https://www.vmware.com>`_."
 msgstr ""
 
-#: ../../install.rst:50
+#: ../../install.rst:51
 msgid ""
 "You can also upload the image to a cloud provider and create a public "
 "virtual machine."
 msgstr ""
 
-#: ../../install.rst:52
+#: ../../install.rst:53
 msgid "Default OS administrative credentials are"
 msgstr ""
 
-#: ../../install.rst:54
+#: ../../install.rst:55
 msgid "Username: ``root``"
 msgstr ""
 
-#: ../../install.rst:55 ../../install.rst:81
+#: ../../install.rst:56 ../../install.rst:82
 msgid "Password: ``Nethesis,1234``"
 msgstr ""
 
-#: ../../install.rst:57
+#: ../../install.rst:58
 msgid ""
 "You will be forced to change the default password after the first login "
 "with ``root`` user."
 msgstr ""
 
-#: ../../install.rst:59
+#: ../../install.rst:60
 msgid "Virtualization platform specific notes:"
 msgstr ""
 
-#: ../../install.rst:61
+#: ../../install.rst:62
 msgid ""
 "On VMWare, you must configure the virtual machine to use IDE driver for "
 "the disk"
 msgstr ""
 
-#: ../../install.rst:62
+#: ../../install.rst:63
 msgid ""
 "When using the image on Proxmox, change the default CPU model to anything"
 " other than ``kvm64``"
 msgstr ""
 
-#: ../../install.rst:67
+#: ../../install.rst:68
 msgid "Post-installation steps"
 msgstr ""
 
-#: ../../install.rst:69
+#: ../../install.rst:70
 msgid ""
 "When the installation script ends or the pre-built image has started, "
 "access the Web user interface at ::"
 msgstr ""
 
-#: ../../install.rst:76
+#: ../../install.rst:77
 msgid "If the node is unreachable see :ref:`os-network-section`"
 msgstr ""
 
-#: ../../install.rst:78
+#: ../../install.rst:79
 msgid "Use the default credentials to login:"
 msgstr ""
 
-#: ../../install.rst:80
+#: ../../install.rst:81
 msgid "Username: ``admin``"
 msgstr ""
 
-#: ../../install.rst:83
+#: ../../install.rst:84
 msgid ""
 "Choose :guilabel:`Create cluster` and follow the procedure to create a "
 "new single-node cluster."
 msgstr ""
 
-#: ../../install.rst:86
+#: ../../install.rst:87
 msgid ""
 "For security reasons, the admin password must be changed immediately if "
 "it is still at the default value."
 msgstr ""
 
-#: ../../install.rst:92
+#: ../../install.rst:93
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
 " Network (VPN) for the cluster. With the VPN in place, you will be able "
@@ -1896,31 +1902,31 @@ msgid ""
 " changed once it has been set."
 msgstr ""
 
-#: ../../install.rst:99
+#: ../../install.rst:100
 msgid ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
 "ready."
 msgstr ""
 
-#: ../../install.rst:101
+#: ../../install.rst:102
 msgid ""
 "A new cluster has assigned the default name ``NethServer 8``. If you wish"
 " to change it:"
 msgstr ""
 
-#: ../../install.rst:104
+#: ../../install.rst:105
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr ""
 
-#: ../../install.rst:105
+#: ../../install.rst:106
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr ""
 
-#: ../../install.rst:106
+#: ../../install.rst:107
 msgid "click the :guilabel:`Save settings` button"
 msgstr ""
 
-#: ../../install.rst:108
+#: ../../install.rst:109
 msgid ""
 "Now sure where to go from here? You can install a :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
@@ -1929,22 +1935,22 @@ msgid ""
 "<cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`."
 msgstr ""
 
-#: ../../install.rst:114
+#: ../../install.rst:115
 msgid "Uninstall"
 msgstr ""
 
-#: ../../install.rst:116
+#: ../../install.rst:117
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr ""
 
-#: ../../install.rst:118
+#: ../../install.rst:119
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 
-#: ../../install.rst:121
+#: ../../install.rst:122
 msgid "To uninstall NS8, execute: ::"
 msgstr ""
 
