@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-06 07:34+0000\n"
+"POT-Creation-Date: 2023-09-07 08:57+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -427,7 +427,7 @@ msgid ""
 "button."
 msgstr ""
 
-#: ../../cluster.rst:31 ../../install.rst:80
+#: ../../cluster.rst:31 ../../install.rst:89
 msgid ""
 "Ensure the node Fully Qualified Domain Name (FQDN) is correct, and "
 "respects the :ref:`DNS requirements <dns-reqs>`."
@@ -1783,83 +1783,110 @@ msgstr ""
 
 #: ../../install.rst:38
 msgid ""
-"Download one of latest available images from the `release page "
-"<https://github.com/NethServer/ns8-core/releases>`_."
+"NethServer 8 provides an officially supported image built upon the stable"
+" foundation of `Rocky Linux <https://rockylinux.org/>`_, making it "
+"suitable for a wide range of server applications."
 msgstr ""
 
-#: ../../install.rst:40
+#: ../../install.rst:41
+msgid "NS8 on Rocky Linux 9:"
+msgstr ""
+
+#: ../../install.rst:43
 msgid ""
-"Select your preferred distribution flavor, download the image and start "
-"it inside your virtualization platform. Choose a ``qcow2`` image if you "
-"are using a KVM-based platform like `Proxmox <https://www.proxmox.com/>`_"
-" or a ``vmdk`` image if your using something like `VMware "
-"<https://www.vmware.com>`_. You can also upload the image to a cloud "
-"provider and create a public virtual machine."
+"`QEMU/Proxmox (qcow2) <https://distfeed.nethserver.org/ns8-images/ns8"
+"-rocky-linux-9-ns8-stable.qcow2>`_"
 msgstr ""
 
-#: ../../install.rst:45
-msgid "Default OS administrative credentials are"
+#: ../../install.rst:44
+msgid ""
+"`VMWare (vmdk) <https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
+"linux-9-ns8-stable.vmdk>`_"
 msgstr ""
 
-#: ../../install.rst:47
-msgid "Username: ``root``"
-msgstr ""
-
-#: ../../install.rst:48 ../../install.rst:72
-msgid "Password: ``Nethesis,1234``"
+#: ../../install.rst:46
+msgid ""
+"Download the image from the above links and start it inside your "
+"virtualization platform. Choose a ``qcow2`` image if you are using a KVM-"
+"based platform like `Proxmox <https://www.proxmox.com/>`_ or a ``vmdk`` "
+"image if your using something like `VMware <https://www.vmware.com>`_."
 msgstr ""
 
 #: ../../install.rst:50
-msgid "Known bugs:"
+msgid ""
+"You can also upload the image to a cloud provider and create a public "
+"virtual machine."
 msgstr ""
 
 #: ../../install.rst:52
-msgid ""
-"Debian image could be currently used only for local virtualization "
-"platform"
+msgid "Default OS administrative credentials are"
 msgstr ""
 
-#: ../../install.rst:53
-msgid ""
-"When using RHEL-based images on Proxmox, change the default CPU model to "
-"anything other than ``kvm64``"
+#: ../../install.rst:54
+msgid "Username: ``root``"
 msgstr ""
 
-#: ../../install.rst:58
+#: ../../install.rst:55 ../../install.rst:81
+msgid "Password: ``Nethesis,1234``"
+msgstr ""
+
+#: ../../install.rst:57
+msgid ""
+"You will be forced to change the default password after the first login "
+"with ``root`` user."
+msgstr ""
+
+#: ../../install.rst:59
+msgid "Virtualization platform specific notes:"
+msgstr ""
+
+#: ../../install.rst:61
+msgid ""
+"On VMWare, you must configure the virtual machine to use IDE driver for "
+"the disk"
+msgstr ""
+
+#: ../../install.rst:62
+msgid ""
+"When using the image on Proxmox, change the default CPU model to anything"
+" other than ``kvm64``"
+msgstr ""
+
+#: ../../install.rst:67
 msgid "Post-installation steps"
 msgstr ""
 
-#: ../../install.rst:60
+#: ../../install.rst:69
 msgid ""
 "When the installation script ends or the pre-built image has started, "
 "access the Web user interface at ::"
 msgstr ""
 
-#: ../../install.rst:67
+#: ../../install.rst:76
 msgid "If the node is unreachable see :ref:`os-network-section`"
 msgstr ""
 
-#: ../../install.rst:69
+#: ../../install.rst:78
 msgid "Use the default credentials to login:"
 msgstr ""
 
-#: ../../install.rst:71
+#: ../../install.rst:80
 msgid "Username: ``admin``"
 msgstr ""
 
-#: ../../install.rst:74
+#: ../../install.rst:83
 msgid ""
 "Choose :guilabel:`Create cluster` and follow the procedure to create a "
 "new single-node cluster."
 msgstr ""
 
-#: ../../install.rst:77
+#: ../../install.rst:86
 msgid ""
 "For security reasons, the admin password must be changed immediately if "
 "it is still at the default value."
 msgstr ""
 
-#: ../../install.rst:83
+#: ../../install.rst:92
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
 " Network (VPN) for the cluster. With the VPN in place, you will be able "
@@ -1869,31 +1896,31 @@ msgid ""
 " changed once it has been set."
 msgstr ""
 
-#: ../../install.rst:90
+#: ../../install.rst:99
 msgid ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
 "ready."
 msgstr ""
 
-#: ../../install.rst:92
+#: ../../install.rst:101
 msgid ""
 "A new cluster has assigned the default name ``NethServer 8``. If you wish"
 " to change it:"
 msgstr ""
 
-#: ../../install.rst:95
+#: ../../install.rst:104
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr ""
 
-#: ../../install.rst:96
+#: ../../install.rst:105
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr ""
 
-#: ../../install.rst:97
+#: ../../install.rst:106
 msgid "click the :guilabel:`Save settings` button"
 msgstr ""
 
-#: ../../install.rst:99
+#: ../../install.rst:108
 msgid ""
 "Now sure where to go from here? You can install a :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
@@ -1902,22 +1929,22 @@ msgid ""
 "<cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`."
 msgstr ""
 
-#: ../../install.rst:105
+#: ../../install.rst:114
 msgid "Uninstall"
 msgstr ""
 
-#: ../../install.rst:107
+#: ../../install.rst:116
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr ""
 
-#: ../../install.rst:109
+#: ../../install.rst:118
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 
-#: ../../install.rst:112
+#: ../../install.rst:121
 msgid "To uninstall NS8, execute: ::"
 msgstr ""
 
@@ -7420,5 +7447,39 @@ msgstr ""
 #~ "<loki-section>`, add :ref:`new nodes "
 #~ "<cluster-section>`, or setup a :ref:`metric"
 #~ " dashboard <metrics-section>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Download one of latest available images"
+#~ " from the `release page "
+#~ "<https://github.com/NethServer/ns8-core/releases>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Select your preferred distribution flavor, "
+#~ "download the image and start it "
+#~ "inside your virtualization platform. Choose"
+#~ " a ``qcow2`` image if you are "
+#~ "using a KVM-based platform like "
+#~ "`Proxmox <https://www.proxmox.com/>`_ or a "
+#~ "``vmdk`` image if your using something"
+#~ " like `VMware <https://www.vmware.com>`_. You "
+#~ "can also upload the image to a "
+#~ "cloud provider and create a public "
+#~ "virtual machine."
+#~ msgstr ""
+
+#~ msgid "Known bugs:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Debian image could be currently used "
+#~ "only for local virtualization platform"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When using RHEL-based images on "
+#~ "Proxmox, change the default CPU model"
+#~ " to anything other than ``kvm64``"
 #~ msgstr ""
 
