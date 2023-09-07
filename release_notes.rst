@@ -56,6 +56,41 @@ Project milestone **Beta 2**
 
   Repeat steps 2-4 on each worker node, too.
 
+- **Debian upgrade** -- After running the core update, installations based
+  on Debian 11 (Bullseye) must be manually upgraded to distribution
+  version 12 (Bookworm).  ::
+
+    rm -f '/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list'
+    sed -i 's/bullseye/bookworm/' /etc/apt/sources.list
+    apt update && apt full-upgrade -y
+
+  Follow also the instructions for Python 3.11 upgrade, then **reboot the
+  system**. Apply the same procedure for each cluster node.
+
+- **Python 3.11** -- After running the core update, installations based on
+  Rocky Linux (and other EL-like distributions) must manually install
+  Python 3.11: ::
+
+     dnf install python3.11
+
+  The following Bash script is required by Debian, too. Do not forget the round brackets! ::
+
+    (
+        set -e -x
+        core_dir=/usr/local/agent/pyenv
+        mv -v ${core_dir} ${core_dir}.bak
+        python3.11 -mvenv ${core_dir} --upgrade-deps --system-site-packages
+        ${core_dir}/bin/pip3 install -r /etc/nethserver/pyreq3_11.txt
+        echo "/usr/local/agent/pypkg" >$(${core_dir}/bin/python3 -c "import sys; print(sys.path[-1] + '/pypkg.pth')")
+        rm -rf ${core_dir}.bak
+    )
+
+  Check if the Python upgrade was successfull: ::
+
+    runagent python3 --version # output should be 3.11
+
+  Apply the same procedure for each cluster node.
+
 
 Major changes on 2023-05-10
 ===========================
