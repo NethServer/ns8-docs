@@ -207,6 +207,28 @@ Settings
 Module settings are split up and accessible under the cards described by
 the following sections.
 
+General settings
+----------------
+
+The following values are set at module first configuration time. They
+should not be changed in production:
+
+* ``Mail server hostname`` configures how the MTA identifies itself with
+  other MTAs. To successfully receive email messages, use this host name
+  to configure the following DNS records:
+
+  * `A` record, resolving the Mail server hostname to the public and
+    static IP address of the server
+  * `PTR` record, resolving back the IP address to the Mail server
+    hostaname
+  * `MX` records, one for each mail domain handled by the Mail module
+    instance
+
+* ``User domain`` selects a LDAP database with user, groups and passwords.
+  If the DB is changed existing mailboxes are not removed! A mailbox is
+  still accessible if the same user name is present in both the old and
+  the new database.
+
 Mailboxes
 ---------
 
