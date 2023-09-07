@@ -207,6 +207,8 @@ Settings
 Module settings are split up and accessible under the cards described by
 the following sections.
 
+.. _mail-general-settings:
+
 General settings
 ----------------
 
@@ -229,6 +231,8 @@ should not be changed in production:
   still accessible if the same user name is present in both the old and
   the new database.
 
+.. _mail-mailboxes-settings:
+
 Mailboxes
 ---------
 
@@ -238,11 +242,26 @@ If the general mailbox quota is enabled, the ``Mailboxes`` page summarizes the q
 each user. This summary is updated when a user logs in or a message is
 delivered. 
 
+Under the ``Shared mailboxes`` section, ``Shared seen`` selects if the
+IMAP *seen* flag is shared or not with other users. In general, the *seen*
+flag is used to mark if a message has been read or not. In a shared
+mailbox, each user can access the same message. 
+
+*  If users accessing the shared mailbox prefer to know if a mail has
+   already been read by someone else, set ``Shared seen`` to ``enabled``
+   (default).
+
+* If users accessing the shared mailbox are not interested if a message
+  has been already read by someone else, set ``Shared seen`` to
+  ``disabled``.
+
 Messages marked as **spam** (see :ref:`email_filter`) can be automatically
 moved into the ``Junk`` folder by enabling the option ``Move spam to junk folder``.
 Spam messages can be expunged automatically after a period of time.
 You can configure it from the ``Default spam retention`` option.
 
+
+.. _mail-master-users-settings:
 
 Master users
 ------------
