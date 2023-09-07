@@ -28,6 +28,35 @@ Project milestone **Beta 2**
 
   See also :ref:`dns-reqs`.
 
+- **WireGuard port 55820** -- The UDP port used by WireGuard in the
+  creation of the cluster VPN is now fixed to ``55820``. Clusters already
+  created with a custom port number must be fixed manually before updating
+  the core to Beta 2. For example if the custom port is ``55821`` run on
+  the leader node the following steps to fix it.
+
+  1. Fix the VPN public endpoint address in Redis. For example, if the
+     leader node is ``1`` and its FQDN is ``node1.example.org`` ::
+
+      redis-cli hset node/1/vpn endpoint node1.example.org:55820
+
+  2. Fix the firewall configuration ::
+
+      firewall-cmd --permanent --service=ns-wireguard --remove-port=55821/udp
+      firewall-cmd --permanent --service=ns-wireguard --add-port=55820/udp 
+      firewall-cmd --reload
+
+  3. Change the running WireGuard listen port ::
+
+      wg set wg0 listen-port 55820
+
+  4. Make the change permanent, by setting ``ListenPort = 55820`` in
+     ``/etc/wireguard/wg0.conf`` ::
+
+      sed -ir 's/ListenPort.*/ListenPort = 55820/' /etc/wireguard/wg0.conf
+
+  Repeat steps 2-4 on each worker node, too.
+
+
 Major changes on 2023-05-10
 ===========================
 
