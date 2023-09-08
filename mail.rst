@@ -225,6 +225,7 @@ should not be changed in production:
     hostaname
   * `MX` records, one for each mail domain handled by the Mail module
     instance
+  * `TXT` records, as specified by DKIM, SPF and DMARC 
 
 * ``User domain`` selects a LDAP database with user, groups and passwords.
   If the DB is changed existing mailboxes are not removed! A mailbox is

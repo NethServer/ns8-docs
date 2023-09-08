@@ -12,7 +12,7 @@ NethServer 8 releases
 Major changes on 2023-09-13
 ===========================
 
-Project milestone **Beta 2**
+**Beta 2**
 
 - **Pre-built image** -- Images are based on Rocky Linux. Available
   formats are ``.qcow2`` for QEMU/Proxmox and ``.vmdk`` for VMware. See
@@ -21,7 +21,7 @@ Project milestone **Beta 2**
 - **FQDN requirement** -- The cluster creation procedure now asks to
   review and set the current system host name. The host name is expected
   in short form (a single word, with no domain suffix). The procedure also
-  fixes the ``/etc/hosts`` file by adding a record to properly resolve the
+  asks for the domain suffix and fixes the ``/etc/hosts`` file by adding a record to properly resolve the
   fully qualified domain name of the system (FQDN). For example ::
 
     127.0.1.1 node1.example.org node1
@@ -112,7 +112,7 @@ Project milestone **Beta 2**
   the private key associated to it. See the section
   :ref:`certificate_manager-section`.
 
-- **Additional backup providers** -- Backup repositories can now created
+- **Additional backup providers** -- Backup repositories can be created
   also on Microsoft Azure and S3-compatible cloud storage providers.
 
 - **Mail module improvements**
@@ -129,7 +129,7 @@ Project milestone **Beta 2**
 Major changes on 2023-05-10
 ===========================
 
-Project milestone **Beta 1**
+**Beta 1**
 
 Main core features include:
 
