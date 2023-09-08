@@ -123,7 +123,13 @@ Major changes on 2023-09-13
      <mail-mailboxes-settings>`.
 
   2. Added the open source Dovecot plugin *Flatcurve* to enable full text
-     search (FTS) of email messages.
+     search (FTS) of email messages.  To massively rebuild the search
+     indexes run the following command during system idle time: ::
+
+       podman exec dovecot sh -c "doveadm index -A -q '*' ; pgrep indexer-worker | xargs -- renice"
+
+     Only PDF attachments and the email itself are added to the index.
+     In future releases more attachment formats will be supported.
 
 
 Major changes on 2023-05-10
