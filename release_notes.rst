@@ -2,16 +2,151 @@
 Release notes
 =============
 
-NethServer 8 releases.
+.. highlight:: text
+
+NethServer 8 releases
 
 - List of `known bugs <https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_
 - Discussions around `possible bugs <http://community.nethserver.org/c/bug>`_
+
+Major changes on 2023-09-13
+===========================
+
+**Beta 2**
+
+- **Pre-built image** -- Images are based on Rocky Linux. Available
+  formats are ``.qcow2`` for QEMU/Proxmox and ``.vmdk`` for VMware. See
+  :ref:`install_image-section` for image download links.
+
+- **FQDN requirement** -- The cluster creation procedure now asks to
+  review and set the current system host name. The host name is expected
+  in short form (a single word, with no domain suffix). The procedure also
+  asks for the domain suffix and fixes the ``/etc/hosts`` file by adding a record to properly resolve the
+  fully qualified domain name of the system (FQDN). For example ::
+
+    127.0.1.1 node1.example.org node1
+
+  See also :ref:`dns-reqs`.
+
+- **WireGuard port 55820** -- The UDP port used by WireGuard in the
+  creation of the cluster VPN is now fixed to ``55820``. Clusters already
+  created with a custom port number must be fixed manually before updating
+  the core to Beta 2. For example if the custom port is ``55821`` run on
+  the leader node the following steps to fix it.
+
+  1. Fix the VPN public endpoint address in Redis. For example, if the
+     leader node is ``1`` and its FQDN is ``node1.example.org`` ::
+
+      redis-cli hset node/1/vpn endpoint node1.example.org:55820
+
+  2. Fix the firewall configuration ::
+
+      firewall-cmd --permanent --service=ns-wireguard --remove-port=55821/udp
+      firewall-cmd --permanent --service=ns-wireguard --add-port=55820/udp 
+      firewall-cmd --reload
+
+  3. Change the running WireGuard listen port ::
+
+      wg set wg0 listen-port 55820
+
+  4. Make the change permanent, by setting ``ListenPort = 55820`` in
+     ``/etc/wireguard/wg0.conf`` ::
+
+      sed -ir 's/ListenPort.*/ListenPort = 55820/' /etc/wireguard/wg0.conf
+
+  Repeat steps 2-4 on each worker node, too.
+
+- **Debian upgrade** -- After running the core update, installations based
+  on Debian 11 (Bullseye) must be manually upgraded to distribution
+  version 12 (Bookworm).  ::
+
+    rm -f '/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list'
+    sed -i 's/bullseye/bookworm/' /etc/apt/sources.list
+    apt update && apt full-upgrade -y
+
+  Follow also the instructions for Python 3.11 upgrade, then **reboot the
+  system**. Apply the same procedure for each cluster node.
+
+- **Python 3.11** -- After running the core update, installations based on
+  Rocky Linux (and other EL-like distributions) must manually install
+  Python 3.11: ::
+
+     dnf install python3.11
+
+  The following Bash script is required by Debian, too. Do not forget the round brackets! ::
+
+    (
+        set -e -x
+        core_dir=/usr/local/agent/pyenv
+        mv -v ${core_dir} ${core_dir}.bak
+        python3.11 -mvenv ${core_dir} --upgrade-deps --system-site-packages
+        ${core_dir}/bin/pip3 install -r /etc/nethserver/pyreq3_11.txt
+        echo "/usr/local/agent/pypkg" >$(${core_dir}/bin/python3 -c "import sys; print(sys.path[-1] + '/pypkg.pth')")
+        rm -rf ${core_dir}.bak
+    )
+
+  Check if the Python upgrade was successfull: ::
+
+    runagent python3 --version # output should be 3.11
+
+  Apply the same procedure for each cluster node.
+
+- **UI security enhancements** -- Since the Beta 1 release an important
+  security update has been released, and other security improvements are
+  now available.  After running the core update, do an hard browser page
+  reload with ``CTRL + Shift + R`` or any other equivalent method.
+
+- **Logs backend improved** -- The Logs page backend has been improved to
+  be faster and more accurate in capturing the logs of every cluster
+  component. The core module now runs Promtail as a system service. After
+  running the core update, it is safe to uninstall Promtail core modules
+  by running this command on the leader node: ::
+
+    api-cli run list-installed-modules | jq -r '.["ghcr.io/nethserver/promtail"] | .[].id' | xargs -l remove-module --no-preserve
+
+  Note that the new Logs page cannot access old log entries. To see log
+  entries before the Beta 2 upgrade, use the `logcli` command.
+
+- **TLS certificate upload** -- The ``TLS certificates`` card under the
+  ``Settings`` page was extended to allow the upload of a certificate and
+  the private key associated to it. See the section
+  :ref:`certificate_manager-section`.
+
+- **Additional backup providers** -- Backup repositories can be created
+  also on Microsoft Azure and S3-compatible cloud storage providers.
+
+- **New Traefik configuration backend** -- The cluster Redis DB is not
+  used any more by Traefik module instances as their dynamic configuration
+  backend. Traefik configuration is now entirely stored under the module
+  home directory. To improve Redis performance it is possible to disable a
+  feature specific for Traefik with the following commands: ::
+
+    podman exec redis sed -i.beta1 '/^notify-keyspace-events / d' /data/etc/redis.conf
+    systemctl restart redis
+
+  Apply the same procedure for each cluster node.
+
+- **Mail module improvements**
+
+  1. New installations of the Mail module have the ``Shared seen`` option
+     enabled by default. Existing installations will find the switch
+     disabled. See also the section about :ref:`settings for mailboxes
+     <mail-mailboxes-settings>`.
+
+  2. Added the open source Dovecot plugin *Flatcurve* to enable full text
+     search (FTS) of email messages.  To massively rebuild the search
+     indexes run the following command during system idle time: ::
+
+       podman exec dovecot sh -c "doveadm index -A -q '*' ; pgrep indexer-worker | xargs -- renice"
+
+     Only PDF attachments and the email itself are added to the index.
+     In future releases more attachment formats will be supported.
 
 
 Major changes on 2023-05-10
 ===========================
 
-**Beta 1** release.
+**Beta 1**
 
 Main core features include:
 

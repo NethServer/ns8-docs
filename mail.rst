@@ -204,18 +204,70 @@ marked as **spam** or **ham**.
 Settings
 ========
 
-From the ``Settings`` page, you can configure the ``Default mail quota``.
+Module settings are split up and accessible under the cards described by
+the following sections.
+
+.. _mail-general-settings:
+
+General settings
+----------------
+
+The following values are set at module first configuration time. They
+should not be changed in production:
+
+* ``Mail server hostname`` configures how the MTA identifies itself with
+  other MTAs. To successfully receive email messages, use this host name
+  to configure the following DNS records:
+
+  * `A` record, resolving the Mail server hostname to the public and
+    static IP address of the server
+  * `PTR` record, resolving back the IP address to the Mail server
+    hostaname
+  * `MX` records, one for each mail domain handled by the Mail module
+    instance
+  * `TXT` records, as specified by DKIM, SPF and DMARC 
+
+* ``User domain`` selects a LDAP database with user, groups and passwords.
+  If the DB is changed existing mailboxes are not removed! A mailbox is
+  still accessible if the same user name is present in both the old and
+  the new database.
+
+.. _mail-mailboxes-settings:
+
+Mailboxes
+---------
+
+Under the ``Mailboxes`` card you can configure the ``Default mail quota``.
  
 If the general mailbox quota is enabled, the ``Mailboxes`` page summarizes the quota usage for
 each user. This summary is updated when a user logs in or a message is
 delivered. 
+
+Under the ``Shared mailboxes`` section, ``Shared seen`` selects if the
+IMAP *seen* flag is shared or not with other users. In general, the *seen*
+flag is used to mark if a message has been read or not. In a shared
+mailbox, each user can access the same message. 
+
+*  If users accessing the shared mailbox prefer to know if a mail has
+   already been read by someone else, set ``Shared seen`` to ``enabled``
+   (default).
+
+* If users accessing the shared mailbox are not interested if a message
+  has been already read by someone else, set ``Shared seen`` to
+  ``disabled``.
 
 Messages marked as **spam** (see :ref:`email_filter`) can be automatically
 moved into the ``Junk`` folder by enabling the option ``Move spam to junk folder``.
 Spam messages can be expunged automatically after a period of time.
 You can configure it from the ``Default spam retention`` option.
 
-From the ``Master users`` section, you can setup a user that can impersonate another user, gaining full rights
+
+.. _mail-master-users-settings:
+
+Master users
+------------
+
+Under the ``Master users`` card, you can setup a user that can impersonate another user, gaining full rights
 to any mailbox contents and folder permissions. 
 
 Credentials are accepted by the IMAP server:
