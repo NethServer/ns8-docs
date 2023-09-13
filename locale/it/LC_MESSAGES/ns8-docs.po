@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 10:18+0000\n"
+"POT-Creation-Date: 2023-09-13 09:38+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -2324,7 +2324,7 @@ msgstr ""
 msgid "Copy and paste the given key text in the DNS record data (RDATA) section"
 msgstr ""
 
-#: ../../mail.rst:102
+#: ../../mail.rst:102 ../../mail.rst:238
 msgid "Mailboxes"
 msgstr ""
 
@@ -2506,17 +2506,87 @@ msgid "Settings"
 msgstr ""
 
 #: ../../mail.rst:207
-msgid "From the ``Settings`` page, you can configure the ``Default mail quota``."
+msgid ""
+"Module settings are split up and accessible under the cards described by "
+"the following sections."
 msgstr ""
 
-#: ../../mail.rst:209
+#: ../../mail.rst:213
+msgid "General settings"
+msgstr ""
+
+#: ../../mail.rst:215
+msgid ""
+"The following values are set at module first configuration time. They "
+"should not be changed in production:"
+msgstr ""
+
+#: ../../mail.rst:218
+msgid ""
+"``Mail server hostname`` configures how the MTA identifies itself with "
+"other MTAs. To successfully receive email messages, use this host name to"
+" configure the following DNS records:"
+msgstr ""
+
+#: ../../mail.rst:222
+msgid ""
+"`A` record, resolving the Mail server hostname to the public and static "
+"IP address of the server"
+msgstr ""
+
+#: ../../mail.rst:224
+msgid "`PTR` record, resolving back the IP address to the Mail server hostaname"
+msgstr ""
+
+#: ../../mail.rst:226
+msgid "`MX` records, one for each mail domain handled by the Mail module instance"
+msgstr ""
+
+#: ../../mail.rst:228
+msgid "`TXT` records, as specified by DKIM, SPF and DMARC"
+msgstr ""
+
+#: ../../mail.rst:230
+msgid ""
+"``User domain`` selects a LDAP database with user, groups and passwords. "
+"If the DB is changed existing mailboxes are not removed! A mailbox is "
+"still accessible if the same user name is present in both the old and the"
+" new database."
+msgstr ""
+
+#: ../../mail.rst:240
+msgid "Under the ``Mailboxes`` card you can configure the ``Default mail quota``."
+msgstr ""
+
+#: ../../mail.rst:242
 msgid ""
 "If the general mailbox quota is enabled, the ``Mailboxes`` page "
 "summarizes the quota usage for each user. This summary is updated when a "
 "user logs in or a message is delivered."
 msgstr ""
 
-#: ../../mail.rst:213
+#: ../../mail.rst:246
+msgid ""
+"Under the ``Shared mailboxes`` section, ``Shared seen`` selects if the "
+"IMAP *seen* flag is shared or not with other users. In general, the "
+"*seen* flag is used to mark if a message has been read or not. In a "
+"shared mailbox, each user can access the same message."
+msgstr ""
+
+#: ../../mail.rst:251
+msgid ""
+"If users accessing the shared mailbox prefer to know if a mail has "
+"already been read by someone else, set ``Shared seen`` to ``enabled`` "
+"(default)."
+msgstr ""
+
+#: ../../mail.rst:255
+msgid ""
+"If users accessing the shared mailbox are not interested if a message has"
+" been already read by someone else, set ``Shared seen`` to ``disabled``."
+msgstr ""
+
+#: ../../mail.rst:259
 msgid ""
 "Messages marked as **spam** (see :ref:`email_filter`) can be "
 "automatically moved into the ``Junk`` folder by enabling the option "
@@ -2525,112 +2595,116 @@ msgid ""
 "retention`` option."
 msgstr ""
 
-#: ../../mail.rst:218
+#: ../../mail.rst:268
+msgid "Master users"
+msgstr ""
+
+#: ../../mail.rst:270
 msgid ""
-"From the ``Master users`` section, you can setup a user that can "
+"Under the ``Master users`` card, you can setup a user that can "
 "impersonate another user, gaining full rights to any mailbox contents and"
 " folder permissions."
 msgstr ""
 
-#: ../../mail.rst:221
+#: ../../mail.rst:273
 msgid "Credentials are accepted by the IMAP server:"
 msgstr ""
 
-#: ../../mail.rst:223
+#: ../../mail.rst:275
 msgid "user name of the master user, eg. ``master``"
 msgstr ""
 
-#: ../../mail.rst:224
+#: ../../mail.rst:276
 msgid "master user password"
 msgstr ""
 
-#: ../../mail.rst:226
+#: ../../mail.rst:278
 msgid ""
 "For instance, to access as ``john`` with root password ``secr3t``, use "
 "the following credentials:"
 msgstr ""
 
-#: ../../mail.rst:229
+#: ../../mail.rst:281
 msgid "user name: ``john*master``"
 msgstr ""
 
-#: ../../mail.rst:230
+#: ../../mail.rst:282
 msgid "password: ``secr3t``"
 msgstr ""
 
-#: ../../mail.rst:236
+#: ../../mail.rst:288
 msgid "Client configuration"
 msgstr ""
 
-#: ../../mail.rst:238
+#: ../../mail.rst:290
 msgid ""
 "The server supports standard-compliant email clients using the following "
 "IANA ports:"
 msgstr ""
 
-#: ../../mail.rst:241
+#: ../../mail.rst:293
 msgid "imap/143"
 msgstr ""
 
-#: ../../mail.rst:242
+#: ../../mail.rst:294
 msgid "pop3/110"
 msgstr ""
 
-#: ../../mail.rst:243
+#: ../../mail.rst:295
 msgid "smtp/587"
 msgstr ""
 
-#: ../../mail.rst:244
+#: ../../mail.rst:296
 msgid "sieve/4190"
 msgstr ""
 
-#: ../../mail.rst:246
+#: ../../mail.rst:298
 msgid ""
 "Authentication requires the STARTTLS command and supports the following "
 "variants:"
 msgstr ""
 
-#: ../../mail.rst:249
+#: ../../mail.rst:301
 msgid "LOGIN"
 msgstr "LOGIN"
 
-#: ../../mail.rst:250
+#: ../../mail.rst:302
 msgid "PLAIN"
 msgstr ""
 
-#: ../../mail.rst:252
+#: ../../mail.rst:304
 msgid ""
 "Also the following SSL-enabled ports are available for legacy software "
 "that still does not support STARTTLS:"
 msgstr ""
 
-#: ../../mail.rst:255
+#: ../../mail.rst:307
 msgid "imaps/993"
 msgstr ""
 
-#: ../../mail.rst:256
+#: ../../mail.rst:308
 msgid "pop3s/995"
 msgstr ""
 
-#: ../../mail.rst:257
+#: ../../mail.rst:309
 msgid "smtps/465"
 msgstr ""
 
-#: ../../mail.rst:261
+#: ../../mail.rst:313
 msgid ""
 "The standard SMTP port 25 is reserved for mail transfers between MTA "
 "servers. Mail user agents (MUA) must use the submission port."
 msgstr ""
 
-#: ../../mail.rst:264
+#: ../../mail.rst:316
 msgid "If you're looking for web email clients, take a look to:"
 msgstr ""
 
-#: ../../mail.rst:266
+#: ../../mail.rst:318
 msgid ":ref:`roundcube-section`"
 msgstr ""
 
-#: ../../mail.rst:267
+#: ../../mail.rst:319
 msgid ":ref:`webtop-section`"
 msgstr ""
 
@@ -3834,167 +3908,334 @@ msgstr ""
 msgid "Release notes"
 msgstr ""
 
-#: ../../release_notes.rst:5
-msgid "NethServer 8 releases."
+#: ../../release_notes.rst:7
+msgid "NethServer 8 releases"
 msgstr ""
 
-#: ../../release_notes.rst:7
+#: ../../release_notes.rst:9
 #, python-format
 msgid ""
 "List of `known bugs "
 "<https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_"
 msgstr ""
 
-#: ../../release_notes.rst:8
+#: ../../release_notes.rst:10
 msgid ""
 "Discussions around `possible bugs "
 "<http://community.nethserver.org/c/bug>`_"
 msgstr ""
 
-#: ../../release_notes.rst:12
+#: ../../release_notes.rst:13
+msgid "Major changes on 2023-09-13"
+msgstr ""
+
+#: ../../release_notes.rst:15
+msgid "**Beta 2**"
+msgstr ""
+
+#: ../../release_notes.rst:17
+msgid ""
+"**Pre-built image** -- Images are based on Rocky Linux. Available formats"
+" are ``.qcow2`` for QEMU/Proxmox and ``.vmdk`` for VMware. See :ref"
+":`install_image-section` for image download links."
+msgstr ""
+
+#: ../../release_notes.rst:21
+msgid ""
+"**FQDN requirement** -- The cluster creation procedure now asks to review"
+" and set the current system host name. The host name is expected in short"
+" form (a single word, with no domain suffix). The procedure also asks for"
+" the domain suffix and fixes the ``/etc/hosts`` file by adding a record "
+"to properly resolve the fully qualified domain name of the system (FQDN)."
+" For example ::"
+msgstr ""
+
+#: ../../release_notes.rst:29
+msgid "See also :ref:`dns-reqs`."
+msgstr ""
+
+#: ../../release_notes.rst:31
+msgid ""
+"**WireGuard port 55820** -- The UDP port used by WireGuard in the "
+"creation of the cluster VPN is now fixed to ``55820``. Clusters already "
+"created with a custom port number must be fixed manually before updating "
+"the core to Beta 2. For example if the custom port is ``55821`` run on "
+"the leader node the following steps to fix it."
+msgstr ""
+
+#: ../../release_notes.rst:37
+msgid ""
+"Fix the VPN public endpoint address in Redis. For example, if the leader "
+"node is ``1`` and its FQDN is ``node1.example.org`` ::"
+msgstr ""
+
+#: ../../release_notes.rst:42
+msgid "Fix the firewall configuration ::"
+msgstr ""
+
+#: ../../release_notes.rst:48
+msgid "Change the running WireGuard listen port ::"
+msgstr ""
+
+#: ../../release_notes.rst:52
+msgid ""
+"Make the change permanent, by setting ``ListenPort = 55820`` in "
+"``/etc/wireguard/wg0.conf`` ::"
+msgstr ""
+
+#: ../../release_notes.rst:57
+msgid "Repeat steps 2-4 on each worker node, too."
+msgstr ""
+
+#: ../../release_notes.rst:59
+msgid ""
+"**Debian upgrade** -- After running the core update, installations based "
+"on Debian 11 (Bullseye) must be manually upgraded to distribution version"
+" 12 (Bookworm).  ::"
+msgstr ""
+
+#: ../../release_notes.rst:67
+msgid ""
+"Follow also the instructions for Python 3.11 upgrade, then **reboot the "
+"system**. Apply the same procedure for each cluster node."
+msgstr ""
+
+#: ../../release_notes.rst:70
+msgid ""
+"**Python 3.11** -- After running the core update, installations based on "
+"Rocky Linux (and other EL-like distributions) must manually install "
+"Python 3.11: ::"
+msgstr ""
+
+#: ../../release_notes.rst:76
+msgid ""
+"The following Bash script is required by Debian, too. Do not forget the "
+"round brackets! ::"
+msgstr ""
+
+#: ../../release_notes.rst:88
+msgid "Check if the Python upgrade was successfull: ::"
+msgstr ""
+
+#: ../../release_notes.rst:92 ../../release_notes.rst:127
+msgid "Apply the same procedure for each cluster node."
+msgstr ""
+
+#: ../../release_notes.rst:94
+msgid ""
+"**UI security enhancements** -- Since the Beta 1 release an important "
+"security update has been released, and other security improvements are "
+"now available.  After running the core update, do an hard browser page "
+"reload with ``CTRL + Shift + R`` or any other equivalent method."
+msgstr ""
+
+#: ../../release_notes.rst:99
+msgid ""
+"**Logs backend improved** -- The Logs page backend has been improved to "
+"be faster and more accurate in capturing the logs of every cluster "
+"component. The core module now runs Promtail as a system service. After "
+"running the core update, it is safe to uninstall Promtail core modules by"
+" running this command on the leader node: ::"
+msgstr ""
+
+#: ../../release_notes.rst:107
+msgid ""
+"Note that the new Logs page cannot access old log entries. To see log "
+"entries before the Beta 2 upgrade, use the `logcli` command."
+msgstr ""
+
+#: ../../release_notes.rst:110
+msgid ""
+"**TLS certificate upload** -- The ``TLS certificates`` card under the "
+"``Settings`` page was extended to allow the upload of a certificate and "
+"the private key associated to it. See the section :ref"
+":`certificate_manager-section`."
+msgstr ""
+
+#: ../../release_notes.rst:115
+msgid ""
+"**Additional backup providers** -- Backup repositories can be created "
+"also on Microsoft Azure and S3-compatible cloud storage providers."
+msgstr ""
+
+#: ../../release_notes.rst:118
+msgid ""
+"**New Traefik configuration backend** -- The cluster Redis DB is not used"
+" any more by Traefik module instances as their dynamic configuration "
+"backend. Traefik configuration is now entirely stored under the module "
+"home directory. To improve Redis performance it is possible to disable a "
+"feature specific for Traefik with the following commands: ::"
+msgstr ""
+
+#: ../../release_notes.rst:129
+msgid "**Mail module improvements**"
+msgstr ""
+
+#: ../../release_notes.rst:131
+msgid ""
+"New installations of the Mail module have the ``Shared seen`` option "
+"enabled by default. Existing installations will find the switch disabled."
+" See also the section about :ref:`settings for mailboxes <mail-mailboxes-"
+"settings>`."
+msgstr ""
+
+#: ../../release_notes.rst:136
+msgid ""
+"Added the open source Dovecot plugin *Flatcurve* to enable full text "
+"search (FTS) of email messages.  To massively rebuild the search indexes "
+"run the following command during system idle time: ::"
+msgstr ""
+
+#: ../../release_notes.rst:142
+msgid ""
+"Only PDF attachments and the email itself are added to the index. In "
+"future releases more attachment formats will be supported."
+msgstr ""
+
+#: ../../release_notes.rst:147
 msgid "Major changes on 2023-05-10"
 msgstr ""
 
-#: ../../release_notes.rst:14
-msgid "**Beta 1** release."
+#: ../../release_notes.rst:149
+msgid "**Beta 1**"
 msgstr ""
 
-#: ../../release_notes.rst:16
+#: ../../release_notes.rst:151
 msgid "Main core features include:"
 msgstr ""
 
-#: ../../release_notes.rst:18
+#: ../../release_notes.rst:153
 msgid "Node management: add and remove nodes from the system"
 msgstr ""
 
-#: ../../release_notes.rst:19
+#: ../../release_notes.rst:154
 msgid "Centralized logging: collect all logs in one place for easy monitoring"
 msgstr ""
 
-#: ../../release_notes.rst:20
+#: ../../release_notes.rst:155
 msgid ""
 "Configuration and data backups: regularly save cluster settings and "
 "application data to remote providers like Amazon S3 and Backblaze B2"
 msgstr ""
 
-#: ../../release_notes.rst:21
+#: ../../release_notes.rst:156
 msgid ""
 "Authentication: support for both Active Directory and LDAP (RFC2307) user"
 " directories"
 msgstr ""
 
-#: ../../release_notes.rst:22
+#: ../../release_notes.rst:157
 msgid ""
 "File server: implement an SMB (Server Message Block) file server that "
 "enables seamless integration with Windows-based networks"
 msgstr ""
 
-#: ../../release_notes.rst:23
+#: ../../release_notes.rst:158
 msgid ""
 "Auditing: track changes made within the system to ensure security and "
 "accountability"
 msgstr ""
 
-#: ../../release_notes.rst:24
+#: ../../release_notes.rst:159
 msgid ""
 "Email relay: use a smart host to route outgoing emails  through a trusted"
 " server"
 msgstr ""
 
-#: ../../release_notes.rst:25
+#: ../../release_notes.rst:160
 msgid "Custom web routing: define custom URLs to handle specific requests"
 msgstr ""
 
-#: ../../release_notes.rst:26
+#: ../../release_notes.rst:161
 msgid ""
 "Multi-factor authentication: enable two-step verification for "
 "administrator accounts"
 msgstr ""
 
-#: ../../release_notes.rst:27
+#: ../../release_notes.rst:162
 msgid ""
 "Built-in firewall: protect against unauthorized access at the network "
 "level by implementing a local firewall"
 msgstr ""
 
-#: ../../release_notes.rst:28
+#: ../../release_notes.rst:163
 msgid ""
 "Migration: :ref:`Cockpit module <migration-section>` to import NethServer"
 " 7 applications"
 msgstr ""
 
-#: ../../release_notes.rst:30
+#: ../../release_notes.rst:165
 msgid "Additional modules:"
 msgstr ""
 
-#: ../../release_notes.rst:32
+#: ../../release_notes.rst:167
 msgid ""
 "Collaborative tools: includes Dovecot/Postfix/Rspamd mail server, WebTop,"
 " Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, "
 "Mattermost"
 msgstr ""
 
-#: ../../release_notes.rst:33
+#: ../../release_notes.rst:168
 msgid ""
 "Development utilities: features MariaDB and NGINX web server for creating"
 " dynamic applications and services"
 msgstr ""
 
-#: ../../release_notes.rst:34
+#: ../../release_notes.rst:169
 msgid ""
 "Monitoring and analysis: offers Grafana, Prometheus, and node_exporter "
 "for tracking performance metrics and identifying potential issues"
 msgstr ""
 
-#: ../../release_notes.rst:35
+#: ../../release_notes.rst:170
 msgid ""
 "Data storage: offers MinIO for managing large amounts of structured and "
 "unstructured data"
 msgstr ""
 
-#: ../../release_notes.rst:36
+#: ../../release_notes.rst:171
 msgid ""
 "Network defense: implements CrowdSec for protecting local applications "
 "against remote attacks"
 msgstr ""
 
-#: ../../release_notes.rst:38
+#: ../../release_notes.rst:173
 msgid "The following known limitations will be resolved in future updates:"
 msgstr ""
 
-#: ../../release_notes.rst:40
+#: ../../release_notes.rst:175
 msgid ""
 "currently, the system only uses TLS certificates issued by Let's Encrypt "
 "or self-signed certificates generated locally"
 msgstr ""
 
-#: ../../release_notes.rst:41
+#: ../../release_notes.rst:176
 msgid "user login is not supported on worker nodes"
 msgstr ""
 
-#: ../../release_notes.rst:42
+#: ../../release_notes.rst:177
 msgid ""
 "the mail module does not offer sender-based or destination-based message "
 "relay options"
 msgstr ""
 
-#: ../../release_notes.rst:43
+#: ../../release_notes.rst:178
 msgid ""
 "only a limited number of cloud storage providers are available for "
 "backing up data"
 msgstr ""
 
-#: ../../release_notes.rst:46
+#: ../../release_notes.rst:181
 msgid "Releases glossary"
 msgstr ""
 
-#: ../../release_notes.rst:48
+#: ../../release_notes.rst:183
 msgid ""
 "The software release cycle includes four stages: Alpha, Beta, Release "
 "Candidate (RC), and Stable."
 msgstr ""
 
-#: ../../release_notes.rst:50
+#: ../../release_notes.rst:185
 msgid ""
 "During the **Alpha** stage, the software is not thoroughly tested and may"
 " not include all planned features. This release is not suitable for "
@@ -4003,7 +4244,7 @@ msgid ""
 "to other releases are not supported."
 msgstr ""
 
-#: ../../release_notes.rst:54
+#: ../../release_notes.rst:189
 msgid ""
 "The **Beta** stage indicates that the software is mostly feature "
 "complete, but it may still contain many known and unknown bugs. This "
@@ -4013,7 +4254,7 @@ msgid ""
 "require a manual procedure."
 msgstr ""
 
-#: ../../release_notes.rst:58
+#: ../../release_notes.rst:193
 msgid ""
 "During the **Release Candidate (RC)** stage, the software is feature "
 "complete, and it contains no known bugs. If no major issues arise, it can"
@@ -4023,7 +4264,7 @@ msgid ""
 "some experience with it."
 msgstr ""
 
-#: ../../release_notes.rst:63
+#: ../../release_notes.rst:198
 msgid ""
 "The **Stable** release is the most reliable and safe to use in production"
 " environments. It has been thoroughly tested and is considered to be free"
@@ -7492,5 +7733,24 @@ msgstr ""
 #~ msgid ""
 #~ "`Images SHA256 checksum "
 #~ "<<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "From the ``Settings`` page, you can "
+#~ "configure the ``Default mail quota``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "From the ``Master users`` section, you"
+#~ " can setup a user that can "
+#~ "impersonate another user, gaining full "
+#~ "rights to any mailbox contents and "
+#~ "folder permissions."
+#~ msgstr ""
+
+#~ msgid "NethServer 8 releases."
+#~ msgstr ""
+
+#~ msgid "**Beta 1** release."
 #~ msgstr ""
 
