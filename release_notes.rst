@@ -115,6 +115,17 @@ Major changes on 2023-09-13
 - **Additional backup providers** -- Backup repositories can be created
   also on Microsoft Azure and S3-compatible cloud storage providers.
 
+- **New Traefik configuration backend** -- The cluster Redis DB is not
+  used any more by Traefik module instances as their dynamic configuration
+  backend. Traefik configuration is now entirely stored under the module
+  home directory. To improve Redis performance it is possible to disable a
+  feature specific for Traefik with the following commands: ::
+
+    podman exec redis sed -i.beta1 '/^notify-keyspace-events / d' /data/etc/redis.conf
+    systemctl restart redis
+
+  Apply the same procedure for each cluster node.
+
 - **Mail module improvements**
 
   1. New installations of the Mail module have the ``Shared seen`` option
