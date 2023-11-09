@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 09:38+0000\n"
+"POT-Creation-Date: 2023-11-09 15:39+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>"
 "\n"
-"Plural-Forms: nplurals=2; plural=n != 1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.8.0\n"
+"Generated-By: Babel 2.13.1\n"
 
 #: ../../backup.rst:3
 msgid "Backup and restore"
@@ -760,10 +760,10 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
-#: ../../ejabberd.rst:23 ../../index.rst:30 ../../mail.rst:32
-#: ../../mariadb.rst:11 ../../mattermost.rst:13 ../../minio.rst:12
-#: ../../nextcloud.rst:21 ../../nginx.rst:14 ../../roundcube.rst:19
-#: ../../webtop.rst:12
+#: ../../ejabberd.rst:23 ../../imapsync.rst:26 ../../index.rst:30
+#: ../../mail.rst:32 ../../mariadb.rst:11 ../../mattermost.rst:13
+#: ../../minio.rst:12 ../../nextcloud.rst:21 ../../nginx.rst:14
+#: ../../roundcube.rst:19 ../../webtop.rst:12
 msgid "Configuration"
 msgstr ""
 
@@ -1708,6 +1708,67 @@ msgstr ""
 msgid "To see the list of allowed services and ports, run ::"
 msgstr ""
 
+#: ../../imapsync.rst:5
+msgid "Imapsync"
+msgstr ""
+
+#: ../../imapsync.rst:9
+msgid ""
+"This module installs Imapsync, an IMAP transfer tool. Its purpose is "
+"migrating email messages from remote IMAP accounts to a local one."
+msgstr ""
+
+#: ../../imapsync.rst:11
+msgid ""
+"The migration is both recursive and incremental and can be repeated as "
+"many times as needed, also you can select the task frequency."
+msgstr ""
+
+#: ../../imapsync.rst:13
+msgid ""
+"The system administrator of the local NethServer does not need to know "
+"the password of the local user because Imapsync access the local user "
+"mailbox with administrative permissions. However, the administrator has "
+"to know the password of the remote IMAP account, unless the IMAP "
+"administrative authentication is implemented also by the remote email "
+"server."
+msgstr ""
+
+#: ../../imapsync.rst:15
+msgid ""
+"If the remote IMAP server is a NethServer 7, the IMAP admin user is "
+"``vmail`` and its password can be read from "
+"``/var/lib/nethserver/secrets/vmail``. The username with a ``*vmail`` "
+"suffix (e.g. ``username@domain.com*vmail``) and the vmail password has to"
+" be set in the IMAP synchronization panel."
+msgstr ""
+
+#: ../../imapsync.rst:20
+msgid ""
+"List of `IMAP servers "
+"<https://imapsync.lamiral.info/FAQ.d/FAQ.Admin_Authentication.txt>`_ with"
+" admin authentication in Imapsync documentation"
+msgstr ""
+
+#: ../../imapsync.rst:23
+msgid ""
+"Imapsync is an Open Source software. Check out the `official "
+"documentation <https://imapsync.lamiral.info/#doc>`_ for further details."
+msgstr ""
+
+#: ../../imapsync.rst:28
+msgid ""
+"Imapsync needs to be configured to use a Mail module already installed in"
+" the NethServer 8 cluster. Once configured, you can create as many tasks "
+"as needed for each user of the domain."
+msgstr ""
+
+#: ../../imapsync.rst:31
+msgid ""
+"Imasync is integrated with LDAP user domain that you can configure at "
+":ref:`user-domains-section`."
+msgstr ""
+
 #: ../../index.rst:16
 msgid "About"
 msgstr ""
@@ -1720,7 +1781,7 @@ msgstr ""
 msgid "Applications"
 msgstr ""
 
-#: ../../index.rst:63
+#: ../../index.rst:64
 msgid "Best practices"
 msgstr ""
 
@@ -5412,7 +5473,7 @@ msgid ""
 ":menuselection:`Customize → Devices sync.`:"
 msgstr ""
 
-#: ../../webtop.rst
+#: ../../webtop.rst:222
 msgid "Sync shared EAS"
 msgstr ""
 
