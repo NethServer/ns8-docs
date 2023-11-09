@@ -59,6 +59,7 @@ NethServer 8 administrator manual
    ejabberd
    minio
    crowdsec
+   imapsync
 
 .. toctree::
    :maxdepth: 2
