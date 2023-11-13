@@ -188,7 +188,7 @@ When a user is deleted, user data will not be removed.
 .. _user-management-portal-section:
 
 User Management portal
-=================
+======================
 
 The management portal is a web application that allows any non-administrator user to change their own password without the need for administrator intervention.
 
@@ -202,6 +202,6 @@ Where ``<fqdn_node>`` is the FQDN of the node where the provider is and ``<domai
 
 .. warning:: Without the trailing slash, the portal will not work.
 
-Once reached the page, the user is prompt for a login ``Login`` where they can authenticate to the domain with user name and password.
+Once reached the page, the user is prompted for login and they can authenticate to the domain with user name and password.
 
 If the login is successful, the user is directed to the ``User Management`` page, where they can proceed to change the password. The password must comply with the domain password policy during this process.
