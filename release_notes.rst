@@ -160,6 +160,12 @@ Major changes on 2023-11-xx
 
     runagent -m openldap1 systemctl --user restart openldap
 
+- **Mattermost upgrade procedure** -- Mattermost upgrade must be completed
+  manually to allocate and open UDP ports required by the Calls plugin.
+  From the ``Software center`` page, ensure Mattermost is at version
+  ``2.0.0``. Then clone the running instance and after clone is complete,
+  remove the old instance.
+
 Major changes on 2023-09-13
 ===========================
 
