@@ -99,6 +99,66 @@ Major changes on 2023-11-xx
       agent.set_env("TCP_PORTS", os.environ["TCP_PORTS"])
       EOF
 
+  After repeating the above steps on each cluster node, run the following
+  commands in one instance of your choice (the example is for
+  ``openldap1``): ::
+
+    runagent -m openldap1 podman exec -i openldap ash -c 'envsubst | ldapmodify -c ' <<'EOF'
+    dn: olcDatabase={2}mdb,cn=config
+    changetype: modify
+    delete: olcAccess
+    -
+    add: olcAccess
+    olcAccess: to attrs=userPassword by dn.base="
+    gidNumber=101+uidNumber=100,cn=peercred,cn=external,cn=aut
+    h" write by set="[cn=domain admins,ou=Groups,${LDAP_SUFFIX}
+    ]/memberUid & user/uid" write by self write by * auth
+    olcAccess: to * by dn.base="gidNumber=101+uidNumber=100,
+    cn=peercred,cn=external,cn=auth" manage by set="[cn=do
+    main admins,ou=Groups,${LDAP_SUFFIX}
+    ]/memberUid & user/uid" write by * read
+
+    dn: olcOverlay={1}ppolicy,olcDatabase={2}mdb,cn=config
+    changetype: modify
+    replace: olcPPolicyCheckModule
+    olcPPolicyCheckModule: ppcheck.so
+
+    dn: cn=default,ou=PPolicy,${LDAP_SUFFIX}
+    changetype: modify
+    add: objectClass
+    objectClass: pwdPolicyChecker
+
+    dn: cn=default,ou=PPolicy,${LDAP_SUFFIX}
+    changetype: modify
+    replace: pwdCheckQuality
+    pwdCheckQuality: 2
+    -
+    replace: pwdMinAge
+    pwdMinAge: 0
+    -
+    replace: pwdMaxAge
+    pwdMaxAge: 15552000
+    -
+    replace: pwdMinLength
+    pwdMinLength: 8
+    -
+    replace: pwdInHistory
+    pwdInHistory: 12
+    -
+    replace: pwdLockout
+    pwdLockout: FALSE
+    -
+    replace: pwdUseCheckModule
+    pwdUseCheckModule: TRUE
+    -
+    replace: pwdCheckModuleArg
+    pwdCheckModuleArg: default
+    -
+    replace: pwdExpireWarning
+    pwdExpireWarning: 0
+    EOF
+
+    runagent -m openldap1 systemctl --user restart openldap
 
 Major changes on 2023-09-13
 ===========================
