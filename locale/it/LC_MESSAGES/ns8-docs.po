@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-09 15:39+0000\n"
+"POT-Creation-Date: 2023-11-13 14:08+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -5049,6 +5049,51 @@ msgstr ""
 
 #: ../../user_domains.rst:186
 msgid "When a user is deleted, user data will not be removed."
+msgstr ""
+
+#: ../../user_domains.rst:191
+msgid "User Management portal"
+msgstr ""
+
+#: ../../user_domains.rst:193
+msgid ""
+"The management portal is a web application that allows any non-"
+"administrator user to change their own password without the need for "
+"administrator intervention."
+msgstr ""
+
+#: ../../user_domains.rst:195
+msgid ""
+"The portal is automatically configured on every instance of :ref"
+":`active_directory-section` or :ref:`openldap-section` provider."
+msgstr ""
+
+#: ../../user_domains.rst:197
+msgid "The portal is available at the following URL: ::"
+msgstr ""
+
+#: ../../user_domains.rst:201
+msgid ""
+"Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
+"``<domain_name>`` is the name of the domain provided while configuring "
+"the domain."
+msgstr ""
+
+#: ../../user_domains.rst:203
+msgid "Without the trailing slash, the portal will not work."
+msgstr ""
+
+#: ../../user_domains.rst:205
+msgid ""
+"Once reached the page, the user is prompted for login and they can "
+"authenticate to the domain with user name and password."
+msgstr ""
+
+#: ../../user_domains.rst:207
+msgid ""
+"If the login is successful, the user is directed to the ``User "
+"Management`` page, where they can proceed to change the password. The "
+"password must comply with the domain password policy during this process."
 msgstr ""
 
 #: ../../webtop.rst:5
