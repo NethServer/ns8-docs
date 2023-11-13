@@ -184,3 +184,24 @@ account. The safest approach is:
 2. disable the user using the ``Disable`` action from the three-dots menu
 
 When a user is deleted, user data will not be removed.
+
+.. _user-management-portal-section:
+
+User Management portal
+======================
+
+The management portal is a web application that allows any non-administrator user to change their own password without the need for administrator intervention.
+
+The portal is automatically configured on every instance of :ref:`active_directory-section` or :ref:`openldap-section` provider.
+
+The portal is available at the following URL: ::
+
+    https://<fqdn_node>/users-admin/<domain_name>/
+
+Where ``<fqdn_node>`` is the FQDN of the node where the provider is and ``<domain_name>`` is the name of the domain provided while configuring the domain.
+
+.. warning:: Without the trailing slash, the portal will not work.
+
+Once reached the page, the user is prompted for login and they can authenticate to the domain with user name and password.
+
+If the login is successful, the user is directed to the ``User Management`` page, where they can proceed to change the password. The password must comply with the domain password policy during this process.
