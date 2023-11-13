@@ -19,12 +19,13 @@ Major changes on 2023-11-xx
   and OpenLDAP domains. Beta 2 installations with OpenLDAP domains
   require to run a manual procedure to enable the password policy.
 
-- **User portal** -- Users of a domain can now access a web page to change their
-  password. The user portal is available at
-  ``https://IP_OR_FQDN/users-admin/DOMAIN_NAME/``; a full link is shown in the
-  ``Domains and users`` page, under the domain configuration settings. Beta 2
-  installations require to run a manual procedure to enable the user portal. See
-  the upgrade procedure for Samba and OpenLDAP in the next notes.
+- **User portal** -- Users of a domain can now access a web page to change
+  their password. The user portal is available at
+  ``https://IP_OR_FQDN/users-admin/DOMAIN_NAME/``; a full link is shown in
+  the ``Domains and users`` page, under the domain configuration settings.
+  Beta 2 installations require to run a manual procedure to enable the
+  user portal. See the upgrade procedure for Samba and OpenLDAP in the
+  next notes, and the :ref:`user-management-portal-section` page.
 
 - **Samba upgrade procedure** -- To upgrade Beta 2 installations run the
   following procedure for each Samba account provider instance. The list
