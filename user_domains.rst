@@ -156,6 +156,41 @@ You can connect the NethServer 8 cluster to an existing LDAP server:
 
 In the end, you will be able to bind locally installed applications with the external LDAP server.
 
+.. _password-policy-section:
+
+Password policy
+===============
+
+The password policy is a set of rules that defines the password complexity and the password expiration time. You can configure the password policy from the ``Domains and users`` page by selecting the interested domain and clicking :guilabel:`Edit password policy` from the three-dots menu of the ``Password`` card.
+
+You can configure password age and password strength policy separately.
+
+Password age
+------------
+
+You can toggle password age policy by clicking on the ``Password age`` switch. If enabled, you can configure the following parameters:
+
+* ``Minimum password age``: the minimum number of days that must pass before a new password change.
+* ``Maximum password age``: password expiration time in days. After this period, the password is no longer valid for logins and must be changed. Users can change their expired password with :ref:`user-management-portal-section`.
+
+Password strength
+-----------------
+
+By enabling the ``Password strength`` switch, you can configure the following parameters:
+
+* ``Password history length``: the number of old passwords that cannot be reused.
+* ``Minimum password length``: the minimum number of characters that a password must have.
+* ``Enforce password complexity``: enforce use of complex password, see note for more details.
+
+.. note:: A password is considered complex if it is long enough and meets three of the following rules:
+
+    * The password must contain at least one uppercase letter.
+    * The password must contain at least one lowercase letter.
+    * The password must contain at least one digit.
+    * The password must contain at least one special character.
+
+After editing the password policy, you can click on :guilabel:`Edit password policy` button to save the changes. Strength setting changes do not affect old passwords: they are valid from now on. Age setting changes are retroactive and are applied to already set passwords, too.
+
 .. _user_groups-section:
 
 User and groups
