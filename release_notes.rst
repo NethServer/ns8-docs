@@ -16,8 +16,10 @@ Major changes on 2023-11-xx
 
 - **Password policy** -- Added a new configuration option to the ``Domains
   and users`` page. It is possible to modify the password policy of Samba
-  and OpenLDAP domains. Beta 2 installations with OpenLDAP domains
-  require to run a manual procedure to enable the password policy.
+  and OpenLDAP domains. Beta 2 installations with OpenLDAP domains require
+  to run a manual procedure to enable the password policy. The the upgrade
+  procedure is detailed in the next notes. See also
+  :ref:`password-policy-section`.
 
 - **User portal** -- Users of a domain can now access a web page to change
   their password. The user portal is available at
