@@ -14,6 +14,17 @@ Major changes on 2023-11-xx
 
 **Release Candidate 1**
 
+Upgrade of existing Beta 2 installations can be started from ths Software
+center page as usual. After the core components are up-to-date, run the
+following manual procedures to complete the upgrade.
+
+- **Core upgrade procedure** -- To upgrade Beta 2 installations run the
+  following command on the leader node. It defines the new ``tunadm``
+  authorization role, available on new installations since core version
+  2.1.0: ::
+
+    redis-cli --raw hvals cluster/module_node | sort -n | uniq | xargs -I NODE_ID -- redis-cli SADD node/NODE_ID/roles/tunadm add-tun remove-tun add-public-service remove-public-service add-custom-zone remove-custom-zone
+
 - **Password policy** -- Added a new configuration option to the ``Domains
   and users`` page. It is possible to modify the password policy of Samba
   and OpenLDAP domains. Beta 2 installations with OpenLDAP domains require
