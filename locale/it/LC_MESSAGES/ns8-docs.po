@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-13 14:08+0000\n"
+"POT-Creation-Date: 2023-11-13 15:16+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -4992,104 +4992,203 @@ msgid ""
 msgstr ""
 
 #: ../../user_domains.rst:162
-msgid "User and groups"
+msgid "Password policy"
 msgstr ""
 
 #: ../../user_domains.rst:164
+msgid ""
+"The password policy is a set of rules that defines the password "
+"complexity and the password expiration time. You can configure the "
+"password policy from the ``Domains and users`` page by selecting the "
+"interested domain and clicking :guilabel:`Edit password policy` from the "
+"three-dots menu of the ``Password`` card."
+msgstr ""
+
+#: ../../user_domains.rst:166
+msgid "You can configure password age and password strength policy separately."
+msgstr ""
+
+#: ../../user_domains.rst:169
+msgid "Password age"
+msgstr ""
+
+#: ../../user_domains.rst:171
+msgid ""
+"You can toggle password age policy by clicking on the ``Password age`` "
+"switch. If enabled, you can configure the following parameters:"
+msgstr ""
+
+#: ../../user_domains.rst:173
+msgid ""
+"``Minimum password age``: the minimum number of days that must pass "
+"before a new password change."
+msgstr ""
+
+#: ../../user_domains.rst:174
+msgid ""
+"``Maximum password age``: password expiration time in days. After this "
+"period, the password is no longer valid for logins and must be changed. "
+"Users can change their expired password with :ref:`user-management-"
+"portal-section`."
+msgstr ""
+
+#: ../../user_domains.rst:177
+msgid "Password strength"
+msgstr ""
+
+#: ../../user_domains.rst:179
+msgid ""
+"By enabling the ``Password strength`` switch, you can configure the "
+"following parameters:"
+msgstr ""
+
+#: ../../user_domains.rst:181
+msgid ""
+"``Password history length``: the number of old passwords that cannot be "
+"reused."
+msgstr ""
+
+#: ../../user_domains.rst:182
+msgid ""
+"``Minimum password length``: the minimum number of characters that a "
+"password must have."
+msgstr ""
+
+#: ../../user_domains.rst:183
+msgid ""
+"``Enforce password complexity``: enforce use of complex password, see "
+"note for more details."
+msgstr ""
+
+#: ../../user_domains.rst:185
+msgid ""
+"A password is considered complex if it is long enough and meets three of "
+"the following rules:"
+msgstr ""
+
+#: ../../user_domains.rst:187
+msgid "The password must contain at least one uppercase letter."
+msgstr ""
+
+#: ../../user_domains.rst:188
+msgid "The password must contain at least one lowercase letter."
+msgstr ""
+
+#: ../../user_domains.rst:189
+msgid "The password must contain at least one digit."
+msgstr ""
+
+#: ../../user_domains.rst:190
+msgid "The password must contain at least one special character."
+msgstr ""
+
+#: ../../user_domains.rst:192
+msgid ""
+"After editing the password policy, you can click on :guilabel:`Edit "
+"password policy` button to save the changes. Strength setting changes do "
+"not affect old passwords: they are valid from now on. Age setting changes"
+" are retroactive and are applied to already set passwords, too."
+msgstr ""
+
+#: ../../user_domains.rst:197
+msgid "User and groups"
+msgstr ""
+
+#: ../../user_domains.rst:199
 msgid ""
 "You can manage users and groups of a domain by clicking on ``User and "
 "groups`` link from the ``Domains and users`` page."
 msgstr ""
 
-#: ../../user_domains.rst:166
+#: ../../user_domains.rst:201
 msgid ""
 "If an external user domain has been configured, the page shows read-only "
 "lists. Changes to the user base must be done on the external server."
 msgstr ""
 
-#: ../../user_domains.rst:169
+#: ../../user_domains.rst:204
 msgid ""
 "On the other hand, if a local AD or LDAP account provider has been "
 "installed, the page allows to create, modify and delete users and groups."
 msgstr ""
 
-#: ../../user_domains.rst:172
+#: ../../user_domains.rst:207
 msgid "When creating a user, the following fields are mandatory:"
 msgstr ""
 
-#: ../../user_domains.rst:174
+#: ../../user_domains.rst:209
 msgid "User name"
 msgstr ""
 
-#: ../../user_domains.rst:175
+#: ../../user_domains.rst:210
 msgid "Full name (name and surname)"
 msgstr ""
 
-#: ../../user_domains.rst:176
+#: ../../user_domains.rst:211
 msgid "Password"
 msgstr ""
 
-#: ../../user_domains.rst:178
+#: ../../user_domains.rst:213
 msgid "A user can be added to one or more groups."
 msgstr ""
 
-#: ../../user_domains.rst:180
+#: ../../user_domains.rst:215
 msgid ""
 "Sometimes you need to block user access to services without deleting the "
 "account. The safest approach is:"
 msgstr ""
 
-#: ../../user_domains.rst:183
+#: ../../user_domains.rst:218
 msgid "(optionally) change the user's password with a random one"
 msgstr ""
 
-#: ../../user_domains.rst:184
+#: ../../user_domains.rst:219
 msgid "disable the user using the ``Disable`` action from the three-dots menu"
 msgstr ""
 
-#: ../../user_domains.rst:186
+#: ../../user_domains.rst:221
 msgid "When a user is deleted, user data will not be removed."
 msgstr ""
 
-#: ../../user_domains.rst:191
+#: ../../user_domains.rst:226
 msgid "User Management portal"
 msgstr ""
 
-#: ../../user_domains.rst:193
+#: ../../user_domains.rst:228
 msgid ""
 "The management portal is a web application that allows any non-"
 "administrator user to change their own password without the need for "
 "administrator intervention."
 msgstr ""
 
-#: ../../user_domains.rst:195
+#: ../../user_domains.rst:230
 msgid ""
 "The portal is automatically configured on every instance of :ref"
 ":`active_directory-section` or :ref:`openldap-section` provider."
 msgstr ""
 
-#: ../../user_domains.rst:197
+#: ../../user_domains.rst:232
 msgid "The portal is available at the following URL: ::"
 msgstr ""
 
-#: ../../user_domains.rst:201
+#: ../../user_domains.rst:236
 msgid ""
 "Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
 "``<domain_name>`` is the name of the domain provided while configuring "
 "the domain."
 msgstr ""
 
-#: ../../user_domains.rst:203
+#: ../../user_domains.rst:238
 msgid "Without the trailing slash, the portal will not work."
 msgstr ""
 
-#: ../../user_domains.rst:205
+#: ../../user_domains.rst:240
 msgid ""
 "Once reached the page, the user is prompted for login and they can "
 "authenticate to the domain with user name and password."
 msgstr ""
 
-#: ../../user_domains.rst:207
+#: ../../user_domains.rst:242
 msgid ""
 "If the login is successful, the user is directed to the ``User "
 "Management`` page, where they can proceed to change the password. The "
