@@ -18,12 +18,41 @@ Currently supported providers are:
 * `Amazon S3 <https://aws.amazon.com/s3/>`_
 * `Azure blob storage <https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction>`_
 *  Generic S3, like :ref:`MinIO <minio-section>`
+* Windows file share, through SMB2/3 protocols
+* Local storage, attached to a node of the cluster
 
 Fill in the required fields depending on the chosen provider.
 
 A new encryption key will be automatically created for new repositories.
 If you are accessing a repository which already contains a NS8 backup, remember also to enter
 the ``Repository password`` under the ``Advanced`` section.
+
+If you want to store backup data in a locally attached storage, like an
+external USB disk or similar, follow this procedure:
+
+1. Format the disk with a supported filesystem, for example XFS: ::
+
+  mkfs.xfs /dev/disk/by-id/some-disk-id
+
+2. Create a Podman named volume for it: ::
+
+  podman volume create \
+      --label org.nethserver.role=backup \
+      --opt=device=/dev/disk/by-id/some-disk-id \
+      --opt=o=noatime \
+      backup00
+
+3. Configure the ``rclone-webdav.service`` unit to use that volume: ::
+
+  echo BACKUP_VOLUME=backup00 > /var/lib/nethserver/node/state/rclone-webdav.env
+
+4. Restart the service. The device is mounted automatically: ::
+
+  systemctl restart rclone-webdav.service
+
+5. (optional) Remove the default volume used by the service
+
+  podman volume rm rclone-webdav
 
 Application backup
 ==================
