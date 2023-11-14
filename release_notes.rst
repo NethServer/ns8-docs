@@ -29,6 +29,12 @@ following manual procedures to complete the upgrade.
 
     systemctl enable --now rclone-webdav.service
 
+  Finally, only for Rocky Linux nodes, enable the NethServer default
+  repositories: ::
+
+    cp -v /etc/nethserver/nethserver.repo /etc/yum.repos.d/nethserver.repo
+    dnf config-manager --save --set-disabled appstream baseos extras
+
 - **Password policy** -- Added a new configuration option to the ``Domains
   and users`` page. It is possible to modify the password policy of Samba
   and OpenLDAP domains. Beta 2 installations with OpenLDAP domains require
