@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-13 15:16+0000\n"
+"POT-Creation-Date: 2023-11-14 08:59+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -1685,18 +1685,34 @@ msgid ""
 "automatically configure the firewall."
 msgstr ""
 
-#: ../../firewall.rst:21
+#: ../../firewall.rst:22
+msgid "Browse open ports"
+msgstr ""
+
+#: ../../firewall.rst:24
+msgid ""
+"You can review the network interfaces and a table presenting open ports, "
+"categorized by services/modules for each node, on the  ``Nodes`` page. "
+"Access it by clicking the three dots menu on the node card you are "
+"interested in, then select :guilabel:`Firewall`."
+msgstr ""
+
+#: ../../firewall.rst:27
+msgid "Manage ports manually"
+msgstr ""
+
+#: ../../firewall.rst:29
 msgid ""
 "To allow connections to the listening port of a third-party service, use "
 "``firewall-cmd``. For instance, the following command opens TCP port "
 "9000: ::"
 msgstr ""
 
-#: ../../firewall.rst:26
+#: ../../firewall.rst:34
 msgid "To close the same port: ::"
 msgstr ""
 
-#: ../../firewall.rst:30
+#: ../../firewall.rst:38
 msgid ""
 "Changes to the firewall configuration are lost after a firewall restart "
 "or system reboot, unless the same command is invoked a second time, "
@@ -1704,7 +1720,7 @@ msgid ""
 "manual page for more information."
 msgstr ""
 
-#: ../../firewall.rst:35
+#: ../../firewall.rst:43
 msgid "To see the list of allowed services and ports, run ::"
 msgstr ""
 
