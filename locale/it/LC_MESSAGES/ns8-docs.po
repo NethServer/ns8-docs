@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-14 08:59+0000\n"
+"POT-Creation-Date: 2023-11-14 18:11+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Backup and restore"
 msgstr "Backup e ripristino"
 
-#: ../../backup.rst:5
+#: ../../backup.rst:7
 msgid ""
 "The full cluster backup is composed by configuration and applications "
 "data. Access the ``Backup`` page to manage the backup and restore."
@@ -32,46 +32,54 @@ msgstr ""
 "applicazioni. Accedere alla pagina ``Backup`` per gestire il backup e il "
 "ripristino."
 
-#: ../../backup.rst:9
+#: ../../backup.rst:11
 msgid "Backup repository"
 msgstr "Repository di backup"
 
-#: ../../backup.rst:11
+#: ../../backup.rst:13
 msgid ""
 "First, you will need to configure a backup repository where the data will"
 " be saved. A backup repository keeps all backup data encrypted using "
 "`restic <https://restic.readthedocs.io>`_ engine."
 msgstr ""
 
-#: ../../backup.rst:14
+#: ../../backup.rst:16
 msgid ""
 "Access the ``Backup`` page, click on :guilabel:`Add repository` button "
 "and choose a provider. Currently supported providers are:"
 msgstr ""
 
-#: ../../backup.rst:17
+#: ../../backup.rst:19
 msgid "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
 msgstr ""
 
-#: ../../backup.rst:18
+#: ../../backup.rst:20
 msgid "`Amazon S3 <https://aws.amazon.com/s3/>`_"
 msgstr ""
 
-#: ../../backup.rst:19
+#: ../../backup.rst:21
 msgid ""
 "`Azure blob storage <https://learn.microsoft.com/en-"
 "us/azure/storage/blobs/storage-blobs-introduction>`_"
 msgstr ""
 
-#: ../../backup.rst:20
+#: ../../backup.rst:22
 msgid "Generic S3, like :ref:`MinIO <minio-section>`"
 msgstr ""
 
-#: ../../backup.rst:22
-msgid "Fill in the required fields depending on the chosen provider."
+#: ../../backup.rst:23
+msgid "Windows file share, through SMB2/3 protocols"
 msgstr ""
 
 #: ../../backup.rst:24
+msgid ":ref:`Local storage <local-storage>`, attached to a node of the cluster"
+msgstr ""
+
+#: ../../backup.rst:26
+msgid "Fill in the required fields depending on the chosen provider."
+msgstr ""
+
+#: ../../backup.rst:28
 msgid ""
 "A new encryption key will be automatically created for new repositories. "
 "If you are accessing a repository which already contains a NS8 backup, "
@@ -79,118 +87,154 @@ msgid ""
 " section."
 msgstr ""
 
-#: ../../backup.rst:29
+#: ../../backup.rst:35
+msgid "Local storage"
+msgstr ""
+
+#: ../../backup.rst:37
+msgid ""
+"If you want to store backup data in a locally attached storage, like an "
+"external USB disk or similar, follow this procedure:"
+msgstr ""
+
+#: ../../backup.rst:40
+msgid "Format the disk with a supported filesystem, for example XFS: ::"
+msgstr ""
+
+#: ../../backup.rst:44
+msgid "Create a Podman volume named ``backup00`` for it: ::"
+msgstr ""
+
+#: ../../backup.rst:52
+msgid "Configure the ``rclone-webdav.service`` unit to use that volume: ::"
+msgstr ""
+
+#: ../../backup.rst:56
+msgid "Restart the service. The disk is mounted automatically: ::"
+msgstr ""
+
+#: ../../backup.rst:62
+msgid "The disk is unmounted when the ``rclone-webdav`` service is stopped"
+msgstr ""
+
+#: ../../backup.rst:64
+msgid ""
+"Remove the default volume used by the service, because it is no longer "
+"used. Existing content will be lost: ::"
+msgstr ""
+
+#: ../../backup.rst:70
 msgid "Application backup"
 msgstr ""
 
-#: ../../backup.rst:31
+#: ../../backup.rst:72
 msgid ""
 "Once at least one repository has been configured, you can schedule the "
 "backup of existing applications:"
 msgstr ""
 
-#: ../../backup.rst:33
+#: ../../backup.rst:74
 msgid "click on :guilabel:`Schedule backup` button"
 msgstr ""
 
-#: ../../backup.rst:34
+#: ../../backup.rst:75
 msgid "select which application instances should be added to the backup"
 msgstr ""
 
-#: ../../backup.rst:35
+#: ../../backup.rst:76
 msgid "choose one backup repository"
 msgstr ""
 
-#: ../../backup.rst:36
+#: ../../backup.rst:77
 msgid "setup day and time of the backup and the retention policy"
 msgstr ""
 
-#: ../../backup.rst:37
+#: ../../backup.rst:78
 msgid "enter a name of the backup"
 msgstr ""
 
-#: ../../backup.rst:38
+#: ../../backup.rst:79
 msgid "save the configuration by clicking the :guilabel:`Schedule backup` button"
 msgstr ""
 
-#: ../../backup.rst:40
+#: ../../backup.rst:81
 msgid ""
 "Whenever you want to manually execute the backup, click the ``Run backup "
 "now`` item from the three-dots menu of the scheduled backup."
 msgstr ""
 
-#: ../../backup.rst:42
+#: ../../backup.rst:83
 msgid ""
 "To add more instances to an existing backup, click the ``Edit`` item from"
 " the three-dots menu of the scheduled backup."
 msgstr ""
 
-#: ../../backup.rst:47
+#: ../../backup.rst:88
 msgid "Application restore"
 msgstr ""
 
-#: ../../backup.rst:49
+#: ../../backup.rst:90
 msgid ""
 "You can restore an application only if there is at least one repository "
 "configured:"
 msgstr ""
 
-#: ../../backup.rst:51
+#: ../../backup.rst:92
 msgid "click on the :guilabel:`Restore an app` button."
 msgstr ""
 
-#: ../../backup.rst:52
+#: ../../backup.rst:93
 msgid ""
 "a dialog box will list all applications inside the existing backup, "
 "select the application you want to restore"
 msgstr ""
 
-#: ../../backup.rst:53
+#: ../../backup.rst:94
 msgid ""
 "as default the restore procedure will create a new instance, if you want "
 "to replace the existing one select the ``Replace existing app`` option"
 msgstr ""
 
-#: ../../backup.rst:54
+#: ../../backup.rst:95
 msgid "select the target node"
 msgstr ""
 
-#: ../../backup.rst:55
+#: ../../backup.rst:96
 msgid "click on the :guilabel:`Restore` button"
 msgstr ""
 
-#: ../../backup.rst:60
+#: ../../backup.rst:101
 msgid "Cluster backup"
 msgstr ""
 
-#: ../../backup.rst:62
+#: ../../backup.rst:103
 msgid ""
 "The cluster configuration backup contains all required data to execute a "
 ":ref:`disaster_recovery-section`. It is a compressed JSON file encrypted "
 "with GPG."
 msgstr ""
 
-#: ../../backup.rst:65
+#: ../../backup.rst:106
 msgid ""
 "The first time ``Backup`` page is accessed an encryption password must be"
 " set and stored in a safe place. A new encryption password is needed also"
 " after a new leader node is elected (see :ref:`node-promotion-section`)."
 msgstr ""
 
-#: ../../backup.rst:69
+#: ../../backup.rst:110
 msgid ""
 "To download the cluster configuration backup, click on "
 ":guilabel:`Download cluster backup` button under the ``Cluster "
 "configuration`` section of the ``Backup`` page."
 msgstr ""
 
-#: ../../backup.rst:72
+#: ../../backup.rst:113
 msgid ""
 "Please, download the cluster configuration backup and keep it on a safe "
 "place."
 msgstr ""
 
-#: ../../backup.rst:74
+#: ../../backup.rst:115
 msgid ""
 "In addition, the cluster configuration backup is automatically copied to "
 "the designated repository each time a scheduled operation occurs. This "
@@ -198,58 +242,58 @@ msgid ""
 "and the specific cluster setup, including all its configurations."
 msgstr ""
 
-#: ../../backup.rst:78
+#: ../../backup.rst:119
 msgid ""
 "In case you lose the configuration backup, you can still restore "
 "applications to another cluster only if you know the encryption password "
 "of the backup repository."
 msgstr ""
 
-#: ../../backup.rst:83
+#: ../../backup.rst:124
 msgid ""
 "To inspect the content of the backup use the following command, where "
 "``<pass>`` is the encryption password entered before the download: ::"
 msgstr ""
 
-#: ../../backup.rst:91
+#: ../../backup.rst:132
 msgid "Disaster recovery"
 msgstr ""
 
-#: ../../backup.rst:93
+#: ../../backup.rst:134
 msgid ""
 "You can restore a previously configured cluster using the disaster "
 "recovery procedure. To follow this procedure you will need a :ref:`a "
 "cluster configuration backup <cluster_backup-section>`:"
 msgstr ""
 
-#: ../../backup.rst:96
+#: ../../backup.rst:137
 msgid ""
 ":ref:`install <install-section>` a new cluster and login using default "
 "credentials"
 msgstr ""
 
-#: ../../backup.rst:97
+#: ../../backup.rst:138
 msgid "change the default administrator password"
 msgstr ""
 
-#: ../../backup.rst:98
+#: ../../backup.rst:139
 msgid "click on :guilabel:`Restore cluster`"
 msgstr ""
 
-#: ../../backup.rst:99
+#: ../../backup.rst:140
 msgid ""
 "you can now choose whether to restore a cluster configuration hosted on a"
 " remote HTTP server or upload the backup from your browser"
 msgstr ""
 
-#: ../../backup.rst:101
+#: ../../backup.rst:142
 msgid ""
 "if on step 2 you entered the same password of the old cluster, the system"
 " will automatically decrypt the configuration backup; otherwise enter the"
 " encryption secret inside the ``Backup password`` field"
 msgstr ""
 
-#: ../../backup.rst:103
+#: ../../backup.rst:144
 msgid "select the applications to restore"
 msgstr ""
 
