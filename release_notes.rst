@@ -25,6 +25,10 @@ following manual procedures to complete the upgrade.
 
     redis-cli --raw hvals cluster/module_node | sort -n | uniq | xargs -I NODE_ID -- redis-cli SADD node/NODE_ID/roles/tunadm add-tun remove-tun add-public-service remove-public-service add-custom-zone remove-custom-zone
 
+  For each cluster node, enable the local WebDAV service for backups: ::
+
+    systemctl enable --now rclone-webdav.service
+
 - **Password policy** -- Added a new configuration option to the ``Domains
   and users`` page. It is possible to modify the password policy of Samba
   and OpenLDAP domains. Beta 2 installations with OpenLDAP domains require
