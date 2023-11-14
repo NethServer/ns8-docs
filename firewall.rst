@@ -18,6 +18,14 @@ By default, NS8 will have the following open ports:
 
 Modules which requires publicly open ports, like the mail server, will automatically configure the firewall.
 
+Browse open ports
+-----------------
+
+You can review the network interfaces and a table presenting open ports, categorized by services/modules for each node, on the  ``Nodes`` page. Access it by clicking the three dots menu on the node card you are interested in, then select :guilabel:`Firewall`.
+
+Manage ports manually
+---------------------
+
 To allow connections to the listening port of a third-party service, use
 ``firewall-cmd``. For instance, the following command opens TCP port 9000: ::
 
