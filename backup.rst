@@ -2,6 +2,8 @@
 Backup and restore
 ==================
 
+.. highlight:: text
+
 The full cluster backup is composed by configuration and applications data.
 Access the ``Backup`` page to manage the backup and restore.
 
@@ -32,27 +34,27 @@ external USB disk or similar, follow this procedure:
 
 1. Format the disk with a supported filesystem, for example XFS: ::
 
-  mkfs.xfs /dev/disk/by-id/some-disk-id
+      mkfs.xfs /dev/disk/by-id/some-disk-id
 
 2. Create a Podman named volume for it: ::
 
-  podman volume create \
-      --label org.nethserver.role=backup \
-      --opt=device=/dev/disk/by-id/some-disk-id \
-      --opt=o=noatime \
-      backup00
+      podman volume create \
+            --label org.nethserver.role=backup \
+            --opt=device=/dev/disk/by-id/some-disk-id \
+            --opt=o=noatime \
+            backup00
 
 3. Configure the ``rclone-webdav.service`` unit to use that volume: ::
 
-  echo BACKUP_VOLUME=backup00 > /var/lib/nethserver/node/state/rclone-webdav.env
+      echo BACKUP_VOLUME=backup00 > /var/lib/nethserver/node/state/rclone-webdav.env
 
 4. Restart the service. The device is mounted automatically: ::
 
-  systemctl restart rclone-webdav.service
+      systemctl restart rclone-webdav.service
 
-5. (optional) Remove the default volume used by the service
+5. (optional) Remove the default volume used by the service: ::
 
-  podman volume rm rclone-webdav
+      podman volume rm rclone-webdav
 
 Application backup
 ==================
