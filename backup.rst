@@ -21,13 +21,18 @@ Currently supported providers are:
 * `Azure blob storage <https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction>`_
 *  Generic S3, like :ref:`MinIO <minio-section>`
 * Windows file share, through SMB2/3 protocols
-* Local storage, attached to a node of the cluster
+* :ref:`Local storage <local-storage>`, attached to a node of the cluster
 
 Fill in the required fields depending on the chosen provider.
 
 A new encryption key will be automatically created for new repositories.
 If you are accessing a repository which already contains a NS8 backup, remember also to enter
 the ``Repository password`` under the ``Advanced`` section.
+
+.. _local-storage:
+
+Local storage
+-------------
 
 If you want to store backup data in a locally attached storage, like an
 external USB disk or similar, follow this procedure:
@@ -36,7 +41,7 @@ external USB disk or similar, follow this procedure:
 
       mkfs.xfs /dev/disk/by-id/some-disk-id
 
-2. Create a Podman named volume for it: ::
+2. Create a Podman volume named ``backup00`` for it: ::
 
       podman volume create \
             --label org.nethserver.role=backup \
@@ -48,11 +53,16 @@ external USB disk or similar, follow this procedure:
 
       echo BACKUP_VOLUME=backup00 > /var/lib/nethserver/node/state/rclone-webdav.env
 
-4. Restart the service. The device is mounted automatically: ::
+4. Restart the service. The disk is mounted automatically: ::
 
       systemctl restart rclone-webdav.service
 
-5. (optional) Remove the default volume used by the service: ::
+   .. note::
+
+      The disk is unmounted when the ``rclone-webdav`` service is stopped
+
+5. Remove the default volume used by the service, because it is no longer
+   used. Existing content will be lost: ::
 
       podman volume rm rclone-webdav
 
