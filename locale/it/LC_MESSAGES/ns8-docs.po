@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 09:01+0000\n"
+"POT-Creation-Date: 2023-11-15 16:46+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -806,7 +806,7 @@ msgstr ""
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
 #: ../../ejabberd.rst:23 ../../imapsync.rst:26 ../../index.rst:30
 #: ../../mail.rst:32 ../../mariadb.rst:11 ../../mattermost.rst:13
-#: ../../minio.rst:12 ../../nextcloud.rst:21 ../../nginx.rst:14
+#: ../../minio.rst:14 ../../nextcloud.rst:21 ../../nginx.rst:14
 #: ../../roundcube.rst:19 ../../webtop.rst:12
 msgid "Configuration"
 msgstr ""
@@ -827,7 +827,7 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../ejabberd.rst:32
-#: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:19
+#: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:21
 #: ../../nginx.rst:16 ../../roundcube.rst:30 ../../webtop.rst:19
 msgid "How to configure:"
 msgstr ""
@@ -852,7 +852,7 @@ msgid ""
 "your needs"
 msgstr ""
 
-#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:26
+#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:28
 #: ../../nextcloud.rst:34 ../../roundcube.rst:35 ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
 msgstr ""
@@ -3250,25 +3250,25 @@ msgstr ""
 msgid "MinIO"
 msgstr "MinIO"
 
-#: ../../minio.rst:7
+#: ../../minio.rst:9
 msgid ""
 "`MinIO <https://min.io/>`_ offers high-performance, S3 compatible object "
 "storage."
 msgstr ""
 
-#: ../../minio.rst:9
+#: ../../minio.rst:11
 msgid ""
 "You can install multiple MinIO instances on the same node from the :ref"
 ":`software_center-section`."
 msgstr ""
 
-#: ../../minio.rst:14
+#: ../../minio.rst:16
 msgid ""
 "MinIO needs two dedicated virtual host, a FQDN like ``minio-"
 "api.nethserver.org`` and ``minio-ui.nethserver.org``."
 msgstr ""
 
-#: ../../minio.rst:16
+#: ../../minio.rst:18
 msgid ""
 "Before proceeding with the configuration, make sure to create the "
 "corresponding name records inside your DNS server. If you are planning to"
@@ -3276,101 +3276,83 @@ msgid ""
 "corresponding public DNS records."
 msgstr ""
 
-#: ../../minio.rst:21
+#: ../../minio.rst:23
 msgid ""
 "access the application configuration page and enter the ``API server host"
 " name``: this will be the FQDN used by hosts to connect to S3 services"
 msgstr ""
 
-#: ../../minio.rst:23
+#: ../../minio.rst:25
 msgid ""
 "fill the ``Web interface host name``: you will be able to configure your "
 "MinIO instance from this FQDN"
 msgstr ""
 
-#: ../../minio.rst:25 ../../nextcloud.rst:32
+#: ../../minio.rst:27 ../../nextcloud.rst:32
 msgid "enable ``Let's Encrypt`` option accordingly to your needs"
 msgstr ""
 
-#: ../../minio.rst:27
+#: ../../minio.rst:29
 msgid ""
 "open the entered host name inside the browser, eg: ``https://minio-"
 "ui.nethserver.org``."
 msgstr ""
 
-#: ../../minio.rst:30
+#: ../../minio.rst:32
 msgid "Configure local disks"
 msgstr ""
 
-#: ../../minio.rst:32
+#: ../../minio.rst:34
 msgid ""
 "Setting up MinIO with a locally attached USB/SCSI disk provides two key "
 "benefits:"
 msgstr ""
 
-#: ../../minio.rst:34
+#: ../../minio.rst:36
 msgid ""
 "data privacy: if you're cautious about sharing data with cloud providers,"
 " this setup allows you to retain control over your information and "
 "prevent third-party access"
 msgstr ""
 
-#: ../../minio.rst:35
+#: ../../minio.rst:37
 msgid ""
 "local data ownership: by utilizing a local disk, you maintain complete "
 "data control within your own environment. This improves security and "
 "minimizes dependence on external services"
 msgstr ""
 
-#: ../../minio.rst:39
+#: ../../minio.rst:41
 msgid "Instructions"
 msgstr ""
 
-#: ../../minio.rst:41
+#: ../../minio.rst:43
 msgid "As system root user, follow these steps for a disk named ``scsi-disk1``:"
 msgstr ""
 
-#: ../../minio.rst:43
+#: ../../minio.rst:45
 msgid ""
 "**Create a mount point:** make a directory to serve as the mount point "
-"for the disk::"
+"for the disk: ::"
 msgstr ""
 
-#: ../../minio.rst:46
-msgid "mkdir -p /mnt/data"
-msgstr ""
-
-#: ../../minio.rst:48
+#: ../../minio.rst:50
 msgid ""
 "**Automate mount at boot:** ensure the disk is automatically mounted "
-"during boot by modifying ``/etc/fstab``::"
+"during boot by modifying ``/etc/fstab``: ::"
 msgstr ""
 
-#: ../../minio.rst:51
-msgid ""
-"echo '/dev/disk/by-id/scsi-disk1 /mnt/data ext4 defaults,nofail,discard 0"
-" 0' >> /etc/fstab systemctl daemon-reload"
+#: ../../minio.rst:56
+msgid "**Mount the disk:** physically attach the disk using the mount command: ::"
 msgstr ""
 
-#: ../../minio.rst:54
-msgid "**Mount the disk:** physically attach the disk using the mount command::"
-msgstr ""
-
-#: ../../minio.rst:57
-msgid "mount /mnt/data"
-msgstr ""
-
-#: ../../minio.rst:59
+#: ../../minio.rst:61
 msgid ""
 "**Ensure MinIO access:** allow the MinIO instance (e.g., ``minio1``) to "
-"access the disk::"
+"access the disk: ::"
 msgstr ""
 
-#: ../../minio.rst:62
-msgid "chown minio1:minio1 /mnt/data/"
-msgstr ""
-
-#: ../../minio.rst:64
+#: ../../minio.rst:66
 msgid ""
 "Finally, within the module's user interface, configure the ``Storage "
 "path`` to be `/mnt/data`. Please note that the above path won't be part "
@@ -8173,5 +8155,43 @@ msgstr ""
 #~ " procedure is detailed in the next"
 #~ " notes. See also :ref:`password-policy-"
 #~ "section`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Create a mount point:** make a "
+#~ "directory to serve as the mount "
+#~ "point for the disk::"
+#~ msgstr ""
+
+#~ msgid "mkdir -p /mnt/data"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Automate mount at boot:** ensure the"
+#~ " disk is automatically mounted during "
+#~ "boot by modifying ``/etc/fstab``::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "echo '/dev/disk/by-id/scsi-disk1 /mnt/data "
+#~ "ext4 defaults,nofail,discard 0 0' >> "
+#~ "/etc/fstab systemctl daemon-reload"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Mount the disk:** physically attach "
+#~ "the disk using the mount command::"
+#~ msgstr ""
+
+#~ msgid "mount /mnt/data"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Ensure MinIO access:** allow the MinIO"
+#~ " instance (e.g., ``minio1``) to access "
+#~ "the disk::"
+#~ msgstr ""
+
+#~ msgid "chown minio1:minio1 /mnt/data/"
 #~ msgstr ""
 
