@@ -4,6 +4,8 @@
 MinIO
 =====
 
+.. highlight:: text
+
 `MinIO <https://min.io/>`_ offers high-performance, S3 compatible object storage.
 
 You can install multiple MinIO instances on the same node from the :ref:`software_center-section`.
@@ -41,25 +43,25 @@ Instructions
 As system root user, follow these steps for a disk named ``scsi-disk1``:
 
 1. **Create a mount point:**
-   make a directory to serve as the mount point for the disk::
+   make a directory to serve as the mount point for the disk: ::
 
-   mkdir -p /mnt/data
+     mkdir -p /mnt/data
 
 2. **Automate mount at boot:**
-   ensure the disk is automatically mounted during boot by modifying ``/etc/fstab``::
+   ensure the disk is automatically mounted during boot by modifying ``/etc/fstab``: ::
 
-   echo '/dev/disk/by-id/scsi-disk1 /mnt/data ext4 defaults,nofail,discard 0 0' >> /etc/fstab
-   systemctl daemon-reload
+     echo '/dev/disk/by-id/scsi-disk1 /mnt/data ext4 defaults,nofail,discard 0 0' >> /etc/fstab
+     systemctl daemon-reload
 
 3. **Mount the disk:**
-   physically attach the disk using the mount command::
+   physically attach the disk using the mount command: ::
 
-   mount /mnt/data
+     mount /mnt/data
 
 4. **Ensure MinIO access:**
-   allow the MinIO instance (e.g., ``minio1``) to access the disk::
+   allow the MinIO instance (e.g., ``minio1``) to access the disk: ::
 
-   chown minio1:minio1 /mnt/data/
+     chown minio1:minio1 /mnt/data/
 
 Finally, within the module's user interface, configure the ``Storage path`` to be `/mnt/data`.
 Please note that the above path won't be part of the backup.
