@@ -1,4 +1,4 @@
-.. _imapsync-section: 
+.. _imapsync-section:
 
 ========
 Imapsync

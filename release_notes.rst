@@ -14,7 +14,35 @@ Major changes on 2023-11-xx
 
 **Release Candidate 1**
 
-Upgrade of existing Beta 2 installations can be started from ths Software
+New features introduced by RC1 are:
+
+- **Password policy** -- Added a new configuration option to the ``Domains
+  and users`` page. It is possible to modify the password policy of Samba
+  and OpenLDAP domains. Beta 2 installations with OpenLDAP domains require
+  to run a manual procedure to enable the password policy. The upgrade
+  procedure is detailed in the next notes. See also
+  :ref:`password-policy-section`.
+
+- **User portal** -- Users of a domain can now access a web page to change
+  their own password. The user portal is available at
+  ``https://IP_OR_FQDN/users-admin/DOMAIN_NAME/``; a full link is shown in
+  the ``Domains and users`` page, under the domain configuration settings.
+  Beta 2 installations require to run a manual procedure to enable the
+  user portal. See the upgrade procedure for Samba and OpenLDAP in the
+  next notes, and the :ref:`user-management-portal-section` page.
+
+- **Backup repositories** -- Beside existing cloud protocols, it is now
+  easier to send backups to some local device. A backup repository can now
+  be created in a *Windows file share* or in a *Local storage*, like a
+  disk attached to a cluster node. See :ref:`backup-restore-section`
+  for more information.
+
+- **Fetch mail from other servers** -- :ref:`imapsync-section` is a new
+  advanced application designed to retrieve email messages from remote
+  IMAP servers at scheduled intervals and to synchronize entire IMAP
+  accounts.
+
+Upgrade of existing Beta 2 installations can be started from the Software
 center page as usual. After the core components are up-to-date, run the
 following manual procedures to complete the upgrade.
 
@@ -34,21 +62,6 @@ following manual procedures to complete the upgrade.
 
     cp -v /etc/nethserver/nethserver.repo /etc/yum.repos.d/nethserver.repo
     dnf config-manager --save --set-disabled appstream baseos extras
-
-- **Password policy** -- Added a new configuration option to the ``Domains
-  and users`` page. It is possible to modify the password policy of Samba
-  and OpenLDAP domains. Beta 2 installations with OpenLDAP domains require
-  to run a manual procedure to enable the password policy. The the upgrade
-  procedure is detailed in the next notes. See also
-  :ref:`password-policy-section`.
-
-- **User portal** -- Users of a domain can now access a web page to change
-  their password. The user portal is available at
-  ``https://IP_OR_FQDN/users-admin/DOMAIN_NAME/``; a full link is shown in
-  the ``Domains and users`` page, under the domain configuration settings.
-  Beta 2 installations require to run a manual procedure to enable the
-  user portal. See the upgrade procedure for Samba and OpenLDAP in the
-  next notes, and the :ref:`user-management-portal-section` page.
 
 - **Samba upgrade procedure** -- To upgrade Beta 2 installations run the
   following procedure for each Samba account provider instance. The list
