@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-14 18:11+0000\n"
+"POT-Creation-Date: 2023-11-15 08:59+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../backup.rst:3
+#: ../../backup.rst:5
 msgid "Backup and restore"
 msgstr "Backup e ripristino"
 
-#: ../../backup.rst:7
+#: ../../backup.rst:9
 msgid ""
 "The full cluster backup is composed by configuration and applications "
 "data. Access the ``Backup`` page to manage the backup and restore."
@@ -32,54 +32,54 @@ msgstr ""
 "applicazioni. Accedere alla pagina ``Backup`` per gestire il backup e il "
 "ripristino."
 
-#: ../../backup.rst:11
+#: ../../backup.rst:13
 msgid "Backup repository"
 msgstr "Repository di backup"
 
-#: ../../backup.rst:13
+#: ../../backup.rst:15
 msgid ""
 "First, you will need to configure a backup repository where the data will"
 " be saved. A backup repository keeps all backup data encrypted using "
 "`restic <https://restic.readthedocs.io>`_ engine."
 msgstr ""
 
-#: ../../backup.rst:16
+#: ../../backup.rst:18
 msgid ""
 "Access the ``Backup`` page, click on :guilabel:`Add repository` button "
 "and choose a provider. Currently supported providers are:"
 msgstr ""
 
-#: ../../backup.rst:19
+#: ../../backup.rst:21
 msgid "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
 msgstr ""
 
-#: ../../backup.rst:20
+#: ../../backup.rst:22
 msgid "`Amazon S3 <https://aws.amazon.com/s3/>`_"
 msgstr ""
 
-#: ../../backup.rst:21
+#: ../../backup.rst:23
 msgid ""
 "`Azure blob storage <https://learn.microsoft.com/en-"
 "us/azure/storage/blobs/storage-blobs-introduction>`_"
 msgstr ""
 
-#: ../../backup.rst:22
+#: ../../backup.rst:24
 msgid "Generic S3, like :ref:`MinIO <minio-section>`"
 msgstr ""
 
-#: ../../backup.rst:23
+#: ../../backup.rst:25
 msgid "Windows file share, through SMB2/3 protocols"
 msgstr ""
 
-#: ../../backup.rst:24
+#: ../../backup.rst:26
 msgid ":ref:`Local storage <local-storage>`, attached to a node of the cluster"
 msgstr ""
 
-#: ../../backup.rst:26
+#: ../../backup.rst:28
 msgid "Fill in the required fields depending on the chosen provider."
 msgstr ""
 
-#: ../../backup.rst:28
+#: ../../backup.rst:30
 msgid ""
 "A new encryption key will be automatically created for new repositories. "
 "If you are accessing a repository which already contains a NS8 backup, "
@@ -87,154 +87,154 @@ msgid ""
 " section."
 msgstr ""
 
-#: ../../backup.rst:35
+#: ../../backup.rst:37
 msgid "Local storage"
 msgstr ""
 
-#: ../../backup.rst:37
+#: ../../backup.rst:39
 msgid ""
 "If you want to store backup data in a locally attached storage, like an "
 "external USB disk or similar, follow this procedure:"
 msgstr ""
 
-#: ../../backup.rst:40
+#: ../../backup.rst:42
 msgid "Format the disk with a supported filesystem, for example XFS: ::"
 msgstr ""
 
-#: ../../backup.rst:44
+#: ../../backup.rst:46
 msgid "Create a Podman volume named ``backup00`` for it: ::"
 msgstr ""
 
-#: ../../backup.rst:52
+#: ../../backup.rst:54
 msgid "Configure the ``rclone-webdav.service`` unit to use that volume: ::"
 msgstr ""
 
-#: ../../backup.rst:56
+#: ../../backup.rst:58
 msgid "Restart the service. The disk is mounted automatically: ::"
 msgstr ""
 
-#: ../../backup.rst:62
+#: ../../backup.rst:64
 msgid "The disk is unmounted when the ``rclone-webdav`` service is stopped"
 msgstr ""
 
-#: ../../backup.rst:64
+#: ../../backup.rst:66
 msgid ""
 "Remove the default volume used by the service, because it is no longer "
 "used. Existing content will be lost: ::"
 msgstr ""
 
-#: ../../backup.rst:70
+#: ../../backup.rst:72
 msgid "Application backup"
 msgstr ""
 
-#: ../../backup.rst:72
+#: ../../backup.rst:74
 msgid ""
 "Once at least one repository has been configured, you can schedule the "
 "backup of existing applications:"
 msgstr ""
 
-#: ../../backup.rst:74
+#: ../../backup.rst:76
 msgid "click on :guilabel:`Schedule backup` button"
 msgstr ""
 
-#: ../../backup.rst:75
+#: ../../backup.rst:77
 msgid "select which application instances should be added to the backup"
 msgstr ""
 
-#: ../../backup.rst:76
+#: ../../backup.rst:78
 msgid "choose one backup repository"
 msgstr ""
 
-#: ../../backup.rst:77
+#: ../../backup.rst:79
 msgid "setup day and time of the backup and the retention policy"
 msgstr ""
 
-#: ../../backup.rst:78
+#: ../../backup.rst:80
 msgid "enter a name of the backup"
 msgstr ""
 
-#: ../../backup.rst:79
+#: ../../backup.rst:81
 msgid "save the configuration by clicking the :guilabel:`Schedule backup` button"
 msgstr ""
 
-#: ../../backup.rst:81
+#: ../../backup.rst:83
 msgid ""
 "Whenever you want to manually execute the backup, click the ``Run backup "
 "now`` item from the three-dots menu of the scheduled backup."
 msgstr ""
 
-#: ../../backup.rst:83
+#: ../../backup.rst:85
 msgid ""
 "To add more instances to an existing backup, click the ``Edit`` item from"
 " the three-dots menu of the scheduled backup."
 msgstr ""
 
-#: ../../backup.rst:88
+#: ../../backup.rst:90
 msgid "Application restore"
 msgstr ""
 
-#: ../../backup.rst:90
+#: ../../backup.rst:92
 msgid ""
 "You can restore an application only if there is at least one repository "
 "configured:"
 msgstr ""
 
-#: ../../backup.rst:92
+#: ../../backup.rst:94
 msgid "click on the :guilabel:`Restore an app` button."
 msgstr ""
 
-#: ../../backup.rst:93
+#: ../../backup.rst:95
 msgid ""
 "a dialog box will list all applications inside the existing backup, "
 "select the application you want to restore"
 msgstr ""
 
-#: ../../backup.rst:94
+#: ../../backup.rst:96
 msgid ""
 "as default the restore procedure will create a new instance, if you want "
 "to replace the existing one select the ``Replace existing app`` option"
 msgstr ""
 
-#: ../../backup.rst:95
+#: ../../backup.rst:97
 msgid "select the target node"
 msgstr ""
 
-#: ../../backup.rst:96
+#: ../../backup.rst:98
 msgid "click on the :guilabel:`Restore` button"
 msgstr ""
 
-#: ../../backup.rst:101
+#: ../../backup.rst:103
 msgid "Cluster backup"
 msgstr ""
 
-#: ../../backup.rst:103
+#: ../../backup.rst:105
 msgid ""
 "The cluster configuration backup contains all required data to execute a "
 ":ref:`disaster_recovery-section`. It is a compressed JSON file encrypted "
 "with GPG."
 msgstr ""
 
-#: ../../backup.rst:106
+#: ../../backup.rst:108
 msgid ""
 "The first time ``Backup`` page is accessed an encryption password must be"
 " set and stored in a safe place. A new encryption password is needed also"
 " after a new leader node is elected (see :ref:`node-promotion-section`)."
 msgstr ""
 
-#: ../../backup.rst:110
+#: ../../backup.rst:112
 msgid ""
 "To download the cluster configuration backup, click on "
 ":guilabel:`Download cluster backup` button under the ``Cluster "
 "configuration`` section of the ``Backup`` page."
 msgstr ""
 
-#: ../../backup.rst:113
+#: ../../backup.rst:115
 msgid ""
 "Please, download the cluster configuration backup and keep it on a safe "
 "place."
 msgstr ""
 
-#: ../../backup.rst:115
+#: ../../backup.rst:117
 msgid ""
 "In addition, the cluster configuration backup is automatically copied to "
 "the designated repository each time a scheduled operation occurs. This "
@@ -242,58 +242,58 @@ msgid ""
 "and the specific cluster setup, including all its configurations."
 msgstr ""
 
-#: ../../backup.rst:119
+#: ../../backup.rst:121
 msgid ""
 "In case you lose the configuration backup, you can still restore "
 "applications to another cluster only if you know the encryption password "
 "of the backup repository."
 msgstr ""
 
-#: ../../backup.rst:124
+#: ../../backup.rst:126
 msgid ""
 "To inspect the content of the backup use the following command, where "
 "``<pass>`` is the encryption password entered before the download: ::"
 msgstr ""
 
-#: ../../backup.rst:132
+#: ../../backup.rst:134
 msgid "Disaster recovery"
 msgstr ""
 
-#: ../../backup.rst:134
+#: ../../backup.rst:136
 msgid ""
 "You can restore a previously configured cluster using the disaster "
 "recovery procedure. To follow this procedure you will need a :ref:`a "
 "cluster configuration backup <cluster_backup-section>`:"
 msgstr ""
 
-#: ../../backup.rst:137
+#: ../../backup.rst:139
 msgid ""
 ":ref:`install <install-section>` a new cluster and login using default "
 "credentials"
 msgstr ""
 
-#: ../../backup.rst:138
+#: ../../backup.rst:140
 msgid "change the default administrator password"
 msgstr ""
 
-#: ../../backup.rst:139
+#: ../../backup.rst:141
 msgid "click on :guilabel:`Restore cluster`"
 msgstr ""
 
-#: ../../backup.rst:140
+#: ../../backup.rst:142
 msgid ""
 "you can now choose whether to restore a cluster configuration hosted on a"
 " remote HTTP server or upload the backup from your browser"
 msgstr ""
 
-#: ../../backup.rst:142
+#: ../../backup.rst:144
 msgid ""
 "if on step 2 you entered the same password of the old cluster, the system"
 " will automatically decrypt the configuration backup; otherwise enter the"
 " encryption secret inside the ``Backup password`` field"
 msgstr ""
 
-#: ../../backup.rst:144
+#: ../../backup.rst:146
 msgid "select the applications to restore"
 msgstr ""
 
@@ -4047,21 +4047,163 @@ msgid ""
 msgstr ""
 
 #: ../../release_notes.rst:13
-msgid "Major changes on 2023-09-13"
+msgid "Major changes on 2023-11-xx"
 msgstr ""
 
 #: ../../release_notes.rst:15
-msgid "**Beta 2**"
+msgid "**Release Candidate 1**"
 msgstr ""
 
 #: ../../release_notes.rst:17
+msgid "New features introduced by RC1 are:"
+msgstr ""
+
+#: ../../release_notes.rst:19
+msgid ""
+"**Password policy** -- Added a new configuration option to the ``Domains "
+"and users`` page. It is possible to modify the password policy of Samba "
+"and OpenLDAP domains. Beta 2 installations with OpenLDAP domains require "
+"to run a manual procedure to enable the password policy. The upgrade "
+"procedure is detailed in the next notes. See also :ref:`password-policy-"
+"section`."
+msgstr ""
+
+#: ../../release_notes.rst:26
+msgid ""
+"**User portal** -- Users of a domain can now access a web page to change "
+"their own password. The user portal is available at ``https://IP_OR_FQDN"
+"/users-admin/DOMAIN_NAME/``; a full link is shown in the ``Domains and "
+"users`` page, under the domain configuration settings. Beta 2 "
+"installations require to run a manual procedure to enable the user "
+"portal. See the upgrade procedure for Samba and OpenLDAP in the next "
+"notes, and the :ref:`user-management-portal-section` page."
+msgstr ""
+
+#: ../../release_notes.rst:34
+msgid ""
+"**Backup repositories** -- Beside existing cloud protocols, it is now "
+"easier to send backups to some local device. A backup repository can now "
+"be created in a *Windows file share* or in a *Local storage*, like a disk"
+" attached to a cluster node. See :ref:`backup-restore-section` for more "
+"information."
+msgstr ""
+
+#: ../../release_notes.rst:40
+msgid ""
+"**Fetch mail from other servers** -- :ref:`imapsync-section` is a new "
+"advanced application designed to retrieve email messages from remote IMAP"
+" servers at scheduled intervals and to synchronize entire IMAP accounts."
+msgstr ""
+
+#: ../../release_notes.rst:45
+msgid ""
+"Upgrade of existing Beta 2 installations can be started from the Software"
+" center page as usual. After the core components are up-to-date, run the "
+"following manual procedures to complete the upgrade."
+msgstr ""
+
+#: ../../release_notes.rst:49
+msgid ""
+"**Core upgrade procedure** -- To upgrade Beta 2 installations run the "
+"following command on the leader node. It defines the new ``tunadm`` "
+"authorization role, available on new installations since core version "
+"2.1.0: ::"
+msgstr ""
+
+#: ../../release_notes.rst:56
+msgid "For each cluster node, enable the local WebDAV service for backups: ::"
+msgstr ""
+
+#: ../../release_notes.rst:60
+msgid ""
+"Finally, only for Rocky Linux nodes, enable the NethServer default "
+"repositories: ::"
+msgstr ""
+
+#: ../../release_notes.rst:66
+msgid ""
+"**Samba upgrade procedure** -- To upgrade Beta 2 installations run the "
+"following procedure for each Samba account provider instance. The list of"
+" instances can be obtained from the ``Domains and users`` page, under the"
+" domain configuration settings; **annotate for each provider**:"
+msgstr ""
+
+#: ../../release_notes.rst:71
+msgid "the module ID (string), for example ``samba1``"
+msgstr ""
+
+#: ../../release_notes.rst:72 ../../release_notes.rst:107
+msgid "the node ID (number), for example ``1``"
+msgstr ""
+
+#: ../../release_notes.rst:73 ../../release_notes.rst:108
+msgid ""
+"a free TCP port number, generated by executing on the leader node a "
+"command like this: ::"
+msgstr ""
+
+#: ../../release_notes.rst:79 ../../release_notes.rst:114
+msgid ""
+"In the above example set ``node_id`` with the correct node ID (number). "
+"Let's assume the above command prints the port number below: ::"
+msgstr ""
+
+#: ../../release_notes.rst:84 ../../release_notes.rst:119
+msgid "With the above annotations, run the following steps for each provider:"
+msgstr ""
+
+#: ../../release_notes.rst:86 ../../release_notes.rst:121
+msgid "Log on the cluster node where the provider instance runs."
+msgstr ""
+
+#: ../../release_notes.rst:88 ../../release_notes.rst:123
+msgid "Apply the TCP port configuration and start the user portal service: ::"
+msgstr ""
+
+#: ../../release_notes.rst:101
+msgid ""
+"**OpenLDAP upgrade procedure** -- To upgrade Beta 2 installations run the"
+" following procedure for each OpenLDAP account provider instance. The "
+"list of instances can be obtained from the ``Domains and users`` page, "
+"under the domain configuration settings; **annotate for each provider**:"
+msgstr ""
+
+#: ../../release_notes.rst:106
+msgid "the module ID (string), for example ``openldap1``"
+msgstr ""
+
+#: ../../release_notes.rst:136
+msgid ""
+"After repeating the above steps on each cluster node, run the following "
+"commands in one instance of your choice (the example is for "
+"``openldap1``): ::"
+msgstr ""
+
+#: ../../release_notes.rst:197
+msgid ""
+"**Mattermost upgrade procedure** -- Mattermost upgrade must be completed "
+"manually to allocate and open UDP ports required by the Calls plugin. "
+"From the ``Software center`` page, ensure Mattermost is at version "
+"``2.0.0``. Then clone the running instance and after clone is complete, "
+"remove the old instance."
+msgstr ""
+
+#: ../../release_notes.rst:204
+msgid "Major changes on 2023-09-13"
+msgstr ""
+
+#: ../../release_notes.rst:206
+msgid "**Beta 2**"
+msgstr ""
+
+#: ../../release_notes.rst:208
 msgid ""
 "**Pre-built image** -- Images are based on Rocky Linux. Available formats"
 " are ``.qcow2`` for QEMU/Proxmox and ``.vmdk`` for VMware. See :ref"
 ":`install_image-section` for image download links."
 msgstr ""
 
-#: ../../release_notes.rst:21
+#: ../../release_notes.rst:212
 msgid ""
 "**FQDN requirement** -- The cluster creation procedure now asks to review"
 " and set the current system host name. The host name is expected in short"
@@ -4071,11 +4213,11 @@ msgid ""
 " For example ::"
 msgstr ""
 
-#: ../../release_notes.rst:29
+#: ../../release_notes.rst:220
 msgid "See also :ref:`dns-reqs`."
 msgstr ""
 
-#: ../../release_notes.rst:31
+#: ../../release_notes.rst:222
 msgid ""
 "**WireGuard port 55820** -- The UDP port used by WireGuard in the "
 "creation of the cluster VPN is now fixed to ``55820``. Clusters already "
@@ -4084,65 +4226,65 @@ msgid ""
 "the leader node the following steps to fix it."
 msgstr ""
 
-#: ../../release_notes.rst:37
+#: ../../release_notes.rst:228
 msgid ""
 "Fix the VPN public endpoint address in Redis. For example, if the leader "
 "node is ``1`` and its FQDN is ``node1.example.org`` ::"
 msgstr ""
 
-#: ../../release_notes.rst:42
+#: ../../release_notes.rst:233
 msgid "Fix the firewall configuration ::"
 msgstr ""
 
-#: ../../release_notes.rst:48
+#: ../../release_notes.rst:239
 msgid "Change the running WireGuard listen port ::"
 msgstr ""
 
-#: ../../release_notes.rst:52
+#: ../../release_notes.rst:243
 msgid ""
 "Make the change permanent, by setting ``ListenPort = 55820`` in "
 "``/etc/wireguard/wg0.conf`` ::"
 msgstr ""
 
-#: ../../release_notes.rst:57
+#: ../../release_notes.rst:248
 msgid "Repeat steps 2-4 on each worker node, too."
 msgstr ""
 
-#: ../../release_notes.rst:59
+#: ../../release_notes.rst:250
 msgid ""
 "**Debian upgrade** -- After running the core update, installations based "
 "on Debian 11 (Bullseye) must be manually upgraded to distribution version"
 " 12 (Bookworm).  ::"
 msgstr ""
 
-#: ../../release_notes.rst:67
+#: ../../release_notes.rst:258
 msgid ""
 "Follow also the instructions for Python 3.11 upgrade, then **reboot the "
 "system**. Apply the same procedure for each cluster node."
 msgstr ""
 
-#: ../../release_notes.rst:70
+#: ../../release_notes.rst:261
 msgid ""
 "**Python 3.11** -- After running the core update, installations based on "
 "Rocky Linux (and other EL-like distributions) must manually install "
 "Python 3.11: ::"
 msgstr ""
 
-#: ../../release_notes.rst:76
+#: ../../release_notes.rst:267
 msgid ""
 "The following Bash script is required by Debian, too. Do not forget the "
 "round brackets! ::"
 msgstr ""
 
-#: ../../release_notes.rst:88
+#: ../../release_notes.rst:279
 msgid "Check if the Python upgrade was successfull: ::"
 msgstr ""
 
-#: ../../release_notes.rst:92 ../../release_notes.rst:127
+#: ../../release_notes.rst:283 ../../release_notes.rst:318
 msgid "Apply the same procedure for each cluster node."
 msgstr ""
 
-#: ../../release_notes.rst:94
+#: ../../release_notes.rst:285
 msgid ""
 "**UI security enhancements** -- Since the Beta 1 release an important "
 "security update has been released, and other security improvements are "
@@ -4150,7 +4292,7 @@ msgid ""
 "reload with ``CTRL + Shift + R`` or any other equivalent method."
 msgstr ""
 
-#: ../../release_notes.rst:99
+#: ../../release_notes.rst:290
 msgid ""
 "**Logs backend improved** -- The Logs page backend has been improved to "
 "be faster and more accurate in capturing the logs of every cluster "
@@ -4159,13 +4301,13 @@ msgid ""
 " running this command on the leader node: ::"
 msgstr ""
 
-#: ../../release_notes.rst:107
+#: ../../release_notes.rst:298
 msgid ""
 "Note that the new Logs page cannot access old log entries. To see log "
 "entries before the Beta 2 upgrade, use the `logcli` command."
 msgstr ""
 
-#: ../../release_notes.rst:110
+#: ../../release_notes.rst:301
 msgid ""
 "**TLS certificate upload** -- The ``TLS certificates`` card under the "
 "``Settings`` page was extended to allow the upload of a certificate and "
@@ -4173,13 +4315,13 @@ msgid ""
 ":`certificate_manager-section`."
 msgstr ""
 
-#: ../../release_notes.rst:115
+#: ../../release_notes.rst:306
 msgid ""
 "**Additional backup providers** -- Backup repositories can be created "
 "also on Microsoft Azure and S3-compatible cloud storage providers."
 msgstr ""
 
-#: ../../release_notes.rst:118
+#: ../../release_notes.rst:309
 msgid ""
 "**New Traefik configuration backend** -- The cluster Redis DB is not used"
 " any more by Traefik module instances as their dynamic configuration "
@@ -4188,11 +4330,11 @@ msgid ""
 "feature specific for Traefik with the following commands: ::"
 msgstr ""
 
-#: ../../release_notes.rst:129
+#: ../../release_notes.rst:320
 msgid "**Mail module improvements**"
 msgstr ""
 
-#: ../../release_notes.rst:131
+#: ../../release_notes.rst:322
 msgid ""
 "New installations of the Mail module have the ``Shared seen`` option "
 "enabled by default. Existing installations will find the switch disabled."
@@ -4200,163 +4342,163 @@ msgid ""
 "settings>`."
 msgstr ""
 
-#: ../../release_notes.rst:136
+#: ../../release_notes.rst:327
 msgid ""
 "Added the open source Dovecot plugin *Flatcurve* to enable full text "
 "search (FTS) of email messages.  To massively rebuild the search indexes "
 "run the following command during system idle time: ::"
 msgstr ""
 
-#: ../../release_notes.rst:142
+#: ../../release_notes.rst:333
 msgid ""
 "Only PDF attachments and the email itself are added to the index. In "
 "future releases more attachment formats will be supported."
 msgstr ""
 
-#: ../../release_notes.rst:147
+#: ../../release_notes.rst:338
 msgid "Major changes on 2023-05-10"
 msgstr ""
 
-#: ../../release_notes.rst:149
+#: ../../release_notes.rst:340
 msgid "**Beta 1**"
 msgstr ""
 
-#: ../../release_notes.rst:151
+#: ../../release_notes.rst:342
 msgid "Main core features include:"
 msgstr ""
 
-#: ../../release_notes.rst:153
+#: ../../release_notes.rst:344
 msgid "Node management: add and remove nodes from the system"
 msgstr ""
 
-#: ../../release_notes.rst:154
+#: ../../release_notes.rst:345
 msgid "Centralized logging: collect all logs in one place for easy monitoring"
 msgstr ""
 
-#: ../../release_notes.rst:155
+#: ../../release_notes.rst:346
 msgid ""
 "Configuration and data backups: regularly save cluster settings and "
 "application data to remote providers like Amazon S3 and Backblaze B2"
 msgstr ""
 
-#: ../../release_notes.rst:156
+#: ../../release_notes.rst:347
 msgid ""
 "Authentication: support for both Active Directory and LDAP (RFC2307) user"
 " directories"
 msgstr ""
 
-#: ../../release_notes.rst:157
+#: ../../release_notes.rst:348
 msgid ""
 "File server: implement an SMB (Server Message Block) file server that "
 "enables seamless integration with Windows-based networks"
 msgstr ""
 
-#: ../../release_notes.rst:158
+#: ../../release_notes.rst:349
 msgid ""
 "Auditing: track changes made within the system to ensure security and "
 "accountability"
 msgstr ""
 
-#: ../../release_notes.rst:159
+#: ../../release_notes.rst:350
 msgid ""
 "Email relay: use a smart host to route outgoing emails  through a trusted"
 " server"
 msgstr ""
 
-#: ../../release_notes.rst:160
+#: ../../release_notes.rst:351
 msgid "Custom web routing: define custom URLs to handle specific requests"
 msgstr ""
 
-#: ../../release_notes.rst:161
+#: ../../release_notes.rst:352
 msgid ""
 "Multi-factor authentication: enable two-step verification for "
 "administrator accounts"
 msgstr ""
 
-#: ../../release_notes.rst:162
+#: ../../release_notes.rst:353
 msgid ""
 "Built-in firewall: protect against unauthorized access at the network "
 "level by implementing a local firewall"
 msgstr ""
 
-#: ../../release_notes.rst:163
+#: ../../release_notes.rst:354
 msgid ""
 "Migration: :ref:`Cockpit module <migration-section>` to import NethServer"
 " 7 applications"
 msgstr ""
 
-#: ../../release_notes.rst:165
+#: ../../release_notes.rst:356
 msgid "Additional modules:"
 msgstr ""
 
-#: ../../release_notes.rst:167
+#: ../../release_notes.rst:358
 msgid ""
 "Collaborative tools: includes Dovecot/Postfix/Rspamd mail server, WebTop,"
 " Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, "
 "Mattermost"
 msgstr ""
 
-#: ../../release_notes.rst:168
+#: ../../release_notes.rst:359
 msgid ""
 "Development utilities: features MariaDB and NGINX web server for creating"
 " dynamic applications and services"
 msgstr ""
 
-#: ../../release_notes.rst:169
+#: ../../release_notes.rst:360
 msgid ""
 "Monitoring and analysis: offers Grafana, Prometheus, and node_exporter "
 "for tracking performance metrics and identifying potential issues"
 msgstr ""
 
-#: ../../release_notes.rst:170
+#: ../../release_notes.rst:361
 msgid ""
 "Data storage: offers MinIO for managing large amounts of structured and "
 "unstructured data"
 msgstr ""
 
-#: ../../release_notes.rst:171
+#: ../../release_notes.rst:362
 msgid ""
 "Network defense: implements CrowdSec for protecting local applications "
 "against remote attacks"
 msgstr ""
 
-#: ../../release_notes.rst:173
+#: ../../release_notes.rst:364
 msgid "The following known limitations will be resolved in future updates:"
 msgstr ""
 
-#: ../../release_notes.rst:175
+#: ../../release_notes.rst:366
 msgid ""
 "currently, the system only uses TLS certificates issued by Let's Encrypt "
 "or self-signed certificates generated locally"
 msgstr ""
 
-#: ../../release_notes.rst:176
+#: ../../release_notes.rst:367
 msgid "user login is not supported on worker nodes"
 msgstr ""
 
-#: ../../release_notes.rst:177
+#: ../../release_notes.rst:368
 msgid ""
 "the mail module does not offer sender-based or destination-based message "
 "relay options"
 msgstr ""
 
-#: ../../release_notes.rst:178
+#: ../../release_notes.rst:369
 msgid ""
 "only a limited number of cloud storage providers are available for "
 "backing up data"
 msgstr ""
 
-#: ../../release_notes.rst:181
+#: ../../release_notes.rst:372
 msgid "Releases glossary"
 msgstr ""
 
-#: ../../release_notes.rst:183
+#: ../../release_notes.rst:374
 msgid ""
 "The software release cycle includes four stages: Alpha, Beta, Release "
 "Candidate (RC), and Stable."
 msgstr ""
 
-#: ../../release_notes.rst:185
+#: ../../release_notes.rst:376
 msgid ""
 "During the **Alpha** stage, the software is not thoroughly tested and may"
 " not include all planned features. This release is not suitable for "
@@ -4365,7 +4507,7 @@ msgid ""
 "to other releases are not supported."
 msgstr ""
 
-#: ../../release_notes.rst:189
+#: ../../release_notes.rst:380
 msgid ""
 "The **Beta** stage indicates that the software is mostly feature "
 "complete, but it may still contain many known and unknown bugs. This "
@@ -4375,7 +4517,7 @@ msgid ""
 "require a manual procedure."
 msgstr ""
 
-#: ../../release_notes.rst:193
+#: ../../release_notes.rst:384
 msgid ""
 "During the **Release Candidate (RC)** stage, the software is feature "
 "complete, and it contains no known bugs. If no major issues arise, it can"
@@ -4385,7 +4527,7 @@ msgid ""
 "some experience with it."
 msgstr ""
 
-#: ../../release_notes.rst:198
+#: ../../release_notes.rst:389
 msgid ""
 "The **Stable** release is the most reliable and safe to use in production"
 " environments. It has been thoroughly tested and is considered to be free"
