@@ -144,13 +144,13 @@ following manual procedures to complete the upgrade.
     -
     add: olcAccess
     olcAccess: to attrs=userPassword by dn.base="
-    gidNumber=101+uidNumber=100,cn=peercred,cn=external,cn=aut
-    h" write by set="[cn=domain admins,ou=Groups,${LDAP_SUFFIX}
-    ]/memberUid & user/uid" write by self write by * auth
+     gidNumber=101+uidNumber=100,cn=peercred,cn=external,cn=aut
+     h" write by set="[cn=domain admins,ou=Groups,${LDAP_SUFFIX}
+     ]/memberUid & user/uid" write by self write by * auth
     olcAccess: to * by dn.base="gidNumber=101+uidNumber=100,
-    cn=peercred,cn=external,cn=auth" manage by set="[cn=do
-    main admins,ou=Groups,${LDAP_SUFFIX}
-    ]/memberUid & user/uid" write by * read
+     cn=peercred,cn=external,cn=auth" manage by set="[cn=do
+     main admins,ou=Groups,${LDAP_SUFFIX}
+     ]/memberUid & user/uid" write by * read
 
     dn: olcOverlay={1}ppolicy,olcDatabase={2}mdb,cn=config
     changetype: modify
