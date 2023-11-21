@@ -58,8 +58,9 @@ Once the provider is installed, you will be asked to enter the following paramet
 
 - ``Provide file shares and authentication to Windows clients``. If
   enabled the DC shared folders are accessible from the local network.
-  Only one DC of the Active Directory domain can offer shared folders. See
-  :ref:`File server <file-server-section>` for more information.
+  Only one DC of the Active Directory domain can offer shared folders,
+  authentication and DNS services. See :ref:`File server
+  <file-server-section>` for more information.
 
 .. note::
 
@@ -82,7 +83,7 @@ Example:
 * public (*external*) domain: ``nethserver.org``
 * server FQDN: ``mail.nethserver.org``
 * Active Directory (*internal* LAN only) domain: ``ad.nethserver.org``
-* domain controller FQDN: ``dc.ad.nethserver.org``
+* domain controller FQDN: ``dc1.ad.nethserver.org``
 
 .. tip::
 
@@ -90,6 +91,13 @@ Example:
     is a sub-domain of the *external* domain [#MsDnsBestPratices]_
 
 .. [#MsDnsBestPratices] https://social.technet.microsoft.com/wiki/contents/articles/34981.active-directory-best-practices-for-internal-domain-and-network-names.aspx#Recommendation
+
+Furthermore, the AD Windows clients must be configured to use the domain
+controller as their DNS server for network name resolution. Set the IP
+address of DC ``dc1.ad.nethserver.org`` in client DNS configuration.
+
+The domain controller inherits the node DNS settings in
+``/etc/resolv.conf`` for name resolution request forwarding.
 
 .. _openldap-section:
 

@@ -12,6 +12,13 @@ This application is available by installing a Samba account provider (see
 :ref:`active_directory-section`) with the ``Provide file shares and
 authentication to Windows clients`` switch enabled.
 
+.. warning::
+
+    Only one domain controller in the AD domain can be configured with a
+    LAN IP address and serves Authentication, Shares and DNS to Windows
+    clients. Other DCs are bound to the cluster private VPN and are
+    accessible only to cluster applications.
+
 Shared folders
 ==============
 
