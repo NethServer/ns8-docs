@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 16:46+0000\n"
+"POT-Creation-Date: 2023-11-21 11:55+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -1538,83 +1538,91 @@ msgid ""
 "authentication to Windows clients`` switch enabled."
 msgstr ""
 
-#: ../../file_server.rst:16
+#: ../../file_server.rst:17
+msgid ""
+"Only one domain controller in the AD domain can be configured with a LAN "
+"IP address and serves Authentication, Shares and DNS to Windows clients. "
+"Other DCs are bound to the cluster private VPN and are accessible only to"
+" cluster applications."
+msgstr ""
+
+#: ../../file_server.rst:23
 msgid "Shared folders"
 msgstr ""
 
-#: ../../file_server.rst:18
+#: ../../file_server.rst:25
 msgid ""
 "Open Samba application from the app drawer, select ``Shared folders`` "
 "from the left menu and click on :guilabel:`Create shared folder`."
 msgstr ""
 
-#: ../../file_server.rst:21
+#: ../../file_server.rst:28
 msgid "The following parameters are required to create the new shared folder:"
 msgstr ""
 
-#: ../../file_server.rst:23
+#: ../../file_server.rst:30
 msgid "``Name``: the name of the shared folder"
 msgstr ""
 
-#: ../../file_server.rst:25
+#: ../../file_server.rst:32
 msgid ""
 "``Description``: free text, displayed to SMB clients as the \"share "
 "comment\""
 msgstr ""
 
-#: ../../file_server.rst:27
+#: ../../file_server.rst:34
 msgid ""
 "``Main group``: select a domain group to assign initial permissions to "
 "the share"
 msgstr ""
 
-#: ../../file_server.rst:29
+#: ../../file_server.rst:36
 msgid ""
 "``Initial permissions``: pick one of the three available choices. Note "
 "that in any case the ``Domain Admins`` group is initially granted full "
 "privileges."
 msgstr ""
 
-#: ../../file_server.rst:33
+#: ../../file_server.rst:40
 msgid "Main group can read and write, everyone else can read"
 msgstr ""
 
-#: ../../file_server.rst:35
+#: ../../file_server.rst:42
 msgid "Main group can read and write, everyone else has no access"
 msgstr ""
 
-#: ../../file_server.rst:37
+#: ../../file_server.rst:44
 msgid "Everyone can read and write, main group included"
 msgstr ""
 
-#: ../../file_server.rst:41
+#: ../../file_server.rst:48
 msgid ""
 "To access the shared folder it is necessary to provide valid domain "
 "credentials. Anonymous or guest access is not allowed for security "
 "reasons [#anon]_\\ ."
 msgstr ""
 
-#: ../../file_server.rst:45
+#: ../../file_server.rst:52
 msgid ""
 "Once created, from the three-dots menu, the following actions are "
 "available on the shared folder:"
 msgstr ""
 
-#: ../../file_server.rst:48
+#: ../../file_server.rst:55
 msgid "``Edit description``: change the share descriptive text"
 msgstr ""
 
-#: ../../file_server.rst:50
+#: ../../file_server.rst:57
 msgid ""
 "``Set permissions``: remove any existing ACLs and recursively grant new "
 "initial ACLs"
 msgstr ""
 
-#: ../../file_server.rst:53
+#: ../../file_server.rst:60
 msgid "``Delete``: remove the shared folder and its contents"
 msgstr ""
 
-#: ../../file_server.rst:55
+#: ../../file_server.rst:62
 msgid ""
 "The :guilabel:`Show ACLs` button displays the filesystem ACLs applied to "
 "the shared folder root directory. It is possible to edit ACLs with a SMB "
@@ -1622,66 +1630,66 @@ msgid ""
 "flavours, or the ``smbcacls`` command provided by the Samba project."
 msgstr ""
 
-#: ../../file_server.rst:62
+#: ../../file_server.rst:69
 msgid "Restore file server from backup"
 msgstr ""
 
-#: ../../file_server.rst:66
+#: ../../file_server.rst:73
 msgid ""
 "To avoid reconfiguring network clients the system should provide the same"
 " IP address used in the file server backup."
 msgstr ""
 
-#: ../../file_server.rst:69
+#: ../../file_server.rst:76
 msgid ""
 "First of all, apply the procedure described in :ref:`application_restore-"
 "section` by selecting the backup of the **Samba module**."
 msgstr ""
 
-#: ../../file_server.rst:73
+#: ../../file_server.rst:80
 msgid ""
 "If the restored controller is the first of the domain there are two "
 "alternatives:"
 msgstr ""
 
-#: ../../file_server.rst:76
+#: ../../file_server.rst:83
 msgid ""
 "If the system IP address is the same used in the backup set, DC services "
 "are started automatically and no further actions are required."
 msgstr ""
 
-#: ../../file_server.rst:79
+#: ../../file_server.rst:86
 msgid ""
 "If the previous condition does not apply, DC services are started using "
 "the system VPN IP address as fallback. A similar command is required to "
 "select another IP address in a second time: ::"
 msgstr ""
 
-#: ../../file_server.rst:85
+#: ../../file_server.rst:92
 msgid ""
 "Replace `samba0` with the correct module identifier. Replace the "
 "`ipaddress` value with the correct IP address."
 msgstr ""
 
-#: ../../file_server.rst:88
+#: ../../file_server.rst:95
 msgid "Otherwise, if one or more domain controllers already exist:"
 msgstr ""
 
-#: ../../file_server.rst:90
+#: ../../file_server.rst:97
 msgid ""
 "go to ``Domain and users`` page and open the :guilabel:`Unconfigured "
 "provider` link;"
 msgstr ""
 
-#: ../../file_server.rst:93
+#: ../../file_server.rst:100
 msgid "fill the form to join a new DC to the domain."
 msgstr ""
 
-#: ../../file_server.rst:97 ../../modules.rst:120
+#: ../../file_server.rst:104 ../../modules.rst:120
 msgid "Footnotes"
 msgstr ""
 
-#: ../../file_server.rst:98
+#: ../../file_server.rst:105
 msgid ""
 "*Guest access in SMB2 and SMB3 disabled by default in Windows* `link to "
 "learn.microsoft.com <https://learn.microsoft.com/en-us/troubleshoot"
@@ -4029,7 +4037,7 @@ msgid ""
 msgstr ""
 
 #: ../../release_notes.rst:13
-msgid "Major changes on 2023-11-xx"
+msgid "Major changes on 2023-11-21"
 msgstr ""
 
 #: ../../release_notes.rst:15
@@ -4079,12 +4087,20 @@ msgstr ""
 
 #: ../../release_notes.rst:45
 msgid ""
+"**Mirror list for Rocky Linux nodes** -- If Rocky Linux is the node OS "
+"distribution, the default DNF configuration is overridden and mirrors are"
+" returned by ``mirrorlist.nethserver.org``. RPM packages from Rocky Linux"
+" will be hosted by NethServer specific mirrors in future releases."
+msgstr ""
+
+#: ../../release_notes.rst:50
+msgid ""
 "Upgrade of existing Beta 2 installations can be started from the Software"
 " center page as usual. After the core components are up-to-date, run the "
 "following manual procedures to complete the upgrade."
 msgstr ""
 
-#: ../../release_notes.rst:49
+#: ../../release_notes.rst:54
 msgid ""
 "**Core upgrade procedure** -- To upgrade Beta 2 installations run the "
 "following command on the leader node. It defines the new ``tunadm`` "
@@ -4092,17 +4108,17 @@ msgid ""
 "2.1.0: ::"
 msgstr ""
 
-#: ../../release_notes.rst:56
+#: ../../release_notes.rst:61
 msgid "For each cluster node, enable the local WebDAV service for backups: ::"
 msgstr ""
 
-#: ../../release_notes.rst:60
+#: ../../release_notes.rst:65
 msgid ""
 "Finally, only for Rocky Linux nodes, enable the NethServer default "
 "repositories: ::"
 msgstr ""
 
-#: ../../release_notes.rst:66
+#: ../../release_notes.rst:71
 msgid ""
 "**Samba upgrade procedure** -- To upgrade Beta 2 installations run the "
 "following procedure for each Samba account provider instance. The list of"
@@ -4110,39 +4126,39 @@ msgid ""
 " domain configuration settings; **annotate for each provider**:"
 msgstr ""
 
-#: ../../release_notes.rst:71
+#: ../../release_notes.rst:76
 msgid "the module ID (string), for example ``samba1``"
 msgstr ""
 
-#: ../../release_notes.rst:72 ../../release_notes.rst:107
+#: ../../release_notes.rst:77 ../../release_notes.rst:112
 msgid "the node ID (number), for example ``1``"
 msgstr ""
 
-#: ../../release_notes.rst:73 ../../release_notes.rst:108
+#: ../../release_notes.rst:78 ../../release_notes.rst:113
 msgid ""
 "a free TCP port number, generated by executing on the leader node a "
 "command like this: ::"
 msgstr ""
 
-#: ../../release_notes.rst:79 ../../release_notes.rst:114
+#: ../../release_notes.rst:84 ../../release_notes.rst:119
 msgid ""
 "In the above example set ``node_id`` with the correct node ID (number). "
 "Let's assume the above command prints the port number below: ::"
 msgstr ""
 
-#: ../../release_notes.rst:84 ../../release_notes.rst:119
+#: ../../release_notes.rst:89 ../../release_notes.rst:124
 msgid "With the above annotations, run the following steps for each provider:"
 msgstr ""
 
-#: ../../release_notes.rst:86 ../../release_notes.rst:121
+#: ../../release_notes.rst:91 ../../release_notes.rst:126
 msgid "Log on the cluster node where the provider instance runs."
 msgstr ""
 
-#: ../../release_notes.rst:88 ../../release_notes.rst:123
+#: ../../release_notes.rst:93 ../../release_notes.rst:128
 msgid "Apply the TCP port configuration and start the user portal service: ::"
 msgstr ""
 
-#: ../../release_notes.rst:101
+#: ../../release_notes.rst:106
 msgid ""
 "**OpenLDAP upgrade procedure** -- To upgrade Beta 2 installations run the"
 " following procedure for each OpenLDAP account provider instance. The "
@@ -4150,18 +4166,18 @@ msgid ""
 "under the domain configuration settings; **annotate for each provider**:"
 msgstr ""
 
-#: ../../release_notes.rst:106
+#: ../../release_notes.rst:111
 msgid "the module ID (string), for example ``openldap1``"
 msgstr ""
 
-#: ../../release_notes.rst:136
+#: ../../release_notes.rst:141
 msgid ""
 "After repeating the above steps on each cluster node, run the following "
 "commands in one instance of your choice (the example is for "
 "``openldap1``): ::"
 msgstr ""
 
-#: ../../release_notes.rst:197
+#: ../../release_notes.rst:202
 msgid ""
 "**Mattermost upgrade procedure** -- Mattermost upgrade must be completed "
 "manually to allocate and open UDP ports required by the Calls plugin. "
@@ -4170,22 +4186,22 @@ msgid ""
 "remove the old instance."
 msgstr ""
 
-#: ../../release_notes.rst:204
+#: ../../release_notes.rst:209
 msgid "Major changes on 2023-09-13"
 msgstr ""
 
-#: ../../release_notes.rst:206
+#: ../../release_notes.rst:211
 msgid "**Beta 2**"
 msgstr ""
 
-#: ../../release_notes.rst:208
+#: ../../release_notes.rst:213
 msgid ""
 "**Pre-built image** -- Images are based on Rocky Linux. Available formats"
 " are ``.qcow2`` for QEMU/Proxmox and ``.vmdk`` for VMware. See :ref"
 ":`install_image-section` for image download links."
 msgstr ""
 
-#: ../../release_notes.rst:212
+#: ../../release_notes.rst:217
 msgid ""
 "**FQDN requirement** -- The cluster creation procedure now asks to review"
 " and set the current system host name. The host name is expected in short"
@@ -4195,11 +4211,11 @@ msgid ""
 " For example ::"
 msgstr ""
 
-#: ../../release_notes.rst:220
+#: ../../release_notes.rst:225
 msgid "See also :ref:`dns-reqs`."
 msgstr ""
 
-#: ../../release_notes.rst:222
+#: ../../release_notes.rst:227
 msgid ""
 "**WireGuard port 55820** -- The UDP port used by WireGuard in the "
 "creation of the cluster VPN is now fixed to ``55820``. Clusters already "
@@ -4208,65 +4224,65 @@ msgid ""
 "the leader node the following steps to fix it."
 msgstr ""
 
-#: ../../release_notes.rst:228
+#: ../../release_notes.rst:233
 msgid ""
 "Fix the VPN public endpoint address in Redis. For example, if the leader "
 "node is ``1`` and its FQDN is ``node1.example.org`` ::"
 msgstr ""
 
-#: ../../release_notes.rst:233
+#: ../../release_notes.rst:238
 msgid "Fix the firewall configuration ::"
 msgstr ""
 
-#: ../../release_notes.rst:239
+#: ../../release_notes.rst:244
 msgid "Change the running WireGuard listen port ::"
 msgstr ""
 
-#: ../../release_notes.rst:243
+#: ../../release_notes.rst:248
 msgid ""
 "Make the change permanent, by setting ``ListenPort = 55820`` in "
 "``/etc/wireguard/wg0.conf`` ::"
 msgstr ""
 
-#: ../../release_notes.rst:248
+#: ../../release_notes.rst:253
 msgid "Repeat steps 2-4 on each worker node, too."
 msgstr ""
 
-#: ../../release_notes.rst:250
+#: ../../release_notes.rst:255
 msgid ""
 "**Debian upgrade** -- After running the core update, installations based "
 "on Debian 11 (Bullseye) must be manually upgraded to distribution version"
 " 12 (Bookworm).  ::"
 msgstr ""
 
-#: ../../release_notes.rst:258
+#: ../../release_notes.rst:263
 msgid ""
 "Follow also the instructions for Python 3.11 upgrade, then **reboot the "
 "system**. Apply the same procedure for each cluster node."
 msgstr ""
 
-#: ../../release_notes.rst:261
+#: ../../release_notes.rst:266
 msgid ""
 "**Python 3.11** -- After running the core update, installations based on "
 "Rocky Linux (and other EL-like distributions) must manually install "
 "Python 3.11: ::"
 msgstr ""
 
-#: ../../release_notes.rst:267
+#: ../../release_notes.rst:272
 msgid ""
 "The following Bash script is required by Debian, too. Do not forget the "
 "round brackets! ::"
 msgstr ""
 
-#: ../../release_notes.rst:279
+#: ../../release_notes.rst:284
 msgid "Check if the Python upgrade was successfull: ::"
 msgstr ""
 
-#: ../../release_notes.rst:283 ../../release_notes.rst:318
+#: ../../release_notes.rst:288 ../../release_notes.rst:323
 msgid "Apply the same procedure for each cluster node."
 msgstr ""
 
-#: ../../release_notes.rst:285
+#: ../../release_notes.rst:290
 msgid ""
 "**UI security enhancements** -- Since the Beta 1 release an important "
 "security update has been released, and other security improvements are "
@@ -4274,7 +4290,7 @@ msgid ""
 "reload with ``CTRL + Shift + R`` or any other equivalent method."
 msgstr ""
 
-#: ../../release_notes.rst:290
+#: ../../release_notes.rst:295
 msgid ""
 "**Logs backend improved** -- The Logs page backend has been improved to "
 "be faster and more accurate in capturing the logs of every cluster "
@@ -4283,13 +4299,13 @@ msgid ""
 " running this command on the leader node: ::"
 msgstr ""
 
-#: ../../release_notes.rst:298
+#: ../../release_notes.rst:303
 msgid ""
 "Note that the new Logs page cannot access old log entries. To see log "
 "entries before the Beta 2 upgrade, use the `logcli` command."
 msgstr ""
 
-#: ../../release_notes.rst:301
+#: ../../release_notes.rst:306
 msgid ""
 "**TLS certificate upload** -- The ``TLS certificates`` card under the "
 "``Settings`` page was extended to allow the upload of a certificate and "
@@ -4297,13 +4313,13 @@ msgid ""
 ":`certificate_manager-section`."
 msgstr ""
 
-#: ../../release_notes.rst:306
+#: ../../release_notes.rst:311
 msgid ""
 "**Additional backup providers** -- Backup repositories can be created "
 "also on Microsoft Azure and S3-compatible cloud storage providers."
 msgstr ""
 
-#: ../../release_notes.rst:309
+#: ../../release_notes.rst:314
 msgid ""
 "**New Traefik configuration backend** -- The cluster Redis DB is not used"
 " any more by Traefik module instances as their dynamic configuration "
@@ -4312,11 +4328,11 @@ msgid ""
 "feature specific for Traefik with the following commands: ::"
 msgstr ""
 
-#: ../../release_notes.rst:320
+#: ../../release_notes.rst:325
 msgid "**Mail module improvements**"
 msgstr ""
 
-#: ../../release_notes.rst:322
+#: ../../release_notes.rst:327
 msgid ""
 "New installations of the Mail module have the ``Shared seen`` option "
 "enabled by default. Existing installations will find the switch disabled."
@@ -4324,163 +4340,163 @@ msgid ""
 "settings>`."
 msgstr ""
 
-#: ../../release_notes.rst:327
+#: ../../release_notes.rst:332
 msgid ""
 "Added the open source Dovecot plugin *Flatcurve* to enable full text "
 "search (FTS) of email messages.  To massively rebuild the search indexes "
 "run the following command during system idle time: ::"
 msgstr ""
 
-#: ../../release_notes.rst:333
+#: ../../release_notes.rst:338
 msgid ""
 "Only PDF attachments and the email itself are added to the index. In "
 "future releases more attachment formats will be supported."
 msgstr ""
 
-#: ../../release_notes.rst:338
+#: ../../release_notes.rst:343
 msgid "Major changes on 2023-05-10"
 msgstr ""
 
-#: ../../release_notes.rst:340
+#: ../../release_notes.rst:345
 msgid "**Beta 1**"
 msgstr ""
 
-#: ../../release_notes.rst:342
+#: ../../release_notes.rst:347
 msgid "Main core features include:"
 msgstr ""
 
-#: ../../release_notes.rst:344
+#: ../../release_notes.rst:349
 msgid "Node management: add and remove nodes from the system"
 msgstr ""
 
-#: ../../release_notes.rst:345
+#: ../../release_notes.rst:350
 msgid "Centralized logging: collect all logs in one place for easy monitoring"
 msgstr ""
 
-#: ../../release_notes.rst:346
+#: ../../release_notes.rst:351
 msgid ""
 "Configuration and data backups: regularly save cluster settings and "
 "application data to remote providers like Amazon S3 and Backblaze B2"
 msgstr ""
 
-#: ../../release_notes.rst:347
+#: ../../release_notes.rst:352
 msgid ""
 "Authentication: support for both Active Directory and LDAP (RFC2307) user"
 " directories"
 msgstr ""
 
-#: ../../release_notes.rst:348
+#: ../../release_notes.rst:353
 msgid ""
 "File server: implement an SMB (Server Message Block) file server that "
 "enables seamless integration with Windows-based networks"
 msgstr ""
 
-#: ../../release_notes.rst:349
+#: ../../release_notes.rst:354
 msgid ""
 "Auditing: track changes made within the system to ensure security and "
 "accountability"
 msgstr ""
 
-#: ../../release_notes.rst:350
+#: ../../release_notes.rst:355
 msgid ""
 "Email relay: use a smart host to route outgoing emails  through a trusted"
 " server"
 msgstr ""
 
-#: ../../release_notes.rst:351
+#: ../../release_notes.rst:356
 msgid "Custom web routing: define custom URLs to handle specific requests"
 msgstr ""
 
-#: ../../release_notes.rst:352
+#: ../../release_notes.rst:357
 msgid ""
 "Multi-factor authentication: enable two-step verification for "
 "administrator accounts"
 msgstr ""
 
-#: ../../release_notes.rst:353
+#: ../../release_notes.rst:358
 msgid ""
 "Built-in firewall: protect against unauthorized access at the network "
 "level by implementing a local firewall"
 msgstr ""
 
-#: ../../release_notes.rst:354
+#: ../../release_notes.rst:359
 msgid ""
 "Migration: :ref:`Cockpit module <migration-section>` to import NethServer"
 " 7 applications"
 msgstr ""
 
-#: ../../release_notes.rst:356
+#: ../../release_notes.rst:361
 msgid "Additional modules:"
 msgstr ""
 
-#: ../../release_notes.rst:358
+#: ../../release_notes.rst:363
 msgid ""
 "Collaborative tools: includes Dovecot/Postfix/Rspamd mail server, WebTop,"
 " Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, "
 "Mattermost"
 msgstr ""
 
-#: ../../release_notes.rst:359
+#: ../../release_notes.rst:364
 msgid ""
 "Development utilities: features MariaDB and NGINX web server for creating"
 " dynamic applications and services"
 msgstr ""
 
-#: ../../release_notes.rst:360
+#: ../../release_notes.rst:365
 msgid ""
 "Monitoring and analysis: offers Grafana, Prometheus, and node_exporter "
 "for tracking performance metrics and identifying potential issues"
 msgstr ""
 
-#: ../../release_notes.rst:361
+#: ../../release_notes.rst:366
 msgid ""
 "Data storage: offers MinIO for managing large amounts of structured and "
 "unstructured data"
 msgstr ""
 
-#: ../../release_notes.rst:362
+#: ../../release_notes.rst:367
 msgid ""
 "Network defense: implements CrowdSec for protecting local applications "
 "against remote attacks"
 msgstr ""
 
-#: ../../release_notes.rst:364
+#: ../../release_notes.rst:369
 msgid "The following known limitations will be resolved in future updates:"
 msgstr ""
 
-#: ../../release_notes.rst:366
+#: ../../release_notes.rst:371
 msgid ""
 "currently, the system only uses TLS certificates issued by Let's Encrypt "
 "or self-signed certificates generated locally"
 msgstr ""
 
-#: ../../release_notes.rst:367
+#: ../../release_notes.rst:372
 msgid "user login is not supported on worker nodes"
 msgstr ""
 
-#: ../../release_notes.rst:368
+#: ../../release_notes.rst:373
 msgid ""
 "the mail module does not offer sender-based or destination-based message "
 "relay options"
 msgstr ""
 
-#: ../../release_notes.rst:369
+#: ../../release_notes.rst:374
 msgid ""
 "only a limited number of cloud storage providers are available for "
 "backing up data"
 msgstr ""
 
-#: ../../release_notes.rst:372
+#: ../../release_notes.rst:377
 msgid "Releases glossary"
 msgstr ""
 
-#: ../../release_notes.rst:374
+#: ../../release_notes.rst:379
 msgid ""
 "The software release cycle includes four stages: Alpha, Beta, Release "
 "Candidate (RC), and Stable."
 msgstr ""
 
-#: ../../release_notes.rst:376
+#: ../../release_notes.rst:381
 msgid ""
 "During the **Alpha** stage, the software is not thoroughly tested and may"
 " not include all planned features. This release is not suitable for "
@@ -4489,7 +4505,7 @@ msgid ""
 "to other releases are not supported."
 msgstr ""
 
-#: ../../release_notes.rst:380
+#: ../../release_notes.rst:385
 msgid ""
 "The **Beta** stage indicates that the software is mostly feature "
 "complete, but it may still contain many known and unknown bugs. This "
@@ -4499,7 +4515,7 @@ msgid ""
 "require a manual procedure."
 msgstr ""
 
-#: ../../release_notes.rst:384
+#: ../../release_notes.rst:389
 msgid ""
 "During the **Release Candidate (RC)** stage, the software is feature "
 "complete, and it contains no known bugs. If no major issues arise, it can"
@@ -4509,7 +4525,7 @@ msgid ""
 "some experience with it."
 msgstr ""
 
-#: ../../release_notes.rst:389
+#: ../../release_notes.rst:394
 msgid ""
 "The **Stable** release is the most reliable and safe to use in production"
 " environments. It has been thoroughly tested and is considered to be free"
@@ -4941,12 +4957,12 @@ msgid ""
 "provider:"
 msgstr ""
 
-#: ../../user_domains.rst:38 ../../user_domains.rst:101
-#: ../../user_domains.rst:152
+#: ../../user_domains.rst:38 ../../user_domains.rst:109
+#: ../../user_domains.rst:160
 msgid "access the ``Domains and users`` page"
 msgstr ""
 
-#: ../../user_domains.rst:39 ../../user_domains.rst:102
+#: ../../user_domains.rst:39 ../../user_domains.rst:110
 msgid "click on :guilabel:`Create domain` button and choose ``Internal``"
 msgstr ""
 
@@ -4954,7 +4970,7 @@ msgstr ""
 msgid "select ``Samba`` on the dialog box and click :guilabel:`Install provider`"
 msgstr ""
 
-#: ../../user_domains.rst:42 ../../user_domains.rst:105
+#: ../../user_domains.rst:42 ../../user_domains.rst:113
 msgid ""
 "Once the provider is installed, you will be asked to enter the following "
 "parameters:"
@@ -4996,17 +5012,18 @@ msgstr ""
 msgid ""
 "``Provide file shares and authentication to Windows clients``. If enabled"
 " the DC shared folders are accessible from the local network. Only one DC"
-" of the Active Directory domain can offer shared folders. See :ref:`File "
-"server <file-server-section>` for more information."
+" of the Active Directory domain can offer shared folders, authentication "
+"and DNS services. See :ref:`File server <file-server-section>` for more "
+"information."
 msgstr ""
 
-#: ../../user_domains.rst:66
+#: ../../user_domains.rst:67
 msgid ""
 "Apart from the administrative credentials, other Active Directory "
 "parameters cannot be changed once that the domain has been created"
 msgstr ""
 
-#: ../../user_domains.rst:69
+#: ../../user_domains.rst:70
 msgid ""
 "At the end, you will see a new user domain with one connected provider. "
 "You can now :ref:`manage users and groups <user_groups-section>`, "
@@ -5014,98 +5031,111 @@ msgid ""
 "settings <domain_bind-section>` to connect an external application."
 msgstr ""
 
-#: ../../user_domains.rst:74
+#: ../../user_domains.rst:75
 msgid "DNS and AD domain"
 msgstr ""
 
-#: ../../user_domains.rst:76
+#: ../../user_domains.rst:77
 msgid ""
 "An Active Directory domain requires a reserved DNS domain to work. It is "
 "a good choice to allocate a sub-domain of the public DNS domain for it. "
 "The AD sub-domain can be accessed only from local networks."
 msgstr ""
 
-#: ../../user_domains.rst:80
+#: ../../user_domains.rst:81
 msgid "Example:"
 msgstr ""
 
-#: ../../user_domains.rst:82
+#: ../../user_domains.rst:83
 msgid "public (*external*) domain: ``nethserver.org``"
 msgstr ""
 
-#: ../../user_domains.rst:83
+#: ../../user_domains.rst:84
 msgid "server FQDN: ``mail.nethserver.org``"
 msgstr ""
 
-#: ../../user_domains.rst:84
+#: ../../user_domains.rst:85
 msgid "Active Directory (*internal* LAN only) domain: ``ad.nethserver.org``"
 msgstr ""
 
-#: ../../user_domains.rst:85
-msgid "domain controller FQDN: ``dc.ad.nethserver.org``"
+#: ../../user_domains.rst:86
+msgid "domain controller FQDN: ``dc1.ad.nethserver.org``"
 msgstr ""
 
-#: ../../user_domains.rst:89
+#: ../../user_domains.rst:90
 msgid ""
 "When choosing a domain for Active Directory use an *internal* domain "
 "which is a sub-domain of the *external* domain [#MsDnsBestPratices]_"
 msgstr ""
 
-#: ../../user_domains.rst:92
+#: ../../user_domains.rst:93
 msgid ""
 "https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
 "directory-best-practices-for-internal-domain-and-network-"
 "names.aspx#Recommendation"
 msgstr ""
 
-#: ../../user_domains.rst:97
-msgid "LDAP server RFC2307"
+#: ../../user_domains.rst:95
+msgid ""
+"Furthermore, the AD Windows clients must be configured to use the domain "
+"controller as their DNS server for network name resolution. Set the IP "
+"address of DC ``dc1.ad.nethserver.org`` in client DNS configuration."
 msgstr ""
 
 #: ../../user_domains.rst:99
+msgid ""
+"The domain controller inherits the node DNS settings in "
+"``/etc/resolv.conf`` for name resolution request forwarding."
+msgstr ""
+
+#: ../../user_domains.rst:105
+msgid "LDAP server RFC2307"
+msgstr ""
+
+#: ../../user_domains.rst:107
 msgid "To install a new user domain with a local OpenLDAP as provider:"
 msgstr ""
 
-#: ../../user_domains.rst:103
+#: ../../user_domains.rst:111
 msgid ""
 "select ``OpenLDAP`` on the dialog box and click :guilabel:`Install "
 "provider`"
 msgstr ""
 
-#: ../../user_domains.rst:107
+#: ../../user_domains.rst:115
 msgid ""
 "``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
 "the proposed value."
 msgstr ""
 
-#: ../../user_domains.rst:108
+#: ../../user_domains.rst:116
 msgid ""
 "``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
 "credentials"
 msgstr ""
 
-#: ../../user_domains.rst:110
+#: ../../user_domains.rst:118
 msgid ""
 "Finally, you will see a new user domain with one connected provider. You "
 "can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
 " a replica <provider_replica-section>`."
 msgstr ""
 
-#: ../../user_domains.rst:113
+#: ../../user_domains.rst:121
 msgid "OpenLDAP provider is not currently accessible from outside the cluster."
 msgstr ""
 
-#: ../../user_domains.rst:118
+#: ../../user_domains.rst:126
 msgid "Provider replicas"
 msgstr ""
 
-#: ../../user_domains.rst:120
+#: ../../user_domains.rst:128
 msgid ""
 "Provider replicas implement fault tolerance for user domains. To achieve "
 "real fault tolerance, replicas should be installed on different nodes."
 msgstr ""
 
-#: ../../user_domains.rst:123
+#: ../../user_domains.rst:131
 msgid ""
 "You can add a replica from the ``Domains and users`` page by selecting "
 "the ``Configuration`` link from the three-dots menu. Then click the "
@@ -5113,35 +5143,35 @@ msgid ""
 "the installation."
 msgstr ""
 
-#: ../../user_domains.rst:126
+#: ../../user_domains.rst:134
 msgid "Replicas are configured in master-master mode."
 msgstr ""
 
-#: ../../user_domains.rst:128
+#: ../../user_domains.rst:136
 msgid ""
 "Active Directory provider does not replicate the SysVol volume. Therefore"
 " Microsoft's Group Policy Object (GPO) will not be synchronized between "
 "replicas."
 msgstr ""
 
-#: ../../user_domains.rst:134
+#: ../../user_domains.rst:142
 msgid "LDAP bind settings"
 msgstr ""
 
-#: ../../user_domains.rst:136
+#: ../../user_domains.rst:144
 msgid ""
 "External applications can connect only to a local Active Directory "
 "provider."
 msgstr ""
 
-#: ../../user_domains.rst:138
+#: ../../user_domains.rst:146
 msgid ""
 "Binding is the process where the LDAP server authenticates the client "
 "and, if the client is successfully authenticated, the server allows "
 "client access."
 msgstr ""
 
-#: ../../user_domains.rst:141
+#: ../../user_domains.rst:149
 msgid ""
 "Many applications may require to be bound to an existing NethServer 8 "
 "user domain. Bind settings can be accessed by selecting the "
@@ -5149,37 +5179,37 @@ msgid ""
 "displayed on the top of the page."
 msgstr ""
 
-#: ../../user_domains.rst:148
+#: ../../user_domains.rst:156
 msgid "External LDAP server"
 msgstr ""
 
-#: ../../user_domains.rst:150
+#: ../../user_domains.rst:158
 msgid "You can connect the NethServer 8 cluster to an existing LDAP server:"
 msgstr ""
 
-#: ../../user_domains.rst:153
+#: ../../user_domains.rst:161
 msgid "click on :guilabel:`Create domain` button and choose ``External``"
 msgstr ""
 
-#: ../../user_domains.rst:154
+#: ../../user_domains.rst:162
 msgid "fill all required fields"
 msgstr ""
 
-#: ../../user_domains.rst:155
+#: ../../user_domains.rst:163
 msgid "click on :guilabel:`Configure domain` button"
 msgstr ""
 
-#: ../../user_domains.rst:157
+#: ../../user_domains.rst:165
 msgid ""
 "In the end, you will be able to bind locally installed applications with "
 "the external LDAP server."
 msgstr ""
 
-#: ../../user_domains.rst:162
+#: ../../user_domains.rst:170
 msgid "Password policy"
 msgstr ""
 
-#: ../../user_domains.rst:164
+#: ../../user_domains.rst:172
 msgid ""
 "The password policy is a set of rules that defines the password "
 "complexity and the password expiration time. You can configure the "
@@ -5188,27 +5218,27 @@ msgid ""
 "three-dots menu of the ``Password`` card."
 msgstr ""
 
-#: ../../user_domains.rst:166
+#: ../../user_domains.rst:174
 msgid "You can configure password age and password strength policy separately."
 msgstr ""
 
-#: ../../user_domains.rst:169
+#: ../../user_domains.rst:177
 msgid "Password age"
 msgstr ""
 
-#: ../../user_domains.rst:171
+#: ../../user_domains.rst:179
 msgid ""
 "You can toggle password age policy by clicking on the ``Password age`` "
 "switch. If enabled, you can configure the following parameters:"
 msgstr ""
 
-#: ../../user_domains.rst:173
+#: ../../user_domains.rst:181
 msgid ""
 "``Minimum password age``: the minimum number of days that must pass "
 "before a new password change."
 msgstr ""
 
-#: ../../user_domains.rst:174
+#: ../../user_domains.rst:182
 msgid ""
 "``Maximum password age``: password expiration time in days. After this "
 "period, the password is no longer valid for logins and must be changed. "
@@ -5216,57 +5246,57 @@ msgid ""
 "portal-section`."
 msgstr ""
 
-#: ../../user_domains.rst:177
+#: ../../user_domains.rst:185
 msgid "Password strength"
 msgstr ""
 
-#: ../../user_domains.rst:179
+#: ../../user_domains.rst:187
 msgid ""
 "By enabling the ``Password strength`` switch, you can configure the "
 "following parameters:"
 msgstr ""
 
-#: ../../user_domains.rst:181
+#: ../../user_domains.rst:189
 msgid ""
 "``Password history length``: the number of old passwords that cannot be "
 "reused."
 msgstr ""
 
-#: ../../user_domains.rst:182
+#: ../../user_domains.rst:190
 msgid ""
 "``Minimum password length``: the minimum number of characters that a "
 "password must have."
 msgstr ""
 
-#: ../../user_domains.rst:183
+#: ../../user_domains.rst:191
 msgid ""
 "``Enforce password complexity``: enforce use of complex password, see "
 "note for more details."
 msgstr ""
 
-#: ../../user_domains.rst:185
+#: ../../user_domains.rst:193
 msgid ""
 "A password is considered complex if it is long enough and meets three of "
 "the following rules:"
 msgstr ""
 
-#: ../../user_domains.rst:187
+#: ../../user_domains.rst:195
 msgid "The password must contain at least one uppercase letter."
 msgstr ""
 
-#: ../../user_domains.rst:188
+#: ../../user_domains.rst:196
 msgid "The password must contain at least one lowercase letter."
 msgstr ""
 
-#: ../../user_domains.rst:189
+#: ../../user_domains.rst:197
 msgid "The password must contain at least one digit."
 msgstr ""
 
-#: ../../user_domains.rst:190
+#: ../../user_domains.rst:198
 msgid "The password must contain at least one special character."
 msgstr ""
 
-#: ../../user_domains.rst:192
+#: ../../user_domains.rst:200
 msgid ""
 "After editing the password policy, you can click on :guilabel:`Edit "
 "password policy` button to save the changes. Strength setting changes do "
@@ -5274,105 +5304,105 @@ msgid ""
 " are retroactive and are applied to already set passwords, too."
 msgstr ""
 
-#: ../../user_domains.rst:197
+#: ../../user_domains.rst:205
 msgid "User and groups"
 msgstr ""
 
-#: ../../user_domains.rst:199
+#: ../../user_domains.rst:207
 msgid ""
 "You can manage users and groups of a domain by clicking on ``User and "
 "groups`` link from the ``Domains and users`` page."
 msgstr ""
 
-#: ../../user_domains.rst:201
+#: ../../user_domains.rst:209
 msgid ""
 "If an external user domain has been configured, the page shows read-only "
 "lists. Changes to the user base must be done on the external server."
 msgstr ""
 
-#: ../../user_domains.rst:204
+#: ../../user_domains.rst:212
 msgid ""
 "On the other hand, if a local AD or LDAP account provider has been "
 "installed, the page allows to create, modify and delete users and groups."
 msgstr ""
 
-#: ../../user_domains.rst:207
+#: ../../user_domains.rst:215
 msgid "When creating a user, the following fields are mandatory:"
 msgstr ""
 
-#: ../../user_domains.rst:209
+#: ../../user_domains.rst:217
 msgid "User name"
 msgstr ""
 
-#: ../../user_domains.rst:210
+#: ../../user_domains.rst:218
 msgid "Full name (name and surname)"
 msgstr ""
 
-#: ../../user_domains.rst:211
+#: ../../user_domains.rst:219
 msgid "Password"
 msgstr ""
 
-#: ../../user_domains.rst:213
+#: ../../user_domains.rst:221
 msgid "A user can be added to one or more groups."
 msgstr ""
 
-#: ../../user_domains.rst:215
+#: ../../user_domains.rst:223
 msgid ""
 "Sometimes you need to block user access to services without deleting the "
 "account. The safest approach is:"
 msgstr ""
 
-#: ../../user_domains.rst:218
+#: ../../user_domains.rst:226
 msgid "(optionally) change the user's password with a random one"
 msgstr ""
 
-#: ../../user_domains.rst:219
+#: ../../user_domains.rst:227
 msgid "disable the user using the ``Disable`` action from the three-dots menu"
 msgstr ""
 
-#: ../../user_domains.rst:221
+#: ../../user_domains.rst:229
 msgid "When a user is deleted, user data will not be removed."
 msgstr ""
 
-#: ../../user_domains.rst:226
+#: ../../user_domains.rst:234
 msgid "User Management portal"
 msgstr ""
 
-#: ../../user_domains.rst:228
+#: ../../user_domains.rst:236
 msgid ""
 "The management portal is a web application that allows any non-"
 "administrator user to change their own password without the need for "
 "administrator intervention."
 msgstr ""
 
-#: ../../user_domains.rst:230
+#: ../../user_domains.rst:238
 msgid ""
 "The portal is automatically configured on every instance of :ref"
 ":`active_directory-section` or :ref:`openldap-section` provider."
 msgstr ""
 
-#: ../../user_domains.rst:232
+#: ../../user_domains.rst:240
 msgid "The portal is available at the following URL: ::"
 msgstr ""
 
-#: ../../user_domains.rst:236
+#: ../../user_domains.rst:244
 msgid ""
 "Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
 "``<domain_name>`` is the name of the domain provided while configuring "
 "the domain."
 msgstr ""
 
-#: ../../user_domains.rst:238
+#: ../../user_domains.rst:246
 msgid "Without the trailing slash, the portal will not work."
 msgstr ""
 
-#: ../../user_domains.rst:240
+#: ../../user_domains.rst:248
 msgid ""
 "Once reached the page, the user is prompted for login and they can "
 "authenticate to the domain with user name and password."
 msgstr ""
 
-#: ../../user_domains.rst:242
+#: ../../user_domains.rst:250
 msgid ""
 "If the login is successful, the user is directed to the ``User "
 "Management`` page, where they can proceed to change the password. The "
@@ -8193,5 +8223,22 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "chown minio1:minio1 /mnt/data/"
+#~ msgstr ""
+
+#~ msgid "Major changes on 2023-11-xx"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``Provide file shares and authentication "
+#~ "to Windows clients``. If enabled the "
+#~ "DC shared folders are accessible from"
+#~ " the local network. Only one DC "
+#~ "of the Active Directory domain can "
+#~ "offer shared folders. See :ref:`File "
+#~ "server <file-server-section>` for more"
+#~ " information."
+#~ msgstr ""
+
+#~ msgid "domain controller FQDN: ``dc.ad.nethserver.org``"
 #~ msgstr ""
 
