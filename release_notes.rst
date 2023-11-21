@@ -9,7 +9,7 @@ NethServer 8 releases
 - List of `known bugs <https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_
 - Discussions around `possible bugs <http://community.nethserver.org/c/bug>`_
 
-Major changes on 2023-11-xx
+Major changes on 2023-11-21
 ===========================
 
 **Release Candidate 1**
@@ -41,6 +41,11 @@ New features introduced by RC1 are:
   advanced application designed to retrieve email messages from remote
   IMAP servers at scheduled intervals and to synchronize entire IMAP
   accounts.
+
+- **Mirror list for Rocky Linux nodes** -- If Rocky Linux is the node OS
+  distribution, the default DNF configuration is overridden and mirrors
+  are returned by ``mirrorlist.nethserver.org``. RPM packages from Rocky
+  Linux will be hosted by NethServer specific mirrors in future releases.
 
 Upgrade of existing Beta 2 installations can be started from the Software
 center page as usual. After the core components are up-to-date, run the
