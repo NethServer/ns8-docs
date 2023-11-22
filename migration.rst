@@ -73,6 +73,15 @@ for NS7. Bear in mind that NS7 must be able to access the :ref:`IP address <acti
 This configuration could be useful if you have modules still running on NS7 that require
 access to the account provider.
 
+.. _getmail_migration-section:
+
+Getmail
+=======
+
+The migration involves transferring the Connector module to the Imapsync module, together with NethServer 7's Email application.
+This migration process transfers all your connector settings to the imapsync module and initiates synchronization if you were previously using the IMAP protocol.
+If you were using POP3, it's necessary to review the settings and commence synchronization manually.
+
 .. rubric:: Configurations excluded from migration
 
 The following configurations will not be migrated:
