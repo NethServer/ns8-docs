@@ -79,8 +79,8 @@ POP3 connector
 ==============
 
 The migration involves transferring POP3 Connector settings to NS8 Imapsync module, together with Email application.
-Configuration of accounts using the IMAP protocol are translated to working Imapsync tasks.
-If you were using POP3, it's necessary to review the settings and commence synchronization manually.
+Configurations of accounts using the IMAP protocol are translated to working Imapsync tasks.
+For accounts using POP3, it is necessary to review the settings and commence synchronization manually.
 
 .. rubric:: Configurations excluded from migration
 
