@@ -73,6 +73,15 @@ for NS7. Bear in mind that NS7 must be able to access the :ref:`IP address <acti
 This configuration could be useful if you have modules still running on NS7 that require
 access to the account provider.
 
+.. _getmail_migration-section:
+
+POP3 connector
+==============
+
+The migration involves transferring POP3 Connector settings to NS8 Imapsync module, together with Email application.
+Configurations of accounts using the IMAP protocol are translated to working Imapsync tasks.
+For accounts using POP3, it is necessary to review the settings and commence synchronization manually.
+
 .. rubric:: Configurations excluded from migration
 
 The following configurations will not be migrated:
