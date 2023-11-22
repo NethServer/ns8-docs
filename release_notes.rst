@@ -99,8 +99,8 @@ following manual procedures to complete the upgrade.
       agent.assert_exp("IPADDRESS" in os.environ, "ERROR: Samba is not configured")
       agent.assert_exp(not "TCP_PORT" in os.environ, "ERROR: TCP_PORT is already set")
       os.environ["TCP_PORT"] = user_portal_port
-      os.execl("../actions/configure-module/80start_amld", "80start_amld")
       agent.set_env("TCP_PORT", user_portal_port)
+      os.execl("../actions/configure-module/80start_amld", "80start_amld")
       EOF
 
 - **OpenLDAP upgrade procedure** -- To upgrade Beta 2 installations run the
@@ -134,8 +134,8 @@ following manual procedures to complete the upgrade.
       agent.assert_exp("LDAP_IPADDR" in os.environ, "ERROR: OpenLDAP is not configured")
       agent.assert_exp(not "," in os.environ["TCP_PORTS"], "ERROR: unexpected TCP_PORTS value")
       os.environ["TCP_PORTS"] = f'{os.environ["TCP_PORT"]},{user_portal_port}'
-      os.execl("../actions/configure-module/80start_amld", "80start_amld")
       agent.set_env("TCP_PORTS", os.environ["TCP_PORTS"])
+      os.execl("../actions/configure-module/80start_amld", "80start_amld")
       EOF
 
   After repeating the above steps on each cluster node, run the following
