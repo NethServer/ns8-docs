@@ -75,11 +75,11 @@ access to the account provider.
 
 .. _getmail_migration-section:
 
-Getmail
-=======
+POP3 connector
+==============
 
-The migration involves transferring the Connector module to the Imapsync module, together with NethServer 7's Email application.
-This migration process transfers all your connector settings to the imapsync module and initiates synchronization if you were previously using the IMAP protocol.
+The migration involves transferring POP3 Connector settings to NS8 Imapsync module, together with Email application.
+Configuration of accounts using the IMAP protocol are translated to working Imapsync tasks.
 If you were using POP3, it's necessary to review the settings and commence synchronization manually.
 
 .. rubric:: Configurations excluded from migration
