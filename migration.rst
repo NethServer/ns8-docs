@@ -99,14 +99,14 @@ the external DNS appliance if it blocks dynamic DNS updates (DDNS).
 To transfer the source DC IP address to the destination DC some steps must
 be done manually after the migration has completed.
 
-1. Check the migration of accounts was successful. Users and groups must
+#. Check the migration of accounts was successful. Users and groups must
    be listed correctly under ``Domains and users`` page.
 
-1. At the end of the migration the source DC IP address is free and can be
+#. At the end of the migration the source DC IP address is free and can be
    assigned to the destination node. Refer to the node OS documentation to
    assign a secondary (alias) IP address to the destination node.
 
-1. Change the IP address of the DC. For example, if DC instance is
+#. Change the IP address of the DC. For example, if DC instance is
    ``samba1`` and the new IP is ``192.168.1.123``, run the following
    command: ::
 
