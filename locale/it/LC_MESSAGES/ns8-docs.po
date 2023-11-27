@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-21 11:55+0000\n"
+"POT-Creation-Date: 2023-11-22 14:28+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -3156,27 +3156,40 @@ msgid ""
 "provider."
 msgstr ""
 
-#: ../../migration.rst:77
-msgid "Configurations excluded from migration"
-msgstr ""
-
-#: ../../migration.rst:78
-msgid "The following configurations will not be migrated:"
-msgstr ""
-
-#: ../../migration.rst:80
-msgid "custom templates"
+#: ../../migration.rst:79
+msgid "POP3 connector"
 msgstr ""
 
 #: ../../migration.rst:81
-msgid "SMTP mail relay rules"
+msgid ""
+"The migration involves transferring POP3 Connector settings to NS8 "
+"Imapsync module, together with Email application. Configurations of "
+"accounts using the IMAP protocol are translated to working Imapsync "
+"tasks. For accounts using POP3, it is necessary to review the settings "
+"and commence synchronization manually."
 msgstr ""
 
 #: ../../migration.rst:86
+msgid "Configurations excluded from migration"
+msgstr ""
+
+#: ../../migration.rst:87
+msgid "The following configurations will not be migrated:"
+msgstr ""
+
+#: ../../migration.rst:89
+msgid "custom templates"
+msgstr ""
+
+#: ../../migration.rst:90
+msgid "SMTP mail relay rules"
+msgstr ""
+
+#: ../../migration.rst:95
 msgid "Manual HTTP routes"
 msgstr ""
 
-#: ../../migration.rst:88
+#: ../../migration.rst:97
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -3184,73 +3197,73 @@ msgid ""
 "``https://server.nethserver.org/webtop``."
 msgstr ""
 
-#: ../../migration.rst:92
+#: ../../migration.rst:101
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
 "``https://webtop.nethserver.org``."
 msgstr ""
 
-#: ../../migration.rst:95
+#: ../../migration.rst:104
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
 "<traefik-section>`."
 msgstr ""
 
-#: ../../migration.rst:98
+#: ../../migration.rst:107
 msgid "Example for adding WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:100
+#: ../../migration.rst:109
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr ""
 
-#: ../../migration.rst:101
+#: ../../migration.rst:110
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
 msgstr ""
 
-#: ../../migration.rst:102
+#: ../../migration.rst:111
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr ""
 
-#: ../../migration.rst:103
+#: ../../migration.rst:112
 msgid "click on the :guilabel:`Create route` button"
 msgstr ""
 
-#: ../../migration.rst:104
+#: ../../migration.rst:113
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
 msgstr ""
 
-#: ../../migration.rst:105
+#: ../../migration.rst:114
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
 msgstr ""
 
-#: ../../migration.rst:106
+#: ../../migration.rst:115
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
 msgstr ""
 
-#: ../../migration.rst:107
+#: ../../migration.rst:116
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:109
+#: ../../migration.rst:118
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr ""
 
-#: ../../migration.rst:110
+#: ../../migration.rst:119
 msgid "``/.well-known``"
 msgstr ""
 
-#: ../../migration.rst:111
+#: ../../migration.rst:120
 msgid "``/webtop-dav``"
 msgstr ""
 

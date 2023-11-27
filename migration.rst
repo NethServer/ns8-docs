@@ -126,6 +126,15 @@ OpenLDAP
 The OpenLDAP instance running in NS8 is currently not accessible as
 external account provider for NS7 and other network devices.
 
+.. _getmail_migration-section:
+
+POP3 connector
+==============
+
+The migration involves transferring POP3 Connector settings to NS8 Imapsync module, together with Email application.
+Configurations of accounts using the IMAP protocol are translated to working Imapsync tasks.
+For accounts using POP3, it is necessary to review the settings and commence synchronization manually.
+
 .. _migrated_routes-section:
 
 Manual HTTP routes
