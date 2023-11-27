@@ -82,19 +82,22 @@ the destination DC.
 
 .. warning::
 
-  Windows clients do not know how to reach the destination DC
+  Windows clients might not know how to reach the destination DC
+
+* If DNS configuration of Windows clients is controlled by a DHCP server,
+  set the destination DC IP address as the new DNS server.
 
 * If Windows clients use an external DNS, it must be
   configured to forward the requests for the Active Directory DNS zone to
   the destination DC IP address.
 
-* If Windows clients use the source DC IP address as DNS and
-  authentication server, consider to transfer the source DC IP address to
-  the destination DC.
+* If Windows clients have a manual DNS configuration and use the source DC
+  IP address as DNS and authentication server, consider to transfer the
+  source DC IP address to the destination DC.
 
-In the second scenario, transferring the IP avoids the reconfiguration of
-DNS settings for each Windows client. This is generally preferable over
-the external DNS appliance if it blocks dynamic DNS updates (DDNS).
+In the last case, transferring the IP avoids the reconfiguration of DNS
+settings for each Windows client. This is generally preferable over the
+external DNS appliance if it blocks dynamic DNS updates (DDNS).
 
 To transfer the source DC IP address to the destination DC some steps must
 be done manually after the migration has completed.
