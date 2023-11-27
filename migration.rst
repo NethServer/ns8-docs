@@ -77,19 +77,19 @@ Samba DC
 --------
 
 Complete the DC migration by clicking the :guilabel:`Finish migration`
-button. The procedure asks to select an IP address: it becomes the IP of
+button. The procedure asks to select an IP address: it will become the IP of
 the destination DC.
 
 .. warning::
 
   Windows clients do not know how to reach the destination DC
 
-* If Windows clients use an external appliance as DNS, it must be
+* If Windows clients use an external DNS, it must be
   configured to forward the requests for the Active Directory DNS zone to
   the destination DC IP address.
 
 * If Windows clients use the source DC IP address as DNS and
-  authentication server consider to transfer the source DC IP address to
+  authentication server, consider to transfer the source DC IP address to
   the destination DC.
 
 In the second scenario, transferring the IP avoids the reconfiguration of
@@ -103,7 +103,7 @@ be done manually after the migration has completed.
    be listed correctly under ``Domains and users`` page.
 
 #. At the end of the migration the source DC IP address is free and can be
-   assigned to the destination node. Refer to the node OS documentation to
+   assigned to the destination node. Refer to the node operating system documentation to
    assign a secondary (alias) IP address to the destination node.
 
 #. Change the IP address of the DC. For example, if DC instance is
