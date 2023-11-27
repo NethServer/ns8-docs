@@ -96,8 +96,8 @@ the destination DC.
   source DC IP address to the destination DC.
 
 In the last case, transferring the IP avoids the reconfiguration of DNS
-settings for each Windows client. This is generally preferable over the
-external DNS appliance if it blocks dynamic DNS updates (DDNS).
+settings for each Windows client. This is generally preferable over an
+external DNS server, if it blocks dynamic DNS update requests (DDNS).
 
 To transfer the source DC IP address to the destination DC some steps must
 be done manually after the migration has completed.
