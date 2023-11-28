@@ -66,12 +66,65 @@ If the migrated application was connected to a local account provider, the
 application will still be able to access the provider running on NethServer 7
 using the cluster VPN.
 
-Account provider should always be migrated after all other applications.
+.. _migrate-account-provider:
 
-At the end of the migration, you can configure a Samba NS8 user domain as external account provider
+Account provider
+================
+
+The NS7 account provider must be migrated after all other applications.
+
+Samba DC
+--------
+
+Complete the DC migration by clicking the :guilabel:`Finish migration`
+button. The procedure asks to select an IP address: it will become the IP of
+the destination DC.
+
+.. warning::
+
+  Windows clients might not know how to reach the destination DC
+
+* If DNS configuration of Windows clients is controlled by a DHCP server,
+  set the destination DC IP address as the new DNS server.
+
+* If Windows clients use an external DNS, it must be
+  configured to forward the requests for the Active Directory DNS zone to
+  the destination DC IP address.
+
+* If Windows clients have a manual DNS configuration and use the source DC
+  IP address as DNS and authentication server, consider to transfer the
+  source DC IP address to the destination DC.
+
+In the last case, transferring the IP avoids the reconfiguration of DNS
+settings for each Windows client. This is generally preferable over an
+external DNS server, if it blocks dynamic DNS update requests (DDNS).
+
+To transfer the source DC IP address to the destination DC some steps must
+be done manually after the migration has completed.
+
+#. Check the migration of accounts was successful. Users and groups must
+   be listed correctly under ``Domains and users`` page.
+
+#. At the end of the migration the source DC IP address is free and can be
+   assigned to the destination node. Refer to the node operating system documentation to
+   assign a secondary (alias) IP address to the destination node.
+
+#. Change the IP address of the DC. For example, if DC instance is
+   ``samba1`` and the new IP is ``192.168.1.123``, run the following
+   command: ::
+
+      api-cli run module/samba1/set-ip-address --data '{"ipaddress":"192.168.1.123"}'
+
+The NS8 Samba DC can be configured as external account provider
 for NS7. Bear in mind that NS7 must be able to access the :ref:`IP address <active_directory-section>` the Samba account provider is bound to.
 This configuration could be useful if you have modules still running on NS7 that require
 access to the account provider.
+
+OpenLDAP
+--------
+
+The OpenLDAP instance running in NS8 is currently not accessible as
+external account provider for NS7 and other network devices.
 
 .. _getmail_migration-section:
 
@@ -81,13 +134,6 @@ POP3 connector
 The migration involves transferring POP3 Connector settings to NS8 Imapsync module, together with Email application.
 Configurations of accounts using the IMAP protocol are translated to working Imapsync tasks.
 For accounts using POP3, it is necessary to review the settings and commence synchronization manually.
-
-.. rubric:: Configurations excluded from migration
-
-The following configurations will not be migrated:
-
-- custom templates
-- SMTP mail relay rules
 
 .. _migrated_routes-section:
 
@@ -118,4 +164,12 @@ Example for adding WebTop routes:
    * ``/Microsoft-Server-ActiveSync``
    * ``/.well-known``
    * ``/webtop-dav``
+
+Configurations excluded from migration
+======================================
+
+The following configurations will not be migrated:
+
+- custom templates
+- SMTP mail relay rules
 
