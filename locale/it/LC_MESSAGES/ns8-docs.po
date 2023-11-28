@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-22 14:28+0000\n"
+"POT-Creation-Date: 2023-11-28 09:28+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -3142,25 +3142,107 @@ msgid ""
 "NethServer 7 using the cluster VPN."
 msgstr ""
 
-#: ../../migration.rst:69
-msgid "Account provider should always be migrated after all other applications."
+#: ../../migration.rst:72
+msgid "Account provider"
 msgstr ""
 
-#: ../../migration.rst:71
-msgid ""
-"At the end of the migration, you can configure a Samba NS8 user domain as"
-" external account provider for NS7. Bear in mind that NS7 must be able to"
-" access the :ref:`IP address <active_directory-section>` the Samba "
-"account provider is bound to. This configuration could be useful if you "
-"have modules still running on NS7 that require access to the account "
-"provider."
+#: ../../migration.rst:74
+msgid "The NS7 account provider must be migrated after all other applications."
+msgstr ""
+
+#: ../../migration.rst:77
+msgid "Samba DC"
 msgstr ""
 
 #: ../../migration.rst:79
+msgid ""
+"Complete the DC migration by clicking the :guilabel:`Finish migration` "
+"button. The procedure asks to select an IP address: it will become the IP"
+" of the destination DC."
+msgstr ""
+
+#: ../../migration.rst:85
+msgid "Windows clients might not know how to reach the destination DC"
+msgstr ""
+
+#: ../../migration.rst:87
+msgid ""
+"If DNS configuration of Windows clients is controlled by a DHCP server, "
+"set the destination DC IP address as the new DNS server."
+msgstr ""
+
+#: ../../migration.rst:90
+msgid ""
+"If Windows clients use an external DNS, it must be configured to forward "
+"the requests for the Active Directory DNS zone to the destination DC IP "
+"address."
+msgstr ""
+
+#: ../../migration.rst:94
+msgid ""
+"If Windows clients have a manual DNS configuration and use the source DC "
+"IP address as DNS and authentication server, consider to transfer the "
+"source DC IP address to the destination DC."
+msgstr ""
+
+#: ../../migration.rst:98
+msgid ""
+"In the last case, transferring the IP avoids the reconfiguration of DNS "
+"settings for each Windows client. This is generally preferable over an "
+"external DNS server, if it blocks dynamic DNS update requests (DDNS)."
+msgstr ""
+
+#: ../../migration.rst:102
+msgid ""
+"To transfer the source DC IP address to the destination DC some steps "
+"must be done manually after the migration has completed."
+msgstr ""
+
+#: ../../migration.rst:105
+msgid ""
+"Check the migration of accounts was successful. Users and groups must be "
+"listed correctly under ``Domains and users`` page."
+msgstr ""
+
+#: ../../migration.rst:108
+msgid ""
+"At the end of the migration the source DC IP address is free and can be "
+"assigned to the destination node. Refer to the node operating system "
+"documentation to assign a secondary (alias) IP address to the destination"
+" node."
+msgstr ""
+
+#: ../../migration.rst:112
+msgid ""
+"Change the IP address of the DC. For example, if DC instance is "
+"``samba1`` and the new IP is ``192.168.1.123``, run the following "
+"command: ::"
+msgstr ""
+
+#: ../../migration.rst:118
+msgid ""
+"The NS8 Samba DC can be configured as external account provider for NS7. "
+"Bear in mind that NS7 must be able to access the :ref:`IP address "
+"<active_directory-section>` the Samba account provider is bound to. This "
+"configuration could be useful if you have modules still running on NS7 "
+"that require access to the account provider."
+msgstr ""
+
+#: ../../migration.rst:124
+msgid "OpenLDAP"
+msgstr ""
+
+#: ../../migration.rst:126
+msgid ""
+"The OpenLDAP instance running in NS8 is currently not accessible as "
+"external account provider for NS7 and other network devices."
+msgstr ""
+
+#: ../../migration.rst:132
 msgid "POP3 connector"
 msgstr ""
 
-#: ../../migration.rst:81
+#: ../../migration.rst:134
 msgid ""
 "The migration involves transferring POP3 Connector settings to NS8 "
 "Imapsync module, together with Email application. Configurations of "
@@ -3169,27 +3251,11 @@ msgid ""
 "and commence synchronization manually."
 msgstr ""
 
-#: ../../migration.rst:86
-msgid "Configurations excluded from migration"
-msgstr ""
-
-#: ../../migration.rst:87
-msgid "The following configurations will not be migrated:"
-msgstr ""
-
-#: ../../migration.rst:89
-msgid "custom templates"
-msgstr ""
-
-#: ../../migration.rst:90
-msgid "SMTP mail relay rules"
-msgstr ""
-
-#: ../../migration.rst:95
+#: ../../migration.rst:141
 msgid "Manual HTTP routes"
 msgstr ""
 
-#: ../../migration.rst:97
+#: ../../migration.rst:143
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -3197,74 +3263,90 @@ msgid ""
 "``https://server.nethserver.org/webtop``."
 msgstr ""
 
-#: ../../migration.rst:101
+#: ../../migration.rst:147
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
 "``https://webtop.nethserver.org``."
 msgstr ""
 
-#: ../../migration.rst:104
+#: ../../migration.rst:150
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
 "<traefik-section>`."
 msgstr ""
 
-#: ../../migration.rst:107
+#: ../../migration.rst:153
 msgid "Example for adding WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:109
+#: ../../migration.rst:155
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr ""
 
-#: ../../migration.rst:110
+#: ../../migration.rst:156
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
 msgstr ""
 
-#: ../../migration.rst:111
+#: ../../migration.rst:157
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr ""
 
-#: ../../migration.rst:112
+#: ../../migration.rst:158
 msgid "click on the :guilabel:`Create route` button"
 msgstr ""
 
-#: ../../migration.rst:113
+#: ../../migration.rst:159
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
 msgstr ""
 
-#: ../../migration.rst:114
+#: ../../migration.rst:160
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
 msgstr ""
 
-#: ../../migration.rst:115
+#: ../../migration.rst:161
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
 msgstr ""
 
-#: ../../migration.rst:116
+#: ../../migration.rst:162
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:118
+#: ../../migration.rst:164
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr ""
 
-#: ../../migration.rst:119
+#: ../../migration.rst:165
 msgid "``/.well-known``"
 msgstr ""
 
-#: ../../migration.rst:120
+#: ../../migration.rst:166
 msgid "``/webtop-dav``"
+msgstr ""
+
+#: ../../migration.rst:169
+msgid "Configurations excluded from migration"
+msgstr ""
+
+#: ../../migration.rst:171
+msgid "The following configurations will not be migrated:"
+msgstr ""
+
+#: ../../migration.rst:173
+msgid "custom templates"
+msgstr ""
+
+#: ../../migration.rst:174
+msgid "SMTP mail relay rules"
 msgstr ""
 
 #: ../../minio.rst:5
@@ -8253,5 +8335,24 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "domain controller FQDN: ``dc.ad.nethserver.org``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Account provider should always be "
+#~ "migrated after all other applications."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "At the end of the migration, you"
+#~ " can configure a Samba NS8 user "
+#~ "domain as external account provider for"
+#~ " NS7. Bear in mind that NS7 "
+#~ "must be able to access the "
+#~ ":ref:`IP address <active_directory-section>` "
+#~ "the Samba account provider is bound "
+#~ "to. This configuration could be useful"
+#~ " if you have modules still running"
+#~ " on NS7 that require access to "
+#~ "the account provider."
 #~ msgstr ""
 
