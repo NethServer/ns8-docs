@@ -43,7 +43,7 @@ How to configure:
 The Ejabberd administrators are allowed to use the web admin page on port 5280. The ejabberd Web Admin allows to administer some parts of ejabberd using a web browser: 
 accounts, Shared Roster Groups, manage the Mnesia database, create and restore backups, view server statistics, …
 
-The administration is available on the fully qualified domain name of the NS8 node : https://domain.com:5280/admin/
+The administration page is only available by an HTTP route that you must do manually to http://127.0.0.1:5280. Apply the procedure described in :ref:`traefik-section`
 
 Under the Advanced options section, the administrator can also configure:
 
