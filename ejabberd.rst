@@ -22,7 +22,7 @@ for further details.
 Configuration
 =============
 
-Ejabberd needs a dedicated virtual host name, a FQDN like ``ejabberd.nethserver.org``. A self-signed TLS certificate could be used but a trusted Let's Encrypt certificate is recommended.
+Ejabberd needs a dedicated virtual host name, a FQDN like ``nethserver.org``, This domain will be used for authentication of users (``foo@nethserver.org``). A self-signed TLS certificate could be used but a trusted Let's Encrypt certificate is recommended.
 
 Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
 
@@ -40,7 +40,10 @@ How to configure:
 .. note::
    Ejabberd authentication is integrated with LDAP user domain that you can configure at :ref:`user-domains-section`.
 
-The Ejabberd administrators are allowed to use the web admin page on port 5280.
+The Ejabberd administrators are allowed to use the web admin page on port 5280. The ejabberd Web Admin allows to administer some parts of ejabberd using a web browser: 
+accounts, Shared Roster Groups, manage the Mnesia database, create and restore backups, view server statistics, …
+
+The administration is available on the fully qualified domain name of the NS8 node : https://domain.com:5280/admin/
 
 Under the Advanced options section, the administrator can also configure:
 
