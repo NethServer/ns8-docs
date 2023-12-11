@@ -129,11 +129,23 @@ for NS7. Bear in mind that NS7 must be able to access the :ref:`IP address <acti
 This configuration could be useful if you have modules still running on NS7 that require
 access to the account provider.
 
+Password expiration settings are preserved during the migration. The
+password strength policy, if enabled, is converted for compliancy with
+Windows 2003+ server complexity requirements [#WINP]_ and is enforced for
+future password changes. See also :ref:`password-policy-section`.
+
+.. [#WINP] `Passwords must meet complexity requirements <https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786468(v=ws.10)#password-must-meet-complexity-requirements>`_
+    from *learn.microsoft.com* website.
+
 OpenLDAP
 --------
 
 The OpenLDAP instance running in NS8 is currently not accessible as
 external account provider for NS7 and other network devices.
+
+Password policy settings (strength and expiration) are not migrated. They
+must be enabled under the domain settings of the ``Domains and users``
+page. See also :ref:`password-policy-section`.
 
 .. _getmail_migration-section:
 
@@ -181,4 +193,4 @@ The following configurations will not be migrated:
 
 - custom templates
 - SMTP mail relay rules
-
+- account provider password policy settings (see :ref:`migrate-account-provider`)
