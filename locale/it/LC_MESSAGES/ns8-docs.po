@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-11 09:03+0000\n"
+"POT-Creation-Date: 2023-12-11 14:55+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -3260,21 +3260,44 @@ msgid ""
 "that require access to the account provider."
 msgstr ""
 
-#: ../../migration.rst:133
+#: ../../migration.rst:132
+msgid ""
+"Password expiration settings are preserved during the migration. The "
+"password strength policy, if enabled, is converted for compliancy with "
+"Windows 2003+ server complexity requirements [#WINP]_ and is enforced for"
+" future password changes. See also :ref:`password-policy-section`."
+msgstr ""
+
+#: ../../migration.rst:137
+msgid ""
+"`Passwords must meet complexity requirements <https://learn.microsoft.com"
+"/en-us/previous-versions/windows/it-pro/windows-"
+"server-2003/cc786468(v=ws.10)#password-must-meet-complexity-"
+"requirements>`_ from *learn.microsoft.com* website."
+msgstr ""
+
+#: ../../migration.rst:141
 msgid "OpenLDAP"
 msgstr ""
 
-#: ../../migration.rst:135
+#: ../../migration.rst:143
 msgid ""
 "The OpenLDAP instance running in NS8 is currently not accessible as "
 "external account provider for NS7 and other network devices."
 msgstr ""
 
-#: ../../migration.rst:141
+#: ../../migration.rst:146
+msgid ""
+"Password policy settings (strength and expiration) are not migrated. They"
+" must be enabled under the domain settings of the ``Domains and users`` "
+"page. See also :ref:`password-policy-section`."
+msgstr ""
+
+#: ../../migration.rst:153
 msgid "POP3 connector"
 msgstr ""
 
-#: ../../migration.rst:143
+#: ../../migration.rst:155
 msgid ""
 "The migration involves transferring POP3 Connector settings to NS8 "
 "Imapsync module, together with Email application. Configurations of "
@@ -3283,11 +3306,11 @@ msgid ""
 "and commence synchronization manually."
 msgstr ""
 
-#: ../../migration.rst:150
+#: ../../migration.rst:162
 msgid "Manual HTTP routes"
 msgstr ""
 
-#: ../../migration.rst:152
+#: ../../migration.rst:164
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -3295,90 +3318,96 @@ msgid ""
 "``https://server.nethserver.org/webtop``."
 msgstr ""
 
-#: ../../migration.rst:156
+#: ../../migration.rst:168
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
 "``https://webtop.nethserver.org``."
 msgstr ""
 
-#: ../../migration.rst:159
+#: ../../migration.rst:171
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
 "<traefik-section>`."
 msgstr ""
 
-#: ../../migration.rst:162
+#: ../../migration.rst:174
 msgid "Example for adding WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:164
+#: ../../migration.rst:176
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr ""
 
-#: ../../migration.rst:165
+#: ../../migration.rst:177
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
 msgstr ""
 
-#: ../../migration.rst:166
+#: ../../migration.rst:178
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr ""
 
-#: ../../migration.rst:167
+#: ../../migration.rst:179
 msgid "click on the :guilabel:`Create route` button"
 msgstr ""
 
-#: ../../migration.rst:168
+#: ../../migration.rst:180
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
 msgstr ""
 
-#: ../../migration.rst:169
+#: ../../migration.rst:181
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
 msgstr ""
 
-#: ../../migration.rst:170
+#: ../../migration.rst:182
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
 msgstr ""
 
-#: ../../migration.rst:171
+#: ../../migration.rst:183
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:173
+#: ../../migration.rst:185
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr ""
 
-#: ../../migration.rst:174
+#: ../../migration.rst:186
 msgid "``/.well-known``"
 msgstr ""
 
-#: ../../migration.rst:175
+#: ../../migration.rst:187
 msgid "``/webtop-dav``"
 msgstr ""
 
-#: ../../migration.rst:178
+#: ../../migration.rst:190
 msgid "Configurations excluded from migration"
 msgstr ""
 
-#: ../../migration.rst:180
+#: ../../migration.rst:192
 msgid "The following configurations will not be migrated:"
 msgstr ""
 
-#: ../../migration.rst:182
+#: ../../migration.rst:194
 msgid "custom templates"
 msgstr ""
 
-#: ../../migration.rst:183
+#: ../../migration.rst:195
 msgid "SMTP mail relay rules"
+msgstr ""
+
+#: ../../migration.rst:196
+msgid ""
+"account provider password policy settings (see :ref:`migrate-account-"
+"provider`)"
 msgstr ""
 
 #: ../../minio.rst:5
