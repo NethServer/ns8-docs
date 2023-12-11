@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-06 15:15+0000\n"
+"POT-Creation-Date: 2023-12-11 09:03+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -3149,69 +3149,94 @@ msgid ""
 "NethServer 7 using the cluster VPN."
 msgstr ""
 
+#: ../../migration.rst:70
+#, fuzzy
+msgid "Logs"
+msgstr "LOGIN"
+
 #: ../../migration.rst:72
-msgid "Account provider"
+msgid ""
+"The migration tool UI has a ``Logs`` page for reading "
+"``/var/log/ns8-migration.log`` contents. The migration procedure of each "
+"application sends a trace of its activity to that file."
 msgstr ""
 
 #: ../../migration.rst:74
+msgid ""
+"Furthermore, when joining/leaving the NS8 cluster and when NS7 services "
+"are modified, some information can be recorded by ``/var/log/messages`` "
+"as usual."
+msgstr ""
+
+#: ../../migration.rst:76
+msgid ""
+"On the NS8 side, the application log contains the trace of the ``import-"
+"module`` activity."
+msgstr ""
+
+#: ../../migration.rst:81
+msgid "Account provider"
+msgstr ""
+
+#: ../../migration.rst:83
 msgid "The NS7 account provider must be migrated after all other applications."
 msgstr ""
 
-#: ../../migration.rst:77
+#: ../../migration.rst:86
 msgid "Samba DC"
 msgstr ""
 
-#: ../../migration.rst:79
+#: ../../migration.rst:88
 msgid ""
 "Complete the DC migration by clicking the :guilabel:`Finish migration` "
 "button. The procedure asks to select an IP address: it will become the IP"
 " of the destination DC."
 msgstr ""
 
-#: ../../migration.rst:85
+#: ../../migration.rst:94
 msgid "Windows clients might not know how to reach the destination DC"
 msgstr ""
 
-#: ../../migration.rst:87
+#: ../../migration.rst:96
 msgid ""
 "If DNS configuration of Windows clients is controlled by a DHCP server, "
 "set the destination DC IP address as the new DNS server."
 msgstr ""
 
-#: ../../migration.rst:90
+#: ../../migration.rst:99
 msgid ""
 "If Windows clients use an external DNS, it must be configured to forward "
 "the requests for the Active Directory DNS zone to the destination DC IP "
 "address."
 msgstr ""
 
-#: ../../migration.rst:94
+#: ../../migration.rst:103
 msgid ""
 "If Windows clients have a manual DNS configuration and use the source DC "
 "IP address as DNS and authentication server, consider to transfer the "
 "source DC IP address to the destination DC."
 msgstr ""
 
-#: ../../migration.rst:98
+#: ../../migration.rst:107
 msgid ""
 "In the last case, transferring the IP avoids the reconfiguration of DNS "
 "settings for each Windows client. This is generally preferable over an "
 "external DNS server, if it blocks dynamic DNS update requests (DDNS)."
 msgstr ""
 
-#: ../../migration.rst:102
+#: ../../migration.rst:111
 msgid ""
 "To transfer the source DC IP address to the destination DC some steps "
 "must be done manually after the migration has completed."
 msgstr ""
 
-#: ../../migration.rst:105
+#: ../../migration.rst:114
 msgid ""
 "Check the migration of accounts was successful. Users and groups must be "
 "listed correctly under ``Domains and users`` page."
 msgstr ""
 
-#: ../../migration.rst:108
+#: ../../migration.rst:117
 msgid ""
 "At the end of the migration the source DC IP address is free and can be "
 "assigned to the destination node. Refer to the node operating system "
@@ -3219,14 +3244,14 @@ msgid ""
 " node."
 msgstr ""
 
-#: ../../migration.rst:112
+#: ../../migration.rst:121
 msgid ""
 "Change the IP address of the DC. For example, if DC instance is "
 "``samba1`` and the new IP is ``192.168.1.123``, run the following "
 "command: ::"
 msgstr ""
 
-#: ../../migration.rst:118
+#: ../../migration.rst:127
 msgid ""
 "The NS8 Samba DC can be configured as external account provider for NS7. "
 "Bear in mind that NS7 must be able to access the :ref:`IP address "
@@ -3235,21 +3260,21 @@ msgid ""
 "that require access to the account provider."
 msgstr ""
 
-#: ../../migration.rst:124
+#: ../../migration.rst:133
 msgid "OpenLDAP"
 msgstr ""
 
-#: ../../migration.rst:126
+#: ../../migration.rst:135
 msgid ""
 "The OpenLDAP instance running in NS8 is currently not accessible as "
 "external account provider for NS7 and other network devices."
 msgstr ""
 
-#: ../../migration.rst:132
+#: ../../migration.rst:141
 msgid "POP3 connector"
 msgstr ""
 
-#: ../../migration.rst:134
+#: ../../migration.rst:143
 msgid ""
 "The migration involves transferring POP3 Connector settings to NS8 "
 "Imapsync module, together with Email application. Configurations of "
@@ -3258,11 +3283,11 @@ msgid ""
 "and commence synchronization manually."
 msgstr ""
 
-#: ../../migration.rst:141
+#: ../../migration.rst:150
 msgid "Manual HTTP routes"
 msgstr ""
 
-#: ../../migration.rst:143
+#: ../../migration.rst:152
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -3270,89 +3295,89 @@ msgid ""
 "``https://server.nethserver.org/webtop``."
 msgstr ""
 
-#: ../../migration.rst:147
+#: ../../migration.rst:156
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
 "``https://webtop.nethserver.org``."
 msgstr ""
 
-#: ../../migration.rst:150
+#: ../../migration.rst:159
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
 "<traefik-section>`."
 msgstr ""
 
-#: ../../migration.rst:153
+#: ../../migration.rst:162
 msgid "Example for adding WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:155
+#: ../../migration.rst:164
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr ""
 
-#: ../../migration.rst:156
+#: ../../migration.rst:165
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
 msgstr ""
 
-#: ../../migration.rst:157
+#: ../../migration.rst:166
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr ""
 
-#: ../../migration.rst:158
+#: ../../migration.rst:167
 msgid "click on the :guilabel:`Create route` button"
 msgstr ""
 
-#: ../../migration.rst:159
+#: ../../migration.rst:168
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
 msgstr ""
 
-#: ../../migration.rst:160
+#: ../../migration.rst:169
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
 msgstr ""
 
-#: ../../migration.rst:161
+#: ../../migration.rst:170
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
 msgstr ""
 
-#: ../../migration.rst:162
+#: ../../migration.rst:171
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:164
+#: ../../migration.rst:173
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr ""
 
-#: ../../migration.rst:165
+#: ../../migration.rst:174
 msgid "``/.well-known``"
 msgstr ""
 
-#: ../../migration.rst:166
+#: ../../migration.rst:175
 msgid "``/webtop-dav``"
 msgstr ""
 
-#: ../../migration.rst:169
+#: ../../migration.rst:178
 msgid "Configurations excluded from migration"
 msgstr ""
 
-#: ../../migration.rst:171
+#: ../../migration.rst:180
 msgid "The following configurations will not be migrated:"
 msgstr ""
 
-#: ../../migration.rst:173
+#: ../../migration.rst:182
 msgid "custom templates"
 msgstr ""
 
-#: ../../migration.rst:174
+#: ../../migration.rst:183
 msgid "SMTP mail relay rules"
 msgstr ""
 
