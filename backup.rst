@@ -25,7 +25,18 @@ Currently supported providers are:
 * Windows file share, through SMB2/3 protocols
 * :ref:`Local storage <local-storage>`, attached to a node of the cluster
 
-Fill in the required fields depending on the chosen provider.
+Fill in the required fields depending on the chosen provider. The expected
+URL field value depends on the choosen provider as illustraded by the following table:
+
+.. csv-table:: Example of URL field value for each provider
+   :header: "Provider", "Value type", "Example"
+
+   "Backblaze B2", "Bucket name", "mybackup"
+   "Amazon S3", "Bucket name", "mybackup"
+   "Azure blob storage", "Container name", "mybackup"
+   "Generic S3", "Host address and path", "mystorage.example.com/mybackup"
+   "Windows file share", "Share name", "mybackup"
+   "Local storage", "n/a", ""
 
 A new encryption key will be automatically created for new repositories.
 If you are accessing a repository which already contains a NS8 backup, remember also to enter
