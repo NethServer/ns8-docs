@@ -66,6 +66,15 @@ If the migrated application was connected to a local account provider, the
 application will still be able to access the provider running on NethServer 7
 using the cluster VPN.
 
+Logs
+====
+
+* The migration tool UI has a ``Logs`` page for reading ``/var/log/ns8-migration.log`` contents. 
+  The migration procedure of each application sends a trace of its activity to that file.
+* Furthermore, when joining/leaving the NS8 cluster and when NS7 services are modified, some 
+  information can be recorded by ``/var/log/messages`` as usual.
+* On the NS8 side, the application log contains the trace of the ``import-module`` activity.
+
 .. _migrate-account-provider:
 
 Account provider
