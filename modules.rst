@@ -105,15 +105,16 @@ You can force the metadata refresh by clicking on the :guilabel:`Reload reposito
 
 .. _smarthost-section:
 
-SMTP smarthost
-==============
+Email notifications
+===================
 
 Many applications require access to an SMTP server to send mail.
 
-You can configure a smarthost for all installed applications by accessing the ``Smarthost``
-card inside the ``Settings`` page.
+You can configure the same SMTP server for all installed applications by
+accessing the ``Email notifications`` card inside the ``Settings`` page.
 
-Then, enable the feature by clicking on ``Smarthost provider`` and fill the required details.
+Then, enable the feature by clicking on ``Send notifications with an SMTP
+server`` and fill the required details.
 
 
 .. rubric:: Footnotes
