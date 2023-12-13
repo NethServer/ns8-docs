@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-11 14:55+0000\n"
+"POT-Creation-Date: 2023-12-13 11:54+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.13.1\n"
+"Generated-By: Babel 2.14.0\n"
 
 #: ../../backup.rst:5
 msgid "Backup and restore"
@@ -1692,7 +1692,7 @@ msgstr ""
 msgid "fill the form to join a new DC to the domain."
 msgstr ""
 
-#: ../../file_server.rst:104 ../../modules.rst:120
+#: ../../file_server.rst:104 ../../modules.rst:121
 msgid "Footnotes"
 msgstr ""
 
@@ -3743,7 +3743,7 @@ msgid ""
 msgstr ""
 
 #: ../../modules.rst:109
-msgid "SMTP smarthost"
+msgid "Email notifications"
 msgstr ""
 
 #: ../../modules.rst:111
@@ -3752,17 +3752,17 @@ msgstr ""
 
 #: ../../modules.rst:113
 msgid ""
-"You can configure a smarthost for all installed applications by accessing"
-" the ``Smarthost`` card inside the ``Settings`` page."
+"You can configure the same SMTP server for all installed applications by "
+"accessing the ``Email notifications`` card inside the ``Settings`` page."
 msgstr ""
 
 #: ../../modules.rst:116
 msgid ""
-"Then, enable the feature by clicking on ``Smarthost provider`` and fill "
-"the required details."
+"Then, enable the feature by clicking on ``Send notifications with an SMTP"
+" server`` and fill the required details."
 msgstr ""
 
-#: ../../modules.rst:121
+#: ../../modules.rst:122
 msgid ""
 "Except for :ref:`file-server-section`, that is installed with :ref"
 ":`active_directory-section`"
@@ -8438,5 +8438,21 @@ msgstr ""
 #~ "HTTP route can be created manually, "
 #~ "following the procedure described in "
 #~ ":ref:`traefik-section`."
+#~ msgstr ""
+
+#~ msgid "SMTP smarthost"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can configure a smarthost for "
+#~ "all installed applications by accessing "
+#~ "the ``Smarthost`` card inside the "
+#~ "``Settings`` page."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Then, enable the feature by clicking "
+#~ "on ``Smarthost provider`` and fill the"
+#~ " required details."
 #~ msgstr ""
 
