@@ -19,7 +19,8 @@ NethServer 8 administrator manual
 
    introduction
    release_notes
- 
+   modules
+
 .. toctree::
    :maxdepth: 2
    :caption: Installation
@@ -40,7 +41,8 @@ NethServer 8 administrator manual
    firewall
    metrics
    updates
-   modules
+   software_center
+   email_notifications
 
 .. toctree::
    :maxdepth: 2
