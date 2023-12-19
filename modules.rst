@@ -87,12 +87,23 @@ point it to the address of the target node.
 Software repositories
 ---------------------
 
-Software repositories are the sources of modules metadata.
+Software repositories contain applications metadata, which is constituted
+by the index of applications, along with their descriptions and additional
+information on how to obtain them.
 
-The list of configured repositories is accessible by clicking on the ``Software repository`` item
-under the three-dots menu on the top right corner of the software center.
+The list of configured repositories is accessible by different ways:
 
-NethServer comes with a set of software repositories.
+* In the ``Settings`` page: click the ``Software repositories`` card.
+
+* In the ``Software Center`` page: click the ``Software repository`` item
+  under the three-dots menu on the top right corner of the page.
+
+NethServer comes with a default set of software repositories in both
+enabled and disabled state.
+
+NethForge is a repository of applications built by the NethServer
+community, initially set in a disabled state.
+
 To add your own repository click on the :guilabel:`Add repository` button.
 Then fill all required fields:
 

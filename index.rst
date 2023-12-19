@@ -40,12 +40,12 @@ NethServer 8 administrator manual
    firewall
    metrics
    updates
+   modules
 
 .. toctree::
    :maxdepth: 2
    :caption: Applications
 
-   modules
    mail
    file_server
    roundcube
@@ -63,9 +63,8 @@ NethServer 8 administrator manual
 
 .. toctree::
    :maxdepth: 2
-   :caption: Forge
+   :caption: NethForge applications
 
-   forge_modules
    sogo
 
 .. toctree::
