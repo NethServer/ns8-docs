@@ -1,14 +1,14 @@
-.. _nginx-php-stack-section:
+.. _webserver-section:
 
-===============
-Nginx PHP stack
-===============
+=========
+WebServer
+=========
 
-This module installs `nginx <https://www.nginx.com/>`_ web server with
+This application installs the `Nginx <https://www.nginx.com/>`_ web server with
 `PHP <https://www.php.net/>`_ programming language and `SFTPGo
 <https://github.com/drakkan/sftpgo>`_ to upload files.
 
-You can install multiple Nginx instances on the same node from the :ref:`software_center-section`.
+You can install multiple WebServer instances on the same node from the :ref:`software_center-section`.
 
 Configuration
 =============
