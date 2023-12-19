@@ -63,6 +63,13 @@ NethServer 8 administrator manual
 
 .. toctree::
    :maxdepth: 2
+   :caption: Forge
+
+   forge_modules
+   sogo
+
+.. toctree::
+   :maxdepth: 2
    :caption: Best practices
 
    os_network
@@ -71,4 +78,3 @@ NethServer 8 administrator manual
    migration
    dockerhub
    faq
-
