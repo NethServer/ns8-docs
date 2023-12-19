@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 11:54+0000\n"
+"POT-Creation-Date: 2023-12-19 15:09+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -807,7 +807,7 @@ msgstr ""
 #: ../../ejabberd.rst:23 ../../imapsync.rst:26 ../../index.rst:30
 #: ../../mail.rst:32 ../../mariadb.rst:11 ../../mattermost.rst:13
 #: ../../minio.rst:14 ../../nextcloud.rst:21 ../../nginx.rst:14
-#: ../../roundcube.rst:19 ../../webtop.rst:12
+#: ../../roundcube.rst:19 ../../sogo.rst:32 ../../webtop.rst:12
 msgid "Configuration"
 msgstr ""
 
@@ -818,7 +818,8 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:19 ../../dokuwiki.rst:14 ../../mattermost.rst:17
-#: ../../nextcloud.rst:25 ../../roundcube.rst:23 ../../webtop.rst:16
+#: ../../nextcloud.rst:25 ../../roundcube.rst:23 ../../sogo.rst:36
+#: ../../webtop.rst:16
 msgid ""
 "Before proceeding with the configuration, make sure to create the "
 "corresponding name record inside your DNS server. If you are planning to "
@@ -828,7 +829,8 @@ msgstr ""
 
 #: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../ejabberd.rst:32
 #: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:21
-#: ../../nginx.rst:16 ../../roundcube.rst:30 ../../webtop.rst:19
+#: ../../nginx.rst:16 ../../roundcube.rst:30 ../../sogo.rst:39
+#: ../../webtop.rst:19
 msgid "How to configure:"
 msgstr ""
 
@@ -853,7 +855,8 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:28
-#: ../../nextcloud.rst:34 ../../roundcube.rst:35 ../../webtop.rst:25
+#: ../../nextcloud.rst:34 ../../roundcube.rst:35 ../../sogo.rst:45
+#: ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
 msgstr ""
 
@@ -1207,7 +1210,7 @@ msgstr ""
 msgid "Enable ``Let's Encrypt`` option accordingly to your needs"
 msgstr ""
 
-#: ../../ejabberd.rst:36
+#: ../../ejabberd.rst:36 ../../sogo.rst:44
 msgid "Select the LDAP user Domain to identify users"
 msgstr ""
 
@@ -1327,7 +1330,7 @@ msgstr ""
 msgid "Check the status of connected users"
 msgstr ""
 
-#: ../../ejabberd.rst:92
+#: ../../ejabberd.rst:92 ../../sogo.rst:74
 msgid "Clients"
 msgstr ""
 
@@ -1783,6 +1786,23 @@ msgstr ""
 msgid "To see the list of allowed services and ports, run ::"
 msgstr ""
 
+#: ../../forge_modules.rst:5
+msgid "Forge modules"
+msgstr ""
+
+#: ../../forge_modules.rst:7
+msgid ""
+"NethForge is where you can find extra modules built by the community for "
+"NethServer"
+msgstr ""
+
+#: ../../forge_modules.rst:9
+msgid ""
+"To use the modules listed here as NS8 repository, see the :ref:`manual "
+"page <software_center-section>` and set the following URL: "
+"`https://forge.nethserver.org/ns8/updates/``"
+msgstr ""
+
 #: ../../imapsync.rst:5
 msgid "Imapsync"
 msgstr ""
@@ -1857,6 +1877,10 @@ msgid "Applications"
 msgstr ""
 
 #: ../../index.rst:64
+msgid "Forge"
+msgstr ""
+
+#: ../../index.rst:71
 msgid "Best practices"
 msgstr ""
 
@@ -4698,7 +4722,7 @@ msgid ""
 "main features are:"
 msgstr ""
 
-#: ../../roundcube.rst:10
+#: ../../roundcube.rst:10 ../../sogo.rst:11
 msgid "simple and fast"
 msgstr ""
 
@@ -4706,11 +4730,11 @@ msgstr ""
 msgid "built-in address book integrated with internal LDAP"
 msgstr ""
 
-#: ../../roundcube.rst:12
+#: ../../roundcube.rst:12 ../../sogo.rst:12
 msgid "support for HTML messages"
 msgstr ""
 
-#: ../../roundcube.rst:13
+#: ../../roundcube.rst:13 ../../sogo.rst:13
 msgid "shared folders support"
 msgstr ""
 
@@ -4798,6 +4822,351 @@ msgstr ""
 msgid ""
 "Mark as junk: mark the selected messages as Junk and move them to the "
 "configured Junk folder"
+msgstr ""
+
+#: ../../sogo.rst:5
+msgid "SOGo"
+msgstr ""
+
+#: ../../sogo.rst:7
+msgid "`SOGo <https://www.sogo.nu/>`_  is a web mail client."
+msgstr ""
+
+#: ../../sogo.rst:9
+msgid "SOGo's main features are:"
+msgstr ""
+
+#: ../../sogo.rst:14
+msgid "Shared caldav/carddav support"
+msgstr ""
+
+#: ../../sogo.rst:16
+msgid ""
+"You can install multiple SOGo instances on the same node from the :ref"
+":`software_center-section`."
+msgstr ""
+
+#: ../../sogo.rst:20
+msgid ""
+"SOGo provides EAS (Exchange ActiveSync) support, but not EWS (Exchange "
+"Web Service). Outlook 2013, 2016 for Windows works well with EAS. "
+"Mainstream mobile devices (iOS, Android, BlackBerry 10) work well with "
+"EAS, they can sync mails, calendars, contacts, tasks. Apple Mail.app, and"
+" Outlook for Mac support EWS. But not EAS. **Clients work very well with "
+"POP3/IMAP account, caldav/carddav account**"
+msgstr ""
+
+#: ../../sogo.rst:27
+msgid "Official documentation"
+msgstr ""
+
+#: ../../sogo.rst:29
+msgid ""
+"Please read `official documentation "
+"<https://sogo.nu/files/docs/SOGoInstallationGuide.html>`_ for more "
+"informations."
+msgstr ""
+
+#: ../../sogo.rst:34
+msgid "SOGo needs a dedicated virtual host, a FQDN like ``sogo.nethserver.org``."
+msgstr ""
+
+#: ../../sogo.rst:41
+msgid ""
+"access the application configuration page and enter a valid FQDN inside "
+"``SOGo hostname`` field"
+msgstr ""
+
+#: ../../sogo.rst:42
+msgid "enable ``Request LE certificate`` option accordingly to your needs"
+msgstr ""
+
+#: ../../sogo.rst:43
+msgid "bind the SOGo instance to an existing ``Mail server``"
+msgstr ""
+
+#: ../../sogo.rst:48
+msgid "Usage"
+msgstr ""
+
+#: ../../sogo.rst:50
+msgid ""
+"The URL of the groupware is https://yourdomain.com/ (same as ``SOGo "
+"hostname`` field). You must use the short format ``username`` for login."
+msgstr ""
+
+#: ../../sogo.rst:54
+msgid "Advanced settings"
+msgstr ""
+
+#: ../../sogo.rst:56
+msgid "The following settings are available Inside the ``Advanced`` section:"
+msgstr ""
+
+#: ../../sogo.rst:58
+msgid ""
+"Administrator list of SOGo: When enabled, the SOGo administrator can "
+"manage all users' preferences."
+msgstr ""
+
+#: ../../sogo.rst:59
+msgid ""
+"Auxiliary email accounts : When enabled, users can add other IMAP "
+"accounts that will be visible from the SOGo Webmail interface."
+msgstr ""
+
+#: ../../sogo.rst:60
+msgid ""
+"Enable DAV: When enable the shared calendars and address books are "
+"available through DAV."
+msgstr ""
+
+#: ../../sogo.rst:61
+msgid ""
+"Enable Active Sync: When enabled, users can sync their mail, calendars, "
+"contacts, tasks with mobile devices."
+msgstr ""
+
+#: ../../sogo.rst:62
+msgid ""
+"Workers count: Number of SOGo workers, you need to adjust it according to"
+" the number of users."
+msgstr ""
+
+#: ../../sogo.rst:66
+msgid ""
+"The default value is 3, but you need to increase it if you have more than"
+" 20 users."
+msgstr ""
+
+#: ../../sogo.rst:69
+msgid "Manual parameters"
+msgstr ""
+
+#: ../../sogo.rst:71
+msgid ""
+"Some parameters cannot be modified from the user interface, please follow"
+" the instructions `README "
+"<https://github.com/NethServer/ns8-sogo/blob/main/README.md>`_"
+msgstr ""
+
+#: ../../sogo.rst:77
+msgid "Android"
+msgstr ""
+
+#: ../../sogo.rst:79
+msgid "Currently you have 2 ways to integrate your Android device with Sogo."
+msgstr ""
+
+#: ../../sogo.rst:82
+msgid "Integration via Caldav /Cardav/imap"
+msgstr ""
+
+#: ../../sogo.rst:86
+msgid ""
+"The drawback is that you need to set all settings (Url/Username/Password)"
+" in each application."
+msgstr ""
+
+#: ../../sogo.rst:88
+msgid "Email"
+msgstr ""
+
+#: ../../sogo.rst:90
+msgid ""
+"Imaps(over ssl) is a good choice, you can use the K9-mail software to "
+"retrieve your email or the default email application"
+msgstr ""
+
+#: ../../sogo.rst:92
+msgid "Contacts and calendars"
+msgstr ""
+
+#: ../../sogo.rst:94
+msgid ""
+"There are various working clients, including `DAVdroid "
+"<https://davdroid.bitfire.at>`_ (open-source) and `CalDAV-Sync/CardDav-"
+"Sync <http://dmfs.org/>`_. Advantages Full integration into Android, so "
+"that almost all calendar and contacts apps can access synchronized data."
+msgstr ""
+
+#: ../../sogo.rst:98
+msgid "Integration via ExchangeActiveSync"
+msgstr ""
+
+#: ../../sogo.rst:102
+msgid ""
+"The advantage is that you set the Url/Username/Password only in one "
+"location"
+msgstr ""
+
+#: ../../sogo.rst:105
+msgid "Step-by-step configuration"
+msgstr ""
+
+#: ../../sogo.rst:107
+msgid "Open the account menu, choose add an exchange account"
+msgstr ""
+
+#: ../../sogo.rst:108
+msgid "Fill your full email address and password in Account Setup page:"
+msgstr ""
+
+#: ../../sogo.rst:109
+msgid "If it asks you to choose Account Type, please choose Exchange:"
+msgstr ""
+
+#: ../../sogo.rst:110
+msgid ""
+"In detailed account setup page, fill up the form with your server address"
+" and email account credential"
+msgstr ""
+
+#: ../../sogo.rst:112
+msgid "Domain\\Username: your username in short format"
+msgstr ""
+
+#: ../../sogo.rst:113
+msgid "Password: password of your account"
+msgstr ""
+
+#: ../../sogo.rst:114
+msgid "Server: your server name"
+msgstr ""
+
+#: ../../sogo.rst:115
+msgid "Port: 443"
+msgstr ""
+
+#: ../../sogo.rst:119
+msgid ""
+"Please also check Use secure connection (SSL) and Accept all SSL "
+"certificates"
+msgstr ""
+
+#: ../../sogo.rst:122
+msgid "In Account Settings page, you can choose Push. it's all up to you."
+msgstr ""
+
+#: ../../sogo.rst:123
+msgid "Choose a name for your Exchange account."
+msgstr ""
+
+#: ../../sogo.rst:124
+msgid "Click Next to finish account setup. That's all."
+msgstr ""
+
+#: ../../sogo.rst:128
+msgid "Mozilla Thunderbird and Lightning"
+msgstr ""
+
+#: ../../sogo.rst:130
+msgid ""
+"Alternatively, you can access SOGo with a GroupDAV and a CalDAV client. A"
+" typical well-integrated setup is to use Mozilla Thunderbird and Mozilla "
+"Lightning along with Inverse’s SOGo Connector plug in to synchronize your"
+" address books and the Inverse’s SOGo Integrator plug in to provide a "
+"complete integration of the features of SOGo into Thunderbird and "
+"Lightning. Refer to the documentation of Thunderbird to configure an "
+"initial IMAP account pointing to your SOGo server and using the user name"
+" and password mentioned above."
+msgstr ""
+
+#: ../../sogo.rst:132
+msgid ""
+"With the `SOGo Integrator plug in "
+"<https://sogo.nu/download.html#/frontends>`_, your calendars and address "
+"books will be automatically discovered when you login in Thunderbird. "
+"This plug in can also propagate specific extensions and default user "
+"settings among your site. However, be aware that in order to use the SOGo"
+" Integrator plug in, you will need to repackage it with specific "
+"modifications. Please refer to the `documentation published online "
+"<http://sogo.nu/downloads/documentation.html>`_."
+msgstr ""
+
+#: ../../sogo.rst:134
+msgid ""
+"If you only use the SOGo Connector plug in, you can still easily access "
+"your data."
+msgstr ""
+
+#: ../../sogo.rst:136
+msgid "To access your personal address book:"
+msgstr ""
+
+#: ../../sogo.rst:137
+msgid "Choose Go > Address Book."
+msgstr ""
+
+#: ../../sogo.rst:138
+msgid "Choose File > New > Remote Address Book."
+msgstr ""
+
+#: ../../sogo.rst:139
+msgid "Enter a significant name for your calendar in the Name field."
+msgstr ""
+
+#: ../../sogo.rst:140
+msgid ""
+"Type the following URL in the URL field: "
+"http://localhost/SOGo/dav/jdoe/Contacts/personal/"
+msgstr ""
+
+#: ../../sogo.rst:141
+msgid "Click on OK."
+msgstr ""
+
+#: ../../sogo.rst:143
+msgid "To access your personal calendar:"
+msgstr ""
+
+#: ../../sogo.rst:145
+msgid "Choose Go > Calendar."
+msgstr ""
+
+#: ../../sogo.rst:146
+msgid "Choose Calendar > New Calendar."
+msgstr ""
+
+#: ../../sogo.rst:147
+msgid "Select On the Network and click on Continue."
+msgstr ""
+
+#: ../../sogo.rst:148
+msgid "Select CalDAV."
+msgstr ""
+
+#: ../../sogo.rst:149
+msgid ""
+"Type the following URL in the URL field: "
+"http://localhost/SOGo/dav/jdoe/Calendar/personal/"
+msgstr ""
+
+#: ../../sogo.rst:150
+msgid "Click on Continue."
+msgstr ""
+
+#: ../../sogo.rst:153
+msgid "Outlook"
+msgstr ""
+
+#: ../../sogo.rst:155
+msgid "You can use it with"
+msgstr ""
+
+#: ../../sogo.rst:157
+msgid ""
+"IMAP + commercial plugin as `cfos <https://www.cfos.de/en/cfos-outlook-"
+"dav/cfos-outlook-dav.htm?__ntrack_pv=1>`_ or `outlookdav "
+"<http://www.outlookdav.com/>`_ for calendars/contacts"
+msgstr ""
+
+#: ../../sogo.rst:158
+msgid "ActiveSync since Outlook 2013"
+msgstr ""
+
+#: ../../sogo.rst:160
+msgid "There is no support for Openchange/OutlookMAPI."
 msgstr ""
 
 #: ../../system_requirements.rst:5
