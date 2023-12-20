@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-19 15:09+0000\n"
+"POT-Creation-Date: 2023-12-20 08:11+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -471,7 +471,7 @@ msgid ""
 "button."
 msgstr ""
 
-#: ../../cluster.rst:31 ../../install.rst:90
+#: ../../cluster.rst:31 ../../install.rst:99
 msgid ""
 "Ensure the node Fully Qualified Domain Name (FQDN) is correct, and "
 "respects the :ref:`DNS requirements <dns-reqs>`."
@@ -804,7 +804,7 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
-#: ../../ejabberd.rst:23 ../../imapsync.rst:26 ../../index.rst:30
+#: ../../ejabberd.rst:23 ../../imapsync.rst:26 ../../index.rst:31
 #: ../../mail.rst:32 ../../mariadb.rst:11 ../../mattermost.rst:13
 #: ../../minio.rst:14 ../../nextcloud.rst:21 ../../nginx.rst:14
 #: ../../roundcube.rst:19 ../../sogo.rst:32 ../../webtop.rst:12
@@ -1369,6 +1369,26 @@ msgid ""
 "obtained for free with Let's Encrypt."
 msgstr ""
 
+#: ../../email_notifications.rst:5
+msgid "Email notifications"
+msgstr ""
+
+#: ../../email_notifications.rst:7
+msgid "Many applications require access to an SMTP server to send mail."
+msgstr ""
+
+#: ../../email_notifications.rst:9
+msgid ""
+"You can configure the same SMTP server for all installed applications by "
+"accessing the ``Email notifications`` card inside the ``Settings`` page."
+msgstr ""
+
+#: ../../email_notifications.rst:12
+msgid ""
+"Then, enable the feature by clicking on ``Send notifications with an SMTP"
+" server`` and fill the required details."
+msgstr ""
+
 #: ../../faq.rst:3
 msgid "FAQ: Frequently Asked Questions"
 msgstr ""
@@ -1695,7 +1715,7 @@ msgstr ""
 msgid "fill the form to join a new DC to the domain."
 msgstr ""
 
-#: ../../file_server.rst:104 ../../modules.rst:121
+#: ../../file_server.rst:104 ../../software_center.rst:82
 msgid "Footnotes"
 msgstr ""
 
@@ -1786,23 +1806,6 @@ msgstr ""
 msgid "To see the list of allowed services and ports, run ::"
 msgstr ""
 
-#: ../../forge_modules.rst:5
-msgid "Forge modules"
-msgstr ""
-
-#: ../../forge_modules.rst:7
-msgid ""
-"NethForge is where you can find extra modules built by the community for "
-"NethServer"
-msgstr ""
-
-#: ../../forge_modules.rst:9
-msgid ""
-"To use the modules listed here as NS8 repository, see the :ref:`manual "
-"page <software_center-section>` and set the following URL: "
-"`https://forge.nethserver.org/ns8/updates/``"
-msgstr ""
-
 #: ../../imapsync.rst:5
 msgid "Imapsync"
 msgstr ""
@@ -1868,19 +1871,19 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: ../../index.rst:23 ../../install.rst:5
+#: ../../index.rst:24 ../../install.rst:5
 msgid "Installation"
 msgstr ""
 
-#: ../../index.rst:44
+#: ../../index.rst:47 ../../modules.rst:7
 msgid "Applications"
 msgstr ""
 
-#: ../../index.rst:64
-msgid "Forge"
+#: ../../index.rst:66
+msgid "NethForge applications"
 msgstr ""
 
-#: ../../index.rst:71
+#: ../../index.rst:72
 msgid "Best practices"
 msgstr ""
 
@@ -1915,144 +1918,174 @@ msgstr ""
 #: ../../install.rst:20
 msgid ""
 "Pick your preferred Linux distribution between :ref:`supported ones "
-"<supported-distros-section>` and ensure that the system firewall is not "
-"blocking any connection."
+"<supported-distros-section>`."
 msgstr ""
 
 #: ../../install.rst:23
-msgid "First, make sure the system is up to date and ``curl`` is installed:"
+msgid "On Debian systems, you may need to install the ``curl`` command: ::"
 msgstr ""
 
-#: ../../install.rst:25
-msgid "for CentOS/AlmaLinux/RockyLinux: ``dnf update -y && dnf install -y curl``"
-msgstr ""
-
-#: ../../install.rst:26
-msgid ""
-"for Debian: ``apt-get update && apt-get upgrade -y && apt-get install -y "
-"curl``"
-msgstr ""
-
-#: ../../install.rst:28
+#: ../../install.rst:27
 msgid "Start the installation procedure as ``root``: ::"
 msgstr ""
 
-#: ../../install.rst:36
-msgid "Pre-built images"
+#: ../../install.rst:34
+msgid "Pre-built image"
 msgstr ""
 
-#: ../../install.rst:38
+#: ../../install.rst:39
 msgid ""
-"NethServer 8 provides an officially supported image built upon the stable"
-" foundation of `Rocky Linux <https://rockylinux.org/>`_, making it "
-"suitable for a wide range of server applications."
+"NethServer 8 provides an image built upon the stable foundation Rocky "
+"Linux 9, making it suitable for a wide range of server applications."
 msgstr ""
 
-#: ../../install.rst:41
-msgid "NS8 on Rocky Linux 9:"
+#: ../../install.rst:42
+msgid "NS8 image download links"
 msgstr ""
 
-#: ../../install.rst:43
+#: ../../install.rst:1
+msgid "Platform"
+msgstr ""
+
+#: ../../install.rst:1
+msgid "Format"
+msgstr ""
+
+#: ../../install.rst:1
+msgid "Size"
+msgstr ""
+
+#: ../../install.rst:1
+msgid "URL"
+msgstr ""
+
+#: ../../install.rst:1
+msgid "QEMU/Proxmox"
+msgstr ""
+
+#: ../../install.rst:1
+msgid "qcow2"
+msgstr ""
+
+#: ../../install.rst:1
+msgid "1.7 |nbsp| GB"
+msgstr ""
+
+#: ../../install.rst:1
 msgid ""
-"`QEMU/Proxmox (qcow2) <https://distfeed.nethserver.org/ns8-images/ns8"
-"-rocky-linux-9-ns8-stable.qcow2>`_"
+"https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
+"linux-9-ns8-stable.qcow2"
 msgstr ""
 
-#: ../../install.rst:44
+#: ../../install.rst:1
+msgid "VMWare"
+msgstr ""
+
+#: ../../install.rst:1
+msgid "vmdk"
+msgstr ""
+
+#: ../../install.rst:1
+msgid "3.0 |nbsp| GB"
+msgstr ""
+
+#: ../../install.rst:1
 msgid ""
-"`VMWare (vmdk) <https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
-"linux-9-ns8-stable.vmdk>`_"
+"https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
+"linux-9-ns8-stable.vmdk"
 msgstr ""
 
-#: ../../install.rst:45
+#: ../../install.rst:48
 msgid ""
-"`Images SHA256 checksum "
-"<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_"
+"Choose the ``qcow2`` image format if you are using a KVM-based "
+"virtualization platform, like `Proxmox <https://www.proxmox.com/>`_, or "
+"the ``vmdk`` format if you are using something like `VMware "
+"<https://www.vmware.com>`_."
 msgstr ""
 
-#: ../../install.rst:47
+#: ../../install.rst:52
 msgid ""
-"Download the image from the above links and start it inside your "
-"virtualization platform. Choose a ``qcow2`` image if you are using a KVM-"
-"based platform like `Proxmox <https://www.proxmox.com/>`_ or a ``vmdk`` "
-"image if your using something like `VMware <https://www.vmware.com>`_."
+"When the image download has completed verify the file integrity with the "
+"`sha256 checksum file "
+"<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_.  Download the "
+"checksum then run for example the following command: ::"
 msgstr ""
 
-#: ../../install.rst:51
+#: ../../install.rst:59
+msgid "Virtualization platform-specific notes:"
+msgstr ""
+
+#: ../../install.rst:61
 msgid ""
-"You can also upload the image to a cloud provider and create a public "
-"virtual machine."
+"For VMWare, configure the virtual machine to use the IDE driver for the "
+"disk."
 msgstr ""
 
-#: ../../install.rst:53
+#: ../../install.rst:62
+msgid ""
+"For Proxmox, change the default CPU model to anything other than "
+"``kvm64``."
+msgstr ""
+
+#: ../../install.rst:64
+msgid ""
+"Finally, start the NS8 image within your virtualization platform, or "
+"upload it to a cloud provider to create a public virtual machine."
+msgstr ""
+
+#: ../../install.rst:67
 msgid "Default OS administrative credentials are"
 msgstr ""
 
-#: ../../install.rst:55
+#: ../../install.rst:69
 msgid "Username: ``root``"
 msgstr ""
 
-#: ../../install.rst:56 ../../install.rst:82
+#: ../../install.rst:70 ../../install.rst:91
 msgid "Password: ``Nethesis,1234``"
 msgstr ""
 
-#: ../../install.rst:58
+#: ../../install.rst:72
 msgid ""
 "You will be forced to change the default password after the first login "
 "with ``root`` user."
 msgstr ""
 
-#: ../../install.rst:60
-msgid "Virtualization platform specific notes:"
-msgstr ""
-
-#: ../../install.rst:62
-msgid ""
-"On VMWare, you must configure the virtual machine to use IDE driver for "
-"the disk"
-msgstr ""
-
-#: ../../install.rst:63
-msgid ""
-"When using the image on Proxmox, change the default CPU model to anything"
-" other than ``kvm64``"
-msgstr ""
-
-#: ../../install.rst:68
+#: ../../install.rst:77
 msgid "Post-installation steps"
 msgstr ""
 
-#: ../../install.rst:70
+#: ../../install.rst:79
 msgid ""
 "When the installation script ends or the pre-built image has started, "
 "access the Web user interface at ::"
 msgstr ""
 
-#: ../../install.rst:77
+#: ../../install.rst:86
 msgid "If the node is unreachable see :ref:`os-network-section`"
 msgstr ""
 
-#: ../../install.rst:79
-msgid "Use the default credentials to login:"
+#: ../../install.rst:88
+msgid "The default credentials to login on cluster-admin are"
 msgstr ""
 
-#: ../../install.rst:81
+#: ../../install.rst:90
 msgid "Username: ``admin``"
 msgstr ""
 
-#: ../../install.rst:84
+#: ../../install.rst:93
 msgid ""
 "Choose :guilabel:`Create cluster` and follow the procedure to create a "
 "new single-node cluster."
 msgstr ""
 
-#: ../../install.rst:87
+#: ../../install.rst:96
 msgid ""
 "For security reasons, the admin password must be changed immediately if "
 "it is still at the default value."
 msgstr ""
 
-#: ../../install.rst:93
+#: ../../install.rst:102
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
 " Network (VPN) for the cluster. With the VPN in place, you will be able "
@@ -2062,31 +2095,31 @@ msgid ""
 " changed once it has been set."
 msgstr ""
 
-#: ../../install.rst:100
+#: ../../install.rst:109
 msgid ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
 "ready."
 msgstr ""
 
-#: ../../install.rst:102
+#: ../../install.rst:111
 msgid ""
 "A new cluster has assigned the default name ``NethServer 8``. If you wish"
 " to change it:"
 msgstr ""
 
-#: ../../install.rst:105
+#: ../../install.rst:114
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr ""
 
-#: ../../install.rst:106
+#: ../../install.rst:115
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr ""
 
-#: ../../install.rst:107
+#: ../../install.rst:116
 msgid "click the :guilabel:`Save settings` button"
 msgstr ""
 
-#: ../../install.rst:109
+#: ../../install.rst:118
 msgid ""
 "Now sure where to go from here? You can install a :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
@@ -2095,22 +2128,22 @@ msgid ""
 "<cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`."
 msgstr ""
 
-#: ../../install.rst:115
+#: ../../install.rst:124
 msgid "Uninstall"
 msgstr ""
 
-#: ../../install.rst:117
+#: ../../install.rst:126
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr ""
 
-#: ../../install.rst:119
+#: ../../install.rst:128
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 
-#: ../../install.rst:122
+#: ../../install.rst:131
 msgid "To uninstall NS8, execute: ::"
 msgstr ""
 
@@ -2119,52 +2152,54 @@ msgid "Introduction"
 msgstr ""
 
 #: ../../introduction.rst:6
-msgid "About NethServer 8 (NS8)"
+msgid "About NethServer 8"
 msgstr ""
 
 #: ../../introduction.rst:8
 msgid ""
-"NethServer 8 (NS8) is a `GNU/Linux "
+"NethServer 8 (abbreviated as NS8) is a `GNU/Linux "
 "<https://en.wikipedia.org/wiki/Linux>`_ application server designed for "
 "small offices and medium enterprises. Applications can be managed from a "
 "simple Web user interface."
 msgstr ""
 
-#: ../../introduction.rst:11
+#: ../../introduction.rst:13
 msgid ""
 "Under the hood, NS8 is a container `orchestrator "
 "<https://en.wikipedia.org/wiki/Orchestration_(computing)>`_. It can host "
-"different applications on a single machine or spread the load across "
-"multiple nodes."
+"different :ref:`applications <applications-section>` on a single machine "
+"or spread the load across multiple nodes."
 msgstr ""
 
-#: ../../introduction.rst:14
+#: ../../introduction.rst:18
 msgid ""
-"NethServer 8 (NS8), is the evolution of `NethServer 7 (NS7) "
-"<https://docs.nethserver.org/en/v7/>`_."
+"NS8, is the evolution of `NethServer 7 "
+"<https://docs.nethserver.org/en/v7/>`_. It is no longer a complete Linux "
+"distribution based on CentOS, instead it can be installed on different "
+"Linux distributions."
 msgstr ""
 
-#: ../../introduction.rst:17
+#: ../../introduction.rst:24
 msgid "Get support"
 msgstr ""
 
-#: ../../introduction.rst:19
+#: ../../introduction.rst:26
 msgid ""
 "You want to know more or look for some help? Check out our great "
 "`community <https://community.nethserver.org>`_!"
 msgstr ""
 
-#: ../../introduction.rst:22
+#: ../../introduction.rst:29
 msgid ""
-"If you're looking for more technical details, take a look to the "
+"If you are looking for more technical details, take a look to the "
 "`developer manual <https://nethserver.github.io/ns8-core/>`_."
 msgstr ""
 
-#: ../../introduction.rst:24
+#: ../../introduction.rst:31
 msgid ""
 "Bugs can be discussed and reported inside the `community forum "
-"<https://community.nethserver.org>`_. A public issue tracker is available"
-" at `GitHub <https://github.com/NethServer/dev/issues>`_."
+"<https://community.nethserver.org>`_. The public issue tracker is "
+"available at `GitHub <https://github.com/NethServer/dev/issues>`_."
 msgstr ""
 
 #: ../../log_server.rst:5
@@ -3547,249 +3582,124 @@ msgid ""
 "of the backup."
 msgstr ""
 
-#: ../../modules.rst:5
-msgid "Modules"
-msgstr ""
-
-#: ../../modules.rst:7
+#: ../../modules.rst:9
 msgid ""
-"A module is an NS8 application that is usually composed of a backend and "
-"a frontend. An application backend can contain one or more containers."
+"A NS8 application is implemented by a unit called *module*. It is usually"
+" composed of one or more Linux containers and a user interface for its "
+"configuration."
 msgstr ""
 
-#: ../../modules.rst:10
+#: ../../modules.rst:13
+msgid ""
+"The terms *application* and *module* are almost synonims in the context "
+"of NethServer 8, however there can be modules that actually do not "
+"implement applications because they are just services for other modules, "
+"so they do not provide any user configuration interface at all."
+msgstr ""
+
+#: ../../modules.rst:18
 msgid ""
 "Every time a module instance is added to the cluster, the new instance is"
 " named like the module itself followed by a progressive number starting "
 "from 1. Given a module named ``myapp``, instances will be named "
-"``myapp1``, ``myapp2`` and so on. You can add a more meaningful label to "
-"the instance from the software center."
-msgstr ""
-
-#: ../../modules.rst:15
-msgid ""
-"Some modules require specific resources that cannot be shared. As an "
-"example, the Samba module needs to reserve DNS and SMB well-known TCP "
-"ports. You can install only one instance per node of this type of "
-"modules."
-msgstr ""
-
-#: ../../modules.rst:19
-msgid ""
-"Modules that don't require exclusive access to resources can be installed"
-" multiple times on the same node. As an example, you can install multiple"
-" OpenLDAP servers on a single node."
-msgstr ""
-
-#: ../../modules.rst:22
-msgid "bento"
+"``myapp1``, ``myapp2`` and so on. It is possible to set a more meaningful"
+" name for the instance from the :ref:`software_center-section` page."
 msgstr ""
 
 #: ../../modules.rst:24
 msgid ""
-"Installed applications are always available from the application drawer, "
-"by clicking on the |bento| menu in the top right corner."
+"Some applications or modules require specific resources that cannot be "
+"shared among instances installed on the same cluster node. As an example,"
+" the Mail application needs to reserve SMTP and IMAP well-known TCP "
+"ports. You can install only one instance per node of this kind of "
+"applications."
 msgstr ""
 
-#: ../../modules.rst:30
-msgid "Software center"
-msgstr ""
-
-#: ../../modules.rst:32
+#: ../../modules.rst:29
 msgid ""
-"The software center lists all available modules from repositories "
-"[#fileserver]_\\ ."
+"On the contrary, applications that do not require exclusive access to "
+"resources can be installed multiple times on the same node. As an "
+"example, you can install multiple Nextcloud applications on a single "
+"node."
 msgstr ""
 
-#: ../../modules.rst:34
-msgid ""
-"To install a new application just click on the :guilabel:`Install` "
-"button. If the cluster has multiple nodes, you will be alse required to "
-"select the target node."
-msgstr ""
-
-#: ../../modules.rst:37
-msgid ""
-"To install another instance of an existing application, click on the "
-"``Instances`` link inside the application card. Then click on "
-":guilabel:`Install new instance`."
-msgstr ""
-
-#: ../../modules.rst:40
-msgid ""
-"Be careful! The user interface does not currently check if an application"
-" supports multiple instances on the same node."
-msgstr ""
-
-#: ../../modules.rst:42
-msgid ""
-"You can also perform multiple actions on installed applications by "
-"clicking on the three-dots menu:"
-msgstr ""
-
-#: ../../modules.rst:44
-msgid ""
-"``Add to favorites``: the application will be always listed on top of the"
-" application drawer"
-msgstr ""
-
-#: ../../modules.rst:45
-msgid "``Edit instance label``: add a name to the instance"
-msgstr ""
-
-#: ../../modules.rst:46
-msgid "``Clone``: clone the application, see :ref:`move_clone-section`"
-msgstr ""
-
-#: ../../modules.rst:47
-msgid ""
-"``Move``: move the application to another node, see :ref:`move_clone-"
-"section`"
-msgstr ""
-
-#: ../../modules.rst:48
-msgid "``Uninstall``: remove the application and all related data"
-msgstr ""
-
-#: ../../modules.rst:53
+#: ../../modules.rst:36
 msgid "Clone and move applications"
 msgstr ""
 
-#: ../../modules.rst:55
+#: ../../modules.rst:38
 msgid ""
-"A module instance can be cloned inside a cluster node. The clone "
-"procedure creates a new module instance that is equivalent to the source "
-"one."
+"An application instance can be cloned inside a cluster node. The clone "
+"procedure creates a new application instance that is equivalent to the "
+"source one."
 msgstr ""
 
-#: ../../modules.rst:58
+#: ../../modules.rst:41
 msgid ""
 "The cluster node where the destination instance runs can be the same as "
 "the source instance. Generally, there should be no limitation on running "
-"multiple module instances on the same node. In some cases, the services "
-"provided by the instance might require exclusive access to a particular "
-"system resource, such as binding a fixed TCP port number. In this case "
-"cloning becomes impossible."
+"multiple application instances on the same node. In some cases, the "
+"services provided by the instance might require exclusive access to a "
+"particular system resource, such as binding a fixed TCP port number. In "
+"this case cloning becomes impossible."
 msgstr ""
 
-#: ../../modules.rst:63
+#: ../../modules.rst:48
 msgid "In a nutshell the clone procedure"
 msgstr ""
 
-#: ../../modules.rst:65 ../../modules.rst:76
-msgid "creates a new module instance for the destination"
+#: ../../modules.rst:50 ../../modules.rst:62
+msgid "creates a new application instance for the destination"
 msgstr ""
 
-#: ../../modules.rst:66 ../../modules.rst:77
+#: ../../modules.rst:51
 msgid ""
 "starts the data transfer between the instances, during this phase the "
-"source is still up&running"
+"source is still up and running"
 msgstr ""
 
-#: ../../modules.rst:67 ../../modules.rst:78
+#: ../../modules.rst:53 ../../modules.rst:64
 msgid "stops briefly the source instance"
 msgstr ""
 
-#: ../../modules.rst:68 ../../modules.rst:79
+#: ../../modules.rst:54 ../../modules.rst:65
 msgid "executes the final data synchronization"
 msgstr ""
 
-#: ../../modules.rst:69
+#: ../../modules.rst:55
 msgid "starts the source and the destination instances"
 msgstr ""
 
-#: ../../modules.rst:71
+#: ../../modules.rst:57
 msgid ""
 "Instead, when moving an application, you must select a target node other "
 "than the one where the instance is currently running."
 msgstr ""
 
-#: ../../modules.rst:74
+#: ../../modules.rst:60
 msgid "The move procedure"
 msgstr ""
 
-#: ../../modules.rst:80
+#: ../../modules.rst:63
+msgid ""
+"starts the data transfer between the instances, during this phase the "
+"source is still up&running"
+msgstr ""
+
+#: ../../modules.rst:66
 msgid "starts the destination instance and removes the source one"
 msgstr ""
 
-#: ../../modules.rst:82
+#: ../../modules.rst:68
 msgid ""
 "If the moved application is referenced using an FQDN, remember also to "
 "change the DNS record and point it to the address of the target node."
 msgstr ""
 
-#: ../../modules.rst:88
-msgid "Software repositories"
-msgstr ""
-
-#: ../../modules.rst:90
-msgid "Software repositories are the sources of modules metadata."
-msgstr ""
-
-#: ../../modules.rst:92
+#: ../../modules.rst:71
 msgid ""
-"The list of configured repositories is accessible by clicking on the "
-"``Software repository`` item under the three-dots menu on the top right "
-"corner of the software center."
-msgstr ""
-
-#: ../../modules.rst:95
-msgid ""
-"NethServer comes with a set of software repositories. To add your own "
-"repository click on the :guilabel:`Add repository` button. Then fill all "
-"required fields:"
-msgstr ""
-
-#: ../../modules.rst:99
-msgid "``Name`` a unique name for the repository"
-msgstr ""
-
-#: ../../modules.rst:100
-msgid ""
-"``URL`` public URL of the repository, it must be a valid `NS8 repository "
-"<https://nethserver.github.io/ns8-core/modules/metadata/>`_"
-msgstr ""
-
-#: ../../modules.rst:101
-msgid "``Status`` check this option to enable the repository"
-msgstr ""
-
-#: ../../modules.rst:102
-msgid ""
-"``Testing`` check this option to access also non-stable releases of "
-"modules from this repository"
-msgstr ""
-
-#: ../../modules.rst:104
-msgid ""
-"You can force the metadata refresh by clicking on the :guilabel:`Reload "
-"repositories` button."
-msgstr ""
-
-#: ../../modules.rst:109
-msgid "Email notifications"
-msgstr ""
-
-#: ../../modules.rst:111
-msgid "Many applications require access to an SMTP server to send mail."
-msgstr ""
-
-#: ../../modules.rst:113
-msgid ""
-"You can configure the same SMTP server for all installed applications by "
-"accessing the ``Email notifications`` card inside the ``Settings`` page."
-msgstr ""
-
-#: ../../modules.rst:116
-msgid ""
-"Then, enable the feature by clicking on ``Send notifications with an SMTP"
-" server`` and fill the required details."
-msgstr ""
-
-#: ../../modules.rst:122
-msgid ""
-"Except for :ref:`file-server-section`, that is installed with :ref"
-":`active_directory-section`"
+"To start moving/cloning an application instance see the :ref"
+":`software_center-section` page."
 msgstr ""
 
 #: ../../nextcloud.rst:5
@@ -3940,20 +3850,20 @@ msgid ""
 msgstr ""
 
 #: ../../nginx.rst:5
-msgid "Nginx PHP stack"
+msgid "WebServer"
 msgstr ""
 
 #: ../../nginx.rst:7
 msgid ""
-"This module installs `nginx <https://www.nginx.com/>`_ web server with "
-"`PHP <https://www.php.net/>`_ programming language and `SFTPGo "
-"<https://github.com/drakkan/sftpgo>`_ to upload files."
+"This application installs the `Nginx <https://www.nginx.com/>`_ web "
+"server with `PHP <https://www.php.net/>`_ programming language and "
+"`SFTPGo <https://github.com/drakkan/sftpgo>`_ to upload files."
 msgstr ""
 
 #: ../../nginx.rst:11
 msgid ""
-"You can install multiple Nginx instances on the same node from the :ref"
-":`software_center-section`."
+"You can install multiple WebServer instances on the same node from the "
+":ref:`software_center-section`."
 msgstr ""
 
 #: ../../nginx.rst:18
@@ -4824,6 +4734,151 @@ msgid ""
 "configured Junk folder"
 msgstr ""
 
+#: ../../software_center.rst:5
+msgid "Software center"
+msgstr ""
+
+#: ../../software_center.rst:7
+msgid ""
+"The software center lists applications available from all repositories "
+"[#fileserver]_\\ ."
+msgstr ""
+
+#: ../../software_center.rst:10
+msgid ""
+"To install a new application just click on the :guilabel:`Install` "
+"button. If the cluster has multiple nodes, you will be alse required to "
+"select the target node."
+msgstr ""
+
+#: ../../software_center.rst:14
+msgid ""
+"To install another instance of an existing application, click on the "
+"``Instances`` link inside the application card. Then click on "
+":guilabel:`Install new instance`."
+msgstr ""
+
+#: ../../software_center.rst:20
+msgid ""
+"Be careful! The user interface does not currently check if an application"
+" supports multiple instances on the same node."
+msgstr ""
+
+#: ../../software_center.rst:25
+msgid ""
+"Installed applications are always available from the application drawer, "
+"by clicking on the |bento| menu in the top right corner."
+msgstr ""
+
+#: ../../software_center.rst:23
+msgid "bento"
+msgstr ""
+
+#: ../../software_center.rst:28
+msgid ""
+"You can also perform multiple actions on installed applications by "
+"clicking on the three-dots menu:"
+msgstr ""
+
+#: ../../software_center.rst:31
+msgid ""
+"``Add to favorites``: the application will be always listed on top of the"
+" application drawer"
+msgstr ""
+
+#: ../../software_center.rst:34
+msgid "``Edit instance label``: add a name to the instance"
+msgstr ""
+
+#: ../../software_center.rst:36
+msgid "``Clone``: clone the application, see :ref:`move_clone-section`"
+msgstr ""
+
+#: ../../software_center.rst:38
+msgid ""
+"``Move``: move the application to another node, see :ref:`move_clone-"
+"section`"
+msgstr ""
+
+#: ../../software_center.rst:41
+msgid "``Uninstall``: remove the application and all related data"
+msgstr ""
+
+#: ../../software_center.rst:46
+msgid "Software repositories"
+msgstr ""
+
+#: ../../software_center.rst:48
+msgid ""
+"Software repositories contain applications metadata, which is constituted"
+" by the index of applications, along with their descriptions and "
+"additional information on how to obtain them."
+msgstr ""
+
+#: ../../software_center.rst:52
+msgid "The list of configured repositories is accessible by different ways:"
+msgstr ""
+
+#: ../../software_center.rst:54
+msgid "In the ``Settings`` page: click the ``Software repositories`` card."
+msgstr ""
+
+#: ../../software_center.rst:56
+msgid ""
+"In the ``Software Center`` page: click the ``Software repository`` item "
+"under the three-dots menu on the top right corner of the page."
+msgstr ""
+
+#: ../../software_center.rst:59
+msgid ""
+"NethServer comes with a default set of software repositories in both "
+"enabled and disabled state."
+msgstr ""
+
+#: ../../software_center.rst:62
+msgid ""
+"NethForge is a repository of applications built by the NethServer "
+"community, initially set in a disabled state."
+msgstr ""
+
+#: ../../software_center.rst:65
+msgid ""
+"To add your own repository click on the :guilabel:`Add repository` "
+"button. Then fill all required fields:"
+msgstr ""
+
+#: ../../software_center.rst:68
+msgid "``Name`` a unique name for the repository"
+msgstr ""
+
+#: ../../software_center.rst:70
+msgid ""
+"``URL`` public URL of the repository, it must be a valid `NS8 repository "
+"<https://nethserver.github.io/ns8-core/modules/metadata/>`_"
+msgstr ""
+
+#: ../../software_center.rst:73
+msgid "``Status`` check this option to enable the repository"
+msgstr ""
+
+#: ../../software_center.rst:75
+msgid ""
+"``Testing`` check this option to access also non-stable releases of "
+"modules from this repository"
+msgstr ""
+
+#: ../../software_center.rst:78
+msgid ""
+"You can force the metadata refresh by clicking on the :guilabel:`Reload "
+"repositories` button."
+msgstr ""
+
+#: ../../software_center.rst:83
+msgid ""
+"Except for :ref:`file-server-section`, that is installed with :ref"
+":`active_directory-section`"
+msgstr ""
+
 #: ../../sogo.rst:5
 msgid "SOGo"
 msgstr ""
@@ -5175,99 +5230,105 @@ msgstr ""
 
 #: ../../system_requirements.rst:7
 msgid ""
-"NethServer 8 can be deployed on a single machine or on more nodes in a "
-"cluster scenario. NS8 is currently available only for `x86-64 "
-"architecture <https://en.wikipedia.org/wiki/X86-64>`_."
+"NethServer 8, abbreviated as NS8, can be deployed on a single node or "
+"across multiple nodes in a clustered configuration."
 msgstr ""
 
 #: ../../system_requirements.rst:10
-msgid "Minimum hardware requirements for a single node installation:"
-msgstr "Requisiti hardware minimi per un'installazione con un singolo nodo:"
-
-#: ../../system_requirements.rst:12
-msgid "2 vCPU/cores"
+msgid ""
+"NS8 is currently available only for `x86-64 architecture "
+"<https://en.wikipedia.org/wiki/X86-64>`_."
 msgstr ""
 
 #: ../../system_requirements.rst:13
-msgid "2GB RAM"
-msgstr ""
+msgid "Minimum hardware requirements for a single node installation:"
+msgstr "Requisiti hardware minimi per un'installazione con un singolo nodo:"
 
-#: ../../system_requirements.rst:14
-msgid "20GB disk"
+#: ../../system_requirements.rst:15
+msgid "2 vCPU/cores"
 msgstr ""
 
 #: ../../system_requirements.rst:16
-msgid ""
-"More nodes can be added later. When adding a new node, you should use "
-"similar hardware and the same distribution installed on the leader node."
+msgid "2GB RAM"
+msgstr ""
+
+#: ../../system_requirements.rst:17
+msgid "20GB disk"
 msgstr ""
 
 #: ../../system_requirements.rst:19
 msgid ""
-"Always install NethServer 8 on a clean server machine, do not install it "
-"on a desktop."
-msgstr ""
-
-#: ../../system_requirements.rst:24
-msgid "Linux distribution"
+"More nodes can be added later, and when adding a new node, it is "
+"recommended to use similar hardware and the same Linux distribution "
+"installed on the other nodes."
 msgstr ""
 
 #: ../../system_requirements.rst:26
-msgid "Supported GNU/Linux distributions and versions:"
+msgid "Linux distribution"
 msgstr ""
 
 #: ../../system_requirements.rst:28
-msgid "`Rocky Linux <https://rockylinux.org/>`_ 9"
-msgstr ""
-
-#: ../../system_requirements.rst:29
-msgid "`CentOS Stream <https://www.centos.org/centos-stream/>`_ 9"
-msgstr ""
-
-#: ../../system_requirements.rst:30
-msgid "`AlmaLinux <https://almalinux.org>`_ 9"
+msgid ""
+"Install NS8 on a clean Linux server distribution, avoiding installation "
+"on desktop systems or servers already running other services."
 msgstr ""
 
 #: ../../system_requirements.rst:31
+msgid "Supported GNU/Linux distributions and versions:"
+msgstr ""
+
+#: ../../system_requirements.rst:33
+msgid "`Rocky Linux <https://rockylinux.org/>`_ 9"
+msgstr ""
+
+#: ../../system_requirements.rst:34
+msgid "`CentOS Stream <https://www.centos.org/centos-stream/>`_ 9"
+msgstr ""
+
+#: ../../system_requirements.rst:35
+msgid "`AlmaLinux <https://almalinux.org>`_ 9"
+msgstr ""
+
+#: ../../system_requirements.rst:36
 msgid "`Debian <https://www.debian.org/>`_ 12"
 msgstr ""
 
-#: ../../system_requirements.rst:37
+#: ../../system_requirements.rst:42
 msgid "Static IP address"
 msgstr ""
 
-#: ../../system_requirements.rst:39
+#: ../../system_requirements.rst:44
 msgid ""
 "Assign a static IP address to the server. DHCP and any other dynamic IP "
 "discovery protocols are not allowed."
 msgstr ""
 
-#: ../../system_requirements.rst:45
+#: ../../system_requirements.rst:50
 msgid "DNS configuration"
 msgstr ""
 
-#: ../../system_requirements.rst:47
+#: ../../system_requirements.rst:52
 msgid ""
 "As you are configuring a server, network clients must resolve its fully "
 "qualified domain name (FQDN) to a routable IP address with the DNS. This "
 "is a requirement to connect with the server."
 msgstr ""
 
-#: ../../system_requirements.rst:51
+#: ../../system_requirements.rst:56
 msgid ""
 "A correct FQDN and DNS setup is also a requirement for TLS encryption to "
 "work properly. Once connected with the server, network clients check if "
 "the TLS certificate is valid for the given FQDN."
 msgstr ""
 
-#: ../../system_requirements.rst:55
+#: ../../system_requirements.rst:60
 msgid ""
 "Depending on your server purpose, DNS can be provided by a public "
 "internet service, a private network appliance, or even both of them. Read"
 " carefully and understand their documentation."
 msgstr ""
 
-#: ../../system_requirements.rst:59
+#: ../../system_requirements.rst:64
 msgid ""
 "Decide the FQDN of your server and register it in the DNS with the server"
 " public IP address. A FQDN is composed by the host name prefix (a single "
@@ -5276,39 +5337,39 @@ msgid ""
 "``jupiter.example.org``."
 msgstr ""
 
-#: ../../system_requirements.rst:69
+#: ../../system_requirements.rst:74
 msgid "Worker node requirements"
 msgstr ""
 
-#: ../../system_requirements.rst:73
+#: ../../system_requirements.rst:78
 msgid ""
 "Among network clients, a worker node has some special requirements to be "
 "installed and configured."
 msgstr ""
 
-#: ../../system_requirements.rst:76
+#: ../../system_requirements.rst:81
 msgid ""
 "The worker node reaches the leader during the join procedure at the "
 "following URL: ::"
 msgstr ""
 
-#: ../../system_requirements.rst:81
+#: ../../system_requirements.rst:86
 msgid "Ensure the following requirements are met:"
 msgstr ""
 
-#: ../../system_requirements.rst:83
+#: ../../system_requirements.rst:88
 msgid ""
 "the worker node must resolve the leader FQDN to the correct routable "
 "address"
 msgstr ""
 
-#: ../../system_requirements.rst:86
+#: ../../system_requirements.rst:91
 msgid ""
 "the HTTPS server (TCP port 443) at that address must handle the API "
 "request"
 msgstr ""
 
-#: ../../system_requirements.rst:89
+#: ../../system_requirements.rst:94
 msgid ""
 "the API server response contains the leader ``VPN endpoint``: it is a "
 "host address with a UDP port number used to set up a Wireguard VPN. The "
@@ -6079,14 +6140,14 @@ msgstr ""
 msgid "Change admin password"
 msgstr ""
 
-#: ../../webtop.rst:83
-msgid "hamburger"
-msgstr ""
-
 #: ../../webtop.rst:85
 msgid ""
 "Access WebTop using the ``admin`` user, then open user settings by "
 "clicking on the |hamburger| menu in the top-right corner."
+msgstr ""
+
+#: ../../webtop.rst:83
+msgid "hamburger"
 msgstr ""
 
 #: ../../webtop.rst:87
@@ -6622,14 +6683,14 @@ msgstr ""
 msgid "click :guilabel:`OK` then :guilabel:`Save and exit`"
 msgstr ""
 
-#: ../../webtop.rst:350
-msgid "tools"
-msgstr ""
-
 #: ../../webtop.rst:352
 msgid ""
 "You can manage the labels from the tools |tools| button icon at the top "
 "right corner."
+msgstr ""
+
+#: ../../webtop.rst:350
+msgid "tools"
 msgstr ""
 
 #: ../../webtop.rst:354
@@ -8823,5 +8884,288 @@ msgstr ""
 #~ "Then, enable the feature by clicking "
 #~ "on ``Smarthost provider`` and fill the"
 #~ " required details."
+#~ msgstr ""
+
+#~ msgid "Forge modules"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NethForge is where you can find "
+#~ "extra modules built by the community "
+#~ "for NethServer"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To use the modules listed here as"
+#~ " NS8 repository, see the :ref:`manual "
+#~ "page <software_center-section>` and set "
+#~ "the following URL: "
+#~ "`https://forge.nethserver.org/ns8/updates/``"
+#~ msgstr ""
+
+#~ msgid "Forge"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Pick your preferred Linux distribution "
+#~ "between :ref:`supported ones <supported-"
+#~ "distros-section>` and ensure that the "
+#~ "system firewall is not blocking any "
+#~ "connection."
+#~ msgstr ""
+
+#~ msgid "First, make sure the system is up to date and ``curl`` is installed:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "for CentOS/AlmaLinux/RockyLinux: ``dnf update "
+#~ "-y && dnf install -y curl``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "for Debian: ``apt-get update && "
+#~ "apt-get upgrade -y && apt-get "
+#~ "install -y curl``"
+#~ msgstr ""
+
+#~ msgid "Pre-built images"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NethServer 8 provides an officially "
+#~ "supported image built upon the stable"
+#~ " foundation of `Rocky Linux "
+#~ "<https://rockylinux.org/>`_, making it suitable "
+#~ "for a wide range of server "
+#~ "applications."
+#~ msgstr ""
+
+#~ msgid "NS8 on Rocky Linux 9:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`QEMU/Proxmox (qcow2) "
+#~ "<https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
+#~ "linux-9-ns8-stable.qcow2>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`VMWare (vmdk) "
+#~ "<https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
+#~ "linux-9-ns8-stable.vmdk>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Images SHA256 checksum "
+#~ "<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Download the image from the above "
+#~ "links and start it inside your "
+#~ "virtualization platform. Choose a ``qcow2``"
+#~ " image if you are using a "
+#~ "KVM-based platform like `Proxmox "
+#~ "<https://www.proxmox.com/>`_ or a ``vmdk`` "
+#~ "image if your using something like "
+#~ "`VMware <https://www.vmware.com>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can also upload the image to"
+#~ " a cloud provider and create a "
+#~ "public virtual machine."
+#~ msgstr ""
+
+#~ msgid "Virtualization platform specific notes:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "On VMWare, you must configure the "
+#~ "virtual machine to use IDE driver "
+#~ "for the disk"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When using the image on Proxmox, "
+#~ "change the default CPU model to "
+#~ "anything other than ``kvm64``"
+#~ msgstr ""
+
+#~ msgid "Use the default credentials to login:"
+#~ msgstr ""
+
+#~ msgid "About NethServer 8 (NS8)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NethServer 8 (NS8) is a `GNU/Linux "
+#~ "<https://en.wikipedia.org/wiki/Linux>`_ application server"
+#~ " designed for small offices and "
+#~ "medium enterprises. Applications can be "
+#~ "managed from a simple Web user "
+#~ "interface."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Under the hood, NS8 is a container"
+#~ " `orchestrator "
+#~ "<https://en.wikipedia.org/wiki/Orchestration_(computing)>`_. It"
+#~ " can host different applications on a"
+#~ " single machine or spread the load"
+#~ " across multiple nodes."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NethServer 8 (NS8), is the evolution "
+#~ "of `NethServer 7 (NS7) "
+#~ "<https://docs.nethserver.org/en/v7/>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you're looking for more technical "
+#~ "details, take a look to the "
+#~ "`developer manual "
+#~ "<https://nethserver.github.io/ns8-core/>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Bugs can be discussed and reported "
+#~ "inside the `community forum "
+#~ "<https://community.nethserver.org>`_. A public issue"
+#~ " tracker is available at `GitHub "
+#~ "<https://github.com/NethServer/dev/issues>`_."
+#~ msgstr ""
+
+#~ msgid "Modules"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A module is an NS8 application "
+#~ "that is usually composed of a "
+#~ "backend and a frontend. An application"
+#~ " backend can contain one or more "
+#~ "containers."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Every time a module instance is "
+#~ "added to the cluster, the new "
+#~ "instance is named like the module "
+#~ "itself followed by a progressive number"
+#~ " starting from 1. Given a module "
+#~ "named ``myapp``, instances will be named"
+#~ " ``myapp1``, ``myapp2`` and so on. "
+#~ "You can add a more meaningful "
+#~ "label to the instance from the "
+#~ "software center."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Some modules require specific resources "
+#~ "that cannot be shared. As an "
+#~ "example, the Samba module needs to "
+#~ "reserve DNS and SMB well-known TCP"
+#~ " ports. You can install only one "
+#~ "instance per node of this type of"
+#~ " modules."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Modules that don't require exclusive "
+#~ "access to resources can be installed "
+#~ "multiple times on the same node. "
+#~ "As an example, you can install "
+#~ "multiple OpenLDAP servers on a single"
+#~ " node."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The software center lists all available"
+#~ " modules from repositories [#fileserver]_\\ "
+#~ "."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A module instance can be cloned "
+#~ "inside a cluster node. The clone "
+#~ "procedure creates a new module instance"
+#~ " that is equivalent to the source "
+#~ "one."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The cluster node where the destination"
+#~ " instance runs can be the same "
+#~ "as the source instance. Generally, there"
+#~ " should be no limitation on running"
+#~ " multiple module instances on the "
+#~ "same node. In some cases, the "
+#~ "services provided by the instance might"
+#~ " require exclusive access to a "
+#~ "particular system resource, such as "
+#~ "binding a fixed TCP port number. "
+#~ "In this case cloning becomes impossible."
+#~ msgstr ""
+
+#~ msgid "creates a new module instance for the destination"
+#~ msgstr ""
+
+#~ msgid "Software repositories are the sources of modules metadata."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The list of configured repositories is"
+#~ " accessible by clicking on the "
+#~ "``Software repository`` item under the "
+#~ "three-dots menu on the top right "
+#~ "corner of the software center."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NethServer comes with a set of "
+#~ "software repositories. To add your own"
+#~ " repository click on the :guilabel:`Add "
+#~ "repository` button. Then fill all "
+#~ "required fields:"
+#~ msgstr ""
+
+#~ msgid "Nginx PHP stack"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This module installs `nginx "
+#~ "<https://www.nginx.com/>`_ web server with "
+#~ "`PHP <https://www.php.net/>`_ programming language"
+#~ " and `SFTPGo <https://github.com/drakkan/sftpgo>`_ "
+#~ "to upload files."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can install multiple Nginx instances"
+#~ " on the same node from the :ref"
+#~ ":`software_center-section`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NethServer 8 can be deployed on a"
+#~ " single machine or on more nodes "
+#~ "in a cluster scenario. NS8 is "
+#~ "currently available only for `x86-64 "
+#~ "architecture <https://en.wikipedia.org/wiki/X86-64>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "More nodes can be added later. "
+#~ "When adding a new node, you should"
+#~ " use similar hardware and the same"
+#~ " distribution installed on the leader "
+#~ "node."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Always install NethServer 8 on a "
+#~ "clean server machine, do not install "
+#~ "it on a desktop."
 #~ msgstr ""
 
