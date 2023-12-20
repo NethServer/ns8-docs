@@ -30,13 +30,10 @@ desktop systems or servers already running other services.
 
 Supported GNU/Linux distributions and versions:
 
-* EL-like distributions:
-
-  * `Rocky Linux <https://rockylinux.org/>`_ 9
-  * `CentOS Stream <https://www.centos.org/centos-stream/>`_ 9
-  * `AlmaLinux <https://almalinux.org>`_ 9
-
-* `Debian <https://www.debian.org/>`_ 12
+- `Rocky Linux <https://rockylinux.org/>`_ 9
+- `CentOS Stream <https://www.centos.org/centos-stream/>`_ 9
+- `AlmaLinux <https://almalinux.org>`_ 9
+- `Debian <https://www.debian.org/>`_ 12
 
 
 .. _static-ip-reqs:
