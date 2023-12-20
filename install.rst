@@ -17,38 +17,52 @@ Both methods require a working Internet connection.
 Install on a supported distribution
 -----------------------------------
 
-Pick your preferred Linux distribution between :ref:`supported ones <supported-distros-section>` and
-ensure that the system firewall is not blocking any connection.
+Pick your preferred Linux distribution between :ref:`supported ones
+<supported-distros-section>`.
 
-First, make sure the system is up to date and ``curl`` is installed:
+On Debian systems, you may need to install the ``curl`` command: ::
 
-* for CentOS/AlmaLinux/RockyLinux: ``dnf update -y && dnf install -y curl``
-* for Debian: ``apt-get update && apt-get upgrade -y && apt-get install -y curl``
+   apt install curl
 
 Start the installation procedure as ``root``: ::
 
    curl https://raw.githubusercontent.com/NethServer/ns8-core/ns8-stable/core/install.sh | bash
 
-
 .. _install_image-section:
 
-Pre-built images
-----------------
+Pre-built image
+---------------
 
-NethServer 8 provides an officially supported image built upon the stable foundation of `Rocky Linux <https://rockylinux.org/>`_,
-making it suitable for a wide range of server applications.
+.. |nbsp| unicode:: 0xA0
+   :trim:
 
-NS8 on Rocky Linux 9:
+NethServer 8 provides an image built upon the stable foundation Rocky
+Linux 9, making it suitable for a wide range of server applications.
 
-* `QEMU/Proxmox (qcow2) <https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.qcow2>`_
-* `VMWare (vmdk) <https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.vmdk>`_
-* `Images SHA256 checksum <https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_
+.. csv-table:: NS8 image download links
+   :header: "Platform", "Format", "Size", "URL"
 
-Download the image from the above links and start it inside your virtualization platform.
-Choose a ``qcow2`` image if you are using a KVM-based platform like `Proxmox <https://www.proxmox.com/>`_
-or a ``vmdk`` image if your using something like `VMware <https://www.vmware.com>`_.
+   "QEMU/Proxmox", "qcow2", "1.7 |nbsp| GB", "https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.qcow2"
+   "VMWare", "vmdk", "3.0 |nbsp| GB", "https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.vmdk"
 
-You can also upload the image to a cloud provider and create a public virtual machine.
+Choose the ``qcow2`` image format if you are using a KVM-based virtualization
+platform, like `Proxmox <https://www.proxmox.com/>`_, or the ``vmdk`` format
+if you are using something like `VMware <https://www.vmware.com>`_.
+
+When the image download has completed verify the file integrity with the
+`sha256 checksum file
+<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_.  Download the
+checksum then run for example the following command: ::
+
+   sha256sum --ignore-missing -c CHECKSUM
+
+Virtualization platform-specific notes:
+
+- For VMWare, configure the virtual machine to use the IDE driver for the disk.
+- For Proxmox, change the default CPU model to anything other than ``kvm64``.
+
+Finally, start the NS8 image within your virtualization platform, or
+upload it to a cloud provider to create a public virtual machine.
 
 Default OS administrative credentials are
 
@@ -56,11 +70,6 @@ Default OS administrative credentials are
 * Password: ``Nethesis,1234``
 
 You will be forced to change the default password after the first login with ``root`` user.
-
-Virtualization platform specific notes:
-
-- On VMWare, you must configure the virtual machine to use IDE driver for the disk
-- When using the image on Proxmox, change the default CPU model to anything other than ``kvm64``
 
 .. _post-install-steps:
 
@@ -76,7 +85,7 @@ access the Web user interface at ::
 
    If the node is unreachable see :ref:`os-network-section`
 
-Use the default credentials to login:
+The default credentials to login on cluster-admin are
 
 * Username: ``admin``
 * Password: ``Nethesis,1234``

@@ -4,8 +4,11 @@
 System requirements
 ===================
 
-NethServer 8 can be deployed on a single machine or on more nodes in a cluster scenario.
-NS8 is currently available only for `x86-64 architecture <https://en.wikipedia.org/wiki/X86-64>`_.
+NethServer 8, abbreviated as NS8, can be deployed on a single node or
+across multiple nodes in a clustered configuration.
+
+NS8 is currently available only for `x86-64 architecture
+<https://en.wikipedia.org/wiki/X86-64>`_.
 
 Minimum hardware requirements for a single node installation:
 
@@ -13,15 +16,17 @@ Minimum hardware requirements for a single node installation:
 - 2GB RAM
 - 20GB disk
 
-More nodes can be added later. When adding a new node, you should use
-similar hardware and the same distribution installed on the leader node.
-
-Always install NethServer 8 on a clean server machine, do not install it on a desktop.
+More nodes can be added later, and when adding a new node, it is
+recommended to use similar hardware and the same Linux distribution
+installed on the other nodes.
 
 .. _supported-distros-section:
 
 Linux distribution
 ==================
+
+Install NS8 on a clean Linux server distribution, avoiding installation on
+desktop systems or servers already running other services.
 
 Supported GNU/Linux distributions and versions:
 

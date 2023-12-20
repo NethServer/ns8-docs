@@ -19,7 +19,8 @@ NethServer 8 administrator manual
 
    introduction
    release_notes
- 
+   modules
+
 .. toctree::
    :maxdepth: 2
    :caption: Installation
@@ -40,12 +41,13 @@ NethServer 8 administrator manual
    firewall
    metrics
    updates
+   software_center
+   email_notifications
 
 .. toctree::
    :maxdepth: 2
    :caption: Applications
 
-   modules
    mail
    file_server
    roundcube
@@ -63,9 +65,8 @@ NethServer 8 administrator manual
 
 .. toctree::
    :maxdepth: 2
-   :caption: Forge
+   :caption: NethForge applications
 
-   forge_modules
    sogo
 
 .. toctree::
