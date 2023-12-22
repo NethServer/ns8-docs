@@ -96,3 +96,10 @@ Ensure the following requirements are met:
    VPN endpoint is configured during the :ref:`cluster creation
    <post-install-steps>` procedure. Ensure it is not blocked by other
    network appliances.
+
+
+Web browser requirements
+========================
+
+To access the cluster administration web user interface, an up-to-date
+release of Firefox, Chrome or Chromium browser is required as web client.
