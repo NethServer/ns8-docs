@@ -101,5 +101,6 @@ Ensure the following requirements are met:
 Web browser requirements
 ========================
 
-To access the cluster administration web user interface, an up-to-date
-release of Firefox, Chrome or Chromium browser is required as web client.
+To access the cluster administration web user interface, you need an
+up-to-date release of Firefox, Chrome, or Chromium browser as the web
+client.
