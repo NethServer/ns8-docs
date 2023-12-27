@@ -16,6 +16,11 @@ Major changes on 2024-01-XX
 
 Known issues:
 
+- **Core upgrade freezes Software Center page** -- The bug 6778 has been
+  fixed in core version 2.2.6. If the upgrade from RC1 starts from core
+  version 2.2.5 or lower, when the task progress bar freezes reload the
+  web page with ``CTRL + SHIFT + R`` or an equivalent procedure.
+
 
 Major changes on 2023-11-21
 ===========================
