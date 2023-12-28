@@ -248,3 +248,4 @@ Where ``<fqdn_node>`` is the FQDN of the node where the provider is and ``<domai
 Once reached the page, the user is prompted for login and they can authenticate to the domain with user name and password.
 
 If the login is successful, the user is directed to the ``User Management`` page, where they can proceed to change the password. The password must comply with the domain password policy during this process.
+The list of applications where the new password is effective is displayed next to the password changing form.
