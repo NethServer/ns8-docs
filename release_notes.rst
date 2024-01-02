@@ -14,6 +14,25 @@ Major changes on 2024-01-XX
 
 **Stable release**
 
+- **Cockpit removed from pre-built image** -- Cockpit is not required to
+  run NS8, therefore it is no more available in the NS8 pre-built image.
+  If desired, it can be manually installed and enabled with the following
+  commands: ::
+
+    dnf install -y cockpit
+    systemctl enable --now cockpit.socket
+
+  Note that the default Cockpit configuration forbids `root` access.
+  Instead of accessing with `root` credentials, enable the `rocky` user
+  (member of the `wheel` group) by setting a password for it: ::
+
+    passwd rocky
+
+  Use `rocky` credentials to access cockpit on HTTP port 9090, then enable
+  the Cockpit administrative access. Any other member of the system group
+  `wheel` can be used in place of `rocky`: it is a good security practice
+  to avoid shared credentials among the group of system administrators.
+
 Known issues:
 
 - **Core upgrade freezes Software Center page** -- The bug 6778 has been
