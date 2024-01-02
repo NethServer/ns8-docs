@@ -31,8 +31,9 @@ Please read `official documentation <https://sogo.nu/files/docs/SOGoInstallation
 Migration from NethServer 7
 ===========================
 
-The application can be migrated from NethServer 7 to NethServer 8, but it requires some manual steps, please refers to the :ref:`migration-section` for more informations.
-The NethForge repository must be enabled in the NS8 cluster before to proceed with the migration.
+The application can be migrated from NethServer 7 to NethServer 8, but it requires some manual steps. Please refer to the section :ref:`migration-section` for more information.
+
+The NethForge repository must be enabled in the NS8 cluster before proceeding with the migration.
 
 Configuration
 =============
