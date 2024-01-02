@@ -20,6 +20,9 @@ Also make sure that
 * you have access to your authoritative DNS server:
   you will need to change some DNS records after the migration of
   each application
+* if the source NethServer 7 system has the NethForge repository enabled,
+  enable it under NS8 Repository Settings accordingly. This step is
+  required to migrate SOGo.
 
 The migration procedure will add the source machine as special node of NethServer 8 cluster.
 
