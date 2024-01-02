@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-22 16:51+0000\n"
+"POT-Creation-Date: 2024-01-02 15:41+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -807,7 +807,7 @@ msgstr ""
 #: ../../ejabberd.rst:23 ../../imapsync.rst:26 ../../index.rst:31
 #: ../../mail.rst:32 ../../mariadb.rst:11 ../../mattermost.rst:13
 #: ../../minio.rst:14 ../../nextcloud.rst:21 ../../nginx.rst:14
-#: ../../roundcube.rst:19 ../../sogo.rst:32 ../../webtop.rst:12
+#: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webtop.rst:12
 msgid "Configuration"
 msgstr ""
 
@@ -818,7 +818,7 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:19 ../../dokuwiki.rst:14 ../../mattermost.rst:17
-#: ../../nextcloud.rst:25 ../../roundcube.rst:23 ../../sogo.rst:36
+#: ../../nextcloud.rst:25 ../../roundcube.rst:23 ../../sogo.rst:43
 #: ../../webtop.rst:16
 msgid ""
 "Before proceeding with the configuration, make sure to create the "
@@ -829,7 +829,7 @@ msgstr ""
 
 #: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../ejabberd.rst:32
 #: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:21
-#: ../../nginx.rst:16 ../../roundcube.rst:30 ../../sogo.rst:39
+#: ../../nginx.rst:16 ../../roundcube.rst:30 ../../sogo.rst:46
 #: ../../webtop.rst:19
 msgid "How to configure:"
 msgstr ""
@@ -855,7 +855,7 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:28
-#: ../../nextcloud.rst:34 ../../roundcube.rst:35 ../../sogo.rst:45
+#: ../../nextcloud.rst:34 ../../roundcube.rst:35 ../../sogo.rst:52
 #: ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
 msgstr ""
@@ -1210,7 +1210,7 @@ msgstr ""
 msgid "Enable ``Let's Encrypt`` option accordingly to your needs"
 msgstr ""
 
-#: ../../ejabberd.rst:36 ../../sogo.rst:44
+#: ../../ejabberd.rst:36 ../../sogo.rst:51
 msgid "Select the LDAP user Domain to identify users"
 msgstr ""
 
@@ -1330,7 +1330,7 @@ msgstr ""
 msgid "Check the status of connected users"
 msgstr ""
 
-#: ../../ejabberd.rst:92 ../../sogo.rst:74
+#: ../../ejabberd.rst:92 ../../sogo.rst:81
 msgid "Clients"
 msgstr ""
 
@@ -3110,59 +3110,66 @@ msgid ""
 " some DNS records after the migration of each application"
 msgstr ""
 
-#: ../../migration.rst:24
+#: ../../migration.rst:23
+msgid ""
+"if the source NethServer 7 system has the NethForge repository enabled, "
+"enable it under NS8 Repository Settings accordingly. This step is "
+"required to migrate SOGo."
+msgstr ""
+
+#: ../../migration.rst:27
 msgid ""
 "The migration procedure will add the source machine as special node of "
 "NethServer 8 cluster."
 msgstr ""
 
-#: ../../migration.rst:26
+#: ../../migration.rst:29
 msgid ""
 "First, you are going to install the migration tool on the source machine."
 " Access Cockpit on the source server and install \"Migration to NS8\" "
 "from the Software Center."
 msgstr ""
 
-#: ../../migration.rst:29
+#: ../../migration.rst:32
 msgid "You can now open the just installed ``NS8 migration`` application."
 msgstr ""
 
-#: ../../migration.rst:31
+#: ../../migration.rst:34
 msgid ""
 "Now, connect the NethServer 7 server to an existing new NethServer 8 "
 "cluster by entering the following fields:"
 msgstr ""
 
-#: ../../migration.rst:33
+#: ../../migration.rst:36
 msgid ""
 "``NS8 leader node``: the host name or IP address of NethServer 8 cluster "
 "leader node"
 msgstr ""
 
-#: ../../migration.rst:34
+#: ../../migration.rst:37
 msgid ""
 "``NS8 admin username`` and ``NS8 admin password``: administrator "
 "credentials for the leader node."
 msgstr ""
 
-#: ../../migration.rst:36
+#: ../../migration.rst:39
 msgid ""
 "As best practice, you can create a dedicated user from the :ref"
 ":`administrators-section` page and delete the user once the migration has"
 " been completed. Please note that the user must have 2FA disabled."
 msgstr ""
 
-#: ../../migration.rst:39
+#: ../../migration.rst:42
 msgid ""
 "uncheck the ``TLS validation`` option if the leader node does not have a "
 "valid TLS certificate"
 msgstr ""
 
-#: ../../migration.rst:41
+#: ../../migration.rst:44
 msgid "Then, click the :guilabel:`Connect` button."
 msgstr ""
 
-#: ../../migration.rst:43
+#: ../../migration.rst:46
 msgid ""
 "The web interface will display the list of all applications installed "
 "inside NethServer 7. Choose an application and click on the "
@@ -3172,13 +3179,13 @@ msgid ""
 "or more nodes, you will be asked to select a destination node."
 msgstr ""
 
-#: ../../migration.rst:50
+#: ../../migration.rst:53
 msgid ""
 "You can now click the :guilabel:`Sync data` button multiple time to keep "
 "in sync the application data between NethServer 7 and NethServer 8."
 msgstr ""
 
-#: ../../migration.rst:53
+#: ../../migration.rst:56
 msgid ""
 "When you're ready for the final migration, click the :guilabel:`Finish "
 "migration` button. If the migrated application requires extra parameters,"
@@ -3189,113 +3196,113 @@ msgid ""
 "the migrated applications."
 msgstr ""
 
-#: ../../migration.rst:60
+#: ../../migration.rst:63
 msgid "At the end of the application migration, the system will:"
 msgstr ""
 
-#: ../../migration.rst:62
+#: ../../migration.rst:65
 msgid "start the module inside NethServer 8"
 msgstr ""
 
-#: ../../migration.rst:63
+#: ../../migration.rst:66
 msgid "disable the application inside NethServer 7"
 msgstr ""
 
-#: ../../migration.rst:65
+#: ../../migration.rst:68
 msgid ""
 "If the migrated application was connected to a local account provider, "
 "the application will still be able to access the provider running on "
 "NethServer 7 using the cluster VPN."
 msgstr ""
 
-#: ../../migration.rst:70
+#: ../../migration.rst:73
 #, fuzzy
 msgid "Logs"
 msgstr "LOGIN"
 
-#: ../../migration.rst:72
+#: ../../migration.rst:75
 msgid ""
 "The migration tool UI has a ``Logs`` page for reading "
 "``/var/log/ns8-migration.log`` contents. The migration procedure of each "
 "application sends a trace of its activity to that file."
 msgstr ""
 
-#: ../../migration.rst:74
+#: ../../migration.rst:77
 msgid ""
 "Furthermore, when joining/leaving the NS8 cluster and when NS7 services "
 "are modified, some information can be recorded by ``/var/log/messages`` "
 "as usual."
 msgstr ""
 
-#: ../../migration.rst:76
+#: ../../migration.rst:79
 msgid ""
 "On the NS8 side, the application log contains the trace of the ``import-"
 "module`` activity."
 msgstr ""
 
-#: ../../migration.rst:81
+#: ../../migration.rst:84
 msgid "Account provider"
 msgstr ""
 
-#: ../../migration.rst:83
+#: ../../migration.rst:86
 msgid "The NS7 account provider must be migrated after all other applications."
 msgstr ""
 
-#: ../../migration.rst:86
+#: ../../migration.rst:89
 msgid "Samba DC"
 msgstr ""
 
-#: ../../migration.rst:88
+#: ../../migration.rst:91
 msgid ""
 "Complete the DC migration by clicking the :guilabel:`Finish migration` "
 "button. The procedure asks to select an IP address: it will become the IP"
 " of the destination DC."
 msgstr ""
 
-#: ../../migration.rst:94
+#: ../../migration.rst:97
 msgid "Windows clients might not know how to reach the destination DC"
 msgstr ""
 
-#: ../../migration.rst:96
+#: ../../migration.rst:99
 msgid ""
 "If DNS configuration of Windows clients is controlled by a DHCP server, "
 "set the destination DC IP address as the new DNS server."
 msgstr ""
 
-#: ../../migration.rst:99
+#: ../../migration.rst:102
 msgid ""
 "If Windows clients use an external DNS, it must be configured to forward "
 "the requests for the Active Directory DNS zone to the destination DC IP "
 "address."
 msgstr ""
 
-#: ../../migration.rst:103
+#: ../../migration.rst:106
 msgid ""
 "If Windows clients have a manual DNS configuration and use the source DC "
 "IP address as DNS and authentication server, consider to transfer the "
 "source DC IP address to the destination DC."
 msgstr ""
 
-#: ../../migration.rst:107
+#: ../../migration.rst:110
 msgid ""
 "In the last case, transferring the IP avoids the reconfiguration of DNS "
 "settings for each Windows client. This is generally preferable over an "
 "external DNS server, if it blocks dynamic DNS update requests (DDNS)."
 msgstr ""
 
-#: ../../migration.rst:111
+#: ../../migration.rst:114
 msgid ""
 "To transfer the source DC IP address to the destination DC some steps "
 "must be done manually after the migration has completed."
 msgstr ""
 
-#: ../../migration.rst:114
+#: ../../migration.rst:117
 msgid ""
 "Check the migration of accounts was successful. Users and groups must be "
 "listed correctly under ``Domains and users`` page."
 msgstr ""
 
-#: ../../migration.rst:117
+#: ../../migration.rst:120
 msgid ""
 "At the end of the migration the source DC IP address is free and can be "
 "assigned to the destination node. Refer to the node operating system "
@@ -3303,14 +3310,14 @@ msgid ""
 " node."
 msgstr ""
 
-#: ../../migration.rst:121
+#: ../../migration.rst:124
 msgid ""
 "Change the IP address of the DC. For example, if DC instance is "
 "``samba1`` and the new IP is ``192.168.1.123``, run the following "
 "command: ::"
 msgstr ""
 
-#: ../../migration.rst:127
+#: ../../migration.rst:130
 msgid ""
 "The NS8 Samba DC can be configured as external account provider for NS7. "
 "Bear in mind that NS7 must be able to access the :ref:`IP address "
@@ -3319,7 +3326,7 @@ msgid ""
 "that require access to the account provider."
 msgstr ""
 
-#: ../../migration.rst:132
+#: ../../migration.rst:135
 msgid ""
 "Password expiration settings are preserved during the migration. The "
 "password strength policy, if enabled, is converted for compliancy with "
@@ -3327,7 +3334,7 @@ msgid ""
 " future password changes. See also :ref:`password-policy-section`."
 msgstr ""
 
-#: ../../migration.rst:137
+#: ../../migration.rst:140
 msgid ""
 "`Passwords must meet complexity requirements <https://learn.microsoft.com"
 "/en-us/previous-versions/windows/it-pro/windows-"
@@ -3335,28 +3342,28 @@ msgid ""
 "requirements>`_ from *learn.microsoft.com* website."
 msgstr ""
 
-#: ../../migration.rst:141
+#: ../../migration.rst:144
 msgid "OpenLDAP"
 msgstr ""
 
-#: ../../migration.rst:143
+#: ../../migration.rst:146
 msgid ""
 "The OpenLDAP instance running in NS8 is currently not accessible as "
 "external account provider for NS7 and other network devices."
 msgstr ""
 
-#: ../../migration.rst:146
+#: ../../migration.rst:149
 msgid ""
 "Password policy settings (strength and expiration) are not migrated. They"
 " must be enabled under the domain settings of the ``Domains and users`` "
 "page. See also :ref:`password-policy-section`."
 msgstr ""
 
-#: ../../migration.rst:153
+#: ../../migration.rst:156
 msgid "POP3 connector"
 msgstr ""
 
-#: ../../migration.rst:155
+#: ../../migration.rst:158
 msgid ""
 "The migration involves transferring POP3 Connector settings to NS8 "
 "Imapsync module, together with Email application. Configurations of "
@@ -3365,11 +3372,11 @@ msgid ""
 "and commence synchronization manually."
 msgstr ""
 
-#: ../../migration.rst:162
+#: ../../migration.rst:165
 msgid "Manual HTTP routes"
 msgstr ""
 
-#: ../../migration.rst:164
+#: ../../migration.rst:167
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -3377,93 +3384,93 @@ msgid ""
 "``https://server.nethserver.org/webtop``."
 msgstr ""
 
-#: ../../migration.rst:168
+#: ../../migration.rst:171
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
 "``https://webtop.nethserver.org``."
 msgstr ""
 
-#: ../../migration.rst:171
+#: ../../migration.rst:174
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
 "<traefik-section>`."
 msgstr ""
 
-#: ../../migration.rst:174
+#: ../../migration.rst:177
 msgid "Example for adding WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:176
+#: ../../migration.rst:179
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr ""
 
-#: ../../migration.rst:177
+#: ../../migration.rst:180
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
 msgstr ""
 
-#: ../../migration.rst:178
+#: ../../migration.rst:181
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr ""
 
-#: ../../migration.rst:179
+#: ../../migration.rst:182
 msgid "click on the :guilabel:`Create route` button"
 msgstr ""
 
-#: ../../migration.rst:180
+#: ../../migration.rst:183
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
 msgstr ""
 
-#: ../../migration.rst:181
+#: ../../migration.rst:184
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
 msgstr ""
 
-#: ../../migration.rst:182
+#: ../../migration.rst:185
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
 msgstr ""
 
-#: ../../migration.rst:183
+#: ../../migration.rst:186
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr ""
 
-#: ../../migration.rst:185
+#: ../../migration.rst:188
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr ""
 
-#: ../../migration.rst:186
+#: ../../migration.rst:189
 msgid "``/.well-known``"
 msgstr ""
 
-#: ../../migration.rst:187
+#: ../../migration.rst:190
 msgid "``/webtop-dav``"
 msgstr ""
 
-#: ../../migration.rst:190
+#: ../../migration.rst:193
 msgid "Configurations excluded from migration"
 msgstr ""
 
-#: ../../migration.rst:192
+#: ../../migration.rst:195
 msgid "The following configurations will not be migrated:"
 msgstr ""
 
-#: ../../migration.rst:194
+#: ../../migration.rst:197
 msgid "custom templates"
 msgstr ""
 
-#: ../../migration.rst:195
+#: ../../migration.rst:198
 msgid "SMTP mail relay rules"
 msgstr ""
 
-#: ../../migration.rst:196
+#: ../../migration.rst:199
 msgid ""
 "account provider password policy settings (see :ref:`migrate-account-"
 "provider`)"
@@ -4922,122 +4929,139 @@ msgid ""
 "informations."
 msgstr ""
 
+#: ../../sogo.rst:32
+msgid "Migration from NethServer 7"
+msgstr ""
+
 #: ../../sogo.rst:34
-msgid "SOGo needs a dedicated virtual host, a FQDN like ``sogo.nethserver.org``."
+msgid ""
+"The application can be migrated from NethServer 7 to NethServer 8, but it"
+" requires some manual steps. Please refer to the section :ref:`migration-"
+"section` for more information."
+msgstr ""
+
+#: ../../sogo.rst:36
+msgid ""
+"The NethForge repository must be enabled in the NS8 cluster before "
+"proceeding with the migration."
 msgstr ""
 
 #: ../../sogo.rst:41
+msgid "SOGo needs a dedicated virtual host, a FQDN like ``sogo.nethserver.org``."
+msgstr ""
+
+#: ../../sogo.rst:48
 msgid ""
 "access the application configuration page and enter a valid FQDN inside "
 "``SOGo hostname`` field"
 msgstr ""
 
-#: ../../sogo.rst:42
+#: ../../sogo.rst:49
 msgid "enable ``Request LE certificate`` option accordingly to your needs"
 msgstr ""
 
-#: ../../sogo.rst:43
+#: ../../sogo.rst:50
 msgid "bind the SOGo instance to an existing ``Mail server``"
 msgstr ""
 
-#: ../../sogo.rst:48
+#: ../../sogo.rst:55
 msgid "Usage"
 msgstr ""
 
-#: ../../sogo.rst:50
+#: ../../sogo.rst:57
 msgid ""
 "The URL of the groupware is https://yourdomain.com/ (same as ``SOGo "
 "hostname`` field). You must use the short format ``username`` for login."
 msgstr ""
 
-#: ../../sogo.rst:54
+#: ../../sogo.rst:61
 msgid "Advanced settings"
 msgstr ""
 
-#: ../../sogo.rst:56
+#: ../../sogo.rst:63
 msgid "The following settings are available Inside the ``Advanced`` section:"
 msgstr ""
 
-#: ../../sogo.rst:58
+#: ../../sogo.rst:65
 msgid ""
 "Administrator list of SOGo: When enabled, the SOGo administrator can "
 "manage all users' preferences."
 msgstr ""
 
-#: ../../sogo.rst:59
+#: ../../sogo.rst:66
 msgid ""
 "Auxiliary email accounts : When enabled, users can add other IMAP "
 "accounts that will be visible from the SOGo Webmail interface."
 msgstr ""
 
-#: ../../sogo.rst:60
+#: ../../sogo.rst:67
 msgid ""
 "Enable DAV: When enable the shared calendars and address books are "
 "available through DAV."
 msgstr ""
 
-#: ../../sogo.rst:61
+#: ../../sogo.rst:68
 msgid ""
 "Enable Active Sync: When enabled, users can sync their mail, calendars, "
 "contacts, tasks with mobile devices."
 msgstr ""
 
-#: ../../sogo.rst:62
+#: ../../sogo.rst:69
 msgid ""
 "Workers count: Number of SOGo workers, you need to adjust it according to"
 " the number of users."
 msgstr ""
 
-#: ../../sogo.rst:66
+#: ../../sogo.rst:73
 msgid ""
 "The default value is 3, but you need to increase it if you have more than"
 " 20 users."
 msgstr ""
 
-#: ../../sogo.rst:69
+#: ../../sogo.rst:76
 msgid "Manual parameters"
 msgstr ""
 
-#: ../../sogo.rst:71
+#: ../../sogo.rst:78
 msgid ""
 "Some parameters cannot be modified from the user interface, please follow"
 " the instructions `README "
 "<https://github.com/NethServer/ns8-sogo/blob/main/README.md>`_"
 msgstr ""
 
-#: ../../sogo.rst:77
+#: ../../sogo.rst:84
 msgid "Android"
 msgstr ""
 
-#: ../../sogo.rst:79
+#: ../../sogo.rst:86
 msgid "Currently you have 2 ways to integrate your Android device with Sogo."
 msgstr ""
 
-#: ../../sogo.rst:82
+#: ../../sogo.rst:89
 msgid "Integration via Caldav /Cardav/imap"
 msgstr ""
 
-#: ../../sogo.rst:86
+#: ../../sogo.rst:93
 msgid ""
 "The drawback is that you need to set all settings (Url/Username/Password)"
 " in each application."
 msgstr ""
 
-#: ../../sogo.rst:88
+#: ../../sogo.rst:95
 msgid "Email"
 msgstr ""
 
-#: ../../sogo.rst:90
+#: ../../sogo.rst:97
 msgid ""
 "Imaps(over ssl) is a good choice, you can use the K9-mail software to "
 "retrieve your email or the default email application"
 msgstr ""
 
-#: ../../sogo.rst:92
+#: ../../sogo.rst:99
 msgid "Contacts and calendars"
 msgstr ""
 
-#: ../../sogo.rst:94
+#: ../../sogo.rst:101
 msgid ""
 "There are various working clients, including `DAVdroid "
 "<https://davdroid.bitfire.at>`_ (open-source) and `CalDAV-Sync/CardDav-"
@@ -5045,77 +5069,77 @@ msgid ""
 "that almost all calendar and contacts apps can access synchronized data."
 msgstr ""
 
-#: ../../sogo.rst:98
+#: ../../sogo.rst:105
 msgid "Integration via ExchangeActiveSync"
 msgstr ""
 
-#: ../../sogo.rst:102
+#: ../../sogo.rst:109
 msgid ""
 "The advantage is that you set the Url/Username/Password only in one "
 "location"
 msgstr ""
 
-#: ../../sogo.rst:105
+#: ../../sogo.rst:112
 msgid "Step-by-step configuration"
 msgstr ""
 
-#: ../../sogo.rst:107
+#: ../../sogo.rst:114
 msgid "Open the account menu, choose add an exchange account"
 msgstr ""
 
-#: ../../sogo.rst:108
+#: ../../sogo.rst:115
 msgid "Fill your full email address and password in Account Setup page:"
 msgstr ""
 
-#: ../../sogo.rst:109
+#: ../../sogo.rst:116
 msgid "If it asks you to choose Account Type, please choose Exchange:"
 msgstr ""
 
-#: ../../sogo.rst:110
+#: ../../sogo.rst:117
 msgid ""
 "In detailed account setup page, fill up the form with your server address"
 " and email account credential"
 msgstr ""
 
-#: ../../sogo.rst:112
+#: ../../sogo.rst:119
 msgid "Domain\\Username: your username in short format"
 msgstr ""
 
-#: ../../sogo.rst:113
+#: ../../sogo.rst:120
 msgid "Password: password of your account"
 msgstr ""
 
-#: ../../sogo.rst:114
+#: ../../sogo.rst:121
 msgid "Server: your server name"
 msgstr ""
 
-#: ../../sogo.rst:115
+#: ../../sogo.rst:122
 msgid "Port: 443"
 msgstr ""
 
-#: ../../sogo.rst:119
+#: ../../sogo.rst:126
 msgid ""
 "Please also check Use secure connection (SSL) and Accept all SSL "
 "certificates"
 msgstr ""
 
-#: ../../sogo.rst:122
+#: ../../sogo.rst:129
 msgid "In Account Settings page, you can choose Push. it's all up to you."
 msgstr ""
 
-#: ../../sogo.rst:123
+#: ../../sogo.rst:130
 msgid "Choose a name for your Exchange account."
 msgstr ""
 
-#: ../../sogo.rst:124
+#: ../../sogo.rst:131
 msgid "Click Next to finish account setup. That's all."
 msgstr ""
 
-#: ../../sogo.rst:128
+#: ../../sogo.rst:135
 msgid "Mozilla Thunderbird and Lightning"
 msgstr ""
 
-#: ../../sogo.rst:130
+#: ../../sogo.rst:137
 msgid ""
 "Alternatively, you can access SOGo with a GroupDAV and a CalDAV client. A"
 " typical well-integrated setup is to use Mozilla Thunderbird and Mozilla "
@@ -5127,7 +5151,7 @@ msgid ""
 " and password mentioned above."
 msgstr ""
 
-#: ../../sogo.rst:132
+#: ../../sogo.rst:139
 msgid ""
 "With the `SOGo Integrator plug in "
 "<https://sogo.nu/download.html#/frontends>`_, your calendars and address "
@@ -5139,88 +5163,88 @@ msgid ""
 "<http://sogo.nu/downloads/documentation.html>`_."
 msgstr ""
 
-#: ../../sogo.rst:134
+#: ../../sogo.rst:141
 msgid ""
 "If you only use the SOGo Connector plug in, you can still easily access "
 "your data."
 msgstr ""
 
-#: ../../sogo.rst:136
+#: ../../sogo.rst:143
 msgid "To access your personal address book:"
 msgstr ""
 
-#: ../../sogo.rst:137
+#: ../../sogo.rst:144
 msgid "Choose Go > Address Book."
 msgstr ""
 
-#: ../../sogo.rst:138
+#: ../../sogo.rst:145
 msgid "Choose File > New > Remote Address Book."
 msgstr ""
 
-#: ../../sogo.rst:139
+#: ../../sogo.rst:146
 msgid "Enter a significant name for your calendar in the Name field."
 msgstr ""
 
-#: ../../sogo.rst:140
+#: ../../sogo.rst:147
 msgid ""
 "Type the following URL in the URL field: "
 "http://localhost/SOGo/dav/jdoe/Contacts/personal/"
 msgstr ""
 
-#: ../../sogo.rst:141
+#: ../../sogo.rst:148
 msgid "Click on OK."
 msgstr ""
 
-#: ../../sogo.rst:143
+#: ../../sogo.rst:150
 msgid "To access your personal calendar:"
 msgstr ""
 
-#: ../../sogo.rst:145
+#: ../../sogo.rst:152
 msgid "Choose Go > Calendar."
 msgstr ""
 
-#: ../../sogo.rst:146
+#: ../../sogo.rst:153
 msgid "Choose Calendar > New Calendar."
 msgstr ""
 
-#: ../../sogo.rst:147
+#: ../../sogo.rst:154
 msgid "Select On the Network and click on Continue."
 msgstr ""
 
-#: ../../sogo.rst:148
+#: ../../sogo.rst:155
 msgid "Select CalDAV."
 msgstr ""
 
-#: ../../sogo.rst:149
+#: ../../sogo.rst:156
 msgid ""
 "Type the following URL in the URL field: "
 "http://localhost/SOGo/dav/jdoe/Calendar/personal/"
 msgstr ""
 
-#: ../../sogo.rst:150
+#: ../../sogo.rst:157
 msgid "Click on Continue."
 msgstr ""
 
-#: ../../sogo.rst:153
+#: ../../sogo.rst:160
 msgid "Outlook"
 msgstr ""
 
-#: ../../sogo.rst:155
+#: ../../sogo.rst:162
 msgid "You can use it with"
 msgstr ""
 
-#: ../../sogo.rst:157
+#: ../../sogo.rst:164
 msgid ""
 "IMAP + commercial plugin as `cfos <https://www.cfos.de/en/cfos-outlook-"
 "dav/cfos-outlook-dav.htm?__ntrack_pv=1>`_ or `outlookdav "
 "<http://www.outlookdav.com/>`_ for calendars/contacts"
 msgstr ""
 
-#: ../../sogo.rst:158
+#: ../../sogo.rst:165
 msgid "ActiveSync since Outlook 2013"
 msgstr ""
 
-#: ../../sogo.rst:160
+#: ../../sogo.rst:167
 msgid "There is no support for Openchange/OutlookMAPI."
 msgstr ""
 
