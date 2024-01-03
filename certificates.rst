@@ -33,6 +33,21 @@ If the above requirements are met, you can obtain a valid certificate for a doma
 The procedure will take a while, but the system will notify you when the certificate is ready.
 The Let's Encrypt certificate is automatically renewed 30 days before expiration.
 
+If the procedure fails, the certificate status is set to ``Not obtained``
+and an error notification is displayed.
+
+Failures may occur if the DNS record is not correctly configured, or DNS
+update propagation is slower than expected.  In both cases Traefik retries
+to obtain the certificate at a later time when:
+
+- the Traefik service is restarted, or
+- an HTTPS request that matches the certificate name is received.
+
+.. warning::
+
+   Traefik stores the time of the last certificate issue attempt in
+   memory. Do not restart Traefik too often, to avoid incurring in Let's
+   Encrypt rate limits.
 
 Custom certificates
 ===================
