@@ -7,6 +7,11 @@ Imapsync
 
 
 This module installs Imapsync, an IMAP transfer tool. Its purpose is migrating email messages from remote IMAP accounts to a local one.
+But it can used for fetching emails from a remote IMAP account to a local one 
+
+- if you want to use the local account as a backup of the remote one.
+- if you want to use the local account as a combination of several remote ones.
+- ... and many other reasons.
 
 The migration is both recursive and incremental and can be repeated as many times as needed, also you can select the task frequency.
 
