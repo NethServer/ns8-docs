@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-03 13:25+0000\n"
+"POT-Creation-Date: 2024-01-10 18:00+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -832,8 +832,8 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
-#: ../../ejabberd.rst:23 ../../imapsync.rst:26 ../../index.rst:31
-#: ../../mail.rst:32 ../../mariadb.rst:11 ../../mattermost.rst:13
+#: ../../ejabberd.rst:23 ../../imapsync.rst:31 ../../index.rst:31
+#: ../../mail.rst:34 ../../mariadb.rst:11 ../../mattermost.rst:13
 #: ../../minio.rst:14 ../../nextcloud.rst:21 ../../nginx.rst:14
 #: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webtop.rst:12
 msgid "Configuration"
@@ -1840,17 +1840,34 @@ msgstr ""
 
 #: ../../imapsync.rst:9
 msgid ""
-"This module installs Imapsync, an IMAP transfer tool. Its purpose is "
-"migrating email messages from remote IMAP accounts to a local one."
+"This module installs Imapsync, an IMAP transfer tool used for copying and"
+" moving emails from external IMAP servers to a :ref:`Mail server <email-"
+"section>` instance. This module can serve many purposes. For example:"
 msgstr ""
 
-#: ../../imapsync.rst:11
-msgid ""
-"The migration is both recursive and incremental and can be repeated as "
-"many times as needed, also you can select the task frequency."
+#: ../../imapsync.rst:12
+msgid "If you want to use the local IMAP account as a backup for the remote one."
 msgstr ""
 
 #: ../../imapsync.rst:13
+msgid ""
+"If you want to use the local IMAP account as a combination of several "
+"remote ones."
+msgstr ""
+
+#: ../../imapsync.rst:14
+msgid ""
+"If you want to migrate messages from one remote IMAP account to a local "
+"one."
+msgstr ""
+
+#: ../../imapsync.rst:16
+msgid ""
+"The task is both recursive and incremental and can be repeated as many "
+"times as needed, also you can select the task frequency."
+msgstr ""
+
+#: ../../imapsync.rst:18
 msgid ""
 "The system administrator of the local NethServer does not need to know "
 "the password of the local user because Imapsync access the local user "
@@ -1860,7 +1877,7 @@ msgid ""
 "server."
 msgstr ""
 
-#: ../../imapsync.rst:15
+#: ../../imapsync.rst:20
 msgid ""
 "If the remote IMAP server is a NethServer 7, the IMAP admin user is "
 "``vmail`` and its password can be read from "
@@ -1869,27 +1886,27 @@ msgid ""
 " be set in the IMAP synchronization panel."
 msgstr ""
 
-#: ../../imapsync.rst:20
+#: ../../imapsync.rst:25
 msgid ""
 "List of `IMAP servers "
 "<https://imapsync.lamiral.info/FAQ.d/FAQ.Admin_Authentication.txt>`_ with"
 " admin authentication in Imapsync documentation"
 msgstr ""
 
-#: ../../imapsync.rst:23
+#: ../../imapsync.rst:28
 msgid ""
 "Imapsync is an Open Source software. Check out the `official "
 "documentation <https://imapsync.lamiral.info/#doc>`_ for further details."
 msgstr ""
 
-#: ../../imapsync.rst:28
+#: ../../imapsync.rst:33
 msgid ""
 "Imapsync needs to be configured to use a Mail module already installed in"
 " the NethServer 8 cluster. Once configured, you can create as many tasks "
 "as needed for each user of the domain."
 msgstr ""
 
-#: ../../imapsync.rst:31
+#: ../../imapsync.rst:36
 msgid ""
 "Imasync is integrated with LDAP user domain that you can configure at "
 ":ref:`user-domains-section`."
@@ -2378,114 +2395,121 @@ msgid ""
 msgstr ""
 
 #: ../../mail.rst:15
-msgid "Benefits are:"
+msgid ""
+"The optional :ref:`imapsync-section` module can be connected to Mail. It "
+"allows scheduling fetch jobs or migrating emails from external IMAP "
+"servers to local user mailboxes."
 msgstr ""
 
 #: ../../mail.rst:17
-msgid "complete autonomy in electronic mail management"
-msgstr ""
-
-#: ../../mail.rst:18
-msgid "avoid problems due to the Internet Service Provider"
+msgid "Benefits are:"
 msgstr ""
 
 #: ../../mail.rst:19
-msgid "ability to track the route of messages in order to detect errors"
+msgid "complete autonomy in electronic mail management"
 msgstr ""
 
 #: ../../mail.rst:20
-msgid "optimized antivirus and antispam scan"
+msgid "avoid problems due to the Internet Service Provider"
+msgstr ""
+
+#: ../../mail.rst:21
+msgid "ability to track the route of messages in order to detect errors"
 msgstr ""
 
 #: ../../mail.rst:22
-msgid "See also the following related topics:"
+msgid "optimized antivirus and antispam scan"
 msgstr ""
 
 #: ../../mail.rst:24
-msgid "How `electronic mail <https://en.wikipedia.org/wiki/Email>`_ works"
-msgstr ""
-
-#: ../../mail.rst:25
-msgid "`MX DNS <https://en.wikipedia.org/wiki/MX_record>`_ record"
+msgid "See also the following related topics:"
 msgstr ""
 
 #: ../../mail.rst:26
+msgid "How `electronic mail <https://en.wikipedia.org/wiki/Email>`_ works"
+msgstr ""
+
+#: ../../mail.rst:27
+msgid "`MX DNS <https://en.wikipedia.org/wiki/MX_record>`_ record"
+msgstr ""
+
+#: ../../mail.rst:28
 msgid ""
 "`Simple Mail Transfer Protocol "
 "<https://en.wikipedia.org/wiki/MX_record>`_ (SMTP)"
 msgstr ""
 
-#: ../../mail.rst:27
+#: ../../mail.rst:29
 msgid ""
 "`Domain Keys Identified Mail signature "
 "<https://en.wikipedia.org/wiki/MX_record>`_ (DKIM)"
 msgstr ""
 
-#: ../../mail.rst:29
+#: ../../mail.rst:31
 msgid ""
 "You can install only one mail server per node from the :ref"
 ":`software_center-section`."
 msgstr ""
 
-#: ../../mail.rst:34
+#: ../../mail.rst:36
 msgid ""
 "The mail module requires at least one :ref:`user domain <user-domains-"
 "section>` already configured."
 msgstr ""
 
-#: ../../mail.rst:36
+#: ../../mail.rst:38
 msgid "The first configuration wizard will require the following information:"
 msgstr ""
 
-#: ../../mail.rst:38
+#: ../../mail.rst:40
 msgid ""
 "``Mail server hostname``: insert the mail server name, this should be the"
 " same name configured inside your MX DNS record"
 msgstr ""
 
-#: ../../mail.rst:40
+#: ../../mail.rst:42
 msgid ""
 "``Primary mail domain``: insert the mail domain, like ``nethserver.org``;"
 " you will be able to add more domains later"
 msgstr ""
 
-#: ../../mail.rst:43
+#: ../../mail.rst:45
 msgid ""
 "Then, select the user domain to be connected to the mail server. An email"
 " address will be created for every user in the selected domain."
 msgstr ""
 
-#: ../../mail.rst:50
+#: ../../mail.rst:52
 msgid "Domains"
 msgstr ""
 
-#: ../../mail.rst:52
+#: ../../mail.rst:54
 msgid ""
 "NethServer can handle an unlimited number of mail domains, configurable "
 "from the ``Domains`` page."
 msgstr ""
 
-#: ../../mail.rst:55
+#: ../../mail.rst:57
 msgid ""
 "If a domain is deleted, email will not be deleted; any message already "
 "received is preserved."
 msgstr ""
 
-#: ../../mail.rst:58
+#: ../../mail.rst:60
 msgid ""
 "You can add a new domain by clicking on the :guilabel:`Create domain` "
 "button and fill the ``Name`` field with the mail domain, like "
 "``mymail.org``."
 msgstr ""
 
-#: ../../mail.rst:61
+#: ../../mail.rst:63
 msgid ""
 "If the ``Add user addresses from user domain`` option is disabled, you "
 "can enable the ``Accept unknown recipients`` switch and select a mailbox "
 "that will catch all messages sent to non-existing addresses."
 msgstr ""
 
-#: ../../mail.rst:64
+#: ../../mail.rst:66
 msgid ""
 "NethServer allows storing a hidden copy of all messages directed to a "
 "particular domain: they will be delivered to the final recipient *and "
@@ -2493,13 +2517,13 @@ msgid ""
 ":guilabel:`Copy inbound messages` switch."
 msgstr ""
 
-#: ../../mail.rst:69
+#: ../../mail.rst:71
 msgid ""
 "On some countries, enabling the *Copy inbound messages* switch can be "
 "against privacy laws."
 msgstr ""
 
-#: ../../mail.rst:72
+#: ../../mail.rst:74
 msgid ""
 "If the final recipient cannot be reached (i.e. the recipient address does"
 " not exist), the message is normally rejected. Sometimes (i.e. when a "
@@ -2510,97 +2534,97 @@ msgid ""
 "disabled."
 msgstr ""
 
-#: ../../mail.rst:80
+#: ../../mail.rst:82
 msgid "DKIM signature"
 msgstr ""
 
-#: ../../mail.rst:82
+#: ../../mail.rst:84
 msgid "DKIM is not currently configurable from the web user interface."
 msgstr ""
 
-#: ../../mail.rst:84
+#: ../../mail.rst:86
 msgid ""
 "DomainKeys Identified Mail (DKIM) provides a way to validate the sending "
 "MTA, which adds a cryptographic signature to the outbound message MIME "
 "headers."
 msgstr ""
 
-#: ../../mail.rst:88
+#: ../../mail.rst:90
 msgid ""
 "The DKIM signature headers are added only to messages sent through TCP "
 "ports 587 (submission) and 465 (smtps)."
 msgstr ""
 
-#: ../../mail.rst:91
+#: ../../mail.rst:93
 msgid ""
 "To work effectively, the public DNS must be configured properly. Refer to"
 " the instructions of your DNS provider to run the following steps:"
 msgstr ""
 
-#: ../../mail.rst:94
+#: ../../mail.rst:96
 msgid ""
 "Add a TXT record to your public DNS service provider with key "
 "\"default._domainKey\""
 msgstr ""
 
-#: ../../mail.rst:96
+#: ../../mail.rst:98
 msgid "Copy and paste the given key text in the DNS record data (RDATA) section"
 msgstr ""
 
-#: ../../mail.rst:102 ../../mail.rst:238
+#: ../../mail.rst:104 ../../mail.rst:240
 msgid "Mailboxes"
 msgstr ""
 
-#: ../../mail.rst:104
+#: ../../mail.rst:106
 msgid ""
 "Each user has a personal mailbox and any user name in the form "
 "*<username>@<domain>* is also a valid email address to deliver messages "
 "into it."
 msgstr ""
 
-#: ../../mail.rst:107
+#: ../../mail.rst:109
 msgid ""
 "The list of mailboxes is shown on the ``Mailboxes`` page. There are two "
 "types of mailboxes: users and public mailboxes."
 msgstr ""
 
-#: ../../mail.rst:111
+#: ../../mail.rst:113
 msgid "Users mailboxes"
 msgstr ""
 
-#: ../../mail.rst:113
+#: ../../mail.rst:115
 msgid ""
 "You can disable each mailbox by selecting the ``Disable`` item from the "
 "three-dots menu on the mailbox line."
 msgstr ""
 
-#: ../../mail.rst:115
+#: ../../mail.rst:117
 msgid ""
 "By clicking the ``Edit`` item from the three-dots menu it's possible to "
 "setup the following options:"
 msgstr ""
 
-#: ../../mail.rst:117
+#: ../../mail.rst:119
 msgid "``Forward messages``: forward all messages to another mail address"
 msgstr ""
 
-#: ../../mail.rst:118
+#: ../../mail.rst:120
 msgid ""
 "``Custom mailbox quota``: override the quota configured from the :ref"
 ":`mail_settings-section`"
 msgstr ""
 
-#: ../../mail.rst:119
+#: ../../mail.rst:121
 msgid ""
 "``Custom spam retention``: override the retention configured from the "
 ":ref:`mail_settings-section`"
 msgstr ""
 
-#: ../../mail.rst:122
+#: ../../mail.rst:124
 msgid "Public mailboxes"
 msgstr ""
 
-#: ../../mail.rst:124
+#: ../../mail.rst:126
 msgid ""
 "Public mailboxes can be shared among groups of users. The "
 ":guilabel:`Create public mailbox` button allows creating a new public "
@@ -2609,17 +2633,17 @@ msgid ""
 "protocol extension (RFC 4314)."
 msgstr ""
 
-#: ../../mail.rst:129
+#: ../../mail.rst:131
 msgid ""
 "When a new public mailbox is created, the mail server will automatically "
 "add a new address for all existing mail domains."
 msgstr ""
 
-#: ../../mail.rst:136
+#: ../../mail.rst:138
 msgid "Addresses"
 msgstr ""
 
-#: ../../mail.rst:138
+#: ../../mail.rst:140
 msgid ""
 "In addition to the users, groups and public mailboxes addresses, "
 "described in the previous section, the system enables the creation of an "
@@ -2628,43 +2652,43 @@ msgid ""
 "can be of the following types:"
 msgstr ""
 
-#: ../../mail.rst:144
+#: ../../mail.rst:146
 msgid "user mailbox"
 msgstr ""
 
-#: ../../mail.rst:145
+#: ../../mail.rst:147
 msgid "public mailbox"
 msgstr ""
 
-#: ../../mail.rst:146
+#: ../../mail.rst:148
 msgid "external email address"
 msgstr ""
 
-#: ../../mail.rst:148
+#: ../../mail.rst:150
 msgid ""
 "A mail address can be bound to any mail domain or be specific to one mail"
 " domain. For example:"
 msgstr ""
 
-#: ../../mail.rst:151
+#: ../../mail.rst:153
 msgid "First domain: ``mydomain.net``"
 msgstr ""
 
-#: ../../mail.rst:152
+#: ../../mail.rst:154
 msgid "Second domain: ``example.com``"
 msgstr ""
 
-#: ../../mail.rst:153
+#: ../../mail.rst:155
 msgid ""
 "Email address *info* bound to any domain: ``info@mydomain.net``, "
 "``info@example.com``"
 msgstr ""
 
-#: ../../mail.rst:155
+#: ../../mail.rst:157
 msgid "Email address *goofy* specific to one domain: ``goofy@example.com``"
 msgstr ""
 
-#: ../../mail.rst:157
+#: ../../mail.rst:159
 msgid ""
 "Sometimes a company forbids communications from outside the organization "
 "using personal email addresses. The ``Internal`` check box blocks the "
@@ -2673,30 +2697,30 @@ msgid ""
 "of the system."
 msgstr ""
 
-#: ../../mail.rst:166
+#: ../../mail.rst:168
 msgid "Filter"
 msgstr ""
 
-#: ../../mail.rst:168
+#: ../../mail.rst:170
 msgid "All transiting email messages are subjected to a list of checks:"
 msgstr ""
 
-#: ../../mail.rst:170 ../../mail.rst:176
+#: ../../mail.rst:172 ../../mail.rst:178
 msgid "Antivirus"
 msgstr ""
 
-#: ../../mail.rst:171 ../../mail.rst:185
+#: ../../mail.rst:173 ../../mail.rst:187
 msgid "Antispam"
 msgstr ""
 
-#: ../../mail.rst:178
+#: ../../mail.rst:180
 msgid ""
 "The antivirus component finds email messages containing viruses. Infected"
 " messages are discarded. The virus signature database is updated "
 "periodically."
 msgstr ""
 
-#: ../../mail.rst:187
+#: ../../mail.rst:189
 msgid ""
 "The antispam component RSPAMD analyzes emails by detecting and "
 "classifying `SPAM <https://en.wikipedia.org/wiki/Spamming>`_ messages "
@@ -2704,72 +2728,72 @@ msgid ""
 " of the content of messages."
 msgstr ""
 
-#: ../../mail.rst:192
+#: ../../mail.rst:194
 msgid ""
 "The filter can also check if the sending server is listed in one or more "
 "block lists (`DNSBL <https://en.wikipedia.org/wiki/Spamming>`_). A score "
 "is associated with each rule."
 msgstr ""
 
-#: ../../mail.rst:195
+#: ../../mail.rst:197
 msgid ""
 "Total spam score collected at the end of the analysis allows the server "
 "to decide what to do with a message."
 msgstr ""
 
-#: ../../mail.rst:198
+#: ../../mail.rst:200
 msgid ""
 "Statistical filters, called `Bayesian <https://www.blu-system.com"
 "/sicurezza-informatica-pavia-blu-system>`_, are special rules that evolve"
 " and quickly adapt analyzing messages marked as **spam** or **ham**."
 msgstr ""
 
-#: ../../mail.rst:205
+#: ../../mail.rst:207
 msgid "Settings"
 msgstr ""
 
-#: ../../mail.rst:207
+#: ../../mail.rst:209
 msgid ""
 "Module settings are split up and accessible under the cards described by "
 "the following sections."
 msgstr ""
 
-#: ../../mail.rst:213
+#: ../../mail.rst:215
 msgid "General settings"
 msgstr ""
 
-#: ../../mail.rst:215
+#: ../../mail.rst:217
 msgid ""
 "The following values are set at module first configuration time. They "
 "should not be changed in production:"
 msgstr ""
 
-#: ../../mail.rst:218
+#: ../../mail.rst:220
 msgid ""
 "``Mail server hostname`` configures how the MTA identifies itself with "
 "other MTAs. To successfully receive email messages, use this host name to"
 " configure the following DNS records:"
 msgstr ""
 
-#: ../../mail.rst:222
+#: ../../mail.rst:224
 msgid ""
 "`A` record, resolving the Mail server hostname to the public and static "
 "IP address of the server"
 msgstr ""
 
-#: ../../mail.rst:224
+#: ../../mail.rst:226
 msgid "`PTR` record, resolving back the IP address to the Mail server hostaname"
 msgstr ""
 
-#: ../../mail.rst:226
+#: ../../mail.rst:228
 msgid "`MX` records, one for each mail domain handled by the Mail module instance"
 msgstr ""
 
-#: ../../mail.rst:228
+#: ../../mail.rst:230
 msgid "`TXT` records, as specified by DKIM, SPF and DMARC"
 msgstr ""
 
-#: ../../mail.rst:230
+#: ../../mail.rst:232
 msgid ""
 "``User domain`` selects a LDAP database with user, groups and passwords. "
 "If the DB is changed existing mailboxes are not removed! A mailbox is "
@@ -2777,18 +2801,18 @@ msgid ""
 " new database."
 msgstr ""
 
-#: ../../mail.rst:240
+#: ../../mail.rst:242
 msgid "Under the ``Mailboxes`` card you can configure the ``Default mail quota``."
 msgstr ""
 
-#: ../../mail.rst:242
+#: ../../mail.rst:244
 msgid ""
 "If the general mailbox quota is enabled, the ``Mailboxes`` page "
 "summarizes the quota usage for each user. This summary is updated when a "
 "user logs in or a message is delivered."
 msgstr ""
 
-#: ../../mail.rst:246
+#: ../../mail.rst:248
 msgid ""
 "Under the ``Shared mailboxes`` section, ``Shared seen`` selects if the "
 "IMAP *seen* flag is shared or not with other users. In general, the "
@@ -2796,20 +2820,20 @@ msgid ""
 "shared mailbox, each user can access the same message."
 msgstr ""
 
-#: ../../mail.rst:251
+#: ../../mail.rst:253
 msgid ""
 "If users accessing the shared mailbox prefer to know if a mail has "
 "already been read by someone else, set ``Shared seen`` to ``enabled`` "
 "(default)."
 msgstr ""
 
-#: ../../mail.rst:255
+#: ../../mail.rst:257
 msgid ""
 "If users accessing the shared mailbox are not interested if a message has"
 " been already read by someone else, set ``Shared seen`` to ``disabled``."
 msgstr ""
 
-#: ../../mail.rst:259
+#: ../../mail.rst:261
 msgid ""
 "Messages marked as **spam** (see :ref:`email_filter`) can be "
 "automatically moved into the ``Junk`` folder by enabling the option "
@@ -2818,116 +2842,116 @@ msgid ""
 "retention`` option."
 msgstr ""
 
-#: ../../mail.rst:268
+#: ../../mail.rst:270
 msgid "Master users"
 msgstr ""
 
-#: ../../mail.rst:270
+#: ../../mail.rst:272
 msgid ""
 "Under the ``Master users`` card, you can setup a user that can "
 "impersonate another user, gaining full rights to any mailbox contents and"
 " folder permissions."
 msgstr ""
 
-#: ../../mail.rst:273
+#: ../../mail.rst:275
 msgid "Credentials are accepted by the IMAP server:"
 msgstr ""
 
-#: ../../mail.rst:275
+#: ../../mail.rst:277
 msgid "user name of the master user, eg. ``master``"
 msgstr ""
 
-#: ../../mail.rst:276
+#: ../../mail.rst:278
 msgid "master user password"
 msgstr ""
 
-#: ../../mail.rst:278
+#: ../../mail.rst:280
 msgid ""
 "For instance, to access as ``john`` with root password ``secr3t``, use "
 "the following credentials:"
 msgstr ""
 
-#: ../../mail.rst:281
+#: ../../mail.rst:283
 msgid "user name: ``john*master``"
 msgstr ""
 
-#: ../../mail.rst:282
+#: ../../mail.rst:284
 msgid "password: ``secr3t``"
 msgstr ""
 
-#: ../../mail.rst:288
+#: ../../mail.rst:290
 msgid "Client configuration"
 msgstr ""
 
-#: ../../mail.rst:290
+#: ../../mail.rst:292
 msgid ""
 "The server supports standard-compliant email clients using the following "
 "IANA ports:"
 msgstr ""
 
-#: ../../mail.rst:293
+#: ../../mail.rst:295
 msgid "imap/143"
 msgstr ""
 
-#: ../../mail.rst:294
+#: ../../mail.rst:296
 msgid "pop3/110"
 msgstr ""
 
-#: ../../mail.rst:295
+#: ../../mail.rst:297
 msgid "smtp/587"
 msgstr ""
 
-#: ../../mail.rst:296
+#: ../../mail.rst:298
 msgid "sieve/4190"
 msgstr ""
 
-#: ../../mail.rst:298
+#: ../../mail.rst:300
 msgid ""
 "Authentication requires the STARTTLS command and supports the following "
 "variants:"
 msgstr ""
 
-#: ../../mail.rst:301
+#: ../../mail.rst:303
 msgid "LOGIN"
 msgstr "LOGIN"
 
-#: ../../mail.rst:302
+#: ../../mail.rst:304
 msgid "PLAIN"
 msgstr ""
 
-#: ../../mail.rst:304
+#: ../../mail.rst:306
 msgid ""
 "Also the following SSL-enabled ports are available for legacy software "
 "that still does not support STARTTLS:"
 msgstr ""
 
-#: ../../mail.rst:307
+#: ../../mail.rst:309
 msgid "imaps/993"
 msgstr ""
 
-#: ../../mail.rst:308
+#: ../../mail.rst:310
 msgid "pop3s/995"
 msgstr ""
 
-#: ../../mail.rst:309
+#: ../../mail.rst:311
 msgid "smtps/465"
 msgstr ""
 
-#: ../../mail.rst:313
+#: ../../mail.rst:315
 msgid ""
 "The standard SMTP port 25 is reserved for mail transfers between MTA "
 "servers. Mail user agents (MUA) must use the submission port."
 msgstr ""
 
-#: ../../mail.rst:316
+#: ../../mail.rst:318
 msgid "If you're looking for web email clients, take a look to:"
 msgstr ""
 
-#: ../../mail.rst:318
+#: ../../mail.rst:320
 msgid ":ref:`roundcube-section`"
 msgstr ""
 
-#: ../../mail.rst:319
+#: ../../mail.rst:321
 msgid ":ref:`webtop-section`"
 msgstr ""
 
@@ -9230,5 +9254,19 @@ msgstr ""
 #~ "Always install NethServer 8 on a "
 #~ "clean server machine, do not install "
 #~ "it on a desktop."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This module installs Imapsync, an IMAP"
+#~ " transfer tool. Its purpose is "
+#~ "migrating email messages from remote "
+#~ "IMAP accounts to a local one."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The migration is both recursive and "
+#~ "incremental and can be repeated as "
+#~ "many times as needed, also you can"
+#~ " select the task frequency."
 #~ msgstr ""
 
