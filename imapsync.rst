@@ -6,12 +6,12 @@ Imapsync
 
 
 
-This module installs Imapsync, an IMAP transfer tool used for copying emails from one IMAP server to the NethServer 8 IMAP server.
-This module can server to many purposes, for example:
+This module installs Imapsync, an IMAP transfer tool used for copying and moving emails from external IMAP servers to a :ref:`Mail server <email-section>` instance.
+This module can serve many purposes. For example:
 
-- if you want to use the local IMAP account as a backup of the remote one.
-- if you want to use the local IMAP account as a combination of several remote ones.
-- if you want to migrate messages from one remote IMAP account to a local one.
+- If you want to use the local IMAP account as a backup for the remote one.
+- If you want to use the local IMAP account as a combination of several remote ones.
+- If you want to migrate messages from one remote IMAP account to a local one.
 
 The task is both recursive and incremental and can be repeated as many times as needed, also you can select the task frequency.
 

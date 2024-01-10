@@ -12,7 +12,7 @@ The Email module is split into three main parts:
   and `Sieve <https://en.wikipedia.org/wiki/Sieve_(mail_filtering_language)>`_ language to organize it
 * `RSPAMD <https://rspamd.com/>`_: antispam filter, antivirus and attachments blocker
 
-The optionnal :ref:`imapsync-section` module can be installed as a standalone. This module intends to fetch email from an IMAP server to a local IMAP account.
+The optional :ref:`imapsync-section` module can be connected to Mail. It allows scheduling fetch jobs or migrating emails from external IMAP servers to local user mailboxes.
 
 Benefits are:
 
