@@ -20,13 +20,13 @@ Install on a supported distribution
 Pick your preferred Linux distribution between :ref:`supported ones
 <supported-distros-section>`.
 
-On Debian systems, you may need to install the ``curl`` command: ::
-
-   apt install curl
-
 Start the installation procedure as ``root``: ::
 
    curl https://raw.githubusercontent.com/NethServer/ns8-core/ns8-stable/core/install.sh | bash
+
+If the ``curl`` command is not available try to install it with: ::
+
+   apt install curl || dnf install curl
 
 .. _install_image-section:
 
