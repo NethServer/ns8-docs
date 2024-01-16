@@ -17,9 +17,14 @@ Requesting Let's Encrypt is possible if the following requirements are met:
 
 1. the server must be reachable from outside on port 80. Make sure your port 80
    is open to the public Internet (you can check with sites like `CSM <http://www.canyouseeme.org/>`_)
-2. the domains that you want the certificate for must be public domain names
-   associated to the server own public IP. Make sure you have public DNS names
-   pointing to your server (you can check with sites like `VDNS <http://viewdns.info/>`_)
+
+2. the domains for which you want the certificate must be public domain
+   names associated with the server's own public IP. Make sure you have
+   public DNS names pointing to your server for both IPv4 and IPv6
+   addresses. There are plenty of sites like `VDNS
+   <http://viewdns.info/>`_  to check if the DNS is correctly configured.
+
+.. warning::
 
    Wildcard certificates (i.e. ``*.nethserver.org``) are not supported.
 
