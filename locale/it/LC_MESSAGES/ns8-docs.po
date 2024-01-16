@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-12 17:37+0000\n"
+"POT-Creation-Date: 2024-01-16 10:18+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -334,107 +334,108 @@ msgid ""
 "<http://www.canyouseeme.org/>`_)"
 msgstr ""
 
-#: ../../certificates.rst:20
+#: ../../certificates.rst:21
 msgid ""
-"the domains that you want the certificate for must be public domain names"
-" associated to the server own public IP. Make sure you have public DNS "
-"names pointing to your server (you can check with sites like `VDNS "
-"<http://viewdns.info/>`_)"
+"the domains for which you want the certificate must be public domain "
+"names associated with the server's own public IP. Make sure you have "
+"public DNS names pointing to your server for both IPv4 and IPv6 "
+"addresses. There are plenty of sites like `VDNS <http://viewdns.info/>`_"
+"  to check if the DNS is correctly configured."
 msgstr ""
 
-#: ../../certificates.rst:24
+#: ../../certificates.rst:29
 msgid "Wildcard certificates (i.e. ``*.nethserver.org``) are not supported."
 msgstr ""
 
-#: ../../certificates.rst:26
+#: ../../certificates.rst:31
 msgid ""
 "If the above requirements are met, you can obtain a valid certificate for"
 " a domain by following these steps:"
 msgstr ""
 
-#: ../../certificates.rst:28
+#: ../../certificates.rst:33
 msgid "access the ``Settings`` page and click the ``TLS certificates`` card"
 msgstr ""
 
-#: ../../certificates.rst:29 ../../certificates.rst:31
+#: ../../certificates.rst:34 ../../certificates.rst:36
 msgid "click on :guilabel:`Request certificate` button"
 msgstr ""
 
-#: ../../certificates.rst:30
+#: ../../certificates.rst:35
 msgid "enter the node FQDN and select the node"
 msgstr ""
 
-#: ../../certificates.rst:33
+#: ../../certificates.rst:38
 msgid ""
 "The procedure will take a while, but the system will notify you when the "
 "certificate is ready. The Let's Encrypt certificate is automatically "
 "renewed 30 days before expiration."
 msgstr ""
 
-#: ../../certificates.rst:36
+#: ../../certificates.rst:41
 msgid ""
 "If the procedure fails, the certificate status is set to ``Not obtained``"
 " and an error notification is displayed."
 msgstr ""
 
-#: ../../certificates.rst:39
+#: ../../certificates.rst:44
 msgid ""
 "Failures may occur if the DNS record is not correctly configured, or DNS "
 "update propagation is slower than expected.  In both cases Traefik "
 "retries to obtain the certificate at a later time when:"
 msgstr ""
 
-#: ../../certificates.rst:43
+#: ../../certificates.rst:48
 msgid "the Traefik service is restarted, or"
 msgstr ""
 
-#: ../../certificates.rst:44
+#: ../../certificates.rst:49
 msgid "an HTTPS request that matches the certificate name is received."
 msgstr ""
 
-#: ../../certificates.rst:48
+#: ../../certificates.rst:53
 msgid ""
 "Traefik stores the time of the last certificate issue attempt in memory. "
 "Do not restart Traefik too often, to avoid incurring in Let's Encrypt "
 "rate limits."
 msgstr ""
 
-#: ../../certificates.rst:53
+#: ../../certificates.rst:58
 msgid "Custom certificates"
 msgstr ""
 
-#: ../../certificates.rst:55
+#: ../../certificates.rst:60
 msgid ""
 "If you are already in possession of a certificate and its private key, "
 "you can upload them to the cluster. You can follow this procedure to "
 "install the certificate:"
 msgstr ""
 
-#: ../../certificates.rst:58
+#: ../../certificates.rst:63
 msgid "access ``Settings`` page and click the ``TLS Certificates`` card"
 msgstr ""
 
-#: ../../certificates.rst:59
+#: ../../certificates.rst:64
 msgid "click on :guilabel:`Upload certificate`"
 msgstr ""
 
-#: ../../certificates.rst:60
+#: ../../certificates.rst:65
 msgid ""
 "once the modal is open, select the Traefik instance where the certificate"
 " will be installed to"
 msgstr ""
 
-#: ../../certificates.rst:61
+#: ../../certificates.rst:66
 msgid ""
 "upload the key file and the certificate file. They are checked on upload "
 "and if the key does not match the certificate, you receive an error"
 msgstr ""
 
-#: ../../certificates.rst:62
+#: ../../certificates.rst:67
 msgid "once selected the files for the upload, click on :guilabel:`Upload`"
 msgstr ""
 
-#: ../../certificates.rst:64
+#: ../../certificates.rst:69
 msgid ""
 "You receive an error if something with the upload goes wrong, otherwise "
 "the modal closes itself and the certificate list is refreshed."
@@ -4134,30 +4135,41 @@ msgid "``Node``: the node where the proxy instance is running"
 msgstr ""
 
 #: ../../proxy.rst:19
-msgid "``URL``: target URL of the route"
+msgid ""
+"``URL``: target URL of the route. It must correspond to a reachable "
+"backend HTTP server. It can be both internal or external to the cluster."
 msgstr ""
 
-#: ../../proxy.rst:20
+#: ../../proxy.rst:21
+msgid ""
+"``Skip certificate validation``: if the URL starts with ``https://``, "
+"this switch disables the verification of the backend TLS certificate. If "
+"the backend is reached through a trusted network but it cannot provide a "
+"valid TLS certificate, it could be acceptable to skip the TLS "
+"verification."
+msgstr ""
+
+#: ../../proxy.rst:26
 msgid ""
 "``Host``: fill this field with a valid FQDN if you want a host-based "
 "route, sometimes also referred as virtual host; the application will be "
 "available on a URL like ``https://myapp.nethserver.org``"
 msgstr ""
 
-#: ../../proxy.rst:22
+#: ../../proxy.rst:28
 msgid ""
 "``Path``: fill this field with a valid path if you want a path-based "
 "route accessible from the cluster FQDN; the application will be available"
 " on a URL like ``https://cluster.nethserver.org/myapp``"
 msgstr ""
 
-#: ../../proxy.rst:24
+#: ../../proxy.rst:30
 msgid ""
 "``Strip URL path prefix``: when ``Path`` field is not empty, strip the "
 "path before routing the request to the target URL"
 msgstr ""
 
-#: ../../proxy.rst:25
+#: ../../proxy.rst:31
 msgid ""
 "``Request Let's Encrypt certificate`` enable this option to request a "
 "valid certificate, please remember :ref:`all requirements "
@@ -9271,5 +9283,18 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "On Debian systems, you may need to install the ``curl`` command: ::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "the domains that you want the "
+#~ "certificate for must be public domain"
+#~ " names associated to the server own"
+#~ " public IP. Make sure you have "
+#~ "public DNS names pointing to your "
+#~ "server (you can check with sites "
+#~ "like `VDNS <http://viewdns.info/>`_)"
+#~ msgstr ""
+
+#~ msgid "``URL``: target URL of the route"
 #~ msgstr ""
 
