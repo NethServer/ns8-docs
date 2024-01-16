@@ -16,7 +16,13 @@ Then enter the following details:
 
 - ``Name``: a unique name to identify the route
 - ``Node``: the node where the proxy instance is running
-- ``URL``: target URL of the route
+- ``URL``: target URL of the route. It must correspond to a reachable
+  backend HTTP server. It can be both internal or external to the cluster.
+- ``Skip certificate validation``: if the URL starts with ``https://``,
+  this switch disables the verification of the backend TLS certificate. If
+  the backend is reached through a trusted network but it cannot provide a
+  valid TLS certificate, it could be acceptable to skip the TLS
+  verification.
 - ``Host``: fill this field with a valid FQDN if you want a host-based route, sometimes also referred as virtual host;
   the application will be available on a URL like ``https://myapp.nethserver.org``
 - ``Path``: fill this field with a valid path if you want a path-based route accessible from the cluster FQDN;
