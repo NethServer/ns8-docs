@@ -20,6 +20,7 @@ NethServer 8 administrator manual
    introduction
    release_notes
    modules
+   subscription
 
 .. toctree::
    :maxdepth: 2

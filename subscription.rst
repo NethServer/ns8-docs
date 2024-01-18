@@ -1,0 +1,5 @@
+.. _subscription-section:
+
+============
+Subscription
+============
