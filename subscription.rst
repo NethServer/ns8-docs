@@ -17,7 +17,7 @@ When a cluster has an active subscription, the following services are
 enabled:
 
 - Remote support by Nethesis
-- Resources monitoring and web portal link
+- Resources monitoring and alerting
 - Upload of leader node inventory
 - Automatic updates of core and applications
 - Upload of cluster backup (Enterprise only)
@@ -26,13 +26,14 @@ enabled:
 Register the cluster
 ====================
 
-Depending on your subscription type, log in to https://my.nethserver.com
-or https://my.nethesis.it and obtain a unique subscription token for the
+Depending on your subscription type, log in to `my.nethserver.com
+<https://my.nethserver.com>`_ or `my.nethesis.it
+<https://my.nethesis.it>`_ and obtain a unique subscription token for the
 cluster. Follow the portal-documented procedures to obtain it.
 
 .. warning::
 
-  The subscription token is a secret: never communicate or show it to
+  The subscription token is a secret: never communicate or share it with
   someone else
 
 Once you have copied the token to the clipboard, go to the ``Settings``
@@ -53,13 +54,6 @@ Subscription`` link.
 
 In the ``Subscription`` page, click the :guilabel:`Remove subscription`
 button. The action must be confirmed.
-
-.. hint::
-
-    The "Remove subscription" procedure within the NethServer interface
-    does not clear the web portal cluster account. To complete the cluster
-    subscription removal and avoid being charged, visit your subscription
-    web portal
 
 Remote support
 ==============
