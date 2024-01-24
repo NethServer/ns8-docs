@@ -24,7 +24,8 @@ Get support
 ===========
 
 You want to know more or look for some help?
-Check out our great `community <https://community.nethserver.org>`_!
+Check out our great `community <https://community.nethserver.org>`_,
+or :ref:`subscription plans<subscription-section>`!
 
 If you are looking for more technical details, take a look to the `developer manual <https://nethserver.github.io/ns8-core/>`_.
 
