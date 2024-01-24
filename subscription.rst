@@ -6,7 +6,7 @@ Subscription
 
 .. highlight:: bash
 
-.. hint::
+.. note::
 
    Available only on Rocky Linux based systems
 
@@ -64,7 +64,7 @@ button. The action must be confirmed.
 Remote support
 ==============
 
-.. hint::
+.. note::
 
     Available in Nethesis Enterprise only
 
