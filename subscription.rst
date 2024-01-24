@@ -82,7 +82,7 @@ allow starting and controlling a remote support session:
 - To end the support session, close the VPN tunnel and revoke any granted
   access, click :guilabel:`End session`.
 
-The support session is valid only on to reach the leader node. The support
+The support session is valid only to reach the leader node. The support
 team can access worker nodes by starting individual support sessions in
 the worker nodes. For example, if node 2 is a worker node, this is a
 command to start a support session for it: ::
