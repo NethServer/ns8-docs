@@ -13,6 +13,8 @@ NethServer 8 administrator manual
 
         * Help on `Community <http://community.nethserver.org>`_
 
+        * :ref:`Subscription plans <subscription-section>`
+
 .. toctree::
    :maxdepth: 1
    :caption: About
