@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-24 11:03+0000\n"
+"POT-Creation-Date: 2024-01-24 15:13+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -833,7 +833,7 @@ msgid ""
 msgstr ""
 
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
-#: ../../ejabberd.rst:23 ../../imapsync.rst:31 ../../index.rst:31
+#: ../../ejabberd.rst:23 ../../imapsync.rst:31 ../../index.rst:34
 #: ../../mail.rst:34 ../../mariadb.rst:11 ../../mattermost.rst:13
 #: ../../minio.rst:14 ../../nextcloud.rst:21 ../../nginx.rst:14
 #: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webtop.rst:12
@@ -1913,23 +1913,23 @@ msgid ""
 ":ref:`user-domains-section`."
 msgstr ""
 
-#: ../../index.rst:16
+#: ../../index.rst:18
 msgid "About"
 msgstr ""
 
-#: ../../index.rst:24 ../../install.rst:5
+#: ../../index.rst:27 ../../install.rst:5
 msgid "Installation"
 msgstr ""
 
-#: ../../index.rst:47 ../../modules.rst:7
+#: ../../index.rst:50 ../../modules.rst:7
 msgid "Applications"
 msgstr ""
 
-#: ../../index.rst:66
+#: ../../index.rst:69
 msgid "NethForge applications"
 msgstr ""
 
-#: ../../index.rst:72
+#: ../../index.rst:75
 msgid "Best practices"
 msgstr ""
 
@@ -1943,6 +1943,10 @@ msgstr ""
 
 #: ../../index.rst:14
 msgid "Help on `Community <http://community.nethserver.org>`_"
+msgstr ""
+
+#: ../../index.rst:16
+msgid ":ref:`Subscription plans <subscription-section>`"
 msgstr ""
 
 #: ../../install.rst:10
@@ -2232,16 +2236,17 @@ msgstr ""
 #: ../../introduction.rst:26
 msgid ""
 "You want to know more or look for some help? Check out our great "
-"`community <https://community.nethserver.org>`_!"
+"`community <https://community.nethserver.org>`_, or :ref:`subscription "
+"plans<subscription-section>`!"
 msgstr ""
 
-#: ../../introduction.rst:29
+#: ../../introduction.rst:30
 msgid ""
 "If you are looking for more technical details, take a look to the "
 "`developer manual <https://nethserver.github.io/ns8-core/>`_."
 msgstr ""
 
-#: ../../introduction.rst:31
+#: ../../introduction.rst:32
 msgid ""
 "Bugs can be discussed and reported inside the `community forum "
 "<https://community.nethserver.org>`_. The public issue tracker is "
@@ -5310,6 +5315,172 @@ msgstr ""
 
 #: ../../sogo.rst:167
 msgid "There is no support for Openchange/OutlookMAPI."
+msgstr ""
+
+#: ../../subscription.rst:5
+msgid "Subscription"
+msgstr ""
+
+#: ../../subscription.rst:11
+msgid "Available only on Rocky Linux based systems"
+msgstr ""
+
+#: ../../subscription.rst:13
+msgid ""
+"A NethServer 8 cluster can be registered to a web portal to enable "
+"additional services."
+msgstr ""
+
+#: ../../subscription.rst:16
+msgid ""
+"When a cluster has an active subscription, the following services are "
+"enabled:"
+msgstr ""
+
+#: ../../subscription.rst:19
+msgid "Remote support by Nethesis"
+msgstr ""
+
+#: ../../subscription.rst:20
+msgid "Resources monitoring and alerting"
+msgstr ""
+
+#: ../../subscription.rst:21
+msgid "Upload of leader node inventory"
+msgstr ""
+
+#: ../../subscription.rst:22
+msgid "Automatic updates of core and applications"
+msgstr ""
+
+#: ../../subscription.rst:23
+msgid "Upload of cluster backup (Enterprise only)"
+msgstr ""
+
+#: ../../subscription.rst:27
+msgid "Register the cluster"
+msgstr ""
+
+#: ../../subscription.rst:29
+msgid ""
+"Depending on your subscription type, log in to `my.nethserver.com "
+"<https://my.nethserver.com>`_ or `my.nethesis.it "
+"<https://my.nethesis.it>`_ and obtain a unique subscription token for the"
+" cluster. Follow the portal-documented procedures to obtain it."
+msgstr ""
+
+#: ../../subscription.rst:36
+msgid ""
+"The subscription token is a secret: never communicate or share it with "
+"someone else"
+msgstr ""
+
+#: ../../subscription.rst:39
+msgid ""
+"Once you have copied the token to the clipboard, go to the ``Settings`` "
+"page and click the ``Subscription`` card. Paste the token in the "
+"``Authentication token`` field, then click the :guilabel:`Register` "
+"button."
+msgstr ""
+
+#: ../../subscription.rst:44
+msgid ""
+"If the procedure is successful the Subscription page displays the "
+"``System ID``, ``Plan`` type and ``Expiration`` date."
+msgstr ""
+
+#: ../../subscription.rst:49
+msgid "Remove the subscription"
+msgstr ""
+
+#: ../../subscription.rst:51
+msgid ""
+"Go to the ``Settings`` page and click the ``Subscription`` card. "
+"Alternatively, go to the cluster dashboard page and click the ``Go to "
+"Subscription`` link."
+msgstr ""
+
+#: ../../subscription.rst:55
+msgid ""
+"In the ``Subscription`` page, click the :guilabel:`Remove subscription` "
+"button. The action must be confirmed."
+msgstr ""
+
+#: ../../subscription.rst:59
+msgid "Remote support"
+msgstr ""
+
+#: ../../subscription.rst:63
+msgid "Available in Nethesis Enterprise only"
+msgstr ""
+
+#: ../../subscription.rst:65
+msgid ""
+"Depending on the subscription type and plan, the ``Subscription`` page "
+"can allow starting and controlling a remote support session:"
+msgstr ""
+
+#: ../../subscription.rst:68
+msgid ""
+"Click :guilabel:`Start session` to activate a special access for the "
+"Nethesis support team. Both SSH and cluster-admin administrative access "
+"are granted to the support team. Support connections are routed in a "
+"private VPN tunnel."
+msgstr ""
+
+#: ../../subscription.rst:73
+msgid ""
+"When the access is granted, a unique ``Session ID`` secret is displayed: "
+"copy and paste it in your support request."
+msgstr ""
+
+#: ../../subscription.rst:76
+msgid ""
+"To end the support session, close the VPN tunnel and revoke any granted "
+"access, click :guilabel:`End session`."
+msgstr ""
+
+#: ../../subscription.rst:79
+msgid ""
+"The support session is valid only to reach the leader node. The support "
+"team can access worker nodes by starting individual support sessions in "
+"the worker nodes. For example, if node 2 is a worker node, this is a "
+"command to start a support session for it: ::"
+msgstr ""
+
+#: ../../subscription.rst:86
+msgid "The Session ID is printed to the standard output. To stop the session: ::"
+msgstr ""
+
+#: ../../subscription.rst:90
+msgid "Check the support session status for any node with: ::"
+msgstr ""
+
+#: ../../subscription.rst:94
+msgid ""
+"If a worker node (e.g., node 2) becomes unreachable from the leader node,"
+" you can manually start a support session for it with the following "
+"procedure:"
+msgstr ""
+
+#: ../../subscription.rst:98
+msgid "Log in on the worker node, using the console or SSH access."
+msgstr ""
+
+#: ../../subscription.rst:100
+msgid "Run the following command to start the support session: ::"
+msgstr ""
+
+#: ../../subscription.rst:104
+msgid "Obtain the session ID with: ::"
+msgstr ""
+
+#: ../../subscription.rst:108
+msgid "The Session ID is always recorded in the system journal and node log."
+msgstr ""
+
+#: ../../subscription.rst:110
+msgid "To end the support session: ::"
 msgstr ""
 
 #: ../../system_requirements.rst:5
@@ -9307,5 +9478,11 @@ msgstr ""
 #~ "proceed to change the password. The "
 #~ "password must comply with the domain "
 #~ "password policy during this process."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You want to know more or look "
+#~ "for some help? Check out our great"
+#~ " `community <https://community.nethserver.org>`_!"
 #~ msgstr ""
 
