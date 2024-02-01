@@ -5,20 +5,21 @@ Introduction
 About NethServer 8
 ==================
 
-NethServer 8 (abbreviated as NS8) is a `GNU/Linux
-<https://en.wikipedia.org/wiki/Linux>`_ application server designed for
-small offices and medium enterprises. Applications can be managed from a
-simple Web user interface.
+NethServer 8 (NS8) is an application server specifically designed for
+small offices and medium enterprises. It facilitates the management of
+applications through a user-friendly web interface. NS8 operates as a
+container orchestrator, a system that can manage and coordinate the
+deployment of various applications.
 
-Under the hood, NS8 is a container `orchestrator
-<https://en.wikipedia.org/wiki/Orchestration_(computing)>`_. It can host
-different :ref:`applications <applications-section>` on a single machine
-or spread the load across multiple nodes.
+One of its key features is the ability to host different applications on a
+single machine or distribute the workload across multiple nodes. This
+flexibility allows for efficient resource utilization and scalability
+based on the organization's needs.
 
-NS8, is the evolution of `NethServer 7
-<https://docs.nethserver.org/en/v7/>`_. It is no longer a complete Linux
-distribution based on CentOS, instead it can be installed on different
-Linux distributions.
+NS8 represents the evolution of NethServer 7, which was a complete Linux
+distribution based on CentOS. However, NS8 departs from this model and can
+now be installed over different Linux distributions, providing users with
+more choices and compatibility options.
 
 Get support
 ===========
