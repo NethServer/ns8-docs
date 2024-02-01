@@ -107,17 +107,21 @@ Confirm or enter the leader host name in the ``VPN public address``
 field. An IP address is accepted, too.
 
 Confirm or enter the ``VPN public UDP port`` number. Every worker node
-will connect the leader on that UDP port number.
+will connect the leader on that UDP port number. In most cases, the
+default VPN port, which is ``55820``, should suffice, unless there is a
+network device between the leader and the workers mapping it to a
+different port number.
 
 When the confirmation string is typed, the :guilabel:`I understand,
 promote the node` button becomes active and it is possible to complete the
 node promotion.
 
-The ``Check node connectivity`` checkbox verifies the connection of every
-node with the selected one.  The check might fail due to settings of other
-devices in the network, like port-forwarding. In this case, if you are
-sure the entered configuration is correct, it is possible to disable the
-check: do it at your own risk!
+The ``Check node connectivity`` checkbox verifies the connection of each
+node with the selected one. Since the VPN connection cannot be probed,
+only HTTPS is checked, and it may fail due to settings on other network
+devices, such as port-forwarding. In this case, if you are certain that
+the entered configuration is correct, you have the option to disable the
+check, but proceed at your own risk!
 
 Unreachable leader node
 -----------------------

@@ -9,9 +9,7 @@ is permitted.
 All other network interfaces are part of a public zone where only specific ports are open.
 By default, NS8 will have the following open ports:
 
-- cluster VPN endpoint, default is 55820 UDP. It can be changed during
-  :ref:`post-installation steps <post-install-steps>` and :ref:`node
-  promotion <node-promotion-section>`
+- Wireguard VPN, 55820 UDP
 - HTTP and HTTPS, 80 and 443 TCP
 - SSH, 22 TCP
 - Cockpit (not installed by default), 9090 TCP
