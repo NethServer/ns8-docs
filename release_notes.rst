@@ -14,6 +14,9 @@ Major changes on 2024-01-XX
 
 **Stable release**
 
+- **Subscription** -- Nethesis Enterprise and Subscription plans are now
+  available for NS8. See the details in :ref:`subscription-section` page.
+
 - **Cockpit removed from pre-built image** -- Cockpit is not required to
   run NS8, therefore it is no more available in the NS8 pre-built image.
   If desired, it can be manually installed and enabled with the following
