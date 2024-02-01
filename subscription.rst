@@ -19,8 +19,17 @@ enabled:
 - Remote support by Nethesis
 - Resources monitoring and alerting
 - Upload of leader node inventory
-- Automatic updates of core and applications
+- Scheduled updates for node operating systems, core components, and
+  applications
 - Upload of cluster backup (Enterprise only)
+
+Regarding software repositories, only the ``subscription`` repository
+remains enabled.
+
+.. hint::
+
+  Please avoid enabling third-party repositories and refrain from
+  installing software not covered by the subscription plan
 
 
 Register the cluster
@@ -43,6 +52,30 @@ button.
 
 If the procedure is successful the Subscription page displays the ``System
 ID``, ``Plan`` type and ``Expiration`` date.
+
+
+.. _scheduled-updates:
+
+Scheduled updates
+=================
+
+An overnight scheduled task installs software updates available from
+managed software repositories. The task runs daily, from Tuesday through
+Friday, within a randomly selected time slot between midnight and 6 AM.
+This variability helps distribute the load on the network and servers.
+Updates concern:
+
+- **Operating system**: updates are sourced from Nethesis managed
+  repositories, specifically from DNF repositories labeled as
+  ``ns-baseos`` and ``ns-appstream``. These repositories provide delayed
+  snapshots of Rocky Linux repositories, aiming to prevent the
+  distribution of updates that may lead to unexpected issues.
+
+- **Core components**: Updates are fetched from the ``subscription``
+  repository
+
+- **Applications**: Updates are fetched from the ``subscription``
+  repository
 
 
 Remove the subscription

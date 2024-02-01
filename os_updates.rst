@@ -4,20 +4,22 @@
 Operating system updates
 ========================
 
-NethServer 8 is installed on top of GNU/Linux distributions and tries to preserve default configurations as much as possible.
-It's up to the system administrator to choose how the operating system updates are applied.
+NethServer 8 is installed on top of Linux distributions and strives to
+preserve default configurations as much as possible. The system
+administrator has the flexibility to choose how operating system updates
+are applied.
 
-Usually, it's a good practice to apply security updates as soon as possible.
-But, even if NethServer depends on few packages, not all system administrators feel confident about automatic updates.
-
-Please, take a look to your distribution documentation:
+It is generally advisable to apply operating system updates promptly. If
+you have an active subscription, updates are automatically applied as
+described in the :ref:`scheduled-updates` section. Otherwise, consult your
+distribution documentation for guidance:
 
 * `Rocky Linux/AlmaLinux <https://docs.rockylinux.org/guides/security/dnf_automatic/>`_
 * `Debian <https://wiki.debian.org/UnattendedUpgrades>`_
 
-.. note::
+CentOS Stream is regarded as a preview of the next stable RHEL release.
+Updates may introduce new software versions that could potentially cause
+unexpected issues. To enable automatic updates on CentOS Stream, simply
+follow the same instructions as outlined for Rocky Linux.
 
-   It's not recommended to enable automatic updates on CentOS Stream, since it is considered a preview of next RHEL stable release.
-   Updates could bring major releases of podman and SELinux policies introducing unexpected bugs.
-
-If you are looking for core and modules see :ref:`updates-section`.
+For updates to core and modules, refer to :ref:`updates-section`.

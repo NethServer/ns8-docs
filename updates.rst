@@ -11,6 +11,9 @@ NethServer 8 can handle two different types of updates:
 
 :ref:`Operating system updates <os_updates-section>` are demanded to the underlying Linux distribution.
 
+If you have an active subscription, available updates are applied
+automatically as described in :ref:`scheduled-updates`.
+
 You can see if there are any available updates by accessing the ``Cluster status`` page.
 Updates are applied from the :ref:`software_center-section`.
 
