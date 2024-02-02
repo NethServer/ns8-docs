@@ -54,7 +54,7 @@ Can I migrate from NethServer 7 to NethServer 8?
 
 Migrating to the next major release is a primary goal, as always has been.
 The migration procedure is documented :ref:`here <migration-section>`.
-We are working working hard to make it *safe* and *painless*.
+We are working hard to make it *safe* and *painless*.
 
 How can I install NethServer 8?
 ===============================
