@@ -51,6 +51,8 @@ NethServer 8 administrator manual
    :maxdepth: 2
    :caption: Applications
 
+   nethvoice_proxy
+   nethvoice
    mail
    file_server
    roundcube
