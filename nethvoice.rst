@@ -14,7 +14,7 @@ NethVoice module is split into seven main parts:
 * `MariaDB <https://mariadb.org/>`_: a popular open source relational database 
 * `Tancredi <https://nethesis.github.io/tancredi>`_: a phone provisioning engine ideal for internet deployments
 
-NethVoice is a full-feature integrate voice, video, mobile and corporate information systems.
+NethVoice is a full-feature integrate voice, video, mobile communication systems.
 
 You can install multiple NethVoice instances on the same node from the :ref:`software_center-section`, but the module requires ref:`NethVoice proxy <nethvoice_proxy-section>` already configured and running.
 
@@ -22,13 +22,13 @@ You can install multiple NethVoice instances on the same node from the :ref:`sof
 Configuration
 =============
 
-The NethVoice module requires at least one :ref:`user domain <user-domains-section>` already configured.
+The NethVoice module requires at least one :ref:`user domain <user-domains-section>` already configured and running.
 
 NethVoice needs two dedicated virtual hosts, one for the NethVoice administration page and one for the NethVoice CTI web application, two FQDN like ``nethvoice.nethserver.org`` and ``cti.nethserver.org``.
 
-Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
+Before proceeding with the configuration, make sure to create the corresponding name records inside your DNS server.
 
-If you are planning to use a Let's Encrypt certificate as default, make also sure to have a corresponding public DNS record.
+If you are planning to use a Let's Encrypt certificate as default, make also sure to have the corresponding public DNS records.
 
 The first configuration wizard will require the following information:
 
@@ -41,8 +41,8 @@ The first configuration wizard will require the following information:
 
 After saving the configuration parameters NethVoice will be accessible on his base host with the administration credentials:
 
-* User: *admin*
-* Password: *Nethesis,1234*, default password if not reset above. 
+* User: `admin`
+* Password: `Nethesis,1234`, default password if not has been reset during the fist configuration wizard
 
 
 

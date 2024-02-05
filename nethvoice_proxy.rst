@@ -11,7 +11,7 @@ NethVoice Proxy module is split into two main parts:
 
 NethVoice Proxy allows you to manage all incoming and outgoing SIP and RTP connections.
 
-It is necessary to install one or more :ref:`NethVoice <nethvoice-section>` per node.
+The proxy will be used by :ref:`NethVoice <nethvoice-section>` instances that must be installed after this proxy is up and running.
 
 .. note:: You can install only one NethVoice Proxy per node from the :ref:`software_center-section`.
 
@@ -22,10 +22,11 @@ NethVoice Proxy needs a virtual host, an FQDN like ``proxy.nethserver.org``, thi
 
 Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
 
-If you are planning to use a Let's Encrypt certificate as default, make also sure to have a corresponding public DNS record.
+If you are planning to use a Let's Encrypt certificate as default, make also sure to have the corresponding public DNS record.
 
 How to configure:
 
 1. access the application configuration page and enter a valid FQDN inside ``Proxy Domain`` field
 2. insert the IPv4/IPv6 address that will receive VoIP traffic
 
+Now, you can install and configure one ore more :ref:`NethVoice <nethvoice-section>` instances.
