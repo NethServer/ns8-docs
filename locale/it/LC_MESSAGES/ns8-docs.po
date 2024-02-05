@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-24 15:13+0000\n"
+"POT-Creation-Date: 2024-02-05 10:44+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -599,7 +599,7 @@ msgstr ""
 msgid "Reachable leader node"
 msgstr ""
 
-#: ../../cluster.rst:90 ../../cluster.rst:123
+#: ../../cluster.rst:90 ../../cluster.rst:127
 msgid "Unreachable leader node"
 msgstr ""
 
@@ -635,26 +635,30 @@ msgstr ""
 #: ../../cluster.rst:109
 msgid ""
 "Confirm or enter the ``VPN public UDP port`` number. Every worker node "
-"will connect the leader on that UDP port number."
+"will connect the leader on that UDP port number. In most cases, the "
+"default VPN port, which is ``55820``, should suffice, unless there is a "
+"network device between the leader and the workers mapping it to a "
+"different port number."
 msgstr ""
 
-#: ../../cluster.rst:112
+#: ../../cluster.rst:115
 msgid ""
 "When the confirmation string is typed, the :guilabel:`I understand, "
 "promote the node` button becomes active and it is possible to complete "
 "the node promotion."
 msgstr ""
 
-#: ../../cluster.rst:116
+#: ../../cluster.rst:119
 msgid ""
-"The ``Check node connectivity`` checkbox verifies the connection of every"
-" node with the selected one.  The check might fail due to settings of "
-"other devices in the network, like port-forwarding. In this case, if you "
-"are sure the entered configuration is correct, it is possible to disable "
-"the check: do it at your own risk!"
+"The ``Check node connectivity`` checkbox verifies the connection of each "
+"node with the selected one. Since the VPN connection cannot be probed, "
+"only HTTPS is checked, and it may fail due to settings on other network "
+"devices, such as port-forwarding. In this case, if you are certain that "
+"the entered configuration is correct, you have the option to disable the "
+"check, but proceed at your own risk!"
 msgstr ""
 
-#: ../../cluster.rst:125
+#: ../../cluster.rst:129
 msgid ""
 "If the current leader node is not reachable, it is necessary to run a "
 "command on any other worker node.  Be prepared in advance for this "
@@ -662,18 +666,18 @@ msgid ""
 " the nodes."
 msgstr ""
 
-#: ../../cluster.rst:130
+#: ../../cluster.rst:134
 msgid ""
 "For example, to promote node with ID ``3``, VPN endpoint "
 "``node3.example.com`` UDP port ``55820``, run the following command on "
 "every worker node: ::"
 msgstr ""
 
-#: ../../cluster.rst:139 ../../ejabberd.rst:82
+#: ../../cluster.rst:143 ../../ejabberd.rst:82
 msgid "Administrators"
 msgstr ""
 
-#: ../../cluster.rst:141
+#: ../../cluster.rst:145
 msgid ""
 "Cluster administrators can fully manage the cluster. It's recommended to "
 "create a personal user for each cluster administrator. All actions "
@@ -681,92 +685,92 @@ msgid ""
 ":`audit-trail-section`."
 msgstr ""
 
-#: ../../cluster.rst:145
+#: ../../cluster.rst:149
 msgid ""
 "To add a new cluster administrator go to the ``Settings`` page and select"
 " the ``Cluster administrators`` card. Then click on :guilabel:`Create "
 "admin` button and fill the required fields."
 msgstr ""
 
-#: ../../cluster.rst:148
+#: ../../cluster.rst:152
 msgid ""
 "An administrator can't delete its own user. To delete an administrator, "
 "you must log in with another existing cluster administrator."
 msgstr ""
 
-#: ../../cluster.rst:151
+#: ../../cluster.rst:155
 msgid ""
 "Administrators can change their own password from the ``Account`` card "
 "inside the ``Settings`` page."
 msgstr ""
 
-#: ../../cluster.rst:156 ../../webtop.rst:132
+#: ../../cluster.rst:160 ../../webtop.rst:132
 msgid "Two-factor authentication (2FA)"
 msgstr ""
 
-#: ../../cluster.rst:158
+#: ../../cluster.rst:162
 msgid ""
 "Two-factor authentication (2FA) can be used to add an extra layer of "
 "security required to access the cluster management user interface."
 msgstr ""
 
-#: ../../cluster.rst:161
+#: ../../cluster.rst:165
 msgid ""
 "The administrator can enable 2FA from the ``Account`` card inside the "
 "``Settings`` page by clicking the :guilabel:`Enable 2FA` button."
 msgstr ""
 
-#: ../../cluster.rst:164
+#: ../../cluster.rst:168
 msgid "The user will have to:"
 msgstr ""
 
-#: ../../cluster.rst:166
+#: ../../cluster.rst:170
 msgid "download and install the preferred 2FA application on the smartphone"
 msgstr ""
 
-#: ../../cluster.rst:167
+#: ../../cluster.rst:171
 msgid "scan the QR code with the 2FA application"
 msgstr ""
 
-#: ../../cluster.rst:168
+#: ../../cluster.rst:172
 msgid ""
 "generate a new code and copy it inside the verification field, then click"
 " :guilabel:`Verify code`"
 msgstr ""
 
-#: ../../cluster.rst:171
+#: ../../cluster.rst:175
 msgid "Smartphone applications"
 msgstr ""
 
-#: ../../cluster.rst:173
+#: ../../cluster.rst:177
 msgid "There are several commercial and open source 2FA applications:"
 msgstr ""
 
-#: ../../cluster.rst:175
+#: ../../cluster.rst:179
 msgid "Available for both Android and iOS:"
 msgstr ""
 
-#: ../../cluster.rst:177
+#: ../../cluster.rst:181
 msgid ""
 "`FreeOTP <https://freeotp.github.io/>`_: available for both Android and "
 "iOS"
 msgstr ""
 
-#: ../../cluster.rst:178
+#: ../../cluster.rst:182
 msgid ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: available on iOS "
 "only"
 msgstr ""
 
-#: ../../cluster.rst:179
+#: ../../cluster.rst:183
 msgid "`2FAS <https://2fas.com/>`_: available for both Android and iOS"
 msgstr ""
 
-#: ../../cluster.rst:182
+#: ../../cluster.rst:186
 msgid "Reset the cluster administrator password"
 msgstr ""
 
-#: ../../cluster.rst:184
+#: ../../cluster.rst:188
 msgid ""
 "If you are locked out of the web user interface and you can still access "
 "a system command-line shell as ``root`` (e.g. by the system recovery "
@@ -774,40 +778,40 @@ msgid ""
 "password:"
 msgstr ""
 
-#: ../../cluster.rst:192
+#: ../../cluster.rst:196
 msgid "Replace the ``admin`` and ``Nethesis,1234`` default credentials as needed."
 msgstr ""
 
-#: ../../cluster.rst:198
+#: ../../cluster.rst:202
 msgid "Audit trail"
 msgstr ""
 
-#: ../../cluster.rst:200
+#: ../../cluster.rst:204
 msgid ""
 "Inside the audit trail page, cluster administrators can inspect all "
 "actions executed by any other administrator. Each event of the audit "
 "trail contains at least:"
 msgstr ""
 
-#: ../../cluster.rst:203
+#: ../../cluster.rst:207
 msgid "date and time of the action"
 msgstr ""
 
-#: ../../cluster.rst:204
+#: ../../cluster.rst:208
 msgid "user name of the cluster administrator"
 msgstr ""
 
-#: ../../cluster.rst:205
+#: ../../cluster.rst:209
 msgid "name of the action"
 msgstr ""
 
-#: ../../cluster.rst:207
+#: ../../cluster.rst:211
 msgid ""
 "Audit trail events can be filtered by user, date, action type, and custom"
 " text match."
 msgstr ""
 
-#: ../../cluster.rst:211
+#: ../../cluster.rst:215
 msgid ""
 "Audit trail information is stored in the leader node disk. In case of "
 ":ref:`new leader promotion <node-promotion-section>` the audit trail "
@@ -835,8 +839,9 @@ msgstr ""
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
 #: ../../ejabberd.rst:23 ../../imapsync.rst:31 ../../index.rst:34
 #: ../../mail.rst:34 ../../mariadb.rst:11 ../../mattermost.rst:13
-#: ../../minio.rst:14 ../../nextcloud.rst:21 ../../nginx.rst:14
-#: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webtop.rst:12
+#: ../../minio.rst:14 ../../nethvoice.rst:23 ../../nethvoice_proxy.rst:19
+#: ../../nextcloud.rst:21 ../../nginx.rst:14 ../../roundcube.rst:19
+#: ../../sogo.rst:39 ../../webtop.rst:12
 msgid "Configuration"
 msgstr ""
 
@@ -858,8 +863,8 @@ msgstr ""
 
 #: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../ejabberd.rst:32
 #: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:21
-#: ../../nginx.rst:16 ../../roundcube.rst:30 ../../sogo.rst:46
-#: ../../webtop.rst:19
+#: ../../nethvoice_proxy.rst:27 ../../nginx.rst:16 ../../roundcube.rst:30
+#: ../../sogo.rst:46 ../../webtop.rst:19
 msgid "How to configure:"
 msgstr ""
 
@@ -1217,7 +1222,7 @@ msgid ""
 " a trusted Let's Encrypt certificate is recommended."
 msgstr ""
 
-#: ../../ejabberd.rst:27
+#: ../../ejabberd.rst:27 ../../nethvoice_proxy.rst:23
 msgid ""
 "Before proceeding with the configuration, make sure to create the "
 "corresponding name record inside your DNS server."
@@ -1508,7 +1513,7 @@ msgstr ""
 msgid ""
 "Migrating to the next major release is a primary goal, as always has "
 "been. The migration procedure is documented :ref:`here <migration-"
-"section>`. We are working working hard to make it *safe* and *painless*."
+"section>`. We are working hard to make it *safe* and *painless*."
 msgstr ""
 
 #: ../../faq.rst:60
@@ -1772,35 +1777,32 @@ msgid ""
 msgstr ""
 
 #: ../../firewall.rst:12
-msgid ""
-"cluster VPN endpoint, default is 55820 UDP. It can be changed during :ref"
-":`post-installation steps <post-install-steps>` and :ref:`node promotion "
-"<node-promotion-section>`"
+msgid "Wireguard VPN, 55820 UDP"
 msgstr ""
 
-#: ../../firewall.rst:15
+#: ../../firewall.rst:13
 msgid "HTTP and HTTPS, 80 and 443 TCP"
 msgstr ""
 
-#: ../../firewall.rst:16
+#: ../../firewall.rst:14
 msgid "SSH, 22 TCP"
 msgstr ""
 
-#: ../../firewall.rst:17
+#: ../../firewall.rst:15
 msgid "Cockpit (not installed by default), 9090 TCP"
 msgstr ""
 
-#: ../../firewall.rst:19
+#: ../../firewall.rst:17
 msgid ""
 "Modules which requires publicly open ports, like the mail server, will "
 "automatically configure the firewall."
 msgstr ""
 
-#: ../../firewall.rst:22
+#: ../../firewall.rst:20
 msgid "Browse open ports"
 msgstr ""
 
-#: ../../firewall.rst:24
+#: ../../firewall.rst:22
 msgid ""
 "You can review the network interfaces and a table presenting open ports, "
 "categorized by services/modules for each node, on the  ``Nodes`` page. "
@@ -1808,22 +1810,22 @@ msgid ""
 "interested in, then select :guilabel:`Firewall`."
 msgstr ""
 
-#: ../../firewall.rst:27
+#: ../../firewall.rst:25
 msgid "Manage ports manually"
 msgstr ""
 
-#: ../../firewall.rst:29
+#: ../../firewall.rst:27
 msgid ""
 "To allow connections to the listening port of a third-party service, use "
 "``firewall-cmd``. For instance, the following command opens TCP port "
 "9000: ::"
 msgstr ""
 
-#: ../../firewall.rst:34
+#: ../../firewall.rst:32
 msgid "To close the same port: ::"
 msgstr ""
 
-#: ../../firewall.rst:38
+#: ../../firewall.rst:36
 msgid ""
 "Changes to the firewall configuration are lost after a firewall restart "
 "or system reboot, unless the same command is invoked a second time, "
@@ -1831,7 +1833,7 @@ msgid ""
 "manual page for more information."
 msgstr ""
 
-#: ../../firewall.rst:43
+#: ../../firewall.rst:41
 msgid "To see the list of allowed services and ports, run ::"
 msgstr ""
 
@@ -1925,11 +1927,11 @@ msgstr ""
 msgid "Applications"
 msgstr ""
 
-#: ../../index.rst:69
+#: ../../index.rst:71
 msgid "NethForge applications"
 msgstr ""
 
-#: ../../index.rst:75
+#: ../../index.rst:77
 msgid "Best practices"
 msgstr ""
 
@@ -2207,46 +2209,47 @@ msgstr ""
 
 #: ../../introduction.rst:8
 msgid ""
-"NethServer 8 (abbreviated as NS8) is a `GNU/Linux "
-"<https://en.wikipedia.org/wiki/Linux>`_ application server designed for "
-"small offices and medium enterprises. Applications can be managed from a "
-"simple Web user interface."
+"NethServer 8 (NS8) is an application server specifically designed for "
+"small offices and medium enterprises. It facilitates the management of "
+"applications through a user-friendly web interface. NS8 operates as a "
+"container orchestrator, a system that can manage and coordinate the "
+"deployment of various applications."
 msgstr ""
 
-#: ../../introduction.rst:13
+#: ../../introduction.rst:14
 msgid ""
-"Under the hood, NS8 is a container `orchestrator "
-"<https://en.wikipedia.org/wiki/Orchestration_(computing)>`_. It can host "
-"different :ref:`applications <applications-section>` on a single machine "
-"or spread the load across multiple nodes."
+"One of its key features is the ability to host different applications on "
+"a single machine or distribute the workload across multiple nodes. This "
+"flexibility allows for efficient resource utilization and scalability "
+"based on the organization's needs."
 msgstr ""
 
-#: ../../introduction.rst:18
+#: ../../introduction.rst:19
 msgid ""
-"NS8, is the evolution of `NethServer 7 "
-"<https://docs.nethserver.org/en/v7/>`_. It is no longer a complete Linux "
-"distribution based on CentOS, instead it can be installed on different "
-"Linux distributions."
+"NS8 represents the evolution of NethServer 7, which was a complete Linux "
+"distribution based on CentOS. However, NS8 departs from this model and "
+"can now be installed over different Linux distributions, providing users "
+"with more choices and compatibility options."
 msgstr ""
 
-#: ../../introduction.rst:24
+#: ../../introduction.rst:25
 msgid "Get support"
 msgstr ""
 
-#: ../../introduction.rst:26
+#: ../../introduction.rst:27
 msgid ""
 "You want to know more or look for some help? Check out our great "
 "`community <https://community.nethserver.org>`_, or :ref:`subscription "
 "plans<subscription-section>`!"
 msgstr ""
 
-#: ../../introduction.rst:30
+#: ../../introduction.rst:31
 msgid ""
 "If you are looking for more technical details, take a look to the "
 "`developer manual <https://nethserver.github.io/ns8-core/>`_."
 msgstr ""
 
-#: ../../introduction.rst:32
+#: ../../introduction.rst:33
 msgid ""
 "Bugs can be discussed and reported inside the `community forum "
 "<https://community.nethserver.org>`_. The public issue tracker is "
@@ -2463,7 +2466,7 @@ msgid ""
 "section>` already configured."
 msgstr ""
 
-#: ../../mail.rst:38
+#: ../../mail.rst:38 ../../nethvoice.rst:33
 msgid "The first configuration wizard will require the following information:"
 msgstr ""
 
@@ -3767,6 +3770,217 @@ msgid ""
 ":`software_center-section` page."
 msgstr ""
 
+#: ../../nethvoice.rst:5
+msgid "NethVoice"
+msgstr ""
+
+#: ../../nethvoice.rst:7
+msgid "NethVoice module is split into seven main parts:"
+msgstr ""
+
+#: ../../nethvoice.rst:9
+msgid ""
+"`FreePBX <https://www.freepbx.org/>`_: a web-based open-source graphical "
+"user interface (GUI) that manages `Asterisk <https://www.asterisk.org>`_,"
+" a voice over IP and telephony server"
+msgstr ""
+
+#: ../../nethvoice.rst:10
+msgid ""
+"`NethVoice CTI Server <https://github.com/nethesis/nethcti-server>`_: a "
+"daemon that provides a set of api to perform common switchboard "
+"operations and a websocket streaming channel to listen for the events"
+msgstr ""
+
+#: ../../nethvoice.rst:11
+msgid ""
+"`NethVoice CTI Client <https://github.com/nethesis/nethcti>`_: a web "
+"application to manage the telephone switchboard via communication with "
+"NethVoice CTI Server"
+msgstr ""
+
+#: ../../nethvoice.rst:12
+msgid ""
+"`NethVoice Report <https://github.com/nethesis/nethvoice-report>`_: a "
+"`Asterisk <https://www.asterisk.org>`_ CDR and queues reporting system"
+msgstr ""
+
+#: ../../nethvoice.rst:13
+msgid "`Janus <https://janus.conf.meetecho.com/>`_: a WebRTC Server"
+msgstr ""
+
+#: ../../nethvoice.rst:14
+msgid ""
+"`MariaDB <https://mariadb.org/>`_: a popular open source relational "
+"database"
+msgstr ""
+
+#: ../../nethvoice.rst:15
+msgid ""
+"`Tancredi <https://nethesis.github.io/tancredi>`_: a phone provisioning "
+"engine ideal for internet deployments"
+msgstr ""
+
+#: ../../nethvoice.rst:17
+msgid ""
+"NethVoice is a full-feature integrate voice, video, mobile communication "
+"systems."
+msgstr ""
+
+#: ../../nethvoice.rst:19
+msgid ""
+"You can install multiple NethVoice instances on the same node from the "
+":ref:`software_center-section`, but the module requires ref:`NethVoice "
+"proxy <nethvoice_proxy-section>` already configured and running."
+msgstr ""
+
+#: ../../nethvoice.rst:25
+msgid ""
+"The NethVoice module requires at least one :ref:`user domain <user-"
+"domains-section>` already configured and running."
+msgstr ""
+
+#: ../../nethvoice.rst:27
+msgid ""
+"NethVoice needs two dedicated virtual hosts, one for the NethVoice "
+"administration page and one for the NethVoice CTI web application, two "
+"FQDN like ``nethvoice.nethserver.org`` and ``cti.nethserver.org``."
+msgstr ""
+
+#: ../../nethvoice.rst:29
+msgid ""
+"Before proceeding with the configuration, make sure to create the "
+"corresponding name records inside your DNS server."
+msgstr ""
+
+#: ../../nethvoice.rst:31
+msgid ""
+"If you are planning to use a Let's Encrypt certificate as default, make "
+"also sure to have the corresponding public DNS records."
+msgstr ""
+
+#: ../../nethvoice.rst:35
+msgid ""
+"``NethVoice base host``: insert a valid FQDN to access the application "
+"administration page"
+msgstr ""
+
+#: ../../nethvoice.rst:36
+msgid ""
+"``NethVoice CTI base host``: insert a valid FQDN to access the NethVoice "
+"CTI web application"
+msgstr ""
+
+#: ../../nethvoice.rst:37
+msgid ""
+"``User Domain``: choose one of the :ref:`user domain <user-domains-"
+"section>` already configured."
+msgstr ""
+
+#: ../../nethvoice.rst:38
+msgid ""
+"``Request Let's Encrypt certificate``: if enabled, a Let's Encrypt "
+"certificate will be asked for each of the two hosts"
+msgstr ""
+
+#: ../../nethvoice.rst:39
+msgid ""
+"``Reports Prefix``: insert the international telephone prefix to be "
+"considered local in the reporting system"
+msgstr ""
+
+#: ../../nethvoice.rst:40
+msgid ""
+"``Reset NethVoice admin password to access user interface``: insert a "
+"valid password for the NethVoice administrator user (optional, default "
+"password is *Nethesis,1234*)"
+msgstr ""
+
+#: ../../nethvoice.rst:42
+msgid ""
+"After saving the configuration parameters NethVoice will be accessible on"
+" his base host with the administration credentials:"
+msgstr ""
+
+#: ../../nethvoice.rst:44
+msgid "User: `admin`"
+msgstr ""
+
+#: ../../nethvoice.rst:45
+msgid ""
+"Password: `Nethesis,1234`, default password if not has been reset during "
+"the fist configuration wizard"
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:5
+msgid "NethVoice Proxy"
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:7
+msgid "NethVoice Proxy module is split into two main parts:"
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:9
+msgid ""
+"`Kamalio <https://www.kamailio.org>`_: `SIP "
+"<https://en.wikipedia.org/wiki/Session_Initiation_Protocol>`_ proxy "
+"server for managing SIP connections"
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:10
+msgid ""
+"`RTP Engine <https://github.com/sipwise/rtpengine/>`_: `RTP "
+"<https://en.wikipedia.org/wiki/Real-time_Transport_Protocol>`_ proxy for "
+"managing RTP connections"
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:12
+msgid ""
+"NethVoice Proxy allows you to manage all incoming and outgoing SIP and "
+"RTP connections."
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:14
+msgid ""
+"The proxy will be used by :ref:`NethVoice <nethvoice-section>` instances "
+"that must be installed after this proxy is up and running."
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:16
+msgid ""
+"You can install only one NethVoice Proxy per node from the :ref"
+":`software_center-section`."
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:21
+msgid ""
+"NethVoice Proxy needs a virtual host, an FQDN like "
+"``proxy.nethserver.org``, this virtual host may be dedicated or shared "
+"with the one used in a :ref:`NethVoice <nethvoice-section>` application."
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:25
+msgid ""
+"If you are planning to use a Let's Encrypt certificate as default, make "
+"also sure to have the corresponding public DNS record."
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:29
+msgid ""
+"access the application configuration page and enter a valid FQDN inside "
+"``Proxy Domain`` field"
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:30
+msgid "insert the IPv4/IPv6 address that will receive VoIP traffic"
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:32
+msgid ""
+"Now, you can install and configure one ore more :ref:`NethVoice "
+"<nethvoice-section>` instances."
+msgstr ""
+
 #: ../../nextcloud.rst:5
 msgid "Nextcloud"
 msgstr ""
@@ -4069,43 +4283,40 @@ msgstr ""
 
 #: ../../os_updates.rst:7
 msgid ""
-"NethServer 8 is installed on top of GNU/Linux distributions and tries to "
-"preserve default configurations as much as possible. It's up to the "
-"system administrator to choose how the operating system updates are "
-"applied."
+"NethServer 8 is installed on top of Linux distributions and strives to "
+"preserve default configurations as much as possible. The system "
+"administrator has the flexibility to choose how operating system updates "
+"are applied."
 msgstr ""
 
-#: ../../os_updates.rst:10
+#: ../../os_updates.rst:12
 msgid ""
-"Usually, it's a good practice to apply security updates as soon as "
-"possible. But, even if NethServer depends on few packages, not all system"
-" administrators feel confident about automatic updates."
+"It is generally advisable to apply operating system updates promptly. If "
+"you have an active subscription, updates are automatically applied as "
+"described in the :ref:`scheduled-updates` section. Otherwise, consult "
+"your distribution documentation for guidance:"
 msgstr ""
 
-#: ../../os_updates.rst:13
-msgid "Please, take a look to your distribution documentation:"
-msgstr ""
-
-#: ../../os_updates.rst:15
+#: ../../os_updates.rst:17
 msgid ""
 "`Rocky Linux/AlmaLinux "
 "<https://docs.rockylinux.org/guides/security/dnf_automatic/>`_"
 msgstr ""
 
-#: ../../os_updates.rst:16
+#: ../../os_updates.rst:18
 msgid "`Debian <https://wiki.debian.org/UnattendedUpgrades>`_"
 msgstr ""
 
 #: ../../os_updates.rst:20
 msgid ""
-"It's not recommended to enable automatic updates on CentOS Stream, since "
-"it is considered a preview of next RHEL stable release. Updates could "
-"bring major releases of podman and SELinux policies introducing "
-"unexpected bugs."
+"CentOS Stream is regarded as a preview of the next stable RHEL release. "
+"Updates may introduce new software versions that could potentially cause "
+"unexpected issues. To enable automatic updates on CentOS Stream, simply "
+"follow the same instructions as outlined for Rocky Linux."
 msgstr ""
 
-#: ../../os_updates.rst:23
-msgid "If you are looking for core and modules see :ref:`updates-section`."
+#: ../../os_updates.rst:25
+msgid "For updates to core and modules, refer to :ref:`updates-section`."
 msgstr ""
 
 #: ../../proxy.rst:5
@@ -5350,18 +5561,32 @@ msgid "Upload of leader node inventory"
 msgstr ""
 
 #: ../../subscription.rst:22
-msgid "Automatic updates of core and applications"
+msgid ""
+"Scheduled updates for node operating systems, core components, and "
+"applications"
 msgstr ""
 
-#: ../../subscription.rst:23
+#: ../../subscription.rst:24
 msgid "Upload of cluster backup (Enterprise only)"
 msgstr ""
 
-#: ../../subscription.rst:27
+#: ../../subscription.rst:26
+msgid ""
+"Regarding software repositories, only the ``subscription`` repository "
+"remains enabled."
+msgstr ""
+
+#: ../../subscription.rst:31
+msgid ""
+"Please avoid enabling third-party repositories and refrain from "
+"installing software not covered by the subscription plan"
+msgstr ""
+
+#: ../../subscription.rst:36
 msgid "Register the cluster"
 msgstr ""
 
-#: ../../subscription.rst:29
+#: ../../subscription.rst:38
 msgid ""
 "Depending on your subscription type, log in to `my.nethserver.com "
 "<https://my.nethserver.com>`_ or `my.nethesis.it "
@@ -5369,13 +5594,13 @@ msgid ""
 " cluster. Follow the portal-documented procedures to obtain it."
 msgstr ""
 
-#: ../../subscription.rst:36
+#: ../../subscription.rst:45
 msgid ""
 "The subscription token is a secret: never communicate or share it with "
 "someone else"
 msgstr ""
 
-#: ../../subscription.rst:39
+#: ../../subscription.rst:48
 msgid ""
 "Once you have copied the token to the clipboard, go to the ``Settings`` "
 "page and click the ``Subscription`` card. Paste the token in the "
@@ -5383,44 +5608,76 @@ msgid ""
 "button."
 msgstr ""
 
-#: ../../subscription.rst:44
+#: ../../subscription.rst:53
 msgid ""
 "If the procedure is successful the Subscription page displays the "
 "``System ID``, ``Plan`` type and ``Expiration`` date."
 msgstr ""
 
-#: ../../subscription.rst:49
+#: ../../subscription.rst:60
+msgid "Scheduled updates"
+msgstr ""
+
+#: ../../subscription.rst:62
+msgid ""
+"An overnight scheduled task installs software updates available from "
+"managed software repositories. The task runs daily, from Tuesday through "
+"Friday, within a randomly selected time slot between midnight and 6 AM. "
+"This variability helps distribute the load on the network and servers. "
+"Updates concern:"
+msgstr ""
+
+#: ../../subscription.rst:68
+msgid ""
+"**Operating system**: updates are sourced from Nethesis managed "
+"repositories, specifically from DNF repositories labeled as ``ns-baseos``"
+" and ``ns-appstream``. These repositories provide delayed snapshots of "
+"Rocky Linux repositories, aiming to prevent the distribution of updates "
+"that may lead to unexpected issues."
+msgstr ""
+
+#: ../../subscription.rst:74
+msgid ""
+"**Core components**: Updates are fetched from the ``subscription`` "
+"repository"
+msgstr ""
+
+#: ../../subscription.rst:77
+msgid "**Applications**: Updates are fetched from the ``subscription`` repository"
+msgstr ""
+
+#: ../../subscription.rst:82
 msgid "Remove the subscription"
 msgstr ""
 
-#: ../../subscription.rst:51
+#: ../../subscription.rst:84
 msgid ""
 "Go to the ``Settings`` page and click the ``Subscription`` card. "
 "Alternatively, go to the cluster dashboard page and click the ``Go to "
 "Subscription`` link."
 msgstr ""
 
-#: ../../subscription.rst:55
+#: ../../subscription.rst:88
 msgid ""
 "In the ``Subscription`` page, click the :guilabel:`Remove subscription` "
 "button. The action must be confirmed."
 msgstr ""
 
-#: ../../subscription.rst:59
+#: ../../subscription.rst:92
 msgid "Remote support"
 msgstr ""
 
-#: ../../subscription.rst:63
+#: ../../subscription.rst:96
 msgid "Available in Nethesis Enterprise only"
 msgstr ""
 
-#: ../../subscription.rst:65
+#: ../../subscription.rst:98
 msgid ""
 "Depending on the subscription type and plan, the ``Subscription`` page "
 "can allow starting and controlling a remote support session:"
 msgstr ""
 
-#: ../../subscription.rst:68
+#: ../../subscription.rst:101
 msgid ""
 "Click :guilabel:`Start session` to activate a special access for the "
 "Nethesis support team. Both SSH and cluster-admin administrative access "
@@ -5428,19 +5685,19 @@ msgid ""
 "private VPN tunnel."
 msgstr ""
 
-#: ../../subscription.rst:73
+#: ../../subscription.rst:106
 msgid ""
 "When the access is granted, a unique ``Session ID`` secret is displayed: "
 "copy and paste it in your support request."
 msgstr ""
 
-#: ../../subscription.rst:76
+#: ../../subscription.rst:109
 msgid ""
 "To end the support session, close the VPN tunnel and revoke any granted "
 "access, click :guilabel:`End session`."
 msgstr ""
 
-#: ../../subscription.rst:79
+#: ../../subscription.rst:112
 msgid ""
 "The support session is valid only to reach the leader node. The support "
 "team can access worker nodes by starting individual support sessions in "
@@ -5448,38 +5705,38 @@ msgid ""
 "command to start a support session for it: ::"
 msgstr ""
 
-#: ../../subscription.rst:86
+#: ../../subscription.rst:119
 msgid "The Session ID is printed to the standard output. To stop the session: ::"
 msgstr ""
 
-#: ../../subscription.rst:90
+#: ../../subscription.rst:123
 msgid "Check the support session status for any node with: ::"
 msgstr ""
 
-#: ../../subscription.rst:94
+#: ../../subscription.rst:127
 msgid ""
 "If a worker node (e.g., node 2) becomes unreachable from the leader node,"
 " you can manually start a support session for it with the following "
 "procedure:"
 msgstr ""
 
-#: ../../subscription.rst:98
+#: ../../subscription.rst:131
 msgid "Log in on the worker node, using the console or SSH access."
 msgstr ""
 
-#: ../../subscription.rst:100
+#: ../../subscription.rst:133
 msgid "Run the following command to start the support session: ::"
 msgstr ""
 
-#: ../../subscription.rst:104
+#: ../../subscription.rst:137
 msgid "Obtain the session ID with: ::"
 msgstr ""
 
-#: ../../subscription.rst:108
+#: ../../subscription.rst:141
 msgid "The Session ID is always recorded in the system journal and node log."
 msgstr ""
 
-#: ../../subscription.rst:110
+#: ../../subscription.rst:143
 msgid "To end the support session: ::"
 msgstr ""
 
@@ -5489,37 +5746,37 @@ msgstr ""
 
 #: ../../system_requirements.rst:7
 msgid ""
-"NethServer 8, abbreviated as NS8, can be deployed on a single node or "
-"across multiple nodes in a clustered configuration."
+"NethServer 8 (NS8) can be deployed on a single node or across multiple "
+"nodes. In both cases it is called \"cluster\"."
 msgstr ""
 
 #: ../../system_requirements.rst:10
-msgid ""
-"NS8 is currently available only for `x86-64 architecture "
-"<https://en.wikipedia.org/wiki/X86-64>`_."
-msgstr ""
-
-#: ../../system_requirements.rst:13
 msgid "Minimum hardware requirements for a single node installation:"
 msgstr "Requisiti hardware minimi per un'installazione con un singolo nodo:"
 
-#: ../../system_requirements.rst:15
-msgid "2 vCPU/cores"
+#: ../../system_requirements.rst:12
+msgid "2 vCPU/cores, x86-64 architecture"
 msgstr ""
 
-#: ../../system_requirements.rst:16
+#: ../../system_requirements.rst:13
 msgid "2GB RAM"
 msgstr ""
 
-#: ../../system_requirements.rst:17
+#: ../../system_requirements.rst:14
 msgid "20GB disk"
 msgstr ""
 
-#: ../../system_requirements.rst:19
+#: ../../system_requirements.rst:16
 msgid ""
 "More nodes can be added later, and when adding a new node, it is "
 "recommended to use similar hardware and the same Linux distribution "
 "installed on the other nodes."
+msgstr ""
+
+#: ../../system_requirements.rst:20
+msgid ""
+"The above requirements must be increased to match users, applications, "
+"and load needs."
 msgstr ""
 
 #: ../../system_requirements.rst:26
@@ -5533,7 +5790,7 @@ msgid ""
 msgstr ""
 
 #: ../../system_requirements.rst:31
-msgid "Supported GNU/Linux distributions and versions:"
+msgid "Supported Linux distributions and versions:"
 msgstr ""
 
 #: ../../system_requirements.rst:33
@@ -5672,58 +5929,64 @@ msgstr ""
 
 #: ../../updates.rst:14
 msgid ""
+"If you have an active subscription, available updates are applied "
+"automatically as described in :ref:`scheduled-updates`."
+msgstr ""
+
+#: ../../updates.rst:17
+msgid ""
 "You can see if there are any available updates by accessing the ``Cluster"
 " status`` page. Updates are applied from the :ref:`software_center-"
 "section`."
 msgstr ""
 
-#: ../../updates.rst:20
+#: ../../updates.rst:23
 msgid "Core updates"
 msgstr ""
 
-#: ../../updates.rst:22
+#: ../../updates.rst:25
 msgid "The core is composed by the following modules:"
 msgstr ""
 
-#: ../../updates.rst:24
+#: ../../updates.rst:27
 msgid ""
 "``core`` contains the web user interface, the API server, the agents that"
 " manage the containers and backup engines"
 msgstr ""
 
-#: ../../updates.rst:25
+#: ../../updates.rst:28
 msgid ""
 "``LDAP proxy`` it's an `NGINX <https://www.nginx.com/>`_ instance that "
 "handles all connections from applications to :ref:`user-domains-section`"
 msgstr ""
 
-#: ../../updates.rst:26
+#: ../../updates.rst:29
 msgid ":ref:`Loki log server <loki-section>`"
 msgstr ""
 
-#: ../../updates.rst:27
+#: ../../updates.rst:30
 msgid ":ref:`Promtail <loki-section>`"
 msgstr ""
 
-#: ../../updates.rst:28
+#: ../../updates.rst:31
 msgid ":ref:`Traefik proxy <traefik-section>`"
 msgstr ""
 
-#: ../../updates.rst:29
+#: ../../updates.rst:32
 msgid ":ref:`active_directory-section`"
 msgstr ""
 
-#: ../../updates.rst:30
+#: ../../updates.rst:33
 msgid ":ref:`openldap-section`"
 msgstr ""
 
-#: ../../updates.rst:32
+#: ../../updates.rst:35
 msgid ""
 "Core module updates are always applied altogether to avoid version "
 "mismatch."
 msgstr ""
 
-#: ../../updates.rst:34
+#: ../../updates.rst:37
 msgid ""
 "When a core update is available, it will be listed on the top of "
 "``Updates`` tab inside the :ref:`software_center-section`. Click on "
@@ -5731,24 +5994,24 @@ msgid ""
 "Click on :guilabel:`Update core` button to apply the updates."
 msgstr ""
 
-#: ../../updates.rst:40
+#: ../../updates.rst:43
 msgid "Module updates"
 msgstr ""
 
-#: ../../updates.rst:42
+#: ../../updates.rst:45
 msgid ""
 "The list of available updates is listed inside the ``Updates`` tab of "
 ":ref:`software_center-section`. The software center displays a card for "
 "each application with available updates."
 msgstr ""
 
-#: ../../updates.rst:45
+#: ../../updates.rst:48
 msgid ""
 "You can apply all module updates by clicking the :guilabel:`Update all "
 "apps` button."
 msgstr ""
 
-#: ../../updates.rst:47
+#: ../../updates.rst:50
 msgid ""
 "By clicking the ``Update details`` link on the application card, you will"
 " see all module instances that require an update. You can update each "
@@ -9484,5 +9747,125 @@ msgstr ""
 #~ "You want to know more or look "
 #~ "for some help? Check out our great"
 #~ " `community <https://community.nethserver.org>`_!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Confirm or enter the ``VPN public "
+#~ "UDP port`` number. Every worker node "
+#~ "will connect the leader on that "
+#~ "UDP port number."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The ``Check node connectivity`` checkbox "
+#~ "verifies the connection of every node"
+#~ " with the selected one.  The check"
+#~ " might fail due to settings of "
+#~ "other devices in the network, like "
+#~ "port-forwarding. In this case, if "
+#~ "you are sure the entered configuration"
+#~ " is correct, it is possible to "
+#~ "disable the check: do it at your"
+#~ " own risk!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Migrating to the next major release "
+#~ "is a primary goal, as always has"
+#~ " been. The migration procedure is "
+#~ "documented :ref:`here <migration-section>`. We"
+#~ " are working working hard to make "
+#~ "it *safe* and *painless*."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "cluster VPN endpoint, default is 55820"
+#~ " UDP. It can be changed during "
+#~ ":ref:`post-installation steps <post-"
+#~ "install-steps>` and :ref:`node promotion "
+#~ "<node-promotion-section>`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NethServer 8 (abbreviated as NS8) is "
+#~ "a `GNU/Linux <https://en.wikipedia.org/wiki/Linux>`_ "
+#~ "application server designed for small "
+#~ "offices and medium enterprises. Applications"
+#~ " can be managed from a simple "
+#~ "Web user interface."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Under the hood, NS8 is a container"
+#~ " `orchestrator "
+#~ "<https://en.wikipedia.org/wiki/Orchestration_(computing)>`_. It"
+#~ " can host different :ref:`applications "
+#~ "<applications-section>` on a single machine"
+#~ " or spread the load across multiple"
+#~ " nodes."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NS8, is the evolution of `NethServer "
+#~ "7 <https://docs.nethserver.org/en/v7/>`_. It is "
+#~ "no longer a complete Linux distribution"
+#~ " based on CentOS, instead it can "
+#~ "be installed on different Linux "
+#~ "distributions."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NethServer 8 is installed on top "
+#~ "of GNU/Linux distributions and tries to"
+#~ " preserve default configurations as much"
+#~ " as possible. It's up to the "
+#~ "system administrator to choose how the"
+#~ " operating system updates are applied."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Usually, it's a good practice to "
+#~ "apply security updates as soon as "
+#~ "possible. But, even if NethServer "
+#~ "depends on few packages, not all "
+#~ "system administrators feel confident about "
+#~ "automatic updates."
+#~ msgstr ""
+
+#~ msgid "Please, take a look to your distribution documentation:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "It's not recommended to enable automatic"
+#~ " updates on CentOS Stream, since it"
+#~ " is considered a preview of next "
+#~ "RHEL stable release. Updates could bring"
+#~ " major releases of podman and SELinux"
+#~ " policies introducing unexpected bugs."
+#~ msgstr ""
+
+#~ msgid "If you are looking for core and modules see :ref:`updates-section`."
+#~ msgstr ""
+
+#~ msgid "Automatic updates of core and applications"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NethServer 8, abbreviated as NS8, can"
+#~ " be deployed on a single node "
+#~ "or across multiple nodes in a "
+#~ "clustered configuration."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "NS8 is currently available only for "
+#~ "`x86-64 architecture "
+#~ "<https://en.wikipedia.org/wiki/X86-64>`_."
+#~ msgstr ""
+
+#~ msgid "2 vCPU/cores"
+#~ msgstr ""
+
+#~ msgid "Supported GNU/Linux distributions and versions:"
 #~ msgstr ""
 
