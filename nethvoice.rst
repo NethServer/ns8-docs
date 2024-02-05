@@ -42,7 +42,7 @@ The first configuration wizard will require the following information:
 After saving the configuration parameters NethVoice will be accessible on his base host with the administration credentials:
 
 * User: `admin`
-* Password: `Nethesis,1234`, default password if not has been reset during the fist configuration wizard
+* Password: `Nethesis,1234`, default password if not has been reset during the first configuration wizard
 
 
 
