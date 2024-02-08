@@ -51,7 +51,8 @@ DNS configuration
 
 As you are configuring a server, network clients must resolve its fully
 qualified domain name (FQDN) to a routable IP address with the DNS. This
-is a requirement to connect with the server.
+is a requirement to connect with the server. Register the FQDN with DNS
+record type A for IPv4 addresses, and type AAAA for IPv6 addresses.
 
 A correct FQDN and DNS setup is also a requirement for TLS encryption to
 work properly. Once connected with the server, network clients check if
