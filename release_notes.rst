@@ -1,3 +1,5 @@
+.. _release-notes-section:
+
 =============
 Release notes
 =============
@@ -407,6 +409,8 @@ The following known limitations will be resolved in future updates:
 - user login is not supported on worker nodes
 - the mail module does not offer sender-based or destination-based message relay options
 - only a limited number of cloud storage providers are available for backing up data
+
+.. _releases-glossary:
 
 Releases glossary
 =================
