@@ -19,6 +19,12 @@ Major changes on 2024-01-XX
 - **Subscription** -- Nethesis Enterprise and Subscription plans are now
   available for NS8. See the details in :ref:`subscription-section` page.
 
+- **User management portal** -- Members of the Domain Admins group can now
+  create, edit and delete user accounts from the :ref:`User management
+  portal <user-management-portal-section>`.  The login screen now displays
+  the user domain name to distinguish which domain a user is logging in
+  to.
+
 - **Cockpit removed from pre-built image** -- Cockpit is not required to
   run NS8, therefore it is no more available in the NS8 pre-built image.
   If desired, it can be manually installed and enabled with the following
@@ -60,7 +66,7 @@ New features introduced by RC1 are:
   password policy. The upgrade procedure is detailed in the next notes.
   See also :ref:`password-policy-section`.
 
-- **User portal** -- Users of a domain can now access a web page to change
+- **User management portal** -- Users of a domain can now access a web page to change
   their own password. The user portal is available at
   ``https://IP_OR_FQDN/users-admin/DOMAIN_NAME/``; a full link is shown in
   the ``Domains and users`` page, under the domain configuration settings.
