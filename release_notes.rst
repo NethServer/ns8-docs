@@ -25,6 +25,12 @@ Major changes on 2024-01-XX
   the user domain name to distinguish which domain a user is logging in
   to.
 
+- **Skip certificate validation** in HTTP routes -- When an HTTP route is
+  created or edited in the :ref:`HTTP routes <traefik-section>` page, the
+  ``Skip certificate validation`` option can be enabled over a trusted
+  network if the server at the destination URL has no valid TLS
+  certificate.
+
 - **Cockpit removed from pre-built image** -- Cockpit is not required to
   run NS8, therefore it is no more available in the NS8 pre-built image.
   If desired, it can be manually installed and enabled with the following
