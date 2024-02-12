@@ -39,16 +39,9 @@ Major changes on 2024-01-XX
     dnf install -y cockpit
     systemctl enable --now cockpit.socket
 
-  Note that the default Cockpit configuration forbids `root` access.
-  Instead of accessing with `root` credentials, enable the `rocky` user
-  (member of the `wheel` group) by setting a password for it: ::
-
-    passwd rocky
-
-  Use `rocky` credentials to access cockpit on HTTP port 9090, then enable
-  the Cockpit administrative access. Any other member of the system group
-  `wheel` can be used in place of `rocky`: it is a good security practice
-  to avoid shared credentials among the group of system administrators.
+  The default Cockpit configuration forbids ``root`` access: log in as a
+  member of the ``wheel`` group, then enter the "administrative access"
+  mode.
 
 Known issues:
 
