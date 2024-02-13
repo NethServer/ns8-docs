@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-05 17:16+0000\n"
+"POT-Creation-Date: 2024-02-13 14:59+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -500,7 +500,7 @@ msgid ""
 "button."
 msgstr ""
 
-#: ../../cluster.rst:31 ../../install.rst:99
+#: ../../cluster.rst:31 ../../install.rst:113
 msgid ""
 "Ensure the node Fully Qualified Domain Name (FQDN) is correct, and "
 "respects the :ref:`DNS requirements <dns-reqs>`."
@@ -1455,14 +1455,16 @@ msgid "What is the status of NS8?"
 msgstr ""
 
 #: ../../faq.rst:22
-msgid "NethServer 8 is a work in progress, currently in a pre-release status."
+msgid ""
+"NethServer 8 has reached the :ref:`stable <releases-glossary>` status: "
+"read the :ref:`release notes <release-notes-section>`."
 msgstr ""
 
-#: ../../faq.rst:25
+#: ../../faq.rst:26
 msgid "What is the difference between NethServer 7 (NS7) and NethServer 8?"
 msgstr ""
 
-#: ../../faq.rst:27
+#: ../../faq.rst:28
 msgid ""
 "NethServer 7 is an operating system built on top of CentOS 7. It is "
 "heavily-coupled with the underlying OS. It installs applications using "
@@ -1470,118 +1472,124 @@ msgid ""
 "called e-smith."
 msgstr ""
 
-#: ../../faq.rst:32
+#: ../../faq.rst:33
 msgid ""
 "NethServer 8 can run on different :ref:`Linux distributions <supported-"
 "distros-section>`. It installs applications using containers and "
 "configures them using a multi-node architecture."
 msgstr ""
 
-#: ../../faq.rst:36
+#: ../../faq.rst:37
 msgid "As NS7, NS8 is perfectly suited for small offices and medium enterprises."
 msgstr ""
 
-#: ../../faq.rst:39
+#: ../../faq.rst:40
 msgid "What can I do with NethServer 8?"
 msgstr ""
 
-#: ../../faq.rst:41
+#: ../../faq.rst:42
 msgid ""
 "You can serve an Active Directory domain with Samba 4, or just a simple "
 "OpenLDAP server. You can host multiple instances of the same application "
-"connected to different local or remote domains."
+"connected to different local or remote user domains."
 msgstr ""
 
-#: ../../faq.rst:45
+#: ../../faq.rst:46
 msgid ""
-"If you need a new domain, just create a new node and join it to the "
+"If you need a new user domain, just create a new node and join it to the "
 "existing cluster: you can spread the workload across multiple machines. "
 "Of course, everything is under your control just from the UI of the main "
 "node. No matter if nodes are local or remotes, they are securely "
 "connected with an encrypted VPN."
 msgstr ""
 
-#: ../../faq.rst:50
+#: ../../faq.rst:51
 msgid "If you like an all-in-one server. you can do it too."
 msgstr ""
 
-#: ../../faq.rst:53
+#: ../../faq.rst:54
 msgid "Can I migrate from NethServer 7 to NethServer 8?"
 msgstr ""
 
-#: ../../faq.rst:55
+#: ../../faq.rst:56
 msgid ""
 "Migrating to the next major release is a primary goal, as always has "
 "been. The migration procedure is documented :ref:`here <migration-"
 "section>`. We are working hard to make it *safe* and *painless*."
 msgstr ""
 
-#: ../../faq.rst:60
+#: ../../faq.rst:61
 msgid "How can I install NethServer 8?"
 msgstr ""
 
-#: ../../faq.rst:62
+#: ../../faq.rst:63
 msgid "See the :ref:`install chapter <install-section>`."
 msgstr ""
 
-#: ../../faq.rst:65
+#: ../../faq.rst:66
 msgid "Where can I download it?"
 msgstr ""
 
-#: ../../faq.rst:67
+#: ../../faq.rst:68
 msgid ""
 "You can download a :ref:`pre-built image <install_image-section>` or just"
 " :ref:`install <install_linux-section>` on a supported distribution."
 msgstr ""
 
-#: ../../faq.rst:71
+#: ../../faq.rst:72
 msgid "Can I install NethServer on a virtual machine?"
 msgstr ""
 
-#: ../../faq.rst:73
+#: ../../faq.rst:74
 msgid ""
 "Yes. You can choose any hypervisor or cloud provider supporting "
 ":ref:`these distributions <supported-distros-section>` or :ref:`pre-built"
 " images <install_image-section>`."
 msgstr ""
 
-#: ../../faq.rst:78
+#: ../../faq.rst:79
 msgid "Can I install it on bare metal?"
 msgstr ""
 
-#: ../../faq.rst:80
+#: ../../faq.rst:81
 msgid "Sure. See the question below."
 msgstr ""
 
-#: ../../faq.rst:83
+#: ../../faq.rst:84
 msgid "What hardware is supported?"
 msgstr ""
 
-#: ../../faq.rst:85
+#: ../../faq.rst:86
 msgid ""
 "Anything supported by your chosen distribution. Make sure to take a look "
 "to the :ref:`system-requirements-section`."
 msgstr ""
 
-#: ../../faq.rst:89
+#: ../../faq.rst:90
 msgid "Does NethServer 8 have Cockpit?"
 msgstr ""
 
-#: ../../faq.rst:91
+#: ../../faq.rst:92
 msgid ""
 "No, NethServer 8 has a brand new User Interface. You can still `install "
 "Cockpit <https://cockpit-project.org/running.html>`_ to manage the "
 "underlying system, like changing the network configuration."
 msgstr ""
 
-#: ../../faq.rst:96
+#: ../../faq.rst:97
 msgid "Can I use NethServer 8 as UTM firewall?"
 msgstr ""
 
-#: ../../faq.rst:98
+#: ../../faq.rst:99
 msgid ""
 "No. NethServer 8 has a limited built-in firewall used to protect only "
 "local running services."
+msgstr ""
+
+#: ../../faq.rst:102
+msgid ""
+"If you are looking for a nice firewall project, NethSecurity_ is the "
+"successor of NethServer 7 firewall capabilities."
 msgstr ""
 
 #: ../../file_server.rst:5
@@ -2093,51 +2101,64 @@ msgstr ""
 msgid "Username: ``root``"
 msgstr ""
 
-#: ../../install.rst:70 ../../install.rst:91
+#: ../../install.rst:70 ../../install.rst:105
 msgid "Password: ``Nethesis,1234``"
 msgstr ""
 
 #: ../../install.rst:72
 msgid ""
-"You will be forced to change the default password after the first login "
-"with ``root`` user."
+"Access the system console and log in using the default credentials. Upon "
+"the first login, you will be prompted to change the password."
 msgstr ""
 
-#: ../../install.rst:77
+#: ../../install.rst:75
+msgid ""
+"To obtain administrative SSH access to the system, create a personal user"
+" account in the ``wheel`` group and set a password. For instance, execute"
+" the following commands and enter the desired password: ::"
+msgstr ""
+
+#: ../../install.rst:82
+msgid ""
+"After logging in with the personal user account, gain root access by "
+"executing: ::"
+msgstr ""
+
+#: ../../install.rst:91
 msgid "Post-installation steps"
 msgstr ""
 
-#: ../../install.rst:79
+#: ../../install.rst:93
 msgid ""
 "When the installation script ends or the pre-built image has started, "
 "access the Web user interface at ::"
 msgstr ""
 
-#: ../../install.rst:86
+#: ../../install.rst:100
 msgid "If the node is unreachable see :ref:`os-network-section`"
 msgstr ""
 
-#: ../../install.rst:88
+#: ../../install.rst:102
 msgid "The default credentials to login on cluster-admin are"
 msgstr ""
 
-#: ../../install.rst:90
+#: ../../install.rst:104
 msgid "Username: ``admin``"
 msgstr ""
 
-#: ../../install.rst:93
+#: ../../install.rst:107
 msgid ""
 "Choose :guilabel:`Create cluster` and follow the procedure to create a "
 "new single-node cluster."
 msgstr ""
 
-#: ../../install.rst:96
+#: ../../install.rst:110
 msgid ""
 "For security reasons, the admin password must be changed immediately if "
 "it is still at the default value."
 msgstr ""
 
-#: ../../install.rst:102
+#: ../../install.rst:116
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
 " Network (VPN) for the cluster. With the VPN in place, you will be able "
@@ -2147,31 +2168,31 @@ msgid ""
 " changed once it has been set."
 msgstr ""
 
-#: ../../install.rst:109
+#: ../../install.rst:123
 msgid ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
 "ready."
 msgstr ""
 
-#: ../../install.rst:111
+#: ../../install.rst:125
 msgid ""
 "A new cluster has assigned the default name ``NethServer 8``. If you wish"
 " to change it:"
 msgstr ""
 
-#: ../../install.rst:114
+#: ../../install.rst:128
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr ""
 
-#: ../../install.rst:115
+#: ../../install.rst:129
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr ""
 
-#: ../../install.rst:116
+#: ../../install.rst:130
 msgid "click the :guilabel:`Save settings` button"
 msgstr ""
 
-#: ../../install.rst:118
+#: ../../install.rst:132
 msgid ""
 "Now sure where to go from here? You can install a :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
@@ -2180,22 +2201,22 @@ msgid ""
 "<cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`."
 msgstr ""
 
-#: ../../install.rst:124
+#: ../../install.rst:138
 msgid "Uninstall"
 msgstr ""
 
-#: ../../install.rst:126
+#: ../../install.rst:140
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr ""
 
-#: ../../install.rst:128
+#: ../../install.rst:142
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 
-#: ../../install.rst:131
+#: ../../install.rst:145
 msgid "To uninstall NS8, execute: ::"
 msgstr ""
 
@@ -4392,40 +4413,105 @@ msgid ""
 "<certificate_manager-section>`"
 msgstr ""
 
-#: ../../release_notes.rst:3
+#: ../../release_notes.rst:5
 msgid "Release notes"
 msgstr ""
 
-#: ../../release_notes.rst:7
+#: ../../release_notes.rst:9
 msgid "NethServer 8 releases"
 msgstr ""
 
-#: ../../release_notes.rst:9
+#: ../../release_notes.rst:11
 #, python-format
 msgid ""
 "List of `known bugs "
 "<https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_"
 msgstr ""
 
-#: ../../release_notes.rst:10
+#: ../../release_notes.rst:12
 msgid ""
 "Discussions around `possible bugs "
 "<http://community.nethserver.org/c/bug>`_"
 msgstr ""
 
-#: ../../release_notes.rst:13
-msgid "Major changes on 2023-11-21"
-msgstr ""
-
 #: ../../release_notes.rst:15
-msgid "**Release Candidate 1**"
+msgid "Major changes on 2024-02-13"
 msgstr ""
 
 #: ../../release_notes.rst:17
-msgid "New features introduced by RC1 are:"
+msgid "**Stable release**"
 msgstr ""
 
 #: ../../release_notes.rst:19
+msgid "New features introduced by this release are:"
+msgstr ""
+
+#: ../../release_notes.rst:21
+msgid ""
+"**Subscription** -- Nethesis Enterprise and Community Subscription plans "
+"are now available for NS8. See the details in :ref:`subscription-section`"
+" page."
+msgstr ""
+
+#: ../../release_notes.rst:25
+msgid ""
+"**User management portal** -- Members of the Domain Admins group can now "
+"create, edit and delete user accounts from the :ref:`User management "
+"portal <user-management-portal-section>`.  The login screen now displays "
+"the user domain name to distinguish which domain a user is logging in to."
+msgstr ""
+
+#: ../../release_notes.rst:31
+msgid ""
+"**Skip certificate validation** in HTTP routes -- When an HTTP route is "
+"created or edited in the :ref:`HTTP routes <traefik-section>` page, the "
+"``Skip certificate validation`` option can be enabled over a trusted "
+"network if the server at the destination URL has no valid TLS "
+"certificate."
+msgstr ""
+
+#: ../../release_notes.rst:37
+msgid ""
+"**Cockpit removed from pre-built image** -- Cockpit is not required to "
+"run NS8, therefore it is no more available in the NS8 pre-built image. If"
+" desired, it can be manually installed and enabled with the following "
+"commands: ::"
+msgstr ""
+
+#: ../../release_notes.rst:45
+msgid ""
+"The default Cockpit configuration forbids ``root`` access: log in as a "
+"member of the ``wheel`` group, then enter the \"administrative access\" "
+"mode."
+msgstr ""
+
+#: ../../release_notes.rst:49
+msgid "Known issues:"
+msgstr ""
+
+#: ../../release_notes.rst:51
+msgid ""
+"**Core upgrade freezes Software Center page** -- The `bug 6778`_ has been"
+" fixed in core version 2.2.6. If the upgrade from RC1 starts from core "
+"version 2.2.5 or lower, when the task progress bar freezes reload the web"
+" page with ``CTRL + SHIFT + R`` or an equivalent procedure. The page "
+"reload has no impact with the underlying upgrade. Note: the upgrade "
+"download may be slow; avoid interrupting or rebooting until completion."
+msgstr ""
+
+#: ../../release_notes.rst:61
+msgid "Major changes on 2023-11-21"
+msgstr ""
+
+#: ../../release_notes.rst:63
+msgid "**Release Candidate 1**"
+msgstr ""
+
+#: ../../release_notes.rst:65
+msgid "New features introduced by RC1 are:"
+msgstr ""
+
+#: ../../release_notes.rst:67
 msgid ""
 "**Password policy** -- Added a new configuration option to the ``Domains "
 "and users`` page. It is possible to modify the password complexity and "
@@ -4435,18 +4521,18 @@ msgid ""
 " also :ref:`password-policy-section`."
 msgstr ""
 
-#: ../../release_notes.rst:26
+#: ../../release_notes.rst:74
 msgid ""
-"**User portal** -- Users of a domain can now access a web page to change "
-"their own password. The user portal is available at ``https://IP_OR_FQDN"
-"/users-admin/DOMAIN_NAME/``; a full link is shown in the ``Domains and "
-"users`` page, under the domain configuration settings. Beta 2 "
-"installations require to run a manual procedure to enable the user "
-"portal. See the upgrade procedure for Samba and OpenLDAP in the next "
+"**User management portal** -- Users of a domain can now access a web page"
+" to change their own password. The user portal is available at "
+"``https://IP_OR_FQDN/users-admin/DOMAIN_NAME/``; a full link is shown in "
+"the ``Domains and users`` page, under the domain configuration settings. "
+"Beta 2 installations require to run a manual procedure to enable the user"
+" portal. See the upgrade procedure for Samba and OpenLDAP in the next "
 "notes, and the :ref:`user-management-portal-section` page."
 msgstr ""
 
-#: ../../release_notes.rst:34
+#: ../../release_notes.rst:82
 msgid ""
 "**Backup repositories** -- Beside existing cloud protocols, it is now "
 "easier to send backups to some local device. A backup repository can now "
@@ -4455,14 +4541,14 @@ msgid ""
 "information."
 msgstr ""
 
-#: ../../release_notes.rst:40
+#: ../../release_notes.rst:88
 msgid ""
 "**Fetch mail from other servers** -- :ref:`imapsync-section` is a new "
 "advanced application designed to retrieve email messages from remote IMAP"
 " servers at scheduled intervals and to synchronize entire IMAP accounts."
 msgstr ""
 
-#: ../../release_notes.rst:45
+#: ../../release_notes.rst:93
 msgid ""
 "**Mirror list for Rocky Linux nodes** -- If Rocky Linux is the node OS "
 "distribution, the default DNF configuration is overridden and mirrors are"
@@ -4470,14 +4556,14 @@ msgid ""
 " will be hosted by NethServer specific mirrors in future releases."
 msgstr ""
 
-#: ../../release_notes.rst:50
+#: ../../release_notes.rst:98
 msgid ""
 "Upgrade of existing Beta 2 installations can be started from the Software"
 " center page as usual. After the core components are up-to-date, run the "
 "following manual procedures to complete the upgrade."
 msgstr ""
 
-#: ../../release_notes.rst:54
+#: ../../release_notes.rst:102
 msgid ""
 "**Core upgrade procedure** -- To upgrade Beta 2 installations run the "
 "following command on the leader node. It defines the new ``tunadm`` "
@@ -4485,17 +4571,17 @@ msgid ""
 "2.1.0: ::"
 msgstr ""
 
-#: ../../release_notes.rst:61
+#: ../../release_notes.rst:109
 msgid "For each cluster node, enable the local WebDAV service for backups: ::"
 msgstr ""
 
-#: ../../release_notes.rst:65
+#: ../../release_notes.rst:113
 msgid ""
 "Finally, only for Rocky Linux nodes, enable the NethServer default "
 "repositories: ::"
 msgstr ""
 
-#: ../../release_notes.rst:71
+#: ../../release_notes.rst:119
 msgid ""
 "**Samba upgrade procedure** -- To upgrade Beta 2 installations run the "
 "following procedure for each Samba account provider instance. The list of"
@@ -4503,39 +4589,39 @@ msgid ""
 " domain configuration settings; **annotate for each provider**:"
 msgstr ""
 
-#: ../../release_notes.rst:76
+#: ../../release_notes.rst:124
 msgid "the module ID (string), for example ``samba1``"
 msgstr ""
 
-#: ../../release_notes.rst:77 ../../release_notes.rst:112
+#: ../../release_notes.rst:125 ../../release_notes.rst:160
 msgid "the node ID (number), for example ``1``"
 msgstr ""
 
-#: ../../release_notes.rst:78 ../../release_notes.rst:113
+#: ../../release_notes.rst:126 ../../release_notes.rst:161
 msgid ""
 "a free TCP port number, generated by executing on the leader node a "
 "command like this: ::"
 msgstr ""
 
-#: ../../release_notes.rst:84 ../../release_notes.rst:119
+#: ../../release_notes.rst:132 ../../release_notes.rst:167
 msgid ""
 "In the above example set ``node_id`` with the correct node ID (number). "
 "Let's assume the above command prints the port number below: ::"
 msgstr ""
 
-#: ../../release_notes.rst:89 ../../release_notes.rst:124
+#: ../../release_notes.rst:137 ../../release_notes.rst:172
 msgid "With the above annotations, run the following steps for each provider:"
 msgstr ""
 
-#: ../../release_notes.rst:91 ../../release_notes.rst:126
+#: ../../release_notes.rst:139 ../../release_notes.rst:174
 msgid "Log on the cluster node where the provider instance runs."
 msgstr ""
 
-#: ../../release_notes.rst:93 ../../release_notes.rst:128
+#: ../../release_notes.rst:141 ../../release_notes.rst:176
 msgid "Apply the TCP port configuration and start the user portal service: ::"
 msgstr ""
 
-#: ../../release_notes.rst:106
+#: ../../release_notes.rst:154
 msgid ""
 "**OpenLDAP upgrade procedure** -- To upgrade Beta 2 installations run the"
 " following procedure for each OpenLDAP account provider instance. The "
@@ -4543,18 +4629,18 @@ msgid ""
 "under the domain configuration settings; **annotate for each provider**:"
 msgstr ""
 
-#: ../../release_notes.rst:111
+#: ../../release_notes.rst:159
 msgid "the module ID (string), for example ``openldap1``"
 msgstr ""
 
-#: ../../release_notes.rst:141
+#: ../../release_notes.rst:189
 msgid ""
 "After repeating the above steps on each cluster node, run the following "
 "commands in one instance of your choice (the example is for "
 "``openldap1``): ::"
 msgstr ""
 
-#: ../../release_notes.rst:202
+#: ../../release_notes.rst:250
 msgid ""
 "**Mattermost upgrade procedure** -- Mattermost upgrade must be completed "
 "manually to allocate and open UDP ports required by the Calls plugin. "
@@ -4563,22 +4649,22 @@ msgid ""
 "remove the old instance."
 msgstr ""
 
-#: ../../release_notes.rst:209
+#: ../../release_notes.rst:257
 msgid "Major changes on 2023-09-13"
 msgstr ""
 
-#: ../../release_notes.rst:211
+#: ../../release_notes.rst:259
 msgid "**Beta 2**"
 msgstr ""
 
-#: ../../release_notes.rst:213
+#: ../../release_notes.rst:261
 msgid ""
 "**Pre-built image** -- Images are based on Rocky Linux. Available formats"
 " are ``.qcow2`` for QEMU/Proxmox and ``.vmdk`` for VMware. See :ref"
 ":`install_image-section` for image download links."
 msgstr ""
 
-#: ../../release_notes.rst:217
+#: ../../release_notes.rst:265
 msgid ""
 "**FQDN requirement** -- The cluster creation procedure now asks to review"
 " and set the current system host name. The host name is expected in short"
@@ -4588,11 +4674,11 @@ msgid ""
 " For example ::"
 msgstr ""
 
-#: ../../release_notes.rst:225
+#: ../../release_notes.rst:273
 msgid "See also :ref:`dns-reqs`."
 msgstr ""
 
-#: ../../release_notes.rst:227
+#: ../../release_notes.rst:275
 msgid ""
 "**WireGuard port 55820** -- The UDP port used by WireGuard in the "
 "creation of the cluster VPN is now fixed to ``55820``. Clusters already "
@@ -4601,65 +4687,65 @@ msgid ""
 "the leader node the following steps to fix it."
 msgstr ""
 
-#: ../../release_notes.rst:233
+#: ../../release_notes.rst:281
 msgid ""
 "Fix the VPN public endpoint address in Redis. For example, if the leader "
 "node is ``1`` and its FQDN is ``node1.example.org`` ::"
 msgstr ""
 
-#: ../../release_notes.rst:238
+#: ../../release_notes.rst:286
 msgid "Fix the firewall configuration ::"
 msgstr ""
 
-#: ../../release_notes.rst:244
+#: ../../release_notes.rst:292
 msgid "Change the running WireGuard listen port ::"
 msgstr ""
 
-#: ../../release_notes.rst:248
+#: ../../release_notes.rst:296
 msgid ""
 "Make the change permanent, by setting ``ListenPort = 55820`` in "
 "``/etc/wireguard/wg0.conf`` ::"
 msgstr ""
 
-#: ../../release_notes.rst:253
+#: ../../release_notes.rst:301
 msgid "Repeat steps 2-4 on each worker node, too."
 msgstr ""
 
-#: ../../release_notes.rst:255
+#: ../../release_notes.rst:303
 msgid ""
 "**Debian upgrade** -- After running the core update, installations based "
 "on Debian 11 (Bullseye) must be manually upgraded to distribution version"
 " 12 (Bookworm).  ::"
 msgstr ""
 
-#: ../../release_notes.rst:263
+#: ../../release_notes.rst:311
 msgid ""
 "Follow also the instructions for Python 3.11 upgrade, then **reboot the "
 "system**. Apply the same procedure for each cluster node."
 msgstr ""
 
-#: ../../release_notes.rst:266
+#: ../../release_notes.rst:314
 msgid ""
 "**Python 3.11** -- After running the core update, installations based on "
 "Rocky Linux (and other EL-like distributions) must manually install "
 "Python 3.11: ::"
 msgstr ""
 
-#: ../../release_notes.rst:272
+#: ../../release_notes.rst:320
 msgid ""
 "The following Bash script is required by Debian, too. Do not forget the "
 "round brackets! ::"
 msgstr ""
 
-#: ../../release_notes.rst:284
+#: ../../release_notes.rst:332
 msgid "Check if the Python upgrade was successfull: ::"
 msgstr ""
 
-#: ../../release_notes.rst:288 ../../release_notes.rst:323
+#: ../../release_notes.rst:336 ../../release_notes.rst:371
 msgid "Apply the same procedure for each cluster node."
 msgstr ""
 
-#: ../../release_notes.rst:290
+#: ../../release_notes.rst:338
 msgid ""
 "**UI security enhancements** -- Since the Beta 1 release an important "
 "security update has been released, and other security improvements are "
@@ -4667,7 +4753,7 @@ msgid ""
 "reload with ``CTRL + Shift + R`` or any other equivalent method."
 msgstr ""
 
-#: ../../release_notes.rst:295
+#: ../../release_notes.rst:343
 msgid ""
 "**Logs backend improved** -- The Logs page backend has been improved to "
 "be faster and more accurate in capturing the logs of every cluster "
@@ -4676,13 +4762,13 @@ msgid ""
 " running this command on the leader node: ::"
 msgstr ""
 
-#: ../../release_notes.rst:303
+#: ../../release_notes.rst:351
 msgid ""
 "Note that the new Logs page cannot access old log entries. To see log "
 "entries before the Beta 2 upgrade, use the `logcli` command."
 msgstr ""
 
-#: ../../release_notes.rst:306
+#: ../../release_notes.rst:354
 msgid ""
 "**TLS certificate upload** -- The ``TLS certificates`` card under the "
 "``Settings`` page was extended to allow the upload of a certificate and "
@@ -4690,13 +4776,13 @@ msgid ""
 ":`certificate_manager-section`."
 msgstr ""
 
-#: ../../release_notes.rst:311
+#: ../../release_notes.rst:359
 msgid ""
 "**Additional backup providers** -- Backup repositories can be created "
 "also on Microsoft Azure and S3-compatible cloud storage providers."
 msgstr ""
 
-#: ../../release_notes.rst:314
+#: ../../release_notes.rst:362
 msgid ""
 "**New Traefik configuration backend** -- The cluster Redis DB is not used"
 " any more by Traefik module instances as their dynamic configuration "
@@ -4705,11 +4791,11 @@ msgid ""
 "feature specific for Traefik with the following commands: ::"
 msgstr ""
 
-#: ../../release_notes.rst:325
+#: ../../release_notes.rst:373
 msgid "**Mail module improvements**"
 msgstr ""
 
-#: ../../release_notes.rst:327
+#: ../../release_notes.rst:375
 msgid ""
 "New installations of the Mail module have the ``Shared seen`` option "
 "enabled by default. Existing installations will find the switch disabled."
@@ -4717,163 +4803,163 @@ msgid ""
 "settings>`."
 msgstr ""
 
-#: ../../release_notes.rst:332
+#: ../../release_notes.rst:380
 msgid ""
 "Added the open source Dovecot plugin *Flatcurve* to enable full text "
 "search (FTS) of email messages.  To massively rebuild the search indexes "
 "run the following command during system idle time: ::"
 msgstr ""
 
-#: ../../release_notes.rst:338
+#: ../../release_notes.rst:386
 msgid ""
 "Only PDF attachments and the email itself are added to the index. In "
 "future releases more attachment formats will be supported."
 msgstr ""
 
-#: ../../release_notes.rst:343
+#: ../../release_notes.rst:391
 msgid "Major changes on 2023-05-10"
 msgstr ""
 
-#: ../../release_notes.rst:345
+#: ../../release_notes.rst:393
 msgid "**Beta 1**"
 msgstr ""
 
-#: ../../release_notes.rst:347
+#: ../../release_notes.rst:395
 msgid "Main core features include:"
 msgstr ""
 
-#: ../../release_notes.rst:349
+#: ../../release_notes.rst:397
 msgid "Node management: add and remove nodes from the system"
 msgstr ""
 
-#: ../../release_notes.rst:350
+#: ../../release_notes.rst:398
 msgid "Centralized logging: collect all logs in one place for easy monitoring"
 msgstr ""
 
-#: ../../release_notes.rst:351
+#: ../../release_notes.rst:399
 msgid ""
 "Configuration and data backups: regularly save cluster settings and "
 "application data to remote providers like Amazon S3 and Backblaze B2"
 msgstr ""
 
-#: ../../release_notes.rst:352
+#: ../../release_notes.rst:400
 msgid ""
 "Authentication: support for both Active Directory and LDAP (RFC2307) user"
 " directories"
 msgstr ""
 
-#: ../../release_notes.rst:353
+#: ../../release_notes.rst:401
 msgid ""
 "File server: implement an SMB (Server Message Block) file server that "
 "enables seamless integration with Windows-based networks"
 msgstr ""
 
-#: ../../release_notes.rst:354
+#: ../../release_notes.rst:402
 msgid ""
 "Auditing: track changes made within the system to ensure security and "
 "accountability"
 msgstr ""
 
-#: ../../release_notes.rst:355
+#: ../../release_notes.rst:403
 msgid ""
 "Email relay: use a smart host to route outgoing emails  through a trusted"
 " server"
 msgstr ""
 
-#: ../../release_notes.rst:356
+#: ../../release_notes.rst:404
 msgid "Custom web routing: define custom URLs to handle specific requests"
 msgstr ""
 
-#: ../../release_notes.rst:357
+#: ../../release_notes.rst:405
 msgid ""
 "Multi-factor authentication: enable two-step verification for "
 "administrator accounts"
 msgstr ""
 
-#: ../../release_notes.rst:358
+#: ../../release_notes.rst:406
 msgid ""
 "Built-in firewall: protect against unauthorized access at the network "
 "level by implementing a local firewall"
 msgstr ""
 
-#: ../../release_notes.rst:359
+#: ../../release_notes.rst:407
 msgid ""
 "Migration: :ref:`Cockpit module <migration-section>` to import NethServer"
 " 7 applications"
 msgstr ""
 
-#: ../../release_notes.rst:361
+#: ../../release_notes.rst:409
 msgid "Additional modules:"
 msgstr ""
 
-#: ../../release_notes.rst:363
+#: ../../release_notes.rst:411
 msgid ""
 "Collaborative tools: includes Dovecot/Postfix/Rspamd mail server, WebTop,"
 " Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, "
 "Mattermost"
 msgstr ""
 
-#: ../../release_notes.rst:364
+#: ../../release_notes.rst:412
 msgid ""
 "Development utilities: features MariaDB and NGINX web server for creating"
 " dynamic applications and services"
 msgstr ""
 
-#: ../../release_notes.rst:365
+#: ../../release_notes.rst:413
 msgid ""
 "Monitoring and analysis: offers Grafana, Prometheus, and node_exporter "
 "for tracking performance metrics and identifying potential issues"
 msgstr ""
 
-#: ../../release_notes.rst:366
+#: ../../release_notes.rst:414
 msgid ""
 "Data storage: offers MinIO for managing large amounts of structured and "
 "unstructured data"
 msgstr ""
 
-#: ../../release_notes.rst:367
+#: ../../release_notes.rst:415
 msgid ""
 "Network defense: implements CrowdSec for protecting local applications "
 "against remote attacks"
 msgstr ""
 
-#: ../../release_notes.rst:369
+#: ../../release_notes.rst:417
 msgid "The following known limitations will be resolved in future updates:"
 msgstr ""
 
-#: ../../release_notes.rst:371
+#: ../../release_notes.rst:419
 msgid ""
 "currently, the system only uses TLS certificates issued by Let's Encrypt "
 "or self-signed certificates generated locally"
 msgstr ""
 
-#: ../../release_notes.rst:372
+#: ../../release_notes.rst:420
 msgid "user login is not supported on worker nodes"
 msgstr ""
 
-#: ../../release_notes.rst:373
+#: ../../release_notes.rst:421
 msgid ""
 "the mail module does not offer sender-based or destination-based message "
 "relay options"
 msgstr ""
 
-#: ../../release_notes.rst:374
+#: ../../release_notes.rst:422
 msgid ""
 "only a limited number of cloud storage providers are available for "
 "backing up data"
 msgstr ""
 
-#: ../../release_notes.rst:377
+#: ../../release_notes.rst:427
 msgid "Releases glossary"
 msgstr ""
 
-#: ../../release_notes.rst:379
+#: ../../release_notes.rst:429
 msgid ""
 "The software release cycle includes four stages: Alpha, Beta, Release "
 "Candidate (RC), and Stable."
 msgstr ""
 
-#: ../../release_notes.rst:381
+#: ../../release_notes.rst:431
 msgid ""
 "During the **Alpha** stage, the software is not thoroughly tested and may"
 " not include all planned features. This release is not suitable for "
@@ -4882,7 +4968,7 @@ msgid ""
 "to other releases are not supported."
 msgstr ""
 
-#: ../../release_notes.rst:385
+#: ../../release_notes.rst:435
 msgid ""
 "The **Beta** stage indicates that the software is mostly feature "
 "complete, but it may still contain many known and unknown bugs. This "
@@ -4892,7 +4978,7 @@ msgid ""
 "require a manual procedure."
 msgstr ""
 
-#: ../../release_notes.rst:389
+#: ../../release_notes.rst:439
 msgid ""
 "During the **Release Candidate (RC)** stage, the software is feature "
 "complete, and it contains no known bugs. If no major issues arise, it can"
@@ -4902,7 +4988,7 @@ msgid ""
 "some experience with it."
 msgstr ""
 
-#: ../../release_notes.rst:394
+#: ../../release_notes.rst:444
 msgid ""
 "The **Stable** release is the most reliable and safe to use in production"
 " environments. It has been thoroughly tested and is considered to be free"
@@ -5827,24 +5913,25 @@ msgstr ""
 msgid ""
 "As you are configuring a server, network clients must resolve its fully "
 "qualified domain name (FQDN) to a routable IP address with the DNS. This "
-"is a requirement to connect with the server."
+"is a requirement to connect with the server. Register the FQDN with DNS "
+"record type A for IPv4 addresses, and type AAAA for IPv6 addresses."
 msgstr ""
 
-#: ../../system_requirements.rst:56
+#: ../../system_requirements.rst:57
 msgid ""
 "A correct FQDN and DNS setup is also a requirement for TLS encryption to "
 "work properly. Once connected with the server, network clients check if "
 "the TLS certificate is valid for the given FQDN."
 msgstr ""
 
-#: ../../system_requirements.rst:60
+#: ../../system_requirements.rst:61
 msgid ""
 "Depending on your server purpose, DNS can be provided by a public "
 "internet service, a private network appliance, or even both of them. Read"
 " carefully and understand their documentation."
 msgstr ""
 
-#: ../../system_requirements.rst:64
+#: ../../system_requirements.rst:65
 msgid ""
 "Decide the FQDN of your server and register it in the DNS with the server"
 " public IP address. A FQDN is composed by the host name prefix (a single "
@@ -5853,39 +5940,39 @@ msgid ""
 "``jupiter.example.org``."
 msgstr ""
 
-#: ../../system_requirements.rst:74
+#: ../../system_requirements.rst:75
 msgid "Worker node requirements"
 msgstr ""
 
-#: ../../system_requirements.rst:78
+#: ../../system_requirements.rst:79
 msgid ""
 "Among network clients, a worker node has some special requirements to be "
 "installed and configured."
 msgstr ""
 
-#: ../../system_requirements.rst:81
+#: ../../system_requirements.rst:82
 msgid ""
 "The worker node reaches the leader during the join procedure at the "
 "following URL: ::"
 msgstr ""
 
-#: ../../system_requirements.rst:86
+#: ../../system_requirements.rst:87
 msgid "Ensure the following requirements are met:"
 msgstr ""
 
-#: ../../system_requirements.rst:88
+#: ../../system_requirements.rst:89
 msgid ""
 "the worker node must resolve the leader FQDN to the correct routable "
 "address"
 msgstr ""
 
-#: ../../system_requirements.rst:91
+#: ../../system_requirements.rst:92
 msgid ""
 "the HTTPS server (TCP port 443) at that address must handle the API "
 "request"
 msgstr ""
 
-#: ../../system_requirements.rst:94
+#: ../../system_requirements.rst:95
 msgid ""
 "the API server response contains the leader ``VPN endpoint``: it is a "
 "host address with a UDP port number used to set up a Wireguard VPN. The "
@@ -5894,11 +5981,11 @@ msgid ""
 "appliances."
 msgstr ""
 
-#: ../../system_requirements.rst:102
+#: ../../system_requirements.rst:103
 msgid "Web browser requirements"
 msgstr ""
 
-#: ../../system_requirements.rst:104
+#: ../../system_requirements.rst:105
 msgid ""
 "To access the cluster administration web user interface, you need an up-"
 "to-date release of Firefox, Chrome, or Chromium browser as the web "
@@ -6489,7 +6576,7 @@ msgstr ""
 
 #: ../../user_domains.rst:236
 msgid ""
-"The management portal is a web application that allows any non-"
+"The user management portal is a web application that allows any non-"
 "administrator user to change their own password without the need for "
 "administrator intervention."
 msgstr ""
@@ -9873,5 +9960,70 @@ msgstr ""
 #~ "Password: `Nethesis,1234`, default password if"
 #~ " not has been reset during the "
 #~ "fist configuration wizard"
+#~ msgstr ""
+
+#~ msgid "NethServer 8 is a work in progress, currently in a pre-release status."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can serve an Active Directory "
+#~ "domain with Samba 4, or just a "
+#~ "simple OpenLDAP server. You can host "
+#~ "multiple instances of the same "
+#~ "application connected to different local "
+#~ "or remote domains."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you need a new domain, just "
+#~ "create a new node and join it "
+#~ "to the existing cluster: you can "
+#~ "spread the workload across multiple "
+#~ "machines. Of course, everything is under"
+#~ " your control just from the UI "
+#~ "of the main node. No matter if "
+#~ "nodes are local or remotes, they "
+#~ "are securely connected with an encrypted"
+#~ " VPN."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You will be forced to change the"
+#~ " default password after the first "
+#~ "login with ``root`` user."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**User portal** -- Users of a "
+#~ "domain can now access a web page"
+#~ " to change their own password. The"
+#~ " user portal is available at "
+#~ "``https://IP_OR_FQDN/users-admin/DOMAIN_NAME/``; a "
+#~ "full link is shown in the "
+#~ "``Domains and users`` page, under the"
+#~ " domain configuration settings. Beta 2 "
+#~ "installations require to run a manual"
+#~ " procedure to enable the user portal."
+#~ " See the upgrade procedure for Samba"
+#~ " and OpenLDAP in the next notes, "
+#~ "and the :ref:`user-management-portal-"
+#~ "section` page."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "As you are configuring a server, "
+#~ "network clients must resolve its fully"
+#~ " qualified domain name (FQDN) to a"
+#~ " routable IP address with the DNS."
+#~ " This is a requirement to connect "
+#~ "with the server."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The management portal is a web "
+#~ "application that allows any non-"
+#~ "administrator user to change their own"
+#~ " password without the need for "
+#~ "administrator intervention."
 #~ msgstr ""
 
