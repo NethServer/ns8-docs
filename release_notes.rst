@@ -16,8 +16,11 @@ Major changes on 2024-01-XX
 
 **Stable release**
 
-- **Subscription** -- Nethesis Enterprise and Subscription plans are now
-  available for NS8. See the details in :ref:`subscription-section` page.
+New features introduced by this release are:
+
+- **Subscription** -- Nethesis Enterprise and Community Subscription plans
+  are now available for NS8. See the details in
+  :ref:`subscription-section` page.
 
 - **User management portal** -- Members of the Domain Admins group can now
   create, edit and delete user accounts from the :ref:`User management
@@ -45,11 +48,14 @@ Major changes on 2024-01-XX
 
 Known issues:
 
-- **Core upgrade freezes Software Center page** -- The bug 6778 has been
-  fixed in core version 2.2.6. If the upgrade from RC1 starts from core
-  version 2.2.5 or lower, when the task progress bar freezes reload the
-  web page with ``CTRL + SHIFT + R`` or an equivalent procedure.
+- **Core upgrade freezes Software Center page** -- The `bug 6778`_ has
+  been fixed in core version 2.2.6. If the upgrade from RC1 starts from
+  core version 2.2.5 or lower, when the task progress bar freezes reload
+  the web page with ``CTRL + SHIFT + R`` or an equivalent procedure. The
+  page reload has no impact with the underlying upgrade. Note: the upgrade
+  download may be slow; avoid interrupting or rebooting until completion.
 
+.. _`bug 6778`: https://github.com/NethServer/dev/issues/6778
 
 Major changes on 2023-11-21
 ===========================
