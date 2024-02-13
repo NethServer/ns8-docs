@@ -1,3 +1,5 @@
+.. _release-notes-section:
+
 =============
 Release notes
 =============
@@ -8,6 +10,52 @@ NethServer 8 releases
 
 - List of `known bugs <https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_
 - Discussions around `possible bugs <http://community.nethserver.org/c/bug>`_
+
+Major changes on 2024-02-13
+===========================
+
+**Stable release**
+
+New features introduced by this release are:
+
+- **Subscription** -- Nethesis Enterprise and Community Subscription plans
+  are now available for NS8. See the details in
+  :ref:`subscription-section` page.
+
+- **User management portal** -- Members of the Domain Admins group can now
+  create, edit and delete user accounts from the :ref:`User management
+  portal <user-management-portal-section>`.  The login screen now displays
+  the user domain name to distinguish which domain a user is logging in
+  to.
+
+- **Skip certificate validation** in HTTP routes -- When an HTTP route is
+  created or edited in the :ref:`HTTP routes <traefik-section>` page, the
+  ``Skip certificate validation`` option can be enabled over a trusted
+  network if the server at the destination URL has no valid TLS
+  certificate.
+
+- **Cockpit removed from pre-built image** -- Cockpit is not required to
+  run NS8, therefore it is no more available in the NS8 pre-built image.
+  If desired, it can be manually installed and enabled with the following
+  commands: ::
+
+    dnf install -y cockpit
+    systemctl enable --now cockpit.socket
+
+  The default Cockpit configuration forbids ``root`` access: log in as a
+  member of the ``wheel`` group, then enter the "administrative access"
+  mode.
+
+Known issues:
+
+- **Core upgrade freezes Software Center page** -- The `bug 6778`_ has
+  been fixed in core version 2.2.6. If the upgrade from RC1 starts from
+  core version 2.2.5 or lower, when the task progress bar freezes reload
+  the web page with ``CTRL + SHIFT + R`` or an equivalent procedure. The
+  page reload has no impact with the underlying upgrade. Note: the upgrade
+  download may be slow; avoid interrupting or rebooting until completion.
+
+.. _`bug 6778`: https://github.com/NethServer/dev/issues/6778
 
 Major changes on 2023-11-21
 ===========================
@@ -23,7 +71,7 @@ New features introduced by RC1 are:
   password policy. The upgrade procedure is detailed in the next notes.
   See also :ref:`password-policy-section`.
 
-- **User portal** -- Users of a domain can now access a web page to change
+- **User management portal** -- Users of a domain can now access a web page to change
   their own password. The user portal is available at
   ``https://IP_OR_FQDN/users-admin/DOMAIN_NAME/``; a full link is shown in
   the ``Domains and users`` page, under the domain configuration settings.
@@ -372,6 +420,8 @@ The following known limitations will be resolved in future updates:
 - user login is not supported on worker nodes
 - the mail module does not offer sender-based or destination-based message relay options
 - only a limited number of cloud storage providers are available for backing up data
+
+.. _releases-glossary:
 
 Releases glossary
 =================

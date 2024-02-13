@@ -19,7 +19,8 @@ NS8 is for you.
 What is the status of NS8?
 ==========================
 
-NethServer 8 is a work in progress, currently in a pre-release status.
+NethServer 8 has reached the :ref:`stable <releases-glossary>` status:
+read the :ref:`release notes <release-notes-section>`.
 
 What is the difference between NethServer 7 (NS7) and NethServer 8?
 ===================================================================
@@ -40,9 +41,9 @@ What can I do with NethServer 8?
 
 You can serve an Active Directory domain with Samba 4, or just a simple OpenLDAP server.
 You can host multiple instances of the same application connected to different local or
-remote domains.
+remote user domains.
 
-If you need a new domain, just create a new node and join it to the existing cluster:
+If you need a new user domain, just create a new node and join it to the existing cluster:
 you can spread the workload across multiple machines.
 Of course, everything is under your control just from the UI of the main node.
 No matter if nodes are local or remotes, they are securely connected with an encrypted VPN.
@@ -97,3 +98,8 @@ Can I use NethServer 8 as UTM firewall?
 
 No. NethServer 8 has a limited built-in firewall used to protect only
 local running services.
+
+If you are looking for a nice firewall project, NethSecurity_ is the
+successor of NethServer 7 firewall capabilities.
+
+.. _NethSecurity: https://docs.nethsecurity.org
