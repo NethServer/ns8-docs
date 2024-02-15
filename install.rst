@@ -76,7 +76,7 @@ To obtain administrative SSH access to the system, create a personal user
 account in the ``wheel`` group and set a password. For instance, execute
 the following commands and enter the desired password: ::
 
-  useradd -a -G wheel ethan.smith
+  useradd -G wheel ethan.smith
   passwd ethan.smith
 
 After logging in with the personal user account, gain root access by
