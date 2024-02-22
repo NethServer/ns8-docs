@@ -39,6 +39,11 @@ Pre-built image
 NethServer 8 provides an image built upon the stable foundation Rocky
 Linux 9, making it suitable for a wide range of server applications.
 
+The pre-built image uses Cloud-init for network initialization. The
+default method to obtain network configuration is the DHCP protocol. Refer
+to your virtualization platform documentation for more information about
+Cloud-init support.
+
 .. csv-table:: NS8 image download links
    :header: "Platform", "Format", "Size", "URL"
 
@@ -84,6 +89,11 @@ executing: ::
 
   sudo su -
 
+.. warning::
+
+   If DHCP was used to obtain the initial network configuration, change
+   the Rocky Linux network settings and configure a static IP address. For
+   more information refer to :ref:`os-network-section`.
 
 .. _post-install-steps:
 
