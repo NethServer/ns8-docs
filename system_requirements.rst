@@ -41,7 +41,11 @@ Supported Linux distributions and versions:
 Static IP address
 =================
 
-Assign a static IP address to the server. DHCP and any other
+A working internet connection is necessary for the installation,
+configuration, and updating of the system. It is required also if an
+active :ref:`subscription <subscription-section>` is in place.
+
+Assign a static IP address to the system. DHCP and any other
 dynamic IP discovery protocols are not allowed.
 
 .. _dns-reqs:
