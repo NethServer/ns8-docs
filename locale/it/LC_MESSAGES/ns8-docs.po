@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-19 12:02+0000\n"
+"POT-Creation-Date: 2024-02-22 09:28+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -506,7 +506,7 @@ msgid ""
 "button."
 msgstr ""
 
-#: ../../cluster.rst:31 ../../install.rst:113
+#: ../../cluster.rst:31 ../../install.rst:123
 msgid ""
 "Ensure the node Fully Qualified Domain Name (FQDN) is correct, and "
 "respects the :ref:`DNS requirements <dns-reqs>`."
@@ -2006,6 +2006,14 @@ msgid ""
 msgstr ""
 
 #: ../../install.rst:42
+msgid ""
+"The pre-built image uses Cloud-init for network initialization. The "
+"default method to obtain network configuration is the DHCP protocol. "
+"Refer to your virtualization platform documentation for more information "
+"about Cloud-init support."
+msgstr ""
+
+#: ../../install.rst:47
 msgid "NS8 image download links"
 msgstr ""
 
@@ -2061,7 +2069,7 @@ msgid ""
 "linux-9-ns8-stable.vmdk"
 msgstr ""
 
-#: ../../install.rst:48
+#: ../../install.rst:53
 msgid ""
 "Choose the ``qcow2`` image format if you are using a KVM-based "
 "virtualization platform, like `Proxmox <https://www.proxmox.com/>`_, or "
@@ -2069,7 +2077,7 @@ msgid ""
 "<https://www.vmware.com>`_."
 msgstr ""
 
-#: ../../install.rst:52
+#: ../../install.rst:57
 msgid ""
 "When the image download has completed verify the file integrity with the "
 "`sha256 checksum file "
@@ -2077,94 +2085,101 @@ msgid ""
 "checksum then run for example the following command: ::"
 msgstr ""
 
-#: ../../install.rst:59
+#: ../../install.rst:64
 msgid "Virtualization platform-specific notes:"
 msgstr ""
 
-#: ../../install.rst:61
+#: ../../install.rst:66
 msgid ""
 "For VMWare, configure the virtual machine to use the IDE driver for the "
 "disk."
 msgstr ""
 
-#: ../../install.rst:62
+#: ../../install.rst:67
 msgid ""
 "For Proxmox, change the default CPU model to anything other than "
 "``kvm64``."
 msgstr ""
 
-#: ../../install.rst:64
+#: ../../install.rst:69
 msgid ""
 "Finally, start the NS8 image within your virtualization platform, or "
 "upload it to a cloud provider to create a public virtual machine."
 msgstr ""
 
-#: ../../install.rst:67
+#: ../../install.rst:72
 msgid "Default OS administrative credentials are"
 msgstr ""
 
-#: ../../install.rst:69
+#: ../../install.rst:74
 msgid "Username: ``root``"
 msgstr ""
 
-#: ../../install.rst:70 ../../install.rst:105
+#: ../../install.rst:75 ../../install.rst:115
 msgid "Password: ``Nethesis,1234``"
 msgstr ""
 
-#: ../../install.rst:72
+#: ../../install.rst:77
 msgid ""
 "Access the system console and log in using the default credentials. Upon "
 "the first login, you will be prompted to change the password."
 msgstr ""
 
-#: ../../install.rst:75
+#: ../../install.rst:80
 msgid ""
 "To obtain administrative SSH access to the system, create a personal user"
 " account in the ``wheel`` group and set a password. For instance, execute"
 " the following commands and enter the desired password: ::"
 msgstr ""
 
-#: ../../install.rst:82
+#: ../../install.rst:87
 msgid ""
 "After logging in with the personal user account, gain root access by "
 "executing: ::"
 msgstr ""
 
-#: ../../install.rst:91
+#: ../../install.rst:94
+msgid ""
+"If DHCP was used to obtain the initial network configuration, change the "
+"Rocky Linux network settings and configure a static IP address. For more "
+"information refer to :ref:`os-network-section`."
+msgstr ""
+
+#: ../../install.rst:101
 msgid "Post-installation steps"
 msgstr ""
 
-#: ../../install.rst:93
+#: ../../install.rst:103
 msgid ""
 "When the installation script ends or the pre-built image has started, "
 "access the Web user interface at ::"
 msgstr ""
 
-#: ../../install.rst:100
+#: ../../install.rst:110
 msgid "If the node is unreachable see :ref:`os-network-section`"
 msgstr ""
 
-#: ../../install.rst:102
+#: ../../install.rst:112
 msgid "The default credentials to login on cluster-admin are"
 msgstr ""
 
-#: ../../install.rst:104
+#: ../../install.rst:114
 msgid "Username: ``admin``"
 msgstr ""
 
-#: ../../install.rst:107
+#: ../../install.rst:117
 msgid ""
 "Choose :guilabel:`Create cluster` and follow the procedure to create a "
 "new single-node cluster."
 msgstr ""
 
-#: ../../install.rst:110
+#: ../../install.rst:120
 msgid ""
 "For security reasons, the admin password must be changed immediately if "
 "it is still at the default value."
 msgstr ""
 
-#: ../../install.rst:116
+#: ../../install.rst:126
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
 " Network (VPN) for the cluster. With the VPN in place, you will be able "
@@ -2174,31 +2189,31 @@ msgid ""
 " changed once it has been set."
 msgstr ""
 
-#: ../../install.rst:123
+#: ../../install.rst:133
 msgid ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
 "ready."
 msgstr ""
 
-#: ../../install.rst:125
+#: ../../install.rst:135
 msgid ""
 "A new cluster has assigned the default name ``NethServer 8``. If you wish"
 " to change it:"
 msgstr ""
 
-#: ../../install.rst:128
+#: ../../install.rst:138
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr ""
 
-#: ../../install.rst:129
+#: ../../install.rst:139
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr ""
 
-#: ../../install.rst:130
+#: ../../install.rst:140
 msgid "click the :guilabel:`Save settings` button"
 msgstr ""
 
-#: ../../install.rst:132
+#: ../../install.rst:142
 msgid ""
 "Now sure where to go from here? You can install a :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
@@ -2207,22 +2222,22 @@ msgid ""
 "<cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`."
 msgstr ""
 
-#: ../../install.rst:138
+#: ../../install.rst:148
 msgid "Uninstall"
 msgstr ""
 
-#: ../../install.rst:140
+#: ../../install.rst:150
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr ""
 
-#: ../../install.rst:142
+#: ../../install.rst:152
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 
-#: ../../install.rst:145
+#: ../../install.rst:155
 msgid "To uninstall NS8, execute: ::"
 msgstr ""
 
@@ -5907,15 +5922,22 @@ msgstr ""
 
 #: ../../system_requirements.rst:44
 msgid ""
-"Assign a static IP address to the server. DHCP and any other dynamic IP "
+"A working internet connection is necessary for the installation, "
+"configuration, and updating of the system. It is required also if an "
+"active :ref:`subscription <subscription-section>` is in place."
+msgstr ""
+
+#: ../../system_requirements.rst:48
+msgid ""
+"Assign a static IP address to the system. DHCP and any other dynamic IP "
 "discovery protocols are not allowed."
 msgstr ""
 
-#: ../../system_requirements.rst:50
+#: ../../system_requirements.rst:54
 msgid "DNS configuration"
 msgstr ""
 
-#: ../../system_requirements.rst:52
+#: ../../system_requirements.rst:56
 msgid ""
 "As you are configuring a server, network clients must resolve its fully "
 "qualified domain name (FQDN) to a routable IP address with the DNS. This "
@@ -5923,21 +5945,21 @@ msgid ""
 "record type A for IPv4 addresses, and type AAAA for IPv6 addresses."
 msgstr ""
 
-#: ../../system_requirements.rst:57
+#: ../../system_requirements.rst:61
 msgid ""
 "A correct FQDN and DNS setup is also a requirement for TLS encryption to "
 "work properly. Once connected with the server, network clients check if "
 "the TLS certificate is valid for the given FQDN."
 msgstr ""
 
-#: ../../system_requirements.rst:61
+#: ../../system_requirements.rst:65
 msgid ""
 "Depending on your server purpose, DNS can be provided by a public "
 "internet service, a private network appliance, or even both of them. Read"
 " carefully and understand their documentation."
 msgstr ""
 
-#: ../../system_requirements.rst:65
+#: ../../system_requirements.rst:69
 msgid ""
 "Decide the FQDN of your server and register it in the DNS with the server"
 " public IP address. A FQDN is composed by the host name prefix (a single "
@@ -5946,39 +5968,39 @@ msgid ""
 "``jupiter.example.org``."
 msgstr ""
 
-#: ../../system_requirements.rst:75
+#: ../../system_requirements.rst:79
 msgid "Worker node requirements"
 msgstr ""
 
-#: ../../system_requirements.rst:79
+#: ../../system_requirements.rst:83
 msgid ""
 "Among network clients, a worker node has some special requirements to be "
 "installed and configured."
 msgstr ""
 
-#: ../../system_requirements.rst:82
+#: ../../system_requirements.rst:86
 msgid ""
 "The worker node reaches the leader during the join procedure at the "
 "following URL: ::"
 msgstr ""
 
-#: ../../system_requirements.rst:87
+#: ../../system_requirements.rst:91
 msgid "Ensure the following requirements are met:"
 msgstr ""
 
-#: ../../system_requirements.rst:89
+#: ../../system_requirements.rst:93
 msgid ""
 "the worker node must resolve the leader FQDN to the correct routable "
 "address"
 msgstr ""
 
-#: ../../system_requirements.rst:92
+#: ../../system_requirements.rst:96
 msgid ""
 "the HTTPS server (TCP port 443) at that address must handle the API "
 "request"
 msgstr ""
 
-#: ../../system_requirements.rst:95
+#: ../../system_requirements.rst:99
 msgid ""
 "the API server response contains the leader ``VPN endpoint``: it is a "
 "host address with a UDP port number used to set up a Wireguard VPN. The "
@@ -5987,11 +6009,11 @@ msgid ""
 "appliances."
 msgstr ""
 
-#: ../../system_requirements.rst:103
+#: ../../system_requirements.rst:107
 msgid "Web browser requirements"
 msgstr ""
 
-#: ../../system_requirements.rst:105
+#: ../../system_requirements.rst:109
 msgid ""
 "To access the cluster administration web user interface, you need an up-"
 "to-date release of Firefox, Chrome, or Chromium browser as the web "
@@ -10031,5 +10053,12 @@ msgstr ""
 #~ "administrator user to change their own"
 #~ " password without the need for "
 #~ "administrator intervention."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Assign a static IP address to the"
+#~ " server. DHCP and any other dynamic"
+#~ " IP discovery protocols are not "
+#~ "allowed."
 #~ msgstr ""
 
