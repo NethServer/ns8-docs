@@ -42,7 +42,6 @@ NethServer 8 administrator manual
    certificates
    backup
    firewall
-   metrics
    updates
    software_center
    email_notifications
@@ -60,9 +59,6 @@ NethServer 8 administrator manual
    nextcloud
    collabora
    mattermost
-   mariadb
-   nginx
-   dokuwiki
    ejabberd
    minio
    crowdsec
@@ -72,6 +68,10 @@ NethServer 8 administrator manual
    :maxdepth: 2
    :caption: NethForge applications
 
+   dokuwiki
+   mariadb
+   prometheus
+   webserver
    sogo
 
 .. toctree::
