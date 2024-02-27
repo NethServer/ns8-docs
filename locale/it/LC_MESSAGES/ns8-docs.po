@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-22 09:28+0000\n"
+"POT-Creation-Date: 2024-02-27 15:06+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -846,8 +846,8 @@ msgstr ""
 #: ../../ejabberd.rst:23 ../../imapsync.rst:31 ../../index.rst:34
 #: ../../mail.rst:34 ../../mariadb.rst:11 ../../mattermost.rst:13
 #: ../../minio.rst:14 ../../nethvoice.rst:23 ../../nethvoice_proxy.rst:19
-#: ../../nextcloud.rst:21 ../../nginx.rst:14 ../../roundcube.rst:19
-#: ../../sogo.rst:39 ../../webtop.rst:12
+#: ../../nextcloud.rst:21 ../../roundcube.rst:19 ../../sogo.rst:39
+#: ../../webserver.rst:14 ../../webtop.rst:12
 msgid "Configuration"
 msgstr ""
 
@@ -869,8 +869,8 @@ msgstr ""
 
 #: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../ejabberd.rst:32
 #: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:21
-#: ../../nethvoice_proxy.rst:27 ../../nginx.rst:16 ../../roundcube.rst:30
-#: ../../sogo.rst:46 ../../webtop.rst:19
+#: ../../nethvoice_proxy.rst:27 ../../roundcube.rst:30 ../../sogo.rst:46
+#: ../../webserver.rst:16 ../../webtop.rst:19
 msgid "How to configure:"
 msgstr ""
 
@@ -1255,7 +1255,7 @@ msgid "Select the LDAP user Domain to identify users"
 msgstr ""
 
 #: ../../ejabberd.rst:37 ../../mariadb.rst:17 ../../mattermost.rst:28
-#: ../../nginx.rst:21
+#: ../../webserver.rst:21
 msgid "Click the :guilabel:`Save` button"
 msgstr ""
 
@@ -1937,11 +1937,11 @@ msgstr ""
 msgid "Installation"
 msgstr ""
 
-#: ../../index.rst:50 ../../modules.rst:7
+#: ../../index.rst:49 ../../modules.rst:7
 msgid "Applications"
 msgstr ""
 
-#: ../../index.rst:71
+#: ../../index.rst:67
 msgid "NethForge applications"
 msgstr ""
 
@@ -3030,11 +3030,11 @@ msgid ""
 "phpMyAdmin, eg. ``/phpmyadmin``"
 msgstr ""
 
-#: ../../mariadb.rst:16 ../../nginx.rst:20
+#: ../../mariadb.rst:16 ../../webserver.rst:20
 msgid "enable ``HTTP to HTTPS`` option accordingly to your needs"
 msgstr ""
 
-#: ../../mariadb.rst:19 ../../nginx.rst:23
+#: ../../mariadb.rst:19 ../../webserver.rst:23
 msgid ""
 "At the end of the configuration the web interface will display the public"
 " TCP port to access the MariaDB instance."
@@ -3046,15 +3046,15 @@ msgid ""
 "``https://<server_fqn>/<path>``. Default credentials for phpMyAdmin are:"
 msgstr ""
 
-#: ../../mariadb.rst:25 ../../nginx.rst:29
+#: ../../mariadb.rst:25 ../../webserver.rst:29
 msgid "user: ``admin``"
 msgstr ""
 
-#: ../../mariadb.rst:26 ../../nginx.rst:30
+#: ../../mariadb.rst:26 ../../webserver.rst:30
 msgid "password: ``admin``"
 msgstr ""
 
-#: ../../mariadb.rst:28 ../../nginx.rst:32
+#: ../../mariadb.rst:28 ../../webserver.rst:32
 msgid "Please change them after the first login."
 msgstr ""
 
@@ -3116,61 +3116,6 @@ msgstr ""
 msgid ""
 "The administrator should always use Mattermost wizard to create the admin"
 " user, then send team invitation link to each user."
-msgstr ""
-
-#: ../../metrics.rst:5
-msgid "Metrics"
-msgstr "Metriche"
-
-#: ../../metrics.rst:7
-msgid "NethServer 8 uses a widely adopted stack composed by:"
-msgstr ""
-
-#: ../../metrics.rst:9
-msgid ""
-"`Node exporter <https://prometheus.io/docs/guides/node-exporter/>`_ "
-"gathers all system metrics from nodes"
-msgstr ""
-
-#: ../../metrics.rst:10
-msgid ""
-"`Prometheus <https://prometheus.io/>`_ scrapes all metrics endpoint and "
-"stores them on a local disk"
-msgstr ""
-
-#: ../../metrics.rst:11
-msgid "`Grafana <https://grafana.com/>`_ visualizes the collected metrics"
-msgstr ""
-
-#: ../../metrics.rst:14
-msgid ""
-"You can install only one instance of Prometheus, usually on the leader "
-"node. Prometheus does not require any configuration and it will be "
-"exposed on a random URL. The URL is available on the Prometheus instance "
-"``Status`` page. You can access it from the software center or from the "
-"application menu in the top-right corner."
-msgstr ""
-
-#: ../../metrics.rst:19
-msgid ""
-"You should install the node exporter on each cluster node. To install it,"
-" access the :ref:`software_center-section` and look for the "
-"``node_exporter`` application. Each time a new node with the exporter is "
-"installed, Prometheus will automatically collect the node metrics."
-msgstr ""
-
-#: ../../metrics.rst:23
-msgid ""
-"Grafana can be installed only on the leader node. After installation, you"
-" will need to configure the ``Host name`` with a valid FQDN to access the"
-" Grafana instance. Enable ``Let's Encrypt`` and ``HTTP to HTTPS`` options"
-" accordingly to your needs."
-msgstr ""
-
-#: ../../metrics.rst:27
-msgid ""
-"Grafana will automatically display metrics from Prometheus and :ref:`Loki"
-" <loki-section>`."
 msgstr ""
 
 #: ../../migration.rst:5
@@ -4170,63 +4115,6 @@ msgid ""
 "#deleting-users>`_."
 msgstr ""
 
-#: ../../nginx.rst:5
-msgid "WebServer"
-msgstr ""
-
-#: ../../nginx.rst:7
-msgid ""
-"This application installs the `Nginx <https://www.nginx.com/>`_ web "
-"server with `PHP <https://www.php.net/>`_ programming language and "
-"`SFTPGo <https://github.com/drakkan/sftpgo>`_ to upload files."
-msgstr ""
-
-#: ../../nginx.rst:11
-msgid ""
-"You can install multiple WebServer instances on the same node from the "
-":ref:`software_center-section`."
-msgstr ""
-
-#: ../../nginx.rst:18
-msgid ""
-"access the application ``Settings`` page and enter the path for SFTPGo, "
-"eg. ``/sftpgo``"
-msgstr ""
-
-#: ../../nginx.rst:19
-msgid "choose a public TCP port for the sFTP server"
-msgstr ""
-
-#: ../../nginx.rst:26
-msgid ""
-"The SFTPGo instance will be available at the "
-"``https://<server_fqn>/<path>``. Default credentials for ``Web Admin`` of"
-" SFTPGo are:"
-msgstr ""
-
-#: ../../nginx.rst:35
-msgid "Virtual hosts"
-msgstr ""
-
-#: ../../nginx.rst:37
-msgid ""
-"You can host multiple sites by creating a virtual host for each site "
-"inside the ``Virtual hosts`` page. To create a virtual host click on "
-":guilabel:`Create a virtual host` button."
-msgstr ""
-
-#: ../../nginx.rst:40
-msgid ""
-"A new SFTP user will be created for each virtual host. Default user "
-"credentials will be displayed inside the virtual host card."
-msgstr ""
-
-#: ../../nginx.rst:43
-msgid ""
-"You can now use the SFTPGo web interface, or a sFTP client, to upload "
-"files to your virtual host."
-msgstr ""
-
 #: ../../os_network.rst:5
 msgid "Node network setup"
 msgstr ""
@@ -4359,6 +4247,61 @@ msgstr ""
 
 #: ../../os_updates.rst:25
 msgid "For updates to core and modules, refer to :ref:`updates-section`."
+msgstr ""
+
+#: ../../prometheus.rst:7
+msgid "Prometheus"
+msgstr ""
+
+#: ../../prometheus.rst:9
+msgid "NethServer 8 uses a widely adopted monitoring stack composed by:"
+msgstr ""
+
+#: ../../prometheus.rst:11
+msgid ""
+"`Prometheus <https://prometheus.io/>`_ scrapes all metrics endpoint and "
+"stores them on a local disk"
+msgstr ""
+
+#: ../../prometheus.rst:12
+msgid ""
+"`Node exporter <https://prometheus.io/docs/guides/node-exporter/>`_ "
+"provides the node metrics endpoint"
+msgstr ""
+
+#: ../../prometheus.rst:13
+msgid "`Grafana <https://grafana.com/>`_ visualizes the collected metrics"
+msgstr ""
+
+#: ../../prometheus.rst:16
+msgid ""
+"You can install only one instance of **Prometheus**, usually on the "
+"leader node. Prometheus does not require any configuration and it will be"
+" exposed on a random URL. The URL is available on the Prometheus instance"
+" ``Status`` page. You can access it from the software center or from the "
+"application menu in the top-right corner."
+msgstr ""
+
+#: ../../prometheus.rst:21
+msgid ""
+"You should install the **node exporter** on each cluster node. To install"
+" it, access the :ref:`software_center-section` and look for the "
+"``node_exporter`` application. Each time a new node with the exporter is "
+"installed, Prometheus will automatically collect the node metrics."
+msgstr ""
+
+#: ../../prometheus.rst:25
+msgid ""
+"**Grafana** can be installed only on the leader node. After installation,"
+" you will need to configure the ``Host name`` with a valid FQDN to access"
+" the Grafana instance. Enable ``Let's Encrypt`` and ``HTTP to HTTPS`` "
+"options accordingly to your needs."
+msgstr ""
+
+#: ../../prometheus.rst:29
+msgid ""
+"Grafana will automatically display metrics from Prometheus and :ref:`Loki"
+" <loki-section>`."
 msgstr ""
 
 #: ../../proxy.rst:5
@@ -6643,6 +6586,63 @@ msgid ""
 "password must comply with the domain password policy during this process."
 " The list of applications where the new password is effective is "
 "displayed next to the password changing form."
+msgstr ""
+
+#: ../../webserver.rst:5
+msgid "WebServer"
+msgstr ""
+
+#: ../../webserver.rst:7
+msgid ""
+"This application installs the `Nginx <https://www.nginx.com/>`_ web "
+"server with `PHP <https://www.php.net/>`_ programming language and "
+"`SFTPGo <https://github.com/drakkan/sftpgo>`_ to upload files."
+msgstr ""
+
+#: ../../webserver.rst:11
+msgid ""
+"You can install multiple WebServer instances on the same node from the "
+":ref:`software_center-section`."
+msgstr ""
+
+#: ../../webserver.rst:18
+msgid ""
+"access the application ``Settings`` page and enter the path for SFTPGo, "
+"eg. ``/sftpgo``"
+msgstr ""
+
+#: ../../webserver.rst:19
+msgid "choose a public TCP port for the sFTP server"
+msgstr ""
+
+#: ../../webserver.rst:26
+msgid ""
+"The SFTPGo instance will be available at the "
+"``https://<server_fqn>/<path>``. Default credentials for ``Web Admin`` of"
+" SFTPGo are:"
+msgstr ""
+
+#: ../../webserver.rst:35
+msgid "Virtual hosts"
+msgstr ""
+
+#: ../../webserver.rst:37
+msgid ""
+"You can host multiple sites by creating a virtual host for each site "
+"inside the ``Virtual hosts`` page. To create a virtual host click on "
+":guilabel:`Create a virtual host` button."
+msgstr ""
+
+#: ../../webserver.rst:40
+msgid ""
+"A new SFTP user will be created for each virtual host. Default user "
+"credentials will be displayed inside the virtual host card."
+msgstr ""
+
+#: ../../webserver.rst:43
+msgid ""
+"You can now use the SFTPGo web interface, or a sFTP client, to upload "
+"files to your virtual host."
 msgstr ""
 
 #: ../../webtop.rst:5
@@ -10060,5 +10060,51 @@ msgstr ""
 #~ " server. DHCP and any other dynamic"
 #~ " IP discovery protocols are not "
 #~ "allowed."
+#~ msgstr ""
+
+#~ msgid "Metrics"
+#~ msgstr "Metriche"
+
+#~ msgid "NethServer 8 uses a widely adopted stack composed by:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Node exporter <https://prometheus.io/docs/guides/node-"
+#~ "exporter/>`_ gathers all system metrics "
+#~ "from nodes"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can install only one instance "
+#~ "of Prometheus, usually on the leader "
+#~ "node. Prometheus does not require any"
+#~ " configuration and it will be exposed"
+#~ " on a random URL. The URL is"
+#~ " available on the Prometheus instance "
+#~ "``Status`` page. You can access it "
+#~ "from the software center or from "
+#~ "the application menu in the top-"
+#~ "right corner."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You should install the node exporter "
+#~ "on each cluster node. To install "
+#~ "it, access the :ref:`software_center-section`"
+#~ " and look for the ``node_exporter`` "
+#~ "application. Each time a new node "
+#~ "with the exporter is installed, "
+#~ "Prometheus will automatically collect the "
+#~ "node metrics."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Grafana can be installed only on "
+#~ "the leader node. After installation, you"
+#~ " will need to configure the ``Host"
+#~ " name`` with a valid FQDN to "
+#~ "access the Grafana instance. Enable "
+#~ "``Let's Encrypt`` and ``HTTP to HTTPS``"
+#~ " options accordingly to your needs."
 #~ msgstr ""
 
