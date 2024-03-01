@@ -663,11 +663,12 @@ msgid ""
 "**leader node**."
 msgstr ""
 "Aggiungere e rimuovere i nodi potrebbe aumentare la necessità di cambiare il "
-"cluster **leader node**."
+"**nodo leader** del cluster."
 
 #: ../../cluster.rst:80
 msgid "A good leader node must be reachable by any other worker node."
 msgstr ""
+"Un buon nodo leader deve essere raggiungibile da ogni altro nodo worker."
 
 #: ../../cluster.rst:82
 msgid ""
@@ -675,36 +676,47 @@ msgid ""
 "properly resolve the leader host name and that must be the same for every "
 "worker node."
 msgstr ""
+"Se il DNS viene utilizzato per trovare l'indirizzo IP del leader, ogni nodo "
+"worker deve risolvere correttamente il nome host del leader e questo deve "
+"essere lo stesso per ogni nodo worker."
 
 #: ../../cluster.rst:86
 msgid ""
 "Depending on the current leader node state there are two possible procedures "
 "to promote a node to leader role:"
 msgstr ""
+"A seconda dello stato attuale del nodo leader ci sono due possibili "
+"procedure per promuovere un nodo al ruolo di leader:"
 
 #: ../../cluster.rst:89 ../../cluster.rst:100
 msgid "Reachable leader node"
-msgstr ""
+msgstr "Nodo leader raggiungibile"
 
 #: ../../cluster.rst:90 ../../cluster.rst:127
 msgid "Unreachable leader node"
-msgstr ""
+msgstr "Nodo leader irraggiungibile"
 
 #: ../../cluster.rst:92
 msgid ""
 "In any case, after leader promotion it is necessary to perform these "
 "additional tasks:"
 msgstr ""
+"In ogni caso, dopo la promozione del leader è necessario eseguire questi "
+"passi aggiuntivi:"
 
 #: ../../cluster.rst:94
 msgid ""
 "The cluster backup password must be set again. See also :ref:`cluster_backup-"
 "section`."
 msgstr ""
+"La password di backup del cluster deve essere impostata di nuovo. Vedere "
+"anche :ref:`cluster_backup-section`."
 
 #: ../../cluster.rst:97
 msgid "See also the note in :ref:`audit-trail-section` about node promotion."
 msgstr ""
+"Vedere anche la nota in :ref: `audit-trail-section` sulla promozione del "
+"nodo."
 
 #: ../../cluster.rst:102
 msgid ""
@@ -712,6 +724,9 @@ msgid ""
 "go to the three-dots menu of the node to promote and click on ``Promote to "
 "leader``."
 msgstr ""
+"Se l'attuale nodo leader funziona correttamente, accedere alla pagina "
+"``Nodes``, andare al menu a tre punti del nodo per promuovere e fare clic su "
+"``Promote al leader``."
 
 #: ../../cluster.rst:106
 msgid ""
