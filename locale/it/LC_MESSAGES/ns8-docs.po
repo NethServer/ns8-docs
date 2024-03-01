@@ -57,7 +57,7 @@ msgstr ""
 
 #: ../../backup.rst:21
 msgid "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
-msgstr ""
+msgstr "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
 
 #: ../../backup.rst:22
 msgid "`Amazon S3 <https://aws.amazon.com/s3/>`_"
@@ -68,6 +68,8 @@ msgid ""
 "`Azure blob storage <https://learn.microsoft.com/en-us/azure/storage/blobs/"
 "storage-blobs-introduction>`_"
 msgstr ""
+"`Azure blob storage <https://learn.microsoft.com/en-us/azure/storage/blobs/"
+"storage-blobs-introduction>`_"
 
 #: ../../backup.rst:24
 msgid "Generic S3, like :ref:`MinIO <minio-section>`"
@@ -359,7 +361,7 @@ msgstr ""
 
 #: ../../certificates.rst:12
 msgid "Let's Encrypt certificates"
-msgstr ""
+msgstr "Certificati Let's Encrypt"
 
 #: ../../certificates.rst:14
 msgid ""
@@ -371,6 +373,7 @@ msgstr ""
 msgid ""
 "Requesting Let's Encrypt is possible if the following requirements are met:"
 msgstr ""
+"Richiedi Let's Encrypt è possibile se i seguenti requisiti sono soddisfatti:"
 
 #: ../../certificates.rst:18
 msgid ""
@@ -397,6 +400,8 @@ msgid ""
 "If the above requirements are met, you can obtain a valid certificate for a "
 "domain by following these steps:"
 msgstr ""
+"Se i requisiti di cui sopra sono soddisfatti, è possibile ottenere un "
+"certificato valido per un dominio seguendo questi passaggi:"
 
 #: ../../certificates.rst:33
 msgid "access the ``Settings`` page and click the ``TLS certificates`` card"
@@ -447,7 +452,7 @@ msgstr ""
 
 #: ../../certificates.rst:58
 msgid "Custom certificates"
-msgstr ""
+msgstr "Certificati personalizzati"
 
 #: ../../certificates.rst:60
 msgid ""
@@ -455,6 +460,9 @@ msgid ""
 "can upload them to the cluster. You can follow this procedure to install the "
 "certificate:"
 msgstr ""
+"Se sei già in possesso di un certificato e della sua chiave privata, puoi "
+"caricarli sul cluster. È possibile seguire questa procedura per installare "
+"il certificato:"
 
 #: ../../certificates.rst:63
 msgid "access ``Settings`` page and click the ``TLS Certificates`` card"
@@ -462,19 +470,23 @@ msgstr ""
 
 #: ../../certificates.rst:64
 msgid "click on :guilabel:`Upload certificate`"
-msgstr ""
+msgstr "cliccare su :guilabel:`Upload certificate`"
 
 #: ../../certificates.rst:65
 msgid ""
 "once the modal is open, select the Traefik instance where the certificate "
 "will be installed to"
 msgstr ""
+"una volta aperta la modalità, selezionare l'istanza Traefik dove verrà "
+"installato il certificato"
 
 #: ../../certificates.rst:66
 msgid ""
 "upload the key file and the certificate file. They are checked on upload and "
 "if the key does not match the certificate, you receive an error"
 msgstr ""
+"caricare il file chiave e il file di certificato. Sono controllati su upload "
+"e se la chiave non corrisponde al certificato, si riceve un errore"
 
 #: ../../certificates.rst:67
 msgid "once selected the files for the upload, click on :guilabel:`Upload`"
