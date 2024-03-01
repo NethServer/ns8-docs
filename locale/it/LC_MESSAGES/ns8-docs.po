@@ -437,11 +437,12 @@ msgstr ""
 
 #: ../../certificates.rst:48
 msgid "the Traefik service is restarted, or"
-msgstr ""
+msgstr "il servizio Traefik è riavviato, o"
 
 #: ../../certificates.rst:49
 msgid "an HTTPS request that matches the certificate name is received."
 msgstr ""
+"una richiesta HTTPS che corrisponde al nome del certificato viene ricevuta."
 
 #: ../../certificates.rst:53
 msgid ""
@@ -449,6 +450,9 @@ msgid ""
 "not restart Traefik too often, to avoid incurring in Let's Encrypt rate "
 "limits."
 msgstr ""
+"Traefik memorizza il tempo dell'ultimo tentativo di rilascio di certificato "
+"in memoria. Non riavviare Traefik troppo spesso, per evitare di incorrere "
+"nei limiti di velocità Let's Encrypt."
 
 #: ../../certificates.rst:58
 msgid "Custom certificates"
@@ -755,6 +759,11 @@ msgid ""
 "port, which is ``55820``, should suffice, unless there is a network device "
 "between the leader and the workers mapping it to a different port number."
 msgstr ""
+"Confermare o inserire il numero ``VPN public UDP port``. Ogni nodo operaio "
+"collegherà il leader su quel numero di porta UDP. Nella maggior parte dei "
+"casi, la porta VPN predefinita, che è ``55820`, dovrebbe bastare, a meno che "
+"non vi sia un dispositivo di rete tra il leader e i lavoratori che lo "
+"mappano a un numero di porta diverso."
 
 #: ../../cluster.rst:115
 msgid ""
@@ -4804,6 +4813,14 @@ msgid ""
 "See the upgrade procedure for Samba and OpenLDAP in the next notes, and the :"
 "ref:`user-management-portal-section` page."
 msgstr ""
+"** Portale di gestione degli utenti** Gli utenti di un dominio possono ora "
+"accedere a una pagina web per modificare la propria password. Il portale "
+"dell'utente è disponibile su ``https://IP_OR_FQDN/users-admin/DOMAIN_NAME/`; "
+"un collegamento completo viene visualizzato nella pagina ``Domains e user``, "
+"sotto le impostazioni di configurazione del dominio. Le installazioni Beta 2 "
+"richiedono di eseguire una procedura manuale per abilitare il portale "
+"dell'utente. Vedere la procedura di aggiornamento per Samba e OpenLDAP nelle "
+"note successive, e la pagina: `user-management-portal-sezione` ."
 
 #: ../../release_notes.rst:82
 msgid ""
