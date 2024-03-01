@@ -44,5 +44,21 @@ After saving the configuration parameters NethVoice will be accessible on his ba
 * User: `admin`
 * Password: `Nethesis,1234`, default password if not has been reset during the first configuration wizard
 
+First configuration wizard
+==========================
 
+The initial configuration wizard facilitates the easy installation and setup of all NethVoice components.
+
+Extensions
+----------
+
+The first step in configuring NethVoice is associating users with their telephone extensions.
+
+You can manage users (create, update, reset passwords, delete) by accessing the dedicated section through the button :ref:`Link to the Portal <user-management-portal-section>`.
+
+Enter the corresponding extensions for each user:
+
+* Input the extension number (recommended starting from 200) in the text field.
+* Click on Insert.
+* The user is highlighted, and a green checkmark appears if everything has been successful.
 
