@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: NS8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-01 16:03+0000\n"
-"PO-Revision-Date: 2024-03-01 14:38+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"PO-Revision-Date: 2024-03-01 16:46+0000\n"
+"Last-Translator: Stefano <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -397,6 +397,8 @@ msgid ""
 "NethServer 8 can request valid `Let's Encrypt <https://letsencrypt.org/>`_ "
 "certificates using `traefik <https://traefik.io/>`_."
 msgstr ""
+"NethServer 8 può richiedere certificati validi `Let's Encrypt "
+"<https://letsencrypt.org/>`_ usando `traefik <https://traefik.io/>`_."
 
 #: ../../certificates.rst:16
 msgid ""
@@ -410,6 +412,9 @@ msgid ""
 "is open to the public Internet (you can check with sites like `CSM <http://"
 "www.canyouseeme.org/>`_)"
 msgstr ""
+"il server deve essere raggiungibile dall'esterno sulla porta 80. Assicurarsi "
+"che la vostra porta 80 sia aperto da Internet (puoi controllare con siti "
+"come `CSM <http://www.canyouseeme.org/> `_)"
 
 #: ../../certificates.rst:21
 msgid ""
@@ -419,6 +424,11 @@ msgid ""
 "plenty of sites like `VDNS <http://viewdns.info/>`_  to check if the DNS is "
 "correctly configured."
 msgstr ""
+"i domini per i quali si desidera il certificato devono essere nomi di "
+"dominio pubblici associati all'IP pubblico del proprio server. Assicurati di "
+"avere nomi DNS pubblici che puntano al tuo server sia per gli indirizzi IPv4 "
+"che IPv6. Ci sono molti siti come `VDNS <http://viewdns.info/>`_  per "
+"verificare se il DNS è configurato correttamente."
 
 #: ../../certificates.rst:29
 msgid "Wildcard certificates (i.e. ``*.nethserver.org``) are not supported."
@@ -1040,7 +1050,7 @@ msgstr ""
 
 #: ../../collabora.rst:5 ../../nextcloud.rst:60
 msgid "Collabora Online"
-msgstr ""
+msgstr "Collaborare online"
 
 #: ../../collabora.rst:7
 msgid ""
@@ -1049,6 +1059,11 @@ msgid ""
 "integrate in your own infrastructure. Please see the `official website "
 "<https://www.collaboraoffice.com/collabora-online/>`_."
 msgstr ""
+"Collabora Online è un potente ufficio online basato su LibreOffice che "
+"supporta tutti i principali formati di file di documento, foglio di calcolo "
+"e presentazione, che è possibile integrare nella propria infrastruttura. Si "
+"prega di consultare il sito ufficiale <https://www.collaboraoffice.com/"
+"collabora-online/> `_."
 
 #: ../../collabora.rst:12
 msgid ""
@@ -1182,11 +1197,11 @@ msgstr ""
 
 #: ../../crowdsec.rst:28
 msgid "IP and network which will never be blocked"
-msgstr ""
+msgstr "IP e rete che non saranno mai bloccati"
 
 #: ../../crowdsec.rst:30
 msgid "dynamic and static ban time"
-msgstr ""
+msgstr "tempo di divieto dinamico e statico"
 
 #: ../../crowdsec.rst:32
 msgid ""
@@ -1344,12 +1359,18 @@ msgid ""
 "number of free image pulls allowed in a given time window. After reaching "
 "this limit, you might need to wait or for more pulls."
 msgstr ""
+"Utenti autenticati: gli utenti registrati con account gratuiti hanno un "
+"certo numero di estrazioni gratuite consentite in una data finestra "
+"temporale. Dopo aver raggiunto questo limite, potrebbe essere necessario "
+"attendere o per ulteriori tirature."
 
 #: ../../dockerhub.rst:12
 msgid ""
 "If NethServer shares its public IP with other systems, it might encounter "
 "such rate limit."
 msgstr ""
+"Se NethServer condivide il suo IP pubblico con altri sistemi, potrebbe "
+"incontrare tale limite di velocità."
 
 #: ../../dockerhub.rst:14
 msgid ""
@@ -3591,7 +3612,7 @@ msgstr ""
 
 #: ../../migration.rst:63
 msgid "At the end of the application migration, the system will:"
-msgstr ""
+msgstr "Al termine della migrazione delle applicazioni, il sistema:"
 
 #: ../../migration.rst:65
 msgid "start the module inside NethServer 8"
@@ -3810,7 +3831,7 @@ msgstr ""
 
 #: ../../migration.rst:156
 msgid "POP3 connector"
-msgstr ""
+msgstr "Connettore POP3"
 
 #: ../../migration.rst:158
 msgid ""
@@ -3820,10 +3841,15 @@ msgid ""
 "using POP3, it is necessary to review the settings and commence "
 "synchronization manually."
 msgstr ""
+"La migrazione comporta il trasferimento delle impostazioni del connettore "
+"POP3 al modulo Imapsync di NS8, insieme all'applicazione Email. Le "
+"configurazioni di account che utilizzano il protocollo IMAP vengono tradotte "
+"in attività Imapsync. Per gli account che utilizzano POP3, è necessario "
+"rivedere le impostazioni e inizializzare la sincronizzazione manualmente."
 
 #: ../../migration.rst:165
 msgid "Manual HTTP routes"
-msgstr ""
+msgstr "Rotte HTTP manuali"
 
 #: ../../migration.rst:167
 msgid ""
@@ -3832,6 +3858,10 @@ msgid ""
 "WebTop installation was available at ``https://server.nethserver.org/"
 "webtop``."
 msgstr ""
+"In NethServer 7, la maggior parte delle applicazioni web erano accessibili "
+"utilizzando rotte in stile percorso. Per esempio, dato un server chiamato "
+"``server.nethserver.org`` l'installazione WebTop era disponibile presso "
+"``https://server.nethserver.org/webtop``."
 
 #: ../../migration.rst:171
 msgid ""
@@ -3839,6 +3869,9 @@ msgid ""
 "enter a FQDN so WebTop will be available on a URL like ``https://webtop."
 "nethserver.org``."
 msgstr ""
+"Dall'altra parte, quando l'applicazione viene migrata, verrà chiesto di "
+"inserire un FQDN in modo che WebTop sarà disponibile su un URL del tipo "
+"``https://webtop.nethserver.org``."
 
 #: ../../migration.rst:174
 msgid ""
@@ -3846,84 +3879,96 @@ msgid ""
 "also manually recreate the old HTTP routes from the :ref:`proxy page "
 "<traefik-section>`."
 msgstr ""
+"Se hai già migrato il record DNS FQDN al nuovo server, puoi anche ricreare "
+"manualmente i vecchi percorsi HTTP da:ref:`proxy page <traefik-section>`."
 
 #: ../../migration.rst:177
 msgid "Example for adding WebTop routes:"
-msgstr ""
+msgstr "Esempio per l'aggiunta di percorsi WebTop:"
 
 #: ../../migration.rst:179
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
-msgstr ""
+msgstr "aprire la sezione ``HTTP routes`` dalla pagina ``Impostazioni``"
 
 #: ../../migration.rst:180
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
 msgstr ""
+"cliccare sul nome dell'istanza WebTop, tipo ``webtop1``, una finestra di "
+"dialogo modale mostrerà i dettagli del percorso"
 
 #: ../../migration.rst:181
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
-msgstr ""
+msgstr "copiare il valore dal campo ``URL``, tipo ``http://127.0.0.1:20033``"
 
 #: ../../migration.rst:182
 msgid "click on the :guilabel:`Create route` button"
-msgstr ""
+msgstr "cliccare sul pulsante :guilabel: `Create route`"
 
 #: ../../migration.rst:183
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
 msgstr ""
+"scegliere un ``Name`` per la radice e selezionare il ``Node`` dove l'istanza "
+"WebTop è in esecuzione"
 
 #: ../../migration.rst:184
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
 msgstr ""
+"incollare il valore copiato prima (`http://127.0.0.1:20033``) dentro il "
+"campo ``URL``"
 
 #: ../../migration.rst:185
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
 msgstr ""
+"lasciare il campo ``Host`` vuoto e inserire ``/webtop`` all'interno del "
+"campo ``Path``"
 
 #: ../../migration.rst:186
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
-msgstr ""
+msgstr "ripetere i passaggi da 4 a 7 per tutti gli altri percorsi WebTop:"
 
 #: ../../migration.rst:188
 msgid "``/Microsoft-Server-ActiveSync``"
-msgstr ""
+msgstr "``/Microsoft-Server-ActiveSync ``"
 
 #: ../../migration.rst:189
 msgid "``/.well-known``"
-msgstr ""
+msgstr "``/.well-known``"
 
 #: ../../migration.rst:190
 msgid "``/webtop-dav``"
-msgstr ""
+msgstr "``/webtop-dav``"
 
 #: ../../migration.rst:193
 msgid "Configurations excluded from migration"
-msgstr ""
+msgstr "Configurazioni escluse dalla migrazione"
 
 #: ../../migration.rst:195
 msgid "The following configurations will not be migrated:"
-msgstr ""
+msgstr "Le seguenti configurazioni non verranno migrate:"
 
 #: ../../migration.rst:197
 msgid "custom templates"
-msgstr ""
+msgstr "template custom"
 
 #: ../../migration.rst:198
 msgid "SMTP mail relay rules"
-msgstr ""
+msgstr "Regole di relay di posta SMTP"
 
 #: ../../migration.rst:199
 msgid ""
 "account provider password policy settings (see :ref:`migrate-account-"
 "provider`)"
 msgstr ""
+"impostazioni della policy del provider di account password (vedere: `migrate-"
+"account-provider`)"
 
 #: ../../minio.rst:5
 msgid "MinIO"
@@ -5789,6 +5834,11 @@ msgid ""
 "available.  After running the core update, do an hard browser page reload "
 "with ``CTRL + Shift + R`` or any other equivalent method."
 msgstr ""
+"**Miglioramenti di sicurezza UI** -- Con la versione Beta 1 è stato "
+"rilasciato un importante aggiornamento di sicurezza, e altri miglioramenti "
+"di sicurezza sono ora disponibili. Dopo aver eseguito l'aggiornamento del "
+"core, ricaricare la pagina del browser con ``CTRL + Shift + R`` o altro "
+"metodo equivalente."
 
 #: ../../release_notes.rst:343
 msgid ""
@@ -5798,12 +5848,21 @@ msgid ""
 "core update, it is safe to uninstall Promtail core modules by running this "
 "command on the leader node: ::"
 msgstr ""
+"**Backend log migliorato** -- Il backend della pagina ``Log di sistema`` è "
+"stato migliorato per essere più veloce e accurato nella cattura dei log di "
+"ogni componente cluster. Il modulo core ora gestisce Promtail come servizio "
+"di sistema. Dopo aver eseguito l'aggiornamento del core, è possibile "
+"disinstallare i moduli di base di Promtail eseguendo questo comando sul nodo "
+"leader: ::"
 
 #: ../../release_notes.rst:351
 msgid ""
 "Note that the new Logs page cannot access old log entries. To see log "
 "entries before the Beta 2 upgrade, use the `logcli` command."
 msgstr ""
+"Attenzione: la nuova pagina dei log non può accedere alle vecchie voci di "
+"registro. Per visualizzare le voci di registro precedenti all'aggiornamento "
+"Beta 2, utilizzare il comando `logcli`."
 
 #: ../../release_notes.rst:354
 msgid ""
@@ -5812,12 +5871,18 @@ msgid ""
 "private key associated to it. See the section :ref:`certificate_manager-"
 "section`."
 msgstr ""
+"**Caricamento certificato TLS** -- Il menu ``Certificati TLS`` nella pagina "
+"``Impostazioni`` è stato esteso per consentire il caricamento di un "
+"certificato e della chiave privata ad esso associata. Si veda la sezione :ref"
+":`certificate_manager-section`."
 
 #: ../../release_notes.rst:359
 msgid ""
 "**Additional backup providers** -- Backup repositories can be created also "
 "on Microsoft Azure and S3-compatible cloud storage providers."
 msgstr ""
+"**Repositori di backup aggiuntivi** -- I repository di backup possono essere "
+"creati anche su cloud storage provider compatibili con Microsoft Azure e S3."
 
 #: ../../release_notes.rst:362
 msgid ""
@@ -5827,10 +5892,16 @@ msgid ""
 "directory. To improve Redis performance it is possible to disable a feature "
 "specific for Traefik with the following commands: ::"
 msgstr ""
+"**Nuova configurazione backend Traefik** -- Il cluster Redis DB non viene "
+"più utilizzato come backend di configurazione dinamica dalle istanze dei "
+"moduli Traefik. La configurazione Traefik è ora interamente memorizzata "
+"nella home directory del modulo. Per migliorare le prestazioni Redis è "
+"possibile disabilitare una funzione specifica per Traefik con i seguenti "
+"comandi: ::"
 
 #: ../../release_notes.rst:373
 msgid "**Mail module improvements**"
-msgstr ""
+msgstr "**Miglioramenti modulo mail**"
 
 #: ../../release_notes.rst:375
 msgid ""
@@ -5838,6 +5909,10 @@ msgid ""
 "by default. Existing installations will find the switch disabled. See also "
 "the section about :ref:`settings for mailboxes <mail-mailboxes-settings>`."
 msgstr ""
+"Le nuove installazioni del modulo Mail hanno l'opzione ``Shared visto`` "
+"abilitata per impostazione predefinita. Gli impianti esistenti troveranno "
+"l'interruttore disabilitato. Vedi anche la sezione relativa a :ref:`"
+"impostazioni caselle e-mail <mail-mailboxes-settings>`."
 
 #: ../../release_notes.rst:380
 msgid ""
@@ -5845,56 +5920,73 @@ msgid ""
 "(FTS) of email messages.  To massively rebuild the search indexes run the "
 "following command during system idle time: ::"
 msgstr ""
+"Aggiunto a Dovecot il plugin open source *Flatcurve* per abilitare la "
+"ricerca full-text (FTS) nei messaggi e-mail. Per ricostruire massicciamente "
+"gli indici di ricerca eseguire il seguente comando durante il tempo di "
+"inattività del sistema: ::"
 
 #: ../../release_notes.rst:386
 msgid ""
 "Only PDF attachments and the email itself are added to the index. In future "
 "releases more attachment formats will be supported."
 msgstr ""
+"Solo gli allegati PDF e l'e-mail stessa vengono aggiunti all'indice. In "
+"futuro saranno supportati più formati di allegati."
 
 #: ../../release_notes.rst:391
 msgid "Major changes on 2023-05-10"
-msgstr ""
+msgstr "Principali cambiamenti del 2023-05-10"
 
 #: ../../release_notes.rst:393
 msgid "**Beta 1**"
-msgstr ""
+msgstr "**Beta 1**"
 
 #: ../../release_notes.rst:395
 msgid "Main core features include:"
-msgstr ""
+msgstr "Le caratteristiche principali del core includono:"
 
 #: ../../release_notes.rst:397
 msgid "Node management: add and remove nodes from the system"
-msgstr ""
+msgstr "Gestione dei nodi: aggiunta e rimozione di nodi dal sistema"
 
 #: ../../release_notes.rst:398
 msgid "Centralized logging: collect all logs in one place for easy monitoring"
 msgstr ""
+"Centralizzazione log: raccolta di tutti i log in un unico posto per un "
+"monitoraggio semplificato"
 
 #: ../../release_notes.rst:399
 msgid ""
 "Configuration and data backups: regularly save cluster settings and "
 "application data to remote providers like Amazon S3 and Backblaze B2"
 msgstr ""
+"Backup configurazione e dati: salva regolarmente le impostazioni del cluster "
+"e i dati delle applicazioni in provider remoti come Amazon S3 e Backblaze B2"
 
 #: ../../release_notes.rst:400
 msgid ""
 "Authentication: support for both Active Directory and LDAP (RFC2307) user "
 "directories"
 msgstr ""
+"Autenticazione: supporto per le directory utente Active Directory e LDAP "
+"(RFC2307)"
 
 #: ../../release_notes.rst:401
 msgid ""
 "File server: implement an SMB (Server Message Block) file server that "
 "enables seamless integration with Windows-based networks"
 msgstr ""
+"File server: implementazione di un file server SMB (Server Message Block) "
+"che consente l'integrazione senza soluzione di continuità con le reti basate "
+"su Windows"
 
 #: ../../release_notes.rst:402
 msgid ""
 "Auditing: track changes made within the system to ensure security and "
 "accountability"
 msgstr ""
+"Auditing: tracciatura delle modifiche apportate all'interno del sistema per "
+"garantire sicurezza e responsabilità"
 
 #: ../../release_notes.rst:403
 msgid ""
@@ -7139,7 +7231,7 @@ msgstr ""
 
 #: ../../user_domains.rst:5
 msgid "User domains"
-msgstr ""
+msgstr "Domini utente"
 
 #: ../../user_domains.rst:7
 msgid ""
@@ -7147,6 +7239,10 @@ msgid ""
 "provider module**. Multiple modules can work together to serve the same LDAP "
 "database as replicas. An LDAP database represents an account **domain**."
 msgstr ""
+"Gli utenti e i gruppi vengono memorizzati in un database LDAP, servito da un "
+"modulo **account provider**. Molti moduli possono lavorare insieme per "
+"servire lo stesso database LDAP come repliche. Un database LDAP rappresenta "
+"un **dominio** di account."
 
 #: ../../user_domains.rst:12
 msgid ""
@@ -7154,16 +7250,21 @@ msgid ""
 "implementations. It is possible to configure and connect external LDAP "
 "services, too. Supported LDAP schemas are"
 msgstr ""
+"Il cluster NS8 può ospitare più domini di account locali di diverse "
+"implementazioni. È possibile configurare e collegare anche servizi LDAP "
+"esterni. Gli schemi LDAP supportati sono"
 
 #: ../../user_domains.rst:16
 msgid "Active Directory - `Samba <https://www.samba.org/>`_"
-msgstr ""
+msgstr "Active Directory - `Samba <https://www.samba.org/>`_"
 
 #: ../../user_domains.rst:17
 msgid ""
 "Unix attributes `RFC2307 <https://www.rfc-editor.org/rfc/rfc2307>`_ - "
 "`OpenLDAP <https://www.openldap.org/>`_"
 msgstr ""
+"Attributi Unix `RFC2307 <https://www.rfc-editor.org/rfc/rfc2307> `_ - `"
+"OpenLDAP <https://www.openldap.org/>`_"
 
 #: ../../user_domains.rst:19
 msgid ""
@@ -7175,41 +7276,56 @@ msgid ""
 "sharing protocol support is not required, an LDAP provider is the best "
 "choice."
 msgstr ""
+"Oltre a scegliere di collegare un provider esterno o installarne uno "
+"interno, l'amministratore deve decidere quale tipo di backend si adatta alle "
+"sue esigenze. L'applicazione *File server* può autenticare i client SMB/CIFS "
+"solo quando si utilizza un dominio Active Directory. D'altra parte, il "
+"provider OpenLDAP interno è più facile da installare e configurare. Alla "
+"fine, se il supporto del protocollo di condivisione dei file SMB non è "
+"richiesto, un provider LDAP è la scelta migliore."
 
 #: ../../user_domains.rst:28
 msgid ""
 "Also note that you can host multiple OpenLDAP instances on the same node, "
 "while you can install only one Samba instance per node."
 msgstr ""
+"Notare anche che è possibile ospitare più istanze OpenLDAP sullo stesso "
+"nodo, mentre è possibile installare solo un'istanza Samba per nodo."
 
 #: ../../user_domains.rst:34
 msgid "Active Directory"
-msgstr ""
+msgstr "Active Directory"
 
 #: ../../user_domains.rst:36
 msgid ""
 "To install a new user domain with a local Samba Active Directory as provider:"
 msgstr ""
+"Per installare un nuovo dominio utente con Samba Active Directory come "
+"provider locale:"
 
 #: ../../user_domains.rst:38 ../../user_domains.rst:109
 #: ../../user_domains.rst:160
 msgid "access the ``Domains and users`` page"
-msgstr ""
+msgstr "accedere alla pagina ``Domini e utenti`"
 
 #: ../../user_domains.rst:39 ../../user_domains.rst:110
 msgid "click on :guilabel:`Create domain` button and choose ``Internal``"
-msgstr ""
+msgstr "fare clic sul pulsante :guilabel:`Crea dominio` e scegliere ``Interno``"
 
 #: ../../user_domains.rst:40
 msgid ""
 "select ``Samba`` on the dialog box and click :guilabel:`Install provider`"
 msgstr ""
+"selezionare ``Samba`` nella finestra di dialogo e fare clic su :guilabel:`"
+"Installa provider`"
 
 #: ../../user_domains.rst:42 ../../user_domains.rst:113
 msgid ""
 "Once the provider is installed, you will be asked to enter the following "
 "parameters:"
 msgstr ""
+"Una volta installato il provider, verrà chiesto di inserire i seguenti "
+"parametri:"
 
 #: ../../user_domains.rst:44
 msgid ""
@@ -7217,6 +7333,10 @@ msgid ""
 "suffix of the new domain. The Domain Controller (DC) acts as an "
 "authoritative DNS server for that domain. If unsure, keep the proposed value."
 msgstr ""
+"``Dominio``: il dominio utente, che dovrebbe essere un FQDN valido. "
+"Definisce il suffisso DNS del nuovo dominio. Il Domain Controller (DC) funge "
+"da server DNS autoritativo per quel dominio. Se non si è sicuri, mantenere "
+"il valore proposto."
 
 #: ../../user_domains.rst:47
 msgid ""
@@ -7226,6 +7346,11 @@ msgid ""
 "older clients.  Maximum length is 15 ASCII characters. If unsure, keep the "
 "proposed value."
 msgstr ""
+"``NetBIOS domain``: un dominio `NetBIOS <https://en.wikipedia.org/wiki/"
+"NetBIOS>`_ valido (noto anche come \"domain short name\", \"NT domain name\")"
+", è l'identificatore di dominio Active Directory alternativo, compatibile "
+"con i client più datati. La lunghezza massima è di 15 caratteri ASCII. Se "
+"non si è sicuri, mantenere il valore proposto."
 
 #: ../../user_domains.rst:51
 msgid ""
@@ -7235,12 +7360,21 @@ msgid ""
 "is added to the ``Domain Admins`` group, whilst ``administrator`` user is "
 "disabled and a random password is set on it"
 msgstr ""
+"``Scegli il nome utente dell'amministratore di Samba`` e ``Scegli una "
+"password per l'utente amministratore di Samba``: impostare le credenziali "
+"iniziali dell'account amministrativo; è possibile utilizzare "
+"``administrator`` (default) o qualsiasi altro nome utente. In quest'ultimo "
+"caso, il nome utente specificato viene aggiunto al gruppo ``Domain Admins``, "
+"mentre l'utente ``administrator`` viene disabilitato e configurato con una "
+"password casuale"
 
 #: ../../user_domains.rst:57
 msgid ""
 "``Hostname``: the Domain Controller (DC) hostname. If unsure, keep the "
 "proposed value."
 msgstr ""
+"``Nome host`: il nome host del Domain Controller (DC). Se non si è sicuri, "
+"mantenere il valore proposto."
 
 #: ../../user_domains.rst:59
 msgid ""
@@ -7249,6 +7383,11 @@ msgid ""
 "the Active Directory domain can offer shared folders, authentication and DNS "
 "services. See :ref:`File server <file-server-section>` for more information."
 msgstr ""
+"``Provi le azioni di file e l'autenticazione ai client di Windows ``. Se "
+"abilitate le cartelle condivise DC sono accessibili dalla rete locale. Solo "
+"un DC del dominio Active Directory può offrire cartelle condivise, "
+"autenticazione e servizi DNS. Per ulteriori informazioni, consultare: `File "
+"server <file-server-sezione>`."
 
 #: ../../user_domains.rst:67
 msgid ""
@@ -9896,14 +10035,19 @@ msgid ""
 "this, right-click on the phonebook (or on the calendar), :guilabel:`Edit "
 "Category`:"
 msgstr ""
+"Per i libri di indirizzi CardDAV, così come per i calendari di CalDAV "
+"remoti, è possibile selezionare se eseguire una sincronizzazione completa o "
+"solo per le modifiche. Per fare questo, fare clic con il pulsante destro del "
+"mouse sulla rubrica (o sul calendario), :guilabel: ` Modifica Categoria`:"
 
 #: ../../webtop.rst:1016
 msgid "Select the desired mode next to the synchronization button:"
 msgstr ""
+"Selezionare la modalità desiderata accanto al pulsante di sincronizzazione:"
 
 #: ../../webtop.rst:1021
 msgid "User access and user session logs"
-msgstr ""
+msgstr "Accesso utente e log di sessione utenti"
 
 #: ../../webtop.rst:1023
 msgid ""
@@ -9912,6 +10056,10 @@ msgid ""
 "`Administration` menu, then :guilabel:`Domains` --> :guilabel:`NethServer` --"
 "> :guilabel:`Audit (domain)` --> :guilabel:`Access log`."
 msgstr ""
+"La tabella che mostra l'intero registro di accessi e sessioni per ogni "
+"utente è disponibile sotto il pannello di amministratore. Accedere al menu: "
+"`Amministrazione`, poi :guilabel:`Domini` --> :guilabel:`NethServer` --> "
+":guilabel:`Audit (dominio)` --> :guilabel:`Log accessi`."
 
 #: ../../webtop.rst:1026
 msgid ""
@@ -9919,6 +10067,9 @@ msgid ""
 "ID, user name, date and time, session duration, authentication status and "
 "any login errors."
 msgstr ""
+"Per ogni accesso, la tabella riporta i seguenti dati nelle colonne: ID "
+"sessione, nome utente, data e ora, durata della sessione, stato di "
+"autenticazione ed eventuali errori di login."
 
 #: ../../webtop.rst:1028
 msgid ""
@@ -9926,6 +10077,9 @@ msgid ""
 "on `ipstack <https://ipstack.com/>`_ and obtain the ``API KEY`` to insert in "
 "the configuration db."
 msgstr ""
+"È possibile abilitare la geolocalizzazione IP pubblica. In primo luogo, è "
+"necessario registrare un account su `ipstack <https://ipstack.com/>`_ e "
+"ottenere la ``API KEY`` da inserire nel db di configurazione."
 
 #: ../../webtop.rst:1030
 msgid ""
@@ -9933,24 +10087,29 @@ msgid ""
 "guilabel:`add` -> :guilabel:`com.sonicle.webtop.core (WebTop)` -> enter the "
 "following data in the fields :guilabel:`Key` e :guilabel:`Value` :"
 msgstr ""
+"Login al pannello di amministrazione -> :guilabel:`Proprietà (sistema)` -> "
+":guilabel:`aggiungi` -> :guilabel:`com.sonicle.webtop.core (WebTop)` -> "
+"inserire i seguenti dati nei campi :guilabel:`Chiave` e :guilabel:`Valore` :"
 
 #: ../../webtop.rst:1032
 msgid "``geolocation.provider`` = ``ipstack``"
-msgstr ""
+msgstr "``geolocation.provider`` = ``ipstack``"
 
 #: ../../webtop.rst:1033
 msgid "``geolocation.ipstack.apikey``  = ``<API KEY FROM PROVIDER>``"
-msgstr ""
+msgstr "``geolocation.ipstack.apikey`` = ``<API KEY FROM PROVIDER>``"
 
 #: ../../webtop.rst:1035
 msgid ""
 "Then, logout and a login again. To show the IP geolocation please click on "
 "the icon at the far right of the row:"
 msgstr ""
+"Poi, logout e un nuovo login. Per mostrare la geolocalizzazione IP cliccare "
+"sull'icona all'estrema destra della riga:"
 
 #: ../../webtop.rst:1039
 msgid "**Impersonate login**"
-msgstr ""
+msgstr "**Impersonate login**"
 
 #: ../../webtop.rst:1041
 msgid ""
@@ -9958,67 +10117,89 @@ msgid ""
 "shown in the access logs table. In order to also add this type of access, "
 "you need to add the following key for the core service:"
 msgstr ""
+"Per impostazione predefinita, i login effettuati tramite impersonate "
+"(``admin!<user>``) non vengono visualizzati nella tabella dei log di "
+"accesso. Per aggiungere anche questo tipo di accesso, è necessario "
+"aggiungere la seguente chiave per il servizio core:"
 
 #: ../../webtop.rst:1044
 msgid "``key`` = ``audit.logimpersonated``"
-msgstr ""
+msgstr "``chiave`` = ``audit.logimpersonated``"
 
 #: ../../webtop.rst:1045
 msgid "``value`` = ``true``"
-msgstr ""
+msgstr "``valore`` = ``true``"
 
 #: ../../webtop.rst:1048
 msgid "New device notification"
-msgstr ""
+msgstr "Nuova notifica del dispositivo"
 
 #: ../../webtop.rst:1050
 msgid ""
 "You can receive an email that notifies when a new device accesses the "
 "account for the first time."
 msgstr ""
+"È possibile ricevere una e-mail che avvisa quando un nuovo dispositivo "
+"accede all'account per la prima volta."
 
 #: ../../webtop.rst:1052
 msgid ""
 "By default, this feature is disabled for all users to avoid too many "
 "unintentional false positives on first login."
 msgstr ""
+"Per impostazione predefinita, per evitare troppi falsi positivi non "
+"intenzionali sul primo login, questa funzione è disabilitata per tutti gli "
+"utenti."
 
 #: ../../webtop.rst:1054
 msgid ""
 "You can `customize this feature <https://www.sonicle.com/docs/webtop5/core."
 "html#security-settings>`_ by accessing the administrator panel."
 msgstr ""
+"È possibile `personalizzare questa funzione <https://www.sonicle.com/docs/"
+"webtop5/core.html#security-settings>`_ accedendo al pannello di "
+"amministratore."
 
 #: ../../webtop.rst:1058
 msgid ""
 "Accesses made through impersonate (``admin!<user>``) will never send an "
 "email notification"
 msgstr ""
+"Per gli accessi effettuati tramite impersonate (``admin!<user>``) non "
+"verranno inviate notifiche via email"
 
 #: ../../webtop.rst:1061
 msgid "Maximum file size limit"
-msgstr ""
+msgstr "Limite massimo della dimensione del file"
 
 #: ../../webtop.rst:1063
 msgid "There are pre-configured limits related to the maximum file size:"
-msgstr ""
+msgstr "Ci sono limiti predefiniti relativi alla dimensione massima del file:"
 
 #: ../../webtop.rst:1065
 msgid "Maximum file size for chat uploads (internal default = 10 MB)"
 msgstr ""
+"Dimensione massima del file per gli upload di chat (impostazione predefinita "
+"interna = 10 MB)"
 
 #: ../../webtop.rst:1066
 msgid "Maximum file size single message attachment (internal default = 10 MB)"
 msgstr ""
+"Dimensione massima del singolo file allegato nel messaggio (impostazione "
+"predefinita interna = 10 MB)"
 
 #: ../../webtop.rst:1067
 msgid ""
 "Maximum file size for cloud internal uploads (internal default = 500 MB)"
 msgstr ""
+"Dimensione massima del file per caricamenti interni nel cloud (impostazione "
+"predefinita interna = 500 MB)"
 
 #: ../../webtop.rst:1068
 msgid "Maximum file size for cloud public uploads (internal default = 100 MB)"
 msgstr ""
+"Dimensione massima del file per gli upload pubblici nel cloud (impostazione "
+"predefinita interna = 100 MB)"
 
 #: ../../webtop.rst:1070
 msgid ""
@@ -10026,125 +10207,141 @@ msgid ""
 "added via the admin interface: :guilabel:`Properties (system) -> Add`. The "
 "value must be expressed in ``bytes``. Example: ``10MB = 10485760 bytes``."
 msgstr ""
+"Per modificare questi valori predefiniti per tutti gli utenti, le seguenti "
+"chiavi possono essere aggiunte tramite l'interfaccia di amministrazione: "
+":guilabel:`Proprietà (sistema) `-> `Aggiungi`. Il valore deve essere "
+"espresso in ``bytes``. Esempio: ``10MB = 10485760 bytes``."
 
 #: ../../webtop.rst:1073
 msgid "**Maximum file size for chat uploads**"
-msgstr ""
+msgstr "**Dimensione massima del file per gli upload delle chat**"
 
 #: ../../webtop.rst:1075
 msgid "Service: ``com.sonicle.webtop.core``"
-msgstr ""
+msgstr "Servizio: ``com.sonicle.webtop.core``"
 
 #: ../../webtop.rst:1076
 msgid "Key: ``im.upload.maxfilesize``"
-msgstr ""
+msgstr "Chiave: ``im.upload.maxfilesize``"
 
 #: ../../webtop.rst:1078
 msgid "**Maximum file size for single message attachment**"
-msgstr ""
+msgstr "**Dimensione massima del singolo file allegato nel messaggio**"
 
 #: ../../webtop.rst:1080
 msgid "Service: ``com.sonicle.webtop.mail``"
-msgstr ""
+msgstr "Servizio: ``com.sonicle.webtop.mail``"
 
 #: ../../webtop.rst:1081
 msgid "Key: ``attachment.maxfilesize``"
-msgstr ""
+msgstr "Chiave: ``attachment.maxfilesize``"
 
 #: ../../webtop.rst:1083
 msgid "**Maximum file size for cloud internal uploads**"
-msgstr ""
+msgstr "**Dimensione massima del file per caricamenti interni sul cloud**"
 
 #: ../../webtop.rst:1085 ../../webtop.rst:1090
 msgid "Service: ``com.sonicle.webtop.vfs``"
-msgstr ""
+msgstr "Servizio: ``com.sonicle.webtop.vfs``"
 
 #: ../../webtop.rst:1086
 msgid "Key: ``upload.private.maxfilesize``"
-msgstr ""
+msgstr "Chiave: ``upload.private.maxfilesize``"
 
 #: ../../webtop.rst:1088
 msgid "**Maximum file size for cloud public uploads**"
-msgstr ""
+msgstr "**Dimensione massima del file per gli upload pubblici sul cloud**"
 
 #: ../../webtop.rst:1091
 msgid "Key: ``upload.public.maxfilesize``"
-msgstr ""
+msgstr "Chiave: ``upload.public.maxfilesize``"
 
 #: ../../webtop.rst:1095
 msgid "Import contacts and calendars"
-msgstr ""
+msgstr "Importa contatti e calendari"
 
 #: ../../webtop.rst:1097
 msgid ""
 "WebTop supports importing contacts and calendars from various file formats."
 msgstr ""
+"WebTop supporta l'importazione di contatti e calendari da vari formati di "
+"file."
 
 #: ../../webtop.rst:1100
 msgid "Contacts"
-msgstr ""
+msgstr "Contatti"
 
 #: ../../webtop.rst:1102
 msgid "Supported contacts format:"
-msgstr ""
+msgstr "Formato di contatti supportati:"
 
 #: ../../webtop.rst:1104
 msgid "CSV  - Comma Separated values (\\*.txt, \\*.csv)"
-msgstr ""
+msgstr "CSV - Comma Valori separati (\\*.txt, \\*.csv)"
 
 #: ../../webtop.rst:1105
 msgid "Excel (\\.*xls, \\*.xlsx)"
-msgstr ""
+msgstr "Excel (\\.*xls, \\*.xlsx)"
 
 #: ../../webtop.rst:1106
 msgid "VCard (\\*.vcf, \\*.vcard)"
-msgstr ""
+msgstr "VCard (\\*.vcf, \\*.vcard)"
 
 #: ../../webtop.rst:1107
 msgid "LDIF (\\*.ldif)"
-msgstr ""
+msgstr "LDIF (\\*.ldif)"
 
 #: ../../webtop.rst:1110
 msgid "To import contacts:"
-msgstr ""
+msgstr "Per importare contatti:"
 
 #: ../../webtop.rst:1112
 msgid ""
 "right click on the target phone book, then select :guilabel:`Import contacts`"
 msgstr ""
+"cliccare a destra sulla rubrica, quindi selezionare :guilabel:`Importare "
+"contatti`"
 
 #: ../../webtop.rst:1116
 msgid ""
 "select the import format and make sure that the fields on the file match the "
 "ones available on WebTop"
 msgstr ""
+"selezionare il formato di importazione e assicurarsi che i campi sul file "
+"corrispondono a quelli disponibili su WebTop"
 
 #: ../../webtop.rst:1120
 msgid ""
 "If you are importing a phone book exported from Outlook, make sure to set :"
 "guilabel:`Text qualifier` to ``\"`` value."
 msgstr ""
+"Se si sta importando una rubrica esportata da Outlook, assicurarsi di "
+"impostare :guilabel:`Testo qualificante` come ``\"`` valore."
 
 #: ../../webtop.rst:1126
 msgid "Calendars"
-msgstr ""
+msgstr "Calendari"
 
 #: ../../webtop.rst:1128
 msgid "Supported calendar format: iCalendar (\\*.ics, \\*.ical, \\*.icalendar)"
 msgstr ""
+"Formati di calendario supportati: iCalendar (\\*.ics, \\*.ical, \\*."
+"icalendar)"
 
 #: ../../webtop.rst:1130
 msgid "To import events:"
-msgstr ""
+msgstr "Per importare eventi:"
 
 #: ../../webtop.rst:1132
 msgid ""
 "right click on the target calendar, then select :guilabel:`Import events`"
 msgstr ""
+"cliccare a destra sul calendario di destinazione, quindi selezionare "
+":guilabel:`Importa eventi`"
 
 #: ../../webtop.rst:1136
 msgid "select the import format"
-msgstr ""
+msgstr "selezionare il formato di importazione"
 
 #: ../../webtop.rst:1140
 msgid ""
@@ -10259,4 +10456,3 @@ msgstr ""
 #~ "<nethvoice_proxy-section>` already configured and"
 #~ " running."
 #~ msgstr ""
-
