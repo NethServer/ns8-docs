@@ -44,5 +44,67 @@ After saving the configuration parameters NethVoice will be accessible on his ba
 * User: `admin`
 * Password: `Nethesis,1234`, default password if not has been reset during the first configuration wizard
 
+First configuration wizard
+==========================
 
+The initial configuration wizard facilitates the easy installation and setup of all NethVoice components.
 
+Extensions
+----------
+
+The first step in configuring NethVoice is associating users with their telephone extensions.
+
+You can manage users (create, update, reset passwords, delete) by accessing the dedicated section through the button :ref:`Link to the Portal <user-management-portal-section>`.
+
+Enter the corresponding extensions for each user:
+
+* Input the extension number (recommended starting from 200) in the text field.
+* Click on Insert.
+* The user is highlighted, and a green checkmark appears if everything has been successful.
+
+Trunks
+======
+
+In the trunks section, you can configure gateways to manage physical lines or create VoIP trunks by specifying the credentials of SIP lines provided by the provider.
+
+Trunks, used to connect gateways or VoIP lines, are created using the PJSIP library.
+
+.. _fisici:
+
+Physical
+--------
+
+This section allows you to configure a SIP gateway among those supported.
+You need to enter:
+
+* ``Vendor``: gateway manufacturer
+* ``Model``: specify the gateway model
+* ``IP``: ip to be assigned to the device
+* ``Mac Address``: gateway identifier
+* ``Network Mask``: network subnet
+* ``Network Gateway``: network gateway
+* ``PBX IP``: NethVoice IP
+
+Dynamic settings based on the model:
+
+* ``ISDN`` (Specify if the line is Point-to-Point or Point-to-Multipoint)
+* ``PRI``
+* ``FXS`` (Specify for each port, the extension to be assigned by choosing a user previously configured)
+* ``FXO`` (Specify the number directly in the text field)
+
+Once the settings are saved, you can download the configuration file to upload to the device through its interface.
+
+VoIP
+----
+
+You can create VoIP trunks by selecting one of the supported providers and entering the necessary information.
+
+* ``Provider``: choose the provider to use 
+* ``Trunk Name``: specify name of the trunk
+* ``Username``: username given by the provider
+* ``Password``: password given by the provider
+* ``Phone Number``: phone number given by the provider
+* ``Allowed codec``: permitted codec
+* ``Force codec``: allow only permitted codec
+
+Press :guilabel:`Save` to create the configuration for that VoIP trunk.
