@@ -3337,38 +3337,44 @@ msgid ""
 "Migration is the process to convert a NethServer 7 machine (*source*) into a "
 "NethServer 8 (*destination*)."
 msgstr ""
-"La migrazione è il processo per convertire una macchina NethServer 7 "
-"(*source*) in un NethServer 8 (*destination*)."
+"La migrazione è il processo di conversione di una macchina NethServer 7 "
+"(*source*) in una NethServer 8 (*destination*)."
 
 #: ../../migration.rst:11
 msgid "Before starting you will need:"
-msgstr ""
+msgstr "Prima di iniziare avrete bisogno di:"
 
 #: ../../migration.rst:13
 msgid "SSH and Cockpit access to the source NethServer 7 machine"
-msgstr ""
+msgstr "Accesso SSH e Cockpit alla macchina NethServer 7 sorgente"
 
 #: ../../migration.rst:14
 msgid ""
 "a new server containing a :ref:`freshly installed NethServer 8 cluster "
 "<install-section>`"
 msgstr ""
+"un nuovo server contenente una:ref:`freshly installed NethServer 8 cluster "
+"<install-section>`"
 
 #: ../../migration.rst:16
 msgid "Also make sure that"
-msgstr ""
+msgstr "Assicurarsi anche"
 
 #: ../../migration.rst:18
 msgid ""
 "if the source is connected to an external account provider, such account "
 "provider is reachable also from the destination"
 msgstr ""
+"se la macchina sorgente è collegata a un account provider esterno, questo "
+"account provider deve essere raggiungibile anche dalla macchina destinazione"
 
 #: ../../migration.rst:20
 msgid ""
 "you have access to your authoritative DNS server: you will need to change "
 "some DNS records after the migration of each application"
 msgstr ""
+"di aver accesso al server DNS autorevole: dovrete cambiare alcuni record DNS "
+"dopo la migrazione di ogni applicazione"
 
 #: ../../migration.rst:23
 msgid ""
