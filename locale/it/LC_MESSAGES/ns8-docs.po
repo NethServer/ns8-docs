@@ -3518,12 +3518,21 @@ msgid ""
 "synchronization. If the NethServer 8 cluster is composed by 2 or more nodes, "
 "you will be asked to select a destination node."
 msgstr ""
+"L'interfaccia web visualizzerà l'elenco di tutte le applicazioni installate "
+"all'interno di NethServer 7. Scegliere un'applicazione e cliccare sul "
+"pulsante:guilabel: `Start migration`. In questa fase il processo di "
+"migrazione installerà l'applicazione nel cluster NethServer 8 e inizierà la "
+"prima sincronizzazione dei dati. Se il cluster NethServer 8 è composto da 2 "
+"o più nodi, verrà chiesto di selezionare un nodo di destinazione."
 
 #: ../../migration.rst:53
 msgid ""
 "You can now click the :guilabel:`Sync data` button multiple time to keep in "
 "sync the application data between NethServer 7 and NethServer 8."
 msgstr ""
+"Ora è possibile fare clic sul pulsante :guilabel: `Sync data` più volte per "
+"mantenere in sincronizzazione i dati dell'applicazione tra NethServer 7 e "
+"NethServer 8."
 
 #: ../../migration.rst:56
 msgid ""
@@ -3535,6 +3544,13 @@ msgid ""
 "configure :ref:`custom HTTP routes <migrated_routes-section>` for the "
 "migrated applications."
 msgstr ""
+"Quando pronto per la migrazione finale, fai clic sul pulsante: `Finish "
+"migration`. Se l'applicazione migrata richiede parametri aggiuntivi, il "
+"sistema visualizzerà una finestra di dialogo prima di procedere. Si prega di "
+"notare che la maggior parte delle applicazioni web avrà bisogno di un FQDN "
+"(virtual host) dedicato dopo la migrazione. Assicurarsi che il record DNS "
+"punti al nodo NS8. È anche possibile configurare :ref: `custom HTTP routes "
+"<migrated_routes-section>` per le applicazioni migrate."
 
 #: ../../migration.rst:63
 msgid "At the end of the application migration, the system will:"
@@ -3542,11 +3558,11 @@ msgstr ""
 
 #: ../../migration.rst:65
 msgid "start the module inside NethServer 8"
-msgstr ""
+msgstr "avvia il modulo in NethServer 8"
 
 #: ../../migration.rst:66
 msgid "disable the application inside NethServer 7"
-msgstr ""
+msgstr "disabilita l'applicazione in NethServer 7"
 
 #: ../../migration.rst:68
 msgid ""
@@ -3554,11 +3570,13 @@ msgid ""
 "application will still be able to access the provider running on NethServer "
 "7 using the cluster VPN."
 msgstr ""
+"Se l'applicazione migrata è stata collegata a un account provider locale, "
+"l'applicazione sarà ancora in grado di accedere al provider in esecuzione su "
+"NethServer 7 utilizzando la VPN del cluster."
 
 #: ../../migration.rst:73
-#, fuzzy
 msgid "Logs"
-msgstr "LOGIN"
+msgstr "Log"
 
 #: ../../migration.rst:75
 msgid ""
