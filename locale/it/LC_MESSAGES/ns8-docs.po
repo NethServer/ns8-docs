@@ -7632,43 +7632,51 @@ msgid ""
 "insert the ``URL`` (``https://<server_name>``), full username (i.e. "
 "*goofy@nethserver.org*) and password"
 msgstr ""
-"inserire il ``URL`` (`https://ιserver_name>`), nome utente completo (cioè "
+"inserire ``URL`` (`https://<server_name>`), nome utente completo (es: "
 "*goofy@nethserver.org*) e password"
 
 #: ../../webtop.rst:261
 msgid ""
 "click on the new profile and select the resources you want to synchronize"
-msgstr ""
+msgstr "clicca sul nuovo profilo e seleziona le risorse che vuoi sincronizzare"
 
 #: ../../webtop.rst:266
 msgid "CalDAV/CardDAV support is built-in on iOS, so to configure it:"
 msgstr ""
+"Il supporto CalDAV/CardDAV è integrato e nativo su iOS, quindi per "
+"configurarlo:"
 
 #: ../../webtop.rst:268
 msgid ""
 "go to :guilabel:`Settings` -> :guilabel:`Account and Password` -> :guilabel:"
 "`Add account`"
 msgstr ""
+"andare su :guilabel:`Impostazioni` -> :guilabel:`Account e Password` - > "
+"`Aggiungi account`"
 
 #: ../../webtop.rst:269
 msgid ""
 "select :guilabel:`Other` -> Add :guilabel:`CalDAV` or :guilabel:`CardDAV` "
 "account"
 msgstr ""
+"selezionare :guilabel:`Altro` -> Aggiungi :guilabel:`CalDAV` o :guilabel:"
+"`CardDAV` account"
 
 #: ../../webtop.rst:270
 msgid ""
 "insert the server name (i.e. *server.nethserver.org*), full username (i.e. "
 "*goofy@nethserver.org*) and password"
 msgstr ""
+"inserire il nome del server (es: *server.nethserver.org*), il nome utente "
+"completo (es: *goofy@nethserver.org*) e la password"
 
 #: ../../webtop.rst:273
 msgid "Desktop clients"
-msgstr ""
+msgstr "Client desktop"
 
 #: ../../webtop.rst:275
 msgid "**Thunderbird**"
-msgstr ""
+msgstr "**Thunderbird**"
 
 #: ../../webtop.rst:277
 msgid ""
@@ -7676,19 +7684,24 @@ msgid ""
 "the contacts with CardDAV you need a third-party add-on like `Cardbook "
 "<https://addons.thunderbird.net/it/thunderbird/addon/cardbook/>`_."
 msgstr ""
+"Thunderbird include già il supporto per i calendari CalDAV. Per "
+"sincronizzare i contatti con CardDAV è necessario un add-on di terze parti "
+"come `Cardbook <https://addons.thunderbird.net/it/thunderbird/addon/cardbook/"
+"> `_."
 
 #: ../../webtop.rst:280
 msgid "**Outlook**"
-msgstr ""
+msgstr "**Outlook**"
 
 #: ../../webtop.rst:282
 msgid ""
 "The Open Source `CalDAV Synchronizer <https://caldavsynchronizer.org/>`_ "
 "plugin for Outlook supports both CardDAV and CalDAV."
 msgstr ""
+"Il plugin Open Source `CalDAV Synchronizer <https://caldavsynchronizer.org/> "
+"`_ per Outlook supporta sia CardDAV che CalDAV."
 
 #: ../../webtop.rst:286
-#, fuzzy
 msgid ""
 "Webtop is a **client-less groupware**: its functionalities are fully "
 "available **only using the web interface**!"
@@ -7701,10 +7714,12 @@ msgid ""
 "The use of CalDAV/CardDAV through third-party clients **cannot be considered "
 "a web interface alternative**."
 msgstr ""
+"L'uso di CalDAV/CardDAV attraverso clienti di terze parti **non può essere "
+"considerato un'alternativa all'interfaccia web**."
 
 #: ../../webtop.rst:292
 msgid "Sharing email"
-msgstr ""
+msgstr "Condivisione e-mail"
 
 #: ../../webtop.rst:294
 msgid ""
@@ -7712,60 +7727,76 @@ msgid ""
 "subfolders. Select the folder to share -> right click -> :guilabel:`Manage "
 "sharing`:"
 msgstr ""
+"È possibile condividere una singola cartella o l'intero account con tutte le "
+"sottocartelle. Selezionare la cartella da condividere -> click destro -> :"
+"guilabel:`Gestisci condivisione`:"
 
 #: ../../webtop.rst:299
 msgid "select the user to share the resource (1)"
-msgstr ""
+msgstr "selezionare l'utente per condividere la risorsa (1)"
 
 #: ../../webtop.rst:300
 msgid ""
 "select if you want to share your identity with the user and even to force "
 "your signature (2)"
 msgstr ""
+"selezionare se si desidera condividere la propria identità con l'utente e "
+"anche forzare la firma (2)"
 
 #: ../../webtop.rst:301
 msgid "choose the level of permissions associated with this share (3)"
-msgstr ""
+msgstr "scegliere il livello di autorizzazioni associate a questa quota (3)"
 
 #: ../../webtop.rst:302
 msgid "if you need to further change permissions, select ``Advanced`` (4)"
 msgstr ""
+"se è necessario modificare ulteriormente le autorizzazioni, selezionare "
+"``Avanzate`` (4)"
 
 #: ../../webtop.rst:303
 msgid ""
 "finally, choose whether to apply sharing only to the folder from which you "
 "started, or only to the branch of subfolders or to the entire account (5)"
 msgstr ""
+"infine, scegliere se applicare la condivisione solo alla cartella da cui hai "
+"iniziato, o solo al ramo delle sottocartelle o all'intero account (5)"
 
 #: ../../webtop.rst:309
 msgid ""
 "The :guilabel:`Force mailcard` option can be used only if the mailcard has "
 "been associated to the mail address."
 msgstr ""
+"L'opzione: `Forza firma` può essere utilizzata solo se la firma è stata "
+"associata all'indirizzo di posta."
 
 #: ../../webtop.rst:312
 msgid "Sharing calendars and contacts"
-msgstr ""
+msgstr "Condivisione calendari e contatti"
 
 #: ../../webtop.rst:315
 msgid "Sharing Calendar"
-msgstr ""
+msgstr "Condivisione Calendari"
 
 #: ../../webtop.rst:317
 msgid ""
 "You can share each personal calendar individually. Select the calendar to "
 "share -> right click -> :guilabel:`Sharing and permissions`:"
 msgstr ""
+"Puoi condividere ogni calendario personale singolarmente. Selezionare il "
+"calendario da condividere -> click destro -> :guilabel: `Condivisione e "
+"permessi`:"
 
 #: ../../webtop.rst:322
 msgid ""
 "Select the recipient user of the share (or Group) and enable permissions for "
 "both the folder and the individual items:"
 msgstr ""
+"Selezionare l'utente destinatario della condivisione (o Gruppo) e abilitare "
+"le autorizzazioni sia per la cartella che per i singoli elementi:"
 
 #: ../../webtop.rst:327
 msgid "Sharing Contacts"
-msgstr ""
+msgstr "Condivisione Contatti"
 
 #: ../../webtop.rst:329
 msgid ""
