@@ -563,12 +563,19 @@ msgid ""
 "and users`` page, for each domain follow the ``N providers`` link to see the "
 "node where a provider replica is installed on, then remove it."
 msgstr ""
+"I nodi worker possono essere rimossi dal cluster. Prima di rimuovere un nodo "
+"worker, assicurarsi che nessuna replica di account provider sia su di esso "
+"in esecuzione. Nella pagina ``Domini e utenti``, per ogni dominio seguire il "
+"link ``N provider`` per vedere in quale nodo è installata la replica, quindi "
+"rimuoverla."
 
 #: ../../cluster.rst:54
 msgid ""
 "If the node is not reachable, or is not responding, the provider replica "
 "removal must be completed manually after the node removal."
 msgstr ""
+"Se il nodo non è raggiungibile, o non risponde, la rimozione della replica "
+"del provider deve essere completata manualmente dopo la rimozione del nodo."
 
 #: ../../cluster.rst:57
 msgid ""
