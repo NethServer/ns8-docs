@@ -5387,10 +5387,16 @@ msgid ""
 "properly resolve the fully qualified domain name of the system (FQDN). For "
 "example ::"
 msgstr ""
+"**Requisiti FQDN** -- La procedura di creazione del cluster richiede ora di "
+"rivedere e impostare il nome host del sistema. Il nome host deve essere "
+"fornito in forma breve (una sola parola, senza suffisso di dominio). La "
+"procedura richiede anche il suffisso di dominio e manipola il file ``/etc/"
+"hosts`` aggiungendo un record per risolvere correttamente il fully qualified "
+"domain name (FQDN). Per esempio:"
 
 #: ../../release_notes.rst:273
 msgid "See also :ref:`dns-reqs`."
-msgstr ""
+msgstr "Vedi anche :ref:`dns-reqs`."
 
 #: ../../release_notes.rst:275
 msgid ""
@@ -5400,12 +5406,20 @@ msgid ""
 "2. For example if the custom port is ``55821`` run on the leader node the "
 "following steps to fix it."
 msgstr ""
+"**Porta WireGuard 55820** -- La porta UDP utilizzata da WireGuard nella "
+"creazione del cluster VPN è ora fissata a ``55820``. La configurazione dei "
+"cluster già creati con un numero di porta personalizzato dovrà essere "
+"corretta manualmente prima di aggiornare il core a Beta 2. Ad esempio, se la "
+"porta personalizzata è ``55821`` eseguire sul nodo leader i seguenti "
+"passaggi per risolvere il problema."
 
 #: ../../release_notes.rst:281
 msgid ""
 "Fix the VPN public endpoint address in Redis. For example, if the leader "
 "node is ``1`` and its FQDN is ``node1.example.org`` ::"
 msgstr ""
+"Risolvere l'indirizzo di endpoint pubblico VPN in Redis. Ad esempio, se il "
+"nodo leader è ``1``` e la sua FQDN è ``node1.example.org`:"
 
 #: ../../release_notes.rst:286
 msgid "Fix the firewall configuration ::"
