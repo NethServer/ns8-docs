@@ -905,7 +905,7 @@ msgstr ""
 #: ../../nextcloud.rst:34 ../../roundcube.rst:35 ../../sogo.rst:52
 #: ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
-msgstr "cliccare sul tasto: `Save`"
+msgstr "cliccare sul pulsante :guilabel:`Save`"
 
 #: ../../collabora.rst:30
 msgid ""
@@ -6690,7 +6690,7 @@ msgid ""
 "You can install multiple WebTop instances on the same node from the :ref:"
 "`software_center-section`."
 msgstr ""
-"È possibile installare più istanze WebTop sullo stesso nodo dal:ref: "
+"È possibile installare più istanze WebTop sullo stesso nodo dal :ref:"
 "`software_center-section`."
 
 #: ../../webtop.rst:14
@@ -6699,7 +6699,7 @@ msgid ""
 "org``."
 msgstr ""
 "WebTop ha bisogno di un host virtuale dedicato, un FQDN come ``webtop."
-"nethserver.org`."
+"nethserver.org``."
 
 #: ../../webtop.rst:21
 msgid ""
@@ -6707,24 +6707,26 @@ msgid ""
 "``WebTop virtual host`` field"
 msgstr ""
 "accedere alla pagina di configurazione dell'applicazione e inserire un FQDN "
-"valido all'interno del campo ``WebTop virtual host``"
+"valido all'interno del campo ``Host virtuale WebTop (FQDN)``"
 
 #: ../../webtop.rst:22
 msgid "enable ``Request Let's Encrypt certificate``"
-msgstr "abilitare ``Request Let's Encrypt certificate``"
+msgstr "abilitare ``Richiedi certificato Let's Encrypt``"
 
 #: ../../webtop.rst:23
 msgid "bind the WebTop instance to an existing ``Mail server``"
-msgstr "collegare l'istanza WebTop ad un server ``Mail` esistente"
+msgstr "collegare l'istanza WebTop ad un ``Mail server`` esistente"
 
 #: ../../webtop.rst:24
 msgid "select the ``Default locale`` and the ``Default timezone``"
-msgstr "selezionare il ``Default locale` e il ``Default timezone``"
+msgstr ""
+"selezionare la ``Localizzazione predefinita`` e il ``Fuso orario "
+"predefinito``"
 
 #: ../../webtop.rst:27
 msgid "Inside the ``Advanced`` section, you can also configure:"
 msgstr ""
-"All'interno della sezione ``Advanced``, è inoltre possibile configurare:"
+"All'interno della sezione ``Avanzate``, è inoltre possibile configurare:"
 
 #: ../../webtop.rst:29
 msgid "the debug mode"
@@ -6747,36 +6749,40 @@ msgid ""
 "Always use the full user name format ``<user>@<domain>`` for login to the "
 "web application and Active Sync."
 msgstr ""
+"Utilizzare sempre il formato completo del nome utente ``<user>@ <domain>`` "
+"per accedere all'applicazione web e Active Sync."
 
 #: ../../webtop.rst:39 ../../webtop.rst:74
 msgid "**Example**"
-msgstr ""
+msgstr "**Esempio**"
 
 #: ../../webtop.rst:41 ../../webtop.rst:76
 msgid "Server name: mymail.mightydomain.com"
-msgstr ""
+msgstr "Nome del server: mymail.mightydomain.com"
 
 #: ../../webtop.rst:42
 msgid "Alternative mail domain: baddomain.net"
-msgstr ""
+msgstr "Posta alternativa dominio: baddomain.net"
 
 #: ../../webtop.rst:43
 msgid "User: goofy"
-msgstr ""
+msgstr "Utente: goofy"
 
 #: ../../webtop.rst:44
 msgid "Login: goofy@mightydomain.com"
-msgstr ""
+msgstr "Login: goofy@mightydomain.com"
 
 #: ../../webtop.rst:47
 msgid ""
 "Active Sync protocol is supported only on Android and iOS devices. Outlook "
 "is not supported."
 msgstr ""
+"Il protocollo Active Sync è supportato solo su dispositivi Android e iOS. "
+"Outlook non è supportato."
 
 #: ../../webtop.rst:54
 msgid "Admin user"
-msgstr ""
+msgstr "Utente amministratore"
 
 #: ../../webtop.rst:56
 msgid ""
