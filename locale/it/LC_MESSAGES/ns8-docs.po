@@ -2260,6 +2260,10 @@ msgid ""
 "flexibility allows for efficient resource utilization and scalability based "
 "on the organization's needs."
 msgstr ""
+"Una delle sue caratteristiche chiave è la capacità di ospitare diverse "
+"applicazioni su una singola macchina o distribuire il carico di lavoro su "
+"più nodi. Questa flessibilità consente un utilizzo efficiente delle risorse "
+"e una scalabilità basate sulle esigenze dell'organizzazione."
 
 #: ../../introduction.rst:19
 msgid ""
@@ -3913,18 +3917,24 @@ msgid ""
 "NethVoice Proxy allows you to manage all incoming and outgoing SIP and RTP "
 "connections."
 msgstr ""
+"NethVoice Proxy consente di gestire tutte le connessioni SIP e RTP in "
+"entrata e in uscita."
 
 #: ../../nethvoice_proxy.rst:14
 msgid ""
 "The proxy will be used by :ref:`NethVoice <nethvoice-section>` instances "
 "that must be installed after this proxy is up and running."
 msgstr ""
+"Il proxy sarà utilizzato da:ref: `NethVoice <nethvoice-sezione> ` istanze "
+"che devono essere installate dopo che questo proxy è in funzione."
 
 #: ../../nethvoice_proxy.rst:16
 msgid ""
 "You can install only one NethVoice Proxy per node from the :ref:"
 "`software_center-section`."
 msgstr ""
+"È possibile installare solo un NethVoice Proxy per nodo dal:ref: "
+"`software_center-section`."
 
 #: ../../nethvoice_proxy.rst:21
 msgid ""
@@ -3932,22 +3942,30 @@ msgid ""
 "this virtual host may be dedicated or shared with the one used in a :ref:"
 "`NethVoice <nethvoice-section>` application."
 msgstr ""
+"NethVoice Proxy ha bisogno di un host virtuale, un FQDN come ``proxy."
+"nethserver.org`, questo host virtuale può essere dedicato o condiviso con "
+"quello utilizzato in un:ref: `NethVoice <nethvoice-section>` applicazione."
 
 #: ../../nethvoice_proxy.rst:25
 msgid ""
 "If you are planning to use a Let's Encrypt certificate as default, make also "
 "sure to have the corresponding public DNS record."
 msgstr ""
+"Se si sta progettando di utilizzare un certificato Let's Encrypt come "
+"predefinito, assicurarsi anche di avere il corrispondente record pubblico "
+"DNS."
 
 #: ../../nethvoice_proxy.rst:29
 msgid ""
 "access the application configuration page and enter a valid FQDN inside "
 "``Proxy Domain`` field"
 msgstr ""
+"accedere alla pagina di configurazione dell'applicazione e inserire un FQDN "
+"valido all'interno del campo ``Proxy Domain`"
 
 #: ../../nethvoice_proxy.rst:30
 msgid "insert the IPv4/IPv6 address that will receive VoIP traffic"
-msgstr ""
+msgstr "inserire l'indirizzo IPv4/IPv6 che riceverà il traffico VoIP"
 
 #: ../../nethvoice_proxy.rst:32
 msgid ""
