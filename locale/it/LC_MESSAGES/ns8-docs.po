@@ -198,8 +198,8 @@ msgid ""
 "After the first backup run, the backup status is reported under ``Backup > "
 "Schedules > See details``."
 msgstr ""
-"Dopo la prima esecuzione di backup, lo stato di backup viene segnalato sotto "
-"``Backup > Piani > Vedi i dettagli ``."
+"Dopo la prima esecuzione di un backup, lo stato del backup viene mostrato "
+"sotto ``Backup > Piani > Vedi i dettagli ``."
 
 #: ../../backup.rst:92
 msgid "Application restore"
@@ -252,6 +252,9 @@ msgid ""
 "ref:`disaster_recovery-section`. It is a compressed JSON file encrypted with "
 "GPG."
 msgstr ""
+"Il backup della configurazione del cluster contiene tutti i dati necessari "
+"per eseguire un :ref: `disaster_recovery-section`. È un file JSON compresso "
+"crittografato con GPG."
 
 #: ../../backup.rst:110
 msgid ""
@@ -259,6 +262,10 @@ msgid ""
 "set and stored in a safe place. A new encryption password is needed also "
 "after a new leader node is elected (see :ref:`node-promotion-section`)."
 msgstr ""
+"La prima volta ``Backup``` pagina è accessibile una password di crittografia "
+"deve essere impostata e memorizzata in un luogo sicuro. Una nuova password "
+"di crittografia è necessaria anche dopo l'elezione di un nuovo nodo leader "
+"(vedere :ref: `node-promotion-section`)."
 
 #: ../../backup.rst:114
 msgid ""
