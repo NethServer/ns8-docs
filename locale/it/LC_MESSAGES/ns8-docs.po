@@ -61,7 +61,7 @@ msgstr ""
 
 #: ../../backup.rst:22
 msgid "`Amazon S3 <https://aws.amazon.com/s3/>`_"
-msgstr ""
+msgstr "`Amazon S3 <https://aws.amazon.com/s3/>`_"
 
 #: ../../backup.rst:23
 msgid ""
@@ -206,13 +206,15 @@ msgstr ""
 
 #: ../../backup.rst:96
 msgid "click on the :guilabel:`Restore an app` button."
-msgstr "cliccare sul:guilabel: `Ripristina un pulsante app`."
+msgstr "cliccare sul bottone :guilabel:`Restore an app`."
 
 #: ../../backup.rst:97
 msgid ""
 "a dialog box will list all applications inside the existing backup, select "
 "the application you want to restore"
 msgstr ""
+"una finestra di dialogo elenca tutte le applicazioni all'interno del backup "
+"esistente, selezionare l'applicazione che si desidera ripristinare"
 
 #: ../../backup.rst:98
 msgid ""
@@ -222,15 +224,15 @@ msgstr ""
 
 #: ../../backup.rst:99
 msgid "select the target node"
-msgstr ""
+msgstr "selezionare il nodo di destinazione"
 
 #: ../../backup.rst:100
 msgid "click on the :guilabel:`Restore` button"
-msgstr ""
+msgstr "cliccare sul tasto: `Restore`"
 
 #: ../../backup.rst:105
 msgid "Cluster backup"
-msgstr ""
+msgstr "Cluster backup"
 
 #: ../../backup.rst:107
 msgid ""
@@ -258,6 +260,8 @@ msgid ""
 "Please, download the cluster configuration backup and keep it on a safe "
 "place."
 msgstr ""
+"Si prega di scaricare il backup di configurazione cluster e tenerlo in un "
+"luogo sicuro."
 
 #: ../../backup.rst:119
 msgid ""
@@ -266,6 +270,11 @@ msgid ""
 "that the repository holds up-to-date backups of both your data and the "
 "specific cluster setup, including all its configurations."
 msgstr ""
+"Inoltre, il backup di configurazione del cluster viene copiato "
+"automaticamente nel repository designato ogni volta che si verifica "
+"un'operazione pianificata. Questo assicura che il repository detiene backup "
+"aggiornati sia dei dati che della configurazione specifica del cluster, "
+"incluse tutte le sue configurazioni."
 
 #: ../../backup.rst:123
 msgid ""
@@ -273,6 +282,9 @@ msgid ""
 "applications to another cluster only if you know the encryption password of "
 "the backup repository."
 msgstr ""
+"Nel caso in cui si perde il backup di configurazione, è ancora possibile "
+"ripristinare le applicazioni in un altro cluster solo se si conosce la "
+"password di crittografia del repository di backup."
 
 #: ../../backup.rst:128
 msgid ""
@@ -296,20 +308,24 @@ msgid ""
 ":ref:`install <install-section>` a new cluster and login using default "
 "credentials"
 msgstr ""
+":ref:`install <install-section>` un nuovo cluster e login utilizzando le "
+"credenziali di default"
 
 #: ../../backup.rst:142
 msgid "change the default administrator password"
-msgstr ""
+msgstr "modificare la password di amministratore predefinito"
 
 #: ../../backup.rst:143
 msgid "click on :guilabel:`Restore cluster`"
-msgstr ""
+msgstr "clicca su :guilabel:`Restore cluster`"
 
 #: ../../backup.rst:144
 msgid ""
 "you can now choose whether to restore a cluster configuration hosted on a "
 "remote HTTP server or upload the backup from your browser"
 msgstr ""
+"è ora possibile scegliere se ripristinare una configurazione di cluster "
+"ospitata su un server HTTP remoto o caricare il backup dal browser"
 
 #: ../../backup.rst:146
 msgid ""
@@ -320,11 +336,11 @@ msgstr ""
 
 #: ../../backup.rst:148
 msgid "select the applications to restore"
-msgstr ""
+msgstr "selezionare le applicazioni da ripristinare"
 
 #: ../../certificates.rst:5
 msgid "TLS certificates"
-msgstr ""
+msgstr "Certificati TLS"
 
 #: ../../certificates.rst:7
 msgid ""
@@ -334,6 +350,12 @@ msgid ""
 "uses a default self-signed certificate for all TLS services, including the "
 "Web user interface."
 msgstr ""
+"Un certificato SSL/TLS è un oggetto digitale rilasciato da un'Autorità di "
+"certificazione (CA). Il certificato viene utilizzato per verificare "
+"l'identità di un host e per stabilire canali di comunicazione crittografati. "
+"Al momento dell'installazione, NethServer 8 utilizza un certificato "
+"autofirmato predefinito per tutti i servizi TLS, inclusa l'interfaccia "
+"utente Web."
 
 #: ../../certificates.rst:12
 msgid "Let's Encrypt certificates"
