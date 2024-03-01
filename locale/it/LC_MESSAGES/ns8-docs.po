@@ -446,6 +446,10 @@ msgid ""
 "update propagation is slower than expected.  In both cases Traefik retries "
 "to obtain the certificate at a later time when:"
 msgstr ""
+"I guasti possono verificarsi se il record DNS non è configurato "
+"correttamente, o la propagazione dell'aggiornamento DNS è più lenta del "
+"previsto. In entrambi i casi Traefik si ritira per ottenere il certificato "
+"in un secondo momento quando:"
 
 #: ../../certificates.rst:48
 msgid "the Traefik service is restarted, or"
