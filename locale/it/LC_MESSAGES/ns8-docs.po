@@ -7231,12 +7231,12 @@ msgid ""
 "Mobile devices can be synchronized using ActiveSync. :index:`ActiveSync` can "
 "be used only for **contacts** and **calendars**."
 msgstr ""
-"I dispositivi mobili possono essere sincronizzati con ActiveSync. :index: "
-"`Active Sync` può essere utilizzato solo per **contacts** e **calendars**."
+"I dispositivi mobili possono essere sincronizzati con ActiveSync. :index:"
+"`Active Sync` può essere utilizzato solo per **contatti** e **calendari**."
 
 #: ../../webtop.rst:155 ../../webtop.rst:264
 msgid "Apple iOS"
-msgstr ""
+msgstr "Apple iOS"
 
 #: ../../webtop.rst:157
 msgid ""
@@ -7244,40 +7244,50 @@ msgid ""
 "account following the `official guide <https://support.apple.com/en-us/"
 "HT201729>`_."
 msgstr ""
+"Accedi al tuo :index:`iOS device`, naviga su Impostazioni e aggiungi un "
+"account Exchange seguendo la `guida ufficiale <https://support.apple.com/en-"
+"us/HT201729>`_."
 
 #: ../../webtop.rst:159 ../../webtop.rst:177
 msgid "Fill the required fields with:"
-msgstr ""
+msgstr "Compila i campi richiesti con:"
 
 #: ../../webtop.rst:161
 msgid "**E-mail**: add your mail address, eg: goofy@nethserver.org"
 msgstr ""
+"**E-mail**: aggiungi il tuo indirizzo email, ad esempio: goofy@nethserver.org"
 
 #: ../../webtop.rst:162
 msgid "**Server**: add your server public name, eg: mail.nethserver.org"
 msgstr ""
+"**Server**: aggiungi il nome pubblico del tuo server, ad esempio: mail."
+"nethserver.org"
 
 #: ../../webtop.rst:163
 msgid "**Domain**: leave blank"
-msgstr ""
+msgstr "**Domain**: lasciare vuoto"
 
 #: ../../webtop.rst:164 ../../webtop.rst:179
 msgid "**User name**: enter your full user name, eg: goofy@nethserver.org"
 msgstr ""
+"** Nome utente**: inserisci il tuo nome utente completo di dominio, ad "
+"esempio: goofy@nethserver.org"
 
 #: ../../webtop.rst:165 ../../webtop.rst:180 ../../webtop.rst:241
 msgid "**Password**: enter your password"
-msgstr ""
+msgstr "**Password**: inserire la password"
 
 #: ../../webtop.rst:169
 msgid ""
 "iOS devices require a valid SSL certificate on the server. See :ref:"
 "`certificate_manager-section`"
 msgstr ""
+"i dispositivi iOS richiedono un certificato SSL valido sul server. Vedi :ref:"
+"`certificate_manager-section`"
 
 #: ../../webtop.rst:173 ../../webtop.rst:254
 msgid "Google Android"
-msgstr ""
+msgstr "Google Android"
 
 #: ../../webtop.rst:175
 msgid ""
@@ -7285,6 +7295,9 @@ msgid ""
 "guilabel:`Add account` -> :guilabel:`Exchange` (or `Company` for older "
 "releases)."
 msgstr ""
+"Accedi al tuo :index:`Android device`, naviga nelle Impostazioni, quindi "
+"seleziona :guilabel:`Aggiungi account` -> :guilabel:`Exchange` (o "
+"`Aziendale` per le versioni precedenti)."
 
 #: ../../webtop.rst:182
 msgid ""
@@ -7293,6 +7306,10 @@ msgid ""
 "a self-signed certificate on your server, make sure to select :guilabel:`SSL/"
 "TLS (accept all certificates)` option."
 msgstr ""
+"Quindi selezionare:guilabel: `Configurazione manuale` e modificare il nome "
+"del campo *Server* di conseguenza al nome pubblico del server. Infine, se "
+"hai un certificato autofirmato sul tuo server, assicurati di selezionare "
+"l'opzione :guilabel: `SSL/TLS (accetta tutti i certificati)` ."
 
 #: ../../webtop.rst:188
 msgid ""
