@@ -101,10 +101,12 @@ msgid ""
 "If you want to store backup data in a locally attached storage, like an "
 "external USB disk or similar, follow this procedure:"
 msgstr ""
+"Se si desidera memorizzare i dati di backup in uno storage collegato "
+"localmente, come un disco USB esterno o simile, seguire questa procedura:"
 
 #: ../../backup.rst:42
 msgid "Format the disk with a supported filesystem, for example XFS: ::"
-msgstr ""
+msgstr "Formattare il disco con un filesystem supportato, ad esempio XFS::"
 
 #: ../../backup.rst:46
 msgid "Create a Podman volume named ``backup00`` for it: ::"
@@ -4632,6 +4634,9 @@ msgid ""
 "The default Cockpit configuration forbids ``root`` access: log in as a "
 "member of the ``wheel`` group, then enter the \"administrative access\" mode."
 msgstr ""
+"La configurazione Cockpit predefinita proibisce l'accesso ``root```: "
+"accedere come membro del gruppo ``wheel```, quindi immettere la modalità "
+"\"accesso amministrativo\"."
 
 #: ../../release_notes.rst:49
 msgid "Known issues:"
