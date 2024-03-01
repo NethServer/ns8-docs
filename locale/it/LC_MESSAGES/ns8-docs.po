@@ -951,19 +951,21 @@ msgid ""
 "system command-line shell as ``root`` (e.g. by the system recovery console "
 "or SSH), run the following command to disable 2FA and reset the password:"
 msgstr ""
-"Se sei bloccato dall'interfaccia utente web e puoi ancora accedere a una "
-"shell di riga di comando del sistema come ``root`` (ad esempio dalla console "
-"di ripristino del sistema o SSH), eseguire il seguente comando per "
-"disabilitare 2FA e ripristinare la password:"
+"Se sei bloccato fuori dall'interfaccia utente web e puoi ancora accedere ad "
+"un terminale come ``root`` (ad esempio dalla console di ripristino del "
+"sistema o SSH), eseguire il seguente comando per disabilitare 2FA e "
+"ripristinare la password:"
 
 #: ../../cluster.rst:196
 msgid ""
 "Replace the ``admin`` and ``Nethesis,1234`` default credentials as needed."
 msgstr ""
+"Sostituisci le credenziali ``admin`` e ``Nethesis,1234`` predefinite come "
+"necessario."
 
 #: ../../cluster.rst:202
 msgid "Audit trail"
-msgstr ""
+msgstr "Audit log"
 
 #: ../../cluster.rst:204
 msgid ""
@@ -971,24 +973,29 @@ msgid ""
 "executed by any other administrator. Each event of the audit trail contains "
 "at least:"
 msgstr ""
+"All'interno della pagina del percorso di audit, gli amministratori di "
+"cluster possono ispezionare tutte le azioni eseguite da qualsiasi altro "
+"amministratore. Ogni evento del percorso di audit contiene almeno:"
 
 #: ../../cluster.rst:207
 msgid "date and time of the action"
-msgstr ""
+msgstr "data e ora dell'azione"
 
 #: ../../cluster.rst:208
 msgid "user name of the cluster administrator"
-msgstr ""
+msgstr "nome utente dell'amministratore del cluster"
 
 #: ../../cluster.rst:209
 msgid "name of the action"
-msgstr ""
+msgstr "nome dell'azione"
 
 #: ../../cluster.rst:211
 msgid ""
 "Audit trail events can be filtered by user, date, action type, and custom "
 "text match."
 msgstr ""
+"Gli eventi del log di audit possono essere filtrati per utente, data, tipo "
+"di azione e corrispondenza di testo personalizzata."
 
 #: ../../cluster.rst:215
 msgid ""
@@ -996,6 +1003,10 @@ msgid ""
 "`new leader promotion <node-promotion-section>` the audit trail information "
 "in the old leader is no longer accessible."
 msgstr ""
+"Le informazioni del log di audit vengono memorizzate nel disco del nodo "
+"leader. In caso di :rif:`promozione di un nuovo leader <node-promotion-"
+"section>` le informazioni del log di audit nel vecchio leader non sono più "
+"accessibili."
 
 #: ../../collabora.rst:5 ../../nextcloud.rst:60
 msgid "Collabora Online"
