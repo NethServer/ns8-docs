@@ -807,15 +807,18 @@ msgid ""
 "by enabling SSH, console or Cockpit **terminal root access** to the nodes."
 msgstr ""
 "Se il nodo leader attuale non è raggiungibile, è necessario eseguire un "
-"comando su qualsiasi altro nodo lavoratore. Preparatevi in anticipo per "
-"questa situazione consentendo a SSH, console o Cockpit **l'accesso alla "
-"radice terminal** ai nodi."
+"comando su qualsiasi altro nodo worker. Prepararsi in anticipo per questa "
+"situazione consentendo l'accesso ai nodi con un **terminale di root**, "
+"mediante SSH, console o Cockpit."
 
 #: ../../cluster.rst:134
 msgid ""
 "For example, to promote node with ID ``3``, VPN endpoint ``node3.example."
 "com`` UDP port ``55820``, run the following command on every worker node: ::"
 msgstr ""
+"Ad esempio, per promuovere il nodo con ID ``3``, VPN endpoint ``node3."
+"example.com``, porta UDP ``55820``, eseguire il seguente comando su ogni "
+"nodo worker: ::"
 
 #: ../../cluster.rst:143 ../../ejabberd.rst:82
 msgid "Administrators"
