@@ -9828,11 +9828,11 @@ msgstr ""
 
 #: ../../webtop.rst:1146
 msgid "Mail composer customization"
-msgstr ""
+msgstr "Personalizzazione del compositore di posta"
 
 #: ../../webtop.rst:1149
 msgid "Hide auto-suggested recipient in lookups"
-msgstr ""
+msgstr "Nascondere il destinatario auto suggerito"
 
 #: ../../webtop.rst:1151
 msgid ""
@@ -9842,14 +9842,19 @@ msgid ""
 "data in the :guilabel:`Key` and :guilabel:`Value` fields according to the "
 "key to be configured:"
 msgstr ""
+"È possibile disabilitare il suggerimento degli indirizzi salvati "
+"automaticamente. Accedere al pannello di amministrazione web -> :guilabel:"
+"`Proprietà (sistema)` -> :guilabel:`Aggiungi` ->, selezionare :guilabel:`com."
+"sonicle.webtop.core (WebTop)` e inserire i dati in :guilabel:`Chiave` e :"
+"guilabel:`Valore` secondo la chiave da configurare:"
 
 #: ../../webtop.rst:1155
 msgid "``recipient.provider.auto.enabled`` = false  (default is true)"
-msgstr ""
+msgstr "``recipient.provider.auto.enabled`` = false (default is true)"
 
 #: ../../webtop.rst:1158
 msgid "Edit subject of a mail and save it"
-msgstr ""
+msgstr "Modificare oggetto di una mail e salvare"
 
 #: ../../webtop.rst:1160
 msgid ""
@@ -9859,6 +9864,11 @@ msgid ""
 "enter the data in the :guilabel:`Key` and :guilabel:`Value` fields according "
 "to the key to be configured:"
 msgstr ""
+"Per consentire la modifica dell'oggetto sulle e-mail ricevute o inviate, "
+"accedere al pannello di amministrazione web -> :guilabel:`Proprietà "
+"(sistema)` -> :guilabel:`Aggiungi` -> selezionare :guilabel:`com.sonicle."
+"webtop.mail (Mail)` e inserire i dati nel :guilabel:`Chiave` e :guilabel: "
+"`Valore` campi secondo la chiave da configurare:"
 
 #: ../../webtop.rst:1162
 msgid "``message.edit.subject`` = true  (default is false)"
