@@ -5,17 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version:  NS8\n"
+"Project-Id-Version: NS8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-01 15:42+0000\n"
-"PO-Revision-Date: 2024-03-01 14:38+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
-"Language: it\n"
+"PO-Revision-Date: 2024-03-01 16:02+0000\n"
+"Last-Translator: Nicola Rauso <nicola.rauso@nethesis.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
 "Generated-By: Babel 2.14.0\n"
 
 #: ../../backup.rst:5
@@ -5425,26 +5426,28 @@ msgid ""
 "Fix the VPN public endpoint address in Redis. For example, if the leader "
 "node is ``1`` and its FQDN is ``node1.example.org`` ::"
 msgstr ""
-"Risolvere l'indirizzo di endpoint pubblico VPN in Redis. Ad esempio, se il "
-"nodo leader è ``1``` e la sua FQDN è ``node1.example.org`:"
+"Correggere l'indirizzo di endpoint pubblico VPN in Redis. Ad esempio, se il "
+"nodo leader è ``1`` e il suo FQDN è ``node1.example.org``::"
 
 #: ../../release_notes.rst:286
 msgid "Fix the firewall configuration ::"
-msgstr ""
+msgstr "Correggere la configurazione del firewall ::"
 
 #: ../../release_notes.rst:292
 msgid "Change the running WireGuard listen port ::"
-msgstr ""
+msgstr "Modificare la porta di ascolto dell'istanza WireGuard in esecuzione ::"
 
 #: ../../release_notes.rst:296
 msgid ""
 "Make the change permanent, by setting ``ListenPort = 55820`` in ``/etc/"
 "wireguard/wg0.conf`` ::"
 msgstr ""
+"Rendere le modifiche permanenti, impostando ``ListenPort = 55820`` nel file "
+"``/etc/wireguard/wg0.conf`` ::"
 
 #: ../../release_notes.rst:301
 msgid "Repeat steps 2-4 on each worker node, too."
-msgstr ""
+msgstr "Ripetere i passi da 2 a 4 anche su ogni nodo worker."
 
 #: ../../release_notes.rst:303
 msgid ""
@@ -5452,12 +5455,18 @@ msgid ""
 "Debian 11 (Bullseye) must be manually upgraded to distribution version 12 "
 "(Bookworm).  ::"
 msgstr ""
+"**Aggiornamento Debian** -- Dopo aver eseguito l'aggiornamento del core, le "
+"installazioni basate su Debian 11 (Bullseye) devono essere aggiornate "
+"manualmente alla versione di distribuzione 12 (Bookworm) ::"
 
 #: ../../release_notes.rst:311
 msgid ""
 "Follow also the instructions for Python 3.11 upgrade, then **reboot the "
 "system**. Apply the same procedure for each cluster node."
 msgstr ""
+"Seguire le istruzioni per aggiornare Python alla versione 3.11, poi **"
+"riavviare il sistema**. Applicare la stessa procedura per ogni nodo del "
+"cluster."
 
 #: ../../release_notes.rst:314
 msgid ""
@@ -5465,20 +5474,25 @@ msgid ""
 "Rocky Linux (and other EL-like distributions) must manually install Python "
 "3.11: ::"
 msgstr ""
+"**Python 3.11** -- Dopo aver eseguito l'aggiornamento del core, le "
+"installazioni basate su Rocky Linux (e altre distribuzioni EL-like) devono "
+"installare manualmente Python 3.11: ::"
 
 #: ../../release_notes.rst:320
 msgid ""
 "The following Bash script is required by Debian, too. Do not forget the "
 "round brackets! ::"
 msgstr ""
+"Debian necessita anche l'esecuzione del seguente script Bash. Non "
+"tralasciare le parentesi tonde! ::"
 
 #: ../../release_notes.rst:332
 msgid "Check if the Python upgrade was successfull: ::"
-msgstr ""
+msgstr "Controllare se l'aggiornamento Python ha avuto successo: ::"
 
 #: ../../release_notes.rst:336 ../../release_notes.rst:371
 msgid "Apply the same procedure for each cluster node."
-msgstr ""
+msgstr "Applicare la stessa procedura per ogni nodo del cluster."
 
 #: ../../release_notes.rst:338
 msgid ""
