@@ -1041,9 +1041,9 @@ msgid ""
 "When running multiple containers the disk usage will grow quite fast and you "
 "could quickly run out of space."
 msgstr ""
-"NethServer 8 utilizza `podman <https://podman.io/>`_ per gestire contenitori "
-"OCI. Quando si esegue più contenitori l'utilizzo del disco crescerà "
-"abbastanza veloce e si potrebbe rapidamente esaurire lo spazio."
+"NethServer 8 utilizza `podman <https://podman.io/>`_ per gestire i container "
+"OCI. Quando si eseguono più container, l'utilizzo del disco crescerà "
+"abbastanza velocemente e si potrebbe rapidamente esaurire lo spazio."
 
 #: ../../disk_usage.rst:10
 msgid ""
@@ -1051,6 +1051,10 @@ msgid ""
 "So if you plan to run many services on the same host, consider mounting an "
 "extra disk or partition at the ``/home`` path."
 msgstr ""
+"I contenitori senza radici mettono i loro dati all'interno della directory "
+"``/home` dell'utente. Quindi, se si prevede di eseguire molti servizi sullo "
+"stesso host, prendere in considerazione il montaggio di un disco "
+"supplementare o partizione sul percorso ``/home`."
 
 #: ../../disk_usage.rst:13
 msgid ""
