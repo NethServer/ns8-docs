@@ -1126,18 +1126,20 @@ msgid ""
 "There is another growing directory ``/var/lib/nethserver``: it contains the "
 "user interface and actions of rootful modules."
 msgstr ""
-"C'è un'altra directory in crescita ``/var/lib/nethserver``: contiene "
-"l'interfaccia utente e le azioni dei moduli rootful."
+"C'è un'altra directory che tende a crescere ``/var/lib/nethserver``: "
+"contiene l'interfaccia utente e le azioni dei moduli rootful."
 
 #: ../../disk_usage.rst:22
 msgid "Add more space"
-msgstr ""
+msgstr "Aggiungere più spazio"
 
 #: ../../disk_usage.rst:24
 msgid ""
 "If you’re running out of disk space, consider expanding the ``/home`` "
 "filesystem."
 msgstr ""
+"Se stai esaurendo lo spazio su disco, considera di espandere il filesystem "
+"``/home``."
 
 #: ../../disk_usage.rst:26
 msgid ""
@@ -1145,16 +1147,22 @@ msgid ""
 "distribution installation. On the other hand, on a virtual machine you could "
 "easily expand the whole root filesystem."
 msgstr ""
+"Su una macchina fisica, l'opzione migliore è quella di impostare LVM durante "
+"l'installazione della distribuzione. D'altra parte, su una macchina virtuale "
+"si potrebbe facilmente espandere l'intero filesystem root."
 
 #: ../../disk_usage.rst:29
 msgid ""
 "If you can't do any of the above, consider adding a new disk and migrating "
 "existing data using the script below. The script will:"
 msgstr ""
+"Se non è possibile nessuna delle suddette azioni, si può prendere in "
+"considerazione l'aggiunta di un nuovo disco e la migrazione dei dati "
+"esistenti utilizzando lo script qui sotto. Lo script:"
 
 #: ../../disk_usage.rst:32
 msgid "stop all rootless containers"
-msgstr ""
+msgstr "fermare tutti i contenitori senza radici"
 
 #: ../../disk_usage.rst:33
 msgid "copy all rootless containers inside the new disk"
