@@ -36,17 +36,24 @@ msgid "Backup repository"
 msgstr "Repository di backup"
 
 #: ../../backup.rst:15
+#, fuzzy
 msgid ""
 "First, you will need to configure a backup repository where the data will be "
 "saved. A backup repository keeps all backup data encrypted using `restic "
 "<https://restic.readthedocs.io>`_ engine."
 msgstr ""
+"In primo luogo, è necessario configurare un repository di backup in cui i "
+"dati verranno salvati. Un repository di backup mantiene tutti i dati di "
+"backup crittografati utilizzando il motore `restic <https://restic."
+"readthedocs.io> `_."
 
 #: ../../backup.rst:18
 msgid ""
 "Access the ``Backup`` page, click on :guilabel:`Add repository` button and "
 "choose a provider. Currently supported providers are:"
 msgstr ""
+"Accedi alla pagina ``Backup``, clicca sul pulsante :guilabel:` Add "
+"repository` e scegli un provider. Attualmente i fornitori supportati sono:"
 
 #: ../../backup.rst:21
 msgid "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
@@ -64,7 +71,7 @@ msgstr ""
 
 #: ../../backup.rst:24
 msgid "Generic S3, like :ref:`MinIO <minio-section>`"
-msgstr ""
+msgstr "S3 generico come :ref:`MinIO <minio-section>`"
 
 #: ../../backup.rst:25
 msgid "Windows file share, through SMB2/3 protocols"
