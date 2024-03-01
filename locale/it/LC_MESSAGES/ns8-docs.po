@@ -2553,8 +2553,8 @@ msgid ""
 "The mail module requires at least one :ref:`user domain <user-domains-"
 "section>` already configured."
 msgstr ""
-"Il modulo di posta richiede almeno uno :ref: `dominio utente <user-domini-"
-"sezione> ` già configurato."
+"Il modulo di posta richiede almeno uno :ref:`user domain <user-domains-"
+"section> ` già configurato."
 
 #: ../../mail.rst:38 ../../nethvoice.rst:33
 msgid "The first configuration wizard will require the following information:"
@@ -2567,40 +2567,53 @@ msgid ""
 "``Mail server hostname``: insert the mail server name, this should be the "
 "same name configured inside your MX DNS record"
 msgstr ""
+"``Mail server hostname``: inserire il nome del server di posta, questo "
+"dovrebbe essere lo stesso nome configurato all'interno del record MX DNS"
 
 #: ../../mail.rst:42
 msgid ""
 "``Primary mail domain``: insert the mail domain, like ``nethserver.org``; "
 "you will be able to add more domains later"
 msgstr ""
+"``Primary mail domain``: inserire il dominio della posta, come ``nethserver."
+"org``; sarete in grado di aggiungere più domini in seguito"
 
 #: ../../mail.rst:45
 msgid ""
 "Then, select the user domain to be connected to the mail server. An email "
 "address will be created for every user in the selected domain."
 msgstr ""
+"Quindi, selezionare il dominio utente da collegare al server di posta. Un "
+"indirizzo email verrà creato per ogni utente del dominio selezionato."
 
 #: ../../mail.rst:52
 msgid "Domains"
-msgstr ""
+msgstr "Domini"
 
 #: ../../mail.rst:54
 msgid ""
 "NethServer can handle an unlimited number of mail domains, configurable from "
 "the ``Domains`` page."
 msgstr ""
+"NethServer può gestire un numero illimitato di domini postali, configurabili "
+"dalla pagina ``Domains``."
 
 #: ../../mail.rst:57
 msgid ""
 "If a domain is deleted, email will not be deleted; any message already "
 "received is preserved."
 msgstr ""
+"Se un dominio viene cancellato, l'email non verrà cancellata; qualsiasi "
+"messaggio già ricevuto viene conservato."
 
 #: ../../mail.rst:60
 msgid ""
 "You can add a new domain by clicking on the :guilabel:`Create domain` button "
 "and fill the ``Name`` field with the mail domain, like ``mymail.org``."
 msgstr ""
+"È possibile aggiungere un nuovo dominio cliccando sul pulsante: `Crea "
+"dominio` e riempire il campo ``Name``` con il dominio della posta, come "
+"``mymail.org``````."
 
 #: ../../mail.rst:63
 msgid ""
@@ -2608,6 +2621,10 @@ msgid ""
 "enable the ``Accept unknown recipients`` switch and select a mailbox that "
 "will catch all messages sent to non-existing addresses."
 msgstr ""
+"Se l'opzione ``Add user address from user domain`` è disabilitata, è "
+"possibile attivare l'opzione ``Accetta destinatari sconosciuti`` e "
+"selezionare una casella di posta che cattura tutti i messaggi inviati in "
+"indirizzi non esistenti."
 
 #: ../../mail.rst:66
 msgid ""
