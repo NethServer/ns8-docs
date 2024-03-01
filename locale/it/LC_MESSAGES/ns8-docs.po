@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-01 14:32+0000\n"
+"POT-Creation-Date: 2024-03-01 14:33+0000\n"
 "PO-Revision-Date: 2023-02-23 07:52+0000\n"
 "Last-Translator: Giacomo Sanchietti <giacomo.sanchietti@nethesis.it>\n"
 "Language: it\n"
@@ -3897,6 +3897,178 @@ msgstr ""
 msgid ""
 "Password: `Nethesis,1234`, default password if not has been reset during "
 "the first configuration wizard"
+msgstr ""
+
+#: ../../nethvoice.rst:48
+msgid "First configuration wizard"
+msgstr ""
+
+#: ../../nethvoice.rst:50
+msgid ""
+"The initial configuration wizard facilitates the easy installation and "
+"setup of all NethVoice components."
+msgstr ""
+
+#: ../../nethvoice.rst:53
+msgid "Extensions"
+msgstr ""
+
+#: ../../nethvoice.rst:55
+msgid ""
+"The first step in configuring NethVoice is associating users with their "
+"telephone extensions."
+msgstr ""
+
+#: ../../nethvoice.rst:57
+msgid ""
+"You can manage users (create, update, reset passwords, delete) by "
+"accessing the dedicated section through the button :ref:`Link to the "
+"Portal <user-management-portal-section>`."
+msgstr ""
+
+#: ../../nethvoice.rst:59
+msgid "Enter the corresponding extensions for each user:"
+msgstr ""
+
+#: ../../nethvoice.rst:61
+msgid ""
+"Input the extension number (recommended starting from 200) in the text "
+"field."
+msgstr ""
+
+#: ../../nethvoice.rst:62
+msgid "Click on Insert."
+msgstr ""
+
+#: ../../nethvoice.rst:63
+msgid ""
+"The user is highlighted, and a green checkmark appears if everything has "
+"been successful."
+msgstr ""
+
+#: ../../nethvoice.rst:66
+msgid "Trunks"
+msgstr ""
+
+#: ../../nethvoice.rst:68
+msgid ""
+"In the trunks section, you can configure gateways to manage physical "
+"lines or create VoIP trunks by specifying the credentials of SIP lines "
+"provided by the provider."
+msgstr ""
+
+#: ../../nethvoice.rst:70
+msgid ""
+"Trunks, used to connect gateways or VoIP lines, are created using the "
+"PJSIP library."
+msgstr ""
+
+#: ../../nethvoice.rst:75
+msgid "Physical"
+msgstr ""
+
+#: ../../nethvoice.rst:77
+msgid ""
+"This section allows you to configure a SIP gateway among those supported."
+" You need to enter:"
+msgstr ""
+
+#: ../../nethvoice.rst:80
+msgid "``Vendor``: gateway manufacturer"
+msgstr ""
+
+#: ../../nethvoice.rst:81
+msgid "``Model``: specify the gateway model"
+msgstr ""
+
+#: ../../nethvoice.rst:82
+msgid "``IP``: ip to be assigned to the device"
+msgstr ""
+
+#: ../../nethvoice.rst:83
+msgid "``Mac Address``: gateway identifier"
+msgstr ""
+
+#: ../../nethvoice.rst:84
+msgid "``Network Mask``: network subnet"
+msgstr ""
+
+#: ../../nethvoice.rst:85
+msgid "``Network Gateway``: network gateway"
+msgstr ""
+
+#: ../../nethvoice.rst:86
+msgid "``PBX IP``: NethVoice IP"
+msgstr ""
+
+#: ../../nethvoice.rst:88
+msgid "Dynamic settings based on the model:"
+msgstr ""
+
+#: ../../nethvoice.rst:90
+msgid "``ISDN`` (Specify if the line is Point-to-Point or Point-to-Multipoint)"
+msgstr ""
+
+#: ../../nethvoice.rst:91
+msgid "``PRI``"
+msgstr ""
+
+#: ../../nethvoice.rst:92
+msgid ""
+"``FXS`` (Specify for each port, the extension to be assigned by choosing "
+"a user previously configured)"
+msgstr ""
+
+#: ../../nethvoice.rst:93
+msgid "``FXO`` (Specify the number directly in the text field)"
+msgstr ""
+
+#: ../../nethvoice.rst:95
+msgid ""
+"Once the settings are saved, you can download the configuration file to "
+"upload to the device through its interface."
+msgstr ""
+
+#: ../../nethvoice.rst:98
+msgid "VoIP"
+msgstr ""
+
+#: ../../nethvoice.rst:100
+msgid ""
+"You can create VoIP trunks by selecting one of the supported providers "
+"and entering the necessary information."
+msgstr ""
+
+#: ../../nethvoice.rst:102
+msgid "``Provider``: choose the provider to use"
+msgstr ""
+
+#: ../../nethvoice.rst:103
+msgid "``Trunk Name``: specify name of the trunk"
+msgstr ""
+
+#: ../../nethvoice.rst:104
+msgid "``Username``: username given by the provider"
+msgstr ""
+
+#: ../../nethvoice.rst:105
+msgid "``Password``: password given by the provider"
+msgstr ""
+
+#: ../../nethvoice.rst:106
+msgid "``Phone Number``: phone number given by the provider"
+msgstr ""
+
+#: ../../nethvoice.rst:107
+msgid "``Allowed codec``: permitted codec"
+msgstr ""
+
+#: ../../nethvoice.rst:108
+msgid "``Force codec``: allow only permitted codec"
+msgstr ""
+
+#: ../../nethvoice.rst:110
+msgid "Press :guilabel:`Save` to create the configuration for that VoIP trunk."
 msgstr ""
 
 #: ../../nethvoice_proxy.rst:5
