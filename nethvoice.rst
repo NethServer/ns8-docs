@@ -16,7 +16,7 @@ NethVoice module is split into seven main parts:
 
 NethVoice is a full-feature integrate voice, video, mobile communication systems.
 
-You can install multiple NethVoice instances on the same node from the :ref:`software_center-section`, but the module requires ref:`NethVoice proxy <nethvoice_proxy-section>` already configured and running.
+You can install multiple NethVoice instances on the same node from the :ref:`software_center-section`, but the module requires :ref:`NethVoice proxy <nethvoice_proxy-section>` already configured and running.
 
 
 Configuration
