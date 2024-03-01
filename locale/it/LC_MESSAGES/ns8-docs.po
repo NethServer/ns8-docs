@@ -1051,28 +1051,34 @@ msgid ""
 "So if you plan to run many services on the same host, consider mounting an "
 "extra disk or partition at the ``/home`` path."
 msgstr ""
-"I contenitori senza radici mettono i loro dati all'interno della directory "
-"``/home` dell'utente. Quindi, se si prevede di eseguire molti servizi sullo "
-"stesso host, prendere in considerazione il montaggio di un disco "
-"supplementare o partizione sul percorso ``/home`."
+"I container rootless inseriscono i dati all'interno della directory ``/"
+"home`` dell'utente. Quindi, se si prevede di eseguire molti servizi sullo "
+"stesso host, prendere in considerazione montare un disco o una partizione "
+"supplementare sul percorso ``/home``."
 
 #: ../../disk_usage.rst:13
 msgid ""
 "Rootful containers usually save images and volumes inside the ``/var/lib/"
 "containers/storage`` directory."
 msgstr ""
+"I container rootful solitamente salvano immagini e volumi all'interno della "
+"directory ``/var/lib/containers/storage``."
 
 #: ../../disk_usage.rst:15
 msgid ""
 "To inspect podman storage configuration of your distribution, you can use "
 "the following command: ::"
 msgstr ""
+"Per ispezionare la configurazione di storage di podman della distribuzione, "
+"è possibile utilizzare il seguente comando: ::"
 
 #: ../../disk_usage.rst:19
 msgid ""
 "There is another growing directory ``/var/lib/nethserver``: it contains the "
 "user interface and actions of rootful modules."
 msgstr ""
+"C'è un'altra directory in crescita ``/var/lib/nethserver``: contiene "
+"l'interfaccia utente e le azioni dei moduli rootful."
 
 #: ../../disk_usage.rst:22
 msgid "Add more space"
