@@ -831,10 +831,10 @@ msgid ""
 "by a cluster administrator are collected inside a security :ref:`audit-trail-"
 "section`."
 msgstr ""
-"Gli amministratori cluster possono gestire completamente il cluster. Si "
-"raccomanda di creare un utente personale per ogni amministratore di cluster. "
-"Tutte le azioni eseguite da un amministratore di cluster sono raccolte "
-"all'interno di una sicurezza :ref: `audit-trail-sezione`."
+"Gli amministratori del cluster hanno il totale controllo del cluster. Si "
+"raccomanda di creare un utente personale per ogni amministratore del "
+"cluster. Tutte le azioni eseguite da un amministratore del cluster sono "
+"registrate all'interno di :ref:`Audit log <audit-trail-section>`."
 
 #: ../../cluster.rst:149
 msgid ""
@@ -842,12 +842,18 @@ msgid ""
 "the ``Cluster administrators`` card. Then click on :guilabel:`Create admin` "
 "button and fill the required fields."
 msgstr ""
+"Per aggiungere un nuovo amministratore del cluster vai alla pagina "
+"``Impostazioni`` e selezionare la scheda ``Amministratori cluster``. Quindi "
+"fare clic su :guilabel:`Crea amministratore` e compilare i campi richiesti."
 
 #: ../../cluster.rst:152
 msgid ""
 "An administrator can't delete its own user. To delete an administrator, you "
 "must log in with another existing cluster administrator."
 msgstr ""
+"Un amministratore non può eliminare il proprio utente. Per eliminare un "
+"amministratore, è necessario accedere con un altro amministratore di cluster "
+"esistente."
 
 #: ../../cluster.rst:155
 msgid ""
