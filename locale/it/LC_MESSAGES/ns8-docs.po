@@ -708,7 +708,7 @@ msgstr ""
 
 #: ../../cluster.rst:160 ../../webtop.rst:132
 msgid "Two-factor authentication (2FA)"
-msgstr ""
+msgstr "Autenticazione a due fattori (2FA)"
 
 #: ../../cluster.rst:162
 msgid ""
@@ -860,6 +860,10 @@ msgid ""
 "a Let's Encrypt certificate as default, make also sure to have a "
 "corresponding public DNS record."
 msgstr ""
+"Prima di procedere con la configurazione, assicurarsi di creare il relativo "
+"record all'interno del server DNS. Se hai intenzione di utilizzare un "
+"certificato Let's Encrypt come predefinito, assicurati anche di avere un "
+"record DNS pubblico corrispondente."
 
 #: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../ejabberd.rst:32
 #: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:21
@@ -7158,10 +7162,13 @@ msgid ""
 msgstr ""
 
 #: ../../webtop.rst:286
+#, fuzzy
 msgid ""
 "Webtop is a **client-less groupware**: its functionalities are fully "
 "available **only using the web interface**!"
 msgstr ""
+"Webtop è un groupware **client-less**: le sue funzionalità sono "
+"completamente disponibili ** solo utilizzando l'interfaccia web**!"
 
 #: ../../webtop.rst:288
 msgid ""
