@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-01 15:42+0000\n"
+"POT-Creation-Date: 2024-03-01 16:03+0000\n"
 "PO-Revision-Date: 2024-03-01 14:38+0000\n"
 "Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language: it\n"
@@ -4243,11 +4243,14 @@ msgid ""
 msgstr "NethVoice è un sistema completo di comunicazione vocale, video e mobile."
 
 #: ../../nethvoice.rst:19
+#, fuzzy
 msgid ""
 "You can install multiple NethVoice instances on the same node from the "
-":ref:`software_center-section`, but the module requires :ref:`NethVoice "
+":ref:`software_center-section`, but the module requires ref:`NethVoice "
 "proxy <nethvoice_proxy-section>` already configured and running."
 msgstr ""
+"È possibile installare più istanze WebTop sullo stesso nodo dal :ref"
+":`software_center-section`."
 
 #: ../../nethvoice.rst:25
 msgid ""
@@ -4525,6 +4528,286 @@ msgstr ""
 
 #: ../../nethvoice.rst:110
 msgid "Press :guilabel:`Save` to create the configuration for that VoIP trunk."
+msgstr ""
+
+#: ../../nethvoice.rst:113
+msgid "Routes"
+msgstr ""
+
+#: ../../nethvoice.rst:115
+msgid ""
+"In the routes section, you can configure both inbound and outbound routes"
+" for your NethVoice system."
+msgstr ""
+
+#: ../../nethvoice.rst:118
+msgid "Inbound"
+msgstr ""
+
+#: ../../nethvoice.rst:120
+msgid ""
+"In this section, the list of already configured inbound routes is "
+"displayed, with the option to edit or delete them."
+msgstr ""
+
+#: ../../nethvoice.rst:122
+msgid ""
+"By clicking the :guilabel:`Create new route`, a new tab will open with "
+"the ``Visual Plan`` application, allowing you to create, modify, and "
+"connect the components of the NethVoice that will handle the call flow "
+"for the incoming number."
+msgstr ""
+
+#: ../../nethvoice.rst:124
+msgid ""
+"By clicking the checkmark symbol in the Visual Plan application, the "
+"configuration of your route will be saved, and from that moment on, you "
+"can receive calls following the configured flow."
+msgstr ""
+
+#: ../../nethvoice.rst:127
+msgid "Outbound"
+msgstr ""
+
+#: ../../nethvoice.rst:129
+msgid ""
+"In this section, you will find the list of outbound routes. The first "
+"time you visit this page, the wizard proposes default outbound routes, "
+"with specific call patterns for different languages."
+msgstr ""
+
+#: ../../nethvoice.rst:131
+msgid ""
+"You can also specify the order in which the previously created trunks "
+"will be used, thus having the option to customize the priority of various"
+" trunks."
+msgstr ""
+
+#: ../../nethvoice.rst:133
+msgid ""
+"By pressing the :guilabel:`Save`, the configuration is written to the "
+"NethVoice, and from that moment on, you can make calls to external "
+"numbers (having properly configured the trunks in the previous steps)."
+msgstr ""
+
+#: ../../nethvoice.rst:138
+#, fuzzy
+msgid "Devices"
+msgstr "NethVoice"
+
+#: ../../nethvoice.rst:140
+msgid ""
+"During the initial configuration wizard, this section requires "
+"confirmation of some fundamental settings (press the :guilabel:`Modify "
+"default settings button`)."
+msgstr ""
+
+#: ../../nethvoice.rst:142
+#, fuzzy
+msgid "The settings are:"
+msgstr "Gestione delle impostazioni utente"
+
+#: ../../nethvoice.rst:144
+msgid ""
+"``Encryption`` requires a valid SSL/TLS certificate for the hostname "
+"entered in :guilabel:PBX Address to function correctly."
+msgstr ""
+
+#: ../../nethvoice.rst:145
+msgid ""
+"``PBX Address`` can be the IP address or the hostname of Nethvoice, "
+"correctly entered in the DNS used by phones and in the SSL/TLS "
+"certificate used by the system."
+msgstr ""
+
+#: ../../nethvoice.rst:146
+msgid ""
+"``Admin Password`` will be the password to access the web interface of "
+"phones configured with the administrator user."
+msgstr ""
+
+#: ../../nethvoice.rst:147
+msgid ""
+"``User Password`` will be the password to access the web interface of "
+"phones configured with a non-administrative user."
+msgstr ""
+
+#: ../../nethvoice.rst:149
+msgid ""
+"The choice of the previous Encryption and PBX Address settings depends on"
+" how the phones will reach NethVoice."
+msgstr ""
+
+#: ../../nethvoice.rst:151
+msgid ""
+"If the phones are all in the same network as the PBX (LAN), "
+"``Encryption`` can be disabled, and ``PBX Address`` can contain an IP "
+"address."
+msgstr ""
+
+#: ../../nethvoice.rst:153
+msgid ""
+"If one or more phones reach NethVoice via the public network (WAN), such "
+"as when the PBX is hosted on a cloud VPS, then ``Encryption`` must be "
+"enabled, and ``PBX Address`` must contain the fully qualified domain name"
+" present in the public DNS."
+msgstr ""
+
+#: ../../nethvoice.rst:155
+msgid ""
+"In any case, it is possible to choose on each individual phone whether "
+"encryption is used or not, provided that the SSL/TLS certificate of the "
+"system is valid. In this regard, refer to :ref:`wizard-configurations`."
+msgstr ""
+
+#: ../../nethvoice.rst:157
+msgid "Other settings that can be changed:"
+msgstr ""
+
+#: ../../nethvoice.rst:159
+msgid ":ref:`Preferences <panel-preferences>`"
+msgstr ""
+
+#: ../../nethvoice.rst:160
+msgid ":ref:`LDAP Phonebook <panel-phonebook>`"
+msgstr ""
+
+#: ../../nethvoice.rst:162
+msgid ""
+"Once the settings are saved, they can be modified again from the "
+":guilabel:Devices > Models page, :guilabel:`Default Settings`."
+msgstr ""
+
+#: ../../nethvoice.rst:165
+msgid "Phones"
+msgstr ""
+
+#: ../../nethvoice.rst:167
+msgid ""
+"The page :guilabel:`Devices > Phones` allows the identification of phones"
+" by NethVoice by entering the MAC address. You can enter the MAC address "
+"using the following methods:"
+msgstr ""
+
+#: ../../nethvoice.rst:170
+msgid ""
+":guilabel:`Paste from file` of multiple MAC addresses. Syntaxes separated"
+" by a hyphen - (e.g., AA-BB-CC-11-22-33), colons : (e.g., "
+"AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are "
+"accepted. Letters can be either uppercase or lowercase."
+msgstr ""
+
+#: ../../nethvoice.rst:172
+msgid ""
+":guilabel:`Manual addition` of one MAC address at a time. Useful if you "
+"have a barcode reader."
+msgstr ""
+
+#: ../../nethvoice.rst:174
+msgid ""
+"In any case, after entering the MAC address, you can select the phone "
+"model. Selecting the exact model is required for the correct "
+"configuration of the phone."
+msgstr ""
+
+#: ../../nethvoice.rst:177
+msgid ""
+"If the model is not selected or the wrong model is chosen, some phone "
+"functions, such as provisioning via RPS or line keys, may not be "
+"available."
+msgstr ""
+
+#: ../../nethvoice.rst:182
+msgid "Models"
+msgstr ""
+
+#: ../../nethvoice.rst:184
+msgid ""
+"The page `Devices > Models` lists the basic models of the phones selected"
+" in `Devices > Phones` plus any custom models."
+msgstr ""
+
+#: ../../nethvoice.rst:186
+msgid ""
+"You can create a custom model based on an existing one through the "
+":guilabel:`Create new model`."
+msgstr ""
+
+#: ../../nethvoice.rst:188
+msgid ""
+"On this page, some parameters inherited from all models can also be "
+"modified using the :guilabel:`Default Settings`. These parameters include"
+" `Encryption` and `PBX Address`, already set during the initial "
+"configuration process as explained in :ref:`wizard-devices`."
+msgstr ""
+
+#: ../../nethvoice.rst:190
+msgid ""
+"Depending on the features specific to the model, panels and options "
+"described in :ref:wizard-provisioning-section may be available."
+msgstr ""
+
+#: ../../nethvoice.rst:195
+#, fuzzy
+msgid "Configurations"
+msgstr "Configurazione"
+
+#: ../../nethvoice.rst:198
+msgid "Groups"
+msgstr ""
+
+#: ../../nethvoice.rst:200
+msgid ""
+"You can create user groups that will be visible and usable in "
+"applications, such as NethVoiceCTI."
+msgstr ""
+
+#: ../../nethvoice.rst:202
+msgid ""
+"Click the :guilabel:`Create new group`. Specify a name and "
+":guilabel:`save`. The group will appear in the list."
+msgstr ""
+
+#: ../../nethvoice.rst:207
+msgid "Profiles"
+msgstr ""
+
+#: ../../nethvoice.rst:209
+msgid ""
+"NethVoice allows you to select the features that each user can access, "
+"and these are grouped into profiles."
+msgstr ""
+
+#: ../../nethvoice.rst:211
+msgid ""
+"By default, 3 profiles are created, each containing different levels of "
+"functionality:"
+msgstr ""
+
+#: ../../nethvoice.rst:213
+msgid "`Basic`: Minimum functionality for the user."
+msgstr ""
+
+#: ../../nethvoice.rst:214
+msgid "`Standard`: Classic management functionalities for the user."
+msgstr ""
+
+#: ../../nethvoice.rst:215
+msgid ""
+"`Advanced`: Almost all functionalities are allowed, suitable for advanced"
+" users."
+msgstr ""
+
+#: ../../nethvoice.rst:216
+msgid ""
+"You can also create new profiles by duplicating an existing one or "
+"creating new ones and specifying the various functionalities."
+msgstr ""
+
+#: ../../nethvoice.rst:219
+msgid ""
+"Remember to enable access to the user groups previously created on the "
+"profiles where necessary."
 msgstr ""
 
 #: ../../nethvoice_proxy.rst:5
@@ -9997,4 +10280,13 @@ msgstr ""
 #~ "richiede ref: `NethVoice proxy "
 #~ "<nethvoice_proxy-sezione>` già configurato ed "
 #~ "in esecuzione."
+
+#~ msgid ""
+#~ "You can install multiple NethVoice "
+#~ "instances on the same node from "
+#~ "the :ref:`software_center-section`, but the"
+#~ " module requires :ref:`NethVoice proxy "
+#~ "<nethvoice_proxy-section>` already configured and"
+#~ " running."
+#~ msgstr ""
 
