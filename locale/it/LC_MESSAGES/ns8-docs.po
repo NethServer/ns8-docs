@@ -623,18 +623,20 @@ msgid ""
 "the node to finalize the node removal."
 msgstr ""
 "Quando un nodo viene rimosso dal cluster le applicazioni in esecuzione su di "
-"esso non sono influenzate e sono lasciate in uno stato in esecuzione. "
-"Spegnere e spegnere il nodo per finalizzare la rimozione del nodo."
+"esso non sono influenzate e sono lasciate in esecuzione. Arrestare e "
+"spegnere il nodo per completarne la rimozione."
 
 #: ../../cluster.rst:75
 msgid "Promote a node to leader"
-msgstr ""
+msgstr "Promuovere un nodo a leader"
 
 #: ../../cluster.rst:77
 msgid ""
 "Adding and removing nodes might raise the need of changing the cluster "
 "**leader node**."
 msgstr ""
+"Aggiungere e rimuovere i nodi potrebbe aumentare la necessità di cambiare il "
+"cluster **leader node**."
 
 #: ../../cluster.rst:80
 msgid "A good leader node must be reachable by any other worker node."
