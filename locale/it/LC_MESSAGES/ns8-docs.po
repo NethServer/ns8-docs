@@ -1181,23 +1181,23 @@ msgstr ""
 
 #: ../../disk_usage.rst:32
 msgid "stop all rootless containers"
-msgstr "fermare tutti i contenitori senza radici"
+msgstr "arresta tutti i container rootless"
 
 #: ../../disk_usage.rst:33
 msgid "copy all rootless containers inside the new disk"
-msgstr ""
+msgstr "copia tutti i container rootless all'interno del nuovo disco"
 
 #: ../../disk_usage.rst:34
 msgid "reclaim space from the root filesystem"
-msgstr ""
+msgstr "recupera spazio dal filesystem root"
 
 #: ../../disk_usage.rst:35
 msgid "mount the new disk under ``/home``"
-msgstr ""
+msgstr "monta il nuovo disco sotto ``/home``"
 
 #: ../../disk_usage.rst:36
 msgid "restart all rootless containers"
-msgstr ""
+msgstr "riavvia tutti i container rootless"
 
 #: ../../disk_usage.rst:38
 msgid ""
@@ -1205,6 +1205,10 @@ msgid ""
 "format it and mount to a custom location like ``/mnt/temp_disk``. Then "
 "launch the script by passing the mount location as parameter, like: ::"
 msgstr ""
+"Prima di eseguire lo script, assicurarsi di collegare il disco alla "
+"macchina, formattarlo e montare in una posizione personalizzata come ``/mnt/"
+"temp_disk`. Quindi lanciare lo script passando la posizione di mount come "
+"parametro, come::"
 
 #: ../../disk_usage.rst:44
 msgid "The ``migrate`` script:."
