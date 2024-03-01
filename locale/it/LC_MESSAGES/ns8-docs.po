@@ -7328,10 +7328,10 @@ msgid ""
 "a self-signed certificate on your server, make sure to select :guilabel:`SSL/"
 "TLS (accept all certificates)` option."
 msgstr ""
-"Quindi selezionare:guilabel: `Configurazione manuale` e modificare il nome "
-"del campo *Server* di conseguenza al nome pubblico del server. Infine, se "
-"hai un certificato autofirmato sul tuo server, assicurati di selezionare "
-"l'opzione :guilabel: `SSL/TLS (accetta tutti i certificati)` ."
+"Quindi selezionare :guilabel:`Configurazione manuale` e modificare il nome "
+"del campo *Server* con il nome pubblico del server. Infine, se hai un "
+"certificato autofirmato sul tuo server, assicurati di selezionare l'opzione :"
+"guilabel:`SSL/TLS (accetta tutti i certificati)`."
 
 #: ../../webtop.rst:188
 msgid ""
@@ -7340,16 +7340,22 @@ msgid ""
 "backslash character ``\\``, and enter the user name in the following format: "
 "``\\goofy@nethserver.org``"
 msgstr ""
+"Su alcune versioni Android (in particolare Samsung), il nome utente e il "
+"dominio devono essere inseriti nella stessa riga. In questo caso, lasciare "
+"vuoto il campo prima del carattere backslash ``\\``, e inserire il nome "
+"utente nel seguente formato: ``\\goofy@nethserver.org``"
 
 #: ../../webtop.rst:192
 msgid "Multiple calendars and contacts"
-msgstr ""
+msgstr "Calendario e contatti multipli"
 
 #: ../../webtop.rst:194
 msgid ""
 "Shared calendars and address books can be synchronized using the ActiveSync "
 "protocol."
 msgstr ""
+"I calendari e i contatti condivisi possono essere sincronizzati utilizzando "
+"il protocollo ActiveSync."
 
 #: ../../webtop.rst:196
 msgid ""
@@ -7357,6 +7363,9 @@ msgid ""
 "number in square brackets is the internal id. Private events are not "
 "synchronized."
 msgstr ""
+"Le risorse condivise vengono visualizzate con il nome e la categoria del "
+"proprietario. Il numero tra parentesi quadrate è l'ID interno. Gli eventi "
+"privati non sono sincronizzati."
 
 #: ../../webtop.rst:199
 msgid ""
@@ -7364,6 +7373,9 @@ msgid ""
 "calendars, contacts and activities (called reminders), including original "
 "colors."
 msgstr ""
+"Dispositivi mobili basati su Apple iOS supportano completamente cartelle/"
+"categorie per calendari, contatti e attività (chiamati promemoria), compresi "
+"i colori originali."
 
 #: ../../webtop.rst:201
 msgid ""
@@ -7371,6 +7383,9 @@ msgid ""
 "activities are not supported. Using the Google Calendar application all "
 "items will have the same color."
 msgstr ""
+"I dispositivi mobili basati sul Android supportano solo calendari e "
+"contatti, le attività non sono supportate. Utilizzando l'applicazione Google "
+"Calendar tutti gli elementi avranno lo stesso colore."
 
 #: ../../webtop.rst:204
 msgid ""
@@ -7378,6 +7393,9 @@ msgid ""
 "application, you can change the colors associated with each calendar, "
 "including shared ones."
 msgstr ""
+"Installazione e utilizzo dell'applicazione `CloudCal <https://pselis.com/"
+"cloudcal/>`_, è possibile modificare i colori associati a ciascun "
+"calendario, compresi quelli condivisi."
 
 #: ../../webtop.rst:207
 msgid ""
@@ -7385,6 +7403,9 @@ msgid ""
 "personal phone book and displayed in a single view. Contacts can be modified "
 "and changes will be saved in the original source."
 msgstr ""
+"Su dispositivi Android, i contatti da rubriche condivise vengono uniti con "
+"la rubrica personale e visualizzati in una sola vista. I contatti possono "
+"essere modificati e le modifiche verranno salvate nella sorgente originale."
 
 #: ../../webtop.rst:212
 msgid ""
@@ -7392,22 +7413,29 @@ msgid ""
 "(Calendars and Contacts) should have synchronization enabled (Full or Read-"
 "only):"
 msgstr ""
+"Al fine di ricevere i dati tramite EAS sui dispositivi mobili, le risorse "
+"condivise (Calendari e contatti) dovrebbero avere attivato la "
+"sincronizzazione (con permessi completi o in sola lettura):"
 
 #: ../../webtop.rst
 msgid "Multiple synchronization"
-msgstr ""
+msgstr "Sincronizzazione multipla"
 
 #: ../../webtop.rst:218
 msgid ""
 "It is possible to enable or disable the synchronization for each shared "
 "resource."
 msgstr ""
+"È possibile attivare o disattivare la sincronizzazione per ogni risorsa "
+"condivisa."
 
 #: ../../webtop.rst:220
 msgid ""
 "To do so, just right-click on the shared resource :menuselection:`Customize "
 "→ Devices sync.`:"
 msgstr ""
+"Per farlo, basta fare clic con il pulsante destro del mouse sulla risorsa "
+"condivisa:menuselection: `Customize → Dispositivi sincronizzazione.`:"
 
 #: ../../webtop.rst:222
 msgid "Sync shared EAS"
