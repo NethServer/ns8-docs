@@ -221,8 +221,8 @@ You can also create new profiles by duplicating an existing one or creating new 
 Permissions
 -----------
 
-Impostazioni
-^^^^^^^^^^^^
+Settings
+^^^^^^^^
 
 * General permission enables or disables access to all the functionalities of the section and general notification settings.
 * ``DND``: Enables the configuration of Do Not Disturb.
@@ -243,7 +243,7 @@ All configured outbound routes in NethVoice are displayed, and you can enable/di
 NethVoice CTI
 ^^^^^^^^^^^^^
 
-* ``NethVoice CTI``: permette di abilitare tutti i permessi sottostanti abilitando le seguenti funzionalità sul NethVoiceCTI
+* ``NethVoice CTI``: Enables all the underlying permissions by activating the following functionalities on NethVoice CTI.
 
 Address Book
 ^^^^^^^^^^^^
