@@ -335,3 +335,22 @@ Encryption: Indicates whether encryption is enabled or not. The initial setting 
 * ``Show Password`` for custom devices. The SIP password is shown, which, along with the internal and PBX address, can be used to manually configure the custom device.
 * ``Restart``: If the device is registered, you can restart it.
 * ``Disassociate``: You can disassociate the device from the user.
+
+.. _provisioning_scopes_priority-section:
+
+
+Phone Configuration Priority
+============================
+
+Configurations created by Nethvoice provisioning for phone devices are derived by combining settings from:
+
+- ``Default Settings``: these are found on the :ref:`wizard-modelli` page.
+- ``Model Settings``: parameters are taken from the configuration of the model associated with the device, which is found on the :ref:`wizard-modelli` page.
+- ``Phone Settings``: parameters are taken from the configuration of the individual phone, found on the :ref:`wizard-configurazioni` page.
+- NethVoice CTI Settings where it's possible to configure parameters of the physical phone associated with the user.
+
+In case there is a parameter with non-uniform configuration across the various sections listed above, this is the descending order of priority to be followed:
+
+- ``Phone Settings`` and NethVoice CTI Settings are the settings with the highest priority, with the latter taking precedence if there is a conflict between the two.
+- ``Model Settings``
+- ``Default Settings``
