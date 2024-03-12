@@ -132,7 +132,7 @@ You can also specify the order in which the previously created trunks will be us
 
 By pressing the :guilabel:`Save`, the configuration is written to the NethVoice, and from that moment on, you can make calls to external numbers (having properly configured the trunks in the previous steps).
 
-.. _wizard-dispositivi:
+.. _wizard-devices:
 
 Devices
 =======
@@ -234,7 +234,8 @@ Settings
 * ``Intrusion``: Enables intrusion into another user's call (listening to both caller and called, conversation only with the user).
 * ``Pickup``: Enables call pickup for calls to other users.
 * ``Privacy``: Enables the masking of the last 3 digits (modifiable from the command line) of the called and/or calling number of other users in NethVoiceCTI.
-* ``Physical Phone Buttons``: Enables the configuration of physical phone buttons by the user in NethVoiceCTI. These correspond to the Line Keys shown on the :ref:wizard-devices pages.
+* ``Physical Phone Buttons``: Enables the configuration of physical phone buttons by the user in NethVoiceCTI.
+  These correspond to the Line Keys shown on the :ref:`wizard-devices` pages.
 
 Outbound Routes
 ^^^^^^^^^^^^^^^
@@ -325,7 +326,7 @@ You can associate up to 9 devices with each user:
 
 For each physical device, the following is displayed:
 
-Encryption: Indicates whether encryption is enabled or not. The initial setting depends on the NethVoice configuration made during the initial configuration process (see :ref:wizard-devices). If the PBX is reached via public network (WAN), encryption activation is required.
+Encryption: Indicates whether encryption is enabled or not. The initial setting depends on the NethVoice configuration made during the initial configuration process (see :ref:`wizard-devices`). If the PBX is reached via public network (WAN), encryption activation is required.
 
 .. warning::
    If `Encryption` is enabled, make sure that the SSL/TLS certificate of the system is valid and contains the name of the PBX; otherwise, phones cannot establish a TLS connection
