@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-05 13:06+0000\n"
+"POT-Creation-Date: 2024-03-12 10:35+0000\n"
 "PO-Revision-Date: 2024-03-04 15:41+0000\n"
 "Last-Translator: Nicola Rauso <nicola.rauso@nethesis.it>\n"
 "Language: it\n"
@@ -3166,7 +3166,7 @@ msgid ""
 " and quickly adapt analyzing messages marked as **spam** or **ham**."
 msgstr ""
 
-#: ../../mail.rst:207 ../../nethvoice.rst:225
+#: ../../mail.rst:207 ../../nethvoice.rst:225 ../../nethvoice.rst:367
 msgid "Settings"
 msgstr ""
 
@@ -5263,20 +5263,20 @@ msgid ""
 msgstr ""
 
 #: ../../nethvoice.rst:347
-msgid "``Default Settings``: these are found on the :ref:`wizard-modelli` page."
+msgid "``Default Settings``: these are found on the :ref:`wizard-model` page."
 msgstr ""
 
 #: ../../nethvoice.rst:348
 msgid ""
 "``Model Settings``: parameters are taken from the configuration of the "
 "model associated with the device, which is found on the :ref:`wizard-"
-"modelli` page."
+"model` page."
 msgstr ""
 
 #: ../../nethvoice.rst:349
 msgid ""
 "``Phone Settings``: parameters are taken from the configuration of the "
-"individual phone, found on the :ref:`wizard-configurazioni` page."
+"individual phone, found on the :ref:`wizard-configurations` page."
 msgstr ""
 
 #: ../../nethvoice.rst:350
@@ -5308,6 +5308,552 @@ msgstr "Impostazioni generali"
 #, fuzzy
 msgid "``Default Settings``"
 msgstr "Impostazioni generali"
+
+#: ../../nethvoice.rst:359
+#, fuzzy
+msgid "Administration"
+msgstr "Amministratori"
+
+#: ../../nethvoice.rst:362
+msgid "Languages"
+msgstr ""
+
+#: ../../nethvoice.rst:364
+msgid ""
+"In the Languages menu, it's possible to set the default NethVoice "
+"language."
+msgstr ""
+
+#: ../../nethvoice.rst:369
+msgid "The Settings page allows managing various aspects of the configuration."
+msgstr ""
+
+#: ../../nethvoice.rst:371
+msgid ""
+"``Password``: It's possible to change the password for the admin user "
+"dedicated to accessing the web interface of NethVoice."
+msgstr ""
+
+#: ../../nethvoice.rst:374
+msgid "Advanced"
+msgstr ""
+
+#: ../../nethvoice.rst:376
+msgid ""
+"The Advanced section allows direct access to the advanced interface of "
+"NethVoice."
+msgstr ""
+
+#: ../../nethvoice.rst:379
+msgid "Provisioning Parameters Guide"
+msgstr ""
+
+#: ../../nethvoice.rst:381
+msgid ""
+"The functions of phones configurable through provisioning are collected "
+"in the panels of the NethVoice administration interface and described in "
+"the following sections."
+msgstr ""
+
+#: ../../nethvoice.rst:383
+msgid ""
+"Not all phone models have the same functions, so some parameters or "
+"entire panels may not be displayed."
+msgstr ""
+
+#: ../../nethvoice.rst:385
+msgid ""
+"In general, leaving a field empty or selecting the option - (minus sign) "
+"indicates the value inherited from the context with lower priority; the "
+"highest priority is for the phone settings, followed in descending order "
+"by model and default settings. Refer to :ref:`priority of phone "
+"configurations <provisioning-scopes-priority>` for further information."
+msgstr ""
+
+#: ../../nethvoice.rst:391
+msgid "Soft key"
+msgstr ""
+
+#: ../../nethvoice.rst:393
+msgid ""
+"The ``soft keys`` are programmable phone keys specific for calling phone "
+"functions."
+msgstr ""
+
+#: ../../nethvoice.rst:395
+msgid ""
+"If the phone makes more keys available than those displayed in the "
+"NethVoice administration interface, there is a ``View more`` button to "
+"add more."
+msgstr ""
+
+#: ../../nethvoice.rst:397
+msgid ""
+"Depending on the ``Type``, the ``Value`` and ``Label`` fields may also "
+"need to be filled in, as indicated in the table below."
+msgstr ""
+
+#: ../../nethvoice.rst:399
+msgid ""
+"In the Label column, the term default indicates that leaving the Label "
+"field empty, the phone will assign a default ``label`` to the soft key."
+msgstr ""
+
+#: ../../nethvoice.rst:401
+#, fuzzy
+msgid "Soft key configuration"
+msgstr "Configurazione"
+
+#: ../../nethvoice.rst:405
+msgid "Type"
+msgstr ""
+
+#: ../../nethvoice.rst:406
+#, fuzzy
+msgid "Description"
+msgstr "Subscription"
+
+#: ../../nethvoice.rst:407
+msgid "Value"
+msgstr ""
+
+#: ../../nethvoice.rst:408
+msgid "Label"
+msgstr ""
+
+#: ../../nethvoice.rst:410
+msgid "Forward"
+msgstr ""
+
+#: ../../nethvoice.rst:411
+msgid ""
+"Enable/disable the forward state (unconditional forwarding). If enabled, "
+"all incoming calls are forwarded to the specified number"
+msgstr ""
+
+#: ../../nethvoice.rst:412
+msgid "Phone number or extension"
+msgstr ""
+
+#: ../../nethvoice.rst:413 ../../nethvoice.rst:423 ../../nethvoice.rst:443
+#: ../../nethvoice.rst:448 ../../nethvoice.rst:453 ../../nethvoice.rst:458
+#: ../../nethvoice.rst:463
+msgid "Yes (default)"
+msgstr ""
+
+#: ../../nethvoice.rst:415
+msgid "DND"
+msgstr ""
+
+#: ../../nethvoice.rst:416
+msgid ""
+"Enable/disable the do not disturb state. If enabled, all incoming calls "
+"are rejected"
+msgstr ""
+
+#: ../../nethvoice.rst:417 ../../nethvoice.rst:418 ../../nethvoice.rst:422
+#: ../../nethvoice.rst:438 ../../nethvoice.rst:442 ../../nethvoice.rst:447
+#: ../../nethvoice.rst:452 ../../nethvoice.rst:462
+msgid "No"
+msgstr ""
+
+#: ../../nethvoice.rst:420
+#, fuzzy
+msgid "Recall"
+msgstr "Firewall"
+
+#: ../../nethvoice.rst:421
+msgid "Call back the last dialed number"
+msgstr ""
+
+#: ../../nethvoice.rst:425
+msgid "Pick up"
+msgstr ""
+
+#: ../../nethvoice.rst:426
+msgid "Answer an ongoing call to the specified extension"
+msgstr ""
+
+#: ../../nethvoice.rst:427 ../../nethvoice.rst:432
+msgid "Phone number"
+msgstr ""
+
+#: ../../nethvoice.rst:428 ../../nethvoice.rst:433
+msgid "Yes"
+msgstr ""
+
+#: ../../nethvoice.rst:430
+msgid "Speed dial"
+msgstr ""
+
+#: ../../nethvoice.rst:431
+msgid "Call the given number by pressing the key"
+msgstr ""
+
+#: ../../nethvoice.rst:435
+msgid "Group pickup"
+msgstr ""
+
+#: ../../nethvoice.rst:436
+msgid "Answer an ongoing call to the configured pickup group"
+msgstr ""
+
+#: ../../nethvoice.rst:437
+msgid "No (The group is configured.)"
+msgstr ""
+
+#: ../../nethvoice.rst:440
+msgid "History"
+msgstr ""
+
+#: ../../nethvoice.rst:441
+msgid "Display the call history screen"
+msgstr ""
+
+#: ../../nethvoice.rst:445
+msgid "Menu"
+msgstr ""
+
+#: ../../nethvoice.rst:446
+#, fuzzy
+msgid "Show the phone configuration menu"
+msgstr "Configurazione"
+
+#: ../../nethvoice.rst:450
+msgid "Status"
+msgstr ""
+
+#: ../../nethvoice.rst:451
+msgid ""
+"Display phone status information (e.g., firmware version, registration "
+"status...)"
+msgstr ""
+
+#: ../../nethvoice.rst:455
+msgid "Prefix"
+msgstr ""
+
+#: ../../nethvoice.rst:456
+msgid "Add the specified digits to the dialed number"
+msgstr ""
+
+#: ../../nethvoice.rst:457
+msgid "The digits of the prefix"
+msgstr ""
+
+#: ../../nethvoice.rst:460
+#, fuzzy
+msgid "LDAP"
+msgstr "OpenLDAP"
+
+#: ../../nethvoice.rst:461
+msgid "Display the LDAP address book configured on the phone"
+msgstr ""
+
+#: ../../nethvoice.rst:466
+msgid "Line key"
+msgstr ""
+
+#: ../../nethvoice.rst:468
+msgid ""
+"The ``line keys`` are programmable phone keys similar to soft keys but "
+"more specific for call management and monitoring the status of "
+"extensions."
+msgstr ""
+
+#: ../../nethvoice.rst:470
+msgid ""
+"If the phone makes more keys available than those displayed in the "
+"Nethvoice administration interface, there is a button ``View more`` to "
+"add more."
+msgstr ""
+
+#: ../../nethvoice.rst:472
+msgid ""
+"Depending on the ``Type``, the fields ``Value`` and ``Label`` may need to"
+" be filled in, as indicated in the table below."
+msgstr ""
+
+#: ../../nethvoice.rst:474
+msgid ""
+"In the Label column, the term default indicates that leaving the Label "
+"field blank, the phone will assign a default ``label`` to the line key."
+msgstr ""
+
+#: ../../nethvoice.rst:588
+msgid "Exp key"
+msgstr ""
+
+#: ../../nethvoice.rst:590
+msgid ""
+"The *Expansion keys* are programmable buttons on *expansion modules*, "
+"devices that can be connected to the phone to increase the number of "
+"available keys."
+msgstr ""
+
+#: ../../nethvoice.rst:592
+msgid ""
+"If the expansion module provides more keys than are displayed in the "
+"Nethvoice administration interface, there is a ``View more`` button to "
+"add additional keys."
+msgstr ""
+
+#: ../../nethvoice.rst:594
+msgid "This type of key is configured like the :ref:`Line key <panel-linekeys>`."
+msgstr ""
+
+#: ../../nethvoice.rst:599
+msgid "Screen and Ringtone"
+msgstr ""
+
+#: ../../nethvoice.rst:601
+msgid ""
+"``Ringtone Selection`` Each phone has some predefined ringtones that can "
+"be selected based on the progressive number. Where supported, you can "
+"also choose a custom ringtone, which should then be loaded into the field"
+" described below."
+msgstr ""
+
+#: ../../nethvoice.rst:603
+msgid ""
+"``Custom Ringtone Management`` Select an audio file for the custom "
+"ringtone that has been previously uploaded, or upload a new one by "
+"opening the dedicated management module. The audio format must be "
+"compatible with the specifications of the phone manufacturer."
+msgstr ""
+
+#: ../../nethvoice.rst:605
+msgid ""
+"``Background Image`` ``Screensaver Image`` Select an image file for the "
+"phone screen background and screensaver, or upload a new one by opening "
+"the dedicated management panel. The image format must be compatible with "
+"the specifications of the phone manufacturer."
+msgstr ""
+
+#: ../../nethvoice.rst:607
+msgid ""
+"``Screensaver Activation`` Time interval after which the screensaver is "
+"activated."
+msgstr ""
+
+#: ../../nethvoice.rst:609
+msgid ""
+"``Backlight Off`` Time interval after which the screen lowers brightness "
+"or turns off the screen backlight."
+msgstr ""
+
+#: ../../nethvoice.rst:611
+msgid ""
+"``Screen Brightness`` ``Screen Contrast`` Select the brightness and "
+"contrast levels of the screen."
+msgstr ""
+
+#: ../../nethvoice.rst:616
+msgid "Preferences"
+msgstr ""
+
+#: ../../nethvoice.rst:618
+msgid ""
+"``NTP Server Address`` The hostname or IP address of the Network Time "
+"Protocol (NTP) server"
+msgstr ""
+
+#: ../../nethvoice.rst:619
+msgid "to automatically set the phone's time."
+msgstr ""
+
+#: ../../nethvoice.rst:621
+msgid ""
+"``Provisioning Schedule`` By selecting Only at startup, phones renew "
+"their configuration"
+msgstr ""
+
+#: ../../nethvoice.rst:622
+msgid ""
+"after turning on or restarting. Instead, by selecting Every day, phones "
+"autonomously renew their configuration at a random time during the night."
+" See also :ref:provisioning2-automatic-updates."
+msgstr ""
+
+#: ../../nethvoice.rst:625
+msgid ""
+"``Transfer Mode for Line Keys`` Specifies how line keys transfer the "
+"ongoing call to another extension. * **New Call** initiates a new call to"
+" the extension configured on the line key, placing the"
+msgstr ""
+
+#: ../../nethvoice.rst:627
+msgid "current call on hold."
+msgstr ""
+
+#: ../../nethvoice.rst:629
+msgid ""
+"**Consultative** always places the current call on hold, and the transfer"
+" completion"
+msgstr ""
+
+#: ../../nethvoice.rst:630
+msgid ""
+"can occur while the extension configured on the line key is ringing or "
+"even after the answer."
+msgstr ""
+
+#: ../../nethvoice.rst:632
+msgid ""
+"**Blind/No Confirmation** immediately transfers the current call to the "
+"configured extension."
+msgstr ""
+
+#: ../../nethvoice.rst:634
+msgid ""
+"``Phone Language`` Language used by the phone's screen and its web "
+"interface."
+msgstr ""
+
+#: ../../nethvoice.rst:636
+msgid ""
+"``Timezone`` Sets the phone's timezone, necessary for daylight saving "
+"time adjustments."
+msgstr ""
+
+#: ../../nethvoice.rst:638
+msgid ""
+"``Ring Tones`` These are specific to each country and indicate the call "
+"status through"
+msgstr ""
+
+#: ../../nethvoice.rst:639
+msgid "an audible signal: free tone, busy tone, hang-up tone, etc."
+msgstr ""
+
+#: ../../nethvoice.rst:641
+msgid "``Time Format`` ``Date Format`` Choice of the time/date format displayed"
+msgstr ""
+
+#: ../../nethvoice.rst:642
+msgid "on the phone's screen."
+msgstr ""
+
+#: ../../nethvoice.rst:644
+msgid "``Firmware`` Upload and selection of a new firmware version for the phone."
+msgstr ""
+
+#: ../../nethvoice.rst:645
+msgid "See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`."
+msgstr ""
+
+#: ../../nethvoice.rst:650
+msgid "LDAP Phonebook"
+msgstr ""
+
+#: ../../nethvoice.rst:652
+msgid ""
+"The first two options in the ``Address Book Type`` do not allow further "
+"modifications. Phones will use the fixed and unmodifiable centralized "
+"phonebook of Nethvoice. However, by selecting ``Custom phonebook`` you "
+"can modify the remaining fields in this panel to connect phones to a "
+"third-party LDAP server."
+msgstr ""
+
+#: ../../nethvoice.rst:655
+#, fuzzy
+msgid "``Server Address`` Hostname or IP address of the LDAP server."
+msgstr ""
+"``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
+"NethServer 8"
+
+#: ../../nethvoice.rst:657
+msgid "``Port Number`` TCP port used by the LDAP server."
+msgstr ""
+
+#: ../../nethvoice.rst:659
+msgid ""
+"``Username`` ``Password`` Authentication credentials for the LDAP "
+"service. The username might be specified as a Distinguished Name (DN) "
+"LDAP or in another format, depending on the requirements of the LDAP "
+"server."
+msgstr ""
+
+#: ../../nethvoice.rst:661
+msgid ""
+"``Encryption`` Protects the connection with TLS or STARTTLS. Caution! "
+"Some phones do not support encryption, and it's necessary to select None."
+msgstr ""
+
+#: ../../nethvoice.rst:663
+msgid ""
+"``Search Base (DN)`` Limits access to the branch of the LDAP database "
+"specified as the base. Usually, the search base is mandatory."
+msgstr ""
+
+#: ../../nethvoice.rst:665
+msgid ""
+"``Search Filter for Contact Name`` ``Search Filter for Phone Number`` "
+"LDAP search filters need to be specified with the syntax defined by "
+"RFC-4515 and later. The character % (percentage sign) can be used as a "
+"placeholder that the phone replaces with the dialed number."
+msgstr ""
+
+#: ../../nethvoice.rst:667
+msgid ""
+"``Attributes for Contact Name`` Separated by space, list the names of "
+"LDAP attributes that can contain the contact's name."
+msgstr ""
+
+#: ../../nethvoice.rst:669
+msgid ""
+"``Name Display Format`` Attributes' names preceded by the character % "
+"(percentage sign) can be composed to form the pattern with which the name"
+" is displayed on the phone screen."
+msgstr ""
+
+#: ../../nethvoice.rst:671
+msgid ""
+"``Attribute for Main Phone Number`` ``Attribute for Mobile Number`` "
+"``Attribute for Other Phone Number`` These three fields contain names of "
+"LDAP attributes for the respective phone numbers."
+msgstr ""
+
+#: ../../nethvoice.rst:674
+msgid "Network"
+msgstr ""
+
+#: ../../nethvoice.rst:676
+msgid ""
+"Phones use the DHCP protocol to receive network configuration: IP, subnet"
+" mask, DNS, and gateway. In some cases, DHCP is also used to obtain the "
+"provisioning URL (refer to :ref:`Provisioning methods <provisioning-"
+"methods>`)."
+msgstr ""
+
+#: ../../nethvoice.rst:678
+msgid "However, the following parameters can be configured in this panel:"
+msgstr ""
+
+#: ../../nethvoice.rst:680
+msgid ""
+"``VLAN Identifier (VID)`` By specifying a number between 1 and 4094, the "
+"phone will add VLAN tagging to the packets generated by the phone itself,"
+" according to the IEEE 802.1Q standard."
+msgstr ""
+
+#: ../../nethvoice.rst:682
+msgid ""
+"``VLAN Identifier for PC port`` By specifying a number between 1 and "
+"4094, the phone will add VLAN tagging to packets coming from the PC port "
+"(or data port), following the IEEE 802.1Q standard."
+msgstr ""
+
+#: ../../nethvoice.rst:684
+msgid ""
+"In the VLAN fields, the value \"\" (empty string), as usual, considers "
+"the setting at a lower priority (model or default), while \"0\" (zero) "
+"corresponds to \"disabled\"."
+msgstr ""
+
+#: ../../nethvoice.rst:688
+msgid "Entering an incorrect VLAN identifier can render the phone unreachable."
+msgstr ""
 
 #: ../../nethvoice_proxy.rst:5
 msgid "NethVoice Proxy"
@@ -11036,5 +11582,24 @@ msgstr ""
 #~ msgid ""
 #~ "`Advanced`: Almost all functionalities are "
 #~ "allowed, suitable for advanced users."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``Default Settings``: these are found on"
+#~ " the :ref:`wizard-modelli` page."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``Model Settings``: parameters are taken "
+#~ "from the configuration of the model "
+#~ "associated with the device, which is "
+#~ "found on the :ref:`wizard-modelli` page."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``Phone Settings``: parameters are taken "
+#~ "from the configuration of the individual"
+#~ " phone, found on the :ref:`wizard-"
+#~ "configurazioni` page."
 #~ msgstr ""
 
