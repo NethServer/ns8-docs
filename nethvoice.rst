@@ -361,7 +361,7 @@ Administration
 Languages
 ---------
 
-In the Languages menu, it's possible to set the system language of NethVoice by setting it as the default one and also install other additional language packages.
+In the Languages menu, it's possible to set the default NethVoice language.
 
 Settings
 --------
