@@ -197,7 +197,7 @@ Configurations
 Groups
 ------
 
-You can create user groups that will be visible and usable in applications, such as NethVoiceCTI.
+You can create user groups that will be visible and usable in applications, such as NethVoice CTI.
 
 Click the :guilabel:`Create new group`.
 Specify a name and :guilabel:`save`.
@@ -233,8 +233,8 @@ Settings
 * ``Listening``: Enables listening to calls of other users.
 * ``Intrusion``: Enables intrusion into another user's call (listening to both caller and called, conversation only with the user).
 * ``Pickup``: Enables call pickup for calls to other users.
-* ``Privacy``: Enables the masking of the last 3 digits (modifiable from the command line) of the called and/or calling number of other users in NethVoiceCTI.
-* ``Physical Phone Buttons``: Enables the configuration of physical phone buttons by the user in NethVoiceCTI.
+* ``Privacy``: Enables the masking of the last 3 digits (modifiable from the command line) of the called and/or calling number of other users in NethVoice CTI.
+* ``Physical Phone Buttons``: Enables the configuration of physical phone buttons by the user in NethVoice CTI.
   These correspond to the Line Keys shown on the :ref:`wizard-devices` pages.
 
 Outbound Routes
@@ -250,8 +250,8 @@ NethVoice CTI
 Address Book
 ^^^^^^^^^^^^
 
-* ``Address Book``: The general permission enables the viewing of the address book in NethVoiceCTI and the ability to add, modify, and delete own contacts.
-* ``Advanced Address Book``: Enables the ability to modify/delete non-owned contacts in the address book in NethVoiceCTI.
+* ``Address Book``: The general permission enables the viewing of the address book in NethVoice CTI and the ability to add, modify, and delete own contacts.
+* ``Advanced Address Book``: Enables the ability to modify/delete non-owned contacts in the address book in NethVoice CTI.
 
 CDR
 ^^^
@@ -263,13 +263,13 @@ CDR
 Customer Cards
 ^^^^^^^^^^^^^^
 
-* ``Customer Cards``: The general permission enables the ability to view the customer card on NethVoiceCTI.
+* ``Customer Cards``: The general permission enables the ability to view the customer card on NethVoice CTI.
 * For each section of the customer card, you can enable/disable visibility.
 
 Presence Panel
 ^^^^^^^^^^^^^^
 
-* The general permission enables the display of the operators panel in NethVoiceCTI.
+* The general permission enables the display of the operators panel in NethVoice CTI.
 * ``Advanced Recording``: Enables recording of calls from other users.
 * ``Call Transfer``: Enables call transfer for calls from other users.
 * ``Advanced Parking``: Enables the ability to park calls from other users and retrieve them.
