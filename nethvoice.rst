@@ -213,6 +213,7 @@ By default, 3 profiles are created, each containing different levels of function
 * ``Basic``: Minimum functionality for the user.
 * ``Standard``: Classic management functionalities for the user.
 * ``Advanced``: Almost all functionalities are allowed, suitable for advanced users.
+
 You can also create new profiles by duplicating an existing one or creating new ones and specifying the various functionalities.
 
 .. note::
@@ -616,18 +617,19 @@ Preferences
 -----------
 
 * ``NTP Server Address`` The hostname or IP address of the Network Time Protocol (NTP) server
-to automatically set the phone's time.
+  to automatically set the phone's time.
 
 * ``Provisioning Schedule`` By selecting Only at startup, phones renew their configuration
-after turning on or restarting. Instead, by selecting Every day, phones autonomously renew
-their configuration at a random time during the night. See also :ref:provisioning2-automatic-updates.
+  after turning on or restarting. Instead, by selecting Every day, phones autonomously renew
+  their configuration at a random time during the night. See also :ref:provisioning2-automatic-updates.
 
 * ``Transfer Mode for Line Keys`` Specifies how line keys transfer the ongoing call to another extension.
-  * **New Call** initiates a new call to the extension configured on the line key, placing the
-current call on hold.
+
+  * **New Call** initiates a new call to the extension configured on the line key,
+    placing thecurrent call on hold.
 
   * **Consultative** always places the current call on hold, and the transfer completion
-can occur while the extension configured on the line key is ringing or even after the answer.
+    can occur while the extension configured on the line key is ringing or even after the answer.
 
   * **Blind/No Confirmation** immediately transfers the current call to the configured extension.
 
@@ -636,12 +638,13 @@ can occur while the extension configured on the line key is ringing or even afte
 * ``Timezone`` Sets the phone's timezone, necessary for daylight saving time adjustments.
 
 * ``Ring Tones`` These are specific to each country and indicate the call status through
-an audible signal: free tone, busy tone, hang-up tone, etc.
+  an audible signal: free tone, busy tone, hang-up tone, etc.
 
 * ``Time Format`` ``Date Format`` Choice of the time/date format displayed
-on the phone's screen.
+  on the phone's screen.
 
 * ``Firmware`` Upload and selection of a new firmware version for the phone.
+
 See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`.
 
 .. _panel-phonebook:
@@ -685,4 +688,4 @@ In the VLAN fields, the value "" (empty string), as usual, considers the setting
 
 .. warning::
 
-Entering an incorrect VLAN identifier can render the phone unreachable.
+   Entering an incorrect VLAN identifier can render the phone unreachable.
