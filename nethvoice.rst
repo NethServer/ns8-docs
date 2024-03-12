@@ -344,9 +344,9 @@ Phone Configuration Priority
 
 Configurations created by Nethvoice provisioning for phone devices are derived by combining settings from:
 
-- ``Default Settings``: these are found on the :ref:`wizard-modelli` page.
-- ``Model Settings``: parameters are taken from the configuration of the model associated with the device, which is found on the :ref:`wizard-modelli` page.
-- ``Phone Settings``: parameters are taken from the configuration of the individual phone, found on the :ref:`wizard-configurazioni` page.
+- ``Default Settings``: these are found on the :ref:`wizard-model` page.
+- ``Model Settings``: parameters are taken from the configuration of the model associated with the device, which is found on the :ref:`wizard-model` page.
+- ``Phone Settings``: parameters are taken from the configuration of the individual phone, found on the :ref:`wizard-configurations` page.
 - NethVoice CTI Settings where it's possible to configure parameters of the physical phone associated with the user.
 
 In case there is a parameter with non-uniform configuration across the various sections listed above, this is the descending order of priority to be followed:
@@ -354,3 +354,335 @@ In case there is a parameter with non-uniform configuration across the various s
 - ``Phone Settings`` and NethVoice CTI Settings are the settings with the highest priority, with the latter taking precedence if there is a conflict between the two.
 - ``Model Settings``
 - ``Default Settings``
+
+Administration
+==============
+
+Languages
+---------
+
+In the Languages menu, it's possible to set the default NethVoice language.
+
+Settings
+--------
+
+The Settings page allows managing various aspects of the configuration.
+
+* ``Password``: It's possible to change the password for the admin user dedicated to accessing the web interface of NethVoice.
+
+Advanced
+--------
+
+The Advanced section allows direct access to the advanced interface of NethVoice.
+
+Provisioning Parameters Guide
+=============================
+
+The functions of phones configurable through provisioning are collected in the panels of the NethVoice administration interface and described in the following sections.
+
+Not all phone models have the same functions, so some parameters or entire panels may not be displayed.
+
+In general, leaving a field empty or selecting the option - (minus sign) indicates the value inherited from the context with lower priority; the highest priority is for the phone settings, followed in descending order by model and default settings.
+Refer to :ref:`priority of phone configurations <provisioning-scopes-priority>` for further information.
+
+.. _panel-softkeys:
+
+Soft key
+--------
+
+The ``soft keys`` are programmable phone keys specific for calling phone functions.
+
+If the phone makes more keys available than those displayed in the NethVoice administration interface, there is a ``View more`` button to add more.
+
+Depending on the ``Type``, the ``Value`` and ``Label`` fields may also need to be filled in, as indicated in the table below.
+
+In the Label column, the term default indicates that leaving the Label field empty, the phone will assign a default ``label`` to the soft key.
+
+.. list-table:: Soft key configuration
+    :widths: 5 20 10 10
+    :header-rows: 1
+
+    * - Type
+      - Description
+      - Value
+      - Label
+
+    * - Forward
+      - Enable/disable the forward state (unconditional forwarding). If enabled, all incoming calls are forwarded to the specified number
+      - Phone number or extension
+      - Yes (default)
+
+    * - DND
+      - Enable/disable the do not disturb state. If enabled, all incoming calls are rejected
+      - No
+      - No
+
+    * - Recall
+      - Call back the last dialed number
+      - No
+      - Yes (default)
+
+    * - Pick up
+      - Answer an ongoing call to the specified extension
+      - Phone number
+      - Yes
+
+    * - Speed dial
+      - Call the given number by pressing the key
+      - Phone number
+      - Yes
+
+    * - Group pickup
+      - Answer an ongoing call to the configured pickup group
+      - No (The group is configured.)
+      - No
+
+    * - History
+      - Display the call history screen
+      - No
+      - Yes (default)
+
+    * - Menu
+      - Show the phone configuration menu
+      - No
+      - Yes (default)
+
+    * - Status
+      - Display phone status information (e.g., firmware version, registration status...)
+      - No
+      - Yes (default)
+
+    * - Prefix
+      - Add the specified digits to the dialed number
+      - The digits of the prefix
+      - Yes (default)
+
+    * - LDAP
+      - Display the LDAP address book configured on the phone
+      - No
+      - Yes (default)
+
+Line key
+--------
+
+The ``line keys`` are programmable phone keys similar to soft keys but more specific for call management and monitoring the status of extensions.
+
+If the phone makes more keys available than those displayed in the Nethvoice administration interface, there is a button ``View more`` to add more.
+
+Depending on the ``Type``, the fields ``Value`` and ``Label`` may need to be filled in, as indicated in the table below.
+
+In the Label column, the term default indicates that leaving the Label field blank, the phone will assign a default ``label`` to the line key.
+
+.. list-table:: Line key configuration
+   :widths: 5 20 10 10
+    :header-rows: 1
+
+    * - Type
+      - Description
+      - Value
+      - Label
+
+    * - Conference
+      - Active calls are merged into a conference where each participant can listen and speak with others simultaneously
+      - No
+      - Yes (default)
+
+    * - Forward
+      - Enable/disable the forward state (unconditional forwarding). If enabled, all incoming calls are forwarded to the specified number
+      - Phone number or extension
+      - Yes (default)
+
+    * - Call transfer
+      - Transfers the current call to the selected number or another dialed number at the moment
+      - Phone number or extension
+      - Yes
+
+    * - Hold
+      - Places the current call on hold
+      - No
+      - Yes (default)
+
+    * - DND
+      - Enables/disables the Do Not Disturb (DND) status. If enabled, all incoming calls are rejected
+      - No
+      - No
+
+    * - Recall
+      - Dials the last dialed number again
+      - No
+      - Yes (default)
+
+    * - Pick up
+      - Answers an incoming call on the specified extension
+      - Phone number
+      - Yes
+
+    * - DTMF
+      - Executes a sequence of Dual-Tone Multi-Frequency (DTMF) tones during a call
+      - Sequence of symbols or numbers.
+      - Yes
+
+    * - Login/logout dynamic agent
+      - Login/login the call queue
+      - No
+      - Yes
+
+    * - Voicemail
+      - Check voicemail
+      - No
+      - Yes (default)
+
+    * - Speed dial
+      - Call the given number by pressing the key
+      - Phone number
+      - Sì
+
+    * - Line
+      - Select another line
+      - No
+      - Yes (default)
+
+    * - BLF
+      - Monitors the status of the selected extension and, depending on its status, performs either a pick up or speed dial when pressed
+      - Phone number
+      - Yes
+
+    * - URL
+      - Performs an HTTP GET request to the specified web address
+      - Web address (URL)
+      - Yes
+
+    * - Group pickup
+      - Answer a call in progress for the configured pickup group
+      - No (the group is configured)
+      - No
+
+    * - Multicast paging
+      - Send audio directly to the configured extension for multicast paging
+      - Phone number
+      - Yes (default)
+
+    * - Record
+      - Start audio recording of the active call
+      - No
+      - Yes (default)
+
+    * - Prefix
+      - Add the specified digits to the dialed number
+      - The prefix digits
+      - Yes (default)
+
+    * - Phone lock
+      - Activate the phone lock" enables the lock feature on the phone, restricting access to the keys and interface. The unlock sequence needs to be configured according to the phone's documentation
+      - No
+      - Sì (predefinita)
+
+    * - LDAP
+      - Show configured LDAP address book on the phone
+      - No
+      - Yes (default)
+
+.. _panel-expkeys:
+
+Exp key
+-------
+
+The *Expansion keys* are programmable buttons on *expansion modules*, devices that can be connected to the phone to increase the number of available keys.
+
+If the expansion module provides more keys than are displayed in the Nethvoice administration interface, there is a ``View more`` button to add additional keys.
+
+This type of key is configured like the :ref:`Line key <panel-linekeys>`.
+
+.. _panel-display:
+
+Screen and Ringtone
+-------------------
+
+* ``Ringtone Selection`` Each phone has some predefined ringtones that can be selected based on the progressive number. Where supported, you can also choose a custom ringtone, which should then be loaded into the field described below.
+
+* ``Custom Ringtone Management`` Select an audio file for the custom ringtone that has been previously uploaded, or upload a new one by opening the dedicated management module. The audio format must be compatible with the specifications of the phone manufacturer.
+
+* ``Background Image`` ``Screensaver Image`` Select an image file for the phone screen background and screensaver, or upload a new one by opening the dedicated management panel. The image format must be compatible with the specifications of the phone manufacturer.
+
+* ``Screensaver Activation`` Time interval after which the screensaver is activated.
+
+* ``Backlight Off`` Time interval after which the screen lowers brightness or turns off the screen backlight.
+
+* ``Screen Brightness`` ``Screen Contrast`` Select the brightness and contrast levels of the screen.
+
+.. _panel-preferences:
+
+Preferences
+-----------
+
+* ``NTP Server Address`` The hostname or IP address of the Network Time Protocol (NTP) server
+to automatically set the phone's time.
+
+* ``Provisioning Schedule`` By selecting Only at startup, phones renew their configuration
+after turning on or restarting. Instead, by selecting Every day, phones autonomously renew
+their configuration at a random time during the night. See also :ref:provisioning2-automatic-updates.
+
+* ``Transfer Mode for Line Keys`` Specifies how line keys transfer the ongoing call to another extension.
+  * **New Call** initiates a new call to the extension configured on the line key, placing the
+current call on hold.
+
+  * **Consultative** always places the current call on hold, and the transfer completion
+can occur while the extension configured on the line key is ringing or even after the answer.
+
+  * **Blind/No Confirmation** immediately transfers the current call to the configured extension.
+
+* ``Phone Language`` Language used by the phone's screen and its web interface.
+
+* ``Timezone`` Sets the phone's timezone, necessary for daylight saving time adjustments.
+
+* ``Ring Tones`` These are specific to each country and indicate the call status through
+an audible signal: free tone, busy tone, hang-up tone, etc.
+
+* ``Time Format`` ``Date Format`` Choice of the time/date format displayed
+on the phone's screen.
+
+* ``Firmware`` Upload and selection of a new firmware version for the phone.
+See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`.
+
+.. _panel-phonebook:
+
+LDAP Phonebook
+--------------
+
+The first two options in the ``Address Book Type`` do not allow further modifications. Phones will use the fixed and unmodifiable centralized phonebook of Nethvoice. However, by selecting ``Custom phonebook`` you can modify the remaining fields in this panel to connect phones to a third-party LDAP server.
+
+
+* ``Server Address`` Hostname or IP address of the LDAP server.
+
+* ``Port Number`` TCP port used by the LDAP server.
+
+* ``Username`` ``Password`` Authentication credentials for the LDAP service. The username might be specified as a Distinguished Name (DN) LDAP or in another format, depending on the requirements of the LDAP server.
+
+* ``Encryption`` Protects the connection with TLS or STARTTLS. Caution! Some phones do not support encryption, and it's necessary to select None.
+
+* ``Search Base (DN)`` Limits access to the branch of the LDAP database specified as the base. Usually, the search base is mandatory.
+
+* ``Search Filter for Contact Name`` ``Search Filter for Phone Number`` LDAP search filters need to be specified with the syntax defined by RFC-4515 and later. The character % (percentage sign) can be used as a placeholder that the phone replaces with the dialed number.
+
+* ``Attributes for Contact Name`` Separated by space, list the names of LDAP attributes that can contain the contact's name.
+
+* ``Name Display Format`` Attributes' names preceded by the character % (percentage sign) can be composed to form the pattern with which the name is displayed on the phone screen.
+
+* ``Attribute for Main Phone Number`` ``Attribute for Mobile Number`` ``Attribute for Other Phone Number`` These three fields contain names of LDAP attributes for the respective phone numbers.
+
+Network
+-------
+
+Phones use the DHCP protocol to receive network configuration: IP, subnet mask, DNS, and gateway. In some cases, DHCP is also used to obtain the provisioning URL (refer to :ref:`Provisioning methods <provisioning-methods>`).
+
+However, the following parameters can be configured in this panel:
+
+* ``VLAN Identifier (VID)`` By specifying a number between 1 and 4094, the phone will add VLAN tagging to the packets generated by the phone itself, according to the IEEE 802.1Q standard.
+
+* ``VLAN Identifier for PC port`` By specifying a number between 1 and 4094, the phone will add VLAN tagging to packets coming from the PC port (or data port), following the IEEE 802.1Q standard.
+
+In the VLAN fields, the value "" (empty string), as usual, considers the setting at a lower priority (model or default), while "0" (zero) corresponds to "disabled".
+
+.. warning::
+
+Entering an incorrect VLAN identifier can render the phone unreachable.
