@@ -477,112 +477,113 @@ In the Label column, the term default indicates that leaving the Label field bla
 
 .. list-table:: Line key configuration
    :widths: 5 20 10 10
-    :header-rows: 1
+   :header-rows: 1
 
-    * - Type
-      - Description
-      - Value
-      - Label
+   * - Type
+     - Description
+     - Value
+     - Label
 
-    * - Conference
-      - Active calls are merged into a conference where each participant can listen and speak with others simultaneously
-      - No
-      - Yes (default)
+   * - Conference
+     - Active calls are merged into a conference where each participant can listen and speak with others simultaneously
+     - No
+     - Yes (default)
 
-    * - Forward
-      - Enable/disable the forward state (unconditional forwarding). If enabled, all incoming calls are forwarded to the specified number
-      - Phone number or extension
-      - Yes (default)
+   * - Forward
+     - Enable/disable the forward state (unconditional forwarding). If enabled, all incoming calls are forwarded to the specified number
+     - Phone number or extension
+     - Yes (default)
 
-    * - Call transfer
-      - Transfers the current call to the selected number or another dialed number at the moment
-      - Phone number or extension
-      - Yes
+   * - Call transfer
+     - Transfers the current call to the selected number or another dialed number at the moment
+     - Phone number or extension
+     - Yes
 
-    * - Hold
-      - Places the current call on hold
-      - No
-      - Yes (default)
+   * - Hold
+     - Places the current call on hold
+     - No
+     - Yes (default)
 
-    * - DND
-      - Enables/disables the Do Not Disturb (DND) status. If enabled, all incoming calls are rejected
-      - No
-      - No
+   * - DND
+     - Enables/disables the Do Not Disturb (DND) status. If enabled, all incoming calls are rejected
+     - No
+     - No
 
-    * - Recall
-      - Dials the last dialed number again
-      - No
-      - Yes (default)
+   * - Recall
+     - Dials the last dialed number again
+     - No
+     - Yes (default)
 
-    * - Pick up
-      - Answers an incoming call on the specified extension
-      - Phone number
-      - Yes
+   * - Pick up
+     - Answers an incoming call on the specified extension
+     - Phone number
+     - Yes
 
-    * - DTMF
-      - Executes a sequence of Dual-Tone Multi-Frequency (DTMF) tones during a call
-      - Sequence of symbols or numbers.
-      - Yes
+   * - DTMF
+     - Executes a sequence of Dual-Tone Multi-Frequency (DTMF) tones during a call
+     - Sequence of symbols or numbers.
+     - Yes
 
-    * - Login/logout dynamic agent
-      - Login/login the call queue
-      - No
-      - Yes
+   * - Login/logout dynamic agent
+     - Login/login the call queue
+     - No
+     - Yes
 
-    * - Voicemail
-      - Check voicemail
-      - No
-      - Yes (default)
+   * - Voicemail
+     - Check voicemail
+     - No
+     - Yes (default)
 
-    * - Speed dial
-      - Call the given number by pressing the key
-      - Phone number
-      - Sì
+   * - Speed dial
+     - Call the given number by pressing the key
+     - Phone number
+     - Yes
 
-    * - Line
-      - Select another line
-      - No
-      - Yes (default)
+   * - Line
+     - Select another line
+     - No
+     - Yes (default)
 
-    * - BLF
-      - Monitors the status of the selected extension and, depending on its status, performs either a pick up or speed dial when pressed
-      - Phone number
-      - Yes
+   * - BLF
+     - Monitors the status of the selected extension and, depending on its status, performs either a pick up or speed dial when pressed
+     - Phone number
+     - Yes
 
-    * - URL
-      - Performs an HTTP GET request to the specified web address
-      - Web address (URL)
-      - Yes
+   * - URL
+     - Performs an HTTP GET request to the specified web address
+     - Web address (URL)
+     - Yes
 
-    * - Group pickup
-      - Answer a call in progress for the configured pickup group
-      - No (the group is configured)
-      - No
+   * - Group pickup
+     - Answer a call in progress for the configured pickup group
+     - No (the group is configured)
+     - No
 
-    * - Multicast paging
-      - Send audio directly to the configured extension for multicast paging
-      - Phone number
-      - Yes (default)
+   * - Multicast paging
+     - Send audio directly to the configured extension for multicast paging
+     - Phone number
+     - Yes (default)
 
-    * - Record
-      - Start audio recording of the active call
-      - No
-      - Yes (default)
+   * - Record
+     - Start audio recording of the active call
+     - No
+     - Yes (default)
 
-    * - Prefix
-      - Add the specified digits to the dialed number
-      - The prefix digits
-      - Yes (default)
+   * - Prefix
+     - Add the specified digits to the dialed number
+     - The prefix digits
+     - Yes (default)
 
-    * - Phone lock
-      - Activate the phone lock" enables the lock feature on the phone, restricting access to the keys and interface. The unlock sequence needs to be configured according to the phone's documentation
-      - No
-      - Sì (predefinita)
+   * - Phone lock
+     - Activate the phone lock" enables the lock feature on the phone, 
+       restricting access to the keys and interface. The unlock sequence needs to be configured according to the phone's documentation
+     - No
+     - Yes (default)
 
-    * - LDAP
-      - Show configured LDAP address book on the phone
-      - No
-      - Yes (default)
+   * - LDAP
+     - Show configured LDAP address book on the phone
+     - No
+     - Yes (default)
 
 .. _panel-expkeys:
 
