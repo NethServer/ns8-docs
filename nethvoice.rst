@@ -344,8 +344,8 @@ Phone Configuration Priority
 
 Configurations created by Nethvoice provisioning for phone devices are derived by combining settings from:
 
-- ``Default Settings``: these are found on the :ref:`wizard-model` page.
-- ``Model Settings``: parameters are taken from the configuration of the model associated with the device, which is found on the :ref:`wizard-model` page.
+- ``Default Settings``: these are found on the :ref:`wizard-models` page.
+- ``Model Settings``: parameters are taken from the configuration of the model associated with the device, which is found on the :ref:`wizard-models` page.
 - ``Phone Settings``: parameters are taken from the configuration of the individual phone, found on the :ref:`wizard-configurations` page.
 - NethVoice CTI Settings where it's possible to configure parameters of the physical phone associated with the user.
 
@@ -535,8 +535,8 @@ In the Label column, the term default indicates that leaving the Label field bla
     * - Speed dial
       - Call the given number by pressing the key
       - Phone number
-      - Sì
-
+      - Yes
+    
     * - Line
       - Select another line
       - No
@@ -615,19 +615,15 @@ Screen and Ringtone
 Preferences
 -----------
 
-* ``NTP Server Address`` The hostname or IP address of the Network Time Protocol (NTP) server
-to automatically set the phone's time.
+* ``NTP Server Address`` The hostname or IP address of the Network Time Protocol (NTP) server to automatically set the phone's time.
 
-* ``Provisioning Schedule`` By selecting Only at startup, phones renew their configuration
-after turning on or restarting. Instead, by selecting Every day, phones autonomously renew
-their configuration at a random time during the night. See also :ref:provisioning2-automatic-updates.
+* ``Provisioning Schedule`` By selecting Only at startup, phones renew their configuration after turning on or restarting. Instead, by selecting Every day, phones autonomously renew their configuration at a random time during the night. See also :ref:provisioning2-automatic-updates.
 
 * ``Transfer Mode for Line Keys`` Specifies how line keys transfer the ongoing call to another extension.
-  * **New Call** initiates a new call to the extension configured on the line key, placing the
-current call on hold.
 
-  * **Consultative** always places the current call on hold, and the transfer completion
-can occur while the extension configured on the line key is ringing or even after the answer.
+  * **New Call** initiates a new call to the extension configured on the line key, placing the current call on hold.
+
+  * **Consultative** always places the current call on hold, and the transfer completion can occur while the extension configured on the line key is ringing or even after the answer.
 
   * **Blind/No Confirmation** immediately transfers the current call to the configured extension.
 
@@ -635,14 +631,12 @@ can occur while the extension configured on the line key is ringing or even afte
 
 * ``Timezone`` Sets the phone's timezone, necessary for daylight saving time adjustments.
 
-* ``Ring Tones`` These are specific to each country and indicate the call status through
-an audible signal: free tone, busy tone, hang-up tone, etc.
+* ``Ring Tones`` These are specific to each country and indicate the call status through an audible signal: free tone, busy tone, hang-up tone, etc.
 
-* ``Time Format`` ``Date Format`` Choice of the time/date format displayed
-on the phone's screen.
+* ``Time Format`` ``Date Format`` Choice of the time/date format displayed on the phone's screen.
 
 * ``Firmware`` Upload and selection of a new firmware version for the phone.
-See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`.
+  See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`.
 
 .. _panel-phonebook:
 
@@ -684,5 +678,36 @@ However, the following parameters can be configured in this panel:
 In the VLAN fields, the value "" (empty string), as usual, considers the setting at a lower priority (model or default), while "0" (zero) corresponds to "disabled".
 
 .. warning::
+   Entering an incorrect VLAN identifier can render the phone unreachable.
 
-Entering an incorrect VLAN identifier can render the phone unreachable.
+.. _dashboard-ref-label:
+
+Dashboard
+=========
+
+The dashboard is the initial page of Nethvoice after the first configuration.
+
+It provides an overview of the elements involved in the operation of Nethvoice.
+
+Users
+-----
+
+The dashboard displays the users used in the Nethvoice configuration along with the presence status and their telephone devices.
+
+If the user's presence configuration is not set to default (Available), there is an option to reset it to the normal state by clicking on the eraser symbol.
+
+Clicking to open information about an individual device shows the telephone device's details:
+
+* Name
+* Model
+* IP Address: Clicking allows connection over the local network.
+* SIP Port
+* Codecs Used
+* DND (Do Not Disturb)
+* Call Forward
+
+Trunks
+------
+
+The configured VoIP trunks in NethVoice are displayed along with their status, showing technology, IP, port, status, and codec.
+
