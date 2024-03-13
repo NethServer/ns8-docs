@@ -16,7 +16,7 @@ NethVoice module is split into seven main parts:
 
 NethVoice is a full-feature integrate voice, video, mobile communication systems.
 
-You can install multiple NethVoice instances on the same node from the :ref:`software_center-section`, but the module requires ref:`NethVoice proxy <nethvoice_proxy-section>` already configured and running.
+You can install multiple NethVoice instances on the same node from the :ref:`software_center-section`, but the module requires :ref:`NethVoice proxy <nethvoice_proxy-section>` already configured and running.
 
 
 Configuration
@@ -43,6 +43,8 @@ After saving the configuration parameters NethVoice will be accessible on his ba
 
 * User: `admin`
 * Password: `Nethesis,1234`, default password if not has been reset during the first configuration wizard
+
+.. _wizard-section:
 
 First configuration wizard
 ==========================
@@ -141,8 +143,8 @@ During the initial configuration wizard, this section requires confirmation of s
 
 The settings are:
 
-* ``Encryption`` requires a valid SSL/TLS certificate for the hostname entered in :guilabel:PBX Address to function correctly.
-* ``PBX Address`` can be the IP address or the hostname of Nethvoice, correctly entered in the DNS used by phones and in the SSL/TLS certificate used by the system.
+* ``Encryption`` requires a valid SSL/TLS certificate for the hostname entered in :guilabel:`PBX Address` to function correctly.
+* ``PBX Address`` can be the IP address or the hostname of NethVoice, correctly entered in the DNS used by phones and in the SSL/TLS certificate used by the system.
 * ``Admin Password`` will be the password to access the web interface of phones configured with the administrator user.
 * ``User Password`` will be the password to access the web interface of phones configured with a non-administrative user.
 
@@ -159,7 +161,7 @@ Other settings that can be changed:
 * :ref:`Preferences <panel-preferences>`
 * :ref:`LDAP Phonebook <panel-phonebook>`
 
-Once the settings are saved, they can be modified again from the :guilabel:Devices > Models page, :guilabel:`Default Settings`.
+Once the settings are saved, they can be modified again from the :guilabel:`Devices > Models page`, :guilabel:`Default Settings`.
 
 Phones
 ------
@@ -176,7 +178,7 @@ In any case, after entering the MAC address, you can select the phone model. Sel
 .. warning::
    If the model is not selected or the wrong model is chosen, some phone functions, such as provisioning via RPS or line keys, may not be available.
 
-.. _wizard-modelli:
+.. _wizard-model:
 
 Models
 ------
@@ -187,9 +189,9 @@ You can create a custom model based on an existing one through the :guilabel:`Cr
 
 On this page, some parameters inherited from all models can also be modified using the :guilabel:`Default Settings`. These parameters include ``Encryption`` and ``PBX Address``, already set during the initial configuration process as explained in :ref:`wizard-devices`.
 
-Depending on the features specific to the model, panels and options described in :ref:wizard-provisioning-section may be available.
+Depending on the features specific to the model, panels and options described in :ref:`wizard-provisioning-section` may be available.
 
-.. _wizard-configurazioni:
+.. _wizard-configurazions:
 
 Configurations
 ==============
@@ -311,7 +313,7 @@ The ``Users`` page establishes, for each individual user, personal settings, and
 
 The settings that can be modify are:
 * ``Profile``: Determines the permissions the user has.
-* ``Group``: Allows grouping users to facilitate the distribution of configurations through :ref:wizard-multiple-phones.
+* ``Group``: Allows grouping users to facilitate the distribution of configurations through :ref:`wizard-multiple-phones`.
 * ``Mobile``: Allows associating a mobile number with the user to display it in the operator panel of NethVoice CTI and use it in presence management.
 * ``Voicemail Box``: Allows activating the voicemail box for the user as a destination for any failed calls within.
 * ``Associate Device``: Allows selecting an unassociated phone and assigning it to the user among those managed with provisioning. It is possible to create credentials for use on a device not supported by provisioning. In this case, a custom device must be used.
@@ -322,7 +324,7 @@ Devices can be of two types, software (Web Phone and Mobile App) or physical, ti
 You can associate up to 9 devices with each user:
 
 * ``Web Phone`` activates the telephony client of NethVoice CTI to manage calls directly without the need for physical phones.
-* ``Mobile App`` enables the configuration of a device on the smartphone (see :ref:nethcti_mobile).
+* ``Mobile App`` enables the configuration of a device on the smartphone (see :ref:`nethvoice_mobile`).
 
 For each physical device, the following is displayed:
 
@@ -338,13 +340,12 @@ Encryption: Indicates whether encryption is enabled or not. The initial setting 
 * ``Restart``: If the device is registered, you can restart it.
 * ``Disassociate``: You can disassociate the device from the user.
 
-.. _provisioning_scopes_priority-section:
-
+.. _provisioning-scopes-priority:
 
 Phone Configuration Priority
 ============================
 
-Configurations created by Nethvoice provisioning for phone devices are derived by combining settings from:
+Configurations created by NethVoice provisioning for phone devices are derived by combining settings from:
 
 - ``Default Settings``: these are found on the :ref:`wizard-model` page.
 - ``Model Settings``: parameters are taken from the configuration of the model associated with the device, which is found on the :ref:`wizard-model` page.
@@ -377,20 +378,293 @@ Advanced
 
 The Advanced section allows direct access to the advanced interface of NethVoice.
 
+.. _wizard-provisioning-section:
+
+Provisioning
+============
+
+What does Provisioning mean? Provisioning is configuring phones in automatic mode, minimizing the necessary operations.
+
+
+Phones Provisioning
+-------------------
+
+Actions to be performed on NethVoice:
+
+1. Identification of phones
+
+2. Assignment of phones to users
+
+Identification of phones
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The MAC address is fundamental to the **Provisioning** of NethVoice as it uniquely identifies the phone.
+
+Entering the MAC address of the phones does not require connecting the phone to the network. It is indeed possible to enter the MAC addresses of phones that are still packaged.
+
+In any case, entering the MAC addresses of the phones can be done typing or copying the MAC address from a spreadsheet, invoice, or other document.
+
+Associating phones with users
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The configuration of a phone is complete when it is associated with a user.
+
+Up to 8 telephone devices can be associated with each user.
+
+NethVoice assigns a progressive number to each device associated with the user with the following criteria:
+
+* ``Main Extension`` - main phone, for example ``201``
+
+* ``91+Main Extension`` - phone 2, for example ``91201``
+
+* ``92+Main Extension`` - phone 3, for example ``92201``
+
+* ...
+
+However, from the users' perspective, the Main Extension is the only important number to remember.
+
+Actions to be performed on the phones
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+
+    Let's consider **first boot** the phones new, just taken out of the box, or those that have undergone a factory reset and have never been started up.
+
+Phones at **first boot** are already able to reach NethVoice to retrieve their configuration using the supported methods.
+
+The only action to be taken in these cases is to connect the Ethernet cable with PoE (Power over Ethernet) to the phone. If PoE is not available, it will be necessary to also connect the phone's power cable.
+
+.. warning::
+
+    Verify the compatibility of the phones with the supported provisioning methods. Read the following sections carefully.
+
+If a phone is already in use, it is possible to prepare it for association with NethVoice through the **firmware upgrade** and **factory reset** procedures. Both procedures are available via the phone's web administration interface.
+
+.. _provisioning-methods:
+
+Provisioning methods
+^^^^^^^^^^^^^^^^^^^^
+
+Phones can access their configuration via standard web protocols, HTTP or HTTPS (TCP port 80 or 443).
+
+When the MAC address of the phone is entered in NethVoice, a provisioning URL (address) is generated. 
+
+For example: ::
+
+    https://NethVoice base Host/provisioning/1234567890.1234/{mac}.cfg
+
+This URL contains a secret (``1234567890.1234`` in the example) that authenticates and identifies the device that will use it.
+
+To obtain the provisioning URL, the phone at first boot can use two methods, **RPS** and **DHCP**.
+
+The **RPS** (Redirect & Provisioning Service) method involves entering the URL of provisioning on the manufacturer's website of the phone. NethVoice is capable of performing this insertion automatically. As soon as the phone is powered on at first boot, it attempts to contact the manufacturer's website to obtain the URL of provisioning.
+
+The **DHCP** method is based on configuring OPTION 66 of the DHCP (Dynamic Host Configuration Protocol) protocol specifically for each brand of phone, it is necessary to configure the network DHCP server appropriately.
+
+If neither RPS nor DHCP works, it is possible to access the web interface of the phone administration and enter the provisioning URL manually. Remember to disable other provisioning methods, such as DHCP and PNP.
+
+The provisioning URL is displayed in the administration interface of NethVoice for each phone, via the :guilabel:`Info` button on the page :guilabel:`Devices > Phones`.
+
+In any case, once the provisioning URL is obtained, the phone always uses this to access its configuration on NethVoice.
+
+.. warning::
+
+    Refer to section :ref:`provisioning-support-section` for further information on manufacturers' support for RPS and DHCP.
+
+Phone configuration specifications
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you want to modify or customize the settings of phones configured via provisioning, access the web administration interface of NethVoice, modifying the settings at the *Default*, *Model*, or *individual phone* level.
+
+The editable parameters include:
+
+* Language
+* Time zone
+* Date/time format
+* Tones
+* Admin user password
+* Call waiting
+* Ringtone
+* Transfer mode
+* LDAP directory
+* VLAN
+* Soft keys
+* Line keys
+* Expansion keys
+* Screen Saver and Background
+
+Refer to :ref:`wizard-section` for more information.
+
+.. warning::
+
+   Do not change settings from the phone administration interface.
+
+Upon restart, the phone retrieves the configurations from the provisioning URL.
+
+Any changes made from the phone administration interface will be lost.
+
+The following sections describe some settings provided by NethVoice.
+
+Provisioned phones will automatically update their configuration even upon change of state (Available, Do Not Disturb, etc.) in NethVoice CTI of the connected user to maintain uniformity of state across all devices.
+
+This configuration update does not cause any disruption or restart of the phone.
+
+Admin password
+^^^^^^^^^^^^^^
+
+The phone web administration interface is accessible with username ``admin`` and a password generated randomly during the installation of NethVoice.
+
+The password is available in the NethVoice administration interface, on the :guilabel:`Models > Default Settings` page.
+
+.. _provisioning-automatic-updates:
+
+Automatic updates
+^^^^^^^^^^^^^^^^^
+
+The phone automatically contacts NethVoice every night to update the configuration. It is possible to completely disable automatic updates.
+
+In any case, the phone downloads the configuration every time it is restarted.
+
+.. _provisioning-firmware-upgrade:
+
+Firmware upgrade
+^^^^^^^^^^^^^^^^
+
+The phone manufacturer periodically publishes firmware updates for the various models of their phones on their website.
+
+It is possible to distribute the updated firmware to all phones of the same model or to a single phone. 
+The firmware file obtained from the manufacturer's website must be uploaded through the administration interface of NethVoice respectively in :guilabel:`Models > Preferences > Firmware` or in :guilabel:`Configuration > Associated Devices > Edit > Preferences`.
+
+The filename can contain only letters, numbers, and the symbols ``._-()``.
+
+The phones receive the update according to the times indicated in :ref:`provisioning-automatic-updates`.
+
+.. hint::
+
+    When the phones have received the update, deselect the firmware file in the NethVoice interface to reduce network traffic.
+
+List of web pages for firmware download:
+
+- `Yealink <http://support.yealink.com/documentFront/forwardToDocumentFrontDisplayPage>`_
+- `Snom <https://service.snom.com/display/wiki/Firmware+Update+Center>`_
+- `Fanvil <https://fanvil.com/Support/download.html>`_
+- `Gigaset <https://teamwork.gigaset.com/gigawiki/pages/viewpage.action?pageId=37486876>`_
+
+Supported phones
+^^^^^^^^^^^^^^^^
+
+NethPhone
+~~~~~~~~~
+
+**FIRMWARE Version 2.0 or higher**
+
+* NP-X3
+* NP-X5
+* NP-X210
+
+Fanvil
+~~~~~~
+
+**FIRMWARE Version 2.0 or higher**
+
+* V62, V63, V64, V65, V67
+* X1/S/SP
+* X210
+* X3/S/SP/G/SG, X3U, X3U Pro
+* X4/G/SG, X4U, X4U-V2
+* X5S, X5U, X5U-V2
+* X6, X6U, X6U-V2
+* X7A/C
+* X301/P/G/W, X303/P/G/W
+* H2U, H2U-V2, H5
+
+Yealink
+~~~~~~~
+
+**FIRMWARE Version 0.86 or higher**
+
+* T19(P) E2, T21(P) E2, T23P/G, T27G, T29G
+* T30/P, T31/P/G/W, T33P/G, T34W
+* T40P/G, T41P/S/U, T42G/S/U, T43U, T44U/W, T46G/S/U, T48G/S/U, T49G
+* T52S, T53/W/C, T54S/W, T56A, T57W, T58V/A/W, VP59
+
+Snom
+~~~~
+
+**FIRMWARE Version 8.7.5 or higher**
+
+* D120, D140, D150
+* D305, D315, D345, D375, D385
+* D710, D712, D713, D715, D717, D725, D735, D745, D765, D785
+* D862, D865
+
+Gigaset
+~~~~~~~
+
+**FIRMWARE Version 3.15.9 or higher**
+
+* Maxwell Basic, Maxwell 2, Maxwell 3, Maxwell 4
+
+.. _provisioning-support-section:
+
+Provisioning compatibility
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following table summarizes the provisioning methods used by each manufacturer at the phone's first boot.
+
+.. list-table:: Provisioning methods by manufacturer
+    :widths: 5 5 5 5 10
+    :header-rows: 1
+
+    * - Manufacturer
+      - Primary method
+      - Secondary method
+      - DHCP option
+      - DHCP option value
+    * - NethPhone
+      - RPS
+      - DHCP
+      - 66
+      - ``http://IP_PHONE_SYSTEM/provisioning/$mac.cfg``
+    * - Fanvil
+      - RPS
+      - DHCP
+      - 66
+      - ``http://IP_PHONE_SYSTEM/provisioning/$mac.cfg``
+    * - Yealink
+      - RPS
+      - DHCP
+      - 66
+      - ``http://IP_PHONE_SYSTEM/provisioning/$MAC.cfg``
+    * - Snom
+      - RPS
+      - DHCP
+      - 66 and 67
+      - ``http://IP_PHONE_SYSTEM/provisioning/{mac}.xml``
+    * - Gigaset
+      - DHCP [#f1]_
+      - RPS
+      - 114
+      - ``http://IP_PHONE_SYSTEM/provisioning/%MACD.xml``
+
+.. [#f1] For Gigaset phones, make sure that the network DHCP server does not provide OPTION 66.
+
+.. _provisioning-parameters: 
+
 Provisioning Parameters Guide
-=============================
+-----------------------------
 
 The functions of phones configurable through provisioning are collected in the panels of the NethVoice administration interface and described in the following sections.
 
 Not all phone models have the same functions, so some parameters or entire panels may not be displayed.
 
 In general, leaving a field empty or selecting the option - (minus sign) indicates the value inherited from the context with lower priority; the highest priority is for the phone settings, followed in descending order by model and default settings.
-Refer to :ref:`priority of phone configurations <provisioning-scopes-priority>` for further information.
+Refer to :ref:`Phone Configuration Priority <provisioning-scopes-priority>` for further information.
 
 .. _panel-softkeys:
 
 Soft key
---------
+^^^^^^^^
 
 The ``soft keys`` are programmable phone keys specific for calling phone functions.
 
@@ -464,12 +738,14 @@ In the Label column, the term default indicates that leaving the Label field emp
       - No
       - Yes (default)
 
+.. _panel-linekeys:
+
 Line key
---------
+^^^^^^^^
 
 The ``line keys`` are programmable phone keys similar to soft keys but more specific for call management and monitoring the status of extensions.
 
-If the phone makes more keys available than those displayed in the Nethvoice administration interface, there is a button ``View more`` to add more.
+If the phone makes more keys available than those displayed in the NethVoice administration interface, there is a button ``View more`` to add more.
 
 Depending on the ``Type``, the fields ``Value`` and ``Label`` may need to be filled in, as indicated in the table below.
 
@@ -588,18 +864,18 @@ In the Label column, the term default indicates that leaving the Label field bla
 .. _panel-expkeys:
 
 Exp key
--------
+^^^^^^^
 
 The *Expansion keys* are programmable buttons on *expansion modules*, devices that can be connected to the phone to increase the number of available keys.
 
-If the expansion module provides more keys than are displayed in the Nethvoice administration interface, there is a ``View more`` button to add additional keys.
+If the expansion module provides more keys than are displayed in the NethVoice administration interface, there is a ``View more`` button to add additional keys.
 
 This type of key is configured like the :ref:`Line key <panel-linekeys>`.
 
 .. _panel-display:
 
 Screen and Ringtone
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 * ``Ringtone Selection`` Each phone has some predefined ringtones that can be selected based on the progressive number. Where supported, you can also choose a custom ringtone, which should then be loaded into the field described below.
 
@@ -616,14 +892,13 @@ Screen and Ringtone
 .. _panel-preferences:
 
 Preferences
------------
+^^^^^^^^^^^
 
-* ``NTP Server Address`` The hostname or IP address of the Network Time Protocol (NTP) server
-  to automatically set the phone's time.
+* ``NTP Server Address`` The hostname or IP address of the Network Time Protocol (NTP) server to automatically set the phone's time.
 
 * ``Provisioning Schedule`` By selecting Only at startup, phones renew their configuration
   after turning on or restarting. Instead, by selecting Every day, phones autonomously renew
-  their configuration at a random time during the night. See also :ref:provisioning2-automatic-updates.
+  their configuration at a random time during the night. See also :ref:`provisioning-automatic-updates`.
 
 * ``Transfer Mode for Line Keys`` Specifies how line keys transfer the ongoing call to another extension.
 
@@ -647,15 +922,14 @@ Preferences
 
 * ``Firmware`` Upload and selection of a new firmware version for the phone.
 
-See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`.
+See also :ref: `Firmware upgrade <provisioning-firmware-upgrade>`.
 
 .. _panel-phonebook:
 
 LDAP Phonebook
---------------
+^^^^^^^^^^^^^^
 
-The first two options in the ``Address Book Type`` do not allow further modifications. Phones will use the fixed and unmodifiable centralized phonebook of Nethvoice. However, by selecting ``Custom phonebook`` you can modify the remaining fields in this panel to connect phones to a third-party LDAP server.
-
+The first two options in the ``Address Book Type`` do not allow further modifications. Phones will use the fixed and unmodifiable centralized phonebook of NethVoice. However, by selecting ``Custom phonebook`` you can modify the remaining fields in this panel to connect phones to a third-party LDAP server.
 
 * ``Server Address`` Hostname or IP address of the LDAP server.
 
@@ -676,7 +950,7 @@ The first two options in the ``Address Book Type`` do not allow further modifica
 * ``Attribute for Main Phone Number`` ``Attribute for Mobile Number`` ``Attribute for Other Phone Number`` These three fields contain names of LDAP attributes for the respective phone numbers.
 
 Network
--------
+^^^^^^^
 
 Phones use the DHCP protocol to receive network configuration: IP, subnet mask, DNS, and gateway. In some cases, DHCP is also used to obtain the provisioning URL (refer to :ref:`Provisioning methods <provisioning-methods>`).
 
@@ -691,3 +965,58 @@ In the VLAN fields, the value "" (empty string), as usual, considers the setting
 .. warning::
 
    Entering an incorrect VLAN identifier can render the phone unreachable.
+
+Gateway Provisioning
+--------------------
+
+Supported Gateways
+^^^^^^^^^^^^^^^^^^
+
+GRANDSTREAM
+~~~~~~~~~~~
+
+* FXS Models HT801 and HT802
+* FXS Models HT812 and HT814
+* FXS Models GXW4216, GXW4224, GXW4232, and GXW4248
+
+MEDIATRIX
+~~~~~~~~~
+
+* 4400 Series
+
+PATTON
+~~~~~~
+
+* BRI SmartNode and Trinity Models
+* PRI SmartNode and Trinity Models
+* FXO SmartNode Models
+
+Provisioning
+^^^^^^^^^^^^
+
+Gateway configuration is done in the Wizard.
+
+Gateway provisioning follows the same rules as provisioning for phones with one fundamental difference:
+
+unlike phones, the NethVoice directly connects to the gateway via telnet to upload the configuration without the gateway having to retrieve it.
+
+Gateway configuration occurs with the gateway online; by default, gateways boot up in DHCP.
+
+However, by clicking on :guilabel:`Add Gateway`, it is possible to create a configuration for a gateway not yet connected and then configure it by uploading the file from the gateway's web interface.
+
+Configuring Gateways
+^^^^^^^^^^^^^^^^^^^^
+
+To configure the gateway is necessary to specify the few required configuration parameters:
+
+1. Device IP address; gateway configuration requires a static IP.
+2. Subnet mask.
+3. Network gateway.
+4. NethVoice IP address; in some installation scenarios, the gateway may reach NethVoice not via its local IP.
+5. Any characteristics required for configuring connected lines (for ISDN lines, the mode of the ISDN terminal adapter; for analog lines, the dialed number of the line).
+
+.. note:: For Grandstream models with 2 network interfaces, the LAN interface's MAC address must be indicated, but the configuration created by NethVoice uses the WAN interface, which is the one that will be used.
+
+Download the gateway configuration to upload it via the web interface by clicking on the management button (symbol with three squares).
+
+
