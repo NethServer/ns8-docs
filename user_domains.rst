@@ -198,11 +198,6 @@ You can connect the NethServer 8 cluster to an existing LDAP server.
 
     Once configured, domain settings cannot be changed later!
 
-If the domain is configured without ``TLS verify``, additional hosts can
-be configured as backup providers. The first configured provider is
-considered as a primary LDAP backend server. If a cluster node cannot
-reach it, its connection is recovered with another provider.
-
 If you choose not to verify TLS, you can configure additional hosts as
 backup providers. The first configured provider is considered the primary
 LDAP backend server. If a cluster node cannot reach it, it switches to
