@@ -94,7 +94,7 @@ At the end of each application migration the following happens:
 
 - The application in NS8 is configured and started with the migrated data.
 
-- The application in NS8 is stopped and disabled.
+- The application in NS7 is stopped and disabled.
 
 - The migration tool configures an HTML page with a link pointing to the
   new application virtual host name served by NS8. End-users will see
