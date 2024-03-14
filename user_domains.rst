@@ -165,7 +165,7 @@ You can connect the NethServer 8 cluster to an existing LDAP server.
    "Port", the domain settings cannot be changed later:
 
    - ``Domain``: This should be in fully qualified domain name (FQDN)
-     syntax, but can be any logical name matching the LDAP base DN
+     syntax, but it can be any logical name matching the LDAP base DN
      structure. For example, if your LDAP base DN is `dc=example,dc=org`,
      a suitable domain name would be "example.org".
 
