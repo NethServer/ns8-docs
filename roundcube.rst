@@ -48,12 +48,13 @@ The plugins that are enabled by default are:
 
 * archive
 * Zip download
+* Manage sieve: manage filters for incoming mail
+* Mark as junk: mark the selected messages as Junk and move them to the configured Junk folder
 
 Recommended plugins:
 
 * New mail notifier
 * Emoticons
 * VCard support
-* Manage sieve: manage filters for incoming mail
-* Mark as junk: mark the selected messages as Junk and move them to the configured Junk folder
 
+The complete list of official plugin could be find at `Roundcube plugins <https://github.com/roundcube/roundcubemail/tree/master/plugins>`_.
