@@ -191,7 +191,7 @@ On this page, some parameters inherited from all models can also be modified usi
 
 Depending on the features specific to the model, panels and options described in :ref:`wizard-provisioning-section` may be available.
 
-.. _wizard-configurazions:
+.. _wizard-configurations:
 
 Configurations
 ==============
@@ -1053,19 +1053,18 @@ The configured VoIP trunks in NethVoice are displayed along with their status, s
 Applications
 ============
 
-
 The *Applications* section allows you to create, modify, or delete certain features of the PBX, which are only created and configured in the wizard, but then used in the NethVoice CTI.
 
 For example, customer cards, in the wizard, are configured to access the database and to practically display the obtained information, but the actual usage will be within the NethVoice CTI, during calls or when searching for specific information.
 
 Customer Cards
-^^^^^^^^^^^^^^
+--------------
 
 The *customer cards* section allows you to group the information present in external databases to the PBX and display them during calls. For example, on a call from a certain customer, retrieve information from the database related to their invoices or any outstanding payments and evaluate whether to provide assistance or not. 
 To generate a new customer card, follow these steps:
 
 Address Book Sources
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 Click on the :guilabel:`Create New Source` and fill out the form that appears:
 
@@ -1080,7 +1079,7 @@ Click on the :guilabel:`Create New Source` and fill out the form that appears:
 Press :guilabel:`Save` to add the database source. The newly created source will appear in the list of available sources.
 
 Template
---------
+^^^^^^^^
 
 Templates are the blueprint for your customer cards. They use the `ejs` engine, which has a JavaScript-like syntax, allowing you to write HTML code using specific directives that you can find on the website https://github.com/tj/ejs.
 
@@ -1093,9 +1092,8 @@ Click on the :guilabel:`Create New Template` button to start the creation proces
 
 The PBX already provides some predefined templates with pre-written HTML code that you can duplicate and modify by changing the color.
 
-
 Customer Cards
---------------
+^^^^^^^^^^^^^^
 
 Once you have created the data source and the template for your card, in this section, you need to combine the two pieces of information to ensure that the card is created correctly. Click on the :guilabel:`Create New Card`` and fill out the form:
 
@@ -1122,17 +1120,3 @@ It should become like this: ::
   select * from phonebook where homephone like '%$NUMBER' or workphone like '%$NUMBER' or cellphone like '%$NUMBER' or fax like '%$NUMBER'
 
 The `$NUMBER` variable is nothing but the caller ID of the PBX to which the customer card refers to collect the data to be displayed.
-
-Video Sources
-^^^^^^^^^^^^^
-
-In this section, you can configure video sources or IP cameras. By clicking the :guilabel:`Create New Source`, you can fill out a form for creation:
-
-* ``Name``: Specify the name to give to the source.
-* ``Extension``: Specify the extension related to the video source (previously created in the "Users" section).
-* ``URL``: Specify the connection URL from which to retrieve the video frames to display.
-* ``Opening Code``: Enter the DTMF tone related to any opening code (if the camera is connected to a gate, for example).
-* ``Profile``: Specify the profile to assign to the source to filter the type of user that has access to the video source.
-* ``Connection``: Press the "Verify" button and verify that the entered URL is correct, testing the connection and obtaining the relevant video frame.
-Once the form is completed, press :guilabel:`Save` to save the information and create a new video source.
-
