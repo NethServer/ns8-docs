@@ -155,14 +155,62 @@ details are displayed on the top of the page.
 External LDAP server
 ====================
 
-You can connect the NethServer 8 cluster to an existing LDAP server:
+You can connect the NethServer 8 cluster to an existing LDAP server.
 
-* access the ``Domains and users`` page
-* click on :guilabel:`Create domain` button and choose ``External``
-* fill all required fields
-* click on :guilabel:`Configure domain` button
+1. Access the ``Domains and users`` page.
 
-In the end, you will be able to bind locally installed applications with the external LDAP server.
+2. Click on :guilabel:`Create domain` button and choose ``External``.
+
+3. Fill all required fields. Bear in mind that apart from "Host" and
+   "Port", the domain settings cannot be changed later:
+
+   - ``Domain``: This should be in fully qualified domain name (FQDN)
+     syntax, but it can be any logical name matching the LDAP base DN
+     structure. For example, if your LDAP base DN is `dc=example,dc=org`,
+     a suitable domain name would be "example.org".
+
+   - ``Host``: Enter the IP address or hostname of the LDAP server.
+
+   - ``Port``: Specify the TCP port number of the remote LDAP service.
+     Standard values are 389 for LDAP and 636 for LDAPS.
+
+   - ``Bind DN`` and ``Password``: Credentials required to access the
+     remote LDAP server.
+
+   - ``Base DN``: Define the level of the LDAP hierarchy to use as the
+     base for user and group lookup. Leaving this field empty retrieves
+     the correct value from the LDAP server itself.
+
+   - ``TLS``: Enable this switch to encrypt the connection with TLS. If
+     the server does not support TLS on the specified port, an error will
+     occur.
+
+   - ``TLS verify``: Enable this switch to ensure that the LDAP server
+     provides a valid TLS certificate signed by a trusted authority, with
+     the certificate name matching the hostname specified in the "Host"
+     field. Continue reading to fully understand the implications of this
+     option.
+
+4. Once all fields are filled, click on the :guilabel:`Configure domain`
+   button.
+
+.. warning::
+
+    Once configured, domain settings cannot be changed later!
+
+If you choose not to verify TLS, you can configure additional hosts as
+backup providers. The first configured provider is considered the primary
+LDAP backend server. If a cluster node cannot reach it, it switches to
+another provider. It's crucial that all domain providers are accessible
+from any cluster node.
+
+Enabling "TLS verify" adds extra security but has limitations: only the
+first provider is considered. If it becomes unreachable, connection
+recovery is not possible.
+
+Ensure each provider is accessible from all cluster nodes for seamless
+operation.
+
 
 .. _password-policy-section:
 
