@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-18 12:35+0000\n"
+"POT-Creation-Date: 2024-03-18 16:44+0000\n"
 "PO-Revision-Date: 2024-03-04 15:41+0000\n"
 "Last-Translator: Nicola Rauso <nicola.rauso@nethesis.it>\n"
 "Language: it\n"
@@ -3490,91 +3490,106 @@ msgid "NethServer 7 migration"
 msgstr "Migrazione da NethServer 7"
 
 #: ../../migration.rst:9
+#, fuzzy
 msgid ""
-"Migration is the process to convert a NethServer 7 machine (*source*) "
-"into a NethServer 8 (*destination*)."
+"Migration is the process to convert a NethServer 7 machine (*source* NS7)"
+" into a NethServer 8 (*destination* NS8)."
 msgstr ""
 "La migrazione è il processo di conversione di una macchina NethServer 7 "
 "(*source*) in una NethServer 8 (*destination*)."
 
-#: ../../migration.rst:11
+#: ../../migration.rst:12
 msgid "Before starting you will need:"
 msgstr "Prima di iniziare avrete bisogno di:"
 
-#: ../../migration.rst:13
-msgid "SSH and Cockpit access to the source NethServer 7 machine"
+#: ../../migration.rst:14
+#, fuzzy
+msgid "SSH and Cockpit access to the source NS7 machine."
 msgstr "Accesso SSH e Cockpit alla macchina NethServer 7 sorgente"
 
-#: ../../migration.rst:14
+#: ../../migration.rst:15
+#, fuzzy
 msgid ""
-"a new server containing a :ref:`freshly installed NethServer 8 cluster "
-"<install-section>`"
+"A new server containing a :ref:`freshly installed NS8 cluster <install-"
+"section>`."
 msgstr ""
 "un nuovo server contenente una:ref:`freshly installed NethServer 8 "
 "cluster <install-section>`"
 
-#: ../../migration.rst:16
-msgid "Also make sure that"
-msgstr "Assicurarsi anche"
+#: ../../migration.rst:17
+#, fuzzy
+msgid "Also check the following requirements:"
+msgstr "Vedi anche i seguenti argomenti correlati:"
 
-#: ../../migration.rst:18
+#: ../../migration.rst:19
 msgid ""
-"if the source is connected to an external account provider, such account "
-"provider is reachable also from the destination"
+"The NS8 cluster VPN address must be resolved correctly by NS7 and the VPN"
+" port must not be blocked by intermediate network appliances. The VPN "
+"address and port were configured during the cluster creation: by default "
+"the address is the leader node FQDN and the port number is 55820."
+msgstr ""
+
+#: ../../migration.rst:25
+#, fuzzy
+msgid ""
+"If NS7 is connected to an external account provider, you must configure "
+"NS8 with the same account provider, as explained in :ref:`migrate-"
+"account-provider`."
 msgstr ""
 "se la macchina sorgente è collegata a un account provider esterno, questo"
 " account provider deve essere raggiungibile anche dalla macchina "
 "destinazione"
 
-#: ../../migration.rst:20
+#: ../../migration.rst:29
 msgid ""
-"you have access to your authoritative DNS server: you will need to change"
-" some DNS records after the migration of each application"
+"You must be granted access to your authoritative DNS server. Applications"
+" in NS8 have a dedicated virtual host name, a FQDN that must be "
+"registered in the DNS. You will need to add or change a DNS CNAME for "
+"each of them."
 msgstr ""
-"di aver accesso al server DNS autorevole: dovrete cambiare alcuni record "
-"DNS dopo la migrazione di ogni applicazione"
 
-#: ../../migration.rst:23
-msgid ""
-"if the source NethServer 7 system has the NethForge repository enabled, "
-"enable it under NS8 Repository Settings accordingly. This step is "
-"required to migrate SOGo."
+#: ../../migration.rst:34
+msgid "The ``nethforge`` repository must be enabled in NS8 to migrate SOGo."
 msgstr ""
-"se il sistema NethServer 7 sorgente ha abilitato il repository NethForge,"
-" abilitarlo di conseguenza anche nel Repository Settings di NS8. Questo "
-"passo è necessario per migrare SOGo."
 
-#: ../../migration.rst:27
+#: ../../migration.rst:37
+msgid "Connect to NS8"
+msgstr ""
+
+#: ../../migration.rst:39
+#, fuzzy
 msgid ""
-"The migration procedure will add the source machine as special node of "
-"NethServer 8 cluster."
+"The migration procedure will add NS7 as special node of the NethServer 8 "
+"cluster."
 msgstr ""
 "La procedura di migrazione aggiungerà la macchina sorgente come nodo "
 "speciale del cluster NethServer 8."
 
-#: ../../migration.rst:29
+#: ../../migration.rst:41
+#, fuzzy
 msgid ""
-"First, you are going to install the migration tool on the source machine."
-" Access Cockpit on the source server and install \"Migration to NS8\" "
-"from the Software Center."
+"Install the migration tool on the source machine. Access Cockpit on the "
+"source server and install \"Migration to NS8\" from the Software Center."
 msgstr ""
 "In primo luogo, occorre installare lo strumento di migrazione sulla "
 "macchina sorgente. Accedere a Cockpit sul server sorgente e installare "
 "\"Migration to NS8\" dal Software Center."
 
-#: ../../migration.rst:32
-msgid "You can now open the just installed ``NS8 migration`` application."
+#: ../../migration.rst:44
+#, fuzzy
+msgid "Open the just installed ``NS8 migration`` application."
 msgstr "Ora è possibile aprire l'applicazione ``NS8 migration`` appena installata."
 
-#: ../../migration.rst:34
+#: ../../migration.rst:46
+#, fuzzy
 msgid ""
-"Now, connect the NethServer 7 server to an existing new NethServer 8 "
-"cluster by entering the following fields:"
+"Connect the NethServer 7 server to an existing new NethServer 8 cluster "
+"by entering the following fields:"
 msgstr ""
 "Ora, collegare il server NethServer 7 a un nuovo cluster esistente "
 "NethServer 8 inserendo i seguenti campi:"
 
-#: ../../migration.rst:36
+#: ../../migration.rst:49
 msgid ""
 "``NS8 leader node``: the host name or IP address of NethServer 8 cluster "
 "leader node"
@@ -3582,26 +3597,21 @@ msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../migration.rst:37
+#: ../../migration.rst:51
+#, fuzzy
 msgid ""
 "``NS8 admin username`` and ``NS8 admin password``: administrator "
-"credentials for the leader node."
-msgstr ""
-"``NS8 admin username`` e ``NS8 admin password``: credenziali di "
-"amministrazione per il nodo leader."
-
-#: ../../migration.rst:39
-msgid ""
-"As best practice, you can create a dedicated user from the :ref"
-":`administrators-section` page and delete the user once the migration has"
-" been completed. Please note that the user must have 2FA disabled."
+"credentials for the leader node. As a best practice, create a dedicated "
+"user from the :ref:`administrators-section` page and delete the user once"
+" the migration has been completed. Please note that the user must have "
+"2FA disabled."
 msgstr ""
 "Come consiglio pratica, è possibile creare un utente dedicato dalla "
 "pagina: `administrators-section` ed eliminare l'utente una volta che la "
 "migrazione è stata completata. Si prega di notare che l'utente deve avere"
 " la 2FA disabilitata."
 
-#: ../../migration.rst:42
+#: ../../migration.rst:57
 msgid ""
 "uncheck the ``TLS validation`` option if the leader node does not have a "
 "valid TLS certificate"
@@ -3609,18 +3619,40 @@ msgstr ""
 "deselezionare l'opzione ``TLS validation`` se il nodo leader non ha un "
 "certificato TLS valido"
 
-#: ../../migration.rst:44
-msgid "Then, click the :guilabel:`Connect` button."
+#: ../../migration.rst:59
+#, fuzzy
+msgid "Click the :guilabel:`Connect` button."
 msgstr "Quindi, fare clic sul pulsante: `Connect` ."
 
-#: ../../migration.rst:46
+#: ../../migration.rst:63
+#, fuzzy
+msgid "Migrate an application"
+msgstr "Applicazioni smartphone"
+
+#: ../../migration.rst:65
+#, fuzzy
 msgid ""
 "The web interface will display the list of all applications installed "
-"inside NethServer 7. Choose an application and click on the "
-":guilabel:`Start migration` button. In this phase the migration process "
-"will install the application into the NethServer 8 cluster and start the "
-"first data synchronization. If the NethServer 8 cluster is composed by 2 "
-"or more nodes, you will be asked to select a destination node."
+"inside NethServer 7."
+msgstr "disabilita l'applicazione in NethServer 7"
+
+#: ../../migration.rst:69
+#, fuzzy
+msgid ""
+"If NS7 has a remote account provider and an error message is displayed "
+"instead, see :ref:`migrate-account-provider`."
+msgstr ""
+"impostazioni della policy delle password dell'account provider (vedere: "
+"`migrate-account-provider`)"
+
+#: ../../migration.rst:72
+#, fuzzy
+msgid ""
+"Choose an application and click on the :guilabel:`Start migration` "
+"button. In this phase the migration process will install the application "
+"into the NethServer 8 cluster and start the first data synchronization. "
+"If the NethServer 8 cluster is composed by 2 or more nodes, you will be "
+"asked to select a destination node."
 msgstr ""
 "L'interfaccia web visualizzerà l'elenco di tutte le applicazioni "
 "installate all'interno di NethServer 7. Scegliere un'applicazione e "
@@ -3630,24 +3662,24 @@ msgstr ""
 "8 è composto da 2 o più nodi, verrà chiesto di selezionare un nodo di "
 "destinazione."
 
-#: ../../migration.rst:53
+#: ../../migration.rst:78
+#, fuzzy
 msgid ""
-"You can now click the :guilabel:`Sync data` button multiple time to keep "
-"in sync the application data between NethServer 7 and NethServer 8."
+"Click the :guilabel:`Sync data` button multiple time to keep in sync the "
+"application data between NethServer 7 and NethServer 8. If something goes"
+" wrong at this point, click the :guilabel:`Abort migration` button to "
+"remove the NS8 application instance and start over with it."
 msgstr ""
 "Ora è possibile fare clic sul pulsante :guilabel: `Sync data` più volte "
 "per mantenere in sincronizzazione i dati dell'applicazione tra NethServer"
 " 7 e NethServer 8."
 
-#: ../../migration.rst:56
+#: ../../migration.rst:84
+#, fuzzy
 msgid ""
-"When you're ready for the final migration, click the :guilabel:`Finish "
+"When you are ready for the final migration, click the :guilabel:`Finish "
 "migration` button. If the migrated application requires extra parameters,"
-" the system will display a dialog box before proceeding. Please note that"
-" most web application will need a dedicated FQDN (virtual host) after the"
-" migration. Make sure the DNS record points to the NS8 node. You can "
-"still configure :ref:`custom HTTP routes <migrated_routes-section>` for "
-"the migrated applications."
+" the system will display a dialog box before proceeding."
 msgstr ""
 "Quando pronto per la migrazione finale, fai clic sul pulsante: `Finish "
 "migration`. Se l'applicazione migrata richiede parametri aggiuntivi, il "
@@ -3657,33 +3689,87 @@ msgstr ""
 "record DNS punti al nodo NS8. È anche possibile configurare :ref: `custom"
 " HTTP routes <migrated_routes-section>` per le applicazioni migrate."
 
-#: ../../migration.rst:63
-msgid "At the end of the application migration, the system will:"
+#: ../../migration.rst:88
+#, fuzzy
+msgid ""
+"Please note that most web application will need a dedicated FQDN (virtual"
+" host) after finishing the migration. Make sure the DNS record points to "
+"the NS8 node. In NS8, you can still configure :ref:`custom HTTP routes "
+"<migrated_routes-section>` for the migrated applications."
+msgstr ""
+"Quando pronto per la migrazione finale, fai clic sul pulsante: `Finish "
+"migration`. Se l'applicazione migrata richiede parametri aggiuntivi, il "
+"sistema visualizzerà una finestra di dialogo prima di procedere. Si prega"
+" di notare che la maggior parte delle applicazioni web avrà bisogno di un"
+" FQDN (virtual host) dedicato dopo la migrazione. Assicurarsi che il "
+"record DNS punti al nodo NS8. È anche possibile configurare :ref: `custom"
+" HTTP routes <migrated_routes-section>` per le applicazioni migrate."
+
+#: ../../migration.rst:93
+#, fuzzy
+msgid "At the end of each application migration the following happens:"
 msgstr "Al termine della migrazione delle applicazioni, il sistema:"
 
-#: ../../migration.rst:65
-msgid "start the module inside NethServer 8"
-msgstr "avvia il modulo in NethServer 8"
+#: ../../migration.rst:95
+msgid "The application in NS8 is configured and started with the migrated data."
+msgstr ""
 
-#: ../../migration.rst:66
-msgid "disable the application inside NethServer 7"
-msgstr "disabilita l'applicazione in NethServer 7"
+#: ../../migration.rst:97
+msgid "The application in NS7 is stopped and disabled."
+msgstr ""
 
-#: ../../migration.rst:68
+#: ../../migration.rst:99
 msgid ""
-"If the migrated application was connected to a local account provider, "
-"the application will still be able to access the provider running on "
-"NethServer 7 using the cluster VPN."
+"The migration tool configures an HTML page with a link pointing to the "
+"new application virtual host name served by NS8. End-users will see that "
+"link instead of the old application. See also :ref:`migrated_routes-"
+"section`."
+msgstr ""
+
+#: ../../migration.rst:104
+#, fuzzy
+msgid ""
+"If the NS7 application was connected to the local account provider, the "
+"NS8 application still uses it, through a temporary external account "
+"provider and the cluster VPN. See :ref:`migrate-account-provider` for "
+"more information."
 msgstr ""
 "Se l'applicazione migrata è stata collegata a un account provider locale,"
 " l'applicazione sarà ancora in grado di accedere al provider in "
 "esecuzione su NethServer 7 utilizzando la VPN del cluster."
 
-#: ../../migration.rst:73
+#: ../../migration.rst:109
+msgid ""
+"As alternative, the migration of an application can be skipped with the "
+":guilabel:`Skip migration` button."
+msgstr ""
+
+#: ../../migration.rst:114
+#, fuzzy
+msgid "Complete the migration"
+msgstr "Migrazione da NethServer 7"
+
+#: ../../migration.rst:116
+msgid ""
+"When the account provider is finally migrated, the migration procedure "
+"disconnects NS7 from the NS8 cluster and the initial connection page "
+"appears again."
+msgstr ""
+
+#: ../../migration.rst:120
+#, fuzzy
+msgid ""
+"If NS7 needs to use NS8 as remote account provider, read carefully the "
+"section :ref:`migrate-account-provider`."
+msgstr ""
+"impostazioni della policy delle password dell'account provider (vedere: "
+"`migrate-account-provider`)"
+
+#: ../../migration.rst:124
 msgid "Logs"
 msgstr "Log"
 
-#: ../../migration.rst:75
+#: ../../migration.rst:126
 msgid ""
 "The migration tool UI has a ``Logs`` page for reading "
 "``/var/log/ns8-migration.log`` contents. The migration procedure of each "
@@ -3693,7 +3779,7 @@ msgstr ""
 " del log ``/var/log/ns8-migration.log``. La procedura di migrazione di "
 "ogni applicazione invia una traccia della sua attività a quel file."
 
-#: ../../migration.rst:77
+#: ../../migration.rst:128
 msgid ""
 "Furthermore, when joining/leaving the NS8 cluster and when NS7 services "
 "are modified, some information can be recorded by ``/var/log/messages`` "
@@ -3703,7 +3789,7 @@ msgstr ""
 "servizi NS7 vengono modificati, alcune informazioni possono essere "
 "registrate in ``/var/log/messages`` come al solito."
 
-#: ../../migration.rst:79
+#: ../../migration.rst:130
 msgid ""
 "On the NS8 side, the application log contains the trace of the ``import-"
 "module`` activity."
@@ -3711,21 +3797,46 @@ msgstr ""
 "Lato NS8, il log delle applicazioni contiene la traccia dell'attività "
 "``import-module``."
 
-#: ../../migration.rst:84
+#: ../../migration.rst:135
 msgid "Account provider"
 msgstr "Account provider"
 
-#: ../../migration.rst:86
-msgid "The NS7 account provider must be migrated after all other applications."
+#: ../../migration.rst:137
+msgid ""
+"Your action is required if the NS7 system is configured with a **remote "
+"account provider**. The migration tool expects to find in NS8 an external"
+" user domain matching the ``BaseDN`` value of the remote account "
+"provider. For example, in NS7 under the ``Users & Groups`` page, look at "
+"the ``Account provider`` details: if the ``BaseDN`` value is "
+"``dc=directory,dc=nh``, then the NS8 external user domain name must be "
+"set to ``directory.nh``. Apart from the matching name, the external user "
+"domain of NS8 must point to the same LDAP database of NS7 (regardless its"
+" implementation). Bear in mind that every node of the NS8 cluster must "
+"reach the same LDAP database, now and in the future."
 msgstr ""
-"L'account provider di NS7 deve essere migrato dopo tutte le altre "
-"applicazioni."
 
-#: ../../migration.rst:89
+#: ../../migration.rst:148
+msgid ""
+"On the contrary, if the NS7 system is configured with a **local account "
+"provider**, ensure that its ``BaseDN`` does not match any NS8 user domain"
+" name. After connecting to the NS8 cluster, a temporary external user "
+"domain is created so that migrated applications can access the NS7 local "
+"account provider until it is migrated, too. The local account provider is"
+" migrated at the end of the procedure: at that point the temporary "
+"external user domain is automatically removed."
+msgstr ""
+
+#: ../../migration.rst:156
+msgid ""
+"Refer to the next sections for specific information about the local "
+"account provider migration."
+msgstr ""
+
+#: ../../migration.rst:160
 msgid "Samba DC"
 msgstr "Samba DC"
 
-#: ../../migration.rst:91
+#: ../../migration.rst:162
 msgid ""
 "Complete the DC migration by clicking the :guilabel:`Finish migration` "
 "button. The procedure asks to select an IP address: it will become the IP"
@@ -3735,54 +3846,58 @@ msgstr ""
 ". La procedura chiede di selezionare un indirizzo IP: diventerà l'IP "
 "della destinazione DC."
 
-#: ../../migration.rst:97
-msgid "Windows clients might not know how to reach the destination DC"
+#: ../../migration.rst:168
+#, fuzzy
+msgid "Windows clients might not know how to reach the new DC"
 msgstr ""
 "I client di Windows potrebbero non sapere come raggiungere la "
 "destinazione DC"
 
-#: ../../migration.rst:99
+#: ../../migration.rst:170
+#, fuzzy
 msgid ""
 "If DNS configuration of Windows clients is controlled by a DHCP server, "
-"set the destination DC IP address as the new DNS server."
+"set the NS8 DC IP address as the new DNS server."
 msgstr ""
 "Se la configurazione DNS dei client Windows è controllata da un server "
 "DHCP, impostare l'indirizzo IP del DC di destinazione come nuovo server "
 "DNS."
 
-#: ../../migration.rst:102
+#: ../../migration.rst:173
+#, fuzzy
 msgid ""
 "If Windows clients use an external DNS, it must be configured to forward "
-"the requests for the Active Directory DNS zone to the destination DC IP "
-"address."
+"the requests for the Active Directory DNS zone to the NS8 DC IP address."
 msgstr ""
 "Se i client Windows utilizzano un DNS esterno, deve essere configurato "
 "per inoltrare le richieste della zona DNS di Active Directory "
 "all'indirizzo IP del DC di destinazione."
 
-#: ../../migration.rst:106
+#: ../../migration.rst:177
+#, fuzzy
 msgid ""
-"If Windows clients have a manual DNS configuration and use the source DC "
-"IP address as DNS and authentication server, consider to transfer the "
-"source DC IP address to the destination DC."
+"If Windows clients have a manual DNS configuration and use the NS7 DC IP "
+"address as DNS and authentication server, consider to transfer the NS7 DC"
+" IP address to the NS8 DC."
 msgstr ""
 "Se i client Windows hanno una configurazione DNS manuale e utilizzano "
 "l'indirizzo IP del DC sorgente come server DNS e di autenticazione, "
 "considerare di trasferire l'indirizzo IP del DC sorgente al DC "
 "destinazione."
 
-#: ../../migration.rst:110
+#: ../../migration.rst:181
+#, fuzzy
 msgid ""
 "In the last case, transferring the IP avoids the reconfiguration of DNS "
-"settings for each Windows client. This is generally preferable over an "
-"external DNS server, if it blocks dynamic DNS update requests (DDNS)."
+"settings for each Windows client. This can be preferable over an external"
+" DNS server, if it blocks dynamic DNS update requests (DDNS)."
 msgstr ""
 "Nell'ultimo caso, il trasferimento dell'IP evita la riconfigurazione "
 "delle impostazioni DNS per ogni client Windows. Questo è generalmente "
 "preferibile su un server DNS esterno, se blocca le richieste di "
 "aggiornamento DNS dinamiche (DDNS)."
 
-#: ../../migration.rst:114
+#: ../../migration.rst:185
 msgid ""
 "To transfer the source DC IP address to the destination DC some steps "
 "must be done manually after the migration has completed."
@@ -3791,7 +3906,7 @@ msgstr ""
 "passaggi devono essere effettuati manualmente dopo il completamento della"
 " migrazione."
 
-#: ../../migration.rst:117
+#: ../../migration.rst:188
 msgid ""
 "Check the migration of accounts was successful. Users and groups must be "
 "listed correctly under ``Domains and users`` page."
@@ -3800,7 +3915,7 @@ msgstr ""
 "utenti e i gruppi devono essere elencati correttamente nella pagina "
 "``Domains and users``."
 
-#: ../../migration.rst:120
+#: ../../migration.rst:191
 msgid ""
 "At the end of the migration the source DC IP address is free and can be "
 "assigned to the destination node. Refer to the node operating system "
@@ -3812,7 +3927,7 @@ msgstr ""
 "documentazione del sistema operativo del nodo per assegnare un indirizzo "
 "IP secondario (alias) al nodo di destinazione."
 
-#: ../../migration.rst:124
+#: ../../migration.rst:195
 msgid ""
 "Change the IP address of the DC. For example, if DC instance is "
 "``samba1`` and the new IP is ``192.168.1.123``, run the following "
@@ -3822,7 +3937,7 @@ msgstr ""
 "``samba1`` e il nuovo IP è ``192.168.1.123`, eseguire il seguente "
 "comando::"
 
-#: ../../migration.rst:130
+#: ../../migration.rst:201
 msgid ""
 "The NS8 Samba DC can be configured as external account provider for NS7. "
 "Bear in mind that NS7 must be able to access the :ref:`IP address "
@@ -3837,7 +3952,7 @@ msgstr ""
 "utile se si dispone ancora di moduli in esecuzione su NS7 che richiedono "
 "l'accesso all'account provider."
 
-#: ../../migration.rst:135
+#: ../../migration.rst:206
 msgid ""
 "Password expiration settings are preserved during the migration. The "
 "password strength policy, if enabled, is converted for compliancy with "
@@ -3850,7 +3965,7 @@ msgstr ""
 "Windows 2003+ [#WINP]_ ed è applicata per le modifiche future della "
 "password. Vedi anche: ref: `password-policy-sezione`."
 
-#: ../../migration.rst:140
+#: ../../migration.rst:211
 msgid ""
 "`Passwords must meet complexity requirements <https://learn.microsoft.com"
 "/en-us/previous-versions/windows/it-pro/windows-"
@@ -3862,11 +3977,18 @@ msgstr ""
 "/windows-server-2003/cc786468(v=ws.10)#password-must-meet-complexity-"
 "requirements `_ dal sito web *learn.microsoft.com*."
 
-#: ../../migration.rst:144
+#: ../../migration.rst:215
 msgid "OpenLDAP"
 msgstr "OpenLDAP"
 
-#: ../../migration.rst:146
+#: ../../migration.rst:217
+#, fuzzy
+msgid ""
+"Complete the OpenLDAP migration by clicking on the :guilabel:`Finish "
+"migration` button."
+msgstr "salvare la configurazione facendo clic sul pulsante: `Schedule backup`"
+
+#: ../../migration.rst:222
 msgid ""
 "The OpenLDAP instance running in NS8 is currently not accessible as "
 "external account provider for NS7 and other network devices."
@@ -3874,7 +3996,7 @@ msgstr ""
 "L'istanza OpenLDAP in esecuzione in NS8 non è attualmente accessibile "
 "come account provider esterno per NS7 e altri dispositivi di rete."
 
-#: ../../migration.rst:149
+#: ../../migration.rst:225
 msgid ""
 "Password policy settings (strength and expiration) are not migrated. They"
 " must be enabled under the domain settings of the ``Domains and users`` "
@@ -3885,11 +4007,11 @@ msgstr ""
 "della pagina ``Domains and users``. Vedi anche: ref: `password-policy-"
 "sezione`."
 
-#: ../../migration.rst:156
+#: ../../migration.rst:232
 msgid "POP3 connector"
 msgstr "Connettore POP3"
 
-#: ../../migration.rst:158
+#: ../../migration.rst:234
 msgid ""
 "The migration involves transferring POP3 Connector settings to NS8 "
 "Imapsync module, together with Email application. Configurations of "
@@ -3904,11 +4026,11 @@ msgstr ""
 "necessario rivedere le impostazioni e inizializzare la sincronizzazione "
 "manualmente."
 
-#: ../../migration.rst:165
+#: ../../migration.rst:241
 msgid "Manual HTTP routes"
 msgstr "Rotte HTTP manuali"
 
-#: ../../migration.rst:167
+#: ../../migration.rst:243
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -3920,7 +4042,7 @@ msgstr ""
 "server chiamato ``server.nethserver.org`` l'installazione WebTop era "
 "disponibile presso ``https://server.nethserver.org/webtop``."
 
-#: ../../migration.rst:171
+#: ../../migration.rst:247
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
@@ -3930,7 +4052,7 @@ msgstr ""
 "inserire un FQDN in modo che WebTop sarà disponibile su un URL del tipo "
 "``https://webtop.nethserver.org``."
 
-#: ../../migration.rst:174
+#: ../../migration.rst:250
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
@@ -3940,15 +4062,15 @@ msgstr ""
 "ricreare manualmente i vecchi percorsi HTTP da:ref:`proxy page <traefik-"
 "section>`."
 
-#: ../../migration.rst:177
+#: ../../migration.rst:253
 msgid "Example for adding WebTop routes:"
 msgstr "Esempio per l'aggiunta di percorsi WebTop:"
 
-#: ../../migration.rst:179
+#: ../../migration.rst:255
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr "aprire la sezione ``HTTP routes`` dalla pagina ``Impostazioni``"
 
-#: ../../migration.rst:180
+#: ../../migration.rst:256
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
@@ -3956,15 +4078,15 @@ msgstr ""
 "cliccare sul nome dell'istanza WebTop, tipo ``webtop1``, una finestra di "
 "dialogo modale mostrerà i dettagli del percorso"
 
-#: ../../migration.rst:181
+#: ../../migration.rst:257
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr "copiare il valore dal campo ``URL``, tipo ``http://127.0.0.1:20033``"
 
-#: ../../migration.rst:182
+#: ../../migration.rst:258
 msgid "click on the :guilabel:`Create route` button"
 msgstr "cliccare sul pulsante :guilabel: `Create route`"
 
-#: ../../migration.rst:183
+#: ../../migration.rst:259
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
@@ -3972,7 +4094,7 @@ msgstr ""
 "scegliere un ``Name`` per la radice e selezionare il ``Node`` dove "
 "l'istanza WebTop è in esecuzione"
 
-#: ../../migration.rst:184
+#: ../../migration.rst:260
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
@@ -3980,7 +4102,7 @@ msgstr ""
 "incollare il valore copiato prima (`http://127.0.0.1:20033``) dentro il "
 "campo ``URL``"
 
-#: ../../migration.rst:185
+#: ../../migration.rst:261
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
@@ -3988,39 +4110,39 @@ msgstr ""
 "lasciare il campo ``Host`` vuoto e inserire ``/webtop`` all'interno del "
 "campo ``Path``"
 
-#: ../../migration.rst:186
+#: ../../migration.rst:262
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr "ripetere i passaggi da 4 a 7 per tutti gli altri percorsi WebTop:"
 
-#: ../../migration.rst:188
+#: ../../migration.rst:264
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr "``/Microsoft-Server-ActiveSync ``"
 
-#: ../../migration.rst:189
+#: ../../migration.rst:265
 msgid "``/.well-known``"
 msgstr "``/.well-known``"
 
-#: ../../migration.rst:190
+#: ../../migration.rst:266
 msgid "``/webtop-dav``"
 msgstr "``/webtop-dav``"
 
-#: ../../migration.rst:193
+#: ../../migration.rst:269
 msgid "Configurations excluded from migration"
 msgstr "Configurazioni escluse dalla migrazione"
 
-#: ../../migration.rst:195
+#: ../../migration.rst:271
 msgid "The following configurations will not be migrated:"
 msgstr "Le seguenti configurazioni non verranno migrate:"
 
-#: ../../migration.rst:197
+#: ../../migration.rst:273
 msgid "custom templates"
 msgstr "template custom"
 
-#: ../../migration.rst:198
+#: ../../migration.rst:274
 msgid "SMTP mail relay rules"
 msgstr "Regole di relay di posta SMTP"
 
-#: ../../migration.rst:199
+#: ../../migration.rst:275
 msgid ""
 "account provider password policy settings (see :ref:`migrate-account-"
 "provider`)"
@@ -11965,4 +12087,49 @@ msgstr ""
 #~ "to bind locally installed applications "
 #~ "with the external LDAP server."
 #~ msgstr ""
+
+#~ msgid "Also make sure that"
+#~ msgstr "Assicurarsi anche"
+
+#~ msgid ""
+#~ "you have access to your authoritative"
+#~ " DNS server: you will need to "
+#~ "change some DNS records after the "
+#~ "migration of each application"
+#~ msgstr ""
+#~ "di aver accesso al server DNS "
+#~ "autorevole: dovrete cambiare alcuni record "
+#~ "DNS dopo la migrazione di ogni "
+#~ "applicazione"
+
+#~ msgid ""
+#~ "if the source NethServer 7 system "
+#~ "has the NethForge repository enabled, "
+#~ "enable it under NS8 Repository Settings"
+#~ " accordingly. This step is required "
+#~ "to migrate SOGo."
+#~ msgstr ""
+#~ "se il sistema NethServer 7 sorgente "
+#~ "ha abilitato il repository NethForge, "
+#~ "abilitarlo di conseguenza anche nel "
+#~ "Repository Settings di NS8. Questo passo"
+#~ " è necessario per migrare SOGo."
+
+#~ msgid ""
+#~ "``NS8 admin username`` and ``NS8 admin"
+#~ " password``: administrator credentials for "
+#~ "the leader node."
+#~ msgstr ""
+#~ "``NS8 admin username`` e ``NS8 admin "
+#~ "password``: credenziali di amministrazione per"
+#~ " il nodo leader."
+
+#~ msgid "start the module inside NethServer 8"
+#~ msgstr "avvia il modulo in NethServer 8"
+
+#~ msgid "The NS7 account provider must be migrated after all other applications."
+#~ msgstr ""
+#~ "L'account provider di NS7 deve essere"
+#~ " migrato dopo tutte le altre "
+#~ "applicazioni."
 
