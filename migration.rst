@@ -6,68 +6,119 @@ NethServer 7 migration
 
 .. highlight:: bash
 
-Migration is the process to convert a NethServer 7 machine (*source*) into a NethServer 8 (*destination*).
+Migration is the process to convert a NethServer 7 machine (*source* NS7)
+into a NethServer 8 (*destination* NS8).
 
 Before starting you will need:
 
-* SSH and Cockpit access to the source NethServer 7 machine
-* a new server containing a :ref:`freshly installed NethServer 8 cluster <install-section>`
+* SSH and Cockpit access to the source NS7 machine.
+* A new server containing a :ref:`freshly installed NS8 cluster <install-section>`.
 
-Also make sure that
+Also check the following requirements:
 
-* if the source is connected to an external account provider,
-  such account provider is reachable also from the destination
-* you have access to your authoritative DNS server:
-  you will need to change some DNS records after the migration of
-  each application
-* if the source NethServer 7 system has the NethForge repository enabled,
-  enable it under NS8 Repository Settings accordingly. This step is
-  required to migrate SOGo.
+#. The NS8 cluster VPN address must be resolved correctly by NS7 and the
+   VPN port must not be blocked by intermediate network appliances. The
+   VPN address and port were configured during the cluster creation: by
+   default the address is the leader node FQDN and the port number is
+   55820.
 
-The migration procedure will add the source machine as special node of NethServer 8 cluster.
+#. If NS7 is connected to an external account provider, you must configure
+   NS8 with the same account provider, as explained in
+   :ref:`migrate-account-provider`.
 
-First, you are going to install the migration tool on the source machine.
-Access Cockpit on the source server and install "Migration to NS8" from the Software Center.
+#. You must be granted access to your authoritative DNS server.
+   Applications in NS8 have a dedicated virtual host name, a FQDN that
+   must be registered in the DNS. You will need to add or change a DNS
+   CNAME for each of them.
 
-You can now open the just installed ``NS8 migration`` application.
+#. The ``nethforge`` repository must be enabled in NS8 to migrate SOGo.
 
-Now, connect the NethServer 7 server to an existing new NethServer 8 cluster by entering the following fields:
+Connect to NS8
+==============
 
-- ``NS8 leader node``: the host name or IP address of NethServer 8 cluster leader node
-- ``NS8 admin username`` and ``NS8 admin password``: administrator credentials for the leader node.
+The migration procedure will add NS7 as special node of the NethServer 8 cluster.
 
-  As best practice, you can create a dedicated user from the :ref:`administrators-section` page and delete
-  the user once the migration has been completed.
-  Please note that the user must have 2FA disabled.
-- uncheck the ``TLS validation`` option if the leader node does not have a valid TLS certificate
+#. Install the migration tool on the source machine. Access Cockpit on the
+   source server and install "Migration to NS8" from the Software Center.
 
-Then, click the :guilabel:`Connect` button.
+#. Open the just installed ``NS8 migration`` application.
+
+#. Connect the NethServer 7 server to an existing new NethServer 8 cluster
+   by entering the following fields:
+
+   - ``NS8 leader node``: the host name or IP address of NethServer 8 cluster leader node
+
+   - ``NS8 admin username`` and ``NS8 admin password``: administrator
+     credentials for the leader node. As a best practice, create a
+     dedicated user from the :ref:`administrators-section` page and delete
+     the user once the migration has been completed. Please note that the
+     user must have 2FA disabled.
+
+   - uncheck the ``TLS validation`` option if the leader node does not have a valid TLS certificate
+
+#. Click the :guilabel:`Connect` button.
+
+
+Migrate an application
+======================
 
 The web interface will display the list of all applications installed inside NethServer 7.
-Choose an application and click on the :guilabel:`Start migration` button.
-In this phase the migration process will install the application into the NethServer 8 cluster
-and start the first data synchronization.
-If the NethServer 8 cluster is composed by 2 or more nodes, you will be asked to select a destination
-node.
 
-You can now click the :guilabel:`Sync data` button multiple time to keep in sync
-the application data between NethServer 7 and NethServer 8.
+.. hint:: 
 
-When you're ready for the final migration, click the :guilabel:`Finish migration` button.
-If the migrated application requires extra parameters, the system will display a dialog box
-before proceeding.
-Please note that most web application will need a dedicated FQDN (virtual host) after the migration.
-Make sure the DNS record points to the NS8 node.
-You can still configure :ref:`custom HTTP routes <migrated_routes-section>` for the migrated applications.
+    If NS7 has a remote account provider and an error message is displayed
+    instead, see :ref:`migrate-account-provider`.
 
-At the end of the application migration, the system will:
+#. Choose an application and click on the :guilabel:`Start migration`
+   button. In this phase the migration process will install the
+   application into the NethServer 8 cluster and start the first data
+   synchronization. If the NethServer 8 cluster is composed by 2 or more
+   nodes, you will be asked to select a destination node.
 
-* start the module inside NethServer 8
-* disable the application inside NethServer 7
+#. Click the :guilabel:`Sync data` button multiple time to keep in sync
+   the application data between NethServer 7 and NethServer 8. If
+   something goes wrong at this point, click the :guilabel:`Abort
+   migration` button to remove the NS8 application instance and start over
+   with it.
 
-If the migrated application was connected to a local account provider, the
-application will still be able to access the provider running on NethServer 7
-using the cluster VPN.
+#. When you are ready for the final migration, click the :guilabel:`Finish
+   migration` button. If the migrated application requires extra
+   parameters, the system will display a dialog box before proceeding.
+
+Please note that most web application will need a dedicated FQDN (virtual
+host) after finishing the migration. Make sure the DNS record points to
+the NS8 node. In NS8, you can still configure :ref:`custom HTTP routes
+<migrated_routes-section>` for the migrated applications.
+
+At the end of each application migration the following happens:
+
+- The application in NS8 is configured and started with the migrated data.
+
+- The application in NS7 is stopped and disabled.
+
+- The migration tool configures an HTML page with a link pointing to the
+  new application virtual host name served by NS8. End-users will see
+  that link instead of the old application. See also
+  :ref:`migrated_routes-section`.
+
+- If the NS7 application was connected to the local account provider, the
+  NS8 application still uses it, through a temporary external account
+  provider and the cluster VPN. See :ref:`migrate-account-provider` for
+  more information.
+
+As alternative, the migration of an application can be skipped with the
+:guilabel:`Skip migration` button.
+
+
+Complete the migration
+======================
+
+When the account provider is finally migrated, the migration procedure
+disconnects NS7 from the NS8 cluster and the initial connection page
+appears again.
+
+If NS7 needs to use NS8 as remote account provider, read carefully the
+section :ref:`migrate-account-provider`.
 
 Logs
 ====
@@ -83,7 +134,27 @@ Logs
 Account provider
 ================
 
-The NS7 account provider must be migrated after all other applications.
+Your action is required if the NS7 system is configured with a **remote
+account provider**. The migration tool expects to find in NS8 an external
+user domain matching the ``BaseDN`` value of the remote account provider.
+For example, in NS7 under the ``Users & Groups`` page, look at the
+``Account provider`` details: if the ``BaseDN`` value is
+``dc=directory,dc=nh``, then the NS8 external user domain name must be set
+to ``directory.nh``. Apart from the matching name, the external user
+domain of NS8 must point to the same LDAP database of NS7 (regardless its
+implementation). Bear in mind that every node of the NS8 cluster must
+reach the same LDAP database, now and in the future.
+
+On the contrary, if the NS7 system is configured with a **local account
+provider**, ensure that its ``BaseDN`` does not match any NS8 user domain
+name. After connecting to the NS8 cluster, a temporary external user
+domain is created so that migrated applications can access the NS7 local
+account provider until it is migrated, too. The local account provider is
+migrated at the end of the procedure: at that point the temporary external
+user domain is automatically removed.
+
+Refer to the next sections for specific information about the local
+account provider migration.
 
 Samba DC
 --------
@@ -94,22 +165,22 @@ the destination DC.
 
 .. warning::
 
-  Windows clients might not know how to reach the destination DC
+  Windows clients might not know how to reach the new DC
 
-* If DNS configuration of Windows clients is controlled by a DHCP server,
-  set the destination DC IP address as the new DNS server.
+a. If DNS configuration of Windows clients is controlled by a DHCP server,
+   set the NS8 DC IP address as the new DNS server.
 
-* If Windows clients use an external DNS, it must be
-  configured to forward the requests for the Active Directory DNS zone to
-  the destination DC IP address.
+b. If Windows clients use an external DNS, it must be
+   configured to forward the requests for the Active Directory DNS zone to
+   the NS8 DC IP address.
 
-* If Windows clients have a manual DNS configuration and use the source DC
-  IP address as DNS and authentication server, consider to transfer the
-  source DC IP address to the destination DC.
+c. If Windows clients have a manual DNS configuration and use the NS7 DC
+   IP address as DNS and authentication server, consider to transfer the
+   NS7 DC IP address to the NS8 DC.
 
 In the last case, transferring the IP avoids the reconfiguration of DNS
-settings for each Windows client. This is generally preferable over an
-external DNS server, if it blocks dynamic DNS update requests (DDNS).
+settings for each Windows client. This can be preferable over an external
+DNS server, if it blocks dynamic DNS update requests (DDNS).
 
 To transfer the source DC IP address to the destination DC some steps must
 be done manually after the migration has completed.
@@ -143,8 +214,13 @@ future password changes. See also :ref:`password-policy-section`.
 OpenLDAP
 --------
 
-The OpenLDAP instance running in NS8 is currently not accessible as
-external account provider for NS7 and other network devices.
+Complete the OpenLDAP migration by clicking on the :guilabel:`Finish
+migration` button.
+
+.. warning::
+
+  The OpenLDAP instance running in NS8 is currently not accessible as
+  external account provider for NS7 and other network devices.
 
 Password policy settings (strength and expiration) are not migrated. They
 must be enabled under the domain settings of the ``Domains and users``
