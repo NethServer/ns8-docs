@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version:  NS8\n"
+"Project-Id-Version: NS8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-18 18:14+0000\n"
-"PO-Revision-Date: 2024-03-18 16:59+0000\n"
+"PO-Revision-Date: 2024-03-18 18:15+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
 "Language: it\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>"
-"\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
 "Generated-By: Babel 2.14.0\n"
 
 #: ../../backup.rst:5
@@ -9380,10 +9380,13 @@ msgid "VCard support"
 msgstr "VCard support"
 
 #: ../../roundcube.rst:60
+#, fuzzy
 msgid ""
 "The complete list of official plugin could be find at `Roundcube plugins "
 "<https://github.com/roundcube/roundcubemail/tree/master/plugins>`_."
 msgstr ""
+"The complete list of official plugin could be find at `Roundcube plugins "
+"<https://github.com/roundcube/roundcubemail/tree/master/plugins>`_."
 
 #: ../../software_center.rst:5
 #, fuzzy
@@ -11243,18 +11246,26 @@ msgid "Click on :guilabel:`Create domain` button and choose ``External``."
 msgstr "click on :guilabel:`Create domain` button and choose ``External``"
 
 #: ../../user_domains.rst:164
+#, fuzzy
 msgid ""
 "Fill all required fields. Bear in mind that apart from \"Host\" and "
 "\"Port\", the domain settings cannot be changed later:"
 msgstr ""
+"Fill all required fields. Bear in mind that apart from \"Host\" and \"Port\""
+", the domain settings cannot be changed later:"
 
 #: ../../user_domains.rst:167
+#, fuzzy
 msgid ""
 "``Domain``: This should be in fully qualified domain name (FQDN) syntax, "
 "but it can be any logical name matching the LDAP base DN structure. For "
 "example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain "
 "name would be \"example.org\"."
 msgstr ""
+"``Domain``: This should be in fully qualified domain name (FQDN) syntax, but "
+"it can be any logical name matching the LDAP base DN structure. For example, "
+"if your LDAP base DN is `dc=example,dc=org`, a suitable domain name would be "
+"\"example.org\"."
 
 #: ../../user_domains.rst:172
 #, fuzzy
@@ -11273,31 +11284,46 @@ msgstr ""
 "the external LDAP server."
 
 #: ../../user_domains.rst:177
+#, fuzzy
 msgid ""
 "``Bind DN`` and ``Password``: Credentials required to access the remote "
 "LDAP server."
 msgstr ""
+"``Bind DN`` and ``Password``: Credentials required to access the remote LDAP "
+"server."
 
 #: ../../user_domains.rst:180
+#, fuzzy
 msgid ""
 "``Base DN``: Define the level of the LDAP hierarchy to use as the base "
 "for user and group lookup. Leaving this field empty retrieves the correct"
 " value from the LDAP server itself."
 msgstr ""
+"``Base DN``: Define the level of the LDAP hierarchy to use as the base for "
+"user and group lookup. Leaving this field empty retrieves the correct value "
+"from the LDAP server itself."
 
 #: ../../user_domains.rst:184
+#, fuzzy
 msgid ""
 "``TLS``: Enable this switch to encrypt the connection with TLS. If the "
 "server does not support TLS on the specified port, an error will occur."
 msgstr ""
+"``TLS``: Enable this switch to encrypt the connection with TLS. If the "
+"server does not support TLS on the specified port, an error will occur."
 
 #: ../../user_domains.rst:188
+#, fuzzy
 msgid ""
 "``TLS verify``: Enable this switch to ensure that the LDAP server "
 "provides a valid TLS certificate signed by a trusted authority, with the "
 "certificate name matching the hostname specified in the \"Host\" field. "
 "Continue reading to fully understand the implications of this option."
 msgstr ""
+"``TLS verify``: Enable this switch to ensure that the LDAP server provides a "
+"valid TLS certificate signed by a trusted authority, with the certificate "
+"name matching the hostname specified in the \"Host\" field. Continue reading "
+"to fully understand the implications of this option."
 
 #: ../../user_domains.rst:194
 #, fuzzy
@@ -11307,10 +11333,12 @@ msgid ""
 msgstr "click on :guilabel:`Configure domain` button"
 
 #: ../../user_domains.rst:199
+#, fuzzy
 msgid "Once configured, domain settings cannot be changed later!"
-msgstr ""
+msgstr "Once configured, domain settings cannot be changed later!"
 
 #: ../../user_domains.rst:201
+#, fuzzy
 msgid ""
 "If you choose not to verify TLS, you can configure additional hosts as "
 "backup providers. The first configured provider is considered the primary"
@@ -11318,19 +11346,31 @@ msgid ""
 "another provider. It's crucial that all domain providers are accessible "
 "from any cluster node."
 msgstr ""
+"If you choose not to verify TLS, you can configure additional hosts as "
+"backup providers. The first configured provider is considered the primary "
+"LDAP backend server. If a cluster node cannot reach it, it switches to "
+"another provider. It's crucial that all domain providers are accessible from "
+"any cluster node."
 
 #: ../../user_domains.rst:207
+#, fuzzy
 msgid ""
 "Enabling \"TLS verify\" adds extra security but has limitations: only the"
 " first provider is considered. If it becomes unreachable, connection "
 "recovery is not possible."
 msgstr ""
+"Enabling \"TLS verify\" adds extra security but has limitations: only the "
+"first provider is considered. If it becomes unreachable, connection recovery "
+"is not possible."
 
 #: ../../user_domains.rst:211
+#, fuzzy
 msgid ""
 "Ensure each provider is accessible from all cluster nodes for seamless "
 "operation."
 msgstr ""
+"Ensure each provider is accessible from all cluster nodes for seamless "
+"operation."
 
 #: ../../user_domains.rst:218
 #, fuzzy
@@ -14984,4 +15024,3 @@ msgstr ""
 
 #~ msgid "fill all required fields"
 #~ msgstr "fill all required fields"
-
