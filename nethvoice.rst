@@ -313,7 +313,7 @@ The ``Users`` page establishes, for each individual user, personal settings, and
 
 The settings that can be modify are:
 * ``Profile``: Determines the permissions the user has.
-* ``Group``: Allows grouping users to facilitate the distribution of configurations through :ref:`wizard-multiple-phones`.
+* ``Group``: Allows grouping users to facilitate the distribution of configurations through.
 * ``Mobile``: Allows associating a mobile number with the user to display it in the operator panel of NethVoice CTI and use it in presence management.
 * ``Voicemail Box``: Allows activating the voicemail box for the user as a destination for any failed calls within.
 * ``Associate Device``: Allows selecting an unassociated phone and assigning it to the user among those managed with provisioning. It is possible to create credentials for use on a device not supported by provisioning. In this case, a custom device must be used.
@@ -324,7 +324,7 @@ Devices can be of two types, software (Web Phone and Mobile App) or physical, ti
 You can associate up to 9 devices with each user:
 
 * ``Web Phone`` activates the telephony client of NethVoice CTI to manage calls directly without the need for physical phones.
-* ``Mobile App`` enables the configuration of a device on the smartphone (see :ref:`nethvoice_mobile`).
+* ``Mobile App`` enables the configuration of a device on the smartphone.
 
 For each physical device, the following is displayed:
 
@@ -1019,4 +1019,120 @@ To configure the gateway is necessary to specify the few required configuration 
 
 Download the gateway configuration to upload it via the web interface by clicking on the management button (symbol with three squares).
 
+Dashboard
+=========
+
+The dashboard is the initial page of NethVoice after the first configuration.
+
+It provides an overview of the elements involved in the operation of NethVoice.
+
+Users
+-----
+
+The dashboard displays the users used in the NethVoice configuration along with the presence status and their telephone devices.
+
+If the user's presence configuration is not set to default (Available), there is an option to reset it to the normal state by clicking on the eraser symbol.
+
+Clicking to open information about an individual device shows the telephone device's details:
+
+* Name
+* Model
+* IP Address: Clicking allows connection over the local network.
+* SIP Port
+* Codecs Used
+* DND (Do Not Disturb)
+* Call Forward
+
+Trunks
+------
+
+The configured VoIP trunks in NethVoice are displayed along with their status, showing technology, IP, port, status, and codec.
+
+.. _applications:
+
+Applications
+============
+
+
+The *Applications* section allows you to create, modify, or delete certain features of the PBX, which are only created and configured in the wizard, but then used in the NethVoice CTI.
+
+For example, customer cards, in the wizard, are configured to access the database and to practically display the obtained information, but the actual usage will be within the NethVoice CTI, during calls or when searching for specific information.
+
+Customer Cards
+^^^^^^^^^^^^^^
+
+The *customer cards* section allows you to group the information present in external databases to the PBX and display them during calls. For example, on a call from a certain customer, retrieve information from the database related to their invoices or any outstanding payments and evaluate whether to provide assistance or not. 
+To generate a new customer card, follow these steps:
+
+Address Book Sources
+--------------------
+
+Click on the :guilabel:`Create New Source` and fill out the form that appears:
+
+* ``Database Type``: Specify the type of database to retrieve information from
+* ``Database Name``: Specify the name of the database to connect to
+* ``Database Address``: Specify the address to connect to the database (localhost, socket, or external IP)
+* ``Database Port``: Specify a port for the database different from the default one proposed
+* ``Database User``: Specify the user used to connect to the database
+* ``Database Password``: Specify the password to connect to the database
+* ``Connection``: Press the "Verify" button to test that the information entered is correct for the connection
+
+Press :guilabel:`Save` to add the database source. The newly created source will appear in the list of available sources.
+
+Template
+--------
+
+Templates are the blueprint for your customer cards. They use the `ejs` engine, which has a JavaScript-like syntax, allowing you to write HTML code using specific directives that you can find on the website https://github.com/tj/ejs.
+
+Click on the :guilabel:`Create New Template` button to start the creation process:
+
+* ``Name``: Specify the name of the template.
+* ``Results``: Contains the output of your query in JSON format. Use the text field to test and see how your HTML template will look with your data.
+* ``Code (ejs)``: In this text field, enter the code of your template, respecting the ejs syntax, using the values mentioned above (which are nothing but the result columns of your query).
+* ``Preview``: Combining the results and the ejs code, you will see the corresponding HTML output, which will be your customer card.
+
+The PBX already provides some predefined templates with pre-written HTML code that you can duplicate and modify by changing the color.
+
+
+Customer Cards
+--------------
+
+Once you have created the data source and the template for your card, in this section, you need to combine the two pieces of information to ensure that the card is created correctly. Click on the :guilabel:`Create New Card`` and fill out the form:
+
+* ``Name``: Name of the customer card.
+* ``Source``: Specify the previously created database source.
+* ``Template``: Specify the template to associate with the one previously created.
+* ``Profile``: Choose the type of user profile to which the customer card you are creating will be displayed.
+* ``Query``: Enter the query that will return the relevant information.
+* ``Render``: By pressing the button, the query will be executed on the specified source, and the data will be inserted into the selected template, producing the desired output.
+
+Press the :guilabel:`Save` button to save your customer card.
+
+.. warning:: 
+   Once the query and card are created and verified that everything works, use the $NUMBER variable to replace the numerical parameters in your query.
+
+*Example*:
+
+If your query looks like this: ::
+
+  select * from phonebook where homephone like '%150' or workphone like '%850' or cellphone like '%150' or fax like '%850'
+
+It should become like this: ::
+
+  select * from phonebook where homephone like '%$NUMBER' or workphone like '%$NUMBER' or cellphone like '%$NUMBER' or fax like '%$NUMBER'
+
+The `$NUMBER` variable is nothing but the caller ID of the PBX to which the customer card refers to collect the data to be displayed.
+
+Video Sources
+^^^^^^^^^^^^^
+
+In this section, you can configure video sources or IP cameras. By clicking the :guilabel:`Create New Source`, you can fill out a form for creation:
+
+* ``Name``: Specify the name to give to the source.
+* ``Extension``: Specify the extension related to the video source (previously created in the "Users" section).
+* ``URL``: Specify the connection URL from which to retrieve the video frames to display.
+* ``Opening Code``: Enter the DTMF tone related to any opening code (if the camera is connected to a gate, for example).
+* ``Profile``: Specify the profile to assign to the source to filter the type of user that has access to the video source.
+* ``Connection``: Press the "Verify" button and verify that the entered URL is correct, testing the connection and obtaining the relevant video frame.
+Once the form is completed, press :guilabel:`Save` to save the information and create a new video source.
 
