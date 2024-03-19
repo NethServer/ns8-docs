@@ -1,6 +1,6 @@
 .. _metrics-section:
 
-.. _prometheus-section
+.. _prometheus-section:
 
 ==========
 Prometheus
