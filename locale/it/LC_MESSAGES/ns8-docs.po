@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NS8\n"
+"Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-18 18:14+0000\n"
+"POT-Creation-Date: 2024-03-25 17:47+0000\n"
 "PO-Revision-Date: 2024-03-18 18:15+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
 "Language: it\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>"
+"\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
 "Generated-By: Babel 2.14.0\n"
 
 #: ../../backup.rst:5
@@ -11251,8 +11251,8 @@ msgid ""
 "Fill all required fields. Bear in mind that apart from \"Host\" and "
 "\"Port\", the domain settings cannot be changed later:"
 msgstr ""
-"Fill all required fields. Bear in mind that apart from \"Host\" and \"Port\""
-", the domain settings cannot be changed later:"
+"Fill all required fields. Bear in mind that apart from \"Host\" and "
+"\"Port\", the domain settings cannot be changed later:"
 
 #: ../../user_domains.rst:167
 #, fuzzy
@@ -11262,10 +11262,10 @@ msgid ""
 "example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain "
 "name would be \"example.org\"."
 msgstr ""
-"``Domain``: This should be in fully qualified domain name (FQDN) syntax, but "
-"it can be any logical name matching the LDAP base DN structure. For example, "
-"if your LDAP base DN is `dc=example,dc=org`, a suitable domain name would be "
-"\"example.org\"."
+"``Domain``: This should be in fully qualified domain name (FQDN) syntax, "
+"but it can be any logical name matching the LDAP base DN structure. For "
+"example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain "
+"name would be \"example.org\"."
 
 #: ../../user_domains.rst:172
 #, fuzzy
@@ -11275,35 +11275,35 @@ msgstr ""
 "NethServer 8"
 
 #: ../../user_domains.rst:174
-#, fuzzy
 msgid ""
 "``Port``: Specify the TCP port number of the remote LDAP service. "
-"Standard values are 389 for LDAP and 636 for LDAPS."
+"Standard values are 389 for LDAP and 636 for LDAPS. However, with Active "
+"Directory, certain applications like Mail [#admail]_ may require setting "
+"LDAP port 3268 or LDAPS port 3269. This is because they do not support "
+"\"LDAP subordinate referrals\"."
 msgstr ""
-"In the end, you will be able to bind locally installed applications with "
-"the external LDAP server."
 
-#: ../../user_domains.rst:177
+#: ../../user_domains.rst:180
 #, fuzzy
 msgid ""
 "``Bind DN`` and ``Password``: Credentials required to access the remote "
 "LDAP server."
 msgstr ""
-"``Bind DN`` and ``Password``: Credentials required to access the remote LDAP "
-"server."
+"``Bind DN`` and ``Password``: Credentials required to access the remote "
+"LDAP server."
 
-#: ../../user_domains.rst:180
+#: ../../user_domains.rst:183
 #, fuzzy
 msgid ""
 "``Base DN``: Define the level of the LDAP hierarchy to use as the base "
 "for user and group lookup. Leaving this field empty retrieves the correct"
 " value from the LDAP server itself."
 msgstr ""
-"``Base DN``: Define the level of the LDAP hierarchy to use as the base for "
-"user and group lookup. Leaving this field empty retrieves the correct value "
-"from the LDAP server itself."
+"``Base DN``: Define the level of the LDAP hierarchy to use as the base "
+"for user and group lookup. Leaving this field empty retrieves the correct"
+" value from the LDAP server itself."
 
-#: ../../user_domains.rst:184
+#: ../../user_domains.rst:187
 #, fuzzy
 msgid ""
 "``TLS``: Enable this switch to encrypt the connection with TLS. If the "
@@ -11312,7 +11312,7 @@ msgstr ""
 "``TLS``: Enable this switch to encrypt the connection with TLS. If the "
 "server does not support TLS on the specified port, an error will occur."
 
-#: ../../user_domains.rst:188
+#: ../../user_domains.rst:191
 #, fuzzy
 msgid ""
 "``TLS verify``: Enable this switch to ensure that the LDAP server "
@@ -11320,24 +11320,24 @@ msgid ""
 "certificate name matching the hostname specified in the \"Host\" field. "
 "Continue reading to fully understand the implications of this option."
 msgstr ""
-"``TLS verify``: Enable this switch to ensure that the LDAP server provides a "
-"valid TLS certificate signed by a trusted authority, with the certificate "
-"name matching the hostname specified in the \"Host\" field. Continue reading "
-"to fully understand the implications of this option."
+"``TLS verify``: Enable this switch to ensure that the LDAP server "
+"provides a valid TLS certificate signed by a trusted authority, with the "
+"certificate name matching the hostname specified in the \"Host\" field. "
+"Continue reading to fully understand the implications of this option."
 
-#: ../../user_domains.rst:194
+#: ../../user_domains.rst:197
 #, fuzzy
 msgid ""
 "Once all fields are filled, click on the :guilabel:`Configure domain` "
 "button."
 msgstr "click on :guilabel:`Configure domain` button"
 
-#: ../../user_domains.rst:199
+#: ../../user_domains.rst:202
 #, fuzzy
 msgid "Once configured, domain settings cannot be changed later!"
 msgstr "Once configured, domain settings cannot be changed later!"
 
-#: ../../user_domains.rst:201
+#: ../../user_domains.rst:204
 #, fuzzy
 msgid ""
 "If you choose not to verify TLS, you can configure additional hosts as "
@@ -11347,23 +11347,23 @@ msgid ""
 "from any cluster node."
 msgstr ""
 "If you choose not to verify TLS, you can configure additional hosts as "
-"backup providers. The first configured provider is considered the primary "
-"LDAP backend server. If a cluster node cannot reach it, it switches to "
-"another provider. It's crucial that all domain providers are accessible from "
-"any cluster node."
+"backup providers. The first configured provider is considered the primary"
+" LDAP backend server. If a cluster node cannot reach it, it switches to "
+"another provider. It's crucial that all domain providers are accessible "
+"from any cluster node."
 
-#: ../../user_domains.rst:207
+#: ../../user_domains.rst:210
 #, fuzzy
 msgid ""
 "Enabling \"TLS verify\" adds extra security but has limitations: only the"
 " first provider is considered. If it becomes unreachable, connection "
 "recovery is not possible."
 msgstr ""
-"Enabling \"TLS verify\" adds extra security but has limitations: only the "
-"first provider is considered. If it becomes unreachable, connection recovery "
-"is not possible."
+"Enabling \"TLS verify\" adds extra security but has limitations: only the"
+" first provider is considered. If it becomes unreachable, connection "
+"recovery is not possible."
 
-#: ../../user_domains.rst:211
+#: ../../user_domains.rst:214
 #, fuzzy
 msgid ""
 "Ensure each provider is accessible from all cluster nodes for seamless "
@@ -11372,12 +11372,18 @@ msgstr ""
 "Ensure each provider is accessible from all cluster nodes for seamless "
 "operation."
 
-#: ../../user_domains.rst:218
+#: ../../user_domains.rst:217
+msgid ""
+"https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-"
+"directory"
+msgstr ""
+
+#: ../../user_domains.rst:222
 #, fuzzy
 msgid "Password policy"
 msgstr "Password policy"
 
-#: ../../user_domains.rst:220
+#: ../../user_domains.rst:224
 #, fuzzy
 msgid ""
 "The password policy is a set of rules that defines the password "
@@ -11392,17 +11398,17 @@ msgstr ""
 "interested domain and clicking :guilabel:`Edit password policy` from the "
 "three-dots menu of the ``Password`` card."
 
-#: ../../user_domains.rst:222
+#: ../../user_domains.rst:226
 #, fuzzy
 msgid "You can configure password age and password strength policy separately."
 msgstr "You can configure password age and password strength policy separately."
 
-#: ../../user_domains.rst:225
+#: ../../user_domains.rst:229
 #, fuzzy
 msgid "Password age"
 msgstr "Password age"
 
-#: ../../user_domains.rst:227
+#: ../../user_domains.rst:231
 #, fuzzy
 msgid ""
 "You can toggle password age policy by clicking on the ``Password age`` "
@@ -11410,100 +11416,100 @@ msgid ""
 msgstr ""
 "You can toggle password age policy by clicking on the ``Password age`` "
 "switch. If enabled, you can configure the following parameters:"
-
-#: ../../user_domains.rst:229
-#, fuzzy
-msgid ""
-"``Minimum password age``: the minimum number of days that must pass "
-"before a new password change."
-msgstr ""
-"``Minimum password age``: the minimum number of days that must pass "
-"before a new password change."
-
-#: ../../user_domains.rst:230
-#, fuzzy
-msgid ""
-"``Maximum password age``: password expiration time in days. After this "
-"period, the password is no longer valid for logins and must be changed. "
-"Users can change their expired password with :ref:`user-management-"
-"portal-section`."
-msgstr ""
-"``Maximum password age``: password expiration time in days. After this "
-"period, the password is no longer valid for logins and must be changed. "
-"Users can change their expired password with :ref:`user-management-"
-"portal-section`."
 
 #: ../../user_domains.rst:233
+#, fuzzy
+msgid ""
+"``Minimum password age``: the minimum number of days that must pass "
+"before a new password change."
+msgstr ""
+"``Minimum password age``: the minimum number of days that must pass "
+"before a new password change."
+
+#: ../../user_domains.rst:234
+#, fuzzy
+msgid ""
+"``Maximum password age``: password expiration time in days. After this "
+"period, the password is no longer valid for logins and must be changed. "
+"Users can change their expired password with :ref:`user-management-"
+"portal-section`."
+msgstr ""
+"``Maximum password age``: password expiration time in days. After this "
+"period, the password is no longer valid for logins and must be changed. "
+"Users can change their expired password with :ref:`user-management-"
+"portal-section`."
+
+#: ../../user_domains.rst:237
 #, fuzzy
 msgid "Password strength"
 msgstr "Password strength"
 
-#: ../../user_domains.rst:235
-#, fuzzy
-msgid ""
-"By enabling the ``Password strength`` switch, you can configure the "
-"following parameters:"
-msgstr ""
-"By enabling the ``Password strength`` switch, you can configure the "
-"following parameters:"
-
-#: ../../user_domains.rst:237
-#, fuzzy
-msgid ""
-"``Password history length``: the number of old passwords that cannot be "
-"reused."
-msgstr ""
-"``Password history length``: the number of old passwords that cannot be "
-"reused."
-
-#: ../../user_domains.rst:238
-#, fuzzy
-msgid ""
-"``Minimum password length``: the minimum number of characters that a "
-"password must have."
-msgstr ""
-"``Minimum password length``: the minimum number of characters that a "
-"password must have."
-
 #: ../../user_domains.rst:239
 #, fuzzy
 msgid ""
-"``Enforce password complexity``: enforce use of complex password, see "
-"note for more details."
+"By enabling the ``Password strength`` switch, you can configure the "
+"following parameters:"
 msgstr ""
-"``Enforce password complexity``: enforce use of complex password, see "
-"note for more details."
+"By enabling the ``Password strength`` switch, you can configure the "
+"following parameters:"
 
 #: ../../user_domains.rst:241
 #, fuzzy
 msgid ""
+"``Password history length``: the number of old passwords that cannot be "
+"reused."
+msgstr ""
+"``Password history length``: the number of old passwords that cannot be "
+"reused."
+
+#: ../../user_domains.rst:242
+#, fuzzy
+msgid ""
+"``Minimum password length``: the minimum number of characters that a "
+"password must have."
+msgstr ""
+"``Minimum password length``: the minimum number of characters that a "
+"password must have."
+
+#: ../../user_domains.rst:243
+#, fuzzy
+msgid ""
+"``Enforce password complexity``: enforce use of complex password, see "
+"note for more details."
+msgstr ""
+"``Enforce password complexity``: enforce use of complex password, see "
+"note for more details."
+
+#: ../../user_domains.rst:245
+#, fuzzy
+msgid ""
 "A password is considered complex if it is long enough and meets three of "
 "the following rules:"
 msgstr ""
 "A password is considered complex if it is long enough and meets three of "
 "the following rules:"
 
-#: ../../user_domains.rst:243
+#: ../../user_domains.rst:247
 #, fuzzy
 msgid "The password must contain at least one uppercase letter."
 msgstr "The password must contain at least one uppercase letter."
 
-#: ../../user_domains.rst:244
+#: ../../user_domains.rst:248
 #, fuzzy
 msgid "The password must contain at least one lowercase letter."
 msgstr "The password must contain at least one lowercase letter."
 
-#: ../../user_domains.rst:245
+#: ../../user_domains.rst:249
 #, fuzzy
 msgid "The password must contain at least one digit."
 msgstr "The password must contain at least one digit."
 
-#: ../../user_domains.rst:246
+#: ../../user_domains.rst:250
 #, fuzzy
 msgid "The password must contain at least one special character."
 msgstr "The password must contain at least one special character."
 
-#: ../../user_domains.rst:248
+#: ../../user_domains.rst:252
 #, fuzzy
 msgid ""
 "After editing the password policy, you can click on :guilabel:`Edit "
@@ -11516,12 +11522,12 @@ msgstr ""
 "not affect old passwords: they are valid from now on. Age setting changes"
 " are retroactive and are applied to already set passwords, too."
 
-#: ../../user_domains.rst:253
+#: ../../user_domains.rst:257
 #, fuzzy
 msgid "User and groups"
 msgstr "User and groups"
 
-#: ../../user_domains.rst:255
+#: ../../user_domains.rst:259
 #, fuzzy
 msgid ""
 "You can manage users and groups of a domain by clicking on ``User and "
@@ -11530,7 +11536,7 @@ msgstr ""
 "You can manage users and groups of a domain by clicking on ``User and "
 "groups`` link from the ``Domains and users`` page."
 
-#: ../../user_domains.rst:257
+#: ../../user_domains.rst:261
 #, fuzzy
 msgid ""
 "If an external user domain has been configured, the page shows read-only "
@@ -11539,7 +11545,7 @@ msgstr ""
 "If an external user domain has been configured, the page shows read-only "
 "lists. Changes to the user base must be done on the external server."
 
-#: ../../user_domains.rst:260
+#: ../../user_domains.rst:264
 #, fuzzy
 msgid ""
 "On the other hand, if a local AD or LDAP account provider has been "
@@ -11548,32 +11554,32 @@ msgstr ""
 "On the other hand, if a local AD or LDAP account provider has been "
 "installed, the page allows to create, modify and delete users and groups."
 
-#: ../../user_domains.rst:263
+#: ../../user_domains.rst:267
 #, fuzzy
 msgid "When creating a user, the following fields are mandatory:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:265
+#: ../../user_domains.rst:269
 #, fuzzy
 msgid "User name"
 msgstr "User name"
 
-#: ../../user_domains.rst:266
+#: ../../user_domains.rst:270
 #, fuzzy
 msgid "Full name (name and surname)"
 msgstr "Full name (name and surname)"
 
-#: ../../user_domains.rst:267
+#: ../../user_domains.rst:271
 #, fuzzy
 msgid "Password"
 msgstr "Password"
 
-#: ../../user_domains.rst:269
+#: ../../user_domains.rst:273
 #, fuzzy
 msgid "A user can be added to one or more groups."
 msgstr "A user can be added to one or more groups."
 
-#: ../../user_domains.rst:271
+#: ../../user_domains.rst:275
 #, fuzzy
 msgid ""
 "Sometimes you need to block user access to services without deleting the "
@@ -11582,52 +11588,52 @@ msgstr ""
 "Sometimes you need to block user access to services without deleting the "
 "account. The safest approach is:"
 
-#: ../../user_domains.rst:274
+#: ../../user_domains.rst:278
 #, fuzzy
 msgid "(optionally) change the user's password with a random one"
 msgstr "(optionally) change the user's password with a random one"
 
-#: ../../user_domains.rst:275
+#: ../../user_domains.rst:279
 #, fuzzy
 msgid "disable the user using the ``Disable`` action from the three-dots menu"
 msgstr "disable the user using the ``Disable`` action from the three-dots menu"
 
-#: ../../user_domains.rst:277
+#: ../../user_domains.rst:281
 #, fuzzy
 msgid "When a user is deleted, user data will not be removed."
 msgstr "When a user is deleted, user data will not be removed."
 
-#: ../../user_domains.rst:282
+#: ../../user_domains.rst:286
 #, fuzzy
 msgid "User Management portal"
 msgstr "User Management portal"
 
-#: ../../user_domains.rst:284
-#, fuzzy
-msgid ""
-"The user management portal is a web application that allows any non-"
-"administrator user to change their own password without the need for "
-"administrator intervention."
-msgstr ""
-"The user management portal is a web application that allows any non-"
-"administrator user to change their own password without the need for "
-"administrator intervention."
-
-#: ../../user_domains.rst:286
-#, fuzzy
-msgid ""
-"The portal is automatically configured on every instance of :ref"
-":`active_directory-section` or :ref:`openldap-section` provider."
-msgstr ""
-"The portal is automatically configured on every instance of :ref"
-":`active_directory-section` or :ref:`openldap-section` provider."
-
 #: ../../user_domains.rst:288
+#, fuzzy
+msgid ""
+"The user management portal is a web application that allows any non-"
+"administrator user to change their own password without the need for "
+"administrator intervention."
+msgstr ""
+"The user management portal is a web application that allows any non-"
+"administrator user to change their own password without the need for "
+"administrator intervention."
+
+#: ../../user_domains.rst:290
+#, fuzzy
+msgid ""
+"The portal is automatically configured on every instance of :ref"
+":`active_directory-section` or :ref:`openldap-section` provider."
+msgstr ""
+"The portal is automatically configured on every instance of :ref"
+":`active_directory-section` or :ref:`openldap-section` provider."
+
+#: ../../user_domains.rst:292
 #, fuzzy
 msgid "The portal is available at the following URL: ::"
 msgstr "The portal is available at the following URL: ::"
 
-#: ../../user_domains.rst:292
+#: ../../user_domains.rst:296
 #, fuzzy
 msgid ""
 "Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
@@ -11638,12 +11644,12 @@ msgstr ""
 "``<domain_name>`` is the name of the domain provided while configuring "
 "the domain."
 
-#: ../../user_domains.rst:294
+#: ../../user_domains.rst:298
 #, fuzzy
 msgid "Without the trailing slash, the portal will not work."
 msgstr "Without the trailing slash, the portal will not work."
 
-#: ../../user_domains.rst:296
+#: ../../user_domains.rst:300
 #, fuzzy
 msgid ""
 "Once reached the page, the user is prompted for login and they can "
@@ -11652,7 +11658,7 @@ msgstr ""
 "Once reached the page, the user is prompted for login and they can "
 "authenticate to the domain with user name and password."
 
-#: ../../user_domains.rst:298
+#: ../../user_domains.rst:302
 #, fuzzy
 msgid ""
 "If the login is successful, the user is directed to the ``User "
@@ -15024,3 +15030,14 @@ msgstr ""
 
 #~ msgid "fill all required fields"
 #~ msgstr "fill all required fields"
+
+#~ msgid ""
+#~ "``Port``: Specify the TCP port number"
+#~ " of the remote LDAP service. Standard"
+#~ " values are 389 for LDAP and "
+#~ "636 for LDAPS."
+#~ msgstr ""
+#~ "In the end, you will be able "
+#~ "to bind locally installed applications "
+#~ "with the external LDAP server."
+
