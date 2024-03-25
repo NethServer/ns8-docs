@@ -172,7 +172,10 @@ You can connect the NethServer 8 cluster to an existing LDAP server.
    - ``Host``: Enter the IP address or hostname of the LDAP server.
 
    - ``Port``: Specify the TCP port number of the remote LDAP service.
-     Standard values are 389 for LDAP and 636 for LDAPS.
+     Standard values are 389 for LDAP and 636 for LDAPS. However, with
+     Active Directory, certain applications like Mail [#admail]_ may
+     require setting LDAP port 3268 or LDAPS port 3269. This is because
+     they do not support "LDAP subordinate referrals".
 
    - ``Bind DN`` and ``Password``: Credentials required to access the
      remote LDAP server.
@@ -211,6 +214,7 @@ recovery is not possible.
 Ensure each provider is accessible from all cluster nodes for seamless
 operation.
 
+.. [#admail] https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-directory
 
 .. _password-policy-section:
 
