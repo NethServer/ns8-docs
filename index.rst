@@ -63,6 +63,7 @@ NethServer 8 administrator manual
    minio
    crowdsec
    imapsync
+   nethsecurity_controller
 
 .. toctree::
    :maxdepth: 2
