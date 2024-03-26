@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-25 17:47+0000\n"
+"POT-Creation-Date: 2024-03-26 14:36+0000\n"
 "PO-Revision-Date: 2024-03-18 18:15+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language: it\n"
@@ -2641,11 +2641,11 @@ msgstr "Installazione"
 msgid "Applications"
 msgstr "Applicazioni"
 
-#: ../../index.rst:67
+#: ../../index.rst:68
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:77
+#: ../../index.rst:78
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -5347,6 +5347,72 @@ msgid ""
 msgstr ""
 "To start moving/cloning an application instance see the :ref"
 ":`software_center-section` page."
+
+#: ../../nethsecurity_controller.rst:3
+msgid "NethSecurity Controller"
+msgstr ""
+
+#: ../../nethsecurity_controller.rst:5
+msgid ""
+"The NethSecurity controller allows for remote management of multiple "
+"`NethSecurity <https://docs.nethsecurity.org>`_ installations, referred "
+"to as units."
+msgstr ""
+
+#: ../../nethsecurity_controller.rst:7
+msgid ""
+"The controller establishes a secure connection between the central server"
+" and the units. Each firewall registers with the server using the ns-plug"
+" client. Once registered, the server generates a VPN configuration that "
+"enables secure communication between the controller and the unit."
+msgstr ""
+
+#: ../../nethsecurity_controller.rst:11
+msgid "Key features of the NethSecurity controller include:"
+msgstr ""
+
+#: ../../nethsecurity_controller.rst:13
+msgid ""
+"**Centralized Management**: Manage multiple firewalls from a single "
+"server."
+msgstr ""
+
+#: ../../nethsecurity_controller.rst:14
+msgid ""
+"**Secure Communication**: Establish a secure OpenVPN connection between "
+"the server and the firewalls."
+msgstr ""
+
+#: ../../nethsecurity_controller.rst:15
+msgid ""
+"**Easy Configuration**: Configure firewalls directly from the "
+"controller's user interface."
+msgstr ""
+
+#: ../../nethsecurity_controller.rst:16
+msgid ""
+"**Monitoring and Logging**: Collect and analyze logs from the firewalls "
+"using Loki for troubleshooting and monitoring purposes."
+msgstr ""
+
+#: ../../nethsecurity_controller.rst:17
+msgid ""
+"**Metrics Visualization**: Visualize metrics from the firewalls using the"
+" built-in Grafana dashboard. Metrics are collected using Prometheus."
+msgstr ""
+
+#: ../../nethsecurity_controller.rst:18
+msgid ""
+"**Web-based SSH**: Access the firewalls' command-line interface using a "
+"web-based SSH client."
+msgstr ""
+
+#: ../../nethsecurity_controller.rst:20
+msgid ""
+"See the `NethSecurity controller documentation "
+"<https://docs.nethsecurity.org/en/latest/controller.html>`_ to learn more"
+" about the controller's features and how to set it up."
+msgstr ""
 
 #: ../../nethvoice.rst:5
 msgid "NethVoice"
