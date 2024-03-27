@@ -80,6 +80,6 @@ The following directories can be used to add custom configuration files:
 
 After adding the custom files, you need to restart the service to apply the changes.
 
-The custom files will enrich the existing configuration. You can customize the provided DHCP instance without creating a custom one using the tag `default`, more info can be found in the `DNSMasq documentation <https://dnsmasq.org/docs/dnsmasq-man.html>`_.
+The custom files enrich the existing configuration. You can customize the provided DHCP instance without creating a custom one using the tag `default`, more info can be found in the `DNSMasq documentation <https://dnsmasq.org/docs/dnsmasq-man.html>`_.
 
-The additional configuration provided will be backed up by the module automatically. No need to additional backup steps.
+The custom files are included in the module backup.
