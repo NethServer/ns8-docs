@@ -72,10 +72,11 @@ The directories that accept custom files are located in the root directory of th
 The following directories can be used to add custom configuration files:
 
 - ``dnsmasq.d``: This directory is used to add custom configuration files for the DNSMasq service.
-    The files must have the `.conf` extension.
-    Please refer to the `DNSMasq documentation <https://dnsmasq.org/docs/dnsmasq-man.html>`_ for more information on how to configure the service.
-- ``dnsmasq_hosts.d``: This directory is used to add custom hosts files that will be used by the DNSMasq service.
-    The format of the file is the same as the `/etc/hosts` file. Refer to the `manual <https://man7.org/linux/man-pages/man5/hosts.5.html>`_ for more information on how to write the file.
+  The files must have the `.conf` extension.
+  Please refer to the `DNSMasq documentation <https://dnsmasq.org/docs/dnsmasq-man.html>`_ for more information on how to configure the service.
+- ``dnsmasq_hosts.d``: This directory is used to add custom hosts files that will be used by the DNSMasq service. 
+  The format of the file is the same as the `/etc/hosts` file.
+  Refer to the `manual <https://man7.org/linux/man-pages/man5/hosts.5.html>`_ for more information on how to write the file.
 
 After adding the custom files, you need to restart the service to apply the changes.
 
