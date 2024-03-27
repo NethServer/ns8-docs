@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 14:36+0000\n"
+"POT-Creation-Date: 2024-03-27 17:06+0000\n"
 "PO-Revision-Date: 2024-03-18 18:15+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language: it\n"
@@ -1093,12 +1093,12 @@ msgstr ""
 "È possibile installare più istanze Collabora Online sullo stesso nodo dal"
 " :ref:`software_center-section`."
 
-#: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dokuwiki.rst:10
-#: ../../ejabberd.rst:23 ../../imapsync.rst:31 ../../index.rst:34
-#: ../../mail.rst:34 ../../mariadb.rst:11 ../../mattermost.rst:13
-#: ../../minio.rst:14 ../../nethvoice.rst:23 ../../nethvoice_proxy.rst:19
-#: ../../nextcloud.rst:21 ../../roundcube.rst:19 ../../sogo.rst:39
-#: ../../webserver.rst:14 ../../webtop.rst:12
+#: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dnsmasq.rst:20
+#: ../../dokuwiki.rst:10 ../../ejabberd.rst:23 ../../imapsync.rst:31
+#: ../../index.rst:34 ../../mail.rst:34 ../../mariadb.rst:11
+#: ../../mattermost.rst:13 ../../minio.rst:14 ../../nethvoice.rst:23
+#: ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21 ../../roundcube.rst:19
+#: ../../sogo.rst:39 ../../webserver.rst:14 ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -1376,6 +1376,204 @@ msgstr ""
 #: ../../disk_usage.rst:44
 msgid "The ``migrate`` script:."
 msgstr "Lo script ``migrate```:."
+
+#: ../../dnsmasq.rst:5
+msgid "DNSMasq"
+msgstr ""
+
+#: ../../dnsmasq.rst:7
+msgid ""
+"The DNSMasq module is a lightweight DNS and DHCP server designed to "
+"provide its services within a private network. It is not recommended for "
+"use as a public DNS server."
+msgstr ""
+
+#: ../../dnsmasq.rst:9
+#, fuzzy
+msgid "It can be installed through the :ref:`software_center-section`."
+msgstr ""
+"È possibile installare solo un NethVoice Proxy per nodo dal :ref"
+":`software_center-section`."
+
+#: ../../dnsmasq.rst:13
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../dnsmasq.rst:15
+msgid ""
+"The only prerequisite is a network interface configured. This means that "
+"the network should have a valid IPv4 address and a valid subnet mask. "
+"Please refer to your distro documentation on how to properly configure a "
+"network interface."
+msgstr ""
+
+#: ../../dnsmasq.rst:22
+msgid ""
+"After installing the module, you can configure both the DNS and DHCP "
+"server through the web interface."
+msgstr ""
+
+#: ../../dnsmasq.rst:24
+msgid ""
+"Select in the ``Interface`` field the interface that you want to use for "
+"DNS and DHCP server, then press :guilabel:`Save`."
+msgstr ""
+
+#: ../../dnsmasq.rst:26
+msgid ""
+"Once the configuration is saved, there will be available two toggle "
+"switches to enable/disable DNS and DHCP server."
+msgstr ""
+
+#: ../../dnsmasq.rst:30
+msgid "DHCP"
+msgstr ""
+
+#: ../../dnsmasq.rst:32
+msgid "The DHCP server can be configured with the following options:"
+msgstr ""
+
+#: ../../dnsmasq.rst:34
+msgid "``IP range start``: The first IP address that will be assigned to clients."
+msgstr ""
+
+#: ../../dnsmasq.rst:35
+msgid "``IP range end``: The last IP address that will be assigned to clients."
+msgstr ""
+
+#: ../../dnsmasq.rst:36
+msgid ""
+"``Lease time``: The time that the IP address will be assigned to the "
+"client, expressed in hours."
+msgstr ""
+
+#: ../../dnsmasq.rst:38
+msgid ""
+"The fields are automatically filled with default values at the first "
+"configuration, but you can change them according to your needs. "
+"Additional options can be configured manually, please refer to `Advanced "
+"Configuration`_ section."
+msgstr ""
+
+#: ../../dnsmasq.rst:41
+#, fuzzy
+msgid "DNS"
+msgstr "DND"
+
+#: ../../dnsmasq.rst:43
+#, fuzzy
+msgid "The DNS server can be configured with the following options:"
+msgstr ""
+"La prima procedura guidata di configurazione richiederà le seguenti "
+"informazioni:"
+
+#: ../../dnsmasq.rst:45
+msgid ""
+"``Primary forwarding server``: The primary DNS server that will be used "
+"to resolve the queries."
+msgstr ""
+
+#: ../../dnsmasq.rst:46
+msgid ""
+"``Secondary forwarding server``: The secondary DNS server that will be "
+"used to resolve the queries."
+msgstr ""
+
+#: ../../dnsmasq.rst:48
+msgid ""
+"When the DNS server is enabled, all Fully Qualified Domain Names (FQDNs) "
+"configured within the node will be resolved using a 'CNAME' record "
+"pointing to the node's hostname."
+msgstr ""
+
+#: ../../dnsmasq.rst:51
+msgid ""
+"The DNS server will not automatically resolve the entries in the "
+"``/etc/hosts`` file. To resolve the entries in the ``/etc/hosts`` file, "
+"you need to add them manually in the `DNS Records`_ section."
+msgstr ""
+
+#: ../../dnsmasq.rst:55
+#, fuzzy
+msgid "DNS Records"
+msgstr "Record"
+
+#: ../../dnsmasq.rst:57
+msgid ""
+"Additional DNS entries can be added in the ``DNS Records`` section. "
+"Simply press the :guilabel:`Add DNS Record` button and fill the fields "
+"with the desired values:"
+msgstr ""
+
+#: ../../dnsmasq.rst:59
+#, fuzzy
+msgid "``Hostname``: The hostname that will be resolved."
+msgstr "``Name``: the name of the shared folder"
+
+#: ../../dnsmasq.rst:60
+msgid "``IP Address``: The IP address that will be resolved to the hostname."
+msgstr ""
+
+#: ../../dnsmasq.rst:62
+msgid "IP addresses can be either IPv4 or IPv6."
+msgstr ""
+
+#: ../../dnsmasq.rst:66
+#, fuzzy
+msgid "Advanced Configuration"
+msgstr "DNS configuration"
+
+#: ../../dnsmasq.rst:68
+msgid ""
+"The module provides additional configuration options that can be accessed"
+" manually through the configuration files."
+msgstr ""
+
+#: ../../dnsmasq.rst:70
+msgid ""
+"The directories that accept custom files are located in the root "
+"directory of the module, under the `state` directory."
+msgstr ""
+
+#: ../../dnsmasq.rst:72
+msgid "The following directories can be used to add custom configuration files:"
+msgstr ""
+
+#: ../../dnsmasq.rst:74
+msgid ""
+"``dnsmasq.d``: This directory is used to add custom configuration files "
+"for the DNSMasq service. The files must have the `.conf` extension. "
+"Please refer to the `DNSMasq documentation <https://dnsmasq.org/docs"
+"/dnsmasq-man.html>`_ for more information on how to configure the "
+"service."
+msgstr ""
+
+#: ../../dnsmasq.rst:77
+msgid ""
+"``dnsmasq_hosts.d``: This directory is used to add custom hosts files "
+"that will be used by the DNSMasq service. The format of the file is the "
+"same as the `/etc/hosts` file. Refer to the `manual "
+"<https://man7.org/linux/man-pages/man5/hosts.5.html>`_ for more "
+"information on how to write the file."
+msgstr ""
+
+#: ../../dnsmasq.rst:81
+msgid ""
+"After adding the custom files, you need to restart the service to apply "
+"the changes."
+msgstr ""
+
+#: ../../dnsmasq.rst:83
+msgid ""
+"The custom files enrich the existing configuration. You can customize the"
+" provided DHCP instance without creating a custom one using the tag "
+"`default`, more info can be found in the `DNSMasq documentation "
+"<https://dnsmasq.org/docs/dnsmasq-man.html>`_."
+msgstr ""
+
+#: ../../dnsmasq.rst:85
+msgid "The custom files are included in the module backup."
+msgstr ""
 
 #: ../../dockerhub.rst:3
 #, fuzzy
@@ -2641,11 +2839,11 @@ msgstr "Installazione"
 msgid "Applications"
 msgstr "Applicazioni"
 
-#: ../../index.rst:68
+#: ../../index.rst:69
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:78
+#: ../../index.rst:79
 msgid "Best practices"
 msgstr "Consigli pratici"
 
