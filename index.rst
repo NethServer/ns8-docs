@@ -64,6 +64,7 @@ NethServer 8 administrator manual
    crowdsec
    imapsync
    nethsecurity_controller
+   dnsmasq
 
 .. toctree::
    :maxdepth: 2
