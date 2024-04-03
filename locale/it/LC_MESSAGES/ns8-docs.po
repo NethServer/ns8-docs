@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-27 17:06+0000\n"
+"POT-Creation-Date: 2024-04-03 07:18+0000\n"
 "PO-Revision-Date: 2024-03-18 18:15+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language: it\n"
@@ -1096,7 +1096,7 @@ msgstr ""
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dnsmasq.rst:20
 #: ../../dokuwiki.rst:10 ../../ejabberd.rst:23 ../../imapsync.rst:31
 #: ../../index.rst:34 ../../mail.rst:34 ../../mariadb.rst:11
-#: ../../mattermost.rst:13 ../../minio.rst:14 ../../nethvoice.rst:23
+#: ../../mattermost.rst:13 ../../minio.rst:14 ../../nethvoice.rst:20
 #: ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21 ../../roundcube.rst:19
 #: ../../sogo.rst:39 ../../webserver.rst:14 ../../webtop.rst:12
 msgid "Configuration"
@@ -1425,7 +1425,8 @@ msgid ""
 "switches to enable/disable DNS and DHCP server."
 msgstr ""
 
-#: ../../dnsmasq.rst:30
+#: ../../dnsmasq.rst:30 ../../nethvoice.rst:625 ../../nethvoice.rst:630
+#: ../../nethvoice.rst:635 ../../nethvoice.rst:640
 msgid "DHCP"
 msgstr ""
 
@@ -2835,7 +2836,7 @@ msgstr "Informazioni"
 msgid "Installation"
 msgstr "Installazione"
 
-#: ../../index.rst:49 ../../modules.rst:7
+#: ../../index.rst:49 ../../modules.rst:7 ../../nethvoice.rst:1043
 msgid "Applications"
 msgstr "Applicazioni"
 
@@ -2952,7 +2953,7 @@ msgstr "Format"
 msgid "Size"
 msgstr "Size"
 
-#: ../../install.rst:1 ../../nethvoice.rst:552
+#: ../../install.rst:1 ../../nethvoice.rst:829
 #, fuzzy
 msgid "URL"
 msgstr "URL"
@@ -3614,7 +3615,7 @@ msgstr ""
 "Il modulo di posta richiede almeno uno :ref:`user domain <user-domains-"
 "section> ` già configurato."
 
-#: ../../mail.rst:38 ../../nethvoice.rst:33
+#: ../../mail.rst:38
 msgid "The first configuration wizard will require the following information:"
 msgstr ""
 "La prima procedura guidata di configurazione richiederà le seguenti "
@@ -4037,7 +4038,7 @@ msgstr ""
 "/sicurezza-informatica-pavia-blu-system>`_, are special rules that evolve"
 " and quickly adapt analyzing messages marked as **spam** or **ham**."
 
-#: ../../mail.rst:207 ../../nethvoice.rst:226 ../../nethvoice.rst:369
+#: ../../mail.rst:207 ../../nethvoice.rst:227 ../../nethvoice.rst:370
 #, fuzzy
 msgid "Settings"
 msgstr "Settings"
@@ -5612,29 +5613,34 @@ msgid ""
 " about the controller's features and how to set it up."
 msgstr ""
 
-#: ../../nethvoice.rst:5
+#: ../../nethvoice.rst:4
 msgid "NethVoice"
 msgstr "NethVoice"
 
-#: ../../nethvoice.rst:7
-msgid "NethVoice module is split into seven main parts:"
-msgstr "Il modulo NethVoice è diviso in sette parti principali:"
+#: ../../nethvoice.rst:6
+msgid ""
+"NethVoice is a comprehensive communication system that integrates voice, "
+"video, and mobile capabilities. The NethVoice module is divided into "
+"seven main parts:"
+msgstr ""
 
 #: ../../nethvoice.rst:9
+#, fuzzy
 msgid ""
-"`FreePBX <https://www.freepbx.org/>`_: a web-based open-source graphical "
-"user interface (GUI) that manages `Asterisk <https://www.asterisk.org>`_,"
-" a voice over IP and telephony server"
+"`FreePBX <https://www.freepbx.org/>`_: A web-based open-source graphical "
+"user interface (GUI) that manages `Asterisk <https://www.asterisk.org>`, "
+"a voice over IP and telephony server."
 msgstr ""
 "«FreePBX <https://www.freepbx.org/>`_: un'interfaccia utente grafica open"
 " source (GUI) che gestisce `Asterisk <https://www.asterisk.org> `_, una "
 "voce su server IP e telefonia"
 
 #: ../../nethvoice.rst:10
+#, fuzzy
 msgid ""
-"`NethVoice CTI Server <https://github.com/nethesis/nethcti-server>`_: a "
-"daemon that provides a set of api to perform common switchboard "
-"operations and a websocket streaming channel to listen for the events"
+"`NethVoice CTI Server <https://github.com/nethesis/nethcti-server>`_: A "
+"daemon that provides a set of APIs to perform common switchboard "
+"operations and a WebSocket streaming channel to listen for events."
 msgstr ""
 "«NethVoice CTI Server <https://github.com/nethesis/nethcti-server>`_: un "
 "demone che fornisce una serie di api per eseguire operazioni di "
@@ -5642,175 +5648,198 @@ msgstr ""
 "eventi"
 
 #: ../../nethvoice.rst:11
+#, fuzzy
 msgid ""
-"`NethVoice CTI Client <https://github.com/nethesis/nethcti>`_: a web "
+"`NethVoice CTI Client <https://github.com/nethesis/nethcti>`_: A web "
 "application to manage the telephone switchboard via communication with "
-"NethVoice CTI Server"
+"the NethVoice CTI Server."
 msgstr ""
 "«NethVoice CTI Client <https://github.com/nethesis/nethcti>`_: "
 "un'applicazione web per gestire il centralino telefonico tramite "
 "comunicazione con il server NethVoice CTI"
 
 #: ../../nethvoice.rst:12
+#, fuzzy
 msgid ""
-"`NethVoice Report <https://github.com/nethesis/nethvoice-report>`_: a "
-"`Asterisk <https://www.asterisk.org>`_ CDR and queues reporting system"
+"`NethVoice Report <https://github.com/nethesis/nethvoice-report>`_: An "
+"`Asterisk <https://www.asterisk.org>`_ CDR and queues reporting system."
 msgstr ""
 "«NethVoice Report <https://github.com/nethesis/nethvoice-report>`_: a "
 "`Asterisk <https://www.asterisk.org>`_ Sistema di reporting CDR e code"
 
 #: ../../nethvoice.rst:13
-msgid "`Janus <https://janus.conf.meetecho.com/>`_: a WebRTC Server"
+#, fuzzy
+msgid "`Janus <https://janus.conf.meetecho.com/>`_: A WebRTC server."
 msgstr "«Janus <https://janus.conf.meetecho.com/>`_: un server WebRTC"
 
 #: ../../nethvoice.rst:14
+#, fuzzy
 msgid ""
-"`MariaDB <https://mariadb.org/>`_: a popular open source relational "
-"database"
+"`MariaDB <https://mariadb.org/>`_: A popular open-source relational "
+"database."
 msgstr ""
 "«MariaDB <https://mariadb.org/>`_: un popolare database relazionale open "
 "source"
 
 #: ../../nethvoice.rst:15
+#, fuzzy
 msgid ""
-"`Tancredi <https://nethesis.github.io/tancredi>`_: a phone provisioning "
-"engine ideal for internet deployments"
+"`Tancredi <https://nethesis.github.io/tancredi>`_: A phone provisioning "
+"engine ideal for internet deployments."
 msgstr ""
 "«Tancredi <https://nethesis.github.io/tancredi>`_: un motore di "
 "provisioning del telefono ideale per le implementazioni di Internet"
 
 #: ../../nethvoice.rst:17
-msgid ""
-"NethVoice is a full-feature integrate voice, video, mobile communication "
-"systems."
-msgstr "NethVoice è un sistema completo di comunicazione vocale, video e mobile."
-
-#: ../../nethvoice.rst:19
+#, fuzzy
 msgid ""
 "You can install multiple NethVoice instances on the same node from the "
-":ref:`software_center-section`, but the module requires ref:`NethVoice "
-"proxy <nethvoice_proxy-section>` already configured and running."
+":ref:`software_center-section`, but the module requires the "
+":ref:`NethVoice proxy <nethvoice_proxy-section>` to be already configured"
+" and running."
 msgstr ""
 "È possibile installare più istanze NethVoice sullo stesso nodo dal:ref: "
 "`software_center-sezione`, ma il modulo richiede ref: `NethVoice proxy "
 "<nethvoice_proxy-sezione>` già configurato ed in esecuzione."
 
-#: ../../nethvoice.rst:25
+#: ../../nethvoice.rst:22
+#, fuzzy
 msgid ""
 "The NethVoice module requires at least one :ref:`user domain <user-"
-"domains-section>` already configured and running."
+"domains-section>` to be configured and running."
 msgstr ""
 "Il modulo NethVoice richiede almeno uno :ref:`user domain <user-domains-"
 "section>` già configurato e in esecuzione."
 
-#: ../../nethvoice.rst:27
+#: ../../nethvoice.rst:24
+#, fuzzy
 msgid ""
-"NethVoice needs two dedicated virtual hosts, one for the NethVoice "
-"administration page and one for the NethVoice CTI web application, two "
-"FQDN like ``nethvoice.nethserver.org`` and ``cti.nethserver.org``."
+"To set up NethVoice, you need to have two dedicated virtual hosts: one "
+"for the NethVoice administration page and one for the NethVoice CTI web "
+"application. These virtual hosts should have fully qualified domain names"
+" (FQDNs) like `nethvoice.nethserver.org` and `cti.nethserver.org`."
 msgstr ""
 "NethVoice ha bisogno di due host virtuali dedicati, uno per la pagina di "
 "amministrazione NethVoice e uno per l'applicazione web NethVoice CTI, due"
 " FQDN come ``nethvoice.nethserver.org`` e ``cti.nethserver.org``."
 
-#: ../../nethvoice.rst:29
+#: ../../nethvoice.rst:27
+#, fuzzy
 msgid ""
-"Before proceeding with the configuration, make sure to create the "
-"corresponding name records inside your DNS server."
+"Before proceeding with the configuration, ensure that you have created "
+"the corresponding DNS records for these FQDNs in your DNS server."
 msgstr ""
 "Prima di procedere con la configurazione, assicurarsi di creare i record "
 "di nome corrispondenti all'interno del server DNS."
 
-#: ../../nethvoice.rst:31
+#: ../../nethvoice.rst:29
+#, fuzzy
 msgid ""
-"If you are planning to use a Let's Encrypt certificate as default, make "
-"also sure to have the corresponding public DNS records."
+"If you plan to use a Let's Encrypt certificate as the default "
+"certificate, make sure you have the necessary public DNS records."
 msgstr ""
 "Se si sta progettando di utilizzare un certificato Let's Encrypt come "
 "predefinito, assicurarsi anche di avere i record DNS pubblici "
 "corrispondenti."
 
-#: ../../nethvoice.rst:35
+#: ../../nethvoice.rst:31
+#, fuzzy
 msgid ""
-"``NethVoice base host``: insert a valid FQDN to access the application "
-"administration page"
+"During the first configuration wizard, you will be prompted to provide "
+"the following information:"
+msgstr ""
+"La prima procedura guidata di configurazione richiederà le seguenti "
+"informazioni:"
+
+#: ../../nethvoice.rst:33
+#, fuzzy
+msgid ""
+"``NethVoice base host``: Insert a valid FQDN to access the application "
+"administration page."
 msgstr ""
 "``NethVoice host base``: inserire un FQDN valido per accedere alla pagina"
 " di amministrazione dell'applicazione"
 
-#: ../../nethvoice.rst:36
+#: ../../nethvoice.rst:34
+#, fuzzy
 msgid ""
-"``NethVoice CTI base host``: insert a valid FQDN to access the NethVoice "
-"CTI web application"
+"``NethVoice CTI base host``: Insert a valid FQDN to access the NethVoice "
+"CTI web application."
 msgstr ""
 "``NethVoice CTI base host``: inserire un FQDN valido per accedere "
 "all'applicazione web NethVoice CTI"
 
-#: ../../nethvoice.rst:37
+#: ../../nethvoice.rst:35
+#, fuzzy
 msgid ""
-"``User Domain``: choose one of the :ref:`user domain <user-domains-"
+"``User Domain``: Choose one of the :ref:`user domain <user-domains-"
 "section>` already configured."
 msgstr ""
 "``User Domain``: scegliere uno dei seguenti :ref:`user domain <user-"
 "domains-section>` già configurato."
 
-#: ../../nethvoice.rst:38
+#: ../../nethvoice.rst:36
+#, fuzzy
 msgid ""
-"``Request Let's Encrypt certificate``: if enabled, a Let's Encrypt "
-"certificate will be asked for each of the two hosts"
+"``Request Let's Encrypt certificate``: If enabled, a Let's Encrypt "
+"certificate will be requested for each of the two hosts."
 msgstr ""
 "``Request Let's Encrypt certificate``: se abilitato, verrà richiesto un "
 "certificato Let's Encrypt per ciascuno dei due host"
 
-#: ../../nethvoice.rst:39
+#: ../../nethvoice.rst:37
+#, fuzzy
 msgid ""
-"``Reports Prefix``: insert the international telephone prefix to be "
-"considered local in the reporting system"
+"``Reports Prefix``: Insert the international telephone prefix to be "
+"considered local in the reporting system."
 msgstr ""
 "``Reports Prefix``: inserire il prefisso telefonico internazionale da "
 "considerare locale nel sistema di segnalazione"
 
-#: ../../nethvoice.rst:40
+#: ../../nethvoice.rst:38
+#, fuzzy
 msgid ""
-"``Reset NethVoice admin password to access user interface``: insert a "
-"valid password for the NethVoice administrator user (optional, default "
-"password is *Nethesis,1234*)"
+"``Reset NethVoice admin password to access user interface``: Insert a "
+"valid password for the NethVoice administrator user (optional, the "
+"default password is *Nethesis,1234*)."
 msgstr ""
 "``Reset password di amministratore di NethVoice per accedere "
 "all'interfaccia utente``: inserire una password valida per l'utente "
 "amministratore di NethVoice (opzionale, password predefinita è "
 "*Nethesis,1234*)"
 
-#: ../../nethvoice.rst:42
+#: ../../nethvoice.rst:40
+#, fuzzy
 msgid ""
-"After saving the configuration parameters NethVoice will be accessible on"
-" his base host with the administration credentials:"
+"After saving the configuration parameters, NethVoice will be accessible "
+"on its base host with the administration credentials:"
 msgstr ""
 "Dopo aver salvato i parametri di configurazione NethVoice sarà "
 "accessibile sul suo host base con le credenziali di amministrazione:"
 
-#: ../../nethvoice.rst:44
+#: ../../nethvoice.rst:42
 msgid "User: `admin`"
 msgstr "Utente: `admin`"
 
-#: ../../nethvoice.rst:45
+#: ../../nethvoice.rst:43
+#, fuzzy
 msgid ""
-"Password: `Nethesis,1234`, default password if not has been reset during "
-"the first configuration wizard"
+"Password: `Nethesis,1234`, the default password if it has not been reset "
+"during the first configuration wizard."
 msgstr ""
 "Password: `Nethesis, 1234`, password predefinita se non è stato "
 "ripristinato durante la prima procedura guidata di configurazione"
 
 #: ../../nethvoice.rst:48
 #, fuzzy
-msgid "First configuration wizard"
+msgid "First Configuration Wizard"
 msgstr "First configuration wizard"
 
 #: ../../nethvoice.rst:50
 #, fuzzy
 msgid ""
-"The initial configuration wizard facilitates the easy installation and "
-"setup of all NethVoice components."
+"The initial configuration wizard facilitates easy installation and setup "
+"of all NethVoice components."
 msgstr ""
 "The initial configuration wizard facilitates the easy installation and "
 "setup of all NethVoice components."
@@ -5823,8 +5852,8 @@ msgstr "Extensions"
 #: ../../nethvoice.rst:55
 #, fuzzy
 msgid ""
-"The first step in configuring NethVoice is associating users with their "
-"telephone extensions."
+"The first step in configuring NethVoice involves associating users with "
+"their telephone extensions."
 msgstr ""
 "The first step in configuring NethVoice is associating users with their "
 "telephone extensions."
@@ -5868,7 +5897,7 @@ msgstr ""
 "The user is highlighted, and a green checkmark appears if everything has "
 "been successful."
 
-#: ../../nethvoice.rst:66
+#: ../../nethvoice.rst:66 ../../nethvoice.rst:1036
 #, fuzzy
 msgid "Trunks"
 msgstr "Trunks"
@@ -5909,32 +5938,32 @@ msgstr ""
 
 #: ../../nethvoice.rst:80
 #, fuzzy
-msgid "``Vendor``: gateway manufacturer"
+msgid "``Vendor``: Gateway manufacturer"
 msgstr "``Vendor``: gateway manufacturer"
 
 #: ../../nethvoice.rst:81
 #, fuzzy
-msgid "``Model``: specify the gateway model"
+msgid "``Model``: Specify the gateway model"
 msgstr "``Model``: specify the gateway model"
 
 #: ../../nethvoice.rst:82
 #, fuzzy
-msgid "``IP``: ip to be assigned to the device"
+msgid "``IP``: IP to be assigned to the device"
 msgstr "``IP``: ip to be assigned to the device"
 
 #: ../../nethvoice.rst:83
 #, fuzzy
-msgid "``Mac Address``: gateway identifier"
+msgid "``Mac Address``: Gateway identifier"
 msgstr "``Mac Address``: gateway identifier"
 
 #: ../../nethvoice.rst:84
 #, fuzzy
-msgid "``Network Mask``: network subnet"
+msgid "``Network Mask``: Network subnet"
 msgstr "``Network Mask``: network subnet"
 
 #: ../../nethvoice.rst:85
 #, fuzzy
-msgid "``Network Gateway``: network gateway"
+msgid "``Network Gateway``: Network gateway"
 msgstr "``Network Gateway``: network gateway"
 
 #: ../../nethvoice.rst:86
@@ -5960,8 +5989,8 @@ msgstr "``PRI``"
 #: ../../nethvoice.rst:92
 #, fuzzy
 msgid ""
-"``FXS`` (Specify for each port, the extension to be assigned by choosing "
-"a user previously configured)"
+"``FXS`` (Specify for each port the extension to be assigned by choosing a"
+" user previously configured)"
 msgstr ""
 "``FXS`` (Specify for each port, the extension to be assigned by choosing "
 "a user previously configured)"
@@ -5996,37 +6025,37 @@ msgstr ""
 
 #: ../../nethvoice.rst:102
 #, fuzzy
-msgid "``Provider``: choose the provider to use"
+msgid "``Provider``: Choose the provider to use."
 msgstr "``Provider``: choose the provider to use"
 
 #: ../../nethvoice.rst:103
 #, fuzzy
-msgid "``Trunk Name``: specify name of the trunk"
+msgid "``Trunk Name``: Specify the name of the trunk."
 msgstr "``Trunk Name``: specify name of the trunk"
 
 #: ../../nethvoice.rst:104
 #, fuzzy
-msgid "``Username``: username given by the provider"
+msgid "``Username``: Username given by the provider."
 msgstr "``Username``: username given by the provider"
 
 #: ../../nethvoice.rst:105
 #, fuzzy
-msgid "``Password``: password given by the provider"
+msgid "``Password``: Password given by the provider."
 msgstr "``Password``: password given by the provider"
 
 #: ../../nethvoice.rst:106
 #, fuzzy
-msgid "``Phone Number``: phone number given by the provider"
+msgid "``Phone Number``: Phone number given by the provider."
 msgstr "``Phone Number``: phone number given by the provider"
 
 #: ../../nethvoice.rst:107
 #, fuzzy
-msgid "``Allowed codec``: permitted codec"
+msgid "``Allowed codec``: Permitted codec."
 msgstr "``Allowed codec``: permitted codec"
 
 #: ../../nethvoice.rst:108
 #, fuzzy
-msgid "``Force codec``: allow only permitted codec"
+msgid "``Force codec``: Allow only the permitted codec."
 msgstr "``Force codec``: allow only permitted codec"
 
 #: ../../nethvoice.rst:110
@@ -6042,7 +6071,7 @@ msgstr "Routes"
 #: ../../nethvoice.rst:115
 #, fuzzy
 msgid ""
-"In the routes section, you can configure both inbound and outbound routes"
+"In the Routes section, you can configure both inbound and outbound routes"
 " for your NethVoice system."
 msgstr ""
 "In the routes section, you can configure both inbound and outbound routes"
@@ -6057,7 +6086,7 @@ msgstr "Inbound"
 #, fuzzy
 msgid ""
 "In this section, the list of already configured inbound routes is "
-"displayed, with the option to edit or delete them."
+"displayed, with options to edit or delete them."
 msgstr ""
 "In this section, the list of already configured inbound routes is "
 "displayed, with the option to edit or delete them."
@@ -6065,10 +6094,10 @@ msgstr ""
 #: ../../nethvoice.rst:122
 #, fuzzy
 msgid ""
-"By clicking the :guilabel:`Create new route`, a new tab will open with "
-"the ``Visual Plan`` application, allowing you to create, modify, and "
-"connect the components of the NethVoice that will handle the call flow "
-"for the incoming number."
+"By clicking on the :guilabel:`Create new route`, a new tab will open with"
+" the ``Visual Plan`` application, allowing you to create, modify, and "
+"connect components of NethVoice that will handle the call flow for the "
+"incoming number."
 msgstr ""
 "By clicking the :guilabel:`Create new route`, a new tab will open with "
 "the ``Visual Plan`` application, allowing you to create, modify, and "
@@ -6079,57 +6108,57 @@ msgstr ""
 #, fuzzy
 msgid ""
 "By clicking the checkmark symbol in the Visual Plan application, the "
-"configuration of your route will be saved, and from that moment on, you "
-"can receive calls following the configured flow."
+"configuration of your route will be saved. From that moment on, you can "
+"receive calls following the configured flow."
 msgstr ""
 "By clicking the checkmark symbol in the Visual Plan application, the "
 "configuration of your route will be saved, and from that moment on, you "
 "can receive calls following the configured flow."
 
-#: ../../nethvoice.rst:127
+#: ../../nethvoice.rst:128
 #, fuzzy
 msgid "Outbound"
 msgstr "Outbound"
 
-#: ../../nethvoice.rst:129
+#: ../../nethvoice.rst:130
 #, fuzzy
 msgid ""
 "In this section, you will find the list of outbound routes. The first "
-"time you visit this page, the wizard proposes default outbound routes, "
+"time you visit this page, the wizard proposes default outbound routes "
 "with specific call patterns for different languages."
 msgstr ""
 "In this section, you will find the list of outbound routes. The first "
 "time you visit this page, the wizard proposes default outbound routes, "
 "with specific call patterns for different languages."
-
-#: ../../nethvoice.rst:131
-#, fuzzy
-msgid ""
-"You can also specify the order in which the previously created trunks "
-"will be used, thus having the option to customize the priority of various"
-" trunks."
-msgstr ""
-"You can also specify the order in which the previously created trunks "
-"will be used, thus having the option to customize the priority of various"
-" trunks."
 
 #: ../../nethvoice.rst:133
 #, fuzzy
 msgid ""
-"By pressing the :guilabel:`Save`, the configuration is written to the "
-"NethVoice, and from that moment on, you can make calls to external "
-"numbers (having properly configured the trunks in the previous steps)."
+"You can also specify the order in which the previously created trunks "
+"will be used, thus having the option to customize the priority of various"
+" trunks."
+msgstr ""
+"You can also specify the order in which the previously created trunks "
+"will be used, thus having the option to customize the priority of various"
+" trunks."
+
+#: ../../nethvoice.rst:135
+#, fuzzy
+msgid ""
+"By pressing :guilabel:`Save`, the configuration is written to NethVoice, "
+"and from that moment on, you can make calls to external numbers (having "
+"properly configured the trunks in the previous steps)."
 msgstr ""
 "By pressing the :guilabel:`Save`, the configuration is written to the "
 "NethVoice, and from that moment on, you can make calls to external "
 "numbers (having properly configured the trunks in the previous steps)."
 
-#: ../../nethvoice.rst:138
+#: ../../nethvoice.rst:140
 #, fuzzy
 msgid "Devices"
 msgstr "NethVoice"
 
-#: ../../nethvoice.rst:140
+#: ../../nethvoice.rst:142
 #, fuzzy
 msgid ""
 "During the initial configuration wizard, this section requires "
@@ -6140,85 +6169,85 @@ msgstr ""
 "confirmation of some fundamental settings (press the :guilabel:`Modify "
 "default settings button`)."
 
-#: ../../nethvoice.rst:142
+#: ../../nethvoice.rst:144
 #, fuzzy
 msgid "The settings are:"
 msgstr "Gestione delle impostazioni utente"
 
-#: ../../nethvoice.rst:144
-#, fuzzy
-msgid ""
-"``Encryption`` requires a valid SSL/TLS certificate for the hostname "
-"entered in :guilabel:PBX Address to function correctly."
-msgstr ""
-"``Encryption`` requires a valid SSL/TLS certificate for the hostname "
-"entered in :guilabel:PBX Address to function correctly."
-
-#: ../../nethvoice.rst:145
-#, fuzzy
-msgid ""
-"``PBX Address`` can be the IP address or the hostname of Nethvoice, "
-"correctly entered in the DNS used by phones and in the SSL/TLS "
-"certificate used by the system."
-msgstr ""
-"``PBX Address`` can be the IP address or the hostname of Nethvoice, "
-"correctly entered in the DNS used by phones and in the SSL/TLS "
-"certificate used by the system."
-
 #: ../../nethvoice.rst:146
 #, fuzzy
 msgid ""
-"``Admin Password`` will be the password to access the web interface of "
-"phones configured with the administrator user."
+"``Encryption`` requires a valid SSL/TLS certificate for the hostname "
+"entered in :guilabel:`PBX Address` to function correctly."
 msgstr ""
-"``Admin Password`` will be the password to access the web interface of "
-"phones configured with the administrator user."
+"``Encryption`` requires a valid SSL/TLS certificate for the hostname "
+"entered in :guilabel:PBX Address to function correctly."
 
 #: ../../nethvoice.rst:147
 #, fuzzy
 msgid ""
-"``User Password`` will be the password to access the web interface of "
-"phones configured with a non-administrative user."
+"``PBX Address`` can be the IP address or the hostname of NethVoice, "
+"correctly entered in the DNS used by phones and in the SSL/TLS "
+"certificate used by the system."
 msgstr ""
-"``User Password`` will be the password to access the web interface of "
-"phones configured with a non-administrative user."
+"``PBX Address`` can be the IP address or the hostname of Nethvoice, "
+"correctly entered in the DNS used by phones and in the SSL/TLS "
+"certificate used by the system."
+
+#: ../../nethvoice.rst:148
+#, fuzzy
+msgid ""
+"``Admin Password`` will be the password to access the web interface of "
+"phones configured with the administrator user."
+msgstr ""
+"``Admin Password`` will be the password to access the web interface of "
+"phones configured with the administrator user."
 
 #: ../../nethvoice.rst:149
 #, fuzzy
 msgid ""
-"The choice of the previous Encryption and PBX Address settings depends on"
-" how the phones will reach NethVoice."
+"``User Password`` will be the password to access the web interface of "
+"phones configured with a non-administrative user."
 msgstr ""
-"The choice of the previous Encryption and PBX Address settings depends on"
-" how the phones will reach NethVoice."
+"``User Password`` will be the password to access the web interface of "
+"phones configured with a non-administrative user."
 
 #: ../../nethvoice.rst:151
 #, fuzzy
 msgid ""
-"If the phones are all in the same network as the PBX (LAN), "
-"``Encryption`` can be disabled, and ``PBX Address`` can contain an IP "
-"address."
+"The choice of the previous Encryption and PBX Address settings depends on"
+" how the phones will reach NethVoice."
 msgstr ""
-"If the phones are all in the same network as the PBX (LAN), "
-"``Encryption`` can be disabled, and ``PBX Address`` can contain an IP "
-"address."
+"The choice of the previous Encryption and PBX Address settings depends on"
+" how the phones will reach NethVoice."
 
 #: ../../nethvoice.rst:153
 #, fuzzy
 msgid ""
-"If one or more phones reach NethVoice via the public network (WAN), such "
-"as when the PBX is hosted on a cloud VPS, then ``Encryption`` must be "
-"enabled, and ``PBX Address`` must contain the fully qualified domain name"
-" present in the public DNS."
+"If the phones are all in the same network as the PBX (LAN), "
+"``Encryption`` can be disabled, and ``PBX Address`` can contain an IP "
+"address."
 msgstr ""
-"If one or more phones reach NethVoice via the public network (WAN), such "
-"as when the PBX is hosted on a cloud VPS, then ``Encryption`` must be "
-"enabled, and ``PBX Address`` must contain the fully qualified domain name"
-" present in the public DNS."
+"If the phones are all in the same network as the PBX (LAN), "
+"``Encryption`` can be disabled, and ``PBX Address`` can contain an IP "
+"address."
 
 #: ../../nethvoice.rst:155
 #, fuzzy
 msgid ""
+"If one or more phones reach NethVoice via the public network (WAN), such "
+"as when the PBX is hosted on a cloud VPS, then ``Encryption`` must be "
+"enabled, and ``PBX Address`` must contain the fully qualified domain name"
+" present in the public DNS."
+msgstr ""
+"If one or more phones reach NethVoice via the public network (WAN), such "
+"as when the PBX is hosted on a cloud VPS, then ``Encryption`` must be "
+"enabled, and ``PBX Address`` must contain the fully qualified domain name"
+" present in the public DNS."
+
+#: ../../nethvoice.rst:157
+#, fuzzy
+msgid ""
 "In any case, it is possible to choose on each individual phone whether "
 "encryption is used or not, provided that the SSL/TLS certificate of the "
 "system is valid. In this regard, refer to :ref:`wizard-configurations`."
@@ -6227,36 +6256,36 @@ msgstr ""
 "encryption is used or not, provided that the SSL/TLS certificate of the "
 "system is valid. In this regard, refer to :ref:`wizard-configurations`."
 
-#: ../../nethvoice.rst:157
+#: ../../nethvoice.rst:159
 #, fuzzy
 msgid "Other settings that can be changed:"
 msgstr "Other settings that can be changed:"
 
-#: ../../nethvoice.rst:159
+#: ../../nethvoice.rst:161
 #, fuzzy
 msgid ":ref:`Preferences <panel-preferences>`"
 msgstr ":ref:`Preferences <panel-preferences>`"
 
-#: ../../nethvoice.rst:160
+#: ../../nethvoice.rst:162
 #, fuzzy
 msgid ":ref:`LDAP Phonebook <panel-phonebook>`"
 msgstr ":ref:`LDAP Phonebook <panel-phonebook>`"
 
-#: ../../nethvoice.rst:162
+#: ../../nethvoice.rst:164
 #, fuzzy
 msgid ""
 "Once the settings are saved, they can be modified again from the "
-":guilabel:Devices > Models page, :guilabel:`Default Settings`."
+":guilabel:`Devices > Models page`, :guilabel:`Default Settings`."
 msgstr ""
 "Once the settings are saved, they can be modified again from the "
 ":guilabel:Devices > Models page, :guilabel:`Default Settings`."
 
-#: ../../nethvoice.rst:165
+#: ../../nethvoice.rst:167
 #, fuzzy
 msgid "Phones"
 msgstr "Phones"
 
-#: ../../nethvoice.rst:167
+#: ../../nethvoice.rst:169
 #, fuzzy
 msgid ""
 "The page ``Devices > Phones`` allows the identification of phones by "
@@ -6266,32 +6295,32 @@ msgstr ""
 "The page ``Devices > Phones`` allows the identification of phones by "
 "NethVoice by entering the MAC address. You can enter the MAC address "
 "using the following methods:"
-
-#: ../../nethvoice.rst:170
-#, fuzzy
-msgid ""
-":guilabel:`Paste from file` of multiple MAC addresses. Syntaxes separated"
-" by a hyphen - (e.g., AA-BB-CC-11-22-33), colons : (e.g., "
-"AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are "
-"accepted. Letters can be either uppercase or lowercase."
-msgstr ""
-":guilabel:`Paste from file` of multiple MAC addresses. Syntaxes separated"
-" by a hyphen - (e.g., AA-BB-CC-11-22-33), colons : (e.g., "
-"AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are "
-"accepted. Letters can be either uppercase or lowercase."
 
 #: ../../nethvoice.rst:172
 #, fuzzy
 msgid ""
-":guilabel:`Manual addition` of one MAC address at a time. Useful if you "
-"have a barcode reader."
+":guilabel:`Paste from file` of multiple MAC addresses. Syntaxes separated"
+" by a hyphen - (e.g., AA-BB-CC-11-22-33), colons : (e.g., "
+"AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are "
+"accepted. Letters can be either uppercase or lowercase."
 msgstr ""
-":guilabel:`Manual addition` of one MAC address at a time. Useful if you "
-"have a barcode reader."
+":guilabel:`Paste from file` of multiple MAC addresses. Syntaxes separated"
+" by a hyphen - (e.g., AA-BB-CC-11-22-33), colons : (e.g., "
+"AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are "
+"accepted. Letters can be either uppercase or lowercase."
 
 #: ../../nethvoice.rst:174
 #, fuzzy
 msgid ""
+":guilabel:`Manual addition` of one MAC address at a time. Useful if you "
+"have a barcode reader."
+msgstr ""
+":guilabel:`Manual addition` of one MAC address at a time. Useful if you "
+"have a barcode reader."
+
+#: ../../nethvoice.rst:176
+#, fuzzy
+msgid ""
 "In any case, after entering the MAC address, you can select the phone "
 "model. Selecting the exact model is required for the correct "
 "configuration of the phone."
@@ -6300,7 +6329,7 @@ msgstr ""
 "model. Selecting the exact model is required for the correct "
 "configuration of the phone."
 
-#: ../../nethvoice.rst:177
+#: ../../nethvoice.rst:179
 #, fuzzy
 msgid ""
 "If the model is not selected or the wrong model is chosen, some phone "
@@ -6311,113 +6340,113 @@ msgstr ""
 "functions, such as provisioning via RPS or line keys, may not be "
 "available."
 
-#: ../../nethvoice.rst:182
+#: ../../nethvoice.rst:184
 #, fuzzy
 msgid "Models"
 msgstr "Models"
 
-#: ../../nethvoice.rst:184
-#, fuzzy
-msgid ""
-"The page ``Devices > Models`` lists the basic models of the phones "
-"selected in ``Devices > Phones`` plus any custom models."
-msgstr ""
-"The page ``Devices > Models`` lists the basic models of the phones "
-"selected in ``Devices > Phones`` plus any custom models."
-
 #: ../../nethvoice.rst:186
 #, fuzzy
 msgid ""
-"You can create a custom model based on an existing one through the "
-":guilabel:`Create new model`."
+"The page ``Devices > Models`` lists the basic models of the phones "
+"selected in ``Devices > Phones`` plus any custom models."
 msgstr ""
-"You can create a custom model based on an existing one through the "
-":guilabel:`Create new model`."
+"The page ``Devices > Models`` lists the basic models of the phones "
+"selected in ``Devices > Phones`` plus any custom models."
 
 #: ../../nethvoice.rst:188
 #, fuzzy
 msgid ""
-"On this page, some parameters inherited from all models can also be "
-"modified using the :guilabel:`Default Settings`. These parameters include"
-" ``Encryption`` and ``PBX Address``, already set during the initial "
-"configuration process as explained in :ref:`wizard-devices`."
+"You can create a custom model based on an existing one through the "
+":guilabel:`Create new model`."
 msgstr ""
-"On this page, some parameters inherited from all models can also be "
-"modified using the :guilabel:`Default Settings`. These parameters include"
-" ``Encryption`` and ``PBX Address``, already set during the initial "
-"configuration process as explained in :ref:`wizard-devices`."
+"You can create a custom model based on an existing one through the "
+":guilabel:`Create new model`."
 
 #: ../../nethvoice.rst:190
 #, fuzzy
 msgid ""
+"On this page, some parameters inherited from all models can also be "
+"modified using the :guilabel:`Default Settings`. These parameters include"
+" ``Encryption`` and ``PBX Address``, already set during the initial "
+"configuration process as explained in :ref:`wizard-devices`."
+msgstr ""
+"On this page, some parameters inherited from all models can also be "
+"modified using the :guilabel:`Default Settings`. These parameters include"
+" ``Encryption`` and ``PBX Address``, already set during the initial "
+"configuration process as explained in :ref:`wizard-devices`."
+
+#: ../../nethvoice.rst:192
+#, fuzzy
+msgid ""
 "Depending on the features specific to the model, panels and options "
-"described in :ref:wizard-provisioning-section may be available."
+"described in :ref:`wizard-provisioning-section` may be available."
 msgstr ""
 "Depending on the features specific to the model, panels and options "
 "described in :ref:wizard-provisioning-section may be available."
 
-#: ../../nethvoice.rst:195
+#: ../../nethvoice.rst:197
 #, fuzzy
 msgid "Configurations"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:198
+#: ../../nethvoice.rst:200
 #, fuzzy
 msgid "Groups"
 msgstr "Groups"
 
-#: ../../nethvoice.rst:200
+#: ../../nethvoice.rst:202
 #, fuzzy
 msgid ""
 "You can create user groups that will be visible and usable in "
-"applications, such as NethVoice CTI."
+"applications such as NethVoice CTI."
 msgstr ""
 "You can create user groups that will be visible and usable in "
 "applications, such as NethVoiceCTI."
 
-#: ../../nethvoice.rst:202
+#: ../../nethvoice.rst:204
 #, fuzzy
 msgid ""
-"Click the :guilabel:`Create new group`. Specify a name and "
-":guilabel:`save`. The group will appear in the list."
+"Click :guilabel:`Create new group`, specify a name, and :guilabel:`save`."
+" The group will appear in the list."
 msgstr ""
 "Click the :guilabel:`Create new group`. Specify a name and "
 ":guilabel:`save`. The group will appear in the list."
 
-#: ../../nethvoice.rst:207
+#: ../../nethvoice.rst:208
 #, fuzzy
 msgid "Profiles"
 msgstr "Profiles"
 
-#: ../../nethvoice.rst:209
+#: ../../nethvoice.rst:210
 #, fuzzy
 msgid ""
-"NethVoice allows you to select the features that each user can access, "
-"and these are grouped into profiles."
+"NethVoice allows you to select the features each user can access, which "
+"are grouped into profiles."
 msgstr ""
 "NethVoice allows you to select the features that each user can access, "
 "and these are grouped into profiles."
 
-#: ../../nethvoice.rst:211
+#: ../../nethvoice.rst:212
 #, fuzzy
 msgid ""
-"By default, 3 profiles are created, each containing different levels of "
-"functionality:"
+"By default, three profiles are created, each containing different levels "
+"of functionality:"
 msgstr ""
 "By default, 3 profiles are created, each containing different levels of "
 "functionality:"
 
-#: ../../nethvoice.rst:213
+#: ../../nethvoice.rst:214
 #, fuzzy
 msgid "``Basic``: Minimum functionality for the user."
 msgstr "``Basic``: Minimum functionality for the user."
 
-#: ../../nethvoice.rst:214
+#: ../../nethvoice.rst:215
 #, fuzzy
 msgid "``Standard``: Classic management functionalities for the user."
 msgstr "``Standard``: Classic management functionalities for the user."
 
-#: ../../nethvoice.rst:215
+#: ../../nethvoice.rst:216
 #, fuzzy
 msgid ""
 "``Advanced``: Almost all functionalities are allowed, suitable for "
@@ -6426,16 +6455,16 @@ msgstr ""
 "``Advanced``: Almost all functionalities are allowed, suitable for "
 "advanced users."
 
-#: ../../nethvoice.rst:217
+#: ../../nethvoice.rst:218
 #, fuzzy
 msgid ""
-"You can also create new profiles by duplicating an existing one or "
+"You can also create new profiles by duplicating an existing one or by "
 "creating new ones and specifying the various functionalities."
 msgstr ""
 "You can also create new profiles by duplicating an existing one or "
 "creating new ones and specifying the various functionalities."
 
-#: ../../nethvoice.rst:220
+#: ../../nethvoice.rst:221
 #, fuzzy
 msgid ""
 "Remember to enable access to the user groups previously created on the "
@@ -6444,12 +6473,12 @@ msgstr ""
 "Remember to enable access to the user groups previously created on the "
 "profiles where necessary."
 
-#: ../../nethvoice.rst:223
+#: ../../nethvoice.rst:224
 #, fuzzy
 msgid "Permissions"
 msgstr "Permissions"
 
-#: ../../nethvoice.rst:228
+#: ../../nethvoice.rst:229
 #, fuzzy
 msgid ""
 "General permission enables or disables access to all the functionalities "
@@ -6458,69 +6487,67 @@ msgstr ""
 "General permission enables or disables access to all the functionalities "
 "of the section and general notification settings."
 
-#: ../../nethvoice.rst:229
+#: ../../nethvoice.rst:230
 #, fuzzy
 msgid "``DND``: Enables the configuration of Do Not Disturb."
 msgstr "``DND``: Enables the configuration of Do Not Disturb."
 
-#: ../../nethvoice.rst:230
-#, fuzzy
-msgid ""
-"``Call Forwarding``: Enables the configuration of call forwarding "
-"(diversion)."
-msgstr ""
-"``Call Forwarding``: Enables the configuration of call forwarding "
-"(diversion)."
-
 #: ../../nethvoice.rst:231
 #, fuzzy
-msgid ""
-"``Recording``: Enables recording of own conversations. It is also "
-"possible to view/listen/delete own recordings."
+msgid "``Call Forwarding``: Enables the configuration of call forwarding."
 msgstr ""
-"``Recording``: Enables recording of own conversations. It is also "
-"possible to view/listen/delete own recordings."
+"``Call Forwarding``: Enables the configuration of call forwarding "
+"(diversion)."
 
 #: ../../nethvoice.rst:232
 #, fuzzy
 msgid ""
-"``Parkings``: Enables the display of the status of parkings and the "
-"ability to pick up parked calls."
+"``Recording``: Enables the recording of own conversations. It is also "
+"possible to view, listen to, and delete own recordings."
+msgstr ""
+"``Recording``: Enables recording of own conversations. It is also "
+"possible to view/listen/delete own recordings."
+
+#: ../../nethvoice.rst:233
+#, fuzzy
+msgid ""
+"``Parkings``: Enables the display of the status of parking spaces and the"
+" ability to pick up parked calls."
 msgstr ""
 "``Parkings``: Enables the display of the status of parkings and the "
 "ability to pick up parked calls."
 
-#: ../../nethvoice.rst:233
+#: ../../nethvoice.rst:234
 #, fuzzy
 msgid "``Listening``: Enables listening to calls of other users."
 msgstr "``Listening``: Enables listening to calls of other users."
 
-#: ../../nethvoice.rst:234
+#: ../../nethvoice.rst:235
 #, fuzzy
 msgid ""
 "``Intrusion``: Enables intrusion into another user's call (listening to "
-"both caller and called, conversation only with the user)."
+"both the caller and called, conversation only with the user)."
 msgstr ""
 "``Intrusion``: Enables intrusion into another user's call (listening to "
 "both caller and called, conversation only with the user)."
 
-#: ../../nethvoice.rst:235
+#: ../../nethvoice.rst:236
 #, fuzzy
 msgid "``Pickup``: Enables call pickup for calls to other users."
 msgstr "``Pickup``: Enables call pickup for calls to other users."
 
-#: ../../nethvoice.rst:236
+#: ../../nethvoice.rst:237
 #, fuzzy
 msgid ""
-"``Privacy``: Enables the masking of the last 3 digits (modifiable from "
-"the command line) of the called and/or calling number of other users in "
-"NethVoice CTI."
+"``Privacy``: Enables the masking of the last three digits (modifiable "
+"from the command line) of the called and/or calling number of other users"
+" in NethVoice CTI."
 msgstr ""
 "``Privacy``: Enables the masking of the last 3 digits (modifiable from "
 "the command line) of the called and/or calling number of other users in "
 "NethVoiceCTI."
 
-#: ../../nethvoice.rst:237
+#: ../../nethvoice.rst:238
 #, fuzzy
 msgid ""
 "``Physical Phone Buttons``: Enables the configuration of physical phone "
@@ -6531,12 +6558,12 @@ msgstr ""
 "buttons by the user in NethVoiceCTI. These correspond to the Line Keys "
 "shown on the :ref:wizard-devices pages."
 
-#: ../../nethvoice.rst:241
+#: ../../nethvoice.rst:242
 #, fuzzy
 msgid "Outbound Routes"
 msgstr "Outbound Routes"
 
-#: ../../nethvoice.rst:243
+#: ../../nethvoice.rst:244
 #, fuzzy
 msgid ""
 "All configured outbound routes in NethVoice are displayed, and you can "
@@ -6545,12 +6572,12 @@ msgstr ""
 "All configured outbound routes in NethVoice are displayed, and you can "
 "enable/disable their usage individually."
 
-#: ../../nethvoice.rst:246
+#: ../../nethvoice.rst:247
 #, fuzzy
 msgid "NethVoice CTI"
 msgstr "NethVoice"
 
-#: ../../nethvoice.rst:248
+#: ../../nethvoice.rst:249
 #, fuzzy
 msgid ""
 "``NethVoice CTI``: Enables all the underlying permissions by activating "
@@ -6559,12 +6586,12 @@ msgstr ""
 "``NethVoice CTI``: Enables all the underlying permissions by activating "
 "the following functionalities on NethVoice CTI."
 
-#: ../../nethvoice.rst:251
+#: ../../nethvoice.rst:252
 #, fuzzy
 msgid "Address Book"
 msgstr "Address Book"
 
-#: ../../nethvoice.rst:253
+#: ../../nethvoice.rst:254
 #, fuzzy
 msgid ""
 "``Address Book``: The general permission enables the viewing of the "
@@ -6575,7 +6602,7 @@ msgstr ""
 "address book in NethVoiceCTI and the ability to add, modify, and delete "
 "own contacts."
 
-#: ../../nethvoice.rst:254
+#: ../../nethvoice.rst:255
 #, fuzzy
 msgid ""
 "``Advanced Address Book``: Enables the ability to modify/delete non-owned"
@@ -6584,12 +6611,12 @@ msgstr ""
 "``Advanced Address Book``: Enables the ability to modify/delete non-owned"
 " contacts in the address book in NethVoiceCTI."
 
-#: ../../nethvoice.rst:257
+#: ../../nethvoice.rst:258
 #, fuzzy
 msgid "CDR"
 msgstr "CDR"
 
-#: ../../nethvoice.rst:259
+#: ../../nethvoice.rst:260
 #, fuzzy
 msgid ""
 "``CDR``: The general permission enables the viewing of the call history "
@@ -6598,12 +6625,12 @@ msgstr ""
 "``CDR``: The general permission enables the viewing of the call history "
 "related to the user."
 
-#: ../../nethvoice.rst:260
+#: ../../nethvoice.rst:261
 #, fuzzy
 msgid "``PBX CDR``: Enables the viewing of the call history for the entire PBX."
 msgstr "``PBX CDR``: Enables the viewing of the call history for the entire PBX."
 
-#: ../../nethvoice.rst:261
+#: ../../nethvoice.rst:262
 #, fuzzy
 msgid ""
 "``Group CDR``: Enables the viewing of call history for calls within one's"
@@ -6612,12 +6639,12 @@ msgstr ""
 "``Group CDR``: Enables the viewing of call history for calls within one's"
 " assigned group."
 
-#: ../../nethvoice.rst:264
+#: ../../nethvoice.rst:265 ../../nethvoice.rst:1050 ../../nethvoice.rst:1085
 #, fuzzy
 msgid "Customer Cards"
 msgstr "Etichette personalizzate"
 
-#: ../../nethvoice.rst:266
+#: ../../nethvoice.rst:267
 #, fuzzy
 msgid ""
 "``Customer Cards``: The general permission enables the ability to view "
@@ -6626,36 +6653,36 @@ msgstr ""
 "``Customer Cards``: The general permission enables the ability to view "
 "the customer card on NethVoiceCTI."
 
-#: ../../nethvoice.rst:267
+#: ../../nethvoice.rst:268
 #, fuzzy
 msgid "For each section of the customer card, you can enable/disable visibility."
 msgstr "For each section of the customer card, you can enable/disable visibility."
 
-#: ../../nethvoice.rst:270
+#: ../../nethvoice.rst:271
 #, fuzzy
 msgid "Presence Panel"
 msgstr "Presence Panel"
 
-#: ../../nethvoice.rst:272
+#: ../../nethvoice.rst:273
 #, fuzzy
 msgid ""
-"The general permission enables the display of the operators panel in "
+"The general permission enables the display of the operators' panel in "
 "NethVoice CTI."
 msgstr ""
 "The general permission enables the display of the operators panel in "
 "NethVoiceCTI."
 
-#: ../../nethvoice.rst:273
+#: ../../nethvoice.rst:274
 #, fuzzy
 msgid "``Advanced Recording``: Enables recording of calls from other users."
 msgstr "``Advanced Recording``: Enables recording of calls from other users."
 
-#: ../../nethvoice.rst:274
+#: ../../nethvoice.rst:275
 #, fuzzy
 msgid "``Call Transfer``: Enables call transfer for calls from other users."
 msgstr "``Call Transfer``: Enables call transfer for calls from other users."
 
-#: ../../nethvoice.rst:275
+#: ../../nethvoice.rst:276
 #, fuzzy
 msgid ""
 "``Advanced Parking``: Enables the ability to park calls from other users "
@@ -6664,140 +6691,140 @@ msgstr ""
 "``Advanced Parking``: Enables the ability to park calls from other users "
 "and retrieve them."
 
-#: ../../nethvoice.rst:276
+#: ../../nethvoice.rst:277
 #, fuzzy
 msgid "``Hang Up``: Enables the ability to hang up calls from other users."
 msgstr "``Hang Up``: Enables the ability to hang up calls from other users."
 
-#: ../../nethvoice.rst:277
-#, fuzzy
-msgid ""
-"``Advanced Phone``: Enables phone functionalities (hang up, call, answer)"
-" on conversations that do not belong to the user."
-msgstr ""
-"``Advanced Phone``: Enables phone functionalities (hang up, call, answer)"
-" on conversations that do not belong to the user."
-
 #: ../../nethvoice.rst:278
 #, fuzzy
 msgid ""
+"``Advanced Phone``: Enables phone functionalities (hang up, call, answer)"
+" on conversations that do not belong to the user."
+msgstr ""
+"``Advanced Phone``: Enables phone functionalities (hang up, call, answer)"
+" on conversations that do not belong to the user."
+
+#: ../../nethvoice.rst:279
+#, fuzzy
+msgid ""
 "For each configured user group in NethVoice, you can enable/disable "
 "visibility."
 msgstr ""
 "For each configured user group in NethVoice, you can enable/disable "
 "visibility."
 
-#: ../../nethvoice.rst:281
+#: ../../nethvoice.rst:282
 #, fuzzy
 msgid "Queue Agent Panel"
 msgstr "Queue Agent Panel"
 
-#: ../../nethvoice.rst:283
-#, fuzzy
-msgid ""
-"The general permission enables the Queue section in NethVoice CTI with "
-"information about the assigned queues, the ability to log in/out, and "
-"enter/exit break."
-msgstr ""
-"The general permission enables the Queue section in NethVoice CTI with "
-"information about the assigned queues, the ability to log in/out, and "
-"enter/exit break."
-
 #: ../../nethvoice.rst:284
 #, fuzzy
 msgid ""
+"The general permission enables the Queue section in NethVoice CTI with "
+"information about the assigned queues, the ability to log in/out, and "
+"enter/exit break."
+msgstr ""
+"The general permission enables the Queue section in NethVoice CTI with "
+"information about the assigned queues, the ability to log in/out, and "
+"enter/exit break."
+
+#: ../../nethvoice.rst:285
+#, fuzzy
+msgid ""
 "``Advanced Queue Agent Panel``: Enables advanced information about the "
 "status of queues and agents."
 msgstr ""
 "``Advanced Queue Agent Panel``: Enables advanced information about the "
 "status of queues and agents."
 
-#: ../../nethvoice.rst:285
+#: ../../nethvoice.rst:286
 #, fuzzy
 msgid "``Unhandled Calls``: Enables access to the unhandled calls section."
 msgstr "``Unhandled Calls``: Enables access to the unhandled calls section."
 
-#: ../../nethvoice.rst:288
+#: ../../nethvoice.rst:289
 #, fuzzy
-msgid "Phone lines"
+msgid "Phone Lines"
 msgstr "Phone lines"
-
-#: ../../nethvoice.rst:290
-#, fuzzy
-msgid ""
-"The general permission enables access to the after hours section of "
-"NethVoice CTI, allowing the user to change the path of their incoming "
-"calls."
-msgstr ""
-"The general permission enables access to the after hours section of "
-"NethVoice CTI, allowing the user to change the path of their incoming "
-"calls."
 
 #: ../../nethvoice.rst:291
 #, fuzzy
 msgid ""
-"``Advanced After Hours``: Allows modifying the call path for incoming "
-"calls for the user and generic incoming routes."
+"The general permission enables access to the after-hours section of "
+"NethVoice CTI, allowing the user to change the path of their incoming "
+"calls."
 msgstr ""
-"``Advanced After Hours``: Allows modifying the call path for incoming "
-"calls for the user and generic incoming routes."
+"The general permission enables access to the after hours section of "
+"NethVoice CTI, allowing the user to change the path of their incoming "
+"calls."
 
 #: ../../nethvoice.rst:292
 #, fuzzy
 msgid ""
+"``Advanced After Hours``: Allows modifying the call path for incoming "
+"calls for the user and generic incoming routes."
+msgstr ""
+"``Advanced After Hours``: Allows modifying the call path for incoming "
+"calls for the user and generic incoming routes."
+
+#: ../../nethvoice.rst:293
+#, fuzzy
+msgid ""
 "``Complete After Hours``: Allows modification of all call paths for "
 "incoming calls."
 msgstr ""
 "``Complete After Hours``: Allows modification of all call paths for "
 "incoming calls."
 
-#: ../../nethvoice.rst:295
+#: ../../nethvoice.rst:296
 #, fuzzy
 msgid "Queue Manager"
 msgstr "Queue Manager"
 
-#: ../../nethvoice.rst:297
-#, fuzzy
-msgid ""
-"The general permission enables access to the QManager section in "
-"NethVoice CTI."
-msgstr ""
-"The general permission enables access to the QManager section in "
-"NethVoice CTI."
-
 #: ../../nethvoice.rst:298
 #, fuzzy
 msgid ""
+"The general permission enables access to the QManager section in "
+"NethVoice CTI."
+msgstr ""
+"The general permission enables access to the QManager section in "
+"NethVoice CTI."
+
+#: ../../nethvoice.rst:299
+#, fuzzy
+msgid ""
 "For each configured queue in NethVoice, you can enable/disable the "
 "visibility of the status and data."
 msgstr ""
 "For each configured queue in NethVoice, you can enable/disable the "
 "visibility of the status and data."
 
-#: ../../nethvoice.rst:301
+#: ../../nethvoice.rst:302
 #, fuzzy
 msgid "Operator Station"
 msgstr "Operator Station"
 
-#: ../../nethvoice.rst:303
-#, fuzzy
-msgid ""
-"The general permission enables access to the operator station section in "
-"NethVoice CTI."
-msgstr ""
-"The general permission enables access to the operator station section in "
-"NethVoice CTI."
-
 #: ../../nethvoice.rst:304
 #, fuzzy
 msgid ""
-"Only one configured queue in NethVoice needs to be enabled to use it as "
+"The general permission grants access to the operator station section in "
+"NethVoice CTI."
+msgstr ""
+"The general permission enables access to the operator station section in "
+"NethVoice CTI."
+
+#: ../../nethvoice.rst:305
+#, fuzzy
+msgid ""
+"Only one configured queue in NethVoice needs to be enabled to serve as "
 "the source of calls to manage."
 msgstr ""
 "Only one configured queue in NethVoice needs to be enabled to use it as "
 "the source of calls to manage."
 
-#: ../../nethvoice.rst:308
+#: ../../nethvoice.rst:308 ../../nethvoice.rst:1019
 #, fuzzy
 msgid "Users"
 msgstr "Users"
@@ -6806,7 +6833,7 @@ msgstr "Users"
 #, fuzzy
 msgid ""
 "The ``Users`` page establishes, for each individual user, personal "
-"settings, and associated devices."
+"settings and associated devices."
 msgstr ""
 "The ``Users`` page establishes, for each individual user, personal "
 "settings, and associated devices."
@@ -6814,17 +6841,17 @@ msgstr ""
 #: ../../nethvoice.rst:312
 #, fuzzy
 msgid ""
-"The settings that can be modify are: * ``Profile``: Determines the "
-"permissions the user has. * ``Group``: Allows grouping users to "
-"facilitate the distribution of configurations through :ref:wizard-"
-"multiple-phones. * ``Mobile``: Allows associating a mobile number with "
-"the user to display it in the operator panel of NethVoice CTI and use it "
-"in presence management. * ``Voicemail Box``: Allows activating the "
-"voicemail box for the user as a destination for any failed calls within. "
-"* ``Associate Device``: Allows selecting an unassociated phone and "
-"assigning it to the user among those managed with provisioning. It is "
-"possible to create credentials for use on a device not supported by "
-"provisioning. In this case, a custom device must be used."
+"The settings that can be modified are: * ``Profile``: Determines the "
+"permissions the user has. * ``Group``: Allows grouping of users to "
+"facilitate the distribution of configurations. * ``Mobile``: Enables "
+"associating a mobile number with the user to display it in the operator "
+"panel of NethVoice CTI and use it in presence management. * ``Voicemail "
+"Box``: Enables activating the voicemail box for the user as a destination"
+" for any failed calls. * ``Associate Device``: Allows selecting an "
+"unassociated phone and assigning it to the user from those managed with "
+"provisioning. It is possible to create credentials for use on a device "
+"not supported by provisioning. In this case, a custom device must be "
+"used."
 msgstr ""
 "The settings that can be modify are: * ``Profile``: Determines the "
 "permissions the user has. * ``Group``: Allows grouping users to "
@@ -6842,7 +6869,7 @@ msgstr ""
 #, fuzzy
 msgid ""
 "Then, the devices associated with the user are displayed. Devices can be "
-"of two types, software (Web Phone and Mobile App) or physical, tied to a "
+"of two types: software (Web Phone and Mobile App) or physical, tied to a "
 "phone configured with provisioning or a custom device."
 msgstr ""
 "Then, the devices associated with the user are displayed. Devices can be "
@@ -6865,73 +6892,80 @@ msgstr ""
 
 #: ../../nethvoice.rst:325
 #, fuzzy
-msgid ""
-"``Mobile App`` enables the configuration of a device on the smartphone "
-"(see :ref:nethcti_mobile)."
+msgid "``Mobile App`` enables the configuration of a device on the smartphone."
 msgstr ""
 "``Mobile App`` enables the configuration of a device on the smartphone "
 "(see :ref:nethcti_mobile)."
 
-#: ../../nethvoice.rst:327
+#: ../../nethvoice.rst:326
+#, fuzzy
+msgid ""
+"``Phone Link`` enables the configuration of a device on the personal "
+"computer."
+msgstr ""
+"``Mobile App`` enables the configuration of a device on the smartphone "
+"(see :ref:nethcti_mobile)."
+
+#: ../../nethvoice.rst:328
 #, fuzzy
 msgid "For each physical device, the following is displayed:"
 msgstr "For each physical device, the following is displayed:"
 
-#: ../../nethvoice.rst:329
+#: ../../nethvoice.rst:330
 #, fuzzy
 msgid ""
-"Encryption: Indicates whether encryption is enabled or not. The initial "
-"setting depends on the NethVoice configuration made during the initial "
-"configuration process (see :ref:`wizard-devices`). If the PBX is reached "
-"via public network (WAN), encryption activation is required."
+"Encryption: Indicates whether encryption is enabled. The initial setting "
+"depends on the NethVoice configuration made during the initial "
+"configuration process (see :ref:`wizard-devices`). If the PBX is accessed"
+" via a public network (WAN), activating encryption is required."
 msgstr ""
 "Encryption: Indicates whether encryption is enabled or not. The initial "
 "setting depends on the NethVoice configuration made during the initial "
 "configuration process (see :ref:wizard-devices). If the PBX is reached "
 "via public network (WAN), encryption activation is required."
 
-#: ../../nethvoice.rst:332
-#, fuzzy
-msgid ""
-"If `Encryption` is enabled, make sure that the SSL/TLS certificate of the"
-" system is valid and contains the name of the PBX; otherwise, phones "
-"cannot establish a TLS connection"
-msgstr ""
-"If `Encryption` is enabled, make sure that the SSL/TLS certificate of the"
-" system is valid and contains the name of the PBX; otherwise, phones "
-"cannot establish a TLS connection"
-
 #: ../../nethvoice.rst:334
 #, fuzzy
 msgid ""
-"``Configuration Model``: you can change the configuration model among "
-"those offered."
+"If `Encryption` is enabled, ensure that the SSL/TLS certificate of the "
+"system is valid and contains the name of the PBX; otherwise, phones "
+"cannot establish a TLS connection."
 msgstr ""
-"``Configuration Model``: you can change the configuration model among "
-"those offered."
-
-#: ../../nethvoice.rst:335
-#, fuzzy
-msgid ""
-"``Edit Configuration``: you can modify the configuration of the "
-"individual phone by entering changes valid only for this device. The "
-"individual phone has the configuration of the model and default settings "
-"by default. Refer to :ref:wizard2-models for more details."
-msgstr ""
-"``Edit Configuration``: you can modify the configuration of the "
-"individual phone by entering changes valid only for this device. The "
-"individual phone has the configuration of the model and default settings "
-"by default. Refer to :ref:wizard2-models for more details."
+"If `Encryption` is enabled, make sure that the SSL/TLS certificate of the"
+" system is valid and contains the name of the PBX; otherwise, phones "
+"cannot establish a TLS connection"
 
 #: ../../nethvoice.rst:336
 #, fuzzy
-msgid "``Mac-Address``: Displays the MAC address of the associated device."
-msgstr "``Mac-Address``: Displays the MAC address of the associated device."
+msgid ""
+"\"Configuration Model\": You can change the configuration model among "
+"those offered."
+msgstr ""
+"``Configuration Model``: you can change the configuration model among "
+"those offered."
 
 #: ../../nethvoice.rst:337
 #, fuzzy
 msgid ""
-"``Show Password`` for custom devices. The SIP password is shown, which, "
+"\"Edit Configuration\": You can modify the configuration of the "
+"individual phone by entering changes valid only for this device. The "
+"individual phone defaults to the configuration of the model and default "
+"settings. Refer to :ref:`wizard2-models` for more details."
+msgstr ""
+"``Edit Configuration``: you can modify the configuration of the "
+"individual phone by entering changes valid only for this device. The "
+"individual phone has the configuration of the model and default settings "
+"by default. Refer to :ref:wizard2-models for more details."
+
+#: ../../nethvoice.rst:338
+#, fuzzy
+msgid "\"Mac-Address\": Displays the MAC address of the associated device."
+msgstr "``Mac-Address``: Displays the MAC address of the associated device."
+
+#: ../../nethvoice.rst:339
+#, fuzzy
+msgid ""
+"\"Show Password\" for custom devices. The SIP password is shown, which, "
 "along with the internal and PBX address, can be used to manually "
 "configure the custom device."
 msgstr ""
@@ -6939,39 +6973,39 @@ msgstr ""
 "along with the internal and PBX address, can be used to manually "
 "configure the custom device."
 
-#: ../../nethvoice.rst:338
+#: ../../nethvoice.rst:340
 #, fuzzy
-msgid "``Restart``: If the device is registered, you can restart it."
+msgid "\"Restart\": If the device is registered, you can restart it."
 msgstr "``Restart``: If the device is registered, you can restart it."
 
-#: ../../nethvoice.rst:339
+#: ../../nethvoice.rst:341
 #, fuzzy
-msgid "``Disassociate``: You can disassociate the device from the user."
+msgid "\"Disassociate\": You can disassociate the device from the user."
 msgstr "``Disassociate``: You can disassociate the device from the user."
 
-#: ../../nethvoice.rst:345
+#: ../../nethvoice.rst:346
 #, fuzzy
 msgid "Phone Configuration Priority"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:347
+#: ../../nethvoice.rst:348
 #, fuzzy
 msgid ""
-"Configurations created by Nethvoice provisioning for phone devices are "
+"Configurations created by NethVoice provisioning for phone devices are "
 "derived by combining settings from:"
 msgstr ""
 "Configurations created by Nethvoice provisioning for phone devices are "
 "derived by combining settings from:"
 
-#: ../../nethvoice.rst:349
-#, fuzzy
-msgid "``Default Settings``: these are found on the :ref:`wizard-model` page."
-msgstr "``Default Settings``: these are found on the :ref:`wizard-modelli` page."
-
 #: ../../nethvoice.rst:350
 #, fuzzy
+msgid "``Default Settings``: These are found on the :ref:`wizard-model` page."
+msgstr "``Default Settings``: these are found on the :ref:`wizard-modelli` page."
+
+#: ../../nethvoice.rst:351
+#, fuzzy
 msgid ""
-"``Model Settings``: parameters are taken from the configuration of the "
+"``Model Settings``: Parameters are taken from the configuration of the "
 "model associated with the device, which is found on the :ref:`wizard-"
 "model` page."
 msgstr ""
@@ -6979,217 +7013,860 @@ msgstr ""
 "model associated with the device, which is found on the :ref:`wizard-"
 "modelli` page."
 
-#: ../../nethvoice.rst:351
+#: ../../nethvoice.rst:352
 #, fuzzy
 msgid ""
-"``Phone Settings``: parameters are taken from the configuration of the "
+"``Phone Settings``: Parameters are taken from the configuration of the "
 "individual phone, found on the :ref:`wizard-configurations` page."
 msgstr ""
 "``Phone Settings``: parameters are taken from the configuration of the "
 "individual phone, found on the :ref:`wizard-configurazioni` page."
 
-#: ../../nethvoice.rst:352
+#: ../../nethvoice.rst:353
 #, fuzzy
 msgid ""
-"NethVoice CTI Settings where it's possible to configure parameters of the"
-" physical phone associated with the user."
+"NethVoice CTI Settings where it is possible to configure parameters of "
+"the physical phone associated with the user."
 msgstr ""
 "NethVoice CTI Settings where it's possible to configure parameters of the"
 " physical phone associated with the user."
 
-#: ../../nethvoice.rst:354
+#: ../../nethvoice.rst:355
 #, fuzzy
 msgid ""
 "In case there is a parameter with non-uniform configuration across the "
-"various sections listed above, this is the descending order of priority "
-"to be followed:"
+"various sections listed above, the following is the descending order of "
+"priority to be followed:"
 msgstr ""
 "In case there is a parameter with non-uniform configuration across the "
 "various sections listed above, this is the descending order of priority "
 "to be followed:"
-
-#: ../../nethvoice.rst:356
-#, fuzzy
-msgid ""
-"``Phone Settings`` and NethVoice CTI Settings are the settings with the "
-"highest priority, with the latter taking precedence if there is a "
-"conflict between the two."
-msgstr ""
-"``Phone Settings`` and NethVoice CTI Settings are the settings with the "
-"highest priority, with the latter taking precedence if there is a "
-"conflict between the two."
 
 #: ../../nethvoice.rst:357
+#, fuzzy
+msgid ""
+"``Phone Settings`` and NethVoice CTI Settings are the settings with the "
+"highest priority, with the latter taking precedence if there is a "
+"conflict between the two."
+msgstr ""
+"``Phone Settings`` and NethVoice CTI Settings are the settings with the "
+"highest priority, with the latter taking precedence if there is a "
+"conflict between the two."
+
+#: ../../nethvoice.rst:358
 #, fuzzy
 msgid "``Model Settings``"
 msgstr "Impostazioni generali"
 
-#: ../../nethvoice.rst:358
+#: ../../nethvoice.rst:359
 #, fuzzy
 msgid "``Default Settings``"
 msgstr "Impostazioni generali"
 
-#: ../../nethvoice.rst:361
+#: ../../nethvoice.rst:362
 #, fuzzy
 msgid "Administration"
 msgstr "Amministratori"
 
-#: ../../nethvoice.rst:364
+#: ../../nethvoice.rst:365
 #, fuzzy
 msgid "Languages"
 msgstr "Languages"
 
-#: ../../nethvoice.rst:366
+#: ../../nethvoice.rst:367
 #, fuzzy
-msgid ""
-"In the Languages menu, it's possible to set the default NethVoice "
-"language."
+msgid "In the Languages menu, you can set the default language for NethVoice."
 msgstr ""
 "In the Languages menu, it's possible to set the default NethVoice "
 "language."
 
-#: ../../nethvoice.rst:371
+#: ../../nethvoice.rst:372
 #, fuzzy
-msgid "The Settings page allows managing various aspects of the configuration."
+msgid ""
+"The Settings page allows you to manage various aspects of the "
+"configuration."
 msgstr "The Settings page allows managing various aspects of the configuration."
 
-#: ../../nethvoice.rst:373
+#: ../../nethvoice.rst:374
 #, fuzzy
 msgid ""
-"``Password``: It's possible to change the password for the admin user "
-"dedicated to accessing the web interface of NethVoice."
+"``Password``: You can change the password for the admin user who is "
+"dedicated to accessing the NethVoice web interface."
 msgstr ""
 "``Password``: It's possible to change the password for the admin user "
 "dedicated to accessing the web interface of NethVoice."
 
-#: ../../nethvoice.rst:376
+#: ../../nethvoice.rst:377
 #, fuzzy
 msgid "Advanced"
 msgstr "Advanced"
 
-#: ../../nethvoice.rst:378
+#: ../../nethvoice.rst:379
 #, fuzzy
 msgid ""
-"The Advanced section allows direct access to the advanced interface of "
-"NethVoice."
+"The Advanced section provides direct access to NethVoice's advanced "
+"interface."
 msgstr ""
 "The Advanced section allows direct access to the advanced interface of "
 "NethVoice."
 
-#: ../../nethvoice.rst:381
+#: ../../nethvoice.rst:384 ../../nethvoice.rst:986
+#, fuzzy
+msgid "Provisioning"
+msgstr "Permissions"
+
+#: ../../nethvoice.rst:386
+msgid ""
+"What does Provisioning mean? Provisioning involves configuring phones in "
+"automatic mode, minimizing the necessary operations."
+msgstr ""
+
+#: ../../nethvoice.rst:389
+msgid "Phones Provisioning"
+msgstr ""
+
+#: ../../nethvoice.rst:391
+msgid "Actions to be performed in NethVoice:"
+msgstr ""
+
+#: ../../nethvoice.rst:393
+msgid "Identification of phones."
+msgstr ""
+
+#: ../../nethvoice.rst:395
+msgid "Assignment of phones to users."
+msgstr ""
+
+#: ../../nethvoice.rst:398
+#, fuzzy
+msgid "Identification of Phones"
+msgstr "Email notifications"
+
+#: ../../nethvoice.rst:400
+msgid ""
+"The MAC address is fundamental for the **Provisioning** of NethVoice as "
+"it uniquely identifies the phone."
+msgstr ""
+
+#: ../../nethvoice.rst:402
+msgid ""
+"Entering the MAC address of the phones does not require connecting the "
+"phone to the network. Indeed, it is possible to enter the MAC addresses "
+"of phones that are still packaged."
+msgstr ""
+
+#: ../../nethvoice.rst:404
+msgid ""
+"Regardless, you can enter the MAC addresses of the phones by typing or "
+"copying the MAC address from a spreadsheet, invoice, or other document."
+msgstr ""
+
+#: ../../nethvoice.rst:407
+msgid "Associating Phones with Users"
+msgstr ""
+
+#: ../../nethvoice.rst:409
+msgid ""
+"The configuration of a phone is complete when it is associated with a "
+"user."
+msgstr ""
+
+#: ../../nethvoice.rst:411
+msgid "Up to eight telephone devices can be associated with each user."
+msgstr ""
+
+#: ../../nethvoice.rst:413
+msgid ""
+"NethVoice assigns a progressive number to each device associated with the"
+" user using the following criteria:"
+msgstr ""
+
+#: ../../nethvoice.rst:415
+msgid "``Main Extension`` - main phone, for example, ``201``"
+msgstr ""
+
+#: ../../nethvoice.rst:417
+msgid "``91+Main Extension`` - phone 2, for example, ``91201``"
+msgstr ""
+
+#: ../../nethvoice.rst:419
+msgid "``92+Main Extension`` - phone 3, for example, ``92201``"
+msgstr ""
+
+#: ../../nethvoice.rst:421
+msgid "..."
+msgstr ""
+
+#: ../../nethvoice.rst:423
+msgid ""
+"However, from the users' perspective, the Main Extension is the only "
+"important number to remember."
+msgstr ""
+
+#: ../../nethvoice.rst:426
+msgid "Actions to Be Performed on the Phones"
+msgstr ""
+
+#: ../../nethvoice.rst:430
+msgid ""
+"Let's consider the **first boot** for phones that are new, just taken out"
+" of the box, or those that have undergone a factory reset and have never "
+"been started up."
+msgstr ""
+
+#: ../../nethvoice.rst:432
+msgid ""
+"Phones at **first boot** are already able to reach NethVoice to retrieve "
+"their configuration using supported methods."
+msgstr ""
+
+#: ../../nethvoice.rst:434
+msgid ""
+"The only action required in these cases is to connect the Ethernet cable "
+"with PoE (Power over Ethernet) to the phone. If PoE is not available, it "
+"will also be necessary to connect the phone's power cable."
+msgstr ""
+
+#: ../../nethvoice.rst:438
+msgid ""
+"Verify the compatibility of the phones with supported provisioning "
+"methods. Please read the following sections carefully."
+msgstr ""
+
+#: ../../nethvoice.rst:440
+msgid ""
+"If a phone is already in use, it is possible to prepare it for "
+"association with NethVoice through **firmware upgrade** and **factory "
+"reset** procedures. Both procedures are accessible via the phone's web "
+"administration interface."
+msgstr ""
+
+#: ../../nethvoice.rst:445
+#, fuzzy
+msgid "Provisioning Methods"
+msgstr "Provisioning Parameters Guide"
+
+#: ../../nethvoice.rst:447
+msgid ""
+"Phones can access their configuration via standard web protocols, HTTP or"
+" HTTPS (TCP port 80 or 443)."
+msgstr ""
+
+#: ../../nethvoice.rst:449
+msgid ""
+"When the MAC address of the phone is entered into NethVoice, a "
+"provisioning URL (address) is generated."
+msgstr ""
+
+#: ../../nethvoice.rst:451
+#, fuzzy
+msgid "For example:"
+msgstr "Example:"
+
+#: ../../nethvoice.rst:453
+msgid "https://NethVoiceBaseHost/provisioning/1234567890.1234/{mac}.cfg"
+msgstr ""
+
+#: ../../nethvoice.rst:455
+msgid ""
+"This URL contains a secret (``1234567890.1234`` in the example) that "
+"authenticates and identifies the device that will use it."
+msgstr ""
+
+#: ../../nethvoice.rst:457
+msgid ""
+"To obtain the provisioning URL, the phone, at its first boot, can use two"
+" methods: **RPS** and **DHCP**."
+msgstr ""
+
+#: ../../nethvoice.rst:459
+msgid ""
+"The **RPS** (Redirect & Provisioning Service) method involves entering "
+"the provisioning URL on the manufacturer's website for the phone. "
+"NethVoice is capable of performing this insertion automatically. As soon "
+"as the phone is powered on for the first time, it attempts to contact the"
+" manufacturer's website to obtain the provisioning URL."
+msgstr ""
+
+#: ../../nethvoice.rst:461
+msgid ""
+"The **DHCP** method is based on configuring OPTION 66 of the DHCP "
+"(Dynamic Host Configuration Protocol) protocol specifically for each "
+"brand of phone. It is necessary to configure the network's DHCP server "
+"appropriately."
+msgstr ""
+
+#: ../../nethvoice.rst:463
+msgid ""
+"If neither RPS nor DHCP works, it is possible to access the web interface"
+" of the phone's administration and manually enter the provisioning URL. "
+"Remember to disable other provisioning methods, such as DHCP and PNP."
+msgstr ""
+
+#: ../../nethvoice.rst:465
+msgid ""
+"The provisioning URL is displayed in the administration interface of "
+"NethVoice for each phone, via the :guilabel:`Info` button on the page "
+":guilabel:`Devices > Phones`."
+msgstr ""
+
+#: ../../nethvoice.rst:467
+msgid ""
+"In any case, once the provisioning URL is obtained, the phone always uses"
+" this to access its configuration on NethVoice."
+msgstr ""
+
+#: ../../nethvoice.rst:471
+msgid ""
+"Refer to section :ref:`provisioning-support-section` for further "
+"information on manufacturers' support for RPS and DHCP."
+msgstr ""
+
+#: ../../nethvoice.rst:474
+#, fuzzy
+msgid "Phone Configuration Specifications"
+msgstr "Configurazione"
+
+#: ../../nethvoice.rst:476
+msgid ""
+"If you want to modify or customize the settings of phones configured via "
+"provisioning, access the web administration interface of NethVoice, "
+"modifying the settings at the *Default*, *Model*, or *individual phone* "
+"level."
+msgstr ""
+
+#: ../../nethvoice.rst:478
+msgid "The editable parameters include:"
+msgstr ""
+
+#: ../../nethvoice.rst:480
+#, fuzzy
+msgid "Language"
+msgstr "Languages"
+
+#: ../../nethvoice.rst:481
+msgid "Time zone"
+msgstr ""
+
+#: ../../nethvoice.rst:482
+msgid "Date/time format"
+msgstr ""
+
+#: ../../nethvoice.rst:483
+#, fuzzy
+msgid "Tones"
+msgstr "Phones"
+
+#: ../../nethvoice.rst:484
+#, fuzzy
+msgid "Admin user password"
+msgstr "master user password"
+
+#: ../../nethvoice.rst:485
+msgid "Call waiting"
+msgstr ""
+
+#: ../../nethvoice.rst:486
+msgid "Ringtone"
+msgstr ""
+
+#: ../../nethvoice.rst:487
+#, fuzzy
+msgid "Transfer mode"
+msgstr "file transfer speed"
+
+#: ../../nethvoice.rst:488
+#, fuzzy
+msgid "LDAP directory"
+msgstr "Active Directory"
+
+#: ../../nethvoice.rst:489
+#, fuzzy
+msgid "VLAN"
+msgstr "PLAIN"
+
+#: ../../nethvoice.rst:490
+#, fuzzy
+msgid "Soft keys"
+msgstr "Soft key"
+
+#: ../../nethvoice.rst:491
+#, fuzzy
+msgid "Line keys"
+msgstr "Line key"
+
+#: ../../nethvoice.rst:492
+#, fuzzy
+msgid "Expansion keys"
+msgstr "Extensions"
+
+#: ../../nethvoice.rst:493
+msgid "Screen Saver and Background"
+msgstr ""
+
+#: ../../nethvoice.rst:495
+msgid "Refer to :ref:`wizard-section` for more information."
+msgstr ""
+
+#: ../../nethvoice.rst:499
+#, fuzzy
+msgid "Do not change settings from the phone's administration interface."
+msgstr "enable built-in web administration interface"
+
+#: ../../nethvoice.rst:501
+msgid ""
+"Upon restart, the phone retrieves the configurations from the "
+"provisioning URL."
+msgstr ""
+
+#: ../../nethvoice.rst:503
+msgid "Any changes made from the phone's administration interface will be lost."
+msgstr ""
+
+#: ../../nethvoice.rst:505
+msgid "The following sections describe some settings provided by NethVoice."
+msgstr ""
+
+#: ../../nethvoice.rst:507
+msgid ""
+"Provisioned phones will automatically update their configuration even "
+"upon a change of state (Available, Do Not Disturb, etc.) in NethVoice CTI"
+" of the connected user to maintain uniformity of state across all "
+"devices."
+msgstr ""
+
+#: ../../nethvoice.rst:509
+msgid ""
+"This configuration update does not cause any disruption or restart of the"
+" phone."
+msgstr ""
+
+#: ../../nethvoice.rst:512
+#, fuzzy
+msgid "Admin Password"
+msgstr "Cambiare password di admin"
+
+#: ../../nethvoice.rst:514
+msgid ""
+"The phone web administration interface is accessible with the username "
+"``admin`` and a password generated randomly during the installation of "
+"NethVoice."
+msgstr ""
+
+#: ../../nethvoice.rst:516
+#, fuzzy
+msgid ""
+"The password is available in the NethVoice administration interface, on "
+"the :guilabel:`Models > Default Settings` page."
+msgstr ""
+"If the phone makes more keys available than those displayed in the "
+"Nethvoice administration interface, there is a button ``View more`` to "
+"add more."
+
+#: ../../nethvoice.rst:521
+#, fuzzy
+msgid "Automatic Updates"
+msgstr "automatic backup"
+
+#: ../../nethvoice.rst:523
+msgid ""
+"The phone automatically contacts NethVoice every night to update its "
+"configuration. It is possible to completely disable automatic updates."
+msgstr ""
+
+#: ../../nethvoice.rst:525
+msgid ""
+"In any case, the phone downloads the configuration every time it is "
+"restarted."
+msgstr ""
+
+#: ../../nethvoice.rst:530
+msgid "Firmware upgrade"
+msgstr ""
+
+#: ../../nethvoice.rst:532
+msgid ""
+"The phone manufacturer periodically publishes firmware updates for the "
+"various models of their phones on their website."
+msgstr ""
+
+#: ../../nethvoice.rst:534
+msgid ""
+"It is possible to distribute the updated firmware to all phones of the "
+"same model or to a single phone. The firmware file obtained from the "
+"manufacturer's website must be uploaded through the administration "
+"interface of NethVoice, respectively in :guilabel:`Models > Preferences >"
+" Firmware` or in :guilabel:`Configuration > Associated Devices > Edit > "
+"Preferences`."
+msgstr ""
+
+#: ../../nethvoice.rst:537
+msgid "The filename can contain only letters, numbers, and the symbols ``._-()``."
+msgstr ""
+
+#: ../../nethvoice.rst:539
+msgid ""
+"The phones receive the update according to the times indicated in :ref"
+":`provisioning-automatic-updates`."
+msgstr ""
+
+#: ../../nethvoice.rst:543
+msgid ""
+"When the phones have received the update, deselect the firmware file in "
+"the NethVoice interface to reduce network traffic."
+msgstr ""
+
+#: ../../nethvoice.rst:545
+msgid "List of web pages for firmware download:"
+msgstr ""
+
+#: ../../nethvoice.rst:547
+msgid ""
+"`Yealink "
+"<http://support.yealink.com/documentFront/forwardToDocumentFrontDisplayPage>`_"
+msgstr ""
+
+#: ../../nethvoice.rst:548
+msgid "`Snom <https://service.snom.com/display/wiki/Firmware+Update+Center>`_"
+msgstr ""
+
+#: ../../nethvoice.rst:549
+msgid "`Fanvil <https://fanvil.com/Support/download.html>`_"
+msgstr ""
+
+#: ../../nethvoice.rst:550
+msgid ""
+"`Gigaset "
+"<https://teamwork.gigaset.com/gigawiki/pages/viewpage.action?pageId=37486876>`_"
+msgstr ""
+
+#: ../../nethvoice.rst:553
+#, fuzzy
+msgid "Supported phones"
+msgstr "Formato di contatti supportati:"
+
+#: ../../nethvoice.rst:556 ../../nethvoice.rst:623
+#, fuzzy
+msgid "NethPhone"
+msgstr "Phones"
+
+#: ../../nethvoice.rst:558 ../../nethvoice.rst:567
+msgid "**FIRMWARE Version 2.0 or higher**"
+msgstr ""
+
+#: ../../nethvoice.rst:560
+msgid "NP-X3"
+msgstr ""
+
+#: ../../nethvoice.rst:561
+msgid "NP-X5"
+msgstr ""
+
+#: ../../nethvoice.rst:562
+msgid "NP-X210"
+msgstr ""
+
+#: ../../nethvoice.rst:565 ../../nethvoice.rst:628
+msgid "Fanvil"
+msgstr ""
+
+#: ../../nethvoice.rst:569
+msgid "V62, V63, V64, V65, V67"
+msgstr ""
+
+#: ../../nethvoice.rst:570
+msgid "X1/S/SP"
+msgstr ""
+
+#: ../../nethvoice.rst:571
+msgid "X210"
+msgstr ""
+
+#: ../../nethvoice.rst:572
+msgid "X3/S/SP/G/SG, X3U, X3U Pro"
+msgstr ""
+
+#: ../../nethvoice.rst:573
+msgid "X4/G/SG, X4U, X4U-V2"
+msgstr ""
+
+#: ../../nethvoice.rst:574
+msgid "X5S, X5U, X5U-V2"
+msgstr ""
+
+#: ../../nethvoice.rst:575
+msgid "X6, X6U, X6U-V2"
+msgstr ""
+
+#: ../../nethvoice.rst:576
+msgid "X7A/C"
+msgstr ""
+
+#: ../../nethvoice.rst:577
+msgid "X301/P/G/W, X303/P/G/W"
+msgstr ""
+
+#: ../../nethvoice.rst:578
+msgid "H2U, H2U-V2, H5"
+msgstr ""
+
+#: ../../nethvoice.rst:581 ../../nethvoice.rst:633
+msgid "Yealink"
+msgstr ""
+
+#: ../../nethvoice.rst:583
+msgid "**FIRMWARE Version 0.86 or higher**"
+msgstr ""
+
+#: ../../nethvoice.rst:585
+msgid "T19(P) E2, T21(P) E2, T23P/G, T27G, T29G"
+msgstr ""
+
+#: ../../nethvoice.rst:586
+msgid "T30/P, T31/P/G/W, T33P/G, T34W"
+msgstr ""
+
+#: ../../nethvoice.rst:587
+msgid "T40P/G, T41P/S/U, T42G/S/U, T43U, T44U/W, T46G/S/U, T48G/S/U, T49G"
+msgstr ""
+
+#: ../../nethvoice.rst:588
+msgid "T52S, T53/W/C, T54S/W, T56A, T57W, T58V/A/W, VP59"
+msgstr ""
+
+#: ../../nethvoice.rst:591 ../../nethvoice.rst:638
+#, fuzzy
+msgid "Snom"
+msgstr "No"
+
+#: ../../nethvoice.rst:593
+msgid "**FIRMWARE Version 8.7.5 or higher**"
+msgstr ""
+
+#: ../../nethvoice.rst:595
+msgid "D120, D140, D150"
+msgstr ""
+
+#: ../../nethvoice.rst:596
+msgid "D305, D315, D345, D375, D385"
+msgstr ""
+
+#: ../../nethvoice.rst:597
+msgid "D710, D712, D713, D715, D717, D725, D735, D745, D765, D785"
+msgstr ""
+
+#: ../../nethvoice.rst:598
+msgid "D862, D865"
+msgstr ""
+
+#: ../../nethvoice.rst:601 ../../nethvoice.rst:643
+msgid "Gigaset"
+msgstr ""
+
+#: ../../nethvoice.rst:603
+msgid "**FIRMWARE Version 3.15.9 or higher**"
+msgstr ""
+
+#: ../../nethvoice.rst:605
+msgid "Maxwell Basic, Maxwell 2, Maxwell 3, Maxwell 4"
+msgstr ""
+
+#: ../../nethvoice.rst:610
+#, fuzzy
+msgid "Provisioning compatibility"
+msgstr "Provisioning Parameters Guide"
+
+#: ../../nethvoice.rst:612
+msgid ""
+"The following table summarizes the provisioning methods used by each "
+"manufacturer at the phone's first boot."
+msgstr ""
+
+#: ../../nethvoice.rst:614
+msgid "Provisioning methods by manufacturer"
+msgstr ""
+
+#: ../../nethvoice.rst:618
+msgid "Manufacturer"
+msgstr ""
+
+#: ../../nethvoice.rst:619
+msgid "Primary method"
+msgstr ""
+
+#: ../../nethvoice.rst:620
+#, fuzzy
+msgid "Secondary method"
+msgstr "indirizzo mail secondario"
+
+#: ../../nethvoice.rst:621
+#, fuzzy
+msgid "DHCP option"
+msgstr "Subscription"
+
+#: ../../nethvoice.rst:622
+msgid "DHCP option value"
+msgstr ""
+
+#: ../../nethvoice.rst:624 ../../nethvoice.rst:629 ../../nethvoice.rst:634
+#: ../../nethvoice.rst:639 ../../nethvoice.rst:645
+#, fuzzy
+msgid "RPS"
+msgstr "Groups"
+
+#: ../../nethvoice.rst:626 ../../nethvoice.rst:631 ../../nethvoice.rst:636
+msgid "66"
+msgstr ""
+
+#: ../../nethvoice.rst:627 ../../nethvoice.rst:632
+msgid "``http://IP_PHONE_SYSTEM/provisioning/$mac.cfg``"
+msgstr ""
+
+#: ../../nethvoice.rst:637
+msgid "``http://IP_PHONE_SYSTEM/provisioning/$MAC.cfg``"
+msgstr ""
+
+#: ../../nethvoice.rst:641
+msgid "66 and 67"
+msgstr ""
+
+#: ../../nethvoice.rst:642
+msgid "``http://IP_PHONE_SYSTEM/provisioning/{mac}.xml``"
+msgstr ""
+
+#: ../../nethvoice.rst:644
+msgid "DHCP [#f1]_"
+msgstr ""
+
+#: ../../nethvoice.rst:646
+msgid "114"
+msgstr ""
+
+#: ../../nethvoice.rst:647
+msgid "``http://IP_PHONE_SYSTEM/provisioning/%MACD.xml``"
+msgstr ""
+
+#: ../../nethvoice.rst:649
+msgid ""
+"For Gigaset phones, make sure that the network DHCP server does not "
+"provide OPTION 66."
+msgstr ""
+
+#: ../../nethvoice.rst:654
 #, fuzzy
 msgid "Provisioning Parameters Guide"
 msgstr "Provisioning Parameters Guide"
 
-#: ../../nethvoice.rst:383
+#: ../../nethvoice.rst:656
 #, fuzzy
 msgid ""
-"The functions of phones configurable through provisioning are collected "
-"in the panels of the NethVoice administration interface and described in "
-"the following sections."
+"The functions of phones that can be configured through provisioning are "
+"grouped in the panels of the NethVoice administration interface and are "
+"described in the sections below."
 msgstr ""
 "The functions of phones configurable through provisioning are collected "
 "in the panels of the NethVoice administration interface and described in "
 "the following sections."
 
-#: ../../nethvoice.rst:385
+#: ../../nethvoice.rst:658
 #, fuzzy
 msgid ""
-"Not all phone models have the same functions, so some parameters or "
-"entire panels may not be displayed."
+"Not all phone models offer the same functions, so some parameters or "
+"entire panels might not be displayed."
 msgstr ""
 "Not all phone models have the same functions, so some parameters or "
 "entire panels may not be displayed."
 
-#: ../../nethvoice.rst:387
+#: ../../nethvoice.rst:660
 #, fuzzy
 msgid ""
+"Generally, leaving a field empty or selecting the option - (minus sign) "
+"indicates that the value inherited from the context with lower priority "
+"is used; the highest priority is given to the phone settings, followed in"
+" descending order by model and default settings. Refer to :ref:`Phone "
+"Configuration Priority <provisioning-scopes-priority>` for more "
+"information."
+msgstr ""
 "In general, leaving a field empty or selecting the option - (minus sign) "
 "indicates the value inherited from the context with lower priority; the "
 "highest priority is for the phone settings, followed in descending order "
 "by model and default settings. Refer to :ref:`priority of phone "
 "configurations <provisioning-scopes-priority>` for further information."
-msgstr ""
-"In general, leaving a field empty or selecting the option - (minus sign) "
-"indicates the value inherited from the context with lower priority; the "
-"highest priority is for the phone settings, followed in descending order "
-"by model and default settings. Refer to :ref:`priority of phone "
-"configurations <provisioning-scopes-priority>` for further information."
 
-#: ../../nethvoice.rst:393
+#: ../../nethvoice.rst:666
 #, fuzzy
 msgid "Soft key"
 msgstr "Soft key"
 
-#: ../../nethvoice.rst:395
+#: ../../nethvoice.rst:668
 #, fuzzy
 msgid ""
-"The ``soft keys`` are programmable phone keys specific for calling phone "
-"functions."
+"The ``soft keys`` are programmable phone keys designated for calling "
+"phone functions."
 msgstr ""
 "The ``soft keys`` are programmable phone keys specific for calling phone "
 "functions."
 
-#: ../../nethvoice.rst:397
+#: ../../nethvoice.rst:671
 #, fuzzy
 msgid ""
-"If the phone makes more keys available than those displayed in the "
-"NethVoice administration interface, there is a ``View more`` button to "
-"add more."
+"If the phone provides more keys than those displayed in the NethVoice "
+"administration interface, a ``View more`` button is available to add "
+"additional keys."
 msgstr ""
-"If the phone makes more keys available than those displayed in the "
-"NethVoice administration interface, there is a ``View more`` button to "
-"add more."
+"If the expansion module provides more keys than are displayed in the "
+"Nethvoice administration interface, there is a ``View more`` button to "
+"add additional keys."
 
-#: ../../nethvoice.rst:399
+#: ../../nethvoice.rst:673
 #, fuzzy
 msgid ""
 "Depending on the ``Type``, the ``Value`` and ``Label`` fields may also "
-"need to be filled in, as indicated in the table below."
+"need to be completed, as indicated in the table below."
 msgstr ""
 "Depending on the ``Type``, the ``Value`` and ``Label`` fields may also "
 "need to be filled in, as indicated in the table below."
 
-#: ../../nethvoice.rst:401
+#: ../../nethvoice.rst:675
 #, fuzzy
 msgid ""
-"In the Label column, the term default indicates that leaving the Label "
-"field empty, the phone will assign a default ``label`` to the soft key."
+"In the Label column, the term default signifies that if the Label field "
+"is left empty, the phone will assign a default ``label`` to the soft key."
 msgstr ""
 "In the Label column, the term default indicates that leaving the Label "
 "field empty, the phone will assign a default ``label`` to the soft key."
 
-#: ../../nethvoice.rst:403
+#: ../../nethvoice.rst:678
 #, fuzzy
 msgid "Soft key configuration"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:407 ../../nethvoice.rst:482
+#: ../../nethvoice.rst:682 ../../nethvoice.rst:759
 #, fuzzy
 msgid "Type"
 msgstr "Type"
 
-#: ../../nethvoice.rst:408 ../../nethvoice.rst:483
+#: ../../nethvoice.rst:683 ../../nethvoice.rst:760
 #, fuzzy
 msgid "Description"
 msgstr "Subscription"
 
-#: ../../nethvoice.rst:409 ../../nethvoice.rst:484
+#: ../../nethvoice.rst:684 ../../nethvoice.rst:761
 #, fuzzy
 msgid "Value"
 msgstr "Value"
 
-#: ../../nethvoice.rst:410 ../../nethvoice.rst:485
+#: ../../nethvoice.rst:685 ../../nethvoice.rst:762
 #, fuzzy
 msgid "Label"
 msgstr "Label"
 
-#: ../../nethvoice.rst:412 ../../nethvoice.rst:492
+#: ../../nethvoice.rst:687 ../../nethvoice.rst:769
 #, fuzzy
 msgid "Forward"
 msgstr "Forward"
 
-#: ../../nethvoice.rst:413 ../../nethvoice.rst:493
+#: ../../nethvoice.rst:688 ../../nethvoice.rst:770
 #, fuzzy
 msgid ""
 "Enable/disable the forward state (unconditional forwarding). If enabled, "
@@ -7198,27 +7875,27 @@ msgstr ""
 "Enable/disable the forward state (unconditional forwarding). If enabled, "
 "all incoming calls are forwarded to the specified number"
 
-#: ../../nethvoice.rst:414 ../../nethvoice.rst:494 ../../nethvoice.rst:499
+#: ../../nethvoice.rst:689 ../../nethvoice.rst:771 ../../nethvoice.rst:776
 #, fuzzy
 msgid "Phone number or extension"
 msgstr "Phone number or extension"
 
-#: ../../nethvoice.rst:415 ../../nethvoice.rst:425 ../../nethvoice.rst:445
-#: ../../nethvoice.rst:450 ../../nethvoice.rst:455 ../../nethvoice.rst:460
-#: ../../nethvoice.rst:465 ../../nethvoice.rst:490 ../../nethvoice.rst:495
-#: ../../nethvoice.rst:505 ../../nethvoice.rst:515 ../../nethvoice.rst:535
-#: ../../nethvoice.rst:545 ../../nethvoice.rst:565 ../../nethvoice.rst:570
-#: ../../nethvoice.rst:575 ../../nethvoice.rst:581 ../../nethvoice.rst:586
+#: ../../nethvoice.rst:690 ../../nethvoice.rst:700 ../../nethvoice.rst:720
+#: ../../nethvoice.rst:725 ../../nethvoice.rst:730 ../../nethvoice.rst:735
+#: ../../nethvoice.rst:740 ../../nethvoice.rst:767 ../../nethvoice.rst:772
+#: ../../nethvoice.rst:782 ../../nethvoice.rst:792 ../../nethvoice.rst:812
+#: ../../nethvoice.rst:822 ../../nethvoice.rst:842 ../../nethvoice.rst:847
+#: ../../nethvoice.rst:852 ../../nethvoice.rst:858 ../../nethvoice.rst:863
 #, fuzzy
 msgid "Yes (default)"
 msgstr "Yes (default)"
 
-#: ../../nethvoice.rst:417 ../../nethvoice.rst:507
+#: ../../nethvoice.rst:692 ../../nethvoice.rst:784
 #, fuzzy
 msgid "DND"
 msgstr "DND"
 
-#: ../../nethvoice.rst:418
+#: ../../nethvoice.rst:693
 #, fuzzy
 msgid ""
 "Enable/disable the do not disturb state. If enabled, all incoming calls "
@@ -7227,101 +7904,101 @@ msgstr ""
 "Enable/disable the do not disturb state. If enabled, all incoming calls "
 "are rejected"
 
-#: ../../nethvoice.rst:419 ../../nethvoice.rst:420 ../../nethvoice.rst:424
-#: ../../nethvoice.rst:440 ../../nethvoice.rst:444 ../../nethvoice.rst:449
-#: ../../nethvoice.rst:454 ../../nethvoice.rst:464 ../../nethvoice.rst:489
-#: ../../nethvoice.rst:504 ../../nethvoice.rst:509 ../../nethvoice.rst:510
-#: ../../nethvoice.rst:514 ../../nethvoice.rst:529 ../../nethvoice.rst:534
-#: ../../nethvoice.rst:544 ../../nethvoice.rst:560 ../../nethvoice.rst:569
-#: ../../nethvoice.rst:580 ../../nethvoice.rst:585
+#: ../../nethvoice.rst:694 ../../nethvoice.rst:695 ../../nethvoice.rst:699
+#: ../../nethvoice.rst:715 ../../nethvoice.rst:719 ../../nethvoice.rst:724
+#: ../../nethvoice.rst:729 ../../nethvoice.rst:739 ../../nethvoice.rst:766
+#: ../../nethvoice.rst:781 ../../nethvoice.rst:786 ../../nethvoice.rst:787
+#: ../../nethvoice.rst:791 ../../nethvoice.rst:806 ../../nethvoice.rst:811
+#: ../../nethvoice.rst:821 ../../nethvoice.rst:837 ../../nethvoice.rst:846
+#: ../../nethvoice.rst:857 ../../nethvoice.rst:862
 #, fuzzy
 msgid "No"
 msgstr "No"
 
-#: ../../nethvoice.rst:422 ../../nethvoice.rst:512
+#: ../../nethvoice.rst:697 ../../nethvoice.rst:789
 #, fuzzy
 msgid "Recall"
 msgstr "Firewall"
 
-#: ../../nethvoice.rst:423
+#: ../../nethvoice.rst:698
 #, fuzzy
 msgid "Call back the last dialed number"
 msgstr "Call back the last dialed number"
 
-#: ../../nethvoice.rst:427 ../../nethvoice.rst:517
+#: ../../nethvoice.rst:702 ../../nethvoice.rst:794
 #, fuzzy
 msgid "Pick up"
 msgstr "Pick up"
 
-#: ../../nethvoice.rst:428
+#: ../../nethvoice.rst:703
 #, fuzzy
 msgid "Answer an ongoing call to the specified extension"
 msgstr "Answer an ongoing call to the specified extension"
 
-#: ../../nethvoice.rst:429 ../../nethvoice.rst:434 ../../nethvoice.rst:519
-#: ../../nethvoice.rst:539 ../../nethvoice.rst:549 ../../nethvoice.rst:564
+#: ../../nethvoice.rst:704 ../../nethvoice.rst:709 ../../nethvoice.rst:796
+#: ../../nethvoice.rst:816 ../../nethvoice.rst:826 ../../nethvoice.rst:841
 #, fuzzy
 msgid "Phone number"
 msgstr "Phone number"
 
-#: ../../nethvoice.rst:430 ../../nethvoice.rst:435 ../../nethvoice.rst:500
-#: ../../nethvoice.rst:520 ../../nethvoice.rst:525 ../../nethvoice.rst:530
-#: ../../nethvoice.rst:540 ../../nethvoice.rst:550 ../../nethvoice.rst:555
+#: ../../nethvoice.rst:705 ../../nethvoice.rst:710 ../../nethvoice.rst:777
+#: ../../nethvoice.rst:797 ../../nethvoice.rst:802 ../../nethvoice.rst:807
+#: ../../nethvoice.rst:817 ../../nethvoice.rst:827 ../../nethvoice.rst:832
 #, fuzzy
 msgid "Yes"
 msgstr "Yes"
 
-#: ../../nethvoice.rst:432 ../../nethvoice.rst:537
+#: ../../nethvoice.rst:707 ../../nethvoice.rst:814
 #, fuzzy
 msgid "Speed dial"
 msgstr "Speed dial"
 
-#: ../../nethvoice.rst:433 ../../nethvoice.rst:538
+#: ../../nethvoice.rst:708 ../../nethvoice.rst:815
 #, fuzzy
 msgid "Call the given number by pressing the key"
 msgstr "Call the given number by pressing the key"
 
-#: ../../nethvoice.rst:437 ../../nethvoice.rst:557
+#: ../../nethvoice.rst:712 ../../nethvoice.rst:834
 #, fuzzy
 msgid "Group pickup"
 msgstr "Group pickup"
 
-#: ../../nethvoice.rst:438
+#: ../../nethvoice.rst:713
 #, fuzzy
 msgid "Answer an ongoing call to the configured pickup group"
 msgstr "Answer an ongoing call to the configured pickup group"
 
-#: ../../nethvoice.rst:439
+#: ../../nethvoice.rst:714
 #, fuzzy
 msgid "No (The group is configured.)"
 msgstr "No (The group is configured.)"
 
-#: ../../nethvoice.rst:442
+#: ../../nethvoice.rst:717
 #, fuzzy
 msgid "History"
 msgstr "History"
 
-#: ../../nethvoice.rst:443
+#: ../../nethvoice.rst:718
 #, fuzzy
 msgid "Display the call history screen"
 msgstr "Display the call history screen"
 
-#: ../../nethvoice.rst:447
+#: ../../nethvoice.rst:722
 #, fuzzy
 msgid "Menu"
 msgstr "Menu"
 
-#: ../../nethvoice.rst:448
+#: ../../nethvoice.rst:723
 #, fuzzy
 msgid "Show the phone configuration menu"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:452
+#: ../../nethvoice.rst:727
 #, fuzzy
 msgid "Status"
 msgstr "Status"
 
-#: ../../nethvoice.rst:453
+#: ../../nethvoice.rst:728
 #, fuzzy
 msgid ""
 "Display phone status information (e.g., firmware version, registration "
@@ -7330,87 +8007,88 @@ msgstr ""
 "Display phone status information (e.g., firmware version, registration "
 "status...)"
 
-#: ../../nethvoice.rst:457 ../../nethvoice.rst:572
+#: ../../nethvoice.rst:732 ../../nethvoice.rst:849
 #, fuzzy
 msgid "Prefix"
 msgstr "Prefix"
 
-#: ../../nethvoice.rst:458 ../../nethvoice.rst:573
+#: ../../nethvoice.rst:733 ../../nethvoice.rst:850
 #, fuzzy
 msgid "Add the specified digits to the dialed number"
 msgstr "Add the specified digits to the dialed number"
 
-#: ../../nethvoice.rst:459
+#: ../../nethvoice.rst:734
 #, fuzzy
 msgid "The digits of the prefix"
 msgstr "The digits of the prefix"
 
-#: ../../nethvoice.rst:462 ../../nethvoice.rst:583
+#: ../../nethvoice.rst:737 ../../nethvoice.rst:860
 #, fuzzy
 msgid "LDAP"
 msgstr "OpenLDAP"
 
-#: ../../nethvoice.rst:463
+#: ../../nethvoice.rst:738
 #, fuzzy
 msgid "Display the LDAP address book configured on the phone"
 msgstr "Display the LDAP address book configured on the phone"
 
-#: ../../nethvoice.rst:468
+#: ../../nethvoice.rst:745
 #, fuzzy
 msgid "Line key"
 msgstr "Line key"
 
-#: ../../nethvoice.rst:470
+#: ../../nethvoice.rst:747
 #, fuzzy
 msgid ""
-"The ``line keys`` are programmable phone keys similar to soft keys but "
-"more specific for call management and monitoring the status of "
-"extensions."
+"The ``line keys`` are programmable phone keys that resemble soft keys but"
+" are more specifically designed for call management and monitoring the "
+"status of extensions."
 msgstr ""
 "The ``line keys`` are programmable phone keys similar to soft keys but "
 "more specific for call management and monitoring the status of "
 "extensions."
 
-#: ../../nethvoice.rst:472
+#: ../../nethvoice.rst:749
 #, fuzzy
 msgid ""
-"If the phone makes more keys available than those displayed in the "
-"Nethvoice administration interface, there is a button ``View more`` to "
-"add more."
+"If the phone provides more keys than those displayed in the NethVoice "
+"administration interface, there is a ``View more`` button to add "
+"additional keys."
 msgstr ""
-"If the phone makes more keys available than those displayed in the "
-"Nethvoice administration interface, there is a button ``View more`` to "
-"add more."
+"If the expansion module provides more keys than are displayed in the "
+"Nethvoice administration interface, there is a ``View more`` button to "
+"add additional keys."
 
-#: ../../nethvoice.rst:474
+#: ../../nethvoice.rst:751
 #, fuzzy
 msgid ""
+"Depending on the ``Type``, the fields ``Value`` and ``Label`` might need "
+"to be filled in, as outlined in the table below."
+msgstr ""
 "Depending on the ``Type``, the fields ``Value`` and ``Label`` may need to"
 " be filled in, as indicated in the table below."
-msgstr ""
-"Depending on the ``Type``, the fields ``Value`` and ``Label`` may need to"
-" be filled in, as indicated in the table below."
 
-#: ../../nethvoice.rst:476
+#: ../../nethvoice.rst:753
 #, fuzzy
 msgid ""
-"In the Label column, the term default indicates that leaving the Label "
-"field blank, the phone will assign a default ``label`` to the line key."
+"In the Label column, the term \"default\" signifies that if the Label "
+"field is left blank, the phone will assign a default ``label`` to the "
+"line key."
 msgstr ""
 "In the Label column, the term default indicates that leaving the Label "
 "field blank, the phone will assign a default ``label`` to the line key."
 
-#: ../../nethvoice.rst:478
+#: ../../nethvoice.rst:755
 #, fuzzy
 msgid "Line key configuration"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:487
+#: ../../nethvoice.rst:764
 #, fuzzy
 msgid "Conference"
 msgstr "Conference"
 
-#: ../../nethvoice.rst:488
+#: ../../nethvoice.rst:765
 #, fuzzy
 msgid ""
 "Active calls are merged into a conference where each participant can "
@@ -7419,12 +8097,12 @@ msgstr ""
 "Active calls are merged into a conference where each participant can "
 "listen and speak with others simultaneously"
 
-#: ../../nethvoice.rst:497
+#: ../../nethvoice.rst:774
 #, fuzzy
 msgid "Call transfer"
 msgstr "Local storage"
 
-#: ../../nethvoice.rst:498
+#: ../../nethvoice.rst:775
 #, fuzzy
 msgid ""
 "Transfers the current call to the selected number or another dialed "
@@ -7433,17 +8111,17 @@ msgstr ""
 "Transfers the current call to the selected number or another dialed "
 "number at the moment"
 
-#: ../../nethvoice.rst:502
+#: ../../nethvoice.rst:779
 #, fuzzy
 msgid "Hold"
 msgstr "Hold"
 
-#: ../../nethvoice.rst:503
+#: ../../nethvoice.rst:780
 #, fuzzy
 msgid "Places the current call on hold"
 msgstr "Places the current call on hold"
 
-#: ../../nethvoice.rst:508
+#: ../../nethvoice.rst:785
 #, fuzzy
 msgid ""
 "Enables/disables the Do Not Disturb (DND) status. If enabled, all "
@@ -7452,22 +8130,22 @@ msgstr ""
 "Enables/disables the Do Not Disturb (DND) status. If enabled, all "
 "incoming calls are rejected"
 
-#: ../../nethvoice.rst:513
+#: ../../nethvoice.rst:790
 #, fuzzy
 msgid "Dials the last dialed number again"
 msgstr "Dials the last dialed number again"
 
-#: ../../nethvoice.rst:518
+#: ../../nethvoice.rst:795
 #, fuzzy
 msgid "Answers an incoming call on the specified extension"
 msgstr "Answers an incoming call on the specified extension"
 
-#: ../../nethvoice.rst:522
+#: ../../nethvoice.rst:799
 #, fuzzy
 msgid "DTMF"
 msgstr "DTMF"
 
-#: ../../nethvoice.rst:523
+#: ../../nethvoice.rst:800
 #, fuzzy
 msgid ""
 "Executes a sequence of Dual-Tone Multi-Frequency (DTMF) tones during a "
@@ -7476,47 +8154,47 @@ msgstr ""
 "Executes a sequence of Dual-Tone Multi-Frequency (DTMF) tones during a "
 "call"
 
-#: ../../nethvoice.rst:524
+#: ../../nethvoice.rst:801
 #, fuzzy
 msgid "Sequence of symbols or numbers."
 msgstr "Sequence of symbols or numbers."
 
-#: ../../nethvoice.rst:527
+#: ../../nethvoice.rst:804
 #, fuzzy
 msgid "Login/logout dynamic agent"
 msgstr "Login/logout dynamic agent"
 
-#: ../../nethvoice.rst:528
+#: ../../nethvoice.rst:805
 #, fuzzy
 msgid "Login/login the call queue"
 msgstr "Login/login the call queue"
 
-#: ../../nethvoice.rst:532
+#: ../../nethvoice.rst:809
 #, fuzzy
 msgid "Voicemail"
 msgstr "Voicemail"
 
-#: ../../nethvoice.rst:533
+#: ../../nethvoice.rst:810
 #, fuzzy
 msgid "Check voicemail"
 msgstr "Check voicemail"
 
-#: ../../nethvoice.rst:542
+#: ../../nethvoice.rst:819
 #, fuzzy
 msgid "Line"
 msgstr "LOGIN"
 
-#: ../../nethvoice.rst:543
+#: ../../nethvoice.rst:820
 #, fuzzy
 msgid "Select another line"
 msgstr "Select another line"
 
-#: ../../nethvoice.rst:547
+#: ../../nethvoice.rst:824
 #, fuzzy
 msgid "BLF"
 msgstr "BLF"
 
-#: ../../nethvoice.rst:548
+#: ../../nethvoice.rst:825
 #, fuzzy
 msgid ""
 "Monitors the status of the selected extension and, depending on its "
@@ -7525,57 +8203,57 @@ msgstr ""
 "Monitors the status of the selected extension and, depending on its "
 "status, performs either a pick up or speed dial when pressed"
 
-#: ../../nethvoice.rst:553
+#: ../../nethvoice.rst:830
 #, fuzzy
 msgid "Performs an HTTP GET request to the specified web address"
 msgstr "Performs an HTTP GET request to the specified web address"
 
-#: ../../nethvoice.rst:554
+#: ../../nethvoice.rst:831
 #, fuzzy
 msgid "Web address (URL)"
 msgstr "Web address (URL)"
 
-#: ../../nethvoice.rst:558
+#: ../../nethvoice.rst:835
 #, fuzzy
 msgid "Answer a call in progress for the configured pickup group"
 msgstr "Answer a call in progress for the configured pickup group"
 
-#: ../../nethvoice.rst:559
+#: ../../nethvoice.rst:836
 #, fuzzy
 msgid "No (the group is configured)"
 msgstr "No (the group is configured)"
 
-#: ../../nethvoice.rst:562
+#: ../../nethvoice.rst:839
 #, fuzzy
 msgid "Multicast paging"
 msgstr "Multicast paging"
 
-#: ../../nethvoice.rst:563
+#: ../../nethvoice.rst:840
 #, fuzzy
 msgid "Send audio directly to the configured extension for multicast paging"
 msgstr "Send audio directly to the configured extension for multicast paging"
 
-#: ../../nethvoice.rst:567
+#: ../../nethvoice.rst:844
 #, fuzzy
 msgid "Record"
 msgstr "Record"
 
-#: ../../nethvoice.rst:568
+#: ../../nethvoice.rst:845
 #, fuzzy
 msgid "Start audio recording of the active call"
 msgstr "Start audio recording of the active call"
 
-#: ../../nethvoice.rst:574
+#: ../../nethvoice.rst:851
 #, fuzzy
 msgid "The prefix digits"
 msgstr "The prefix digits"
 
-#: ../../nethvoice.rst:577
+#: ../../nethvoice.rst:854
 #, fuzzy
 msgid "Phone lock"
 msgstr "Phone lock"
 
-#: ../../nethvoice.rst:578
+#: ../../nethvoice.rst:855
 #, fuzzy
 msgid ""
 "Activate the phone lock\" enables the lock feature on the phone, "
@@ -7586,20 +8264,20 @@ msgstr ""
 "restricting access to the keys and interface. The unlock sequence needs "
 "to be configured according to the phone's documentation"
 
-#: ../../nethvoice.rst:584
+#: ../../nethvoice.rst:861
 #, fuzzy
 msgid "Show configured LDAP address book on the phone"
 msgstr "Show configured LDAP address book on the phone"
 
-#: ../../nethvoice.rst:591
+#: ../../nethvoice.rst:868
 #, fuzzy
 msgid "Exp key"
 msgstr "Exp key"
 
-#: ../../nethvoice.rst:593
+#: ../../nethvoice.rst:870
 #, fuzzy
 msgid ""
-"The *Expansion keys* are programmable buttons on *expansion modules*, "
+"The *Expansion Keys* are programmable buttons on *expansion modules*, "
 "devices that can be connected to the phone to increase the number of "
 "available keys."
 msgstr ""
@@ -7607,44 +8285,51 @@ msgstr ""
 "devices that can be connected to the phone to increase the number of "
 "available keys."
 
-#: ../../nethvoice.rst:595
+#: ../../nethvoice.rst:872
 #, fuzzy
 msgid ""
 "If the expansion module provides more keys than are displayed in the "
-"Nethvoice administration interface, there is a ``View more`` button to "
-"add additional keys."
+"NethVoice administration interface, a ``View more`` button is available "
+"to add additional keys."
 msgstr ""
 "If the expansion module provides more keys than are displayed in the "
 "Nethvoice administration interface, there is a ``View more`` button to "
 "add additional keys."
 
-#: ../../nethvoice.rst:597
+#: ../../nethvoice.rst:874
 #, fuzzy
-msgid "This type of key is configured like the :ref:`Line key <panel-linekeys>`."
+msgid "This type of key is configured similarly to the Line key."
 msgstr "This type of key is configured like the :ref:`Line key <panel-linekeys>`."
 
-#: ../../nethvoice.rst:602
+#: ../../nethvoice.rst:876
+#, fuzzy
+msgid ""
+"This type of key is configured similarly to the :ref:`Line key <panel-"
+"linekeys>`."
+msgstr "This type of key is configured like the :ref:`Line key <panel-linekeys>`."
+
+#: ../../nethvoice.rst:881
 #, fuzzy
 msgid "Screen and Ringtone"
 msgstr "Screen and Ringtone"
 
-#: ../../nethvoice.rst:604
+#: ../../nethvoice.rst:883
 #, fuzzy
 msgid ""
-"``Ringtone Selection`` Each phone has some predefined ringtones that can "
-"be selected based on the progressive number. Where supported, you can "
-"also choose a custom ringtone, which should then be loaded into the field"
-" described below."
+"``Ringtone Selection``: Each phone has some predefined ringtones that can"
+" be selected based on their progressive number. Where supported, a custom"
+" ringtone can also be chosen, which should then be uploaded into the "
+"field described below."
 msgstr ""
 "``Ringtone Selection`` Each phone has some predefined ringtones that can "
 "be selected based on the progressive number. Where supported, you can "
 "also choose a custom ringtone, which should then be loaded into the field"
 " described below."
 
-#: ../../nethvoice.rst:606
+#: ../../nethvoice.rst:885
 #, fuzzy
 msgid ""
-"``Custom Ringtone Management`` Select an audio file for the custom "
+"``Custom Ringtone Management``: Select an audio file for the custom "
 "ringtone that has been previously uploaded, or upload a new one by "
 "opening the dedicated management module. The audio format must be "
 "compatible with the specifications of the phone manufacturer."
@@ -7654,10 +8339,10 @@ msgstr ""
 "opening the dedicated management module. The audio format must be "
 "compatible with the specifications of the phone manufacturer."
 
-#: ../../nethvoice.rst:608
+#: ../../nethvoice.rst:887
 #, fuzzy
 msgid ""
-"``Background Image`` ``Screensaver Image`` Select an image file for the "
+"``Background Image\" \"Screensaver Image``: Select an image file for the "
 "phone screen background and screensaver, or upload a new one by opening "
 "the dedicated management panel. The image format must be compatible with "
 "the specifications of the phone manufacturer."
@@ -7667,79 +8352,79 @@ msgstr ""
 "the dedicated management panel. The image format must be compatible with "
 "the specifications of the phone manufacturer."
 
-#: ../../nethvoice.rst:610
+#: ../../nethvoice.rst:889
 #, fuzzy
 msgid ""
-"``Screensaver Activation`` Time interval after which the screensaver is "
+"``Screensaver Activation``: Time interval after which the screensaver is "
 "activated."
 msgstr ""
 "``Screensaver Activation`` Time interval after which the screensaver is "
 "activated."
 
-#: ../../nethvoice.rst:612
+#: ../../nethvoice.rst:891
 #, fuzzy
 msgid ""
-"``Backlight Off`` Time interval after which the screen lowers brightness "
-"or turns off the screen backlight."
+"``Backlight Off``: Time interval after which the screen lowers brightness"
+" or turns off the screen backlight."
 msgstr ""
 "``Backlight Off`` Time interval after which the screen lowers brightness "
 "or turns off the screen backlight."
 
-#: ../../nethvoice.rst:614
+#: ../../nethvoice.rst:893
 #, fuzzy
 msgid ""
-"``Screen Brightness`` ``Screen Contrast`` Select the brightness and "
+"``Screen Brightness`` \"Screen Contrast\": Select the brightness and "
 "contrast levels of the screen."
 msgstr ""
 "``Screen Brightness`` ``Screen Contrast`` Select the brightness and "
 "contrast levels of the screen."
 
-#: ../../nethvoice.rst:619
+#: ../../nethvoice.rst:896
 #, fuzzy
 msgid "Preferences"
 msgstr "Preferences"
 
-#: ../../nethvoice.rst:621
+#: ../../nethvoice.rst:898
 #, fuzzy
 msgid ""
-"``NTP Server Address`` The hostname or IP address of the Network Time "
+"``NTP Server Address``: The hostname or IP address of the Network Time "
 "Protocol (NTP) server to automatically set the phone's time."
 msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../nethvoice.rst:624
+#: ../../nethvoice.rst:900
 #, fuzzy
 msgid ""
-"``Provisioning Schedule`` By selecting Only at startup, phones renew "
-"their configuration after turning on or restarting. Instead, by selecting"
-" Every day, phones autonomously renew their configuration at a random "
-"time during the night. See also :ref:provisioning2-automatic-updates."
+"\"Provisioning Schedule``: By selecting Only at startup, phones renew "
+"their configuration after turning on or restarting. Alternatively, by "
+"selecting Every day, phones autonomously renew their configuration at a "
+"random time during the night."
 msgstr ""
 "``Provisioning Schedule`` By selecting Only at startup, phones renew "
 "their configuration after turning on or restarting. Instead, by selecting"
 " Every day, phones autonomously renew their configuration at a random "
 "time during the night. See also :ref:provisioning2-automatic-updates."
 
-#: ../../nethvoice.rst:628
+#: ../../nethvoice.rst:902
 #, fuzzy
 msgid ""
-"``Transfer Mode for Line Keys`` Specifies how line keys transfer the "
+"``Transfer Mode for Line Keys``: Specifies how line keys transfer the "
 "ongoing call to another extension."
 msgstr ""
 "``Transfer Mode for Line Keys`` Specifies how line keys transfer the "
 "ongoing call to another extension."
 
-#: ../../nethvoice.rst:630
+#: ../../nethvoice.rst:904
 #, fuzzy
 msgid ""
 "**New Call** initiates a new call to the extension configured on the line"
-" key, placing thecurrent call on hold."
+" key, placing the current call on hold."
 msgstr ""
 "**New Call** initiates a new call to the extension configured on the line"
 " key, placing thecurrent call on hold."
 
-#: ../../nethvoice.rst:633
+#: ../../nethvoice.rst:906
 #, fuzzy
 msgid ""
 "**Consultative** always places the current call on hold, and the transfer"
@@ -7750,7 +8435,7 @@ msgstr ""
 " completion can occur while the extension configured on the line key is "
 "ringing or even after the answer."
 
-#: ../../nethvoice.rst:636
+#: ../../nethvoice.rst:908
 #, fuzzy
 msgid ""
 "**Blind/No Confirmation** immediately transfers the current call to the "
@@ -7759,28 +8444,28 @@ msgstr ""
 "**Blind/No Confirmation** immediately transfers the current call to the "
 "configured extension."
 
-#: ../../nethvoice.rst:638
+#: ../../nethvoice.rst:910
 #, fuzzy
 msgid ""
-"``Phone Language`` Language used by the phone's screen and its web "
+"``Phone Language``: Language used by the phone's screen and its web "
 "interface."
 msgstr ""
 "``Phone Language`` Language used by the phone's screen and its web "
 "interface."
 
-#: ../../nethvoice.rst:640
+#: ../../nethvoice.rst:912
 #, fuzzy
 msgid ""
-"``Timezone`` Sets the phone's timezone, necessary for daylight saving "
+"``Timezone``: Sets the phone's timezone, necessary for daylight saving "
 "time adjustments."
 msgstr ""
 "``Timezone`` Sets the phone's timezone, necessary for daylight saving "
 "time adjustments."
 
-#: ../../nethvoice.rst:642
+#: ../../nethvoice.rst:914
 #, fuzzy
 msgid ""
-"``Ring Tones`` These are specific to each country and indicate the call "
+"``Ring Tones``: These are specific to each country and indicate the call "
 "status through an audible signal: free tone, busy tone, hang-up tone, "
 "etc."
 msgstr ""
@@ -7788,36 +8473,33 @@ msgstr ""
 "status through an audible signal: free tone, busy tone, hang-up tone, "
 "etc."
 
-#: ../../nethvoice.rst:645
+#: ../../nethvoice.rst:916
 #, fuzzy
 msgid ""
-"``Time Format`` ``Date Format`` Choice of the time/date format displayed "
-"on the phone's screen."
+"``Time Format`` \"Date Format\": Choice of the time/date format displayed"
+" on the phone's screen."
 msgstr ""
 "``Time Format`` ``Date Format`` Choice of the time/date format displayed "
 "on the phone's screen."
 
-#: ../../nethvoice.rst:648
+#: ../../nethvoice.rst:918
 #, fuzzy
-msgid "``Firmware`` Upload and selection of a new firmware version for the phone."
+msgid ""
+"``Firmware``: Upload and selection of a new firmware version for the "
+"phone."
 msgstr "``Firmware`` Upload and selection of a new firmware version for the phone."
 
-#: ../../nethvoice.rst:650
-#, fuzzy
-msgid "See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`."
-msgstr "See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`."
-
-#: ../../nethvoice.rst:655
+#: ../../nethvoice.rst:921
 #, fuzzy
 msgid "LDAP Phonebook"
 msgstr "LDAP Phonebook"
 
-#: ../../nethvoice.rst:657
+#: ../../nethvoice.rst:923
 #, fuzzy
 msgid ""
 "The first two options in the ``Address Book Type`` do not allow further "
 "modifications. Phones will use the fixed and unmodifiable centralized "
-"phonebook of Nethvoice. However, by selecting ``Custom phonebook`` you "
+"phonebook of NethVoice. However, by selecting \"Custom phonebook,\" you "
 "can modify the remaining fields in this panel to connect phones to a "
 "third-party LDAP server."
 msgstr ""
@@ -7827,22 +8509,22 @@ msgstr ""
 "can modify the remaining fields in this panel to connect phones to a "
 "third-party LDAP server."
 
-#: ../../nethvoice.rst:660
+#: ../../nethvoice.rst:925
 #, fuzzy
-msgid "``Server Address`` Hostname or IP address of the LDAP server."
+msgid "``Server Address``: Hostname or IP address of the LDAP server."
 msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../nethvoice.rst:662
+#: ../../nethvoice.rst:927
 #, fuzzy
-msgid "``Port Number`` TCP port used by the LDAP server."
+msgid "``Port Number``: TCP port used by the LDAP server."
 msgstr "``Port Number`` TCP port used by the LDAP server."
 
-#: ../../nethvoice.rst:664
+#: ../../nethvoice.rst:929
 #, fuzzy
 msgid ""
-"``Username`` ``Password`` Authentication credentials for the LDAP "
+"``Username\" \"Password``: Authentication credentials for the LDAP "
 "service. The username might be specified as a Distinguished Name (DN) "
 "LDAP or in another format, depending on the requirements of the LDAP "
 "server."
@@ -7852,28 +8534,29 @@ msgstr ""
 "LDAP or in another format, depending on the requirements of the LDAP "
 "server."
 
-#: ../../nethvoice.rst:666
+#: ../../nethvoice.rst:931
 #, fuzzy
 msgid ""
-"``Encryption`` Protects the connection with TLS or STARTTLS. Caution! "
-"Some phones do not support encryption, and it's necessary to select None."
+"``Encryption``: Protects the connection with TLS or STARTTLS. Caution! "
+"Some phones do not support encryption, and it is necessary to select "
+"None."
 msgstr ""
 "``Encryption`` Protects the connection with TLS or STARTTLS. Caution! "
 "Some phones do not support encryption, and it's necessary to select None."
 
-#: ../../nethvoice.rst:668
+#: ../../nethvoice.rst:933
 #, fuzzy
 msgid ""
-"``Search Base (DN)`` Limits access to the branch of the LDAP database "
+"``Search Base (DN)``: Limits access to the branch of the LDAP database "
 "specified as the base. Usually, the search base is mandatory."
 msgstr ""
 "``Search Base (DN)`` Limits access to the branch of the LDAP database "
 "specified as the base. Usually, the search base is mandatory."
 
-#: ../../nethvoice.rst:670
+#: ../../nethvoice.rst:935
 #, fuzzy
 msgid ""
-"``Search Filter for Contact Name`` ``Search Filter for Phone Number`` "
+"``Search Filter for Contact Name`` ``Search Filter for Phone Number``: "
 "LDAP search filters need to be specified with the syntax defined by "
 "RFC-4515 and later. The character % (percentage sign) can be used as a "
 "placeholder that the phone replaces with the dialed number."
@@ -7883,19 +8566,19 @@ msgstr ""
 "RFC-4515 and later. The character % (percentage sign) can be used as a "
 "placeholder that the phone replaces with the dialed number."
 
-#: ../../nethvoice.rst:672
+#: ../../nethvoice.rst:937
 #, fuzzy
 msgid ""
-"``Attributes for Contact Name`` Separated by space, list the names of "
+"``Attributes for Contact Name``: Separated by space, list the names of "
 "LDAP attributes that can contain the contact's name."
 msgstr ""
 "``Attributes for Contact Name`` Separated by space, list the names of "
 "LDAP attributes that can contain the contact's name."
 
-#: ../../nethvoice.rst:674
+#: ../../nethvoice.rst:939
 #, fuzzy
 msgid ""
-"``Name Display Format`` Attributes' names preceded by the character % "
+"``Name Display Format``: Attributes' names preceded by the character % "
 "(percentage sign) can be composed to form the pattern with which the name"
 " is displayed on the phone screen."
 msgstr ""
@@ -7903,55 +8586,54 @@ msgstr ""
 "(percentage sign) can be composed to form the pattern with which the name"
 " is displayed on the phone screen."
 
-#: ../../nethvoice.rst:676
+#: ../../nethvoice.rst:941
 #, fuzzy
 msgid ""
 "``Attribute for Main Phone Number`` ``Attribute for Mobile Number`` "
-"``Attribute for Other Phone Number`` These three fields contain names of "
-"LDAP attributes for the respective phone numbers."
+"``Attribute for Other Phone Number``: These three fields contain names of"
+" LDAP attributes for the respective phone numbers."
 msgstr ""
 "``Attribute for Main Phone Number`` ``Attribute for Mobile Number`` "
 "``Attribute for Other Phone Number`` These three fields contain names of "
 "LDAP attributes for the respective phone numbers."
 
-#: ../../nethvoice.rst:679
+#: ../../nethvoice.rst:944
 #, fuzzy
 msgid "Network"
 msgstr "Network"
 
-#: ../../nethvoice.rst:681
+#: ../../nethvoice.rst:946
 #, fuzzy
 msgid ""
 "Phones use the DHCP protocol to receive network configuration: IP, subnet"
 " mask, DNS, and gateway. In some cases, DHCP is also used to obtain the "
-"provisioning URL (refer to :ref:`Provisioning methods <provisioning-"
-"methods>`)."
+"provisioning URL (refer to \"Provisioning methods\")."
 msgstr ""
 "Phones use the DHCP protocol to receive network configuration: IP, subnet"
 " mask, DNS, and gateway. In some cases, DHCP is also used to obtain the "
 "provisioning URL (refer to :ref:`Provisioning methods <provisioning-"
 "methods>`)."
 
-#: ../../nethvoice.rst:683
+#: ../../nethvoice.rst:948
 #, fuzzy
 msgid "However, the following parameters can be configured in this panel:"
 msgstr "However, the following parameters can be configured in this panel:"
 
-#: ../../nethvoice.rst:685
+#: ../../nethvoice.rst:950
 #, fuzzy
 msgid ""
-"``VLAN Identifier (VID)`` By specifying a number between 1 and 4094, the "
-"phone will add VLAN tagging to the packets generated by the phone itself,"
-" according to the IEEE 802.1Q standard."
+"``VLAN Identifier (VID)``: By specifying a number between 1 and 4094, the"
+" phone will add VLAN tagging to the packets generated by the phone "
+"itself, according to the IEEE 802.1Q standard."
 msgstr ""
 "``VLAN Identifier (VID)`` By specifying a number between 1 and 4094, the "
 "phone will add VLAN tagging to the packets generated by the phone itself,"
 " according to the IEEE 802.1Q standard."
 
-#: ../../nethvoice.rst:687
+#: ../../nethvoice.rst:952
 #, fuzzy
 msgid ""
-"``VLAN Identifier for PC port`` By specifying a number between 1 and "
+"``VLAN Identifier for PC port``: By specifying a number between 1 and "
 "4094, the phone will add VLAN tagging to packets coming from the PC port "
 "(or data port), following the IEEE 802.1Q standard."
 msgstr ""
@@ -7959,21 +8641,413 @@ msgstr ""
 "4094, the phone will add VLAN tagging to packets coming from the PC port "
 "(or data port), following the IEEE 802.1Q standard."
 
-#: ../../nethvoice.rst:689
+#: ../../nethvoice.rst:954
 #, fuzzy
 msgid ""
-"In the VLAN fields, the value \"\" (empty string), as usual, considers "
-"the setting at a lower priority (model or default), while \"0\" (zero) "
+"In the VLAN fields, the value \"\" (empty string) usually considers the "
+"setting at a lower priority (model or default), while \"0\" (zero) "
 "corresponds to \"disabled\"."
 msgstr ""
 "In the VLAN fields, the value \"\" (empty string), as usual, considers "
 "the setting at a lower priority (model or default), while \"0\" (zero) "
 "corresponds to \"disabled\"."
 
-#: ../../nethvoice.rst:693
+#: ../../nethvoice.rst:958
 #, fuzzy
 msgid "Entering an incorrect VLAN identifier can render the phone unreachable."
 msgstr "Entering an incorrect VLAN identifier can render the phone unreachable."
+
+#: ../../nethvoice.rst:961
+msgid "Gateway Provisioning"
+msgstr ""
+
+#: ../../nethvoice.rst:964
+msgid "Supported Gateways"
+msgstr ""
+
+#: ../../nethvoice.rst:967
+msgid "GRANDSTREAM"
+msgstr ""
+
+#: ../../nethvoice.rst:969
+msgid "FXS Models HT801 and HT802"
+msgstr ""
+
+#: ../../nethvoice.rst:970
+msgid "FXS Models HT812 and HT814"
+msgstr ""
+
+#: ../../nethvoice.rst:971
+msgid "FXS Models GXW4216, GXW4224, GXW4232, and GXW4248"
+msgstr ""
+
+#: ../../nethvoice.rst:974
+msgid "MEDIATRIX"
+msgstr ""
+
+#: ../../nethvoice.rst:976
+msgid "4400 Series"
+msgstr ""
+
+#: ../../nethvoice.rst:979
+msgid "PATTON"
+msgstr ""
+
+#: ../../nethvoice.rst:981
+msgid "BRI SmartNode and Trinity Models"
+msgstr ""
+
+#: ../../nethvoice.rst:982
+msgid "PRI SmartNode and Trinity Models"
+msgstr ""
+
+#: ../../nethvoice.rst:983
+msgid "FXO SmartNode Models"
+msgstr ""
+
+#: ../../nethvoice.rst:988
+msgid "Gateway configuration is carried out in the Wizard."
+msgstr ""
+
+#: ../../nethvoice.rst:990
+msgid ""
+"Gateway provisioning adheres to the same guidelines as provisioning for "
+"phones, with one key distinction: unlike phones, NethVoice establishes a "
+"direct connection to the gateway via telnet to upload the configuration, "
+"eliminating the need for the gateway to fetch it."
+msgstr ""
+
+#: ../../nethvoice.rst:992
+msgid ""
+"Gateway configuration is performed with the gateway online; by default, "
+"gateways initiate in DHCP mode."
+msgstr ""
+
+#: ../../nethvoice.rst:994
+msgid ""
+"However, by selecting :guilabel:`Add Gateway`, it is feasible to generate"
+" a configuration for a gateway not yet connected and subsequently "
+"configure it by uploading the file through the gateway's web interface."
+msgstr ""
+
+#: ../../nethvoice.rst:997
+#, fuzzy
+msgid "Configuring Gateways"
+msgstr "Configurazione"
+
+#: ../../nethvoice.rst:999
+msgid ""
+"To configure the gateway, it is necessary to specify a few required "
+"configuration parameters:"
+msgstr ""
+
+#: ../../nethvoice.rst:1001
+msgid "Device IP address; gateway configuration necessitates a static IP."
+msgstr ""
+
+#: ../../nethvoice.rst:1002
+#, fuzzy
+msgid "Subnet mask."
+msgstr "Sub-tasks"
+
+#: ../../nethvoice.rst:1003
+#, fuzzy
+msgid "Network gateway."
+msgstr "Network"
+
+#: ../../nethvoice.rst:1004
+msgid ""
+"NethVoice IP address; in some installation scenarios, the gateway may "
+"connect to NethVoice via a non-local IP."
+msgstr ""
+
+#: ../../nethvoice.rst:1005
+msgid ""
+"Any characteristics required for configuring connected lines (for ISDN "
+"lines, the ISDN terminal adapter's mode; for analog lines, the dialed "
+"number of the line)."
+msgstr ""
+
+#: ../../nethvoice.rst:1007
+msgid ""
+"For Grandstream models with 2 network interfaces, the LAN interface's MAC"
+" address must be provided, but NethVoice's configuration utilizes the WAN"
+" interface, which will be the one used."
+msgstr ""
+
+#: ../../nethvoice.rst:1009
+msgid ""
+"To download the gateway configuration for uploading via the web "
+"interface, click on the management button (symbol with three squares)."
+msgstr ""
+
+#: ../../nethvoice.rst:1012
+msgid "Dashboard"
+msgstr ""
+
+#: ../../nethvoice.rst:1014
+msgid ""
+"The dashboard serves as the initial page of NethVoice following the first"
+" configuration."
+msgstr ""
+
+#: ../../nethvoice.rst:1016
+msgid "It offers an overview of the elements involved in NethVoice's operation."
+msgstr ""
+
+#: ../../nethvoice.rst:1021
+msgid ""
+"The dashboard showcases the users configured in NethVoice along with "
+"their presence status and telephone devices."
+msgstr ""
+
+#: ../../nethvoice.rst:1023
+msgid ""
+"If a user's presence configuration deviates from the default (Available),"
+" an option exists to reset it to the normal state by clicking on the "
+"eraser symbol."
+msgstr ""
+
+#: ../../nethvoice.rst:1025
+msgid ""
+"Clicking to view details about an individual device displays the "
+"telephone device's specifics:"
+msgstr ""
+
+#: ../../nethvoice.rst:1027
+#, fuzzy
+msgid "Name"
+msgstr "User name"
+
+#: ../../nethvoice.rst:1028
+#, fuzzy
+msgid "Model"
+msgstr "Models"
+
+#: ../../nethvoice.rst:1029
+msgid "IP Address: Clicking facilitates connection over the local network."
+msgstr ""
+
+#: ../../nethvoice.rst:1030
+msgid "SIP Port"
+msgstr ""
+
+#: ../../nethvoice.rst:1031
+msgid "Codecs Used"
+msgstr ""
+
+#: ../../nethvoice.rst:1032
+msgid "DND (Do Not Disturb)"
+msgstr ""
+
+#: ../../nethvoice.rst:1033
+#, fuzzy
+msgid "Call Forward"
+msgstr "Forward"
+
+#: ../../nethvoice.rst:1038
+msgid ""
+"The configured VoIP trunks in NethVoice are displayed along with their "
+"status, indicating technology, IP, port, status, and codec."
+msgstr ""
+
+#: ../../nethvoice.rst:1045
+msgid ""
+"The *Applications* section allows for the creation, modification, or "
+"deletion of certain PBX features, which are initially created and "
+"configured in the wizard but subsequently utilized in the NethVoice CTI."
+msgstr ""
+
+#: ../../nethvoice.rst:1047
+msgid ""
+"For instance, customer cards are set up in the wizard to access the "
+"database and to practically display the obtained information, but the "
+"actual usage occurs within the NethVoice CTI, during calls or when "
+"searching for specific information."
+msgstr ""
+
+#: ../../nethvoice.rst:1052
+msgid ""
+"The *customer cards* section enables the grouping of information from "
+"external databases to the PBX and its display during calls. For example, "
+"when receiving a call from a specific customer, retrieve information from"
+" the database related to their invoices or any outstanding payments and "
+"evaluate whether to provide assistance or not. To create a new customer "
+"card, follow these steps:"
+msgstr ""
+
+#: ../../nethvoice.rst:1056
+#, fuzzy
+msgid "Address Book Sources"
+msgstr "Address Book"
+
+#: ../../nethvoice.rst:1058
+#, fuzzy
+msgid "Click on :guilabel:`Create New Source` and complete the form that appears:"
+msgstr "fare clic sul pulsante :guilabel:`Crea dominio` e scegliere ``Interno``"
+
+#: ../../nethvoice.rst:1060
+msgid ""
+"``Database Type``: Specify the type of database from which information "
+"will be retrieved."
+msgstr ""
+
+#: ../../nethvoice.rst:1061
+#, fuzzy
+msgid "``Database Name``: Specify the name of the database to connect to."
+msgstr "``Trunk Name``: specify name of the trunk"
+
+#: ../../nethvoice.rst:1062
+msgid ""
+"``Database Address``: Specify the address for connecting to the database "
+"(localhost, socket, or external IP)."
+msgstr ""
+
+#: ../../nethvoice.rst:1063
+msgid ""
+"``Database Port``: Specify a port for the database different from the "
+"default one proposed."
+msgstr ""
+
+#: ../../nethvoice.rst:1064
+msgid "``Database User``: Specify the user for database connection."
+msgstr ""
+
+#: ../../nethvoice.rst:1065
+msgid "``Database Password``: Specify the password for database connection."
+msgstr ""
+
+#: ../../nethvoice.rst:1066
+msgid ""
+"``Connection``: Press the \"Verify\" button to test the accuracy of the "
+"entered connection information."
+msgstr ""
+
+#: ../../nethvoice.rst:1068
+msgid ""
+"Press :guilabel:`Save` to add the database source. The newly created "
+"source will be listed among the available sources."
+msgstr ""
+
+#: ../../nethvoice.rst:1071
+#, fuzzy
+msgid "Template"
+msgstr "template custom"
+
+#: ../../nethvoice.rst:1073
+msgid ""
+"Templates serve as the blueprint for your customer cards. They utilize "
+"the `ejs` engine, which boasts a JavaScript-like syntax. This allows for "
+"the writing of HTML code using specific directives available on the "
+"website https://github.com/tj/ejs."
+msgstr ""
+
+#: ../../nethvoice.rst:1075
+#, fuzzy
+msgid ""
+"To begin the creation process, click on the :guilabel:`Create New "
+"Template` button:"
+msgstr "cliccare sul pulsante :guilabel: `Create route`"
+
+#: ../../nethvoice.rst:1077
+#, fuzzy
+msgid "``Name``: Specify the template's name."
+msgstr "``Model``: specify the gateway model"
+
+#: ../../nethvoice.rst:1078
+msgid ""
+"``Results``: This field contains the output of your query in JSON format."
+" Use the text field to test and see how your HTML template will appear "
+"with your data."
+msgstr ""
+
+#: ../../nethvoice.rst:1079
+msgid ""
+"``Code (ejs)``: Enter your template's code in this text field, adhering "
+"to the ejs syntax and using the values mentioned above (which are "
+"essentially the result columns of your query)."
+msgstr ""
+
+#: ../../nethvoice.rst:1080
+msgid ""
+"``Preview``: By combining the results and the ejs code, you will see the "
+"corresponding HTML output, which will serve as your customer card."
+msgstr ""
+
+#: ../../nethvoice.rst:1082
+msgid ""
+"The PBX already offers some predefined templates with pre-written HTML "
+"code that you can duplicate and modify by altering the color."
+msgstr ""
+
+#: ../../nethvoice.rst:1087
+msgid ""
+"After creating the data source and the template for your card, this "
+"section requires you to merge the two pieces of information to ensure the"
+" card's correct creation. Click on the :guilabel:`Create New Card` button"
+" and fill out the form:"
+msgstr ""
+
+#: ../../nethvoice.rst:1089
+#, fuzzy
+msgid "``Name``: Name of the customer card."
+msgstr "``Name``: the name of the shared folder"
+
+#: ../../nethvoice.rst:1090
+msgid "``Source``: Specify the previously created database source."
+msgstr ""
+
+#: ../../nethvoice.rst:1091
+msgid "``Template``: Choose the template you previously created."
+msgstr ""
+
+#: ../../nethvoice.rst:1092
+msgid ""
+"``Profile``: Select the type of user profile to which the customer card "
+"you are creating will be displayed."
+msgstr ""
+
+#: ../../nethvoice.rst:1093
+msgid "``Query``: Input the query that will return the relevant information."
+msgstr ""
+
+#: ../../nethvoice.rst:1094
+msgid ""
+"``Render``: By pressing this button, the query will execute on the "
+"specified source, and the data will be inserted into the selected "
+"template, producing the desired output."
+msgstr ""
+
+#: ../../nethvoice.rst:1096
+#, fuzzy
+msgid "Press the :guilabel:`Save` button to save your customer card."
+msgstr "Use the :guilabel:`Add` button to add a custom field inside the panel."
+
+#: ../../nethvoice.rst:1099
+msgid ""
+"Once the query and card have been created and it is verified that "
+"everything works, use the `$NUMBER` variable to replace numerical "
+"parameters in your query."
+msgstr ""
+
+#: ../../nethvoice.rst:1101 ../../user_domains.rst:81
+#, fuzzy
+msgid "Example:"
+msgstr "Example:"
+
+#: ../../nethvoice.rst:1103
+msgid "If your query is as follows: ::"
+msgstr ""
+
+#: ../../nethvoice.rst:1107
+msgid "It should be changed to::"
+msgstr ""
+
+#: ../../nethvoice.rst:1111
+msgid ""
+"The `$NUMBER` variable represents the caller ID of the PBX, referring to "
+"collect the data to be displayed on the customer card."
+msgstr ""
 
 #: ../../nethvoice_proxy.rst:5
 msgid "NethVoice Proxy"
@@ -11289,11 +12363,6 @@ msgstr ""
 "An Active Directory domain requires a reserved DNS domain to work. It is "
 "a good choice to allocate a sub-domain of the public DNS domain for it. "
 "The AD sub-domain can be accessed only from local networks."
-
-#: ../../user_domains.rst:81
-#, fuzzy
-msgid "Example:"
-msgstr "Example:"
 
 #: ../../user_domains.rst:83
 #, fuzzy
@@ -15304,4 +16373,31 @@ msgstr ""
 #~ "In the end, you will be able "
 #~ "to bind locally installed applications "
 #~ "with the external LDAP server."
+
+#~ msgid "NethVoice module is split into seven main parts:"
+#~ msgstr "Il modulo NethVoice è diviso in sette parti principali:"
+
+#~ msgid ""
+#~ "NethVoice is a full-feature integrate"
+#~ " voice, video, mobile communication "
+#~ "systems."
+#~ msgstr ""
+#~ "NethVoice è un sistema completo di "
+#~ "comunicazione vocale, video e mobile."
+
+#~ msgid ""
+#~ "If the phone makes more keys "
+#~ "available than those displayed in the"
+#~ " NethVoice administration interface, there "
+#~ "is a ``View more`` button to add"
+#~ " more."
+#~ msgstr ""
+#~ "If the phone makes more keys "
+#~ "available than those displayed in the"
+#~ " NethVoice administration interface, there "
+#~ "is a ``View more`` button to add"
+#~ " more."
+
+#~ msgid "See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`."
+#~ msgstr "See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`."
 
