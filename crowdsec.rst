@@ -13,12 +13,6 @@ Configuration
 =============
 
 Once installed, CrowdSec is already fully functional and protect many NS8 applications.
-
-To get a list of protected applications, access the server using SSH and type:
-
-::
-
-  cscli collection list
  
 From the web interface you can configure:
 
@@ -36,3 +30,22 @@ disabling the ``Enable central API`` option under the ``Advanced`` section.
 
 You can also connect your instance to `CrowdSec console <https://app.crowdsec.net>`_
 by filling the ``Enroll the CrowdSec instance`` field.
+
+
+Command-line interface
+======================
+
+The ``cscli`` command is a powerful command-line interface to access
+advanced Crowdsec functions. To run ``cscli``, you have to enter the
+application environment first. Type in a root shell the following command
+
+::
+
+  runagent -m crowdsec1 bash
+
+Then the ``cscli`` command becomes available. For instance, print the help
+message with
+
+::
+
+  cscli --help
