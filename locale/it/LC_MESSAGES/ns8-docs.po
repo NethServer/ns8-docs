@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-03 07:18+0000\n"
+"POT-Creation-Date: 2024-04-08 06:51+0000\n"
 "PO-Revision-Date: 2024-03-18 18:15+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language: it\n"
@@ -1204,18 +1204,10 @@ msgstr ""
 "molte applicazioni NS8."
 
 #: ../../crowdsec.rst:17
-msgid ""
-"To get a list of protected applications, access the server using SSH and "
-"type:"
-msgstr ""
-"Per ottenere un elenco di applicazioni protette, accedere al server "
-"utilizzando SSH e digitare:"
-
-#: ../../crowdsec.rst:23
 msgid "From the web interface you can configure:"
 msgstr "Dall'interfaccia web è possibile configurare:"
 
-#: ../../crowdsec.rst:25
+#: ../../crowdsec.rst:19
 #, fuzzy
 msgid ""
 "mail notification by adding one address per line inside ``Email "
@@ -1226,15 +1218,15 @@ msgstr ""
 "notifications`` field: notifications will work only if :ref:`smarthost-"
 "section` has been configured"
 
-#: ../../crowdsec.rst:28
+#: ../../crowdsec.rst:22
 msgid "IP and network which will never be blocked"
 msgstr "IP e rete che non saranno mai bloccati"
 
-#: ../../crowdsec.rst:30
+#: ../../crowdsec.rst:24
 msgid "dynamic and static ban time"
 msgstr "tempo di divieto dinamico e statico"
 
-#: ../../crowdsec.rst:32
+#: ../../crowdsec.rst:26
 #, fuzzy
 msgid ""
 "As default, CrowdSec will send some telemetry to remote CrowdSec-owned "
@@ -1249,7 +1241,7 @@ msgstr ""
 " and disable the community blocklist, you can do it by disabling the "
 "``Enable central API`` option under the ``Advanced`` section."
 
-#: ../../crowdsec.rst:37
+#: ../../crowdsec.rst:31
 #, fuzzy
 msgid ""
 "You can also connect your instance to `CrowdSec console "
@@ -1259,6 +1251,24 @@ msgstr ""
 "You can also connect your instance to `CrowdSec console "
 "<https://app.crowdsec.net>`_ by filling the ``Enroll the CrowdSec "
 "instance`` field."
+
+#: ../../crowdsec.rst:36
+#, fuzzy
+msgid "Command-line interface"
+msgstr "Command line"
+
+#: ../../crowdsec.rst:38
+msgid ""
+"The ``cscli`` command is a powerful command-line interface to access "
+"advanced Crowdsec functions. To run ``cscli``, you have to enter the "
+"application environment first. Type in a root shell the following command"
+msgstr ""
+
+#: ../../crowdsec.rst:46
+msgid ""
+"Then the ``cscli`` command becomes available. For instance, print the "
+"help message with"
+msgstr ""
 
 #: ../../disk_usage.rst:3
 msgid "Disk usage"
@@ -16400,4 +16410,13 @@ msgstr ""
 
 #~ msgid "See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`."
 #~ msgstr "See also :ref: `Firmware upgrade <provisioning2-firmware-upgrade>`."
+
+#~ msgid ""
+#~ "To get a list of protected "
+#~ "applications, access the server using "
+#~ "SSH and type:"
+#~ msgstr ""
+#~ "Per ottenere un elenco di applicazioni"
+#~ " protette, accedere al server utilizzando"
+#~ " SSH e digitare:"
 
