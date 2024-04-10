@@ -49,3 +49,21 @@ message with
 ::
 
   cscli --help
+
+You can browse the collections and install new parsers and scenarios to protect the services of your server
+
+::
+
+  cscli collections list
+
+to install a collection
+
+::
+
+  cscli collections install <collections>
+
+to remove a collection
+
+::
+
+  cscli collections remove <collections>
