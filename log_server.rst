@@ -133,6 +133,8 @@ When a worker node is promoted to leader, a new Loki instance is installed
 on it and becomes the active instance, while the old instance is marked as
 *inactive*.
 
+- The new active instance inherits the retention setting from the old one.
+
 - An inactive instance retains logs based on its last retention setting.
 
 - Log searches can still be performed within an inactive instance.
