@@ -54,7 +54,7 @@ You can browse the collections and install new parsers and scenarios to protect 
 
 ::
 
-  cscli collections list
+  cscli collections list --all
 
 to install a collection
 
