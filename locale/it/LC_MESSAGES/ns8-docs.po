@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-08 06:51+0000\n"
+"POT-Creation-Date: 2024-04-11 17:21+0000\n"
 "PO-Revision-Date: 2024-03-18 18:15+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language: it\n"
@@ -772,11 +772,11 @@ msgstr ""
 "A seconda dello stato attuale del nodo leader ci sono due possibili "
 "procedure per promuovere un nodo al ruolo di leader:"
 
-#: ../../cluster.rst:89 ../../cluster.rst:100
+#: ../../cluster.rst:89 ../../cluster.rst:107
 msgid "Reachable leader node"
 msgstr "Nodo leader raggiungibile"
 
-#: ../../cluster.rst:90 ../../cluster.rst:127
+#: ../../cluster.rst:90 ../../cluster.rst:134
 msgid "Unreachable leader node"
 msgstr "Nodo leader irraggiungibile"
 
@@ -802,7 +802,13 @@ msgstr ""
 "Vedere anche la nota in :ref: `audit-trail-section` sulla promozione del "
 "nodo."
 
-#: ../../cluster.rst:102
+#: ../../cluster.rst:101
+msgid ""
+"The promotion of a new leader entails a change in the System logs "
+"configuration. Refer to :ref:`logs-persistence-section` for more details."
+msgstr ""
+
+#: ../../cluster.rst:109
 msgid ""
 "If the current leader node is working properly, access the ``Nodes`` "
 "page, go to the three-dots menu of the node to promote and click on "
@@ -812,7 +818,7 @@ msgstr ""
 "``Nodi``, andare al menu a tre punti del nodo da promuovere e fare clic "
 "su ``Promuovi a leader``."
 
-#: ../../cluster.rst:106
+#: ../../cluster.rst:113
 msgid ""
 "Confirm or enter the leader host name in the ``VPN public address`` "
 "field. An IP address is accepted, too."
@@ -820,7 +826,7 @@ msgstr ""
 "Confermare o inserire il nome host del leader nel campo ``Indirizzo VPN "
 "pubblico``. Viene accettato anche un indirizzo IP."
 
-#: ../../cluster.rst:109
+#: ../../cluster.rst:116
 msgid ""
 "Confirm or enter the ``VPN public UDP port`` number. Every worker node "
 "will connect the leader on that UDP port number. In most cases, the "
@@ -834,7 +840,7 @@ msgstr ""
 "meno che non vi sia un dispositivo di rete tra il leader e i worker lo "
 "traduce in un numero di porta diverso."
 
-#: ../../cluster.rst:115
+#: ../../cluster.rst:122
 msgid ""
 "When the confirmation string is typed, the :guilabel:`I understand, "
 "promote the node` button becomes active and it is possible to complete "
@@ -844,7 +850,7 @@ msgstr ""
 " consapevole, promuovi il nodo` diventa attivo ed è possibile completare "
 "la promozione nodo."
 
-#: ../../cluster.rst:119
+#: ../../cluster.rst:126
 msgid ""
 "The ``Check node connectivity`` checkbox verifies the connection of each "
 "node with the selected one. Since the VPN connection cannot be probed, "
@@ -861,7 +867,7 @@ msgstr ""
 "configurazione inserita è corretta, si ha la possibilità di disabilitare "
 "il controllo, ma si procedere a proprio rischio!"
 
-#: ../../cluster.rst:129
+#: ../../cluster.rst:136
 msgid ""
 "If the current leader node is not reachable, it is necessary to run a "
 "command on any other worker node.  Be prepared in advance for this "
@@ -873,7 +879,7 @@ msgstr ""
 " situazione consentendo l'accesso ai nodi con un **terminale di root**, "
 "mediante SSH, console o Cockpit."
 
-#: ../../cluster.rst:134
+#: ../../cluster.rst:141
 msgid ""
 "For example, to promote node with ID ``3``, VPN endpoint "
 "``node3.example.com`` UDP port ``55820``, run the following command on "
@@ -883,11 +889,11 @@ msgstr ""
 "``node3.example.com``, porta UDP ``55820``, eseguire il seguente comando "
 "su ogni nodo worker: ::"
 
-#: ../../cluster.rst:143 ../../ejabberd.rst:82
+#: ../../cluster.rst:150 ../../ejabberd.rst:82
 msgid "Administrators"
 msgstr "Amministratori"
 
-#: ../../cluster.rst:145
+#: ../../cluster.rst:152
 msgid ""
 "Cluster administrators can fully manage the cluster. It's recommended to "
 "create a personal user for each cluster administrator. All actions "
@@ -899,7 +905,7 @@ msgstr ""
 "cluster. Tutte le azioni eseguite da un amministratore del cluster sono "
 "registrate all'interno di :ref:`Audit log <audit-trail-section>`."
 
-#: ../../cluster.rst:149
+#: ../../cluster.rst:156
 msgid ""
 "To add a new cluster administrator go to the ``Settings`` page and select"
 " the ``Cluster administrators`` card. Then click on :guilabel:`Create "
@@ -910,7 +916,7 @@ msgstr ""
 "Quindi fare clic su :guilabel:`Crea amministratore` e compilare i campi "
 "richiesti."
 
-#: ../../cluster.rst:152
+#: ../../cluster.rst:159
 msgid ""
 "An administrator can't delete its own user. To delete an administrator, "
 "you must log in with another existing cluster administrator."
@@ -919,7 +925,7 @@ msgstr ""
 "amministratore, è necessario accedere come un altro amministratore del "
 "cluster già esistente."
 
-#: ../../cluster.rst:155
+#: ../../cluster.rst:162
 msgid ""
 "Administrators can change their own password from the ``Account`` card "
 "inside the ``Settings`` page."
@@ -927,11 +933,11 @@ msgstr ""
 "Gli amministratori possono cambiare la propria password dalla scheda "
 "``Account`` all'interno della pagina ``Impostazioni``."
 
-#: ../../cluster.rst:160 ../../webtop.rst:132
+#: ../../cluster.rst:167 ../../webtop.rst:132
 msgid "Two-factor authentication (2FA)"
 msgstr "Autenticazione a due fattori (2FA)"
 
-#: ../../cluster.rst:162
+#: ../../cluster.rst:169
 msgid ""
 "Two-factor authentication (2FA) can be used to add an extra layer of "
 "security required to access the cluster management user interface."
@@ -940,7 +946,7 @@ msgstr ""
 " un ulteriore livello di sicurezza necessario per accedere "
 "all'interfaccia utente di gestione del cluster."
 
-#: ../../cluster.rst:165
+#: ../../cluster.rst:172
 msgid ""
 "The administrator can enable 2FA from the ``Account`` card inside the "
 "``Settings`` page by clicking the :guilabel:`Enable 2FA` button."
@@ -949,19 +955,19 @@ msgstr ""
 "della pagina ``Impostazioni`` facendo clic sul pulsante "
 ":guilabel:`Abilita 2FA` ."
 
-#: ../../cluster.rst:168
+#: ../../cluster.rst:175
 msgid "The user will have to:"
 msgstr "L'utente dovrà:"
 
-#: ../../cluster.rst:170
+#: ../../cluster.rst:177
 msgid "download and install the preferred 2FA application on the smartphone"
 msgstr "scaricare e installare l'applicazione 2FA preferita sullo smartphone"
 
-#: ../../cluster.rst:171
+#: ../../cluster.rst:178
 msgid "scan the QR code with the 2FA application"
 msgstr "eseguire la scansione del codice QR con l'applicazione 2FA"
 
-#: ../../cluster.rst:172
+#: ../../cluster.rst:179
 msgid ""
 "generate a new code and copy it inside the verification field, then click"
 " :guilabel:`Verify code`"
@@ -969,19 +975,19 @@ msgstr ""
 "generare un nuovo codice e copiarlo all'interno del campo di verifica, "
 "quindi fare clic su :guilabel:`Verifica codice`"
 
-#: ../../cluster.rst:175
+#: ../../cluster.rst:182
 msgid "Smartphone applications"
 msgstr "Applicazioni smartphone"
 
-#: ../../cluster.rst:177
+#: ../../cluster.rst:184
 msgid "There are several commercial and open source 2FA applications:"
 msgstr "Ci sono diverse applicazioni commerciali e open source per 2FA:"
 
-#: ../../cluster.rst:179
+#: ../../cluster.rst:186
 msgid "Available for both Android and iOS:"
 msgstr "Disponibile sia per Android che per iOS:"
 
-#: ../../cluster.rst:181
+#: ../../cluster.rst:188
 msgid ""
 "`FreeOTP <https://freeotp.github.io/>`_: available for both Android and "
 "iOS"
@@ -989,7 +995,7 @@ msgstr ""
 "`FreeOTP <https://freeotp.github.io/>`_: disponibile sia per Android che "
 "per iOS"
 
-#: ../../cluster.rst:182
+#: ../../cluster.rst:189
 msgid ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: available on iOS "
 "only"
@@ -997,15 +1003,15 @@ msgstr ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: disponibile solo "
 "su iOS"
 
-#: ../../cluster.rst:183
+#: ../../cluster.rst:190
 msgid "`2FAS <https://2fas.com/>`_: available for both Android and iOS"
 msgstr "`2FAS <https://2fas.com/>`_: disponibile sia per Android che per iOS"
 
-#: ../../cluster.rst:186
+#: ../../cluster.rst:193
 msgid "Reset the cluster administrator password"
 msgstr "Reimpostare la password dell'amministratore del cluster"
 
-#: ../../cluster.rst:188
+#: ../../cluster.rst:195
 msgid ""
 "If you are locked out of the web user interface and you can still access "
 "a system command-line shell as ``root`` (e.g. by the system recovery "
@@ -1017,17 +1023,17 @@ msgstr ""
 " sistema o SSH), eseguire il seguente comando per disabilitare 2FA e "
 "ripristinare la password:"
 
-#: ../../cluster.rst:196
+#: ../../cluster.rst:203
 msgid "Replace the ``admin`` and ``Nethesis,1234`` default credentials as needed."
 msgstr ""
 "Sostituisci le credenziali ``admin`` e ``Nethesis,1234`` predefinite come"
 " necessario."
 
-#: ../../cluster.rst:202
+#: ../../cluster.rst:209
 msgid "Audit trail"
 msgstr "Audit log"
 
-#: ../../cluster.rst:204
+#: ../../cluster.rst:211
 msgid ""
 "Inside the audit trail page, cluster administrators can inspect all "
 "actions executed by any other administrator. Each event of the audit "
@@ -1037,19 +1043,19 @@ msgstr ""
 "cluster possono ispezionare tutte le azioni eseguite da qualsiasi altro "
 "amministratore. Ogni evento del percorso di audit contiene almeno:"
 
-#: ../../cluster.rst:207
+#: ../../cluster.rst:214
 msgid "date and time of the action"
 msgstr "data e ora dell'azione"
 
-#: ../../cluster.rst:208
+#: ../../cluster.rst:215
 msgid "user name of the cluster administrator"
 msgstr "nome utente dell'amministratore del cluster"
 
-#: ../../cluster.rst:209
+#: ../../cluster.rst:216
 msgid "name of the action"
 msgstr "nome dell'azione"
 
-#: ../../cluster.rst:211
+#: ../../cluster.rst:218
 msgid ""
 "Audit trail events can be filtered by user, date, action type, and custom"
 " text match."
@@ -1057,7 +1063,7 @@ msgstr ""
 "Gli eventi del log di audit possono essere filtrati per utente, data, "
 "tipo di azione e corrispondenza di testo personalizzata."
 
-#: ../../cluster.rst:215
+#: ../../cluster.rst:222
 msgid ""
 "Audit trail information is stored in the leader node disk. In case of "
 ":ref:`new leader promotion <node-promotion-section>` the audit trail "
@@ -2594,7 +2600,8 @@ msgstr ""
 msgid "fill the form to join a new DC to the domain."
 msgstr "fill the form to join a new DC to the domain."
 
-#: ../../file_server.rst:104 ../../software_center.rst:82
+#: ../../file_server.rst:104 ../../log_server.rst:149
+#: ../../software_center.rst:82
 #, fuzzy
 msgid "Footnotes"
 msgstr "Footnotes"
@@ -3345,168 +3352,220 @@ msgstr ""
 "<https://community.nethserver.org>`_. L'issue tracker pubblico è "
 "disponibile su `GitHub <https://github.com/NethServer/dev/issues>`_."
 
-#: ../../log_server.rst:5
+#: ../../log_server.rst:7
 #, fuzzy
 msgid "System logs"
 msgstr "System logs"
 
-#: ../../log_server.rst:7
-#, fuzzy
-msgid ""
-"Almost everything is logged inside journalctl and sent to the local log "
-"server."
-msgstr ""
-"Almost everything is logged inside journalctl and sent to the local log "
-"server."
-
 #: ../../log_server.rst:9
-#, fuzzy
 msgid ""
-"By default, `Grafana Loki <https://grafana.com/oss/loki/>`_ is installed "
-"on the leader node, it collects the logs from all cluster nodes. A "
-"rootful `Promtail "
-"<https://grafana.com/docs/loki/latest/clients/promtail/>`_ container runs"
-" on all nodes, including the leader one. It sends all logs to the Loki "
-"server."
+"Log records generated by any cluster node are collected and stored in the"
+" leader node. See :ref:`logs-persistence-section` for additional "
+"information."
 msgstr ""
-"By default, `Grafana Loki <https://grafana.com/oss/loki/>`_ is installed "
-"on the leader node, it collects the logs from all cluster nodes. A "
-"rootful `Promtail "
-"<https://grafana.com/docs/loki/latest/clients/promtail/>`_ container runs"
-" on all nodes, including the leader one. It sends all logs to the Loki "
-"server."
 
-#: ../../log_server.rst:14
-#, fuzzy
-msgid "From the leader node, it is possible to query the logs of all nodes."
-msgstr "From the leader node, it is possible to query the logs of all nodes."
+#: ../../log_server.rst:13
+msgid "Accessing logs"
+msgstr ""
 
-#: ../../log_server.rst:16
+#: ../../log_server.rst:15
 #, fuzzy
 msgid ""
-"Logs are accessible from the ``System logs`` page. You can filter logs by"
-" date, a text query or context. Available contexts are:"
+"The System Logs page allows users to efficiently search logs based on "
+"date, text query, or context. The available contexts include:"
 msgstr ""
 "Logs are accessible from the ``System logs`` page. You can filter logs by"
 " date, a text query or context. Available contexts are:"
 
-#: ../../log_server.rst:19
-#, fuzzy
-msgid "``cluster``: all logs from any source"
-msgstr "``cluster``: all logs from any source"
+#: ../../log_server.rst:18
+msgid "**Cluster**: Displays logs from all cluster nodes."
+msgstr ""
 
 #: ../../log_server.rst:20
 #, fuzzy
-msgid "``node``: all logs from a given node"
+msgid "**Node**: Shows logs from a specific node."
 msgstr "``node``: all logs from a given node"
 
-#: ../../log_server.rst:21
-#, fuzzy
-msgid ""
-"``app``: logs from a given application instance, regardless where it's "
-"currently running"
+#: ../../log_server.rst:22
+msgid "**Application**: Presents logs from a particular application instance."
 msgstr ""
-"``app``: logs from a given application instance, regardless where it's "
-"currently running"
 
-#: ../../log_server.rst:23
-#, fuzzy
-msgid ""
-"You can see only a subset of the lines or follow the log to see what's "
-"happening in real time."
+#: ../../log_server.rst:24
+msgid "Users can select between two modes of operation:"
 msgstr ""
-"You can see only a subset of the lines or follow the log to see what's "
-"happening in real time."
 
-#: ../../log_server.rst:25
-#, fuzzy
+#: ../../log_server.rst:26
 msgid ""
-"Sometimes is useful to compare the logs of two applications side-by-side."
-" You can do it by following these steps:"
+"**Dump mode**  Retrieves a limited number of log records within a "
+"specified time period. The maximum number of lines can be adjusted using "
+"the ``Max lines`` field."
 msgstr ""
-"Sometimes is useful to compare the logs of two applications side-by-side."
-" You can do it by following these steps:"
-
-#: ../../log_server.rst:28
-#, fuzzy
-msgid "setup the filter for a refined search"
-msgstr "setup the filter for a refined search"
-
-#: ../../log_server.rst:29
-#, fuzzy
-msgid "click on :guilabel:`Add search` button"
-msgstr "click on :guilabel:`Add search` button"
 
 #: ../../log_server.rst:30
-#, fuzzy
-msgid "setup the new filter"
-msgstr "setup the new filter"
+msgid "**Follow mode** Displays logs in real-time, providing live updates."
+msgstr ""
 
-#: ../../log_server.rst:31
-#, fuzzy
-msgid "select ``Vertical layout`` from the three-dots menu"
-msgstr "select ``Vertical layout`` from the three-dots menu"
+#: ../../log_server.rst:32
+msgid ""
+"If the ``Search query`` field is set, only log records matching the given"
+" string are returned. Only exact substring matches are allowed."
+msgstr ""
 
-#: ../../log_server.rst:33
-#, fuzzy
-msgid "Logs are now shown side-by-side to easily correlate events."
-msgstr "Logs are now shown side-by-side to easily correlate events."
+#: ../../log_server.rst:35
+msgid ""
+"For comparative analysis of logs from two nodes or applications, follow "
+"these steps:"
+msgstr ""
 
-#: ../../log_server.rst:36
+#: ../../log_server.rst:38
 #, fuzzy
-msgid "Command line"
-msgstr "Command line"
+msgid "Click on :guilabel:`Add search` button."
+msgstr "click on :guilabel:`Add search` button"
 
 #: ../../log_server.rst:40
 #, fuzzy
 msgid ""
-"If you're familiar with the command line, recent logs are visible using "
-"the ``journalctl`` command and services can be inspected using the "
-"``systemctl`` command. As root use ``journalctl`` to see messages from "
-"agents, rootful and rootless modules."
-msgstr ""
-"If you're familiar with the command line, recent logs are visible using "
-"the ``journalctl`` command and services can be inspected using the "
-"``systemctl`` command. As root use ``journalctl`` to see messages from "
-"agents, rootful and rootless modules."
+"Optionally, switch to ``Vertical layout`` from the three-dots menu for a "
+"side-by-side comparison."
+msgstr "select ``Vertical layout`` from the three-dots menu"
 
-#: ../../log_server.rst:44
-#, fuzzy
+#: ../../log_server.rst:43
 msgid ""
-"You can also use the ``api-server-logs`` to query directly the Loki "
-"server. Example to inspect the log of the `traefik1` module: ::"
+"For example, comparing logs can be useful to see the Traefik log from one"
+" side, to see incoming HTTP requests, and Nextcloud logs on the other "
+"side to see that application activity."
 msgstr ""
-"You can also use the ``api-server-logs`` to query directly the Loki "
-"server. Example to inspect the log of the `traefik1` module: ::"
 
 #: ../../log_server.rst:49
-#, fuzzy
 msgid ""
-"You can also enable the automatic completion of the above command. First,"
-" install the ``bash-completion`` package."
+"By default, log searches are directed to the active Loki instance. If "
+"there are :ref:`inactive Loki instances <inactive-loki-section>` within "
+"the cluster, it is possible to select them to search past log entries."
 msgstr ""
-"You can also enable the automatic completion of the above command. First,"
-" install the ``bash-completion`` package."
 
-#: ../../log_server.rst:52
+#: ../../log_server.rst:55
 #, fuzzy
-msgid "On RHEL-like distributions: ::"
-msgstr "On RHEL-like distributions: ::"
+msgid "Command line interface"
+msgstr "Command line"
 
-#: ../../log_server.rst:56
-#, fuzzy
-msgid "On Debian distribution: ::"
-msgstr "On Debian distribution: ::"
+#: ../../log_server.rst:59
+msgid ""
+"In addition to accessing logs via the System Logs web page, users can "
+"utilize the ``api-server-logs`` command for log searching. Below are "
+"examples illustrating its usage:"
+msgstr ""
 
-#: ../../log_server.rst:60
-#, fuzzy
-msgid "Then, generate the completion script: ::"
-msgstr "Then, generate the completion script: ::"
+#: ../../log_server.rst:63
+msgid "**Basic invocation:** Enters \"follow mode\" for the entire cluster:"
+msgstr ""
 
-#: ../../log_server.rst:64
+#: ../../log_server.rst:70
+msgid ""
+"**Follow mode for application instance:** Enables follow mode for the "
+"specified application (module) instance, such as ``traefik1``. The "
+"``--entity`` flag selects the context:"
+msgstr ""
+
+#: ../../log_server.rst:79
+msgid ""
+"**Dump mode for specific instance in a time period:** Initiates dump mode"
+" for the same instance within a specific time period. Dates must adhere "
+"to the ISO8601 format:"
+msgstr ""
+
+#: ../../log_server.rst:88
+msgid ""
+"**Changing output timezone:** Modifies the output timezone while "
+"maintaining the same query. Refer to ``timedatectl list-timezones`` for a"
+" full list of options:"
+msgstr ""
+
+#: ../../log_server.rst:100
+msgid "Logs persistence"
+msgstr ""
+
+#: ../../log_server.rst:102
+msgid ""
+"Upon cluster creation, a Loki [#loki]_ core module instance is installed "
+"on the leader node and designated as the active instance. The leader "
+"node, like any other worker node, continuously streams its log data to "
+"this active Loki instance [#promtail]_."
+msgstr ""
+
+#: ../../log_server.rst:109
 #, fuzzy
-msgid "Logout and login from the shell to enable the completion."
-msgstr "Logout and login from the shell to enable the completion."
+msgid "Adjusting Settings"
+msgstr "Advanced settings"
+
+#: ../../log_server.rst:111
+msgid ""
+"Navigate to the ``Settings`` page and click on the System logs card to "
+"modify log retention (select ``Edit retention``) or assign a user-"
+"friendly name to the active Loki instance (choose the three-dots menu, "
+"then ``Edit label``)."
+msgstr ""
+
+#: ../../log_server.rst:118
+msgid "Understanding log retention"
+msgstr ""
+
+#: ../../log_server.rst:120
+msgid ""
+"Log retention refers to the maximum age of stored log records. Records "
+"older than the retention period are automatically purged. By default, "
+"System logs have a retention period of 365 days, but this can be "
+"customized to any desired duration. For compliance with common "
+"regulations and best practices, a recommended retention period is 200 "
+"days or longer."
+msgstr ""
+
+#: ../../log_server.rst:130
+msgid "Inactive Loki instances"
+msgstr ""
+
+#: ../../log_server.rst:132
+msgid ""
+"When a worker node is promoted to leader, a new Loki instance is "
+"installed on it and becomes the active instance, while the old instance "
+"is marked as *inactive*."
+msgstr ""
+
+#: ../../log_server.rst:136
+msgid "The new active instance inherits the retention setting from the old one."
+msgstr ""
+
+#: ../../log_server.rst:138
+msgid "An inactive instance retains logs based on its last retention setting."
+msgstr ""
+
+#: ../../log_server.rst:140
+msgid "Log searches can still be performed within an inactive instance."
+msgstr ""
+
+#: ../../log_server.rst:142
+msgid "Restoring a Loki instance from backup renders it inactive."
+msgstr ""
+
+#: ../../log_server.rst:144
+msgid ""
+"To remove an inactive instance, select the three-dots menu and choose the"
+" ``Uninstall`` action."
+msgstr ""
+
+#: ../../log_server.rst:152
+msgid ""
+"Grafana Loki is a special database designed to store, index and search "
+"system logs. For more information, see "
+"https://github.com/nethserver/ns8-loki"
+msgstr ""
+
+#: ../../log_server.rst:158
+msgid ""
+"The promtail.service core service operates on every node, reading system "
+"journals, forwarding new records to the active Loki instance, and "
+"preserving the last sent journal cursor position to ensure seamless "
+"restarts without log loss."
+msgstr ""
 
 #: ../../mail.rst:5
 msgid "Mail server"
@@ -16419,4 +16478,130 @@ msgstr ""
 #~ "Per ottenere un elenco di applicazioni"
 #~ " protette, accedere al server utilizzando"
 #~ " SSH e digitare:"
+
+#~ msgid ""
+#~ "Almost everything is logged inside "
+#~ "journalctl and sent to the local "
+#~ "log server."
+#~ msgstr ""
+#~ "Almost everything is logged inside "
+#~ "journalctl and sent to the local "
+#~ "log server."
+
+#~ msgid ""
+#~ "By default, `Grafana Loki "
+#~ "<https://grafana.com/oss/loki/>`_ is installed on"
+#~ " the leader node, it collects the "
+#~ "logs from all cluster nodes. A "
+#~ "rootful `Promtail "
+#~ "<https://grafana.com/docs/loki/latest/clients/promtail/>`_ "
+#~ "container runs on all nodes, including"
+#~ " the leader one. It sends all "
+#~ "logs to the Loki server."
+#~ msgstr ""
+#~ "By default, `Grafana Loki "
+#~ "<https://grafana.com/oss/loki/>`_ is installed on"
+#~ " the leader node, it collects the "
+#~ "logs from all cluster nodes. A "
+#~ "rootful `Promtail "
+#~ "<https://grafana.com/docs/loki/latest/clients/promtail/>`_ "
+#~ "container runs on all nodes, including"
+#~ " the leader one. It sends all "
+#~ "logs to the Loki server."
+
+#~ msgid "From the leader node, it is possible to query the logs of all nodes."
+#~ msgstr "From the leader node, it is possible to query the logs of all nodes."
+
+#~ msgid "``cluster``: all logs from any source"
+#~ msgstr "``cluster``: all logs from any source"
+
+#~ msgid ""
+#~ "``app``: logs from a given application"
+#~ " instance, regardless where it's currently"
+#~ " running"
+#~ msgstr ""
+#~ "``app``: logs from a given application"
+#~ " instance, regardless where it's currently"
+#~ " running"
+
+#~ msgid ""
+#~ "You can see only a subset of "
+#~ "the lines or follow the log to "
+#~ "see what's happening in real time."
+#~ msgstr ""
+#~ "You can see only a subset of "
+#~ "the lines or follow the log to "
+#~ "see what's happening in real time."
+
+#~ msgid ""
+#~ "Sometimes is useful to compare the "
+#~ "logs of two applications side-by-"
+#~ "side. You can do it by following"
+#~ " these steps:"
+#~ msgstr ""
+#~ "Sometimes is useful to compare the "
+#~ "logs of two applications side-by-"
+#~ "side. You can do it by following"
+#~ " these steps:"
+
+#~ msgid "setup the filter for a refined search"
+#~ msgstr "setup the filter for a refined search"
+
+#~ msgid "setup the new filter"
+#~ msgstr "setup the new filter"
+
+#~ msgid "Logs are now shown side-by-side to easily correlate events."
+#~ msgstr "Logs are now shown side-by-side to easily correlate events."
+
+#~ msgid "Command line"
+#~ msgstr "Command line"
+
+#~ msgid ""
+#~ "If you're familiar with the command "
+#~ "line, recent logs are visible using "
+#~ "the ``journalctl`` command and services "
+#~ "can be inspected using the ``systemctl``"
+#~ " command. As root use ``journalctl`` "
+#~ "to see messages from agents, rootful "
+#~ "and rootless modules."
+#~ msgstr ""
+#~ "If you're familiar with the command "
+#~ "line, recent logs are visible using "
+#~ "the ``journalctl`` command and services "
+#~ "can be inspected using the ``systemctl``"
+#~ " command. As root use ``journalctl`` "
+#~ "to see messages from agents, rootful "
+#~ "and rootless modules."
+
+#~ msgid ""
+#~ "You can also use the ``api-"
+#~ "server-logs`` to query directly the "
+#~ "Loki server. Example to inspect the "
+#~ "log of the `traefik1` module: ::"
+#~ msgstr ""
+#~ "You can also use the ``api-"
+#~ "server-logs`` to query directly the "
+#~ "Loki server. Example to inspect the "
+#~ "log of the `traefik1` module: ::"
+
+#~ msgid ""
+#~ "You can also enable the automatic "
+#~ "completion of the above command. First,"
+#~ " install the ``bash-completion`` package."
+#~ msgstr ""
+#~ "You can also enable the automatic "
+#~ "completion of the above command. First,"
+#~ " install the ``bash-completion`` package."
+
+#~ msgid "On RHEL-like distributions: ::"
+#~ msgstr "On RHEL-like distributions: ::"
+
+#~ msgid "On Debian distribution: ::"
+#~ msgstr "On Debian distribution: ::"
+
+#~ msgid "Then, generate the completion script: ::"
+#~ msgstr "Then, generate the completion script: ::"
+
+#~ msgid "Logout and login from the shell to enable the completion."
+#~ msgstr "Logout and login from the shell to enable the completion."
 
