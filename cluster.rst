@@ -96,6 +96,13 @@ In any case, after leader promotion it is necessary to perform these additional 
 
 See also the note in :ref:`audit-trail-section` about node promotion.
 
+.. note::
+
+  The promotion of a new leader entails a change in the System logs
+  configuration. Refer to :ref:`logs-persistence-section` for more
+  details.
+
+
 Reachable leader node
 ---------------------
 
