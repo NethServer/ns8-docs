@@ -65,6 +65,7 @@ NethServer 8 administrator manual
    imapsync
    nethsecurity_controller
    dnsmasq
+   netdata
 
 .. toctree::
    :maxdepth: 2
