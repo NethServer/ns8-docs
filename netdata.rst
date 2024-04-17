@@ -4,8 +4,10 @@
 Netdata
 =======
 
-This application installs and configures a Netdata Agent [#NDA]_ instance
+This application installs and configures a `Netdata Agent`__ instance
 on the chosen NethServer 8 cluster node.
+
+__ https://learn.netdata.cloud/docs/netdata-agent/
 
 A Netdata Agent collects and displays local system metrics in a web
 user interface. Although it can be part of broad deployments, the provided
@@ -31,7 +33,7 @@ changes. It can also be obtained from the cluster Settings page, under the
     inherently sensitive information, be sure to keep the random URL path
     secret.
 
-Metrics Storage
+Metrics storage
 ===============
 
 The Netdata Agent configuration is derived from the stock Netdata official
@@ -50,7 +52,3 @@ second resolution. The minute-level tier should be sufficient to cover one day
 of recordings, while the hour-level should cover a time range of weeks.
 Actual retention may vary depending on system activity or the specific metrics
 being collected.
-
-.. rubric:: Footnotes
-
-.. [#NDA] https://learn.netdata.cloud/docs/netdata-agent/
