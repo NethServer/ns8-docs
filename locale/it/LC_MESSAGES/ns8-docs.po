@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 17:21+0000\n"
+"POT-Creation-Date: 2024-04-17 14:20+0000\n"
 "PO-Revision-Date: 2024-03-18 18:15+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language: it\n"
@@ -1102,9 +1102,10 @@ msgstr ""
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dnsmasq.rst:20
 #: ../../dokuwiki.rst:10 ../../ejabberd.rst:23 ../../imapsync.rst:31
 #: ../../index.rst:34 ../../mail.rst:34 ../../mariadb.rst:11
-#: ../../mattermost.rst:13 ../../minio.rst:14 ../../nethvoice.rst:20
-#: ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21 ../../roundcube.rst:19
-#: ../../sogo.rst:39 ../../webserver.rst:14 ../../webtop.rst:12
+#: ../../mattermost.rst:13 ../../minio.rst:14 ../../netdata.rst:20
+#: ../../nethvoice.rst:20 ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21
+#: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webserver.rst:14
+#: ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -2857,11 +2858,11 @@ msgstr "Installazione"
 msgid "Applications"
 msgstr "Applicazioni"
 
-#: ../../index.rst:69
+#: ../../index.rst:70
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:79
+#: ../../index.rst:80
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -5615,6 +5616,132 @@ msgid ""
 msgstr ""
 "To start moving/cloning an application instance see the :ref"
 ":`software_center-section` page."
+
+#: ../../netdata.rst:5
+msgid "Netdata"
+msgstr ""
+
+#: ../../netdata.rst:7
+msgid ""
+"This application installs and configures a `Netdata Agent`__ instance on "
+"the chosen NethServer 8 cluster node."
+msgstr ""
+
+#: ../../netdata.rst:12
+msgid ""
+"A Netdata Agent collects and displays local system metrics in a web user "
+"interface. Although it can be part of broad deployments, the provided "
+"configuration is tailored for the local system only, aiming to assist in "
+"the analysis of basic resource usage of the node (CPU, RAM, disks, "
+"network...) and is not intended for monitoring specific applications or "
+"integration with Netdata Cloud."
+msgstr ""
+
+#: ../../netdata.rst:22
+msgid ""
+"After installation, the application does not require any special "
+"configuration. To access the Netdata web interface, navigate to the "
+"Status page and follow the ``Application URL`` link."
+msgstr ""
+
+#: ../../netdata.rst:26
+msgid ""
+"The random URL path component is generated at installation time and never"
+" changes. It can also be obtained from the cluster Settings page, under "
+"the \"HTTP routes\" section, by searching for ``netdata``."
+msgstr ""
+
+#: ../../netdata.rst:32
+msgid ""
+"The web interface has no authentication. While it does not contain any "
+"inherently sensitive information, be sure to keep the random URL path "
+"secret."
+msgstr ""
+
+#: ../../netdata.rst:37
+#, fuzzy
+msgid "Metrics storage"
+msgstr "Local storage"
+
+#: ../../netdata.rst:39
+msgid ""
+"The Netdata Agent configuration is derived from the stock Netdata "
+"official Docker image. It has three tiers of storage with different "
+"metrics resolution and retention policies: second, minute, hour."
+msgstr ""
+
+#: ../../netdata.rst:43
+msgid "Retention policy per storage tier"
+msgstr ""
+
+#: ../../netdata.rst:1
+#, fuzzy
+msgid "Tier"
+msgstr "Filter"
+
+#: ../../netdata.rst:1
+#, fuzzy
+msgid "Resolution"
+msgstr "Introduzione"
+
+#: ../../netdata.rst:1
+#, fuzzy
+msgid "Retention period"
+msgstr "Data retention policy"
+
+#: ../../netdata.rst:1
+#, fuzzy
+msgid "Disk retention"
+msgstr "Data retention policy"
+
+#: ../../netdata.rst:1
+msgid "Tier 0"
+msgstr ""
+
+#: ../../netdata.rst:1
+msgid "1 second"
+msgstr ""
+
+#: ../../netdata.rst:1
+msgid "3 hours"
+msgstr ""
+
+#: ../../netdata.rst:1
+msgid "268 MB"
+msgstr ""
+
+#: ../../netdata.rst:1
+msgid "Tier 1"
+msgstr ""
+
+#: ../../netdata.rst:1
+msgid "1 minute"
+msgstr ""
+
+#: ../../netdata.rst:1
+msgid "infinite"
+msgstr ""
+
+#: ../../netdata.rst:1
+msgid "Tier 2"
+msgstr ""
+
+#: ../../netdata.rst:1
+msgid "1 hour"
+msgstr ""
+
+#: ../../netdata.rst:1
+msgid "67 MB"
+msgstr ""
+
+#: ../../netdata.rst:50
+msgid ""
+"The stock configuration provides 3 hours of fine-grained metrics with one"
+" second resolution. The minute-level tier should be sufficient to cover "
+"one day of recordings, while the hour-level should cover a time range of "
+"weeks. Actual retention may vary depending on system activity or the "
+"specific metrics being collected."
+msgstr ""
 
 #: ../../nethsecurity_controller.rst:3
 msgid "NethSecurity Controller"
@@ -13670,7 +13797,7 @@ msgstr ""
 " condivise (Calendari e contatti) dovrebbero avere attivato la "
 "sincronizzazione (con permessi completi o in sola lettura):"
 
-#: ../../webtop.rst
+#: ../../webtop.rst:215
 msgid "Multiple synchronization"
 msgstr "Sincronizzazione multipla"
 
