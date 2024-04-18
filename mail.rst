@@ -266,9 +266,10 @@ of the ``Filter`` page.
   retries. It is disabled by default because it introduces delivery delays
   also for legitimate senders.
 
-For more advance settings, it is possible to access the web interface of
-Rspamd by clicking the :guilabel:`Open Rspamd` button on the top right
-corner of the ``Filter`` page.
+To access additional settings and review recent Rspamd activity, navigate
+to the web interface of Rspamd by selecting the :guilabel:`Open Rspamd`
+button located in the top-right corner of the Filter page. You'll need to
+provide your cluster-admin credentials for authentication.
 
 In some cases an email client, recipient, or sender must bypass the filter
 checks: the ``Bypass rules`` section allows to define a set of rules based
