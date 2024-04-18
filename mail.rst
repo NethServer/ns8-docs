@@ -315,6 +315,79 @@ message is returned to the sender after a configurable amount of time.
 Click the :guilabel:`Settings` button to modify it. See
 :ref:`queue-settings-section` for details.
 
+
+.. _relay-rules-section:
+
+Relay
+=====
+
+When a message is received from another mail server (MTA), or from a mail
+user agent (MUA), Postifx decides how to relay it towards its final
+destination. Typically the decision is based on the domain suffix of the
+recipient address.
+
+* If the domain is handled by Postfix (i.e. it is listed in
+  :ref:`email_domains`) the message is delivered locally.
+
+* Otherwise, if the domain is external, the message destination server
+  (also known as "next-hop" server) is found with a MX DNS query.
+
+The ``Relay`` page allows to configure a set of rules that overrides the
+external domain resolution based on DNS.
+
+Rules priority
+--------------
+
+Relay rules can be of three types:
+
+1. Sender rule.
+
+2. Recipient rule.
+
+3. Default rule. Only one default rule is allowed.
+
+The rules evaluation order is Sender, Recipient, Default: the first
+matching rule is applied. A match occurs based on the message sender or
+recipient, or if a default rule (that one matching any sender and
+recipient) is defined.
+
+Sender and Recipient matches can be an exact correspondence of the full
+email address, or match only the domain suffix. In the rules evaluation
+order, exact match is evaluated before the domain suffix match.
+
+Managing rules
+--------------
+
+Click on button :guilabel:`Add relay rule` to define a Sender or a
+Recipient rule. Specify the rule type and subject value (sender or
+recipient), then fill the remaining fields:
+
+- **Hostname**, the name or IP address of the server where the message is relayed if the rule match.
+
+- **Port**, the TCP port number used by the server.
+
+- **Authentication**. If the server requires SMTP authentication provide the necessary credentials here.
+
+- **TLS**. Enable this switch if the server expects TLS or STARTTLS
+  encryption. It is recommended to enable it to encrypt both credentials
+  and data during SMTP connections.
+
+The :guilabel:`Set default rule` defines a rule that matches if none of
+the remaining rules do, or if no rule is defined at all. This type of rule
+is used to configure a `smarthost`__, a mail server where mail messages
+for external domains is relayed.
+
+__ https://en.wikipedia.org/wiki/Smart_host
+
+Once created, a rule can be edited, disabled or deleted from the
+three-dots menu. When a rule is edited, the rule type and subject cannot
+be changed: delete it instead.
+
+See also :ref:`mail-relay-settings` for other configurations about the
+relay of messages towards other mail servers. In the ``Relay`` page, the
+:guilabel:`Settings` button leads to them.
+
+
 .. _mail_settings-section:
 
 Settings
@@ -413,6 +486,60 @@ RFC5321. Lower values might be set to warn the sender early if some error
 occurs. For example, if the remote mail server refuses a message because
 our IP address is in a public block list, the message sender will be
 notified after 5 days: it might be considered too late.
+
+.. _mail-relay-settings:
+
+Relay settings
+--------------
+
+This section controls the Mail application configuration for special
+scenarios, described in the following points.
+
+1. Some old mail clients, like scanners, which provide limited software
+   capabilities, might not support SMTP authentication or encryption: in
+   this case it is possible to authorize the relay of messages to external
+   domains by looking at their IP address instead of the usual credentials
+   check.
+
+   List the IP address of such devices in the ``Allow relay from these IP
+   addresses`` field. The address can be in IPv4 or IPv6 format. The IP
+   based policy can be spread to a whole network, specifying it in CIDR
+   format.
+
+   For example, a value for the field can be
+
+   ::
+
+      192.168.12.42
+      10.77.4.0/24
+
+   The IP address *192.168.12.42* (e.g. a document scanner) and the
+   clients in the network subnet *10.77.4.0/24* can send mail messages
+   without providing SMTP authentication.
+
+2. To avoid the unauthorized use of email addresses and the sender address
+   spoofing within the organization, enable the ``Enforce sender/login
+   match`` switch.
+
+   If the switch is enabled the sender address of a message must
+   correspond to the login name used by the mail client to connect with
+   the mail server. Search the login name in the :ref:`email_addresses`
+   page to see what are the addresses it can use.
+
+   For example, with that switch enabled, if user ``john`` has email
+   address ``john.doe@example.org`` he cannot write an email message with
+   a different sender address, like ``sarah.smith@example.org``.
+
+   If the switch is disabled, as per default Mail configuration, an
+   authenticated mail client is allowed to send messages using any sender
+   address, so back to our example ``john`` could write the message also
+   as ``sarah.smith@example.org``.
+
+   .. warning::
+
+    If you decide to enable the switch consider that public mailboxes and
+    LDAP group addresses are not evaluated for the login/address
+    correspondence.
 
 
 .. _email_clients:
