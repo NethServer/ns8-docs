@@ -2,8 +2,6 @@
 Disk usage
 ==========
 
-.. highlight:: bash
-
 NethServer 8 uses `podman <https://podman.io/>`_ to manage OCI containers.
 When running multiple containers the disk usage will grow quite fast and you could quickly run out of space.
 

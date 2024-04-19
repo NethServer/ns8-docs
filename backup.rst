@@ -4,8 +4,6 @@
 Backup and restore
 ==================
 
-.. highlight:: text
-
 The full cluster backup is composed by configuration and applications data.
 Access the ``Backup`` page to manage the backup and restore.
 
@@ -122,8 +120,6 @@ This ensures that the repository holds up-to-date backups of both your data and 
 .. note:: 
    In case you lose the configuration backup, you can still restore applications to another cluster only if you know the
    encryption password of the backup repository.
-
-.. highlight:: bash
 
 To inspect the content of the backup use the following command, where ``<pass>`` is the encryption password
 entered before the download: ::

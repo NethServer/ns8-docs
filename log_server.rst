@@ -54,8 +54,6 @@ to see that application activity.
 Command line interface
 ======================
 
-.. highlight:: text
-
 In addition to accessing logs via the System Logs web page, users can
 utilize the ``api-server-logs`` command for log searching. Below are
 examples illustrating its usage:

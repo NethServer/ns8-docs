@@ -4,8 +4,6 @@
 Subscription
 ============
 
-.. highlight:: bash
-
 .. note::
 
    Available only on Rocky Linux based systems

@@ -67,4 +67,5 @@ html_tile = "NS8 documentation"
 html_logo = "_static/logo.png"
 html_favicon = "_static/favicon.ico"
 
+highlight_language = "text"
 highlight_options = {'stripall': True}

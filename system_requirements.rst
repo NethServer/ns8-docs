@@ -78,8 +78,6 @@ the TLS certificate is valid for the given FQDN.
 Worker node requirements
 ========================
 
-.. highlight:: text
-
 Among network clients, a worker node has some special
 requirements to be installed and configured.
 

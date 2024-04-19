@@ -4,8 +4,6 @@
 MinIO
 =====
 
-.. highlight:: text
-
 `MinIO <https://min.io/>`_ offers high-performance, S3 compatible object storage.
 
 You can install multiple MinIO instances on the same node from the :ref:`software_center-section`.
