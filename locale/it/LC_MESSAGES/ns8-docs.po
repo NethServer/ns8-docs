@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-17 14:20+0000\n"
+"POT-Creation-Date: 2024-04-22 14:05+0000\n"
 "PO-Revision-Date: 2024-03-18 18:15+0000\n"
 "Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language: it\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Backup and restore"
 msgstr "Backup e ripristino"
 
-#: ../../backup.rst:9
+#: ../../backup.rst:7
 msgid ""
 "The full cluster backup is composed by configuration and applications "
 "data. Access the ``Backup`` page to manage the backup and restore."
@@ -32,11 +32,11 @@ msgstr ""
 "applicazioni. Accedere alla pagina ``Backup`` per gestire il backup e il "
 "ripristino."
 
-#: ../../backup.rst:13
+#: ../../backup.rst:11
 msgid "Backup repository"
 msgstr "Repository di backup"
 
-#: ../../backup.rst:15
+#: ../../backup.rst:13
 msgid ""
 "First, you will need to configure a backup repository where the data will"
 " be saved. A backup repository keeps all backup data encrypted using "
@@ -47,7 +47,7 @@ msgstr ""
 "backup crittografati utilizzando il motore `restic "
 "<https://restic.readthedocs.io> `_."
 
-#: ../../backup.rst:18
+#: ../../backup.rst:16
 msgid ""
 "Access the ``Backup`` page, click on :guilabel:`Add repository` button "
 "and choose a provider. Currently supported providers are:"
@@ -56,15 +56,15 @@ msgstr ""
 "repository` e scegli un provider. Attualmente i fornitori supportati "
 "sono:"
 
-#: ../../backup.rst:21
+#: ../../backup.rst:19
 msgid "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
 msgstr "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
 
-#: ../../backup.rst:22
+#: ../../backup.rst:20
 msgid "`Amazon S3 <https://aws.amazon.com/s3/>`_"
 msgstr "`Amazon S3 <https://aws.amazon.com/s3/>`_"
 
-#: ../../backup.rst:23
+#: ../../backup.rst:21
 msgid ""
 "`Azure blob storage <https://learn.microsoft.com/en-"
 "us/azure/storage/blobs/storage-blobs-introduction>`_"
@@ -72,23 +72,23 @@ msgstr ""
 "`Azure blob storage <https://learn.microsoft.com/en-"
 "us/azure/storage/blobs/storage-blobs-introduction>`_"
 
-#: ../../backup.rst:24
+#: ../../backup.rst:22
 msgid "Generic S3, like :ref:`MinIO <minio-section>`"
 msgstr "S3 generico come :ref:`MinIO <minio-section>`"
 
-#: ../../backup.rst:25
+#: ../../backup.rst:23
 msgid "Windows file share, through SMB2/3 protocols"
 msgstr "Condividi file di Windows, tramite protocolli SMB2/3"
 
-#: ../../backup.rst:26
+#: ../../backup.rst:24
 msgid ":ref:`Local storage <local-storage>`, attached to a node of the cluster"
 msgstr ":ref:`Local storage <local-storage>`, allegato ad un nodo del cluster"
 
-#: ../../backup.rst:28
+#: ../../backup.rst:26
 msgid "Fill in the required fields depending on the chosen provider."
 msgstr "Compila i campi richiesti a seconda del fornitore scelto."
 
-#: ../../backup.rst:30
+#: ../../backup.rst:28
 msgid ""
 "A new encryption key will be automatically created for new repositories. "
 "If you are accessing a repository which already contains a NS8 backup, "
@@ -100,11 +100,11 @@ msgstr ""
 " ricorda anche di inserire la ``Repository password`` sotto la sezione "
 "``Advanced``."
 
-#: ../../backup.rst:37
+#: ../../backup.rst:35
 msgid "Local storage"
 msgstr "Local storage"
 
-#: ../../backup.rst:39
+#: ../../backup.rst:37
 msgid ""
 "If you want to store backup data in a locally attached storage, like an "
 "external USB disk or similar, follow this procedure:"
@@ -112,29 +112,29 @@ msgstr ""
 "Se si desidera memorizzare i dati di backup in uno storage collegato "
 "localmente, come un disco USB esterno o simile, seguire questa procedura:"
 
-#: ../../backup.rst:42
+#: ../../backup.rst:40
 msgid "Format the disk with a supported filesystem, for example XFS: ::"
 msgstr "Formattare il disco con un filesystem supportato, ad esempio XFS: ::"
 
-#: ../../backup.rst:46
+#: ../../backup.rst:44
 msgid "Create a Podman volume named ``backup00`` for it: ::"
 msgstr "Creare un volume Podman chiamato ``backup00`` per esso: ::"
 
-#: ../../backup.rst:54
+#: ../../backup.rst:52
 msgid "Configure the ``rclone-webdav.service`` unit to use that volume: ::"
 msgstr "Configura il ``rclone-webdav.service`` unità per l'uso di tale volume: ::"
 
-#: ../../backup.rst:58
+#: ../../backup.rst:56
 msgid "Restart the service. The disk is mounted automatically: ::"
 msgstr "Riavviare il servizio. Il disco viene montato automaticamente: ::"
 
-#: ../../backup.rst:64
+#: ../../backup.rst:62
 msgid "The disk is unmounted when the ``rclone-webdav`` service is stopped"
 msgstr ""
 "Il disco viene smontato quando viene interrotto il servizio ``rclone-"
 "webdav``"
 
-#: ../../backup.rst:66
+#: ../../backup.rst:64
 msgid ""
 "Remove the default volume used by the service, because it is no longer "
 "used. Existing content will be lost: ::"
@@ -142,11 +142,11 @@ msgstr ""
 "Rimuovere il volume predefinito utilizzato dal servizio, perché non è più"
 " utilizzato. I contenuti esistenti saranno persi: ::"
 
-#: ../../backup.rst:72
+#: ../../backup.rst:70
 msgid "Application backup"
 msgstr "Backup delle applicazioni"
 
-#: ../../backup.rst:74
+#: ../../backup.rst:72
 msgid ""
 "Once at least one repository has been configured, you can schedule the "
 "backup of existing applications:"
@@ -154,31 +154,31 @@ msgstr ""
 "Una volta configurato almeno un repository, è possibile pianificare il "
 "backup delle applicazioni esistenti:"
 
-#: ../../backup.rst:76
+#: ../../backup.rst:74
 msgid "click on :guilabel:`Schedule backup` button"
 msgstr "clicca sul pulsante :guilabel:`Schedule backup`"
 
-#: ../../backup.rst:77
+#: ../../backup.rst:75
 msgid "select which application instances should be added to the backup"
 msgstr "selezionare quali istanze di applicazione devono essere aggiunte al backup"
 
-#: ../../backup.rst:78
+#: ../../backup.rst:76
 msgid "choose one backup repository"
 msgstr "scegliere un repository di backup"
 
-#: ../../backup.rst:79
+#: ../../backup.rst:77
 msgid "setup day and time of the backup and the retention policy"
 msgstr "impostare giorno e ora del backup e la politica di conservazione"
 
-#: ../../backup.rst:80
+#: ../../backup.rst:78
 msgid "enter a name of the backup"
 msgstr "inserire un nome del backup"
 
-#: ../../backup.rst:81
+#: ../../backup.rst:79
 msgid "save the configuration by clicking the :guilabel:`Schedule backup` button"
 msgstr "salvare la configurazione facendo clic sul pulsante: `Schedule backup`"
 
-#: ../../backup.rst:83
+#: ../../backup.rst:81
 msgid ""
 "Whenever you want to manually execute the backup, click the ``Run backup "
 "now`` item from the three-dots menu of the scheduled backup."
@@ -187,7 +187,7 @@ msgstr ""
 "sulla voce ``Avvia backup ora `` dal menu a tre punti del backup "
 "programmato."
 
-#: ../../backup.rst:85
+#: ../../backup.rst:83
 msgid ""
 "To add more instances to an existing backup, click the ``Edit`` item from"
 " the three-dots menu of the scheduled backup."
@@ -195,7 +195,7 @@ msgstr ""
 "Per aggiungere più istanze a un backup esistente, fare clic sulla voce "
 "``Edit`` dal menu a tre punti del backup pianificato."
 
-#: ../../backup.rst:87
+#: ../../backup.rst:85
 msgid ""
 "After the first backup run, the backup status is reported under ``Backup "
 "> Schedules > See details``."
@@ -203,11 +203,11 @@ msgstr ""
 "Dopo la prima esecuzione di un backup, lo stato del backup viene mostrato"
 " sotto ``Backup > Piani > Vedi i dettagli ``."
 
-#: ../../backup.rst:92
+#: ../../backup.rst:90
 msgid "Application restore"
 msgstr "Ripristino dell'applicazione"
 
-#: ../../backup.rst:94
+#: ../../backup.rst:92
 msgid ""
 "You can restore an application only if there is at least one repository "
 "configured:"
@@ -215,11 +215,11 @@ msgstr ""
 "È possibile ripristinare un'applicazione solo se c'è almeno un repository"
 " configurato:"
 
-#: ../../backup.rst:96
+#: ../../backup.rst:94
 msgid "click on the :guilabel:`Restore an app` button."
 msgstr "cliccare sul bottone :guilabel:`Restore an app`."
 
-#: ../../backup.rst:97
+#: ../../backup.rst:95
 msgid ""
 "a dialog box will list all applications inside the existing backup, "
 "select the application you want to restore"
@@ -227,7 +227,7 @@ msgstr ""
 "una finestra di dialogo elenca tutte le applicazioni all'interno del "
 "backup esistente, selezionare l'applicazione che si desidera ripristinare"
 
-#: ../../backup.rst:98
+#: ../../backup.rst:96
 msgid ""
 "as default the restore procedure will create a new instance, if you want "
 "to replace the existing one select the ``Replace existing app`` option"
@@ -236,19 +236,19 @@ msgstr ""
 "si desidera sostituire quella esistente selezionare l'opzione "
 "``Sostituire l'app esistente``"
 
-#: ../../backup.rst:99
+#: ../../backup.rst:97
 msgid "select the target node"
 msgstr "selezionare il nodo di destinazione"
 
-#: ../../backup.rst:100
+#: ../../backup.rst:98
 msgid "click on the :guilabel:`Restore` button"
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../backup.rst:105
+#: ../../backup.rst:103
 msgid "Cluster backup"
 msgstr "Cluster backup"
 
-#: ../../backup.rst:107
+#: ../../backup.rst:105
 msgid ""
 "The cluster configuration backup contains all required data to execute a "
 ":ref:`disaster_recovery-section`. It is a compressed JSON file encrypted "
@@ -258,7 +258,7 @@ msgstr ""
 "necessari per eseguire un :ref: `disaster_recovery-section`. È un file "
 "JSON compresso crittografato con GPG."
 
-#: ../../backup.rst:110
+#: ../../backup.rst:108
 msgid ""
 "The first time ``Backup`` page is accessed an encryption password must be"
 " set and stored in a safe place. A new encryption password is needed also"
@@ -269,7 +269,7 @@ msgstr ""
 "password di crittografia è necessaria anche dopo l'elezione di un nuovo "
 "nodo leader (vedere :ref: `node-promotion-section`)."
 
-#: ../../backup.rst:114
+#: ../../backup.rst:112
 msgid ""
 "To download the cluster configuration backup, click on "
 ":guilabel:`Download cluster backup` button under the ``Cluster "
@@ -279,7 +279,7 @@ msgstr ""
 "tasto :guilabel:`Download cluster backup` sotto la sezione "
 "``Configurazione cluster`` della pagina ``Backup``."
 
-#: ../../backup.rst:117
+#: ../../backup.rst:115
 msgid ""
 "Please, download the cluster configuration backup and keep it on a safe "
 "place."
@@ -287,7 +287,7 @@ msgstr ""
 "Si prega di scaricare il backup di configurazione cluster e tenerlo in un"
 " luogo sicuro."
 
-#: ../../backup.rst:119
+#: ../../backup.rst:117
 msgid ""
 "In addition, the cluster configuration backup is automatically copied to "
 "the designated repository each time a scheduled operation occurs. This "
@@ -300,7 +300,7 @@ msgstr ""
 "backup aggiornati sia dei dati che della configurazione specifica del "
 "cluster, incluse tutte le sue configurazioni."
 
-#: ../../backup.rst:123
+#: ../../backup.rst:121
 msgid ""
 "In case you lose the configuration backup, you can still restore "
 "applications to another cluster only if you know the encryption password "
@@ -310,7 +310,7 @@ msgstr ""
 "ripristinare le applicazioni in un altro cluster solo se si conosce la "
 "password di crittografia del repository di backup."
 
-#: ../../backup.rst:128
+#: ../../backup.rst:124
 msgid ""
 "To inspect the content of the backup use the following command, where "
 "``<pass>`` is the encryption password entered before the download: ::"
@@ -319,11 +319,11 @@ msgstr ""
 "dove ``<pass>`` è la password di crittografia inserita prima del "
 "download: ::"
 
-#: ../../backup.rst:136
+#: ../../backup.rst:132
 msgid "Disaster recovery"
 msgstr "Disaster recovery"
 
-#: ../../backup.rst:138
+#: ../../backup.rst:134
 msgid ""
 "You can restore a previously configured cluster using the disaster "
 "recovery procedure. To follow this procedure you will need a :ref:`a "
@@ -334,7 +334,7 @@ msgstr ""
 "necessario un:ref: `un backup di configurazione del cluster "
 "<cluster_backup-sezione>`:"
 
-#: ../../backup.rst:141
+#: ../../backup.rst:137
 msgid ""
 ":ref:`install <install-section>` a new cluster and login using default "
 "credentials"
@@ -342,15 +342,15 @@ msgstr ""
 ":ref:`install <install-section>` un nuovo cluster e login utilizzando le "
 "credenziali di default"
 
-#: ../../backup.rst:142
+#: ../../backup.rst:138
 msgid "change the default administrator password"
 msgstr "modificare la password di amministratore predefinito"
 
-#: ../../backup.rst:143
+#: ../../backup.rst:139
 msgid "click on :guilabel:`Restore cluster`"
 msgstr "clicca su :guilabel:`Restore cluster`"
 
-#: ../../backup.rst:144
+#: ../../backup.rst:140
 msgid ""
 "you can now choose whether to restore a cluster configuration hosted on a"
 " remote HTTP server or upload the backup from your browser"
@@ -358,7 +358,7 @@ msgstr ""
 "è ora possibile scegliere se ripristinare una configurazione di cluster "
 "ospitata su un server HTTP remoto o caricare il backup dal browser"
 
-#: ../../backup.rst:146
+#: ../../backup.rst:142
 msgid ""
 "if on step 2 you entered the same password of the old cluster, the system"
 " will automatically decrypt the configuration backup; otherwise enter the"
@@ -369,7 +369,7 @@ msgstr ""
 "altrimenti inserire il segreto di crittografia all'interno del campo "
 "``Backup password`"
 
-#: ../../backup.rst:148
+#: ../../backup.rst:144
 msgid "select the applications to restore"
 msgstr "selezionare le applicazioni da ripristinare"
 
@@ -639,7 +639,7 @@ msgstr ""
 "Dopo il login sul nodo worker, fare clic sul pulsante :guilabel:`Join "
 "cluster`."
 
-#: ../../cluster.rst:31 ../../install.rst:123
+#: ../../cluster.rst:31 ../../install.rst:122
 msgid ""
 "Ensure the node Fully Qualified Domain Name (FQDN) is correct, and "
 "respects the :ref:`DNS requirements <dns-reqs>`."
@@ -1102,7 +1102,7 @@ msgstr ""
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dnsmasq.rst:20
 #: ../../dokuwiki.rst:10 ../../ejabberd.rst:23 ../../imapsync.rst:31
 #: ../../index.rst:34 ../../mail.rst:34 ../../mariadb.rst:11
-#: ../../mattermost.rst:13 ../../minio.rst:14 ../../netdata.rst:20
+#: ../../mattermost.rst:13 ../../minio.rst:12 ../../netdata.rst:20
 #: ../../nethvoice.rst:20 ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21
 #: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webserver.rst:14
 #: ../../webtop.rst:12
@@ -1132,7 +1132,7 @@ msgstr ""
 "anche di avere un record DNS pubblico corrispondente."
 
 #: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../ejabberd.rst:32
-#: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:21
+#: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:19
 #: ../../nethvoice_proxy.rst:27 ../../roundcube.rst:30 ../../sogo.rst:46
 #: ../../webserver.rst:16 ../../webtop.rst:19
 msgid "How to configure:"
@@ -1162,7 +1162,7 @@ msgstr ""
 "abilitare ``Let's Encrypt`` e le opzioni ``HTTP a HTTPS`` di conseguenza "
 "alle vostre esigenze"
 
-#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:28
+#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:26
 #: ../../nextcloud.rst:34 ../../roundcube.rst:35 ../../sogo.rst:52
 #: ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
@@ -1281,7 +1281,7 @@ msgstr ""
 msgid "Disk usage"
 msgstr "Utilizzo del disco"
 
-#: ../../disk_usage.rst:7
+#: ../../disk_usage.rst:5
 msgid ""
 "NethServer 8 uses `podman <https://podman.io/>`_ to manage OCI "
 "containers. When running multiple containers the disk usage will grow "
@@ -1292,7 +1292,7 @@ msgstr ""
 "crescerà abbastanza velocemente e si potrebbe rapidamente esaurire lo "
 "spazio."
 
-#: ../../disk_usage.rst:10
+#: ../../disk_usage.rst:8
 msgid ""
 "Rootless containers put their data inside the user home directory "
 "``/home``. So if you plan to run many services on the same host, consider"
@@ -1303,7 +1303,7 @@ msgstr ""
 "sullo stesso host, prendere in considerazione montare un disco o una "
 "partizione supplementare sul percorso ``/home``."
 
-#: ../../disk_usage.rst:13
+#: ../../disk_usage.rst:11
 msgid ""
 "Rootful containers usually save images and volumes inside the "
 "``/var/lib/containers/storage`` directory."
@@ -1311,7 +1311,7 @@ msgstr ""
 "I container rootful solitamente salvano immagini e volumi all'interno "
 "della directory ``/var/lib/containers/storage``."
 
-#: ../../disk_usage.rst:15
+#: ../../disk_usage.rst:13
 msgid ""
 "To inspect podman storage configuration of your distribution, you can use"
 " the following command: ::"
@@ -1319,7 +1319,7 @@ msgstr ""
 "Per ispezionare la configurazione di storage di podman della "
 "distribuzione, è possibile utilizzare il seguente comando: ::"
 
-#: ../../disk_usage.rst:19
+#: ../../disk_usage.rst:17
 msgid ""
 "There is another growing directory ``/var/lib/nethserver``: it contains "
 "the user interface and actions of rootful modules."
@@ -1327,11 +1327,11 @@ msgstr ""
 "C'è un'altra directory che tende a crescere ``/var/lib/nethserver``: "
 "contiene l'interfaccia utente e le azioni dei moduli rootful."
 
-#: ../../disk_usage.rst:22
+#: ../../disk_usage.rst:20
 msgid "Add more space"
 msgstr "Aggiungere più spazio"
 
-#: ../../disk_usage.rst:24
+#: ../../disk_usage.rst:22
 msgid ""
 "If you’re running out of disk space, consider expanding the ``/home`` "
 "filesystem."
@@ -1339,7 +1339,7 @@ msgstr ""
 "Se stai esaurendo lo spazio su disco, considera di espandere il "
 "filesystem ``/home``."
 
-#: ../../disk_usage.rst:26
+#: ../../disk_usage.rst:24
 msgid ""
 "On a physical machine, the best option is to setup LVM during the "
 "distribution installation. On the other hand, on a virtual machine you "
@@ -1350,7 +1350,7 @@ msgstr ""
 "macchina virtuale si potrebbe facilmente espandere l'intero filesystem "
 "root."
 
-#: ../../disk_usage.rst:29
+#: ../../disk_usage.rst:27
 msgid ""
 "If you can't do any of the above, consider adding a new disk and "
 "migrating existing data using the script below. The script will:"
@@ -1359,27 +1359,27 @@ msgstr ""
 "considerazione l'aggiunta di un nuovo disco e la migrazione dei dati "
 "esistenti utilizzando lo script qui sotto. Lo script:"
 
-#: ../../disk_usage.rst:32
+#: ../../disk_usage.rst:30
 msgid "stop all rootless containers"
 msgstr "arresta tutti i container rootless"
 
-#: ../../disk_usage.rst:33
+#: ../../disk_usage.rst:31
 msgid "copy all rootless containers inside the new disk"
 msgstr "copia tutti i container rootless all'interno del nuovo disco"
 
-#: ../../disk_usage.rst:34
+#: ../../disk_usage.rst:32
 msgid "reclaim space from the root filesystem"
 msgstr "recupera spazio dal filesystem root"
 
-#: ../../disk_usage.rst:35
+#: ../../disk_usage.rst:33
 msgid "mount the new disk under ``/home``"
 msgstr "monta il nuovo disco sotto ``/home``"
 
-#: ../../disk_usage.rst:36
+#: ../../disk_usage.rst:34
 msgid "restart all rootless containers"
 msgstr "riavvia tutti i container rootless"
 
-#: ../../disk_usage.rst:38
+#: ../../disk_usage.rst:36
 msgid ""
 "Before running the script, make sure to attach the disk to the machine, "
 "format it and mount to a custom location like ``/mnt/temp_disk``. Then "
@@ -1390,7 +1390,7 @@ msgstr ""
 "``/mnt/temp_disk``. Quindi lanciare lo script inserendo il percorso di "
 "mount come parametro, così: ::"
 
-#: ../../disk_usage.rst:44
+#: ../../disk_usage.rst:42
 msgid "The ``migrate`` script:."
 msgstr "Lo script ``migrate```:."
 
@@ -1442,8 +1442,8 @@ msgid ""
 "switches to enable/disable DNS and DHCP server."
 msgstr ""
 
-#: ../../dnsmasq.rst:30 ../../nethvoice.rst:625 ../../nethvoice.rst:630
-#: ../../nethvoice.rst:635 ../../nethvoice.rst:640
+#: ../../dnsmasq.rst:30 ../../nethvoice.rst:622 ../../nethvoice.rst:627
+#: ../../nethvoice.rst:632 ../../nethvoice.rst:637
 msgid "DHCP"
 msgstr ""
 
@@ -2601,7 +2601,7 @@ msgstr ""
 msgid "fill the form to join a new DC to the domain."
 msgstr "fill the form to join a new DC to the domain."
 
-#: ../../file_server.rst:104 ../../log_server.rst:149
+#: ../../file_server.rst:104 ../../log_server.rst:147
 #: ../../software_center.rst:82
 #, fuzzy
 msgid "Footnotes"
@@ -2854,7 +2854,7 @@ msgstr "Informazioni"
 msgid "Installation"
 msgstr "Installazione"
 
-#: ../../index.rst:49 ../../modules.rst:7 ../../nethvoice.rst:1043
+#: ../../index.rst:49 ../../modules.rst:7 ../../nethvoice.rst:1040
 msgid "Applications"
 msgstr "Applicazioni"
 
@@ -2882,12 +2882,12 @@ msgstr "`Community <http://community.nethserver.org>`_ di supporto"
 msgid ":ref:`Subscription plans <subscription-section>`"
 msgstr ":ref:`Piani di abbonamento <subscription-section>`"
 
-#: ../../install.rst:10
+#: ../../install.rst:9
 #, fuzzy
 msgid "Installation methods"
 msgstr "Installation methods"
 
-#: ../../install.rst:12
+#: ../../install.rst:11
 #, fuzzy
 msgid ""
 "You can install NethServer 8 :ref:`on a supported distribution "
@@ -2900,12 +2900,12 @@ msgstr ""
 "<install_image-section>`. Both methods require a working Internet "
 "connection."
 
-#: ../../install.rst:18
+#: ../../install.rst:17
 #, fuzzy
 msgid "Install on a supported distribution"
 msgstr "Install on a supported distribution"
 
-#: ../../install.rst:20
+#: ../../install.rst:19
 #, fuzzy
 msgid ""
 "Pick your preferred Linux distribution between :ref:`supported ones "
@@ -2914,22 +2914,22 @@ msgstr ""
 "Pick your preferred Linux distribution between :ref:`supported ones "
 "<supported-distros-section>`."
 
-#: ../../install.rst:23
+#: ../../install.rst:22
 #, fuzzy
 msgid "Start the installation procedure as ``root``: ::"
 msgstr "Start the installation procedure as ``root``: ::"
 
-#: ../../install.rst:27
+#: ../../install.rst:26
 #, fuzzy
 msgid "If the ``curl`` command is not available try to install it with: ::"
 msgstr "If the ``curl`` command is not available try to install it with: ::"
 
-#: ../../install.rst:34
+#: ../../install.rst:33
 #, fuzzy
 msgid "Pre-built image"
 msgstr "Pre-built image"
 
-#: ../../install.rst:39
+#: ../../install.rst:38
 #, fuzzy
 msgid ""
 "NethServer 8 provides an image built upon the stable foundation Rocky "
@@ -2938,7 +2938,7 @@ msgstr ""
 "NethServer 8 provides an image built upon the stable foundation Rocky "
 "Linux 9, making it suitable for a wide range of server applications."
 
-#: ../../install.rst:42
+#: ../../install.rst:41
 #, fuzzy
 msgid ""
 "The pre-built image uses Cloud-init for network initialization. The "
@@ -2951,7 +2951,7 @@ msgstr ""
 "Refer to your virtualization platform documentation for more information "
 "about Cloud-init support."
 
-#: ../../install.rst:47
+#: ../../install.rst:46
 #, fuzzy
 msgid "NS8 image download links"
 msgstr "NS8 image download links"
@@ -2971,7 +2971,7 @@ msgstr "Format"
 msgid "Size"
 msgstr "Size"
 
-#: ../../install.rst:1 ../../nethvoice.rst:829
+#: ../../install.rst:1 ../../nethvoice.rst:826
 #, fuzzy
 msgid "URL"
 msgstr "URL"
@@ -3024,7 +3024,7 @@ msgstr ""
 "https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
 "linux-9-ns8-stable.vmdk"
 
-#: ../../install.rst:53
+#: ../../install.rst:52
 #, fuzzy
 msgid ""
 "Choose the ``qcow2`` image format if you are using a KVM-based "
@@ -3037,7 +3037,7 @@ msgstr ""
 "the ``vmdk`` format if you are using something like `VMware "
 "<https://www.vmware.com>`_."
 
-#: ../../install.rst:57
+#: ../../install.rst:56
 #, fuzzy
 msgid ""
 "When the image download has completed verify the file integrity with the "
@@ -3050,30 +3050,30 @@ msgstr ""
 "<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_.  Download the "
 "checksum then run for example the following command: ::"
 
-#: ../../install.rst:64
+#: ../../install.rst:63
 #, fuzzy
 msgid "Virtualization platform-specific notes:"
 msgstr "Virtualization platform-specific notes:"
 
+#: ../../install.rst:65
+#, fuzzy
+msgid ""
+"For VMWare, configure the virtual machine to use the IDE driver for the "
+"disk."
+msgstr ""
+"For VMWare, configure the virtual machine to use the IDE driver for the "
+"disk."
+
 #: ../../install.rst:66
 #, fuzzy
 msgid ""
-"For VMWare, configure the virtual machine to use the IDE driver for the "
-"disk."
-msgstr ""
-"For VMWare, configure the virtual machine to use the IDE driver for the "
-"disk."
-
-#: ../../install.rst:67
-#, fuzzy
-msgid ""
 "For Proxmox, change the default CPU model to anything other than "
 "``kvm64``."
 msgstr ""
 "For Proxmox, change the default CPU model to anything other than "
 "``kvm64``."
 
-#: ../../install.rst:69
+#: ../../install.rst:68
 #, fuzzy
 msgid ""
 "Finally, start the NS8 image within your virtualization platform, or "
@@ -3082,22 +3082,22 @@ msgstr ""
 "Finally, start the NS8 image within your virtualization platform, or "
 "upload it to a cloud provider to create a public virtual machine."
 
-#: ../../install.rst:72
+#: ../../install.rst:71
 #, fuzzy
 msgid "Default OS administrative credentials are"
 msgstr "Default OS administrative credentials are"
 
-#: ../../install.rst:74
+#: ../../install.rst:73
 #, fuzzy
 msgid "Username: ``root``"
 msgstr "Username: ``root``"
 
-#: ../../install.rst:75 ../../install.rst:115
+#: ../../install.rst:74 ../../install.rst:114
 #, fuzzy
 msgid "Password: ``Nethesis,1234``"
 msgstr "Password: ``Nethesis,1234``"
 
-#: ../../install.rst:77
+#: ../../install.rst:76
 #, fuzzy
 msgid ""
 "Access the system console and log in using the default credentials. Upon "
@@ -3106,7 +3106,7 @@ msgstr ""
 "Access the system console and log in using the default credentials. Upon "
 "the first login, you will be prompted to change the password."
 
-#: ../../install.rst:80
+#: ../../install.rst:79
 #, fuzzy
 msgid ""
 "To obtain administrative SSH access to the system, create a personal user"
@@ -3117,7 +3117,7 @@ msgstr ""
 " account in the ``wheel`` group and set a password. For instance, execute"
 " the following commands and enter the desired password: ::"
 
-#: ../../install.rst:87
+#: ../../install.rst:86
 #, fuzzy
 msgid ""
 "After logging in with the personal user account, gain root access by "
@@ -3126,7 +3126,7 @@ msgstr ""
 "After logging in with the personal user account, gain root access by "
 "executing: ::"
 
-#: ../../install.rst:94
+#: ../../install.rst:93
 #, fuzzy
 msgid ""
 "If DHCP was used to obtain the initial network configuration, change the "
@@ -3137,12 +3137,12 @@ msgstr ""
 "Rocky Linux network settings and configure a static IP address. For more "
 "information refer to :ref:`os-network-section`."
 
-#: ../../install.rst:101
+#: ../../install.rst:100
 #, fuzzy
 msgid "Post-installation steps"
 msgstr "Post-installation steps"
 
-#: ../../install.rst:103
+#: ../../install.rst:102
 #, fuzzy
 msgid ""
 "When the installation script ends or the pre-built image has started, "
@@ -3151,22 +3151,22 @@ msgstr ""
 "When the installation script ends or the pre-built image has started, "
 "access the Web user interface at ::"
 
-#: ../../install.rst:110
+#: ../../install.rst:109
 #, fuzzy
 msgid "If the node is unreachable see :ref:`os-network-section`"
 msgstr "If the node is unreachable see :ref:`os-network-section`"
 
-#: ../../install.rst:112
+#: ../../install.rst:111
 #, fuzzy
 msgid "The default credentials to login on cluster-admin are"
 msgstr "The default credentials to login on cluster-admin are"
 
-#: ../../install.rst:114
+#: ../../install.rst:113
 #, fuzzy
 msgid "Username: ``admin``"
 msgstr "Username: ``admin``"
 
-#: ../../install.rst:117
+#: ../../install.rst:116
 #, fuzzy
 msgid ""
 "Choose :guilabel:`Create cluster` and follow the procedure to create a "
@@ -3175,7 +3175,7 @@ msgstr ""
 "Choose :guilabel:`Create cluster` and follow the procedure to create a "
 "new single-node cluster."
 
-#: ../../install.rst:120
+#: ../../install.rst:119
 #, fuzzy
 msgid ""
 "For security reasons, the admin password must be changed immediately if "
@@ -3184,7 +3184,7 @@ msgstr ""
 "For security reasons, the admin password must be changed immediately if "
 "it is still at the default value."
 
-#: ../../install.rst:126
+#: ../../install.rst:125
 #, fuzzy
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
@@ -3201,7 +3201,7 @@ msgstr ""
 "not conflict with your existing network environment, because it cannot be"
 " changed once it has been set."
 
-#: ../../install.rst:133
+#: ../../install.rst:132
 #, fuzzy
 msgid ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
@@ -3210,7 +3210,7 @@ msgstr ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
 "ready."
 
-#: ../../install.rst:135
+#: ../../install.rst:134
 #, fuzzy
 msgid ""
 "A new cluster has assigned the default name ``NethServer 8``. If you wish"
@@ -3219,22 +3219,22 @@ msgstr ""
 "A new cluster has assigned the default name ``NethServer 8``. If you wish"
 " to change it:"
 
-#: ../../install.rst:138
+#: ../../install.rst:137
 #, fuzzy
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr "go to the ``Settings`` page and click on the ``Cluster`` card"
 
-#: ../../install.rst:139
+#: ../../install.rst:138
 #, fuzzy
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr "enter a name inside the ``Cluster label`` field"
 
-#: ../../install.rst:140
+#: ../../install.rst:139
 #, fuzzy
 msgid "click the :guilabel:`Save settings` button"
 msgstr "click the :guilabel:`Save settings` button"
 
-#: ../../install.rst:142
+#: ../../install.rst:141
 #, fuzzy
 msgid ""
 "Now sure where to go from here? You can install a :ref:`LDAP <openldap-"
@@ -3249,17 +3249,17 @@ msgstr ""
 " a look at :ref:`system logs <loki-section>`, add :ref:`new nodes "
 "<cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`."
 
-#: ../../install.rst:148
+#: ../../install.rst:147
 #, fuzzy
 msgid "Uninstall"
 msgstr "Uninstall"
 
-#: ../../install.rst:150
+#: ../../install.rst:149
 #, fuzzy
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr "You can uninstall NS8 from your Linux distribution."
 
-#: ../../install.rst:152
+#: ../../install.rst:151
 #, fuzzy
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
@@ -3270,7 +3270,7 @@ msgstr ""
 "additional modules. Handle it with care because it erases everything "
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 
-#: ../../install.rst:155
+#: ../../install.rst:154
 #, fuzzy
 msgid "To uninstall NS8, execute: ::"
 msgstr "To uninstall NS8, execute: ::"
@@ -3449,43 +3449,43 @@ msgstr ""
 msgid "Command line interface"
 msgstr "Command line"
 
-#: ../../log_server.rst:59
+#: ../../log_server.rst:57
 msgid ""
 "In addition to accessing logs via the System Logs web page, users can "
 "utilize the ``api-server-logs`` command for log searching. Below are "
 "examples illustrating its usage:"
 msgstr ""
 
-#: ../../log_server.rst:63
+#: ../../log_server.rst:61
 msgid "**Basic invocation:** Enters \"follow mode\" for the entire cluster:"
 msgstr ""
 
-#: ../../log_server.rst:70
+#: ../../log_server.rst:68
 msgid ""
 "**Follow mode for application instance:** Enables follow mode for the "
 "specified application (module) instance, such as ``traefik1``. The "
 "``--entity`` flag selects the context:"
 msgstr ""
 
-#: ../../log_server.rst:79
+#: ../../log_server.rst:77
 msgid ""
 "**Dump mode for specific instance in a time period:** Initiates dump mode"
 " for the same instance within a specific time period. Dates must adhere "
 "to the ISO8601 format:"
 msgstr ""
 
-#: ../../log_server.rst:88
+#: ../../log_server.rst:86
 msgid ""
 "**Changing output timezone:** Modifies the output timezone while "
 "maintaining the same query. Refer to ``timedatectl list-timezones`` for a"
 " full list of options:"
 msgstr ""
 
-#: ../../log_server.rst:100
+#: ../../log_server.rst:98
 msgid "Logs persistence"
 msgstr ""
 
-#: ../../log_server.rst:102
+#: ../../log_server.rst:100
 msgid ""
 "Upon cluster creation, a Loki [#loki]_ core module instance is installed "
 "on the leader node and designated as the active instance. The leader "
@@ -3493,12 +3493,12 @@ msgid ""
 "this active Loki instance [#promtail]_."
 msgstr ""
 
-#: ../../log_server.rst:109
+#: ../../log_server.rst:107
 #, fuzzy
 msgid "Adjusting Settings"
 msgstr "Advanced settings"
 
-#: ../../log_server.rst:111
+#: ../../log_server.rst:109
 msgid ""
 "Navigate to the ``Settings`` page and click on the System logs card to "
 "modify log retention (select ``Edit retention``) or assign a user-"
@@ -3506,11 +3506,11 @@ msgid ""
 "then ``Edit label``)."
 msgstr ""
 
-#: ../../log_server.rst:118
+#: ../../log_server.rst:116
 msgid "Understanding log retention"
 msgstr ""
 
-#: ../../log_server.rst:120
+#: ../../log_server.rst:118
 msgid ""
 "Log retention refers to the maximum age of stored log records. Records "
 "older than the retention period are automatically purged. By default, "
@@ -3520,47 +3520,47 @@ msgid ""
 "days or longer."
 msgstr ""
 
-#: ../../log_server.rst:130
+#: ../../log_server.rst:128
 msgid "Inactive Loki instances"
 msgstr ""
 
-#: ../../log_server.rst:132
+#: ../../log_server.rst:130
 msgid ""
 "When a worker node is promoted to leader, a new Loki instance is "
 "installed on it and becomes the active instance, while the old instance "
 "is marked as *inactive*."
 msgstr ""
 
-#: ../../log_server.rst:136
+#: ../../log_server.rst:134
 msgid "The new active instance inherits the retention setting from the old one."
 msgstr ""
 
-#: ../../log_server.rst:138
+#: ../../log_server.rst:136
 msgid "An inactive instance retains logs based on its last retention setting."
 msgstr ""
 
-#: ../../log_server.rst:140
+#: ../../log_server.rst:138
 msgid "Log searches can still be performed within an inactive instance."
 msgstr ""
 
-#: ../../log_server.rst:142
+#: ../../log_server.rst:140
 msgid "Restoring a Loki instance from backup renders it inactive."
 msgstr ""
 
-#: ../../log_server.rst:144
+#: ../../log_server.rst:142
 msgid ""
 "To remove an inactive instance, select the three-dots menu and choose the"
 " ``Uninstall`` action."
 msgstr ""
 
-#: ../../log_server.rst:152
+#: ../../log_server.rst:150
 msgid ""
 "Grafana Loki is a special database designed to store, index and search "
 "system logs. For more information, see "
 "https://github.com/nethserver/ns8-loki"
 msgstr ""
 
-#: ../../log_server.rst:158
+#: ../../log_server.rst:156
 msgid ""
 "The promtail.service core service operates on every node, reading system "
 "journals, forwarding new records to the active Loki instance, and "
@@ -4108,7 +4108,7 @@ msgstr ""
 "/sicurezza-informatica-pavia-blu-system>`_, are special rules that evolve"
 " and quickly adapt analyzing messages marked as **spam** or **ham**."
 
-#: ../../mail.rst:207 ../../nethvoice.rst:227 ../../nethvoice.rst:370
+#: ../../mail.rst:207 ../../nethvoice.rst:224 ../../nethvoice.rst:367
 #, fuzzy
 msgid "Settings"
 msgstr "Settings"
@@ -4563,7 +4563,7 @@ msgstr ""
 msgid "NethServer 7 migration"
 msgstr "Migrazione da NethServer 7"
 
-#: ../../migration.rst:9
+#: ../../migration.rst:7
 #, fuzzy
 msgid ""
 "Migration is the process to convert a NethServer 7 machine (*source* NS7)"
@@ -4572,16 +4572,16 @@ msgstr ""
 "La migrazione è il processo di conversione di una macchina NethServer 7 "
 "(*source*) in una NethServer 8 (*destination*)."
 
-#: ../../migration.rst:12
+#: ../../migration.rst:10
 msgid "Before starting you will need:"
 msgstr "Prima di iniziare avrete bisogno di:"
 
-#: ../../migration.rst:14
+#: ../../migration.rst:12
 #, fuzzy
 msgid "SSH and Cockpit access to the source NS7 machine."
 msgstr "Accesso SSH e Cockpit alla macchina NethServer 7 sorgente"
 
-#: ../../migration.rst:15
+#: ../../migration.rst:13
 #, fuzzy
 msgid ""
 "A new server containing a :ref:`freshly installed NS8 cluster <install-"
@@ -4590,12 +4590,12 @@ msgstr ""
 "un nuovo server contenente una:ref:`freshly installed NethServer 8 "
 "cluster <install-section>`"
 
-#: ../../migration.rst:17
+#: ../../migration.rst:15
 #, fuzzy
 msgid "Also check the following requirements:"
 msgstr "Vedi anche i seguenti argomenti correlati:"
 
-#: ../../migration.rst:19
+#: ../../migration.rst:17
 #, fuzzy
 msgid ""
 "The NS8 cluster VPN address must be resolved correctly by NS7 and the VPN"
@@ -4608,7 +4608,7 @@ msgstr ""
 "address and port were configured during the cluster creation: by default "
 "the address is the leader node FQDN and the port number is 55820."
 
-#: ../../migration.rst:25
+#: ../../migration.rst:23
 #, fuzzy
 msgid ""
 "If NS7 is connected to an external account provider, you must configure "
@@ -4619,7 +4619,7 @@ msgstr ""
 " account provider deve essere raggiungibile anche dalla macchina "
 "destinazione"
 
-#: ../../migration.rst:29
+#: ../../migration.rst:27
 #, fuzzy
 msgid ""
 "You must be granted access to your authoritative DNS server. Applications"
@@ -4632,17 +4632,17 @@ msgstr ""
 "registered in the DNS. You will need to add or change a DNS CNAME for "
 "each of them."
 
-#: ../../migration.rst:34
+#: ../../migration.rst:32
 #, fuzzy
 msgid "The ``nethforge`` repository must be enabled in NS8 to migrate SOGo."
 msgstr "The ``nethforge`` repository must be enabled in NS8 to migrate SOGo."
 
-#: ../../migration.rst:37
+#: ../../migration.rst:35
 #, fuzzy
 msgid "Connect to NS8"
 msgstr "Connect to NS8"
 
-#: ../../migration.rst:39
+#: ../../migration.rst:37
 #, fuzzy
 msgid ""
 "The migration procedure will add NS7 as special node of the NethServer 8 "
@@ -4651,7 +4651,7 @@ msgstr ""
 "La procedura di migrazione aggiungerà la macchina sorgente come nodo "
 "speciale del cluster NethServer 8."
 
-#: ../../migration.rst:41
+#: ../../migration.rst:39
 #, fuzzy
 msgid ""
 "Install the migration tool on the source machine. Access Cockpit on the "
@@ -4661,12 +4661,12 @@ msgstr ""
 "macchina sorgente. Accedere a Cockpit sul server sorgente e installare "
 "\"Migration to NS8\" dal Software Center."
 
-#: ../../migration.rst:44
+#: ../../migration.rst:42
 #, fuzzy
 msgid "Open the just installed ``NS8 migration`` application."
 msgstr "Ora è possibile aprire l'applicazione ``NS8 migration`` appena installata."
 
-#: ../../migration.rst:46
+#: ../../migration.rst:44
 #, fuzzy
 msgid ""
 "Connect the NethServer 7 server to an existing new NethServer 8 cluster "
@@ -4675,7 +4675,7 @@ msgstr ""
 "Ora, collegare il server NethServer 7 a un nuovo cluster esistente "
 "NethServer 8 inserendo i seguenti campi:"
 
-#: ../../migration.rst:49
+#: ../../migration.rst:47
 msgid ""
 "``NS8 leader node``: the host name or IP address of NethServer 8 cluster "
 "leader node"
@@ -4683,7 +4683,7 @@ msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../migration.rst:51
+#: ../../migration.rst:49
 #, fuzzy
 msgid ""
 "``NS8 admin username`` and ``NS8 admin password``: administrator "
@@ -4697,7 +4697,7 @@ msgstr ""
 "migrazione è stata completata. Si prega di notare che l'utente deve avere"
 " la 2FA disabilitata."
 
-#: ../../migration.rst:57
+#: ../../migration.rst:55
 msgid ""
 "uncheck the ``TLS validation`` option if the leader node does not have a "
 "valid TLS certificate"
@@ -4705,24 +4705,24 @@ msgstr ""
 "deselezionare l'opzione ``TLS validation`` se il nodo leader non ha un "
 "certificato TLS valido"
 
-#: ../../migration.rst:59
+#: ../../migration.rst:57
 #, fuzzy
 msgid "Click the :guilabel:`Connect` button."
 msgstr "Quindi, fare clic sul pulsante: `Connect` ."
 
-#: ../../migration.rst:63
+#: ../../migration.rst:61
 #, fuzzy
 msgid "Migrate an application"
 msgstr "Applicazioni smartphone"
 
-#: ../../migration.rst:65
+#: ../../migration.rst:63
 #, fuzzy
 msgid ""
 "The web interface will display the list of all applications installed "
 "inside NethServer 7."
 msgstr "disabilita l'applicazione in NethServer 7"
 
-#: ../../migration.rst:69
+#: ../../migration.rst:67
 #, fuzzy
 msgid ""
 "If NS7 has a remote account provider and an error message is displayed "
@@ -4731,7 +4731,7 @@ msgstr ""
 "impostazioni della policy delle password dell'account provider (vedere: "
 "`migrate-account-provider`)"
 
-#: ../../migration.rst:72
+#: ../../migration.rst:70
 #, fuzzy
 msgid ""
 "Choose an application and click on the :guilabel:`Start migration` "
@@ -4748,7 +4748,7 @@ msgstr ""
 "8 è composto da 2 o più nodi, verrà chiesto di selezionare un nodo di "
 "destinazione."
 
-#: ../../migration.rst:78
+#: ../../migration.rst:76
 #, fuzzy
 msgid ""
 "Click the :guilabel:`Sync data` button multiple time to keep in sync the "
@@ -4760,7 +4760,7 @@ msgstr ""
 "per mantenere in sincronizzazione i dati dell'applicazione tra NethServer"
 " 7 e NethServer 8."
 
-#: ../../migration.rst:84
+#: ../../migration.rst:82
 #, fuzzy
 msgid ""
 "When you are ready for the final migration, click the :guilabel:`Finish "
@@ -4775,7 +4775,7 @@ msgstr ""
 "record DNS punti al nodo NS8. È anche possibile configurare :ref: `custom"
 " HTTP routes <migrated_routes-section>` per le applicazioni migrate."
 
-#: ../../migration.rst:88
+#: ../../migration.rst:86
 #, fuzzy
 msgid ""
 "Please note that most web application will need a dedicated FQDN (virtual"
@@ -4791,22 +4791,22 @@ msgstr ""
 "record DNS punti al nodo NS8. È anche possibile configurare :ref: `custom"
 " HTTP routes <migrated_routes-section>` per le applicazioni migrate."
 
-#: ../../migration.rst:93
+#: ../../migration.rst:91
 #, fuzzy
 msgid "At the end of each application migration the following happens:"
 msgstr "Al termine della migrazione delle applicazioni, il sistema:"
 
-#: ../../migration.rst:95
+#: ../../migration.rst:93
 #, fuzzy
 msgid "The application in NS8 is configured and started with the migrated data."
 msgstr "The application in NS8 is configured and started with the migrated data."
 
-#: ../../migration.rst:97
+#: ../../migration.rst:95
 #, fuzzy
 msgid "The application in NS7 is stopped and disabled."
 msgstr "The application in NS7 is stopped and disabled."
 
-#: ../../migration.rst:99
+#: ../../migration.rst:97
 #, fuzzy
 msgid ""
 "The migration tool configures an HTML page with a link pointing to the "
@@ -4819,7 +4819,7 @@ msgstr ""
 "link instead of the old application. See also :ref:`migrated_routes-"
 "section`."
 
-#: ../../migration.rst:104
+#: ../../migration.rst:102
 #, fuzzy
 msgid ""
 "If the NS7 application was connected to the local account provider, the "
@@ -4831,7 +4831,7 @@ msgstr ""
 " l'applicazione sarà ancora in grado di accedere al provider in "
 "esecuzione su NethServer 7 utilizzando la VPN del cluster."
 
-#: ../../migration.rst:109
+#: ../../migration.rst:107
 #, fuzzy
 msgid ""
 "As alternative, the migration of an application can be skipped with the "
@@ -4840,12 +4840,12 @@ msgstr ""
 "As alternative, the migration of an application can be skipped with the "
 ":guilabel:`Skip migration` button."
 
-#: ../../migration.rst:114
+#: ../../migration.rst:112
 #, fuzzy
 msgid "Complete the migration"
 msgstr "Migrazione da NethServer 7"
 
-#: ../../migration.rst:116
+#: ../../migration.rst:114
 #, fuzzy
 msgid ""
 "When the account provider is finally migrated, the migration procedure "
@@ -4856,7 +4856,7 @@ msgstr ""
 "disconnects NS7 from the NS8 cluster and the initial connection page "
 "appears again."
 
-#: ../../migration.rst:120
+#: ../../migration.rst:118
 #, fuzzy
 msgid ""
 "If NS7 needs to use NS8 as remote account provider, read carefully the "
@@ -4865,11 +4865,11 @@ msgstr ""
 "impostazioni della policy delle password dell'account provider (vedere: "
 "`migrate-account-provider`)"
 
-#: ../../migration.rst:124
+#: ../../migration.rst:122
 msgid "Logs"
 msgstr "Log"
 
-#: ../../migration.rst:126
+#: ../../migration.rst:124
 msgid ""
 "The migration tool UI has a ``Logs`` page for reading "
 "``/var/log/ns8-migration.log`` contents. The migration procedure of each "
@@ -4879,7 +4879,7 @@ msgstr ""
 " del log ``/var/log/ns8-migration.log``. La procedura di migrazione di "
 "ogni applicazione invia una traccia della sua attività a quel file."
 
-#: ../../migration.rst:128
+#: ../../migration.rst:126
 msgid ""
 "Furthermore, when joining/leaving the NS8 cluster and when NS7 services "
 "are modified, some information can be recorded by ``/var/log/messages`` "
@@ -4889,7 +4889,7 @@ msgstr ""
 "servizi NS7 vengono modificati, alcune informazioni possono essere "
 "registrate in ``/var/log/messages`` come al solito."
 
-#: ../../migration.rst:130
+#: ../../migration.rst:128
 msgid ""
 "On the NS8 side, the application log contains the trace of the ``import-"
 "module`` activity."
@@ -4897,11 +4897,11 @@ msgstr ""
 "Lato NS8, il log delle applicazioni contiene la traccia dell'attività "
 "``import-module``."
 
-#: ../../migration.rst:135
+#: ../../migration.rst:133
 msgid "Account provider"
 msgstr "Account provider"
 
-#: ../../migration.rst:137
+#: ../../migration.rst:135
 #, fuzzy
 msgid ""
 "Your action is required if the NS7 system is configured with a **remote "
@@ -4926,7 +4926,7 @@ msgstr ""
 " implementation). Bear in mind that every node of the NS8 cluster must "
 "reach the same LDAP database, now and in the future."
 
-#: ../../migration.rst:148
+#: ../../migration.rst:146
 #, fuzzy
 msgid ""
 "On the contrary, if the NS7 system is configured with a **local account "
@@ -4945,7 +4945,7 @@ msgstr ""
 " migrated at the end of the procedure: at that point the temporary "
 "external user domain is automatically removed."
 
-#: ../../migration.rst:156
+#: ../../migration.rst:154
 #, fuzzy
 msgid ""
 "Refer to the next sections for specific information about the local "
@@ -4954,11 +4954,11 @@ msgstr ""
 "Refer to the next sections for specific information about the local "
 "account provider migration."
 
-#: ../../migration.rst:160
+#: ../../migration.rst:158
 msgid "Samba DC"
 msgstr "Samba DC"
 
-#: ../../migration.rst:162
+#: ../../migration.rst:160
 msgid ""
 "Complete the DC migration by clicking the :guilabel:`Finish migration` "
 "button. The procedure asks to select an IP address: it will become the IP"
@@ -4968,14 +4968,14 @@ msgstr ""
 ". La procedura chiede di selezionare un indirizzo IP: diventerà l'IP "
 "della destinazione DC."
 
-#: ../../migration.rst:168
+#: ../../migration.rst:166
 #, fuzzy
 msgid "Windows clients might not know how to reach the new DC"
 msgstr ""
 "I client di Windows potrebbero non sapere come raggiungere la "
 "destinazione DC"
 
-#: ../../migration.rst:170
+#: ../../migration.rst:168
 #, fuzzy
 msgid ""
 "If DNS configuration of Windows clients is controlled by a DHCP server, "
@@ -4985,7 +4985,7 @@ msgstr ""
 "DHCP, impostare l'indirizzo IP del DC di destinazione come nuovo server "
 "DNS."
 
-#: ../../migration.rst:173
+#: ../../migration.rst:171
 #, fuzzy
 msgid ""
 "If Windows clients use an external DNS, it must be configured to forward "
@@ -4995,7 +4995,7 @@ msgstr ""
 "per inoltrare le richieste della zona DNS di Active Directory "
 "all'indirizzo IP del DC di destinazione."
 
-#: ../../migration.rst:177
+#: ../../migration.rst:175
 #, fuzzy
 msgid ""
 "If Windows clients have a manual DNS configuration and use the NS7 DC IP "
@@ -5007,7 +5007,7 @@ msgstr ""
 "considerare di trasferire l'indirizzo IP del DC sorgente al DC "
 "destinazione."
 
-#: ../../migration.rst:181
+#: ../../migration.rst:179
 #, fuzzy
 msgid ""
 "In the last case, transferring the IP avoids the reconfiguration of DNS "
@@ -5019,7 +5019,7 @@ msgstr ""
 "preferibile su un server DNS esterno, se blocca le richieste di "
 "aggiornamento DNS dinamiche (DDNS)."
 
-#: ../../migration.rst:185
+#: ../../migration.rst:183
 msgid ""
 "To transfer the source DC IP address to the destination DC some steps "
 "must be done manually after the migration has completed."
@@ -5028,7 +5028,7 @@ msgstr ""
 "passaggi devono essere effettuati manualmente dopo il completamento della"
 " migrazione."
 
-#: ../../migration.rst:188
+#: ../../migration.rst:186
 msgid ""
 "Check the migration of accounts was successful. Users and groups must be "
 "listed correctly under ``Domains and users`` page."
@@ -5037,7 +5037,7 @@ msgstr ""
 "utenti e i gruppi devono essere elencati correttamente nella pagina "
 "``Domains and users``."
 
-#: ../../migration.rst:191
+#: ../../migration.rst:189
 msgid ""
 "At the end of the migration the source DC IP address is free and can be "
 "assigned to the destination node. Refer to the node operating system "
@@ -5049,7 +5049,7 @@ msgstr ""
 "documentazione del sistema operativo del nodo per assegnare un indirizzo "
 "IP secondario (alias) al nodo di destinazione."
 
-#: ../../migration.rst:195
+#: ../../migration.rst:193
 msgid ""
 "Change the IP address of the DC. For example, if DC instance is "
 "``samba1`` and the new IP is ``192.168.1.123``, run the following "
@@ -5059,7 +5059,7 @@ msgstr ""
 "``samba1`` e il nuovo IP è ``192.168.1.123`, eseguire il seguente "
 "comando::"
 
-#: ../../migration.rst:201
+#: ../../migration.rst:199
 msgid ""
 "The NS8 Samba DC can be configured as external account provider for NS7. "
 "Bear in mind that NS7 must be able to access the :ref:`IP address "
@@ -5074,7 +5074,7 @@ msgstr ""
 "utile se si dispone ancora di moduli in esecuzione su NS7 che richiedono "
 "l'accesso all'account provider."
 
-#: ../../migration.rst:206
+#: ../../migration.rst:204
 msgid ""
 "Password expiration settings are preserved during the migration. The "
 "password strength policy, if enabled, is converted for compliancy with "
@@ -5087,7 +5087,7 @@ msgstr ""
 "Windows 2003+ [#WINP]_ ed è applicata per le modifiche future della "
 "password. Vedi anche: ref: `password-policy-sezione`."
 
-#: ../../migration.rst:211
+#: ../../migration.rst:209
 msgid ""
 "`Passwords must meet complexity requirements <https://learn.microsoft.com"
 "/en-us/previous-versions/windows/it-pro/windows-"
@@ -5099,18 +5099,18 @@ msgstr ""
 "/windows-server-2003/cc786468(v=ws.10)#password-must-meet-complexity-"
 "requirements `_ dal sito web *learn.microsoft.com*."
 
-#: ../../migration.rst:215
+#: ../../migration.rst:213
 msgid "OpenLDAP"
 msgstr "OpenLDAP"
 
-#: ../../migration.rst:217
+#: ../../migration.rst:215
 #, fuzzy
 msgid ""
 "Complete the OpenLDAP migration by clicking on the :guilabel:`Finish "
 "migration` button."
 msgstr "salvare la configurazione facendo clic sul pulsante: `Schedule backup`"
 
-#: ../../migration.rst:222
+#: ../../migration.rst:220
 msgid ""
 "The OpenLDAP instance running in NS8 is currently not accessible as "
 "external account provider for NS7 and other network devices."
@@ -5118,7 +5118,7 @@ msgstr ""
 "L'istanza OpenLDAP in esecuzione in NS8 non è attualmente accessibile "
 "come account provider esterno per NS7 e altri dispositivi di rete."
 
-#: ../../migration.rst:225
+#: ../../migration.rst:223
 msgid ""
 "Password policy settings (strength and expiration) are not migrated. They"
 " must be enabled under the domain settings of the ``Domains and users`` "
@@ -5129,11 +5129,11 @@ msgstr ""
 "della pagina ``Domains and users``. Vedi anche: ref: `password-policy-"
 "sezione`."
 
-#: ../../migration.rst:232
+#: ../../migration.rst:230
 msgid "POP3 connector"
 msgstr "Connettore POP3"
 
-#: ../../migration.rst:234
+#: ../../migration.rst:232
 msgid ""
 "The migration involves transferring POP3 Connector settings to NS8 "
 "Imapsync module, together with Email application. Configurations of "
@@ -5148,11 +5148,11 @@ msgstr ""
 "necessario rivedere le impostazioni e inizializzare la sincronizzazione "
 "manualmente."
 
-#: ../../migration.rst:241
+#: ../../migration.rst:239
 msgid "Manual HTTP routes"
 msgstr "Rotte HTTP manuali"
 
-#: ../../migration.rst:243
+#: ../../migration.rst:241
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -5164,7 +5164,7 @@ msgstr ""
 "server chiamato ``server.nethserver.org`` l'installazione WebTop era "
 "disponibile presso ``https://server.nethserver.org/webtop``."
 
-#: ../../migration.rst:247
+#: ../../migration.rst:245
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
@@ -5174,7 +5174,7 @@ msgstr ""
 "inserire un FQDN in modo che WebTop sarà disponibile su un URL del tipo "
 "``https://webtop.nethserver.org``."
 
-#: ../../migration.rst:250
+#: ../../migration.rst:248
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
@@ -5184,15 +5184,15 @@ msgstr ""
 "ricreare manualmente i vecchi percorsi HTTP da:ref:`proxy page <traefik-"
 "section>`."
 
-#: ../../migration.rst:253
+#: ../../migration.rst:251
 msgid "Example for adding WebTop routes:"
 msgstr "Esempio per l'aggiunta di percorsi WebTop:"
 
-#: ../../migration.rst:255
+#: ../../migration.rst:253
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr "aprire la sezione ``HTTP routes`` dalla pagina ``Impostazioni``"
 
-#: ../../migration.rst:256
+#: ../../migration.rst:254
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
@@ -5200,15 +5200,15 @@ msgstr ""
 "cliccare sul nome dell'istanza WebTop, tipo ``webtop1``, una finestra di "
 "dialogo modale mostrerà i dettagli del percorso"
 
-#: ../../migration.rst:257
+#: ../../migration.rst:255
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr "copiare il valore dal campo ``URL``, tipo ``http://127.0.0.1:20033``"
 
-#: ../../migration.rst:258
+#: ../../migration.rst:256
 msgid "click on the :guilabel:`Create route` button"
 msgstr "cliccare sul pulsante :guilabel: `Create route`"
 
-#: ../../migration.rst:259
+#: ../../migration.rst:257
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
@@ -5216,7 +5216,7 @@ msgstr ""
 "scegliere un ``Name`` per la radice e selezionare il ``Node`` dove "
 "l'istanza WebTop è in esecuzione"
 
-#: ../../migration.rst:260
+#: ../../migration.rst:258
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
@@ -5224,7 +5224,7 @@ msgstr ""
 "incollare il valore copiato prima (`http://127.0.0.1:20033``) dentro il "
 "campo ``URL``"
 
-#: ../../migration.rst:261
+#: ../../migration.rst:259
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
@@ -5232,39 +5232,39 @@ msgstr ""
 "lasciare il campo ``Host`` vuoto e inserire ``/webtop`` all'interno del "
 "campo ``Path``"
 
-#: ../../migration.rst:262
+#: ../../migration.rst:260
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr "ripetere i passaggi da 4 a 7 per tutti gli altri percorsi WebTop:"
 
-#: ../../migration.rst:264
+#: ../../migration.rst:262
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr "``/Microsoft-Server-ActiveSync ``"
 
-#: ../../migration.rst:265
+#: ../../migration.rst:263
 msgid "``/.well-known``"
 msgstr "``/.well-known``"
 
-#: ../../migration.rst:266
+#: ../../migration.rst:264
 msgid "``/webtop-dav``"
 msgstr "``/webtop-dav``"
 
-#: ../../migration.rst:269
+#: ../../migration.rst:267
 msgid "Configurations excluded from migration"
 msgstr "Configurazioni escluse dalla migrazione"
 
-#: ../../migration.rst:271
+#: ../../migration.rst:269
 msgid "The following configurations will not be migrated:"
 msgstr "Le seguenti configurazioni non verranno migrate:"
 
-#: ../../migration.rst:273
+#: ../../migration.rst:271
 msgid "custom templates"
 msgstr "template custom"
 
-#: ../../migration.rst:274
+#: ../../migration.rst:272
 msgid "SMTP mail relay rules"
 msgstr "Regole di relay di posta SMTP"
 
-#: ../../migration.rst:275
+#: ../../migration.rst:273
 msgid ""
 "account provider password policy settings (see :ref:`migrate-account-"
 "provider`)"
@@ -5276,7 +5276,7 @@ msgstr ""
 msgid "MinIO"
 msgstr "MinIO"
 
-#: ../../minio.rst:9
+#: ../../minio.rst:7
 #, fuzzy
 msgid ""
 "`MinIO <https://min.io/>`_ offers high-performance, S3 compatible object "
@@ -5285,7 +5285,7 @@ msgstr ""
 "`MinIO <https://min.io/>`_ offers high-performance, S3 compatible object "
 "storage."
 
-#: ../../minio.rst:11
+#: ../../minio.rst:9
 #, fuzzy
 msgid ""
 "You can install multiple MinIO instances on the same node from the :ref"
@@ -5293,53 +5293,53 @@ msgid ""
 msgstr ""
 "You can install multiple MinIO instances on the same node from the :ref"
 ":`software_center-section`."
+
+#: ../../minio.rst:14
+#, fuzzy
+msgid ""
+"MinIO needs two dedicated virtual host, a FQDN like ``minio-"
+"api.nethserver.org`` and ``minio-ui.nethserver.org``."
+msgstr ""
+"MinIO needs two dedicated virtual host, a FQDN like ``minio-"
+"api.nethserver.org`` and ``minio-ui.nethserver.org``."
 
 #: ../../minio.rst:16
 #, fuzzy
 msgid ""
-"MinIO needs two dedicated virtual host, a FQDN like ``minio-"
-"api.nethserver.org`` and ``minio-ui.nethserver.org``."
+"Before proceeding with the configuration, make sure to create the "
+"corresponding name records inside your DNS server. If you are planning to"
+" use a Let's Encrypt certificate as default, make also sure to have "
+"corresponding public DNS records."
 msgstr ""
-"MinIO needs two dedicated virtual host, a FQDN like ``minio-"
-"api.nethserver.org`` and ``minio-ui.nethserver.org``."
+"Before proceeding with the configuration, make sure to create the "
+"corresponding name records inside your DNS server. If you are planning to"
+" use a Let's Encrypt certificate as default, make also sure to have "
+"corresponding public DNS records."
 
-#: ../../minio.rst:18
+#: ../../minio.rst:21
 #, fuzzy
 msgid ""
-"Before proceeding with the configuration, make sure to create the "
-"corresponding name records inside your DNS server. If you are planning to"
-" use a Let's Encrypt certificate as default, make also sure to have "
-"corresponding public DNS records."
+"access the application configuration page and enter the ``API server host"
+" name``: this will be the FQDN used by hosts to connect to S3 services"
 msgstr ""
-"Before proceeding with the configuration, make sure to create the "
-"corresponding name records inside your DNS server. If you are planning to"
-" use a Let's Encrypt certificate as default, make also sure to have "
-"corresponding public DNS records."
+"access the application configuration page and enter the ``API server host"
+" name``: this will be the FQDN used by hosts to connect to S3 services"
 
 #: ../../minio.rst:23
 #, fuzzy
 msgid ""
-"access the application configuration page and enter the ``API server host"
-" name``: this will be the FQDN used by hosts to connect to S3 services"
-msgstr ""
-"access the application configuration page and enter the ``API server host"
-" name``: this will be the FQDN used by hosts to connect to S3 services"
-
-#: ../../minio.rst:25
-#, fuzzy
-msgid ""
 "fill the ``Web interface host name``: you will be able to configure your "
 "MinIO instance from this FQDN"
 msgstr ""
 "fill the ``Web interface host name``: you will be able to configure your "
 "MinIO instance from this FQDN"
 
-#: ../../minio.rst:27 ../../nextcloud.rst:32
+#: ../../minio.rst:25 ../../nextcloud.rst:32
 #, fuzzy
 msgid "enable ``Let's Encrypt`` option accordingly to your needs"
 msgstr "enable ``Let's Encrypt`` option accordingly to your needs"
 
-#: ../../minio.rst:29
+#: ../../minio.rst:27
 #, fuzzy
 msgid ""
 "open the entered host name inside the browser, eg: ``https://minio-"
@@ -5348,23 +5348,23 @@ msgstr ""
 "open the entered host name inside the browser, eg: ``https://minio-"
 "ui.nethserver.org``."
 
-#: ../../minio.rst:32
+#: ../../minio.rst:30
 #, fuzzy
 msgid "Configure local disks"
 msgstr "Configure local disks"
 
+#: ../../minio.rst:32
+#, fuzzy
+msgid ""
+"Setting up MinIO with a locally attached USB/SCSI disk provides two key "
+"benefits:"
+msgstr ""
+"Setting up MinIO with a locally attached USB/SCSI disk provides two key "
+"benefits:"
+
 #: ../../minio.rst:34
 #, fuzzy
 msgid ""
-"Setting up MinIO with a locally attached USB/SCSI disk provides two key "
-"benefits:"
-msgstr ""
-"Setting up MinIO with a locally attached USB/SCSI disk provides two key "
-"benefits:"
-
-#: ../../minio.rst:36
-#, fuzzy
-msgid ""
 "data privacy: if you're cautious about sharing data with cloud providers,"
 " this setup allows you to retain control over your information and "
 "prevent third-party access"
@@ -5373,7 +5373,7 @@ msgstr ""
 " this setup allows you to retain control over your information and "
 "prevent third-party access"
 
-#: ../../minio.rst:37
+#: ../../minio.rst:35
 #, fuzzy
 msgid ""
 "local data ownership: by utilizing a local disk, you maintain complete "
@@ -5384,17 +5384,17 @@ msgstr ""
 "data control within your own environment. This improves security and "
 "minimizes dependence on external services"
 
-#: ../../minio.rst:41
+#: ../../minio.rst:39
 #, fuzzy
 msgid "Instructions"
 msgstr "Instructions"
 
-#: ../../minio.rst:43
+#: ../../minio.rst:41
 #, fuzzy
 msgid "As system root user, follow these steps for a disk named ``scsi-disk1``:"
 msgstr "As system root user, follow these steps for a disk named ``scsi-disk1``:"
 
-#: ../../minio.rst:45
+#: ../../minio.rst:43
 #, fuzzy
 msgid ""
 "**Create a mount point:** make a directory to serve as the mount point "
@@ -5403,7 +5403,7 @@ msgstr ""
 "**Create a mount point:** make a directory to serve as the mount point "
 "for the disk: ::"
 
-#: ../../minio.rst:50
+#: ../../minio.rst:48
 #, fuzzy
 msgid ""
 "**Automate mount at boot:** ensure the disk is automatically mounted "
@@ -5412,12 +5412,12 @@ msgstr ""
 "**Automate mount at boot:** ensure the disk is automatically mounted "
 "during boot by modifying ``/etc/fstab``: ::"
 
-#: ../../minio.rst:56
+#: ../../minio.rst:54
 #, fuzzy
 msgid "**Mount the disk:** physically attach the disk using the mount command: ::"
 msgstr "**Mount the disk:** physically attach the disk using the mount command: ::"
 
-#: ../../minio.rst:61
+#: ../../minio.rst:59
 #, fuzzy
 msgid ""
 "**Ensure MinIO access:** allow the MinIO instance (e.g., ``minio1``) to "
@@ -5426,7 +5426,7 @@ msgstr ""
 "**Ensure MinIO access:** allow the MinIO instance (e.g., ``minio1``) to "
 "access the disk: ::"
 
-#: ../../minio.rst:66
+#: ../../minio.rst:64
 #, fuzzy
 msgid ""
 "Finally, within the module's user interface, configure the ``Storage "
@@ -6093,7 +6093,7 @@ msgstr ""
 "The user is highlighted, and a green checkmark appears if everything has "
 "been successful."
 
-#: ../../nethvoice.rst:66 ../../nethvoice.rst:1036
+#: ../../nethvoice.rst:66 ../../nethvoice.rst:1033
 #, fuzzy
 msgid "Trunks"
 msgstr "Trunks"
@@ -6357,9 +6357,9 @@ msgstr "NethVoice"
 #: ../../nethvoice.rst:142
 #, fuzzy
 msgid ""
-"During the initial configuration wizard, this section requires "
-"confirmation of some fundamental settings (press the :guilabel:`Modify "
-"default settings button`)."
+"During the initial configuration wizard, in this section there are some "
+"fundamental settings (press the :guilabel:`Modify default settings "
+"button`)."
 msgstr ""
 "During the initial configuration wizard, this section requires "
 "confirmation of some fundamental settings (press the :guilabel:`Modify "
@@ -6373,101 +6373,64 @@ msgstr "Gestione delle impostazioni utente"
 #: ../../nethvoice.rst:146
 #, fuzzy
 msgid ""
-"``Encryption`` requires a valid SSL/TLS certificate for the hostname "
-"entered in :guilabel:`PBX Address` to function correctly."
+"``Admin Password`` will be the password to access the web interface of "
+"phones configured with the administrator user."
 msgstr ""
-"``Encryption`` requires a valid SSL/TLS certificate for the hostname "
-"entered in :guilabel:PBX Address to function correctly."
+"``Admin Password`` will be the password to access the web interface of "
+"phones configured with the administrator user."
 
 #: ../../nethvoice.rst:147
 #, fuzzy
 msgid ""
-"``PBX Address`` can be the IP address or the hostname of NethVoice, "
-"correctly entered in the DNS used by phones and in the SSL/TLS "
-"certificate used by the system."
+"``User Password`` will be the password to access the web interface of "
+"phones configured with a non-administrative user."
 msgstr ""
-"``PBX Address`` can be the IP address or the hostname of Nethvoice, "
-"correctly entered in the DNS used by phones and in the SSL/TLS "
-"certificate used by the system."
-
-#: ../../nethvoice.rst:148
-#, fuzzy
-msgid ""
-"``Admin Password`` will be the password to access the web interface of "
-"phones configured with the administrator user."
-msgstr ""
-"``Admin Password`` will be the password to access the web interface of "
-"phones configured with the administrator user."
+"``User Password`` will be the password to access the web interface of "
+"phones configured with a non-administrative user."
 
 #: ../../nethvoice.rst:149
-#, fuzzy
 msgid ""
-"``User Password`` will be the password to access the web interface of "
-"phones configured with a non-administrative user."
+"The NethVoice address to be provided to the phones via configuration is "
+"obtained from the application settings."
 msgstr ""
-"``User Password`` will be the password to access the web interface of "
-"phones configured with a non-administrative user."
 
 #: ../../nethvoice.rst:151
-#, fuzzy
 msgid ""
-"The choice of the previous Encryption and PBX Address settings depends on"
-" how the phones will reach NethVoice."
+"The use of encryption in SIP connections for devices is enabled by "
+"default."
 msgstr ""
-"The choice of the previous Encryption and PBX Address settings depends on"
-" how the phones will reach NethVoice."
 
 #: ../../nethvoice.rst:153
 #, fuzzy
 msgid ""
-"If the phones are all in the same network as the PBX (LAN), "
-"``Encryption`` can be disabled, and ``PBX Address`` can contain an IP "
-"address."
+"In any case, it is possible to choose on each individual phone whether "
+"encryption is used or not. In this regard, refer to :ref:`wizard-"
+"configurations`."
 msgstr ""
-"If the phones are all in the same network as the PBX (LAN), "
-"``Encryption`` can be disabled, and ``PBX Address`` can contain an IP "
-"address."
+"In any case, it is possible to choose on each individual phone whether "
+"encryption is used or not, provided that the SSL/TLS certificate of the "
+"system is valid. In this regard, refer to :ref:`wizard-configurations`."
 
 #: ../../nethvoice.rst:155
 #, fuzzy
 msgid ""
-"If one or more phones reach NethVoice via the public network (WAN), such "
-"as when the PBX is hosted on a cloud VPS, then ``Encryption`` must be "
-"enabled, and ``PBX Address`` must contain the fully qualified domain name"
-" present in the public DNS."
-msgstr ""
-"If one or more phones reach NethVoice via the public network (WAN), such "
-"as when the PBX is hosted on a cloud VPS, then ``Encryption`` must be "
-"enabled, and ``PBX Address`` must contain the fully qualified domain name"
-" present in the public DNS."
-
-#: ../../nethvoice.rst:157
-#, fuzzy
-msgid ""
-"In any case, it is possible to choose on each individual phone whether "
-"encryption is used or not, provided that the SSL/TLS certificate of the "
-"system is valid. In this regard, refer to :ref:`wizard-configurations`."
-msgstr ""
-"In any case, it is possible to choose on each individual phone whether "
-"encryption is used or not, provided that the SSL/TLS certificate of the "
-"system is valid. In this regard, refer to :ref:`wizard-configurations`."
-
-#: ../../nethvoice.rst:159
-#, fuzzy
-msgid "Other settings that can be changed:"
-msgstr "Other settings that can be changed:"
-
-#: ../../nethvoice.rst:161
-#, fuzzy
-msgid ":ref:`Preferences <panel-preferences>`"
+"Other settings can be changed in :ref:`Preferences <panel-preferences>` "
+"section:"
 msgstr ":ref:`Preferences <panel-preferences>`"
 
-#: ../../nethvoice.rst:162
-#, fuzzy
-msgid ":ref:`LDAP Phonebook <panel-phonebook>`"
-msgstr ":ref:`LDAP Phonebook <panel-phonebook>`"
+#: ../../nethvoice.rst:157
+msgid ":guilabel:`Phone languages`"
+msgstr ""
 
-#: ../../nethvoice.rst:164
+#: ../../nethvoice.rst:158
+msgid ":guilabel:`Provisiong scheduling`"
+msgstr ""
+
+#: ../../nethvoice.rst:159
+msgid ":guilabel:`Tone zone`"
+msgstr ""
+
+#: ../../nethvoice.rst:161
 #, fuzzy
 msgid ""
 "Once the settings are saved, they can be modified again from the "
@@ -6476,25 +6439,25 @@ msgstr ""
 "Once the settings are saved, they can be modified again from the "
 ":guilabel:Devices > Models page, :guilabel:`Default Settings`."
 
-#: ../../nethvoice.rst:167
+#: ../../nethvoice.rst:164
 #, fuzzy
 msgid "Phones"
 msgstr "Phones"
 
+#: ../../nethvoice.rst:166
+#, fuzzy
+msgid ""
+"The page ``Devices > Phones`` allows the identification of phones by "
+"NethVoice by entering the MAC address. You can enter the MAC address "
+"using the following methods:"
+msgstr ""
+"The page ``Devices > Phones`` allows the identification of phones by "
+"NethVoice by entering the MAC address. You can enter the MAC address "
+"using the following methods:"
+
 #: ../../nethvoice.rst:169
 #, fuzzy
 msgid ""
-"The page ``Devices > Phones`` allows the identification of phones by "
-"NethVoice by entering the MAC address. You can enter the MAC address "
-"using the following methods:"
-msgstr ""
-"The page ``Devices > Phones`` allows the identification of phones by "
-"NethVoice by entering the MAC address. You can enter the MAC address "
-"using the following methods:"
-
-#: ../../nethvoice.rst:172
-#, fuzzy
-msgid ""
 ":guilabel:`Paste from file` of multiple MAC addresses. Syntaxes separated"
 " by a hyphen - (e.g., AA-BB-CC-11-22-33), colons : (e.g., "
 "AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are "
@@ -6505,7 +6468,7 @@ msgstr ""
 "AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are "
 "accepted. Letters can be either uppercase or lowercase."
 
-#: ../../nethvoice.rst:174
+#: ../../nethvoice.rst:171
 #, fuzzy
 msgid ""
 ":guilabel:`Manual addition` of one MAC address at a time. Useful if you "
@@ -6513,21 +6476,21 @@ msgid ""
 msgstr ""
 ":guilabel:`Manual addition` of one MAC address at a time. Useful if you "
 "have a barcode reader."
+
+#: ../../nethvoice.rst:173
+#, fuzzy
+msgid ""
+"In any case, after entering the MAC address, you can select the phone "
+"model. Selecting the exact model is required for the correct "
+"configuration of the phone."
+msgstr ""
+"In any case, after entering the MAC address, you can select the phone "
+"model. Selecting the exact model is required for the correct "
+"configuration of the phone."
 
 #: ../../nethvoice.rst:176
 #, fuzzy
 msgid ""
-"In any case, after entering the MAC address, you can select the phone "
-"model. Selecting the exact model is required for the correct "
-"configuration of the phone."
-msgstr ""
-"In any case, after entering the MAC address, you can select the phone "
-"model. Selecting the exact model is required for the correct "
-"configuration of the phone."
-
-#: ../../nethvoice.rst:179
-#, fuzzy
-msgid ""
 "If the model is not selected or the wrong model is chosen, some phone "
 "functions, such as provisioning via RPS or line keys, may not be "
 "available."
@@ -6536,12 +6499,12 @@ msgstr ""
 "functions, such as provisioning via RPS or line keys, may not be "
 "available."
 
-#: ../../nethvoice.rst:184
+#: ../../nethvoice.rst:181
 #, fuzzy
 msgid "Models"
 msgstr "Models"
 
-#: ../../nethvoice.rst:186
+#: ../../nethvoice.rst:183
 #, fuzzy
 msgid ""
 "The page ``Devices > Models`` lists the basic models of the phones "
@@ -6550,7 +6513,7 @@ msgstr ""
 "The page ``Devices > Models`` lists the basic models of the phones "
 "selected in ``Devices > Phones`` plus any custom models."
 
-#: ../../nethvoice.rst:188
+#: ../../nethvoice.rst:185
 #, fuzzy
 msgid ""
 "You can create a custom model based on an existing one through the "
@@ -6559,7 +6522,7 @@ msgstr ""
 "You can create a custom model based on an existing one through the "
 ":guilabel:`Create new model`."
 
-#: ../../nethvoice.rst:190
+#: ../../nethvoice.rst:187
 #, fuzzy
 msgid ""
 "On this page, some parameters inherited from all models can also be "
@@ -6572,7 +6535,7 @@ msgstr ""
 " ``Encryption`` and ``PBX Address``, already set during the initial "
 "configuration process as explained in :ref:`wizard-devices`."
 
-#: ../../nethvoice.rst:192
+#: ../../nethvoice.rst:189
 #, fuzzy
 msgid ""
 "Depending on the features specific to the model, panels and options "
@@ -6581,17 +6544,17 @@ msgstr ""
 "Depending on the features specific to the model, panels and options "
 "described in :ref:wizard-provisioning-section may be available."
 
-#: ../../nethvoice.rst:197
+#: ../../nethvoice.rst:194
 #, fuzzy
 msgid "Configurations"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:200
+#: ../../nethvoice.rst:197
 #, fuzzy
 msgid "Groups"
 msgstr "Groups"
 
-#: ../../nethvoice.rst:202
+#: ../../nethvoice.rst:199
 #, fuzzy
 msgid ""
 "You can create user groups that will be visible and usable in "
@@ -6600,7 +6563,7 @@ msgstr ""
 "You can create user groups that will be visible and usable in "
 "applications, such as NethVoiceCTI."
 
-#: ../../nethvoice.rst:204
+#: ../../nethvoice.rst:201
 #, fuzzy
 msgid ""
 "Click :guilabel:`Create new group`, specify a name, and :guilabel:`save`."
@@ -6609,12 +6572,12 @@ msgstr ""
 "Click the :guilabel:`Create new group`. Specify a name and "
 ":guilabel:`save`. The group will appear in the list."
 
-#: ../../nethvoice.rst:208
+#: ../../nethvoice.rst:205
 #, fuzzy
 msgid "Profiles"
 msgstr "Profiles"
 
-#: ../../nethvoice.rst:210
+#: ../../nethvoice.rst:207
 #, fuzzy
 msgid ""
 "NethVoice allows you to select the features each user can access, which "
@@ -6623,7 +6586,7 @@ msgstr ""
 "NethVoice allows you to select the features that each user can access, "
 "and these are grouped into profiles."
 
-#: ../../nethvoice.rst:212
+#: ../../nethvoice.rst:209
 #, fuzzy
 msgid ""
 "By default, three profiles are created, each containing different levels "
@@ -6632,17 +6595,17 @@ msgstr ""
 "By default, 3 profiles are created, each containing different levels of "
 "functionality:"
 
-#: ../../nethvoice.rst:214
+#: ../../nethvoice.rst:211
 #, fuzzy
 msgid "``Basic``: Minimum functionality for the user."
 msgstr "``Basic``: Minimum functionality for the user."
 
-#: ../../nethvoice.rst:215
+#: ../../nethvoice.rst:212
 #, fuzzy
 msgid "``Standard``: Classic management functionalities for the user."
 msgstr "``Standard``: Classic management functionalities for the user."
 
-#: ../../nethvoice.rst:216
+#: ../../nethvoice.rst:213
 #, fuzzy
 msgid ""
 "``Advanced``: Almost all functionalities are allowed, suitable for "
@@ -6651,7 +6614,7 @@ msgstr ""
 "``Advanced``: Almost all functionalities are allowed, suitable for "
 "advanced users."
 
-#: ../../nethvoice.rst:218
+#: ../../nethvoice.rst:215
 #, fuzzy
 msgid ""
 "You can also create new profiles by duplicating an existing one or by "
@@ -6660,7 +6623,7 @@ msgstr ""
 "You can also create new profiles by duplicating an existing one or "
 "creating new ones and specifying the various functionalities."
 
-#: ../../nethvoice.rst:221
+#: ../../nethvoice.rst:218
 #, fuzzy
 msgid ""
 "Remember to enable access to the user groups previously created on the "
@@ -6669,12 +6632,12 @@ msgstr ""
 "Remember to enable access to the user groups previously created on the "
 "profiles where necessary."
 
-#: ../../nethvoice.rst:224
+#: ../../nethvoice.rst:221
 #, fuzzy
 msgid "Permissions"
 msgstr "Permissions"
 
-#: ../../nethvoice.rst:229
+#: ../../nethvoice.rst:226
 #, fuzzy
 msgid ""
 "General permission enables or disables access to all the functionalities "
@@ -6683,19 +6646,19 @@ msgstr ""
 "General permission enables or disables access to all the functionalities "
 "of the section and general notification settings."
 
-#: ../../nethvoice.rst:230
+#: ../../nethvoice.rst:227
 #, fuzzy
 msgid "``DND``: Enables the configuration of Do Not Disturb."
 msgstr "``DND``: Enables the configuration of Do Not Disturb."
 
-#: ../../nethvoice.rst:231
+#: ../../nethvoice.rst:228
 #, fuzzy
 msgid "``Call Forwarding``: Enables the configuration of call forwarding."
 msgstr ""
 "``Call Forwarding``: Enables the configuration of call forwarding "
 "(diversion)."
 
-#: ../../nethvoice.rst:232
+#: ../../nethvoice.rst:229
 #, fuzzy
 msgid ""
 "``Recording``: Enables the recording of own conversations. It is also "
@@ -6704,7 +6667,7 @@ msgstr ""
 "``Recording``: Enables recording of own conversations. It is also "
 "possible to view/listen/delete own recordings."
 
-#: ../../nethvoice.rst:233
+#: ../../nethvoice.rst:230
 #, fuzzy
 msgid ""
 "``Parkings``: Enables the display of the status of parking spaces and the"
@@ -6713,12 +6676,12 @@ msgstr ""
 "``Parkings``: Enables the display of the status of parkings and the "
 "ability to pick up parked calls."
 
-#: ../../nethvoice.rst:234
+#: ../../nethvoice.rst:231
 #, fuzzy
 msgid "``Listening``: Enables listening to calls of other users."
 msgstr "``Listening``: Enables listening to calls of other users."
 
-#: ../../nethvoice.rst:235
+#: ../../nethvoice.rst:232
 #, fuzzy
 msgid ""
 "``Intrusion``: Enables intrusion into another user's call (listening to "
@@ -6727,12 +6690,12 @@ msgstr ""
 "``Intrusion``: Enables intrusion into another user's call (listening to "
 "both caller and called, conversation only with the user)."
 
-#: ../../nethvoice.rst:236
+#: ../../nethvoice.rst:233
 #, fuzzy
 msgid "``Pickup``: Enables call pickup for calls to other users."
 msgstr "``Pickup``: Enables call pickup for calls to other users."
 
-#: ../../nethvoice.rst:237
+#: ../../nethvoice.rst:234
 #, fuzzy
 msgid ""
 "``Privacy``: Enables the masking of the last three digits (modifiable "
@@ -6743,7 +6706,7 @@ msgstr ""
 "the command line) of the called and/or calling number of other users in "
 "NethVoiceCTI."
 
-#: ../../nethvoice.rst:238
+#: ../../nethvoice.rst:235
 #, fuzzy
 msgid ""
 "``Physical Phone Buttons``: Enables the configuration of physical phone "
@@ -6754,12 +6717,12 @@ msgstr ""
 "buttons by the user in NethVoiceCTI. These correspond to the Line Keys "
 "shown on the :ref:wizard-devices pages."
 
-#: ../../nethvoice.rst:242
+#: ../../nethvoice.rst:239
 #, fuzzy
 msgid "Outbound Routes"
 msgstr "Outbound Routes"
 
-#: ../../nethvoice.rst:244
+#: ../../nethvoice.rst:241
 #, fuzzy
 msgid ""
 "All configured outbound routes in NethVoice are displayed, and you can "
@@ -6768,12 +6731,12 @@ msgstr ""
 "All configured outbound routes in NethVoice are displayed, and you can "
 "enable/disable their usage individually."
 
-#: ../../nethvoice.rst:247
+#: ../../nethvoice.rst:244
 #, fuzzy
 msgid "NethVoice CTI"
 msgstr "NethVoice"
 
-#: ../../nethvoice.rst:249
+#: ../../nethvoice.rst:246
 #, fuzzy
 msgid ""
 "``NethVoice CTI``: Enables all the underlying permissions by activating "
@@ -6782,12 +6745,12 @@ msgstr ""
 "``NethVoice CTI``: Enables all the underlying permissions by activating "
 "the following functionalities on NethVoice CTI."
 
-#: ../../nethvoice.rst:252
+#: ../../nethvoice.rst:249
 #, fuzzy
 msgid "Address Book"
 msgstr "Address Book"
 
-#: ../../nethvoice.rst:254
+#: ../../nethvoice.rst:251
 #, fuzzy
 msgid ""
 "``Address Book``: The general permission enables the viewing of the "
@@ -6798,7 +6761,7 @@ msgstr ""
 "address book in NethVoiceCTI and the ability to add, modify, and delete "
 "own contacts."
 
-#: ../../nethvoice.rst:255
+#: ../../nethvoice.rst:252
 #, fuzzy
 msgid ""
 "``Advanced Address Book``: Enables the ability to modify/delete non-owned"
@@ -6807,12 +6770,12 @@ msgstr ""
 "``Advanced Address Book``: Enables the ability to modify/delete non-owned"
 " contacts in the address book in NethVoiceCTI."
 
-#: ../../nethvoice.rst:258
+#: ../../nethvoice.rst:255
 #, fuzzy
 msgid "CDR"
 msgstr "CDR"
 
-#: ../../nethvoice.rst:260
+#: ../../nethvoice.rst:257
 #, fuzzy
 msgid ""
 "``CDR``: The general permission enables the viewing of the call history "
@@ -6821,12 +6784,12 @@ msgstr ""
 "``CDR``: The general permission enables the viewing of the call history "
 "related to the user."
 
-#: ../../nethvoice.rst:261
+#: ../../nethvoice.rst:258
 #, fuzzy
 msgid "``PBX CDR``: Enables the viewing of the call history for the entire PBX."
 msgstr "``PBX CDR``: Enables the viewing of the call history for the entire PBX."
 
-#: ../../nethvoice.rst:262
+#: ../../nethvoice.rst:259
 #, fuzzy
 msgid ""
 "``Group CDR``: Enables the viewing of call history for calls within one's"
@@ -6835,12 +6798,12 @@ msgstr ""
 "``Group CDR``: Enables the viewing of call history for calls within one's"
 " assigned group."
 
-#: ../../nethvoice.rst:265 ../../nethvoice.rst:1050 ../../nethvoice.rst:1085
+#: ../../nethvoice.rst:262 ../../nethvoice.rst:1047 ../../nethvoice.rst:1082
 #, fuzzy
 msgid "Customer Cards"
 msgstr "Etichette personalizzate"
 
-#: ../../nethvoice.rst:267
+#: ../../nethvoice.rst:264
 #, fuzzy
 msgid ""
 "``Customer Cards``: The general permission enables the ability to view "
@@ -6849,17 +6812,17 @@ msgstr ""
 "``Customer Cards``: The general permission enables the ability to view "
 "the customer card on NethVoiceCTI."
 
-#: ../../nethvoice.rst:268
+#: ../../nethvoice.rst:265
 #, fuzzy
 msgid "For each section of the customer card, you can enable/disable visibility."
 msgstr "For each section of the customer card, you can enable/disable visibility."
 
-#: ../../nethvoice.rst:271
+#: ../../nethvoice.rst:268
 #, fuzzy
 msgid "Presence Panel"
 msgstr "Presence Panel"
 
-#: ../../nethvoice.rst:273
+#: ../../nethvoice.rst:270
 #, fuzzy
 msgid ""
 "The general permission enables the display of the operators' panel in "
@@ -6868,17 +6831,17 @@ msgstr ""
 "The general permission enables the display of the operators panel in "
 "NethVoiceCTI."
 
-#: ../../nethvoice.rst:274
+#: ../../nethvoice.rst:271
 #, fuzzy
 msgid "``Advanced Recording``: Enables recording of calls from other users."
 msgstr "``Advanced Recording``: Enables recording of calls from other users."
 
-#: ../../nethvoice.rst:275
+#: ../../nethvoice.rst:272
 #, fuzzy
 msgid "``Call Transfer``: Enables call transfer for calls from other users."
 msgstr "``Call Transfer``: Enables call transfer for calls from other users."
 
-#: ../../nethvoice.rst:276
+#: ../../nethvoice.rst:273
 #, fuzzy
 msgid ""
 "``Advanced Parking``: Enables the ability to park calls from other users "
@@ -6887,12 +6850,12 @@ msgstr ""
 "``Advanced Parking``: Enables the ability to park calls from other users "
 "and retrieve them."
 
-#: ../../nethvoice.rst:277
+#: ../../nethvoice.rst:274
 #, fuzzy
 msgid "``Hang Up``: Enables the ability to hang up calls from other users."
 msgstr "``Hang Up``: Enables the ability to hang up calls from other users."
 
-#: ../../nethvoice.rst:278
+#: ../../nethvoice.rst:275
 #, fuzzy
 msgid ""
 "``Advanced Phone``: Enables phone functionalities (hang up, call, answer)"
@@ -6900,22 +6863,22 @@ msgid ""
 msgstr ""
 "``Advanced Phone``: Enables phone functionalities (hang up, call, answer)"
 " on conversations that do not belong to the user."
+
+#: ../../nethvoice.rst:276
+#, fuzzy
+msgid ""
+"For each configured user group in NethVoice, you can enable/disable "
+"visibility."
+msgstr ""
+"For each configured user group in NethVoice, you can enable/disable "
+"visibility."
 
 #: ../../nethvoice.rst:279
-#, fuzzy
-msgid ""
-"For each configured user group in NethVoice, you can enable/disable "
-"visibility."
-msgstr ""
-"For each configured user group in NethVoice, you can enable/disable "
-"visibility."
-
-#: ../../nethvoice.rst:282
 #, fuzzy
 msgid "Queue Agent Panel"
 msgstr "Queue Agent Panel"
 
-#: ../../nethvoice.rst:284
+#: ../../nethvoice.rst:281
 #, fuzzy
 msgid ""
 "The general permission enables the Queue section in NethVoice CTI with "
@@ -6926,7 +6889,7 @@ msgstr ""
 "information about the assigned queues, the ability to log in/out, and "
 "enter/exit break."
 
-#: ../../nethvoice.rst:285
+#: ../../nethvoice.rst:282
 #, fuzzy
 msgid ""
 "``Advanced Queue Agent Panel``: Enables advanced information about the "
@@ -6935,17 +6898,17 @@ msgstr ""
 "``Advanced Queue Agent Panel``: Enables advanced information about the "
 "status of queues and agents."
 
-#: ../../nethvoice.rst:286
+#: ../../nethvoice.rst:283
 #, fuzzy
 msgid "``Unhandled Calls``: Enables access to the unhandled calls section."
 msgstr "``Unhandled Calls``: Enables access to the unhandled calls section."
 
-#: ../../nethvoice.rst:289
+#: ../../nethvoice.rst:286
 #, fuzzy
 msgid "Phone Lines"
 msgstr "Phone lines"
 
-#: ../../nethvoice.rst:291
+#: ../../nethvoice.rst:288
 #, fuzzy
 msgid ""
 "The general permission enables access to the after-hours section of "
@@ -6956,7 +6919,7 @@ msgstr ""
 "NethVoice CTI, allowing the user to change the path of their incoming "
 "calls."
 
-#: ../../nethvoice.rst:292
+#: ../../nethvoice.rst:289
 #, fuzzy
 msgid ""
 "``Advanced After Hours``: Allows modifying the call path for incoming "
@@ -6964,22 +6927,22 @@ msgid ""
 msgstr ""
 "``Advanced After Hours``: Allows modifying the call path for incoming "
 "calls for the user and generic incoming routes."
+
+#: ../../nethvoice.rst:290
+#, fuzzy
+msgid ""
+"``Complete After Hours``: Allows modification of all call paths for "
+"incoming calls."
+msgstr ""
+"``Complete After Hours``: Allows modification of all call paths for "
+"incoming calls."
 
 #: ../../nethvoice.rst:293
-#, fuzzy
-msgid ""
-"``Complete After Hours``: Allows modification of all call paths for "
-"incoming calls."
-msgstr ""
-"``Complete After Hours``: Allows modification of all call paths for "
-"incoming calls."
-
-#: ../../nethvoice.rst:296
 #, fuzzy
 msgid "Queue Manager"
 msgstr "Queue Manager"
 
-#: ../../nethvoice.rst:298
+#: ../../nethvoice.rst:295
 #, fuzzy
 msgid ""
 "The general permission enables access to the QManager section in "
@@ -6987,22 +6950,22 @@ msgid ""
 msgstr ""
 "The general permission enables access to the QManager section in "
 "NethVoice CTI."
+
+#: ../../nethvoice.rst:296
+#, fuzzy
+msgid ""
+"For each configured queue in NethVoice, you can enable/disable the "
+"visibility of the status and data."
+msgstr ""
+"For each configured queue in NethVoice, you can enable/disable the "
+"visibility of the status and data."
 
 #: ../../nethvoice.rst:299
-#, fuzzy
-msgid ""
-"For each configured queue in NethVoice, you can enable/disable the "
-"visibility of the status and data."
-msgstr ""
-"For each configured queue in NethVoice, you can enable/disable the "
-"visibility of the status and data."
-
-#: ../../nethvoice.rst:302
 #, fuzzy
 msgid "Operator Station"
 msgstr "Operator Station"
 
-#: ../../nethvoice.rst:304
+#: ../../nethvoice.rst:301
 #, fuzzy
 msgid ""
 "The general permission grants access to the operator station section in "
@@ -7011,7 +6974,7 @@ msgstr ""
 "The general permission enables access to the operator station section in "
 "NethVoice CTI."
 
-#: ../../nethvoice.rst:305
+#: ../../nethvoice.rst:302
 #, fuzzy
 msgid ""
 "Only one configured queue in NethVoice needs to be enabled to serve as "
@@ -7020,12 +6983,12 @@ msgstr ""
 "Only one configured queue in NethVoice needs to be enabled to use it as "
 "the source of calls to manage."
 
-#: ../../nethvoice.rst:308 ../../nethvoice.rst:1019
+#: ../../nethvoice.rst:305 ../../nethvoice.rst:1016
 #, fuzzy
 msgid "Users"
 msgstr "Users"
 
-#: ../../nethvoice.rst:310
+#: ../../nethvoice.rst:307
 #, fuzzy
 msgid ""
 "The ``Users`` page establishes, for each individual user, personal "
@@ -7034,7 +6997,7 @@ msgstr ""
 "The ``Users`` page establishes, for each individual user, personal "
 "settings, and associated devices."
 
-#: ../../nethvoice.rst:312
+#: ../../nethvoice.rst:309
 #, fuzzy
 msgid ""
 "The settings that can be modified are: * ``Profile``: Determines the "
@@ -7061,7 +7024,7 @@ msgstr ""
 "possible to create credentials for use on a device not supported by "
 "provisioning. In this case, a custom device must be used."
 
-#: ../../nethvoice.rst:319
+#: ../../nethvoice.rst:316
 #, fuzzy
 msgid ""
 "Then, the devices associated with the user are displayed. Devices can be "
@@ -7072,12 +7035,12 @@ msgstr ""
 "of two types, software (Web Phone and Mobile App) or physical, tied to a "
 "phone configured with provisioning or a custom device."
 
-#: ../../nethvoice.rst:322
+#: ../../nethvoice.rst:319
 #, fuzzy
 msgid "You can associate up to 9 devices with each user:"
 msgstr "You can associate up to 9 devices with each user:"
 
-#: ../../nethvoice.rst:324
+#: ../../nethvoice.rst:321
 #, fuzzy
 msgid ""
 "``Web Phone`` activates the telephony client of NethVoice CTI to manage "
@@ -7086,14 +7049,14 @@ msgstr ""
 "``Web Phone`` activates the telephony client of NethVoice CTI to manage "
 "calls directly without the need for physical phones."
 
-#: ../../nethvoice.rst:325
+#: ../../nethvoice.rst:322
 #, fuzzy
 msgid "``Mobile App`` enables the configuration of a device on the smartphone."
 msgstr ""
 "``Mobile App`` enables the configuration of a device on the smartphone "
 "(see :ref:nethcti_mobile)."
 
-#: ../../nethvoice.rst:326
+#: ../../nethvoice.rst:323
 #, fuzzy
 msgid ""
 "``Phone Link`` enables the configuration of a device on the personal "
@@ -7102,12 +7065,12 @@ msgstr ""
 "``Mobile App`` enables the configuration of a device on the smartphone "
 "(see :ref:nethcti_mobile)."
 
-#: ../../nethvoice.rst:328
+#: ../../nethvoice.rst:325
 #, fuzzy
 msgid "For each physical device, the following is displayed:"
 msgstr "For each physical device, the following is displayed:"
 
-#: ../../nethvoice.rst:330
+#: ../../nethvoice.rst:327
 #, fuzzy
 msgid ""
 "Encryption: Indicates whether encryption is enabled. The initial setting "
@@ -7120,7 +7083,7 @@ msgstr ""
 "configuration process (see :ref:wizard-devices). If the PBX is reached "
 "via public network (WAN), encryption activation is required."
 
-#: ../../nethvoice.rst:334
+#: ../../nethvoice.rst:331
 #, fuzzy
 msgid ""
 "If `Encryption` is enabled, ensure that the SSL/TLS certificate of the "
@@ -7131,7 +7094,7 @@ msgstr ""
 " system is valid and contains the name of the PBX; otherwise, phones "
 "cannot establish a TLS connection"
 
-#: ../../nethvoice.rst:336
+#: ../../nethvoice.rst:333
 #, fuzzy
 msgid ""
 "\"Configuration Model\": You can change the configuration model among "
@@ -7140,7 +7103,7 @@ msgstr ""
 "``Configuration Model``: you can change the configuration model among "
 "those offered."
 
-#: ../../nethvoice.rst:337
+#: ../../nethvoice.rst:334
 #, fuzzy
 msgid ""
 "\"Edit Configuration\": You can modify the configuration of the "
@@ -7153,12 +7116,12 @@ msgstr ""
 "individual phone has the configuration of the model and default settings "
 "by default. Refer to :ref:wizard2-models for more details."
 
-#: ../../nethvoice.rst:338
+#: ../../nethvoice.rst:335
 #, fuzzy
 msgid "\"Mac-Address\": Displays the MAC address of the associated device."
 msgstr "``Mac-Address``: Displays the MAC address of the associated device."
 
-#: ../../nethvoice.rst:339
+#: ../../nethvoice.rst:336
 #, fuzzy
 msgid ""
 "\"Show Password\" for custom devices. The SIP password is shown, which, "
@@ -7169,22 +7132,22 @@ msgstr ""
 "along with the internal and PBX address, can be used to manually "
 "configure the custom device."
 
-#: ../../nethvoice.rst:340
+#: ../../nethvoice.rst:337
 #, fuzzy
 msgid "\"Restart\": If the device is registered, you can restart it."
 msgstr "``Restart``: If the device is registered, you can restart it."
 
-#: ../../nethvoice.rst:341
+#: ../../nethvoice.rst:338
 #, fuzzy
 msgid "\"Disassociate\": You can disassociate the device from the user."
 msgstr "``Disassociate``: You can disassociate the device from the user."
 
-#: ../../nethvoice.rst:346
+#: ../../nethvoice.rst:343
 #, fuzzy
 msgid "Phone Configuration Priority"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:348
+#: ../../nethvoice.rst:345
 #, fuzzy
 msgid ""
 "Configurations created by NethVoice provisioning for phone devices are "
@@ -7193,12 +7156,12 @@ msgstr ""
 "Configurations created by Nethvoice provisioning for phone devices are "
 "derived by combining settings from:"
 
-#: ../../nethvoice.rst:350
+#: ../../nethvoice.rst:347
 #, fuzzy
 msgid "``Default Settings``: These are found on the :ref:`wizard-model` page."
 msgstr "``Default Settings``: these are found on the :ref:`wizard-modelli` page."
 
-#: ../../nethvoice.rst:351
+#: ../../nethvoice.rst:348
 #, fuzzy
 msgid ""
 "``Model Settings``: Parameters are taken from the configuration of the "
@@ -7209,7 +7172,7 @@ msgstr ""
 "model associated with the device, which is found on the :ref:`wizard-"
 "modelli` page."
 
-#: ../../nethvoice.rst:352
+#: ../../nethvoice.rst:349
 #, fuzzy
 msgid ""
 "``Phone Settings``: Parameters are taken from the configuration of the "
@@ -7218,7 +7181,7 @@ msgstr ""
 "``Phone Settings``: parameters are taken from the configuration of the "
 "individual phone, found on the :ref:`wizard-configurazioni` page."
 
-#: ../../nethvoice.rst:353
+#: ../../nethvoice.rst:350
 #, fuzzy
 msgid ""
 "NethVoice CTI Settings where it is possible to configure parameters of "
@@ -7227,7 +7190,7 @@ msgstr ""
 "NethVoice CTI Settings where it's possible to configure parameters of the"
 " physical phone associated with the user."
 
-#: ../../nethvoice.rst:355
+#: ../../nethvoice.rst:352
 #, fuzzy
 msgid ""
 "In case there is a parameter with non-uniform configuration across the "
@@ -7238,7 +7201,7 @@ msgstr ""
 "various sections listed above, this is the descending order of priority "
 "to be followed:"
 
-#: ../../nethvoice.rst:357
+#: ../../nethvoice.rst:354
 #, fuzzy
 msgid ""
 "``Phone Settings`` and NethVoice CTI Settings are the settings with the "
@@ -7249,41 +7212,41 @@ msgstr ""
 "highest priority, with the latter taking precedence if there is a "
 "conflict between the two."
 
-#: ../../nethvoice.rst:358
+#: ../../nethvoice.rst:355
 #, fuzzy
 msgid "``Model Settings``"
 msgstr "Impostazioni generali"
 
-#: ../../nethvoice.rst:359
+#: ../../nethvoice.rst:356
 #, fuzzy
 msgid "``Default Settings``"
 msgstr "Impostazioni generali"
 
-#: ../../nethvoice.rst:362
+#: ../../nethvoice.rst:359
 #, fuzzy
 msgid "Administration"
 msgstr "Amministratori"
 
-#: ../../nethvoice.rst:365
+#: ../../nethvoice.rst:362
 #, fuzzy
 msgid "Languages"
 msgstr "Languages"
 
-#: ../../nethvoice.rst:367
+#: ../../nethvoice.rst:364
 #, fuzzy
 msgid "In the Languages menu, you can set the default language for NethVoice."
 msgstr ""
 "In the Languages menu, it's possible to set the default NethVoice "
 "language."
 
-#: ../../nethvoice.rst:372
+#: ../../nethvoice.rst:369
 #, fuzzy
 msgid ""
 "The Settings page allows you to manage various aspects of the "
 "configuration."
 msgstr "The Settings page allows managing various aspects of the configuration."
 
-#: ../../nethvoice.rst:374
+#: ../../nethvoice.rst:371
 #, fuzzy
 msgid ""
 "``Password``: You can change the password for the admin user who is "
@@ -7292,12 +7255,12 @@ msgstr ""
 "``Password``: It's possible to change the password for the admin user "
 "dedicated to accessing the web interface of NethVoice."
 
-#: ../../nethvoice.rst:377
+#: ../../nethvoice.rst:374
 #, fuzzy
 msgid "Advanced"
 msgstr "Advanced"
 
-#: ../../nethvoice.rst:379
+#: ../../nethvoice.rst:376
 #, fuzzy
 msgid ""
 "The Advanced section provides direct access to NethVoice's advanced "
@@ -7306,130 +7269,130 @@ msgstr ""
 "The Advanced section allows direct access to the advanced interface of "
 "NethVoice."
 
-#: ../../nethvoice.rst:384 ../../nethvoice.rst:986
+#: ../../nethvoice.rst:381 ../../nethvoice.rst:983
 #, fuzzy
 msgid "Provisioning"
 msgstr "Permissions"
 
-#: ../../nethvoice.rst:386
+#: ../../nethvoice.rst:383
 msgid ""
 "What does Provisioning mean? Provisioning involves configuring phones in "
 "automatic mode, minimizing the necessary operations."
 msgstr ""
 
-#: ../../nethvoice.rst:389
+#: ../../nethvoice.rst:386
 msgid "Phones Provisioning"
 msgstr ""
 
-#: ../../nethvoice.rst:391
+#: ../../nethvoice.rst:388
 msgid "Actions to be performed in NethVoice:"
 msgstr ""
 
-#: ../../nethvoice.rst:393
+#: ../../nethvoice.rst:390
 msgid "Identification of phones."
 msgstr ""
 
-#: ../../nethvoice.rst:395
+#: ../../nethvoice.rst:392
 msgid "Assignment of phones to users."
 msgstr ""
 
-#: ../../nethvoice.rst:398
+#: ../../nethvoice.rst:395
 #, fuzzy
 msgid "Identification of Phones"
 msgstr "Email notifications"
 
-#: ../../nethvoice.rst:400
+#: ../../nethvoice.rst:397
 msgid ""
 "The MAC address is fundamental for the **Provisioning** of NethVoice as "
 "it uniquely identifies the phone."
 msgstr ""
 
-#: ../../nethvoice.rst:402
+#: ../../nethvoice.rst:399
 msgid ""
 "Entering the MAC address of the phones does not require connecting the "
 "phone to the network. Indeed, it is possible to enter the MAC addresses "
 "of phones that are still packaged."
 msgstr ""
 
-#: ../../nethvoice.rst:404
+#: ../../nethvoice.rst:401
 msgid ""
 "Regardless, you can enter the MAC addresses of the phones by typing or "
 "copying the MAC address from a spreadsheet, invoice, or other document."
 msgstr ""
 
-#: ../../nethvoice.rst:407
+#: ../../nethvoice.rst:404
 msgid "Associating Phones with Users"
 msgstr ""
 
-#: ../../nethvoice.rst:409
+#: ../../nethvoice.rst:406
 msgid ""
 "The configuration of a phone is complete when it is associated with a "
 "user."
 msgstr ""
 
-#: ../../nethvoice.rst:411
+#: ../../nethvoice.rst:408
 msgid "Up to eight telephone devices can be associated with each user."
 msgstr ""
 
-#: ../../nethvoice.rst:413
+#: ../../nethvoice.rst:410
 msgid ""
 "NethVoice assigns a progressive number to each device associated with the"
 " user using the following criteria:"
 msgstr ""
 
-#: ../../nethvoice.rst:415
+#: ../../nethvoice.rst:412
 msgid "``Main Extension`` - main phone, for example, ``201``"
 msgstr ""
 
-#: ../../nethvoice.rst:417
+#: ../../nethvoice.rst:414
 msgid "``91+Main Extension`` - phone 2, for example, ``91201``"
 msgstr ""
 
-#: ../../nethvoice.rst:419
+#: ../../nethvoice.rst:416
 msgid "``92+Main Extension`` - phone 3, for example, ``92201``"
 msgstr ""
 
-#: ../../nethvoice.rst:421
+#: ../../nethvoice.rst:418
 msgid "..."
 msgstr ""
 
-#: ../../nethvoice.rst:423
+#: ../../nethvoice.rst:420
 msgid ""
 "However, from the users' perspective, the Main Extension is the only "
 "important number to remember."
 msgstr ""
 
-#: ../../nethvoice.rst:426
+#: ../../nethvoice.rst:423
 msgid "Actions to Be Performed on the Phones"
 msgstr ""
 
-#: ../../nethvoice.rst:430
+#: ../../nethvoice.rst:427
 msgid ""
 "Let's consider the **first boot** for phones that are new, just taken out"
 " of the box, or those that have undergone a factory reset and have never "
 "been started up."
 msgstr ""
 
-#: ../../nethvoice.rst:432
+#: ../../nethvoice.rst:429
 msgid ""
 "Phones at **first boot** are already able to reach NethVoice to retrieve "
 "their configuration using supported methods."
 msgstr ""
 
-#: ../../nethvoice.rst:434
+#: ../../nethvoice.rst:431
 msgid ""
 "The only action required in these cases is to connect the Ethernet cable "
 "with PoE (Power over Ethernet) to the phone. If PoE is not available, it "
 "will also be necessary to connect the phone's power cable."
 msgstr ""
 
-#: ../../nethvoice.rst:438
+#: ../../nethvoice.rst:435
 msgid ""
 "Verify the compatibility of the phones with supported provisioning "
 "methods. Please read the following sections carefully."
 msgstr ""
 
-#: ../../nethvoice.rst:440
+#: ../../nethvoice.rst:437
 msgid ""
 "If a phone is already in use, it is possible to prepare it for "
 "association with NethVoice through **firmware upgrade** and **factory "
@@ -7437,45 +7400,45 @@ msgid ""
 "administration interface."
 msgstr ""
 
-#: ../../nethvoice.rst:445
+#: ../../nethvoice.rst:442
 #, fuzzy
 msgid "Provisioning Methods"
 msgstr "Provisioning Parameters Guide"
 
-#: ../../nethvoice.rst:447
+#: ../../nethvoice.rst:444
 msgid ""
 "Phones can access their configuration via standard web protocols, HTTP or"
 " HTTPS (TCP port 80 or 443)."
 msgstr ""
 
-#: ../../nethvoice.rst:449
+#: ../../nethvoice.rst:446
 msgid ""
 "When the MAC address of the phone is entered into NethVoice, a "
 "provisioning URL (address) is generated."
 msgstr ""
 
-#: ../../nethvoice.rst:451
+#: ../../nethvoice.rst:448
 #, fuzzy
 msgid "For example:"
 msgstr "Example:"
 
-#: ../../nethvoice.rst:453
+#: ../../nethvoice.rst:450
 msgid "https://NethVoiceBaseHost/provisioning/1234567890.1234/{mac}.cfg"
 msgstr ""
 
-#: ../../nethvoice.rst:455
+#: ../../nethvoice.rst:452
 msgid ""
 "This URL contains a secret (``1234567890.1234`` in the example) that "
 "authenticates and identifies the device that will use it."
 msgstr ""
 
-#: ../../nethvoice.rst:457
+#: ../../nethvoice.rst:454
 msgid ""
 "To obtain the provisioning URL, the phone, at its first boot, can use two"
 " methods: **RPS** and **DHCP**."
 msgstr ""
 
-#: ../../nethvoice.rst:459
+#: ../../nethvoice.rst:456
 msgid ""
 "The **RPS** (Redirect & Provisioning Service) method involves entering "
 "the provisioning URL on the manufacturer's website for the phone. "
@@ -7484,7 +7447,7 @@ msgid ""
 " manufacturer's website to obtain the provisioning URL."
 msgstr ""
 
-#: ../../nethvoice.rst:461
+#: ../../nethvoice.rst:458
 msgid ""
 "The **DHCP** method is based on configuring OPTION 66 of the DHCP "
 "(Dynamic Host Configuration Protocol) protocol specifically for each "
@@ -7492,38 +7455,38 @@ msgid ""
 "appropriately."
 msgstr ""
 
-#: ../../nethvoice.rst:463
+#: ../../nethvoice.rst:460
 msgid ""
 "If neither RPS nor DHCP works, it is possible to access the web interface"
 " of the phone's administration and manually enter the provisioning URL. "
 "Remember to disable other provisioning methods, such as DHCP and PNP."
 msgstr ""
 
-#: ../../nethvoice.rst:465
+#: ../../nethvoice.rst:462
 msgid ""
 "The provisioning URL is displayed in the administration interface of "
 "NethVoice for each phone, via the :guilabel:`Info` button on the page "
 ":guilabel:`Devices > Phones`."
 msgstr ""
 
-#: ../../nethvoice.rst:467
+#: ../../nethvoice.rst:464
 msgid ""
 "In any case, once the provisioning URL is obtained, the phone always uses"
 " this to access its configuration on NethVoice."
 msgstr ""
 
-#: ../../nethvoice.rst:471
+#: ../../nethvoice.rst:468
 msgid ""
 "Refer to section :ref:`provisioning-support-section` for further "
 "information on manufacturers' support for RPS and DHCP."
 msgstr ""
 
-#: ../../nethvoice.rst:474
+#: ../../nethvoice.rst:471
 #, fuzzy
 msgid "Phone Configuration Specifications"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:476
+#: ../../nethvoice.rst:473
 msgid ""
 "If you want to modify or customize the settings of phones configured via "
 "provisioning, access the web administration interface of NethVoice, "
@@ -7531,99 +7494,99 @@ msgid ""
 "level."
 msgstr ""
 
-#: ../../nethvoice.rst:478
+#: ../../nethvoice.rst:475
 msgid "The editable parameters include:"
 msgstr ""
 
-#: ../../nethvoice.rst:480
+#: ../../nethvoice.rst:477
 #, fuzzy
 msgid "Language"
 msgstr "Languages"
 
-#: ../../nethvoice.rst:481
+#: ../../nethvoice.rst:478
 msgid "Time zone"
 msgstr ""
 
-#: ../../nethvoice.rst:482
+#: ../../nethvoice.rst:479
 msgid "Date/time format"
 msgstr ""
 
-#: ../../nethvoice.rst:483
+#: ../../nethvoice.rst:480
 #, fuzzy
 msgid "Tones"
 msgstr "Phones"
 
-#: ../../nethvoice.rst:484
+#: ../../nethvoice.rst:481
 #, fuzzy
 msgid "Admin user password"
 msgstr "master user password"
 
-#: ../../nethvoice.rst:485
+#: ../../nethvoice.rst:482
 msgid "Call waiting"
 msgstr ""
 
-#: ../../nethvoice.rst:486
+#: ../../nethvoice.rst:483
 msgid "Ringtone"
 msgstr ""
 
-#: ../../nethvoice.rst:487
+#: ../../nethvoice.rst:484
 #, fuzzy
 msgid "Transfer mode"
 msgstr "file transfer speed"
 
-#: ../../nethvoice.rst:488
+#: ../../nethvoice.rst:485
 #, fuzzy
 msgid "LDAP directory"
 msgstr "Active Directory"
 
-#: ../../nethvoice.rst:489
+#: ../../nethvoice.rst:486
 #, fuzzy
 msgid "VLAN"
 msgstr "PLAIN"
 
-#: ../../nethvoice.rst:490
+#: ../../nethvoice.rst:487
 #, fuzzy
 msgid "Soft keys"
 msgstr "Soft key"
 
-#: ../../nethvoice.rst:491
+#: ../../nethvoice.rst:488
 #, fuzzy
 msgid "Line keys"
 msgstr "Line key"
 
-#: ../../nethvoice.rst:492
+#: ../../nethvoice.rst:489
 #, fuzzy
 msgid "Expansion keys"
 msgstr "Extensions"
 
-#: ../../nethvoice.rst:493
+#: ../../nethvoice.rst:490
 msgid "Screen Saver and Background"
 msgstr ""
 
-#: ../../nethvoice.rst:495
+#: ../../nethvoice.rst:492
 msgid "Refer to :ref:`wizard-section` for more information."
 msgstr ""
 
-#: ../../nethvoice.rst:499
+#: ../../nethvoice.rst:496
 #, fuzzy
 msgid "Do not change settings from the phone's administration interface."
 msgstr "enable built-in web administration interface"
 
-#: ../../nethvoice.rst:501
+#: ../../nethvoice.rst:498
 msgid ""
 "Upon restart, the phone retrieves the configurations from the "
 "provisioning URL."
 msgstr ""
 
-#: ../../nethvoice.rst:503
+#: ../../nethvoice.rst:500
 msgid "Any changes made from the phone's administration interface will be lost."
 msgstr ""
 
-#: ../../nethvoice.rst:505
+#: ../../nethvoice.rst:502
 msgid "The following sections describe some settings provided by NethVoice."
 msgstr ""
 
-#: ../../nethvoice.rst:507
+#: ../../nethvoice.rst:504
 msgid ""
 "Provisioned phones will automatically update their configuration even "
 "upon a change of state (Available, Do Not Disturb, etc.) in NethVoice CTI"
@@ -7631,25 +7594,25 @@ msgid ""
 "devices."
 msgstr ""
 
-#: ../../nethvoice.rst:509
+#: ../../nethvoice.rst:506
 msgid ""
 "This configuration update does not cause any disruption or restart of the"
 " phone."
 msgstr ""
 
-#: ../../nethvoice.rst:512
+#: ../../nethvoice.rst:509
 #, fuzzy
 msgid "Admin Password"
 msgstr "Cambiare password di admin"
 
-#: ../../nethvoice.rst:514
+#: ../../nethvoice.rst:511
 msgid ""
 "The phone web administration interface is accessible with the username "
 "``admin`` and a password generated randomly during the installation of "
 "NethVoice."
 msgstr ""
 
-#: ../../nethvoice.rst:516
+#: ../../nethvoice.rst:513
 #, fuzzy
 msgid ""
 "The password is available in the NethVoice administration interface, on "
@@ -7659,34 +7622,34 @@ msgstr ""
 "Nethvoice administration interface, there is a button ``View more`` to "
 "add more."
 
-#: ../../nethvoice.rst:521
+#: ../../nethvoice.rst:518
 #, fuzzy
 msgid "Automatic Updates"
 msgstr "automatic backup"
 
-#: ../../nethvoice.rst:523
+#: ../../nethvoice.rst:520
 msgid ""
 "The phone automatically contacts NethVoice every night to update its "
 "configuration. It is possible to completely disable automatic updates."
 msgstr ""
 
-#: ../../nethvoice.rst:525
+#: ../../nethvoice.rst:522
 msgid ""
 "In any case, the phone downloads the configuration every time it is "
 "restarted."
 msgstr ""
 
-#: ../../nethvoice.rst:530
+#: ../../nethvoice.rst:527
 msgid "Firmware upgrade"
 msgstr ""
 
-#: ../../nethvoice.rst:532
+#: ../../nethvoice.rst:529
 msgid ""
 "The phone manufacturer periodically publishes firmware updates for the "
 "various models of their phones on their website."
 msgstr ""
 
-#: ../../nethvoice.rst:534
+#: ../../nethvoice.rst:531
 msgid ""
 "It is possible to distribute the updated firmware to all phones of the "
 "same model or to a single phone. The firmware file obtained from the "
@@ -7696,264 +7659,264 @@ msgid ""
 "Preferences`."
 msgstr ""
 
-#: ../../nethvoice.rst:537
+#: ../../nethvoice.rst:534
 msgid "The filename can contain only letters, numbers, and the symbols ``._-()``."
 msgstr ""
 
-#: ../../nethvoice.rst:539
+#: ../../nethvoice.rst:536
 msgid ""
 "The phones receive the update according to the times indicated in :ref"
 ":`provisioning-automatic-updates`."
 msgstr ""
 
-#: ../../nethvoice.rst:543
+#: ../../nethvoice.rst:540
 msgid ""
 "When the phones have received the update, deselect the firmware file in "
 "the NethVoice interface to reduce network traffic."
 msgstr ""
 
-#: ../../nethvoice.rst:545
+#: ../../nethvoice.rst:542
 msgid "List of web pages for firmware download:"
 msgstr ""
 
-#: ../../nethvoice.rst:547
+#: ../../nethvoice.rst:544
 msgid ""
 "`Yealink "
 "<http://support.yealink.com/documentFront/forwardToDocumentFrontDisplayPage>`_"
 msgstr ""
 
-#: ../../nethvoice.rst:548
+#: ../../nethvoice.rst:545
 msgid "`Snom <https://service.snom.com/display/wiki/Firmware+Update+Center>`_"
 msgstr ""
 
-#: ../../nethvoice.rst:549
+#: ../../nethvoice.rst:546
 msgid "`Fanvil <https://fanvil.com/Support/download.html>`_"
 msgstr ""
 
-#: ../../nethvoice.rst:550
+#: ../../nethvoice.rst:547
 msgid ""
 "`Gigaset "
 "<https://teamwork.gigaset.com/gigawiki/pages/viewpage.action?pageId=37486876>`_"
 msgstr ""
 
-#: ../../nethvoice.rst:553
+#: ../../nethvoice.rst:550
 #, fuzzy
 msgid "Supported phones"
 msgstr "Formato di contatti supportati:"
 
-#: ../../nethvoice.rst:556 ../../nethvoice.rst:623
+#: ../../nethvoice.rst:553 ../../nethvoice.rst:620
 #, fuzzy
 msgid "NethPhone"
 msgstr "Phones"
 
-#: ../../nethvoice.rst:558 ../../nethvoice.rst:567
+#: ../../nethvoice.rst:555 ../../nethvoice.rst:564
 msgid "**FIRMWARE Version 2.0 or higher**"
 msgstr ""
 
-#: ../../nethvoice.rst:560
+#: ../../nethvoice.rst:557
 msgid "NP-X3"
 msgstr ""
 
-#: ../../nethvoice.rst:561
+#: ../../nethvoice.rst:558
 msgid "NP-X5"
 msgstr ""
 
-#: ../../nethvoice.rst:562
+#: ../../nethvoice.rst:559
 msgid "NP-X210"
 msgstr ""
 
-#: ../../nethvoice.rst:565 ../../nethvoice.rst:628
+#: ../../nethvoice.rst:562 ../../nethvoice.rst:625
 msgid "Fanvil"
 msgstr ""
 
-#: ../../nethvoice.rst:569
+#: ../../nethvoice.rst:566
 msgid "V62, V63, V64, V65, V67"
 msgstr ""
 
-#: ../../nethvoice.rst:570
+#: ../../nethvoice.rst:567
 msgid "X1/S/SP"
 msgstr ""
 
-#: ../../nethvoice.rst:571
+#: ../../nethvoice.rst:568
 msgid "X210"
 msgstr ""
 
-#: ../../nethvoice.rst:572
+#: ../../nethvoice.rst:569
 msgid "X3/S/SP/G/SG, X3U, X3U Pro"
 msgstr ""
 
-#: ../../nethvoice.rst:573
+#: ../../nethvoice.rst:570
 msgid "X4/G/SG, X4U, X4U-V2"
 msgstr ""
 
-#: ../../nethvoice.rst:574
+#: ../../nethvoice.rst:571
 msgid "X5S, X5U, X5U-V2"
 msgstr ""
 
-#: ../../nethvoice.rst:575
+#: ../../nethvoice.rst:572
 msgid "X6, X6U, X6U-V2"
 msgstr ""
 
-#: ../../nethvoice.rst:576
+#: ../../nethvoice.rst:573
 msgid "X7A/C"
 msgstr ""
 
-#: ../../nethvoice.rst:577
+#: ../../nethvoice.rst:574
 msgid "X301/P/G/W, X303/P/G/W"
 msgstr ""
 
-#: ../../nethvoice.rst:578
+#: ../../nethvoice.rst:575
 msgid "H2U, H2U-V2, H5"
 msgstr ""
 
-#: ../../nethvoice.rst:581 ../../nethvoice.rst:633
+#: ../../nethvoice.rst:578 ../../nethvoice.rst:630
 msgid "Yealink"
 msgstr ""
 
-#: ../../nethvoice.rst:583
+#: ../../nethvoice.rst:580
 msgid "**FIRMWARE Version 0.86 or higher**"
 msgstr ""
 
-#: ../../nethvoice.rst:585
+#: ../../nethvoice.rst:582
 msgid "T19(P) E2, T21(P) E2, T23P/G, T27G, T29G"
 msgstr ""
 
-#: ../../nethvoice.rst:586
+#: ../../nethvoice.rst:583
 msgid "T30/P, T31/P/G/W, T33P/G, T34W"
 msgstr ""
 
-#: ../../nethvoice.rst:587
+#: ../../nethvoice.rst:584
 msgid "T40P/G, T41P/S/U, T42G/S/U, T43U, T44U/W, T46G/S/U, T48G/S/U, T49G"
 msgstr ""
 
-#: ../../nethvoice.rst:588
+#: ../../nethvoice.rst:585
 msgid "T52S, T53/W/C, T54S/W, T56A, T57W, T58V/A/W, VP59"
 msgstr ""
 
-#: ../../nethvoice.rst:591 ../../nethvoice.rst:638
+#: ../../nethvoice.rst:588 ../../nethvoice.rst:635
 #, fuzzy
 msgid "Snom"
 msgstr "No"
 
-#: ../../nethvoice.rst:593
+#: ../../nethvoice.rst:590
 msgid "**FIRMWARE Version 8.7.5 or higher**"
 msgstr ""
 
-#: ../../nethvoice.rst:595
+#: ../../nethvoice.rst:592
 msgid "D120, D140, D150"
 msgstr ""
 
-#: ../../nethvoice.rst:596
+#: ../../nethvoice.rst:593
 msgid "D305, D315, D345, D375, D385"
 msgstr ""
 
-#: ../../nethvoice.rst:597
+#: ../../nethvoice.rst:594
 msgid "D710, D712, D713, D715, D717, D725, D735, D745, D765, D785"
 msgstr ""
 
-#: ../../nethvoice.rst:598
+#: ../../nethvoice.rst:595
 msgid "D862, D865"
 msgstr ""
 
-#: ../../nethvoice.rst:601 ../../nethvoice.rst:643
+#: ../../nethvoice.rst:598 ../../nethvoice.rst:640
 msgid "Gigaset"
 msgstr ""
 
-#: ../../nethvoice.rst:603
+#: ../../nethvoice.rst:600
 msgid "**FIRMWARE Version 3.15.9 or higher**"
 msgstr ""
 
-#: ../../nethvoice.rst:605
+#: ../../nethvoice.rst:602
 msgid "Maxwell Basic, Maxwell 2, Maxwell 3, Maxwell 4"
 msgstr ""
 
-#: ../../nethvoice.rst:610
+#: ../../nethvoice.rst:607
 #, fuzzy
 msgid "Provisioning compatibility"
 msgstr "Provisioning Parameters Guide"
 
-#: ../../nethvoice.rst:612
+#: ../../nethvoice.rst:609
 msgid ""
 "The following table summarizes the provisioning methods used by each "
 "manufacturer at the phone's first boot."
 msgstr ""
 
-#: ../../nethvoice.rst:614
+#: ../../nethvoice.rst:611
 msgid "Provisioning methods by manufacturer"
 msgstr ""
 
-#: ../../nethvoice.rst:618
+#: ../../nethvoice.rst:615
 msgid "Manufacturer"
 msgstr ""
 
-#: ../../nethvoice.rst:619
+#: ../../nethvoice.rst:616
 msgid "Primary method"
 msgstr ""
 
-#: ../../nethvoice.rst:620
+#: ../../nethvoice.rst:617
 #, fuzzy
 msgid "Secondary method"
 msgstr "indirizzo mail secondario"
 
-#: ../../nethvoice.rst:621
+#: ../../nethvoice.rst:618
 #, fuzzy
 msgid "DHCP option"
 msgstr "Subscription"
 
-#: ../../nethvoice.rst:622
+#: ../../nethvoice.rst:619
 msgid "DHCP option value"
 msgstr ""
 
-#: ../../nethvoice.rst:624 ../../nethvoice.rst:629 ../../nethvoice.rst:634
-#: ../../nethvoice.rst:639 ../../nethvoice.rst:645
+#: ../../nethvoice.rst:621 ../../nethvoice.rst:626 ../../nethvoice.rst:631
+#: ../../nethvoice.rst:636 ../../nethvoice.rst:642
 #, fuzzy
 msgid "RPS"
 msgstr "Groups"
 
-#: ../../nethvoice.rst:626 ../../nethvoice.rst:631 ../../nethvoice.rst:636
+#: ../../nethvoice.rst:623 ../../nethvoice.rst:628 ../../nethvoice.rst:633
 msgid "66"
 msgstr ""
 
-#: ../../nethvoice.rst:627 ../../nethvoice.rst:632
+#: ../../nethvoice.rst:624 ../../nethvoice.rst:629
 msgid "``http://IP_PHONE_SYSTEM/provisioning/$mac.cfg``"
 msgstr ""
 
-#: ../../nethvoice.rst:637
+#: ../../nethvoice.rst:634
 msgid "``http://IP_PHONE_SYSTEM/provisioning/$MAC.cfg``"
 msgstr ""
 
-#: ../../nethvoice.rst:641
+#: ../../nethvoice.rst:638
 msgid "66 and 67"
 msgstr ""
 
-#: ../../nethvoice.rst:642
+#: ../../nethvoice.rst:639
 msgid "``http://IP_PHONE_SYSTEM/provisioning/{mac}.xml``"
 msgstr ""
 
-#: ../../nethvoice.rst:644
+#: ../../nethvoice.rst:641
 msgid "DHCP [#f1]_"
 msgstr ""
 
-#: ../../nethvoice.rst:646
+#: ../../nethvoice.rst:643
 msgid "114"
 msgstr ""
 
-#: ../../nethvoice.rst:647
+#: ../../nethvoice.rst:644
 msgid "``http://IP_PHONE_SYSTEM/provisioning/%MACD.xml``"
 msgstr ""
 
-#: ../../nethvoice.rst:649
+#: ../../nethvoice.rst:646
 msgid ""
 "For Gigaset phones, make sure that the network DHCP server does not "
 "provide OPTION 66."
 msgstr ""
 
-#: ../../nethvoice.rst:654
+#: ../../nethvoice.rst:651
 #, fuzzy
 msgid "Provisioning Parameters Guide"
 msgstr "Provisioning Parameters Guide"
 
-#: ../../nethvoice.rst:656
+#: ../../nethvoice.rst:653
 #, fuzzy
 msgid ""
 "The functions of phones that can be configured through provisioning are "
@@ -7964,7 +7927,7 @@ msgstr ""
 "in the panels of the NethVoice administration interface and described in "
 "the following sections."
 
-#: ../../nethvoice.rst:658
+#: ../../nethvoice.rst:655
 #, fuzzy
 msgid ""
 "Not all phone models offer the same functions, so some parameters or "
@@ -7973,7 +7936,7 @@ msgstr ""
 "Not all phone models have the same functions, so some parameters or "
 "entire panels may not be displayed."
 
-#: ../../nethvoice.rst:660
+#: ../../nethvoice.rst:657
 #, fuzzy
 msgid ""
 "Generally, leaving a field empty or selecting the option - (minus sign) "
@@ -7989,12 +7952,12 @@ msgstr ""
 "by model and default settings. Refer to :ref:`priority of phone "
 "configurations <provisioning-scopes-priority>` for further information."
 
-#: ../../nethvoice.rst:666
+#: ../../nethvoice.rst:663
 #, fuzzy
 msgid "Soft key"
 msgstr "Soft key"
 
-#: ../../nethvoice.rst:668
+#: ../../nethvoice.rst:665
 #, fuzzy
 msgid ""
 "The ``soft keys`` are programmable phone keys designated for calling "
@@ -8003,7 +7966,7 @@ msgstr ""
 "The ``soft keys`` are programmable phone keys specific for calling phone "
 "functions."
 
-#: ../../nethvoice.rst:671
+#: ../../nethvoice.rst:668
 #, fuzzy
 msgid ""
 "If the phone provides more keys than those displayed in the NethVoice "
@@ -8014,7 +7977,7 @@ msgstr ""
 "Nethvoice administration interface, there is a ``View more`` button to "
 "add additional keys."
 
-#: ../../nethvoice.rst:673
+#: ../../nethvoice.rst:670
 #, fuzzy
 msgid ""
 "Depending on the ``Type``, the ``Value`` and ``Label`` fields may also "
@@ -8023,7 +7986,7 @@ msgstr ""
 "Depending on the ``Type``, the ``Value`` and ``Label`` fields may also "
 "need to be filled in, as indicated in the table below."
 
-#: ../../nethvoice.rst:675
+#: ../../nethvoice.rst:672
 #, fuzzy
 msgid ""
 "In the Label column, the term default signifies that if the Label field "
@@ -8032,37 +7995,37 @@ msgstr ""
 "In the Label column, the term default indicates that leaving the Label "
 "field empty, the phone will assign a default ``label`` to the soft key."
 
-#: ../../nethvoice.rst:678
+#: ../../nethvoice.rst:675
 #, fuzzy
 msgid "Soft key configuration"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:682 ../../nethvoice.rst:759
+#: ../../nethvoice.rst:679 ../../nethvoice.rst:756
 #, fuzzy
 msgid "Type"
 msgstr "Type"
 
-#: ../../nethvoice.rst:683 ../../nethvoice.rst:760
+#: ../../nethvoice.rst:680 ../../nethvoice.rst:757
 #, fuzzy
 msgid "Description"
 msgstr "Subscription"
 
-#: ../../nethvoice.rst:684 ../../nethvoice.rst:761
+#: ../../nethvoice.rst:681 ../../nethvoice.rst:758
 #, fuzzy
 msgid "Value"
 msgstr "Value"
 
-#: ../../nethvoice.rst:685 ../../nethvoice.rst:762
+#: ../../nethvoice.rst:682 ../../nethvoice.rst:759
 #, fuzzy
 msgid "Label"
 msgstr "Label"
 
-#: ../../nethvoice.rst:687 ../../nethvoice.rst:769
+#: ../../nethvoice.rst:684 ../../nethvoice.rst:766
 #, fuzzy
 msgid "Forward"
 msgstr "Forward"
 
-#: ../../nethvoice.rst:688 ../../nethvoice.rst:770
+#: ../../nethvoice.rst:685 ../../nethvoice.rst:767
 #, fuzzy
 msgid ""
 "Enable/disable the forward state (unconditional forwarding). If enabled, "
@@ -8071,27 +8034,27 @@ msgstr ""
 "Enable/disable the forward state (unconditional forwarding). If enabled, "
 "all incoming calls are forwarded to the specified number"
 
-#: ../../nethvoice.rst:689 ../../nethvoice.rst:771 ../../nethvoice.rst:776
+#: ../../nethvoice.rst:686 ../../nethvoice.rst:768 ../../nethvoice.rst:773
 #, fuzzy
 msgid "Phone number or extension"
 msgstr "Phone number or extension"
 
-#: ../../nethvoice.rst:690 ../../nethvoice.rst:700 ../../nethvoice.rst:720
-#: ../../nethvoice.rst:725 ../../nethvoice.rst:730 ../../nethvoice.rst:735
-#: ../../nethvoice.rst:740 ../../nethvoice.rst:767 ../../nethvoice.rst:772
-#: ../../nethvoice.rst:782 ../../nethvoice.rst:792 ../../nethvoice.rst:812
-#: ../../nethvoice.rst:822 ../../nethvoice.rst:842 ../../nethvoice.rst:847
-#: ../../nethvoice.rst:852 ../../nethvoice.rst:858 ../../nethvoice.rst:863
+#: ../../nethvoice.rst:687 ../../nethvoice.rst:697 ../../nethvoice.rst:717
+#: ../../nethvoice.rst:722 ../../nethvoice.rst:727 ../../nethvoice.rst:732
+#: ../../nethvoice.rst:737 ../../nethvoice.rst:764 ../../nethvoice.rst:769
+#: ../../nethvoice.rst:779 ../../nethvoice.rst:789 ../../nethvoice.rst:809
+#: ../../nethvoice.rst:819 ../../nethvoice.rst:839 ../../nethvoice.rst:844
+#: ../../nethvoice.rst:849 ../../nethvoice.rst:855 ../../nethvoice.rst:860
 #, fuzzy
 msgid "Yes (default)"
 msgstr "Yes (default)"
 
-#: ../../nethvoice.rst:692 ../../nethvoice.rst:784
+#: ../../nethvoice.rst:689 ../../nethvoice.rst:781
 #, fuzzy
 msgid "DND"
 msgstr "DND"
 
-#: ../../nethvoice.rst:693
+#: ../../nethvoice.rst:690
 #, fuzzy
 msgid ""
 "Enable/disable the do not disturb state. If enabled, all incoming calls "
@@ -8100,101 +8063,101 @@ msgstr ""
 "Enable/disable the do not disturb state. If enabled, all incoming calls "
 "are rejected"
 
-#: ../../nethvoice.rst:694 ../../nethvoice.rst:695 ../../nethvoice.rst:699
-#: ../../nethvoice.rst:715 ../../nethvoice.rst:719 ../../nethvoice.rst:724
-#: ../../nethvoice.rst:729 ../../nethvoice.rst:739 ../../nethvoice.rst:766
-#: ../../nethvoice.rst:781 ../../nethvoice.rst:786 ../../nethvoice.rst:787
-#: ../../nethvoice.rst:791 ../../nethvoice.rst:806 ../../nethvoice.rst:811
-#: ../../nethvoice.rst:821 ../../nethvoice.rst:837 ../../nethvoice.rst:846
-#: ../../nethvoice.rst:857 ../../nethvoice.rst:862
+#: ../../nethvoice.rst:691 ../../nethvoice.rst:692 ../../nethvoice.rst:696
+#: ../../nethvoice.rst:712 ../../nethvoice.rst:716 ../../nethvoice.rst:721
+#: ../../nethvoice.rst:726 ../../nethvoice.rst:736 ../../nethvoice.rst:763
+#: ../../nethvoice.rst:778 ../../nethvoice.rst:783 ../../nethvoice.rst:784
+#: ../../nethvoice.rst:788 ../../nethvoice.rst:803 ../../nethvoice.rst:808
+#: ../../nethvoice.rst:818 ../../nethvoice.rst:834 ../../nethvoice.rst:843
+#: ../../nethvoice.rst:854 ../../nethvoice.rst:859
 #, fuzzy
 msgid "No"
 msgstr "No"
 
-#: ../../nethvoice.rst:697 ../../nethvoice.rst:789
+#: ../../nethvoice.rst:694 ../../nethvoice.rst:786
 #, fuzzy
 msgid "Recall"
 msgstr "Firewall"
 
-#: ../../nethvoice.rst:698
+#: ../../nethvoice.rst:695
 #, fuzzy
 msgid "Call back the last dialed number"
 msgstr "Call back the last dialed number"
 
-#: ../../nethvoice.rst:702 ../../nethvoice.rst:794
+#: ../../nethvoice.rst:699 ../../nethvoice.rst:791
 #, fuzzy
 msgid "Pick up"
 msgstr "Pick up"
 
-#: ../../nethvoice.rst:703
+#: ../../nethvoice.rst:700
 #, fuzzy
 msgid "Answer an ongoing call to the specified extension"
 msgstr "Answer an ongoing call to the specified extension"
 
-#: ../../nethvoice.rst:704 ../../nethvoice.rst:709 ../../nethvoice.rst:796
-#: ../../nethvoice.rst:816 ../../nethvoice.rst:826 ../../nethvoice.rst:841
+#: ../../nethvoice.rst:701 ../../nethvoice.rst:706 ../../nethvoice.rst:793
+#: ../../nethvoice.rst:813 ../../nethvoice.rst:823 ../../nethvoice.rst:838
 #, fuzzy
 msgid "Phone number"
 msgstr "Phone number"
 
-#: ../../nethvoice.rst:705 ../../nethvoice.rst:710 ../../nethvoice.rst:777
-#: ../../nethvoice.rst:797 ../../nethvoice.rst:802 ../../nethvoice.rst:807
-#: ../../nethvoice.rst:817 ../../nethvoice.rst:827 ../../nethvoice.rst:832
+#: ../../nethvoice.rst:702 ../../nethvoice.rst:707 ../../nethvoice.rst:774
+#: ../../nethvoice.rst:794 ../../nethvoice.rst:799 ../../nethvoice.rst:804
+#: ../../nethvoice.rst:814 ../../nethvoice.rst:824 ../../nethvoice.rst:829
 #, fuzzy
 msgid "Yes"
 msgstr "Yes"
 
-#: ../../nethvoice.rst:707 ../../nethvoice.rst:814
+#: ../../nethvoice.rst:704 ../../nethvoice.rst:811
 #, fuzzy
 msgid "Speed dial"
 msgstr "Speed dial"
 
-#: ../../nethvoice.rst:708 ../../nethvoice.rst:815
+#: ../../nethvoice.rst:705 ../../nethvoice.rst:812
 #, fuzzy
 msgid "Call the given number by pressing the key"
 msgstr "Call the given number by pressing the key"
 
-#: ../../nethvoice.rst:712 ../../nethvoice.rst:834
+#: ../../nethvoice.rst:709 ../../nethvoice.rst:831
 #, fuzzy
 msgid "Group pickup"
 msgstr "Group pickup"
 
-#: ../../nethvoice.rst:713
+#: ../../nethvoice.rst:710
 #, fuzzy
 msgid "Answer an ongoing call to the configured pickup group"
 msgstr "Answer an ongoing call to the configured pickup group"
 
-#: ../../nethvoice.rst:714
+#: ../../nethvoice.rst:711
 #, fuzzy
 msgid "No (The group is configured.)"
 msgstr "No (The group is configured.)"
 
-#: ../../nethvoice.rst:717
+#: ../../nethvoice.rst:714
 #, fuzzy
 msgid "History"
 msgstr "History"
 
-#: ../../nethvoice.rst:718
+#: ../../nethvoice.rst:715
 #, fuzzy
 msgid "Display the call history screen"
 msgstr "Display the call history screen"
 
-#: ../../nethvoice.rst:722
+#: ../../nethvoice.rst:719
 #, fuzzy
 msgid "Menu"
 msgstr "Menu"
 
-#: ../../nethvoice.rst:723
+#: ../../nethvoice.rst:720
 #, fuzzy
 msgid "Show the phone configuration menu"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:727
+#: ../../nethvoice.rst:724
 #, fuzzy
 msgid "Status"
 msgstr "Status"
 
-#: ../../nethvoice.rst:728
+#: ../../nethvoice.rst:725
 #, fuzzy
 msgid ""
 "Display phone status information (e.g., firmware version, registration "
@@ -8203,37 +8166,37 @@ msgstr ""
 "Display phone status information (e.g., firmware version, registration "
 "status...)"
 
-#: ../../nethvoice.rst:732 ../../nethvoice.rst:849
+#: ../../nethvoice.rst:729 ../../nethvoice.rst:846
 #, fuzzy
 msgid "Prefix"
 msgstr "Prefix"
 
-#: ../../nethvoice.rst:733 ../../nethvoice.rst:850
+#: ../../nethvoice.rst:730 ../../nethvoice.rst:847
 #, fuzzy
 msgid "Add the specified digits to the dialed number"
 msgstr "Add the specified digits to the dialed number"
 
-#: ../../nethvoice.rst:734
+#: ../../nethvoice.rst:731
 #, fuzzy
 msgid "The digits of the prefix"
 msgstr "The digits of the prefix"
 
-#: ../../nethvoice.rst:737 ../../nethvoice.rst:860
+#: ../../nethvoice.rst:734 ../../nethvoice.rst:857
 #, fuzzy
 msgid "LDAP"
 msgstr "OpenLDAP"
 
-#: ../../nethvoice.rst:738
+#: ../../nethvoice.rst:735
 #, fuzzy
 msgid "Display the LDAP address book configured on the phone"
 msgstr "Display the LDAP address book configured on the phone"
 
-#: ../../nethvoice.rst:745
+#: ../../nethvoice.rst:742
 #, fuzzy
 msgid "Line key"
 msgstr "Line key"
 
-#: ../../nethvoice.rst:747
+#: ../../nethvoice.rst:744
 #, fuzzy
 msgid ""
 "The ``line keys`` are programmable phone keys that resemble soft keys but"
@@ -8244,7 +8207,7 @@ msgstr ""
 "more specific for call management and monitoring the status of "
 "extensions."
 
-#: ../../nethvoice.rst:749
+#: ../../nethvoice.rst:746
 #, fuzzy
 msgid ""
 "If the phone provides more keys than those displayed in the NethVoice "
@@ -8255,7 +8218,7 @@ msgstr ""
 "Nethvoice administration interface, there is a ``View more`` button to "
 "add additional keys."
 
-#: ../../nethvoice.rst:751
+#: ../../nethvoice.rst:748
 #, fuzzy
 msgid ""
 "Depending on the ``Type``, the fields ``Value`` and ``Label`` might need "
@@ -8264,7 +8227,7 @@ msgstr ""
 "Depending on the ``Type``, the fields ``Value`` and ``Label`` may need to"
 " be filled in, as indicated in the table below."
 
-#: ../../nethvoice.rst:753
+#: ../../nethvoice.rst:750
 #, fuzzy
 msgid ""
 "In the Label column, the term \"default\" signifies that if the Label "
@@ -8274,17 +8237,17 @@ msgstr ""
 "In the Label column, the term default indicates that leaving the Label "
 "field blank, the phone will assign a default ``label`` to the line key."
 
-#: ../../nethvoice.rst:755
+#: ../../nethvoice.rst:752
 #, fuzzy
 msgid "Line key configuration"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:764
+#: ../../nethvoice.rst:761
 #, fuzzy
 msgid "Conference"
 msgstr "Conference"
 
-#: ../../nethvoice.rst:765
+#: ../../nethvoice.rst:762
 #, fuzzy
 msgid ""
 "Active calls are merged into a conference where each participant can "
@@ -8293,12 +8256,12 @@ msgstr ""
 "Active calls are merged into a conference where each participant can "
 "listen and speak with others simultaneously"
 
-#: ../../nethvoice.rst:774
+#: ../../nethvoice.rst:771
 #, fuzzy
 msgid "Call transfer"
 msgstr "Local storage"
 
-#: ../../nethvoice.rst:775
+#: ../../nethvoice.rst:772
 #, fuzzy
 msgid ""
 "Transfers the current call to the selected number or another dialed "
@@ -8307,17 +8270,17 @@ msgstr ""
 "Transfers the current call to the selected number or another dialed "
 "number at the moment"
 
-#: ../../nethvoice.rst:779
+#: ../../nethvoice.rst:776
 #, fuzzy
 msgid "Hold"
 msgstr "Hold"
 
-#: ../../nethvoice.rst:780
+#: ../../nethvoice.rst:777
 #, fuzzy
 msgid "Places the current call on hold"
 msgstr "Places the current call on hold"
 
-#: ../../nethvoice.rst:785
+#: ../../nethvoice.rst:782
 #, fuzzy
 msgid ""
 "Enables/disables the Do Not Disturb (DND) status. If enabled, all "
@@ -8326,22 +8289,22 @@ msgstr ""
 "Enables/disables the Do Not Disturb (DND) status. If enabled, all "
 "incoming calls are rejected"
 
-#: ../../nethvoice.rst:790
+#: ../../nethvoice.rst:787
 #, fuzzy
 msgid "Dials the last dialed number again"
 msgstr "Dials the last dialed number again"
 
-#: ../../nethvoice.rst:795
+#: ../../nethvoice.rst:792
 #, fuzzy
 msgid "Answers an incoming call on the specified extension"
 msgstr "Answers an incoming call on the specified extension"
 
-#: ../../nethvoice.rst:799
+#: ../../nethvoice.rst:796
 #, fuzzy
 msgid "DTMF"
 msgstr "DTMF"
 
-#: ../../nethvoice.rst:800
+#: ../../nethvoice.rst:797
 #, fuzzy
 msgid ""
 "Executes a sequence of Dual-Tone Multi-Frequency (DTMF) tones during a "
@@ -8350,47 +8313,47 @@ msgstr ""
 "Executes a sequence of Dual-Tone Multi-Frequency (DTMF) tones during a "
 "call"
 
-#: ../../nethvoice.rst:801
+#: ../../nethvoice.rst:798
 #, fuzzy
 msgid "Sequence of symbols or numbers."
 msgstr "Sequence of symbols or numbers."
 
-#: ../../nethvoice.rst:804
+#: ../../nethvoice.rst:801
 #, fuzzy
 msgid "Login/logout dynamic agent"
 msgstr "Login/logout dynamic agent"
 
-#: ../../nethvoice.rst:805
+#: ../../nethvoice.rst:802
 #, fuzzy
 msgid "Login/login the call queue"
 msgstr "Login/login the call queue"
 
-#: ../../nethvoice.rst:809
+#: ../../nethvoice.rst:806
 #, fuzzy
 msgid "Voicemail"
 msgstr "Voicemail"
 
-#: ../../nethvoice.rst:810
+#: ../../nethvoice.rst:807
 #, fuzzy
 msgid "Check voicemail"
 msgstr "Check voicemail"
 
-#: ../../nethvoice.rst:819
+#: ../../nethvoice.rst:816
 #, fuzzy
 msgid "Line"
 msgstr "LOGIN"
 
-#: ../../nethvoice.rst:820
+#: ../../nethvoice.rst:817
 #, fuzzy
 msgid "Select another line"
 msgstr "Select another line"
 
-#: ../../nethvoice.rst:824
+#: ../../nethvoice.rst:821
 #, fuzzy
 msgid "BLF"
 msgstr "BLF"
 
-#: ../../nethvoice.rst:825
+#: ../../nethvoice.rst:822
 #, fuzzy
 msgid ""
 "Monitors the status of the selected extension and, depending on its "
@@ -8399,57 +8362,57 @@ msgstr ""
 "Monitors the status of the selected extension and, depending on its "
 "status, performs either a pick up or speed dial when pressed"
 
-#: ../../nethvoice.rst:830
+#: ../../nethvoice.rst:827
 #, fuzzy
 msgid "Performs an HTTP GET request to the specified web address"
 msgstr "Performs an HTTP GET request to the specified web address"
 
-#: ../../nethvoice.rst:831
+#: ../../nethvoice.rst:828
 #, fuzzy
 msgid "Web address (URL)"
 msgstr "Web address (URL)"
 
-#: ../../nethvoice.rst:835
+#: ../../nethvoice.rst:832
 #, fuzzy
 msgid "Answer a call in progress for the configured pickup group"
 msgstr "Answer a call in progress for the configured pickup group"
 
-#: ../../nethvoice.rst:836
+#: ../../nethvoice.rst:833
 #, fuzzy
 msgid "No (the group is configured)"
 msgstr "No (the group is configured)"
 
-#: ../../nethvoice.rst:839
+#: ../../nethvoice.rst:836
 #, fuzzy
 msgid "Multicast paging"
 msgstr "Multicast paging"
 
-#: ../../nethvoice.rst:840
+#: ../../nethvoice.rst:837
 #, fuzzy
 msgid "Send audio directly to the configured extension for multicast paging"
 msgstr "Send audio directly to the configured extension for multicast paging"
 
-#: ../../nethvoice.rst:844
+#: ../../nethvoice.rst:841
 #, fuzzy
 msgid "Record"
 msgstr "Record"
 
-#: ../../nethvoice.rst:845
+#: ../../nethvoice.rst:842
 #, fuzzy
 msgid "Start audio recording of the active call"
 msgstr "Start audio recording of the active call"
 
-#: ../../nethvoice.rst:851
+#: ../../nethvoice.rst:848
 #, fuzzy
 msgid "The prefix digits"
 msgstr "The prefix digits"
 
-#: ../../nethvoice.rst:854
+#: ../../nethvoice.rst:851
 #, fuzzy
 msgid "Phone lock"
 msgstr "Phone lock"
 
-#: ../../nethvoice.rst:855
+#: ../../nethvoice.rst:852
 #, fuzzy
 msgid ""
 "Activate the phone lock\" enables the lock feature on the phone, "
@@ -8460,17 +8423,17 @@ msgstr ""
 "restricting access to the keys and interface. The unlock sequence needs "
 "to be configured according to the phone's documentation"
 
-#: ../../nethvoice.rst:861
+#: ../../nethvoice.rst:858
 #, fuzzy
 msgid "Show configured LDAP address book on the phone"
 msgstr "Show configured LDAP address book on the phone"
 
-#: ../../nethvoice.rst:868
+#: ../../nethvoice.rst:865
 #, fuzzy
 msgid "Exp key"
 msgstr "Exp key"
 
-#: ../../nethvoice.rst:870
+#: ../../nethvoice.rst:867
 #, fuzzy
 msgid ""
 "The *Expansion Keys* are programmable buttons on *expansion modules*, "
@@ -8481,7 +8444,7 @@ msgstr ""
 "devices that can be connected to the phone to increase the number of "
 "available keys."
 
-#: ../../nethvoice.rst:872
+#: ../../nethvoice.rst:869
 #, fuzzy
 msgid ""
 "If the expansion module provides more keys than are displayed in the "
@@ -8492,24 +8455,24 @@ msgstr ""
 "Nethvoice administration interface, there is a ``View more`` button to "
 "add additional keys."
 
-#: ../../nethvoice.rst:874
+#: ../../nethvoice.rst:871
 #, fuzzy
 msgid "This type of key is configured similarly to the Line key."
 msgstr "This type of key is configured like the :ref:`Line key <panel-linekeys>`."
 
-#: ../../nethvoice.rst:876
+#: ../../nethvoice.rst:873
 #, fuzzy
 msgid ""
 "This type of key is configured similarly to the :ref:`Line key <panel-"
 "linekeys>`."
 msgstr "This type of key is configured like the :ref:`Line key <panel-linekeys>`."
 
-#: ../../nethvoice.rst:881
+#: ../../nethvoice.rst:878
 #, fuzzy
 msgid "Screen and Ringtone"
 msgstr "Screen and Ringtone"
 
-#: ../../nethvoice.rst:883
+#: ../../nethvoice.rst:880
 #, fuzzy
 msgid ""
 "``Ringtone Selection``: Each phone has some predefined ringtones that can"
@@ -8522,7 +8485,7 @@ msgstr ""
 "also choose a custom ringtone, which should then be loaded into the field"
 " described below."
 
-#: ../../nethvoice.rst:885
+#: ../../nethvoice.rst:882
 #, fuzzy
 msgid ""
 "``Custom Ringtone Management``: Select an audio file for the custom "
@@ -8535,7 +8498,7 @@ msgstr ""
 "opening the dedicated management module. The audio format must be "
 "compatible with the specifications of the phone manufacturer."
 
-#: ../../nethvoice.rst:887
+#: ../../nethvoice.rst:884
 #, fuzzy
 msgid ""
 "``Background Image\" \"Screensaver Image``: Select an image file for the "
@@ -8548,7 +8511,7 @@ msgstr ""
 "the dedicated management panel. The image format must be compatible with "
 "the specifications of the phone manufacturer."
 
-#: ../../nethvoice.rst:889
+#: ../../nethvoice.rst:886
 #, fuzzy
 msgid ""
 "``Screensaver Activation``: Time interval after which the screensaver is "
@@ -8557,7 +8520,7 @@ msgstr ""
 "``Screensaver Activation`` Time interval after which the screensaver is "
 "activated."
 
-#: ../../nethvoice.rst:891
+#: ../../nethvoice.rst:888
 #, fuzzy
 msgid ""
 "``Backlight Off``: Time interval after which the screen lowers brightness"
@@ -8566,7 +8529,7 @@ msgstr ""
 "``Backlight Off`` Time interval after which the screen lowers brightness "
 "or turns off the screen backlight."
 
-#: ../../nethvoice.rst:893
+#: ../../nethvoice.rst:890
 #, fuzzy
 msgid ""
 "``Screen Brightness`` \"Screen Contrast\": Select the brightness and "
@@ -8575,12 +8538,12 @@ msgstr ""
 "``Screen Brightness`` ``Screen Contrast`` Select the brightness and "
 "contrast levels of the screen."
 
-#: ../../nethvoice.rst:896
+#: ../../nethvoice.rst:893
 #, fuzzy
 msgid "Preferences"
 msgstr "Preferences"
 
-#: ../../nethvoice.rst:898
+#: ../../nethvoice.rst:895
 #, fuzzy
 msgid ""
 "``NTP Server Address``: The hostname or IP address of the Network Time "
@@ -8589,7 +8552,7 @@ msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../nethvoice.rst:900
+#: ../../nethvoice.rst:897
 #, fuzzy
 msgid ""
 "\"Provisioning Schedule``: By selecting Only at startup, phones renew "
@@ -8602,7 +8565,7 @@ msgstr ""
 " Every day, phones autonomously renew their configuration at a random "
 "time during the night. See also :ref:provisioning2-automatic-updates."
 
-#: ../../nethvoice.rst:902
+#: ../../nethvoice.rst:899
 #, fuzzy
 msgid ""
 "``Transfer Mode for Line Keys``: Specifies how line keys transfer the "
@@ -8611,7 +8574,7 @@ msgstr ""
 "``Transfer Mode for Line Keys`` Specifies how line keys transfer the "
 "ongoing call to another extension."
 
-#: ../../nethvoice.rst:904
+#: ../../nethvoice.rst:901
 #, fuzzy
 msgid ""
 "**New Call** initiates a new call to the extension configured on the line"
@@ -8620,7 +8583,7 @@ msgstr ""
 "**New Call** initiates a new call to the extension configured on the line"
 " key, placing thecurrent call on hold."
 
-#: ../../nethvoice.rst:906
+#: ../../nethvoice.rst:903
 #, fuzzy
 msgid ""
 "**Consultative** always places the current call on hold, and the transfer"
@@ -8631,7 +8594,7 @@ msgstr ""
 " completion can occur while the extension configured on the line key is "
 "ringing or even after the answer."
 
-#: ../../nethvoice.rst:908
+#: ../../nethvoice.rst:905
 #, fuzzy
 msgid ""
 "**Blind/No Confirmation** immediately transfers the current call to the "
@@ -8640,7 +8603,7 @@ msgstr ""
 "**Blind/No Confirmation** immediately transfers the current call to the "
 "configured extension."
 
-#: ../../nethvoice.rst:910
+#: ../../nethvoice.rst:907
 #, fuzzy
 msgid ""
 "``Phone Language``: Language used by the phone's screen and its web "
@@ -8649,7 +8612,7 @@ msgstr ""
 "``Phone Language`` Language used by the phone's screen and its web "
 "interface."
 
-#: ../../nethvoice.rst:912
+#: ../../nethvoice.rst:909
 #, fuzzy
 msgid ""
 "``Timezone``: Sets the phone's timezone, necessary for daylight saving "
@@ -8658,7 +8621,7 @@ msgstr ""
 "``Timezone`` Sets the phone's timezone, necessary for daylight saving "
 "time adjustments."
 
-#: ../../nethvoice.rst:914
+#: ../../nethvoice.rst:911
 #, fuzzy
 msgid ""
 "``Ring Tones``: These are specific to each country and indicate the call "
@@ -8669,7 +8632,7 @@ msgstr ""
 "status through an audible signal: free tone, busy tone, hang-up tone, "
 "etc."
 
-#: ../../nethvoice.rst:916
+#: ../../nethvoice.rst:913
 #, fuzzy
 msgid ""
 "``Time Format`` \"Date Format\": Choice of the time/date format displayed"
@@ -8678,19 +8641,19 @@ msgstr ""
 "``Time Format`` ``Date Format`` Choice of the time/date format displayed "
 "on the phone's screen."
 
-#: ../../nethvoice.rst:918
+#: ../../nethvoice.rst:915
 #, fuzzy
 msgid ""
 "``Firmware``: Upload and selection of a new firmware version for the "
 "phone."
 msgstr "``Firmware`` Upload and selection of a new firmware version for the phone."
 
-#: ../../nethvoice.rst:921
+#: ../../nethvoice.rst:918
 #, fuzzy
 msgid "LDAP Phonebook"
 msgstr "LDAP Phonebook"
 
-#: ../../nethvoice.rst:923
+#: ../../nethvoice.rst:920
 #, fuzzy
 msgid ""
 "The first two options in the ``Address Book Type`` do not allow further "
@@ -8705,19 +8668,19 @@ msgstr ""
 "can modify the remaining fields in this panel to connect phones to a "
 "third-party LDAP server."
 
-#: ../../nethvoice.rst:925
+#: ../../nethvoice.rst:922
 #, fuzzy
 msgid "``Server Address``: Hostname or IP address of the LDAP server."
 msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../nethvoice.rst:927
+#: ../../nethvoice.rst:924
 #, fuzzy
 msgid "``Port Number``: TCP port used by the LDAP server."
 msgstr "``Port Number`` TCP port used by the LDAP server."
 
-#: ../../nethvoice.rst:929
+#: ../../nethvoice.rst:926
 #, fuzzy
 msgid ""
 "``Username\" \"Password``: Authentication credentials for the LDAP "
@@ -8730,7 +8693,7 @@ msgstr ""
 "LDAP or in another format, depending on the requirements of the LDAP "
 "server."
 
-#: ../../nethvoice.rst:931
+#: ../../nethvoice.rst:928
 #, fuzzy
 msgid ""
 "``Encryption``: Protects the connection with TLS or STARTTLS. Caution! "
@@ -8740,7 +8703,7 @@ msgstr ""
 "``Encryption`` Protects the connection with TLS or STARTTLS. Caution! "
 "Some phones do not support encryption, and it's necessary to select None."
 
-#: ../../nethvoice.rst:933
+#: ../../nethvoice.rst:930
 #, fuzzy
 msgid ""
 "``Search Base (DN)``: Limits access to the branch of the LDAP database "
@@ -8749,7 +8712,7 @@ msgstr ""
 "``Search Base (DN)`` Limits access to the branch of the LDAP database "
 "specified as the base. Usually, the search base is mandatory."
 
-#: ../../nethvoice.rst:935
+#: ../../nethvoice.rst:932
 #, fuzzy
 msgid ""
 "``Search Filter for Contact Name`` ``Search Filter for Phone Number``: "
@@ -8762,7 +8725,7 @@ msgstr ""
 "RFC-4515 and later. The character % (percentage sign) can be used as a "
 "placeholder that the phone replaces with the dialed number."
 
-#: ../../nethvoice.rst:937
+#: ../../nethvoice.rst:934
 #, fuzzy
 msgid ""
 "``Attributes for Contact Name``: Separated by space, list the names of "
@@ -8771,7 +8734,7 @@ msgstr ""
 "``Attributes for Contact Name`` Separated by space, list the names of "
 "LDAP attributes that can contain the contact's name."
 
-#: ../../nethvoice.rst:939
+#: ../../nethvoice.rst:936
 #, fuzzy
 msgid ""
 "``Name Display Format``: Attributes' names preceded by the character % "
@@ -8782,7 +8745,7 @@ msgstr ""
 "(percentage sign) can be composed to form the pattern with which the name"
 " is displayed on the phone screen."
 
-#: ../../nethvoice.rst:941
+#: ../../nethvoice.rst:938
 #, fuzzy
 msgid ""
 "``Attribute for Main Phone Number`` ``Attribute for Mobile Number`` "
@@ -8793,12 +8756,12 @@ msgstr ""
 "``Attribute for Other Phone Number`` These three fields contain names of "
 "LDAP attributes for the respective phone numbers."
 
-#: ../../nethvoice.rst:944
+#: ../../nethvoice.rst:941
 #, fuzzy
 msgid "Network"
 msgstr "Network"
 
-#: ../../nethvoice.rst:946
+#: ../../nethvoice.rst:943
 #, fuzzy
 msgid ""
 "Phones use the DHCP protocol to receive network configuration: IP, subnet"
@@ -8810,12 +8773,12 @@ msgstr ""
 "provisioning URL (refer to :ref:`Provisioning methods <provisioning-"
 "methods>`)."
 
-#: ../../nethvoice.rst:948
+#: ../../nethvoice.rst:945
 #, fuzzy
 msgid "However, the following parameters can be configured in this panel:"
 msgstr "However, the following parameters can be configured in this panel:"
 
-#: ../../nethvoice.rst:950
+#: ../../nethvoice.rst:947
 #, fuzzy
 msgid ""
 "``VLAN Identifier (VID)``: By specifying a number between 1 and 4094, the"
@@ -8826,7 +8789,7 @@ msgstr ""
 "phone will add VLAN tagging to the packets generated by the phone itself,"
 " according to the IEEE 802.1Q standard."
 
-#: ../../nethvoice.rst:952
+#: ../../nethvoice.rst:949
 #, fuzzy
 msgid ""
 "``VLAN Identifier for PC port``: By specifying a number between 1 and "
@@ -8837,7 +8800,7 @@ msgstr ""
 "4094, the phone will add VLAN tagging to packets coming from the PC port "
 "(or data port), following the IEEE 802.1Q standard."
 
-#: ../../nethvoice.rst:954
+#: ../../nethvoice.rst:951
 #, fuzzy
 msgid ""
 "In the VLAN fields, the value \"\" (empty string) usually considers the "
@@ -8848,64 +8811,64 @@ msgstr ""
 "the setting at a lower priority (model or default), while \"0\" (zero) "
 "corresponds to \"disabled\"."
 
-#: ../../nethvoice.rst:958
+#: ../../nethvoice.rst:955
 #, fuzzy
 msgid "Entering an incorrect VLAN identifier can render the phone unreachable."
 msgstr "Entering an incorrect VLAN identifier can render the phone unreachable."
 
-#: ../../nethvoice.rst:961
+#: ../../nethvoice.rst:958
 msgid "Gateway Provisioning"
 msgstr ""
 
-#: ../../nethvoice.rst:964
+#: ../../nethvoice.rst:961
 msgid "Supported Gateways"
 msgstr ""
 
-#: ../../nethvoice.rst:967
+#: ../../nethvoice.rst:964
 msgid "GRANDSTREAM"
 msgstr ""
 
-#: ../../nethvoice.rst:969
+#: ../../nethvoice.rst:966
 msgid "FXS Models HT801 and HT802"
 msgstr ""
 
-#: ../../nethvoice.rst:970
+#: ../../nethvoice.rst:967
 msgid "FXS Models HT812 and HT814"
 msgstr ""
 
-#: ../../nethvoice.rst:971
+#: ../../nethvoice.rst:968
 msgid "FXS Models GXW4216, GXW4224, GXW4232, and GXW4248"
 msgstr ""
 
-#: ../../nethvoice.rst:974
+#: ../../nethvoice.rst:971
 msgid "MEDIATRIX"
 msgstr ""
 
-#: ../../nethvoice.rst:976
+#: ../../nethvoice.rst:973
 msgid "4400 Series"
 msgstr ""
 
-#: ../../nethvoice.rst:979
+#: ../../nethvoice.rst:976
 msgid "PATTON"
 msgstr ""
 
-#: ../../nethvoice.rst:981
+#: ../../nethvoice.rst:978
 msgid "BRI SmartNode and Trinity Models"
 msgstr ""
 
-#: ../../nethvoice.rst:982
+#: ../../nethvoice.rst:979
 msgid "PRI SmartNode and Trinity Models"
 msgstr ""
 
-#: ../../nethvoice.rst:983
+#: ../../nethvoice.rst:980
 msgid "FXO SmartNode Models"
 msgstr ""
 
-#: ../../nethvoice.rst:988
+#: ../../nethvoice.rst:985
 msgid "Gateway configuration is carried out in the Wizard."
 msgstr ""
 
-#: ../../nethvoice.rst:990
+#: ../../nethvoice.rst:987
 msgid ""
 "Gateway provisioning adheres to the same guidelines as provisioning for "
 "phones, with one key distinction: unlike phones, NethVoice establishes a "
@@ -8913,148 +8876,148 @@ msgid ""
 "eliminating the need for the gateway to fetch it."
 msgstr ""
 
-#: ../../nethvoice.rst:992
+#: ../../nethvoice.rst:989
 msgid ""
 "Gateway configuration is performed with the gateway online; by default, "
 "gateways initiate in DHCP mode."
 msgstr ""
 
-#: ../../nethvoice.rst:994
+#: ../../nethvoice.rst:991
 msgid ""
 "However, by selecting :guilabel:`Add Gateway`, it is feasible to generate"
 " a configuration for a gateway not yet connected and subsequently "
 "configure it by uploading the file through the gateway's web interface."
 msgstr ""
 
-#: ../../nethvoice.rst:997
+#: ../../nethvoice.rst:994
 #, fuzzy
 msgid "Configuring Gateways"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:999
+#: ../../nethvoice.rst:996
 msgid ""
 "To configure the gateway, it is necessary to specify a few required "
 "configuration parameters:"
 msgstr ""
 
-#: ../../nethvoice.rst:1001
+#: ../../nethvoice.rst:998
 msgid "Device IP address; gateway configuration necessitates a static IP."
 msgstr ""
 
-#: ../../nethvoice.rst:1002
+#: ../../nethvoice.rst:999
 #, fuzzy
 msgid "Subnet mask."
 msgstr "Sub-tasks"
 
-#: ../../nethvoice.rst:1003
+#: ../../nethvoice.rst:1000
 #, fuzzy
 msgid "Network gateway."
 msgstr "Network"
 
-#: ../../nethvoice.rst:1004
+#: ../../nethvoice.rst:1001
 msgid ""
 "NethVoice IP address; in some installation scenarios, the gateway may "
 "connect to NethVoice via a non-local IP."
 msgstr ""
 
-#: ../../nethvoice.rst:1005
+#: ../../nethvoice.rst:1002
 msgid ""
 "Any characteristics required for configuring connected lines (for ISDN "
 "lines, the ISDN terminal adapter's mode; for analog lines, the dialed "
 "number of the line)."
 msgstr ""
 
-#: ../../nethvoice.rst:1007
+#: ../../nethvoice.rst:1004
 msgid ""
 "For Grandstream models with 2 network interfaces, the LAN interface's MAC"
 " address must be provided, but NethVoice's configuration utilizes the WAN"
 " interface, which will be the one used."
 msgstr ""
 
-#: ../../nethvoice.rst:1009
+#: ../../nethvoice.rst:1006
 msgid ""
 "To download the gateway configuration for uploading via the web "
 "interface, click on the management button (symbol with three squares)."
 msgstr ""
 
-#: ../../nethvoice.rst:1012
+#: ../../nethvoice.rst:1009
 msgid "Dashboard"
 msgstr ""
 
-#: ../../nethvoice.rst:1014
+#: ../../nethvoice.rst:1011
 msgid ""
 "The dashboard serves as the initial page of NethVoice following the first"
 " configuration."
 msgstr ""
 
-#: ../../nethvoice.rst:1016
+#: ../../nethvoice.rst:1013
 msgid "It offers an overview of the elements involved in NethVoice's operation."
 msgstr ""
 
-#: ../../nethvoice.rst:1021
+#: ../../nethvoice.rst:1018
 msgid ""
 "The dashboard showcases the users configured in NethVoice along with "
 "their presence status and telephone devices."
 msgstr ""
 
-#: ../../nethvoice.rst:1023
+#: ../../nethvoice.rst:1020
 msgid ""
 "If a user's presence configuration deviates from the default (Available),"
 " an option exists to reset it to the normal state by clicking on the "
 "eraser symbol."
 msgstr ""
 
-#: ../../nethvoice.rst:1025
+#: ../../nethvoice.rst:1022
 msgid ""
 "Clicking to view details about an individual device displays the "
 "telephone device's specifics:"
 msgstr ""
 
-#: ../../nethvoice.rst:1027
+#: ../../nethvoice.rst:1024
 #, fuzzy
 msgid "Name"
 msgstr "User name"
 
-#: ../../nethvoice.rst:1028
+#: ../../nethvoice.rst:1025
 #, fuzzy
 msgid "Model"
 msgstr "Models"
 
-#: ../../nethvoice.rst:1029
+#: ../../nethvoice.rst:1026
 msgid "IP Address: Clicking facilitates connection over the local network."
 msgstr ""
 
-#: ../../nethvoice.rst:1030
+#: ../../nethvoice.rst:1027
 msgid "SIP Port"
 msgstr ""
 
-#: ../../nethvoice.rst:1031
+#: ../../nethvoice.rst:1028
 msgid "Codecs Used"
 msgstr ""
 
-#: ../../nethvoice.rst:1032
+#: ../../nethvoice.rst:1029
 msgid "DND (Do Not Disturb)"
 msgstr ""
 
-#: ../../nethvoice.rst:1033
+#: ../../nethvoice.rst:1030
 #, fuzzy
 msgid "Call Forward"
 msgstr "Forward"
 
-#: ../../nethvoice.rst:1038
+#: ../../nethvoice.rst:1035
 msgid ""
 "The configured VoIP trunks in NethVoice are displayed along with their "
 "status, indicating technology, IP, port, status, and codec."
 msgstr ""
 
-#: ../../nethvoice.rst:1045
+#: ../../nethvoice.rst:1042
 msgid ""
 "The *Applications* section allows for the creation, modification, or "
 "deletion of certain PBX features, which are initially created and "
 "configured in the wizard but subsequently utilized in the NethVoice CTI."
 msgstr ""
 
-#: ../../nethvoice.rst:1047
+#: ../../nethvoice.rst:1044
 msgid ""
 "For instance, customer cards are set up in the wizard to access the "
 "database and to practically display the obtained information, but the "
@@ -9062,7 +9025,7 @@ msgid ""
 "searching for specific information."
 msgstr ""
 
-#: ../../nethvoice.rst:1052
+#: ../../nethvoice.rst:1049
 msgid ""
 "The *customer cards* section enables the grouping of information from "
 "external databases to the PBX and its display during calls. For example, "
@@ -9072,65 +9035,65 @@ msgid ""
 "card, follow these steps:"
 msgstr ""
 
-#: ../../nethvoice.rst:1056
+#: ../../nethvoice.rst:1053
 #, fuzzy
 msgid "Address Book Sources"
 msgstr "Address Book"
 
-#: ../../nethvoice.rst:1058
+#: ../../nethvoice.rst:1055
 #, fuzzy
 msgid "Click on :guilabel:`Create New Source` and complete the form that appears:"
 msgstr "fare clic sul pulsante :guilabel:`Crea dominio` e scegliere ``Interno``"
 
-#: ../../nethvoice.rst:1060
+#: ../../nethvoice.rst:1057
 msgid ""
 "``Database Type``: Specify the type of database from which information "
 "will be retrieved."
 msgstr ""
 
-#: ../../nethvoice.rst:1061
+#: ../../nethvoice.rst:1058
 #, fuzzy
 msgid "``Database Name``: Specify the name of the database to connect to."
 msgstr "``Trunk Name``: specify name of the trunk"
 
-#: ../../nethvoice.rst:1062
+#: ../../nethvoice.rst:1059
 msgid ""
 "``Database Address``: Specify the address for connecting to the database "
 "(localhost, socket, or external IP)."
 msgstr ""
 
-#: ../../nethvoice.rst:1063
+#: ../../nethvoice.rst:1060
 msgid ""
 "``Database Port``: Specify a port for the database different from the "
 "default one proposed."
 msgstr ""
 
-#: ../../nethvoice.rst:1064
+#: ../../nethvoice.rst:1061
 msgid "``Database User``: Specify the user for database connection."
 msgstr ""
 
-#: ../../nethvoice.rst:1065
+#: ../../nethvoice.rst:1062
 msgid "``Database Password``: Specify the password for database connection."
 msgstr ""
 
-#: ../../nethvoice.rst:1066
+#: ../../nethvoice.rst:1063
 msgid ""
 "``Connection``: Press the \"Verify\" button to test the accuracy of the "
 "entered connection information."
 msgstr ""
 
-#: ../../nethvoice.rst:1068
+#: ../../nethvoice.rst:1065
 msgid ""
 "Press :guilabel:`Save` to add the database source. The newly created "
 "source will be listed among the available sources."
 msgstr ""
 
-#: ../../nethvoice.rst:1071
+#: ../../nethvoice.rst:1068
 #, fuzzy
 msgid "Template"
 msgstr "template custom"
 
-#: ../../nethvoice.rst:1073
+#: ../../nethvoice.rst:1070
 msgid ""
 "Templates serve as the blueprint for your customer cards. They utilize "
 "the `ejs` engine, which boasts a JavaScript-like syntax. This allows for "
@@ -9138,45 +9101,45 @@ msgid ""
 "website https://github.com/tj/ejs."
 msgstr ""
 
-#: ../../nethvoice.rst:1075
+#: ../../nethvoice.rst:1072
 #, fuzzy
 msgid ""
 "To begin the creation process, click on the :guilabel:`Create New "
 "Template` button:"
 msgstr "cliccare sul pulsante :guilabel: `Create route`"
 
-#: ../../nethvoice.rst:1077
+#: ../../nethvoice.rst:1074
 #, fuzzy
 msgid "``Name``: Specify the template's name."
 msgstr "``Model``: specify the gateway model"
 
-#: ../../nethvoice.rst:1078
+#: ../../nethvoice.rst:1075
 msgid ""
 "``Results``: This field contains the output of your query in JSON format."
 " Use the text field to test and see how your HTML template will appear "
 "with your data."
 msgstr ""
 
-#: ../../nethvoice.rst:1079
+#: ../../nethvoice.rst:1076
 msgid ""
 "``Code (ejs)``: Enter your template's code in this text field, adhering "
 "to the ejs syntax and using the values mentioned above (which are "
 "essentially the result columns of your query)."
 msgstr ""
 
-#: ../../nethvoice.rst:1080
+#: ../../nethvoice.rst:1077
 msgid ""
 "``Preview``: By combining the results and the ejs code, you will see the "
 "corresponding HTML output, which will serve as your customer card."
 msgstr ""
 
-#: ../../nethvoice.rst:1082
+#: ../../nethvoice.rst:1079
 msgid ""
 "The PBX already offers some predefined templates with pre-written HTML "
 "code that you can duplicate and modify by altering the color."
 msgstr ""
 
-#: ../../nethvoice.rst:1087
+#: ../../nethvoice.rst:1084
 msgid ""
 "After creating the data source and the template for your card, this "
 "section requires you to merge the two pieces of information to ensure the"
@@ -9184,62 +9147,62 @@ msgid ""
 " and fill out the form:"
 msgstr ""
 
-#: ../../nethvoice.rst:1089
+#: ../../nethvoice.rst:1086
 #, fuzzy
 msgid "``Name``: Name of the customer card."
 msgstr "``Name``: the name of the shared folder"
 
-#: ../../nethvoice.rst:1090
+#: ../../nethvoice.rst:1087
 msgid "``Source``: Specify the previously created database source."
 msgstr ""
 
-#: ../../nethvoice.rst:1091
+#: ../../nethvoice.rst:1088
 msgid "``Template``: Choose the template you previously created."
 msgstr ""
 
-#: ../../nethvoice.rst:1092
+#: ../../nethvoice.rst:1089
 msgid ""
 "``Profile``: Select the type of user profile to which the customer card "
 "you are creating will be displayed."
 msgstr ""
 
-#: ../../nethvoice.rst:1093
+#: ../../nethvoice.rst:1090
 msgid "``Query``: Input the query that will return the relevant information."
 msgstr ""
 
-#: ../../nethvoice.rst:1094
+#: ../../nethvoice.rst:1091
 msgid ""
 "``Render``: By pressing this button, the query will execute on the "
 "specified source, and the data will be inserted into the selected "
 "template, producing the desired output."
 msgstr ""
 
-#: ../../nethvoice.rst:1096
+#: ../../nethvoice.rst:1093
 #, fuzzy
 msgid "Press the :guilabel:`Save` button to save your customer card."
 msgstr "Use the :guilabel:`Add` button to add a custom field inside the panel."
 
-#: ../../nethvoice.rst:1099
+#: ../../nethvoice.rst:1096
 msgid ""
 "Once the query and card have been created and it is verified that "
 "everything works, use the `$NUMBER` variable to replace numerical "
 "parameters in your query."
 msgstr ""
 
-#: ../../nethvoice.rst:1101 ../../user_domains.rst:81
+#: ../../nethvoice.rst:1098 ../../user_domains.rst:81
 #, fuzzy
 msgid "Example:"
 msgstr "Example:"
 
-#: ../../nethvoice.rst:1103
+#: ../../nethvoice.rst:1100
 msgid "If your query is as follows: ::"
 msgstr ""
 
-#: ../../nethvoice.rst:1107
+#: ../../nethvoice.rst:1104
 msgid "It should be changed to::"
 msgstr ""
 
-#: ../../nethvoice.rst:1111
+#: ../../nethvoice.rst:1108
 msgid ""
 "The `$NUMBER` variable represents the caller ID of the PBX, referring to "
 "collect the data to be displayed on the customer card."
@@ -9934,11 +9897,11 @@ msgstr ""
 msgid "Release notes"
 msgstr "Note di rilascio"
 
-#: ../../release_notes.rst:9
+#: ../../release_notes.rst:7
 msgid "NethServer 8 releases"
 msgstr "Rilasci NethServer 8"
 
-#: ../../release_notes.rst:11
+#: ../../release_notes.rst:9
 #, python-format
 msgid ""
 "List of `known bugs "
@@ -9947,25 +9910,25 @@ msgstr ""
 "Elenco dei `bug noti "
 "<https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_"
 
-#: ../../release_notes.rst:12
+#: ../../release_notes.rst:10
 msgid ""
 "Discussions around `possible bugs "
 "<http://community.nethserver.org/c/bug>`_"
 msgstr "Discussioni su `possibili bug <http://community.nethserver.org/c/bug>`_"
 
-#: ../../release_notes.rst:15
+#: ../../release_notes.rst:13
 msgid "Major changes on 2024-02-13"
 msgstr "Cambiamenti principali del 2024-02-13"
 
-#: ../../release_notes.rst:17
+#: ../../release_notes.rst:15
 msgid "**Stable release**"
 msgstr "**Versione stabile**"
 
-#: ../../release_notes.rst:19
+#: ../../release_notes.rst:17
 msgid "New features introduced by this release are:"
 msgstr "Le nuove funzionalità introdotte da questa release sono:"
 
-#: ../../release_notes.rst:21
+#: ../../release_notes.rst:19
 msgid ""
 "**Subscription** -- Nethesis Enterprise and Community Subscription plans "
 "are now available for NS8. See the details in :ref:`subscription-section`"
@@ -9975,7 +9938,7 @@ msgstr ""
 " Subscription sono ora disponibili per NS8. Maggiori dettagli nella "
 "pagina :ref:`subscription-section`."
 
-#: ../../release_notes.rst:25
+#: ../../release_notes.rst:23
 msgid ""
 "**User management portal** -- Members of the Domain Admins group can now "
 "create, edit and delete user accounts from the :ref:`User management "
@@ -9988,7 +9951,7 @@ msgstr ""
 "schermata di login ora visualizza il nome del dominio dell'utente per "
 "distinguere a quale dominio utente si accede."
 
-#: ../../release_notes.rst:31
+#: ../../release_notes.rst:29
 msgid ""
 "**Skip certificate validation** in HTTP routes -- When an HTTP route is "
 "created or edited in the :ref:`HTTP routes <traefik-section>` page, the "
@@ -10002,7 +9965,7 @@ msgstr ""
 "essere abilitata su una rete fidata nel caso in cui il server all'URL di "
 "destinazione non abbia un certificato TLS valido."
 
-#: ../../release_notes.rst:37
+#: ../../release_notes.rst:35
 msgid ""
 "**Cockpit removed from pre-built image** -- Cockpit is not required to "
 "run NS8, therefore it is no more available in the NS8 pre-built image. If"
@@ -10014,7 +9977,7 @@ msgstr ""
 "lo si desidera, può essere installato e abilitato manualmente con i "
 "seguenti comandi: ::"
 
-#: ../../release_notes.rst:45
+#: ../../release_notes.rst:43
 msgid ""
 "The default Cockpit configuration forbids ``root`` access: log in as a "
 "member of the ``wheel`` group, then enter the \"administrative access\" "
@@ -10024,11 +9987,11 @@ msgstr ""
 "accedere con un utente membro del gruppo ``wheel``, quindi attivare la "
 "modalità \"accesso amministrativo\"."
 
-#: ../../release_notes.rst:49
+#: ../../release_notes.rst:47
 msgid "Known issues:"
 msgstr "Problemi noti:"
 
-#: ../../release_notes.rst:51
+#: ../../release_notes.rst:49
 msgid ""
 "**Core upgrade freezes Software Center page** -- The `bug 6778`_ has been"
 " fixed in core version 2.2.6. If the upgrade from RC1 starts from core "
@@ -10046,20 +10009,20 @@ msgstr ""
 " può essere lento; evitare di interrompere o riavviare fino al "
 "completamento."
 
-#: ../../release_notes.rst:61
+#: ../../release_notes.rst:59
 msgid "Major changes on 2023-11-21"
 msgstr "Principali cambiamenti del 2023-11-21"
 
-#: ../../release_notes.rst:63
+#: ../../release_notes.rst:61
 #, fuzzy
 msgid "**Release Candidate 1**"
 msgstr "**Release Candidate 1**"
 
-#: ../../release_notes.rst:65
+#: ../../release_notes.rst:63
 msgid "New features introduced by RC1 are:"
 msgstr "Nuove funzionalità introdotte dalla RC1:"
 
-#: ../../release_notes.rst:67
+#: ../../release_notes.rst:65
 msgid ""
 "**Password policy** -- Added a new configuration option to the ``Domains "
 "and users`` page. It is possible to modify the password complexity and "
@@ -10076,7 +10039,7 @@ msgstr ""
 "aggiornamento è dettagliata nelle note successive. Vedi anche :ref"
 ":`password-policy-section`."
 
-#: ../../release_notes.rst:74
+#: ../../release_notes.rst:72
 msgid ""
 "**User management portal** -- Users of a domain can now access a web page"
 " to change their own password. The user portal is available at "
@@ -10096,7 +10059,7 @@ msgstr ""
 "aggiornamento per Samba e OpenLDAP nelle note successive, e la pagina: "
 "`user-management-portal-section` ."
 
-#: ../../release_notes.rst:82
+#: ../../release_notes.rst:80
 msgid ""
 "**Backup repositories** -- Beside existing cloud protocols, it is now "
 "easier to send backups to some local device. A backup repository can now "
@@ -10110,7 +10073,7 @@ msgstr ""
 "locale*, come un disco attaccato a un nodo di cluster. Vedi :ref:`backup-"
 "restore-section` per maggiori informazioni."
 
-#: ../../release_notes.rst:88
+#: ../../release_notes.rst:86
 msgid ""
 "**Fetch mail from other servers** -- :ref:`imapsync-section` is a new "
 "advanced application designed to retrieve email messages from remote IMAP"
@@ -10121,7 +10084,7 @@ msgstr ""
 "server IMAP remoti a intervalli programmati e sincronizzare interi "
 "account IMAP."
 
-#: ../../release_notes.rst:93
+#: ../../release_notes.rst:91
 msgid ""
 "**Mirror list for Rocky Linux nodes** -- If Rocky Linux is the node OS "
 "distribution, the default DNF configuration is overridden and mirrors are"
@@ -10134,7 +10097,7 @@ msgstr ""
 "``mirrorlist.nethserver.org``. Nelle future versioni i pacchetti RPM di "
 "Rocky Linux saranno ospitati da mirror specifici di NethServer."
 
-#: ../../release_notes.rst:98
+#: ../../release_notes.rst:96
 msgid ""
 "Upgrade of existing Beta 2 installations can be started from the Software"
 " center page as usual. After the core components are up-to-date, run the "
@@ -10145,7 +10108,7 @@ msgstr ""
 "principali sono aggiornati, eseguire le seguenti procedure manuali per "
 "completare l'aggiornamento."
 
-#: ../../release_notes.rst:102
+#: ../../release_notes.rst:100
 msgid ""
 "**Core upgrade procedure** -- To upgrade Beta 2 installations run the "
 "following command on the leader node. It defines the new ``tunadm`` "
@@ -10157,13 +10120,13 @@ msgstr ""
 "Definisce il nuovo ruolo di autorizzazione ``tunadm``, disponibile su "
 "nuove installazioni dalla versione core 2.1.0: ::"
 
-#: ../../release_notes.rst:109
+#: ../../release_notes.rst:107
 msgid "For each cluster node, enable the local WebDAV service for backups: ::"
 msgstr ""
 "Per ogni nodo del cluster, abilitare il servizio WebDAV locale per i "
 "backup: ::"
 
-#: ../../release_notes.rst:113
+#: ../../release_notes.rst:111
 msgid ""
 "Finally, only for Rocky Linux nodes, enable the NethServer default "
 "repositories: ::"
@@ -10171,7 +10134,7 @@ msgstr ""
 "Infine, solo per i nodi Rocky Linux, abilitare i repository di default "
 "NethServer: ::"
 
-#: ../../release_notes.rst:119
+#: ../../release_notes.rst:117
 msgid ""
 "**Samba upgrade procedure** -- To upgrade Beta 2 installations run the "
 "following procedure for each Samba account provider instance. The list of"
@@ -10184,15 +10147,15 @@ msgstr ""
 " utenti``, sotto le impostazioni di configurazione del dominio; "
 "**annotare per ogni provider**:"
 
-#: ../../release_notes.rst:124
+#: ../../release_notes.rst:122
 msgid "the module ID (string), for example ``samba1``"
 msgstr "L'ID del modulo (stringa), per esempio ``samba1``"
 
-#: ../../release_notes.rst:125 ../../release_notes.rst:160
+#: ../../release_notes.rst:123 ../../release_notes.rst:158
 msgid "the node ID (number), for example ``1``"
 msgstr "L'ID del nodo (numero), per esempio ``1``"
 
-#: ../../release_notes.rst:126 ../../release_notes.rst:161
+#: ../../release_notes.rst:124 ../../release_notes.rst:159
 msgid ""
 "a free TCP port number, generated by executing on the leader node a "
 "command like this: ::"
@@ -10200,7 +10163,7 @@ msgstr ""
 "il numero di una porta TCP disponibile, generato eseguendo sul nodo "
 "leader questo comando: ::"
 
-#: ../../release_notes.rst:132 ../../release_notes.rst:167
+#: ../../release_notes.rst:130 ../../release_notes.rst:165
 msgid ""
 "In the above example set ``node_id`` with the correct node ID (number). "
 "Let's assume the above command prints the port number below: ::"
@@ -10209,23 +10172,23 @@ msgstr ""
 "del nodo (numero). Supponiamo che il comando stampi il seguente numero di"
 " porta: ::"
 
-#: ../../release_notes.rst:137 ../../release_notes.rst:172
+#: ../../release_notes.rst:135 ../../release_notes.rst:170
 msgid "With the above annotations, run the following steps for each provider:"
 msgstr ""
 "Con le annotazioni recuperate precedentemente, eseguire i seguenti "
 "passaggi per ogni provider:"
 
-#: ../../release_notes.rst:139 ../../release_notes.rst:174
+#: ../../release_notes.rst:137 ../../release_notes.rst:172
 msgid "Log on the cluster node where the provider instance runs."
 msgstr "Accedere al nodo del cluster in cui viene eseguita l'istanza del provider."
 
-#: ../../release_notes.rst:141 ../../release_notes.rst:176
+#: ../../release_notes.rst:139 ../../release_notes.rst:174
 msgid "Apply the TCP port configuration and start the user portal service: ::"
 msgstr ""
 "Applicare la configurazione della porta TCP e avviare il servizio del "
 "portale utente: ::"
 
-#: ../../release_notes.rst:154
+#: ../../release_notes.rst:152
 msgid ""
 "**OpenLDAP upgrade procedure** -- To upgrade Beta 2 installations run the"
 " following procedure for each OpenLDAP account provider instance. The "
@@ -10238,11 +10201,11 @@ msgstr ""
 "ottenuto dalla pagina ``Domini e utenti``, sotto le impostazioni di "
 "configurazione del dominio; **annotare per ogni provider**:"
 
-#: ../../release_notes.rst:159
+#: ../../release_notes.rst:157
 msgid "the module ID (string), for example ``openldap1``"
 msgstr "L'ID del modulo (stringa), per esempio ``openldap1``"
 
-#: ../../release_notes.rst:189
+#: ../../release_notes.rst:187
 msgid ""
 "After repeating the above steps on each cluster node, run the following "
 "commands in one instance of your choice (the example is for "
@@ -10252,7 +10215,7 @@ msgstr ""
 " seguenti comandi in un'istanza a scelta (l'esempio è per ``openldap1``):"
 " ::"
 
-#: ../../release_notes.rst:250
+#: ../../release_notes.rst:248
 msgid ""
 "**Mattermost upgrade procedure** -- Mattermost upgrade must be completed "
 "manually to allocate and open UDP ports required by the Calls plugin. "
@@ -10267,15 +10230,15 @@ msgstr ""
 "quindi l'istanza in esecuzione e, completato il clone, rimuovere la "
 "vecchia istanza."
 
-#: ../../release_notes.rst:257
+#: ../../release_notes.rst:255
 msgid "Major changes on 2023-09-13"
 msgstr "Principali cambiamenti del 2023-09-13"
 
-#: ../../release_notes.rst:259
+#: ../../release_notes.rst:257
 msgid "**Beta 2**"
 msgstr "**Beta 2**"
 
-#: ../../release_notes.rst:261
+#: ../../release_notes.rst:259
 msgid ""
 "**Pre-built image** -- Images are based on Rocky Linux. Available formats"
 " are ``.qcow2`` for QEMU/Proxmox and ``.vmdk`` for VMware. See :ref"
@@ -10286,7 +10249,7 @@ msgstr ""
 "Fare riferimento a :ref:`install_image-section` per i link di download "
 "dell e immagini."
 
-#: ../../release_notes.rst:265
+#: ../../release_notes.rst:263
 msgid ""
 "**FQDN requirement** -- The cluster creation procedure now asks to review"
 " and set the current system host name. The host name is expected in short"
@@ -10302,11 +10265,11 @@ msgstr ""
 "il file ``/etc/hosts`` aggiungendo un record per risolvere correttamente "
 "il fully qualified domain name (FQDN). Per esempio:"
 
-#: ../../release_notes.rst:273
+#: ../../release_notes.rst:271
 msgid "See also :ref:`dns-reqs`."
 msgstr "Vedi anche :ref:`dns-reqs`."
 
-#: ../../release_notes.rst:275
+#: ../../release_notes.rst:273
 msgid ""
 "**WireGuard port 55820** -- The UDP port used by WireGuard in the "
 "creation of the cluster VPN is now fixed to ``55820``. Clusters already "
@@ -10321,7 +10284,7 @@ msgstr ""
 "se la porta personalizzata è ``55821`` eseguire sul nodo leader i "
 "seguenti passaggi per risolvere il problema."
 
-#: ../../release_notes.rst:281
+#: ../../release_notes.rst:279
 msgid ""
 "Fix the VPN public endpoint address in Redis. For example, if the leader "
 "node is ``1`` and its FQDN is ``node1.example.org`` ::"
@@ -10329,15 +10292,15 @@ msgstr ""
 "Correggere l'indirizzo di endpoint pubblico VPN in Redis. Ad esempio, se "
 "il nodo leader è ``1`` e il suo FQDN è ``node1.example.org``::"
 
-#: ../../release_notes.rst:286
+#: ../../release_notes.rst:284
 msgid "Fix the firewall configuration ::"
 msgstr "Correggere la configurazione del firewall ::"
 
-#: ../../release_notes.rst:292
+#: ../../release_notes.rst:290
 msgid "Change the running WireGuard listen port ::"
 msgstr "Modificare la porta di ascolto dell'istanza WireGuard in esecuzione ::"
 
-#: ../../release_notes.rst:296
+#: ../../release_notes.rst:294
 msgid ""
 "Make the change permanent, by setting ``ListenPort = 55820`` in "
 "``/etc/wireguard/wg0.conf`` ::"
@@ -10345,11 +10308,11 @@ msgstr ""
 "Rendere le modifiche permanenti, impostando ``ListenPort = 55820`` nel "
 "file ``/etc/wireguard/wg0.conf`` ::"
 
-#: ../../release_notes.rst:301
+#: ../../release_notes.rst:299
 msgid "Repeat steps 2-4 on each worker node, too."
 msgstr "Ripetere i passi da 2 a 4 anche su ogni nodo worker."
 
-#: ../../release_notes.rst:303
+#: ../../release_notes.rst:301
 msgid ""
 "**Debian upgrade** -- After running the core update, installations based "
 "on Debian 11 (Bullseye) must be manually upgraded to distribution version"
@@ -10359,7 +10322,7 @@ msgstr ""
 "le installazioni basate su Debian 11 (Bullseye) devono essere aggiornate "
 "manualmente alla versione di distribuzione 12 (Bookworm) ::"
 
-#: ../../release_notes.rst:311
+#: ../../release_notes.rst:309
 msgid ""
 "Follow also the instructions for Python 3.11 upgrade, then **reboot the "
 "system**. Apply the same procedure for each cluster node."
@@ -10368,7 +10331,7 @@ msgstr ""
 "**riavviare il sistema**. Applicare la stessa procedura per ogni nodo del"
 " cluster."
 
-#: ../../release_notes.rst:314
+#: ../../release_notes.rst:312
 msgid ""
 "**Python 3.11** -- After running the core update, installations based on "
 "Rocky Linux (and other EL-like distributions) must manually install "
@@ -10378,7 +10341,7 @@ msgstr ""
 "installazioni basate su Rocky Linux (e altre distribuzioni EL-like) "
 "devono installare manualmente Python 3.11: ::"
 
-#: ../../release_notes.rst:320
+#: ../../release_notes.rst:318
 msgid ""
 "The following Bash script is required by Debian, too. Do not forget the "
 "round brackets! ::"
@@ -10386,15 +10349,15 @@ msgstr ""
 "Debian necessita anche l'esecuzione del seguente script Bash. Non "
 "tralasciare le parentesi tonde! ::"
 
-#: ../../release_notes.rst:332
+#: ../../release_notes.rst:330
 msgid "Check if the Python upgrade was successfull: ::"
 msgstr "Controllare se l'aggiornamento Python ha avuto successo: ::"
 
-#: ../../release_notes.rst:336 ../../release_notes.rst:371
+#: ../../release_notes.rst:334 ../../release_notes.rst:369
 msgid "Apply the same procedure for each cluster node."
 msgstr "Applicare la stessa procedura per ogni nodo del cluster."
 
-#: ../../release_notes.rst:338
+#: ../../release_notes.rst:336
 msgid ""
 "**UI security enhancements** -- Since the Beta 1 release an important "
 "security update has been released, and other security improvements are "
@@ -10407,7 +10370,7 @@ msgstr ""
 "l'aggiornamento del core, ricaricare la pagina del browser con ``CTRL + "
 "Shift + R`` o altro metodo equivalente."
 
-#: ../../release_notes.rst:343
+#: ../../release_notes.rst:341
 msgid ""
 "**Logs backend improved** -- The Logs page backend has been improved to "
 "be faster and more accurate in capturing the logs of every cluster "
@@ -10422,7 +10385,7 @@ msgstr ""
 "possibile disinstallare i moduli di base di Promtail eseguendo questo "
 "comando sul nodo leader: ::"
 
-#: ../../release_notes.rst:351
+#: ../../release_notes.rst:349
 msgid ""
 "Note that the new Logs page cannot access old log entries. To see log "
 "entries before the Beta 2 upgrade, use the `logcli` command."
@@ -10431,7 +10394,7 @@ msgstr ""
 " registro. Per visualizzare le voci di registro precedenti "
 "all'aggiornamento Beta 2, utilizzare il comando `logcli`."
 
-#: ../../release_notes.rst:354
+#: ../../release_notes.rst:352
 msgid ""
 "**TLS certificate upload** -- The ``TLS certificates`` card under the "
 "``Settings`` page was extended to allow the upload of a certificate and "
@@ -10443,7 +10406,7 @@ msgstr ""
 "un certificato e della chiave privata ad esso associata. Si veda la "
 "sezione :ref:`certificate_manager-section`."
 
-#: ../../release_notes.rst:359
+#: ../../release_notes.rst:357
 msgid ""
 "**Additional backup providers** -- Backup repositories can be created "
 "also on Microsoft Azure and S3-compatible cloud storage providers."
@@ -10452,7 +10415,7 @@ msgstr ""
 "essere creati anche su cloud storage provider compatibili con Microsoft "
 "Azure e S3."
 
-#: ../../release_notes.rst:362
+#: ../../release_notes.rst:360
 msgid ""
 "**New Traefik configuration backend** -- The cluster Redis DB is not used"
 " any more by Traefik module instances as their dynamic configuration "
@@ -10467,11 +10430,11 @@ msgstr ""
 "possibile disabilitare una funzione specifica per Traefik con i seguenti "
 "comandi: ::"
 
-#: ../../release_notes.rst:373
+#: ../../release_notes.rst:371
 msgid "**Mail module improvements**"
 msgstr "**Miglioramenti modulo mail**"
 
-#: ../../release_notes.rst:375
+#: ../../release_notes.rst:373
 msgid ""
 "New installations of the Mail module have the ``Shared seen`` option "
 "enabled by default. Existing installations will find the switch disabled."
@@ -10483,7 +10446,7 @@ msgstr ""
 " l'interruttore disabilitato. Vedi anche la sezione relativa a "
 ":ref:`impostazioni caselle e-mail <mail-mailboxes-settings>`."
 
-#: ../../release_notes.rst:380
+#: ../../release_notes.rst:378
 msgid ""
 "Added the open source Dovecot plugin *Flatcurve* to enable full text "
 "search (FTS) of email messages.  To massively rebuild the search indexes "
@@ -10494,7 +10457,7 @@ msgstr ""
 "massicciamente gli indici di ricerca eseguire il seguente comando durante"
 " il tempo di inattività del sistema: ::"
 
-#: ../../release_notes.rst:386
+#: ../../release_notes.rst:384
 msgid ""
 "Only PDF attachments and the email itself are added to the index. In "
 "future releases more attachment formats will be supported."
@@ -10502,29 +10465,29 @@ msgstr ""
 "Solo gli allegati PDF e l'e-mail stessa vengono aggiunti all'indice. In "
 "futuro saranno supportati più formati di allegati."
 
-#: ../../release_notes.rst:391
+#: ../../release_notes.rst:389
 msgid "Major changes on 2023-05-10"
 msgstr "Principali cambiamenti del 2023-05-10"
 
-#: ../../release_notes.rst:393
+#: ../../release_notes.rst:391
 msgid "**Beta 1**"
 msgstr "**Beta 1**"
 
-#: ../../release_notes.rst:395
+#: ../../release_notes.rst:393
 msgid "Main core features include:"
 msgstr "Le caratteristiche principali del core includono:"
 
-#: ../../release_notes.rst:397
+#: ../../release_notes.rst:395
 msgid "Node management: add and remove nodes from the system"
 msgstr "Gestione dei nodi: aggiunta e rimozione di nodi dal sistema"
 
-#: ../../release_notes.rst:398
+#: ../../release_notes.rst:396
 msgid "Centralized logging: collect all logs in one place for easy monitoring"
 msgstr ""
 "Centralizzazione log: raccolta di tutti i log in un unico posto per un "
 "monitoraggio semplificato"
 
-#: ../../release_notes.rst:399
+#: ../../release_notes.rst:397
 msgid ""
 "Configuration and data backups: regularly save cluster settings and "
 "application data to remote providers like Amazon S3 and Backblaze B2"
@@ -10533,7 +10496,7 @@ msgstr ""
 "cluster e i dati delle applicazioni in provider remoti come Amazon S3 e "
 "Backblaze B2"
 
-#: ../../release_notes.rst:400
+#: ../../release_notes.rst:398
 msgid ""
 "Authentication: support for both Active Directory and LDAP (RFC2307) user"
 " directories"
@@ -10541,7 +10504,7 @@ msgstr ""
 "Autenticazione: supporto per le directory utente Active Directory e LDAP "
 "(RFC2307)"
 
-#: ../../release_notes.rst:401
+#: ../../release_notes.rst:399
 msgid ""
 "File server: implement an SMB (Server Message Block) file server that "
 "enables seamless integration with Windows-based networks"
@@ -10550,7 +10513,7 @@ msgstr ""
 " che consente l'integrazione senza soluzione di continuità con le reti "
 "basate su Windows"
 
-#: ../../release_notes.rst:402
+#: ../../release_notes.rst:400
 msgid ""
 "Auditing: track changes made within the system to ensure security and "
 "accountability"
@@ -10558,7 +10521,7 @@ msgstr ""
 "Auditing: tracciatura delle modifiche apportate all'interno del sistema "
 "per garantire sicurezza e responsabilità"
 
-#: ../../release_notes.rst:403
+#: ../../release_notes.rst:401
 msgid ""
 "Email relay: use a smart host to route outgoing emails  through a trusted"
 " server"
@@ -10566,44 +10529,44 @@ msgstr ""
 "Relay e-mail: utilizzo di uno smart host per l'invio delle e-mail in "
 "uscita tramite un server affidabile"
 
-#: ../../release_notes.rst:404
+#: ../../release_notes.rst:402
 #, fuzzy
 msgid "Custom web routing: define custom URLs to handle specific requests"
 msgstr "Custom web routing: define custom URLs to handle specific requests"
 
+#: ../../release_notes.rst:403
+#, fuzzy
+msgid ""
+"Multi-factor authentication: enable two-step verification for "
+"administrator accounts"
+msgstr ""
+"Multi-factor authentication: enable two-step verification for "
+"administrator accounts"
+
+#: ../../release_notes.rst:404
+#, fuzzy
+msgid ""
+"Built-in firewall: protect against unauthorized access at the network "
+"level by implementing a local firewall"
+msgstr ""
+"Built-in firewall: protect against unauthorized access at the network "
+"level by implementing a local firewall"
+
 #: ../../release_notes.rst:405
 #, fuzzy
 msgid ""
-"Multi-factor authentication: enable two-step verification for "
-"administrator accounts"
+"Migration: :ref:`Cockpit module <migration-section>` to import NethServer"
+" 7 applications"
 msgstr ""
-"Multi-factor authentication: enable two-step verification for "
-"administrator accounts"
-
-#: ../../release_notes.rst:406
-#, fuzzy
-msgid ""
-"Built-in firewall: protect against unauthorized access at the network "
-"level by implementing a local firewall"
-msgstr ""
-"Built-in firewall: protect against unauthorized access at the network "
-"level by implementing a local firewall"
+"Migration: :ref:`Cockpit module <migration-section>` to import NethServer"
+" 7 applications"
 
 #: ../../release_notes.rst:407
-#, fuzzy
-msgid ""
-"Migration: :ref:`Cockpit module <migration-section>` to import NethServer"
-" 7 applications"
-msgstr ""
-"Migration: :ref:`Cockpit module <migration-section>` to import NethServer"
-" 7 applications"
-
-#: ../../release_notes.rst:409
 #, fuzzy
 msgid "Additional modules:"
 msgstr "Additional modules:"
 
-#: ../../release_notes.rst:411
+#: ../../release_notes.rst:409
 #, fuzzy
 msgid ""
 "Collaborative tools: includes Dovecot/Postfix/Rspamd mail server, WebTop,"
@@ -10613,49 +10576,49 @@ msgstr ""
 "Collaborative tools: includes Dovecot/Postfix/Rspamd mail server, WebTop,"
 " Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, "
 "Mattermost"
+
+#: ../../release_notes.rst:410
+#, fuzzy
+msgid ""
+"Development utilities: features MariaDB and NGINX web server for creating"
+" dynamic applications and services"
+msgstr ""
+"Development utilities: features MariaDB and NGINX web server for creating"
+" dynamic applications and services"
+
+#: ../../release_notes.rst:411
+#, fuzzy
+msgid ""
+"Monitoring and analysis: offers Grafana, Prometheus, and node_exporter "
+"for tracking performance metrics and identifying potential issues"
+msgstr ""
+"Monitoring and analysis: offers Grafana, Prometheus, and node_exporter "
+"for tracking performance metrics and identifying potential issues"
 
 #: ../../release_notes.rst:412
 #, fuzzy
 msgid ""
-"Development utilities: features MariaDB and NGINX web server for creating"
-" dynamic applications and services"
+"Data storage: offers MinIO for managing large amounts of structured and "
+"unstructured data"
 msgstr ""
-"Development utilities: features MariaDB and NGINX web server for creating"
-" dynamic applications and services"
+"Data storage: offers MinIO for managing large amounts of structured and "
+"unstructured data"
 
 #: ../../release_notes.rst:413
 #, fuzzy
 msgid ""
-"Monitoring and analysis: offers Grafana, Prometheus, and node_exporter "
-"for tracking performance metrics and identifying potential issues"
+"Network defense: implements CrowdSec for protecting local applications "
+"against remote attacks"
 msgstr ""
-"Monitoring and analysis: offers Grafana, Prometheus, and node_exporter "
-"for tracking performance metrics and identifying potential issues"
-
-#: ../../release_notes.rst:414
-#, fuzzy
-msgid ""
-"Data storage: offers MinIO for managing large amounts of structured and "
-"unstructured data"
-msgstr ""
-"Data storage: offers MinIO for managing large amounts of structured and "
-"unstructured data"
+"Network defense: implements CrowdSec for protecting local applications "
+"against remote attacks"
 
 #: ../../release_notes.rst:415
-#, fuzzy
-msgid ""
-"Network defense: implements CrowdSec for protecting local applications "
-"against remote attacks"
-msgstr ""
-"Network defense: implements CrowdSec for protecting local applications "
-"against remote attacks"
-
-#: ../../release_notes.rst:417
 #, fuzzy
 msgid "The following known limitations will be resolved in future updates:"
 msgstr "The following known limitations will be resolved in future updates:"
 
-#: ../../release_notes.rst:419
+#: ../../release_notes.rst:417
 #, fuzzy
 msgid ""
 "currently, the system only uses TLS certificates issued by Let's Encrypt "
@@ -10664,12 +10627,12 @@ msgstr ""
 "currently, the system only uses TLS certificates issued by Let's Encrypt "
 "or self-signed certificates generated locally"
 
-#: ../../release_notes.rst:420
+#: ../../release_notes.rst:418
 #, fuzzy
 msgid "user login is not supported on worker nodes"
 msgstr "user login is not supported on worker nodes"
 
-#: ../../release_notes.rst:421
+#: ../../release_notes.rst:419
 #, fuzzy
 msgid ""
 "the mail module does not offer sender-based or destination-based message "
@@ -10678,7 +10641,7 @@ msgstr ""
 "the mail module does not offer sender-based or destination-based message "
 "relay options"
 
-#: ../../release_notes.rst:422
+#: ../../release_notes.rst:420
 #, fuzzy
 msgid ""
 "only a limited number of cloud storage providers are available for "
@@ -10687,23 +10650,23 @@ msgstr ""
 "only a limited number of cloud storage providers are available for "
 "backing up data"
 
-#: ../../release_notes.rst:427
+#: ../../release_notes.rst:425
 #, fuzzy
 msgid "Releases glossary"
 msgstr "Releases glossary"
 
+#: ../../release_notes.rst:427
+#, fuzzy
+msgid ""
+"The software release cycle includes four stages: Alpha, Beta, Release "
+"Candidate (RC), and Stable."
+msgstr ""
+"The software release cycle includes four stages: Alpha, Beta, Release "
+"Candidate (RC), and Stable."
+
 #: ../../release_notes.rst:429
 #, fuzzy
 msgid ""
-"The software release cycle includes four stages: Alpha, Beta, Release "
-"Candidate (RC), and Stable."
-msgstr ""
-"The software release cycle includes four stages: Alpha, Beta, Release "
-"Candidate (RC), and Stable."
-
-#: ../../release_notes.rst:431
-#, fuzzy
-msgid ""
 "During the **Alpha** stage, the software is not thoroughly tested and may"
 " not include all planned features. This release is not suitable for "
 "production environments. However, it can be used to preview what's coming"
@@ -10716,7 +10679,7 @@ msgstr ""
 " in the upcoming version. Please note that updates from an Alpha release "
 "to other releases are not supported."
 
-#: ../../release_notes.rst:435
+#: ../../release_notes.rst:433
 #, fuzzy
 msgid ""
 "The **Beta** stage indicates that the software is mostly feature "
@@ -10733,7 +10696,7 @@ msgstr ""
 "from a Beta release to an RC or Stable release are supported but may "
 "require a manual procedure."
 
-#: ../../release_notes.rst:439
+#: ../../release_notes.rst:437
 #, fuzzy
 msgid ""
 "During the **Release Candidate (RC)** stage, the software is feature "
@@ -10750,7 +10713,7 @@ msgstr ""
 "the software, it's best to use it in production only if you already have "
 "some experience with it."
 
-#: ../../release_notes.rst:444
+#: ../../release_notes.rst:442
 #, fuzzy
 msgid ""
 "The **Stable** release is the most reliable and safe to use in production"
@@ -11644,12 +11607,12 @@ msgstr "There is no support for Openchange/OutlookMAPI."
 msgid "Subscription"
 msgstr "Subscription"
 
-#: ../../subscription.rst:11
+#: ../../subscription.rst:9
 #, fuzzy
 msgid "Available only on Rocky Linux based systems"
 msgstr "Available only on Rocky Linux based systems"
 
-#: ../../subscription.rst:13
+#: ../../subscription.rst:11
 #, fuzzy
 msgid ""
 "A NethServer 8 cluster can be registered to a web portal to enable "
@@ -11658,7 +11621,7 @@ msgstr ""
 "A NethServer 8 cluster can be registered to a web portal to enable "
 "additional services."
 
-#: ../../subscription.rst:16
+#: ../../subscription.rst:14
 #, fuzzy
 msgid ""
 "When a cluster has an active subscription, the following services are "
@@ -11667,22 +11630,22 @@ msgstr ""
 "When a cluster has an active subscription, the following services are "
 "enabled:"
 
-#: ../../subscription.rst:19
+#: ../../subscription.rst:17
 #, fuzzy
 msgid "Remote support by Nethesis"
 msgstr "Remote support by Nethesis"
 
-#: ../../subscription.rst:20
+#: ../../subscription.rst:18
 #, fuzzy
 msgid "Resources monitoring and alerting"
 msgstr "Resources monitoring and alerting"
 
-#: ../../subscription.rst:21
+#: ../../subscription.rst:19
 #, fuzzy
 msgid "Upload of leader node inventory"
 msgstr "Upload of leader node inventory"
 
-#: ../../subscription.rst:22
+#: ../../subscription.rst:20
 #, fuzzy
 msgid ""
 "Scheduled updates for node operating systems, core components, and "
@@ -11691,12 +11654,12 @@ msgstr ""
 "Scheduled updates for node operating systems, core components, and "
 "applications"
 
-#: ../../subscription.rst:24
+#: ../../subscription.rst:22
 #, fuzzy
 msgid "Upload of cluster backup (Enterprise only)"
 msgstr "Upload of cluster backup (Enterprise only)"
 
-#: ../../subscription.rst:26
+#: ../../subscription.rst:24
 #, fuzzy
 msgid ""
 "Regarding software repositories, only the ``subscription`` repository "
@@ -11705,7 +11668,7 @@ msgstr ""
 "Regarding software repositories, only the ``subscription`` repository "
 "remains enabled."
 
-#: ../../subscription.rst:31
+#: ../../subscription.rst:29
 #, fuzzy
 msgid ""
 "Please avoid enabling third-party repositories and refrain from "
@@ -11714,12 +11677,12 @@ msgstr ""
 "Please avoid enabling third-party repositories and refrain from "
 "installing software not covered by the subscription plan"
 
-#: ../../subscription.rst:36
+#: ../../subscription.rst:34
 #, fuzzy
 msgid "Register the cluster"
 msgstr "Register the cluster"
 
-#: ../../subscription.rst:38
+#: ../../subscription.rst:36
 #, fuzzy
 msgid ""
 "Depending on your subscription type, log in to `my.nethserver.com "
@@ -11732,7 +11695,7 @@ msgstr ""
 "<https://my.nethesis.it>`_ and obtain a unique subscription token for the"
 " cluster. Follow the portal-documented procedures to obtain it."
 
-#: ../../subscription.rst:45
+#: ../../subscription.rst:43
 #, fuzzy
 msgid ""
 "The subscription token is a secret: never communicate or share it with "
@@ -11741,7 +11704,7 @@ msgstr ""
 "The subscription token is a secret: never communicate or share it with "
 "someone else"
 
-#: ../../subscription.rst:48
+#: ../../subscription.rst:46
 #, fuzzy
 msgid ""
 "Once you have copied the token to the clipboard, go to the ``Settings`` "
@@ -11754,7 +11717,7 @@ msgstr ""
 "``Authentication token`` field, then click the :guilabel:`Register` "
 "button."
 
-#: ../../subscription.rst:53
+#: ../../subscription.rst:51
 #, fuzzy
 msgid ""
 "If the procedure is successful the Subscription page displays the "
@@ -11763,12 +11726,12 @@ msgstr ""
 "If the procedure is successful the Subscription page displays the "
 "``System ID``, ``Plan`` type and ``Expiration`` date."
 
-#: ../../subscription.rst:60
+#: ../../subscription.rst:58
 #, fuzzy
 msgid "Scheduled updates"
 msgstr "Scheduled updates"
 
-#: ../../subscription.rst:62
+#: ../../subscription.rst:60
 #, fuzzy
 msgid ""
 "An overnight scheduled task installs software updates available from "
@@ -11783,7 +11746,7 @@ msgstr ""
 "This variability helps distribute the load on the network and servers. "
 "Updates concern:"
 
-#: ../../subscription.rst:68
+#: ../../subscription.rst:66
 #, fuzzy
 msgid ""
 "**Operating system**: updates are sourced from Nethesis managed "
@@ -11798,7 +11761,7 @@ msgstr ""
 "Rocky Linux repositories, aiming to prevent the distribution of updates "
 "that may lead to unexpected issues."
 
-#: ../../subscription.rst:74
+#: ../../subscription.rst:72
 #, fuzzy
 msgid ""
 "**Core components**: Updates are fetched from the ``subscription`` "
@@ -11807,17 +11770,17 @@ msgstr ""
 "**Core components**: Updates are fetched from the ``subscription`` "
 "repository"
 
-#: ../../subscription.rst:77
+#: ../../subscription.rst:75
 #, fuzzy
 msgid "**Applications**: Updates are fetched from the ``subscription`` repository"
 msgstr "**Applications**: Updates are fetched from the ``subscription`` repository"
 
-#: ../../subscription.rst:82
+#: ../../subscription.rst:80
 #, fuzzy
 msgid "Remove the subscription"
 msgstr "Remove the subscription"
 
-#: ../../subscription.rst:84
+#: ../../subscription.rst:82
 #, fuzzy
 msgid ""
 "Go to the ``Settings`` page and click the ``Subscription`` card. "
@@ -11828,7 +11791,7 @@ msgstr ""
 "Alternatively, go to the cluster dashboard page and click the ``Go to "
 "Subscription`` link."
 
-#: ../../subscription.rst:88
+#: ../../subscription.rst:86
 #, fuzzy
 msgid ""
 "In the ``Subscription`` page, click the :guilabel:`Remove subscription` "
@@ -11837,17 +11800,17 @@ msgstr ""
 "In the ``Subscription`` page, click the :guilabel:`Remove subscription` "
 "button. The action must be confirmed."
 
-#: ../../subscription.rst:92
+#: ../../subscription.rst:90
 #, fuzzy
 msgid "Remote support"
 msgstr "Remote support"
 
-#: ../../subscription.rst:96
+#: ../../subscription.rst:94
 #, fuzzy
 msgid "Available in Nethesis Enterprise only"
 msgstr "Available in Nethesis Enterprise only"
 
-#: ../../subscription.rst:98
+#: ../../subscription.rst:96
 #, fuzzy
 msgid ""
 "Depending on the subscription type and plan, the ``Subscription`` page "
@@ -11856,7 +11819,7 @@ msgstr ""
 "Depending on the subscription type and plan, the ``Subscription`` page "
 "can allow starting and controlling a remote support session:"
 
-#: ../../subscription.rst:101
+#: ../../subscription.rst:99
 #, fuzzy
 msgid ""
 "Click :guilabel:`Start session` to activate a special access for the "
@@ -11869,7 +11832,7 @@ msgstr ""
 "are granted to the support team. Support connections are routed in a "
 "private VPN tunnel."
 
-#: ../../subscription.rst:106
+#: ../../subscription.rst:104
 #, fuzzy
 msgid ""
 "When the access is granted, a unique ``Session ID`` secret is displayed: "
@@ -11878,7 +11841,7 @@ msgstr ""
 "When the access is granted, a unique ``Session ID`` secret is displayed: "
 "copy and paste it in your support request."
 
-#: ../../subscription.rst:109
+#: ../../subscription.rst:107
 #, fuzzy
 msgid ""
 "To end the support session, close the VPN tunnel and revoke any granted "
@@ -11887,7 +11850,7 @@ msgstr ""
 "To end the support session, close the VPN tunnel and revoke any granted "
 "access, click :guilabel:`End session`."
 
-#: ../../subscription.rst:112
+#: ../../subscription.rst:110
 #, fuzzy
 msgid ""
 "The support session is valid only to reach the leader node. The support "
@@ -11900,17 +11863,17 @@ msgstr ""
 "the worker nodes. For example, if node 2 is a worker node, this is a "
 "command to start a support session for it: ::"
 
-#: ../../subscription.rst:119
+#: ../../subscription.rst:117
 #, fuzzy
 msgid "The Session ID is printed to the standard output. To stop the session: ::"
 msgstr "The Session ID is printed to the standard output. To stop the session: ::"
 
-#: ../../subscription.rst:123
+#: ../../subscription.rst:121
 #, fuzzy
 msgid "Check the support session status for any node with: ::"
 msgstr "Check the support session status for any node with: ::"
 
-#: ../../subscription.rst:127
+#: ../../subscription.rst:125
 #, fuzzy
 msgid ""
 "If a worker node (e.g., node 2) becomes unreachable from the leader node,"
@@ -11921,27 +11884,27 @@ msgstr ""
 " you can manually start a support session for it with the following "
 "procedure:"
 
-#: ../../subscription.rst:131
+#: ../../subscription.rst:129
 #, fuzzy
 msgid "Log in on the worker node, using the console or SSH access."
 msgstr "Log in on the worker node, using the console or SSH access."
 
-#: ../../subscription.rst:133
+#: ../../subscription.rst:131
 #, fuzzy
 msgid "Run the following command to start the support session: ::"
 msgstr "Run the following command to start the support session: ::"
 
-#: ../../subscription.rst:137
+#: ../../subscription.rst:135
 #, fuzzy
 msgid "Obtain the session ID with: ::"
 msgstr "Obtain the session ID with: ::"
 
-#: ../../subscription.rst:141
+#: ../../subscription.rst:139
 #, fuzzy
 msgid "The Session ID is always recorded in the system journal and node log."
 msgstr "The Session ID is always recorded in the system journal and node log."
 
-#: ../../subscription.rst:143
+#: ../../subscription.rst:141
 #, fuzzy
 msgid "To end the support session: ::"
 msgstr "To end the support session: ::"
@@ -12123,7 +12086,7 @@ msgstr ""
 msgid "Worker node requirements"
 msgstr "Worker node requirements"
 
-#: ../../system_requirements.rst:83
+#: ../../system_requirements.rst:81
 #, fuzzy
 msgid ""
 "Among network clients, a worker node has some special requirements to be "
@@ -12132,7 +12095,7 @@ msgstr ""
 "Among network clients, a worker node has some special requirements to be "
 "installed and configured."
 
-#: ../../system_requirements.rst:86
+#: ../../system_requirements.rst:84
 #, fuzzy
 msgid ""
 "The worker node reaches the leader during the join procedure at the "
@@ -12141,12 +12104,12 @@ msgstr ""
 "The worker node reaches the leader during the join procedure at the "
 "following URL: ::"
 
-#: ../../system_requirements.rst:91
+#: ../../system_requirements.rst:89
 #, fuzzy
 msgid "Ensure the following requirements are met:"
 msgstr "Ensure the following requirements are met:"
 
-#: ../../system_requirements.rst:93
+#: ../../system_requirements.rst:91
 #, fuzzy
 msgid ""
 "the worker node must resolve the leader FQDN to the correct routable "
@@ -12155,7 +12118,7 @@ msgstr ""
 "the worker node must resolve the leader FQDN to the correct routable "
 "address"
 
-#: ../../system_requirements.rst:96
+#: ../../system_requirements.rst:94
 #, fuzzy
 msgid ""
 "the HTTPS server (TCP port 443) at that address must handle the API "
@@ -12164,7 +12127,7 @@ msgstr ""
 "the HTTPS server (TCP port 443) at that address must handle the API "
 "request"
 
-#: ../../system_requirements.rst:99
+#: ../../system_requirements.rst:97
 #, fuzzy
 msgid ""
 "the API server response contains the leader ``VPN endpoint``: it is a "
@@ -12179,12 +12142,12 @@ msgstr ""
 "install-steps>` procedure. Ensure it is not blocked by other network "
 "appliances."
 
-#: ../../system_requirements.rst:107
+#: ../../system_requirements.rst:105
 #, fuzzy
 msgid "Web browser requirements"
 msgstr "Web browser requirements"
 
-#: ../../system_requirements.rst:109
+#: ../../system_requirements.rst:107
 #, fuzzy
 msgid ""
 "To access the cluster administration web user interface, you need an up-"
@@ -16731,4 +16694,75 @@ msgstr ""
 
 #~ msgid "Logout and login from the shell to enable the completion."
 #~ msgstr "Logout and login from the shell to enable the completion."
+
+#~ msgid ""
+#~ "``Encryption`` requires a valid SSL/TLS "
+#~ "certificate for the hostname entered in"
+#~ " :guilabel:`PBX Address` to function "
+#~ "correctly."
+#~ msgstr ""
+#~ "``Encryption`` requires a valid SSL/TLS "
+#~ "certificate for the hostname entered in"
+#~ " :guilabel:PBX Address to function "
+#~ "correctly."
+
+#~ msgid ""
+#~ "``PBX Address`` can be the IP "
+#~ "address or the hostname of NethVoice,"
+#~ " correctly entered in the DNS used"
+#~ " by phones and in the SSL/TLS "
+#~ "certificate used by the system."
+#~ msgstr ""
+#~ "``PBX Address`` can be the IP "
+#~ "address or the hostname of Nethvoice,"
+#~ " correctly entered in the DNS used"
+#~ " by phones and in the SSL/TLS "
+#~ "certificate used by the system."
+
+#~ msgid ""
+#~ "The choice of the previous Encryption"
+#~ " and PBX Address settings depends on"
+#~ " how the phones will reach NethVoice."
+#~ msgstr ""
+#~ "The choice of the previous Encryption"
+#~ " and PBX Address settings depends on"
+#~ " how the phones will reach NethVoice."
+
+#~ msgid ""
+#~ "If the phones are all in the "
+#~ "same network as the PBX (LAN), "
+#~ "``Encryption`` can be disabled, and "
+#~ "``PBX Address`` can contain an IP "
+#~ "address."
+#~ msgstr ""
+#~ "If the phones are all in the "
+#~ "same network as the PBX (LAN), "
+#~ "``Encryption`` can be disabled, and "
+#~ "``PBX Address`` can contain an IP "
+#~ "address."
+
+#~ msgid ""
+#~ "If one or more phones reach "
+#~ "NethVoice via the public network (WAN),"
+#~ " such as when the PBX is hosted"
+#~ " on a cloud VPS, then ``Encryption``"
+#~ " must be enabled, and ``PBX Address``"
+#~ " must contain the fully qualified "
+#~ "domain name present in the public "
+#~ "DNS."
+#~ msgstr ""
+#~ "If one or more phones reach "
+#~ "NethVoice via the public network (WAN),"
+#~ " such as when the PBX is hosted"
+#~ " on a cloud VPS, then ``Encryption``"
+#~ " must be enabled, and ``PBX Address``"
+#~ " must contain the fully qualified "
+#~ "domain name present in the public "
+#~ "DNS."
+
+#~ msgid "Other settings that can be changed:"
+#~ msgstr "Other settings that can be changed:"
+
+#~ msgid ":ref:`LDAP Phonebook <panel-phonebook>`"
+#~ msgstr ":ref:`LDAP Phonebook <panel-phonebook>`"
 
