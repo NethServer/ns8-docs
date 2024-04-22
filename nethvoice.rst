@@ -967,17 +967,12 @@ GRANDSTREAM
 * FXS Models HT812 and HT814
 * FXS Models GXW4216, GXW4224, GXW4232, and GXW4248
 
-MEDIATRIX
-~~~~~~~~~
-
-* 4400 Series
-
 PATTON
 ~~~~~~
 
-* BRI SmartNode and Trinity Models
-* PRI SmartNode and Trinity Models
-* FXO SmartNode Models
+* BRI Trinity Models
+* PRI Trinity Models
+* FXO Trinity Models
 
 Provisioning
 ^^^^^^^^^^^^
