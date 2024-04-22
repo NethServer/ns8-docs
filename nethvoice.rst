@@ -139,28 +139,25 @@ By pressing :guilabel:`Save`, the configuration is written to NethVoice, and fro
 Devices
 =======
 
-During the initial configuration wizard, this section requires confirmation of some fundamental settings (press the :guilabel:`Modify default settings button`).
+During the initial configuration wizard, in this section there are some fundamental settings (press the :guilabel:`Modify default settings button`).
 
 The settings are:
 
-* ``Encryption`` requires a valid SSL/TLS certificate for the hostname entered in :guilabel:`PBX Address` to function correctly.
-* ``PBX Address`` can be the IP address or the hostname of NethVoice, correctly entered in the DNS used by phones and in the SSL/TLS certificate used by the system.
 * ``Admin Password`` will be the password to access the web interface of phones configured with the administrator user.
 * ``User Password`` will be the password to access the web interface of phones configured with a non-administrative user.
 
-The choice of the previous Encryption and PBX Address settings depends on how the phones will reach NethVoice.
+The NethVoice address to be provided to the phones via configuration is obtained from the application settings.
 
-If the phones are all in the same network as the PBX (LAN), ``Encryption`` can be disabled, and ``PBX Address`` can contain an IP address.
+The use of encryption in SIP connections for devices is enabled by default.
 
-If one or more phones reach NethVoice via the public network (WAN), such as when the PBX is hosted on a cloud VPS, then ``Encryption`` must be enabled, and ``PBX Address`` must contain the fully qualified domain name present in the public DNS.
+In any case, it is possible to choose on each individual phone whether encryption is used or not. In this regard, refer to :ref:`wizard-configurations`.
 
-In any case, it is possible to choose on each individual phone whether encryption is used or not, provided that the SSL/TLS certificate of the system is valid. In this regard, refer to :ref:`wizard-configurations`.
+Other settings can be changed in :ref:`Preferences <panel-preferences>` section:
 
-Other settings that can be changed:
-
-* :ref:`Preferences <panel-preferences>`
-* :ref:`LDAP Phonebook <panel-phonebook>`
-
+* :guilabel:`Phone languages`
+* :guilabel:`Provisiong scheduling`
+* :guilabel:`Tone zone`
+  
 Once the settings are saved, they can be modified again from the :guilabel:`Devices > Models page`, :guilabel:`Default Settings`.
 
 Phones
