@@ -1101,3 +1101,189 @@ It should be changed to::
   select * from phonebook where homephone like '%$NUMBER' or workphone like '%$NUMBER' or cellphone like '%$NUMBER' or fax like '%$NUMBER'
 
 The `$NUMBER` variable represents the caller ID of the PBX, referring to collect the data to be displayed on the customer card.
+
+.. _external-phonebook:
+Phonebook Sources
+-----------------
+Adding External Address Books
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+From the menu :guilabel:`Applications -> Address Book Sources`, you can define an external source for the contacts NethVoice should use to resolve incoming and outgoing calls.
+These contacts will be added to the NethVoice address book and made available for use in NethVoice CTI and NethVoice App.
+
+To configure a new source, three steps are required:
+
+* **Source**: Configure access to the source database of contacts.
+
+* **Mapping**: Associate fields from the source database with those of the NethVoice address book.
+
+* **Settings**: Choose the synchronization interval.
+
+Phonebook Source
+^^^^^^^^^^^^^^^^
+
+A unique :guilabel:`Phonebook Name` must be assigned to the source to distinguish the origin of the contacts imported into the NethVoice phonebook.
+
+Based on the :guilabel:`Source Type`, additional attributes need to be specified:
+
+**MySQL**
+
+Database name, server address/port, username, and password for the source database are required.
+
+Additionally, in the Select query text area, the SQL query used to retrieve data to be imported into the centralized address book must be inserted. If present in the text area, replace the word ``[table]`` with the name of the source table.
+
+**CSV**
+
+In the :guilabel:`URL` field, you can specify the web address of a file in CSV format (Comma-Separated Values, values separated by commas and double quotes "" as text qualifiers, mandatory if the field contains a comma or space). Addresses starting with ``http://`` and ``https://`` are accepted.
+
+Alternatively, you can upload a CSV file via the button to the right of the same text field. In this case, the :guilabel:`URL` field will be automatically populated.
+
+The CSV file must be encoded in UTF-8 and contain column names on the first row.
+
+The :guilabel:`Verify` button allows you to preview the data retrieved from the source.
+
+Custom Name Resolution
+^^^^^^^^^^^^^^^^^^^^^^
+
+If you wish to use a source other than the centralized address book to resolve names, you can create a custom resolution script and place it in the *~/.local/share/containers/storage/volumes/lookup.d/_data/* directory.
+
+In the Github repository `https://github.com/nethesis/ns8-nethvoice/tree/main/freepbx/usr/src/nethvoice/samples`, there are two example scripts: *lookup_dummy.php* and *lookup_vte.php*, which can serve as a starting point for creating your own custom script.
+
+The *lookup_dummy.php* script returns a fake result for any number dialed or incoming call, while the lookup_vte.php script utilizes an external API.
+
+.. list-table:: Fields of the Centralized Address Book
+    :widths: 10 10
+    :header-rows: 1
+ 
+ * - owner_id
+   - Owner of the contact
+
+ * - type
+   - Source of origin
+
+ * - homeemail
+   - Home email address
+
+ * - workemail
+   - Work email address
+
+ * - homephone
+   - Home phone number
+
+ * - workphone
+   - Work phone number
+
+ * - cellphone
+   - Cell phone number
+
+ * - fax
+   - Fax number
+
+ * - title
+   - Job title
+
+ * - company
+   - Company
+
+ * - notes
+   - Notes
+
+ * - name
+   - First and last name
+
+ * - homestreet
+   - Home address
+
+ * - homepob
+   - Home PO Box
+
+ * - homecity
+   - Home city
+
+ * - homeprovince
+   - Home province
+
+ * - homepostalcode
+   - Home postal code
+
+ * - homecountry
+   - Home country/region
+
+ * - workstreet
+   - Work address
+
+ * - workpob
+   - Work PO Box
+
+ * - workcity
+   - Work city
+
+ * - workprovince
+   - Work province
+
+ * - workpostalcode
+   - Work postal code
+
+ * - workcountry
+   _ Work country/region
+
+ * - url
+   - Website address
+
+Settings
+^^^^^^^^
+
+You can choose the synchronization interval for contacts between:
+
+* 15 minutes
+
+* 30 minutes
+
+* 1 hour
+
+* 6 hours
+  
+* 24 hours
+
+Once the source is created, you can:
+
+* Immediately synchronize using the :guilabel:`Sync` button
+
+* Enable/disable synchronization
+
+Parameterized URLs
+------------------
+
+Allows the end user to invoke a parameterized URL upon receiving a call. The URL will be parameterized with caller data and can be "opened" in one of the following four scenarios:
+
+* Never
+
+* When the incoming call is ringing
+
+* When the incoming call is answered
+
+* By clicking the appropriate button in the call management box
+
+To create a URL, two pieces of information are required:
+
+* The URL itself
+
+* The selection of a user profile
+
+The composition of the URL can be done using these parameters, which are populated for each call:
+
+* *$CALLER_NUMBER* (Caller Number)
+
+* *$CALLER_NAME* (Name associated by NethVoice to the caller number)
+
+* *$CALLED* (Called Number)
+
+* *$UNIQUEID* (Unique identifier of the call)
+
+It is possible to enable the option "Only calls on queues" to activate the parameterized URL only for calls that ring in a queue.
+
+All users who have that profile will be enabled to use the newly created URL.
+  
+     .. note::
+     * Only one URL can be associated with a profile.
+     * For the URL to be invoked, it is necessary for the end user to have enabled pop-up display in their browser!
