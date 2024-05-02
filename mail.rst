@@ -1,18 +1,28 @@
 .. _email-section:
 
-===========
-Mail server
-===========
+.. _mail-section:
 
-The Email module is split into three main parts:
+====
+Mail
+====
 
-* `Postfix <https://www.postfix.org/>`_: `SMTP <https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol>`_ server for sending and receiving
-* `Dovecot <https://www.dovecot.org/>`_: `IMAP <https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol>`_ 
-  and `POP3 <https://en.wikipedia.org/wiki/Post_Office_Protocol>`_ server to read email,
-  and `Sieve <https://en.wikipedia.org/wiki/Sieve_(mail_filtering_language)>`_ language to organize it
-* `RSPAMD <https://rspamd.com/>`_: antispam filter, antivirus and attachments blocker
+The Mail application is split into four main parts:
 
-The optional :ref:`imapsync-section` module can be connected to Mail. It allows scheduling fetch jobs or migrating emails from external IMAP servers to local user mailboxes.
+* `Postfix`__, an SMTP server for sending and receiving mail messages.
+
+  __ https://www.postfix.org
+
+* `Dovecot`__, an IMAP and POP3 server to read email, with Sieve language to organize it.
+
+  __ https://www.dovecot.org
+
+* `Rspamd`__, an antispam filter, antivirus and attachments blocker.
+
+  __ https://rspamd.com
+
+* `ClamAV`__, an antivirus engine.
+
+  __ http://www.clamav.net
 
 Benefits are:
 
@@ -21,26 +31,31 @@ Benefits are:
 * ability to track the route of messages in order to detect errors
 * optimized antivirus and antispam scan
 
-See also the following related topics:
+.. warning::
 
-* How `electronic mail <https://en.wikipedia.org/wiki/Email>`_ works
-* `MX DNS <https://en.wikipedia.org/wiki/MX_record>`_ record
-* `Simple Mail Transfer Protocol <https://en.wikipedia.org/wiki/MX_record>`_ (SMTP)
-* `Domain Keys Identified Mail signature <https://en.wikipedia.org/wiki/MX_record>`_ (DKIM)
+  Even if Software Center allows to install multiple instances of Mail on
+  the same node, you can configure and start only one mail server instance
+  per node, otherwise a TCP port conflict error occurs.
 
-You can install only one mail server per node from the :ref:`software_center-section`.
+The optional :ref:`imapsync-section` application can be connected to Mail. It
+allows scheduling periodical fetch jobs or migrating emails from external IMAP
+servers to local user mailboxes.
+
 
 Configuration
 =============
 
-The mail module requires at least one :ref:`user domain <user-domains-section>` already configured.
+Mail requires at least one :ref:`user domain <user-domains-section>` already configured.
 
 The first configuration wizard will require the following information:
 
 * ``Mail server hostname``: insert the mail server name, this should be the same name configured inside
-  your MX DNS record
+  your `MX DNS record`__.
+
+  __ https://en.wikipedia.org/wiki/MX_record
+
 * ``Primary mail domain``: insert the mail domain, like ``nethserver.org``;
-  you will be able to add more domains later
+  you will be able to add more domains later.
 
 Then, select the user domain to be connected to the mail server.
 An email address will be created for every user in the selected domain.
@@ -51,7 +66,7 @@ An email address will be created for every user in the selected domain.
 Domains
 =======
 
-NethServer can handle an unlimited number of mail domains, configurable
+Mail can handle an unlimited number of mail domains, configurable
 from the ``Domains`` page.
 
 .. note:: If a domain is deleted, email will not be deleted;
@@ -63,10 +78,10 @@ the ``Name`` field with the mail domain, like ``mymail.org``.
 If the ``Add user addresses from user domain`` option is disabled, you can enable the ``Accept unknown recipients`` switch and select
 a mailbox that will catch all messages sent to non-existing addresses.
 
-NethServer allows storing a hidden copy of all messages
+Mail allows storing a hidden copy of all messages
 directed to a particular domain: they will be delivered to the final
 recipient *and also* to a custom email address. The hidden copy is
-enabled by the :guilabel:`Copy inbound messages` switch.
+enabled by the ``Copy inbound messages`` switch.
 
 .. warning:: On some countries, enabling the *Copy inbound messages*
              switch can be against privacy laws.
@@ -81,11 +96,15 @@ This configuration is available only if ``Add user address from user domain`` op
 DKIM signature
 --------------
 
-.. note:: DKIM is not currently configurable from the web user interface.
-
-DomainKeys Identified Mail (DKIM) provides a way to validate the
+DomainKeys Identified Mail (`DKIM`__) provides a way to validate the
 sending MTA, which adds a cryptographic signature to the outbound message MIME
 headers.
+
+__ https://it.wikipedia.org/wiki/DomainKeys_Identified_Mail
+
+In the ``Domains`` page, click on the three-dots menu near the domain card
+and select the ``Configure DKIM`` action, to enable or disable the message
+DKIM signature.
 
 The DKIM signature headers are added only to messages sent through TCP ports 587
 (submission) and 465 (smtps).
@@ -93,9 +112,11 @@ The DKIM signature headers are added only to messages sent through TCP ports 587
 To work effectively, the public DNS must be configured properly. Refer to the
 instructions of your DNS provider to run the following steps:
 
-1. Add a TXT record to your public DNS service provider with key "default._domainKey"
+1. Add a TXT record to your public DNS service provider with key
+   ``default._domainKey``.
 
-2. Copy and paste the given key text in the DNS record data (RDATA) section
+2. Copy and paste the given key text in the DNS record data (RDATA)
+   section.
 
 
 .. _email_mailboxes:
@@ -116,7 +137,7 @@ You can disable each mailbox by selecting the ``Disable`` item from the three-do
 
 By clicking the ``Edit`` item from the three-dots menu it's possible to setup the following options:
 
-* ``Forward messages``: forward all messages to another mail address
+* ``Forward messages``: forward all messages to another email address
 * ``Custom mailbox quota``: override the quota configured from the :ref:`mail_settings-section`
 * ``Custom spam retention``: override the retention configured from the :ref:`mail_settings-section` 
 
@@ -147,87 +168,257 @@ destination can be of the following types:
 * public mailbox
 * external email address
 
-A mail address can be bound to any mail domain or be specific to one mail domain.
-For example:
+A mail address can be specific to one mail domain, or generic to all
+configured mail domains. In the latter case, we call it a "wildcard
+address". For example:
 
-* First domain: ``mydomain.net``
-* Second domain: ``example.com``
-* Email address *info* bound to any domain: ``info@mydomain.net``,
-  ``info@example.com``
-* Email address *goofy* specific to one domain: ``goofy@example.com``
+* Two domains are configured, *mydomain.net* and *example.com*
+* A specific email address *goofy* for domain *example.com* corresponds
+  to *goofy@example.com*.
+* A wildcard email address *info* is bound to all domains: it is
+  equivalent to both *info@mydomain.net* and *info@example.com*.
 
 Sometimes a company forbids communications from outside the organization
-using personal email addresses. The ``Internal`` check box
-blocks the possibility of an address to receive messages from the outside.
-Still an *internal* address can be used to
-exchange messages with other accounts of the system.
+using personal email addresses. To change the *visibility* of an address,
+click on the three-dots menu and select the ``Set as internal`` action
+shortcut, or select ``Edit`` and enable the ``Internal`` check box under
+the ``Advanced`` section.
+
+When an address is *internal* it cannot receive messages from the outside.
+Still an *internal* address can be used to exchange messages with other
+accounts of the system.
 
 .. _email_filter:
 
 Filter
 ======
 
-All transiting email messages are subjected to a list of checks:
+All transiting email messages are subjected to a list of checks that fall
+into two main categories, described in the following sections:
 
 * Antivirus
 * Antispam
+
+Navigate to the ``Filter`` page to adjust their settings.
 
 .. _anti-virus:
 
 Antivirus
 ---------
 
-The antivirus component finds email messages containing
+The ClamAV antivirus component finds email messages containing
 viruses. Infected messages are discarded. The virus signature database
-is updated periodically.
+is checked for updates every hour.
+
+The default ClamAV signatures database is normally disabled because it
+consumes a large amount of memory. Select the ``Enable ClamAV official
+signatures`` checkbox if desired.
+
+ClamAV unofficial signatures are always active instead. It is possible to
+choose the desired signature rating level among *Low*, *Medium*, *High*.
+Bear in mind that higher ratings may lead to unwanted false positive
+matches, therefore good messages can be blocked.
+
+.. _antispam-section:
 
 .. _anti-spam:
 
 Antispam
 --------
 
-The antispam component RSPAMD analyzes emails by detecting
-and classifying `SPAM <https://en.wikipedia.org/wiki/Spamming>`_ messages using heuristic
-criteria, predetermined rules and statistical evaluations of the
-content of messages.
+The antispam component Rspamd analyzes emails by detecting and classifying
+`spam messages`__ using heuristic criteria, predetermined rules and
+statistical evaluations of the content of messages.
 
-The filter can also check if the sending server is listed in one or more block lists
-(`DNSBL <https://en.wikipedia.org/wiki/Spamming>`_). A score is associated with each rule.
+__ https://en.wikipedia.org/wiki/Spamming
+
+The filter can also check if the sending server is listed in one or more
+DNS-based block lists (or `DNSBL`__). A score is associated with each
+rule.
+
+__ https://en.wikipedia.org/wiki/Domain_Name_System_blocklist
 
 Total spam score collected at the end of the analysis allows the server to
 decide what to do with a message.
 
-Statistical filters, called `Bayesian <https://www.blu-system.com/sicurezza-informatica-pavia-blu-system>`_,
+Statistical (or `Bayesian`__) filters,
 are special rules that evolve and quickly adapt analyzing messages
 marked as **spam** or **ham**.
+
+__ https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering
+
+The spam score thresholds can be configured under the ``Antispam`` section
+of the ``Filter`` page.
+
+* ``Spam flag threshold`` determines the score value where a message is
+  marked as spam. When a message has the spam flag set the consequent
+  delivery action depends on the general settings of :ref:`mailboxes
+  <mail-mailboxes-settings>`.
+
+* ``Deny message spam threshold`` instead regulates the score that is
+  considered too high to accept a message. If the score exceeds this
+  value, the filter rejects the message completely.
+
+* Under the ``Advanced`` section it is possible to enable the ``Greylist
+  threshold``. When the message score exceeds this limit the filter asks
+  the sender to try again the message delivery at later time. The
+  *Greylist* spam-fighting method assumes that spammers dislike delivery
+  retries. It is disabled by default because it introduces delivery delays
+  also for legitimate senders.
+
+To access additional settings and review recent Rspamd activity, navigate
+to the web interface of Rspamd by selecting the :guilabel:`Open Rspamd`
+button located in the top-right corner of the Filter page. You'll need to
+provide your cluster-admin credentials for authentication.
+
+In some cases an email client, recipient, or sender must bypass the filter
+checks: the ``Bypass rules`` section allows to define a set of rules based
+on the follwing criteria:
+
+* Sender IP address or network (CIDR format).
+
+* Complete sender email address.
+
+* Sender email domain.
+
+* Complete recipient email address.
+
+* Recipient email domain.
+
+
+Queue
+=====
+
+The ``Queue`` page shows the status of the Postifx mail queue. Under
+normal conditions the queue should be empty because messages are
+immediately exchanged between mail servers.
+
+If the mail queue contains some messages, try to click the
+:guilabel:`Refresh` button to quickly check if the condition is temporary.
+
+As alternative, trigger an immediate new delivery attempt with the button
+:guilabel:`Resend all`, or remove all messages from the queue with
+:guilabel:`Delete all`.
+
+The same actions can be selectively executed for each message in the
+queue, from its three-dots menu. The message delay reason, queue ID,
+arrival time, size, sender, and recipients can be inspected with the ``See
+details`` action. 
+
+.. hint::
+
+  The ``Message ID`` value can be used to search the message in both
+  :ref:`Rspamd web interface <antispam-section>` and
+  :ref:`system-logs-section`.
+
+If the delay reason is not resolved, and the message is not deleted, the
+message is returned to the sender after a configurable amount of time.
+Click the :guilabel:`Settings` button to modify it. See
+:ref:`queue-settings-section` for details.
+
+
+.. _relay-rules-section:
+
+Relay
+=====
+
+When a message is received from another mail server (MTA), or from a mail
+user agent (MUA), Postifx decides how to relay it towards its final
+destination. Typically the decision is based on the domain suffix of the
+recipient address.
+
+* If the domain is handled by Postfix (i.e. it is listed in
+  :ref:`email_domains`) the message is delivered locally.
+
+* Otherwise, if the domain is external, the message destination server
+  (also known as "next-hop" server) is found with a MX DNS query.
+
+The ``Relay`` page allows to configure a set of rules that overrides the
+external domain resolution based on DNS.
+
+Rules priority
+--------------
+
+Relay rules can be of three types:
+
+1. Sender rule.
+
+2. Recipient rule.
+
+3. Default rule. Only one default rule is allowed.
+
+The rules evaluation order is Sender, Recipient, Default: the first
+matching rule is applied. A match occurs based on the message sender or
+recipient, or if a default rule (that one matching any sender and
+recipient) is defined.
+
+Sender and Recipient matches can be an exact correspondence of the full
+email address, or match only the domain suffix. In the rules evaluation
+order, exact match is evaluated before the domain suffix match.
+
+Managing rules
+--------------
+
+Click on button :guilabel:`Add relay rule` to define a Sender or a
+Recipient rule. Specify the rule type and subject value (sender or
+recipient), then fill the remaining fields:
+
+- **Hostname**, the name or IP address of the server where the message is relayed if the rule match.
+
+- **Port**, the TCP port number used by the server.
+
+- **Authentication**. If the server requires SMTP authentication provide the necessary credentials here.
+
+- **TLS**. Enable this switch if the server expects TLS or STARTTLS
+  encryption. It is recommended to enable it to encrypt both credentials
+  and data during SMTP connections.
+
+The :guilabel:`Set default rule` defines a rule that matches if none of
+the remaining rules do, or if no rule is defined at all. This type of rule
+is used to configure a `smarthost`__, a mail server where mail messages
+for external domains is relayed.
+
+__ https://en.wikipedia.org/wiki/Smart_host
+
+Once created, a rule can be edited, disabled or deleted from the
+three-dots menu. When a rule is edited, the rule type and subject cannot
+be changed: delete it instead.
+
+See also :ref:`mail-relay-settings` for other configurations about the
+relay of messages towards other mail servers. In the ``Relay`` page, the
+:guilabel:`Settings` button leads to them.
+
 
 .. _mail_settings-section:
 
 Settings
 ========
 
-Module settings are split up and accessible under the cards described by
-the following sections.
+Application settings are split up and accessible under the cards described
+by the following sections.
 
 .. _mail-general-settings:
 
 General settings
 ----------------
 
-The following values are set at module first configuration time. They
+The following values are set at application first configuration time. They
 should not be changed in production:
 
 * ``Mail server hostname`` configures how the MTA identifies itself with
   other MTAs. To successfully receive email messages, use this host name
   to configure the following DNS records:
 
-  * `A` record, resolving the Mail server hostname to the public and
-    static IP address of the server
-  * `PTR` record, resolving back the IP address to the Mail server
-    hostaname
-  * `MX` records, one for each mail domain handled by the Mail module
-    instance
-  * `TXT` records, as specified by DKIM, SPF and DMARC 
+  - `A` record, resolving the Mail server hostname to the public and
+    static IP address of the server.
+
+  - `PTR` record, resolving back the IP address to the Mail server
+    hostname.
+
+  - `MX` records, one for each mail domain handled by the Mail application
+    instance.
+
+  - `TXT` records, as specified by DKIM, SPF and DMARC.
 
 * ``User domain`` selects a LDAP database with user, groups and passwords.
   If the DB is changed existing mailboxes are not removed! A mailbox is
@@ -274,7 +465,7 @@ to any mailbox contents and folder permissions.
 
 Credentials are accepted by the IMAP server:
 
-* user name of the master user, eg. ``master``
+* user name of the master user, e.g. ``master``
 * master user password
 
 For instance, to access as ``john`` with root password ``secr3t``,
@@ -282,6 +473,74 @@ use the following credentials:
 
 * user name: ``john*master``
 * password: ``secr3t``
+
+.. _queue-settings-section:
+
+Queue settings
+--------------
+
+The ``Maximal queue lifetime`` parameter defines how many hours a message
+can remain in the mail queue before it is returned to the sender.
+
+The default value, 120 hours (5 days), is the retry time suggested by
+RFC5321. Lower values might be set to warn the sender early if some error
+occurs. For example, if the remote mail server refuses a message because
+our IP address is in a public block list, the message sender will be
+notified after 5 days: it might be considered too late.
+
+.. _mail-relay-settings:
+
+Relay settings
+--------------
+
+This section controls the Mail application configuration for special
+scenarios, described in the following points.
+
+1. Some old mail clients, like scanners, which provide limited software
+   capabilities, might not support SMTP authentication or encryption: in
+   this case it is possible to authorize the relay of messages to external
+   domains by looking at their IP address instead of the usual credentials
+   check.
+
+   List the IP address of such devices in the ``Allow relay from these IP
+   addresses`` field. The address can be in IPv4 or IPv6 format. The IP
+   based policy can be spread to a whole network, specifying it in CIDR
+   format.
+
+   For example, a value for the field can be
+
+   ::
+
+      192.168.12.42
+      10.77.4.0/24
+
+   The IP address *192.168.12.42* (e.g. a document scanner) and the
+   clients in the network subnet *10.77.4.0/24* can send mail messages
+   without providing SMTP authentication.
+
+2. To avoid the unauthorized use of email addresses and the sender address
+   spoofing within the organization, enable the ``Enforce sender/login
+   match`` switch.
+
+   If the switch is enabled the sender address of a message must
+   correspond to the login name used by the mail client to connect with
+   the mail server. Search the login name in the :ref:`email_addresses`
+   page to see what are the addresses it can use.
+
+   For example, with that switch enabled, if user ``john`` has email
+   address ``john.doe@example.org`` he cannot write an email message with
+   a different sender address, like ``sarah.smith@example.org``.
+
+   If the switch is disabled, as per default Mail configuration, an
+   authenticated mail client is allowed to send messages using any sender
+   address, so back to our example ``john`` could write the message also
+   as ``sarah.smith@example.org``.
+
+   .. warning::
+
+    If you decide to enable the switch consider that public mailboxes and
+    LDAP group addresses are not evaluated for the login/address
+    correspondence.
 
 
 .. _email_clients:
@@ -303,7 +562,7 @@ following variants:
 * LOGIN
 * PLAIN
 
-Also the following SSL-enabled ports are available for legacy software
+Also the following TLS-enabled ports are available for legacy software
 that still does not support STARTTLS:
 
 * imaps/993

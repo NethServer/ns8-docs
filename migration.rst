@@ -269,5 +269,4 @@ Configurations excluded from migration
 The following configurations will not be migrated:
 
 - custom templates
-- SMTP mail relay rules
 - account provider password policy settings (see :ref:`migrate-account-provider`)
