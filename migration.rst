@@ -230,7 +230,8 @@ Mail
 ====
 
 The Migration Procedure preserves both data and configurations of NS7
-Email application, unless stated differently in this section.
+Email application, unless stated differently in this section or in
+:ref:`config-excluded-migration`.
 
 Mail messages are copied to NS8 with Rsync. After :guilabel:`Finish
 migration` is clicked, some time-consuming operations are executed.
@@ -299,6 +300,8 @@ Example for adding WebTop routes:
    * ``/.well-known``
    * ``/webtop-dav``
 
+.. _config-excluded-migration:
+
 Configurations excluded from migration
 ======================================
 
@@ -311,3 +314,6 @@ The following configurations will not be migrated:
 
 - System smart host, if the NS7 Email app is not installed or is not
   migrated.
+
+- In NS7 Email app, the setting ``Forward a copy of all messages``, formerly known as
+  ``Always send a copy (Bcc)``, is not migrated.
