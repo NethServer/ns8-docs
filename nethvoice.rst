@@ -331,7 +331,7 @@ The initial setting depends on the NethVoice configuration made during the initi
    If `Encryption` is enabled, ensure that the SSL/TLS certificate of the system is valid and contains the name of the PBX; otherwise, phones cannot establish a TLS connection.
 
 * "Configuration Model": You can change the configuration model among those offered.
-* "Edit Configuration": You can modify the configuration of the individual phone by entering changes valid only for this device. The individual phone defaults to the configuration of the model and default settings. Refer to :ref:`wizard2-models` for more details.
+* "Edit Configuration": You can modify the configuration of the individual phone by entering changes valid only for this device. The individual phone defaults to the configuration of the model and default settings. Refer to :ref:`wizard-model` for more details.
 * "Mac-Address": Displays the MAC address of the associated device.
 * "Show Password" for custom devices. The SIP password is shown, which, along with the internal and PBX address, can be used to manually configure the custom device.
 * "Restart": If the device is registered, you can restart it.
