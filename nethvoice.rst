@@ -1284,6 +1284,6 @@ It is possible to enable the option "Only calls on queues" to activate the param
 
 All users who have that profile will be enabled to use the newly created URL.
   
-     .. note::
-     * Only one URL can be associated with a profile.
-     * For the URL to be invoked, it is necessary for the end user to have enabled pop-up display in their browser!
+.. note::
+  * Only one URL can be associated with a profile.
+  * For the URL to be invoked, it is necessary for the end user to have enabled pop-up display in their browser!
