@@ -5,7 +5,7 @@
 Odoo
 ====
 
-Odoo is suite of business management software that includes customer
+Odoo is a suite of business management software that includes customer
 relationship management, e-commerce, billing, accounting, manufacturing,
 warehouse, project management, and inventory management (source `Wikipedia`_).
 
@@ -28,7 +28,7 @@ Odoo can be bound to an existing user domain. Users of the domain can log
 on to this Odoo instance with the same credentials of other applications
 in the same domain: choose the domain from the LDAP domain selector.
 
-.. warning::
+.. note::
 
     The LDAP domain can be chosen only the first time. Once the
     :guilabel:`Save` button is pressed, the LDAP domain selection is
@@ -76,7 +76,7 @@ Database management
 From the login screen, it will be possible to manage databases by clicking
 on the "Database Management" link.
 
-The currently set master password is: ``adminmaster``.
+The default master password is: ``adminmaster``.
 
 The first step for the application's security will be to change the master
 password by following these steps:
@@ -92,7 +92,7 @@ Once the new Master Password is set, it will be possible to:
 3. Create a new database.
 4. Delete the database.
 
-Note: The master password will always be necessary for the activities
+**Note**: The master password will always be necessary for the activities
 listed below.
 
 Database Backup
