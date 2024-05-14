@@ -1,20 +1,51 @@
 
+.. _odoo-section:
+
 ====
 Odoo
 ====
 
+Odoo is suite of business management software that includes customer
+relationship management, e-commerce, billing, accounting, manufacturing,
+warehouse, project management, and inventory management (source `Wikipedia`_).
+
+This application integrates Odoo within NS8 and is developed, maintained
+and supported by `Innovyou`_, an Italian IT company.
+
+.. _Wikipedia: https://en.wikipedia.org/wiki/Odoo
+
+.. _Innovyou: https://www.innovyou.it
 
 Configuration
 =============
 
-Once the application is installed and launched, the user will be
-redirected to the login page.
+Under the Settings page, fill the Odoo FQDN field with the DNS name
+assigned to this Odoo instance. If you want to request a Let's Encrypt TLS
+certificate, ensure the FQDN is recorded in the public DNS before
+proceeding.
+
+Odoo can be bound to an existing user domain. Users of the domain can log
+on to this Odoo instance with the same credentials of other applications
+in the same domain: choose the domain from the LDAP domain selector.
+
+.. warning::
+
+    The LDAP domain can be chosen only the first time. Once the
+    :guilabel:`Save` button is pressed, the LDAP domain selection is
+    disabled.
+
+Once the application is configured for the first time, proceed to the
+login page.
 
 From the login screen, it will be possible to:
 
-1. Access Odoo.
-2. Manage databases.
+* Access Odoo.
+* Manage databases.
 
+.. warning::
+
+  Change immediately the default passwod of ``admin`` user and the default
+  DB master password, as explained in the next sections.
 
 Access to Odoo
 --------------
@@ -28,10 +59,15 @@ After the first login, it is strongly recommended to change the Odoo
 password by following these steps:
 
 1. Click on "Administrator" in the top right corner, then on "Preferences".
+
 2. Set your own email address.
-3. Open the "Account Security" tab, click on "CHANGE PASSWORD," enter the
-   current password, and confirm.
+
+3. Open the "Account Security" tab, click on "Change password", enter the
+   current password.
+
 4. Enter and confirm the new password.
+
+The session will be closed, and you will need to log in again.
 
 
 Database management
@@ -142,7 +178,7 @@ Licenses
 Nethserver 8 application has a GPL-3 license, Odoo Core modules have an
 LGPL license.
 
-OCA modules may have an AGPL or LGPL license to view the license of each
+OCA modules may have an AGPL or LGPL license. To view the license of each
 module, you can do so by following the steps below:
 
 1. Go to the "Applications" module.
