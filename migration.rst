@@ -224,12 +224,49 @@ Password policy settings (strength and expiration) are not migrated. They
 must be enabled under the domain settings of the ``Domains and users``
 page. See also :ref:`password-policy-section`.
 
+.. _mail-migration-section:
+
+Mail
+====
+
+The Migration Procedure preserves both data and configurations of NS7
+Email application, unless stated differently in this section or in
+:ref:`config-excluded-migration`.
+
+Mail messages are copied to NS8 with Rsync. After :guilabel:`Finish
+migration` is clicked, some time-consuming operations are executed.
+
+- **IMAP ACL Format Conversion**: The user and group name format in IMAP
+  ACLs is modified by removing the domain suffix. For example, an ACL entry
+  referring to IMAP user `john.doe@server.example.org` becomes `john.doe`.
+  IMAP login still accepts both formats.
+
+- **Quota Recalculation**: If IMAP quota is enabled, mailbox sizes are
+  recalculated in the background. During this time, disk usage of mailboxes
+  might not be available.
+
+- **Messages and Attachments Reindexing**: The full-text search engine of
+  NS8 runs in the background to reindex all messages and attachments. During
+  this time, full-text searches might not work. To check if the reindexing
+  process is still running, use the command ``pgrep dovecot-index``.
+
+Remember to update the DNS records or transfer the IP address to the NS8
+node at the end of the migration.
+
+Smart host
+----------
+
+The NS7 system smart host configuration is converted to a :ref:`default
+relay rule <relay-rules-section>`. The NS8 Mail application is then
+configured as the SMTP server for every application in the cluster: see
+:ref:`email-notifications`.
+
 .. _getmail_migration-section:
 
 POP3 connector
-==============
+--------------
 
-The migration involves transferring POP3 Connector settings to NS8 Imapsync module, together with Email application.
+The migration involves transferring POP3 Connector settings to NS8 :ref:`Imapsync module <imapsync-section>`, together with Email application.
 Configurations of accounts using the IMAP protocol are translated to working Imapsync tasks.
 For accounts using POP3, it is necessary to review the settings and commence synchronization manually.
 
@@ -263,10 +300,20 @@ Example for adding WebTop routes:
    * ``/.well-known``
    * ``/webtop-dav``
 
+.. _config-excluded-migration:
+
 Configurations excluded from migration
 ======================================
 
 The following configurations will not be migrated:
 
-- custom templates
-- account provider password policy settings (see :ref:`migrate-account-provider`)
+- Custom templates.
+
+- Account provider password policy settings (see
+  :ref:`migrate-account-provider`).
+
+- System smart host, if the NS7 Email app is not installed or is not
+  migrated.
+
+- In NS7 Email app, the setting ``Forward a copy of all messages``, formerly known as
+  ``Always send a copy (Bcc)``, is not migrated.
