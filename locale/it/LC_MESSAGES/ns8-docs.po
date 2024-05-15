@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-15 09:53+0000\n"
+"POT-Creation-Date: 2024-05-15 10:04+0000\n"
 "PO-Revision-Date: 2024-05-07 11:08+0000\n"
 "Last-Translator: Davide Marini <cotosso@gmail.com>\n"
 "Language: it\n"
@@ -1104,8 +1104,8 @@ msgstr ""
 #: ../../index.rst:34 ../../mail.rst:46 ../../mariadb.rst:11
 #: ../../mattermost.rst:13 ../../minio.rst:12 ../../netdata.rst:20
 #: ../../nethvoice.rst:20 ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21
-#: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webserver.rst:14
-#: ../../webtop.rst:12
+#: ../../odoo.rst:20 ../../roundcube.rst:19 ../../sogo.rst:39
+#: ../../webserver.rst:14 ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -2923,7 +2923,7 @@ msgstr "Applicazioni"
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:80
+#: ../../index.rst:81
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -3191,7 +3191,7 @@ msgstr ""
 msgid "The default credentials to login on cluster-admin are"
 msgstr "Le credenziali di default per accedere a cluster-admin sono"
 
-#: ../../install.rst:113
+#: ../../install.rst:113 ../../odoo.rst:55
 msgid "Username: ``admin``"
 msgstr "Nome utente: ``admin``"
 
@@ -10160,6 +10160,367 @@ msgstr ""
 "<https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_configuration.html"
 "#deleting-users>`_."
 
+#: ../../odoo.rst:6
+msgid "Odoo"
+msgstr ""
+
+#: ../../odoo.rst:8
+msgid ""
+"Odoo is a suite of business management software that includes customer "
+"relationship management, e-commerce, billing, accounting, manufacturing, "
+"warehouse, project management, and inventory management (source "
+"`Wikipedia`_)."
+msgstr ""
+
+#: ../../odoo.rst:12
+msgid ""
+"This application integrates Odoo within NS8 and is developed, maintained "
+"and supported by `Innovyou`_, an Italian IT company."
+msgstr ""
+
+#: ../../odoo.rst:22
+msgid ""
+"Under the Settings page, fill the Odoo FQDN field with the DNS name "
+"assigned to this Odoo instance. If you want to request a Let's Encrypt "
+"TLS certificate, ensure the FQDN is recorded in the public DNS before "
+"proceeding."
+msgstr ""
+
+#: ../../odoo.rst:27
+msgid ""
+"Odoo can be bound to an existing user domain. Users of the domain can log"
+" on to this Odoo instance with the same credentials of other applications"
+" in the same domain: choose the domain from the LDAP domain selector."
+msgstr ""
+
+#: ../../odoo.rst:33
+msgid ""
+"The LDAP domain can be chosen only the first time. Once the "
+":guilabel:`Save` button is pressed, the LDAP domain selection is "
+"disabled."
+msgstr ""
+
+#: ../../odoo.rst:37
+msgid ""
+"Once the application is configured for the first time, proceed to the "
+"login page."
+msgstr ""
+
+#: ../../odoo.rst:40
+msgid "From the login screen, it will be possible to:"
+msgstr ""
+
+#: ../../odoo.rst:42
+msgid "Access Odoo."
+msgstr ""
+
+#: ../../odoo.rst:43
+msgid "Manage databases."
+msgstr ""
+
+#: ../../odoo.rst:47
+msgid ""
+"Change immediately the default passwod of ``admin`` user and the default "
+"DB master password, as explained in the next sections."
+msgstr ""
+
+#: ../../odoo.rst:51
+msgid "Access to Odoo"
+msgstr ""
+
+#: ../../odoo.rst:53
+msgid "To perform the first login, simply use the following credentials:"
+msgstr ""
+
+#: ../../odoo.rst:56
+#, fuzzy
+msgid "Password: ``admin``"
+msgstr "password: ``admin``"
+
+#: ../../odoo.rst:58
+msgid ""
+"After the first login, it is strongly recommended to change the Odoo "
+"password by following these steps:"
+msgstr ""
+
+#: ../../odoo.rst:61
+msgid ""
+"Click on \"Administrator\" in the top right corner, then on "
+"\"Preferences\"."
+msgstr ""
+
+#: ../../odoo.rst:63
+#, fuzzy
+msgid "Set your own email address."
+msgstr "external email address"
+
+#: ../../odoo.rst:65
+msgid ""
+"Open the \"Account Security\" tab, click on \"Change password\", enter "
+"the current password."
+msgstr ""
+
+#: ../../odoo.rst:68
+msgid "Enter and confirm the new password."
+msgstr ""
+
+#: ../../odoo.rst:70
+msgid "The session will be closed, and you will need to log in again."
+msgstr ""
+
+#: ../../odoo.rst:74
+#, fuzzy
+msgid "Database management"
+msgstr "Gestione cluster"
+
+#: ../../odoo.rst:76
+msgid ""
+"From the login screen, it will be possible to manage databases by "
+"clicking on the \"Database Management\" link."
+msgstr ""
+
+#: ../../odoo.rst:79
+#, fuzzy
+msgid "The default master password is: ``adminmaster``."
+msgstr "L'impostazione predefinita è ``Non attivo``."
+
+#: ../../odoo.rst:81
+msgid ""
+"The first step for the application's security will be to change the "
+"master password by following these steps:"
+msgstr ""
+
+#: ../../odoo.rst:84
+#, fuzzy
+msgid "Click on \"Set Master Password\"."
+msgstr "master user password"
+
+#: ../../odoo.rst:85
+msgid "Write the current password and then the new password."
+msgstr ""
+
+#: ../../odoo.rst:86
+#, fuzzy
+msgid "Click on \"Continue\"."
+msgstr "Click on Continue."
+
+#: ../../odoo.rst:88
+msgid "Once the new Master Password is set, it will be possible to:"
+msgstr ""
+
+#: ../../odoo.rst:90
+msgid "Perform a database backup."
+msgstr ""
+
+#: ../../odoo.rst:91
+msgid "Duplicate the database."
+msgstr ""
+
+#: ../../odoo.rst:92
+msgid "Create a new database."
+msgstr ""
+
+#: ../../odoo.rst:93
+msgid "Delete the database."
+msgstr ""
+
+#: ../../odoo.rst:95
+msgid ""
+"**Note**: The master password will always be necessary for the activities"
+" listed below."
+msgstr ""
+
+#: ../../odoo.rst:99
+#, fuzzy
+msgid "Database Backup"
+msgstr "Cluster backup"
+
+#: ../../odoo.rst:101
+msgid "To perform a database backup, simply follow these steps:"
+msgstr ""
+
+#: ../../odoo.rst:103
+#, fuzzy
+msgid "Click on \"Backup\"."
+msgstr "Click on OK."
+
+#: ../../odoo.rst:104 ../../odoo.rst:116 ../../odoo.rst:130 ../../odoo.rst:144
+#, fuzzy
+msgid "Enter the Master Password."
+msgstr "master user password"
+
+#: ../../odoo.rst:105
+#, fuzzy
+msgid "Click on Backup."
+msgstr "Click on OK."
+
+#: ../../odoo.rst:107
+msgid ""
+"The database will be downloaded locally and can be used for restoration "
+"or as a basis for creating a parallel production database."
+msgstr ""
+
+#: ../../odoo.rst:111
+msgid "Duplicate the database"
+msgstr ""
+
+#: ../../odoo.rst:113
+msgid "To create a copy of the production database, simply follow these steps:"
+msgstr ""
+
+#: ../../odoo.rst:115
+#, fuzzy
+msgid "Click on \"Duplicate\"."
+msgstr "Click on Continue."
+
+#: ../../odoo.rst:117 ../../odoo.rst:131
+#, fuzzy
+msgid "Enter the name of the new Database."
+msgstr "inserire un nome del backup"
+
+#: ../../odoo.rst:118
+msgid ""
+"Check \"Neutralize,\" which disables cron jobs and prevents the system "
+"from sending automatic notifications."
+msgstr ""
+
+#: ../../odoo.rst:120 ../../sogo.rst:157
+#, fuzzy
+msgid "Click on Continue."
+msgstr "Click on Continue."
+
+#: ../../odoo.rst:122
+msgid "The new database will be displayed below the existing one."
+msgstr ""
+
+#: ../../odoo.rst:125
+msgid "Create a new database"
+msgstr ""
+
+#: ../../odoo.rst:127
+msgid "To create a new database, simply follow these steps:"
+msgstr ""
+
+#: ../../odoo.rst:129
+msgid "Click on \"Create Database\"."
+msgstr ""
+
+#: ../../odoo.rst:132
+#, fuzzy
+msgid "Enter Email and Password."
+msgstr "external email address"
+
+#: ../../odoo.rst:133
+#, fuzzy
+msgid "Select the language."
+msgstr "Select another line"
+
+#: ../../odoo.rst:135
+msgid ""
+"Note: The newly created database will be completely empty and devoid of "
+"any configuration, module, or application."
+msgstr ""
+
+#: ../../odoo.rst:139
+msgid "Delete the database"
+msgstr ""
+
+#: ../../odoo.rst:141
+msgid "To delete a database, simply follow these steps:"
+msgstr ""
+
+#: ../../odoo.rst:143
+#, fuzzy
+msgid "Click on \"Delete\"."
+msgstr "Click on Insert."
+
+#: ../../odoo.rst:145
+#, fuzzy
+msgid "Click on Delete."
+msgstr "Click on Insert."
+
+#: ../../odoo.rst:149
+#, fuzzy
+msgid "Installation image"
+msgstr "Installazione"
+
+#: ../../odoo.rst:151
+msgid "The installation image was created by Innovyou for the following reasons:"
+msgstr ""
+
+#: ../../odoo.rst:153
+msgid ""
+"The image contains Odoo core modules, OCA modules, and proprietary "
+"modules."
+msgstr ""
+
+#: ../../odoo.rst:156
+msgid ""
+"The official Odoo image is not versioned beyond V16; its content is "
+"overwritten periodically. This would prevent us from knowing for sure "
+"which code is being used in that particular installation and consequently"
+" would not allow us to provide proper support or debugging."
+msgstr ""
+
+#: ../../odoo.rst:161
+msgid ""
+"To request the source code and for information or support, you can visit "
+"the page https://www.innovyou.it/supporto-odoo-nethserver/."
+msgstr ""
+
+#: ../../odoo.rst:165
+#, fuzzy
+msgid "Updates and support"
+msgstr "VCard support"
+
+#: ../../odoo.rst:167
+msgid ""
+"Application version 1.0.0 corresponds to Odoo Community version 16.0, end"
+" of support November 2025."
+msgstr ""
+
+#: ../../odoo.rst:170
+msgid "Updates for Odoo on NethServer 8 are manual."
+msgstr ""
+
+#: ../../odoo.rst:172
+msgid ""
+"For any support request, you can contact us through the page "
+"https://www.innovyou.it/supporto-odoo-nethserver/."
+msgstr ""
+
+#: ../../odoo.rst:176
+#, fuzzy
+msgid "Licenses"
+msgstr "LOGIN"
+
+#: ../../odoo.rst:178
+msgid ""
+"Nethserver 8 application has a GPL-3 license, Odoo Core modules have an "
+"LGPL license."
+msgstr ""
+
+#: ../../odoo.rst:181
+msgid ""
+"OCA modules may have an AGPL or LGPL license. To view the license of each"
+" module, you can do so by following the steps below:"
+msgstr ""
+
+#: ../../odoo.rst:184
+#, fuzzy
+msgid "Go to the \"Applications\" module."
+msgstr "selezionare le applicazioni da ripristinare"
+
+#: ../../odoo.rst:185
+msgid ""
+"Locate the application of interest and click on the three dots in the "
+"upper right corner."
+msgstr ""
+
+#: ../../odoo.rst:187
+msgid "Click on \"module info\" to access the desired information."
+msgstr ""
+
 #: ../../os_network.rst:5
 msgid "Node network setup"
 msgstr "Configurazione nodi della rete"
@@ -12190,11 +12551,6 @@ msgid ""
 msgstr ""
 "Type the following URL in the URL field: "
 "http://localhost/SOGo/dav/jdoe/Calendar/personal/"
-
-#: ../../sogo.rst:157
-#, fuzzy
-msgid "Click on Continue."
-msgstr "Click on Continue."
 
 #: ../../sogo.rst:160
 #, fuzzy
