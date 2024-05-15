@@ -266,7 +266,7 @@ configured as the SMTP server for every application in the cluster: see
 POP3 connector
 --------------
 
-The migration involves transferring POP3 Connector settings to NS8 Imapsync module, together with Email application.
+The migration involves transferring POP3 Connector settings to NS8 :ref:`Imapsync module <imapsync-section>`, together with Email application.
 Configurations of accounts using the IMAP protocol are translated to working Imapsync tasks.
 For accounts using POP3, it is necessary to review the settings and commence synchronization manually.
 
