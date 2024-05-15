@@ -76,6 +76,7 @@ NethServer 8 administrator manual
    prometheus
    webserver
    sogo
+   odoo
 
 .. toctree::
    :maxdepth: 2
