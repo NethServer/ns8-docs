@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NS8\n"
+"Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-06 09:44+0000\n"
+"POT-Creation-Date: 2024-05-15 09:53+0000\n"
 "PO-Revision-Date: 2024-05-07 11:08+0000\n"
 "Last-Translator: Davide Marini <cotosso@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
 "Language: it\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>"
+"\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.4-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: ../../backup.rst:5
@@ -644,8 +644,8 @@ msgid ""
 "Ensure the node Fully Qualified Domain Name (FQDN) is correct, and "
 "respects the :ref:`DNS requirements <dns-reqs>`."
 msgstr ""
-"Assicurarsi che il Fully Qualified Domain Name (FQDN) del nodo sia corretto "
-"e rispetti i :ref:`requisiti DNS <dns-reqs>`."
+"Assicurarsi che il Fully Qualified Domain Name (FQDN) del nodo sia "
+"corretto e rispetti i :ref:`requisiti DNS <dns-reqs>`."
 
 #: ../../cluster.rst:34
 msgid ""
@@ -2091,17 +2091,19 @@ msgstr ""
 "sub-domains ``pubsub.*`` and ``conference.*``. This certificate can be "
 "obtained for free with Let's Encrypt."
 
-#: ../../email_notifications.rst:5
+#: ../../email_notifications.rst:7
 #, fuzzy
 msgid "Email notifications"
 msgstr "Email notifications"
 
-#: ../../email_notifications.rst:7
-#, fuzzy
-msgid "Many applications require access to an SMTP server to send mail."
-msgstr "Many applications require access to an SMTP server to send mail."
-
 #: ../../email_notifications.rst:9
+msgid ""
+"Many applications, such as Nextcloud and Mattermost, require SMTP server "
+"configuration to send notification messages to users and service "
+"administrators."
+msgstr ""
+
+#: ../../email_notifications.rst:13
 #, fuzzy
 msgid ""
 "You can configure the same SMTP server for all installed applications by "
@@ -2110,14 +2112,73 @@ msgstr ""
 "You can configure the same SMTP server for all installed applications by "
 "accessing the ``Email notifications`` card inside the ``Settings`` page."
 
-#: ../../email_notifications.rst:12
+#: ../../email_notifications.rst:16
 #, fuzzy
 msgid ""
-"Then, enable the feature by clicking on ``Send notifications with an SMTP"
-" server`` and fill the required details."
+"To enable the feature, click on ``Send notifications with an SMTP "
+"server`` and fill the required details."
 msgstr ""
 "Then, enable the feature by clicking on ``Send notifications with an SMTP"
 " server`` and fill the required details."
+
+#: ../../email_notifications.rst:19
+msgid ""
+"If a Mail application instance is already installed in the cluster, "
+"choose the ``Use Mail app instance`` option. Then refer to the section "
+":ref:`relay-rules-section` for further information about the "
+"configuration of Mail."
+msgstr ""
+
+#: ../../email_notifications.rst:24
+msgid ""
+"Instead, choose ``Manual configuration`` to specify SMTP server "
+"parameters in this form. Available fields are:"
+msgstr ""
+
+#: ../../email_notifications.rst:27
+#, fuzzy
+msgid "**SMTP server**: The host name or IP address of the SMTP server"
+msgstr ""
+"``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
+"NethServer 8"
+
+#: ../../email_notifications.rst:29
+msgid ""
+"**SMTP port number**: TCP port number of the server. Common values are "
+"587, 25, 465, 2525."
+msgstr ""
+
+#: ../../email_notifications.rst:32
+msgid ""
+"**SMTP encryption**: Encryption used by the server. TLS is a widely used "
+"encryption protocol that encrypts a connection from the moment it is "
+"established. STARTTLS is the standard encryption method for SMTP. If both"
+" the client and server support it, the connection is encrypted after both"
+" sides agree to use it."
+msgstr ""
+
+#: ../../email_notifications.rst:38
+msgid ""
+"**Verify the TLS certificate**: If encryption is used, this switch "
+"controls if the certificate used to encrypt the connection must be signed"
+" by a trusted authority or not. If the server presents a self-signed "
+"certificate, turn off this switch to accept it."
+msgstr ""
+
+#: ../../email_notifications.rst:43
+msgid ""
+"**Username** and **Password**: If the server requires SMTP "
+"authentication, fill the credential fields; otherwise leave them blank."
+msgstr ""
+
+#: ../../email_notifications.rst:46
+msgid ""
+"After saving the settings, a SMTP connection to validate the form "
+"parameters is immediately started. In some cases, validation is "
+"successful, but messages may still fail to be delivered. It is "
+"recommended to check that individual applications can successfully send "
+"messages with the new settings."
+msgstr ""
 
 #: ../../faq.rst:3
 #, fuzzy
@@ -2894,9 +2955,9 @@ msgid ""
 "connection."
 msgstr ""
 "È possibile installare NethServer 8 su una delle :ref:`distribuzioni "
-"supportate <install_linux-section>` o utilizzare una delle :ref:`immagini "
-"pre-built<install_image-section>` già pronte. Entrambi i metodi richiedono "
-"una connessione Internet funzionante."
+"supportate <install_linux-section>` o utilizzare una delle :ref:`immagini"
+" pre-built<install_image-section>` già pronte. Entrambi i metodi "
+"richiedono una connessione Internet funzionante."
 
 #: ../../install.rst:17
 msgid "Install on a supported distribution"
@@ -2917,8 +2978,8 @@ msgstr "Avviare la procedura di installazione come ``root``: ::"
 #: ../../install.rst:26
 msgid "If the ``curl`` command is not available try to install it with: ::"
 msgstr ""
-"Se il comando ``curl`` non fosse disponibile, sarà possibile installarlo con "
-"il comando: ::"
+"Se il comando ``curl`` non fosse disponibile, sarà possibile installarlo "
+"con il comando: ::"
 
 #: ../../install.rst:33
 msgid "Pre-built image"
@@ -2929,8 +2990,8 @@ msgid ""
 "NethServer 8 provides an image built upon the stable foundation Rocky "
 "Linux 9, making it suitable for a wide range of server applications."
 msgstr ""
-"NethServer 8 fornisce un'immagine costruita su base stabile Rocky Linux 9, "
-"cosa che lo rende adatto per una vasta gamma di applicazioni server."
+"NethServer 8 fornisce un'immagine costruita su base stabile Rocky Linux "
+"9, cosa che lo rende adatto per una vasta gamma di applicazioni server."
 
 #: ../../install.rst:41
 msgid ""
@@ -2941,8 +3002,8 @@ msgid ""
 msgstr ""
 "Le immagini pre-bult utilizzano Cloud-init per l'inizializzazione della "
 "rete. Il metodo predefinito per ottenere la configurazione di rete è il "
-"protocollo DHCP. Fare riferimento alla documentazione della piattaforma di "
-"virtualizzazione per ulteriori informazioni sul supporto Cloud-init."
+"protocollo DHCP. Fare riferimento alla documentazione della piattaforma "
+"di virtualizzazione per ulteriori informazioni sul supporto Cloud-init."
 
 #: ../../install.rst:46
 msgid "NS8 image download links"
@@ -2981,7 +3042,8 @@ msgid ""
 "https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
 "linux-9-ns8-stable.qcow2"
 msgstr ""
-"https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.qcow2"
+"https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
+"linux-9-ns8-stable.qcow2"
 
 #: ../../install.rst:1
 msgid "VMWare"
@@ -3000,7 +3062,8 @@ msgid ""
 "https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
 "linux-9-ns8-stable.vmdk"
 msgstr ""
-"https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.vmdk"
+"https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
+"linux-9-ns8-stable.vmdk"
 
 #: ../../install.rst:52
 msgid ""
@@ -3009,9 +3072,10 @@ msgid ""
 "the ``vmdk`` format if you are using something like `VMware "
 "<https://www.vmware.com>`_."
 msgstr ""
-"Scegliere il formato di immagine ``qcow2`` se si utilizza una piattaforma di "
-"virtualizzazione basata su KVM, come `Proxmox <https://www.proxmox.com/>`_, "
-"o il formato ``vmdk`` se si utilizza `VMware <https://www.vmware.com>`_."
+"Scegliere il formato di immagine ``qcow2`` se si utilizza una piattaforma"
+" di virtualizzazione basata su KVM, come `Proxmox "
+"<https://www.proxmox.com/>`_, o il formato ``vmdk`` se si utilizza "
+"`VMware <https://www.vmware.com>`_."
 
 #: ../../install.rst:56
 msgid ""
@@ -3021,8 +3085,9 @@ msgid ""
 "checksum then run for example the following command: ::"
 msgstr ""
 "Completato il download dell'immagine, verificare la sua integrità con il "
-"file `sha256 checksum <https://distfeed.nethserver.org/ns8-images/CHECKSUM>`"
-"_. Scaricare il checksum ed eseguire, per esempio, il seguente comando: ::"
+"file `sha256 checksum "
+"<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_. Scaricare il "
+"checksum ed eseguire, per esempio, il seguente comando: ::"
 
 #: ../../install.rst:63
 msgid "Virtualization platform-specific notes:"
@@ -3033,8 +3098,8 @@ msgid ""
 "For VMWare, configure the virtual machine to use the IDE driver for the "
 "disk."
 msgstr ""
-"Per VMWare, configurare la macchina virtuale per utilizzare il driver IDE "
-"per il disco."
+"Per VMWare, configurare la macchina virtuale per utilizzare il driver IDE"
+" per il disco."
 
 #: ../../install.rst:66
 msgid ""
@@ -3050,8 +3115,8 @@ msgid ""
 "upload it to a cloud provider to create a public virtual machine."
 msgstr ""
 "Infine, avviare l'immagine NS8 all'interno della piattaforma di "
-"virtualizzazione, o caricarla su un provider cloud per creare una macchina "
-"virtuale pubblica."
+"virtualizzazione, o caricarla su un provider cloud per creare una "
+"macchina virtuale pubblica."
 
 #: ../../install.rst:71
 msgid "Default OS administrative credentials are"
@@ -3070,8 +3135,8 @@ msgid ""
 "Access the system console and log in using the default credentials. Upon "
 "the first login, you will be prompted to change the password."
 msgstr ""
-"Accedere alla console di sistema utilizzando le credenziali di default. Al "
-"primo login, verrà richiesto di cambiare la password."
+"Accedere alla console di sistema utilizzando le credenziali di default. "
+"Al primo login, verrà richiesto di cambiare la password."
 
 #: ../../install.rst:79
 msgid ""
@@ -3081,7 +3146,8 @@ msgid ""
 msgstr ""
 "Per ottenere l'accesso SSH amministrativo al sistema, creare un account "
 "utente personale nel gruppo ``wheel``, impostandogli una password. Per "
-"esempio, eseguire i seguenti comandi e inserire la password desiderata: ::"
+"esempio, eseguire i seguenti comandi e inserire la password desiderata: "
+"::"
 
 #: ../../install.rst:86
 msgid ""
@@ -3098,8 +3164,8 @@ msgid ""
 "information refer to :ref:`os-network-section`."
 msgstr ""
 "Se fosse stato utilizzato il DHCP per ottenere la configurazione di rete "
-"iniziale, modificare le impostazioni di rete Rocky Linux e configurare un "
-"indirizzo IP statico. Per ulteriori informazioni si rimanda a :ref:`os-"
+"iniziale, modificare le impostazioni di rete Rocky Linux e configurare un"
+" indirizzo IP statico. Per ulteriori informazioni si rimanda a :ref:`os-"
 "network-section`."
 
 #: ../../install.rst:100
@@ -3112,7 +3178,8 @@ msgid ""
 "access the Web user interface at ::"
 msgstr ""
 "Quando lo script di installazione termina o l'immagine pre-built è "
-"inizializzata, accedere all'interfaccia utente Web tramite il seguente URL::"
+"inizializzata, accedere all'interfaccia utente Web tramite il seguente "
+"URL::"
 
 #: ../../install.rst:109
 msgid "If the node is unreachable see :ref:`os-network-section`"
@@ -3133,8 +3200,8 @@ msgid ""
 "Choose :guilabel:`Create cluster` and follow the procedure to create a "
 "new single-node cluster."
 msgstr ""
-"Scegliere :guilabel:`Crea cluster` e seguire la procedura guidata per creare "
-"un nuovo cluster a nodo singolo."
+"Scegliere :guilabel:`Crea cluster` e seguire la procedura guidata per "
+"creare un nuovo cluster a nodo singolo."
 
 #: ../../install.rst:119
 msgid ""
@@ -3154,11 +3221,12 @@ msgid ""
 " changed once it has been set."
 msgstr ""
 "Anche se in esecuzione su un solo nodo, il sistema configura una rete "
-"privata virtuale (VPN) necessaria al cluster. Con la VPN attiva, si potranno "
-"aggiungere nodi aggiuntivi in futuro. I valori predefiniti proposti "
-"dovrebbero essere adatti per la maggior parte degli ambienti, assicurarsi in "
-"ogni caso che ``Rete VPN (CIDR)`` non sia in conflitto con l'ambiente di "
-"rete esistente, perché non potrà essere modificata una volta impostata."
+"privata virtuale (VPN) necessaria al cluster. Con la VPN attiva, si "
+"potranno aggiungere nodi aggiuntivi in futuro. I valori predefiniti "
+"proposti dovrebbero essere adatti per la maggior parte degli ambienti, "
+"assicurarsi in ogni caso che ``Rete VPN (CIDR)`` non sia in conflitto con"
+" l'ambiente di rete esistente, perché non potrà essere modificata una "
+"volta impostata."
 
 #: ../../install.rst:132
 msgid ""
@@ -3171,13 +3239,12 @@ msgid ""
 "A new cluster has assigned the default name ``NethServer 8``. If you wish"
 " to change it:"
 msgstr ""
-"Un nuovo cluster ha l'etichetta ``NethServer 8`` assegnata di default. Se si "
-"desidera cambiarla:"
+"Un nuovo cluster ha l'etichetta ``NethServer 8`` assegnata di default. Se"
+" si desidera cambiarla:"
 
 #: ../../install.rst:137
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
-msgstr ""
-"recarsi alla pagina ``Impostazioni`` e cliccare sulla scheda ``Cluster``"
+msgstr "recarsi alla pagina ``Impostazioni`` e cliccare sulla scheda ``Cluster``"
 
 #: ../../install.rst:138
 msgid "enter a name inside the ``Cluster label`` field"
@@ -3195,12 +3262,13 @@ msgid ""
 " a look at :ref:`system logs <loki-section>`, add :ref:`new nodes "
 "<cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`."
 msgstr ""
-"Cose fare da qui in poi? È possibile installare un dominio utenti :ref:`LDAP "
-"<openldap-section>` o :ref:`Active Directory <active_directory-section>`, "
-"leggere un'introduzione ai :ref:`moduli <modules-section>` disponibili, dare "
-"un'occhiata alla sezione dei :ref:`log di sistema <loki-section>`, "
-"aggiungere :ref:`nuovi nodi <cluster-sections>`o preparare una :ref:`"
-"dashbord per le metriche <metrics-section>`."
+"Cose fare da qui in poi? È possibile installare un dominio utenti "
+":ref:`LDAP <openldap-section>` o :ref:`Active Directory "
+"<active_directory-section>`, leggere un'introduzione ai :ref:`moduli "
+"<modules-section>` disponibili, dare un'occhiata alla sezione dei "
+":ref:`log di sistema <loki-section>`, aggiungere :ref:`nuovi nodi "
+"<cluster-sections>`o preparare una :ref:`dashbord per le metriche "
+"<metrics-section>`."
 
 #: ../../install.rst:147
 msgid "Uninstall"
@@ -3208,8 +3276,7 @@ msgstr "Rimozione"
 
 #: ../../install.rst:149
 msgid "You can uninstall NS8 from your Linux distribution."
-msgstr ""
-"È possibile disinstallare NS8 dalla distribuzione Linux usata come base."
+msgstr "È possibile disinstallare NS8 dalla distribuzione Linux usata come base."
 
 #: ../../install.rst:151
 msgid ""
@@ -3218,8 +3285,8 @@ msgid ""
 "under ``/home`` and ``/var/lib/nethserver`` directories."
 msgstr ""
 "Il comando di rimozione tenta di fermare e cancellare componenti core e "
-"moduli aggiuntivi. L'attività va studiata con cura perché rimuove tutto ciò "
-"che si trova nelle directory ``/home`` e ``/var/lib/nethserver``."
+"moduli aggiuntivi. L'attività va studiata con cura perché rimuove tutto "
+"ciò che si trova nelle directory ``/home`` e ``/var/lib/nethserver``."
 
 #: ../../install.rst:154
 msgid "To uninstall NS8, execute: ::"
@@ -3518,7 +3585,7 @@ msgid ""
 "restarts without log loss."
 msgstr ""
 
-#: ../../mail.rst:7
+#: ../../mail.rst:7 ../../migration.rst:230
 #, fuzzy
 msgid "Mail"
 msgstr "Email"
@@ -5403,17 +5470,74 @@ msgstr ""
 "della pagina ``Domains and users``. Vedi anche: ref: `password-policy-"
 "sezione`."
 
-#: ../../migration.rst:230
+#: ../../migration.rst:232
+msgid ""
+"The Migration Procedure preserves both data and configurations of NS7 "
+"Email application, unless stated differently in this section or in :ref"
+":`config-excluded-migration`."
+msgstr ""
+
+#: ../../migration.rst:236
+msgid ""
+"Mail messages are copied to NS8 with Rsync. After :guilabel:`Finish "
+"migration` is clicked, some time-consuming operations are executed."
+msgstr ""
+
+#: ../../migration.rst:239
+msgid ""
+"**IMAP ACL Format Conversion**: The user and group name format in IMAP "
+"ACLs is modified by removing the domain suffix. For example, an ACL entry"
+" referring to IMAP user `john.doe@server.example.org` becomes `john.doe`."
+" IMAP login still accepts both formats."
+msgstr ""
+
+#: ../../migration.rst:244
+msgid ""
+"**Quota Recalculation**: If IMAP quota is enabled, mailbox sizes are "
+"recalculated in the background. During this time, disk usage of mailboxes"
+" might not be available."
+msgstr ""
+
+#: ../../migration.rst:248
+msgid ""
+"**Messages and Attachments Reindexing**: The full-text search engine of "
+"NS8 runs in the background to reindex all messages and attachments. "
+"During this time, full-text searches might not work. To check if the "
+"reindexing process is still running, use the command ``pgrep dovecot-"
+"index``."
+msgstr ""
+
+#: ../../migration.rst:253
+msgid ""
+"Remember to update the DNS records or transfer the IP address to the NS8 "
+"node at the end of the migration."
+msgstr ""
+
+#: ../../migration.rst:257
+#, fuzzy
+msgid "Smart host"
+msgstr "Virtual hosts"
+
+#: ../../migration.rst:259
+msgid ""
+"The NS7 system smart host configuration is converted to a :ref:`default "
+"relay rule <relay-rules-section>`. The NS8 Mail application is then "
+"configured as the SMTP server for every application in the cluster: see "
+":ref:`email-notifications`."
+msgstr ""
+
+#: ../../migration.rst:267
 msgid "POP3 connector"
 msgstr "Connettore POP3"
 
-#: ../../migration.rst:232
+#: ../../migration.rst:269
+#, fuzzy
 msgid ""
 "The migration involves transferring POP3 Connector settings to NS8 "
-"Imapsync module, together with Email application. Configurations of "
-"accounts using the IMAP protocol are translated to working Imapsync "
-"tasks. For accounts using POP3, it is necessary to review the settings "
-"and commence synchronization manually."
+":ref:`Imapsync module <imapsync-section>`, together with Email "
+"application. Configurations of accounts using the IMAP protocol are "
+"translated to working Imapsync tasks. For accounts using POP3, it is "
+"necessary to review the settings and commence synchronization manually."
 msgstr ""
 "La migrazione comporta il trasferimento delle impostazioni del connettore"
 " POP3 al modulo Imapsync di NS8, insieme all'applicazione Email. Le "
@@ -5422,11 +5546,11 @@ msgstr ""
 "necessario rivedere le impostazioni e inizializzare la sincronizzazione "
 "manualmente."
 
-#: ../../migration.rst:239
+#: ../../migration.rst:276
 msgid "Manual HTTP routes"
 msgstr "Rotte HTTP manuali"
 
-#: ../../migration.rst:241
+#: ../../migration.rst:278
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -5438,7 +5562,7 @@ msgstr ""
 "server chiamato ``server.nethserver.org`` l'installazione WebTop era "
 "disponibile presso ``https://server.nethserver.org/webtop``."
 
-#: ../../migration.rst:245
+#: ../../migration.rst:282
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
@@ -5448,7 +5572,7 @@ msgstr ""
 "inserire un FQDN in modo che WebTop sarà disponibile su un URL del tipo "
 "``https://webtop.nethserver.org``."
 
-#: ../../migration.rst:248
+#: ../../migration.rst:285
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
@@ -5458,15 +5582,15 @@ msgstr ""
 "ricreare manualmente i vecchi percorsi HTTP da:ref:`proxy page <traefik-"
 "section>`."
 
-#: ../../migration.rst:251
+#: ../../migration.rst:288
 msgid "Example for adding WebTop routes:"
 msgstr "Esempio per l'aggiunta di percorsi WebTop:"
 
-#: ../../migration.rst:253
+#: ../../migration.rst:290
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr "aprire la sezione ``HTTP routes`` dalla pagina ``Impostazioni``"
 
-#: ../../migration.rst:254
+#: ../../migration.rst:291
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
@@ -5474,15 +5598,15 @@ msgstr ""
 "cliccare sul nome dell'istanza WebTop, tipo ``webtop1``, una finestra di "
 "dialogo modale mostrerà i dettagli del percorso"
 
-#: ../../migration.rst:255
+#: ../../migration.rst:292
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr "copiare il valore dal campo ``URL``, tipo ``http://127.0.0.1:20033``"
 
-#: ../../migration.rst:256
+#: ../../migration.rst:293
 msgid "click on the :guilabel:`Create route` button"
 msgstr "cliccare sul pulsante :guilabel: `Create route`"
 
-#: ../../migration.rst:257
+#: ../../migration.rst:294
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
@@ -5490,7 +5614,7 @@ msgstr ""
 "scegliere un ``Name`` per la radice e selezionare il ``Node`` dove "
 "l'istanza WebTop è in esecuzione"
 
-#: ../../migration.rst:258
+#: ../../migration.rst:295
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
@@ -5498,7 +5622,7 @@ msgstr ""
 "incollare il valore copiato prima (`http://127.0.0.1:20033``) dentro il "
 "campo ``URL``"
 
-#: ../../migration.rst:259
+#: ../../migration.rst:296
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
@@ -5506,41 +5630,55 @@ msgstr ""
 "lasciare il campo ``Host`` vuoto e inserire ``/webtop`` all'interno del "
 "campo ``Path``"
 
-#: ../../migration.rst:260
+#: ../../migration.rst:297
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr "ripetere i passaggi da 4 a 7 per tutti gli altri percorsi WebTop:"
 
-#: ../../migration.rst:262
+#: ../../migration.rst:299
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr "``/Microsoft-Server-ActiveSync ``"
 
-#: ../../migration.rst:263
+#: ../../migration.rst:300
 msgid "``/.well-known``"
 msgstr "``/.well-known``"
 
-#: ../../migration.rst:264
+#: ../../migration.rst:301
 msgid "``/webtop-dav``"
 msgstr "``/webtop-dav``"
 
-#: ../../migration.rst:267
+#: ../../migration.rst:306
 msgid "Configurations excluded from migration"
 msgstr "Configurazioni escluse dalla migrazione"
 
-#: ../../migration.rst:269
+#: ../../migration.rst:308
 msgid "The following configurations will not be migrated:"
 msgstr "Le seguenti configurazioni non verranno migrate:"
 
-#: ../../migration.rst:271
-msgid "custom templates"
+#: ../../migration.rst:310
+#, fuzzy
+msgid "Custom templates."
 msgstr "template custom"
 
-#: ../../migration.rst:272
+#: ../../migration.rst:312
+#, fuzzy
 msgid ""
-"account provider password policy settings (see :ref:`migrate-account-"
-"provider`)"
+"Account provider password policy settings (see :ref:`migrate-account-"
+"provider`)."
 msgstr ""
 "impostazioni della policy delle password dell'account provider (vedere: "
 "`migrate-account-provider`)"
+
+#: ../../migration.rst:315
+msgid ""
+"System smart host, if the NS7 Email app is not installed or is not "
+"migrated."
+msgstr ""
+
+#: ../../migration.rst:318
+msgid ""
+"In NS7 Email app, the setting ``Forward a copy of all messages``, "
+"formerly known as ``Always send a copy (Bcc)``, is not migrated."
+msgstr ""
 
 #: ../../minio.rst:5
 msgid "MinIO"
@@ -6025,7 +6163,8 @@ msgid ""
 "**Centralized Management**: Manage multiple firewalls from a single "
 "server."
 msgstr ""
-"** Gestione centralizzata ** Gestisci più firewall da un singolo controller."
+"** Gestione centralizzata ** Gestisci più firewall da un singolo "
+"controller."
 
 #: ../../nethsecurity_controller.rst:14
 msgid ""
@@ -12379,8 +12518,8 @@ msgid ""
 "NethServer 8 (NS8) can be deployed on a single node or across multiple "
 "nodes. In both cases it is called \"cluster\"."
 msgstr ""
-"NethServer 8 (NS8) può essere installato su un nodo singolo o su più nodi. "
-"In entrambi i casi prende il nome di \"cluster\"."
+"NethServer 8 (NS8) può essere installato su un nodo singolo o su più "
+"nodi. In entrambi i casi prende il nome di \"cluster\"."
 
 #: ../../system_requirements.rst:10
 msgid "Minimum hardware requirements for a single node installation:"
@@ -17494,3 +17633,7 @@ msgstr ""
 #~ "Also the following SSL-enabled ports "
 #~ "are available for legacy software that"
 #~ " still does not support STARTTLS:"
+
+#~ msgid "Many applications require access to an SMTP server to send mail."
+#~ msgstr "Many applications require access to an SMTP server to send mail."
+
