@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version:  NS8\n"
+"Project-Id-Version: NS8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-15 10:04+0000\n"
-"PO-Revision-Date: 2024-05-07 11:08+0000\n"
-"Last-Translator: Davide Marini <cotosso@gmail.com>\n"
+"PO-Revision-Date: 2024-05-22 09:01+0000\n"
+"Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
 "Language: it\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>"
-"\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: ../../backup.rst:5
@@ -6197,7 +6197,7 @@ msgid ""
 "**Web-based SSH**: Access the firewalls' command-line interface using a "
 "web-based SSH client."
 msgstr ""
-"**Web-based SSH**: Accesso alla command line dei firewall utilizzando un "
+"**SSH Web-based**: Accesso alla command line dei firewall utilizzando un "
 "client web SSH."
 
 #: ../../nethsecurity_controller.rst:20
@@ -7382,9 +7382,8 @@ msgstr ""
 "the source of calls to manage."
 
 #: ../../nethvoice.rst:305 ../../nethvoice.rst:1011
-#, fuzzy
 msgid "Users"
-msgstr "Users"
+msgstr "Utenti"
 
 #: ../../nethvoice.rst:307
 #, fuzzy
@@ -9580,9 +9579,8 @@ msgid ""
 msgstr ""
 
 #: ../../nethvoice.rst:1093 ../../user_domains.rst:81
-#, fuzzy
 msgid "Example:"
-msgstr "Example:"
+msgstr "Esempio:"
 
 #: ../../nethvoice.rst:1095
 msgid "If your query is as follows: ::"
@@ -13329,7 +13327,7 @@ msgstr ""
 
 #: ../../user_domains.rst:38 ../../user_domains.rst:109
 msgid "access the ``Domains and users`` page"
-msgstr "accedere alla pagina ``Domini e utenti`"
+msgstr "accedere alla pagina ``Domini e utenti``"
 
 #: ../../user_domains.rst:39 ../../user_domains.rst:110
 msgid "click on :guilabel:`Create domain` button and choose ``Internal``"
@@ -13357,9 +13355,9 @@ msgid ""
 "value."
 msgstr ""
 "``Dominio``: il dominio utente, che dovrebbe essere un FQDN valido. "
-"Definisce il suffisso DNS del nuovo dominio. Il Domain Controller (DC) "
-"funge da server DNS autoritativo per quel dominio. Se non si è sicuri, "
-"mantenere il valore proposto."
+"Definisce il suffisso DNS del nuovo dominio. Il Domain Controller (DC) funge "
+"da server DNS autoritativo per quel dominio. In caso di dubbi, mantenere il "
+"valore proposto."
 
 #: ../../user_domains.rst:47
 msgid ""
@@ -13397,8 +13395,8 @@ msgid ""
 "``Hostname``: the Domain Controller (DC) hostname. If unsure, keep the "
 "proposed value."
 msgstr ""
-"``Nome host`: il nome host del Domain Controller (DC). Se non si è "
-"sicuri, mantenere il valore proposto."
+"``Nome host`: il nome host del Domain Controller (DC). In caso di dubbio, "
+"mantenere il valore proposto."
 
 #: ../../user_domains.rst:59
 msgid ""
@@ -13424,112 +13422,101 @@ msgstr ""
 "creato"
 
 #: ../../user_domains.rst:70
-#, fuzzy
 msgid ""
 "At the end, you will see a new user domain with one connected provider. "
 "You can now :ref:`manage users and groups <user_groups-section>`, "
 ":ref:`add a replica <provider_replica-section>` or copy the :ref:`bind "
 "settings <domain_bind-section>` to connect an external application."
 msgstr ""
-"At the end, you will see a new user domain with one connected provider. "
-"You can now :ref:`manage users and groups <user_groups-section>`, "
-":ref:`add a replica <provider_replica-section>` or copy the :ref:`bind "
-"settings <domain_bind-section>` to connect an external application."
+"Al termine, sarà disponibile un nuovo dominio utente con un provider "
+"connesso. Sarà ora possibile :ref:`gestire utenti e gruppo <user_groups-"
+"section>`, :ref:`aggiungere una replica <provider_replica-section>` o "
+"copiare le :ref:`le impostazioni di bind <domain_bind-section>`per collegare "
+"una applicazione esterna."
 
 #: ../../user_domains.rst:75
-#, fuzzy
 msgid "DNS and AD domain"
-msgstr "DNS and AD domain"
+msgstr "DNS e Dominio AD"
 
 #: ../../user_domains.rst:77
-#, fuzzy
 msgid ""
 "An Active Directory domain requires a reserved DNS domain to work. It is "
 "a good choice to allocate a sub-domain of the public DNS domain for it. "
 "The AD sub-domain can be accessed only from local networks."
 msgstr ""
-"An Active Directory domain requires a reserved DNS domain to work. It is "
-"a good choice to allocate a sub-domain of the public DNS domain for it. "
-"The AD sub-domain can be accessed only from local networks."
+"Un dominio Active Directory richiede un dominio DNS riservato per il suo "
+"funzionamento. Una buona scelta è utilizzare un sottodominio del dominio DNS "
+"pubblico principale. Il sottodominio AD è accessibile solo dalle reti locali."
 
 #: ../../user_domains.rst:83
-#, fuzzy
 msgid "public (*external*) domain: ``nethserver.org``"
-msgstr "public (*external*) domain: ``nethserver.org``"
+msgstr "dominio pubblico (*esterno*): ``nethserver.org``"
 
 #: ../../user_domains.rst:84
-#, fuzzy
 msgid "server FQDN: ``mail.nethserver.org``"
 msgstr "server FQDN: ``mail.nethserver.org``"
 
 #: ../../user_domains.rst:85
-#, fuzzy
 msgid "Active Directory (*internal* LAN only) domain: ``ad.nethserver.org``"
-msgstr "Active Directory (*internal* LAN only) domain: ``ad.nethserver.org``"
+msgstr "Dominio Active Directory (solo LAN *interna*): ``ad.nethserver.org``"
 
 #: ../../user_domains.rst:86
-#, fuzzy
 msgid "domain controller FQDN: ``dc1.ad.nethserver.org``"
-msgstr "domain controller FQDN: ``dc1.ad.nethserver.org``"
+msgstr "FQDN controller di dominio: ``dc1.ad.nethserver.org``"
 
 #: ../../user_domains.rst:90
-#, fuzzy
 msgid ""
 "When choosing a domain for Active Directory use an *internal* domain "
 "which is a sub-domain of the *external* domain [#MsDnsBestPratices]_"
 msgstr ""
-"When choosing a domain for Active Directory use an *internal* domain "
-"which is a sub-domain of the *external* domain [#MsDnsBestPratices]_"
+"Quando si sceglie un dominio per Active Directory utilizzare un dominio "
+"*interno* che è un sottodominio del dominio *esterno* [#MsDnsBestPratices]_"
 
 #: ../../user_domains.rst:93
-#, fuzzy
 msgid ""
 "https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
 "directory-best-practices-for-internal-domain-and-network-"
 "names.aspx#Recommendation"
 msgstr ""
 "https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
-"directory-best-practices-for-internal-domain-and-network-"
-"names.aspx#Recommendation"
+"directory-best-practices-for-internal-domain-and-network-names."
+"aspx#Recommendation"
 
 #: ../../user_domains.rst:95
-#, fuzzy
 msgid ""
 "Furthermore, the AD Windows clients must be configured to use the domain "
 "controller as their DNS server for network name resolution. Set the IP "
 "address of DC ``dc1.ad.nethserver.org`` in client DNS configuration."
 msgstr ""
-"Furthermore, the AD Windows clients must be configured to use the domain "
-"controller as their DNS server for network name resolution. Set the IP "
-"address of DC ``dc1.ad.nethserver.org`` in client DNS configuration."
+"Inoltre, i client AD Windows devono essere configurati per utilizzare il "
+"controller di dominio come server DNS per la risoluzione dei nomi di rete. "
+"Impostare l'indirizzo IP di DC ``dc1.ad.nethserver.org`` nella "
+"configurazione DNS del client."
 
 #: ../../user_domains.rst:99
-#, fuzzy
 msgid ""
 "The domain controller inherits the node DNS settings in "
 "``/etc/resolv.conf`` for name resolution request forwarding."
 msgstr ""
-"The domain controller inherits the node DNS settings in "
-"``/etc/resolv.conf`` for name resolution request forwarding."
+"Il controller di dominio eredita le impostazioni DNS contenute nel file ``/"
+"etc/resolv.conf`` del nodo per l'inoltro delle richieste di risoluzione dei "
+"nomi."
 
 #: ../../user_domains.rst:105
-#, fuzzy
 msgid "LDAP server RFC2307"
-msgstr "LDAP server RFC2307"
+msgstr "Server LDAP RFC2307"
 
 #: ../../user_domains.rst:107
-#, fuzzy
 msgid "To install a new user domain with a local OpenLDAP as provider:"
-msgstr "To install a new user domain with a local OpenLDAP as provider:"
+msgstr "Per installare un nuovo dominio utenti con un provider locale OpenLDAP:"
 
 #: ../../user_domains.rst:111
-#, fuzzy
 msgid ""
 "select ``OpenLDAP`` on the dialog box and click :guilabel:`Install "
 "provider`"
 msgstr ""
-"select ``OpenLDAP`` on the dialog box and click :guilabel:`Install "
-"provider`"
+"selezionare ``OpenLDAP`` nella finestra di dialogo e fare clic su :guilabel:`"
+"Installa provider`"
 
 #: ../../user_domains.rst:115
 #, fuzzy
@@ -17992,4 +17979,3 @@ msgstr ""
 
 #~ msgid "Many applications require access to an SMTP server to send mail."
 #~ msgstr "Many applications require access to an SMTP server to send mail."
-
