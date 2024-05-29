@@ -122,15 +122,28 @@ Import existing email
 Existing email messages can be imported from the chosen Mail server
 instance into the Piler archive.
 
-Access a root terminal and run the following command:
+.. warning::
 
-    runagent -m piler1 import-email --help
+   The import process may take hours or even days, depending on the number
+   of users and the size of their mailboxes. Additionally, message
+   indexing is a memory- and CPU-intensive operation that may impact node
+   performance.
+
+Access a root terminal and run the following command: ::
+
+   runagent -m piler1 import-email --help
 
 Replace ``piler1`` with the correct Piler application instance identifier,
-visible on the Status page.
+visible on the Status page. The above command just prints the command help
+text.
 
-The command arguments ``-A`` (after) and ``-B`` (before) can limit the
-time range for the import.
+The optional command arguments ``-A`` (after) and ``-B`` (before) can
+limit the time range for the import. As times must be expressed in Unix
+timestamp format, the ``date`` command can be invoked to obtain the
+desired timestamp from a date string, for example: ::
+
+   date -d 2024-05-01 +%s
+
 
 Disabled features
 =================
