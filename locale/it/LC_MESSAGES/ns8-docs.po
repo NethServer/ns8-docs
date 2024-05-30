@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NS8\n"
+"Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-15 10:04+0000\n"
+"POT-Creation-Date: 2024-05-30 10:43+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
 "Language: it\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>"
+"\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: ../../backup.rst:5
@@ -1104,8 +1104,8 @@ msgstr ""
 #: ../../index.rst:34 ../../mail.rst:46 ../../mariadb.rst:11
 #: ../../mattermost.rst:13 ../../minio.rst:12 ../../netdata.rst:20
 #: ../../nethvoice.rst:20 ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21
-#: ../../odoo.rst:20 ../../roundcube.rst:19 ../../sogo.rst:39
-#: ../../webserver.rst:14 ../../webtop.rst:12
+#: ../../odoo.rst:20 ../../piler.rst:30 ../../roundcube.rst:19
+#: ../../sogo.rst:39 ../../webserver.rst:14 ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -2907,6 +2907,22 @@ msgstr ""
 "Imasync is integrated with LDAP user domain that you can configure at "
 ":ref:`user-domains-section`."
 
+#: ../../imapsync.rst:40 ../../piler.rst:176
+msgid "Known limitations"
+msgstr ""
+
+#: ../../imapsync.rst:42
+msgid ""
+"Messages copied by Imapsync are not subject to anti-spam and anti-virus "
+"checks."
+msgstr ""
+
+#: ../../imapsync.rst:45
+msgid ""
+"Imapsync does not integrate with :ref:`Piler <piler-section>`: messages "
+"copied by Imapsync are not archived."
+msgstr ""
+
 #: ../../index.rst:18
 msgid "About"
 msgstr "Informazioni"
@@ -2919,11 +2935,11 @@ msgstr "Installazione"
 msgid "Applications"
 msgstr "Applicazioni"
 
-#: ../../index.rst:70
+#: ../../index.rst:71
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:81
+#: ../../index.rst:82
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -10700,6 +10716,299 @@ msgstr ""
 "Per gli aggiornamenti al core e ai moduli, fare riferimento a:ref: "
 "`updates-section`."
 
+#: ../../piler.rst:5
+#, fuzzy
+msgid "Piler"
+msgstr "Filter"
+
+#: ../../piler.rst:7
+msgid "Piler_ is an open-source mail archiving solution."
+msgstr ""
+
+#: ../../piler.rst:11
+msgid ""
+"This Piler application for NS8 configures a :ref:`Mail server <email-"
+"section>` instance to act as its archive, recording any message sent or "
+"received by the server for a configurable duration. If a message is lost,"
+" authorized users (known as \"auditors\") can access the Piler UI, search"
+" for the message in the archive, and send it back to the original "
+"recipient."
+msgstr ""
+
+#: ../../piler.rst:20
+msgid ""
+"This application allows auditor users to view other users' mail messages."
+" Ensure its use complies with your country's privacy laws, regulations, "
+"and company policies."
+msgstr ""
+
+#: ../../piler.rst:24
+msgid ""
+"After the initial configuration, Piler starts with default credentials. "
+"For security reasons, refer to section :ref:`default-piler-credentials` "
+"to change the default passwords immediately."
+msgstr ""
+
+#: ../../piler.rst:32
+#, fuzzy
+msgid ""
+"Once installed, navigate to the application Settings page and fill in the"
+" required fields:"
+msgstr "access the application configuration page and enter all required fields"
+
+#: ../../piler.rst:35
+msgid ""
+"**Piler FQDN**: Enter the fully-qualified domain name where the Piler web"
+" UI will be accessible. If the FQDN is already registered in the public "
+"DNS, you can enable the **Let's Encrypt certificate** switch to obtain a "
+"valid encryption certificate."
+msgstr ""
+
+#: ../../piler.rst:40
+msgid ""
+"**HTTP to HTTPS**: Enable this switch to ensure that all communications "
+"with the Piler UI are encrypted. This is recommended if the UI is "
+"accessed through a public or untrusted network."
+msgstr ""
+
+#: ../../piler.rst:44
+msgid ""
+"**Mail server**: Choose one of the Mail server instances in the cluster. "
+"They are labeled as follows:"
+msgstr ""
+
+#: ../../piler.rst:47
+msgid ""
+"*Archiving can be configured*: This means the Mail server currently has "
+"no archive configured and can be safely selected."
+msgstr ""
+
+#: ../../piler.rst:50
+msgid ""
+"*The archive destination is…*: This indicates that the Mail server "
+"already copies any message sent or received to another archive or "
+"external email address. If such an entry is selected and the form is "
+"saved, the previous configuration is overwritten, so use it with caution."
+msgstr ""
+
+#: ../../piler.rst:56
+msgid ""
+"**Retention duration**: This field contains the number of days an email "
+"message is retained in the archive. After that period, a daily cron job "
+"purges the message from the archive."
+msgstr ""
+
+#: ../../piler.rst:60
+msgid ""
+"It is important to understand that the Mail server selection is allowed "
+"only once during the configuration of a Piler instance. In other words, "
+"you cannot change the Mail server selection once the Piler instance is "
+"initially configured."
+msgstr ""
+
+#: ../../piler.rst:67
+msgid ""
+"If an incorrect Mail server is selected, there is no way to change the "
+"selection. The preferred way to recover from this situation is to remove "
+"the incorrect Piler instance, then install and configure a new one."
+msgstr ""
+
+#: ../../piler.rst:72
+#, fuzzy
+msgid "Other configuration settings can be changed as needed."
+msgstr "Once configured, domain settings cannot be changed later!"
+
+#: ../../piler.rst:77
+#, fuzzy
+msgid "Default credentials"
+msgstr "Le credenziali di default sono:"
+
+#: ../../piler.rst:79
+msgid ""
+"After the initial configuration, Piler starts with default credentials. "
+"For security reasons, the default passwords must be immediately changed "
+"for the two existing default accounts:"
+msgstr ""
+
+#: ../../piler.rst:83
+msgid ""
+"User ``admin@local``: This user has full administrative rights over the "
+"Piler application. They can create new user accounts and grant any kind "
+"of rights. However, they cannot read email messages archived in the Piler"
+" DB. The default password is ``pilerrocks``."
+msgstr ""
+
+#: ../../piler.rst:88
+msgid ""
+"User ``auditor@local``: This user, as the name suggests, has the "
+"*auditor* role. They can search for any email message in the archive and "
+"send it back to the original recipient. The default password is "
+"``auditor``."
+msgstr ""
+
+#: ../../piler.rst:93
+msgid ""
+"After logging into the Piler website, navigate to Settings under the menu"
+" in the upper right corner of the screen. Scroll down to the bottom of "
+"the personal Settings page, enter the new password in the two password "
+"fields (the second one is for confirmation), and submit the form."
+msgstr ""
+
+#: ../../piler.rst:98
+#, fuzzy
+msgid ""
+"Administrators can change the password of other users from the **Users** "
+"action under the Administration menu."
+msgstr ""
+"Gli amministratori possono cambiare la propria password dalla scheda "
+"``Account`` all'interno della pagina ``Impostazioni``."
+
+#: ../../piler.rst:102
+#, fuzzy
+msgid "Restore email messages"
+msgstr "support for HTML messages"
+
+#: ../../piler.rst:104
+msgid "Auditor users can search for and recover archived email messages."
+msgstr ""
+
+#: ../../piler.rst:106
+msgid ""
+"When a message is handled by the Mail server, a copy is sent to the "
+"archive. However, Piler does not index the received messages immediately."
+" They are placed in an archive queue, and every half hour, a scheduled "
+"task indexes a batch of queued messages. Duplicate messages count as one."
+msgstr ""
+
+#: ../../piler.rst:111
+msgid ""
+"Once a message is indexed, auditors can search for it. Found messages can"
+" be downloaded or forwarded to an arbitrary email address."
+msgstr ""
+
+#: ../../piler.rst:114
+msgid ""
+"If multiple messages are selected, they are compressed into a ZIP archive"
+" before download."
+msgstr ""
+
+#: ../../piler.rst:117
+msgid ""
+"When one or more messages are forwarded to an email address, the message "
+"and its original headers are preserved. Therefore, when received, the "
+"message will be sorted with its original date. Furthermore, Piler adds a "
+"MIME header ``X-piler-id`` to forwarded messages."
+msgstr ""
+
+#: ../../piler.rst:123
+msgid "Import existing email"
+msgstr ""
+
+#: ../../piler.rst:125
+msgid ""
+"Existing email messages can be imported from the chosen Mail server "
+"instance into the Piler archive."
+msgstr ""
+
+#: ../../piler.rst:130
+msgid ""
+"The import process may take hours or even days, depending on the number "
+"of users and the size of their mailboxes. Additionally, message indexing "
+"is a memory- and CPU-intensive operation that may impact node "
+"performance."
+msgstr ""
+
+#: ../../piler.rst:135
+#, fuzzy
+msgid "Access a root terminal and run the following command: ::"
+msgstr "In a root shell prompt, execute the following command:"
+
+#: ../../piler.rst:139
+msgid ""
+"Replace ``piler1`` with the correct Piler application instance "
+"identifier, visible on the Status page. The above command just prints the"
+" command help text."
+msgstr ""
+
+#: ../../piler.rst:143
+msgid ""
+"The optional command arguments ``-A`` (after) and ``-B`` (before) can "
+"limit the time range for the import. As times must be expressed in Unix "
+"timestamp format, the ``date`` command can be invoked to obtain the "
+"desired timestamp from a date string, for example: ::"
+msgstr ""
+
+#: ../../piler.rst:151
+#, fuzzy
+msgid "Fine-tune Piler's configuration"
+msgstr "Configurazione"
+
+#: ../../piler.rst:153
+msgid ""
+"After the application has been configured for the first time and secured "
+"by changing the default users' credentials, Piler is ready to archive "
+"emails."
+msgstr ""
+
+#: ../../piler.rst:157
+msgid ""
+"This is a brief list of common configuration tasks, with links to the "
+"official documentation:"
+msgstr ""
+
+#: ../../piler.rst:160
+msgid ""
+"`Administration tasks`_, to manage users, permissions, and check the "
+"audit log."
+msgstr ""
+
+#: ../../piler.rst:163
+msgid ""
+"`Rules and policies`_, to define what messages are archived and how long "
+"they will stay. For example, you can define a special policy for spam "
+"messages."
+msgstr ""
+
+#: ../../piler.rst:170
+msgid ""
+"Note that the official administration documentation refers to the "
+"\"enterprise edition\" of Piler; therefore, some content is not relevant "
+"for the \"community edition\", which is the base of the NS8 application."
+msgstr ""
+
+#: ../../piler.rst:178
+msgid ""
+"Email messages received with :ref:`Imapsync <imapsync-section>` are not "
+"archived."
+msgstr ""
+
+#: ../../piler.rst:181
+msgid ""
+"Some features are not active/effective but are still visible in the Piler"
+" UI."
+msgstr ""
+
+#: ../../piler.rst:184
+#, fuzzy
+msgid "For administrators:"
+msgstr "Amministratori"
+
+#: ../../piler.rst:186
+msgid "In the Administration menu, the **Import** action."
+msgstr ""
+
+#: ../../piler.rst:188
+msgid "In the Monitor menu, the **Archive accounting** action."
+msgstr ""
+
+#: ../../piler.rst:190
+msgid "For auditors:"
+msgstr ""
+
+#: ../../piler.rst:192
+msgid "In the message preview screen area, the **Restore to mailbox** action."
+msgstr ""
+
 #: ../../prometheus.rst:7
 #, fuzzy
 msgid "Prometheus"
@@ -13355,9 +13664,9 @@ msgid ""
 "value."
 msgstr ""
 "``Dominio``: il dominio utente, che dovrebbe essere un FQDN valido. "
-"Definisce il suffisso DNS del nuovo dominio. Il Domain Controller (DC) funge "
-"da server DNS autoritativo per quel dominio. In caso di dubbi, mantenere il "
-"valore proposto."
+"Definisce il suffisso DNS del nuovo dominio. Il Domain Controller (DC) "
+"funge da server DNS autoritativo per quel dominio. In caso di dubbi, "
+"mantenere il valore proposto."
 
 #: ../../user_domains.rst:47
 msgid ""
@@ -13395,8 +13704,8 @@ msgid ""
 "``Hostname``: the Domain Controller (DC) hostname. If unsure, keep the "
 "proposed value."
 msgstr ""
-"``Nome host`: il nome host del Domain Controller (DC). In caso di dubbio, "
-"mantenere il valore proposto."
+"``Nome host`: il nome host del Domain Controller (DC). In caso di dubbio,"
+" mantenere il valore proposto."
 
 #: ../../user_domains.rst:59
 msgid ""
@@ -13431,8 +13740,8 @@ msgstr ""
 "Al termine, sarà disponibile un nuovo dominio utente con un provider "
 "connesso. Sarà ora possibile :ref:`gestire utenti e gruppo <user_groups-"
 "section>`, :ref:`aggiungere una replica <provider_replica-section>` o "
-"copiare le :ref:`le impostazioni di bind <domain_bind-section>`per collegare "
-"una applicazione esterna."
+"copiare le :ref:`le impostazioni di bind <domain_bind-section>`per "
+"collegare una applicazione esterna."
 
 #: ../../user_domains.rst:75
 msgid "DNS and AD domain"
@@ -13445,8 +13754,9 @@ msgid ""
 "The AD sub-domain can be accessed only from local networks."
 msgstr ""
 "Un dominio Active Directory richiede un dominio DNS riservato per il suo "
-"funzionamento. Una buona scelta è utilizzare un sottodominio del dominio DNS "
-"pubblico principale. Il sottodominio AD è accessibile solo dalle reti locali."
+"funzionamento. Una buona scelta è utilizzare un sottodominio del dominio "
+"DNS pubblico principale. Il sottodominio AD è accessibile solo dalle reti"
+" locali."
 
 #: ../../user_domains.rst:83
 msgid "public (*external*) domain: ``nethserver.org``"
@@ -13470,7 +13780,8 @@ msgid ""
 "which is a sub-domain of the *external* domain [#MsDnsBestPratices]_"
 msgstr ""
 "Quando si sceglie un dominio per Active Directory utilizzare un dominio "
-"*interno* che è un sottodominio del dominio *esterno* [#MsDnsBestPratices]_"
+"*interno* che è un sottodominio del dominio *esterno* "
+"[#MsDnsBestPratices]_"
 
 #: ../../user_domains.rst:93
 msgid ""
@@ -13479,8 +13790,8 @@ msgid ""
 "names.aspx#Recommendation"
 msgstr ""
 "https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
-"directory-best-practices-for-internal-domain-and-network-names."
-"aspx#Recommendation"
+"directory-best-practices-for-internal-domain-and-network-"
+"names.aspx#Recommendation"
 
 #: ../../user_domains.rst:95
 msgid ""
@@ -13489,8 +13800,8 @@ msgid ""
 "address of DC ``dc1.ad.nethserver.org`` in client DNS configuration."
 msgstr ""
 "Inoltre, i client AD Windows devono essere configurati per utilizzare il "
-"controller di dominio come server DNS per la risoluzione dei nomi di rete. "
-"Impostare l'indirizzo IP di DC ``dc1.ad.nethserver.org`` nella "
+"controller di dominio come server DNS per la risoluzione dei nomi di "
+"rete. Impostare l'indirizzo IP di DC ``dc1.ad.nethserver.org`` nella "
 "configurazione DNS del client."
 
 #: ../../user_domains.rst:99
@@ -13498,9 +13809,9 @@ msgid ""
 "The domain controller inherits the node DNS settings in "
 "``/etc/resolv.conf`` for name resolution request forwarding."
 msgstr ""
-"Il controller di dominio eredita le impostazioni DNS contenute nel file ``/"
-"etc/resolv.conf`` del nodo per l'inoltro delle richieste di risoluzione dei "
-"nomi."
+"Il controller di dominio eredita le impostazioni DNS contenute nel file "
+"``/etc/resolv.conf`` del nodo per l'inoltro delle richieste di "
+"risoluzione dei nomi."
 
 #: ../../user_domains.rst:105
 msgid "LDAP server RFC2307"
@@ -13515,8 +13826,8 @@ msgid ""
 "select ``OpenLDAP`` on the dialog box and click :guilabel:`Install "
 "provider`"
 msgstr ""
-"selezionare ``OpenLDAP`` nella finestra di dialogo e fare clic su :guilabel:`"
-"Installa provider`"
+"selezionare ``OpenLDAP`` nella finestra di dialogo e fare clic su "
+":guilabel:`Installa provider`"
 
 #: ../../user_domains.rst:115
 #, fuzzy
@@ -17979,3 +18290,4 @@ msgstr ""
 
 #~ msgid "Many applications require access to an SMTP server to send mail."
 #~ msgstr "Many applications require access to an SMTP server to send mail."
+
