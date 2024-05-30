@@ -494,53 +494,81 @@ Relay settings
 --------------
 
 This section controls the Mail application configuration for special
-scenarios, described in the following points.
+scenarios, described in the following sections.
 
-1. Some old mail clients, like scanners, which provide limited software
-   capabilities, might not support SMTP authentication or encryption: in
-   this case it is possible to authorize the relay of messages to external
-   domains by looking at their IP address instead of the usual credentials
-   check.
+IP-based relay
+^^^^^^^^^^^^^^
 
-   List the IP address of such devices in the ``Allow relay from these IP
-   addresses`` field. The address can be in IPv4 or IPv6 format. The IP
-   based policy can be spread to a whole network, specifying it in CIDR
-   format.
+Some old mail clients, like scanners, which provide limited software
+capabilities, might not support SMTP authentication or encryption: in this
+case it is possible to authorize the relay of messages to external domains
+by looking at their IP address instead of the usual credentials check.
 
-   For example, a value for the field can be
+List the IP address of such devices in the ``Allow relay from these IP
+addresses`` field. The address can be in IPv4 or IPv6 format. The IP based
+policy can be spread to a whole network, specifying it in CIDR format.
 
-   ::
+For example, a value for the field can be
 
-      192.168.12.42
-      10.77.4.0/24
+::
 
-   The IP address *192.168.12.42* (e.g. a document scanner) and the
-   clients in the network subnet *10.77.4.0/24* can send mail messages
-   without providing SMTP authentication.
+  192.168.12.42
+  10.77.4.0/24
 
-2. To avoid the unauthorized use of email addresses and the sender address
-   spoofing within the organization, enable the ``Enforce sender/login
-   match`` switch.
+The IP address *192.168.12.42* (e.g. a document scanner) and the clients
+in the network subnet *10.77.4.0/24* can send mail messages without
+providing SMTP authentication.
 
-   If the switch is enabled the sender address of a message must
-   correspond to the login name used by the mail client to connect with
-   the mail server. Search the login name in the :ref:`email_addresses`
-   page to see what are the addresses it can use.
+Sender/login correspondence
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   For example, with that switch enabled, if user ``john`` has email
-   address ``john.doe@example.org`` he cannot write an email message with
-   a different sender address, like ``sarah.smith@example.org``.
+To avoid the unauthorized use of email addresses and the sender address
+spoofing within the organization, enable the ``Enforce sender/login
+match`` switch.
 
-   If the switch is disabled, as per default Mail configuration, an
-   authenticated mail client is allowed to send messages using any sender
-   address, so back to our example ``john`` could write the message also
-   as ``sarah.smith@example.org``.
+If the switch is enabled the sender address of a message must correspond
+to the login name used by the mail client to connect with the mail server.
+Search the login name in the :ref:`email_addresses` page to see what are
+the addresses it can use.
 
-   .. warning::
+For example, with that switch enabled, if user ``john`` has email address
+``john.doe@example.org`` he cannot write an email message with a different
+sender address, like ``sarah.smith@example.org``.
 
-    If you decide to enable the switch consider that public mailboxes and
-    LDAP group addresses are not evaluated for the login/address
-    correspondence.
+If the switch is disabled, as per default Mail configuration, an
+authenticated mail client is allowed to send messages using any sender
+address, so back to our example ``john`` could write the message also as
+``sarah.smith@example.org``.
+
+.. warning::
+
+  If you decide to enable the switch consider that public mailboxes and
+  LDAP group addresses are not evaluated for the login/address
+  correspondence.
+
+.. _mail-archive-section:
+
+Mail archive
+^^^^^^^^^^^^
+
+The ``Always BCC`` switch controls a feature often required by mail
+archiving solutions.
+
+The acronym BCC stands for Blind Carbon Copy. When the switch is enabled,
+enter a value in the ``Always BCC address`` field: this address will
+receive a hidden copy of any email message sent or received by the Mail
+server.
+
+.. hint::
+
+  Making a hidden copy of private email messages is a privacy-sensitive
+  feature. Ensure its use complies with your country's privacy laws,
+  regulations, and company policies.
+
+The :ref:`Piler application <piler-section>` can automatically configure
+this field with the appropriate value, such as ``archive@piler1`` or similar.
+In this case, changing the address might prevent Piler from archiving new
+messages.
 
 
 .. _email_clients:

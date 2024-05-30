@@ -314,6 +314,3 @@ The following configurations will not be migrated:
 
 - System smart host, if the NS7 Email app is not installed or is not
   migrated.
-
-- In NS7 Email app, the setting ``Forward a copy of all messages``, formerly known as
-  ``Always send a copy (Bcc)``, is not migrated.

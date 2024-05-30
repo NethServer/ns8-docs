@@ -51,7 +51,8 @@ required fields:
      already copies any message sent or received to another archive or
      external email address. If such an entry is selected and the form is
      saved, the previous configuration is overwritten, so use it with
-     caution.
+     caution. See also the Mail :ref:`Always BCC <mail-archive-section>`
+     setting.
 
 - **Retention duration**: This field contains the number of days an email
   message is retained in the archive. After that period, a daily cron job
