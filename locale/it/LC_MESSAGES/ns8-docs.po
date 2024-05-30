@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 10:43+0000\n"
+"POT-Creation-Date: 2024-05-30 15:48+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -2907,7 +2907,7 @@ msgstr ""
 "Imasync is integrated with LDAP user domain that you can configure at "
 ":ref:`user-domains-section`."
 
-#: ../../imapsync.rst:40 ../../piler.rst:176
+#: ../../imapsync.rst:40 ../../piler.rst:177
 msgid "Known limitations"
 msgstr ""
 
@@ -4586,10 +4586,14 @@ msgstr "Impostazioni generali"
 #: ../../mail.rst:496
 msgid ""
 "This section controls the Mail application configuration for special "
-"scenarios, described in the following points."
+"scenarios, described in the following sections."
 msgstr ""
 
-#: ../../mail.rst:499
+#: ../../mail.rst:500
+msgid "IP-based relay"
+msgstr ""
+
+#: ../../mail.rst:502
 msgid ""
 "Some old mail clients, like scanners, which provide limited software "
 "capabilities, might not support SMTP authentication or encryption: in "
@@ -4598,7 +4602,7 @@ msgid ""
 "check."
 msgstr ""
 
-#: ../../mail.rst:505
+#: ../../mail.rst:507
 msgid ""
 "List the IP address of such devices in the ``Allow relay from these IP "
 "addresses`` field. The address can be in IPv4 or IPv6 format. The IP "
@@ -4606,25 +4610,29 @@ msgid ""
 "format."
 msgstr ""
 
-#: ../../mail.rst:510
+#: ../../mail.rst:511
 msgid "For example, a value for the field can be"
 msgstr ""
 
-#: ../../mail.rst:517
+#: ../../mail.rst:518
 msgid ""
 "The IP address *192.168.12.42* (e.g. a document scanner) and the clients "
 "in the network subnet *10.77.4.0/24* can send mail messages without "
 "providing SMTP authentication."
 msgstr ""
 
-#: ../../mail.rst:521
+#: ../../mail.rst:523
+msgid "Sender/login correspondence"
+msgstr ""
+
+#: ../../mail.rst:525
 msgid ""
 "To avoid the unauthorized use of email addresses and the sender address "
 "spoofing within the organization, enable the ``Enforce sender/login "
 "match`` switch."
 msgstr ""
 
-#: ../../mail.rst:525
+#: ../../mail.rst:529
 msgid ""
 "If the switch is enabled the sender address of a message must correspond "
 "to the login name used by the mail client to connect with the mail "
@@ -4632,14 +4640,14 @@ msgid ""
 "what are the addresses it can use."
 msgstr ""
 
-#: ../../mail.rst:530
+#: ../../mail.rst:534
 msgid ""
 "For example, with that switch enabled, if user ``john`` has email address"
 " ``john.doe@example.org`` he cannot write an email message with a "
 "different sender address, like ``sarah.smith@example.org``."
 msgstr ""
 
-#: ../../mail.rst:534
+#: ../../mail.rst:538
 msgid ""
 "If the switch is disabled, as per default Mail configuration, an "
 "authenticated mail client is allowed to send messages using any sender "
@@ -4647,19 +4655,53 @@ msgid ""
 "``sarah.smith@example.org``."
 msgstr ""
 
-#: ../../mail.rst:541
+#: ../../mail.rst:545
 msgid ""
 "If you decide to enable the switch consider that public mailboxes and "
 "LDAP group addresses are not evaluated for the login/address "
 "correspondence."
 msgstr ""
 
-#: ../../mail.rst:549
+#: ../../mail.rst:552
+#, fuzzy
+msgid "Mail archive"
+msgstr "Mail archiving"
+
+#: ../../mail.rst:554
+msgid ""
+"The ``Always BCC`` switch controls a feature often required by mail "
+"archiving solutions."
+msgstr ""
+
+#: ../../mail.rst:557
+msgid ""
+"The acronym BCC stands for Blind Carbon Copy. When the switch is enabled,"
+" enter a value in the ``Always BCC address`` field: this address will "
+"receive a hidden copy of any email message sent or received by the Mail "
+"server."
+msgstr ""
+
+#: ../../mail.rst:564
+msgid ""
+"Making a hidden copy of private email messages is a privacy-sensitive "
+"feature. Ensure its use complies with your country's privacy laws, "
+"regulations, and company policies."
+msgstr ""
+
+#: ../../mail.rst:568
+msgid ""
+"The :ref:`Piler application <piler-section>` can automatically configure "
+"this field with the appropriate value, such as ``archive@piler1`` or "
+"similar. In this case, changing the address might prevent Piler from "
+"archiving new messages."
+msgstr ""
+
+#: ../../mail.rst:577
 #, fuzzy
 msgid "Client configuration"
 msgstr "Client configuration"
 
-#: ../../mail.rst:551
+#: ../../mail.rst:579
 #, fuzzy
 msgid ""
 "The server supports standard-compliant email clients using the following "
@@ -4668,27 +4710,27 @@ msgstr ""
 "The server supports standard-compliant email clients using the following "
 "IANA ports:"
 
-#: ../../mail.rst:554
+#: ../../mail.rst:582
 #, fuzzy
 msgid "imap/143"
 msgstr "imap/143"
 
-#: ../../mail.rst:555
+#: ../../mail.rst:583
 #, fuzzy
 msgid "pop3/110"
 msgstr "pop3/110"
 
-#: ../../mail.rst:556
+#: ../../mail.rst:584
 #, fuzzy
 msgid "smtp/587"
 msgstr "smtp/587"
 
-#: ../../mail.rst:557
+#: ../../mail.rst:585
 #, fuzzy
 msgid "sieve/4190"
 msgstr "sieve/4190"
 
-#: ../../mail.rst:559
+#: ../../mail.rst:587
 #, fuzzy
 msgid ""
 "Authentication requires the STARTTLS command and supports the following "
@@ -4697,16 +4739,16 @@ msgstr ""
 "Authentication requires the STARTTLS command and supports the following "
 "variants:"
 
-#: ../../mail.rst:562
+#: ../../mail.rst:590
 msgid "LOGIN"
 msgstr "LOGIN"
 
-#: ../../mail.rst:563
+#: ../../mail.rst:591
 #, fuzzy
 msgid "PLAIN"
 msgstr "PLAIN"
 
-#: ../../mail.rst:565
+#: ../../mail.rst:593
 #, fuzzy
 msgid ""
 "Also the following TLS-enabled ports are available for legacy software "
@@ -4715,22 +4757,22 @@ msgstr ""
 "Also the following SSL-enabled ports are available for legacy software "
 "that still does not support STARTTLS:"
 
-#: ../../mail.rst:568
+#: ../../mail.rst:596
 #, fuzzy
 msgid "imaps/993"
 msgstr "imaps/993"
 
-#: ../../mail.rst:569
+#: ../../mail.rst:597
 #, fuzzy
 msgid "pop3s/995"
 msgstr "pop3s/995"
 
-#: ../../mail.rst:570
+#: ../../mail.rst:598
 #, fuzzy
 msgid "smtps/465"
 msgstr "smtps/465"
 
-#: ../../mail.rst:574
+#: ../../mail.rst:602
 #, fuzzy
 msgid ""
 "The standard SMTP port 25 is reserved for mail transfers between MTA "
@@ -4739,17 +4781,17 @@ msgstr ""
 "The standard SMTP port 25 is reserved for mail transfers between MTA "
 "servers. Mail user agents (MUA) must use the submission port."
 
-#: ../../mail.rst:577
+#: ../../mail.rst:605
 #, fuzzy
 msgid "If you're looking for web email clients, take a look to:"
 msgstr "If you're looking for web email clients, take a look to:"
 
-#: ../../mail.rst:579
+#: ../../mail.rst:607
 #, fuzzy
 msgid ":ref:`roundcube-section`"
 msgstr ":ref:`roundcube-section`"
 
-#: ../../mail.rst:580
+#: ../../mail.rst:608
 #, fuzzy
 msgid ":ref:`webtop-section`"
 msgstr ":ref:`webtop-section`"
@@ -5688,12 +5730,6 @@ msgstr ""
 msgid ""
 "System smart host, if the NS7 Email app is not installed or is not "
 "migrated."
-msgstr ""
-
-#: ../../migration.rst:318
-msgid ""
-"In NS7 Email app, the setting ``Forward a copy of all messages``, "
-"formerly known as ``Always send a copy (Bcc)``, is not migrated."
 msgstr ""
 
 #: ../../minio.rst:5
@@ -10789,16 +10825,17 @@ msgid ""
 "already copies any message sent or received to another archive or "
 "external email address. If such an entry is selected and the form is "
 "saved, the previous configuration is overwritten, so use it with caution."
+" See also the Mail :ref:`Always BCC <mail-archive-section>` setting."
 msgstr ""
 
-#: ../../piler.rst:56
+#: ../../piler.rst:57
 msgid ""
 "**Retention duration**: This field contains the number of days an email "
 "message is retained in the archive. After that period, a daily cron job "
 "purges the message from the archive."
 msgstr ""
 
-#: ../../piler.rst:60
+#: ../../piler.rst:61
 msgid ""
 "It is important to understand that the Mail server selection is allowed "
 "only once during the configuration of a Piler instance. In other words, "
@@ -10806,31 +10843,31 @@ msgid ""
 "initially configured."
 msgstr ""
 
-#: ../../piler.rst:67
+#: ../../piler.rst:68
 msgid ""
 "If an incorrect Mail server is selected, there is no way to change the "
 "selection. The preferred way to recover from this situation is to remove "
 "the incorrect Piler instance, then install and configure a new one."
 msgstr ""
 
-#: ../../piler.rst:72
+#: ../../piler.rst:73
 #, fuzzy
 msgid "Other configuration settings can be changed as needed."
 msgstr "Once configured, domain settings cannot be changed later!"
 
-#: ../../piler.rst:77
+#: ../../piler.rst:78
 #, fuzzy
 msgid "Default credentials"
 msgstr "Le credenziali di default sono:"
 
-#: ../../piler.rst:79
+#: ../../piler.rst:80
 msgid ""
 "After the initial configuration, Piler starts with default credentials. "
 "For security reasons, the default passwords must be immediately changed "
 "for the two existing default accounts:"
 msgstr ""
 
-#: ../../piler.rst:83
+#: ../../piler.rst:84
 msgid ""
 "User ``admin@local``: This user has full administrative rights over the "
 "Piler application. They can create new user accounts and grant any kind "
@@ -10838,7 +10875,7 @@ msgid ""
 " DB. The default password is ``pilerrocks``."
 msgstr ""
 
-#: ../../piler.rst:88
+#: ../../piler.rst:89
 msgid ""
 "User ``auditor@local``: This user, as the name suggests, has the "
 "*auditor* role. They can search for any email message in the archive and "
@@ -10846,7 +10883,7 @@ msgid ""
 "``auditor``."
 msgstr ""
 
-#: ../../piler.rst:93
+#: ../../piler.rst:94
 msgid ""
 "After logging into the Piler website, navigate to Settings under the menu"
 " in the upper right corner of the screen. Scroll down to the bottom of "
@@ -10854,7 +10891,7 @@ msgid ""
 "fields (the second one is for confirmation), and submit the form."
 msgstr ""
 
-#: ../../piler.rst:98
+#: ../../piler.rst:99
 #, fuzzy
 msgid ""
 "Administrators can change the password of other users from the **Users** "
@@ -10863,16 +10900,16 @@ msgstr ""
 "Gli amministratori possono cambiare la propria password dalla scheda "
 "``Account`` all'interno della pagina ``Impostazioni``."
 
-#: ../../piler.rst:102
+#: ../../piler.rst:103
 #, fuzzy
 msgid "Restore email messages"
 msgstr "support for HTML messages"
 
-#: ../../piler.rst:104
+#: ../../piler.rst:105
 msgid "Auditor users can search for and recover archived email messages."
 msgstr ""
 
-#: ../../piler.rst:106
+#: ../../piler.rst:107
 msgid ""
 "When a message is handled by the Mail server, a copy is sent to the "
 "archive. However, Piler does not index the received messages immediately."
@@ -10880,19 +10917,19 @@ msgid ""
 "task indexes a batch of queued messages. Duplicate messages count as one."
 msgstr ""
 
-#: ../../piler.rst:111
+#: ../../piler.rst:112
 msgid ""
 "Once a message is indexed, auditors can search for it. Found messages can"
 " be downloaded or forwarded to an arbitrary email address."
 msgstr ""
 
-#: ../../piler.rst:114
+#: ../../piler.rst:115
 msgid ""
 "If multiple messages are selected, they are compressed into a ZIP archive"
 " before download."
 msgstr ""
 
-#: ../../piler.rst:117
+#: ../../piler.rst:118
 msgid ""
 "When one or more messages are forwarded to an email address, the message "
 "and its original headers are preserved. Therefore, when received, the "
@@ -10900,17 +10937,17 @@ msgid ""
 "MIME header ``X-piler-id`` to forwarded messages."
 msgstr ""
 
-#: ../../piler.rst:123
+#: ../../piler.rst:124
 msgid "Import existing email"
 msgstr ""
 
-#: ../../piler.rst:125
+#: ../../piler.rst:126
 msgid ""
 "Existing email messages can be imported from the chosen Mail server "
 "instance into the Piler archive."
 msgstr ""
 
-#: ../../piler.rst:130
+#: ../../piler.rst:131
 msgid ""
 "The import process may take hours or even days, depending on the number "
 "of users and the size of their mailboxes. Additionally, message indexing "
@@ -10918,19 +10955,19 @@ msgid ""
 "performance."
 msgstr ""
 
-#: ../../piler.rst:135
+#: ../../piler.rst:136
 #, fuzzy
 msgid "Access a root terminal and run the following command: ::"
 msgstr "In a root shell prompt, execute the following command:"
 
-#: ../../piler.rst:139
+#: ../../piler.rst:140
 msgid ""
 "Replace ``piler1`` with the correct Piler application instance "
 "identifier, visible on the Status page. The above command just prints the"
 " command help text."
 msgstr ""
 
-#: ../../piler.rst:143
+#: ../../piler.rst:144
 msgid ""
 "The optional command arguments ``-A`` (after) and ``-B`` (before) can "
 "limit the time range for the import. As times must be expressed in Unix "
@@ -10938,74 +10975,74 @@ msgid ""
 "desired timestamp from a date string, for example: ::"
 msgstr ""
 
-#: ../../piler.rst:151
+#: ../../piler.rst:152
 #, fuzzy
 msgid "Fine-tune Piler's configuration"
 msgstr "Configurazione"
 
-#: ../../piler.rst:153
+#: ../../piler.rst:154
 msgid ""
 "After the application has been configured for the first time and secured "
 "by changing the default users' credentials, Piler is ready to archive "
 "emails."
 msgstr ""
 
-#: ../../piler.rst:157
+#: ../../piler.rst:158
 msgid ""
 "This is a brief list of common configuration tasks, with links to the "
 "official documentation:"
 msgstr ""
 
-#: ../../piler.rst:160
+#: ../../piler.rst:161
 msgid ""
 "`Administration tasks`_, to manage users, permissions, and check the "
 "audit log."
 msgstr ""
 
-#: ../../piler.rst:163
+#: ../../piler.rst:164
 msgid ""
 "`Rules and policies`_, to define what messages are archived and how long "
 "they will stay. For example, you can define a special policy for spam "
 "messages."
 msgstr ""
 
-#: ../../piler.rst:170
+#: ../../piler.rst:171
 msgid ""
 "Note that the official administration documentation refers to the "
 "\"enterprise edition\" of Piler; therefore, some content is not relevant "
 "for the \"community edition\", which is the base of the NS8 application."
 msgstr ""
 
-#: ../../piler.rst:178
+#: ../../piler.rst:179
 msgid ""
 "Email messages received with :ref:`Imapsync <imapsync-section>` are not "
 "archived."
 msgstr ""
 
-#: ../../piler.rst:181
+#: ../../piler.rst:182
 msgid ""
 "Some features are not active/effective but are still visible in the Piler"
 " UI."
 msgstr ""
 
-#: ../../piler.rst:184
+#: ../../piler.rst:185
 #, fuzzy
 msgid "For administrators:"
 msgstr "Amministratori"
 
-#: ../../piler.rst:186
+#: ../../piler.rst:187
 msgid "In the Administration menu, the **Import** action."
 msgstr ""
 
-#: ../../piler.rst:188
+#: ../../piler.rst:189
 msgid "In the Monitor menu, the **Archive accounting** action."
 msgstr ""
 
-#: ../../piler.rst:190
+#: ../../piler.rst:191
 msgid "For auditors:"
 msgstr ""
 
-#: ../../piler.rst:192
+#: ../../piler.rst:193
 msgid "In the message preview screen area, the **Restore to mailbox** action."
 msgstr ""
 
@@ -18290,4 +18327,29 @@ msgstr ""
 
 #~ msgid "Many applications require access to an SMTP server to send mail."
 #~ msgstr "Many applications require access to an SMTP server to send mail."
+
+#~ msgid ""
+#~ "This section controls the Mail "
+#~ "application configuration for special "
+#~ "scenarios, described in the following "
+#~ "points."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In NS7 Email app, the setting "
+#~ "``Forward a copy of all messages``, "
+#~ "formerly known as ``Always send a "
+#~ "copy (Bcc)``, is not migrated."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "*The archive destination is…*: This "
+#~ "indicates that the Mail server already"
+#~ " copies any message sent or received"
+#~ " to another archive or external email"
+#~ " address. If such an entry is "
+#~ "selected and the form is saved, "
+#~ "the previous configuration is overwritten, "
+#~ "so use it with caution."
+#~ msgstr ""
 
