@@ -95,8 +95,11 @@ in the upper right corner of the screen. Scroll down to the bottom of the
 personal Settings page, enter the new password in the two password fields
 (the second one is for confirmation), and submit the form.
 
-Get back email messages
-=======================
+Administrators can change the password of other users from the **Users**
+action under the Administration menu.
+
+Restore email messages
+======================
 
 Auditor users can search for and recover archived email messages.
 
@@ -131,7 +134,7 @@ instance into the Piler archive.
 
 Access a root terminal and run the following command: ::
 
-   runagent -m piler1 import-email --help
+   runagent -m piler1 import-emails --help
 
 Replace ``piler1`` with the correct Piler application instance identifier,
 visible on the Status page. The above command just prints the command help
@@ -145,17 +148,21 @@ desired timestamp from a date string, for example: ::
    date -d 2024-05-01 +%s
 
 
-Disabled features
+Known limitations
 =================
 
-Some features are not active/effective but are still visible in the Piler
-UI.
+1. Email messages received with :ref:`Imapsync <imapsync-section>` are not
+   archived.
 
-For administrators:
+2. Some features are not active/effective but are still visible in the Piler
+   UI.
 
-- In the Administration menu, the **Import** action.
-- In the Monitor menu, the **Archive accounting** action.
+   For administrators:
 
-For auditors:
+   - In the Administration menu, the **Import** action.
 
-- In the message preview screen area, the **Restore to mailbox** action.
+   - In the Monitor menu, the **Archive accounting** action.
+
+   For auditors:
+
+   - In the message preview screen area, the **Restore to mailbox** action.
