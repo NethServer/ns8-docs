@@ -147,6 +147,30 @@ desired timestamp from a date string, for example: ::
 
    date -d 2024-05-01 +%s
 
+Fine-tune Piler's configuration
+===============================
+
+After the application has been configured for the first time and secured
+by changing the default users' credentials, Piler is ready to archive
+emails.
+
+This is a brief list of common configuration tasks, with links to the
+official documentation:
+
+- `Administration tasks`_, to manage users, permissions, and check the
+  audit log.
+
+- `Rules and policies`_, to define what messages are archived and how long
+  they will stay. For example, you can define a special policy for spam
+  messages.
+
+.. _Administration tasks: https://docs.mailpiler.com/piler-ee/administering/#administrator-tasks
+.. _Rules and policies: https://docs.mailpiler.com/piler-ee/administering/#rules-and-policies
+
+Note that the official administration documentation refers to the
+"enterprise edition" of Piler; therefore, some content is not relevant for
+the "community edition", which is the base of the NS8 application.
+
 
 Known limitations
 =================
