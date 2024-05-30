@@ -34,3 +34,13 @@ Imapsync needs to be configured to use a Mail module already installed in the Ne
 
 .. note::
    Imasync is integrated with LDAP user domain that you can configure at :ref:`user-domains-section`.
+
+
+Known limitations
+=================
+
+- Messages copied by Imapsync are not subject to anti-spam and anti-virus
+  checks.
+
+- Imapsync does not integrate with :ref:`Piler <piler-section>`: messages
+  copied by Imapsync are not archived.

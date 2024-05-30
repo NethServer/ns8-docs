@@ -66,6 +66,7 @@ NethServer 8 administrator manual
    nethsecurity_controller
    dnsmasq
    netdata
+   piler
 
 .. toctree::
    :maxdepth: 2
