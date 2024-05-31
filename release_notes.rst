@@ -18,7 +18,10 @@ Major changes on 2024-05-31
   default smarthost for outgoing email messages, and more. A Mail instance
   can now be selected directly from the :ref:`Email notifications
   <email-notifications>` page to serve as the cluster's default mail
-  gateway for other applications.
+  gateway for other applications. Since release 1.4 Mail provides also
+  Sender/login correspondence, configurable Queue lifetime, and IP-based
+  relay policy, as described by :ref:`Mail settings
+  <mail_settings-section>`.
 
 - **Piler application** -- The new Piler application enhances Mail
   features with an email archiving solution. See :ref:`piler-section` for
