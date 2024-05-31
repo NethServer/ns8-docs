@@ -48,7 +48,7 @@ Major changes on 2024-05-31
   collected and stored in the leader node for a configurable number of
   days. Since Core release 2.7.0, the component responsible for this is
   automatically started and configured when a new leader node is promoted.
-  Refer to the :ref:`system-logs-section` for more information.
+  Refer to the section :ref:`system-logs-section` for more information.
 
 - **Crowdsec bouncer container** -- Since Crowdsec release 1.0.7, the
   bouncer component runs inside a container and uses Netfilter tables to
