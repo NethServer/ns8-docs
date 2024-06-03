@@ -37,9 +37,17 @@ Benefits are:
   the same node, you can configure and start only one mail server instance
   per node, otherwise a TCP port conflict error occurs.
 
-The optional :ref:`imapsync-section` application can be connected to Mail. It
-allows scheduling periodical fetch jobs or migrating emails from external IMAP
-servers to local user mailboxes.
+A Mail instance can be integrated with other applications. For example:
+
+- :ref:`WebTop <webtop-section>` groupware.
+
+- :ref:`roundcube-section` web mail client.
+
+- :ref:`Imapsync <imapsync-section>` schedules periodical fetch jobs or
+  migrates emails from external IMAP servers to local user mailboxes.
+
+- :ref:`Piler <piler-section>` archives any message sent or received by
+  Mail with the SMTP protocol.
 
 
 Configuration
@@ -601,8 +609,3 @@ that still does not support STARTTLS:
 
     The standard SMTP port 25 is reserved for mail transfers between MTA
     servers. Mail user agents (MUA) must use the submission port.
-
-If you're looking for web email clients, take a look to:
-
-- :ref:`roundcube-section`
-- :ref:`webtop-section`
