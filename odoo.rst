@@ -159,7 +159,7 @@ The installation image was created by Innovyou for the following reasons:
    consequently would not allow us to provide proper support or debugging.
 
 To request the source code and for information or support, you can visit
-the page https://www.innovyou.it/supporto-odoo-nethserver/.
+the page https://www.innovyou.co/odoo-nethserver-support/
 
 Updates and support
 ===================
@@ -170,7 +170,7 @@ Updates and support
 Updates for Odoo on NethServer 8 are manual.
 
 For any support request, you can contact us through the page
-https://www.innovyou.it/supporto-odoo-nethserver/.
+https://www.innovyou.co/odoo-nethserver-support/
 
 Licenses
 ========
