@@ -26,3 +26,12 @@ Default credentials for phpMyAdmin are:
 * password: ``admin``
 
 Please change them after the first login.
+
+
+Access database
+===============
+
+The database uses a TCP port (> 20000) that is not opened in the firewall of the server for security reason. You can find the TCP port inside the configuration panel of the module
+To access the database from a web application with a NS8 node you can use the IP of the VPN wg0 interface with the custom port. The communication is encrypted with the wireguard VPN.
+
+For instance : 10.5.4.1:20001
