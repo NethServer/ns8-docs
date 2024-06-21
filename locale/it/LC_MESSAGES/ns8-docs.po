@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 12:19+0000\n"
+"POT-Creation-Date: 2024-06-21 15:01+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -5743,31 +5743,46 @@ msgid "``/webtop-dav``"
 msgstr "``/webtop-dav``"
 
 #: ../../migration.rst:306
-msgid "Configurations excluded from migration"
-msgstr "Configurazioni escluse dalla migrazione"
+#, fuzzy
+msgid "Limitations"
+msgstr "Applicazioni"
 
 #: ../../migration.rst:308
-msgid "The following configurations will not be migrated:"
-msgstr "Le seguenti configurazioni non verranno migrate:"
-
-#: ../../migration.rst:310
-#, fuzzy
-msgid "Custom templates."
-msgstr "template custom"
+msgid ""
+"The migration tool supports a limited set of applications. If an "
+"application is installed but not listed on the migration tool page, it "
+"will not be covered by the migration process."
+msgstr ""
 
 #: ../../migration.rst:312
 #, fuzzy
+msgid "The following configurations are not migrated:"
+msgstr "Le seguenti configurazioni non verranno migrate:"
+
+#: ../../migration.rst:314
+#, fuzzy
+msgid "Custom templates"
+msgstr "template custom"
+
+#: ../../migration.rst:316
+#, fuzzy
 msgid ""
 "Account provider password policy settings (see :ref:`migrate-account-"
-"provider`)."
+"provider`)"
 msgstr ""
 "impostazioni della policy delle password dell'account provider (vedere: "
 "`migrate-account-provider`)"
 
-#: ../../migration.rst:315
+#: ../../migration.rst:319
 msgid ""
-"System smart host, if the NS7 Email app is not installed or is not "
-"migrated."
+"System smart host settings, if the NS7 Email app is either not installed "
+"or not migrated"
+msgstr ""
+
+#: ../../migration.rst:322
+msgid ""
+"Additionally, shared folders will not be migrated if NS7 uses a remote "
+"account provider."
 msgstr ""
 
 #: ../../minio.rst:5
@@ -18547,5 +18562,14 @@ msgstr ""
 #~ "For any support request, you can "
 #~ "contact us through the page "
 #~ "https://www.innovyou.it/supporto-odoo-nethserver/."
+#~ msgstr ""
+
+#~ msgid "Configurations excluded from migration"
+#~ msgstr "Configurazioni escluse dalla migrazione"
+
+#~ msgid ""
+#~ "System smart host, if the NS7 "
+#~ "Email app is not installed or is"
+#~ " not migrated."
 #~ msgstr ""
 
