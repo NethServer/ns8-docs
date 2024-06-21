@@ -302,8 +302,12 @@ Example for adding WebTop routes:
 
 .. _config-excluded-migration:
 
-Configurations excluded from migration
-======================================
+Limitations
+===========
+
+The migration tool covers a limited set of applications. If the
+application is installed, but it is not listed in the migration tool page,
+the application is not covered.
 
 The following configurations will not be migrated:
 
@@ -314,3 +318,6 @@ The following configurations will not be migrated:
 
 - System smart host, if the NS7 Email app is not installed or is not
   migrated.
+
+Furthermore, if NS7 has a remote account provider, shared folders
+migration is not supported.
