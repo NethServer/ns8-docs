@@ -305,19 +305,19 @@ Example for adding WebTop routes:
 Limitations
 ===========
 
-The migration tool covers a limited set of applications. If the
-application is installed, but it is not listed in the migration tool page,
-the application is not covered.
+The migration tool supports a limited set of applications. If an
+application is installed but not listed on the migration tool page, it
+will not be covered by the migration process.
 
-The following configurations will not be migrated:
+The following configurations are not migrated:
 
-- Custom templates.
+- Custom templates
 
 - Account provider password policy settings (see
-  :ref:`migrate-account-provider`).
+  :ref:`migrate-account-provider`)
 
-- System smart host, if the NS7 Email app is not installed or is not
-  migrated.
+- System smart host settings, if the NS7 Email app is either not installed
+  or not migrated
 
-Furthermore, if NS7 has a remote account provider, shared folders
-migration is not supported.
+Additionally, shared folders will not be migrated if NS7 uses a remote
+account provider.
