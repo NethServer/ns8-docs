@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version:  NS8\n"
+"Project-Id-Version: NS8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-21 15:01+0000\n"
-"PO-Revision-Date: 2024-05-22 09:01+0000\n"
-"Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
+"PO-Revision-Date: 2024-06-29 12:09+0000\n"
+"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
 "Language: it\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>"
-"\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.7-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: ../../backup.rst:5
@@ -803,10 +803,13 @@ msgstr ""
 "nodo."
 
 #: ../../cluster.rst:101
+#, fuzzy
 msgid ""
 "The promotion of a new leader entails a change in the System logs "
 "configuration. Refer to :ref:`logs-persistence-section` for more details."
 msgstr ""
+"The promotion of a new leader entails a change in the System logs "
+"configuration. Refer to :ref:`logs-persistence-section` for more details."
 
 #: ../../cluster.rst:109
 msgid ""
@@ -1265,17 +1268,24 @@ msgid "Command-line interface"
 msgstr "Command line"
 
 #: ../../crowdsec.rst:38
+#, fuzzy
 msgid ""
 "The ``cscli`` command is a powerful command-line interface to access "
 "advanced Crowdsec functions. To run ``cscli``, you have to enter the "
 "application environment first. Type in a root shell the following command"
 msgstr ""
+"The ``cscli`` command is a powerful command-line interface to access "
+"advanced Crowdsec functions. To run ``cscli``, you have to enter the "
+"application environment first. Type in a root shell the following command"
 
 #: ../../crowdsec.rst:46
+#, fuzzy
 msgid ""
 "Then the ``cscli`` command becomes available. For instance, print the "
 "help message with"
 msgstr ""
+"Then the ``cscli`` command becomes available. For instance, print the help "
+"message with"
 
 #: ../../disk_usage.rst:3
 msgid "Disk usage"
@@ -1395,15 +1405,20 @@ msgid "The ``migrate`` script:."
 msgstr "Lo script ``migrate```:."
 
 #: ../../dnsmasq.rst:5
+#, fuzzy
 msgid "DNSMasq"
-msgstr ""
+msgstr "DNSMasq"
 
 #: ../../dnsmasq.rst:7
+#, fuzzy
 msgid ""
 "The DNSMasq module is a lightweight DNS and DHCP server designed to "
 "provide its services within a private network. It is not recommended for "
 "use as a public DNS server."
 msgstr ""
+"The DNSMasq module is a lightweight DNS and DHCP server designed to provide "
+"its services within a private network. It is not recommended for use as a "
+"public DNS server."
 
 #: ../../dnsmasq.rst:9
 #, fuzzy
@@ -1413,65 +1428,93 @@ msgstr ""
 ":`software_center-section`."
 
 #: ../../dnsmasq.rst:13
+#, fuzzy
 msgid "Prerequisites"
-msgstr ""
+msgstr "Prerequisites"
 
 #: ../../dnsmasq.rst:15
+#, fuzzy
 msgid ""
 "The only prerequisite is a network interface configured. This means that "
 "the network should have a valid IPv4 address and a valid subnet mask. "
 "Please refer to your distro documentation on how to properly configure a "
 "network interface."
 msgstr ""
+"The only prerequisite is a network interface configured. This means that the "
+"network should have a valid IPv4 address and a valid subnet mask. Please "
+"refer to your distro documentation on how to properly configure a network "
+"interface."
 
 #: ../../dnsmasq.rst:22
+#, fuzzy
 msgid ""
 "After installing the module, you can configure both the DNS and DHCP "
 "server through the web interface."
 msgstr ""
+"After installing the module, you can configure both the DNS and DHCP server "
+"through the web interface."
 
 #: ../../dnsmasq.rst:24
+#, fuzzy
 msgid ""
 "Select in the ``Interface`` field the interface that you want to use for "
 "DNS and DHCP server, then press :guilabel:`Save`."
 msgstr ""
+"Select in the ``Interface`` field the interface that you want to use for DNS "
+"and DHCP server, then press :guilabel:`Save`."
 
 #: ../../dnsmasq.rst:26
+#, fuzzy
 msgid ""
 "Once the configuration is saved, there will be available two toggle "
 "switches to enable/disable DNS and DHCP server."
 msgstr ""
+"Once the configuration is saved, there will be available two toggle switches "
+"to enable/disable DNS and DHCP server."
 
 #: ../../dnsmasq.rst:30 ../../nethvoice.rst:622 ../../nethvoice.rst:627
 #: ../../nethvoice.rst:632 ../../nethvoice.rst:637
+#, fuzzy
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 #: ../../dnsmasq.rst:32
+#, fuzzy
 msgid "The DHCP server can be configured with the following options:"
-msgstr ""
+msgstr "The DHCP server can be configured with the following options:"
 
 #: ../../dnsmasq.rst:34
+#, fuzzy
 msgid "``IP range start``: The first IP address that will be assigned to clients."
 msgstr ""
+"``IP range start``: The first IP address that will be assigned to clients."
 
 #: ../../dnsmasq.rst:35
+#, fuzzy
 msgid "``IP range end``: The last IP address that will be assigned to clients."
-msgstr ""
+msgstr "``IP range end``: The last IP address that will be assigned to clients."
 
 #: ../../dnsmasq.rst:36
+#, fuzzy
 msgid ""
 "``Lease time``: The time that the IP address will be assigned to the "
 "client, expressed in hours."
 msgstr ""
+"``Lease time``: The time that the IP address will be assigned to the client, "
+"expressed in hours."
 
 #: ../../dnsmasq.rst:38
+#, fuzzy
 msgid ""
 "The fields are automatically filled with default values at the first "
 "configuration, but you can change them according to your needs. "
 "Additional options can be configured manually, please refer to `Advanced "
 "Configuration`_ section."
 msgstr ""
+"The fields are automatically filled with default values at the first "
+"configuration, but you can change them according to your needs. Additional "
+"options can be configured manually, please refer to `Advanced Configuration`"
+"_ section."
 
 #: ../../dnsmasq.rst:41
 #, fuzzy
@@ -1486,30 +1529,44 @@ msgstr ""
 "informazioni:"
 
 #: ../../dnsmasq.rst:45
+#, fuzzy
 msgid ""
 "``Primary forwarding server``: The primary DNS server that will be used "
 "to resolve the queries."
 msgstr ""
+"``Primary forwarding server``: The primary DNS server that will be used to "
+"resolve the queries."
 
 #: ../../dnsmasq.rst:46
+#, fuzzy
 msgid ""
 "``Secondary forwarding server``: The secondary DNS server that will be "
 "used to resolve the queries."
 msgstr ""
+"``Secondary forwarding server``: The secondary DNS server that will be used "
+"to resolve the queries."
 
 #: ../../dnsmasq.rst:48
+#, fuzzy
 msgid ""
 "When the DNS server is enabled, all Fully Qualified Domain Names (FQDNs) "
 "configured within the node will be resolved using a 'CNAME' record "
 "pointing to the node's hostname."
 msgstr ""
+"When the DNS server is enabled, all Fully Qualified Domain Names (FQDNs) "
+"configured within the node will be resolved using a 'CNAME' record pointing "
+"to the node's hostname."
 
 #: ../../dnsmasq.rst:51
+#, fuzzy
 msgid ""
 "The DNS server will not automatically resolve the entries in the "
 "``/etc/hosts`` file. To resolve the entries in the ``/etc/hosts`` file, "
 "you need to add them manually in the `DNS Records`_ section."
 msgstr ""
+"The DNS server will not automatically resolve the entries in the ``/etc/"
+"hosts`` file. To resolve the entries in the ``/etc/hosts`` file, you need to "
+"add them manually in the `DNS Records`_ section."
 
 #: ../../dnsmasq.rst:55
 #, fuzzy
@@ -1517,11 +1574,15 @@ msgid "DNS Records"
 msgstr "Record"
 
 #: ../../dnsmasq.rst:57
+#, fuzzy
 msgid ""
 "Additional DNS entries can be added in the ``DNS Records`` section. "
 "Simply press the :guilabel:`Add DNS Record` button and fill the fields "
 "with the desired values:"
 msgstr ""
+"Additional DNS entries can be added in the ``DNS Records`` section. Simply "
+"press the :guilabel:`Add DNS Record` button and fill the fields with the "
+"desired values:"
 
 #: ../../dnsmasq.rst:59
 #, fuzzy
@@ -1529,12 +1590,14 @@ msgid "``Hostname``: The hostname that will be resolved."
 msgstr "``Name``: the name of the shared folder"
 
 #: ../../dnsmasq.rst:60
+#, fuzzy
 msgid "``IP Address``: The IP address that will be resolved to the hostname."
-msgstr ""
+msgstr "``IP Address``: The IP address that will be resolved to the hostname."
 
 #: ../../dnsmasq.rst:62
+#, fuzzy
 msgid "IP addresses can be either IPv4 or IPv6."
-msgstr ""
+msgstr "IP addresses can be either IPv4 or IPv6."
 
 #: ../../dnsmasq.rst:66
 #, fuzzy
@@ -1542,22 +1605,31 @@ msgid "Advanced Configuration"
 msgstr "DNS configuration"
 
 #: ../../dnsmasq.rst:68
+#, fuzzy
 msgid ""
 "The module provides additional configuration options that can be accessed"
 " manually through the configuration files."
 msgstr ""
+"The module provides additional configuration options that can be accessed "
+"manually through the configuration files."
 
 #: ../../dnsmasq.rst:70
+#, fuzzy
 msgid ""
 "The directories that accept custom files are located in the root "
 "directory of the module, under the `state` directory."
 msgstr ""
+"The directories that accept custom files are located in the root directory "
+"of the module, under the `state` directory."
 
 #: ../../dnsmasq.rst:72
+#, fuzzy
 msgid "The following directories can be used to add custom configuration files:"
 msgstr ""
+"The following directories can be used to add custom configuration files:"
 
 #: ../../dnsmasq.rst:74
+#, fuzzy
 msgid ""
 "``dnsmasq.d``: This directory is used to add custom configuration files "
 "for the DNSMasq service. The files must have the `.conf` extension. "
@@ -1565,8 +1637,13 @@ msgid ""
 "/dnsmasq-man.html>`_ for more information on how to configure the "
 "service."
 msgstr ""
+"``dnsmasq.d``: This directory is used to add custom configuration files for "
+"the DNSMasq service. The files must have the `.conf` extension. Please refer "
+"to the `DNSMasq documentation <https://dnsmasq.org/docs/dnsmasq-man.html>`_ "
+"for more information on how to configure the service."
 
 #: ../../dnsmasq.rst:77
+#, fuzzy
 msgid ""
 "``dnsmasq_hosts.d``: This directory is used to add custom hosts files "
 "that will be used by the DNSMasq service. The format of the file is the "
@@ -1574,24 +1651,37 @@ msgid ""
 "<https://man7.org/linux/man-pages/man5/hosts.5.html>`_ for more "
 "information on how to write the file."
 msgstr ""
+"``dnsmasq_hosts.d``: This directory is used to add custom hosts files that "
+"will be used by the DNSMasq service. The format of the file is the same as "
+"the `/etc/hosts` file. Refer to the `manual <https://man7.org/linux/"
+"man-pages/man5/hosts.5.html>`_ for more information on how to write the file."
 
 #: ../../dnsmasq.rst:81
+#, fuzzy
 msgid ""
 "After adding the custom files, you need to restart the service to apply "
 "the changes."
 msgstr ""
+"After adding the custom files, you need to restart the service to apply the "
+"changes."
 
 #: ../../dnsmasq.rst:83
+#, fuzzy
 msgid ""
 "The custom files enrich the existing configuration. You can customize the"
 " provided DHCP instance without creating a custom one using the tag "
 "`default`, more info can be found in the `DNSMasq documentation "
 "<https://dnsmasq.org/docs/dnsmasq-man.html>`_."
 msgstr ""
+"The custom files enrich the existing configuration. You can customize the "
+"provided DHCP instance without creating a custom one using the tag `default`"
+", more info can be found in the `DNSMasq documentation <https://dnsmasq.org/"
+"docs/dnsmasq-man.html>`_."
 
 #: ../../dnsmasq.rst:85
+#, fuzzy
 msgid "The custom files are included in the module backup."
-msgstr ""
+msgstr "The custom files are included in the module backup."
 
 #: ../../dockerhub.rst:3
 #, fuzzy
@@ -2097,11 +2187,15 @@ msgid "Email notifications"
 msgstr "Email notifications"
 
 #: ../../email_notifications.rst:9
+#, fuzzy
 msgid ""
 "Many applications, such as Nextcloud and Mattermost, require SMTP server "
 "configuration to send notification messages to users and service "
 "administrators."
 msgstr ""
+"Many applications, such as Nextcloud and Mattermost, require SMTP server "
+"configuration to send notification messages to users and service "
+"administrators."
 
 #: ../../email_notifications.rst:13
 #, fuzzy
@@ -2122,18 +2216,25 @@ msgstr ""
 " server`` and fill the required details."
 
 #: ../../email_notifications.rst:19
+#, fuzzy
 msgid ""
 "If a Mail application instance is already installed in the cluster, "
 "choose the ``Use Mail app instance`` option. Then refer to the section "
 ":ref:`relay-rules-section` for further information about the "
 "configuration of Mail."
 msgstr ""
+"If a Mail application instance is already installed in the cluster, choose "
+"the ``Use Mail app instance`` option. Then refer to the section :ref:`relay-"
+"rules-section` for further information about the configuration of Mail."
 
 #: ../../email_notifications.rst:24
+#, fuzzy
 msgid ""
 "Instead, choose ``Manual configuration`` to specify SMTP server "
 "parameters in this form. Available fields are:"
 msgstr ""
+"Instead, choose ``Manual configuration`` to specify SMTP server parameters "
+"in this form. Available fields are:"
 
 #: ../../email_notifications.rst:27
 #, fuzzy
@@ -2143,12 +2244,16 @@ msgstr ""
 "NethServer 8"
 
 #: ../../email_notifications.rst:29
+#, fuzzy
 msgid ""
 "**SMTP port number**: TCP port number of the server. Common values are "
 "587, 25, 465, 2525."
 msgstr ""
+"**SMTP port number**: TCP port number of the server. Common values are 587, "
+"25, 465, 2525."
 
 #: ../../email_notifications.rst:32
+#, fuzzy
 msgid ""
 "**SMTP encryption**: Encryption used by the server. TLS is a widely used "
 "encryption protocol that encrypts a connection from the moment it is "
@@ -2156,22 +2261,36 @@ msgid ""
 " the client and server support it, the connection is encrypted after both"
 " sides agree to use it."
 msgstr ""
+"**SMTP encryption**: Encryption used by the server. TLS is a widely used "
+"encryption protocol that encrypts a connection from the moment it is "
+"established. STARTTLS is the standard encryption method for SMTP. If both "
+"the client and server support it, the connection is encrypted after both "
+"sides agree to use it."
 
 #: ../../email_notifications.rst:38
+#, fuzzy
 msgid ""
 "**Verify the TLS certificate**: If encryption is used, this switch "
 "controls if the certificate used to encrypt the connection must be signed"
 " by a trusted authority or not. If the server presents a self-signed "
 "certificate, turn off this switch to accept it."
 msgstr ""
+"**Verify the TLS certificate**: If encryption is used, this switch controls "
+"if the certificate used to encrypt the connection must be signed by a "
+"trusted authority or not. If the server presents a self-signed certificate, "
+"turn off this switch to accept it."
 
 #: ../../email_notifications.rst:43
+#, fuzzy
 msgid ""
 "**Username** and **Password**: If the server requires SMTP "
 "authentication, fill the credential fields; otherwise leave them blank."
 msgstr ""
+"**Username** and **Password**: If the server requires SMTP authentication, "
+"fill the credential fields; otherwise leave them blank."
 
 #: ../../email_notifications.rst:46
+#, fuzzy
 msgid ""
 "After saving the settings, a SMTP connection to validate the form "
 "parameters is immediately started. In some cases, validation is "
@@ -2179,6 +2298,10 @@ msgid ""
 "recommended to check that individual applications can successfully send "
 "messages with the new settings."
 msgstr ""
+"After saving the settings, a SMTP connection to validate the form parameters "
+"is immediately started. In some cases, validation is successful, but "
+"messages may still fail to be delivered. It is recommended to check that "
+"individual applications can successfully send messages with the new settings."
 
 #: ../../faq.rst:3
 #, fuzzy
@@ -2689,20 +2812,27 @@ msgid "NethServer 8 comes with a simple built-in firewall."
 msgstr "NethServer 8 comes with a simple built-in firewall."
 
 #: ../../firewall.rst:9
+#, fuzzy
 msgid ""
 "The cluster VPN network interface ``wg0`` is part of a trusted zone where"
 " all traffic is permitted."
 msgstr ""
+"The cluster VPN network interface ``wg0`` is part of a trusted zone where "
+"all traffic is permitted."
 
 #: ../../firewall.rst:12
+#, fuzzy
 msgid ""
 "All other network interfaces are part of a public zone where only "
 "specific ports are open."
 msgstr ""
+"All other network interfaces are part of a public zone where only specific "
+"ports are open."
 
 #: ../../firewall.rst:15
+#, fuzzy
 msgid "By default, an NS8 node has the following open ports:"
-msgstr ""
+msgstr "By default, an NS8 node has the following open ports:"
 
 #: ../../firewall.rst:17
 #, fuzzy
@@ -2739,23 +2869,33 @@ msgid "Review firewall settings"
 msgstr "Impostazioni generali"
 
 #: ../../firewall.rst:28
+#, fuzzy
 msgid ""
 "Under the Settings page, click on the :guilabel:`Firewall` card and "
 "select a node of the cluster."
 msgstr ""
+"Under the Settings page, click on the :guilabel:`Firewall` card and select a "
+"node of the cluster."
 
 #: ../../firewall.rst:31
+#, fuzzy
 msgid ""
 "For the selected node, a table summarizes the services running on the "
 "node and their open TCP and UDP ports. If a port is not listed here, it "
 "is closed for connections from the public zone."
 msgstr ""
+"For the selected node, a table summarizes the services running on the node "
+"and their open TCP and UDP ports. If a port is not listed here, it is closed "
+"for connections from the public zone."
 
 #: ../../firewall.rst:35
+#, fuzzy
 msgid ""
 "Below the table of services and open ports, there is a list of the "
 "network interfaces of the node."
 msgstr ""
+"Below the table of services and open ports, there is a list of the network "
+"interfaces of the node."
 
 #: ../../firewall.rst:38
 #, fuzzy
@@ -2924,20 +3064,27 @@ msgstr ""
 ":ref:`user-domains-section`."
 
 #: ../../imapsync.rst:40 ../../piler.rst:177
+#, fuzzy
 msgid "Known limitations"
-msgstr ""
+msgstr "Known limitations"
 
 #: ../../imapsync.rst:42
+#, fuzzy
 msgid ""
 "Messages copied by Imapsync are not subject to anti-spam and anti-virus "
 "checks."
 msgstr ""
+"Messages copied by Imapsync are not subject to anti-spam and anti-virus "
+"checks."
 
 #: ../../imapsync.rst:45
+#, fuzzy
 msgid ""
 "Imapsync does not integrate with :ref:`Piler <piler-section>`: messages "
 "copied by Imapsync are not archived."
 msgstr ""
+"Imapsync does not integrate with :ref:`Piler <piler-section>`: messages "
+"copied by Imapsync are not archived."
 
 #: ../../index.rst:18
 msgid "About"
@@ -3159,6 +3306,7 @@ msgid "Username: ``root``"
 msgstr "Nome utente: ``root``"
 
 #: ../../install.rst:74 ../../install.rst:114
+#, fuzzy
 msgid "Password: ``Nethesis,1234``"
 msgstr "Password: ``Nethesis,1234``"
 
@@ -3408,15 +3556,19 @@ msgid "System logs"
 msgstr "System logs"
 
 #: ../../log_server.rst:9
+#, fuzzy
 msgid ""
 "Log records generated by any cluster node are collected and stored in the"
 " leader node. See :ref:`logs-persistence-section` for additional "
 "information."
 msgstr ""
+"Log records generated by any cluster node are collected and stored in the "
+"leader node. See :ref:`logs-persistence-section` for additional information."
 
 #: ../../log_server.rst:13
+#, fuzzy
 msgid "Accessing logs"
-msgstr ""
+msgstr "Accessing logs"
 
 #: ../../log_server.rst:15
 #, fuzzy
@@ -3428,8 +3580,9 @@ msgstr ""
 " date, a text query or context. Available contexts are:"
 
 #: ../../log_server.rst:18
+#, fuzzy
 msgid "**Cluster**: Displays logs from all cluster nodes."
-msgstr ""
+msgstr "**Cluster**: Displays logs from all cluster nodes."
 
 #: ../../log_server.rst:20
 #, fuzzy
@@ -3437,35 +3590,48 @@ msgid "**Node**: Shows logs from a specific node."
 msgstr "``node``: all logs from a given node"
 
 #: ../../log_server.rst:22
+#, fuzzy
 msgid "**Application**: Presents logs from a particular application instance."
-msgstr ""
+msgstr "**Application**: Presents logs from a particular application instance."
 
 #: ../../log_server.rst:24
+#, fuzzy
 msgid "Users can select between two modes of operation:"
-msgstr ""
+msgstr "Users can select between two modes of operation:"
 
 #: ../../log_server.rst:26
+#, fuzzy
 msgid ""
 "**Dump mode**  Retrieves a limited number of log records within a "
 "specified time period. The maximum number of lines can be adjusted using "
 "the ``Max lines`` field."
 msgstr ""
+"**Dump mode**  Retrieves a limited number of log records within a specified "
+"time period. The maximum number of lines can be adjusted using the ``Max "
+"lines`` field."
 
 #: ../../log_server.rst:30
+#, fuzzy
 msgid "**Follow mode** Displays logs in real-time, providing live updates."
-msgstr ""
+msgstr "**Follow mode** Displays logs in real-time, providing live updates."
 
 #: ../../log_server.rst:32
+#, fuzzy
 msgid ""
 "If the ``Search query`` field is set, only log records matching the given"
 " string are returned. Only exact substring matches are allowed."
 msgstr ""
+"If the ``Search query`` field is set, only log records matching the given "
+"string are returned. Only exact substring matches are allowed."
 
 #: ../../log_server.rst:35
+#, fuzzy
 msgid ""
 "For comparative analysis of logs from two nodes or applications, follow "
 "these steps:"
 msgstr ""
+"For comparative analysis of logs from two nodes or applications, follow "
+"these steps:"
 
 #: ../../log_server.rst:38
 #, fuzzy
@@ -3480,18 +3646,26 @@ msgid ""
 msgstr "select ``Vertical layout`` from the three-dots menu"
 
 #: ../../log_server.rst:43
+#, fuzzy
 msgid ""
 "For example, comparing logs can be useful to see the Traefik log from one"
 " side, to see incoming HTTP requests, and Nextcloud logs on the other "
 "side to see that application activity."
 msgstr ""
+"For example, comparing logs can be useful to see the Traefik log from one "
+"side, to see incoming HTTP requests, and Nextcloud logs on the other side to "
+"see that application activity."
 
 #: ../../log_server.rst:49
+#, fuzzy
 msgid ""
 "By default, log searches are directed to the active Loki instance. If "
 "there are :ref:`inactive Loki instances <inactive-loki-section>` within "
 "the cluster, it is possible to select them to search past log entries."
 msgstr ""
+"By default, log searches are directed to the active Loki instance. If there "
+"are :ref:`inactive Loki instances <inactive-loki-section>` within the "
+"cluster, it is possible to select them to search past log entries."
 
 #: ../../log_server.rst:55
 #, fuzzy
@@ -3499,48 +3673,71 @@ msgid "Command line interface"
 msgstr "Command line"
 
 #: ../../log_server.rst:57
+#, fuzzy
 msgid ""
 "In addition to accessing logs via the System Logs web page, users can "
 "utilize the ``api-server-logs`` command for log searching. Below are "
 "examples illustrating its usage:"
 msgstr ""
+"In addition to accessing logs via the System Logs web page, users can "
+"utilize the ``api-server-logs`` command for log searching. Below are "
+"examples illustrating its usage:"
 
 #: ../../log_server.rst:61
+#, fuzzy
 msgid "**Basic invocation:** Enters \"follow mode\" for the entire cluster:"
-msgstr ""
+msgstr "**Basic invocation:** Enters \"follow mode\" for the entire cluster:"
 
 #: ../../log_server.rst:68
+#, fuzzy
 msgid ""
 "**Follow mode for application instance:** Enables follow mode for the "
 "specified application (module) instance, such as ``traefik1``. The "
 "``--entity`` flag selects the context:"
 msgstr ""
+"**Follow mode for application instance:** Enables follow mode for the "
+"specified application (module) instance, such as ``traefik1``. The "
+"``--entity`` flag selects the context:"
 
 #: ../../log_server.rst:77
+#, fuzzy
 msgid ""
 "**Dump mode for specific instance in a time period:** Initiates dump mode"
 " for the same instance within a specific time period. Dates must adhere "
 "to the ISO8601 format:"
 msgstr ""
+"**Dump mode for specific instance in a time period:** Initiates dump mode "
+"for the same instance within a specific time period. Dates must adhere to "
+"the ISO8601 format:"
 
 #: ../../log_server.rst:86
+#, fuzzy
 msgid ""
 "**Changing output timezone:** Modifies the output timezone while "
 "maintaining the same query. Refer to ``timedatectl list-timezones`` for a"
 " full list of options:"
 msgstr ""
+"**Changing output timezone:** Modifies the output timezone while maintaining "
+"the same query. Refer to ``timedatectl list-timezones`` for a full list of "
+"options:"
 
 #: ../../log_server.rst:98
+#, fuzzy
 msgid "Logs persistence"
-msgstr ""
+msgstr "Logs persistence"
 
 #: ../../log_server.rst:100
+#, fuzzy
 msgid ""
 "Upon cluster creation, a Loki [#loki]_ core module instance is installed "
 "on the leader node and designated as the active instance. The leader "
 "node, like any other worker node, continuously streams its log data to "
 "this active Loki instance [#promtail]_."
 msgstr ""
+"Upon cluster creation, a Loki [#loki]_ core module instance is installed on "
+"the leader node and designated as the active instance. The leader node, like "
+"any other worker node, continuously streams its log data to this active Loki "
+"instance [#promtail]_."
 
 #: ../../log_server.rst:107
 #, fuzzy
@@ -3548,18 +3745,25 @@ msgid "Adjusting Settings"
 msgstr "Advanced settings"
 
 #: ../../log_server.rst:109
+#, fuzzy
 msgid ""
 "Navigate to the ``Settings`` page and click on the System logs card to "
 "modify log retention (select ``Edit retention``) or assign a user-"
 "friendly name to the active Loki instance (choose the three-dots menu, "
 "then ``Edit label``)."
 msgstr ""
+"Navigate to the ``Settings`` page and click on the System logs card to "
+"modify log retention (select ``Edit retention``) or assign a user-friendly "
+"name to the active Loki instance (choose the three-dots menu, then ``Edit "
+"label``)."
 
 #: ../../log_server.rst:116
+#, fuzzy
 msgid "Understanding log retention"
-msgstr ""
+msgstr "Understanding log retention"
 
 #: ../../log_server.rst:118
+#, fuzzy
 msgid ""
 "Log retention refers to the maximum age of stored log records. Records "
 "older than the retention period are automatically purged. By default, "
@@ -3568,54 +3772,80 @@ msgid ""
 "regulations and best practices, a recommended retention period is 200 "
 "days or longer."
 msgstr ""
+"Log retention refers to the maximum age of stored log records. Records older "
+"than the retention period are automatically purged. By default, System logs "
+"have a retention period of 365 days, but this can be customized to any "
+"desired duration. For compliance with common regulations and best practices, "
+"a recommended retention period is 200 days or longer."
 
 #: ../../log_server.rst:128
+#, fuzzy
 msgid "Inactive Loki instances"
-msgstr ""
+msgstr "Inactive Loki instances"
 
 #: ../../log_server.rst:130
+#, fuzzy
 msgid ""
 "When a worker node is promoted to leader, a new Loki instance is "
 "installed on it and becomes the active instance, while the old instance "
 "is marked as *inactive*."
 msgstr ""
+"When a worker node is promoted to leader, a new Loki instance is installed "
+"on it and becomes the active instance, while the old instance is marked as "
+"*inactive*."
 
 #: ../../log_server.rst:134
+#, fuzzy
 msgid "The new active instance inherits the retention setting from the old one."
 msgstr ""
+"The new active instance inherits the retention setting from the old one."
 
 #: ../../log_server.rst:136
+#, fuzzy
 msgid "An inactive instance retains logs based on its last retention setting."
-msgstr ""
+msgstr "An inactive instance retains logs based on its last retention setting."
 
 #: ../../log_server.rst:138
+#, fuzzy
 msgid "Log searches can still be performed within an inactive instance."
-msgstr ""
+msgstr "Log searches can still be performed within an inactive instance."
 
 #: ../../log_server.rst:140
+#, fuzzy
 msgid "Restoring a Loki instance from backup renders it inactive."
-msgstr ""
+msgstr "Restoring a Loki instance from backup renders it inactive."
 
 #: ../../log_server.rst:142
+#, fuzzy
 msgid ""
 "To remove an inactive instance, select the three-dots menu and choose the"
 " ``Uninstall`` action."
 msgstr ""
+"To remove an inactive instance, select the three-dots menu and choose the "
+"``Uninstall`` action."
 
 #: ../../log_server.rst:150
+#, fuzzy
 msgid ""
 "Grafana Loki is a special database designed to store, index and search "
 "system logs. For more information, see "
 "https://github.com/nethserver/ns8-loki"
 msgstr ""
+"Grafana Loki is a special database designed to store, index and search "
+"system logs. For more information, see https://github.com/nethserver/ns8-loki"
 
 #: ../../log_server.rst:156
+#, fuzzy
 msgid ""
 "The promtail.service core service operates on every node, reading system "
 "journals, forwarding new records to the active Loki instance, and "
 "preserving the last sent journal cursor position to ensure seamless "
 "restarts without log loss."
 msgstr ""
+"The promtail.service core service operates on every node, reading system "
+"journals, forwarding new records to the active Loki instance, and preserving "
+"the last sent journal cursor position to ensure seamless restarts without "
+"log loss."
 
 #: ../../mail.rst:7 ../../migration.rst:230
 #, fuzzy
@@ -3628,14 +3858,18 @@ msgid "The Mail application is split into four main parts:"
 msgstr "Il modulo Email è diviso in tre parti principali:"
 
 #: ../../mail.rst:11
+#, fuzzy
 msgid "`Postfix`__, an SMTP server for sending and receiving mail messages."
-msgstr ""
+msgstr "`Postfix`__, an SMTP server for sending and receiving mail messages."
 
 #: ../../mail.rst:15
+#, fuzzy
 msgid ""
 "`Dovecot`__, an IMAP and POP3 server to read email, with Sieve language "
 "to organize it."
 msgstr ""
+"`Dovecot`__, an IMAP and POP3 server to read email, with Sieve language to "
+"organize it."
 
 #: ../../mail.rst:19
 #, fuzzy
@@ -3645,8 +3879,9 @@ msgstr ""
 "allegati"
 
 #: ../../mail.rst:23
+#, fuzzy
 msgid "`ClamAV`__, an antivirus engine."
-msgstr ""
+msgstr "`ClamAV`__, an antivirus engine."
 
 #: ../../mail.rst:27
 msgid "Benefits are:"
@@ -3669,15 +3904,20 @@ msgid "optimized antivirus and antispam scan"
 msgstr "antivirus ottimizzato e scansione antispam"
 
 #: ../../mail.rst:36
+#, fuzzy
 msgid ""
 "Even if Software Center allows to install multiple instances of Mail on "
 "the same node, you can configure and start only one mail server instance "
 "per node, otherwise a TCP port conflict error occurs."
 msgstr ""
+"Even if Software Center allows to install multiple instances of Mail on the "
+"same node, you can configure and start only one mail server instance per "
+"node, otherwise a TCP port conflict error occurs."
 
 #: ../../mail.rst:40
+#, fuzzy
 msgid "A Mail instance can be integrated with other applications. For example:"
-msgstr ""
+msgstr "A Mail instance can be integrated with other applications. For example:"
 
 #: ../../mail.rst:42
 #, fuzzy
@@ -3700,10 +3940,13 @@ msgstr ""
 "migrazione da server IMAP esterni a caselle di posta degli utenti locali."
 
 #: ../../mail.rst:49
+#, fuzzy
 msgid ""
 ":ref:`Piler <piler-section>` archives any message sent or received by "
 "Mail with the SMTP protocol."
 msgstr ""
+":ref:`Piler <piler-section>` archives any message sent or received by Mail "
+"with the SMTP protocol."
 
 #: ../../mail.rst:56
 #, fuzzy
@@ -3846,11 +4089,15 @@ msgstr ""
 "headers."
 
 #: ../../mail.rst:113
+#, fuzzy
 msgid ""
 "In the ``Domains`` page, click on the three-dots menu near the domain "
 "card and select the ``Configure DKIM`` action, to enable or disable the "
 "message DKIM signature."
 msgstr ""
+"In the ``Domains`` page, click on the three-dots menu near the domain card "
+"and select the ``Configure DKIM`` action, to enable or disable the message "
+"DKIM signature."
 
 #: ../../mail.rst:117
 #, fuzzy
@@ -4020,15 +4267,20 @@ msgid "external email address"
 msgstr "external email address"
 
 #: ../../mail.rst:179
+#, fuzzy
 msgid ""
 "A mail address can be specific to one mail domain, or generic to all "
 "configured mail domains. In the latter case, we call it a \"wildcard "
 "address\". For example:"
 msgstr ""
+"A mail address can be specific to one mail domain, or generic to all "
+"configured mail domains. In the latter case, we call it a \"wildcard "
+"address\". For example:"
 
 #: ../../mail.rst:183
+#, fuzzy
 msgid "Two domains are configured, *mydomain.net* and *example.com*"
-msgstr ""
+msgstr "Two domains are configured, *mydomain.net* and *example.com*"
 
 #: ../../mail.rst:184
 #, fuzzy
@@ -4047,6 +4299,7 @@ msgstr ""
 "``info@example.com``"
 
 #: ../../mail.rst:189
+#, fuzzy
 msgid ""
 "Sometimes a company forbids communications from outside the organization "
 "using personal email addresses. To change the *visibility* of an address,"
@@ -4054,6 +4307,11 @@ msgid ""
 "shortcut, or select ``Edit`` and enable the ``Internal`` check box under "
 "the ``Advanced`` section."
 msgstr ""
+"Sometimes a company forbids communications from outside the organization "
+"using personal email addresses. To change the *visibility* of an address, "
+"click on the three-dots menu and select the ``Set as internal`` action "
+"shortcut, or select ``Edit`` and enable the ``Internal`` check box under the "
+"``Advanced`` section."
 
 #: ../../mail.rst:195
 #, fuzzy
@@ -4091,8 +4349,9 @@ msgid "Antispam"
 msgstr "Antispam"
 
 #: ../../mail.rst:210
+#, fuzzy
 msgid "Navigate to the ``Filter`` page to adjust their settings."
-msgstr ""
+msgstr "Navigate to the ``Filter`` page to adjust their settings."
 
 #: ../../mail.rst:217
 #, fuzzy
@@ -4106,19 +4365,28 @@ msgstr ""
 "periodically."
 
 #: ../../mail.rst:221
+#, fuzzy
 msgid ""
 "The default ClamAV signatures database is normally disabled because it "
 "consumes a large amount of memory. Select the ``Enable ClamAV official "
 "signatures`` checkbox if desired."
 msgstr ""
+"The default ClamAV signatures database is normally disabled because it "
+"consumes a large amount of memory. Select the ``Enable ClamAV official "
+"signatures`` checkbox if desired."
 
 #: ../../mail.rst:225
+#, fuzzy
 msgid ""
 "ClamAV unofficial signatures are always active instead. It is possible to"
 " choose the desired signature rating level among *Low*, *Medium*, *High*."
 " Bear in mind that higher ratings may lead to unwanted false positive "
 "matches, therefore good messages can be blocked."
 msgstr ""
+"ClamAV unofficial signatures are always active instead. It is possible to "
+"choose the desired signature rating level among *Low*, *Medium*, *High*. "
+"Bear in mind that higher ratings may lead to unwanted false positive "
+"matches, therefore good messages can be blocked."
 
 #: ../../mail.rst:237
 #, fuzzy
@@ -4163,27 +4431,40 @@ msgstr ""
 " and quickly adapt analyzing messages marked as **spam** or **ham**."
 
 #: ../../mail.rst:258
+#, fuzzy
 msgid ""
 "The spam score thresholds can be configured under the ``Antispam`` "
 "section of the ``Filter`` page."
 msgstr ""
+"The spam score thresholds can be configured under the ``Antispam`` section "
+"of the ``Filter`` page."
 
 #: ../../mail.rst:261
+#, fuzzy
 msgid ""
 "``Spam flag threshold`` determines the score value where a message is "
 "marked as spam. When a message has the spam flag set the consequent "
 "delivery action depends on the general settings of :ref:`mailboxes <mail-"
 "mailboxes-settings>`."
 msgstr ""
+"``Spam flag threshold`` determines the score value where a message is marked "
+"as spam. When a message has the spam flag set the consequent delivery action "
+"depends on the general settings of :ref:`mailboxes <mail-mailboxes-"
+"settings>`."
 
 #: ../../mail.rst:266
+#, fuzzy
 msgid ""
 "``Deny message spam threshold`` instead regulates the score that is "
 "considered too high to accept a message. If the score exceeds this value,"
 " the filter rejects the message completely."
 msgstr ""
+"``Deny message spam threshold`` instead regulates the score that is "
+"considered too high to accept a message. If the score exceeds this value, "
+"the filter rejects the message completely."
 
 #: ../../mail.rst:270
+#, fuzzy
 msgid ""
 "Under the ``Advanced`` section it is possible to enable the ``Greylist "
 "threshold``. When the message score exceeds this limit the filter asks "
@@ -4192,25 +4473,41 @@ msgid ""
 "retries. It is disabled by default because it introduces delivery delays "
 "also for legitimate senders."
 msgstr ""
+"Under the ``Advanced`` section it is possible to enable the ``Greylist "
+"threshold``. When the message score exceeds this limit the filter asks the "
+"sender to try again the message delivery at later time. The *Greylist* spam-"
+"fighting method assumes that spammers dislike delivery retries. It is "
+"disabled by default because it introduces delivery delays also for "
+"legitimate senders."
 
 #: ../../mail.rst:277
+#, fuzzy
 msgid ""
 "To access additional settings and review recent Rspamd activity, navigate"
 " to the web interface of Rspamd by selecting the :guilabel:`Open Rspamd` "
 "button located in the top-right corner of the Filter page. You'll need to"
 " provide your cluster-admin credentials for authentication."
 msgstr ""
+"To access additional settings and review recent Rspamd activity, navigate to "
+"the web interface of Rspamd by selecting the :guilabel:`Open Rspamd` button "
+"located in the top-right corner of the Filter page. You'll need to provide "
+"your cluster-admin credentials for authentication."
 
 #: ../../mail.rst:282
+#, fuzzy
 msgid ""
 "In some cases an email client, recipient, or sender must bypass the "
 "filter checks: the ``Bypass rules`` section allows to define a set of "
 "rules based on the follwing criteria:"
 msgstr ""
+"In some cases an email client, recipient, or sender must bypass the filter "
+"checks: the ``Bypass rules`` section allows to define a set of rules based "
+"on the follwing criteria:"
 
 #: ../../mail.rst:286
+#, fuzzy
 msgid "Sender IP address or network (CIDR format)."
-msgstr ""
+msgstr "Sender IP address or network (CIDR format)."
 
 #: ../../mail.rst:288
 #, fuzzy
@@ -4228,138 +4525,200 @@ msgid "Complete recipient email address."
 msgstr "external email address"
 
 #: ../../mail.rst:294
+#, fuzzy
 msgid "Recipient email domain."
-msgstr ""
+msgstr "Recipient email domain."
 
 #: ../../mail.rst:298
+#, fuzzy
 msgid "Queue"
-msgstr ""
+msgstr "Queue"
 
 #: ../../mail.rst:300
+#, fuzzy
 msgid ""
 "The ``Queue`` page shows the status of the Postifx mail queue. Under "
 "normal conditions the queue should be empty because messages are "
 "immediately exchanged between mail servers."
 msgstr ""
+"The ``Queue`` page shows the status of the Postifx mail queue. Under normal "
+"conditions the queue should be empty because messages are immediately "
+"exchanged between mail servers."
 
 #: ../../mail.rst:304
+#, fuzzy
 msgid ""
 "If the mail queue contains some messages, try to click the "
 ":guilabel:`Refresh` button to quickly check if the condition is "
 "temporary."
 msgstr ""
+"If the mail queue contains some messages, try to click the "
+":guilabel:`Refresh` button to quickly check if the condition is temporary."
 
 #: ../../mail.rst:307
+#, fuzzy
 msgid ""
 "As alternative, trigger an immediate new delivery attempt with the button"
 " :guilabel:`Resend all`, or remove all messages from the queue with "
 ":guilabel:`Delete all`."
 msgstr ""
+"As alternative, trigger an immediate new delivery attempt with the button "
+":guilabel:`Resend all`, or remove all messages from the queue with "
+":guilabel:`Delete all`."
 
 #: ../../mail.rst:311
+#, fuzzy
 msgid ""
 "The same actions can be selectively executed for each message in the "
 "queue, from its three-dots menu. The message delay reason, queue ID, "
 "arrival time, size, sender, and recipients can be inspected with the "
 "``See details`` action."
 msgstr ""
+"The same actions can be selectively executed for each message in the queue, "
+"from its three-dots menu. The message delay reason, queue ID, arrival time, "
+"size, sender, and recipients can be inspected with the ``See details`` "
+"action."
 
 #: ../../mail.rst:318
+#, fuzzy
 msgid ""
 "The ``Message ID`` value can be used to search the message in both "
 ":ref:`Rspamd web interface <antispam-section>` and :ref:`system-logs-"
 "section`."
 msgstr ""
+"The ``Message ID`` value can be used to search the message in both :ref:`"
+"Rspamd web interface <antispam-section>` and :ref:`system-logs-section`."
 
 #: ../../mail.rst:322
+#, fuzzy
 msgid ""
 "If the delay reason is not resolved, and the message is not deleted, the "
 "message is returned to the sender after a configurable amount of time. "
 "Click the :guilabel:`Settings` button to modify it. See :ref:`queue-"
 "settings-section` for details."
 msgstr ""
+"If the delay reason is not resolved, and the message is not deleted, the "
+"message is returned to the sender after a configurable amount of time. Click "
+"the :guilabel:`Settings` button to modify it. See :ref:`queue-settings-"
+"section` for details."
 
 #: ../../mail.rst:331
+#, fuzzy
 msgid "Relay"
-msgstr ""
+msgstr "Relay"
 
 #: ../../mail.rst:333
+#, fuzzy
 msgid ""
 "When a message is received from another mail server (MTA), or from a mail"
 " user agent (MUA), Postifx decides how to relay it towards its final "
 "destination. Typically the decision is based on the domain suffix of the "
 "recipient address."
 msgstr ""
+"When a message is received from another mail server (MTA), or from a mail "
+"user agent (MUA), Postifx decides how to relay it towards its final "
+"destination. Typically the decision is based on the domain suffix of the "
+"recipient address."
 
 #: ../../mail.rst:338
+#, fuzzy
 msgid ""
 "If the domain is handled by Postfix (i.e. it is listed in "
 ":ref:`email_domains`) the message is delivered locally."
 msgstr ""
+"If the domain is handled by Postfix (i.e. it is listed in "
+":ref:`email_domains`) the message is delivered locally."
 
 #: ../../mail.rst:341
+#, fuzzy
 msgid ""
 "Otherwise, if the domain is external, the message destination server "
 "(also known as \"next-hop\" server) is found with a MX DNS query."
 msgstr ""
+"Otherwise, if the domain is external, the message destination server (also "
+"known as \"next-hop\" server) is found with a MX DNS query."
 
 #: ../../mail.rst:344
+#, fuzzy
 msgid ""
 "The ``Relay`` page allows to configure a set of rules that overrides the "
 "external domain resolution based on DNS."
 msgstr ""
+"The ``Relay`` page allows to configure a set of rules that overrides the "
+"external domain resolution based on DNS."
 
 #: ../../mail.rst:348
+#, fuzzy
 msgid "Rules priority"
-msgstr ""
+msgstr "Rules priority"
 
 #: ../../mail.rst:350
+#, fuzzy
 msgid "Relay rules can be of three types:"
-msgstr ""
+msgstr "Relay rules can be of three types:"
 
 #: ../../mail.rst:352
+#, fuzzy
 msgid "Sender rule."
-msgstr ""
+msgstr "Sender rule."
 
 #: ../../mail.rst:354
+#, fuzzy
 msgid "Recipient rule."
-msgstr ""
+msgstr "Recipient rule."
 
 #: ../../mail.rst:356
+#, fuzzy
 msgid "Default rule. Only one default rule is allowed."
-msgstr ""
+msgstr "Default rule. Only one default rule is allowed."
 
 #: ../../mail.rst:358
+#, fuzzy
 msgid ""
 "The rules evaluation order is Sender, Recipient, Default: the first "
 "matching rule is applied. A match occurs based on the message sender or "
 "recipient, or if a default rule (that one matching any sender and "
 "recipient) is defined."
 msgstr ""
+"The rules evaluation order is Sender, Recipient, Default: the first matching "
+"rule is applied. A match occurs based on the message sender or recipient, or "
+"if a default rule (that one matching any sender and recipient) is defined."
 
 #: ../../mail.rst:363
+#, fuzzy
 msgid ""
 "Sender and Recipient matches can be an exact correspondence of the full "
 "email address, or match only the domain suffix. In the rules evaluation "
 "order, exact match is evaluated before the domain suffix match."
 msgstr ""
+"Sender and Recipient matches can be an exact correspondence of the full "
+"email address, or match only the domain suffix. In the rules evaluation "
+"order, exact match is evaluated before the domain suffix match."
 
 #: ../../mail.rst:368
+#, fuzzy
 msgid "Managing rules"
-msgstr ""
+msgstr "Managing rules"
 
 #: ../../mail.rst:370
+#, fuzzy
 msgid ""
 "Click on button :guilabel:`Add relay rule` to define a Sender or a "
 "Recipient rule. Specify the rule type and subject value (sender or "
 "recipient), then fill the remaining fields:"
 msgstr ""
+"Click on button :guilabel:`Add relay rule` to define a Sender or a Recipient "
+"rule. Specify the rule type and subject value (sender or recipient), then "
+"fill the remaining fields:"
 
 #: ../../mail.rst:374
+#, fuzzy
 msgid ""
 "**Hostname**, the name or IP address of the server where the message is "
 "relayed if the rule match."
 msgstr ""
+"**Hostname**, the name or IP address of the server where the message is "
+"relayed if the rule match."
 
 #: ../../mail.rst:376
 #, fuzzy
@@ -4367,39 +4726,59 @@ msgid "**Port**, the TCP port number used by the server."
 msgstr "``Port Number`` TCP port used by the LDAP server."
 
 #: ../../mail.rst:378
+#, fuzzy
 msgid ""
 "**Authentication**. If the server requires SMTP authentication provide "
 "the necessary credentials here."
 msgstr ""
+"**Authentication**. If the server requires SMTP authentication provide the "
+"necessary credentials here."
 
 #: ../../mail.rst:380
+#, fuzzy
 msgid ""
 "**TLS**. Enable this switch if the server expects TLS or STARTTLS "
 "encryption. It is recommended to enable it to encrypt both credentials "
 "and data during SMTP connections."
 msgstr ""
+"**TLS**. Enable this switch if the server expects TLS or STARTTLS "
+"encryption. It is recommended to enable it to encrypt both credentials and "
+"data during SMTP connections."
 
 #: ../../mail.rst:384
+#, fuzzy
 msgid ""
 "The :guilabel:`Set default rule` defines a rule that matches if none of "
 "the remaining rules do, or if no rule is defined at all. This type of "
 "rule is used to configure a `smarthost`__, a mail server where mail "
 "messages for external domains is relayed."
 msgstr ""
+"The :guilabel:`Set default rule` defines a rule that matches if none of the "
+"remaining rules do, or if no rule is defined at all. This type of rule is "
+"used to configure a `smarthost`__, a mail server where mail messages for "
+"external domains is relayed."
 
 #: ../../mail.rst:391
+#, fuzzy
 msgid ""
 "Once created, a rule can be edited, disabled or deleted from the three-"
 "dots menu. When a rule is edited, the rule type and subject cannot be "
 "changed: delete it instead."
 msgstr ""
+"Once created, a rule can be edited, disabled or deleted from the three-dots "
+"menu. When a rule is edited, the rule type and subject cannot be changed: "
+"delete it instead."
 
 #: ../../mail.rst:395
+#, fuzzy
 msgid ""
 "See also :ref:`mail-relay-settings` for other configurations about the "
 "relay of messages towards other mail servers. In the ``Relay`` page, the "
 ":guilabel:`Settings` button leads to them."
 msgstr ""
+"See also :ref:`mail-relay-settings` for other configurations about the relay "
+"of messages towards other mail servers. In the ``Relay`` page, the "
+":guilabel:`Settings` button leads to them."
 
 #: ../../mail.rst:403 ../../nethvoice.rst:224 ../../nethvoice.rst:367
 #: ../../nethvoice.rst:1234
@@ -4599,12 +4978,16 @@ msgid "Queue settings"
 msgstr "Impostazioni generali"
 
 #: ../../mail.rst:490
+#, fuzzy
 msgid ""
 "The ``Maximal queue lifetime`` parameter defines how many hours a message"
 " can remain in the mail queue before it is returned to the sender."
 msgstr ""
+"The ``Maximal queue lifetime`` parameter defines how many hours a message "
+"can remain in the mail queue before it is returned to the sender."
 
 #: ../../mail.rst:493
+#, fuzzy
 msgid ""
 "The default value, 120 hours (5 days), is the retry time suggested by "
 "RFC5321. Lower values might be set to warn the sender early if some error"
@@ -4612,6 +4995,11 @@ msgid ""
 " our IP address is in a public block list, the message sender will be "
 "notified after 5 days: it might be considered too late."
 msgstr ""
+"The default value, 120 hours (5 days), is the retry time suggested by "
+"RFC5321. Lower values might be set to warn the sender early if some error "
+"occurs. For example, if the remote mail server refuses a message because our "
+"IP address is in a public block list, the message sender will be notified "
+"after 5 days: it might be considered too late."
 
 #: ../../mail.rst:502
 #, fuzzy
@@ -4619,16 +5007,21 @@ msgid "Relay settings"
 msgstr "Impostazioni generali"
 
 #: ../../mail.rst:504
+#, fuzzy
 msgid ""
 "This section controls the Mail application configuration for special "
 "scenarios, described in the following sections."
 msgstr ""
+"This section controls the Mail application configuration for special "
+"scenarios, described in the following sections."
 
 #: ../../mail.rst:508
+#, fuzzy
 msgid "IP-based relay"
-msgstr ""
+msgstr "IP-based relay"
 
 #: ../../mail.rst:510
+#, fuzzy
 msgid ""
 "Some old mail clients, like scanners, which provide limited software "
 "capabilities, might not support SMTP authentication or encryption: in "
@@ -4636,66 +5029,101 @@ msgid ""
 "domains by looking at their IP address instead of the usual credentials "
 "check."
 msgstr ""
+"Some old mail clients, like scanners, which provide limited software "
+"capabilities, might not support SMTP authentication or encryption: in this "
+"case it is possible to authorize the relay of messages to external domains "
+"by looking at their IP address instead of the usual credentials check."
 
 #: ../../mail.rst:515
+#, fuzzy
 msgid ""
 "List the IP address of such devices in the ``Allow relay from these IP "
 "addresses`` field. The address can be in IPv4 or IPv6 format. The IP "
 "based policy can be spread to a whole network, specifying it in CIDR "
 "format."
 msgstr ""
+"List the IP address of such devices in the ``Allow relay from these IP "
+"addresses`` field. The address can be in IPv4 or IPv6 format. The IP based "
+"policy can be spread to a whole network, specifying it in CIDR format."
 
 #: ../../mail.rst:519
+#, fuzzy
 msgid "For example, a value for the field can be"
-msgstr ""
+msgstr "For example, a value for the field can be"
 
 #: ../../mail.rst:526
+#, fuzzy
 msgid ""
 "The IP address *192.168.12.42* (e.g. a document scanner) and the clients "
 "in the network subnet *10.77.4.0/24* can send mail messages without "
 "providing SMTP authentication."
 msgstr ""
+"The IP address *192.168.12.42* (e.g. a document scanner) and the clients in "
+"the network subnet *10.77.4.0/24* can send mail messages without providing "
+"SMTP authentication."
 
 #: ../../mail.rst:531
+#, fuzzy
 msgid "Sender/login correspondence"
-msgstr ""
+msgstr "Sender/login correspondence"
 
 #: ../../mail.rst:533
+#, fuzzy
 msgid ""
 "To avoid the unauthorized use of email addresses and the sender address "
 "spoofing within the organization, enable the ``Enforce sender/login "
 "match`` switch."
 msgstr ""
+"To avoid the unauthorized use of email addresses and the sender address "
+"spoofing within the organization, enable the ``Enforce sender/login match`` "
+"switch."
 
 #: ../../mail.rst:537
+#, fuzzy
 msgid ""
 "If the switch is enabled the sender address of a message must correspond "
 "to the login name used by the mail client to connect with the mail "
 "server. Search the login name in the :ref:`email_addresses` page to see "
 "what are the addresses it can use."
 msgstr ""
+"If the switch is enabled the sender address of a message must correspond to "
+"the login name used by the mail client to connect with the mail server. "
+"Search the login name in the :ref:`email_addresses` page to see what are the "
+"addresses it can use."
 
 #: ../../mail.rst:542
+#, fuzzy
 msgid ""
 "For example, with that switch enabled, if user ``john`` has email address"
 " ``john.doe@example.org`` he cannot write an email message with a "
 "different sender address, like ``sarah.smith@example.org``."
 msgstr ""
+"For example, with that switch enabled, if user ``john`` has email address "
+"``john.doe@example.org`` he cannot write an email message with a different "
+"sender address, like ``sarah.smith@example.org``."
 
 #: ../../mail.rst:546
+#, fuzzy
 msgid ""
 "If the switch is disabled, as per default Mail configuration, an "
 "authenticated mail client is allowed to send messages using any sender "
 "address, so back to our example ``john`` could write the message also as "
 "``sarah.smith@example.org``."
 msgstr ""
+"If the switch is disabled, as per default Mail configuration, an "
+"authenticated mail client is allowed to send messages using any sender "
+"address, so back to our example ``john`` could write the message also as "
+"``sarah.smith@example.org``."
 
 #: ../../mail.rst:553
+#, fuzzy
 msgid ""
 "If you decide to enable the switch consider that public mailboxes and "
 "LDAP group addresses are not evaluated for the login/address "
 "correspondence."
 msgstr ""
+"If you decide to enable the switch consider that public mailboxes and LDAP "
+"group addresses are not evaluated for the login/address correspondence."
 
 #: ../../mail.rst:560
 #, fuzzy
@@ -4703,33 +5131,49 @@ msgid "Mail archive"
 msgstr "Mail archiving"
 
 #: ../../mail.rst:562
+#, fuzzy
 msgid ""
 "The ``Always BCC`` switch controls a feature often required by mail "
 "archiving solutions."
 msgstr ""
+"The ``Always BCC`` switch controls a feature often required by mail "
+"archiving solutions."
 
 #: ../../mail.rst:565
+#, fuzzy
 msgid ""
 "The acronym BCC stands for Blind Carbon Copy. When the switch is enabled,"
 " enter a value in the ``Always BCC address`` field: this address will "
 "receive a hidden copy of any email message sent or received by the Mail "
 "server."
 msgstr ""
+"The acronym BCC stands for Blind Carbon Copy. When the switch is enabled, "
+"enter a value in the ``Always BCC address`` field: this address will receive "
+"a hidden copy of any email message sent or received by the Mail server."
 
 #: ../../mail.rst:572
+#, fuzzy
 msgid ""
 "Making a hidden copy of private email messages is a privacy-sensitive "
 "feature. Ensure its use complies with your country's privacy laws, "
 "regulations, and company policies."
 msgstr ""
+"Making a hidden copy of private email messages is a privacy-sensitive "
+"feature. Ensure its use complies with your country's privacy laws, "
+"regulations, and company policies."
 
 #: ../../mail.rst:576
+#, fuzzy
 msgid ""
 "The :ref:`Piler application <piler-section>` can automatically configure "
 "this field with the appropriate value, such as ``archive@piler1`` or "
 "similar. In this case, changing the address might prevent Piler from "
 "archiving new messages."
 msgstr ""
+"The :ref:`Piler application <piler-section>` can automatically configure "
+"this field with the appropriate value, such as ``archive@piler1`` or "
+"similar. In this case, changing the address might prevent Piler from "
+"archiving new messages."
 
 #: ../../mail.rst:585
 #, fuzzy
@@ -4890,10 +5334,12 @@ msgid "Please change them after the first login."
 msgstr "Please change them after the first login."
 
 #: ../../mariadb.rst:32
+#, fuzzy
 msgid "Access database"
-msgstr ""
+msgstr "Access database"
 
 #: ../../mariadb.rst:34
+#, fuzzy
 msgid ""
 "The database uses a TCP port (> 20000) that is not opened in the firewall"
 " of the server for security reason. You can find the TCP port inside the "
@@ -4902,10 +5348,16 @@ msgid ""
 "with the custom port. The communication is encrypted with the wireguard "
 "VPN."
 msgstr ""
+"The database uses a TCP port (> 20000) that is not opened in the firewall of "
+"the server for security reason. You can find the TCP port inside the "
+"configuration panel of the module To access the database from a web "
+"application with a NS8 node you can use the IP of the VPN wg0 interface with "
+"the custom port. The communication is encrypted with the wireguard VPN."
 
 #: ../../mariadb.rst:37
+#, fuzzy
 msgid "For instance : 10.5.4.1:20001"
-msgstr ""
+msgstr "For instance : 10.5.4.1:20001"
 
 #: ../../mattermost.rst:3
 msgid "Mattermost"
@@ -5567,34 +6019,51 @@ msgstr ""
 "sezione`."
 
 #: ../../migration.rst:232
+#, fuzzy
 msgid ""
 "The Migration Procedure preserves both data and configurations of NS7 "
 "Email application, unless stated differently in this section or in :ref"
 ":`config-excluded-migration`."
 msgstr ""
+"The Migration Procedure preserves both data and configurations of NS7 Email "
+"application, unless stated differently in this section or in :ref:`config-"
+"excluded-migration`."
 
 #: ../../migration.rst:236
+#, fuzzy
 msgid ""
 "Mail messages are copied to NS8 with Rsync. After :guilabel:`Finish "
 "migration` is clicked, some time-consuming operations are executed."
 msgstr ""
+"Mail messages are copied to NS8 with Rsync. After :guilabel:`Finish "
+"migration` is clicked, some time-consuming operations are executed."
 
 #: ../../migration.rst:239
+#, fuzzy
 msgid ""
 "**IMAP ACL Format Conversion**: The user and group name format in IMAP "
 "ACLs is modified by removing the domain suffix. For example, an ACL entry"
 " referring to IMAP user `john.doe@server.example.org` becomes `john.doe`."
 " IMAP login still accepts both formats."
 msgstr ""
+"**IMAP ACL Format Conversion**: The user and group name format in IMAP ACLs "
+"is modified by removing the domain suffix. For example, an ACL entry "
+"referring to IMAP user `john.doe@server.example.org` becomes `john.doe`. "
+"IMAP login still accepts both formats."
 
 #: ../../migration.rst:244
+#, fuzzy
 msgid ""
 "**Quota Recalculation**: If IMAP quota is enabled, mailbox sizes are "
 "recalculated in the background. During this time, disk usage of mailboxes"
 " might not be available."
 msgstr ""
+"**Quota Recalculation**: If IMAP quota is enabled, mailbox sizes are "
+"recalculated in the background. During this time, disk usage of mailboxes "
+"might not be available."
 
 #: ../../migration.rst:248
+#, fuzzy
 msgid ""
 "**Messages and Attachments Reindexing**: The full-text search engine of "
 "NS8 runs in the background to reindex all messages and attachments. "
@@ -5602,12 +6071,19 @@ msgid ""
 "reindexing process is still running, use the command ``pgrep dovecot-"
 "index``."
 msgstr ""
+"**Messages and Attachments Reindexing**: The full-text search engine of NS8 "
+"runs in the background to reindex all messages and attachments. During this "
+"time, full-text searches might not work. To check if the reindexing process "
+"is still running, use the command ``pgrep dovecot-index``."
 
 #: ../../migration.rst:253
+#, fuzzy
 msgid ""
 "Remember to update the DNS records or transfer the IP address to the NS8 "
 "node at the end of the migration."
 msgstr ""
+"Remember to update the DNS records or transfer the IP address to the NS8 "
+"node at the end of the migration."
 
 #: ../../migration.rst:257
 #, fuzzy
@@ -5615,12 +6091,17 @@ msgid "Smart host"
 msgstr "Virtual hosts"
 
 #: ../../migration.rst:259
+#, fuzzy
 msgid ""
 "The NS7 system smart host configuration is converted to a :ref:`default "
 "relay rule <relay-rules-section>`. The NS8 Mail application is then "
 "configured as the SMTP server for every application in the cluster: see "
 ":ref:`email-notifications`."
 msgstr ""
+"The NS7 system smart host configuration is converted to a :ref:`default "
+"relay rule <relay-rules-section>`. The NS8 Mail application is then "
+"configured as the SMTP server for every application in the cluster: see :ref"
+":`email-notifications`."
 
 #: ../../migration.rst:267
 msgid "POP3 connector"
@@ -5748,11 +6229,15 @@ msgid "Limitations"
 msgstr "Applicazioni"
 
 #: ../../migration.rst:308
+#, fuzzy
 msgid ""
 "The migration tool supports a limited set of applications. If an "
 "application is installed but not listed on the migration tool page, it "
 "will not be covered by the migration process."
 msgstr ""
+"The migration tool supports a limited set of applications. If an application "
+"is installed but not listed on the migration tool page, it will not be "
+"covered by the migration process."
 
 #: ../../migration.rst:312
 #, fuzzy
@@ -5774,16 +6259,22 @@ msgstr ""
 "`migrate-account-provider`)"
 
 #: ../../migration.rst:319
+#, fuzzy
 msgid ""
 "System smart host settings, if the NS7 Email app is either not installed "
 "or not migrated"
 msgstr ""
+"System smart host settings, if the NS7 Email app is either not installed or "
+"not migrated"
 
 #: ../../migration.rst:322
+#, fuzzy
 msgid ""
 "Additionally, shared folders will not be migrated if NS7 uses a remote "
 "account provider."
 msgstr ""
+"Additionally, shared folders will not be migrated if NS7 uses a remote "
+"account provider."
 
 #: ../../minio.rst:5
 msgid "MinIO"
@@ -6115,16 +6606,21 @@ msgstr ""
 " fare riferimento alla pagina :ref:`software_center-sezione`."
 
 #: ../../netdata.rst:5
+#, fuzzy
 msgid "Netdata"
-msgstr ""
+msgstr "Netdata"
 
 #: ../../netdata.rst:7
+#, fuzzy
 msgid ""
 "This application installs and configures a `Netdata Agent`__ instance on "
 "the chosen NethServer 8 cluster node."
 msgstr ""
+"This application installs and configures a `Netdata Agent`__ instance on the "
+"chosen NethServer 8 cluster node."
 
 #: ../../netdata.rst:12
+#, fuzzy
 msgid ""
 "A Netdata Agent collects and displays local system metrics in a web user "
 "interface. Although it can be part of broad deployments, the provided "
@@ -6133,27 +6629,44 @@ msgid ""
 "network...) and is not intended for monitoring specific applications or "
 "integration with Netdata Cloud."
 msgstr ""
+"A Netdata Agent collects and displays local system metrics in a web user "
+"interface. Although it can be part of broad deployments, the provided "
+"configuration is tailored for the local system only, aiming to assist in the "
+"analysis of basic resource usage of the node (CPU, RAM, disks, network...) "
+"and is not intended for monitoring specific applications or integration with "
+"Netdata Cloud."
 
 #: ../../netdata.rst:22
+#, fuzzy
 msgid ""
 "After installation, the application does not require any special "
 "configuration. To access the Netdata web interface, navigate to the "
 "Status page and follow the ``Application URL`` link."
 msgstr ""
+"After installation, the application does not require any special "
+"configuration. To access the Netdata web interface, navigate to the Status "
+"page and follow the ``Application URL`` link."
 
 #: ../../netdata.rst:26
+#, fuzzy
 msgid ""
 "The random URL path component is generated at installation time and never"
 " changes. It can also be obtained from the cluster Settings page, under "
 "the \"HTTP routes\" section, by searching for ``netdata``."
 msgstr ""
+"The random URL path component is generated at installation time and never "
+"changes. It can also be obtained from the cluster Settings page, under the "
+"\"HTTP routes\" section, by searching for ``netdata``."
 
 #: ../../netdata.rst:32
+#, fuzzy
 msgid ""
 "The web interface has no authentication. While it does not contain any "
 "inherently sensitive information, be sure to keep the random URL path "
 "secret."
 msgstr ""
+"The web interface has no authentication. While it does not contain any "
+"inherently sensitive information, be sure to keep the random URL path secret."
 
 #: ../../netdata.rst:37
 #, fuzzy
@@ -6161,15 +6674,20 @@ msgid "Metrics storage"
 msgstr "Local storage"
 
 #: ../../netdata.rst:39
+#, fuzzy
 msgid ""
 "The Netdata Agent configuration is derived from the stock Netdata "
 "official Docker image. It has three tiers of storage with different "
 "metrics resolution and retention policies: second, minute, hour."
 msgstr ""
+"The Netdata Agent configuration is derived from the stock Netdata official "
+"Docker image. It has three tiers of storage with different metrics "
+"resolution and retention policies: second, minute, hour."
 
 #: ../../netdata.rst:43
+#, fuzzy
 msgid "Retention policy per storage tier"
-msgstr ""
+msgstr "Retention policy per storage tier"
 
 #: ../../netdata.rst:1
 #, fuzzy
@@ -6192,46 +6710,57 @@ msgid "Disk retention"
 msgstr "Data retention policy"
 
 #: ../../netdata.rst:1
+#, fuzzy
 msgid "Tier 0"
-msgstr ""
+msgstr "Tier 0"
 
 #: ../../netdata.rst:1
+#, fuzzy
 msgid "1 second"
-msgstr ""
+msgstr "1 second"
 
 #: ../../netdata.rst:1
+#, fuzzy
 msgid "3 hours"
-msgstr ""
+msgstr "3 hours"
 
 #: ../../netdata.rst:1
+#, fuzzy
 msgid "268 MB"
-msgstr ""
+msgstr "268 MB"
 
 #: ../../netdata.rst:1
+#, fuzzy
 msgid "Tier 1"
-msgstr ""
+msgstr "Tier 1"
 
 #: ../../netdata.rst:1
+#, fuzzy
 msgid "1 minute"
-msgstr ""
+msgstr "1 minute"
 
 #: ../../netdata.rst:1
+#, fuzzy
 msgid "infinite"
-msgstr ""
+msgstr "infinite"
 
 #: ../../netdata.rst:1
+#, fuzzy
 msgid "Tier 2"
-msgstr ""
+msgstr "Tier 2"
 
 #: ../../netdata.rst:1 ../../nethvoice.rst:1242
+#, fuzzy
 msgid "1 hour"
-msgstr ""
+msgstr "1 hour"
 
 #: ../../netdata.rst:1
+#, fuzzy
 msgid "67 MB"
-msgstr ""
+msgstr "67 MB"
 
 #: ../../netdata.rst:50
+#, fuzzy
 msgid ""
 "The stock configuration provides 3 hours of fine-grained metrics with one"
 " second resolution. The minute-level tier should be sufficient to cover "
@@ -6239,29 +6768,45 @@ msgid ""
 "weeks. Actual retention may vary depending on system activity or the "
 "specific metrics being collected."
 msgstr ""
+"The stock configuration provides 3 hours of fine-grained metrics with one "
+"second resolution. The minute-level tier should be sufficient to cover one "
+"day of recordings, while the hour-level should cover a time range of weeks. "
+"Actual retention may vary depending on system activity or the specific "
+"metrics being collected."
 
 #: ../../nethsecurity_controller.rst:5
+#, fuzzy
 msgid "NethSecurity Controller"
-msgstr ""
+msgstr "NethSecurity Controller"
 
 #: ../../nethsecurity_controller.rst:7
+#, fuzzy
 msgid ""
 "The NethSecurity controller allows for remote management of multiple "
 "`NethSecurity <https://docs.nethsecurity.org>`_ installations, referred "
 "to as units."
 msgstr ""
+"The NethSecurity controller allows for remote management of multiple `"
+"NethSecurity <https://docs.nethsecurity.org>`_ installations, referred to as "
+"units."
 
 #: ../../nethsecurity_controller.rst:9
+#, fuzzy
 msgid ""
 "The controller establishes a secure connection between the central server"
 " and the units. Each firewall registers with the server using the ns-plug"
 " client. Once registered, the server generates a VPN configuration that "
 "enables secure communication between the controller and the unit."
 msgstr ""
+"The controller establishes a secure connection between the central server "
+"and the units. Each firewall registers with the server using the ns-plug "
+"client. Once registered, the server generates a VPN configuration that "
+"enables secure communication between the controller and the unit."
 
 #: ../../nethsecurity_controller.rst:13
+#, fuzzy
 msgid "Key features of the NethSecurity controller include:"
-msgstr ""
+msgstr "Key features of the NethSecurity controller include:"
 
 #: ../../nethsecurity_controller.rst:15
 msgid ""
@@ -6272,10 +6817,13 @@ msgstr ""
 "controller."
 
 #: ../../nethsecurity_controller.rst:16
+#, fuzzy
 msgid ""
 "**Secure Communication**: Establish a secure OpenVPN connection between "
 "the server and the firewalls."
 msgstr ""
+"**Secure Communication**: Establish a secure OpenVPN connection between the "
+"server and the firewalls."
 
 #: ../../nethsecurity_controller.rst:17
 msgid ""
@@ -6286,16 +6834,22 @@ msgstr ""
 "dall'interfaccia utente del controller."
 
 #: ../../nethsecurity_controller.rst:18
+#, fuzzy
 msgid ""
 "**Monitoring and Logging**: Collect and analyze logs from the firewalls "
 "using Loki for troubleshooting and monitoring purposes."
 msgstr ""
+"**Monitoring and Logging**: Collect and analyze logs from the firewalls "
+"using Loki for troubleshooting and monitoring purposes."
 
 #: ../../nethsecurity_controller.rst:19
+#, fuzzy
 msgid ""
 "**Metrics Visualization**: Visualize metrics from the firewalls using the"
 " built-in Grafana dashboard. Metrics are collected using Prometheus."
 msgstr ""
+"**Metrics Visualization**: Visualize metrics from the firewalls using the "
+"built-in Grafana dashboard. Metrics are collected using Prometheus."
 
 #: ../../nethsecurity_controller.rst:20
 msgid ""
@@ -6306,21 +6860,28 @@ msgstr ""
 "client web SSH."
 
 #: ../../nethsecurity_controller.rst:22
+#, fuzzy
 msgid ""
 "See the `NethSecurity controller documentation`_ to learn more about the "
 "controller's features and how to set it up."
 msgstr ""
+"See the `NethSecurity controller documentation`_ to learn more about the "
+"controller's features and how to set it up."
 
 #: ../../nethvoice.rst:4
 msgid "NethVoice"
 msgstr "NethVoice"
 
 #: ../../nethvoice.rst:6
+#, fuzzy
 msgid ""
 "NethVoice is a comprehensive communication system that integrates voice, "
 "video, and mobile capabilities. The NethVoice module is divided into "
 "seven main parts:"
 msgstr ""
+"NethVoice is a comprehensive communication system that integrates voice, "
+"video, and mobile capabilities. The NethVoice module is divided into seven "
+"main parts:"
 
 #: ../../nethvoice.rst:9
 #, fuzzy
@@ -6891,16 +7452,21 @@ msgstr ""
 "phones configured with a non-administrative user."
 
 #: ../../nethvoice.rst:149
+#, fuzzy
 msgid ""
 "The NethVoice address to be provided to the phones via configuration is "
 "obtained from the application settings."
 msgstr ""
+"The NethVoice address to be provided to the phones via configuration is "
+"obtained from the application settings."
 
 #: ../../nethvoice.rst:151
+#, fuzzy
 msgid ""
 "The use of encryption in SIP connections for devices is enabled by "
 "default."
 msgstr ""
+"The use of encryption in SIP connections for devices is enabled by default."
 
 #: ../../nethvoice.rst:153
 #, fuzzy
@@ -6921,16 +7487,19 @@ msgid ""
 msgstr ":ref:`Preferences <panel-preferences>`"
 
 #: ../../nethvoice.rst:157
+#, fuzzy
 msgid ":guilabel:`Phone languages`"
-msgstr ""
+msgstr ":guilabel:`Phone languages`"
 
 #: ../../nethvoice.rst:158
+#, fuzzy
 msgid ":guilabel:`Provisiong scheduling`"
-msgstr ""
+msgstr ":guilabel:`Provisiong scheduling`"
 
 #: ../../nethvoice.rst:159
+#, fuzzy
 msgid ":guilabel:`Tone zone`"
-msgstr ""
+msgstr ":guilabel:`Tone zone`"
 
 #: ../../nethvoice.rst:161
 #, fuzzy
@@ -7776,26 +8345,33 @@ msgid "Provisioning"
 msgstr "Permissions"
 
 #: ../../nethvoice.rst:383
+#, fuzzy
 msgid ""
 "What does Provisioning mean? Provisioning involves configuring phones in "
 "automatic mode, minimizing the necessary operations."
 msgstr ""
+"What does Provisioning mean? Provisioning involves configuring phones in "
+"automatic mode, minimizing the necessary operations."
 
 #: ../../nethvoice.rst:386
+#, fuzzy
 msgid "Phones Provisioning"
-msgstr ""
+msgstr "Phones Provisioning"
 
 #: ../../nethvoice.rst:388
+#, fuzzy
 msgid "Actions to be performed in NethVoice:"
-msgstr ""
+msgstr "Actions to be performed in NethVoice:"
 
 #: ../../nethvoice.rst:390
+#, fuzzy
 msgid "Identification of phones."
-msgstr ""
+msgstr "Identification of phones."
 
 #: ../../nethvoice.rst:392
+#, fuzzy
 msgid "Assignment of phones to users."
-msgstr ""
+msgstr "Assignment of phones to users."
 
 #: ../../nethvoice.rst:395
 #, fuzzy
@@ -7803,103 +8379,147 @@ msgid "Identification of Phones"
 msgstr "Email notifications"
 
 #: ../../nethvoice.rst:397
+#, fuzzy
 msgid ""
 "The MAC address is fundamental for the **Provisioning** of NethVoice as "
 "it uniquely identifies the phone."
 msgstr ""
+"The MAC address is fundamental for the **Provisioning** of NethVoice as it "
+"uniquely identifies the phone."
 
 #: ../../nethvoice.rst:399
+#, fuzzy
 msgid ""
 "Entering the MAC address of the phones does not require connecting the "
 "phone to the network. Indeed, it is possible to enter the MAC addresses "
 "of phones that are still packaged."
 msgstr ""
+"Entering the MAC address of the phones does not require connecting the phone "
+"to the network. Indeed, it is possible to enter the MAC addresses of phones "
+"that are still packaged."
 
 #: ../../nethvoice.rst:401
+#, fuzzy
 msgid ""
 "Regardless, you can enter the MAC addresses of the phones by typing or "
 "copying the MAC address from a spreadsheet, invoice, or other document."
 msgstr ""
+"Regardless, you can enter the MAC addresses of the phones by typing or "
+"copying the MAC address from a spreadsheet, invoice, or other document."
 
 #: ../../nethvoice.rst:404
+#, fuzzy
 msgid "Associating Phones with Users"
-msgstr ""
+msgstr "Associating Phones with Users"
 
 #: ../../nethvoice.rst:406
+#, fuzzy
 msgid ""
 "The configuration of a phone is complete when it is associated with a "
 "user."
 msgstr ""
+"The configuration of a phone is complete when it is associated with a user."
 
 #: ../../nethvoice.rst:408
+#, fuzzy
 msgid "Up to eight telephone devices can be associated with each user."
-msgstr ""
+msgstr "Up to eight telephone devices can be associated with each user."
 
 #: ../../nethvoice.rst:410
+#, fuzzy
 msgid ""
 "NethVoice assigns a progressive number to each device associated with the"
 " user using the following criteria:"
 msgstr ""
+"NethVoice assigns a progressive number to each device associated with the "
+"user using the following criteria:"
 
 #: ../../nethvoice.rst:412
+#, fuzzy
 msgid "``Main Extension`` - main phone, for example, ``201``"
-msgstr ""
+msgstr "``Main Extension`` - main phone, for example, ``201``"
 
 #: ../../nethvoice.rst:414
+#, fuzzy
 msgid "``91+Main Extension`` - phone 2, for example, ``91201``"
-msgstr ""
+msgstr "``91+Main Extension`` - phone 2, for example, ``91201``"
 
 #: ../../nethvoice.rst:416
+#, fuzzy
 msgid "``92+Main Extension`` - phone 3, for example, ``92201``"
-msgstr ""
+msgstr "``92+Main Extension`` - phone 3, for example, ``92201``"
 
 #: ../../nethvoice.rst:418
+#, fuzzy
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../../nethvoice.rst:420
+#, fuzzy
 msgid ""
 "However, from the users' perspective, the Main Extension is the only "
 "important number to remember."
 msgstr ""
+"However, from the users' perspective, the Main Extension is the only "
+"important number to remember."
 
 #: ../../nethvoice.rst:423
+#, fuzzy
 msgid "Actions to Be Performed on the Phones"
-msgstr ""
+msgstr "Actions to Be Performed on the Phones"
 
 #: ../../nethvoice.rst:427
+#, fuzzy
 msgid ""
 "Let's consider the **first boot** for phones that are new, just taken out"
 " of the box, or those that have undergone a factory reset and have never "
 "been started up."
 msgstr ""
+"Let's consider the **first boot** for phones that are new, just taken out of "
+"the box, or those that have undergone a factory reset and have never been "
+"started up."
 
 #: ../../nethvoice.rst:429
+#, fuzzy
 msgid ""
 "Phones at **first boot** are already able to reach NethVoice to retrieve "
 "their configuration using supported methods."
 msgstr ""
+"Phones at **first boot** are already able to reach NethVoice to retrieve "
+"their configuration using supported methods."
 
 #: ../../nethvoice.rst:431
+#, fuzzy
 msgid ""
 "The only action required in these cases is to connect the Ethernet cable "
 "with PoE (Power over Ethernet) to the phone. If PoE is not available, it "
 "will also be necessary to connect the phone's power cable."
 msgstr ""
+"The only action required in these cases is to connect the Ethernet cable "
+"with PoE (Power over Ethernet) to the phone. If PoE is not available, it "
+"will also be necessary to connect the phone's power cable."
 
 #: ../../nethvoice.rst:435
+#, fuzzy
 msgid ""
 "Verify the compatibility of the phones with supported provisioning "
 "methods. Please read the following sections carefully."
 msgstr ""
+"Verify the compatibility of the phones with supported provisioning methods. "
+"Please read the following sections carefully."
 
 #: ../../nethvoice.rst:437
+#, fuzzy
 msgid ""
 "If a phone is already in use, it is possible to prepare it for "
 "association with NethVoice through **firmware upgrade** and **factory "
 "reset** procedures. Both procedures are accessible via the phone's web "
 "administration interface."
 msgstr ""
+"If a phone is already in use, it is possible to prepare it for association "
+"with NethVoice through **firmware upgrade** and **factory reset** "
+"procedures. Both procedures are accessible via the phone's web "
+"administration interface."
 
 #: ../../nethvoice.rst:442
 #, fuzzy
@@ -7907,16 +8527,22 @@ msgid "Provisioning Methods"
 msgstr "Provisioning Parameters Guide"
 
 #: ../../nethvoice.rst:444
+#, fuzzy
 msgid ""
 "Phones can access their configuration via standard web protocols, HTTP or"
 " HTTPS (TCP port 80 or 443)."
 msgstr ""
+"Phones can access their configuration via standard web protocols, HTTP or "
+"HTTPS (TCP port 80 or 443)."
 
 #: ../../nethvoice.rst:446
+#, fuzzy
 msgid ""
 "When the MAC address of the phone is entered into NethVoice, a "
 "provisioning URL (address) is generated."
 msgstr ""
+"When the MAC address of the phone is entered into NethVoice, a provisioning "
+"URL (address) is generated."
 
 #: ../../nethvoice.rst:448
 #, fuzzy
@@ -7924,22 +8550,30 @@ msgid "For example:"
 msgstr "Example:"
 
 #: ../../nethvoice.rst:450
+#, fuzzy
 msgid "https://NethVoiceBaseHost/provisioning/1234567890.1234/{mac}.cfg"
-msgstr ""
+msgstr "https://NethVoiceBaseHost/provisioning/1234567890.1234/{mac}.cfg"
 
 #: ../../nethvoice.rst:452
+#, fuzzy
 msgid ""
 "This URL contains a secret (``1234567890.1234`` in the example) that "
 "authenticates and identifies the device that will use it."
 msgstr ""
+"This URL contains a secret (``1234567890.1234`` in the example) that "
+"authenticates and identifies the device that will use it."
 
 #: ../../nethvoice.rst:454
+#, fuzzy
 msgid ""
 "To obtain the provisioning URL, the phone, at its first boot, can use two"
 " methods: **RPS** and **DHCP**."
 msgstr ""
+"To obtain the provisioning URL, the phone, at its first boot, can use two "
+"methods: **RPS** and **DHCP**."
 
 #: ../../nethvoice.rst:456
+#, fuzzy
 msgid ""
 "The **RPS** (Redirect & Provisioning Service) method involves entering "
 "the provisioning URL on the manufacturer's website for the phone. "
@@ -7947,40 +8581,63 @@ msgid ""
 "as the phone is powered on for the first time, it attempts to contact the"
 " manufacturer's website to obtain the provisioning URL."
 msgstr ""
+"The **RPS** (Redirect & Provisioning Service) method involves entering the "
+"provisioning URL on the manufacturer's website for the phone. NethVoice is "
+"capable of performing this insertion automatically. As soon as the phone is "
+"powered on for the first time, it attempts to contact the manufacturer's "
+"website to obtain the provisioning URL."
 
 #: ../../nethvoice.rst:458
+#, fuzzy
 msgid ""
 "The **DHCP** method is based on configuring OPTION 66 of the DHCP "
 "(Dynamic Host Configuration Protocol) protocol specifically for each "
 "brand of phone. It is necessary to configure the network's DHCP server "
 "appropriately."
 msgstr ""
+"The **DHCP** method is based on configuring OPTION 66 of the DHCP (Dynamic "
+"Host Configuration Protocol) protocol specifically for each brand of phone. "
+"It is necessary to configure the network's DHCP server appropriately."
 
 #: ../../nethvoice.rst:460
+#, fuzzy
 msgid ""
 "If neither RPS nor DHCP works, it is possible to access the web interface"
 " of the phone's administration and manually enter the provisioning URL. "
 "Remember to disable other provisioning methods, such as DHCP and PNP."
 msgstr ""
+"If neither RPS nor DHCP works, it is possible to access the web interface of "
+"the phone's administration and manually enter the provisioning URL. Remember "
+"to disable other provisioning methods, such as DHCP and PNP."
 
 #: ../../nethvoice.rst:462
+#, fuzzy
 msgid ""
 "The provisioning URL is displayed in the administration interface of "
 "NethVoice for each phone, via the :guilabel:`Info` button on the page "
 ":guilabel:`Devices > Phones`."
 msgstr ""
+"The provisioning URL is displayed in the administration interface of "
+"NethVoice for each phone, via the :guilabel:`Info` button on the page "
+":guilabel:`Devices > Phones`."
 
 #: ../../nethvoice.rst:464
+#, fuzzy
 msgid ""
 "In any case, once the provisioning URL is obtained, the phone always uses"
 " this to access its configuration on NethVoice."
 msgstr ""
+"In any case, once the provisioning URL is obtained, the phone always uses "
+"this to access its configuration on NethVoice."
 
 #: ../../nethvoice.rst:468
+#, fuzzy
 msgid ""
 "Refer to section :ref:`provisioning-support-section` for further "
 "information on manufacturers' support for RPS and DHCP."
 msgstr ""
+"Refer to section :ref:`provisioning-support-section` for further information "
+"on manufacturers' support for RPS and DHCP."
 
 #: ../../nethvoice.rst:471
 #, fuzzy
@@ -7988,16 +8645,22 @@ msgid "Phone Configuration Specifications"
 msgstr "Configurazione"
 
 #: ../../nethvoice.rst:473
+#, fuzzy
 msgid ""
 "If you want to modify or customize the settings of phones configured via "
 "provisioning, access the web administration interface of NethVoice, "
 "modifying the settings at the *Default*, *Model*, or *individual phone* "
 "level."
 msgstr ""
+"If you want to modify or customize the settings of phones configured via "
+"provisioning, access the web administration interface of NethVoice, "
+"modifying the settings at the *Default*, *Model*, or *individual phone* "
+"level."
 
 #: ../../nethvoice.rst:475
+#, fuzzy
 msgid "The editable parameters include:"
-msgstr ""
+msgstr "The editable parameters include:"
 
 #: ../../nethvoice.rst:477
 #, fuzzy
@@ -8005,12 +8668,14 @@ msgid "Language"
 msgstr "Languages"
 
 #: ../../nethvoice.rst:478
+#, fuzzy
 msgid "Time zone"
-msgstr ""
+msgstr "Time zone"
 
 #: ../../nethvoice.rst:479
+#, fuzzy
 msgid "Date/time format"
-msgstr ""
+msgstr "Date/time format"
 
 #: ../../nethvoice.rst:480
 #, fuzzy
@@ -8023,12 +8688,14 @@ msgid "Admin user password"
 msgstr "master user password"
 
 #: ../../nethvoice.rst:482
+#, fuzzy
 msgid "Call waiting"
-msgstr ""
+msgstr "Call waiting"
 
 #: ../../nethvoice.rst:483
+#, fuzzy
 msgid "Ringtone"
-msgstr ""
+msgstr "Ringtone"
 
 #: ../../nethvoice.rst:484
 #, fuzzy
@@ -8043,7 +8710,7 @@ msgstr "Active Directory"
 #: ../../nethvoice.rst:486
 #, fuzzy
 msgid "VLAN"
-msgstr "PLAIN"
+msgstr "VLAN"
 
 #: ../../nethvoice.rst:487
 #, fuzzy
@@ -8061,12 +8728,14 @@ msgid "Expansion keys"
 msgstr "Extensions"
 
 #: ../../nethvoice.rst:490
+#, fuzzy
 msgid "Screen Saver and Background"
-msgstr ""
+msgstr "Screen Saver and Background"
 
 #: ../../nethvoice.rst:492
+#, fuzzy
 msgid "Refer to :ref:`wizard-section` for more information."
-msgstr ""
+msgstr "Refer to :ref:`wizard-section` for more information."
 
 #: ../../nethvoice.rst:496
 #, fuzzy
@@ -8074,32 +8743,45 @@ msgid "Do not change settings from the phone's administration interface."
 msgstr "enable built-in web administration interface"
 
 #: ../../nethvoice.rst:498
+#, fuzzy
 msgid ""
 "Upon restart, the phone retrieves the configurations from the "
 "provisioning URL."
 msgstr ""
+"Upon restart, the phone retrieves the configurations from the provisioning "
+"URL."
 
 #: ../../nethvoice.rst:500
+#, fuzzy
 msgid "Any changes made from the phone's administration interface will be lost."
 msgstr ""
+"Any changes made from the phone's administration interface will be lost."
 
 #: ../../nethvoice.rst:502
+#, fuzzy
 msgid "The following sections describe some settings provided by NethVoice."
-msgstr ""
+msgstr "The following sections describe some settings provided by NethVoice."
 
 #: ../../nethvoice.rst:504
+#, fuzzy
 msgid ""
 "Provisioned phones will automatically update their configuration even "
 "upon a change of state (Available, Do Not Disturb, etc.) in NethVoice CTI"
 " of the connected user to maintain uniformity of state across all "
 "devices."
 msgstr ""
+"Provisioned phones will automatically update their configuration even upon a "
+"change of state (Available, Do Not Disturb, etc.) in NethVoice CTI of the "
+"connected user to maintain uniformity of state across all devices."
 
 #: ../../nethvoice.rst:506
+#, fuzzy
 msgid ""
 "This configuration update does not cause any disruption or restart of the"
 " phone."
 msgstr ""
+"This configuration update does not cause any disruption or restart of the "
+"phone."
 
 #: ../../nethvoice.rst:509
 #, fuzzy
@@ -8107,11 +8789,15 @@ msgid "Admin Password"
 msgstr "Cambiare password di admin"
 
 #: ../../nethvoice.rst:511
+#, fuzzy
 msgid ""
 "The phone web administration interface is accessible with the username "
 "``admin`` and a password generated randomly during the installation of "
 "NethVoice."
 msgstr ""
+"The phone web administration interface is accessible with the username "
+"``admin`` and a password generated randomly during the installation of "
+"NethVoice."
 
 #: ../../nethvoice.rst:513
 #, fuzzy
@@ -8129,28 +8815,39 @@ msgid "Automatic Updates"
 msgstr "automatic backup"
 
 #: ../../nethvoice.rst:520
+#, fuzzy
 msgid ""
 "The phone automatically contacts NethVoice every night to update its "
 "configuration. It is possible to completely disable automatic updates."
 msgstr ""
+"The phone automatically contacts NethVoice every night to update its "
+"configuration. It is possible to completely disable automatic updates."
 
 #: ../../nethvoice.rst:522
+#, fuzzy
 msgid ""
 "In any case, the phone downloads the configuration every time it is "
 "restarted."
 msgstr ""
+"In any case, the phone downloads the configuration every time it is "
+"restarted."
 
 #: ../../nethvoice.rst:527
+#, fuzzy
 msgid "Firmware upgrade"
-msgstr ""
+msgstr "Firmware upgrade"
 
 #: ../../nethvoice.rst:529
+#, fuzzy
 msgid ""
 "The phone manufacturer periodically publishes firmware updates for the "
 "various models of their phones on their website."
 msgstr ""
+"The phone manufacturer periodically publishes firmware updates for the "
+"various models of their phones on their website."
 
 #: ../../nethvoice.rst:531
+#, fuzzy
 msgid ""
 "It is possible to distribute the updated firmware to all phones of the "
 "same model or to a single phone. The firmware file obtained from the "
@@ -8159,46 +8856,68 @@ msgid ""
 " Firmware` or in :guilabel:`Configuration > Associated Devices > Edit > "
 "Preferences`."
 msgstr ""
+"It is possible to distribute the updated firmware to all phones of the same "
+"model or to a single phone. The firmware file obtained from the "
+"manufacturer's website must be uploaded through the administration interface "
+"of NethVoice, respectively in :guilabel:`Models > Preferences > Firmware` or "
+"in :guilabel:`Configuration > Associated Devices > Edit > Preferences`."
 
 #: ../../nethvoice.rst:534
+#, fuzzy
 msgid "The filename can contain only letters, numbers, and the symbols ``._-()``."
 msgstr ""
+"The filename can contain only letters, numbers, and the symbols ``._-()``."
 
 #: ../../nethvoice.rst:536
+#, fuzzy
 msgid ""
 "The phones receive the update according to the times indicated in :ref"
 ":`provisioning-automatic-updates`."
 msgstr ""
+"The phones receive the update according to the times indicated in :ref"
+":`provisioning-automatic-updates`."
 
 #: ../../nethvoice.rst:540
+#, fuzzy
 msgid ""
 "When the phones have received the update, deselect the firmware file in "
 "the NethVoice interface to reduce network traffic."
 msgstr ""
+"When the phones have received the update, deselect the firmware file in the "
+"NethVoice interface to reduce network traffic."
 
 #: ../../nethvoice.rst:542
+#, fuzzy
 msgid "List of web pages for firmware download:"
-msgstr ""
+msgstr "List of web pages for firmware download:"
 
 #: ../../nethvoice.rst:544
+#, fuzzy
 msgid ""
 "`Yealink "
 "<http://support.yealink.com/documentFront/forwardToDocumentFrontDisplayPage>`_"
 msgstr ""
+"`Yealink <http://support.yealink.com/documentFront/"
+"forwardToDocumentFrontDisplayPage>`_"
 
 #: ../../nethvoice.rst:545
+#, fuzzy
 msgid "`Snom <https://service.snom.com/display/wiki/Firmware+Update+Center>`_"
-msgstr ""
+msgstr "`Snom <https://service.snom.com/display/wiki/Firmware+Update+Center>`_"
 
 #: ../../nethvoice.rst:546
+#, fuzzy
 msgid "`Fanvil <https://fanvil.com/Support/download.html>`_"
-msgstr ""
+msgstr "`Fanvil <https://fanvil.com/Support/download.html>`_"
 
 #: ../../nethvoice.rst:547
+#, fuzzy
 msgid ""
 "`Gigaset "
 "<https://teamwork.gigaset.com/gigawiki/pages/viewpage.action?pageId=37486876>`_"
 msgstr ""
+"`Gigaset <https://teamwork.gigaset.com/gigawiki/pages/viewpage."
+"action?pageId=37486876>`_"
 
 #: ../../nethvoice.rst:550
 #, fuzzy
@@ -8211,88 +8930,109 @@ msgid "NethPhone"
 msgstr "Phones"
 
 #: ../../nethvoice.rst:555 ../../nethvoice.rst:564
+#, fuzzy
 msgid "**FIRMWARE Version 2.0 or higher**"
-msgstr ""
+msgstr "**FIRMWARE Version 2.0 or higher**"
 
 #: ../../nethvoice.rst:557
+#, fuzzy
 msgid "NP-X3"
-msgstr ""
+msgstr "NP-X3"
 
 #: ../../nethvoice.rst:558
+#, fuzzy
 msgid "NP-X5"
-msgstr ""
+msgstr "NP-X5"
 
 #: ../../nethvoice.rst:559
+#, fuzzy
 msgid "NP-X210"
-msgstr ""
+msgstr "NP-X210"
 
 #: ../../nethvoice.rst:562 ../../nethvoice.rst:625
+#, fuzzy
 msgid "Fanvil"
-msgstr ""
+msgstr "Fanvil"
 
 #: ../../nethvoice.rst:566
+#, fuzzy
 msgid "V62, V63, V64, V65, V67"
-msgstr ""
+msgstr "V62, V63, V64, V65, V67"
 
 #: ../../nethvoice.rst:567
+#, fuzzy
 msgid "X1/S/SP"
-msgstr ""
+msgstr "X1/S/SP"
 
 #: ../../nethvoice.rst:568
+#, fuzzy
 msgid "X210"
-msgstr ""
+msgstr "X210"
 
 #: ../../nethvoice.rst:569
+#, fuzzy
 msgid "X3/S/SP/G/SG, X3U, X3U Pro"
-msgstr ""
+msgstr "X3/S/SP/G/SG, X3U, X3U Pro"
 
 #: ../../nethvoice.rst:570
+#, fuzzy
 msgid "X4/G/SG, X4U, X4U-V2"
-msgstr ""
+msgstr "X4/G/SG, X4U, X4U-V2"
 
 #: ../../nethvoice.rst:571
+#, fuzzy
 msgid "X5S, X5U, X5U-V2"
-msgstr ""
+msgstr "X5S, X5U, X5U-V2"
 
 #: ../../nethvoice.rst:572
+#, fuzzy
 msgid "X6, X6U, X6U-V2"
-msgstr ""
+msgstr "X6, X6U, X6U-V2"
 
 #: ../../nethvoice.rst:573
+#, fuzzy
 msgid "X7A/C"
-msgstr ""
+msgstr "X7A/C"
 
 #: ../../nethvoice.rst:574
+#, fuzzy
 msgid "X301/P/G/W, X303/P/G/W"
-msgstr ""
+msgstr "X301/P/G/W, X303/P/G/W"
 
 #: ../../nethvoice.rst:575
+#, fuzzy
 msgid "H2U, H2U-V2, H5"
-msgstr ""
+msgstr "H2U, H2U-V2, H5"
 
 #: ../../nethvoice.rst:578 ../../nethvoice.rst:630
+#, fuzzy
 msgid "Yealink"
-msgstr ""
+msgstr "Yealink"
 
 #: ../../nethvoice.rst:580
+#, fuzzy
 msgid "**FIRMWARE Version 0.86 or higher**"
-msgstr ""
+msgstr "**FIRMWARE Version 0.86 or higher**"
 
 #: ../../nethvoice.rst:582
+#, fuzzy
 msgid "T19(P) E2, T21(P) E2, T23P/G, T27G, T29G"
-msgstr ""
+msgstr "T19(P) E2, T21(P) E2, T23P/G, T27G, T29G"
 
 #: ../../nethvoice.rst:583
+#, fuzzy
 msgid "T30/P, T31/P/G/W, T33P/G, T34W"
-msgstr ""
+msgstr "T30/P, T31/P/G/W, T33P/G, T34W"
 
 #: ../../nethvoice.rst:584
+#, fuzzy
 msgid "T40P/G, T41P/S/U, T42G/S/U, T43U, T44U/W, T46G/S/U, T48G/S/U, T49G"
-msgstr ""
+msgstr "T40P/G, T41P/S/U, T42G/S/U, T43U, T44U/W, T46G/S/U, T48G/S/U, T49G"
 
 #: ../../nethvoice.rst:585
+#, fuzzy
 msgid "T52S, T53/W/C, T54S/W, T56A, T57W, T58V/A/W, VP59"
-msgstr ""
+msgstr "T52S, T53/W/C, T54S/W, T56A, T57W, T58V/A/W, VP59"
 
 #: ../../nethvoice.rst:588 ../../nethvoice.rst:635
 #, fuzzy
@@ -8300,36 +9040,44 @@ msgid "Snom"
 msgstr "No"
 
 #: ../../nethvoice.rst:590
+#, fuzzy
 msgid "**FIRMWARE Version 8.7.5 or higher**"
-msgstr ""
+msgstr "**FIRMWARE Version 8.7.5 or higher**"
 
 #: ../../nethvoice.rst:592
+#, fuzzy
 msgid "D120, D140, D150"
-msgstr ""
+msgstr "D120, D140, D150"
 
 #: ../../nethvoice.rst:593
+#, fuzzy
 msgid "D305, D315, D345, D375, D385"
-msgstr ""
+msgstr "D305, D315, D345, D375, D385"
 
 #: ../../nethvoice.rst:594
+#, fuzzy
 msgid "D710, D712, D713, D715, D717, D725, D735, D745, D765, D785"
-msgstr ""
+msgstr "D710, D712, D713, D715, D717, D725, D735, D745, D765, D785"
 
 #: ../../nethvoice.rst:595
+#, fuzzy
 msgid "D862, D865"
-msgstr ""
+msgstr "D862, D865"
 
 #: ../../nethvoice.rst:598 ../../nethvoice.rst:640
+#, fuzzy
 msgid "Gigaset"
-msgstr ""
+msgstr "Gigaset"
 
 #: ../../nethvoice.rst:600
+#, fuzzy
 msgid "**FIRMWARE Version 3.15.9 or higher**"
-msgstr ""
+msgstr "**FIRMWARE Version 3.15.9 or higher**"
 
 #: ../../nethvoice.rst:602
+#, fuzzy
 msgid "Maxwell Basic, Maxwell 2, Maxwell 3, Maxwell 4"
-msgstr ""
+msgstr "Maxwell Basic, Maxwell 2, Maxwell 3, Maxwell 4"
 
 #: ../../nethvoice.rst:607
 #, fuzzy
@@ -8337,22 +9085,28 @@ msgid "Provisioning compatibility"
 msgstr "Provisioning Parameters Guide"
 
 #: ../../nethvoice.rst:609
+#, fuzzy
 msgid ""
 "The following table summarizes the provisioning methods used by each "
 "manufacturer at the phone's first boot."
 msgstr ""
+"The following table summarizes the provisioning methods used by each "
+"manufacturer at the phone's first boot."
 
 #: ../../nethvoice.rst:611
+#, fuzzy
 msgid "Provisioning methods by manufacturer"
-msgstr ""
+msgstr "Provisioning methods by manufacturer"
 
 #: ../../nethvoice.rst:615
+#, fuzzy
 msgid "Manufacturer"
-msgstr ""
+msgstr "Manufacturer"
 
 #: ../../nethvoice.rst:616
+#, fuzzy
 msgid "Primary method"
-msgstr ""
+msgstr "Primary method"
 
 #: ../../nethvoice.rst:617
 #, fuzzy
@@ -8365,8 +9119,9 @@ msgid "DHCP option"
 msgstr "Subscription"
 
 #: ../../nethvoice.rst:619
+#, fuzzy
 msgid "DHCP option value"
-msgstr ""
+msgstr "DHCP option value"
 
 #: ../../nethvoice.rst:621 ../../nethvoice.rst:626 ../../nethvoice.rst:631
 #: ../../nethvoice.rst:636 ../../nethvoice.rst:642
@@ -8375,42 +9130,53 @@ msgid "RPS"
 msgstr "Groups"
 
 #: ../../nethvoice.rst:623 ../../nethvoice.rst:628 ../../nethvoice.rst:633
+#, fuzzy
 msgid "66"
-msgstr ""
+msgstr "66"
 
 #: ../../nethvoice.rst:624 ../../nethvoice.rst:629
+#, fuzzy
 msgid "``http://IP_PHONE_SYSTEM/provisioning/$mac.cfg``"
-msgstr ""
+msgstr "``http://IP_PHONE_SYSTEM/provisioning/$mac.cfg``"
 
 #: ../../nethvoice.rst:634
+#, fuzzy
 msgid "``http://IP_PHONE_SYSTEM/provisioning/$MAC.cfg``"
-msgstr ""
+msgstr "``http://IP_PHONE_SYSTEM/provisioning/$MAC.cfg``"
 
 #: ../../nethvoice.rst:638
+#, fuzzy
 msgid "66 and 67"
-msgstr ""
+msgstr "66 and 67"
 
 #: ../../nethvoice.rst:639
+#, fuzzy
 msgid "``http://IP_PHONE_SYSTEM/provisioning/{mac}.xml``"
-msgstr ""
+msgstr "``http://IP_PHONE_SYSTEM/provisioning/{mac}.xml``"
 
 #: ../../nethvoice.rst:641
+#, fuzzy
 msgid "DHCP [#f1]_"
-msgstr ""
+msgstr "DHCP [#f1]_"
 
 #: ../../nethvoice.rst:643
+#, fuzzy
 msgid "114"
-msgstr ""
+msgstr "114"
 
 #: ../../nethvoice.rst:644
+#, fuzzy
 msgid "``http://IP_PHONE_SYSTEM/provisioning/%MACD.xml``"
-msgstr ""
+msgstr "``http://IP_PHONE_SYSTEM/provisioning/%MACD.xml``"
 
 #: ../../nethvoice.rst:646
+#, fuzzy
 msgid ""
 "For Gigaset phones, make sure that the network DHCP server does not "
 "provide OPTION 66."
 msgstr ""
+"For Gigaset phones, make sure that the network DHCP server does not provide "
+"OPTION 66."
 
 #: ../../nethvoice.rst:651
 #, fuzzy
@@ -9318,69 +10084,92 @@ msgid "Entering an incorrect VLAN identifier can render the phone unreachable."
 msgstr "Entering an incorrect VLAN identifier can render the phone unreachable."
 
 #: ../../nethvoice.rst:958
+#, fuzzy
 msgid "Gateway Provisioning"
-msgstr ""
+msgstr "Gateway Provisioning"
 
 #: ../../nethvoice.rst:961
+#, fuzzy
 msgid "Supported Gateways"
-msgstr ""
+msgstr "Supported Gateways"
 
 #: ../../nethvoice.rst:964
+#, fuzzy
 msgid "GRANDSTREAM"
-msgstr ""
+msgstr "GRANDSTREAM"
 
 #: ../../nethvoice.rst:966
+#, fuzzy
 msgid "FXS Models HT801 and HT802"
-msgstr ""
+msgstr "FXS Models HT801 and HT802"
 
 #: ../../nethvoice.rst:967
+#, fuzzy
 msgid "FXS Models HT812 and HT814"
-msgstr ""
+msgstr "FXS Models HT812 and HT814"
 
 #: ../../nethvoice.rst:968
+#, fuzzy
 msgid "FXS Models GXW4216, GXW4224, GXW4232, and GXW4248"
-msgstr ""
+msgstr "FXS Models GXW4216, GXW4224, GXW4232, and GXW4248"
 
 #: ../../nethvoice.rst:971
+#, fuzzy
 msgid "PATTON"
-msgstr ""
+msgstr "PATTON"
 
 #: ../../nethvoice.rst:973
+#, fuzzy
 msgid "BRI Trinity Models"
-msgstr ""
+msgstr "BRI Trinity Models"
 
 #: ../../nethvoice.rst:974
+#, fuzzy
 msgid "PRI Trinity Models"
-msgstr ""
+msgstr "PRI Trinity Models"
 
 #: ../../nethvoice.rst:975
+#, fuzzy
 msgid "FXO Trinity Models"
-msgstr ""
+msgstr "FXO Trinity Models"
 
 #: ../../nethvoice.rst:980
+#, fuzzy
 msgid "Gateway configuration is carried out in the Wizard."
-msgstr ""
+msgstr "Gateway configuration is carried out in the Wizard."
 
 #: ../../nethvoice.rst:982
+#, fuzzy
 msgid ""
 "Gateway provisioning adheres to the same guidelines as provisioning for "
 "phones, with one key distinction: unlike phones, NethVoice establishes a "
 "direct connection to the gateway via telnet to upload the configuration, "
 "eliminating the need for the gateway to fetch it."
 msgstr ""
+"Gateway provisioning adheres to the same guidelines as provisioning for "
+"phones, with one key distinction: unlike phones, NethVoice establishes a "
+"direct connection to the gateway via telnet to upload the configuration, "
+"eliminating the need for the gateway to fetch it."
 
 #: ../../nethvoice.rst:984
+#, fuzzy
 msgid ""
 "Gateway configuration is performed with the gateway online; by default, "
 "gateways initiate in DHCP mode."
 msgstr ""
+"Gateway configuration is performed with the gateway online; by default, "
+"gateways initiate in DHCP mode."
 
 #: ../../nethvoice.rst:986
+#, fuzzy
 msgid ""
 "However, by selecting :guilabel:`Add Gateway`, it is feasible to generate"
 " a configuration for a gateway not yet connected and subsequently "
 "configure it by uploading the file through the gateway's web interface."
 msgstr ""
+"However, by selecting :guilabel:`Add Gateway`, it is feasible to generate a "
+"configuration for a gateway not yet connected and subsequently configure it "
+"by uploading the file through the gateway's web interface."
 
 #: ../../nethvoice.rst:989
 #, fuzzy
@@ -9388,14 +10177,18 @@ msgid "Configuring Gateways"
 msgstr "Configurazione"
 
 #: ../../nethvoice.rst:991
+#, fuzzy
 msgid ""
 "To configure the gateway, it is necessary to specify a few required "
 "configuration parameters:"
 msgstr ""
+"To configure the gateway, it is necessary to specify a few required "
+"configuration parameters:"
 
 #: ../../nethvoice.rst:993
+#, fuzzy
 msgid "Device IP address; gateway configuration necessitates a static IP."
-msgstr ""
+msgstr "Device IP address; gateway configuration necessitates a static IP."
 
 #: ../../nethvoice.rst:994
 #, fuzzy
@@ -9408,63 +10201,93 @@ msgid "Network gateway."
 msgstr "Network"
 
 #: ../../nethvoice.rst:996
+#, fuzzy
 msgid ""
 "NethVoice IP address; in some installation scenarios, the gateway may "
 "connect to NethVoice via a non-local IP."
 msgstr ""
+"NethVoice IP address; in some installation scenarios, the gateway may "
+"connect to NethVoice via a non-local IP."
 
 #: ../../nethvoice.rst:997
+#, fuzzy
 msgid ""
 "Any characteristics required for configuring connected lines (for ISDN "
 "lines, the ISDN terminal adapter's mode; for analog lines, the dialed "
 "number of the line)."
 msgstr ""
+"Any characteristics required for configuring connected lines (for ISDN "
+"lines, the ISDN terminal adapter's mode; for analog lines, the dialed number "
+"of the line)."
 
 #: ../../nethvoice.rst:999
+#, fuzzy
 msgid ""
 "For Grandstream models with 2 network interfaces, the LAN interface's MAC"
 " address must be provided, but NethVoice's configuration utilizes the WAN"
 " interface, which will be the one used."
 msgstr ""
+"For Grandstream models with 2 network interfaces, the LAN interface's MAC "
+"address must be provided, but NethVoice's configuration utilizes the WAN "
+"interface, which will be the one used."
 
 #: ../../nethvoice.rst:1001
+#, fuzzy
 msgid ""
 "To download the gateway configuration for uploading via the web "
 "interface, click on the management button (symbol with three squares)."
 msgstr ""
+"To download the gateway configuration for uploading via the web interface, "
+"click on the management button (symbol with three squares)."
 
 #: ../../nethvoice.rst:1004
+#, fuzzy
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
 #: ../../nethvoice.rst:1006
+#, fuzzy
 msgid ""
 "The dashboard serves as the initial page of NethVoice following the first"
 " configuration."
 msgstr ""
+"The dashboard serves as the initial page of NethVoice following the first "
+"configuration."
 
 #: ../../nethvoice.rst:1008
+#, fuzzy
 msgid "It offers an overview of the elements involved in NethVoice's operation."
 msgstr ""
+"It offers an overview of the elements involved in NethVoice's operation."
 
 #: ../../nethvoice.rst:1013
+#, fuzzy
 msgid ""
 "The dashboard showcases the users configured in NethVoice along with "
 "their presence status and telephone devices."
 msgstr ""
+"The dashboard showcases the users configured in NethVoice along with their "
+"presence status and telephone devices."
 
 #: ../../nethvoice.rst:1015
+#, fuzzy
 msgid ""
 "If a user's presence configuration deviates from the default (Available),"
 " an option exists to reset it to the normal state by clicking on the "
 "eraser symbol."
 msgstr ""
+"If a user's presence configuration deviates from the default (Available), an "
+"option exists to reset it to the normal state by clicking on the eraser "
+"symbol."
 
 #: ../../nethvoice.rst:1017
+#, fuzzy
 msgid ""
 "Clicking to view details about an individual device displays the "
 "telephone device's specifics:"
 msgstr ""
+"Clicking to view details about an individual device displays the telephone "
+"device's specifics:"
 
 #: ../../nethvoice.rst:1019
 #, fuzzy
@@ -9477,20 +10300,24 @@ msgid "Model"
 msgstr "Models"
 
 #: ../../nethvoice.rst:1021
+#, fuzzy
 msgid "IP Address: Clicking facilitates connection over the local network."
-msgstr ""
+msgstr "IP Address: Clicking facilitates connection over the local network."
 
 #: ../../nethvoice.rst:1022
+#, fuzzy
 msgid "SIP Port"
-msgstr ""
+msgstr "SIP Port"
 
 #: ../../nethvoice.rst:1023
+#, fuzzy
 msgid "Codecs Used"
-msgstr ""
+msgstr "Codecs Used"
 
 #: ../../nethvoice.rst:1024
+#, fuzzy
 msgid "DND (Do Not Disturb)"
-msgstr ""
+msgstr "DND (Do Not Disturb)"
 
 #: ../../nethvoice.rst:1025
 #, fuzzy
@@ -9498,27 +10325,40 @@ msgid "Call Forward"
 msgstr "Forward"
 
 #: ../../nethvoice.rst:1030
+#, fuzzy
 msgid ""
 "The configured VoIP trunks in NethVoice are displayed along with their "
 "status, indicating technology, IP, port, status, and codec."
 msgstr ""
+"The configured VoIP trunks in NethVoice are displayed along with their "
+"status, indicating technology, IP, port, status, and codec."
 
 #: ../../nethvoice.rst:1037
+#, fuzzy
 msgid ""
 "The *Applications* section allows for the creation, modification, or "
 "deletion of certain PBX features, which are initially created and "
 "configured in the wizard but subsequently utilized in the NethVoice CTI."
 msgstr ""
+"The *Applications* section allows for the creation, modification, or "
+"deletion of certain PBX features, which are initially created and configured "
+"in the wizard but subsequently utilized in the NethVoice CTI."
 
 #: ../../nethvoice.rst:1039
+#, fuzzy
 msgid ""
 "For instance, customer cards are set up in the wizard to access the "
 "database and to practically display the obtained information, but the "
 "actual usage occurs within the NethVoice CTI, during calls or when "
 "searching for specific information."
 msgstr ""
+"For instance, customer cards are set up in the wizard to access the database "
+"and to practically display the obtained information, but the actual usage "
+"occurs within the NethVoice CTI, during calls or when searching for specific "
+"information."
 
 #: ../../nethvoice.rst:1044
+#, fuzzy
 msgid ""
 "The *customer cards* section enables the grouping of information from "
 "external databases to the PBX and its display during calls. For example, "
@@ -9527,6 +10367,12 @@ msgid ""
 "evaluate whether to provide assistance or not. To create a new customer "
 "card, follow these steps:"
 msgstr ""
+"The *customer cards* section enables the grouping of information from "
+"external databases to the PBX and its display during calls. For example, "
+"when receiving a call from a specific customer, retrieve information from "
+"the database related to their invoices or any outstanding payments and "
+"evaluate whether to provide assistance or not. To create a new customer "
+"card, follow these steps:"
 
 #: ../../nethvoice.rst:1048
 #, fuzzy
@@ -9539,10 +10385,13 @@ msgid "Click on :guilabel:`Create New Source` and complete the form that appears
 msgstr "fare clic sul pulsante :guilabel:`Crea dominio` e scegliere ``Interno``"
 
 #: ../../nethvoice.rst:1052
+#, fuzzy
 msgid ""
 "``Database Type``: Specify the type of database from which information "
 "will be retrieved."
 msgstr ""
+"``Database Type``: Specify the type of database from which information will "
+"be retrieved."
 
 #: ../../nethvoice.rst:1053
 #, fuzzy
@@ -9550,36 +10399,50 @@ msgid "``Database Name``: Specify the name of the database to connect to."
 msgstr "``Trunk Name``: specify name of the trunk"
 
 #: ../../nethvoice.rst:1054
+#, fuzzy
 msgid ""
 "``Database Address``: Specify the address for connecting to the database "
 "(localhost, socket, or external IP)."
 msgstr ""
+"``Database Address``: Specify the address for connecting to the database ("
+"localhost, socket, or external IP)."
 
 #: ../../nethvoice.rst:1055
+#, fuzzy
 msgid ""
 "``Database Port``: Specify a port for the database different from the "
 "default one proposed."
 msgstr ""
+"``Database Port``: Specify a port for the database different from the "
+"default one proposed."
 
 #: ../../nethvoice.rst:1056
+#, fuzzy
 msgid "``Database User``: Specify the user for database connection."
-msgstr ""
+msgstr "``Database User``: Specify the user for database connection."
 
 #: ../../nethvoice.rst:1057
+#, fuzzy
 msgid "``Database Password``: Specify the password for database connection."
-msgstr ""
+msgstr "``Database Password``: Specify the password for database connection."
 
 #: ../../nethvoice.rst:1058
+#, fuzzy
 msgid ""
 "``Connection``: Press the \"Verify\" button to test the accuracy of the "
 "entered connection information."
 msgstr ""
+"``Connection``: Press the \"Verify\" button to test the accuracy of the "
+"entered connection information."
 
 #: ../../nethvoice.rst:1060
+#, fuzzy
 msgid ""
 "Press :guilabel:`Save` to add the database source. The newly created "
 "source will be listed among the available sources."
 msgstr ""
+"Press :guilabel:`Save` to add the database source. The newly created source "
+"will be listed among the available sources."
 
 #: ../../nethvoice.rst:1063
 #, fuzzy
@@ -9587,12 +10450,17 @@ msgid "Template"
 msgstr "template custom"
 
 #: ../../nethvoice.rst:1065
+#, fuzzy
 msgid ""
 "Templates serve as the blueprint for your customer cards. They utilize "
 "the `ejs` engine, which boasts a JavaScript-like syntax. This allows for "
 "the writing of HTML code using specific directives available on the "
 "website https://github.com/tj/ejs."
 msgstr ""
+"Templates serve as the blueprint for your customer cards. They utilize the "
+"`ejs` engine, which boasts a JavaScript-like syntax. This allows for the "
+"writing of HTML code using specific directives available on the website "
+"https://github.com/tj/ejs."
 
 #: ../../nethvoice.rst:1067
 #, fuzzy
@@ -9607,38 +10475,57 @@ msgid "``Name``: Specify the template's name."
 msgstr "``Model``: specify the gateway model"
 
 #: ../../nethvoice.rst:1070
+#, fuzzy
 msgid ""
 "``Results``: This field contains the output of your query in JSON format."
 " Use the text field to test and see how your HTML template will appear "
 "with your data."
 msgstr ""
+"``Results``: This field contains the output of your query in JSON format. "
+"Use the text field to test and see how your HTML template will appear with "
+"your data."
 
 #: ../../nethvoice.rst:1071
+#, fuzzy
 msgid ""
 "``Code (ejs)``: Enter your template's code in this text field, adhering "
 "to the ejs syntax and using the values mentioned above (which are "
 "essentially the result columns of your query)."
 msgstr ""
+"``Code (ejs)``: Enter your template's code in this text field, adhering to "
+"the ejs syntax and using the values mentioned above (which are essentially "
+"the result columns of your query)."
 
 #: ../../nethvoice.rst:1072
+#, fuzzy
 msgid ""
 "``Preview``: By combining the results and the ejs code, you will see the "
 "corresponding HTML output, which will serve as your customer card."
 msgstr ""
+"``Preview``: By combining the results and the ejs code, you will see the "
+"corresponding HTML output, which will serve as your customer card."
 
 #: ../../nethvoice.rst:1074
+#, fuzzy
 msgid ""
 "The PBX already offers some predefined templates with pre-written HTML "
 "code that you can duplicate and modify by altering the color."
 msgstr ""
+"The PBX already offers some predefined templates with pre-written HTML code "
+"that you can duplicate and modify by altering the color."
 
 #: ../../nethvoice.rst:1079
+#, fuzzy
 msgid ""
 "After creating the data source and the template for your card, this "
 "section requires you to merge the two pieces of information to ensure the"
 " card's correct creation. Click on the :guilabel:`Create New Card` button"
 " and fill out the form:"
 msgstr ""
+"After creating the data source and the template for your card, this section "
+"requires you to merge the two pieces of information to ensure the card's "
+"correct creation. Click on the :guilabel:`Create New Card` button and fill "
+"out the form:"
 
 #: ../../nethvoice.rst:1081
 #, fuzzy
@@ -9646,29 +10533,39 @@ msgid "``Name``: Name of the customer card."
 msgstr "``Name``: the name of the shared folder"
 
 #: ../../nethvoice.rst:1082
+#, fuzzy
 msgid "``Source``: Specify the previously created database source."
-msgstr ""
+msgstr "``Source``: Specify the previously created database source."
 
 #: ../../nethvoice.rst:1083
+#, fuzzy
 msgid "``Template``: Choose the template you previously created."
-msgstr ""
+msgstr "``Template``: Choose the template you previously created."
 
 #: ../../nethvoice.rst:1084
+#, fuzzy
 msgid ""
 "``Profile``: Select the type of user profile to which the customer card "
 "you are creating will be displayed."
 msgstr ""
+"``Profile``: Select the type of user profile to which the customer card you "
+"are creating will be displayed."
 
 #: ../../nethvoice.rst:1085
+#, fuzzy
 msgid "``Query``: Input the query that will return the relevant information."
-msgstr ""
+msgstr "``Query``: Input the query that will return the relevant information."
 
 #: ../../nethvoice.rst:1086
+#, fuzzy
 msgid ""
 "``Render``: By pressing this button, the query will execute on the "
 "specified source, and the data will be inserted into the selected "
 "template, producing the desired output."
 msgstr ""
+"``Render``: By pressing this button, the query will execute on the specified "
+"source, and the data will be inserted into the selected template, producing "
+"the desired output."
 
 #: ../../nethvoice.rst:1088
 #, fuzzy
@@ -9676,29 +10573,38 @@ msgid "Press the :guilabel:`Save` button to save your customer card."
 msgstr "Use the :guilabel:`Add` button to add a custom field inside the panel."
 
 #: ../../nethvoice.rst:1091
+#, fuzzy
 msgid ""
 "Once the query and card have been created and it is verified that "
 "everything works, use the `$NUMBER` variable to replace numerical "
 "parameters in your query."
 msgstr ""
+"Once the query and card have been created and it is verified that everything "
+"works, use the `$NUMBER` variable to replace numerical parameters in your "
+"query."
 
 #: ../../nethvoice.rst:1093 ../../user_domains.rst:81
 msgid "Example:"
 msgstr "Esempio:"
 
 #: ../../nethvoice.rst:1095
+#, fuzzy
 msgid "If your query is as follows: ::"
-msgstr ""
+msgstr "If your query is as follows: ::"
 
 #: ../../nethvoice.rst:1099
+#, fuzzy
 msgid "It should be changed to::"
-msgstr ""
+msgstr "It should be changed to::"
 
 #: ../../nethvoice.rst:1103
+#, fuzzy
 msgid ""
 "The `$NUMBER` variable represents the caller ID of the PBX, referring to "
 "collect the data to be displayed on the customer card."
 msgstr ""
+"The `$NUMBER` variable represents the caller ID of the PBX, referring to "
+"collect the data to be displayed on the customer card."
 
 #: ../../nethvoice.rst:1107
 #, fuzzy
@@ -9711,6 +10617,7 @@ msgid "Adding External Address Books"
 msgstr "Google CardDAV remote address book"
 
 #: ../../nethvoice.rst:1111
+#, fuzzy
 msgid ""
 "From the menu :guilabel:`Applications -> Address Book Sources`, you can "
 "define an external source for the contacts NethVoice should use to "
@@ -9718,24 +10625,34 @@ msgid ""
 "NethVoice address book and made available for use in NethVoice CTI and "
 "NethVoice App."
 msgstr ""
+"From the menu :guilabel:`Applications -> Address Book Sources`, you can "
+"define an external source for the contacts NethVoice should use to resolve "
+"incoming and outgoing calls. These contacts will be added to the NethVoice "
+"address book and made available for use in NethVoice CTI and NethVoice App."
 
 #: ../../nethvoice.rst:1114
+#, fuzzy
 msgid "To configure a new source, three steps are required:"
-msgstr ""
+msgstr "To configure a new source, three steps are required:"
 
 #: ../../nethvoice.rst:1116
+#, fuzzy
 msgid "**Source**: Configure access to the source database of contacts."
-msgstr ""
+msgstr "**Source**: Configure access to the source database of contacts."
 
 #: ../../nethvoice.rst:1118
+#, fuzzy
 msgid ""
 "**Mapping**: Associate fields from the source database with those of the "
 "NethVoice address book."
 msgstr ""
+"**Mapping**: Associate fields from the source database with those of the "
+"NethVoice address book."
 
 #: ../../nethvoice.rst:1120
+#, fuzzy
 msgid "**Settings**: Choose the synchronization interval."
-msgstr ""
+msgstr "**Settings**: Choose the synchronization interval."
 
 #: ../../nethvoice.rst:1123
 #, fuzzy
@@ -9743,17 +10660,23 @@ msgid "Phonebook Source"
 msgstr "Address Book"
 
 #: ../../nethvoice.rst:1125
+#, fuzzy
 msgid ""
 "A unique :guilabel:`Phonebook Name` must be assigned to the source to "
 "distinguish the origin of the contacts imported into the NethVoice "
 "phonebook."
 msgstr ""
+"A unique :guilabel:`Phonebook Name` must be assigned to the source to "
+"distinguish the origin of the contacts imported into the NethVoice phonebook."
 
 #: ../../nethvoice.rst:1127
+#, fuzzy
 msgid ""
 "Based on the :guilabel:`Source Type`, additional attributes need to be "
 "specified:"
 msgstr ""
+"Based on the :guilabel:`Source Type`, additional attributes need to be "
+"specified:"
 
 #: ../../nethvoice.rst:1129
 #, fuzzy
@@ -9761,24 +10684,34 @@ msgid "**MySQL**"
 msgstr "**Esempio**"
 
 #: ../../nethvoice.rst:1131
+#, fuzzy
 msgid ""
 "Database name, server address/port, username, and password for the source"
 " database are required."
 msgstr ""
+"Database name, server address/port, username, and password for the source "
+"database are required."
 
 #: ../../nethvoice.rst:1133
+#, fuzzy
 msgid ""
 "Additionally, in the Select query text area, the SQL query used to "
 "retrieve data to be imported into the centralized address book must be "
 "inserted. If present in the text area, replace the word ``[table]`` with "
 "the name of the source table."
 msgstr ""
+"Additionally, in the Select query text area, the SQL query used to retrieve "
+"data to be imported into the centralized address book must be inserted. If "
+"present in the text area, replace the word ``[table]`` with the name of the "
+"source table."
 
 #: ../../nethvoice.rst:1135
+#, fuzzy
 msgid "**CSV**"
-msgstr ""
+msgstr "**CSV**"
 
 #: ../../nethvoice.rst:1137
+#, fuzzy
 msgid ""
 "In the :guilabel:`URL` field, you can specify the web address of a file "
 "in CSV format (Comma-Separated Values, values separated by commas and "
@@ -9786,25 +10719,39 @@ msgid ""
 "comma or space). Addresses starting with ``http://`` and ``https://`` are"
 " accepted."
 msgstr ""
+"In the :guilabel:`URL` field, you can specify the web address of a file in "
+"CSV format (Comma-Separated Values, values separated by commas and double "
+"quotes \"\" as text qualifiers, mandatory if the field contains a comma or "
+"space). Addresses starting with ``http://`` and ``https://`` are accepted."
 
 #: ../../nethvoice.rst:1139
+#, fuzzy
 msgid ""
 "Alternatively, you can upload a CSV file via the button to the right of "
 "the same text field. In this case, the :guilabel:`URL` field will be "
 "automatically populated."
 msgstr ""
+"Alternatively, you can upload a CSV file via the button to the right of the "
+"same text field. In this case, the :guilabel:`URL` field will be "
+"automatically populated."
 
 #: ../../nethvoice.rst:1141
+#, fuzzy
 msgid ""
 "The CSV file must be encoded in UTF-8 and contain column names on the "
 "first row."
 msgstr ""
+"The CSV file must be encoded in UTF-8 and contain column names on the first "
+"row."
 
 #: ../../nethvoice.rst:1143
+#, fuzzy
 msgid ""
 "The :guilabel:`Verify` button allows you to preview the data retrieved "
 "from the source."
 msgstr ""
+"The :guilabel:`Verify` button allows you to preview the data retrieved from "
+"the source."
 
 #: ../../nethvoice.rst:1146
 #, fuzzy
@@ -9812,51 +10759,69 @@ msgid "Custom Name Resolution"
 msgstr "Introduzione"
 
 #: ../../nethvoice.rst:1148
+#, fuzzy
 msgid ""
 "If you wish to use a source other than the centralized address book to "
 "resolve names, you can create a custom resolution script and place it in "
 "the *~/.local/share/containers/storage/volumes/lookup.d/_data/* "
 "directory."
 msgstr ""
+"If you wish to use a source other than the centralized address book to "
+"resolve names, you can create a custom resolution script and place it in the "
+"*~/.local/share/containers/storage/volumes/lookup.d/_data/* directory."
 
 #: ../../nethvoice.rst:1150
+#, fuzzy
 msgid ""
 "In the Github repository "
 "`https://github.com/nethesis/ns8-nethvoice/tree/main/freepbx/usr/src/nethvoice/samples`,"
 " there are two example scripts: *lookup_dummy.php* and *lookup_vte.php*, "
 "which can serve as a starting point for creating your own custom script."
 msgstr ""
+"In the Github repository `https://github.com/nethesis/ns8-nethvoice/tree/"
+"main/freepbx/usr/src/nethvoice/samples`, there are two example scripts: "
+"*lookup_dummy.php* and *lookup_vte.php*, which can serve as a starting point "
+"for creating your own custom script."
 
 #: ../../nethvoice.rst:1152
+#, fuzzy
 msgid ""
 "The *lookup_dummy.php* script returns a fake result for any number dialed"
 " or incoming call, while the lookup_vte.php script utilizes an external "
 "API."
 msgstr ""
+"The *lookup_dummy.php* script returns a fake result for any number dialed or "
+"incoming call, while the lookup_vte.php script utilizes an external API."
 
 #: ../../nethvoice.rst:1236
+#, fuzzy
 msgid "You can choose the synchronization interval for contacts between:"
-msgstr ""
+msgstr "You can choose the synchronization interval for contacts between:"
 
 #: ../../nethvoice.rst:1238
+#, fuzzy
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minutes"
 
 #: ../../nethvoice.rst:1240
+#, fuzzy
 msgid "30 minutes"
-msgstr ""
+msgstr "30 minutes"
 
 #: ../../nethvoice.rst:1244
+#, fuzzy
 msgid "6 hours"
-msgstr ""
+msgstr "6 hours"
 
 #: ../../nethvoice.rst:1246
+#, fuzzy
 msgid "24 hours"
-msgstr ""
+msgstr "24 hours"
 
 #: ../../nethvoice.rst:1248
+#, fuzzy
 msgid "Once the source is created, you can:"
-msgstr ""
+msgstr "Once the source is created, you can:"
 
 #: ../../nethvoice.rst:1250
 #, fuzzy
@@ -9869,87 +10834,115 @@ msgid "Enable/disable synchronization"
 msgstr "Sincronizzazione multipla"
 
 #: ../../nethvoice.rst:1255
+#, fuzzy
 msgid "Parameterized URLs"
-msgstr ""
+msgstr "Parameterized URLs"
 
 #: ../../nethvoice.rst:1257
+#, fuzzy
 msgid ""
 "Allows the end user to invoke a parameterized URL upon receiving a call. "
 "The URL will be parameterized with caller data and can be \"opened\" in "
 "one of the following four scenarios:"
 msgstr ""
+"Allows the end user to invoke a parameterized URL upon receiving a call. The "
+"URL will be parameterized with caller data and can be \"opened\" in one of "
+"the following four scenarios:"
 
 #: ../../nethvoice.rst:1259
+#, fuzzy
 msgid "Never"
-msgstr ""
+msgstr "Never"
 
 #: ../../nethvoice.rst:1261
+#, fuzzy
 msgid "When the incoming call is ringing"
-msgstr ""
+msgstr "When the incoming call is ringing"
 
 #: ../../nethvoice.rst:1263
+#, fuzzy
 msgid "When the incoming call is answered"
-msgstr ""
+msgstr "When the incoming call is answered"
 
 #: ../../nethvoice.rst:1265
+#, fuzzy
 msgid "By clicking the appropriate button in the call management box"
-msgstr ""
+msgstr "By clicking the appropriate button in the call management box"
 
 #: ../../nethvoice.rst:1267
+#, fuzzy
 msgid "To create a URL, two pieces of information are required:"
-msgstr ""
+msgstr "To create a URL, two pieces of information are required:"
 
 #: ../../nethvoice.rst:1269
+#, fuzzy
 msgid "The URL itself"
-msgstr ""
+msgstr "The URL itself"
 
 #: ../../nethvoice.rst:1271
+#, fuzzy
 msgid "The selection of a user profile"
-msgstr ""
+msgstr "The selection of a user profile"
 
 #: ../../nethvoice.rst:1273
+#, fuzzy
 msgid ""
 "The composition of the URL can be done using these parameters, which are "
 "populated for each call:"
 msgstr ""
+"The composition of the URL can be done using these parameters, which are "
+"populated for each call:"
 
 #: ../../nethvoice.rst:1275
+#, fuzzy
 msgid "*$CALLER_NUMBER* (Caller Number)"
-msgstr ""
+msgstr "*$CALLER_NUMBER* (Caller Number)"
 
 #: ../../nethvoice.rst:1277
+#, fuzzy
 msgid "*$CALLER_NAME* (Name associated by NethVoice to the caller number)"
-msgstr ""
+msgstr "*$CALLER_NAME* (Name associated by NethVoice to the caller number)"
 
 #: ../../nethvoice.rst:1279
+#, fuzzy
 msgid "*$CALLED* (Called Number)"
-msgstr ""
+msgstr "*$CALLED* (Called Number)"
 
 #: ../../nethvoice.rst:1281
+#, fuzzy
 msgid "*$UNIQUEID* (Unique identifier of the call)"
-msgstr ""
+msgstr "*$UNIQUEID* (Unique identifier of the call)"
 
 #: ../../nethvoice.rst:1283
+#, fuzzy
 msgid ""
 "It is possible to enable the option \"Only calls on queues\" to activate "
 "the parameterized URL only for calls that ring in a queue."
 msgstr ""
+"It is possible to enable the option \"Only calls on queues\" to activate the "
+"parameterized URL only for calls that ring in a queue."
 
 #: ../../nethvoice.rst:1285
+#, fuzzy
 msgid ""
 "All users who have that profile will be enabled to use the newly created "
 "URL."
 msgstr ""
+"All users who have that profile will be enabled to use the newly created URL."
 
 #: ../../nethvoice.rst:1288
+#, fuzzy
 msgid "Only one URL can be associated with a profile."
-msgstr ""
+msgstr "Only one URL can be associated with a profile."
 
 #: ../../nethvoice.rst:1289
+#, fuzzy
 msgid ""
 "For the URL to be invoked, it is necessary for the end user to have "
 "enabled pop-up display in their browser!"
 msgstr ""
+"For the URL to be invoked, it is necessary for the end user to have enabled "
+"pop-up display in their browser!"
 
 #: ../../nethvoice_proxy.rst:5
 msgid "NethVoice Proxy"
@@ -10263,76 +11256,107 @@ msgstr ""
 "#deleting-users>`_."
 
 #: ../../odoo.rst:6
+#, fuzzy
 msgid "Odoo"
-msgstr ""
+msgstr "Odoo"
 
 #: ../../odoo.rst:8
+#, fuzzy
 msgid ""
 "Odoo is a suite of business management software that includes customer "
 "relationship management, e-commerce, billing, accounting, manufacturing, "
 "warehouse, project management, and inventory management (source "
 "`Wikipedia`_)."
 msgstr ""
+"Odoo is a suite of business management software that includes customer "
+"relationship management, e-commerce, billing, accounting, manufacturing, "
+"warehouse, project management, and inventory management (source "
+"`Wikipedia`_)."
 
 #: ../../odoo.rst:12
+#, fuzzy
 msgid ""
 "This application integrates Odoo within NS8 and is developed, maintained "
 "and supported by `Innovyou`_, an Italian IT company."
 msgstr ""
+"This application integrates Odoo within NS8 and is developed, maintained and "
+"supported by `Innovyou`_, an Italian IT company."
 
 #: ../../odoo.rst:22
+#, fuzzy
 msgid ""
 "Under the Settings page, fill the Odoo FQDN field with the DNS name "
 "assigned to this Odoo instance. If you want to request a Let's Encrypt "
 "TLS certificate, ensure the FQDN is recorded in the public DNS before "
 "proceeding."
 msgstr ""
+"Under the Settings page, fill the Odoo FQDN field with the DNS name assigned "
+"to this Odoo instance. If you want to request a Let's Encrypt TLS "
+"certificate, ensure the FQDN is recorded in the public DNS before proceeding."
 
 #: ../../odoo.rst:27
+#, fuzzy
 msgid ""
 "Odoo can be bound to an existing user domain. Users of the domain can log"
 " on to this Odoo instance with the same credentials of other applications"
 " in the same domain: choose the domain from the LDAP domain selector."
 msgstr ""
+"Odoo can be bound to an existing user domain. Users of the domain can log on "
+"to this Odoo instance with the same credentials of other applications in the "
+"same domain: choose the domain from the LDAP domain selector."
 
 #: ../../odoo.rst:33
+#, fuzzy
 msgid ""
 "The LDAP domain can be chosen only the first time. Once the "
 ":guilabel:`Save` button is pressed, the LDAP domain selection is "
 "disabled."
 msgstr ""
+"The LDAP domain can be chosen only the first time. Once the :guilabel:`Save` "
+"button is pressed, the LDAP domain selection is disabled."
 
 #: ../../odoo.rst:37
+#, fuzzy
 msgid ""
 "Once the application is configured for the first time, proceed to the "
 "login page."
 msgstr ""
+"Once the application is configured for the first time, proceed to the login "
+"page."
 
 #: ../../odoo.rst:40
+#, fuzzy
 msgid "From the login screen, it will be possible to:"
-msgstr ""
+msgstr "From the login screen, it will be possible to:"
 
 #: ../../odoo.rst:42
+#, fuzzy
 msgid "Access Odoo."
-msgstr ""
+msgstr "Access Odoo."
 
 #: ../../odoo.rst:43
+#, fuzzy
 msgid "Manage databases."
-msgstr ""
+msgstr "Manage databases."
 
 #: ../../odoo.rst:47
+#, fuzzy
 msgid ""
 "Change immediately the default passwod of ``admin`` user and the default "
 "DB master password, as explained in the next sections."
 msgstr ""
+"Change immediately the default passwod of ``admin`` user and the default DB "
+"master password, as explained in the next sections."
 
 #: ../../odoo.rst:51
+#, fuzzy
 msgid "Access to Odoo"
-msgstr ""
+msgstr "Access to Odoo"
 
 #: ../../odoo.rst:53
+#, fuzzy
 msgid "To perform the first login, simply use the following credentials:"
-msgstr ""
+msgstr "To perform the first login, simply use the following credentials:"
 
 #: ../../odoo.rst:56
 #, fuzzy
@@ -10340,16 +11364,21 @@ msgid "Password: ``admin``"
 msgstr "password: ``admin``"
 
 #: ../../odoo.rst:58
+#, fuzzy
 msgid ""
 "After the first login, it is strongly recommended to change the Odoo "
 "password by following these steps:"
 msgstr ""
+"After the first login, it is strongly recommended to change the Odoo "
+"password by following these steps:"
 
 #: ../../odoo.rst:61
+#, fuzzy
 msgid ""
 "Click on \"Administrator\" in the top right corner, then on "
 "\"Preferences\"."
 msgstr ""
+"Click on \"Administrator\" in the top right corner, then on \"Preferences\"."
 
 #: ../../odoo.rst:63
 #, fuzzy
@@ -10357,18 +11386,23 @@ msgid "Set your own email address."
 msgstr "external email address"
 
 #: ../../odoo.rst:65
+#, fuzzy
 msgid ""
 "Open the \"Account Security\" tab, click on \"Change password\", enter "
 "the current password."
 msgstr ""
+"Open the \"Account Security\" tab, click on \"Change password\", enter the "
+"current password."
 
 #: ../../odoo.rst:68
+#, fuzzy
 msgid "Enter and confirm the new password."
-msgstr ""
+msgstr "Enter and confirm the new password."
 
 #: ../../odoo.rst:70
+#, fuzzy
 msgid "The session will be closed, and you will need to log in again."
-msgstr ""
+msgstr "The session will be closed, and you will need to log in again."
 
 #: ../../odoo.rst:74
 #, fuzzy
@@ -10376,10 +11410,13 @@ msgid "Database management"
 msgstr "Gestione cluster"
 
 #: ../../odoo.rst:76
+#, fuzzy
 msgid ""
 "From the login screen, it will be possible to manage databases by "
 "clicking on the \"Database Management\" link."
 msgstr ""
+"From the login screen, it will be possible to manage databases by clicking "
+"on the \"Database Management\" link."
 
 #: ../../odoo.rst:79
 #, fuzzy
@@ -10387,10 +11424,13 @@ msgid "The default master password is: ``adminmaster``."
 msgstr "L'impostazione predefinita è ``Non attivo``."
 
 #: ../../odoo.rst:81
+#, fuzzy
 msgid ""
 "The first step for the application's security will be to change the "
 "master password by following these steps:"
 msgstr ""
+"The first step for the application's security will be to change the master "
+"password by following these steps:"
 
 #: ../../odoo.rst:84
 #, fuzzy
@@ -10398,8 +11438,9 @@ msgid "Click on \"Set Master Password\"."
 msgstr "master user password"
 
 #: ../../odoo.rst:85
+#, fuzzy
 msgid "Write the current password and then the new password."
-msgstr ""
+msgstr "Write the current password and then the new password."
 
 #: ../../odoo.rst:86
 #, fuzzy
@@ -10407,30 +11448,38 @@ msgid "Click on \"Continue\"."
 msgstr "Click on Continue."
 
 #: ../../odoo.rst:88
+#, fuzzy
 msgid "Once the new Master Password is set, it will be possible to:"
-msgstr ""
+msgstr "Once the new Master Password is set, it will be possible to:"
 
 #: ../../odoo.rst:90
+#, fuzzy
 msgid "Perform a database backup."
-msgstr ""
+msgstr "Perform a database backup."
 
 #: ../../odoo.rst:91
+#, fuzzy
 msgid "Duplicate the database."
-msgstr ""
+msgstr "Duplicate the database."
 
 #: ../../odoo.rst:92
+#, fuzzy
 msgid "Create a new database."
-msgstr ""
+msgstr "Create a new database."
 
 #: ../../odoo.rst:93
+#, fuzzy
 msgid "Delete the database."
-msgstr ""
+msgstr "Delete the database."
 
 #: ../../odoo.rst:95
+#, fuzzy
 msgid ""
 "**Note**: The master password will always be necessary for the activities"
 " listed below."
 msgstr ""
+"**Note**: The master password will always be necessary for the activities "
+"listed below."
 
 #: ../../odoo.rst:99
 #, fuzzy
@@ -10438,8 +11487,9 @@ msgid "Database Backup"
 msgstr "Cluster backup"
 
 #: ../../odoo.rst:101
+#, fuzzy
 msgid "To perform a database backup, simply follow these steps:"
-msgstr ""
+msgstr "To perform a database backup, simply follow these steps:"
 
 #: ../../odoo.rst:103
 #, fuzzy
@@ -10457,18 +11507,23 @@ msgid "Click on Backup."
 msgstr "Click on OK."
 
 #: ../../odoo.rst:107
+#, fuzzy
 msgid ""
 "The database will be downloaded locally and can be used for restoration "
 "or as a basis for creating a parallel production database."
 msgstr ""
+"The database will be downloaded locally and can be used for restoration or "
+"as a basis for creating a parallel production database."
 
 #: ../../odoo.rst:111
+#, fuzzy
 msgid "Duplicate the database"
-msgstr ""
+msgstr "Duplicate the database"
 
 #: ../../odoo.rst:113
+#, fuzzy
 msgid "To create a copy of the production database, simply follow these steps:"
-msgstr ""
+msgstr "To create a copy of the production database, simply follow these steps:"
 
 #: ../../odoo.rst:115
 #, fuzzy
@@ -10481,10 +11536,13 @@ msgid "Enter the name of the new Database."
 msgstr "inserire un nome del backup"
 
 #: ../../odoo.rst:118
+#, fuzzy
 msgid ""
 "Check \"Neutralize,\" which disables cron jobs and prevents the system "
 "from sending automatic notifications."
 msgstr ""
+"Check \"Neutralize,\" which disables cron jobs and prevents the system from "
+"sending automatic notifications."
 
 #: ../../odoo.rst:120 ../../sogo.rst:157
 #, fuzzy
@@ -10492,20 +11550,24 @@ msgid "Click on Continue."
 msgstr "Click on Continue."
 
 #: ../../odoo.rst:122
+#, fuzzy
 msgid "The new database will be displayed below the existing one."
-msgstr ""
+msgstr "The new database will be displayed below the existing one."
 
 #: ../../odoo.rst:125
+#, fuzzy
 msgid "Create a new database"
-msgstr ""
+msgstr "Create a new database"
 
 #: ../../odoo.rst:127
+#, fuzzy
 msgid "To create a new database, simply follow these steps:"
-msgstr ""
+msgstr "To create a new database, simply follow these steps:"
 
 #: ../../odoo.rst:129
+#, fuzzy
 msgid "Click on \"Create Database\"."
-msgstr ""
+msgstr "Click on \"Create Database\"."
 
 #: ../../odoo.rst:132
 #, fuzzy
@@ -10518,18 +11580,23 @@ msgid "Select the language."
 msgstr "Select another line"
 
 #: ../../odoo.rst:135
+#, fuzzy
 msgid ""
 "Note: The newly created database will be completely empty and devoid of "
 "any configuration, module, or application."
 msgstr ""
+"Note: The newly created database will be completely empty and devoid of any "
+"configuration, module, or application."
 
 #: ../../odoo.rst:139
+#, fuzzy
 msgid "Delete the database"
-msgstr ""
+msgstr "Delete the database"
 
 #: ../../odoo.rst:141
+#, fuzzy
 msgid "To delete a database, simply follow these steps:"
-msgstr ""
+msgstr "To delete a database, simply follow these steps:"
 
 #: ../../odoo.rst:143
 #, fuzzy
@@ -10547,28 +11614,40 @@ msgid "Installation image"
 msgstr "Installazione"
 
 #: ../../odoo.rst:151
+#, fuzzy
 msgid "The installation image was created by Innovyou for the following reasons:"
 msgstr ""
+"The installation image was created by Innovyou for the following reasons:"
 
 #: ../../odoo.rst:153
+#, fuzzy
 msgid ""
 "The image contains Odoo core modules, OCA modules, and proprietary "
 "modules."
 msgstr ""
+"The image contains Odoo core modules, OCA modules, and proprietary modules."
 
 #: ../../odoo.rst:156
+#, fuzzy
 msgid ""
 "The official Odoo image is not versioned beyond V16; its content is "
 "overwritten periodically. This would prevent us from knowing for sure "
 "which code is being used in that particular installation and consequently"
 " would not allow us to provide proper support or debugging."
 msgstr ""
+"The official Odoo image is not versioned beyond V16; its content is "
+"overwritten periodically. This would prevent us from knowing for sure which "
+"code is being used in that particular installation and consequently would "
+"not allow us to provide proper support or debugging."
 
 #: ../../odoo.rst:161
+#, fuzzy
 msgid ""
 "To request the source code and for information or support, you can visit "
 "the page https://www.innovyou.co/odoo-nethserver-support/"
 msgstr ""
+"To request the source code and for information or support, you can visit the "
+"page https://www.innovyou.co/odoo-nethserver-support/"
 
 #: ../../odoo.rst:165
 #, fuzzy
@@ -10576,20 +11655,27 @@ msgid "Updates and support"
 msgstr "VCard support"
 
 #: ../../odoo.rst:167
+#, fuzzy
 msgid ""
 "Application version 1.0.0 corresponds to Odoo Community version 16.0, end"
 " of support November 2025."
 msgstr ""
+"Application version 1.0.0 corresponds to Odoo Community version 16.0, end of "
+"support November 2025."
 
 #: ../../odoo.rst:170
+#, fuzzy
 msgid "Updates for Odoo on NethServer 8 are manual."
-msgstr ""
+msgstr "Updates for Odoo on NethServer 8 are manual."
 
 #: ../../odoo.rst:172
+#, fuzzy
 msgid ""
 "For any support request, you can contact us through the page "
 "https://www.innovyou.co/odoo-nethserver-support/"
 msgstr ""
+"For any support request, you can contact us through the page https://www."
+"innovyou.co/odoo-nethserver-support/"
 
 #: ../../odoo.rst:176
 #, fuzzy
@@ -10597,16 +11683,22 @@ msgid "Licenses"
 msgstr "LOGIN"
 
 #: ../../odoo.rst:178
+#, fuzzy
 msgid ""
 "Nethserver 8 application has a GPL-3 license, Odoo Core modules have an "
 "LGPL license."
 msgstr ""
+"Nethserver 8 application has a GPL-3 license, Odoo Core modules have an LGPL "
+"license."
 
 #: ../../odoo.rst:181
+#, fuzzy
 msgid ""
 "OCA modules may have an AGPL or LGPL license. To view the license of each"
 " module, you can do so by following the steps below:"
 msgstr ""
+"OCA modules may have an AGPL or LGPL license. To view the license of each "
+"module, you can do so by following the steps below:"
 
 #: ../../odoo.rst:184
 #, fuzzy
@@ -10614,14 +11706,18 @@ msgid "Go to the \"Applications\" module."
 msgstr "selezionare le applicazioni da ripristinare"
 
 #: ../../odoo.rst:185
+#, fuzzy
 msgid ""
 "Locate the application of interest and click on the three dots in the "
 "upper right corner."
 msgstr ""
+"Locate the application of interest and click on the three dots in the upper "
+"right corner."
 
 #: ../../odoo.rst:187
+#, fuzzy
 msgid "Click on \"module info\" to access the desired information."
-msgstr ""
+msgstr "Click on \"module info\" to access the desired information."
 
 #: ../../os_network.rst:5
 msgid "Node network setup"
@@ -10810,10 +11906,12 @@ msgid "Piler"
 msgstr "Filter"
 
 #: ../../piler.rst:7
+#, fuzzy
 msgid "Piler_ is an open-source mail archiving solution."
-msgstr ""
+msgstr "Piler_ is an open-source mail archiving solution."
 
 #: ../../piler.rst:11
+#, fuzzy
 msgid ""
 "This Piler application for NS8 configures a :ref:`Mail server <email-"
 "section>` instance to act as its archive, recording any message sent or "
@@ -10822,20 +11920,33 @@ msgid ""
 " for the message in the archive, and send it back to the original "
 "recipient."
 msgstr ""
+"This Piler application for NS8 configures a :ref:`Mail server <email-"
+"section>` instance to act as its archive, recording any message sent or "
+"received by the server for a configurable duration. If a message is lost, "
+"authorized users (known as \"auditors\") can access the Piler UI, search for "
+"the message in the archive, and send it back to the original recipient."
 
 #: ../../piler.rst:20
+#, fuzzy
 msgid ""
 "This application allows auditor users to view other users' mail messages."
 " Ensure its use complies with your country's privacy laws, regulations, "
 "and company policies."
 msgstr ""
+"This application allows auditor users to view other users' mail messages. "
+"Ensure its use complies with your country's privacy laws, regulations, and "
+"company policies."
 
 #: ../../piler.rst:24
+#, fuzzy
 msgid ""
 "After the initial configuration, Piler starts with default credentials. "
 "For security reasons, refer to section :ref:`default-piler-credentials` "
 "to change the default passwords immediately."
 msgstr ""
+"After the initial configuration, Piler starts with default credentials. For "
+"security reasons, refer to section :ref:`default-piler-credentials` to "
+"change the default passwords immediately."
 
 #: ../../piler.rst:32
 #, fuzzy
@@ -10845,33 +11956,49 @@ msgid ""
 msgstr "access the application configuration page and enter all required fields"
 
 #: ../../piler.rst:35
+#, fuzzy
 msgid ""
 "**Piler FQDN**: Enter the fully-qualified domain name where the Piler web"
 " UI will be accessible. If the FQDN is already registered in the public "
 "DNS, you can enable the **Let's Encrypt certificate** switch to obtain a "
 "valid encryption certificate."
 msgstr ""
+"**Piler FQDN**: Enter the fully-qualified domain name where the Piler web UI "
+"will be accessible. If the FQDN is already registered in the public DNS, you "
+"can enable the **Let's Encrypt certificate** switch to obtain a valid "
+"encryption certificate."
 
 #: ../../piler.rst:40
+#, fuzzy
 msgid ""
 "**HTTP to HTTPS**: Enable this switch to ensure that all communications "
 "with the Piler UI are encrypted. This is recommended if the UI is "
 "accessed through a public or untrusted network."
 msgstr ""
+"**HTTP to HTTPS**: Enable this switch to ensure that all communications with "
+"the Piler UI are encrypted. This is recommended if the UI is accessed "
+"through a public or untrusted network."
 
 #: ../../piler.rst:44
+#, fuzzy
 msgid ""
 "**Mail server**: Choose one of the Mail server instances in the cluster. "
 "They are labeled as follows:"
 msgstr ""
+"**Mail server**: Choose one of the Mail server instances in the cluster. "
+"They are labeled as follows:"
 
 #: ../../piler.rst:47
+#, fuzzy
 msgid ""
 "*Archiving can be configured*: This means the Mail server currently has "
 "no archive configured and can be safely selected."
 msgstr ""
+"*Archiving can be configured*: This means the Mail server currently has no "
+"archive configured and can be safely selected."
 
 #: ../../piler.rst:50
+#, fuzzy
 msgid ""
 "*The archive destination is…*: This indicates that the Mail server "
 "already copies any message sent or received to another archive or "
@@ -10879,28 +12006,46 @@ msgid ""
 "saved, the previous configuration is overwritten, so use it with caution."
 " See also the Mail :ref:`Always BCC <mail-archive-section>` setting."
 msgstr ""
+"*The archive destination is…*: This indicates that the Mail server already "
+"copies any message sent or received to another archive or external email "
+"address. If such an entry is selected and the form is saved, the previous "
+"configuration is overwritten, so use it with caution. See also the Mail "
+":ref:`Always BCC <mail-archive-section>` setting."
 
 #: ../../piler.rst:57
+#, fuzzy
 msgid ""
 "**Retention duration**: This field contains the number of days an email "
 "message is retained in the archive. After that period, a daily cron job "
 "purges the message from the archive."
 msgstr ""
+"**Retention duration**: This field contains the number of days an email "
+"message is retained in the archive. After that period, a daily cron job "
+"purges the message from the archive."
 
 #: ../../piler.rst:61
+#, fuzzy
 msgid ""
 "It is important to understand that the Mail server selection is allowed "
 "only once during the configuration of a Piler instance. In other words, "
 "you cannot change the Mail server selection once the Piler instance is "
 "initially configured."
 msgstr ""
+"It is important to understand that the Mail server selection is allowed only "
+"once during the configuration of a Piler instance. In other words, you "
+"cannot change the Mail server selection once the Piler instance is initially "
+"configured."
 
 #: ../../piler.rst:68
+#, fuzzy
 msgid ""
 "If an incorrect Mail server is selected, there is no way to change the "
 "selection. The preferred way to recover from this situation is to remove "
 "the incorrect Piler instance, then install and configure a new one."
 msgstr ""
+"If an incorrect Mail server is selected, there is no way to change the "
+"selection. The preferred way to recover from this situation is to remove the "
+"incorrect Piler instance, then install and configure a new one."
 
 #: ../../piler.rst:73
 #, fuzzy
@@ -10910,38 +12055,56 @@ msgstr "Once configured, domain settings cannot be changed later!"
 #: ../../piler.rst:78
 #, fuzzy
 msgid "Default credentials"
-msgstr "Le credenziali di default sono:"
+msgstr "Default credentials"
 
 #: ../../piler.rst:80
+#, fuzzy
 msgid ""
 "After the initial configuration, Piler starts with default credentials. "
 "For security reasons, the default passwords must be immediately changed "
 "for the two existing default accounts:"
 msgstr ""
+"After the initial configuration, Piler starts with default credentials. For "
+"security reasons, the default passwords must be immediately changed for the "
+"two existing default accounts:"
 
 #: ../../piler.rst:84
+#, fuzzy
 msgid ""
 "User ``admin@local``: This user has full administrative rights over the "
 "Piler application. They can create new user accounts and grant any kind "
 "of rights. However, they cannot read email messages archived in the Piler"
 " DB. The default password is ``pilerrocks``."
 msgstr ""
+"User ``admin@local``: This user has full administrative rights over the "
+"Piler application. They can create new user accounts and grant any kind of "
+"rights. However, they cannot read email messages archived in the Piler DB. "
+"The default password is ``pilerrocks``."
 
 #: ../../piler.rst:89
+#, fuzzy
 msgid ""
 "User ``auditor@local``: This user, as the name suggests, has the "
 "*auditor* role. They can search for any email message in the archive and "
 "send it back to the original recipient. The default password is "
 "``auditor``."
 msgstr ""
+"User ``auditor@local``: This user, as the name suggests, has the *auditor* "
+"role. They can search for any email message in the archive and send it back "
+"to the original recipient. The default password is ``auditor``."
 
 #: ../../piler.rst:94
+#, fuzzy
 msgid ""
 "After logging into the Piler website, navigate to Settings under the menu"
 " in the upper right corner of the screen. Scroll down to the bottom of "
 "the personal Settings page, enter the new password in the two password "
 "fields (the second one is for confirmation), and submit the form."
 msgstr ""
+"After logging into the Piler website, navigate to Settings under the menu in "
+"the upper right corner of the screen. Scroll down to the bottom of the "
+"personal Settings page, enter the new password in the two password fields ("
+"the second one is for confirmation), and submit the form."
 
 #: ../../piler.rst:99
 #, fuzzy
@@ -10958,54 +12121,79 @@ msgid "Restore email messages"
 msgstr "support for HTML messages"
 
 #: ../../piler.rst:105
+#, fuzzy
 msgid "Auditor users can search for and recover archived email messages."
-msgstr ""
+msgstr "Auditor users can search for and recover archived email messages."
 
 #: ../../piler.rst:107
+#, fuzzy
 msgid ""
 "When a message is handled by the Mail server, a copy is sent to the "
 "archive. However, Piler does not index the received messages immediately."
 " They are placed in an archive queue, and every half hour, a scheduled "
 "task indexes a batch of queued messages. Duplicate messages count as one."
 msgstr ""
+"When a message is handled by the Mail server, a copy is sent to the archive. "
+"However, Piler does not index the received messages immediately. They are "
+"placed in an archive queue, and every half hour, a scheduled task indexes a "
+"batch of queued messages. Duplicate messages count as one."
 
 #: ../../piler.rst:112
+#, fuzzy
 msgid ""
 "Once a message is indexed, auditors can search for it. Found messages can"
 " be downloaded or forwarded to an arbitrary email address."
 msgstr ""
+"Once a message is indexed, auditors can search for it. Found messages can be "
+"downloaded or forwarded to an arbitrary email address."
 
 #: ../../piler.rst:115
+#, fuzzy
 msgid ""
 "If multiple messages are selected, they are compressed into a ZIP archive"
 " before download."
 msgstr ""
+"If multiple messages are selected, they are compressed into a ZIP archive "
+"before download."
 
 #: ../../piler.rst:118
+#, fuzzy
 msgid ""
 "When one or more messages are forwarded to an email address, the message "
 "and its original headers are preserved. Therefore, when received, the "
 "message will be sorted with its original date. Furthermore, Piler adds a "
 "MIME header ``X-piler-id`` to forwarded messages."
 msgstr ""
+"When one or more messages are forwarded to an email address, the message and "
+"its original headers are preserved. Therefore, when received, the message "
+"will be sorted with its original date. Furthermore, Piler adds a MIME header "
+"``X-piler-id`` to forwarded messages."
 
 #: ../../piler.rst:124
+#, fuzzy
 msgid "Import existing email"
-msgstr ""
+msgstr "Import existing email"
 
 #: ../../piler.rst:126
+#, fuzzy
 msgid ""
 "Existing email messages can be imported from the chosen Mail server "
 "instance into the Piler archive."
 msgstr ""
+"Existing email messages can be imported from the chosen Mail server instance "
+"into the Piler archive."
 
 #: ../../piler.rst:131
+#, fuzzy
 msgid ""
 "The import process may take hours or even days, depending on the number "
 "of users and the size of their mailboxes. Additionally, message indexing "
 "is a memory- and CPU-intensive operation that may impact node "
 "performance."
 msgstr ""
+"The import process may take hours or even days, depending on the number of "
+"users and the size of their mailboxes. Additionally, message indexing is a "
+"memory- and CPU-intensive operation that may impact node performance."
 
 #: ../../piler.rst:136
 #, fuzzy
@@ -11013,19 +12201,28 @@ msgid "Access a root terminal and run the following command: ::"
 msgstr "In a root shell prompt, execute the following command:"
 
 #: ../../piler.rst:140
+#, fuzzy
 msgid ""
 "Replace ``piler1`` with the correct Piler application instance "
 "identifier, visible on the Status page. The above command just prints the"
 " command help text."
 msgstr ""
+"Replace ``piler1`` with the correct Piler application instance identifier, "
+"visible on the Status page. The above command just prints the command help "
+"text."
 
 #: ../../piler.rst:144
+#, fuzzy
 msgid ""
 "The optional command arguments ``-A`` (after) and ``-B`` (before) can "
 "limit the time range for the import. As times must be expressed in Unix "
 "timestamp format, the ``date`` command can be invoked to obtain the "
 "desired timestamp from a date string, for example: ::"
 msgstr ""
+"The optional command arguments ``-A`` (after) and ``-B`` (before) can limit "
+"the time range for the import. As times must be expressed in Unix timestamp "
+"format, the ``date`` command can be invoked to obtain the desired timestamp "
+"from a date string, for example: ::"
 
 #: ../../piler.rst:152
 #, fuzzy
@@ -11033,49 +12230,71 @@ msgid "Fine-tune Piler's configuration"
 msgstr "Configurazione"
 
 #: ../../piler.rst:154
+#, fuzzy
 msgid ""
 "After the application has been configured for the first time and secured "
 "by changing the default users' credentials, Piler is ready to archive "
 "emails."
 msgstr ""
+"After the application has been configured for the first time and secured by "
+"changing the default users' credentials, Piler is ready to archive emails."
 
 #: ../../piler.rst:158
+#, fuzzy
 msgid ""
 "This is a brief list of common configuration tasks, with links to the "
 "official documentation:"
 msgstr ""
+"This is a brief list of common configuration tasks, with links to the "
+"official documentation:"
 
 #: ../../piler.rst:161
+#, fuzzy
 msgid ""
 "`Administration tasks`_, to manage users, permissions, and check the "
 "audit log."
 msgstr ""
+"`Administration tasks`_, to manage users, permissions, and check the audit "
+"log."
 
 #: ../../piler.rst:164
+#, fuzzy
 msgid ""
 "`Rules and policies`_, to define what messages are archived and how long "
 "they will stay. For example, you can define a special policy for spam "
 "messages."
 msgstr ""
+"`Rules and policies`_, to define what messages are archived and how long "
+"they will stay. For example, you can define a special policy for spam "
+"messages."
 
 #: ../../piler.rst:171
+#, fuzzy
 msgid ""
 "Note that the official administration documentation refers to the "
 "\"enterprise edition\" of Piler; therefore, some content is not relevant "
 "for the \"community edition\", which is the base of the NS8 application."
 msgstr ""
+"Note that the official administration documentation refers to the "
+"\"enterprise edition\" of Piler; therefore, some content is not relevant for "
+"the \"community edition\", which is the base of the NS8 application."
 
 #: ../../piler.rst:179
+#, fuzzy
 msgid ""
 "Email messages received with :ref:`Imapsync <imapsync-section>` are not "
 "archived."
 msgstr ""
+"Email messages received with :ref:`Imapsync <imapsync-section>` are not "
+"archived."
 
 #: ../../piler.rst:182
+#, fuzzy
 msgid ""
 "Some features are not active/effective but are still visible in the Piler"
 " UI."
 msgstr ""
+"Some features are not active/effective but are still visible in the Piler UI."
 
 #: ../../piler.rst:185
 #, fuzzy
@@ -11083,20 +12302,24 @@ msgid "For administrators:"
 msgstr "Amministratori"
 
 #: ../../piler.rst:187
+#, fuzzy
 msgid "In the Administration menu, the **Import** action."
-msgstr ""
+msgstr "In the Administration menu, the **Import** action."
 
 #: ../../piler.rst:189
+#, fuzzy
 msgid "In the Monitor menu, the **Archive accounting** action."
-msgstr ""
+msgstr "In the Monitor menu, the **Archive accounting** action."
 
 #: ../../piler.rst:191
+#, fuzzy
 msgid "For auditors:"
-msgstr ""
+msgstr "For auditors:"
 
 #: ../../piler.rst:193
+#, fuzzy
 msgid "In the message preview screen area, the **Restore to mailbox** action."
-msgstr ""
+msgstr "In the message preview screen area, the **Restore to mailbox** action."
 
 #: ../../prometheus.rst:7
 #, fuzzy
@@ -11320,6 +12543,7 @@ msgid "Major changes on 2024-05-31"
 msgstr "Principali cambiamenti del 2024-02-13"
 
 #: ../../release_notes.rst:16
+#, fuzzy
 msgid ""
 "**Mail improvements** -- Added the :ref:`Relay rules <relay-rules-"
 "section>` feature, which allows configuration and use of a default "
@@ -11330,38 +12554,65 @@ msgid ""
 "correspondence, configurable Queue lifetime, and IP-based relay policy, "
 "as described by :ref:`Mail settings <mail_settings-section>`."
 msgstr ""
+"**Mail improvements** -- Added the :ref:`Relay rules <relay-rules-section>` "
+"feature, which allows configuration and use of a default smarthost for "
+"outgoing email messages, and more. A Mail instance can now be selected "
+"directly from the :ref:`Email notifications <email-notifications>` page to "
+"serve as the cluster's default mail gateway for other applications. Since "
+"release 1.4 Mail provides also Sender/login correspondence, configurable "
+"Queue lifetime, and IP-based relay policy, as described by :ref:`Mail "
+"settings <mail_settings-section>`."
 
 #: ../../release_notes.rst:26
+#, fuzzy
 msgid ""
 "**Piler application** -- The new Piler application enhances Mail features"
 " with an email archiving solution. See :ref:`piler-section` for more "
 "information."
 msgstr ""
+"**Piler application** -- The new Piler application enhances Mail features "
+"with an email archiving solution. See :ref:`piler-section` for more "
+"information."
 
 #: ../../release_notes.rst:30
+#, fuzzy
 msgid ""
 "**Netdata application** -- A new monitoring stack is available alongside "
 "Prometheus and Grafana. A Netdata instance can be installed with a click "
 "on a cluster node and immediately starts to collect metrics. See :ref"
 ":`netdata-section` for details."
 msgstr ""
+"**Netdata application** -- A new monitoring stack is available alongside "
+"Prometheus and Grafana. A Netdata instance can be installed with a click on "
+"a cluster node and immediately starts to collect metrics. See :ref:`netdata-"
+"section` for details."
 
 #: ../../release_notes.rst:35
+#, fuzzy
 msgid ""
 "**Dnsmasq application** -- This new application provides a simple DNS and"
 " DHCP service for the local area network. See :ref:`dnsmasq-section` for "
 "details."
 msgstr ""
+"**Dnsmasq application** -- This new application provides a simple DNS and "
+"DHCP service for the local area network. See :ref:`dnsmasq-section` for "
+"details."
 
 #: ../../release_notes.rst:39
+#, fuzzy
 msgid ""
 "**Display firewall open ports** -- The node firewall configuration is "
 "accessible from a new card under the Settings page. The same information "
 "is still available from the Nodes page. See the :ref:`node-firewall-"
 "section` for more information."
 msgstr ""
+"**Display firewall open ports** -- The node firewall configuration is "
+"accessible from a new card under the Settings page. The same information is "
+"still available from the Nodes page. See the :ref:`node-firewall-section` "
+"for more information."
 
 #: ../../release_notes.rst:44
+#, fuzzy
 msgid ""
 "**NethSecurity controller** -- This new application allows the remote "
 "control of multiple NethSecurity installations, called units. It provides"
@@ -11369,8 +12620,13 @@ msgid ""
 "Refer to the section :ref:`nethsecurity-controller-section` for more "
 "information."
 msgstr ""
+"**NethSecurity controller** -- This new application allows the remote "
+"control of multiple NethSecurity installations, called units. It provides "
+"enhanced management and monitoring capabilities for firewall units. Refer to "
+"the section :ref:`nethsecurity-controller-section` for more information."
 
 #: ../../release_notes.rst:50
+#, fuzzy
 msgid ""
 "**System logs** -- Log records generated by any cluster node are "
 "collected and stored in the leader node for a configurable number of "
@@ -11378,38 +12634,57 @@ msgid ""
 "automatically started and configured when a new leader node is promoted. "
 "Refer to the section :ref:`system-logs-section` for more information."
 msgstr ""
+"**System logs** -- Log records generated by any cluster node are collected "
+"and stored in the leader node for a configurable number of days. Since Core "
+"release 2.7.0, the component responsible for this is automatically started "
+"and configured when a new leader node is promoted. Refer to the section :ref"
+":`system-logs-section` for more information."
 
 #: ../../release_notes.rst:56
+#, fuzzy
 msgid ""
 "**Crowdsec bouncer container** -- Since Crowdsec release 1.0.7, the "
 "bouncer component runs inside a container and uses Netfilter tables to "
 "block IPs. Execute the following commands to clean up some files and "
 "resources left by previous versions."
 msgstr ""
+"**Crowdsec bouncer container** -- Since Crowdsec release 1.0.7, the bouncer "
+"component runs inside a container and uses Netfilter tables to block IPs. "
+"Execute the following commands to clean up some files and resources left by "
+"previous versions."
 
 #: ../../release_notes.rst:61
+#, fuzzy
 msgid "Run this command to remove the Firewalld ipset: ::"
-msgstr ""
+msgstr "Run this command to remove the Firewalld ipset: ::"
 
 #: ../../release_notes.rst:66
+#, fuzzy
 msgid ""
 "Additional packages and the software repository installed in the host "
 "system can also be removed."
 msgstr ""
+"Additional packages and the software repository installed in the host system "
+"can also be removed."
 
 #: ../../release_notes.rst:69
+#, fuzzy
 msgid "For Rocky Linux, run: ::"
-msgstr ""
+msgstr "For Rocky Linux, run: ::"
 
 #: ../../release_notes.rst:74
+#, fuzzy
 msgid "For Debian, run: ::"
-msgstr ""
+msgstr "For Debian, run: ::"
 
 #: ../../release_notes.rst:79
+#, fuzzy
 msgid ""
 "**Rocky Linux 9.4** -- Since Core release 2.8.1, the pre-built images are"
 " based on the official Rocky Linux 9.4 cloud image."
 msgstr ""
+"**Rocky Linux 9.4** -- Since Core release 2.8.1, the pre-built images are "
+"based on the official Rocky Linux 9.4 cloud image."
 
 #: ../../release_notes.rst:84
 msgid "Major changes on 2024-02-13"
@@ -12135,18 +13410,21 @@ msgstr ""
 " backup dei dati"
 
 #: ../../release_notes.rst:496
+#, fuzzy
 msgid "Releases glossary"
-msgstr "Glossario rilasci"
+msgstr "Releases glossary"
 
 #: ../../release_notes.rst:498
+#, fuzzy
 msgid ""
 "The software release cycle includes four stages: Alpha, Beta, Release "
 "Candidate (RC), and Stable."
 msgstr ""
-"Il ciclo di rilascio del software comprende quattro fasi: Alpha, Beta, "
-"Release Candidate (RC), e Stable."
+"The software release cycle includes four stages: Alpha, Beta, Release "
+"Candidate (RC), and Stable."
 
 #: ../../release_notes.rst:500
+#, fuzzy
 msgid ""
 "During the **Alpha** stage, the software is not thoroughly tested and may"
 " not include all planned features. This release is not suitable for "
@@ -12154,14 +13432,14 @@ msgid ""
 " in the upcoming version. Please note that updates from an Alpha release "
 "to other releases are not supported."
 msgstr ""
-"Durante la fase **Alpha**, il software non è completamente testato e non "
-"può includere tutte le funzionalità pianificate. Questa versione non è "
-"adatta per ambienti di produzione. Tuttavia, può essere utilizzata per "
-"provare in anteprima ciò che sarà rilasciato nella successiva versione. "
-"Gli aggiornamenti da un rilascio Alpha ad altre versioni non sono "
-"supportati."
+"During the **Alpha** stage, the software is not thoroughly tested and may "
+"not include all planned features. This release is not suitable for "
+"production environments. However, it can be used to preview what's coming in "
+"the upcoming version. Please note that updates from an Alpha release to "
+"other releases are not supported."
 
 #: ../../release_notes.rst:504
+#, fuzzy
 msgid ""
 "The **Beta** stage indicates that the software is mostly feature "
 "complete, but it may still contain many known and unknown bugs. This "
@@ -12170,14 +13448,14 @@ msgid ""
 "from a Beta release to an RC or Stable release are supported but may "
 "require a manual procedure."
 msgstr ""
-"La fase **Beta** indica che il software è per lo più completo, ma può "
-"ancora contenere diversi bug noti e sconosciuti. Questa versione non "
-"dovrebbe essere utilizzata negli ambienti di produzione. Tuttavia, può "
-"essere utilizzata per testare il software prima di distribuirlo in "
-"produzione. Gli aggiornamenti da un rilascio Beta a un rilascio RC o "
-"stabile sono supportati ma possono richiedere una procedura manuale."
+"The **Beta** stage indicates that the software is mostly feature complete, "
+"but it may still contain many known and unknown bugs. This release should "
+"not be used on production environments. However, it can be used to test the "
+"software before deploying it to production. Updates from a Beta release to "
+"an RC or Stable release are supported but may require a manual procedure."
 
 #: ../../release_notes.rst:508
+#, fuzzy
 msgid ""
 "During the **Release Candidate (RC)** stage, the software is feature "
 "complete, and it contains no known bugs. If no major issues arise, it can"
@@ -12186,22 +13464,23 @@ msgid ""
 "the software, it's best to use it in production only if you already have "
 "some experience with it."
 msgstr ""
-"Durante la fase **Release Candidate (RC)**, il software è completo e non "
-"contiene bug noti. Se non si presentano grandi problemi, può essere "
-"promosso a Stable. Gli aggiornamenti da un rilascio RC a un rilascio "
-"stabile sono supportati e dovrebbero essere pressoché automatici. "
-"Tuttavia è meglio utilizzarlo in produzione solo se hai già esperienza "
-"con il software."
+"During the **Release Candidate (RC)** stage, the software is feature "
+"complete, and it contains no known bugs. If no major issues arise, it can be "
+"promoted to Stable. Updates from an RC release to a Stable release are "
+"supported and should be almost automatic. However, if you're new to the "
+"software, it's best to use it in production only if you already have some "
+"experience with it."
 
 #: ../../release_notes.rst:513
+#, fuzzy
 msgid ""
 "The **Stable** release is the most reliable and safe to use in production"
 " environments. It has been thoroughly tested and is considered to be free"
 " of major bugs."
 msgstr ""
-"Il rilascio **Stable** è il più affidabile e sicuro da utilizzare in "
-"ambienti di produzione. È stato accuratamente testato ed è considerato "
-"privo di gravi bug."
+"The **Stable** release is the most reliable and safe to use in production "
+"environments. It has been thoroughly tested and is considered to be free of "
+"major bugs."
 
 #: ../../roundcube.rst:5
 #, fuzzy
@@ -13233,8 +14512,9 @@ msgstr ""
 "``subscription``"
 
 #: ../../subscription.rst:80
+#, fuzzy
 msgid "Remove the subscription"
-msgstr "Rimozione subscription"
+msgstr "Remove the subscription"
 
 #: ../../subscription.rst:82
 msgid ""
@@ -13255,8 +14535,9 @@ msgstr ""
 "subscription`. Verrà richiesta conferma dell'azione."
 
 #: ../../subscription.rst:90
+#, fuzzy
 msgid "Remote support"
-msgstr "Supporto remoto"
+msgstr "Remote support"
 
 #: ../../subscription.rst:94
 msgid "Available in Nethesis Enterprise only"
@@ -13359,8 +14640,9 @@ msgid "To end the support session: ::"
 msgstr "Per terminare una sessione di supporto: ::"
 
 #: ../../system_requirements.rst:5
+#, fuzzy
 msgid "System requirements"
-msgstr "Requisiti di sistema"
+msgstr "System requirements"
 
 #: ../../system_requirements.rst:7
 msgid ""
@@ -14180,6 +15462,7 @@ msgstr ""
 "NethServer 8"
 
 #: ../../user_domains.rst:174
+#, fuzzy
 msgid ""
 "``Port``: Specify the TCP port number of the remote LDAP service. "
 "Standard values are 389 for LDAP and 636 for LDAPS. However, with Active "
@@ -14187,6 +15470,11 @@ msgid ""
 "LDAP port 3268 or LDAPS port 3269. This is because they do not support "
 "\"LDAP subordinate referrals\"."
 msgstr ""
+"``Port``: Specify the TCP port number of the remote LDAP service. Standard "
+"values are 389 for LDAP and 636 for LDAPS. However, with Active Directory, "
+"certain applications like Mail [#admail]_ may require setting LDAP port 3268 "
+"or LDAPS port 3269. This is because they do not support \"LDAP subordinate "
+"referrals\"."
 
 #: ../../user_domains.rst:180
 #, fuzzy
@@ -14278,10 +15566,13 @@ msgstr ""
 "operation."
 
 #: ../../user_domains.rst:217
+#, fuzzy
 msgid ""
 "https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-"
 "directory"
 msgstr ""
+"https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-"
+"directory"
 
 #: ../../user_domains.rst:222
 #, fuzzy
@@ -18572,4 +19863,3 @@ msgstr ""
 #~ "Email app is not installed or is"
 #~ " not migrated."
 #~ msgstr ""
-
