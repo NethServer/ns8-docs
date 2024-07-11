@@ -27,6 +27,7 @@ If you are planning to use a Let's Encrypt certificate as default, make also sur
 How to configure:
 
 1. access the application configuration page and enter a valid FQDN inside ``Proxy Domain`` field
-2. insert the IPv4/IPv6 address that will receive VoIP traffic
+2. insert the network's interface of the node choosing it from the drop-down menu
+3. insert Public IPv4/IPv6 address that will receive VoIP traffic (necessary only if there is no public IP on the network interface)
 
 Now, you can install and configure one ore more :ref:`NethVoice <nethvoice-section>` instances.
