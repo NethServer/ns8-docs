@@ -174,8 +174,8 @@ Before setting up the forwarder, ensure your syslog server is functioning proper
 
 * **Host name or IP address**: The IP address of the syslog server.
 * **Port**: The port number on which the syslog server listens.
-* **Protocol**: The protocol used for server communication.
-* **Format**: Log format (e.g., `RFC 3164 <https://www.rfc-editor.org/rfc/rfc3164>`_ or `RFC 5424 <https://www.rfc-editor.org/rfc/rfc5424>`_).
+* **Protocol**: The protocol used for server communication (UDP or TCP).
+* **Format**: Log format (`RFC 3164 <https://www.rfc-editor.org/rfc/rfc3164>`_ or `RFC 5424 <https://www.rfc-editor.org/rfc/rfc5424>`_).
 * **Export start date**: Specify from when logs should be forwarded. You can choose the last timestamp [#last_timestamp]_ or manually enter a date and time.
 
 Cloud Log Manager
@@ -196,10 +196,7 @@ To enable the forwarder for Cloud Log Manager, you will need the following infor
 * **Export start date**: Specify from when logs should be forwarded. You can choose the last timestamp [#last_timestamp]_ or manually enter a date and time.
 
 You can access your logs at https://naradmin.nethesis.it/. Your cluster is identified by a unique value, which can be found on 
-Cloud Log Manager settings panel or using the following command:
-::
-  
-  redis-cli hget module/$(redis-cli --raw get cluster/default_instance/loki)/environment CLOUD_LOG_MANAGER_HOSTNAME
+Cloud Log Manager settings panel.
 
 .. rubric:: Footnotes
 
