@@ -195,8 +195,11 @@ To enable the forwarder for Cloud Log Manager, you will need the following infor
   You can find it in Cloud Log Manager webapp, under Users and Companies > Companies.
 * **Export start date**: Specify from when logs should be forwarded. You can choose the last timestamp [#last_timestamp]_ or manually enter a date and time.
 
-You can access your logs at https://naradmin.nethesis.it/. Your cluster is identified by a unique value, which can be found on 
-Cloud Log Manager settings panel.
+You can access your logs at https://naradmin.nethesis.it/. 
+
+To locate the unique key identifier for your cluster in Cloud Log Manager, start by navigating to the ``Settings`` section and select ``System Logs``, 
+here find the active Loki instance card and open its menu, click on ``Configure Cloud Log Manager`` 
+and here you can find the unique key value identifying your cluster that is displayed inside an inline notification.
 
 .. rubric:: Footnotes
 
