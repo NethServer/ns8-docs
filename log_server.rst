@@ -106,9 +106,9 @@ active Loki instance [#promtail]_.
 Adjusting Settings
 ------------------
 
-Navigate to the ``Settings`` page and click on the System logs card to
-modify log retention (select ``Edit retention``) or assign a user-friendly
-name to the active Loki instance (choose the three-dots menu, then ``Edit
+Navigate to the ``Settings`` page, click on the System logs card and then
+on the three-dots menu to modify log retention (select ``Edit retention``)
+or assign a user-friendly name to the active Loki instance (select ``Edit
 label``).
 
 
@@ -142,6 +142,77 @@ on it and becomes the active instance, while the old instance is marked as
 - To remove an inactive instance, select the three-dots menu and choose
   the ``Uninstall`` action.
 
+.. _logs-forwarding-section:
+
+Logs forwarding
+===============
+
+On the leader node, you have the capability to forward log streams managed by the active
+Loki instance to either an external syslog server or to the Cloud Log Manager.
+This enables centralized log aggregation, making it easier to monitor, analyze, and troubleshoot your NethServer environment.
+
+To enable forwarders, navigate to ``Settings`` -> ``System Logs`` page, where all Loki instances,
+including the active one, are listed. Here, you can configure services by opening the Loki card menu.
+
+If the forwarder is enabled, its status can be viewed in two places:
+
+* On the ``Cluster Status`` page under the ``System Logs`` card.
+* On the ``Settings`` -> ``System Logs`` page under the active Loki instance card.
+
+The displayed states are:
+
+* **Enabled**: A green circle with a description indicates the forwarder is active.
+* **Failed**: A red circle with a description indicates the forwarder has encountered an issue.
+
+.. _syslog-section:
+
+Syslog
+------
+A syslog server receives, stores, and manages log messages from network devices and applications,
+facilitating centralized log monitoring and analysis.
+
+Before setting up the forwarder, ensure your syslog server is functioning properly. You will need the following information to enable the syslog forwarder:
+
+* **Host name or IP address**: The IP address of the syslog server.
+* **Port**: The port number on which the syslog server listens.
+* **Protocol**: The protocol used for server communication (UDP or TCP).
+* **Format**: Log format (`RFC 3164 <https://www.rfc-editor.org/rfc/rfc3164>`_ or `RFC 5424 <https://www.rfc-editor.org/rfc/rfc5424>`_).
+* **Export start date**: Specify from when logs should be forwarded. You can choose the last timestamp [#last_timestamp]_ or manually enter a date and time.
+
+Cloud Log Manager
+-----------------
+
+.. note:: This service is available only with :ref:`subscription <subscription-section>`.
+
+The Nethesis Cloud Log Manager is a centralized solution for collecting, storing,
+and managing logs from various devices within an organization.
+It allows for real-time event collection from systems such as Linux, Windows, firewalls,
+switches, and hypervisors, centralizing all logs into a single interface.
+
+To enable the forwarder for Cloud Log Manager, navigate to the
+``Settings`` page and select ``System Logs``. Open the three-dots menu of
+the active Loki instance, then click on ``Configure Cloud Log Manager``
+action.  Fill the form with the following information:
+
+* **Cloud Log Manager URL**: The URL of the Cloud Log Manager (usually
+  ``https://nar.nethesis.it/``).
+
+* **Company unique key**: This key, also known as 'tenant', identifies and
+  associates the cluster logs within a company in Cloud Log Manager. You
+  can find it in Cloud Log Manager web application, under Users and
+  Companies > Companies.
+
+* **Export start date**: Specify from when logs should be forwarded. You
+  can choose the last timestamp [#last_timestamp]_ or manually enter a
+  date and time.
+
+Take note of the *cluster identifier*, displayed in the notice at the top of
+the form. The cluster identifier value is a string like ``cluster-02834ab3``
+and will appear in the Host column of the Cloud Log Manager web
+application.
+
+Once the form is saved, the export procedure begins. After a few minutes,
+logs will be available at https://naradmin.nethesis.it/.
 
 .. rubric:: Footnotes
 
@@ -157,3 +228,8 @@ on it and becomes the active instance, while the old instance is marked as
   journals, forwarding new records to the active Loki instance, and
   preserving the last sent journal cursor position to ensure seamless
   restarts without log loss.
+
+.. [#last_timestamp]
+
+  Last timestamp indicates the last time that the forwarder successfully sent logs.
+  This allows the forwarder to resume forwarding from where it was interrupted, ensuring continuity in log management.
