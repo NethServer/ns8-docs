@@ -99,16 +99,16 @@ executing: ::
 Post-installation steps
 =======================
 
-When the installation script ends or the pre-built image has started,
-access the Web user interface at ::
+When the installation script completes or the pre-built image has started,
+access the Web user interface at: ::
 
     https://<server_ip_or_fqdn>/cluster-admin/
 
 .. hint::
 
-   If the node is unreachable see :ref:`os-network-section`
+   If the node is unreachable, refer to :ref:`os-network-section`.
 
-The default credentials to login on cluster-admin are
+The default credentials for logging in to the cluster-admin interface are:
 
 * Username: ``admin``
 * Password: ``Nethesis,1234``
@@ -116,32 +116,37 @@ The default credentials to login on cluster-admin are
 Choose :guilabel:`Create cluster` and follow the procedure to create a new
 single-node cluster.
 
-For security reasons, the admin password must be changed immediately if it
-is still at the default value.
+For security reasons, change the admin password immediately if it is still
+set to the default value.
 
-Ensure the node Fully Qualified Domain Name (FQDN) is correct, and
-respects the :ref:`DNS requirements <dns-reqs>`.
+Ensure the node's Fully Qualified Domain Name (FQDN) is correct and meets
+the :ref:`DNS requirements <dns-reqs>`.
 
-Even if running on a single node, the system will setup a Virtual Private
-Network (VPN) for the cluster. With the VPN in place, you will be able to
-add more nodes in the future. The proposed default values should be good
-for most environments, anyway make sure ``VPN network (CIDR)`` does not
-conflict with your existing network environment, because it cannot be
-changed once it has been set.
+Even if running on a single node, the system will set up a Virtual Private
+Network (VPN) for the cluster. This VPN setup will allow you to add more
+nodes in the future. The proposed default values should be suitable for most
+environments, as it theoretically accommodates up to 254 cluster nodes.
+However, ensure that the ``VPN network (CIDR)`` does not conflict with your
+existing network environment, as it cannot be changed once set.
 
-Finally, click on :guilabel:`Create cluster` button. Your NS8 is now ready.
+Finally, click the :guilabel:`Create cluster` button. Your NS8 is now
+ready.
 
-A new cluster has assigned the default name ``NethServer 8``. If you wish to
+By default, the new cluster is named ``NethServer 8``. If you wish to
 change it:
 
-* go to the ``Settings`` page and click on the ``Cluster`` card
-* enter a name inside the ``Cluster label`` field
-* click the :guilabel:`Save settings` button
+* Go to the ``Settings`` page and click on the ``Cluster`` card.
+* Enter a new name in the ``Cluster label`` field.
+* Click the :guilabel:`Save settings` button.
 
-Now sure where to go from here?
-You can install a :ref:`LDAP <openldap-section>` or :ref:`Active Directory <active_directory-section>` user domain,
-read an introduction about :ref:`modules <modules-section>`,
-take a look at :ref:`system logs <loki-section>`, add :ref:`new nodes <cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`.
+Not sure where to go from here? You can:
+
+* Install an :ref:`LDAP <openldap-section>` or :ref:`Active Directory
+  <active_directory-section>` user domain.
+* Read an introduction about :ref:`NS8 applications <modules-section>`.
+* Take a look at :ref:`system logs <loki-section>`.
+* Add :ref:`new nodes <cluster-section>`.
+* Set up a :ref:`metric dashboard <metrics-section>`.
 
 Uninstall
 =========
