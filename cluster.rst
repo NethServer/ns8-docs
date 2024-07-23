@@ -68,81 +68,102 @@ When a node is removed from the cluster the applications running on it are
 not affected and they are left in a running state. Shutdown and switch
 off the node to finalize the node removal.
 
+.. _set-fqdn:
+
+Change FQDN
+===========
+
+A node's FQDN is typically set during the post-installation steps. If it
+becomes necessary to change the FQDN later, follow these steps:
+
+1. Access the ``Nodes`` page and navigate to the three-dots menu of the
+   corresponding node card.
+
+2. Select the ``Set FQDN`` action.
+
+If you are changing the leader node's FQDN, an additional validation
+procedure will check if the new FQDN is correctly resolved by all worker
+nodes.
+
+If you are changing a worker node's FQDN, this validation is not enforced.
+However, it is still necessary to correctly register the new FQDN in the
+DNS as outlined in :ref:`dns-reqs`.
+
 
 .. _node-promotion-section:
 
 Promote a node to leader
 ========================
 
-Adding and removing nodes might raise the need of changing the cluster
-**leader node**.
+Adding and removing nodes may necessitate changing the cluster **leader
+node**.
 
-A good leader node must be reachable by any other worker node.
+A suitable leader node must be reachable by all other worker nodes.
 
-If DNS is used to find the leader IP address, every worker node must
-properly resolve the leader host name and that must be the same for every
-worker node.
+Every worker node must correctly resolve the leader's FQDN, which must be
+consistent across all worker nodes.
 
-Depending on the current leader node state there are two possible
-procedures to promote a node to leader role:
+Depending on the state of the current leader node, there are two
+procedures to promote a node to the leader role:
 
 * Reachable leader node
 * Unreachable leader node
 
-In any case, after leader promotion it is necessary to perform these additional tasks:
+After promoting a leader, it is necessary to perform these additional
+tasks:
 
-1. The cluster backup password must be set again. See also
-   :ref:`cluster_backup-section`.
+* Reset the cluster backup password. For more information, see
+  :ref:`cluster_backup-section`.
 
-See also the note in :ref:`audit-trail-section` about node promotion.
+Additionally, refer to the note in :ref:`audit-trail-section` regarding
+node promotion.
 
 .. note::
 
-  The promotion of a new leader entails a change in the System logs
-  configuration. Refer to :ref:`logs-persistence-section` for more
-  details.
+  Promoting a new leader entails changes to the System logs configuration.
+  For more details, refer to :ref:`logs-persistence-section`.
 
 
 Reachable leader node
 ---------------------
 
-If the current leader node is working properly, access the ``Nodes`` page,
-go to the three-dots menu of the node to promote and click on ``Promote to
-leader``.
+If the current leader node is functioning properly, follow these steps:
 
-Confirm or enter the leader host name in the ``VPN public address``
-field. An IP address is accepted, too.
+1. Access the ``Nodes`` page.
+2. Open the three-dots menu of the node to promote and click on
+   ``Promote to leader``.
 
-Confirm or enter the ``VPN public UDP port`` number. Every worker node
-will connect the leader on that UDP port number. In most cases, the
-default VPN port, which is ``55820``, should suffice, unless there is a
-network device between the leader and the workers mapping it to a
-different port number.
+The ``Check node connectivity`` checkbox verifies the connection of the
+old leader with the designated one. Since the VPN connection cannot be
+probed, only an HTTPS connection is attempted. This may fail due to
+intervening network devices (e.g., NAT and port-forwarding setups). If you
+are certain that the configuration is correct, you can disable the check,
+but proceed at your own risk!
 
 When the confirmation string is typed, the :guilabel:`I understand,
-promote the node` button becomes active and it is possible to complete the
+promote the node` button becomes active, allowing you to complete the
 node promotion.
-
-The ``Check node connectivity`` checkbox verifies the connection of each
-node with the selected one. Since the VPN connection cannot be probed,
-only HTTPS is checked, and it may fail due to settings on other network
-devices, such as port-forwarding. In this case, if you are certain that
-the entered configuration is correct, you have the option to disable the
-check, but proceed at your own risk!
 
 Unreachable leader node
 -----------------------
 
-If the current leader node is not reachable, it is necessary to run a
-command on any other worker node.  Be prepared in advance for this
-situation by enabling SSH, console or Cockpit **terminal root access** to
-the nodes.
+If the current leader node is not reachable, run a command on any other
+worker node. Be prepared for this situation by enabling SSH, console, or
+Cockpit **terminal root access** to the nodes.
 
-For example, to promote node with ID ``3``, VPN endpoint
-``node3.example.com`` UDP port ``55820``, run the following command on
-every worker node: ::
+For example, to promote the node with ID ``3``, run the following command
+on every worker node: ::
 
-  switch-leader --node 3 --endpoint node3.example.com:55820
+  switch-leader --node 3
+
+If the command fails because the VPN endpoint of node 3 is not defined or
+is incorrect, use the optional ``--endpoint`` parameter, for example: ::
+
+  switch-leader --node 3 --endpoint node3.example.net:55820
+
+The VPN endpoint parameter consists of an address (name or IP) prefix and
+a UDP port number suffix, separated by a colon ``:``.
+
 
 .. _administrators-section:
 

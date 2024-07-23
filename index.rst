@@ -88,4 +88,5 @@ NethServer 8 administrator manual
    disk_usage
    migration
    dockerhub
+   vpn
    faq

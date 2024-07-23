@@ -53,24 +53,27 @@ dynamic IP discovery protocols are not allowed.
 DNS configuration
 =================
 
-As you are configuring a server, network clients must resolve its fully
-qualified domain name (FQDN) to a routable IP address with the DNS. This
-is a requirement to connect with the server. Register the FQDN with DNS
-record type A for IPv4 addresses, and type AAAA for IPv6 addresses.
+To ensure network clients can connect to the server, its fully qualified
+domain name (FQDN) must resolve to a routable IP address via DNS. Register
+the FQDN with DNS record type A for IPv4 addresses and type AAAA for IPv6
+addresses.
 
-A correct FQDN and DNS setup is also a requirement for TLS encryption to
-work properly. Once connected with the server, network clients check if
-the TLS certificate is valid for the given FQDN.
+A correct FQDN and DNS setup is essential for TLS encryption to function
+properly. Once connected to the server, network clients verify the TLS
+certificate against the given FQDN.
 
-1. Depending on your server purpose, DNS can be provided by a public
-   internet service, a private network appliance, or even both of them.
-   Read carefully and understand their documentation.
+To meet these requirements, follow these steps:
 
-2. Decide the FQDN of your server and register it in the DNS with the
-   server public IP address. A FQDN is composed by the host name prefix (a
-   single word) and the DNS domain suffix. For instance, host name can be
-   ``jupiter`` and domain suffix ``example.org``: the resulting FQDN is
-   ``jupiter.example.org``.
+1. **Determine your DNS provider**: Based on your server's purpose, DNS
+   can be provided by a public internet service, a private network appliance,
+   or a combination of both. Review and understand the documentation for
+   your chosen DNS provider.
+
+2. **Register the FQDN**: Choose the FQDN for your server and register it
+   in the DNS with the server's public IP address. An FQDN consists of a
+   hostname prefix (a single word) and a DNS domain suffix. For example,
+   if the hostname is ``jupiter`` and the domain suffix is ``example.org``,
+   the resulting FQDN will be ``jupiter.example.org``.
 
 
 .. _worker-node-reqs:
@@ -78,27 +81,27 @@ the TLS certificate is valid for the given FQDN.
 Worker node requirements
 ========================
 
-Among network clients, a worker node has some special
-requirements to be installed and configured.
+A worker node has specific requirements for installation and
+configuration.
 
-The worker node reaches the leader during the join procedure at the
+During the join procedure, the worker node connects to the leader at the
 following URL: ::
 
     https://<leader_fqdn>/cluster-admin/
 
+It also establishes a WireGuard VPN connection with the leader using the
+default UDP port 55820.
+
 Ensure the following requirements are met:
 
-1. the worker node must resolve the leader FQDN to the correct routable
-   address
+1. The worker node must resolve the leader's FQDN to the correct routable
+   address.
 
-2. the HTTPS server (TCP port 443) at that address must handle the API
-   request
+2. The HTTPS server (TCP port 443) at that address must handle the API
+   request.
 
-3. the API server response contains the leader ``VPN endpoint``: it is a
-   host address with a UDP port number used to set up a Wireguard VPN. The
-   VPN endpoint is configured during the :ref:`cluster creation
-   <post-install-steps>` procedure. Ensure it is not blocked by other
-   network appliances.
+3. The VPN UDP port (default 55820) must not be blocked by any network
+   appliances.
 
 
 Web browser requirements
