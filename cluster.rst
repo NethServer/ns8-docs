@@ -4,14 +4,28 @@
 Cluster management
 ==================
 
-A NethServer 8 `cluster <https://en.wikipedia.org/wiki/Computer_cluster>`_ is composed of one **leader** node
-and multiple **worker** nodes.
+A NethServer 8 cluster_ is composed of one **leader** node and multiple
+**worker** nodes.
 
-An NS8 cluster composed only of the leader node, is a fully functional system.
-Worker nodes can be added or removed at any time.
-NS8 clusters support a maximum of 4 nodes.
+.. _cluster: https://en.wikipedia.org/wiki/Computer_cluster
 
-All nodes are managed by the Web user interface running on the leader node.
+All nodes are managed through the Web user interface, which operates on
+the leader node.
+
+An NS8 cluster consisting solely of the leader node is a fully functional
+system. Worker nodes can be added or removed at any time.
+
+The VPN network chosen during the initial leader node setup determines the
+limit on the number of possible cluster nodes. Note that a node's VPN IP
+is never released once allocated: removing a node does not free its VPN IP
+address.
+
+The default VPN network ``10.5.4.0/24`` supports up to 254 cluster nodes.
+
+In theory, the maximum number of nodes in an NS8 cluster is limited only
+by the VPN network size. However, it is advisable to add nodes gradually
+to avoid degrading the leader's performance due to increasing workload.
+
 
 Add a node
 ==========

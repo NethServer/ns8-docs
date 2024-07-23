@@ -11,7 +11,7 @@ Minimum hardware requirements for a single node installation:
 
 - 2 vCPU/cores, x86-64 architecture
 - 2GB RAM
-- 20GB disk
+- 40GB Solid-state drive
 
 More nodes can be added later, and when adding a new node, it is
 recommended to use similar hardware and the same Linux distribution
