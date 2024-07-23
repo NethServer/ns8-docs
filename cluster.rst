@@ -68,6 +68,27 @@ When a node is removed from the cluster the applications running on it are
 not affected and they are left in a running state. Shutdown and switch
 off the node to finalize the node removal.
 
+.. _set-fqdn:
+
+Change FQDN
+===========
+
+A node's FQDN is typically set during the post-installation steps. If it
+becomes necessary to change the FQDN later, follow these steps:
+
+1. Access the ``Nodes`` page and navigate to the three-dots menu of the
+   corresponding node card.
+
+2. Select the ``Set FQDN`` action.
+
+If you are changing the leader node's FQDN, an additional validation
+procedure will check if the new FQDN is correctly resolved by all worker
+nodes.
+
+If you are changing a worker node's FQDN, this validation is not enforced.
+However, it is still necessary to correctly register the new FQDN in the
+DNS as outlined in :ref:`dns-reqs`.
+
 
 .. _node-promotion-section:
 
