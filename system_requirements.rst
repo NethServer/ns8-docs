@@ -81,27 +81,27 @@ To meet these requirements, follow these steps:
 Worker node requirements
 ========================
 
-Among network clients, a worker node has some special
-requirements to be installed and configured.
+A worker node has specific requirements for installation and
+configuration.
 
-The worker node reaches the leader during the join procedure at the
+During the join procedure, the worker node connects to the leader at the
 following URL: ::
 
     https://<leader_fqdn>/cluster-admin/
 
+It also establishes a WireGuard VPN connection with the leader using the
+default UDP port 55820.
+
 Ensure the following requirements are met:
 
-1. the worker node must resolve the leader FQDN to the correct routable
-   address
+1. The worker node must resolve the leader's FQDN to the correct routable
+   address.
 
-2. the HTTPS server (TCP port 443) at that address must handle the API
-   request
+2. The HTTPS server (TCP port 443) at that address must handle the API
+   request.
 
-3. the API server response contains the leader ``VPN endpoint``: it is a
-   host address with a UDP port number used to set up a Wireguard VPN. The
-   VPN endpoint is configured during the :ref:`cluster creation
-   <post-install-steps>` procedure. Ensure it is not blocked by other
-   network appliances.
+3. The VPN UDP port (default 55820) must not be blocked by any network
+   appliances.
 
 
 Web browser requirements
