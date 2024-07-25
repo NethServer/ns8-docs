@@ -4,44 +4,84 @@
 Backup and restore
 ==================
 
-The full cluster backup is composed by configuration and applications data.
-Access the ``Backup`` page to manage the backup and restore.
+Access the ``Backup`` page to manage the backup and restore of individual
+applications and global cluster configuration. If you have a single-node
+cluster and want to restore it on a new NS8 node, see
+:ref:`disaster_recovery-section`.
 
-Backup repository
-=================
+The first time you access the Backup page, you need to create a secret
+password to encrypt the cluster configuration file.
 
-First, you will need to configure a backup repository where the data will be saved.
-A backup repository keeps all backup data encrypted using `restic <https://restic.readthedocs.io>`_ engine.
+Once the cluster backup password is set, the full Backup page is
+displayed. It is divided into two main sections:
 
-Access the ``Backup`` page, click on :guilabel:`Add repository` button and choose a provider.
-Currently supported providers are:
+- **Cluster configuration**: Download the small cluster backup file and
+  change its encryption password. See :ref:`cluster_backup-section` for
+  more information.
 
-* `Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_
-* `Amazon S3 <https://aws.amazon.com/s3/>`_
-* `Azure blob storage <https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction>`_
-*  Generic S3, like :ref:`MinIO <minio-section>`
+- **Applications**: Define backup destinations, set automated backup
+  schedules and retention rules, and restore individual applications.
+
+Backup destination
+==================
+
+A backup destination is where the backup data of applications is saved.
+Defining a destination is a prerequisite to schedule a backup or restore
+an application.
+
+Access the ``Backup`` page, click on the :guilabel:`Add destination`
+button, and choose a provider. Supported providers are:
+
+* `Backblaze B2`_
+* `Amazon S3`_
+* `Azure Blob Storage`_
+* Generic S3, like :ref:`MinIO <minio-section>`
 * Windows file share, through SMB2/3 protocols
 * :ref:`Local storage <local-storage>`, attached to a node of the cluster
 
-Fill in the required fields depending on the chosen provider.
+.. _`Backblaze B2`: https://www.backblaze.com/b2/cloud-storage.html
+.. _`Azure Blob Storage`: https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction
+.. _`Amazon S3`: https://aws.amazon.com/s3/
 
-A new encryption key will be automatically created for new repositories.
-If you are accessing a repository which already contains a NS8 backup, remember also to enter
-the ``Repository password`` under the ``Advanced`` section.
+Fill in the required fields for the chosen provider.
+
+The backup procedure generates a two-level structure where application
+instances are grouped by type at the first level, and by a UUID-named
+folder at the second level. For example: ::
+
+   dokuwiki/
+   ├─ dd5b0b7c-579e-42ee-96a3-282d10958cda/
+   ├─ b1497438-76d9-4aa1-b6fd-d8a4f827563e/
+   ├─ fcf7b6e3-2424-442d-b625-ab90438c74db/
+   mail/
+   ├─ 92b8ee37-44dd-4f9f-9ee8-658e24556c55/
+   loki/
+   ├─ 652ea526-b0dc-4bfb-a356-8a841b22bbd2/
+
+Each UUID directory contains a Restic_ repository. All Restic repositories
+under the same backup destination share the same encryption key. This key
+can be automatically generated when the destination is created.
+
+.. _Restic: https://restic.readthedocs.io
+
+If adding a previously used destination (i.e., it has Restic directories
+inside), you must fill the `Data encryption key` field under the
+`Advanced` section with the previous key value, otherwise existing backups
+cannot be opened.
 
 .. _local-storage:
 
 Local storage
 -------------
 
-If you want to store backup data in a locally attached storage, like an
-external USB disk or similar, follow this procedure:
+The ``Local storage`` destination allows storing backup data on locally
+attached storage, like an external USB disk. Follow this procedure:
 
-1. Format the disk with a supported filesystem, for example XFS: ::
+1. Format the disk with a supported filesystem, e.g., XFS: ::
 
       mkfs.xfs /dev/disk/by-id/some-disk-id
 
-2. Create a Podman volume named ``backup00`` for it: ::
+2. Create a Podman volume named ``backup00``: ::
 
       podman volume create \
             --label org.nethserver.role=backup \
@@ -59,86 +99,105 @@ external USB disk or similar, follow this procedure:
 
    .. note::
 
-      The disk is unmounted when the ``rclone-webdav`` service is stopped
+      The disk is unmounted when the ``rclone-webdav`` service is stopped.
 
-5. Remove the default volume used by the service, because it is no longer
-   used. Existing content will be lost: ::
+5. Remove the default volume used by the service, as it is no longer
+   needed. Existing content will be lost: ::
 
       podman volume rm rclone-webdav
 
-Application backup
-==================
+Schedule application backup
+===========================
 
-Once at least one repository has been configured, you can schedule the backup of existing applications:
+To schedule the backup of existing applications:
 
-* click on :guilabel:`Schedule backup` button
-* select which application instances should be added to the backup
-* choose one backup repository
-* setup day and time of the backup and the retention policy
-* enter a name of the backup
-* save the configuration by clicking the :guilabel:`Schedule backup` button
+* Click on the :guilabel:`Schedule backup` button.
+* Select the application instances to be backed up.
+* Choose one backup destination.
+* Set the day, time, and retention policy for the backup.
+* Enter a name for the backup schedule.
+* Save the configuration by clicking the :guilabel:`Schedule backup`
+  button.
 
-Whenever you want to manually execute the backup, click the ``Run backup now`` item from the three-dots menu of the scheduled backup.
+To manually execute a backup, click the ``Run backup now`` item from the
+three-dots menu of the scheduled backup.
 
-To add more instances to an existing backup, click the ``Edit`` item from the three-dots menu of the scheduled backup.
+To add more instances to an existing backup, click the ``Edit`` item from
+the three-dots menu of the scheduled backup.
 
-After the first backup run, the backup status is reported under ``Backup > Schedules > See details``.
+After the first backup run, the backup status is reported under ``Backup >
+Schedules > See details``.
 
 .. _application_restore-section:
 
-Application restore
-===================
+Restore applications
+====================
 
-You can restore an application only if there is at least one repository configured:
+To restore an application, at least one backup destination must be
+available.
 
-* click on the :guilabel:`Restore an app` button.
-* a dialog box will list all applications inside the existing backup, select the application you want to restore
-* as default the restore procedure will create a new instance, if you want to replace the existing one select the ``Replace existing app`` option
-* select the target node
-* click on the :guilabel:`Restore` button
+* Click on the :guilabel:`Restore an app` button.
+* A dialog box will list all applications in the defined backup
+  destinations. Select the application you want to restore.
+* If the selected application is already installed, a ``Replace existing
+  app`` checkbox becomes visible. If enabled, the existing instance will
+  be removed upon restore.
+* Select an older backup snapshot if the latest one is not preferable.
+* Select the target node.
+* Click on the :guilabel:`Restore` button.
 
 .. _cluster_backup-section:
 
 Cluster backup
 ==============
 
-The cluster configuration backup contains all required data to execute a :ref:`disaster_recovery-section`.
-It is a compressed JSON file encrypted with GPG.
+The cluster configuration backup contains all required data for
+:ref:`disaster_recovery-section`, including destination configurations and
+their data encryption keys, which are also necessary for restoring
+individual application backups. It is a compressed JSON file encrypted
+with GPG.
 
-The first time ``Backup`` page is accessed an encryption password must be
-set and stored in a safe place. A new encryption password is needed also
+The first time the ``Backup`` page is accessed, you must set an encryption
+password and store it in a safe place. A new encryption password is needed
 after a new leader node is elected (see :ref:`node-promotion-section`).
 
-To download the cluster configuration backup, click on :guilabel:`Download cluster backup` button under
+The cluster configuration backup is automatically copied to backup
+destinations during scheduled runs, ensuring up-to-date backups of both
+your data and the cluster setup. If the cluster has an active
+:ref:`subscription <subscription-section>` that includes cloud backup of
+the cluster configuration, the cluster configuration backup is also
+available from the subscription portal.
+
+Periodically download the cluster configuration backup and keep it in a
+safe place. Click on the :guilabel:`Download cluster backup` button under
 the ``Cluster configuration`` section of the ``Backup`` page.
 
-Please, download the cluster configuration backup and keep it on a safe place.
+.. note::
 
-In addition, the cluster configuration backup is automatically copied to the designated repository each time a scheduled operation occurs.
-This ensures that the repository holds up-to-date backups of both your data and the specific cluster setup, including all its configurations.
+   If you lose the cluster configuration backup, you can still restore
+   applications to another cluster if you know the data encryption
+   password of the backup destination.
 
-.. note:: 
-   In case you lose the configuration backup, you can still restore applications to another cluster only if you know the
-   encryption password of the backup repository.
+To inspect the content of the downloaded file, use the following command,
+replacing "SECRET" with your encryption password: ::
 
-To inspect the content of the backup use the following command, where ``<pass>`` is the encryption password
-entered before the download: ::
+   echo 'SECRET' | gpg --batch --passphrase-fd 0 --decrypt backup.json.gz.gpg | gunzip | jq
 
-   echo <pass> | gpg --batch --passphrase-fd 0 --decrypt backup.json.gz.gpg | gunzip | jq
 
 .. _disaster_recovery-section:
 
 Disaster recovery
 =================
 
-You can restore a previously configured cluster using the disaster recovery procedure.
-To follow this procedure you will need a :ref:`a cluster configuration backup <cluster_backup-section>`:
+You can restore a previously configured cluster using the disaster
+recovery procedure. You will need a :ref:`cluster configuration backup
+<cluster_backup-section>`:
 
-1. :ref:`install <install-section>` a new cluster and login using default credentials
-2. change the default administrator password
-3. click on :guilabel:`Restore cluster`
-4. you can now choose whether to restore a cluster configuration hosted on a remote HTTP server or upload the backup
-   from your browser
-5. if on step 2 you entered the same password of the old cluster, the system will automatically decrypt the configuration backup;
-   otherwise enter the encryption secret inside the ``Backup password`` field
-6. select the applications to restore
+1. :ref:`Install <install-section>` a new cluster and log in using the
+   default credentials.
+2. Change the default administrator password.
+3. Click on the :guilabel:`Restore cluster` button.
+4. Choose whether to restore a cluster configuration from a remote HTTP
+   server or upload the backup from your browser.
+5. Enter the encryption secret in the ``Backup password`` field.
+6. Select the applications to restore.
