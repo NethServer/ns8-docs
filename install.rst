@@ -113,8 +113,10 @@ The default credentials to login on cluster-admin are
 * Username: ``admin``
 * Password: ``Nethesis,1234``
 
-Choose :guilabel:`Create cluster` and follow the procedure to create a new
-single-node cluster.
+Choose :guilabel:`Create cluster` and follow the procedure to set up a new
+single-node cluster. Alternatively, you can join the node to an existing
+cluster as described in :ref:`cluster-section`, or restore a cluster
+backup as detailed in :ref:`disaster_recovery-section`.
 
 For security reasons, the admin password must be changed immediately if it
 is still at the default value.
