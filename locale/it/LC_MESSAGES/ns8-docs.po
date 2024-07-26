@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 15:01+0000\n"
+"POT-Creation-Date: 2024-07-26 09:43+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -25,169 +25,210 @@ msgstr "Backup e ripristino"
 
 #: ../../backup.rst:7
 msgid ""
-"The full cluster backup is composed by configuration and applications "
-"data. Access the ``Backup`` page to manage the backup and restore."
+"Access the ``Backup`` page to manage the backup and restore of individual"
+" applications and global cluster configuration. If you have a single-node"
+" cluster and want to restore it on a new NS8 node, see :ref"
+":`disaster_recovery-section`."
 msgstr ""
-"Il backup completo del cluster è composto da configurazione e dati delle "
-"applicazioni. Accedere alla pagina ``Backup`` per gestire il backup e il "
-"ripristino."
 
-#: ../../backup.rst:11
-msgid "Backup repository"
-msgstr "Repository di backup"
-
-#: ../../backup.rst:13
+#: ../../backup.rst:12
 msgid ""
-"First, you will need to configure a backup repository where the data will"
-" be saved. A backup repository keeps all backup data encrypted using "
-"`restic <https://restic.readthedocs.io>`_ engine."
+"The first time you access the Backup page, you need to create a secret "
+"password to encrypt the cluster configuration file."
 msgstr ""
-"In primo luogo, è necessario configurare un repository di backup in cui i"
-" dati verranno salvati. Un repository di backup mantiene tutti i dati di "
-"backup crittografati utilizzando il motore `restic "
-"<https://restic.readthedocs.io> `_."
 
-#: ../../backup.rst:16
+#: ../../backup.rst:15
 msgid ""
-"Access the ``Backup`` page, click on :guilabel:`Add repository` button "
-"and choose a provider. Currently supported providers are:"
+"Once the cluster backup password is set, the full Backup page is "
+"displayed. It is divided into two main sections:"
+msgstr ""
+
+#: ../../backup.rst:18
+msgid ""
+"**Cluster configuration**: Download the small cluster backup file and "
+"change its encryption password. See :ref:`cluster_backup-section` for "
+"more information."
+msgstr ""
+
+#: ../../backup.rst:22
+msgid ""
+"**Applications**: Define backup destinations, set automated backup "
+"schedules and retention rules, and restore individual applications."
+msgstr ""
+
+#: ../../backup.rst:26
+#, fuzzy
+msgid "Backup destination"
+msgstr "Backup e ripristino"
+
+#: ../../backup.rst:28
+msgid ""
+"A backup destination is where the backup data of applications is saved. "
+"Defining a destination is a prerequisite to schedule a backup or restore "
+"an application."
+msgstr ""
+
+#: ../../backup.rst:32
+#, fuzzy
+msgid ""
+"Access the ``Backup`` page, click on the :guilabel:`Add destination` "
+"button, and choose a provider. Supported providers are:"
 msgstr ""
 "Accedi alla pagina ``Backup``, clicca sul pulsante :guilabel:` Add "
 "repository` e scegli un provider. Attualmente i fornitori supportati "
 "sono:"
 
-#: ../../backup.rst:19
-msgid "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
-msgstr "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
-
-#: ../../backup.rst:20
-msgid "`Amazon S3 <https://aws.amazon.com/s3/>`_"
-msgstr "`Amazon S3 <https://aws.amazon.com/s3/>`_"
-
-#: ../../backup.rst:21
-msgid ""
-"`Azure blob storage <https://learn.microsoft.com/en-"
-"us/azure/storage/blobs/storage-blobs-introduction>`_"
+#: ../../backup.rst:35
+msgid "`Backblaze B2`_"
 msgstr ""
-"`Azure blob storage <https://learn.microsoft.com/en-"
-"us/azure/storage/blobs/storage-blobs-introduction>`_"
 
-#: ../../backup.rst:22
+#: ../../backup.rst:36
+msgid "`Amazon S3`_"
+msgstr ""
+
+#: ../../backup.rst:37
+msgid "`Azure Blob Storage`_"
+msgstr ""
+
+#: ../../backup.rst:38
 msgid "Generic S3, like :ref:`MinIO <minio-section>`"
 msgstr "S3 generico come :ref:`MinIO <minio-section>`"
 
-#: ../../backup.rst:23
+#: ../../backup.rst:39
 msgid "Windows file share, through SMB2/3 protocols"
 msgstr "Condividi file di Windows, tramite protocolli SMB2/3"
 
-#: ../../backup.rst:24
+#: ../../backup.rst:40
 msgid ":ref:`Local storage <local-storage>`, attached to a node of the cluster"
 msgstr ":ref:`Local storage <local-storage>`, allegato ad un nodo del cluster"
 
-#: ../../backup.rst:26
-msgid "Fill in the required fields depending on the chosen provider."
+#: ../../backup.rst:46
+#, fuzzy
+msgid "Fill in the required fields for the chosen provider."
 msgstr "Compila i campi richiesti a seconda del fornitore scelto."
 
-#: ../../backup.rst:28
+#: ../../backup.rst:48
 msgid ""
-"A new encryption key will be automatically created for new repositories. "
-"If you are accessing a repository which already contains a NS8 backup, "
-"remember also to enter the ``Repository password`` under the ``Advanced``"
-" section."
+"The backup procedure generates a two-level structure where application "
+"instances are grouped by type at the first level, and by a UUID-named "
+"folder at the second level. For example: ::"
 msgstr ""
-"Una nuova chiave di crittografia verrà creata automaticamente per i nuovi"
-" repository. Se si accede a un repository che contiene già un backup NS8,"
-" ricorda anche di inserire la ``Repository password`` sotto la sezione "
-"``Advanced``."
 
-#: ../../backup.rst:35
+#: ../../backup.rst:61
+msgid ""
+"Each UUID directory contains a Restic_ repository. All Restic "
+"repositories under the same backup destination share the same encryption "
+"key. This key can be automatically generated when the destination is "
+"created."
+msgstr ""
+
+#: ../../backup.rst:67
+msgid ""
+"If adding a previously used destination (i.e., it has Restic directories "
+"inside), you must fill the `Data encryption key` field under the "
+"`Advanced` section with the previous key value, otherwise existing "
+"backups cannot be opened."
+msgstr ""
+
+#: ../../backup.rst:75
 msgid "Local storage"
 msgstr "Local storage"
 
-#: ../../backup.rst:37
+#: ../../backup.rst:77
+#, fuzzy
 msgid ""
-"If you want to store backup data in a locally attached storage, like an "
-"external USB disk or similar, follow this procedure:"
+"The ``Local storage`` destination allows storing backup data on locally "
+"attached storage, like an external USB disk. Follow this procedure:"
 msgstr ""
 "Se si desidera memorizzare i dati di backup in uno storage collegato "
 "localmente, come un disco USB esterno o simile, seguire questa procedura:"
 
-#: ../../backup.rst:40
-msgid "Format the disk with a supported filesystem, for example XFS: ::"
+#: ../../backup.rst:80
+#, fuzzy
+msgid "Format the disk with a supported filesystem, e.g., XFS: ::"
 msgstr "Formattare il disco con un filesystem supportato, ad esempio XFS: ::"
 
-#: ../../backup.rst:44
-msgid "Create a Podman volume named ``backup00`` for it: ::"
+#: ../../backup.rst:84
+#, fuzzy
+msgid "Create a Podman volume named ``backup00``: ::"
 msgstr "Creare un volume Podman chiamato ``backup00`` per esso: ::"
 
-#: ../../backup.rst:52
+#: ../../backup.rst:92
 msgid "Configure the ``rclone-webdav.service`` unit to use that volume: ::"
 msgstr "Configura il ``rclone-webdav.service`` unità per l'uso di tale volume: ::"
 
-#: ../../backup.rst:56
+#: ../../backup.rst:96
 msgid "Restart the service. The disk is mounted automatically: ::"
 msgstr "Riavviare il servizio. Il disco viene montato automaticamente: ::"
 
-#: ../../backup.rst:62
-msgid "The disk is unmounted when the ``rclone-webdav`` service is stopped"
+#: ../../backup.rst:102
+#, fuzzy
+msgid "The disk is unmounted when the ``rclone-webdav`` service is stopped."
 msgstr ""
 "Il disco viene smontato quando viene interrotto il servizio ``rclone-"
 "webdav``"
 
-#: ../../backup.rst:64
+#: ../../backup.rst:104
+#, fuzzy
 msgid ""
-"Remove the default volume used by the service, because it is no longer "
-"used. Existing content will be lost: ::"
+"Remove the default volume used by the service, as it is no longer needed."
+" Existing content will be lost: ::"
 msgstr ""
 "Rimuovere il volume predefinito utilizzato dal servizio, perché non è più"
 " utilizzato. I contenuti esistenti saranno persi: ::"
 
-#: ../../backup.rst:70
-msgid "Application backup"
+#: ../../backup.rst:110
+#, fuzzy
+msgid "Schedule application backup"
 msgstr "Backup delle applicazioni"
 
-#: ../../backup.rst:72
-msgid ""
-"Once at least one repository has been configured, you can schedule the "
-"backup of existing applications:"
+#: ../../backup.rst:112
+#, fuzzy
+msgid "To schedule the backup of existing applications:"
 msgstr ""
 "Una volta configurato almeno un repository, è possibile pianificare il "
 "backup delle applicazioni esistenti:"
 
-#: ../../backup.rst:74
-msgid "click on :guilabel:`Schedule backup` button"
+#: ../../backup.rst:114
+#, fuzzy
+msgid "Click on the :guilabel:`Schedule backup` button."
 msgstr "clicca sul pulsante :guilabel:`Schedule backup`"
 
-#: ../../backup.rst:75
-msgid "select which application instances should be added to the backup"
+#: ../../backup.rst:115
+#, fuzzy
+msgid "Select the application instances to be backed up."
 msgstr "selezionare quali istanze di applicazione devono essere aggiunte al backup"
 
-#: ../../backup.rst:76
-msgid "choose one backup repository"
+#: ../../backup.rst:116
+#, fuzzy
+msgid "Choose one backup destination."
 msgstr "scegliere un repository di backup"
 
-#: ../../backup.rst:77
-msgid "setup day and time of the backup and the retention policy"
-msgstr "impostare giorno e ora del backup e la politica di conservazione"
+#: ../../backup.rst:117
+msgid "Set the day, time, and retention policy for the backup."
+msgstr ""
 
-#: ../../backup.rst:78
-msgid "enter a name of the backup"
+#: ../../backup.rst:118
+#, fuzzy
+msgid "Enter a name for the backup schedule."
 msgstr "inserire un nome del backup"
 
-#: ../../backup.rst:79
-msgid "save the configuration by clicking the :guilabel:`Schedule backup` button"
+#: ../../backup.rst:119
+#, fuzzy
+msgid "Save the configuration by clicking the :guilabel:`Schedule backup` button."
 msgstr "salvare la configurazione facendo clic sul pulsante: `Schedule backup`"
 
-#: ../../backup.rst:81
+#: ../../backup.rst:122
+#, fuzzy
 msgid ""
-"Whenever you want to manually execute the backup, click the ``Run backup "
-"now`` item from the three-dots menu of the scheduled backup."
+"To manually execute a backup, click the ``Run backup now`` item from the "
+"three-dots menu of the scheduled backup."
 msgstr ""
 "Ogni volta che si desidera eseguire manualmente il backup, fare clic "
 "sulla voce ``Avvia backup ora `` dal menu a tre punti del backup "
 "programmato."
 
-#: ../../backup.rst:83
+#: ../../backup.rst:125
 msgid ""
 "To add more instances to an existing backup, click the ``Edit`` item from"
 " the three-dots menu of the scheduled backup."
@@ -195,7 +236,7 @@ msgstr ""
 "Per aggiungere più istanze a un backup esistente, fare clic sulla voce "
 "``Edit`` dal menu a tre punti del backup pianificato."
 
-#: ../../backup.rst:85
+#: ../../backup.rst:128
 msgid ""
 "After the first backup run, the backup status is reported under ``Backup "
 "> Schedules > See details``."
@@ -203,174 +244,175 @@ msgstr ""
 "Dopo la prima esecuzione di un backup, lo stato del backup viene mostrato"
 " sotto ``Backup > Piani > Vedi i dettagli ``."
 
-#: ../../backup.rst:90
-msgid "Application restore"
-msgstr "Ripristino dell'applicazione"
+#: ../../backup.rst:134
+#, fuzzy
+msgid "Restore applications"
+msgstr "Applicazioni NethForge"
 
-#: ../../backup.rst:92
+#: ../../backup.rst:136
 msgid ""
-"You can restore an application only if there is at least one repository "
-"configured:"
+"To restore an application, at least one backup destination must be "
+"available."
 msgstr ""
-"È possibile ripristinare un'applicazione solo se c'è almeno un repository"
-" configurato:"
 
-#: ../../backup.rst:94
-msgid "click on the :guilabel:`Restore an app` button."
+#: ../../backup.rst:139
+#, fuzzy
+msgid "Click on the :guilabel:`Restore an app` button."
 msgstr "cliccare sul bottone :guilabel:`Restore an app`."
 
-#: ../../backup.rst:95
+#: ../../backup.rst:140
+#, fuzzy
 msgid ""
-"a dialog box will list all applications inside the existing backup, "
-"select the application you want to restore"
+"A dialog box will list all applications in the defined backup "
+"destinations. Select the application you want to restore."
 msgstr ""
 "una finestra di dialogo elenca tutte le applicazioni all'interno del "
 "backup esistente, selezionare l'applicazione che si desidera ripristinare"
 
-#: ../../backup.rst:96
+#: ../../backup.rst:142
 msgid ""
-"as default the restore procedure will create a new instance, if you want "
-"to replace the existing one select the ``Replace existing app`` option"
+"If the selected application is already installed, a ``Replace existing "
+"app`` checkbox becomes visible. If enabled, the existing instance will be"
+" removed upon restore."
 msgstr ""
-"come predefinito la procedura di ripristino creerà una nuova istanza, se "
-"si desidera sostituire quella esistente selezionare l'opzione "
-"``Sostituire l'app esistente``"
 
-#: ../../backup.rst:97
-msgid "select the target node"
+#: ../../backup.rst:145
+msgid "Select an older backup snapshot if the latest one is not preferable."
+msgstr ""
+
+#: ../../backup.rst:146
+#, fuzzy
+msgid "Select the target node."
 msgstr "selezionare il nodo di destinazione"
 
-#: ../../backup.rst:98
-msgid "click on the :guilabel:`Restore` button"
+#: ../../backup.rst:147
+#, fuzzy
+msgid "Click on the :guilabel:`Restore` button."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../backup.rst:103
+#: ../../backup.rst:152
 msgid "Cluster backup"
 msgstr "Cluster backup"
 
-#: ../../backup.rst:105
+#: ../../backup.rst:154
+#, fuzzy
 msgid ""
-"The cluster configuration backup contains all required data to execute a "
-":ref:`disaster_recovery-section`. It is a compressed JSON file encrypted "
+"The cluster configuration backup contains all required data for :ref"
+":`disaster_recovery-section`, including destination configurations and "
+"their data encryption keys, which are also necessary for restoring "
+"individual application backups. It is a compressed JSON file encrypted "
 "with GPG."
 msgstr ""
 "Il backup della configurazione del cluster contiene tutti i dati "
 "necessari per eseguire un :ref: `disaster_recovery-section`. È un file "
 "JSON compresso crittografato con GPG."
 
-#: ../../backup.rst:108
+#: ../../backup.rst:160
+#, fuzzy
 msgid ""
-"The first time ``Backup`` page is accessed an encryption password must be"
-" set and stored in a safe place. A new encryption password is needed also"
-" after a new leader node is elected (see :ref:`node-promotion-section`)."
+"The first time the ``Backup`` page is accessed, you must set an "
+"encryption password and store it in a safe place. A new encryption "
+"password is needed after a new leader node is elected (see :ref:`node-"
+"promotion-section`)."
 msgstr ""
 "La prima volta che si accede alla pagina ``Backup``, si deve impostare e "
 "salvare in un luogo sicuro una password di crittografia. Una nuova "
 "password di crittografia è necessaria anche dopo l'elezione di un nuovo "
 "nodo leader (vedere :ref: `node-promotion-section`)."
 
-#: ../../backup.rst:112
+#: ../../backup.rst:164
 msgid ""
-"To download the cluster configuration backup, click on "
-":guilabel:`Download cluster backup` button under the ``Cluster "
-"configuration`` section of the ``Backup`` page."
+"The cluster configuration backup is automatically copied to backup "
+"destinations during scheduled runs, ensuring up-to-date backups of both "
+"your data and the cluster setup. If the cluster has an active "
+":ref:`subscription <subscription-section>` that includes cloud backup of "
+"the cluster configuration, the cluster configuration backup is also "
+"available from the subscription portal."
+msgstr ""
+
+#: ../../backup.rst:171
+#, fuzzy
+msgid ""
+"Periodically download the cluster configuration backup and keep it in a "
+"safe place. Click on the :guilabel:`Download cluster backup` button under"
+" the ``Cluster configuration`` section of the ``Backup`` page."
 msgstr ""
 "Per scaricare il backup della configurazione del cluster, fare clic sul "
 "tasto :guilabel:`Download cluster backup` sotto la sezione "
 "``Configurazione cluster`` della pagina ``Backup``."
 
-#: ../../backup.rst:115
+#: ../../backup.rst:177
+#, fuzzy
 msgid ""
-"Please, download the cluster configuration backup and keep it on a safe "
-"place."
-msgstr ""
-"Si prega di scaricare il backup di configurazione cluster e tenerlo in un"
-" luogo sicuro."
-
-#: ../../backup.rst:117
-msgid ""
-"In addition, the cluster configuration backup is automatically copied to "
-"the designated repository each time a scheduled operation occurs. This "
-"ensures that the repository holds up-to-date backups of both your data "
-"and the specific cluster setup, including all its configurations."
-msgstr ""
-"Inoltre, il backup di configurazione del cluster viene copiato "
-"automaticamente nel repository designato ogni volta che si verifica "
-"un'operazione pianificata. Questo assicura che il repository detiene "
-"backup aggiornati sia dei dati che della configurazione specifica del "
-"cluster, incluse tutte le sue configurazioni."
-
-#: ../../backup.rst:121
-msgid ""
-"In case you lose the configuration backup, you can still restore "
-"applications to another cluster only if you know the encryption password "
-"of the backup repository."
+"If you lose the cluster configuration backup, you can still restore "
+"applications to another cluster if you know the data encryption password "
+"of the backup destination."
 msgstr ""
 "Nel caso in cui si perde il backup di configurazione, è ancora possibile "
 "ripristinare le applicazioni in un altro cluster solo se si conosce la "
 "password di crittografia del repository di backup."
 
-#: ../../backup.rst:124
+#: ../../backup.rst:181
+#, fuzzy
 msgid ""
-"To inspect the content of the backup use the following command, where "
-"``<pass>`` is the encryption password entered before the download: ::"
+"To inspect the content of the downloaded file, use the following command,"
+" replacing \"SECRET\" with your encryption password: ::"
 msgstr ""
 "Per ispezionare il contenuto del backup utilizzare il seguente comando, "
 "dove ``<pass>`` è la password di crittografia inserita prima del "
 "download: ::"
 
-#: ../../backup.rst:132
+#: ../../backup.rst:190
 msgid "Disaster recovery"
 msgstr "Disaster recovery"
 
-#: ../../backup.rst:134
+#: ../../backup.rst:192
+#, fuzzy
 msgid ""
 "You can restore a previously configured cluster using the disaster "
-"recovery procedure. To follow this procedure you will need a :ref:`a "
-"cluster configuration backup <cluster_backup-section>`:"
+"recovery procedure. You will need a :ref:`cluster configuration backup "
+"<cluster_backup-section>`:"
 msgstr ""
 "È possibile ripristinare un cluster configurato in precedenza utilizzando"
 " la procedura di disaster recovery. Per seguire questa procedura è "
 "necessario un:ref: `un backup di configurazione del cluster "
 "<cluster_backup-sezione>`:"
 
-#: ../../backup.rst:137
+#: ../../backup.rst:196
+#, fuzzy
 msgid ""
-":ref:`install <install-section>` a new cluster and login using default "
-"credentials"
+":ref:`Install <install-section>` a new cluster and log in using the "
+"default credentials."
 msgstr ""
 ":ref:`install <install-section>` un nuovo cluster e login utilizzando le "
 "credenziali di default"
 
-#: ../../backup.rst:138
-msgid "change the default administrator password"
+#: ../../backup.rst:198
+#, fuzzy
+msgid "Change the default administrator password."
 msgstr "modificare la password di amministratore predefinito"
 
-#: ../../backup.rst:139
-msgid "click on :guilabel:`Restore cluster`"
-msgstr "clicca su :guilabel:`Restore cluster`"
+#: ../../backup.rst:199
+#, fuzzy
+msgid "Click on the :guilabel:`Restore cluster` button."
+msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../backup.rst:140
+#: ../../backup.rst:200
+#, fuzzy
 msgid ""
-"you can now choose whether to restore a cluster configuration hosted on a"
-" remote HTTP server or upload the backup from your browser"
+"Choose whether to restore a cluster configuration from a remote HTTP "
+"server or upload the backup from your browser."
 msgstr ""
 "è ora possibile scegliere se ripristinare una configurazione di cluster "
 "ospitata su un server HTTP remoto o caricare il backup dal browser"
 
-#: ../../backup.rst:142
-msgid ""
-"if on step 2 you entered the same password of the old cluster, the system"
-" will automatically decrypt the configuration backup; otherwise enter the"
-" encryption secret inside the ``Backup password`` field"
+#: ../../backup.rst:202
+msgid "Enter the encryption secret in the ``Backup password`` field."
 msgstr ""
-"se al passaggio 2 hai inserito la stessa password del vecchio cluster, il"
-" sistema decifra automaticamente il backup della configurazione; "
-"altrimenti inserire il segreto di crittografia all'interno del campo "
-"``Backup password`"
 
-#: ../../backup.rst:144
-msgid "select the applications to restore"
+#: ../../backup.rst:203
+#, fuzzy
+msgid "Select the applications to restore."
 msgstr "selezionare le applicazioni da ripristinare"
 
 #: ../../certificates.rst:5
@@ -639,7 +681,7 @@ msgstr ""
 "Dopo il login sul nodo worker, fare clic sul pulsante :guilabel:`Join "
 "cluster`."
 
-#: ../../cluster.rst:31 ../../install.rst:122
+#: ../../cluster.rst:31 ../../install.rst:124
 msgid ""
 "Ensure the node Fully Qualified Domain Name (FQDN) is correct, and "
 "respects the :ref:`DNS requirements <dns-reqs>`."
@@ -738,125 +780,145 @@ msgstr ""
 " di esso non sono influenzate e sono lasciate in esecuzione. Arrestare e "
 "spegnere il nodo per completarne la rimozione."
 
-#: ../../cluster.rst:75
+#: ../../cluster.rst:74
+msgid "Change FQDN"
+msgstr ""
+
+#: ../../cluster.rst:76
+msgid ""
+"A node's FQDN is typically set during the post-installation steps. If it "
+"becomes necessary to change the FQDN later, follow these steps:"
+msgstr ""
+
+#: ../../cluster.rst:79
+msgid ""
+"Access the ``Nodes`` page and navigate to the three-dots menu of the "
+"corresponding node card."
+msgstr ""
+
+#: ../../cluster.rst:82
+#, fuzzy
+msgid "Select the ``Set FQDN`` action."
+msgstr "selezionare il nodo di destinazione"
+
+#: ../../cluster.rst:84
+msgid ""
+"If you are changing the leader node's FQDN, an additional validation "
+"procedure will check if the new FQDN is correctly resolved by all worker "
+"nodes."
+msgstr ""
+
+#: ../../cluster.rst:88
+msgid ""
+"If you are changing a worker node's FQDN, this validation is not "
+"enforced. However, it is still necessary to correctly register the new "
+"FQDN in the DNS as outlined in :ref:`dns-reqs`."
+msgstr ""
+
+#: ../../cluster.rst:96
 msgid "Promote a node to leader"
 msgstr "Promuovere un nodo a leader"
 
-#: ../../cluster.rst:77
+#: ../../cluster.rst:98
+#, fuzzy
 msgid ""
-"Adding and removing nodes might raise the need of changing the cluster "
-"**leader node**."
+"Adding and removing nodes may necessitate changing the cluster **leader "
+"node**."
 msgstr ""
 "Aggiungere e rimuovere i nodi potrebbe aumentare la necessità di cambiare"
 " il **nodo leader** del cluster."
 
-#: ../../cluster.rst:80
-msgid "A good leader node must be reachable by any other worker node."
+#: ../../cluster.rst:101
+#, fuzzy
+msgid "A suitable leader node must be reachable by all other worker nodes."
 msgstr "Un buon nodo leader deve essere raggiungibile da ogni altro nodo worker."
 
-#: ../../cluster.rst:82
+#: ../../cluster.rst:103
+#, fuzzy
 msgid ""
-"If DNS is used to find the leader IP address, every worker node must "
-"properly resolve the leader host name and that must be the same for every"
-" worker node."
+"Every worker node must correctly resolve the leader's FQDN, which must be"
+" consistent across all worker nodes."
 msgstr ""
-"Se il DNS viene utilizzato per trovare l'indirizzo IP del leader, ogni "
-"nodo worker deve risolvere correttamente il nome host del leader e questo"
-" deve essere lo stesso per ogni nodo worker."
+"il nodo worker deve risolvere correttamente l'FQDN del nodo leader nel "
+"relativo indirizzo IP"
 
-#: ../../cluster.rst:86
+#: ../../cluster.rst:106
+#, fuzzy
 msgid ""
-"Depending on the current leader node state there are two possible "
-"procedures to promote a node to leader role:"
+"Depending on the state of the current leader node, there are two "
+"procedures to promote a node to the leader role:"
 msgstr ""
 "A seconda dello stato attuale del nodo leader ci sono due possibili "
 "procedure per promuovere un nodo al ruolo di leader:"
 
-#: ../../cluster.rst:89 ../../cluster.rst:107
+#: ../../cluster.rst:109 ../../cluster.rst:128
 msgid "Reachable leader node"
 msgstr "Nodo leader raggiungibile"
 
-#: ../../cluster.rst:90 ../../cluster.rst:134
+#: ../../cluster.rst:110 ../../cluster.rst:148
 msgid "Unreachable leader node"
 msgstr "Nodo leader irraggiungibile"
 
-#: ../../cluster.rst:92
+#: ../../cluster.rst:112
+#, fuzzy
 msgid ""
-"In any case, after leader promotion it is necessary to perform these "
-"additional tasks:"
+"After promoting a leader, it is necessary to perform these additional "
+"tasks:"
 msgstr ""
 "In ogni caso, dopo la promozione del leader è necessario eseguire questi "
 "passi aggiuntivi:"
 
-#: ../../cluster.rst:94
+#: ../../cluster.rst:115
+#, fuzzy
 msgid ""
-"The cluster backup password must be set again. See also :ref"
+"Reset the cluster backup password. For more information, see :ref"
 ":`cluster_backup-section`."
 msgstr ""
 "La password di backup del cluster deve essere impostata di nuovo. Vedere "
 "anche :ref:`cluster_backup-section`."
 
-#: ../../cluster.rst:97
-msgid "See also the note in :ref:`audit-trail-section` about node promotion."
+#: ../../cluster.rst:118
+#, fuzzy
+msgid ""
+"Additionally, refer to the note in :ref:`audit-trail-section` regarding "
+"node promotion."
 msgstr ""
 "Vedere anche la nota in :ref: `audit-trail-section` sulla promozione del "
 "nodo."
 
-#: ../../cluster.rst:101
+#: ../../cluster.rst:123
 msgid ""
-"The promotion of a new leader entails a change in the System logs "
-"configuration. Refer to :ref:`logs-persistence-section` for more details."
+"Promoting a new leader entails changes to the System logs configuration. "
+"For more details, refer to :ref:`logs-persistence-section`."
 msgstr ""
 
-#: ../../cluster.rst:109
+#: ../../cluster.rst:130
+msgid "If the current leader node is functioning properly, follow these steps:"
+msgstr ""
+
+#: ../../cluster.rst:132
+#, fuzzy
+msgid "Access the ``Nodes`` page."
+msgstr "accedere alla pagina ``Domini e utenti`"
+
+#: ../../cluster.rst:133
+#, fuzzy
 msgid ""
-"If the current leader node is working properly, access the ``Nodes`` "
-"page, go to the three-dots menu of the node to promote and click on "
-"``Promote to leader``."
+"Open the three-dots menu of the node to promote and click on ``Promote to"
+" leader``."
 msgstr ""
 "Se l'attuale nodo leader funziona correttamente, accedere alla pagina "
 "``Nodi``, andare al menu a tre punti del nodo da promuovere e fare clic "
 "su ``Promuovi a leader``."
 
-#: ../../cluster.rst:113
+#: ../../cluster.rst:136
+#, fuzzy
 msgid ""
-"Confirm or enter the leader host name in the ``VPN public address`` "
-"field. An IP address is accepted, too."
-msgstr ""
-"Confermare o inserire il nome host del leader nel campo ``Indirizzo VPN "
-"pubblico``. Viene accettato anche un indirizzo IP."
-
-#: ../../cluster.rst:116
-msgid ""
-"Confirm or enter the ``VPN public UDP port`` number. Every worker node "
-"will connect the leader on that UDP port number. In most cases, the "
-"default VPN port, which is ``55820``, should suffice, unless there is a "
-"network device between the leader and the workers mapping it to a "
-"different port number."
-msgstr ""
-"Confermare o inserire il numero di ``Porta UDP VPN pubblica``. Ogni nodo "
-"worker contatterà il leader su quel numero di porta UDP. Nella maggior "
-"parte dei casi, la porta VPN predefinita ``55820`` dovrebbe bastare, a "
-"meno che non vi sia un dispositivo di rete tra il leader e i worker lo "
-"traduce in un numero di porta diverso."
-
-#: ../../cluster.rst:122
-msgid ""
-"When the confirmation string is typed, the :guilabel:`I understand, "
-"promote the node` button becomes active and it is possible to complete "
-"the node promotion."
-msgstr ""
-"Quando la stringa di conferma viene digitata, il pulsante :guilabel:`Sono"
-" consapevole, promuovi il nodo` diventa attivo ed è possibile completare "
-"la promozione nodo."
-
-#: ../../cluster.rst:126
-msgid ""
-"The ``Check node connectivity`` checkbox verifies the connection of each "
-"node with the selected one. Since the VPN connection cannot be probed, "
-"only HTTPS is checked, and it may fail due to settings on other network "
-"devices, such as port-forwarding. In this case, if you are certain that "
-"the entered configuration is correct, you have the option to disable the "
+"The ``Check node connectivity`` checkbox verifies the connection of the "
+"old leader with the designated one. Since the VPN connection cannot be "
+"probed, only an HTTPS connection is attempted. This may fail due to "
+"intervening network devices (e.g., NAT and port-forwarding setups). If "
+"you are certain that the configuration is correct, you can disable the "
 "check, but proceed at your own risk!"
 msgstr ""
 "La casella di controllo ``Controlla la connettività del nodo`` verifica "
@@ -867,33 +929,56 @@ msgstr ""
 "configurazione inserita è corretta, si ha la possibilità di disabilitare "
 "il controllo, ma si procedere a proprio rischio!"
 
-#: ../../cluster.rst:136
+#: ../../cluster.rst:143
+#, fuzzy
 msgid ""
-"If the current leader node is not reachable, it is necessary to run a "
-"command on any other worker node.  Be prepared in advance for this "
-"situation by enabling SSH, console or Cockpit **terminal root access** to"
-" the nodes."
+"When the confirmation string is typed, the :guilabel:`I understand, "
+"promote the node` button becomes active, allowing you to complete the "
+"node promotion."
+msgstr ""
+"Quando la stringa di conferma viene digitata, il pulsante :guilabel:`Sono"
+" consapevole, promuovi il nodo` diventa attivo ed è possibile completare "
+"la promozione nodo."
+
+#: ../../cluster.rst:150
+#, fuzzy
+msgid ""
+"If the current leader node is not reachable, run a command on any other "
+"worker node. Be prepared for this situation by enabling SSH, console, or "
+"Cockpit **terminal root access** to the nodes."
 msgstr ""
 "Se il nodo leader attuale non è raggiungibile, è necessario eseguire un "
 "comando su qualsiasi altro nodo worker. Prepararsi in anticipo per questa"
 " situazione consentendo l'accesso ai nodi con un **terminale di root**, "
 "mediante SSH, console o Cockpit."
 
-#: ../../cluster.rst:141
+#: ../../cluster.rst:154
+#, fuzzy
 msgid ""
-"For example, to promote node with ID ``3``, VPN endpoint "
-"``node3.example.com`` UDP port ``55820``, run the following command on "
-"every worker node: ::"
+"For example, to promote the node with ID ``3``, run the following command"
+" on every worker node: ::"
 msgstr ""
 "Ad esempio, per promuovere il nodo con ID ``3``, VPN endpoint "
 "``node3.example.com``, porta UDP ``55820``, eseguire il seguente comando "
 "su ogni nodo worker: ::"
 
-#: ../../cluster.rst:150 ../../ejabberd.rst:82
+#: ../../cluster.rst:159
+msgid ""
+"If the command fails because the VPN endpoint of node 3 is not defined or"
+" is incorrect, use the optional ``--endpoint`` parameter, for example: ::"
+msgstr ""
+
+#: ../../cluster.rst:164
+msgid ""
+"The VPN endpoint parameter consists of an address (name or IP) prefix and"
+" a UDP port number suffix, separated by a colon ``:``."
+msgstr ""
+
+#: ../../cluster.rst:171 ../../ejabberd.rst:82
 msgid "Administrators"
 msgstr "Amministratori"
 
-#: ../../cluster.rst:152
+#: ../../cluster.rst:173
 msgid ""
 "Cluster administrators can fully manage the cluster. It's recommended to "
 "create a personal user for each cluster administrator. All actions "
@@ -905,7 +990,7 @@ msgstr ""
 "cluster. Tutte le azioni eseguite da un amministratore del cluster sono "
 "registrate all'interno di :ref:`Audit log <audit-trail-section>`."
 
-#: ../../cluster.rst:156
+#: ../../cluster.rst:177
 msgid ""
 "To add a new cluster administrator go to the ``Settings`` page and select"
 " the ``Cluster administrators`` card. Then click on :guilabel:`Create "
@@ -916,7 +1001,7 @@ msgstr ""
 "Quindi fare clic su :guilabel:`Crea amministratore` e compilare i campi "
 "richiesti."
 
-#: ../../cluster.rst:159
+#: ../../cluster.rst:180
 msgid ""
 "An administrator can't delete its own user. To delete an administrator, "
 "you must log in with another existing cluster administrator."
@@ -925,7 +1010,7 @@ msgstr ""
 "amministratore, è necessario accedere come un altro amministratore del "
 "cluster già esistente."
 
-#: ../../cluster.rst:162
+#: ../../cluster.rst:183
 msgid ""
 "Administrators can change their own password from the ``Account`` card "
 "inside the ``Settings`` page."
@@ -933,11 +1018,11 @@ msgstr ""
 "Gli amministratori possono cambiare la propria password dalla scheda "
 "``Account`` all'interno della pagina ``Impostazioni``."
 
-#: ../../cluster.rst:167 ../../webtop.rst:132
+#: ../../cluster.rst:188 ../../webtop.rst:132
 msgid "Two-factor authentication (2FA)"
 msgstr "Autenticazione a due fattori (2FA)"
 
-#: ../../cluster.rst:169
+#: ../../cluster.rst:190
 msgid ""
 "Two-factor authentication (2FA) can be used to add an extra layer of "
 "security required to access the cluster management user interface."
@@ -946,7 +1031,7 @@ msgstr ""
 " un ulteriore livello di sicurezza necessario per accedere "
 "all'interfaccia utente di gestione del cluster."
 
-#: ../../cluster.rst:172
+#: ../../cluster.rst:193
 msgid ""
 "The administrator can enable 2FA from the ``Account`` card inside the "
 "``Settings`` page by clicking the :guilabel:`Enable 2FA` button."
@@ -955,19 +1040,19 @@ msgstr ""
 "della pagina ``Impostazioni`` facendo clic sul pulsante "
 ":guilabel:`Abilita 2FA` ."
 
-#: ../../cluster.rst:175
+#: ../../cluster.rst:196
 msgid "The user will have to:"
 msgstr "L'utente dovrà:"
 
-#: ../../cluster.rst:177
+#: ../../cluster.rst:198
 msgid "download and install the preferred 2FA application on the smartphone"
 msgstr "scaricare e installare l'applicazione 2FA preferita sullo smartphone"
 
-#: ../../cluster.rst:178
+#: ../../cluster.rst:199
 msgid "scan the QR code with the 2FA application"
 msgstr "eseguire la scansione del codice QR con l'applicazione 2FA"
 
-#: ../../cluster.rst:179
+#: ../../cluster.rst:200
 msgid ""
 "generate a new code and copy it inside the verification field, then click"
 " :guilabel:`Verify code`"
@@ -975,19 +1060,19 @@ msgstr ""
 "generare un nuovo codice e copiarlo all'interno del campo di verifica, "
 "quindi fare clic su :guilabel:`Verifica codice`"
 
-#: ../../cluster.rst:182
+#: ../../cluster.rst:203
 msgid "Smartphone applications"
 msgstr "Applicazioni smartphone"
 
-#: ../../cluster.rst:184
+#: ../../cluster.rst:205
 msgid "There are several commercial and open source 2FA applications:"
 msgstr "Ci sono diverse applicazioni commerciali e open source per 2FA:"
 
-#: ../../cluster.rst:186
+#: ../../cluster.rst:207
 msgid "Available for both Android and iOS:"
 msgstr "Disponibile sia per Android che per iOS:"
 
-#: ../../cluster.rst:188
+#: ../../cluster.rst:209
 msgid ""
 "`FreeOTP <https://freeotp.github.io/>`_: available for both Android and "
 "iOS"
@@ -995,7 +1080,7 @@ msgstr ""
 "`FreeOTP <https://freeotp.github.io/>`_: disponibile sia per Android che "
 "per iOS"
 
-#: ../../cluster.rst:189
+#: ../../cluster.rst:210
 msgid ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: available on iOS "
 "only"
@@ -1003,15 +1088,15 @@ msgstr ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: disponibile solo "
 "su iOS"
 
-#: ../../cluster.rst:190
+#: ../../cluster.rst:211
 msgid "`2FAS <https://2fas.com/>`_: available for both Android and iOS"
 msgstr "`2FAS <https://2fas.com/>`_: disponibile sia per Android che per iOS"
 
-#: ../../cluster.rst:193
+#: ../../cluster.rst:214
 msgid "Reset the cluster administrator password"
 msgstr "Reimpostare la password dell'amministratore del cluster"
 
-#: ../../cluster.rst:195
+#: ../../cluster.rst:216
 msgid ""
 "If you are locked out of the web user interface and you can still access "
 "a system command-line shell as ``root`` (e.g. by the system recovery "
@@ -1023,17 +1108,17 @@ msgstr ""
 " sistema o SSH), eseguire il seguente comando per disabilitare 2FA e "
 "ripristinare la password:"
 
-#: ../../cluster.rst:203
+#: ../../cluster.rst:224
 msgid "Replace the ``admin`` and ``Nethesis,1234`` default credentials as needed."
 msgstr ""
 "Sostituisci le credenziali ``admin`` e ``Nethesis,1234`` predefinite come"
 " necessario."
 
-#: ../../cluster.rst:209
+#: ../../cluster.rst:230
 msgid "Audit trail"
 msgstr "Audit log"
 
-#: ../../cluster.rst:211
+#: ../../cluster.rst:232
 msgid ""
 "Inside the audit trail page, cluster administrators can inspect all "
 "actions executed by any other administrator. Each event of the audit "
@@ -1043,19 +1128,19 @@ msgstr ""
 "cluster possono ispezionare tutte le azioni eseguite da qualsiasi altro "
 "amministratore. Ogni evento del percorso di audit contiene almeno:"
 
-#: ../../cluster.rst:214
+#: ../../cluster.rst:235
 msgid "date and time of the action"
 msgstr "data e ora dell'azione"
 
-#: ../../cluster.rst:215
+#: ../../cluster.rst:236
 msgid "user name of the cluster administrator"
 msgstr "nome utente dell'amministratore del cluster"
 
-#: ../../cluster.rst:216
+#: ../../cluster.rst:237
 msgid "name of the action"
 msgstr "nome dell'azione"
 
-#: ../../cluster.rst:218
+#: ../../cluster.rst:239
 msgid ""
 "Audit trail events can be filtered by user, date, action type, and custom"
 " text match."
@@ -1063,7 +1148,7 @@ msgstr ""
 "Gli eventi del log di audit possono essere filtrati per utente, data, "
 "tipo di azione e corrispondenza di testo personalizzata."
 
-#: ../../cluster.rst:222
+#: ../../cluster.rst:243
 msgid ""
 "Audit trail information is stored in the leader node disk. In case of "
 ":ref:`new leader promotion <node-promotion-section>` the audit trail "
@@ -2662,7 +2747,7 @@ msgstr ""
 msgid "fill the form to join a new DC to the domain."
 msgstr "fill the form to join a new DC to the domain."
 
-#: ../../file_server.rst:104 ../../log_server.rst:147
+#: ../../file_server.rst:104 ../../log_server.rst:218
 #: ../../software_center.rst:82
 #, fuzzy
 msgid "Footnotes"
@@ -3229,13 +3314,13 @@ msgstr "Nome utente: ``admin``"
 
 #: ../../install.rst:116
 msgid ""
-"Choose :guilabel:`Create cluster` and follow the procedure to create a "
-"new single-node cluster."
+"Choose :guilabel:`Create cluster` and follow the procedure to set up a "
+"new single-node cluster. Alternatively, you can join the node to an "
+"existing cluster as described in :ref:`cluster-section`, or restore a "
+"cluster backup as detailed in :ref:`disaster_recovery-section`."
 msgstr ""
-"Scegliere :guilabel:`Crea cluster` e seguire la procedura guidata per "
-"creare un nuovo cluster a nodo singolo."
 
-#: ../../install.rst:119
+#: ../../install.rst:121
 msgid ""
 "For security reasons, the admin password must be changed immediately if "
 "it is still at the default value."
@@ -3243,7 +3328,7 @@ msgstr ""
 "Per motivi di sicurezza, la password dell'amministratore deve essere "
 "cambiata al primo accesso, se è ancora al valore predefinito."
 
-#: ../../install.rst:125
+#: ../../install.rst:127
 msgid ""
 "Even if running on a single node, the system will setup a Virtual Private"
 " Network (VPN) for the cluster. With the VPN in place, you will be able "
@@ -3260,13 +3345,13 @@ msgstr ""
 " l'ambiente di rete esistente, perché non potrà essere modificata una "
 "volta impostata."
 
-#: ../../install.rst:132
+#: ../../install.rst:134
 msgid ""
 "Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
 "ready."
 msgstr "Infine, cliccare sul pulsante :guilabel:`Crea cluster`. NS8 è pronto."
 
-#: ../../install.rst:134
+#: ../../install.rst:136
 msgid ""
 "A new cluster has assigned the default name ``NethServer 8``. If you wish"
 " to change it:"
@@ -3274,19 +3359,19 @@ msgstr ""
 "Un nuovo cluster ha l'etichetta ``NethServer 8`` assegnata di default. Se"
 " si desidera cambiarla:"
 
-#: ../../install.rst:137
+#: ../../install.rst:139
 msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
 msgstr "recarsi alla pagina ``Impostazioni`` e cliccare sulla scheda ``Cluster``"
 
-#: ../../install.rst:138
+#: ../../install.rst:140
 msgid "enter a name inside the ``Cluster label`` field"
 msgstr "inserire un nome all'interno del campo ``Etichetta cluster``"
 
-#: ../../install.rst:139
+#: ../../install.rst:141
 msgid "click the :guilabel:`Save settings` button"
 msgstr "cliccare sul pulsante :guilabel:`Salva impostazioni`"
 
-#: ../../install.rst:141
+#: ../../install.rst:143
 msgid ""
 "Now sure where to go from here? You can install a :ref:`LDAP <openldap-"
 "section>` or :ref:`Active Directory <active_directory-section>` user "
@@ -3302,15 +3387,15 @@ msgstr ""
 "<cluster-sections>`o preparare una :ref:`dashbord per le metriche "
 "<metrics-section>`."
 
-#: ../../install.rst:147
+#: ../../install.rst:149
 msgid "Uninstall"
 msgstr "Rimozione"
 
-#: ../../install.rst:149
+#: ../../install.rst:151
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr "È possibile disinstallare NS8 dalla distribuzione Linux usata come base."
 
-#: ../../install.rst:151
+#: ../../install.rst:153
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
@@ -3320,7 +3405,7 @@ msgstr ""
 "moduli aggiuntivi. L'attività va studiata con cura perché rimuove tutto "
 "ciò che si trova nelle directory ``/home`` e ``/var/lib/nethserver``."
 
-#: ../../install.rst:154
+#: ../../install.rst:156
 msgid "To uninstall NS8, execute: ::"
 msgstr "Per disinstallare NS8, eseguire: ::"
 
@@ -3549,10 +3634,10 @@ msgstr "Advanced settings"
 
 #: ../../log_server.rst:109
 msgid ""
-"Navigate to the ``Settings`` page and click on the System logs card to "
-"modify log retention (select ``Edit retention``) or assign a user-"
-"friendly name to the active Loki instance (choose the three-dots menu, "
-"then ``Edit label``)."
+"Navigate to the ``Settings`` page, click on the System logs card and then"
+" on the three-dots menu to modify log retention (select ``Edit "
+"retention``) or assign a user-friendly name to the active Loki instance "
+"(select ``Edit label``)."
 msgstr ""
 
 #: ../../log_server.rst:116
@@ -3602,19 +3687,190 @@ msgid ""
 " ``Uninstall`` action."
 msgstr ""
 
+#: ../../log_server.rst:148
+#, fuzzy
+msgid "Logs forwarding"
+msgstr "Forward"
+
 #: ../../log_server.rst:150
+msgid ""
+"On the leader node, you have the capability to forward log streams "
+"managed by the active Loki instance to either an external syslog server "
+"or to the Cloud Log Manager. This enables centralized log aggregation, "
+"making it easier to monitor, analyze, and troubleshoot your NethServer "
+"environment."
+msgstr ""
+
+#: ../../log_server.rst:154
+msgid ""
+"To enable forwarders, navigate to ``Settings`` -> ``System Logs`` page, "
+"where all Loki instances, including the active one, are listed. Here, you"
+" can configure services by opening the Loki card menu."
+msgstr ""
+
+#: ../../log_server.rst:157
+msgid "If the forwarder is enabled, its status can be viewed in two places:"
+msgstr ""
+
+#: ../../log_server.rst:159
+#, fuzzy
+msgid "On the ``Cluster Status`` page under the ``System Logs`` card."
+msgstr ""
+"accedere alla pagina ``Impostazioni`` e fare clic sulla scheda "
+"``certificati TLS ``"
+
+#: ../../log_server.rst:160
+msgid ""
+"On the ``Settings`` -> ``System Logs`` page under the active Loki "
+"instance card."
+msgstr ""
+
+#: ../../log_server.rst:162
+#, fuzzy
+msgid "The displayed states are:"
+msgstr "Gestione delle impostazioni utente"
+
+#: ../../log_server.rst:164
+msgid ""
+"**Enabled**: A green circle with a description indicates the forwarder is"
+" active."
+msgstr ""
+
+#: ../../log_server.rst:165
+msgid ""
+"**Failed**: A red circle with a description indicates the forwarder has "
+"encountered an issue."
+msgstr ""
+
+#: ../../log_server.rst:170
+#, fuzzy
+msgid "Syslog"
+msgstr "System logs"
+
+#: ../../log_server.rst:171
+msgid ""
+"A syslog server receives, stores, and manages log messages from network "
+"devices and applications, facilitating centralized log monitoring and "
+"analysis."
+msgstr ""
+
+#: ../../log_server.rst:174
+msgid ""
+"Before setting up the forwarder, ensure your syslog server is functioning"
+" properly. You will need the following information to enable the syslog "
+"forwarder:"
+msgstr ""
+
+#: ../../log_server.rst:176
+#, fuzzy
+msgid "**Host name or IP address**: The IP address of the syslog server."
+msgstr ""
+"``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
+"NethServer 8"
+
+#: ../../log_server.rst:177
+#, fuzzy
+msgid "**Port**: The port number on which the syslog server listens."
+msgstr "``Port Number`` TCP port used by the LDAP server."
+
+#: ../../log_server.rst:178
+msgid "**Protocol**: The protocol used for server communication (UDP or TCP)."
+msgstr ""
+
+#: ../../log_server.rst:179
+#, fuzzy
+msgid ""
+"**Format**: Log format (`RFC 3164 <https://www.rfc-"
+"editor.org/rfc/rfc3164>`_ or `RFC 5424 <https://www.rfc-"
+"editor.org/rfc/rfc5424>`_)."
+msgstr ""
+"Attributi Unix `RFC2307 <https://www.rfc-editor.org/rfc/rfc2307> `_ - "
+"`OpenLDAP <https://www.openldap.org/>`_"
+
+#: ../../log_server.rst:180 ../../log_server.rst:205
+msgid ""
+"**Export start date**: Specify from when logs should be forwarded. You "
+"can choose the last timestamp [#last_timestamp]_ or manually enter a date"
+" and time."
+msgstr ""
+
+#: ../../log_server.rst:183
+#, fuzzy
+msgid "Cloud Log Manager"
+msgstr "Queue Manager"
+
+#: ../../log_server.rst:185
+#, fuzzy
+msgid ""
+"This service is available only with :ref:`subscription <subscription-"
+"section>`."
+msgstr ":ref:`Piani di abbonamento <subscription-section>`"
+
+#: ../../log_server.rst:187
+msgid ""
+"The Nethesis Cloud Log Manager is a centralized solution for collecting, "
+"storing, and managing logs from various devices within an organization. "
+"It allows for real-time event collection from systems such as Linux, "
+"Windows, firewalls, switches, and hypervisors, centralizing all logs into"
+" a single interface."
+msgstr ""
+
+#: ../../log_server.rst:192
+msgid ""
+"To enable the forwarder for Cloud Log Manager, navigate to the "
+"``Settings`` page and select ``System Logs``. Open the three-dots menu of"
+" the active Loki instance, then click on ``Configure Cloud Log Manager`` "
+"action.  Fill the form with the following information:"
+msgstr ""
+
+#: ../../log_server.rst:197
+msgid ""
+"**Cloud Log Manager URL**: The URL of the Cloud Log Manager (usually "
+"``https://nar.nethesis.it/``)."
+msgstr ""
+
+#: ../../log_server.rst:200
+msgid ""
+"**Company unique key**: This key, also known as 'tenant', identifies and "
+"associates the cluster logs within a company in Cloud Log Manager. You "
+"can find it in Cloud Log Manager web application, under Users and "
+"Companies > Companies."
+msgstr ""
+
+#: ../../log_server.rst:209
+msgid ""
+"Take note of the *cluster identifier*, displayed in the notice at the top"
+" of the form. The cluster identifier value is a string like ``cluster-"
+"02834ab3`` and will appear in the Host column of the Cloud Log Manager "
+"web application."
+msgstr ""
+
+#: ../../log_server.rst:214
+msgid ""
+"Once the form is saved, the export procedure begins. After a few minutes,"
+" logs will be available at https://naradmin.nethesis.it/."
+msgstr ""
+
+#: ../../log_server.rst:221
 msgid ""
 "Grafana Loki is a special database designed to store, index and search "
 "system logs. For more information, see "
 "https://github.com/nethserver/ns8-loki"
 msgstr ""
 
-#: ../../log_server.rst:156
+#: ../../log_server.rst:227
 msgid ""
 "The promtail.service core service operates on every node, reading system "
 "journals, forwarding new records to the active Loki instance, and "
 "preserving the last sent journal cursor position to ensure seamless "
 "restarts without log loss."
+msgstr ""
+
+#: ../../log_server.rst:234
+msgid ""
+"Last timestamp indicates the last time that the forwarder successfully "
+"sent logs. This allows the forwarder to resume forwarding from where it "
+"was interrupted, ensuring continuity in log management."
 msgstr ""
 
 #: ../../mail.rst:7 ../../migration.rst:230
@@ -13464,11 +13720,12 @@ msgid "DNS configuration"
 msgstr "Configurazione DNS"
 
 #: ../../system_requirements.rst:56
+#, fuzzy
 msgid ""
-"As you are configuring a server, network clients must resolve its fully "
-"qualified domain name (FQDN) to a routable IP address with the DNS. This "
-"is a requirement to connect with the server. Register the FQDN with DNS "
-"record type A for IPv4 addresses, and type AAAA for IPv6 addresses."
+"To ensure network clients can connect to the server, its fully qualified "
+"domain name (FQDN) must resolve to a routable IP address via DNS. "
+"Register the FQDN with DNS record type A for IPv4 addresses and type AAAA"
+" for IPv6 addresses."
 msgstr ""
 "Poiché si sta configurando un server, è necessario che i client di rete "
 "sappiano risolvere il suo fully qualified domain name (FQDN) tramite DNS "
@@ -13478,10 +13735,11 @@ msgstr ""
 "per gli indirizzi IPv6."
 
 #: ../../system_requirements.rst:61
+#, fuzzy
 msgid ""
-"A correct FQDN and DNS setup is also a requirement for TLS encryption to "
-"work properly. Once connected with the server, network clients check if "
-"the TLS certificate is valid for the given FQDN."
+"A correct FQDN and DNS setup is essential for TLS encryption to function "
+"properly. Once connected to the server, network clients verify the TLS "
+"certificate against the given FQDN."
 msgstr ""
 "Una corretta configurazione di FQDN e DNS è anche un requisito per il "
 "corretto funzionamento della crittografia TLS. Una volta connessi con il "
@@ -13489,22 +13747,29 @@ msgstr ""
 "l'FQDN utilizzato."
 
 #: ../../system_requirements.rst:65
+msgid "To meet these requirements, follow these steps:"
+msgstr ""
+
+#: ../../system_requirements.rst:67
+#, fuzzy
 msgid ""
-"Depending on your server purpose, DNS can be provided by a public "
-"internet service, a private network appliance, or even both of them. Read"
-" carefully and understand their documentation."
+"**Determine your DNS provider**: Based on your server's purpose, DNS can "
+"be provided by a public internet service, a private network appliance, or"
+" a combination of both. Review and understand the documentation for your "
+"chosen DNS provider."
 msgstr ""
 "A seconda dello scopo del server, il DNS può essere erogato da un "
 "servizio internet pubblico, da un appliance di rete privato, o da "
 "entrambi. Leggere attentamente la relativa documentazione."
 
-#: ../../system_requirements.rst:69
+#: ../../system_requirements.rst:72
+#, fuzzy
 msgid ""
-"Decide the FQDN of your server and register it in the DNS with the server"
-" public IP address. A FQDN is composed by the host name prefix (a single "
-"word) and the DNS domain suffix. For instance, host name can be "
-"``jupiter`` and domain suffix ``example.org``: the resulting FQDN is "
-"``jupiter.example.org``."
+"**Register the FQDN**: Choose the FQDN for your server and register it in"
+" the DNS with the server's public IP address. An FQDN consists of a "
+"hostname prefix (a single word) and a DNS domain suffix. For example, if "
+"the hostname is ``jupiter`` and the domain suffix is ``example.org``, the"
+" resulting FQDN will be ``jupiter.example.org``."
 msgstr ""
 "Scelto l'FQDN del server, questo andrà registrato nel DNS con il relativo"
 " indirizzo IP pubblico. Un FQDN è composto da un prefisso, il nome host "
@@ -13512,65 +13777,64 @@ msgstr ""
 "nome host è ``jupiter`` e il suffisso di dominio ``example.org`` l'FQDN "
 "risultante è ``jupiter.example.org``."
 
-#: ../../system_requirements.rst:79
+#: ../../system_requirements.rst:82
 msgid "Worker node requirements"
 msgstr "Requisiti del nodo worker"
 
-#: ../../system_requirements.rst:81
+#: ../../system_requirements.rst:84
+#, fuzzy
 msgid ""
-"Among network clients, a worker node has some special requirements to be "
-"installed and configured."
+"A worker node has specific requirements for installation and "
+"configuration."
 msgstr ""
 "Tra i client di rete, un nodo worker ha alcuni requisiti speciali che "
 "devono essere soddisfatti."
 
-#: ../../system_requirements.rst:84
+#: ../../system_requirements.rst:87
 msgid ""
-"The worker node reaches the leader during the join procedure at the "
+"During the join procedure, the worker node connects to the leader at the "
 "following URL: ::"
 msgstr ""
-"Il nodo worker raggiunge il leader durante la procedura di join usando il"
-" seguente URL::"
 
-#: ../../system_requirements.rst:89
+#: ../../system_requirements.rst:92
+msgid ""
+"It also establishes a WireGuard VPN connection with the leader using the "
+"default UDP port 55820."
+msgstr ""
+
+#: ../../system_requirements.rst:95
 msgid "Ensure the following requirements are met:"
 msgstr "Assicurarsi che i seguenti requisiti siano soddisfatti:"
 
-#: ../../system_requirements.rst:91
+#: ../../system_requirements.rst:97
+#, fuzzy
 msgid ""
-"the worker node must resolve the leader FQDN to the correct routable "
-"address"
+"The worker node must resolve the leader's FQDN to the correct routable "
+"address."
 msgstr ""
 "il nodo worker deve risolvere correttamente l'FQDN del nodo leader nel "
 "relativo indirizzo IP"
 
-#: ../../system_requirements.rst:94
+#: ../../system_requirements.rst:100
+#, fuzzy
 msgid ""
-"the HTTPS server (TCP port 443) at that address must handle the API "
-"request"
+"The HTTPS server (TCP port 443) at that address must handle the API "
+"request."
 msgstr ""
 "il server HTTPS (porta 443 TCP) a tale indirizzo deve gestire la "
 "richiesta API"
 
-#: ../../system_requirements.rst:97
+#: ../../system_requirements.rst:103
 msgid ""
-"the API server response contains the leader ``VPN endpoint``: it is a "
-"host address with a UDP port number used to set up a Wireguard VPN. The "
-"VPN endpoint is configured during the :ref:`cluster creation <post-"
-"install-steps>` procedure. Ensure it is not blocked by other network "
+"The VPN UDP port (default 55820) must not be blocked by any network "
 "appliances."
 msgstr ""
-"la risposta del server API contiene un``endpoint VPN``: è un indirizzo "
-"host con un numero di porta UDP utilizzato per configurare una VPN "
-"Wireguard. L'endpoint VPN è configurato durante la procedura "
-":ref:`cluster Creation <post-install-steps>`. Assicurarsi che non sia "
-"bloccato da altri appliance di rete."
 
-#: ../../system_requirements.rst:105
+#: ../../system_requirements.rst:108
 msgid "Web browser requirements"
 msgstr "Requisiti per il browser Web"
 
-#: ../../system_requirements.rst:107
+#: ../../system_requirements.rst:110
 msgid ""
 "To access the cluster administration web user interface, you need an up-"
 "to-date release of Firefox, Chrome, or Chromium browser as the web "
@@ -14577,6 +14841,76 @@ msgstr ""
 "password must comply with the domain password policy during this process."
 " The list of applications where the new password is effective is "
 "displayed next to the password changing form."
+
+#: ../../vpn.rst:5
+msgid "VPN Custom Setup"
+msgstr ""
+
+#: ../../vpn.rst:7
+msgid ""
+"The nodes of an NS8 cluster are connected via a WireGuard VPN. In VPN "
+"terms, every node, whether leader or worker, is referred to as a "
+"\"peer.\" However, the network uses a star topology, where the leader "
+"node is the center of the star. This means the leader node holds a "
+"central role not only in cluster administration but also at the VPN "
+"level. In summary:"
+msgstr ""
+
+#: ../../vpn.rst:13
+msgid "Packets between a worker and the leader are routed through a direct link."
+msgstr ""
+
+#: ../../vpn.rst:14
+msgid ""
+"Packets between two distinct workers must transit through the leader "
+"node, involving two links."
+msgstr ""
+
+#: ../../vpn.rst:17
+msgid "Data between peers is transmitted as encrypted UDP packets."
+msgstr ""
+
+#: ../../vpn.rst:20
+#, fuzzy
+msgid "Change the VPN Port"
+msgstr "Modifica del logo"
+
+#: ../../vpn.rst:22
+msgid ""
+"By default, UDP port 55820 is used for VPN data exchange. Generally, "
+"changing the default VPN port is not necessary. Before doing so, consider"
+" alternatives such as configuring port forwarding, especially if some "
+"nodes are behind a Network Address Translation (NAT) device."
+msgstr ""
+
+#: ../../vpn.rst:27
+msgid ""
+"If changing the default port is unavoidable, proceed as follows. For "
+"example, to change the port of worker node 2 to 55823:"
+msgstr ""
+
+#: ../../vpn.rst:30
+msgid ""
+"Update the VPN endpoint record for node 2 in Redis. Run this command on "
+"the leader node: ::"
+msgstr ""
+
+#: ../../vpn.rst:35
+#, fuzzy
+msgid "On node 2, change the WireGuard listening port: ::"
+msgstr "Modificare la porta di ascolto dell'istanza WireGuard in esecuzione ::"
+
+#: ../../vpn.rst:40
+#, fuzzy
+msgid "Adjust the firewall configuration on node 2: ::"
+msgstr "Correggere la configurazione del firewall ::"
+
+#: ../../vpn.rst:45
+msgid ""
+"This procedure also works to change the listening port of the leader "
+"node. However, to make it effective, all worker nodes must be rebooted or"
+" the following command must be executed on each of them: ::"
+msgstr ""
 
 #: ../../webserver.rst:5
 #, fuzzy
@@ -18572,4 +18906,242 @@ msgstr ""
 #~ "Email app is not installed or is"
 #~ " not migrated."
 #~ msgstr ""
+
+#~ msgid ""
+#~ "The full cluster backup is composed "
+#~ "by configuration and applications data. "
+#~ "Access the ``Backup`` page to manage "
+#~ "the backup and restore."
+#~ msgstr ""
+#~ "Il backup completo del cluster è "
+#~ "composto da configurazione e dati delle"
+#~ " applicazioni. Accedere alla pagina "
+#~ "``Backup`` per gestire il backup e "
+#~ "il ripristino."
+
+#~ msgid "Backup repository"
+#~ msgstr "Repository di backup"
+
+#~ msgid ""
+#~ "First, you will need to configure "
+#~ "a backup repository where the data "
+#~ "will be saved. A backup repository "
+#~ "keeps all backup data encrypted using"
+#~ " `restic <https://restic.readthedocs.io>`_ engine."
+#~ msgstr ""
+#~ "In primo luogo, è necessario configurare"
+#~ " un repository di backup in cui "
+#~ "i dati verranno salvati. Un repository"
+#~ " di backup mantiene tutti i dati "
+#~ "di backup crittografati utilizzando il "
+#~ "motore `restic <https://restic.readthedocs.io> `_."
+
+#~ msgid "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
+#~ msgstr "`Backblaze B2 <https://www.backblaze.com/b2/cloud-storage.html>`_"
+
+#~ msgid "`Amazon S3 <https://aws.amazon.com/s3/>`_"
+#~ msgstr "`Amazon S3 <https://aws.amazon.com/s3/>`_"
+
+#~ msgid ""
+#~ "`Azure blob storage <https://learn.microsoft.com"
+#~ "/en-us/azure/storage/blobs/storage-blobs-"
+#~ "introduction>`_"
+#~ msgstr ""
+#~ "`Azure blob storage <https://learn.microsoft.com"
+#~ "/en-us/azure/storage/blobs/storage-blobs-"
+#~ "introduction>`_"
+
+#~ msgid ""
+#~ "A new encryption key will be "
+#~ "automatically created for new repositories."
+#~ " If you are accessing a repository"
+#~ " which already contains a NS8 backup,"
+#~ " remember also to enter the "
+#~ "``Repository password`` under the ``Advanced``"
+#~ " section."
+#~ msgstr ""
+#~ "Una nuova chiave di crittografia verrà"
+#~ " creata automaticamente per i nuovi "
+#~ "repository. Se si accede a un "
+#~ "repository che contiene già un backup"
+#~ " NS8, ricorda anche di inserire la"
+#~ " ``Repository password`` sotto la sezione"
+#~ " ``Advanced``."
+
+#~ msgid "setup day and time of the backup and the retention policy"
+#~ msgstr "impostare giorno e ora del backup e la politica di conservazione"
+
+#~ msgid "Application restore"
+#~ msgstr "Ripristino dell'applicazione"
+
+#~ msgid ""
+#~ "You can restore an application only "
+#~ "if there is at least one "
+#~ "repository configured:"
+#~ msgstr ""
+#~ "È possibile ripristinare un'applicazione solo"
+#~ " se c'è almeno un repository "
+#~ "configurato:"
+
+#~ msgid ""
+#~ "as default the restore procedure will"
+#~ " create a new instance, if you "
+#~ "want to replace the existing one "
+#~ "select the ``Replace existing app`` "
+#~ "option"
+#~ msgstr ""
+#~ "come predefinito la procedura di "
+#~ "ripristino creerà una nuova istanza, se"
+#~ " si desidera sostituire quella esistente"
+#~ " selezionare l'opzione ``Sostituire l'app "
+#~ "esistente``"
+
+#~ msgid ""
+#~ "Please, download the cluster configuration "
+#~ "backup and keep it on a safe "
+#~ "place."
+#~ msgstr ""
+#~ "Si prega di scaricare il backup di"
+#~ " configurazione cluster e tenerlo in "
+#~ "un luogo sicuro."
+
+#~ msgid ""
+#~ "In addition, the cluster configuration "
+#~ "backup is automatically copied to the"
+#~ " designated repository each time a "
+#~ "scheduled operation occurs. This ensures "
+#~ "that the repository holds up-to-"
+#~ "date backups of both your data and"
+#~ " the specific cluster setup, including "
+#~ "all its configurations."
+#~ msgstr ""
+#~ "Inoltre, il backup di configurazione del"
+#~ " cluster viene copiato automaticamente nel"
+#~ " repository designato ogni volta che "
+#~ "si verifica un'operazione pianificata. Questo"
+#~ " assicura che il repository detiene "
+#~ "backup aggiornati sia dei dati che "
+#~ "della configurazione specifica del cluster,"
+#~ " incluse tutte le sue configurazioni."
+
+#~ msgid "click on :guilabel:`Restore cluster`"
+#~ msgstr "clicca su :guilabel:`Restore cluster`"
+
+#~ msgid ""
+#~ "if on step 2 you entered the "
+#~ "same password of the old cluster, "
+#~ "the system will automatically decrypt "
+#~ "the configuration backup; otherwise enter "
+#~ "the encryption secret inside the "
+#~ "``Backup password`` field"
+#~ msgstr ""
+#~ "se al passaggio 2 hai inserito la"
+#~ " stessa password del vecchio cluster, "
+#~ "il sistema decifra automaticamente il "
+#~ "backup della configurazione; altrimenti "
+#~ "inserire il segreto di crittografia "
+#~ "all'interno del campo ``Backup password`"
+
+#~ msgid ""
+#~ "If DNS is used to find the "
+#~ "leader IP address, every worker node "
+#~ "must properly resolve the leader host"
+#~ " name and that must be the same"
+#~ " for every worker node."
+#~ msgstr ""
+#~ "Se il DNS viene utilizzato per "
+#~ "trovare l'indirizzo IP del leader, ogni"
+#~ " nodo worker deve risolvere correttamente"
+#~ " il nome host del leader e "
+#~ "questo deve essere lo stesso per "
+#~ "ogni nodo worker."
+
+#~ msgid ""
+#~ "The promotion of a new leader "
+#~ "entails a change in the System "
+#~ "logs configuration. Refer to :ref:`logs-"
+#~ "persistence-section` for more details."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Confirm or enter the leader host "
+#~ "name in the ``VPN public address`` "
+#~ "field. An IP address is accepted, "
+#~ "too."
+#~ msgstr ""
+#~ "Confermare o inserire il nome host "
+#~ "del leader nel campo ``Indirizzo VPN "
+#~ "pubblico``. Viene accettato anche un "
+#~ "indirizzo IP."
+
+#~ msgid ""
+#~ "Confirm or enter the ``VPN public "
+#~ "UDP port`` number. Every worker node "
+#~ "will connect the leader on that "
+#~ "UDP port number. In most cases, "
+#~ "the default VPN port, which is "
+#~ "``55820``, should suffice, unless there "
+#~ "is a network device between the "
+#~ "leader and the workers mapping it "
+#~ "to a different port number."
+#~ msgstr ""
+#~ "Confermare o inserire il numero di "
+#~ "``Porta UDP VPN pubblica``. Ogni nodo"
+#~ " worker contatterà il leader su quel"
+#~ " numero di porta UDP. Nella maggior"
+#~ " parte dei casi, la porta VPN "
+#~ "predefinita ``55820`` dovrebbe bastare, a "
+#~ "meno che non vi sia un dispositivo"
+#~ " di rete tra il leader e i "
+#~ "worker lo traduce in un numero di"
+#~ " porta diverso."
+
+#~ msgid ""
+#~ "Choose :guilabel:`Create cluster` and follow"
+#~ " the procedure to create a new "
+#~ "single-node cluster."
+#~ msgstr ""
+#~ "Scegliere :guilabel:`Crea cluster` e seguire"
+#~ " la procedura guidata per creare un"
+#~ " nuovo cluster a nodo singolo."
+
+#~ msgid ""
+#~ "Navigate to the ``Settings`` page and"
+#~ " click on the System logs card "
+#~ "to modify log retention (select ``Edit"
+#~ " retention``) or assign a user-"
+#~ "friendly name to the active Loki "
+#~ "instance (choose the three-dots menu,"
+#~ " then ``Edit label``)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The worker node reaches the leader "
+#~ "during the join procedure at the "
+#~ "following URL: ::"
+#~ msgstr ""
+#~ "Il nodo worker raggiunge il leader "
+#~ "durante la procedura di join usando "
+#~ "il seguente URL::"
+
+#~ msgid ""
+#~ "the API server response contains the "
+#~ "leader ``VPN endpoint``: it is a "
+#~ "host address with a UDP port "
+#~ "number used to set up a Wireguard"
+#~ " VPN. The VPN endpoint is configured"
+#~ " during the :ref:`cluster creation "
+#~ "<post-install-steps>` procedure. Ensure it"
+#~ " is not blocked by other network "
+#~ "appliances."
+#~ msgstr ""
+#~ "la risposta del server API contiene "
+#~ "un``endpoint VPN``: è un indirizzo host"
+#~ " con un numero di porta UDP "
+#~ "utilizzato per configurare una VPN "
+#~ "Wireguard. L'endpoint VPN è configurato "
+#~ "durante la procedura :ref:`cluster Creation"
+#~ " <post-install-steps>`. Assicurarsi che "
+#~ "non sia bloccato da altri appliance "
+#~ "di rete."
 
