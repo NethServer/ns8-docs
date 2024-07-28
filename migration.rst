@@ -194,7 +194,7 @@ be done manually after the migration has completed.
    ``samba1`` and the new IP is ``192.168.1.123``, run the following
    command: ::
 
-      api-cli run module/samba1/set-ip-address --data '{"ipaddress":"192.168.1.123"}'
+      api-cli run module/samba1/set-ipaddress --data '{"ipaddress":"192.168.1.123"}'
 
 The NS8 Samba DC can be configured as external account provider
 for NS7. Bear in mind that NS7 must be able to access the :ref:`IP address <active_directory-section>` the Samba account provider is bound to.
