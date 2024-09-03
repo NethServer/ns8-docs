@@ -44,3 +44,5 @@ Known limitations
 
 - Imapsync does not integrate with :ref:`Piler <piler-section>`: messages
   copied by Imapsync are not archived.
+
+- Sieve filters are evaluated during LMTP delivery, which is used by Postfix to deliver emails. However, Imapsync likely uses IMAP commands to interact directly with Dovecot, bypassing LMTP and preventing Sieve scripts from being executed.

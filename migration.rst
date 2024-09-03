@@ -270,6 +270,10 @@ The migration involves transferring POP3 Connector settings to NS8 :ref:`Imapsyn
 Configurations of accounts using the IMAP protocol are translated to working Imapsync tasks.
 For accounts using POP3, it is necessary to review the settings and commence synchronization manually.
 
+Previously, a POP3 connector could use Sieve filters to sort emails during delivery via the LMTP protocol. Anti-spam filters were also applied during this process. 
+However, with Imapsync, which uses IMAP commands instead of LMTP, neither Sieve filters nor Rspamd anti-spam filters are applied. 
+This is a limitation, as emails transferred with Imapsync bypass both filtering processes.
+
 .. _migrated_routes-section:
 
 Manual HTTP routes
