@@ -48,10 +48,9 @@ The migration procedure will add NS7 as special node of the NethServer 8 cluster
 
    - ``NS8 admin username`` and ``NS8 admin password``: administrator
      credentials for the leader node. 
-     In NethServer 8, a ``ns7admin`` user is automatically created by the migration process
-     to perform the migration tasks and is removed upon completion. However, after leaving
-     the cluster, it is essential to verify that the ``ns7admin`` user has been correctly
-     removed. If it has not been removed, this must be done manually.
+     These credentials are solely used to create the ``ns7admin`` admin account in NS8,
+     reserved for the NS7 migration tool. Ensure that this account is automatically
+     removed at the end of the migration.
 
    - uncheck the ``TLS validation`` option if the leader node does not have a valid TLS certificate
 
