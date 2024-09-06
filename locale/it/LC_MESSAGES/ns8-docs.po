@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-03 10:06+0000\n"
+"POT-Creation-Date: 2024-09-06 16:16+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -3026,10 +3026,10 @@ msgstr ""
 
 #: ../../imapsync.rst:48
 msgid ""
-"Sieve filters are evaluated during LMTP delivery, which is used by "
-"Postfix to deliver emails. However, Imapsync likely uses IMAP commands to"
-" interact directly with Dovecot, bypassing LMTP and preventing Sieve "
-"scripts from being executed."
+"Sieve filters do not work with Imapsync, as they are evaluated during "
+"LMTP delivery. Instead, Imapsync uses IMAP commands to interact directly "
+"with Dovecot, bypassing LMTP and preventing the execution of Sieve "
+"scripts."
 msgstr ""
 
 #: ../../index.rst:18
@@ -5906,21 +5906,17 @@ msgstr ""
 "necessario rivedere le impostazioni e inizializzare la sincronizzazione "
 "manualmente."
 
-#: ../../migration.rst:273
+#: ../../migration.rst:275
 msgid ""
-"Previously, a POP3 connector could use Sieve filters to sort emails "
-"during delivery via the LMTP protocol. Anti-spam filters were also "
-"applied during this process. However, with Imapsync, which uses IMAP "
-"commands instead of LMTP, neither Sieve filters nor Rspamd anti-spam "
-"filters are applied. This is a limitation, as emails transferred with "
-"Imapsync bypass both filtering processes."
+"Emails fetched by Imapsync are not subject to anti-spam, anti-virus, or "
+"Sieve filtering."
 msgstr ""
 
-#: ../../migration.rst:280
+#: ../../migration.rst:281
 msgid "Manual HTTP routes"
 msgstr "Rotte HTTP manuali"
 
-#: ../../migration.rst:282
+#: ../../migration.rst:283
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -5932,7 +5928,7 @@ msgstr ""
 "server chiamato ``server.nethserver.org`` l'installazione WebTop era "
 "disponibile presso ``https://server.nethserver.org/webtop``."
 
-#: ../../migration.rst:286
+#: ../../migration.rst:287
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
@@ -5942,7 +5938,7 @@ msgstr ""
 "inserire un FQDN in modo che WebTop sarà disponibile su un URL del tipo "
 "``https://webtop.nethserver.org``."
 
-#: ../../migration.rst:289
+#: ../../migration.rst:290
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
@@ -5952,15 +5948,15 @@ msgstr ""
 "ricreare manualmente i vecchi percorsi HTTP da:ref:`proxy page <traefik-"
 "section>`."
 
-#: ../../migration.rst:292
+#: ../../migration.rst:293
 msgid "Example for adding WebTop routes:"
 msgstr "Esempio per l'aggiunta di percorsi WebTop:"
 
-#: ../../migration.rst:294
+#: ../../migration.rst:295
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr "aprire la sezione ``HTTP routes`` dalla pagina ``Impostazioni``"
 
-#: ../../migration.rst:295
+#: ../../migration.rst:296
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
@@ -5968,15 +5964,15 @@ msgstr ""
 "cliccare sul nome dell'istanza WebTop, tipo ``webtop1``, una finestra di "
 "dialogo modale mostrerà i dettagli del percorso"
 
-#: ../../migration.rst:296
+#: ../../migration.rst:297
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr "copiare il valore dal campo ``URL``, tipo ``http://127.0.0.1:20033``"
 
-#: ../../migration.rst:297
+#: ../../migration.rst:298
 msgid "click on the :guilabel:`Create route` button"
 msgstr "cliccare sul pulsante :guilabel: `Create route`"
 
-#: ../../migration.rst:298
+#: ../../migration.rst:299
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
@@ -5984,7 +5980,7 @@ msgstr ""
 "scegliere un ``Name`` per la radice e selezionare il ``Node`` dove "
 "l'istanza WebTop è in esecuzione"
 
-#: ../../migration.rst:299
+#: ../../migration.rst:300
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
@@ -5992,7 +5988,7 @@ msgstr ""
 "incollare il valore copiato prima (`http://127.0.0.1:20033``) dentro il "
 "campo ``URL``"
 
-#: ../../migration.rst:300
+#: ../../migration.rst:301
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
@@ -6000,45 +5996,45 @@ msgstr ""
 "lasciare il campo ``Host`` vuoto e inserire ``/webtop`` all'interno del "
 "campo ``Path``"
 
-#: ../../migration.rst:301
+#: ../../migration.rst:302
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr "ripetere i passaggi da 4 a 7 per tutti gli altri percorsi WebTop:"
 
-#: ../../migration.rst:303
+#: ../../migration.rst:304
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr "``/Microsoft-Server-ActiveSync ``"
 
-#: ../../migration.rst:304
+#: ../../migration.rst:305
 msgid "``/.well-known``"
 msgstr "``/.well-known``"
 
-#: ../../migration.rst:305
+#: ../../migration.rst:306
 msgid "``/webtop-dav``"
 msgstr "``/webtop-dav``"
 
-#: ../../migration.rst:310
+#: ../../migration.rst:311
 #, fuzzy
 msgid "Limitations"
 msgstr "Applicazioni"
 
-#: ../../migration.rst:312
+#: ../../migration.rst:313
 msgid ""
 "The migration tool supports a limited set of applications. If an "
 "application is installed but not listed on the migration tool page, it "
 "will not be covered by the migration process."
 msgstr ""
 
-#: ../../migration.rst:316
+#: ../../migration.rst:317
 #, fuzzy
 msgid "The following configurations are not migrated:"
 msgstr "Le seguenti configurazioni non verranno migrate:"
 
-#: ../../migration.rst:318
+#: ../../migration.rst:319
 #, fuzzy
 msgid "Custom templates"
 msgstr "template custom"
 
-#: ../../migration.rst:320
+#: ../../migration.rst:321
 #, fuzzy
 msgid ""
 "Account provider password policy settings (see :ref:`migrate-account-"
@@ -6047,13 +6043,13 @@ msgstr ""
 "impostazioni della policy delle password dell'account provider (vedere: "
 "`migrate-account-provider`)"
 
-#: ../../migration.rst:323
+#: ../../migration.rst:324
 msgid ""
 "System smart host settings, if the NS7 Email app is either not installed "
 "or not migrated"
 msgstr ""
 
-#: ../../migration.rst:326
+#: ../../migration.rst:327
 msgid ""
 "Additionally, shared folders will not be migrated if NS7 uses a remote "
 "account provider."
@@ -19162,4 +19158,28 @@ msgstr ""
 #~ " <post-install-steps>`. Assicurarsi che "
 #~ "non sia bloccato da altri appliance "
 #~ "di rete."
+
+#~ msgid ""
+#~ "Sieve filters are evaluated during LMTP"
+#~ " delivery, which is used by Postfix"
+#~ " to deliver emails. However, Imapsync "
+#~ "likely uses IMAP commands to interact"
+#~ " directly with Dovecot, bypassing LMTP "
+#~ "and preventing Sieve scripts from being"
+#~ " executed."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Previously, a POP3 connector could use"
+#~ " Sieve filters to sort emails during"
+#~ " delivery via the LMTP protocol. "
+#~ "Anti-spam filters were also applied "
+#~ "during this process. However, with "
+#~ "Imapsync, which uses IMAP commands "
+#~ "instead of LMTP, neither Sieve filters"
+#~ " nor Rspamd anti-spam filters are "
+#~ "applied. This is a limitation, as "
+#~ "emails transferred with Imapsync bypass "
+#~ "both filtering processes."
+#~ msgstr ""
 
