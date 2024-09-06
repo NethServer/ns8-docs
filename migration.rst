@@ -48,7 +48,8 @@ The migration procedure will add NS7 as special node of the NethServer 8 cluster
 
    - ``NS8 admin username`` and ``NS8 admin password``: administrator
      credentials for the leader node. 
-     These credentials are solely used to create the ``ns7admin`` admin account in NS8,
+     These credentials are solely used to create a ``ns7admin1`` admin account in NS8
+     (note that the trailing '1' may actually be any number),
      reserved for the NS7 migration tool. Ensure that this account is automatically
      removed at the end of the migration.
 
