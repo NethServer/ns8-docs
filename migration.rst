@@ -327,3 +327,11 @@ The following configurations are not migrated:
 
 Additionally, shared folders will not be migrated if NS7 uses a remote
 account provider.
+
+
+Post-migration step back
+========================
+
+Once a service has been migrated to the remote NS8 host it should not run any more on NS7. 
+When the migrate command completes the application services are stopped and disabled. 
+To enable them back, you can use the following command that you will find in the `developer documentation <https://github.com/NethServer/nethserver-ns8-migration?tab=readme-ov-file#post-migration-step-back>`_
