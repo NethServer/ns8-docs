@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-10 13:27+0000\n"
+"POT-Creation-Date: 2024-09-12 07:57+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -612,37 +612,57 @@ msgid "Cluster management"
 msgstr "Gestione cluster"
 
 #: ../../cluster.rst:7
+#, fuzzy
 msgid ""
-"A NethServer 8 `cluster "
-"<https://en.wikipedia.org/wiki/Computer_cluster>`_ is composed of one "
-"**leader** node and multiple **worker** nodes."
+"A NethServer 8 cluster_ is composed of one **leader** node and multiple "
+"**worker** nodes."
 msgstr ""
 "Un `cluster <https://en.wikipedia.org/wiki/Computer_cluster>`_ NethServer"
 " 8 è composto da un nodo **leader** e da più nodi **worker**."
 
-#: ../../cluster.rst:10
+#: ../../cluster.rst:12
+#, fuzzy
 msgid ""
-"An NS8 cluster composed only of the leader node, is a fully functional "
-"system. Worker nodes can be added or removed at any time. NS8 clusters "
-"support a maximum of 4 nodes."
+"All nodes are managed through the Web user interface, which operates on "
+"the leader node."
+msgstr ""
+"Tutti i nodi sono gestiti dall'interfaccia utente Web in esecuzione sul "
+"nodo leader."
+
+#: ../../cluster.rst:15
+#, fuzzy
+msgid ""
+"An NS8 cluster consisting solely of the leader node is a fully functional"
+" system. Worker nodes can be added or removed at any time."
 msgstr ""
 "Un cluster NS8 composto solo dal nodo leader è un sistema completamente "
 "funzionale. I nodi worker possono essere aggiunti o rimossi in qualsiasi "
 "momento. I cluster NS8 supportano un massimo di 4 nodi."
 
-#: ../../cluster.rst:14
+#: ../../cluster.rst:18
 msgid ""
-"All nodes are managed by the Web user interface running on the leader "
-"node."
+"The VPN network chosen during the initial leader node setup determines "
+"the limit on the number of possible cluster nodes. Note that a node's VPN"
+" IP is never released once allocated: removing a node does not free its "
+"VPN IP address."
 msgstr ""
-"Tutti i nodi sono gestiti dall'interfaccia utente Web in esecuzione sul "
-"nodo leader."
 
-#: ../../cluster.rst:17
+#: ../../cluster.rst:23
+msgid "The default VPN network ``10.5.4.0/24`` supports up to 254 cluster nodes."
+msgstr ""
+
+#: ../../cluster.rst:25
+msgid ""
+"In theory, the maximum number of nodes in an NS8 cluster is limited only "
+"by the VPN network size. However, it is advisable to add nodes gradually "
+"to avoid degrading the leader's performance due to increasing workload."
+msgstr ""
+
+#: ../../cluster.rst:31
 msgid "Add a node"
 msgstr "Aggiungere un nodo"
 
-#: ../../cluster.rst:19
+#: ../../cluster.rst:33
 msgid ""
 "You can add (join) a worker node to an existing cluster. The process "
 "consists of three steps:"
@@ -650,19 +670,19 @@ msgstr ""
 "È possibile aggiungere un nodo worker a un cluster esistente. Il processo"
 " avviene in tre passaggi:"
 
-#: ../../cluster.rst:22
+#: ../../cluster.rst:36
 msgid "install the new node"
 msgstr "installare il nuovo nodo"
 
-#: ../../cluster.rst:23
+#: ../../cluster.rst:37
 msgid "obtain the join code from the leader node"
 msgstr "ottenere il codice di join dal nodo leader"
 
-#: ../../cluster.rst:24
+#: ../../cluster.rst:38
 msgid "enter the join code into the worker node"
 msgstr "inserire il codice di join nel nodo worker"
 
-#: ../../cluster.rst:26
+#: ../../cluster.rst:40
 msgid ""
 "First, prepare a machine with the same Linux distribution used for the "
 "leader node, then follow the :ref:`install instruction <install-section>`"
@@ -673,7 +693,7 @@ msgstr ""
 "installazione <install-section>` fino al login all'interfaccia utente "
 "Web."
 
-#: ../../cluster.rst:29
+#: ../../cluster.rst:43
 msgid ""
 "After the login on the worker node, click the :guilabel:`Join cluster` "
 "button."
@@ -681,7 +701,7 @@ msgstr ""
 "Dopo il login sul nodo worker, fare clic sul pulsante :guilabel:`Join "
 "cluster`."
 
-#: ../../cluster.rst:31 ../../install.rst:124
+#: ../../cluster.rst:45
 msgid ""
 "Ensure the node Fully Qualified Domain Name (FQDN) is correct, and "
 "respects the :ref:`DNS requirements <dns-reqs>`."
@@ -689,7 +709,7 @@ msgstr ""
 "Assicurarsi che il Fully Qualified Domain Name (FQDN) del nodo sia "
 "corretto e rispetti i :ref:`requisiti DNS <dns-reqs>`."
 
-#: ../../cluster.rst:34
+#: ../../cluster.rst:48
 msgid ""
 "On the leader node, access the ``Nodes`` page and click on :guilabel:`Add"
 " node to cluster` and copy the join code from the dialog box."
@@ -698,7 +718,7 @@ msgstr ""
 ":guilabel:`Aggiungi nodo al cluster`. Quindi copiare il codice di join "
 "dalla finestra di dialogo."
 
-#: ../../cluster.rst:36
+#: ../../cluster.rst:50
 msgid ""
 "Return to the worker node and paste the code inside the ``Join code`` "
 "field and click the :guilabel:`Join cluster` button. If the leader node "
@@ -710,7 +730,7 @@ msgstr ""
 "non ha un certificato TLS valido, ricordarsi di disabilitare l'opzione "
 "``Verifica del certificato TLS`` prima di premere il pulsante di join."
 
-#: ../../cluster.rst:41
+#: ../../cluster.rst:55
 msgid ""
 "When the node registration is complete, you can return to the leader user"
 " interface and install applications running on the new worker node."
@@ -719,11 +739,11 @@ msgstr ""
 "interfaccia utente del nodo leader e installare applicazioni sul nuovo "
 "nodo worker."
 
-#: ../../cluster.rst:44
+#: ../../cluster.rst:58
 msgid "Remove a node"
 msgstr "Rimuovere un nodo"
 
-#: ../../cluster.rst:46
+#: ../../cluster.rst:60
 msgid ""
 "Worker nodes can be removed from the cluster. Before removing a given "
 "worker node, ensure no account provider replica is running on it. In the "
@@ -737,7 +757,7 @@ msgstr ""
 " seguire il link ``N provider`` per vedere in quale nodo è installata la "
 "replica, quindi rimuoverla."
 
-#: ../../cluster.rst:54
+#: ../../cluster.rst:68
 msgid ""
 "If the node is not reachable, or is not responding, the provider replica "
 "removal must be completed manually after the node removal."
@@ -746,7 +766,7 @@ msgstr ""
 "replica del provider deve essere completata manualmente dopo la rimozione"
 " del nodo."
 
-#: ../../cluster.rst:57
+#: ../../cluster.rst:71
 msgid ""
 "Access the ``Nodes`` page, go to the three-dots menu of the node and "
 "click on ``Remove from cluster`` to open a confirmation window. "
@@ -758,7 +778,7 @@ msgstr ""
 "Le applicazioni installate sul nodo sono elencate: rivedere quella lista "
 "con attenzione perché la rimozione del nodo non è recuperabile."
 
-#: ../../cluster.rst:62
+#: ../../cluster.rst:76
 msgid ""
 "If the node removal window is confirmed by pushing the :guilabel:`I "
 "understand, remove node` button, the node and its applications are "
@@ -770,7 +790,7 @@ msgstr ""
 "applicazioni sono disconnessi, le loro autorizzazioni vengono revocate e "
 "non possono accedere più al cluster."
 
-#: ../../cluster.rst:67
+#: ../../cluster.rst:81
 msgid ""
 "When a node is removed from the cluster the applications running on it "
 "are not affected and they are left in a running state. Shutdown and "
@@ -780,46 +800,46 @@ msgstr ""
 " di esso non sono influenzate e sono lasciate in esecuzione. Arrestare e "
 "spegnere il nodo per completarne la rimozione."
 
-#: ../../cluster.rst:74
+#: ../../cluster.rst:88
 msgid "Change FQDN"
 msgstr ""
 
-#: ../../cluster.rst:76
+#: ../../cluster.rst:90
 msgid ""
 "A node's FQDN is typically set during the post-installation steps. If it "
 "becomes necessary to change the FQDN later, follow these steps:"
 msgstr ""
 
-#: ../../cluster.rst:79
+#: ../../cluster.rst:93
 msgid ""
 "Access the ``Nodes`` page and navigate to the three-dots menu of the "
 "corresponding node card."
 msgstr ""
 
-#: ../../cluster.rst:82
+#: ../../cluster.rst:96
 #, fuzzy
 msgid "Select the ``Set FQDN`` action."
 msgstr "selezionare il nodo di destinazione"
 
-#: ../../cluster.rst:84
+#: ../../cluster.rst:98
 msgid ""
 "If you are changing the leader node's FQDN, an additional validation "
 "procedure will check if the new FQDN is correctly resolved by all worker "
 "nodes."
 msgstr ""
 
-#: ../../cluster.rst:88
+#: ../../cluster.rst:102
 msgid ""
 "If you are changing a worker node's FQDN, this validation is not "
 "enforced. However, it is still necessary to correctly register the new "
 "FQDN in the DNS as outlined in :ref:`dns-reqs`."
 msgstr ""
 
-#: ../../cluster.rst:96
+#: ../../cluster.rst:110
 msgid "Promote a node to leader"
 msgstr "Promuovere un nodo a leader"
 
-#: ../../cluster.rst:98
+#: ../../cluster.rst:112
 #, fuzzy
 msgid ""
 "Adding and removing nodes may necessitate changing the cluster **leader "
@@ -828,12 +848,12 @@ msgstr ""
 "Aggiungere e rimuovere i nodi potrebbe aumentare la necessità di cambiare"
 " il **nodo leader** del cluster."
 
-#: ../../cluster.rst:101
+#: ../../cluster.rst:115
 #, fuzzy
 msgid "A suitable leader node must be reachable by all other worker nodes."
 msgstr "Un buon nodo leader deve essere raggiungibile da ogni altro nodo worker."
 
-#: ../../cluster.rst:103
+#: ../../cluster.rst:117
 #, fuzzy
 msgid ""
 "Every worker node must correctly resolve the leader's FQDN, which must be"
@@ -842,7 +862,7 @@ msgstr ""
 "il nodo worker deve risolvere correttamente l'FQDN del nodo leader nel "
 "relativo indirizzo IP"
 
-#: ../../cluster.rst:106
+#: ../../cluster.rst:120
 #, fuzzy
 msgid ""
 "Depending on the state of the current leader node, there are two "
@@ -851,15 +871,15 @@ msgstr ""
 "A seconda dello stato attuale del nodo leader ci sono due possibili "
 "procedure per promuovere un nodo al ruolo di leader:"
 
-#: ../../cluster.rst:109 ../../cluster.rst:128
+#: ../../cluster.rst:123 ../../cluster.rst:142
 msgid "Reachable leader node"
 msgstr "Nodo leader raggiungibile"
 
-#: ../../cluster.rst:110 ../../cluster.rst:148
+#: ../../cluster.rst:124 ../../cluster.rst:162
 msgid "Unreachable leader node"
 msgstr "Nodo leader irraggiungibile"
 
-#: ../../cluster.rst:112
+#: ../../cluster.rst:126
 #, fuzzy
 msgid ""
 "After promoting a leader, it is necessary to perform these additional "
@@ -868,7 +888,7 @@ msgstr ""
 "In ogni caso, dopo la promozione del leader è necessario eseguire questi "
 "passi aggiuntivi:"
 
-#: ../../cluster.rst:115
+#: ../../cluster.rst:129
 #, fuzzy
 msgid ""
 "Reset the cluster backup password. For more information, see :ref"
@@ -877,7 +897,7 @@ msgstr ""
 "La password di backup del cluster deve essere impostata di nuovo. Vedere "
 "anche :ref:`cluster_backup-section`."
 
-#: ../../cluster.rst:118
+#: ../../cluster.rst:132
 #, fuzzy
 msgid ""
 "Additionally, refer to the note in :ref:`audit-trail-section` regarding "
@@ -886,22 +906,22 @@ msgstr ""
 "Vedere anche la nota in :ref: `audit-trail-section` sulla promozione del "
 "nodo."
 
-#: ../../cluster.rst:123
+#: ../../cluster.rst:137
 msgid ""
 "Promoting a new leader entails changes to the System logs configuration. "
 "For more details, refer to :ref:`logs-persistence-section`."
 msgstr ""
 
-#: ../../cluster.rst:130
+#: ../../cluster.rst:144
 msgid "If the current leader node is functioning properly, follow these steps:"
 msgstr ""
 
-#: ../../cluster.rst:132
+#: ../../cluster.rst:146
 #, fuzzy
 msgid "Access the ``Nodes`` page."
 msgstr "accedere alla pagina ``Domini e utenti`"
 
-#: ../../cluster.rst:133
+#: ../../cluster.rst:147
 #, fuzzy
 msgid ""
 "Open the three-dots menu of the node to promote and click on ``Promote to"
@@ -911,7 +931,7 @@ msgstr ""
 "``Nodi``, andare al menu a tre punti del nodo da promuovere e fare clic "
 "su ``Promuovi a leader``."
 
-#: ../../cluster.rst:136
+#: ../../cluster.rst:150
 #, fuzzy
 msgid ""
 "The ``Check node connectivity`` checkbox verifies the connection of the "
@@ -929,7 +949,7 @@ msgstr ""
 "configurazione inserita è corretta, si ha la possibilità di disabilitare "
 "il controllo, ma si procedere a proprio rischio!"
 
-#: ../../cluster.rst:143
+#: ../../cluster.rst:157
 #, fuzzy
 msgid ""
 "When the confirmation string is typed, the :guilabel:`I understand, "
@@ -940,7 +960,7 @@ msgstr ""
 " consapevole, promuovi il nodo` diventa attivo ed è possibile completare "
 "la promozione nodo."
 
-#: ../../cluster.rst:150
+#: ../../cluster.rst:164
 #, fuzzy
 msgid ""
 "If the current leader node is not reachable, run a command on any other "
@@ -952,7 +972,7 @@ msgstr ""
 " situazione consentendo l'accesso ai nodi con un **terminale di root**, "
 "mediante SSH, console o Cockpit."
 
-#: ../../cluster.rst:154
+#: ../../cluster.rst:168
 #, fuzzy
 msgid ""
 "For example, to promote the node with ID ``3``, run the following command"
@@ -962,23 +982,23 @@ msgstr ""
 "``node3.example.com``, porta UDP ``55820``, eseguire il seguente comando "
 "su ogni nodo worker: ::"
 
-#: ../../cluster.rst:159
+#: ../../cluster.rst:173
 msgid ""
 "If the command fails because the VPN endpoint of node 3 is not defined or"
 " is incorrect, use the optional ``--endpoint`` parameter, for example: ::"
 msgstr ""
 
-#: ../../cluster.rst:164
+#: ../../cluster.rst:178
 msgid ""
 "The VPN endpoint parameter consists of an address (name or IP) prefix and"
 " a UDP port number suffix, separated by a colon ``:``."
 msgstr ""
 
-#: ../../cluster.rst:171 ../../ejabberd.rst:82
+#: ../../cluster.rst:185 ../../ejabberd.rst:82
 msgid "Administrators"
 msgstr "Amministratori"
 
-#: ../../cluster.rst:173
+#: ../../cluster.rst:187
 msgid ""
 "Cluster administrators can fully manage the cluster. It's recommended to "
 "create a personal user for each cluster administrator. All actions "
@@ -990,7 +1010,7 @@ msgstr ""
 "cluster. Tutte le azioni eseguite da un amministratore del cluster sono "
 "registrate all'interno di :ref:`Audit log <audit-trail-section>`."
 
-#: ../../cluster.rst:177
+#: ../../cluster.rst:191
 msgid ""
 "To add a new cluster administrator go to the ``Settings`` page and select"
 " the ``Cluster administrators`` card. Then click on :guilabel:`Create "
@@ -1001,7 +1021,7 @@ msgstr ""
 "Quindi fare clic su :guilabel:`Crea amministratore` e compilare i campi "
 "richiesti."
 
-#: ../../cluster.rst:180
+#: ../../cluster.rst:194
 msgid ""
 "An administrator can't delete its own user. To delete an administrator, "
 "you must log in with another existing cluster administrator."
@@ -1010,7 +1030,7 @@ msgstr ""
 "amministratore, è necessario accedere come un altro amministratore del "
 "cluster già esistente."
 
-#: ../../cluster.rst:183
+#: ../../cluster.rst:197
 msgid ""
 "Administrators can change their own password from the ``Account`` card "
 "inside the ``Settings`` page."
@@ -1018,11 +1038,11 @@ msgstr ""
 "Gli amministratori possono cambiare la propria password dalla scheda "
 "``Account`` all'interno della pagina ``Impostazioni``."
 
-#: ../../cluster.rst:188 ../../webtop.rst:132
+#: ../../cluster.rst:202 ../../webtop.rst:132
 msgid "Two-factor authentication (2FA)"
 msgstr "Autenticazione a due fattori (2FA)"
 
-#: ../../cluster.rst:190
+#: ../../cluster.rst:204
 msgid ""
 "Two-factor authentication (2FA) can be used to add an extra layer of "
 "security required to access the cluster management user interface."
@@ -1031,7 +1051,7 @@ msgstr ""
 " un ulteriore livello di sicurezza necessario per accedere "
 "all'interfaccia utente di gestione del cluster."
 
-#: ../../cluster.rst:193
+#: ../../cluster.rst:207
 msgid ""
 "The administrator can enable 2FA from the ``Account`` card inside the "
 "``Settings`` page by clicking the :guilabel:`Enable 2FA` button."
@@ -1040,19 +1060,19 @@ msgstr ""
 "della pagina ``Impostazioni`` facendo clic sul pulsante "
 ":guilabel:`Abilita 2FA` ."
 
-#: ../../cluster.rst:196
+#: ../../cluster.rst:210
 msgid "The user will have to:"
 msgstr "L'utente dovrà:"
 
-#: ../../cluster.rst:198
+#: ../../cluster.rst:212
 msgid "download and install the preferred 2FA application on the smartphone"
 msgstr "scaricare e installare l'applicazione 2FA preferita sullo smartphone"
 
-#: ../../cluster.rst:199
+#: ../../cluster.rst:213
 msgid "scan the QR code with the 2FA application"
 msgstr "eseguire la scansione del codice QR con l'applicazione 2FA"
 
-#: ../../cluster.rst:200
+#: ../../cluster.rst:214
 msgid ""
 "generate a new code and copy it inside the verification field, then click"
 " :guilabel:`Verify code`"
@@ -1060,19 +1080,19 @@ msgstr ""
 "generare un nuovo codice e copiarlo all'interno del campo di verifica, "
 "quindi fare clic su :guilabel:`Verifica codice`"
 
-#: ../../cluster.rst:203
+#: ../../cluster.rst:217
 msgid "Smartphone applications"
 msgstr "Applicazioni smartphone"
 
-#: ../../cluster.rst:205
+#: ../../cluster.rst:219
 msgid "There are several commercial and open source 2FA applications:"
 msgstr "Ci sono diverse applicazioni commerciali e open source per 2FA:"
 
-#: ../../cluster.rst:207
+#: ../../cluster.rst:221
 msgid "Available for both Android and iOS:"
 msgstr "Disponibile sia per Android che per iOS:"
 
-#: ../../cluster.rst:209
+#: ../../cluster.rst:223
 msgid ""
 "`FreeOTP <https://freeotp.github.io/>`_: available for both Android and "
 "iOS"
@@ -1080,7 +1100,7 @@ msgstr ""
 "`FreeOTP <https://freeotp.github.io/>`_: disponibile sia per Android che "
 "per iOS"
 
-#: ../../cluster.rst:210
+#: ../../cluster.rst:224
 msgid ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: available on iOS "
 "only"
@@ -1088,15 +1108,15 @@ msgstr ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: disponibile solo "
 "su iOS"
 
-#: ../../cluster.rst:211
+#: ../../cluster.rst:225
 msgid "`2FAS <https://2fas.com/>`_: available for both Android and iOS"
 msgstr "`2FAS <https://2fas.com/>`_: disponibile sia per Android che per iOS"
 
-#: ../../cluster.rst:214
+#: ../../cluster.rst:228
 msgid "Reset the cluster administrator password"
 msgstr "Reimpostare la password dell'amministratore del cluster"
 
-#: ../../cluster.rst:216
+#: ../../cluster.rst:230
 msgid ""
 "If you are locked out of the web user interface and you can still access "
 "a system command-line shell as ``root`` (e.g. by the system recovery "
@@ -1108,17 +1128,17 @@ msgstr ""
 " sistema o SSH), eseguire il seguente comando per disabilitare 2FA e "
 "ripristinare la password:"
 
-#: ../../cluster.rst:224
+#: ../../cluster.rst:238
 msgid "Replace the ``admin`` and ``Nethesis,1234`` default credentials as needed."
 msgstr ""
 "Sostituisci le credenziali ``admin`` e ``Nethesis,1234`` predefinite come"
 " necessario."
 
-#: ../../cluster.rst:230
+#: ../../cluster.rst:244
 msgid "Audit trail"
 msgstr "Audit log"
 
-#: ../../cluster.rst:232
+#: ../../cluster.rst:246
 msgid ""
 "Inside the audit trail page, cluster administrators can inspect all "
 "actions executed by any other administrator. Each event of the audit "
@@ -1128,19 +1148,19 @@ msgstr ""
 "cluster possono ispezionare tutte le azioni eseguite da qualsiasi altro "
 "amministratore. Ogni evento del percorso di audit contiene almeno:"
 
-#: ../../cluster.rst:235
+#: ../../cluster.rst:249
 msgid "date and time of the action"
 msgstr "data e ora dell'azione"
 
-#: ../../cluster.rst:236
+#: ../../cluster.rst:250
 msgid "user name of the cluster administrator"
 msgstr "nome utente dell'amministratore del cluster"
 
-#: ../../cluster.rst:237
+#: ../../cluster.rst:251
 msgid "name of the action"
 msgstr "nome dell'azione"
 
-#: ../../cluster.rst:239
+#: ../../cluster.rst:253
 msgid ""
 "Audit trail events can be filtered by user, date, action type, and custom"
 " text match."
@@ -1148,7 +1168,7 @@ msgstr ""
 "Gli eventi del log di audit possono essere filtrati per utente, data, "
 "tipo di azione e corrispondenza di testo personalizzata."
 
-#: ../../cluster.rst:243
+#: ../../cluster.rst:257
 msgid ""
 "Audit trail information is stored in the leader node disk. In case of "
 ":ref:`new leader promotion <node-promotion-section>` the audit trail "
@@ -3298,22 +3318,25 @@ msgid "Post-installation steps"
 msgstr "Passi post-installazione"
 
 #: ../../install.rst:102
+#, fuzzy
 msgid ""
-"When the installation script ends or the pre-built image has started, "
-"access the Web user interface at ::"
+"When the installation script completes or the pre-built image has "
+"started, access the Web user interface at: ::"
 msgstr ""
 "Quando lo script di installazione termina o l'immagine pre-built è "
 "inizializzata, accedere all'interfaccia utente Web tramite il seguente "
 "URL::"
 
 #: ../../install.rst:109
-msgid "If the node is unreachable see :ref:`os-network-section`"
+#, fuzzy
+msgid "If the node is unreachable, refer to :ref:`os-network-section`."
 msgstr ""
 "Se il nodo fosse irraggiungibile, fare riferimento a :ref:`os-network-"
 "section`"
 
 #: ../../install.rst:111
-msgid "The default credentials to login on cluster-admin are"
+#, fuzzy
+msgid "The default credentials for logging in to the cluster-admin interface are:"
 msgstr "Le credenziali di default per accedere a cluster-admin sono"
 
 #: ../../install.rst:113 ../../odoo.rst:55
@@ -3329,21 +3352,33 @@ msgid ""
 msgstr ""
 
 #: ../../install.rst:121
+#, fuzzy
 msgid ""
-"For security reasons, the admin password must be changed immediately if "
-"it is still at the default value."
+"For security reasons, change the admin password immediately if it is "
+"still set to the default value."
 msgstr ""
 "Per motivi di sicurezza, la password dell'amministratore deve essere "
 "cambiata al primo accesso, se è ancora al valore predefinito."
 
-#: ../../install.rst:127
+#: ../../install.rst:124
+#, fuzzy
 msgid ""
-"Even if running on a single node, the system will setup a Virtual Private"
-" Network (VPN) for the cluster. With the VPN in place, you will be able "
-"to add more nodes in the future. The proposed default values should be "
-"good for most environments, anyway make sure ``VPN network (CIDR)`` does "
-"not conflict with your existing network environment, because it cannot be"
-" changed once it has been set."
+"Ensure the node's Fully Qualified Domain Name (FQDN) is correct and meets"
+" the :ref:`DNS requirements <dns-reqs>`."
+msgstr ""
+"Assicurarsi che il Fully Qualified Domain Name (FQDN) del nodo sia "
+"corretto e rispetti i :ref:`requisiti DNS <dns-reqs>`."
+
+#: ../../install.rst:127
+#, fuzzy
+msgid ""
+"Even if running on a single node, the system will set up a Virtual "
+"Private Network (VPN) for the cluster. This VPN setup will allow you to "
+"add more nodes in the future. The proposed default values should be "
+"suitable for most environments, as it theoretically accommodates up to "
+"254 cluster nodes. However, ensure that the ``VPN network (CIDR)`` does "
+"not conflict with your existing network environment, as it cannot be "
+"changed once set."
 msgstr ""
 "Anche se in esecuzione su un solo nodo, il sistema configura una rete "
 "privata virtuale (VPN) necessaria al cluster. Con la VPN attiva, si "
@@ -3354,56 +3389,73 @@ msgstr ""
 "volta impostata."
 
 #: ../../install.rst:134
+#, fuzzy
 msgid ""
-"Finally, click on :guilabel:`Create cluster` button. Your NS8 is now "
+"Finally, click the :guilabel:`Create cluster` button. Your NS8 is now "
 "ready."
 msgstr "Infine, cliccare sul pulsante :guilabel:`Crea cluster`. NS8 è pronto."
 
-#: ../../install.rst:136
+#: ../../install.rst:137
+#, fuzzy
 msgid ""
-"A new cluster has assigned the default name ``NethServer 8``. If you wish"
-" to change it:"
+"By default, the new cluster is named ``NethServer 8``. If you wish to "
+"change it:"
 msgstr ""
 "Un nuovo cluster ha l'etichetta ``NethServer 8`` assegnata di default. Se"
 " si desidera cambiarla:"
 
-#: ../../install.rst:139
-msgid "go to the ``Settings`` page and click on the ``Cluster`` card"
+#: ../../install.rst:140
+#, fuzzy
+msgid "Go to the ``Settings`` page and click on the ``Cluster`` card."
 msgstr "recarsi alla pagina ``Impostazioni`` e cliccare sulla scheda ``Cluster``"
 
-#: ../../install.rst:140
-msgid "enter a name inside the ``Cluster label`` field"
+#: ../../install.rst:141
+#, fuzzy
+msgid "Enter a new name in the ``Cluster label`` field."
 msgstr "inserire un nome all'interno del campo ``Etichetta cluster``"
 
-#: ../../install.rst:141
-msgid "click the :guilabel:`Save settings` button"
+#: ../../install.rst:142
+#, fuzzy
+msgid "Click the :guilabel:`Save settings` button."
 msgstr "cliccare sul pulsante :guilabel:`Salva impostazioni`"
 
-#: ../../install.rst:143
-msgid ""
-"Now sure where to go from here? You can install a :ref:`LDAP <openldap-"
-"section>` or :ref:`Active Directory <active_directory-section>` user "
-"domain, read an introduction about :ref:`modules <modules-section>`, take"
-" a look at :ref:`system logs <loki-section>`, add :ref:`new nodes "
-"<cluster-section>`, or setup a :ref:`metric dashboard <metrics-section>`."
+#: ../../install.rst:144
+msgid "Not sure where to go from here? You can:"
 msgstr ""
-"Cose fare da qui in poi? È possibile installare un dominio utenti "
-":ref:`LDAP <openldap-section>` o :ref:`Active Directory "
-"<active_directory-section>`, leggere un'introduzione ai :ref:`moduli "
-"<modules-section>` disponibili, dare un'occhiata alla sezione dei "
-":ref:`log di sistema <loki-section>`, aggiungere :ref:`nuovi nodi "
-"<cluster-sections>`o preparare una :ref:`dashbord per le metriche "
-"<metrics-section>`."
+
+#: ../../install.rst:146
+msgid ""
+"Install an :ref:`LDAP <openldap-section>` or :ref:`Active Directory "
+"<active_directory-section>` user domain."
+msgstr ""
+
+#: ../../install.rst:148
+msgid "Read an introduction about :ref:`NS8 applications <modules-section>`."
+msgstr ""
 
 #: ../../install.rst:149
+#, fuzzy
+msgid "Take a look at :ref:`system logs <loki-section>`."
+msgstr ":ref:`Loki log server <loki-section>`"
+
+#: ../../install.rst:150
+#, fuzzy
+msgid "Add :ref:`new nodes <cluster-section>`."
+msgstr ":ref:`core updates <core_updates-section>`"
+
+#: ../../install.rst:151
+msgid "Set up a :ref:`metric dashboard <metrics-section>`."
+msgstr ""
+
+#: ../../install.rst:154
 msgid "Uninstall"
 msgstr "Rimozione"
 
-#: ../../install.rst:151
+#: ../../install.rst:156
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr "È possibile disinstallare NS8 dalla distribuzione Linux usata come base."
 
-#: ../../install.rst:153
+#: ../../install.rst:158
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
@@ -3413,7 +3465,7 @@ msgstr ""
 "moduli aggiuntivi. L'attività va studiata con cura perché rimuove tutto "
 "ciò che si trova nelle directory ``/home`` e ``/var/lib/nethserver``."
 
-#: ../../install.rst:156
+#: ../../install.rst:161
 msgid "To uninstall NS8, execute: ::"
 msgstr "Per disinstallare NS8, eseguire: ::"
 
@@ -13648,8 +13700,8 @@ msgid "2GB RAM"
 msgstr "2GB RAM"
 
 #: ../../system_requirements.rst:14
-msgid "20GB disk"
-msgstr "20GB di disco"
+msgid "40GB Solid-state drive"
+msgstr ""
 
 #: ../../system_requirements.rst:16
 msgid ""
@@ -19195,4 +19247,31 @@ msgstr ""
 #~ "è stata completata. Si prega di "
 #~ "notare che l'utente deve avere la "
 #~ "2FA disabilitata."
+
+#~ msgid ""
+#~ "Now sure where to go from here?"
+#~ " You can install a :ref:`LDAP "
+#~ "<openldap-section>` or :ref:`Active Directory "
+#~ "<active_directory-section>` user domain, read"
+#~ " an introduction about :ref:`modules "
+#~ "<modules-section>`, take a look at "
+#~ ":ref:`system logs <loki-section>`, add "
+#~ ":ref:`new nodes <cluster-section>`, or "
+#~ "setup a :ref:`metric dashboard <metrics-"
+#~ "section>`."
+#~ msgstr ""
+#~ "Cose fare da qui in poi? È "
+#~ "possibile installare un dominio utenti "
+#~ ":ref:`LDAP <openldap-section>` o :ref:`Active"
+#~ " Directory <active_directory-section>`, leggere"
+#~ " un'introduzione ai :ref:`moduli <modules-"
+#~ "section>` disponibili, dare un'occhiata alla"
+#~ " sezione dei :ref:`log di sistema "
+#~ "<loki-section>`, aggiungere :ref:`nuovi nodi "
+#~ "<cluster-sections>`o preparare una "
+#~ ":ref:`dashbord per le metriche <metrics-"
+#~ "section>`."
+
+#~ msgid "20GB disk"
+#~ msgstr "20GB di disco"
 
