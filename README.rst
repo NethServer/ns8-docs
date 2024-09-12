@@ -97,8 +97,9 @@ Add warnings with ::
 
 Other conventions:
 
-* use double backtick to quote labels and links from the web user interface
-* use ``guilabel`` markup for buttons
+* use double backtick \``, to quote labels and links from the web
+  user interface, e.g. ````some link````
+* use ``guilabel`` markup for buttons, e.g. ``:guilabel:`some label```
     
 You can find more info about **RST Inline Markup** here: rst-cheatsheet_
 
