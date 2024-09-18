@@ -18,7 +18,7 @@ services, too. Supported LDAP schemas are
 
 Besides choosing to bind an external provider or install an internal one, the
 administrator has to decide which backend type suits his needs.
-The *File server* application 
+The Samba File server application
 can authenticate SMB/CIFS clients only when using an Active Directory domain.
 On the other hand, the internal OpenLDAP provider is easier to install and
 configure.

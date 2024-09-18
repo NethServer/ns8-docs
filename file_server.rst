@@ -64,14 +64,15 @@ the shared folder root directory. It is possible to edit ACLs with a SMB
 client, like the Windows Explorer application installed with Windows Pro
 flavours, or the ``smbcacls`` command provided by the Samba project.
 
+.. _file-server-restore:
 
-Restore file server from backup
+Restore File server from backup
 ===============================
 
 .. warning::
 
-    To avoid reconfiguring network clients the system should provide the
-    same IP address used in the file server backup.
+    To avoid reconfiguring network clients, the system should provide the
+    same IP address that was used in the Samba File server backup.
 
 First of all, apply the procedure described in
 :ref:`application_restore-section` by selecting the backup of the **Samba

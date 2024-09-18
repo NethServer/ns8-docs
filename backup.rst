@@ -201,3 +201,8 @@ recovery procedure. You will need a :ref:`cluster configuration backup
    server or upload the backup from your browser.
 5. Enter the encryption secret in the ``Backup password`` field.
 6. Select the applications to restore.
+
+For more information, refer to the backup and restore notes for each
+application. For example:
+
+* :ref:`file-server-restore`
