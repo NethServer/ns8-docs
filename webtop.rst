@@ -29,6 +29,7 @@ Inside the ``Advanced`` section, you can also configure:
 * the debug mode
 * log levels
 * minimum and maximum memory
+* :ref:`PEC Bridge <pec-bridge>` notify address (Nethesis Enterprise Only)
 
 Authentication
 ==============
@@ -1167,3 +1168,27 @@ Delete automatically suggested email addresses
 When compiling the recipient of a mail, some automatically saved email addresses are suggested.
 If you need to delete someone because it is wrong, move with the arrow keys until you select the one you want to delete
 (without clicking on it), then delete it with :guilabel:`Shift + Canc`
+
+.. _pec-bridge:
+
+PEC Bridge
+==========
+
+.. note::
+
+    Available in Nethesis Enterprise only
+
+PEC (Posta Elettronica Certificata) is widely used in Italy as a virtual
+substitute for registered mail, as it holds the same legal validity.
+
+PEC Bridge is a WebTop feature that integrates external PEC mailboxes with
+WebTop.
+
+If your system has an active :ref:`Subscription <subscription-section>`
+under the Nethesis Enterprise plan, you can purchase a PEC Bridge license
+through the `NethService category`_ in the Nethesis online shop.
+
+.. _NethService category: https://nethshop.nethesis.it/product-category/nethservice/
+
+Once the purchase is completed, Nethesis will provide instructions to
+activate the license and configure the PEC Bridge.
