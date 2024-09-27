@@ -1,7 +1,7 @@
 .. _software_center-section:
 
 ===============
-Software Center
+Software center
 ===============
 
 The Software Center displays and manages applications available from all
