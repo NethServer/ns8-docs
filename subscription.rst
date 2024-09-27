@@ -51,6 +51,32 @@ button.
 If the procedure is successful the Subscription page displays the ``System
 ID``, ``Plan`` type and ``Expiration`` date.
 
+.. _terms-and-conditions:
+
+Terms and Conditions
+====================
+
+Please read the Terms and Conditions carefully. By maintaining an active
+NethServer 8 subscription, you confirm that you accept the Terms and
+Conditions and agree to abide by them. If you do not agree to these Terms
+and Conditions, you may not activate or continue your subscription.
+
+Details of subscription plans can be found on the `NethServer website`_.
+
+.. _NethServer website: https://www.nethserver.org/subscription
+
+Personal identification information is stored and processed when necessary
+to fulfill a contract to which the data subject is a party, or to take
+steps at the request of the data subject prior to entering into a
+contract. This information may also be used to share updates and news
+related to the subscribed service.
+
+The data controller is Nethesis S.r.l unipersonale CF/PI/RI IT
+02734760412, located at Strada degli Olmi 8 -- 61122 Pesaro (PU) -- Italy.
+
+Any requests concerning the processing of personal identification
+information (PII) may be addressed to privacy@nethesis.it.
+
 
 .. _scheduled-updates:
 
