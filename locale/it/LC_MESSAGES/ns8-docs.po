@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-23 08:37+0000\n"
+"POT-Creation-Date: 2024-09-27 16:13+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -2778,7 +2778,7 @@ msgid "fill the form to join a new DC to the domain."
 msgstr "fill the form to join a new DC to the domain."
 
 #: ../../file_server.rst:105 ../../log_server.rst:218
-#: ../../software_center.rst:82
+#: ../../software_center.rst:142
 #, fuzzy
 msgid "Footnotes"
 msgstr "Footnotes"
@@ -12699,203 +12699,311 @@ msgstr "Software center"
 #: ../../software_center.rst:7
 #, fuzzy
 msgid ""
-"The software center lists applications available from all repositories "
-"[#fileserver]_\\ ."
+"The Software Center displays and manages applications available from all "
+"configured repositories [#fileserver]_\\ ."
 msgstr ""
 "The software center lists applications available from all repositories "
 "[#fileserver]_\\ ."
 
-#: ../../software_center.rst:10
+#: ../../software_center.rst:11
 #, fuzzy
-msgid ""
-"To install a new application just click on the :guilabel:`Install` "
-"button. If the cluster has multiple nodes, you will be alse required to "
-"select the target node."
-msgstr ""
-"To install a new application just click on the :guilabel:`Install` "
-"button. If the cluster has multiple nodes, you will be alse required to "
-"select the target node."
+msgid "Application information"
+msgstr "Applicazioni"
 
-#: ../../software_center.rst:14
-#, fuzzy
+#: ../../software_center.rst:13
 msgid ""
-"To install another instance of an existing application, click on the "
-"``Instances`` link inside the application card. Then click on "
-":guilabel:`Install new instance`."
+"Each application is represented by a card displaying its name, level of "
+"certification, and category. Click on the application's name to view "
+"detailed information such as screenshots, author, latest version, "
+"container images, and links to documentation, source code, and bug "
+"tracker."
 msgstr ""
-"To install another instance of an existing application, click on the "
-"``Instances`` link inside the application card. Then click on "
-":guilabel:`Install new instance`."
 
-#: ../../software_center.rst:20
-#, fuzzy
+#: ../../software_center.rst:19
 msgid ""
-"Be careful! The user interface does not currently check if an application"
-" supports multiple instances on the same node."
+"Some applications may include additional Terms and Conditions; if "
+"present, read them carefully."
 msgstr ""
-"Be careful! The user interface does not currently check if an application"
-" supports multiple instances on the same node."
 
-#: ../../software_center.rst:25
+#: ../../software_center.rst:26
 #, fuzzy
-msgid ""
-"Installed applications are always available from the application drawer, "
-"by clicking on the |bento| menu in the top right corner."
-msgstr ""
-"Installed applications are always available from the application drawer, "
-"by clicking on the |bento| menu in the top right corner."
-
-#: ../../software_center.rst:23
-#, fuzzy
-msgid "bento"
-msgstr "bento"
+msgid "Levels of certification"
+msgstr "Certificati TLS"
 
 #: ../../software_center.rst:28
-#, fuzzy
-msgid ""
-"You can also perform multiple actions on installed applications by "
-"clicking on the three-dots menu:"
+msgid "Applications are certified at the following levels:"
 msgstr ""
-"You can also perform multiple actions on installed applications by "
-"clicking on the three-dots menu:"
 
-#: ../../software_center.rst:31
-#, fuzzy
+#: ../../software_center.rst:30
 msgid ""
-"``Add to favorites``: the application will be always listed on top of the"
-" application drawer"
+"**Level 1/5**: The application is hosted by a custom repository and is "
+"not certified."
 msgstr ""
-"``Add to favorites``: the application will be always listed on top of the"
-" application drawer"
+
+#: ../../software_center.rst:32
+msgid ""
+"**Level 2/5**: The application is hosted by the ``nethforge`` repository "
+"and certified by the NethServer community."
+msgstr ""
 
 #: ../../software_center.rst:34
-#, fuzzy
-msgid "``Edit instance label``: add a name to the instance"
-msgstr "``Edit instance label``: add a name to the instance"
+msgid ""
+"**Level 3/5**: The application is hosted by the ``default`` or "
+"``subscription`` repositories and is certified by Nethesis."
+msgstr ""
 
 #: ../../software_center.rst:36
-#, fuzzy
-msgid "``Clone``: clone the application, see :ref:`move_clone-section`"
-msgstr "``Clone``: clone the application, see :ref:`move_clone-section`"
+msgid ""
+"**Level 4/5**: The application is developed and maintained by Nethesis "
+"developers."
+msgstr ""
 
 #: ../../software_center.rst:38
-#, fuzzy
 msgid ""
-"``Move``: move the application to another node, see :ref:`move_clone-"
-"section`"
+"**Level 5/5**: The application is developed and maintained by Nethesis "
+"developers and is covered by Nethesis support."
 msgstr ""
-"``Move``: move the application to another node, see :ref:`move_clone-"
-"section`"
 
 #: ../../software_center.rst:41
-#, fuzzy
-msgid "``Uninstall``: remove the application and all related data"
-msgstr "``Uninstall``: remove the application and all related data"
+msgid "Certification levels are determined based on the following factors:"
+msgstr ""
+
+#: ../../software_center.rst:43
+msgid ""
+"**Repository**: To be listed in a public repository, an application must "
+"undergo a review process. Being listed in a public repository establishes"
+" the base certification level of the application."
+msgstr ""
 
 #: ../../software_center.rst:46
-#, fuzzy
-msgid "Software repositories"
-msgstr "Software repositories"
-
-#: ../../software_center.rst:48
-#, fuzzy
 msgid ""
-"Software repositories contain applications metadata, which is constituted"
-" by the index of applications, along with their descriptions and "
-"additional information on how to obtain them."
+"**Origin**: The container image registry hosting the application "
+"identifies the person or organization distributing it. Currently, the "
+"recognized registries are ``ghcr.io/nethserver`` and "
+"``ghcr.io/nethesis``."
 msgstr ""
-"Software repositories contain applications metadata, which is constituted"
-" by the index of applications, along with their descriptions and "
-"additional information on how to obtain them."
 
-#: ../../software_center.rst:52
-#, fuzzy
-msgid "The list of configured repositories is accessible by different ways:"
-msgstr "The list of configured repositories is accessible by different ways:"
-
-#: ../../software_center.rst:54
-#, fuzzy
-msgid "In the ``Settings`` page: click the ``Software repositories`` card."
-msgstr "In the ``Settings`` page: click the ``Software repositories`` card."
-
-#: ../../software_center.rst:56
-#, fuzzy
+#: ../../software_center.rst:50
 msgid ""
-"In the ``Software Center`` page: click the ``Software repository`` item "
-"under the three-dots menu on the top right corner of the page."
+"**Support**: If the cluster has an active subscription and paid support "
+"is available for the application (whether included in the current "
+"subscription plan or not). See :ref:`subscription-section` for more "
+"information."
 msgstr ""
-"In the ``Software Center`` page: click the ``Software repository`` item "
-"under the three-dots menu on the top right corner of the page."
+
+#: ../../software_center.rst:57
+#, fuzzy
+msgid "Install applications"
+msgstr "Applicazioni NethForge"
 
 #: ../../software_center.rst:59
 #, fuzzy
 msgid ""
-"NethServer comes with a default set of software repositories in both "
-"enabled and disabled state."
+"To install a new application, simply click the :guilabel:`Install` button"
+" of the application card. If your cluster has multiple nodes, you will "
+"also need to select the target node."
 msgstr ""
-"NethServer comes with a default set of software repositories in both "
-"enabled and disabled state."
+"To install a new application just click on the :guilabel:`Install` "
+"button. If the cluster has multiple nodes, you will be alse required to "
+"select the target node."
 
-#: ../../software_center.rst:62
+#: ../../software_center.rst:63
 #, fuzzy
 msgid ""
-"NethForge is a repository of applications built by the NethServer "
-"community, initially set in a disabled state."
+"To install an additional instance of an existing application, click on "
+"the ``Instances`` link within the application's card. Then, select "
+":guilabel:`Install new instance`. Note that in some cases, installation "
+"on certain cluster nodes may be restricted due to application policies or"
+" node resource limitations."
 msgstr ""
-"NethForge is a repository of applications built by the NethServer "
-"community, initially set in a disabled state."
-
-#: ../../software_center.rst:65
-#, fuzzy
-msgid ""
-"To add your own repository click on the :guilabel:`Add repository` "
-"button. Then fill all required fields:"
-msgstr ""
-"To add your own repository click on the :guilabel:`Add repository` "
-"button. Then fill all required fields:"
-
-#: ../../software_center.rst:68
-#, fuzzy
-msgid "``Name`` a unique name for the repository"
-msgstr "``Name`` a unique name for the repository"
+"To install another instance of an existing application, click on the "
+"``Instances`` link inside the application card. Then click on "
+":guilabel:`Install new instance`."
 
 #: ../../software_center.rst:70
 #, fuzzy
+msgid "Application instances"
+msgstr "Applicazioni"
+
+#: ../../software_center.rst:72
 msgid ""
-"``URL`` public URL of the repository, it must be a valid `NS8 repository "
-"<https://nethserver.github.io/ns8-core/modules/metadata/>`_"
+"Once an application has one or more installed instances, click on the "
+"``Instances`` link within the application's card. You can perform various"
+" actions on each instance by clicking on its three-dots menu:"
 msgstr ""
-"``URL`` public URL of the repository, it must be a valid `NS8 repository "
-"<https://nethserver.github.io/ns8-core/modules/metadata/>`_"
 
-#: ../../software_center.rst:73
-#, fuzzy
-msgid "``Status`` check this option to enable the repository"
-msgstr "``Status`` check this option to enable the repository"
-
-#: ../../software_center.rst:75
+#: ../../software_center.rst:76
 #, fuzzy
 msgid ""
-"``Testing`` check this option to access also non-stable releases of "
-"modules from this repository"
+"``Add to favorites``: The application will always be listed at the top of"
+" the application drawer."
 msgstr ""
-"``Testing`` check this option to access also non-stable releases of "
-"modules from this repository"
+"``Add to favorites``: the application will be always listed on top of the"
+" application drawer"
 
 #: ../../software_center.rst:78
 #, fuzzy
+msgid "``Edit instance label``: Add a custom name to the instance."
+msgstr "``Edit instance label``: add a name to the instance"
+
+#: ../../software_center.rst:79
+#, fuzzy
+msgid "``Clone``: Clone the application. See :ref:`move_clone-section`."
+msgstr "``Clone``: clone the application, see :ref:`move_clone-section`"
+
+#: ../../software_center.rst:80
+#, fuzzy
 msgid ""
-"You can force the metadata refresh by clicking on the :guilabel:`Reload "
+"``Move``: Move the application to another node. See :ref:`move_clone-"
+"section`."
+msgstr ""
+"``Move``: move the application to another node, see :ref:`move_clone-"
+"section`"
+
+#: ../../software_center.rst:82
+#, fuzzy
+msgid "``Uninstall``: Remove the application and all related data."
+msgstr "``Uninstall``: remove the application and all related data"
+
+#: ../../software_center.rst:87
+#, fuzzy
+msgid ""
+"Installed application instances are also accessible from the application "
+"drawer by clicking on the |bento| menu in the top-right corner of the "
+"screen."
+msgstr ""
+"Installed applications are always available from the application drawer, "
+"by clicking on the |bento| menu in the top right corner."
+
+#: ../../software_center.rst:84
+#, fuzzy
+msgid "application drawer"
+msgstr "Applicazioni"
+
+#: ../../software_center.rst:94
+#, fuzzy
+msgid "Software repositories"
+msgstr "Software repositories"
+
+#: ../../software_center.rst:96
+msgid ""
+"An NS8 software repository is an index of applications and a collection "
+"of their metadata."
+msgstr ""
+
+#: ../../software_center.rst:99
+#, fuzzy
+msgid "You can access the list of configured repositories in several ways:"
+msgstr "The list of configured repositories is accessible by different ways:"
+
+#: ../../software_center.rst:101
+#, fuzzy
+msgid "In the ``Settings`` page: click the ``Software repositories`` card."
+msgstr "In the ``Settings`` page: click the ``Software repositories`` card."
+
+#: ../../software_center.rst:102
+#, fuzzy
+msgid ""
+"In the ``Software Center`` page: click the ``Software repositories`` item"
+" in the three-dots menu at the top-right corner."
+msgstr ""
+"In the ``Software Center`` page: click the ``Software repository`` item "
+"under the three-dots menu on the top right corner of the page."
+
+#: ../../software_center.rst:105
+#, fuzzy
+msgid ""
+"NS8 includes a default set of software repositories, some enabled and "
+"others disabled:"
+msgstr ""
+"NethServer comes with a default set of software repositories in both "
+"enabled and disabled state."
+
+#: ../../software_center.rst:108
+msgid ""
+"``default``: Contains applications developed and maintained mainly by "
+"NethServer developers. It also tracks updates for NS8 core modules and "
+"the core itself."
+msgstr ""
+
+#: ../../software_center.rst:111
+#, fuzzy
+msgid ""
+"``nethforge``: A repository of applications built and maintained by the "
+"NethServer community. It is initially disabled."
+msgstr ""
+"NethForge is a repository of applications built by the NethServer "
+"community, initially set in a disabled state."
+
+#: ../../software_center.rst:113
+msgid ""
+"``subscription``: Added and enabled when the cluster has an active "
+"subscription. It overrides the contents of the ``default`` repository "
+"with an update schedule managed by Nethesis. See :ref:`subscription-"
+"section` for details."
+msgstr ""
+
+#: ../../software_center.rst:118
+#, fuzzy
+msgid ""
+"To add a custom repository, click on the :guilabel:`Add repository` "
+"button and fill in the required fields:"
+msgstr ""
+"To add your own repository click on the :guilabel:`Add repository` "
+"button. Then fill all required fields:"
+
+#: ../../software_center.rst:121
+#, fuzzy
+msgid "``Name``: A unique name for the repository."
+msgstr "``Name`` a unique name for the repository"
+
+#: ../../software_center.rst:122
+#, fuzzy
+msgid ""
+"``URL``: The public URL of the repository. It must be a valid `NS8 "
+"repository <https://nethserver.github.io/ns8-core/modules/metadata/>`_."
+msgstr ""
+"``URL`` public URL of the repository, it must be a valid `NS8 repository "
+"<https://nethserver.github.io/ns8-core/modules/metadata/>`_"
+
+#: ../../software_center.rst:124
+#, fuzzy
+msgid "``Status``: Check this option to enable the repository."
+msgstr "``Status`` check this option to enable the repository"
+
+#: ../../software_center.rst:126
+#, fuzzy
+msgid ""
+"You can refresh the metadata by clicking on the :guilabel:`Reload "
 "repositories` button."
 msgstr ""
 "You can force the metadata refresh by clicking on the :guilabel:`Reload "
 "repositories` button."
 
-#: ../../software_center.rst:83
+#: ../../software_center.rst:130
+#, fuzzy
+msgid "Core applications"
+msgstr "Applicazioni NethForge"
+
+#: ../../software_center.rst:132
+msgid ""
+"NS8 consists of the core and several applications. Each core component "
+"has its own version number, and the Software Center will display a "
+"warning when an update is available."
+msgstr ""
+
+#: ../../software_center.rst:136
+msgid ""
+"You can review the components currently installed in the cluster at any "
+"time. To do this, click on the three-dots menu in the top-right corner of"
+" the ``Software Center`` page, then select the ``Core apps`` option."
+msgstr ""
+
+#: ../../software_center.rst:143
 #, fuzzy
 msgid ""
-"Except for :ref:`file-server-section`, that is installed with :ref"
-":`active_directory-section`"
+"Except for :ref:`file-server-section`, that is provided by a core module,"
+" installed with :ref:`active_directory-section`"
 msgstr ""
 "Except for :ref:`file-server-section`, that is installed with :ref"
 ":`active_directory-section`"
@@ -13511,17 +13619,56 @@ msgstr ""
 "Se la procedura termina con successo, la pagina Subscription visualizza "
 "l'``ID Sistema``, il tipo di ``Piano`` e la data di ``Scadenza``."
 
-#: ../../subscription.rst:58
+#: ../../subscription.rst:57
+msgid "Terms and Conditions"
+msgstr ""
+
+#: ../../subscription.rst:59
+msgid ""
+"Please read the Terms and Conditions carefully. By maintaining an active "
+"NethServer 8 subscription, you confirm that you accept the Terms and "
+"Conditions and agree to abide by them. If you do not agree to these Terms"
+" and Conditions, you may not activate or continue your subscription."
+msgstr ""
+
+#: ../../subscription.rst:64
+msgid "Details of subscription plans can be found on the `NethServer website`_."
+msgstr ""
+
+#: ../../subscription.rst:68
+msgid ""
+"Personal identification information is stored and processed when "
+"necessary to fulfill a contract to which the data subject is a party, or "
+"to take steps at the request of the data subject prior to entering into a"
+" contract. This information may also be used to share updates and news "
+"related to the subscribed service."
+msgstr ""
+
+#: ../../subscription.rst:74
+msgid ""
+"The data controller is Nethesis S.r.l unipersonale CF/PI/RI IT "
+"02734760412, located at Strada degli Olmi 8 -- 61122 Pesaro (PU) -- "
+"Italy."
+msgstr ""
+
+#: ../../subscription.rst:77
+msgid ""
+"Any requests concerning the processing of personal identification "
+"information (PII) may be addressed to privacy@nethesis.it."
+msgstr ""
+
+#: ../../subscription.rst:84
 msgid "Scheduled updates"
 msgstr "Aggiornamenti programmati"
 
-#: ../../subscription.rst:60
+#: ../../subscription.rst:86
+#, fuzzy
 msgid ""
-"An overnight scheduled task installs software updates available from "
-"managed software repositories. The task runs daily, from Tuesday through "
-"Friday, within a randomly selected time slot between midnight and 6 AM. "
-"This variability helps distribute the load on the network and servers. "
-"Updates concern:"
+"A scheduled overnight task automatically installs software updates "
+"available from Nethesis-managed repositories. This task runs daily from "
+"Tuesday through Friday, within a randomly selected time slot between "
+"midnight and 6 AM. The randomization helps distribute the load on network"
+" and server resources. The updates include:"
 msgstr ""
 "Un'attività pianificata notturna si occupa di installare gli "
 "aggiornamenti software disponibili nei repository software gestiti. Il "
@@ -13530,13 +13677,13 @@ msgstr ""
 "mattino. Questa variabilità aiuta a distribuire il carico sulla rete e "
 "sui server. Gli aggiornamenti riguardano:"
 
-#: ../../subscription.rst:66
+#: ../../subscription.rst:92
+#, fuzzy
 msgid ""
-"**Operating system**: updates are sourced from Nethesis managed "
-"repositories, specifically from DNF repositories labeled as ``ns-baseos``"
-" and ``ns-appstream``. These repositories provide delayed snapshots of "
-"Rocky Linux repositories, aiming to prevent the distribution of updates "
-"that may lead to unexpected issues."
+"**Operating system**: Updates are sourced from the DNF repositories "
+"labeled ``ns-baseos`` and ``ns-appstream``. These repositories provide "
+"delayed snapshots of Rocky Linux repositories to avoid distributing "
+"updates that could cause unexpected issues."
 msgstr ""
 "**Sistema operativo**: gli aggiornamenti provengono da repository gestiti"
 " da Nethesis, in particolare da repository DNF etichettati come ``ns-"
@@ -13545,25 +13692,44 @@ msgstr ""
 "la distribuzione di aggiornamenti che possano introdurre problemi "
 "inaspettati."
 
-#: ../../subscription.rst:72
+#: ../../subscription.rst:97
+#, fuzzy
 msgid ""
 "**Core components**: Updates are fetched from the ``subscription`` "
-"repository"
+"repository."
 msgstr ""
 "**Componenti core**: Gli aggiornamenti vengono scaricati dal repository "
 "``subscription``"
 
-#: ../../subscription.rst:75
-msgid "**Applications**: Updates are fetched from the ``subscription`` repository"
+#: ../../subscription.rst:100
+#, fuzzy
+msgid ""
+"**Applications**: Updates are also sourced from the ``subscription`` "
+"repository."
 msgstr ""
 "**Applicazioni**: Gli aggiornamenti vengono scaricati dal repository "
 "``subscription``"
 
-#: ../../subscription.rst:80
+#: ../../subscription.rst:103
+msgid ""
+"Managed repositories follow a conservative update policy to ensure "
+"stability and thorough testing of updates, making them suitable for "
+"automated updates."
+msgstr ""
+
+#: ../../subscription.rst:107
+msgid ""
+"It is possible to override the managed update policy by manually "
+"installing or updating core components or applications via the Software "
+"Center page. The metadata for applications and core components from the "
+"``subscription`` repository is refreshed hourly in the Software Center."
+msgstr ""
+
+#: ../../subscription.rst:114
 msgid "Remove the subscription"
 msgstr "Rimozione subscription"
 
-#: ../../subscription.rst:82
+#: ../../subscription.rst:116
 msgid ""
 "Go to the ``Settings`` page and click the ``Subscription`` card. "
 "Alternatively, go to the cluster dashboard page and click the ``Go to "
@@ -13573,7 +13739,7 @@ msgstr ""
 "``Subscription``. In alternativa, dalla dashboard del cluster fare clic "
 "sul link ``Vai a Subscription``."
 
-#: ../../subscription.rst:86
+#: ../../subscription.rst:120
 msgid ""
 "In the ``Subscription`` page, click the :guilabel:`Remove subscription` "
 "button. The action must be confirmed."
@@ -13581,15 +13747,15 @@ msgstr ""
 "Nella pagina ``Subscription``, fare clic sul pulsante :guilabel:`Rimuovi "
 "subscription`. Verrà richiesta conferma dell'azione."
 
-#: ../../subscription.rst:90
+#: ../../subscription.rst:124
 msgid "Remote support"
 msgstr "Supporto remoto"
 
-#: ../../subscription.rst:94 ../../webtop.rst:1179
+#: ../../subscription.rst:128 ../../webtop.rst:1179
 msgid "Available in Nethesis Enterprise only"
 msgstr "Disponibile solo per Nethesis Enterprise"
 
-#: ../../subscription.rst:96
+#: ../../subscription.rst:130
 msgid ""
 "Depending on the subscription type and plan, the ``Subscription`` page "
 "can allow starting and controlling a remote support session:"
@@ -13598,7 +13764,7 @@ msgstr ""
 "``Subscription`` può consentire l'avvio e il controllo di una sessione di"
 " supporto remoto:"
 
-#: ../../subscription.rst:99
+#: ../../subscription.rst:133
 msgid ""
 "Click :guilabel:`Start session` to activate a special access for the "
 "Nethesis support team. Both SSH and cluster-admin administrative access "
@@ -13610,7 +13776,7 @@ msgstr ""
 "l'accesso amministrativo sia SSH che al cluster-admin. Le connessioni di "
 "supporto sono veicolate attraverso un tunnel VPN privato."
 
-#: ../../subscription.rst:104
+#: ../../subscription.rst:138
 msgid ""
 "When the access is granted, a unique ``Session ID`` secret is displayed: "
 "copy and paste it in your support request."
@@ -13619,7 +13785,7 @@ msgstr ""
 " denominato ``ID sessione``: il segreto va copiato e incollato nella "
 "richiesta di supporto."
 
-#: ../../subscription.rst:107
+#: ../../subscription.rst:141
 msgid ""
 "To end the support session, close the VPN tunnel and revoke any granted "
 "access, click :guilabel:`End session`."
@@ -13628,7 +13794,7 @@ msgstr ""
 "qualsiasi accesso consentito, fare clic sul pulsante :guilabel:`Termina "
 "sessione`."
 
-#: ../../subscription.rst:110
+#: ../../subscription.rst:144
 msgid ""
 "The support session is valid only to reach the leader node. The support "
 "team can access worker nodes by starting individual support sessions in "
@@ -13641,19 +13807,19 @@ msgstr ""
 " 2 è un nodo worker, il comando per avviare una sessione di supporto per "
 "esso è il seguente: ::"
 
-#: ../../subscription.rst:117
+#: ../../subscription.rst:151
 msgid "The Session ID is printed to the standard output. To stop the session: ::"
 msgstr ""
 "L'ID sessione viene stampato sullo standard output. Per interrompere la "
 "sessione: ::"
 
-#: ../../subscription.rst:121
+#: ../../subscription.rst:155
 msgid "Check the support session status for any node with: ::"
 msgstr ""
 "È possibile verificare lo stato della sessione di supporto su un "
 "qualsiasi nodo con il comando: ::"
 
-#: ../../subscription.rst:125
+#: ../../subscription.rst:159
 msgid ""
 "If a worker node (e.g., node 2) becomes unreachable from the leader node,"
 " you can manually start a support session for it with the following "
@@ -13663,25 +13829,25 @@ msgstr ""
 "leader, è possibile avviare manualmente una sessione di supporto per esso"
 " con la seguente procedura:"
 
-#: ../../subscription.rst:129
+#: ../../subscription.rst:163
 msgid "Log in on the worker node, using the console or SSH access."
 msgstr "Accedere al nodo worker, utilizzando la console o l'accesso SSH."
 
-#: ../../subscription.rst:131
+#: ../../subscription.rst:165
 msgid "Run the following command to start the support session: ::"
 msgstr "Eseguire il seguente comando per avviare la sessione di supporto: ::"
 
-#: ../../subscription.rst:135
+#: ../../subscription.rst:169
 msgid "Obtain the session ID with: ::"
 msgstr "Ottenere l'ID sessione con: ::"
 
-#: ../../subscription.rst:139
+#: ../../subscription.rst:173
 msgid "The Session ID is always recorded in the system journal and node log."
 msgstr ""
 "L'ID sessione viene sempre registrato nel journal di sistema e nel log "
 "dei nodi."
 
-#: ../../subscription.rst:141
+#: ../../subscription.rst:175
 msgid "To end the support session: ::"
 msgstr "Per terminare una sessione di supporto: ::"
 
@@ -19318,4 +19484,49 @@ msgstr ""
 
 #~ msgid "20GB disk"
 #~ msgstr "20GB di disco"
+
+#~ msgid ""
+#~ "Be careful! The user interface does "
+#~ "not currently check if an application"
+#~ " supports multiple instances on the "
+#~ "same node."
+#~ msgstr ""
+#~ "Be careful! The user interface does "
+#~ "not currently check if an application"
+#~ " supports multiple instances on the "
+#~ "same node."
+
+#~ msgid "bento"
+#~ msgstr "bento"
+
+#~ msgid ""
+#~ "You can also perform multiple actions"
+#~ " on installed applications by clicking "
+#~ "on the three-dots menu:"
+#~ msgstr ""
+#~ "You can also perform multiple actions"
+#~ " on installed applications by clicking "
+#~ "on the three-dots menu:"
+
+#~ msgid ""
+#~ "Software repositories contain applications "
+#~ "metadata, which is constituted by the"
+#~ " index of applications, along with "
+#~ "their descriptions and additional information"
+#~ " on how to obtain them."
+#~ msgstr ""
+#~ "Software repositories contain applications "
+#~ "metadata, which is constituted by the"
+#~ " index of applications, along with "
+#~ "their descriptions and additional information"
+#~ " on how to obtain them."
+
+#~ msgid ""
+#~ "``Testing`` check this option to access"
+#~ " also non-stable releases of modules"
+#~ " from this repository"
+#~ msgstr ""
+#~ "``Testing`` check this option to access"
+#~ " also non-stable releases of modules"
+#~ " from this repository"
 
