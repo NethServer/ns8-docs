@@ -51,29 +51,63 @@ button.
 If the procedure is successful the Subscription page displays the ``System
 ID``, ``Plan`` type and ``Expiration`` date.
 
+.. _terms-and-conditions:
+
+Terms and Conditions
+====================
+
+Please read the Terms and Conditions carefully. By maintaining an active
+NethServer 8 subscription, you confirm that you accept the Terms and
+Conditions and agree to abide by them. If you do not agree to these Terms
+and Conditions, you may not activate or continue your subscription.
+
+Details of subscription plans can be found on the `NethServer website`_.
+
+.. _NethServer website: https://www.nethserver.org/subscription
+
+Personal identification information is stored and processed when necessary
+to fulfill a contract to which the data subject is a party, or to take
+steps at the request of the data subject prior to entering into a
+contract. This information may also be used to share updates and news
+related to the subscribed service.
+
+The data controller is Nethesis S.r.l unipersonale CF/PI/RI IT
+02734760412, located at Strada degli Olmi 8 -- 61122 Pesaro (PU) -- Italy.
+
+Any requests concerning the processing of personal identification
+information (PII) may be addressed to privacy@nethesis.it.
+
 
 .. _scheduled-updates:
 
 Scheduled updates
 =================
 
-An overnight scheduled task installs software updates available from
-managed software repositories. The task runs daily, from Tuesday through
-Friday, within a randomly selected time slot between midnight and 6 AM.
-This variability helps distribute the load on the network and servers.
-Updates concern:
+A scheduled overnight task automatically installs software updates
+available from Nethesis-managed repositories. This task runs daily from
+Tuesday through Friday, within a randomly selected time slot between
+midnight and 6 AM. The randomization helps distribute the load on network
+and server resources. The updates include:
 
-- **Operating system**: updates are sourced from Nethesis managed
-  repositories, specifically from DNF repositories labeled as
-  ``ns-baseos`` and ``ns-appstream``. These repositories provide delayed
-  snapshots of Rocky Linux repositories, aiming to prevent the
-  distribution of updates that may lead to unexpected issues.
+- **Operating system**: Updates are sourced from the DNF repositories
+  labeled ``ns-baseos`` and ``ns-appstream``. These repositories provide
+  delayed snapshots of Rocky Linux repositories to avoid distributing
+  updates that could cause unexpected issues.
 
 - **Core components**: Updates are fetched from the ``subscription``
-  repository
+  repository.
 
-- **Applications**: Updates are fetched from the ``subscription``
-  repository
+- **Applications**: Updates are also sourced from the ``subscription``
+  repository.
+
+Managed repositories follow a conservative update policy to ensure
+stability and thorough testing of updates, making them suitable for
+automated updates.
+
+It is possible to override the managed update policy by manually
+installing or updating core components or applications via the Software
+Center page. The metadata for applications and core components from the
+``subscription`` repository is refreshed hourly in the Software Center.
 
 
 Remove the subscription
