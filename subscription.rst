@@ -83,23 +83,31 @@ information (PII) may be addressed to privacy@nethesis.it.
 Scheduled updates
 =================
 
-An overnight scheduled task installs software updates available from
-managed software repositories. The task runs daily, from Tuesday through
-Friday, within a randomly selected time slot between midnight and 6 AM.
-This variability helps distribute the load on the network and servers.
-Updates concern:
+A scheduled overnight task automatically installs software updates
+available from Nethesis-managed repositories. This task runs daily from
+Tuesday through Friday, within a randomly selected time slot between
+midnight and 6 AM. The randomization helps distribute the load on network
+and server resources. The updates include:
 
-- **Operating system**: updates are sourced from Nethesis managed
-  repositories, specifically from DNF repositories labeled as
-  ``ns-baseos`` and ``ns-appstream``. These repositories provide delayed
-  snapshots of Rocky Linux repositories, aiming to prevent the
-  distribution of updates that may lead to unexpected issues.
+- **Operating system**: Updates are sourced from the DNF repositories
+  labeled ``ns-baseos`` and ``ns-appstream``. These repositories provide
+  delayed snapshots of Rocky Linux repositories to avoid distributing
+  updates that could cause unexpected issues.
 
 - **Core components**: Updates are fetched from the ``subscription``
-  repository
+  repository.
 
-- **Applications**: Updates are fetched from the ``subscription``
-  repository
+- **Applications**: Updates are also sourced from the ``subscription``
+  repository.
+
+Managed repositories follow a conservative update policy to ensure
+stability and thorough testing of updates, making them suitable for
+automated updates.
+
+It is possible to override the managed update policy by manually
+installing or updating core components or applications via the Software
+Center page. The metadata for applications and core components from the
+``subscription`` repository is refreshed hourly in the Software Center.
 
 
 Remove the subscription
