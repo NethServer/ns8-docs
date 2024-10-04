@@ -22,6 +22,8 @@ displayed. It is divided into two main sections:
 - **Applications**: Define backup destinations, set automated backup
   schedules and retention rules, and restore individual applications.
 
+.. _backup-destination:
+
 Backup destination
 ==================
 

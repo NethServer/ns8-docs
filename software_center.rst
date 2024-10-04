@@ -52,6 +52,7 @@ Certification levels are determined based on the following factors:
    subscription plan or not). See :ref:`subscription-section` for more
    information.
 
+.. _install-applications:
 
 Install applications
 ====================
@@ -125,6 +126,8 @@ and fill in the required fields:
 
 You can refresh the metadata by clicking on the :guilabel:`Reload
 repositories` button.
+
+.. _core-applications:
 
 Core applications
 =================

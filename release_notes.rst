@@ -9,6 +9,71 @@ NethServer 8 releases
 - List of `known bugs <https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_
 - Discussions around `possible bugs <http://community.nethserver.org/c/bug>`_
 
+Major changes on 2024-10-03
+===========================
+
+- **Progressive upgrades** -- Starting from Core 3.0.0, application images
+  can be labeled with a new attribute, min-from_. This ensures that
+  installed applications will ignore any updates with this label if their
+  version is lower than the label value.
+
+  Similarly, a min-core_ label can be applied to application images,
+  requiring a minimum core version for installation or updates. If the
+  core version is below the label value, the image will be ignored.
+
+  These labels were developed with Nextcloud in mind, as it only allows
+  upgrades to the next major version number. Application developers can
+  use these labels to implement progressive upgrades for their
+  applications.
+
+- **Cluster log forwarding** -- The Log Settings page now allows
+  configuring an outgoing stream of logs to an external Syslog server or
+  the Nethesis Cloud Log Manager (available only with an active
+  Subscription Enterprise plan).
+
+  This feature centralizes external log archiving for all cluster nodes.
+  Since log streams can be substantial in large clusters, future releases
+  will include a stream filter to help tailor exported logs to relevant
+  security events. See :ref:`logs-forwarding-section`.
+
+- **Application certification level** -- The Software Center now displays
+  a *level badge* for each application, indicating its :ref:`certification
+  level <certification-levels>`. The application details section also
+  includes information on the source repository and useful links.
+  Developers can now use a new terms_url_ metadata attribute to provide a
+  "Terms and Conditions" link, visible even after installation.
+
+- **Application instances per node limit** -- The Software Center enforces
+  limits on the number of application instances that can be installed per
+  cluster node. Developers can define this limit using the max-per-node_
+  image label. See :ref:`install-applications`.
+
+- **Display of core modules** -- The Software Center now shows additional
+  details for core components, including the core version of each cluster
+  node. See :ref:`core-applications`.
+
+- **More "generic S3" cloud backup providers** -- The S3 Generic backup
+  destination now supports additional cloud providers, including OVH,
+  Wasabi, DigitalOcean, and Synology C2. See :ref:`backup-destination`.
+
+- **Backup and snapshot selection** -- During the application restore
+  process, users can now select from past backup snapshots generated
+  according to the backup retention policy. See
+  :ref:`application_restore-section`.
+
+- **Nextcloud application** -- Nextcloud version 27 (NC 27), which was the
+  last version available on NethServer 7, has reached End-of-Life (EOL).
+  Although migrations will still install NC 27, an update to NC 28 will be
+  immediately available after migration.
+
+- **Mattermost application** -- Mattermost has been upgraded from the EOL
+  version 8 to the latest major release, version 9.11 (ESR).
+
+.. _terms_url: https://nethserver.github.io/ns8-core/modules/metadata
+.. _max-per-node: https://nethserver.github.io/ns8-core/modules/images/#image-labels
+.. _min-from: https://nethserver.github.io/ns8-core/modules/images/#image-labels
+.. _min-core: https://nethserver.github.io/ns8-core/modules/images/#image-labels
+
 
 Major changes on 2024-05-31
 ===========================
