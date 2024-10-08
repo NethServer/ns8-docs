@@ -27,8 +27,8 @@ Levels of certification
 
 Applications are certified at the following levels:
 
-- **Level 1/5**: The application is hosted by a custom repository and is
-  not certified.
+- **Level 1/5**: The application is hosted by a custom repository (or it
+  is not part of any repository) and is not certified.
 - **Level 2/5**: The application is hosted by the ``nethforge`` repository
   and certified by the NethServer community.
 - **Level 3/5**: The application is hosted by the ``default`` or
@@ -123,6 +123,12 @@ and fill in the required fields:
 - ``URL``: The public URL of the repository. It must be a valid `NS8
   repository <https://nethserver.github.io/ns8-core/modules/metadata/>`_.
 - ``Status``: Check this option to enable the repository.
+
+Note that if the same application is listed in multiple repositories, the
+one from the repository with the higher priority will be considered.
+Repository priority is determined by the alphabetical order of the
+repository names, with those later in the alphabet (e.g., "Z") having
+higher priority than those earlier (e.g., "A").
 
 You can refresh the metadata by clicking on the :guilabel:`Reload
 repositories` button.
