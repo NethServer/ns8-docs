@@ -16,7 +16,7 @@ Key features of the NethSecurity controller include:
 - **Secure Communication**: Establish a secure OpenVPN connection between the server and the firewalls.
 - **Easy Configuration**: Configure firewalls directly from the controller's user interface.
 - **Monitoring and Logging**: Collect and analyze logs from the firewalls using Loki for troubleshooting and monitoring purposes.
-- **Metrics Visualization**: Visualize metrics from the firewalls using the built-in Grafana dashboard. Metrics are collected using Prometheus.
+- **Metrics Visualization**: Visualize metrics from the firewalls using the built-in Grafana dashboard. Metrics are collected using Prometheus and TimescaleDB.
 - **Web-based SSH**: Access the firewalls' command-line interface using a web-based SSH client.
 
 See the `NethSecurity controller documentation`_ to learn more about the controller's features
