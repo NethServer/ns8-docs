@@ -67,6 +67,8 @@ To install an additional instance of an existing application, click on the
 certain cluster nodes may be restricted due to application policies or
 node resource limitations.
 
+.. _application-instances:
+
 Application instances
 ======================
 
@@ -74,6 +76,10 @@ Once an application has one or more installed instances, click on the
 ``Instances`` link within the application's card. You can perform various
 actions on each instance by clicking on its three-dots menu:
 
+- ``Update to testing version``: This action is visible only when a
+  testing version is available as an instance update. Carefully review the
+  pre-release documentation or consult the app developer before
+  proceeding.
 - ``Add to favorites``: The application will always be listed at the top
   of the application drawer.
 - ``Edit instance label``: Add a custom name to the instance.

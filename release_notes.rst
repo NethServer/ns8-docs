@@ -52,6 +52,21 @@ Major changes on 2024-10-03
   details for core components, including the core version of each cluster
   node. See :ref:`core-applications`.
 
+- **Update application to testing version** -- With Core 3.0.0, the
+  ``Testing`` switch under Settings > Software Repositories has been
+  removed. This change reduces the risk of using pre-releases for new
+  installations or updates. If the switch was previously enabled, existing
+  NS8 installations will no longer receive pre-release versions as
+  updates.
+
+  However, it is still possible to upgrade an application instance to a
+  testing version from its three-dots menu, by selecting the ``Update to
+  testing version`` action under Software center > Installed > Instances.
+  This new procedure allows early access to new features and bug fixes,
+  but it must be used with caution to avoid data loss. Be sure to
+  carefully read the pre-release documentation or contact the app
+  developer before using it. See :ref:`application-instances`.
+
 - **More "generic S3" cloud backup providers** -- The S3 Generic backup
   destination now supports additional cloud providers, including OVH,
   Wasabi, DigitalOcean, and Synology C2. See :ref:`backup-destination`.
