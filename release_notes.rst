@@ -9,7 +9,7 @@ NethServer 8 releases
 - List of `known bugs <https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_
 - Discussions around `possible bugs <http://community.nethserver.org/c/bug>`_
 
-Major changes on 2024-10-03
+Major changes on 2024-10-15
 ===========================
 
 - **Progressive upgrades** -- Starting from Core 3.0.0, application images
@@ -76,6 +76,13 @@ Major changes on 2024-10-03
   according to the backup retention policy. See
   :ref:`application_restore-section`.
 
+- **TCP and UDP port reallocation** -- Since Core 3.1.0, application
+  developers can leverage new core functions that extend the range of TCP
+  and UDP ports assigned to application instances. Similarly, they can
+  obtain new ranges while preserving existing allocations, easing the
+  introduction of new components during application upgrades. For more
+  information, see `Port allocation`_ in the Developer's manual.
+
 - **Nextcloud application** -- Nextcloud version 27 (NC 27), which was the
   last version available on NethServer 7, has reached End-of-Life (EOL).
   Although migrations will still install NC 27, an update to NC 28 will be
@@ -88,7 +95,7 @@ Major changes on 2024-10-03
 .. _max-per-node: https://nethserver.github.io/ns8-core/modules/images/#image-labels
 .. _min-from: https://nethserver.github.io/ns8-core/modules/images/#image-labels
 .. _min-core: https://nethserver.github.io/ns8-core/modules/images/#image-labels
-
+.. _`Port allocation`: https://nethserver.github.io/ns8-core/modules/port_allocation/
 
 Major changes on 2024-05-31
 ===========================
