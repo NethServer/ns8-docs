@@ -50,7 +50,7 @@ Major changes on 2024-10-03
 
 - **Display of core modules** -- The Software Center now shows additional
   details for core components, including the core version of each cluster
-  node. See :ref:`core-applications`.
+  node. See :ref:`core_updates-section`.
 
 - **Update application to testing version** -- With Core 3.0.0, the
   ``Testing`` switch under Settings > Software Repositories has been

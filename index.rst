@@ -42,7 +42,6 @@ NethServer 8 administrator manual
    certificates
    backup
    firewall
-   updates
    software_center
    email_notifications
 

@@ -19,6 +19,10 @@ tracker.
 Some applications may include additional Terms and Conditions; if present,
 read them carefully.
 
+.. hint::
+
+  For detailed information about the installed core components refer to
+  :ref:`core_updates-section`.
 
 .. _certification-levels:
 
@@ -139,18 +143,75 @@ higher priority than those earlier (e.g., "A").
 You can refresh the metadata by clicking on the :guilabel:`Reload
 repositories` button.
 
-.. _core-applications:
 
-Core applications
-=================
+.. _updates-section:
 
-NS8 consists of the core and several applications. Each core component has
+Updates
+=======
+
+If the enabled repositories contain an update for an installed application
+instance or any core component, a warning message is displayed at the top
+of the Software center page. You can see if there are any available
+updates also by accessing the ``Cluster status`` page.
+
+NethServer 8 can handle two different types of updates:
+
+* :ref:`core_updates-section`
+* :ref:`module_updates-section`
+
+:ref:`Operating system updates <os_updates-section>` are demanded to the
+underlying Linux distribution.
+
+If you have an active subscription, available updates are applied
+automatically as described in :ref:`scheduled-updates`.
+
+.. _core_updates-section:
+
+Core updates
+------------
+
+NS8 consists of the core and several modules. Each core component has
 its own version number, and the Software Center will display a warning
 when an update is available.
+
+- *Core* contains the web user interface, the API server, the agents
+  that manage the containers and backup engines.
+- *LDAP proxy* is a proxy server for LDAP TCP connections that handles all
+  connections from applications to :ref:`User domain providers
+  <user-domains-section>`.
+- :ref:`Loki log server <loki-section>`
+- :ref:`Traefik proxy <traefik-section>`
+- :ref:`Samba Active Directory <active_directory-section>`
+- :ref:`OpenLDAP <openldap-section>`
 
 You can review the components currently installed in the cluster at any
 time. To do this, click on the three-dots menu in the top-right corner of
 the ``Software Center`` page, then select the ``Core apps`` option.
+Click on :guilabel:`Update core` button to apply the updates.
+
+Core module updates are always applied altogether to avoid version
+mismatches.
+
+
+.. _module_updates-section:
+
+.. _application-updates:
+
+Application updates
+-------------------
+
+The list of available updates is listed inside the ``Updates`` tab of
+:ref:`software_center-section`. The software center displays a card for
+each application with available updates.
+
+You can apply all application updates by clicking the :guilabel:`Update all
+apps` button.
+
+By clicking the ``Update details`` link on the application card, you will
+see all module instances that require an update. You can update each
+instance separately by clicking on the :guilabel:`Update` button. If you
+prefer to update all instances of the same module, just click
+:guilabel:`Update all instances` button.
 
 
 .. rubric:: Footnotes
