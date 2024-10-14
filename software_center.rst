@@ -192,7 +192,6 @@ Click on :guilabel:`Update core` button to apply the updates.
 Core module updates are always applied altogether to avoid version
 mismatches.
 
-
 .. _module_updates-section:
 
 .. _application-updates:
@@ -212,6 +211,52 @@ see all module instances that require an update. You can update each
 instance separately by clicking on the :guilabel:`Update` button. If you
 prefer to update all instances of the same module, just click
 :guilabel:`Update all instances` button.
+
+
+.. _move_clone-section:
+
+Clone and move applications
+===========================
+
+An application instance can be cloned inside a cluster node. The clone
+procedure creates a new application instance that is equivalent to the
+source one.
+
+The cluster node where the destination instance runs can be the same as
+the source instance. Generally, there should be no limitation on running
+multiple application instances on the same node. In some cases, the
+services provided by the instance might require exclusive access to a
+particular system resource, such as binding a fixed TCP port number. In
+this case starting additional instances of the same service becomes
+impossible.
+
+In a nutshell the clone procedure:
+
+1. Creates a new application instance for the destination.
+2. Starts the data transfer between the instances, during this phase the
+   source is still up and running.
+3. Stops briefly the source instance.
+4. Executes the final data synchronization.
+5. Starts the source and the destination instances.
+
+Instead, when moving an application, you must select a target node other
+than the one where the instance is currently running.
+
+The move procedure
+
+1. Creates a new application instance for the destination.
+2. Starts the data transfer between the instances, during this phase the
+   source is still up and running.
+3. Stops briefly the source instance.
+4. Executes the final data synchronization.
+5. Starts the destination instance and removes the source one.
+
+If the moved application is referenced by a fully qualified domain name
+(FQDN), ensure you update the DNS record to point to the address of the
+target node.
+
+To start moving/cloning an application instance see the
+:ref:`application-instances` section.
 
 
 .. rubric:: Footnotes
