@@ -101,7 +101,7 @@ Major changes on 2024-10-16
   new default UI theme, exclusively available on the NS8 platform.
   Administrators can choose to apply the new theme across existing
   installations or allow end-users to decide. Additionally, for those on
-  the Subscription Enterprise plan, the :ref:`PEC bridge <pec-bridge>` is
+  the Enterprise Subscription plan, the :ref:`PEC bridge <pec-bridge>` is
   now available.
 
 - **Nextcloud application** -- Nextcloud version 27 (NC 27), which was the
