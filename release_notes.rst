@@ -87,6 +87,13 @@ Major changes on 2024-10-15
   professional IP telephony solution that offers a host of advanced
   features and an intuitive user interface.
 
+- **Webtop application** -- :ref:`Webtop <webtop-section>` now features a
+  new default UI theme, exclusively available on the NS8 platform.
+  Administrators can choose to apply the new theme across existing
+  installations or allow end-users to decide. Additionally, for those on
+  the Subscription Enterprise plan, the :ref:`PEC bridge <pec-bridge>` is
+  now available.
+
 - **Nextcloud application** -- Nextcloud version 27 (NC 27), which was the
   last version available on NethServer 7, has reached End-of-Life (EOL).
   Although migrations will still install NC 27, an update to NC 28 will be
