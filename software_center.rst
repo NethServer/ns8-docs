@@ -206,7 +206,7 @@ each application with available updates.
 You can apply all application updates by clicking the :guilabel:`Update all
 apps` button.
 
-By clicking the ``Update details`` link on the application card, you will
+By clicking the :guilabel:`Review and update` button on the application card, you will
 see all module instances that require an update. You can update each
 instance separately by clicking on the :guilabel:`Update` button. If you
 prefer to update all instances of the same module, just click
@@ -218,7 +218,7 @@ prefer to update all instances of the same module, just click
 Clone and move applications
 ===========================
 
-An application instance can be cloned inside a cluster node. The clone
+An application instance can be cloned to any cluster node. The clone
 procedure creates a new application instance that is equivalent to the
 source one.
 

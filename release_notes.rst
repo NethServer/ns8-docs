@@ -39,7 +39,7 @@ Major changes on 2024-10-16
 - **Cluster log forwarding** -- The Log Settings page now allows
   configuring an outgoing stream of logs to an external Syslog server or
   the Nethesis Cloud Log Manager (available only with an active
-  Subscription Enterprise plan).
+  Enterprise Subscription plan).
 
   This feature centralizes external log archiving for all cluster nodes.
   Since log streams can be substantial in large clusters, future releases
@@ -53,7 +53,7 @@ Major changes on 2024-10-16
   Developers can now use a new terms_url_ metadata attribute to provide a
   "Terms and Conditions" link, visible even after installation.
 
-- **Application instances per node limit** -- The Software Center enforces
+- **Application instance limit per node** -- The Software Center enforces
   limits on the number of application instances that can be installed per
   cluster node. Developers can define this limit using the max-per-node_
   image label. See :ref:`install-applications`.
