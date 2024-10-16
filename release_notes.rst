@@ -83,6 +83,10 @@ Major changes on 2024-10-15
   introduction of new components during application upgrades. For more
   information, see `Port allocation`_ in the Developer's manual.
 
+- **NethVoice application** -- :ref:`NethVoice <nethvoice-section>` is a
+  professional IP telephony solution that offers a host of advanced
+  features and an intuitive user interface.
+
 - **Nextcloud application** -- Nextcloud version 27 (NC 27), which was the
   last version available on NethServer 7, has reached End-of-Life (EOL).
   Although migrations will still install NC 27, an update to NC 28 will be
