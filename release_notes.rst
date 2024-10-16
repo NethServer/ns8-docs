@@ -9,8 +9,18 @@ NethServer 8 releases
 - List of `known bugs <https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_
 - Discussions around `possible bugs <http://community.nethserver.org/c/bug>`_
 
-Major changes on 2024-10-15
+Major changes on 2024-10-16
 ===========================
+
+- **Disk minimum requirements increased** -- The :ref:`minimum disk
+  requirements <system-requirements-section>` have been increased to a
+  40GB SSD. The primary storage, which holds container images, must be
+  fast, especially during read access, to prevent service startup errors.
+
+- **Cluster node limit removed** -- The four-node cluster limit has been
+  removed. More nodes can now be added, up to the VPN network size.
+  However, keep in mind the increased system load on the leader node. See
+  also :ref:`cluster-section`.
 
 - **Progressive upgrades** -- Starting from Core 3.0.0, application images
   can be labeled with a new attribute, min-from_. This ensures that
