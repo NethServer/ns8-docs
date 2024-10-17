@@ -9,6 +9,114 @@ NethServer 8 releases
 - List of `known bugs <https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_
 - Discussions around `possible bugs <http://community.nethserver.org/c/bug>`_
 
+Major changes on 2024-10-16
+===========================
+
+- **Disk minimum requirements increased** -- The :ref:`minimum disk
+  requirements <system-requirements-section>` have been increased to a
+  40GB SSD. The primary storage, which holds container images, must be
+  fast, especially during read access, to prevent service startup errors.
+
+- **Cluster node limit removed** -- The four-node cluster limit has been
+  removed. More nodes can now be added, up to the VPN network size.
+  However, keep in mind the increased system load on the leader node. See
+  also :ref:`cluster-section`.
+
+- **Progressive upgrades** -- Starting from Core 3.0.0, application images
+  can be labeled with a new attribute, min-from_. This ensures that
+  installed applications will ignore any updates with this label if their
+  version is lower than the label value.
+
+  Similarly, a min-core_ label can be applied to application images,
+  requiring a minimum core version for installation or updates. If the
+  core version is below the label value, the image will be ignored.
+
+  These labels were developed with Nextcloud in mind, as it only allows
+  upgrades to the next major version number. Application developers can
+  use these labels to implement progressive upgrades for their
+  applications.
+
+- **Cluster log forwarding** -- The Log Settings page now allows
+  configuring an outgoing stream of logs to an external Syslog server or
+  the Nethesis Cloud Log Manager (available only with an active
+  Enterprise Subscription plan).
+
+  This feature centralizes external log archiving for all cluster nodes.
+  Since log streams can be substantial in large clusters, future releases
+  will include a stream filter to help tailor exported logs to relevant
+  security events. See :ref:`logs-forwarding-section`.
+
+- **Application certification level** -- The Software Center now displays
+  a *level badge* for each application, indicating its :ref:`certification
+  level <certification-levels>`. The application details section also
+  includes information on the source repository and useful links.
+  Developers can now use a new terms_url_ metadata attribute to provide a
+  "Terms and Conditions" link, visible even after installation.
+
+- **Application instance limit per node** -- The Software Center enforces
+  limits on the number of application instances that can be installed per
+  cluster node. Developers can define this limit using the max-per-node_
+  image label. See :ref:`install-applications`.
+
+- **Display of core modules** -- The Software Center now shows additional
+  details for core components, including the core version of each cluster
+  node. See :ref:`core_updates-section`.
+
+- **Update application to testing version** -- With Core 3.0.0, the
+  ``Testing`` switch under Settings > Software Repositories has been
+  removed. This change reduces the risk of using pre-releases for new
+  installations or updates. If the switch was previously enabled, existing
+  NS8 installations will no longer receive pre-release versions as
+  updates.
+
+  However, it is still possible to upgrade an application instance to a
+  testing version from its three-dots menu, by selecting the ``Update to
+  testing version`` action under Software center > Installed > Instances.
+  This new procedure allows early access to new features and bug fixes,
+  but it must be used with caution to avoid data loss. Be sure to
+  carefully read the pre-release documentation or contact the app
+  developer before using it. See :ref:`application-instances`.
+
+- **More "generic S3" cloud backup providers** -- The S3 Generic backup
+  destination now supports additional cloud providers, including OVH,
+  Wasabi, DigitalOcean, and Synology C2. See :ref:`backup-destination`.
+
+- **Backup and snapshot selection** -- During the application restore
+  process, users can now select from past backup snapshots generated
+  according to the backup retention policy. See
+  :ref:`application_restore-section`.
+
+- **TCP and UDP port reallocation** -- Since Core 3.1.0, application
+  developers can leverage new core functions that extend the range of TCP
+  and UDP ports assigned to application instances. Similarly, they can
+  obtain new ranges while preserving existing allocations, easing the
+  introduction of new components during application upgrades. For more
+  information, see `Port allocation`_ in the Developer's manual.
+
+- **NethVoice application** -- :ref:`NethVoice <nethvoice-section>` is a
+  professional IP telephony solution that offers a host of advanced
+  features and an intuitive user interface.
+
+- **Webtop application** -- :ref:`Webtop <webtop-section>` now features a
+  new default UI theme, exclusively available on the NS8 platform.
+  Administrators can choose to apply the new theme across existing
+  installations or allow end-users to decide. Additionally, for those on
+  the Enterprise Subscription plan, the :ref:`PEC bridge <pec-bridge>` is
+  now available.
+
+- **Nextcloud application** -- Nextcloud version 27 (NC 27), which was the
+  last version available on NethServer 7, has reached End-of-Life (EOL).
+  Although migrations will still install NC 27, an update to NC 28 will be
+  immediately available after migration.
+
+- **Mattermost application** -- Mattermost has been upgraded from the EOL
+  version 8 to the latest major release, version 9.11 (ESR).
+
+.. _terms_url: https://nethserver.github.io/ns8-core/modules/metadata
+.. _max-per-node: https://nethserver.github.io/ns8-core/modules/images/#image-labels
+.. _min-from: https://nethserver.github.io/ns8-core/modules/images/#image-labels
+.. _min-core: https://nethserver.github.io/ns8-core/modules/images/#image-labels
+.. _`Port allocation`: https://nethserver.github.io/ns8-core/modules/port_allocation/
 
 Major changes on 2024-05-31
 ===========================
