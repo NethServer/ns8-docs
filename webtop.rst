@@ -411,7 +411,7 @@ One of the best functionalities of custom fields is the possibility to perform m
 Custom panels
 =============
 
-Custom panels display the `:ref:`custom_fields-section` and associated them with resources.
+Custom panels display the :ref:`custom_fields-section` and associated them with resources.
 
 Users with the authorization to manage custom fields can access the configuration panel using the button at the top right:
 
@@ -779,6 +779,8 @@ To download the files just access your personal :menuselection:`Cloud --> Upload
 
 .. image:: _static/webtop-doc_cloud11.png
 
+.. _webtop-chat:
+
 Chat integration
 ================
 
@@ -786,9 +788,13 @@ Web chat integration installation is disabled by default for all users.
 
 To enable chat integration:
 
-1. Install the "Instant messaging" module from :guilabel:`Software Center`.
+#. Install the "Ejabberd" application from the ``Software center`` page
+   See :ref:`install-applications` and :ref:`ejabberd-section`.
 
-2. Access WebTop as admin user then enable the web chat authorization:
+#. In Ejabberd ``Settings`` page, the field ``Ejabberd domain (FQDN)``
+   must match the value of ``Mail domain`` in Webtop's settings.
+
+#. Access WebTop as admin user then enable the web chat authorization:
 
    - Access the :guilabel:`Administration` menu, then :menuselection:`Domains --> NethServer --> Groups --> Users --> Authorizations`
    - :menuselection:`Add (+) --> Services --> com.sonicle.webtop.core (WebTop) --> Resource --> WEBCHAT --> Action --> ACCESS`
