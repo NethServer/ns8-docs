@@ -6,8 +6,7 @@ Ejabberd
 
 The Ejabberd module installs the ejabberd Community Server Docker Image (standard protocol Jabber/XMPP) and supports TLS on standard ports (5222 or 5223).
 
-.. warning::
-   Only one instance of Ejabberd can run in a node because of TCP port requirements
+Only one instance of Ejabberd can run on a node to prevent TCP port conflicts.
 
 .. note::
    Ejabberd does not expose anymore the BOSH protocol (NethCTI and other browser-based applications might not work)
@@ -26,7 +25,11 @@ Ejabberd needs a dedicated virtual host name, a FQDN like ``nethserver.org``, Th
 
 Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
 
-.. warning::
+If you want to use the Ejabberd instance as :ref:`Webtop chat engine
+<webtop-chat>`, ensure you enter the same domain name used by Webtop in
+the ``Mail domain`` field on its Settings page.
+
+.. note::
    Let's Encrypt certificate is a mandatory for file sharing clients. Such clients refuse to connect to the server if the certificate is self-signed
 
 How to configure:
