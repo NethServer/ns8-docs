@@ -287,11 +287,11 @@ on the follwing criteria:
 
 * Complete sender email address.
 
-* Sender email domain.
+* Sender email domain (exact match).
 
 * Complete recipient email address.
 
-* Recipient email domain.
+* Recipient email domain (exact match).
 
 
 Queue
