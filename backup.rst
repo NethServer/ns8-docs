@@ -58,7 +58,7 @@ folder at the second level. For example: ::
    mail/
    ├─ 92b8ee37-44dd-4f9f-9ee8-658e24556c55/
    loki/
-   ├─ 652ea526-b0dc-4bfb-a356-8a841b22bbd2/
+   └─ 652ea526-b0dc-4bfb-a356-8a841b22bbd2/
 
 Each UUID directory contains a Restic_ repository. All Restic repositories
 under the same backup destination share the same encryption key. This key
@@ -70,6 +70,11 @@ If adding a previously used destination (i.e., it has Restic directories
 inside), you must fill the `Data encryption key` field under the
 `Advanced` section with the previous key value, otherwise existing backups
 cannot be opened.
+
+Low-level access to Restic repositories can be performed using the
+restic-wrapper_ command, as documented in the NS8 Developer's Manual.
+
+.. _restic-wrapper: https://nethserver.github.io/ns8-core/core/backup_restore/#the-restic-wrapper-command
 
 .. _local-storage:
 
