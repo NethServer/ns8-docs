@@ -57,6 +57,9 @@ The migration procedure will add NS7 as special node of the NethServer 8 cluster
 
 #. Click the :guilabel:`Connect` button.
 
+If NS8 has an active subscription plan, automated updates are inhibited
+until the NS7 node is automatically removed from the cluster at migration
+completion. See also :ref:`scheduled-updates`.
 
 Migrate an application
 ======================

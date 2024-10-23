@@ -109,6 +109,11 @@ installing or updating core components or applications via the Software
 Center page. The metadata for applications and core components from the
 ``subscription`` repository is refreshed hourly in the Software Center.
 
+Scheduled updates are inhibited when an NS7 node joins the cluster to
+migrate applications. This is necessary because the migration procedure
+requires specific application versions to function correctly. Scheduled
+updates will be re-enabled once the NS7 migration is finished and the NS7
+node is automatically removed from the cluster.
 
 Remove the subscription
 =======================
