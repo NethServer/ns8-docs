@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-23 13:16+0000\n"
+"POT-Creation-Date: 2024-10-29 09:42+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -10272,10 +10272,18 @@ msgstr ""
 "FQDN valido all'interno del campo ``Proxy Domain``"
 
 #: ../../nethvoice_proxy.rst:30
-msgid "insert the IPv4/IPv6 address that will receive VoIP traffic"
-msgstr "inserire l'indirizzo IPv4/IPv6 che riceverà il traffico VoIP"
+msgid ""
+"insert the network's interface of the node choosing it from the drop-down"
+" menu"
+msgstr ""
 
-#: ../../nethvoice_proxy.rst:32
+#: ../../nethvoice_proxy.rst:31
+msgid ""
+"insert Public IPv4/IPv6 address that will receive VoIP traffic (necessary"
+" only if there is no public IP on the network interface)"
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:33
 msgid ""
 "Now, you can install and configure one ore more :ref:`NethVoice "
 "<nethvoice-section>` instances."
@@ -19803,4 +19811,7 @@ msgstr ""
 
 #~ msgid "Recipient email domain."
 #~ msgstr ""
+
+#~ msgid "insert the IPv4/IPv6 address that will receive VoIP traffic"
+#~ msgstr "inserire l'indirizzo IPv4/IPv6 che riceverà il traffico VoIP"
 
