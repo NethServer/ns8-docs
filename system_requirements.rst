@@ -28,9 +28,13 @@ Linux distribution
 Install NS8 on a clean Linux server distribution, avoiding installation on
 desktop systems or servers already running other services.
 
-Supported Linux distributions and versions:
+Linux distributions and versions with Nethesis :ref:`Subscription
+<subscription-section>` (including "Enterprise" plan) support:
 
 - `Rocky Linux <https://rockylinux.org/>`_ 9
+
+Linux distributions and versions with NethServer's community support:
+
 - `CentOS Stream <https://www.centos.org/centos-stream/>`_ 9
 - `AlmaLinux <https://almalinux.org>`_ 9
 - `Debian <https://www.debian.org/>`_ 12
