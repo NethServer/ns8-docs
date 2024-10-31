@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-31 10:52+0000\n"
+"POT-Creation-Date: 2024-10-31 12:00+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -14276,30 +14276,36 @@ msgstr ""
 "evitando sistemi desktop o server con altri servizi già in esecuzione."
 
 #: ../../system_requirements.rst:31
-msgid "Supported Linux distributions and versions:"
-msgstr "Distribuzioni e versioni Linux supportate:"
+msgid ""
+"Linux distributions and versions with Nethesis :ref:`Subscription "
+"<subscription-section>` (including \"Enterprise\" plan) support:"
+msgstr ""
 
-#: ../../system_requirements.rst:33
+#: ../../system_requirements.rst:34
 msgid "`Rocky Linux <https://rockylinux.org/>`_ 9"
 msgstr "`Rocky Linux <https://rockylinux.org/>`_ 9"
 
-#: ../../system_requirements.rst:34
+#: ../../system_requirements.rst:36
+msgid "Linux distributions and versions with NethServer's community support:"
+msgstr ""
+
+#: ../../system_requirements.rst:38
 msgid "`CentOS Stream <https://www.centos.org/centos-stream/>`_ 9"
 msgstr "`CentOS Stream <https://www.centos.org/centos-stream/>`_ 9"
 
-#: ../../system_requirements.rst:35
+#: ../../system_requirements.rst:39
 msgid "`AlmaLinux <https://almalinux.org>`_ 9"
 msgstr "`AlmaLinux <https://almalinux.org>`_ 9"
 
-#: ../../system_requirements.rst:36
+#: ../../system_requirements.rst:40
 msgid "`Debian <https://www.debian.org/>`_ 12"
 msgstr "`Debian <https://www.debian.org/>`_ 12"
 
-#: ../../system_requirements.rst:42
+#: ../../system_requirements.rst:46
 msgid "Static IP address"
 msgstr "Indirizzo IP statico"
 
-#: ../../system_requirements.rst:44
+#: ../../system_requirements.rst:48
 msgid ""
 "A working internet connection is necessary for the installation, "
 "configuration, and updating of the system. It is required also if an "
@@ -14310,7 +14316,7 @@ msgstr ""
 " anche per l'attivazione di una :ref:`subscription <subscription-"
 "section>`."
 
-#: ../../system_requirements.rst:48
+#: ../../system_requirements.rst:52
 msgid ""
 "Assign a static IP address to the system. DHCP and any other dynamic IP "
 "discovery protocols are not allowed."
@@ -14318,11 +14324,11 @@ msgstr ""
 "Utilizzare per il sistema un indirizzo IP statico. DHCP e altri "
 "protocolli di discovery di IP dinamici non sono ammessi."
 
-#: ../../system_requirements.rst:54
+#: ../../system_requirements.rst:58
 msgid "DNS configuration"
 msgstr "Configurazione DNS"
 
-#: ../../system_requirements.rst:56
+#: ../../system_requirements.rst:60
 #, fuzzy
 msgid ""
 "To ensure network clients can connect to the server, its fully qualified "
@@ -14337,7 +14343,7 @@ msgstr ""
 "DNS utilizzando record di tipo A per gli indirizzi IPv4 e di tipo AAAA "
 "per gli indirizzi IPv6."
 
-#: ../../system_requirements.rst:61
+#: ../../system_requirements.rst:65
 #, fuzzy
 msgid ""
 "A correct FQDN and DNS setup is essential for TLS encryption to function "
@@ -14349,11 +14355,11 @@ msgstr ""
 "server, i client di rete controllano se il certificato TLS è valido per "
 "l'FQDN utilizzato."
 
-#: ../../system_requirements.rst:65
+#: ../../system_requirements.rst:69
 msgid "To meet these requirements, follow these steps:"
 msgstr ""
 
-#: ../../system_requirements.rst:67
+#: ../../system_requirements.rst:71
 #, fuzzy
 msgid ""
 "**Determine your DNS provider**: Based on your server's purpose, DNS can "
@@ -14365,7 +14371,7 @@ msgstr ""
 "servizio internet pubblico, da un appliance di rete privato, o da "
 "entrambi. Leggere attentamente la relativa documentazione."
 
-#: ../../system_requirements.rst:72
+#: ../../system_requirements.rst:76
 #, fuzzy
 msgid ""
 "**Register the FQDN**: Choose the FQDN for your server and register it in"
@@ -14380,11 +14386,11 @@ msgstr ""
 "nome host è ``jupiter`` e il suffisso di dominio ``example.org`` l'FQDN "
 "risultante è ``jupiter.example.org``."
 
-#: ../../system_requirements.rst:82
+#: ../../system_requirements.rst:86
 msgid "Worker node requirements"
 msgstr "Requisiti del nodo worker"
 
-#: ../../system_requirements.rst:84
+#: ../../system_requirements.rst:88
 #, fuzzy
 msgid ""
 "A worker node has specific requirements for installation and "
@@ -14393,23 +14399,23 @@ msgstr ""
 "Tra i client di rete, un nodo worker ha alcuni requisiti speciali che "
 "devono essere soddisfatti."
 
-#: ../../system_requirements.rst:87
+#: ../../system_requirements.rst:91
 msgid ""
 "During the join procedure, the worker node connects to the leader at the "
 "following URL: ::"
 msgstr ""
 
-#: ../../system_requirements.rst:92
+#: ../../system_requirements.rst:96
 msgid ""
 "It also establishes a WireGuard VPN connection with the leader using the "
 "default UDP port 55820."
 msgstr ""
 
-#: ../../system_requirements.rst:95
+#: ../../system_requirements.rst:99
 msgid "Ensure the following requirements are met:"
 msgstr "Assicurarsi che i seguenti requisiti siano soddisfatti:"
 
-#: ../../system_requirements.rst:97
+#: ../../system_requirements.rst:101
 #, fuzzy
 msgid ""
 "The worker node must resolve the leader's FQDN to the correct routable "
@@ -14418,7 +14424,7 @@ msgstr ""
 "il nodo worker deve risolvere correttamente l'FQDN del nodo leader nel "
 "relativo indirizzo IP"
 
-#: ../../system_requirements.rst:100
+#: ../../system_requirements.rst:104
 #, fuzzy
 msgid ""
 "The HTTPS server (TCP port 443) at that address must handle the API "
@@ -14427,17 +14433,17 @@ msgstr ""
 "il server HTTPS (porta 443 TCP) a tale indirizzo deve gestire la "
 "richiesta API"
 
-#: ../../system_requirements.rst:103
+#: ../../system_requirements.rst:107
 msgid ""
 "The VPN UDP port (default 55820) must not be blocked by any network "
 "appliances."
 msgstr ""
 
-#: ../../system_requirements.rst:108
+#: ../../system_requirements.rst:112
 msgid "Web browser requirements"
 msgstr "Requisiti per il browser Web"
 
-#: ../../system_requirements.rst:110
+#: ../../system_requirements.rst:114
 msgid ""
 "To access the cluster administration web user interface, you need an up-"
 "to-date release of Firefox, Chrome, or Chromium browser as the web "
@@ -19833,4 +19839,7 @@ msgstr ""
 
 #~ msgid "insert the IPv4/IPv6 address that will receive VoIP traffic"
 #~ msgstr "inserire l'indirizzo IPv4/IPv6 che riceverà il traffico VoIP"
+
+#~ msgid "Supported Linux distributions and versions:"
+#~ msgstr "Distribuzioni e versioni Linux supportate:"
 
