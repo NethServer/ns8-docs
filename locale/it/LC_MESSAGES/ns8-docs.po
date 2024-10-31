@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-29 09:42+0000\n"
+"POT-Creation-Date: 2024-10-31 10:52+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -3956,7 +3956,7 @@ msgid ""
 "was interrupted, ensuring continuity in log management."
 msgstr ""
 
-#: ../../mail.rst:7 ../../migration.rst:231
+#: ../../mail.rst:7 ../../migration.rst:234
 #, fuzzy
 msgid "Mail"
 msgstr "Email"
@@ -5481,19 +5481,29 @@ msgstr ""
 msgid "Click the :guilabel:`Connect` button."
 msgstr "Quindi, fare clic sul pulsante: `Connect` ."
 
-#: ../../migration.rst:62
+#: ../../migration.rst:60
+#, fuzzy
+msgid ""
+"If NS8 has an active subscription plan, automated updates are inhibited "
+"until the NS7 node is automatically removed from the cluster at migration"
+" completion. See also :ref:`scheduled-updates`."
+msgstr ""
+"If you have an active subscription, available updates are applied "
+"automatically as described in :ref:`scheduled-updates`."
+
+#: ../../migration.rst:65
 #, fuzzy
 msgid "Migrate an application"
 msgstr "Applicazioni smartphone"
 
-#: ../../migration.rst:64
+#: ../../migration.rst:67
 #, fuzzy
 msgid ""
 "The web interface will display the list of all applications installed "
 "inside NethServer 7."
 msgstr "disabilita l'applicazione in NethServer 7"
 
-#: ../../migration.rst:68
+#: ../../migration.rst:71
 #, fuzzy
 msgid ""
 "If NS7 has a remote account provider and an error message is displayed "
@@ -5502,7 +5512,7 @@ msgstr ""
 "impostazioni della policy delle password dell'account provider (vedere: "
 "`migrate-account-provider`)"
 
-#: ../../migration.rst:71
+#: ../../migration.rst:74
 #, fuzzy
 msgid ""
 "Choose an application and click on the :guilabel:`Start migration` "
@@ -5519,7 +5529,7 @@ msgstr ""
 "8 è composto da 2 o più nodi, verrà chiesto di selezionare un nodo di "
 "destinazione."
 
-#: ../../migration.rst:77
+#: ../../migration.rst:80
 #, fuzzy
 msgid ""
 "Click the :guilabel:`Sync data` button multiple time to keep in sync the "
@@ -5531,7 +5541,7 @@ msgstr ""
 "per mantenere in sincronizzazione i dati dell'applicazione tra NethServer"
 " 7 e NethServer 8."
 
-#: ../../migration.rst:83
+#: ../../migration.rst:86
 #, fuzzy
 msgid ""
 "When you are ready for the final migration, click the :guilabel:`Finish "
@@ -5546,7 +5556,7 @@ msgstr ""
 "record DNS punti al nodo NS8. È anche possibile configurare :ref: `custom"
 " HTTP routes <migrated_routes-section>` per le applicazioni migrate."
 
-#: ../../migration.rst:87
+#: ../../migration.rst:90
 #, fuzzy
 msgid ""
 "Please note that most web application will need a dedicated FQDN (virtual"
@@ -5562,22 +5572,22 @@ msgstr ""
 "record DNS punti al nodo NS8. È anche possibile configurare :ref: `custom"
 " HTTP routes <migrated_routes-section>` per le applicazioni migrate."
 
-#: ../../migration.rst:92
+#: ../../migration.rst:95
 #, fuzzy
 msgid "At the end of each application migration the following happens:"
 msgstr "Al termine della migrazione delle applicazioni, il sistema:"
 
-#: ../../migration.rst:94
+#: ../../migration.rst:97
 #, fuzzy
 msgid "The application in NS8 is configured and started with the migrated data."
 msgstr "The application in NS8 is configured and started with the migrated data."
 
-#: ../../migration.rst:96
+#: ../../migration.rst:99
 #, fuzzy
 msgid "The application in NS7 is stopped and disabled."
 msgstr "The application in NS7 is stopped and disabled."
 
-#: ../../migration.rst:98
+#: ../../migration.rst:101
 #, fuzzy
 msgid ""
 "The migration tool configures an HTML page with a link pointing to the "
@@ -5590,7 +5600,7 @@ msgstr ""
 "link instead of the old application. See also :ref:`migrated_routes-"
 "section`."
 
-#: ../../migration.rst:103
+#: ../../migration.rst:106
 #, fuzzy
 msgid ""
 "If the NS7 application was connected to the local account provider, the "
@@ -5602,7 +5612,7 @@ msgstr ""
 " l'applicazione sarà ancora in grado di accedere al provider in "
 "esecuzione su NethServer 7 utilizzando la VPN del cluster."
 
-#: ../../migration.rst:108
+#: ../../migration.rst:111
 #, fuzzy
 msgid ""
 "As alternative, the migration of an application can be skipped with the "
@@ -5611,12 +5621,12 @@ msgstr ""
 "As alternative, the migration of an application can be skipped with the "
 ":guilabel:`Skip migration` button."
 
-#: ../../migration.rst:113
+#: ../../migration.rst:116
 #, fuzzy
 msgid "Complete the migration"
 msgstr "Migrazione da NethServer 7"
 
-#: ../../migration.rst:115
+#: ../../migration.rst:118
 #, fuzzy
 msgid ""
 "When the account provider is finally migrated, the migration procedure "
@@ -5627,7 +5637,7 @@ msgstr ""
 "disconnects NS7 from the NS8 cluster and the initial connection page "
 "appears again."
 
-#: ../../migration.rst:119
+#: ../../migration.rst:122
 #, fuzzy
 msgid ""
 "If NS7 needs to use NS8 as remote account provider, read carefully the "
@@ -5636,11 +5646,11 @@ msgstr ""
 "impostazioni della policy delle password dell'account provider (vedere: "
 "`migrate-account-provider`)"
 
-#: ../../migration.rst:123
+#: ../../migration.rst:126
 msgid "Logs"
 msgstr "Log"
 
-#: ../../migration.rst:125
+#: ../../migration.rst:128
 msgid ""
 "The migration tool UI has a ``Logs`` page for reading "
 "``/var/log/ns8-migration.log`` contents. The migration procedure of each "
@@ -5650,7 +5660,7 @@ msgstr ""
 " del log ``/var/log/ns8-migration.log``. La procedura di migrazione di "
 "ogni applicazione invia una traccia della sua attività a quel file."
 
-#: ../../migration.rst:127
+#: ../../migration.rst:130
 msgid ""
 "Furthermore, when joining/leaving the NS8 cluster and when NS7 services "
 "are modified, some information can be recorded by ``/var/log/messages`` "
@@ -5660,7 +5670,7 @@ msgstr ""
 "servizi NS7 vengono modificati, alcune informazioni possono essere "
 "registrate in ``/var/log/messages`` come al solito."
 
-#: ../../migration.rst:129
+#: ../../migration.rst:132
 msgid ""
 "On the NS8 side, the application log contains the trace of the ``import-"
 "module`` activity."
@@ -5668,11 +5678,11 @@ msgstr ""
 "Lato NS8, il log delle applicazioni contiene la traccia dell'attività "
 "``import-module``."
 
-#: ../../migration.rst:134
+#: ../../migration.rst:137
 msgid "Account provider"
 msgstr "Account provider"
 
-#: ../../migration.rst:136
+#: ../../migration.rst:139
 #, fuzzy
 msgid ""
 "Your action is required if the NS7 system is configured with a **remote "
@@ -5697,7 +5707,7 @@ msgstr ""
 " implementation). Bear in mind that every node of the NS8 cluster must "
 "reach the same LDAP database, now and in the future."
 
-#: ../../migration.rst:147
+#: ../../migration.rst:150
 #, fuzzy
 msgid ""
 "On the contrary, if the NS7 system is configured with a **local account "
@@ -5716,7 +5726,7 @@ msgstr ""
 " migrated at the end of the procedure: at that point the temporary "
 "external user domain is automatically removed."
 
-#: ../../migration.rst:155
+#: ../../migration.rst:158
 #, fuzzy
 msgid ""
 "Refer to the next sections for specific information about the local "
@@ -5725,11 +5735,11 @@ msgstr ""
 "Refer to the next sections for specific information about the local "
 "account provider migration."
 
-#: ../../migration.rst:159
+#: ../../migration.rst:162
 msgid "Samba DC"
 msgstr "Samba DC"
 
-#: ../../migration.rst:161
+#: ../../migration.rst:164
 msgid ""
 "Complete the DC migration by clicking the :guilabel:`Finish migration` "
 "button. The procedure asks to select an IP address: it will become the IP"
@@ -5739,14 +5749,14 @@ msgstr ""
 ". La procedura chiede di selezionare un indirizzo IP: diventerà l'IP "
 "della destinazione DC."
 
-#: ../../migration.rst:167
+#: ../../migration.rst:170
 #, fuzzy
 msgid "Windows clients might not know how to reach the new DC"
 msgstr ""
 "I client di Windows potrebbero non sapere come raggiungere la "
 "destinazione DC"
 
-#: ../../migration.rst:169
+#: ../../migration.rst:172
 #, fuzzy
 msgid ""
 "If DNS configuration of Windows clients is controlled by a DHCP server, "
@@ -5756,7 +5766,7 @@ msgstr ""
 "DHCP, impostare l'indirizzo IP del DC di destinazione come nuovo server "
 "DNS."
 
-#: ../../migration.rst:172
+#: ../../migration.rst:175
 #, fuzzy
 msgid ""
 "If Windows clients use an external DNS, it must be configured to forward "
@@ -5766,7 +5776,7 @@ msgstr ""
 "per inoltrare le richieste della zona DNS di Active Directory "
 "all'indirizzo IP del DC di destinazione."
 
-#: ../../migration.rst:176
+#: ../../migration.rst:179
 #, fuzzy
 msgid ""
 "If Windows clients have a manual DNS configuration and use the NS7 DC IP "
@@ -5778,7 +5788,7 @@ msgstr ""
 "considerare di trasferire l'indirizzo IP del DC sorgente al DC "
 "destinazione."
 
-#: ../../migration.rst:180
+#: ../../migration.rst:183
 #, fuzzy
 msgid ""
 "In the last case, transferring the IP avoids the reconfiguration of DNS "
@@ -5790,7 +5800,7 @@ msgstr ""
 "preferibile su un server DNS esterno, se blocca le richieste di "
 "aggiornamento DNS dinamiche (DDNS)."
 
-#: ../../migration.rst:184
+#: ../../migration.rst:187
 msgid ""
 "To transfer the source DC IP address to the destination DC some steps "
 "must be done manually after the migration has completed."
@@ -5799,7 +5809,7 @@ msgstr ""
 "passaggi devono essere effettuati manualmente dopo il completamento della"
 " migrazione."
 
-#: ../../migration.rst:187
+#: ../../migration.rst:190
 msgid ""
 "Check the migration of accounts was successful. Users and groups must be "
 "listed correctly under ``Domains and users`` page."
@@ -5808,7 +5818,7 @@ msgstr ""
 "utenti e i gruppi devono essere elencati correttamente nella pagina "
 "``Domains and users``."
 
-#: ../../migration.rst:190
+#: ../../migration.rst:193
 msgid ""
 "At the end of the migration the source DC IP address is free and can be "
 "assigned to the destination node. Refer to the node operating system "
@@ -5820,7 +5830,7 @@ msgstr ""
 "documentazione del sistema operativo del nodo per assegnare un indirizzo "
 "IP secondario (alias) al nodo di destinazione."
 
-#: ../../migration.rst:194
+#: ../../migration.rst:197
 msgid ""
 "Change the IP address of the DC. For example, if DC instance is "
 "``samba1`` and the new IP is ``192.168.1.123``, run the following "
@@ -5830,7 +5840,7 @@ msgstr ""
 "``samba1`` e il nuovo IP è ``192.168.1.123`, eseguire il seguente "
 "comando::"
 
-#: ../../migration.rst:200
+#: ../../migration.rst:203
 msgid ""
 "The NS8 Samba DC can be configured as external account provider for NS7. "
 "Bear in mind that NS7 must be able to access the :ref:`IP address "
@@ -5845,7 +5855,7 @@ msgstr ""
 "utile se si dispone ancora di moduli in esecuzione su NS7 che richiedono "
 "l'accesso all'account provider."
 
-#: ../../migration.rst:205
+#: ../../migration.rst:208
 msgid ""
 "Password expiration settings are preserved during the migration. The "
 "password strength policy, if enabled, is converted for compliancy with "
@@ -5858,7 +5868,7 @@ msgstr ""
 "Windows 2003+ [#WINP]_ ed è applicata per le modifiche future della "
 "password. Vedi anche: ref: `password-policy-sezione`."
 
-#: ../../migration.rst:210
+#: ../../migration.rst:213
 msgid ""
 "`Passwords must meet complexity requirements <https://learn.microsoft.com"
 "/en-us/previous-versions/windows/it-pro/windows-"
@@ -5870,18 +5880,18 @@ msgstr ""
 "/windows-server-2003/cc786468(v=ws.10)#password-must-meet-complexity-"
 "requirements `_ dal sito web *learn.microsoft.com*."
 
-#: ../../migration.rst:214
+#: ../../migration.rst:217
 msgid "OpenLDAP"
 msgstr "OpenLDAP"
 
-#: ../../migration.rst:216
+#: ../../migration.rst:219
 #, fuzzy
 msgid ""
 "Complete the OpenLDAP migration by clicking on the :guilabel:`Finish "
 "migration` button."
 msgstr "salvare la configurazione facendo clic sul pulsante: `Schedule backup`"
 
-#: ../../migration.rst:221
+#: ../../migration.rst:224
 msgid ""
 "The OpenLDAP instance running in NS8 is currently not accessible as "
 "external account provider for NS7 and other network devices."
@@ -5889,7 +5899,7 @@ msgstr ""
 "L'istanza OpenLDAP in esecuzione in NS8 non è attualmente accessibile "
 "come account provider esterno per NS7 e altri dispositivi di rete."
 
-#: ../../migration.rst:224
+#: ../../migration.rst:227
 msgid ""
 "Password policy settings (strength and expiration) are not migrated. They"
 " must be enabled under the domain settings of the ``Domains and users`` "
@@ -5900,20 +5910,20 @@ msgstr ""
 "della pagina ``Domains and users``. Vedi anche: ref: `password-policy-"
 "sezione`."
 
-#: ../../migration.rst:233
+#: ../../migration.rst:236
 msgid ""
 "The Migration Procedure preserves both data and configurations of NS7 "
 "Email application, unless stated differently in this section or in :ref"
 ":`config-excluded-migration`."
 msgstr ""
 
-#: ../../migration.rst:237
+#: ../../migration.rst:240
 msgid ""
 "Mail messages are copied to NS8 with Rsync. After :guilabel:`Finish "
 "migration` is clicked, some time-consuming operations are executed."
 msgstr ""
 
-#: ../../migration.rst:240
+#: ../../migration.rst:243
 msgid ""
 "**IMAP ACL Format Conversion**: The user and group name format in IMAP "
 "ACLs is modified by removing the domain suffix. For example, an ACL entry"
@@ -5921,14 +5931,14 @@ msgid ""
 " IMAP login still accepts both formats."
 msgstr ""
 
-#: ../../migration.rst:245
+#: ../../migration.rst:248
 msgid ""
 "**Quota Recalculation**: If IMAP quota is enabled, mailbox sizes are "
 "recalculated in the background. During this time, disk usage of mailboxes"
 " might not be available."
 msgstr ""
 
-#: ../../migration.rst:249
+#: ../../migration.rst:252
 msgid ""
 "**Messages and Attachments Reindexing**: The full-text search engine of "
 "NS8 runs in the background to reindex all messages and attachments. "
@@ -5937,18 +5947,18 @@ msgid ""
 "index``."
 msgstr ""
 
-#: ../../migration.rst:254
+#: ../../migration.rst:257
 msgid ""
 "Remember to update the DNS records or transfer the IP address to the NS8 "
 "node at the end of the migration."
 msgstr ""
 
-#: ../../migration.rst:258
+#: ../../migration.rst:261
 #, fuzzy
 msgid "Smart host"
 msgstr "Virtual hosts"
 
-#: ../../migration.rst:260
+#: ../../migration.rst:263
 msgid ""
 "The NS7 system smart host configuration is converted to a :ref:`default "
 "relay rule <relay-rules-section>`. The NS8 Mail application is then "
@@ -5956,11 +5966,11 @@ msgid ""
 ":ref:`email-notifications`."
 msgstr ""
 
-#: ../../migration.rst:268
+#: ../../migration.rst:271
 msgid "POP3 connector"
 msgstr "Connettore POP3"
 
-#: ../../migration.rst:270
+#: ../../migration.rst:273
 #, fuzzy
 msgid ""
 "The migration involves transferring POP3 Connector settings to NS8 "
@@ -5976,17 +5986,17 @@ msgstr ""
 "necessario rivedere le impostazioni e inizializzare la sincronizzazione "
 "manualmente."
 
-#: ../../migration.rst:276
+#: ../../migration.rst:279
 msgid ""
 "Emails fetched by Imapsync are not subject to anti-spam, anti-virus, or "
 "Sieve filtering."
 msgstr ""
 
-#: ../../migration.rst:282
+#: ../../migration.rst:285
 msgid "Manual HTTP routes"
 msgstr "Rotte HTTP manuali"
 
-#: ../../migration.rst:284
+#: ../../migration.rst:287
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -5998,7 +6008,7 @@ msgstr ""
 "server chiamato ``server.nethserver.org`` l'installazione WebTop era "
 "disponibile presso ``https://server.nethserver.org/webtop``."
 
-#: ../../migration.rst:288
+#: ../../migration.rst:291
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
@@ -6008,7 +6018,7 @@ msgstr ""
 "inserire un FQDN in modo che WebTop sarà disponibile su un URL del tipo "
 "``https://webtop.nethserver.org``."
 
-#: ../../migration.rst:291
+#: ../../migration.rst:294
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
@@ -6018,15 +6028,15 @@ msgstr ""
 "ricreare manualmente i vecchi percorsi HTTP da:ref:`proxy page <traefik-"
 "section>`."
 
-#: ../../migration.rst:294
+#: ../../migration.rst:297
 msgid "Example for adding WebTop routes:"
 msgstr "Esempio per l'aggiunta di percorsi WebTop:"
 
-#: ../../migration.rst:296
+#: ../../migration.rst:299
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr "aprire la sezione ``HTTP routes`` dalla pagina ``Impostazioni``"
 
-#: ../../migration.rst:297
+#: ../../migration.rst:300
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
@@ -6034,15 +6044,15 @@ msgstr ""
 "cliccare sul nome dell'istanza WebTop, tipo ``webtop1``, una finestra di "
 "dialogo modale mostrerà i dettagli del percorso"
 
-#: ../../migration.rst:298
+#: ../../migration.rst:301
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr "copiare il valore dal campo ``URL``, tipo ``http://127.0.0.1:20033``"
 
-#: ../../migration.rst:299
+#: ../../migration.rst:302
 msgid "click on the :guilabel:`Create route` button"
 msgstr "cliccare sul pulsante :guilabel: `Create route`"
 
-#: ../../migration.rst:300
+#: ../../migration.rst:303
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
@@ -6050,7 +6060,7 @@ msgstr ""
 "scegliere un ``Name`` per la radice e selezionare il ``Node`` dove "
 "l'istanza WebTop è in esecuzione"
 
-#: ../../migration.rst:301
+#: ../../migration.rst:304
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
@@ -6058,7 +6068,7 @@ msgstr ""
 "incollare il valore copiato prima (`http://127.0.0.1:20033``) dentro il "
 "campo ``URL``"
 
-#: ../../migration.rst:302
+#: ../../migration.rst:305
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
@@ -6066,45 +6076,45 @@ msgstr ""
 "lasciare il campo ``Host`` vuoto e inserire ``/webtop`` all'interno del "
 "campo ``Path``"
 
-#: ../../migration.rst:303
+#: ../../migration.rst:306
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr "ripetere i passaggi da 4 a 7 per tutti gli altri percorsi WebTop:"
 
-#: ../../migration.rst:305
+#: ../../migration.rst:308
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr "``/Microsoft-Server-ActiveSync ``"
 
-#: ../../migration.rst:306
+#: ../../migration.rst:309
 msgid "``/.well-known``"
 msgstr "``/.well-known``"
 
-#: ../../migration.rst:307
+#: ../../migration.rst:310
 msgid "``/webtop-dav``"
 msgstr "``/webtop-dav``"
 
-#: ../../migration.rst:312
+#: ../../migration.rst:315
 #, fuzzy
 msgid "Limitations"
 msgstr "Applicazioni"
 
-#: ../../migration.rst:314
+#: ../../migration.rst:317
 msgid ""
 "The migration tool supports a limited set of applications. If an "
 "application is installed but not listed on the migration tool page, it "
 "will not be covered by the migration process."
 msgstr ""
 
-#: ../../migration.rst:318
+#: ../../migration.rst:321
 #, fuzzy
 msgid "The following configurations are not migrated:"
 msgstr "Le seguenti configurazioni non verranno migrate:"
 
-#: ../../migration.rst:320
+#: ../../migration.rst:323
 #, fuzzy
 msgid "Custom templates"
 msgstr "template custom"
 
-#: ../../migration.rst:322
+#: ../../migration.rst:325
 #, fuzzy
 msgid ""
 "Account provider password policy settings (see :ref:`migrate-account-"
@@ -6113,13 +6123,13 @@ msgstr ""
 "impostazioni della policy delle password dell'account provider (vedere: "
 "`migrate-account-provider`)"
 
-#: ../../migration.rst:325
+#: ../../migration.rst:328
 msgid ""
 "System smart host settings, if the NS7 Email app is either not installed "
 "or not migrated"
 msgstr ""
 
-#: ../../migration.rst:328
+#: ../../migration.rst:331
 msgid ""
 "Additionally, shared folders will not be migrated if NS7 uses a remote "
 "account provider."
@@ -14072,11 +14082,20 @@ msgid ""
 "``subscription`` repository is refreshed hourly in the Software Center."
 msgstr ""
 
-#: ../../subscription.rst:114
+#: ../../subscription.rst:112
+msgid ""
+"Scheduled updates are inhibited when an NS7 node joins the cluster to "
+"migrate applications. This is necessary because the migration procedure "
+"requires specific application versions to function correctly. Scheduled "
+"updates will be re-enabled once the NS7 migration is finished and the NS7"
+" node is automatically removed from the cluster."
+msgstr ""
+
+#: ../../subscription.rst:119
 msgid "Remove the subscription"
 msgstr "Rimozione subscription"
 
-#: ../../subscription.rst:116
+#: ../../subscription.rst:121
 msgid ""
 "Go to the ``Settings`` page and click the ``Subscription`` card. "
 "Alternatively, go to the cluster dashboard page and click the ``Go to "
@@ -14086,7 +14105,7 @@ msgstr ""
 "``Subscription``. In alternativa, dalla dashboard del cluster fare clic "
 "sul link ``Vai a Subscription``."
 
-#: ../../subscription.rst:120
+#: ../../subscription.rst:125
 msgid ""
 "In the ``Subscription`` page, click the :guilabel:`Remove subscription` "
 "button. The action must be confirmed."
@@ -14094,15 +14113,15 @@ msgstr ""
 "Nella pagina ``Subscription``, fare clic sul pulsante :guilabel:`Rimuovi "
 "subscription`. Verrà richiesta conferma dell'azione."
 
-#: ../../subscription.rst:124
+#: ../../subscription.rst:129
 msgid "Remote support"
 msgstr "Supporto remoto"
 
-#: ../../subscription.rst:128 ../../webtop.rst:1184
+#: ../../subscription.rst:133 ../../webtop.rst:1184
 msgid "Available in Nethesis Enterprise only"
 msgstr "Disponibile solo per Nethesis Enterprise"
 
-#: ../../subscription.rst:130
+#: ../../subscription.rst:135
 msgid ""
 "Depending on the subscription type and plan, the ``Subscription`` page "
 "can allow starting and controlling a remote support session:"
@@ -14111,7 +14130,7 @@ msgstr ""
 "``Subscription`` può consentire l'avvio e il controllo di una sessione di"
 " supporto remoto:"
 
-#: ../../subscription.rst:133
+#: ../../subscription.rst:138
 msgid ""
 "Click :guilabel:`Start session` to activate a special access for the "
 "Nethesis support team. Both SSH and cluster-admin administrative access "
@@ -14123,7 +14142,7 @@ msgstr ""
 "l'accesso amministrativo sia SSH che al cluster-admin. Le connessioni di "
 "supporto sono veicolate attraverso un tunnel VPN privato."
 
-#: ../../subscription.rst:138
+#: ../../subscription.rst:143
 msgid ""
 "When the access is granted, a unique ``Session ID`` secret is displayed: "
 "copy and paste it in your support request."
@@ -14132,7 +14151,7 @@ msgstr ""
 " denominato ``ID sessione``: il segreto va copiato e incollato nella "
 "richiesta di supporto."
 
-#: ../../subscription.rst:141
+#: ../../subscription.rst:146
 msgid ""
 "To end the support session, close the VPN tunnel and revoke any granted "
 "access, click :guilabel:`End session`."
@@ -14141,7 +14160,7 @@ msgstr ""
 "qualsiasi accesso consentito, fare clic sul pulsante :guilabel:`Termina "
 "sessione`."
 
-#: ../../subscription.rst:144
+#: ../../subscription.rst:149
 msgid ""
 "The support session is valid only to reach the leader node. The support "
 "team can access worker nodes by starting individual support sessions in "
@@ -14154,19 +14173,19 @@ msgstr ""
 " 2 è un nodo worker, il comando per avviare una sessione di supporto per "
 "esso è il seguente: ::"
 
-#: ../../subscription.rst:151
+#: ../../subscription.rst:156
 msgid "The Session ID is printed to the standard output. To stop the session: ::"
 msgstr ""
 "L'ID sessione viene stampato sullo standard output. Per interrompere la "
 "sessione: ::"
 
-#: ../../subscription.rst:155
+#: ../../subscription.rst:160
 msgid "Check the support session status for any node with: ::"
 msgstr ""
 "È possibile verificare lo stato della sessione di supporto su un "
 "qualsiasi nodo con il comando: ::"
 
-#: ../../subscription.rst:159
+#: ../../subscription.rst:164
 msgid ""
 "If a worker node (e.g., node 2) becomes unreachable from the leader node,"
 " you can manually start a support session for it with the following "
@@ -14176,25 +14195,25 @@ msgstr ""
 "leader, è possibile avviare manualmente una sessione di supporto per esso"
 " con la seguente procedura:"
 
-#: ../../subscription.rst:163
+#: ../../subscription.rst:168
 msgid "Log in on the worker node, using the console or SSH access."
 msgstr "Accedere al nodo worker, utilizzando la console o l'accesso SSH."
 
-#: ../../subscription.rst:165
+#: ../../subscription.rst:170
 msgid "Run the following command to start the support session: ::"
 msgstr "Eseguire il seguente comando per avviare la sessione di supporto: ::"
 
-#: ../../subscription.rst:169
+#: ../../subscription.rst:174
 msgid "Obtain the session ID with: ::"
 msgstr "Ottenere l'ID sessione con: ::"
 
-#: ../../subscription.rst:173
+#: ../../subscription.rst:178
 msgid "The Session ID is always recorded in the system journal and node log."
 msgstr ""
 "L'ID sessione viene sempre registrato nel journal di sistema e nel log "
 "dei nodi."
 
-#: ../../subscription.rst:175
+#: ../../subscription.rst:180
 msgid "To end the support session: ::"
 msgstr "Per terminare una sessione di supporto: ::"
 
