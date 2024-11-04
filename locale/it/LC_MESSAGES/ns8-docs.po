@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 09:02+0000\n"
+"POT-Creation-Date: 2024-11-04 16:57+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -2790,7 +2790,7 @@ msgstr ""
 msgid "fill the form to join a new DC to the domain."
 msgstr "fill the form to join a new DC to the domain."
 
-#: ../../file_server.rst:105 ../../log_server.rst:218
+#: ../../file_server.rst:105 ../../log_server.rst:223
 #: ../../software_center.rst:263
 #, fuzzy
 msgid "Footnotes"
@@ -3861,6 +3861,12 @@ msgid "**Protocol**: The protocol used for server communication (UDP or TCP)."
 msgstr ""
 
 #: ../../log_server.rst:179
+msgid ""
+"**Filter**: Choose whether to forward all log records or only those "
+"related to security events."
+msgstr ""
+
+#: ../../log_server.rst:180
 #, fuzzy
 msgid ""
 "**Format**: Log format (`RFC 3164 <https://www.rfc-"
@@ -3870,26 +3876,26 @@ msgstr ""
 "Attributi Unix `RFC2307 <https://www.rfc-editor.org/rfc/rfc2307> `_ - "
 "`OpenLDAP <https://www.openldap.org/>`_"
 
-#: ../../log_server.rst:180 ../../log_server.rst:205
+#: ../../log_server.rst:181 ../../log_server.rst:206
 msgid ""
 "**Export start date**: Specify from when logs should be forwarded. You "
 "can choose the last timestamp [#last_timestamp]_ or manually enter a date"
 " and time."
 msgstr ""
 
-#: ../../log_server.rst:183
+#: ../../log_server.rst:184
 #, fuzzy
 msgid "Cloud Log Manager"
 msgstr "Queue Manager"
 
-#: ../../log_server.rst:185
+#: ../../log_server.rst:186
 #, fuzzy
 msgid ""
 "This service is available only with :ref:`subscription <subscription-"
 "section>`."
 msgstr ":ref:`Piani di abbonamento <subscription-section>`"
 
-#: ../../log_server.rst:187
+#: ../../log_server.rst:188
 msgid ""
 "The Nethesis Cloud Log Manager is a centralized solution for collecting, "
 "storing, and managing logs from various devices within an organization. "
@@ -3898,7 +3904,7 @@ msgid ""
 " a single interface."
 msgstr ""
 
-#: ../../log_server.rst:192
+#: ../../log_server.rst:193
 msgid ""
 "To enable the forwarder for Cloud Log Manager, navigate to the "
 "``Settings`` page and select ``System Logs``. Open the three-dots menu of"
@@ -3906,13 +3912,13 @@ msgid ""
 "action.  Fill the form with the following information:"
 msgstr ""
 
-#: ../../log_server.rst:197
+#: ../../log_server.rst:198
 msgid ""
 "**Cloud Log Manager URL**: The URL of the Cloud Log Manager (usually "
 "``https://nar.nethesis.it/``)."
 msgstr ""
 
-#: ../../log_server.rst:200
+#: ../../log_server.rst:201
 msgid ""
 "**Company unique key**: This key, also known as 'tenant', identifies and "
 "associates the cluster logs within a company in Cloud Log Manager. You "
@@ -3920,7 +3926,7 @@ msgid ""
 "Companies > Companies."
 msgstr ""
 
-#: ../../log_server.rst:209
+#: ../../log_server.rst:210
 msgid ""
 "Take note of the *cluster identifier*, displayed in the notice at the top"
 " of the form. The cluster identifier value is a string like ``cluster-"
@@ -3928,20 +3934,28 @@ msgid ""
 "web application."
 msgstr ""
 
-#: ../../log_server.rst:214
+#: ../../log_server.rst:215
 msgid ""
 "Once the form is saved, the export procedure begins. After a few minutes,"
-" logs will be available at https://naradmin.nethesis.it/."
+" the cluster security logs will be available at "
+"https://naradmin.nethesis.it/."
 msgstr ""
 
-#: ../../log_server.rst:221
+#: ../../log_server.rst:218
+msgid ""
+"Only security logs are forwarded to the Cloud Log Manager. To forward the"
+" full log stream, which may generate considerable data, refer to :ref"
+":`syslog-section`."
+msgstr ""
+
+#: ../../log_server.rst:226
 msgid ""
 "Grafana Loki is a special database designed to store, index and search "
 "system logs. For more information, see "
 "https://github.com/nethserver/ns8-loki"
 msgstr ""
 
-#: ../../log_server.rst:227
+#: ../../log_server.rst:232
 msgid ""
 "The promtail.service core service operates on every node, reading system "
 "journals, forwarding new records to the active Loki instance, and "
@@ -3949,7 +3963,7 @@ msgid ""
 "restarts without log loss."
 msgstr ""
 
-#: ../../log_server.rst:234
+#: ../../log_server.rst:239
 msgid ""
 "Last timestamp indicates the last time that the forwarder successfully "
 "sent logs. This allows the forwarder to resume forwarding from where it "
@@ -19843,4 +19857,11 @@ msgstr ""
 
 #~ msgid "Supported Linux distributions and versions:"
 #~ msgstr "Distribuzioni e versioni Linux supportate:"
+
+#~ msgid ""
+#~ "Once the form is saved, the export"
+#~ " procedure begins. After a few "
+#~ "minutes, logs will be available at "
+#~ "https://naradmin.nethesis.it/."
+#~ msgstr ""
 
