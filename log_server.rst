@@ -176,6 +176,7 @@ Before setting up the forwarder, ensure your syslog server is functioning proper
 * **Host name or IP address**: The IP address of the syslog server.
 * **Port**: The port number on which the syslog server listens.
 * **Protocol**: The protocol used for server communication (UDP or TCP).
+* **Filter**: Choose whether to forward all log records or only those related to security events.
 * **Format**: Log format (`RFC 3164 <https://www.rfc-editor.org/rfc/rfc3164>`_ or `RFC 5424 <https://www.rfc-editor.org/rfc/rfc5424>`_).
 * **Export start date**: Specify from when logs should be forwarded. You can choose the last timestamp [#last_timestamp]_ or manually enter a date and time.
 
@@ -212,7 +213,11 @@ and will appear in the Host column of the Cloud Log Manager web
 application.
 
 Once the form is saved, the export procedure begins. After a few minutes,
-logs will be available at https://naradmin.nethesis.it/.
+the cluster security logs will be available at https://naradmin.nethesis.it/.
+
+Only security logs are forwarded to the Cloud Log Manager. To forward the
+full log stream, which may generate considerable data, refer to
+:ref:`syslog-section`.
 
 .. rubric:: Footnotes
 
