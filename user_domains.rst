@@ -9,7 +9,7 @@ provider module**. Multiple modules can work together to serve the same
 LDAP database as replicas. An LDAP database represents an account
 **domain**.
 
-The NS8 cluster can host multiple local account domains from different
+The NS8 cluster can host up to 8 (eight) local account domains from different
 implementations. It is possible to configure and connect external LDAP
 services, too. Supported LDAP schemas are
 
