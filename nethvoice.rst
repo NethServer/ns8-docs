@@ -592,7 +592,9 @@ Snom
 * D120, D140, D150
 * D305, D315, D345, D375, D385
 * D710, D712, D713, D715, D717, D725, D735, D745, D765, D785
-* D862, D865
+* D812, D815, D862, D865
+
+.. note::                                                                                                                                                                                                                                                                                                                                                                                                                             The Snom D862 and D865 phones do not support HTTP commands, so it is not possible to use click-to-call.
 
 Gigaset
 ~~~~~~~
