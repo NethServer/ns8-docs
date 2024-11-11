@@ -285,7 +285,12 @@ When a user is deleted, user data will not be removed.
 User Management portal
 ======================
 
-The user management portal is a web application that allows any non-administrator user to change their own password without the need for administrator intervention.
+The user management portal is a web application that allows any
+non-administrator user to change their own password without the need for
+administrator intervention, even if the password is expired.
+
+Members of the Domain Admins group can also manage users and groups in the
+domain, independently from the Cluster Admin UI.
 
 The portal is automatically configured on every instance of :ref:`active_directory-section` or :ref:`openldap-section` provider.
 
