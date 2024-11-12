@@ -104,28 +104,35 @@ This configuration is available only if ``Add user address from user domain`` op
 DKIM signature
 --------------
 
-DomainKeys Identified Mail (`DKIM`__) provides a way to validate the
-sending MTA, which adds a cryptographic signature to the outbound message MIME
-headers.
+DomainKeys Identified Mail (DKIM__) validates the identity of the sending
+MTA by adding a cryptographic signature to the message's MIME headers.
 
-__ https://it.wikipedia.org/wiki/DomainKeys_Identified_Mail
+__ https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail
 
-In the ``Domains`` page, click on the three-dots menu near the domain card
-and select the ``Configure DKIM`` action, to enable or disable the message
-DKIM signature.
+In the ``Domains`` page, click the three-dots menu on the domain card and
+select ``Configure DKIM`` to enable or disable the DKIM signature for
+messages. By default, DKIM signing is enabled for every domain, and the
+key value is displayed in both raw and Bind-compatible "zone file"
+formats.
 
-The DKIM signature headers are added only to messages sent through TCP ports 587
-(submission) and 465 (smtps).
+DKIM signature headers are added only to messages sent through TCP ports
+587 (submission) and 465 (smtps) when the "From" header matches one of the
+configured domains.
 
-To work effectively, the public DNS must be configured properly. Refer to the
-instructions of your DNS provider to run the following steps:
+For DKIM to function correctly, ensure your public DNS is configured as
+follows, using the instructions provided by your DNS provider:
 
-1. Add a TXT record to your public DNS service provider with key
-   ``default._domainKey``.
+1. Add a TXT record with the key ``default._domainKey`` to your public DNS
+   service.
+2. Copy the key text provided and paste it into the DNS record data
+   (RDATA) field.
 
-2. Copy and paste the given key text in the DNS record data (RDATA)
-   section.
+To further protect against mail domain spoofing, consider adding DNS
+records for DMARC_ (Domain-based Message Authentication, Reporting, and
+Conformance) and SPF_ (Sender Policy Framework).
 
+.. _DMARC: https://en.wikipedia.org/wiki/DMARC
+.. _SPF: https://en.wikipedia.org/wiki/Sender_Policy_Framework
 
 .. _email_mailboxes:
 
