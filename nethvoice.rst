@@ -19,6 +19,9 @@ You can install multiple NethVoice instances on the same node from the :ref:`sof
 Configuration
 =============
 
+.. note::
+   Before proceeding with the configuration of the NethVoice instance, remember to configure :ref:`NethVoice Proxy <nethvoice_proxy-section>` instance.
+
 The NethVoice module requires at least one :ref:`user domain <user-domains-section>` to be configured and running.
 
 To set up NethVoice, you need to have two dedicated virtual hosts: one for the NethVoice administration page and one for the NethVoice CTI web application. 

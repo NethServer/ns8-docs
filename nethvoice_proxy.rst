@@ -30,4 +30,7 @@ How to configure:
 2. insert the network's interface of the node choosing it from the drop-down menu
 3. insert Public IPv4/IPv6 address that will receive VoIP traffic (necessary only if there is no public IP on the network interface)
 
+.. warning::
+   If the machine is not accessible from the internet and its fully qualified domain name (FQDN) cannot be reached externally, and it is used only within a local network, the IP address field should contain the machine's private IP address.
+
 Now, you can install and configure one ore more :ref:`NethVoice <nethvoice-section>` instances.
