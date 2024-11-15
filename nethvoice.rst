@@ -558,6 +558,7 @@ NethPhone
 **FIRMWARE Version 2.0 or higher**
 
 * NP-X3
+* NP-V61
 * NP-X5
 * NP-X210
 
@@ -566,7 +567,7 @@ Fanvil
 
 **FIRMWARE Version 2.0 or higher**
 
-* V62, V63, V64, V65, V67
+* V61, V62, V63, V64, V65, V67
 * X1/S/SP
 * X210
 * X3/S/SP/G/SG, X3U, X3U Pro
