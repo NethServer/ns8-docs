@@ -18,7 +18,7 @@ In a root shell prompt, execute the following command:
 
 .. code-block:: shell
 
-   podman --authfile=/etc/nethserver/registry.json login docker.io
+   podman login --authfile=/etc/nethserver/registry.json docker.io
 
 This command prompts for Docker Hub credentials. 
 It's advisable to generate a read-only access token specifically for the NS8 system.
