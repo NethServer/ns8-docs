@@ -71,6 +71,10 @@ The web interface will display the list of all applications installed inside Net
     If NS7 has a remote account provider and an error message is displayed
     instead, see :ref:`migrate-account-provider`.
 
+.. note::
+
+   Before proceeding with the migration of NethVoice, install and configure :ref:`NethVoice Proxy <nethvoice_proxy-section>` on NS8.
+
 #. Choose an application and click on the :guilabel:`Start migration`
    button. In this phase the migration process will install the
    application into the NethServer 8 cluster and start the first data
