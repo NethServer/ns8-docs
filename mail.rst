@@ -395,6 +395,13 @@ for external domains is relayed.
 
 __ https://en.wikipedia.org/wiki/Smart_host
 
+When a Default or Recipient rule is created or modified, existing rules of
+the same type with the same Hostname and Port combination are updated
+automatically. The new TLS and Authentication settings are applied
+collectively to these rules. This ensures that messages sent through a
+given Hostname and Port use consistent credentials and TLS preferences,
+regardless of the destination address.
+
 Once created, a rule can be edited, disabled or deleted from the
 three-dots menu. When a rule is edited, the rule type and subject cannot
 be changed: delete it instead.
