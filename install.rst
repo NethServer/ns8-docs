@@ -46,8 +46,8 @@ Cloud-init support.
 .. csv-table:: NS8 image download links
    :header: "Platform", "Format", "Size", "URL"
 
-   "QEMU/Proxmox", "qcow2", "1.7 |nbsp| GB", "https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.qcow2"
-   "VMWare", "vmdk", "3.0 |nbsp| GB", "https://distfeed.nethserver.org/ns8-images/ns8-rocky-linux-9-ns8-stable.vmdk"
+   "QEMU/Proxmox", "qcow2", "1.7 |nbsp| GB", "https://tinyurl.com/ns8-rocky-qcow2"
+   "VMWare", "vmdk", "3.0 |nbsp| GB", "https://tinyurl.com/ns8-rocky-vmdk"
 
 Choose the ``qcow2`` image format if you are using a KVM-based virtualization
 platform, like `Proxmox <https://www.proxmox.com/>`_, or the ``vmdk`` format
