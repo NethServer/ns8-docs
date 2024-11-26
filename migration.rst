@@ -71,9 +71,6 @@ The web interface will display the list of all applications installed inside Net
     If NS7 has a remote account provider and an error message is displayed
     instead, see :ref:`migrate-account-provider`.
 
-.. note::
-
-   Before proceeding with the migration of NethVoice, install and configure :ref:`NethVoice Proxy <nethvoice_proxy-section>` on NS8.
 
 #. Choose an application and click on the :guilabel:`Start migration`
    button. In this phase the migration process will install the
@@ -282,6 +279,28 @@ For accounts using POP3, it is necessary to review the settings and commence syn
 
   Emails fetched by Imapsync are not subject to anti-spam, anti-virus, or
   Sieve filtering.
+
+.. _migrated_nethvoice-section:
+
+NethVoice
+=========
+
+.. note::
+
+   Before proceeding with the migration of NethVoice, install and configure :ref:`NethVoice Proxy <nethvoice_proxy-section>` on NS8.
+
+The migration procedure requires two FQDNs to be assigned: 
+
+- one for the administration interface of the **NethVoice** application 
+- one for **NethVoice CTI**.
+
+
+NethVoice data (recording files, audio files, CDR database) are copied to NS8 with Rsync. 
+After :guilabel:`Finish migration` is clicked, some time-consuming operations are executed.
+
+Remember to update the DNS records if you plan to use the same FQDN as NethVoice on NS7
+at the end of the migration.
+
 
 .. _migrated_routes-section:
 
