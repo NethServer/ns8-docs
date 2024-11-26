@@ -6,7 +6,7 @@ NethVoice
 NethVoice is a comprehensive communication system that integrates voice, video, and mobile capabilities.
 The NethVoice module is divided into seven main parts:
 
-* `FreePBX <https://www.freepbx.org/>`_: A web-based open-source graphical user interface (GUI) that manages `Asterisk <https://www.asterisk.org>`, a voice over IP and telephony server.
+* `FreePBX <https://www.freepbx.org/>`_: A web-based open-source graphical user interface (GUI) that manages `Asterisk <https://www.asterisk.org>`_, a voice over IP and telephony server.
 * `NethVoice CTI Server <https://github.com/nethesis/nethcti-server>`_: A daemon that provides a set of APIs to perform common switchboard operations and a WebSocket streaming channel to listen for events.
 * `NethVoice CTI Client <https://github.com/nethesis/nethcti>`_: A web application to manage the telephone switchboard via communication with the NethVoice CTI Server.
 * `NethVoice Report <https://github.com/nethesis/nethvoice-report>`_: An `Asterisk <https://www.asterisk.org>`_ CDR and queues reporting system.
