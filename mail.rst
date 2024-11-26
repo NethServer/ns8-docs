@@ -338,31 +338,34 @@ Relay
 =====
 
 When a message is received from another mail server (MTA), or from a mail
-user agent (MUA), Postifx decides how to relay it towards its final
-destination. Typically the decision is based on the domain suffix of the
-recipient address.
+user agent (MUA), Postfix determines if and how to relay it towards its
+final destination. This decision is typically based on relay authorization
+and the domain suffix of the recipient address.
 
 * If the domain is handled by Postfix (i.e. it is listed in
   :ref:`email_domains`) the message is delivered locally.
 
-* Otherwise, if the domain is external, the message destination server
-  (also known as "next-hop" server) is found with a MX DNS query.
+* Otherwise, if the domain is external and relay authorization is valid,
+  the destination server (also known as the "next-hop" server) is resolved
+  using an MX DNS query.
 
 The ``Relay`` page allows to configure a set of rules that overrides the
 external domain resolution based on DNS.
+
+To configure IP-based relay authorization, see :ref:`mail-relay-settings`.
 
 Rules priority
 --------------
 
 Relay rules can be of three types:
 
-1. Sender rule.
+1. Recipient rule.
 
-2. Recipient rule.
+2. Sender rule.
 
 3. Default rule. Only one default rule is allowed.
 
-The rules evaluation order is Sender, Recipient, Default: the first
+The rules evaluation order is Recipient, Sender, Default: the first
 matching rule is applied. A match occurs based on the message sender or
 recipient, or if a default rule (that one matching any sender and
 recipient) is defined.
@@ -394,6 +397,13 @@ is used to configure a `smarthost`__, a mail server where mail messages
 for external domains is relayed.
 
 __ https://en.wikipedia.org/wiki/Smart_host
+
+When a Default or Recipient rule is created or modified, existing rules of
+the same type with the same Hostname and Port combination are updated
+automatically. The new TLS and Authentication settings are applied
+collectively to these rules. This ensures that messages sent through a
+given Hostname and Port use consistent credentials and TLS preferences,
+regardless of the destination address.
 
 Once created, a rule can be edited, disabled or deleted from the
 three-dots menu. When a rule is edited, the rule type and subject cannot
