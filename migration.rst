@@ -299,7 +299,7 @@ NethVoice data (recording files, audio files, CDR database) are copied to NS8 wi
 After :guilabel:`Finish migration` is clicked, some time-consuming operations are executed.
 
 Remember to update the DNS records if you plan to use the same FQDN as NethVoice on NS7
- at the end of the migration.
+at the end of the migration.
 
 
 .. _migrated_routes-section:
