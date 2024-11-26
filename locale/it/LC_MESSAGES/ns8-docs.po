@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-26 17:39+0000\n"
+"POT-Creation-Date: 2024-11-26 19:29+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -4234,7 +4234,7 @@ msgid ""
 "Conformance) and SPF_ (Sender Policy Framework)."
 msgstr ""
 
-#: ../../mail.rst:140 ../../mail.rst:446
+#: ../../mail.rst:140 ../../mail.rst:456
 #, fuzzy
 msgid "Mailboxes"
 msgstr "Mailboxes"
@@ -4636,9 +4636,9 @@ msgstr ""
 #: ../../mail.rst:340
 msgid ""
 "When a message is received from another mail server (MTA), or from a mail"
-" user agent (MUA), Postifx decides how to relay it towards its final "
-"destination. Typically the decision is based on the domain suffix of the "
-"recipient address."
+" user agent (MUA), Postfix determines if and how to relay it towards its "
+"final destination. This decision is typically based on relay "
+"authorization and the domain suffix of the recipient address."
 msgstr ""
 
 #: ../../mail.rst:345
@@ -4649,87 +4649,92 @@ msgstr ""
 
 #: ../../mail.rst:348
 msgid ""
-"Otherwise, if the domain is external, the message destination server "
-"(also known as \"next-hop\" server) is found with a MX DNS query."
+"Otherwise, if the domain is external and relay authorization is valid, "
+"the destination server (also known as the \"next-hop\" server) is "
+"resolved using an MX DNS query."
 msgstr ""
 
-#: ../../mail.rst:351
+#: ../../mail.rst:352
 msgid ""
 "The ``Relay`` page allows to configure a set of rules that overrides the "
 "external domain resolution based on DNS."
 msgstr ""
 
 #: ../../mail.rst:355
+msgid "To configure IP-based relay authorization, see :ref:`mail-relay-settings`."
+msgstr ""
+
+#: ../../mail.rst:358
 msgid "Rules priority"
 msgstr ""
 
-#: ../../mail.rst:357
+#: ../../mail.rst:360
 msgid "Relay rules can be of three types:"
 msgstr ""
 
-#: ../../mail.rst:359
-msgid "Sender rule."
-msgstr ""
-
-#: ../../mail.rst:361
+#: ../../mail.rst:362
 msgid "Recipient rule."
 msgstr ""
 
-#: ../../mail.rst:363
+#: ../../mail.rst:364
+msgid "Sender rule."
+msgstr ""
+
+#: ../../mail.rst:366
 msgid "Default rule. Only one default rule is allowed."
 msgstr ""
 
-#: ../../mail.rst:365
+#: ../../mail.rst:368
 msgid ""
-"The rules evaluation order is Sender, Recipient, Default: the first "
+"The rules evaluation order is Recipient, Sender, Default: the first "
 "matching rule is applied. A match occurs based on the message sender or "
 "recipient, or if a default rule (that one matching any sender and "
 "recipient) is defined."
 msgstr ""
 
-#: ../../mail.rst:370
+#: ../../mail.rst:373
 msgid ""
 "Sender and Recipient matches can be an exact correspondence of the full "
 "email address, or match only the domain suffix. In the rules evaluation "
 "order, exact match is evaluated before the domain suffix match."
 msgstr ""
 
-#: ../../mail.rst:375
+#: ../../mail.rst:378
 msgid "Managing rules"
 msgstr ""
 
-#: ../../mail.rst:377
+#: ../../mail.rst:380
 msgid ""
 "Click on button :guilabel:`Add relay rule` to define a Sender or a "
 "Recipient rule. Specify the rule type and subject value (sender or "
 "recipient), then fill the remaining fields:"
 msgstr ""
 
-#: ../../mail.rst:381
+#: ../../mail.rst:384
 msgid ""
 "**Hostname**, the name or IP address of the server where the message is "
 "relayed if the rule match."
 msgstr ""
 
-#: ../../mail.rst:383
+#: ../../mail.rst:386
 #, fuzzy
 msgid "**Port**, the TCP port number used by the server."
 msgstr "``Port Number`` TCP port used by the LDAP server."
 
-#: ../../mail.rst:385
+#: ../../mail.rst:388
 msgid ""
 "**Authentication**. If the server requires SMTP authentication provide "
 "the necessary credentials here."
 msgstr ""
 
-#: ../../mail.rst:387
+#: ../../mail.rst:390
 msgid ""
 "**TLS**. Enable this switch if the server expects TLS or STARTTLS "
 "encryption. It is recommended to enable it to encrypt both credentials "
 "and data during SMTP connections."
 msgstr ""
 
-#: ../../mail.rst:391
+#: ../../mail.rst:394
 msgid ""
 "The :guilabel:`Set default rule` defines a rule that matches if none of "
 "the remaining rules do, or if no rule is defined at all. This type of "
@@ -4737,27 +4742,37 @@ msgid ""
 "messages for external domains is relayed."
 msgstr ""
 
-#: ../../mail.rst:398
+#: ../../mail.rst:401
+msgid ""
+"When a Default or Recipient rule is created or modified, existing rules "
+"of the same type with the same Hostname and Port combination are updated "
+"automatically. The new TLS and Authentication settings are applied "
+"collectively to these rules. This ensures that messages sent through a "
+"given Hostname and Port use consistent credentials and TLS preferences, "
+"regardless of the destination address."
+msgstr ""
+
+#: ../../mail.rst:408
 msgid ""
 "Once created, a rule can be edited, disabled or deleted from the three-"
 "dots menu. When a rule is edited, the rule type and subject cannot be "
 "changed: delete it instead."
 msgstr ""
 
-#: ../../mail.rst:402
+#: ../../mail.rst:412
 msgid ""
 "See also :ref:`mail-relay-settings` for other configurations about the "
 "relay of messages towards other mail servers. In the ``Relay`` page, the "
 ":guilabel:`Settings` button leads to them."
 msgstr ""
 
-#: ../../mail.rst:410 ../../nethvoice.rst:227 ../../nethvoice.rst:370
+#: ../../mail.rst:420 ../../nethvoice.rst:227 ../../nethvoice.rst:370
 #: ../../nethvoice.rst:1240
 #, fuzzy
 msgid "Settings"
 msgstr "Settings"
 
-#: ../../mail.rst:412
+#: ../../mail.rst:422
 #, fuzzy
 msgid ""
 "Application settings are split up and accessible under the cards "
@@ -4766,11 +4781,11 @@ msgstr ""
 "Module settings are split up and accessible under the cards described by "
 "the following sections."
 
-#: ../../mail.rst:418
+#: ../../mail.rst:428
 msgid "General settings"
 msgstr "Impostazioni generali"
 
-#: ../../mail.rst:420
+#: ../../mail.rst:430
 #, fuzzy
 msgid ""
 "The following values are set at application first configuration time. "
@@ -4779,7 +4794,7 @@ msgstr ""
 "The following values are set at module first configuration time. They "
 "should not be changed in production:"
 
-#: ../../mail.rst:423
+#: ../../mail.rst:433
 #, fuzzy
 msgid ""
 "``Mail server hostname`` configures how the MTA identifies itself with "
@@ -4790,7 +4805,7 @@ msgstr ""
 "other MTAs. To successfully receive email messages, use this host name to"
 " configure the following DNS records:"
 
-#: ../../mail.rst:427
+#: ../../mail.rst:437
 #, fuzzy
 msgid ""
 "`A` record, resolving the Mail server hostname to the public and static "
@@ -4799,24 +4814,24 @@ msgstr ""
 "`A` record, resolving the Mail server hostname to the public and static "
 "IP address of the server"
 
-#: ../../mail.rst:430
+#: ../../mail.rst:440
 #, fuzzy
 msgid "`PTR` record, resolving back the IP address to the Mail server hostname."
 msgstr "`PTR` record, resolving back the IP address to the Mail server hostaname"
 
-#: ../../mail.rst:433
+#: ../../mail.rst:443
 #, fuzzy
 msgid ""
 "`MX` records, one for each mail domain handled by the Mail application "
 "instance."
 msgstr "`MX` records, one for each mail domain handled by the Mail module instance"
 
-#: ../../mail.rst:436
+#: ../../mail.rst:446
 #, fuzzy
 msgid "`TXT` records, as specified by DKIM, SPF and DMARC."
 msgstr "`TXT` records, as specified by DKIM, SPF and DMARC"
 
-#: ../../mail.rst:438
+#: ../../mail.rst:448
 #, fuzzy
 msgid ""
 "``User domain`` selects a LDAP database with user, groups and passwords. "
@@ -4829,12 +4844,12 @@ msgstr ""
 "still accessible if the same user name is present in both the old and the"
 " new database."
 
-#: ../../mail.rst:448
+#: ../../mail.rst:458
 #, fuzzy
 msgid "Under the ``Mailboxes`` card you can configure the ``Default mail quota``."
 msgstr "Under the ``Mailboxes`` card you can configure the ``Default mail quota``."
 
-#: ../../mail.rst:450
+#: ../../mail.rst:460
 #, fuzzy
 msgid ""
 "If the general mailbox quota is enabled, the ``Mailboxes`` page "
@@ -4845,7 +4860,7 @@ msgstr ""
 "summarizes the quota usage for each user. This summary is updated when a "
 "user logs in or a message is delivered."
 
-#: ../../mail.rst:454
+#: ../../mail.rst:464
 #, fuzzy
 msgid ""
 "Under the ``Shared mailboxes`` section, ``Shared seen`` selects if the "
@@ -4858,7 +4873,7 @@ msgstr ""
 "*seen* flag is used to mark if a message has been read or not. In a "
 "shared mailbox, each user can access the same message."
 
-#: ../../mail.rst:459
+#: ../../mail.rst:469
 #, fuzzy
 msgid ""
 "If users accessing the shared mailbox prefer to know if a mail has "
@@ -4869,7 +4884,7 @@ msgstr ""
 "already been read by someone else, set ``Shared seen`` to ``enabled`` "
 "(default)."
 
-#: ../../mail.rst:463
+#: ../../mail.rst:473
 #, fuzzy
 msgid ""
 "If users accessing the shared mailbox are not interested if a message has"
@@ -4878,7 +4893,7 @@ msgstr ""
 "If users accessing the shared mailbox are not interested if a message has"
 " been already read by someone else, set ``Shared seen`` to ``disabled``."
 
-#: ../../mail.rst:467
+#: ../../mail.rst:477
 #, fuzzy
 msgid ""
 "Messages marked as **spam** (see :ref:`email_filter`) can be "
@@ -4893,12 +4908,12 @@ msgstr ""
 " after a period of time. You can configure it from the ``Default spam "
 "retention`` option."
 
-#: ../../mail.rst:476
+#: ../../mail.rst:486
 #, fuzzy
 msgid "Master users"
 msgstr "Master users"
 
-#: ../../mail.rst:478
+#: ../../mail.rst:488
 #, fuzzy
 msgid ""
 "Under the ``Master users`` card, you can setup a user that can "
@@ -4909,22 +4924,22 @@ msgstr ""
 "impersonate another user, gaining full rights to any mailbox contents and"
 " folder permissions."
 
-#: ../../mail.rst:481
+#: ../../mail.rst:491
 #, fuzzy
 msgid "Credentials are accepted by the IMAP server:"
 msgstr "Credentials are accepted by the IMAP server:"
 
-#: ../../mail.rst:483
+#: ../../mail.rst:493
 #, fuzzy
 msgid "user name of the master user, e.g. ``master``"
 msgstr "user name of the master user, eg. ``master``"
 
-#: ../../mail.rst:484
+#: ../../mail.rst:494
 #, fuzzy
 msgid "master user password"
 msgstr "master user password"
 
-#: ../../mail.rst:486
+#: ../../mail.rst:496
 #, fuzzy
 msgid ""
 "For instance, to access as ``john`` with root password ``secr3t``, use "
@@ -4933,28 +4948,28 @@ msgstr ""
 "For instance, to access as ``john`` with root password ``secr3t``, use "
 "the following credentials:"
 
-#: ../../mail.rst:489
+#: ../../mail.rst:499
 #, fuzzy
 msgid "user name: ``john*master``"
 msgstr "user name: ``john*master``"
 
-#: ../../mail.rst:490
+#: ../../mail.rst:500
 #, fuzzy
 msgid "password: ``secr3t``"
 msgstr "password: ``secr3t``"
 
-#: ../../mail.rst:495
+#: ../../mail.rst:505
 #, fuzzy
 msgid "Queue settings"
 msgstr "Impostazioni generali"
 
-#: ../../mail.rst:497
+#: ../../mail.rst:507
 msgid ""
 "The ``Maximal queue lifetime`` parameter defines how many hours a message"
 " can remain in the mail queue before it is returned to the sender."
 msgstr ""
 
-#: ../../mail.rst:500
+#: ../../mail.rst:510
 msgid ""
 "The default value, 120 hours (5 days), is the retry time suggested by "
 "RFC5321. Lower values might be set to warn the sender early if some error"
@@ -4963,22 +4978,22 @@ msgid ""
 "notified after 5 days: it might be considered too late."
 msgstr ""
 
-#: ../../mail.rst:509
+#: ../../mail.rst:519
 #, fuzzy
 msgid "Relay settings"
 msgstr "Impostazioni generali"
 
-#: ../../mail.rst:511
+#: ../../mail.rst:521
 msgid ""
 "This section controls the Mail application configuration for special "
 "scenarios, described in the following sections."
 msgstr ""
 
-#: ../../mail.rst:515
+#: ../../mail.rst:525
 msgid "IP-based relay"
 msgstr ""
 
-#: ../../mail.rst:517
+#: ../../mail.rst:527
 msgid ""
 "Some old mail clients, like scanners, which provide limited software "
 "capabilities, might not support SMTP authentication or encryption: in "
@@ -4987,7 +5002,7 @@ msgid ""
 "check."
 msgstr ""
 
-#: ../../mail.rst:522
+#: ../../mail.rst:532
 msgid ""
 "List the IP address of such devices in the ``Allow relay from these IP "
 "addresses`` field. The address can be in IPv4 or IPv6 format. The IP "
@@ -4995,29 +5010,29 @@ msgid ""
 "format."
 msgstr ""
 
-#: ../../mail.rst:526
+#: ../../mail.rst:536
 msgid "For example, a value for the field can be"
 msgstr ""
 
-#: ../../mail.rst:533
+#: ../../mail.rst:543
 msgid ""
 "The IP address *192.168.12.42* (e.g. a document scanner) and the clients "
 "in the network subnet *10.77.4.0/24* can send mail messages without "
 "providing SMTP authentication."
 msgstr ""
 
-#: ../../mail.rst:538
+#: ../../mail.rst:548
 msgid "Sender/login correspondence"
 msgstr ""
 
-#: ../../mail.rst:540
+#: ../../mail.rst:550
 msgid ""
 "To avoid the unauthorized use of email addresses and the sender address "
 "spoofing within the organization, enable the ``Enforce sender/login "
 "match`` switch."
 msgstr ""
 
-#: ../../mail.rst:544
+#: ../../mail.rst:554
 msgid ""
 "If the switch is enabled the sender address of a message must correspond "
 "to the login name used by the mail client to connect with the mail "
@@ -5025,14 +5040,14 @@ msgid ""
 "what are the addresses it can use."
 msgstr ""
 
-#: ../../mail.rst:549
+#: ../../mail.rst:559
 msgid ""
 "For example, with that switch enabled, if user ``john`` has email address"
 " ``john.doe@example.org`` he cannot write an email message with a "
 "different sender address, like ``sarah.smith@example.org``."
 msgstr ""
 
-#: ../../mail.rst:553
+#: ../../mail.rst:563
 msgid ""
 "If the switch is disabled, as per default Mail configuration, an "
 "authenticated mail client is allowed to send messages using any sender "
@@ -5040,25 +5055,25 @@ msgid ""
 "``sarah.smith@example.org``."
 msgstr ""
 
-#: ../../mail.rst:560
+#: ../../mail.rst:570
 msgid ""
 "If you decide to enable the switch consider that public mailboxes and "
 "LDAP group addresses are not evaluated for the login/address "
 "correspondence."
 msgstr ""
 
-#: ../../mail.rst:567
+#: ../../mail.rst:577
 #, fuzzy
 msgid "Mail archive"
 msgstr "Mail archiving"
 
-#: ../../mail.rst:569
+#: ../../mail.rst:579
 msgid ""
 "The ``Always BCC`` switch controls a feature often required by mail "
 "archiving solutions."
 msgstr ""
 
-#: ../../mail.rst:572
+#: ../../mail.rst:582
 msgid ""
 "The acronym BCC stands for Blind Carbon Copy. When the switch is enabled,"
 " enter a value in the ``Always BCC address`` field: this address will "
@@ -5066,14 +5081,14 @@ msgid ""
 "server."
 msgstr ""
 
-#: ../../mail.rst:579
+#: ../../mail.rst:589
 msgid ""
 "Making a hidden copy of private email messages is a privacy-sensitive "
 "feature. Ensure its use complies with your country's privacy laws, "
 "regulations, and company policies."
 msgstr ""
 
-#: ../../mail.rst:583
+#: ../../mail.rst:593
 msgid ""
 "The :ref:`Piler application <piler-section>` can automatically configure "
 "this field with the appropriate value, such as ``archive@piler1`` or "
@@ -5081,12 +5096,12 @@ msgid ""
 "archiving new messages."
 msgstr ""
 
-#: ../../mail.rst:592
+#: ../../mail.rst:602
 #, fuzzy
 msgid "Client configuration"
 msgstr "Client configuration"
 
-#: ../../mail.rst:594
+#: ../../mail.rst:604
 #, fuzzy
 msgid ""
 "The server supports standard-compliant email clients using the following "
@@ -5095,27 +5110,27 @@ msgstr ""
 "The server supports standard-compliant email clients using the following "
 "IANA ports:"
 
-#: ../../mail.rst:597
+#: ../../mail.rst:607
 #, fuzzy
 msgid "imap/143"
 msgstr "imap/143"
 
-#: ../../mail.rst:598
+#: ../../mail.rst:608
 #, fuzzy
 msgid "pop3/110"
 msgstr "pop3/110"
 
-#: ../../mail.rst:599
+#: ../../mail.rst:609
 #, fuzzy
 msgid "smtp/587"
 msgstr "smtp/587"
 
-#: ../../mail.rst:600
+#: ../../mail.rst:610
 #, fuzzy
 msgid "sieve/4190"
 msgstr "sieve/4190"
 
-#: ../../mail.rst:602
+#: ../../mail.rst:612
 #, fuzzy
 msgid ""
 "Authentication requires the STARTTLS command and supports the following "
@@ -5124,16 +5139,16 @@ msgstr ""
 "Authentication requires the STARTTLS command and supports the following "
 "variants:"
 
-#: ../../mail.rst:605
+#: ../../mail.rst:615
 msgid "LOGIN"
 msgstr "LOGIN"
 
-#: ../../mail.rst:606
+#: ../../mail.rst:616
 #, fuzzy
 msgid "PLAIN"
 msgstr "PLAIN"
 
-#: ../../mail.rst:608
+#: ../../mail.rst:618
 #, fuzzy
 msgid ""
 "Also the following TLS-enabled ports are available for legacy software "
@@ -5142,22 +5157,22 @@ msgstr ""
 "Also the following SSL-enabled ports are available for legacy software "
 "that still does not support STARTTLS:"
 
-#: ../../mail.rst:611
+#: ../../mail.rst:621
 #, fuzzy
 msgid "imaps/993"
 msgstr "imaps/993"
 
-#: ../../mail.rst:612
+#: ../../mail.rst:622
 #, fuzzy
 msgid "pop3s/995"
 msgstr "pop3s/995"
 
-#: ../../mail.rst:613
+#: ../../mail.rst:623
 #, fuzzy
 msgid "smtps/465"
 msgstr "smtps/465"
 
-#: ../../mail.rst:617
+#: ../../mail.rst:627
 #, fuzzy
 msgid ""
 "The standard SMTP port 25 is reserved for mail transfers between MTA "
@@ -19972,4 +19987,31 @@ msgstr ""
 #~ msgstr ""
 #~ "https://distfeed.nethserver.org/ns8-images/ns8-rocky-"
 #~ "linux-9-ns8-stable.vmdk"
+
+#~ msgid ""
+#~ "When a message is received from "
+#~ "another mail server (MTA), or from "
+#~ "a mail user agent (MUA), Postifx "
+#~ "decides how to relay it towards "
+#~ "its final destination. Typically the "
+#~ "decision is based on the domain "
+#~ "suffix of the recipient address."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Otherwise, if the domain is external,"
+#~ " the message destination server (also "
+#~ "known as \"next-hop\" server) is "
+#~ "found with a MX DNS query."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The rules evaluation order is Sender,"
+#~ " Recipient, Default: the first matching "
+#~ "rule is applied. A match occurs "
+#~ "based on the message sender or "
+#~ "recipient, or if a default rule "
+#~ "(that one matching any sender and "
+#~ "recipient) is defined."
+#~ msgstr ""
 
