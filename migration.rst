@@ -225,9 +225,12 @@ migration` button.
   The OpenLDAP instance running in NS8 is currently not accessible as
   external account provider for NS7 and other network devices.
 
-Password policy settings (strength and expiration) are not migrated. They
-must be enabled under the domain settings of the ``Domains and users``
-page. See also :ref:`password-policy-section`.
+Password age and account locked status information are preserved by the
+migration procedure.
+
+However, password policy settings (strength and expiration) are not
+migrated. To re-enable them, navigate to the domain settings of the
+``Domains and users`` page. See also :ref:`password-policy-section`.
 
 .. _mail-migration-section:
 
