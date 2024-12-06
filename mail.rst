@@ -154,7 +154,7 @@ By clicking the ``Edit`` item from the three-dots menu it's possible to setup th
 
 * ``Forward messages``: forward all messages to another email address
 * ``Custom mailbox quota``: override the quota configured from the :ref:`mail_settings-section`
-* ``Custom spam retention``: override the retention configured from the :ref:`mail_settings-section` 
+* ``Custom spam retention``: override the retention configured from the :ref:`mail_settings-section`
 
 Public mailboxes
 ----------------
@@ -166,6 +166,44 @@ any IMAP client supporting IMAP ACL protocol extension (RFC 4314).
 
 When a new public mailbox is created, the mail server will automatically add a new address
 for all existing mail domains.
+
+
+.. _mailbox-selective-restore:
+
+Restore a mailbox folder from a backup
+--------------------------------------
+
+If the application has one or more backup destinations configured and a
+backup has already been executed, you can search for and restore a mailbox
+folder from a past backup snapshot of a specific user or public mailbox.
+
+.. warning::
+
+  The procedure does not calculate the disk space usage required for the
+  restore. Ensure sufficient disk space is available before proceeding.
+
+#. Navigate to the Mail application instance and open the Mailboxes page.
+   Choose the ``User mailboxes`` or ``Public mailboxes`` tab to view a
+   list of mailboxes. From the three-dots menu of the desired mailbox,
+   select ``Restore folder``.
+
+#. Select the backup destination from which to restore the folder. Loading
+   remote destinations may take some time.
+
+#. Choose the date of the backup snapshot to restore. Snapshots are listed
+   from newest to oldest.
+
+#. Select a folder from the list or start typing its name to filter the
+   list.
+
+   Press :guilabel:`Restore` to begin the restore process.
+
+The selected folder will be restored into a subfolder of the mailbox named
+"Restored folder". If the subfolder already exists, it will be removed
+before restoring.
+
+If the mailbox quota is exceeded during the restore process, it will be
+set to unlimited.
 
 
 .. _email_addresses:
@@ -318,7 +356,7 @@ As alternative, trigger an immediate new delivery attempt with the button
 The same actions can be selectively executed for each message in the
 queue, from its three-dots menu. The message delay reason, queue ID,
 arrival time, size, sender, and recipients can be inspected with the ``See
-details`` action. 
+details`` action.
 
 .. hint::
 
@@ -456,15 +494,15 @@ Mailboxes
 ---------
 
 Under the ``Mailboxes`` card you can configure the ``Default mail quota``.
- 
+
 If the general mailbox quota is enabled, the ``Mailboxes`` page summarizes the quota usage for
 each user. This summary is updated when a user logs in or a message is
-delivered. 
+delivered.
 
 Under the ``Shared mailboxes`` section, ``Shared seen`` selects if the
 IMAP *seen* flag is shared or not with other users. In general, the *seen*
 flag is used to mark if a message has been read or not. In a shared
-mailbox, each user can access the same message. 
+mailbox, each user can access the same message.
 
 *  If users accessing the shared mailbox prefer to know if a mail has
    already been read by someone else, set ``Shared seen`` to ``enabled``
@@ -486,7 +524,7 @@ Master users
 ------------
 
 Under the ``Master users`` card, you can setup a user that can impersonate another user, gaining full rights
-to any mailbox contents and folder permissions. 
+to any mailbox contents and folder permissions.
 
 Credentials are accepted by the IMAP server:
 

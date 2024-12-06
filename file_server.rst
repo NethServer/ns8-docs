@@ -57,12 +57,51 @@ shared folder:
 - ``Set permissions``: remove any existing ACLs and recursively grant new
   initial ACLs
 
+- ``Restore file or folder``: search files and folders of a past backup
+  snapshot and restore them. See :ref:`share-selective-restore`.
+
 - ``Delete``: remove the shared folder and its contents
 
 The :guilabel:`Show ACLs` button displays the filesystem ACLs applied to
 the shared folder root directory. It is possible to edit ACLs with a SMB
 client, like the Windows Explorer application installed with Windows Pro
 flavours, or the ``smbcacls`` command provided by the Samba project.
+
+.. _share-selective-restore:
+
+Restore a single file or folder from a shared folder backup
+-----------------------------------------------------------
+
+If the application has one or more backup destinations configured and a
+backup has already been executed, you can search for and restore a file or
+folder from a past backup snapshot of a specific shared folder.
+
+.. warning::
+
+  The procedure does not calculate the disk space usage required for the
+  restore. Ensure sufficient disk space is available before proceeding.
+
+#. Navigate to the Samba application instance and open the Shared Folders
+   page. Each shared folder is displayed as a card. From the three-dots
+   menu of the desired shared folder, select ``Restore file or folder``.
+
+#. Choose the backup destination from which to restore the contents.
+   Loading remote destinations may take some time.
+
+#. Select the date of the backup snapshot to restore. Snapshots are
+   listed from newest to oldest.
+
+#. Start typing the name of the file or folder to restore. The search
+   matches both the name and the relative path, starting from the root of
+   the shared folder. Results are ordered with name matches appearing
+   before path matches. Select an item from the results.
+
+   Click :guilabel:`Restore` to initiate the restore process.
+
+The selected item will be restored into a subfolder of the shared folder,
+named "Restored folder". This folder is readable by everyone, while its
+contents retain the ACLs from the backup.
+
 
 .. _file-server-restore:
 
