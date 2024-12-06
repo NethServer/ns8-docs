@@ -168,6 +168,13 @@ When a new public mailbox is created, the mail server will automatically add a n
 for all existing mail domains.
 
 
+.. _mailbox-selective-restore:
+
+Selective content restoration
+-----------------------------
+
+WIP
+
 .. _email_addresses:
 
 Addresses

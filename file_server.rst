@@ -64,6 +64,13 @@ the shared folder root directory. It is possible to edit ACLs with a SMB
 client, like the Windows Explorer application installed with Windows Pro
 flavours, or the ``smbcacls`` command provided by the Samba project.
 
+.. _share-selective-restore:
+
+Selective content restoration
+-----------------------------
+
+WIP
+
 .. _file-server-restore:
 
 Restore File server from backup
