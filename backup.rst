@@ -153,6 +153,18 @@ available.
 * Select the target node.
 * Click on the :guilabel:`Restore` button.
 
+Selective content restore
+=========================
+
+Some applications allow you to search for and restore specific items from
+a backup snapshot. For more information, refer to:
+
+- Samba :ref:`share-selective-restore`, for files and directories within a
+  Samba share.
+- Mail :ref:`mailbox-selective-restore`, for public mailboxes and user
+  mailbox folders.
+
+
 .. _cluster_backup-section:
 
 Cluster backup
