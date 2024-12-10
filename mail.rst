@@ -291,14 +291,14 @@ rule.
 
 __ https://en.wikipedia.org/wiki/Domain_Name_System_blocklist
 
-Total spam score collected at the end of the analysis allows the server to
-decide what to do with a message.
-
 Statistical (or `Bayesian`__) filters,
 are special rules that evolve and quickly adapt analyzing messages
 marked as **spam** or **ham**.
 
 __ https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering
+
+Total spam score collected at the end of the analysis allows the server to
+decide what to do with a message.
 
 The spam score thresholds can be configured under the ``Antispam`` section
 of the ``Filter`` page.
@@ -319,11 +319,6 @@ of the ``Filter`` page.
   retries. It is disabled by default because it introduces delivery delays
   also for legitimate senders.
 
-To access additional settings and review recent Rspamd activity, navigate
-to the web interface of Rspamd by selecting the :guilabel:`Open Rspamd`
-button located in the top-right corner of the Filter page. You'll need to
-provide your cluster-admin credentials for authentication.
-
 In some cases an email client, recipient, or sender must bypass the filter
 checks: the ``Bypass rules`` section allows to define a set of rules based
 on the follwing criteria:
@@ -337,6 +332,49 @@ on the follwing criteria:
 * Complete recipient email address.
 
 * Recipient email domain (exact match).
+
+To access additional settings and review recent Rspamd activity, navigate
+to the web interface of Rspamd by selecting the :guilabel:`Open Rspamd`
+button located in the top-right corner of the Filter page. You'll need to
+provide your cluster-admin credentials for authentication.
+
+The Bayesian statistical filters can then be trained with any IMAP client
+by simply moving a message in and out of the Junk folder. As a
+prerequisite, the Junk folder must be enabled, as explained in
+:ref:`mail-mailboxes-settings`.
+
+* By *putting a message into the Junk folder*, the filters learn
+  it is spam and will assign an higher score to similar messages.
+
+* On the contrary, by *getting a message out of Junk*, the filters
+  learn it is ham: next time a lower score will be assigned.
+
+All users can train the filters using this technique.
+
+.. note::
+
+  It is a good habit to frequently check the Junk folder in order not to
+  lose email wrongly recognized as spam.
+
+The bayesian filter training applies to all users on the system, not only
+the user that marked an email as spam or ham.
+
+It is important to understand how the Bayesian tests really work:
+
+* It does not outright flag messages as spam if they contain a specific
+  subject, or sender address. It is only collecting specific
+  characteristics of the message.
+
+* A message can only be flagged one time. If the same message is flagged
+  multiple times, it will not affect anything as the dynamic tests have
+  already been trained by that message.
+
+* The Bayesian filter **is not active until it has received enough
+  information. This includes a minimum of 200 spams AND 200 hams (false
+  positives).**
+
+  As the system receives that information, the progress of bayesian filter
+  training can be monitored from the Rspamd web UI.
 
 
 Queue
