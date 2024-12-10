@@ -35,6 +35,12 @@ Connect to NS8
 ==============
 
 The migration procedure will add NS7 as special node of the NethServer 8 cluster.
+If an account provider is configured on your NS7 system, it will be linked to the NS8 cluster as an external account provider before the migration process begins.
+
+Special note for OpenLDAP account providers
+-------------------------------------------
+For OpenLDAP account providers, you must specify a new domain name for the user LDAP domain during migration. This is necessary because domain names in an NS8 cluster must be unique.
+The migration tool will prompt you to provide a new domain name. It will then automatically rename the OpenLDAP account provider's domain from NS7 to the domain name you specify for NS8.
 
 #. Install the migration tool on the source machine. Access Cockpit on the
    source server and install "Migration to NS8" from the Software Center.
@@ -43,6 +49,8 @@ The migration procedure will add NS7 as special node of the NethServer 8 cluster
 
 #. Connect the NethServer 7 server to an existing new NethServer 8 cluster
    by entering the following fields:
+
+   - ``LDAP user domain``: Specify the new domain name for the user LDAP domain in NS8 (applicable only for OpenLDAP account providers).
 
    - ``NS8 leader node``: the host name or IP address of NethServer 8 cluster leader node
 
