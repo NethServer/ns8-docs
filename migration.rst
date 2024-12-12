@@ -37,11 +37,6 @@ Connect to NS8
 The migration procedure will add NS7 as special node of the NethServer 8 cluster.
 If an account provider is configured on your NS7 system, it will be linked to the NS8 cluster as an external account provider before the migration process begins.
 
-Special note for OpenLDAP account providers
--------------------------------------------
-For OpenLDAP account providers, you must specify a new domain name for the user LDAP domain during migration. This is necessary because domain names in an NS8 cluster must be unique.
-The migration tool will prompt you to provide a new domain name. It will then automatically rename the OpenLDAP account provider's domain from NS7 to the domain name you specify for NS8.
-
 #. Install the migration tool on the source machine. Access Cockpit on the
    source server and install "Migration to NS8" from the Software Center.
 
@@ -50,7 +45,10 @@ The migration tool will prompt you to provide a new domain name. It will then au
 #. Connect the NethServer 7 server to an existing new NethServer 8 cluster
    by entering the following fields:
 
-   - ``LDAP user domain``: Specify the new domain name for the user LDAP domain in NS8 (applicable only for OpenLDAP account providers).
+   - ``LDAP user domain``: This field is available when NS7 uses a local
+     OpenLDAP account provider. Ensure the user domain name is unique
+     within the NS8 cluster. The local LDAP database from NS7 will be
+     renamed to this new domain name during migration to the NS8 cluster.
 
    - ``NS8 leader node``: the host name or IP address of NethServer 8 cluster leader node
 
@@ -156,13 +154,14 @@ domain of NS8 must point to the same LDAP database of NS7 (regardless its
 implementation). Bear in mind that every node of the NS8 cluster must
 reach the same LDAP database, now and in the future.
 
-On the contrary, if the NS7 system is configured with a **local account
-provider**, ensure that its ``BaseDN`` does not match any NS8 user domain
-name. After connecting to the NS8 cluster, a temporary external user
-domain is created so that migrated applications can access the NS7 local
-account provider until it is migrated, too. The local account provider is
-migrated at the end of the procedure: at that point the temporary external
-user domain is automatically removed.
+If the NS7 system uses a **local account provider**, ensure its domain
+name is unique within the NS8 cluster and does not conflict with any
+existing user domain name. This is particularly important for AD domains,
+as they cannot be renamed in the migration tool's connection form. When
+connected to the NS8 cluster, a temporary external user domain is created
+to allow migrated applications to access the NS7 local account provider
+until its migration is complete. Once the local account provider is
+migrated, the temporary external user domain is automatically removed.
 
 Refer to the next sections for specific information about the local
 account provider migration.
