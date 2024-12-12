@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 11:11+0000\n"
+"POT-Creation-Date: 2024-12-12 11:14+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -4048,7 +4048,7 @@ msgid ""
 "was interrupted, ensuring continuity in log management."
 msgstr ""
 
-#: ../../mail.rst:7 ../../migration.rst:242
+#: ../../mail.rst:7 ../../migration.rst:245
 #, fuzzy
 msgid "Mail"
 msgstr "Email"
@@ -6142,29 +6142,36 @@ msgstr ""
 
 #: ../../migration.rst:235
 msgid ""
-"Password policy settings (strength and expiration) are not migrated. They"
-" must be enabled under the domain settings of the ``Domains and users`` "
-"page. See also :ref:`password-policy-section`."
+"Password age and account locked status information are preserved by the "
+"migration procedure."
+msgstr ""
+
+#: ../../migration.rst:238
+#, fuzzy
+msgid ""
+"However, password policy settings (strength and expiration) are not "
+"migrated. To re-enable them, navigate to the domain settings of the "
+"``Domains and users`` page. See also :ref:`password-policy-section`."
 msgstr ""
 "Le impostazioni dei criteri di password (forza e scadenza) non vengono "
 "migrate. Essi devono essere abilitati sotto le impostazioni di dominio "
 "della pagina ``Domains and users``. Vedi anche: ref: `password-policy-"
 "sezione`."
 
-#: ../../migration.rst:244
+#: ../../migration.rst:247
 msgid ""
 "The Migration Procedure preserves both data and configurations of NS7 "
 "Email application, unless stated differently in this section or in :ref"
 ":`config-excluded-migration`."
 msgstr ""
 
-#: ../../migration.rst:248
+#: ../../migration.rst:251
 msgid ""
 "Mail messages are copied to NS8 with Rsync. After :guilabel:`Finish "
 "migration` is clicked, some time-consuming operations are executed."
 msgstr ""
 
-#: ../../migration.rst:251
+#: ../../migration.rst:254
 msgid ""
 "**IMAP ACL Format Conversion**: The user and group name format in IMAP "
 "ACLs is modified by removing the domain suffix. For example, an ACL entry"
@@ -6172,14 +6179,14 @@ msgid ""
 " IMAP login still accepts both formats."
 msgstr ""
 
-#: ../../migration.rst:256
+#: ../../migration.rst:259
 msgid ""
 "**Quota Recalculation**: If IMAP quota is enabled, mailbox sizes are "
 "recalculated in the background. During this time, disk usage of mailboxes"
 " might not be available."
 msgstr ""
 
-#: ../../migration.rst:260
+#: ../../migration.rst:263
 msgid ""
 "**Messages and Attachments Reindexing**: The full-text search engine of "
 "NS8 runs in the background to reindex all messages and attachments. "
@@ -6188,18 +6195,18 @@ msgid ""
 "index``."
 msgstr ""
 
-#: ../../migration.rst:265
+#: ../../migration.rst:268
 msgid ""
 "Remember to update the DNS records or transfer the IP address to the NS8 "
 "node at the end of the migration."
 msgstr ""
 
-#: ../../migration.rst:269
+#: ../../migration.rst:272
 #, fuzzy
 msgid "Smart host"
 msgstr "Virtual hosts"
 
-#: ../../migration.rst:271
+#: ../../migration.rst:274
 msgid ""
 "The NS7 system smart host configuration is converted to a :ref:`default "
 "relay rule <relay-rules-section>`. The NS8 Mail application is then "
@@ -6207,11 +6214,11 @@ msgid ""
 ":ref:`email-notifications`."
 msgstr ""
 
-#: ../../migration.rst:279
+#: ../../migration.rst:282
 msgid "POP3 connector"
 msgstr "Connettore POP3"
 
-#: ../../migration.rst:281
+#: ../../migration.rst:284
 #, fuzzy
 msgid ""
 "The migration involves transferring POP3 Connector settings to NS8 "
@@ -6227,53 +6234,53 @@ msgstr ""
 "necessario rivedere le impostazioni e inizializzare la sincronizzazione "
 "manualmente."
 
-#: ../../migration.rst:287
+#: ../../migration.rst:290
 msgid ""
 "Emails fetched by Imapsync are not subject to anti-spam, anti-virus, or "
 "Sieve filtering."
 msgstr ""
 
-#: ../../migration.rst:293 ../../nethvoice.rst:4
+#: ../../migration.rst:296 ../../nethvoice.rst:4
 msgid "NethVoice"
 msgstr "NethVoice"
 
-#: ../../migration.rst:297
+#: ../../migration.rst:300
 msgid ""
 "Before proceeding with the migration of NethVoice, install and configure "
 ":ref:`NethVoice Proxy <nethvoice_proxy-section>` on NS8."
 msgstr ""
 
-#: ../../migration.rst:299
+#: ../../migration.rst:302
 msgid "The migration procedure requires two FQDNs to be assigned:"
 msgstr ""
 
-#: ../../migration.rst:301
+#: ../../migration.rst:304
 msgid "one for the administration interface of the **NethVoice** application"
 msgstr ""
 
-#: ../../migration.rst:302
+#: ../../migration.rst:305
 #, fuzzy
 msgid "one for **NethVoice CTI**."
 msgstr "NethVoice"
 
-#: ../../migration.rst:305
+#: ../../migration.rst:308
 msgid ""
 "NethVoice data (recording files, audio files, CDR database) are copied to"
 " NS8 with Rsync. After :guilabel:`Finish migration` is clicked, some "
 "time-consuming operations are executed."
 msgstr ""
 
-#: ../../migration.rst:308
+#: ../../migration.rst:311
 msgid ""
 "Remember to update the DNS records if you plan to use the same FQDN as "
 "NethVoice on NS7 at the end of the migration."
 msgstr ""
 
-#: ../../migration.rst:315
+#: ../../migration.rst:318
 msgid "Manual HTTP routes"
 msgstr "Rotte HTTP manuali"
 
-#: ../../migration.rst:317
+#: ../../migration.rst:320
 msgid ""
 "In NethServer 7, most web applications were accessible using path-style "
 "routes. As an example, given a server named ``server.nethserver.org`` the"
@@ -6285,7 +6292,7 @@ msgstr ""
 "server chiamato ``server.nethserver.org`` l'installazione WebTop era "
 "disponibile presso ``https://server.nethserver.org/webtop``."
 
-#: ../../migration.rst:321
+#: ../../migration.rst:324
 msgid ""
 "On the other side, when the application is migrated you will be asked to "
 "enter a FQDN so WebTop will be available on a URL like "
@@ -6295,7 +6302,7 @@ msgstr ""
 "inserire un FQDN in modo che WebTop sarà disponibile su un URL del tipo "
 "``https://webtop.nethserver.org``."
 
-#: ../../migration.rst:324
+#: ../../migration.rst:327
 msgid ""
 "If you have already migrated the FQDN DNS record to the new server, you "
 "can also manually recreate the old HTTP routes from the :ref:`proxy page "
@@ -6305,15 +6312,15 @@ msgstr ""
 "ricreare manualmente i vecchi percorsi HTTP da:ref:`proxy page <traefik-"
 "section>`."
 
-#: ../../migration.rst:327
+#: ../../migration.rst:330
 msgid "Example for adding WebTop routes:"
 msgstr "Esempio per l'aggiunta di percorsi WebTop:"
 
-#: ../../migration.rst:329
+#: ../../migration.rst:332
 msgid "open the ``HTTP routes`` section from the ``Settings`` page"
 msgstr "aprire la sezione ``HTTP routes`` dalla pagina ``Impostazioni``"
 
-#: ../../migration.rst:330
+#: ../../migration.rst:333
 msgid ""
 "click on the Webtop instance name, like ``webtop1``, a modal dialog will "
 "show the route details"
@@ -6321,15 +6328,15 @@ msgstr ""
 "cliccare sul nome dell'istanza WebTop, tipo ``webtop1``, una finestra di "
 "dialogo modale mostrerà i dettagli del percorso"
 
-#: ../../migration.rst:331
+#: ../../migration.rst:334
 msgid "copy the value from the ``URL`` field, like ``http://127.0.0.1:20033``"
 msgstr "copiare il valore dal campo ``URL``, tipo ``http://127.0.0.1:20033``"
 
-#: ../../migration.rst:332
+#: ../../migration.rst:335
 msgid "click on the :guilabel:`Create route` button"
 msgstr "cliccare sul pulsante :guilabel: `Create route`"
 
-#: ../../migration.rst:333
+#: ../../migration.rst:336
 msgid ""
 "choose a ``Name`` for the root and select the ``Node`` where the WebTop "
 "instance is running"
@@ -6337,7 +6344,7 @@ msgstr ""
 "scegliere un ``Name`` per la radice e selezionare il ``Node`` dove "
 "l'istanza WebTop è in esecuzione"
 
-#: ../../migration.rst:334
+#: ../../migration.rst:337
 msgid ""
 "paste the value copied before (``http://127.0.0.1:20033``) inside the "
 "``URL`` field"
@@ -6345,7 +6352,7 @@ msgstr ""
 "incollare il valore copiato prima (`http://127.0.0.1:20033``) dentro il "
 "campo ``URL``"
 
-#: ../../migration.rst:335
+#: ../../migration.rst:338
 msgid ""
 "leave the ``Host`` field empty and enter ``/webtop`` inside the ``Path`` "
 "field"
@@ -6353,45 +6360,45 @@ msgstr ""
 "lasciare il campo ``Host`` vuoto e inserire ``/webtop`` all'interno del "
 "campo ``Path``"
 
-#: ../../migration.rst:336
+#: ../../migration.rst:339
 msgid "repeat steps from 4 to 7 for all other WebTop routes:"
 msgstr "ripetere i passaggi da 4 a 7 per tutti gli altri percorsi WebTop:"
 
-#: ../../migration.rst:338
+#: ../../migration.rst:341
 msgid "``/Microsoft-Server-ActiveSync``"
 msgstr "``/Microsoft-Server-ActiveSync ``"
 
-#: ../../migration.rst:339
+#: ../../migration.rst:342
 msgid "``/.well-known``"
 msgstr "``/.well-known``"
 
-#: ../../migration.rst:340
+#: ../../migration.rst:343
 msgid "``/webtop-dav``"
 msgstr "``/webtop-dav``"
 
-#: ../../migration.rst:345
+#: ../../migration.rst:348
 #, fuzzy
 msgid "Limitations"
 msgstr "Applicazioni"
 
-#: ../../migration.rst:347
+#: ../../migration.rst:350
 msgid ""
 "The migration tool supports a limited set of applications. If an "
 "application is installed but not listed on the migration tool page, it "
 "will not be covered by the migration process."
 msgstr ""
 
-#: ../../migration.rst:351
+#: ../../migration.rst:354
 #, fuzzy
 msgid "The following configurations are not migrated:"
 msgstr "Le seguenti configurazioni non verranno migrate:"
 
-#: ../../migration.rst:353
+#: ../../migration.rst:356
 #, fuzzy
 msgid "Custom templates"
 msgstr "template custom"
 
-#: ../../migration.rst:355
+#: ../../migration.rst:358
 #, fuzzy
 msgid ""
 "Account provider password policy settings (see :ref:`migrate-account-"
@@ -6400,13 +6407,13 @@ msgstr ""
 "impostazioni della policy delle password dell'account provider (vedere: "
 "`migrate-account-provider`)"
 
-#: ../../migration.rst:358
+#: ../../migration.rst:361
 msgid ""
 "System smart host settings, if the NS7 Email app is either not installed "
 "or not migrated"
 msgstr ""
 
-#: ../../migration.rst:361
+#: ../../migration.rst:364
 msgid ""
 "Additionally, shared folders will not be migrated if NS7 uses a remote "
 "account provider."
