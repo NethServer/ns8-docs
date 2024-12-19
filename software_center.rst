@@ -224,11 +224,11 @@ source one.
 
 The cluster node where the destination instance runs can be the same as
 the source instance. Generally, there should be no limitation on running
-multiple application instances on the same node. In some cases, the
-services provided by the instance might require exclusive access to a
-particular system resource, such as binding a fixed TCP port number. In
-this case starting additional instances of the same service becomes
-impossible.
+multiple application instances on the same node. However, in some cases,
+cloning to certain cluster nodes may be restricted due to application
+policies, node resource limitations, or because the instance requires
+exclusive access to a system resource, such as binding a fixed TCP port
+number.
 
 In a nutshell the clone procedure:
 

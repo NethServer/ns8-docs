@@ -150,8 +150,13 @@ available.
   app`` checkbox becomes visible. If enabled, the existing instance will
   be removed upon restore.
 * Select an older backup snapshot if the latest one is not preferable.
-* Select the target node.
+* Select the target node. Note that in some cases, restoring to certain
+  cluster nodes may be restricted due to application policies or node
+  resource limitations.
 * Click on the :guilabel:`Restore` button.
+
+
+.. _selective-content-restore:
 
 Selective content restore
 =========================
