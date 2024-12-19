@@ -6,8 +6,81 @@ Release notes
 
 NethServer 8 releases
 
-- List of `known bugs <https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_
-- Discussions around `possible bugs <http://community.nethserver.org/c/bug>`_
+- List of `known bugs`__ on GitHub
+
+  __ https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8
+
+- Discussions around `possible bugs`__ on our public forum
+
+  __ http://community.nethserver.org/c/bug
+
+Major changes on 2024-12-20
+===========================
+
+- **Selective restoration from backup** -- In the Mail and Samba File
+  Server applications, it is possible to search and select specific
+  content (IMAP folder, file, or directory) from backup snapshots and
+  restore it under a user-accessible folder. See
+  :ref:`selective-content-restore`.
+
+- **Application conflict management** -- The Cluster Admin now enforces
+  the instance limit per node during clone, move, and restore operations.
+  This complements the existing enforcement during the install operation
+  and simplifies the management of applications that use specific TCP/UDP
+  ports, such as Mail, Ejabberd, NethVoice Proxy, Samba, and DNSMasq.
+  Additionally, DNSMasq automatically disables its DNS service if it
+  detects a conflict with a Samba instance on the same node.
+
+- **System log forward filtering** -- The Syslog forwarder can be
+  configured to send either the full stream of logs or only security log
+  records. For performance reasons, the full stream export is no longer
+  available in the Cloud Log Manager forwarder, which now supports
+  security logs only.
+
+- **Backup alert** -- Systems with an active :ref:`Subscription
+  <subscription-section>` send an alert to the monitoring portal if a
+  backup fails. The last backup status indicator has been fixed to
+  correctly reflect failed backup instances on the Backup page.
+
+- **Rename OpenLDAP "directory.nh" for NS7 migration** -- The NS7
+  Migration Tool allows selecting the destination domain name (and the
+  respective LDAP DB suffix), enabling the migration and consolidation of
+  multiple NS7 systems on the same NS8 cluster. The LDAP domain name can
+  only be set with a local OpenLDAP account provider, as Active Directory
+  does not support domain renaming. See :ref:`migrate-account-provider`.
+
+- **Updates are suspended during NS7 migration** -- The Software Center
+  inhibits both manual and automatic updates if an NS7 node is added to
+  the cluster with the Migration Tool. If updates are suspended, a banner
+  is displayed in the Software Center.
+
+  If your cluster displays this banner incorrectly (e.g., the migration
+  has already finished), run the following manual procedure to clean up
+  the Redis database of possible stale data from past migration attempts.
+
+  Find the IDs of stale NS7 nodes: ::
+
+    redis-cli --raw keys 'node/*/flags' | xargs -t -r -l1 -- redis-cli smembers
+  
+  Sample output: ::
+
+    redis-cli smembers node/77/flags
+    nomodules
+  
+  For example, to remove the bogus node 77: ::
+
+    api-cli run remove-node --data '{"node_id":77}'
+
+- **Unlimited user domains** -- Starting with Core 3.2.1 and Ldapproxy
+  1.1.0, the limit of eight simultaneous user domains has been removed. It
+  is now possible to install more user domains, provided that only one
+  Samba DC can run on a node.
+
+- **Improved user domain event handling in some applications** -- Changes
+  to user domain configurations are now correctly applied to Nextcloud,
+  Ejabberd, Mail, SOGo, and Roundcube applications. Configuration changes
+  are propagated, and services are restarted automatically.
+
 
 Major changes on 2024-10-16
 ===========================
