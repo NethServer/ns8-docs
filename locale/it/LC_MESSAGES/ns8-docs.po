@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 11:14+0000\n"
+"POT-Creation-Date: 2024-12-19 17:17+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -288,42 +288,48 @@ msgstr ""
 
 #: ../../backup.rst:153
 #, fuzzy
-msgid "Select the target node."
-msgstr "selezionare il nodo di destinazione"
+msgid ""
+"Select the target node. Note that in some cases, restoring to certain "
+"cluster nodes may be restricted due to application policies or node "
+"resource limitations."
+msgstr ""
+"To install another instance of an existing application, click on the "
+"``Instances`` link inside the application card. Then click on "
+":guilabel:`Install new instance`."
 
-#: ../../backup.rst:154
+#: ../../backup.rst:156
 #, fuzzy
 msgid "Click on the :guilabel:`Restore` button."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../backup.rst:157
+#: ../../backup.rst:162
 #, fuzzy
 msgid "Selective content restore"
 msgstr "selezionare le applicazioni da ripristinare"
 
-#: ../../backup.rst:159
+#: ../../backup.rst:164
 msgid ""
 "Some applications allow you to search for and restore specific items from"
 " a backup snapshot. For more information, refer to:"
 msgstr ""
 
-#: ../../backup.rst:162
+#: ../../backup.rst:167
 msgid ""
 "Samba :ref:`share-selective-restore`, for files and directories within a "
 "Samba share."
 msgstr ""
 
-#: ../../backup.rst:164
+#: ../../backup.rst:169
 msgid ""
 "Mail :ref:`mailbox-selective-restore`, for public mailboxes and user "
 "mailbox folders."
 msgstr ""
 
-#: ../../backup.rst:171
+#: ../../backup.rst:176
 msgid "Cluster backup"
 msgstr "Cluster backup"
 
-#: ../../backup.rst:173
+#: ../../backup.rst:178
 #, fuzzy
 msgid ""
 "The cluster configuration backup contains all required data for :ref"
@@ -336,7 +342,7 @@ msgstr ""
 "necessari per eseguire un :ref: `disaster_recovery-section`. È un file "
 "JSON compresso crittografato con GPG."
 
-#: ../../backup.rst:179
+#: ../../backup.rst:184
 #, fuzzy
 msgid ""
 "The first time the ``Backup`` page is accessed, you must set an "
@@ -349,7 +355,7 @@ msgstr ""
 "password di crittografia è necessaria anche dopo l'elezione di un nuovo "
 "nodo leader (vedere :ref: `node-promotion-section`)."
 
-#: ../../backup.rst:183
+#: ../../backup.rst:188
 msgid ""
 "The cluster configuration backup is automatically copied to backup "
 "destinations during scheduled runs, ensuring up-to-date backups of both "
@@ -359,7 +365,7 @@ msgid ""
 "available from the subscription portal."
 msgstr ""
 
-#: ../../backup.rst:190
+#: ../../backup.rst:195
 #, fuzzy
 msgid ""
 "Periodically download the cluster configuration backup and keep it in a "
@@ -370,7 +376,7 @@ msgstr ""
 "tasto :guilabel:`Download cluster backup` sotto la sezione "
 "``Configurazione cluster`` della pagina ``Backup``."
 
-#: ../../backup.rst:196
+#: ../../backup.rst:201
 #, fuzzy
 msgid ""
 "If you lose the cluster configuration backup, you can still restore "
@@ -381,7 +387,7 @@ msgstr ""
 "ripristinare le applicazioni in un altro cluster solo se si conosce la "
 "password di crittografia del repository di backup."
 
-#: ../../backup.rst:200
+#: ../../backup.rst:205
 #, fuzzy
 msgid ""
 "To inspect the content of the downloaded file, use the following command,"
@@ -391,11 +397,11 @@ msgstr ""
 "dove ``<pass>`` è la password di crittografia inserita prima del "
 "download: ::"
 
-#: ../../backup.rst:209
+#: ../../backup.rst:214
 msgid "Disaster recovery"
 msgstr "Disaster recovery"
 
-#: ../../backup.rst:211
+#: ../../backup.rst:216
 #, fuzzy
 msgid ""
 "You can restore a previously configured cluster using the disaster "
@@ -407,7 +413,7 @@ msgstr ""
 "necessario un:ref: `un backup di configurazione del cluster "
 "<cluster_backup-sezione>`:"
 
-#: ../../backup.rst:215
+#: ../../backup.rst:220
 #, fuzzy
 msgid ""
 ":ref:`Install <install-section>` a new cluster and log in using the "
@@ -416,17 +422,17 @@ msgstr ""
 ":ref:`install <install-section>` un nuovo cluster e login utilizzando le "
 "credenziali di default"
 
-#: ../../backup.rst:217
+#: ../../backup.rst:222
 #, fuzzy
 msgid "Change the default administrator password."
 msgstr "modificare la password di amministratore predefinito"
 
-#: ../../backup.rst:218
+#: ../../backup.rst:223
 #, fuzzy
 msgid "Click on the :guilabel:`Restore cluster` button."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../backup.rst:219
+#: ../../backup.rst:224
 #, fuzzy
 msgid ""
 "Choose whether to restore a cluster configuration from a remote HTTP "
@@ -435,22 +441,22 @@ msgstr ""
 "è ora possibile scegliere se ripristinare una configurazione di cluster "
 "ospitata su un server HTTP remoto o caricare il backup dal browser"
 
-#: ../../backup.rst:221
+#: ../../backup.rst:226
 msgid "Enter the encryption secret in the ``Backup password`` field."
 msgstr ""
 
-#: ../../backup.rst:222
+#: ../../backup.rst:227
 #, fuzzy
 msgid "Select the applications to restore."
 msgstr "selezionare le applicazioni da ripristinare"
 
-#: ../../backup.rst:224
+#: ../../backup.rst:229
 msgid ""
 "For more information, refer to the backup and restore notes for each "
 "application. For example:"
 msgstr ""
 
-#: ../../backup.rst:227
+#: ../../backup.rst:232
 msgid ":ref:`file-server-restore`"
 msgstr ""
 
@@ -11863,26 +11869,113 @@ msgid "NethServer 8 releases"
 msgstr "Rilasci NethServer 8"
 
 #: ../../release_notes.rst:9
-#, python-format
-msgid ""
-"List of `known bugs "
-"<https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_"
+msgid "List of `known bugs`__ on GitHub"
 msgstr ""
-"Elenco dei `bug noti "
-"<https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_"
-
-#: ../../release_notes.rst:10
-msgid ""
-"Discussions around `possible bugs "
-"<http://community.nethserver.org/c/bug>`_"
-msgstr "Discussioni su `possibili bug <http://community.nethserver.org/c/bug>`_"
 
 #: ../../release_notes.rst:13
+msgid "Discussions around `possible bugs`__ on our public forum"
+msgstr ""
+
+#: ../../release_notes.rst:18
+#, fuzzy
+msgid "Major changes on 2024-12-20"
+msgstr "Principali cambiamenti del 2024-02-13"
+
+#: ../../release_notes.rst:20
+msgid ""
+"**Selective restoration from backup** -- In the Mail and Samba File "
+"Server applications, it is possible to search and select specific content"
+" (IMAP folder, file, or directory) from backup snapshots and restore it "
+"under a user-accessible folder. See :ref:`selective-content-restore`."
+msgstr ""
+
+#: ../../release_notes.rst:26
+msgid ""
+"**Application conflict management** -- The Cluster Admin now enforces the"
+" instance limit per node during clone, move, and restore operations. This"
+" complements the existing enforcement during the install operation and "
+"simplifies the management of applications that use specific TCP/UDP "
+"ports, such as Mail, Ejabberd, NethVoice Proxy, Samba, and DNSMasq. "
+"Additionally, DNSMasq automatically disables its DNS service if it "
+"detects a conflict with a Samba instance on the same node."
+msgstr ""
+
+#: ../../release_notes.rst:34
+msgid ""
+"**System log forward filtering** -- The Syslog forwarder can be "
+"configured to send either the full stream of logs or only security log "
+"records. For performance reasons, the full stream export is no longer "
+"available in the Cloud Log Manager forwarder, which now supports security"
+" logs only."
+msgstr ""
+
+#: ../../release_notes.rst:40
+msgid ""
+"**Backup alert** -- Systems with an active :ref:`Subscription "
+"<subscription-section>` send an alert to the monitoring portal if a "
+"backup fails. The last backup status indicator has been fixed to "
+"correctly reflect failed backup instances on the Backup page."
+msgstr ""
+
+#: ../../release_notes.rst:45
+msgid ""
+"**Rename OpenLDAP \"directory.nh\" for NS7 migration** -- The NS7 "
+"Migration Tool allows selecting the destination domain name (and the "
+"respective LDAP DB suffix), enabling the migration and consolidation of "
+"multiple NS7 systems on the same NS8 cluster. The LDAP domain name can "
+"only be set with a local OpenLDAP account provider, as Active Directory "
+"does not support domain renaming. See :ref:`migrate-account-provider`."
+msgstr ""
+
+#: ../../release_notes.rst:52
+msgid ""
+"**Updates are suspended during NS7 migration** -- The Software Center "
+"inhibits both manual and automatic updates if an NS7 node is added to the"
+" cluster with the Migration Tool. If updates are suspended, a banner is "
+"displayed in the Software Center."
+msgstr ""
+
+#: ../../release_notes.rst:57
+msgid ""
+"If your cluster displays this banner incorrectly (e.g., the migration has"
+" already finished), run the following manual procedure to clean up the "
+"Redis database of possible stale data from past migration attempts."
+msgstr ""
+
+#: ../../release_notes.rst:61
+msgid "Find the IDs of stale NS7 nodes: ::"
+msgstr ""
+
+#: ../../release_notes.rst:65
+msgid "Sample output: ::"
+msgstr ""
+
+#: ../../release_notes.rst:70
+msgid "For example, to remove the bogus node 77: ::"
+msgstr ""
+
+#: ../../release_notes.rst:74
+msgid ""
+"**Unlimited user domains** -- Starting with Core 3.2.1 and Ldapproxy "
+"1.1.0, the limit of eight simultaneous user domains has been removed. It "
+"is now possible to install more user domains, provided that only one "
+"Samba DC can run on a node."
+msgstr ""
+
+#: ../../release_notes.rst:79
+msgid ""
+"**Improved user domain event handling in some applications** -- Changes "
+"to user domain configurations are now correctly applied to Nextcloud, "
+"Ejabberd, Mail, SOGo, and Roundcube applications. Configuration changes "
+"are propagated, and services are restarted automatically."
+msgstr ""
+
+#: ../../release_notes.rst:86
 #, fuzzy
 msgid "Major changes on 2024-10-16"
 msgstr "Principali cambiamenti del 2024-02-13"
 
-#: ../../release_notes.rst:15
+#: ../../release_notes.rst:88
 msgid ""
 "**Disk minimum requirements increased** -- The :ref:`minimum disk "
 "requirements <system-requirements-section>` have been increased to a 40GB"
@@ -11890,7 +11983,7 @@ msgid ""
 "especially during read access, to prevent service startup errors."
 msgstr ""
 
-#: ../../release_notes.rst:20
+#: ../../release_notes.rst:93
 msgid ""
 "**Cluster node limit removed** -- The four-node cluster limit has been "
 "removed. More nodes can now be added, up to the VPN network size. "
@@ -11898,7 +11991,7 @@ msgid ""
 "also :ref:`cluster-section`."
 msgstr ""
 
-#: ../../release_notes.rst:25
+#: ../../release_notes.rst:98
 msgid ""
 "**Progressive upgrades** -- Starting from Core 3.0.0, application images "
 "can be labeled with a new attribute, min-from_. This ensures that "
@@ -11906,21 +11999,21 @@ msgid ""
 "version is lower than the label value."
 msgstr ""
 
-#: ../../release_notes.rst:30
+#: ../../release_notes.rst:103
 msgid ""
 "Similarly, a min-core_ label can be applied to application images, "
 "requiring a minimum core version for installation or updates. If the core"
 " version is below the label value, the image will be ignored."
 msgstr ""
 
-#: ../../release_notes.rst:34
+#: ../../release_notes.rst:107
 msgid ""
 "These labels were developed with Nextcloud in mind, as it only allows "
 "upgrades to the next major version number. Application developers can use"
 " these labels to implement progressive upgrades for their applications."
 msgstr ""
 
-#: ../../release_notes.rst:39
+#: ../../release_notes.rst:112
 msgid ""
 "**Cluster log forwarding** -- The Log Settings page now allows "
 "configuring an outgoing stream of logs to an external Syslog server or "
@@ -11928,7 +12021,7 @@ msgid ""
 "Subscription plan)."
 msgstr ""
 
-#: ../../release_notes.rst:44
+#: ../../release_notes.rst:117
 msgid ""
 "This feature centralizes external log archiving for all cluster nodes. "
 "Since log streams can be substantial in large clusters, future releases "
@@ -11936,7 +12029,7 @@ msgid ""
 "security events. See :ref:`logs-forwarding-section`."
 msgstr ""
 
-#: ../../release_notes.rst:49
+#: ../../release_notes.rst:122
 msgid ""
 "**Application certification level** -- The Software Center now displays a"
 " *level badge* for each application, indicating its :ref:`certification "
@@ -11946,7 +12039,7 @@ msgid ""
 "\"Terms and Conditions\" link, visible even after installation."
 msgstr ""
 
-#: ../../release_notes.rst:56
+#: ../../release_notes.rst:129
 msgid ""
 "**Application instance limit per node** -- The Software Center enforces "
 "limits on the number of application instances that can be installed per "
@@ -11954,14 +12047,14 @@ msgid ""
 "image label. See :ref:`install-applications`."
 msgstr ""
 
-#: ../../release_notes.rst:61
+#: ../../release_notes.rst:134
 msgid ""
 "**Display of core modules** -- The Software Center now shows additional "
 "details for core components, including the core version of each cluster "
 "node. See :ref:`core_updates-section`."
 msgstr ""
 
-#: ../../release_notes.rst:65
+#: ../../release_notes.rst:138
 msgid ""
 "**Update application to testing version** -- With Core 3.0.0, the "
 "``Testing`` switch under Settings > Software Repositories has been "
@@ -11970,7 +12063,7 @@ msgid ""
 "NS8 installations will no longer receive pre-release versions as updates."
 msgstr ""
 
-#: ../../release_notes.rst:72
+#: ../../release_notes.rst:145
 msgid ""
 "However, it is still possible to upgrade an application instance to a "
 "testing version from its three-dots menu, by selecting the ``Update to "
@@ -11981,14 +12074,14 @@ msgid ""
 "using it. See :ref:`application-instances`."
 msgstr ""
 
-#: ../../release_notes.rst:80
+#: ../../release_notes.rst:153
 msgid ""
 "**More \"generic S3\" cloud backup providers** -- The S3 Generic backup "
 "destination now supports additional cloud providers, including OVH, "
 "Wasabi, DigitalOcean, and Synology C2. See :ref:`backup-destination`."
 msgstr ""
 
-#: ../../release_notes.rst:84
+#: ../../release_notes.rst:157
 msgid ""
 "**Backup and snapshot selection** -- During the application restore "
 "process, users can now select from past backup snapshots generated "
@@ -11996,7 +12089,7 @@ msgid ""
 "section`."
 msgstr ""
 
-#: ../../release_notes.rst:89
+#: ../../release_notes.rst:162
 msgid ""
 "**TCP and UDP port reallocation** -- Since Core 3.1.0, application "
 "developers can leverage new core functions that extend the range of TCP "
@@ -12006,14 +12099,14 @@ msgid ""
 "information, see `Port allocation`_ in the Developer's manual."
 msgstr ""
 
-#: ../../release_notes.rst:96
+#: ../../release_notes.rst:169
 msgid ""
 "**NethVoice application** -- :ref:`NethVoice <nethvoice-section>` is a "
 "professional IP telephony solution that offers a host of advanced "
 "features and an intuitive user interface."
 msgstr ""
 
-#: ../../release_notes.rst:100
+#: ../../release_notes.rst:173
 msgid ""
 "**Webtop application** -- :ref:`Webtop <webtop-section>` now features a "
 "new default UI theme, exclusively available on the NS8 platform. "
@@ -12023,7 +12116,7 @@ msgid ""
 "now available."
 msgstr ""
 
-#: ../../release_notes.rst:107
+#: ../../release_notes.rst:180
 msgid ""
 "**Nextcloud application** -- Nextcloud version 27 (NC 27), which was the "
 "last version available on NethServer 7, has reached End-of-Life (EOL). "
@@ -12031,18 +12124,18 @@ msgid ""
 "immediately available after migration."
 msgstr ""
 
-#: ../../release_notes.rst:112
+#: ../../release_notes.rst:185
 msgid ""
 "**Mattermost application** -- Mattermost has been upgraded from the EOL "
 "version 8 to the latest major release, version 9.11 (ESR)."
 msgstr ""
 
-#: ../../release_notes.rst:122
+#: ../../release_notes.rst:195
 #, fuzzy
 msgid "Major changes on 2024-05-31"
 msgstr "Principali cambiamenti del 2024-02-13"
 
-#: ../../release_notes.rst:124
+#: ../../release_notes.rst:197
 msgid ""
 "**Mail improvements** -- Added the :ref:`Relay rules <relay-rules-"
 "section>` feature, which allows configuration and use of a default "
@@ -12054,14 +12147,14 @@ msgid ""
 "as described by :ref:`Mail settings <mail_settings-section>`."
 msgstr ""
 
-#: ../../release_notes.rst:134
+#: ../../release_notes.rst:207
 msgid ""
 "**Piler application** -- The new Piler application enhances Mail features"
 " with an email archiving solution. See :ref:`piler-section` for more "
 "information."
 msgstr ""
 
-#: ../../release_notes.rst:138
+#: ../../release_notes.rst:211
 msgid ""
 "**Netdata application** -- A new monitoring stack is available alongside "
 "Prometheus and Grafana. A Netdata instance can be installed with a click "
@@ -12069,14 +12162,14 @@ msgid ""
 ":`netdata-section` for details."
 msgstr ""
 
-#: ../../release_notes.rst:143
+#: ../../release_notes.rst:216
 msgid ""
 "**Dnsmasq application** -- This new application provides a simple DNS and"
 " DHCP service for the local area network. See :ref:`dnsmasq-section` for "
 "details."
 msgstr ""
 
-#: ../../release_notes.rst:147
+#: ../../release_notes.rst:220
 msgid ""
 "**Display firewall open ports** -- The node firewall configuration is "
 "accessible from a new card under the Settings page. The same information "
@@ -12084,7 +12177,7 @@ msgid ""
 "section` for more information."
 msgstr ""
 
-#: ../../release_notes.rst:152
+#: ../../release_notes.rst:225
 msgid ""
 "**NethSecurity controller** -- This new application allows the remote "
 "control of multiple NethSecurity installations, called units. It provides"
@@ -12093,7 +12186,7 @@ msgid ""
 "information."
 msgstr ""
 
-#: ../../release_notes.rst:158
+#: ../../release_notes.rst:231
 msgid ""
 "**System logs** -- Log records generated by any cluster node are "
 "collected and stored in the leader node for a configurable number of "
@@ -12102,7 +12195,7 @@ msgid ""
 "Refer to the section :ref:`system-logs-section` for more information."
 msgstr ""
 
-#: ../../release_notes.rst:164
+#: ../../release_notes.rst:237
 msgid ""
 "**Crowdsec bouncer container** -- Since Crowdsec release 1.0.7, the "
 "bouncer component runs inside a container and uses Netfilter tables to "
@@ -12110,43 +12203,43 @@ msgid ""
 "resources left by previous versions."
 msgstr ""
 
-#: ../../release_notes.rst:169
+#: ../../release_notes.rst:242
 msgid "Run this command to remove the Firewalld ipset: ::"
 msgstr ""
 
-#: ../../release_notes.rst:174
+#: ../../release_notes.rst:247
 msgid ""
 "Additional packages and the software repository installed in the host "
 "system can also be removed."
 msgstr ""
 
-#: ../../release_notes.rst:177
+#: ../../release_notes.rst:250
 msgid "For Rocky Linux, run: ::"
 msgstr ""
 
-#: ../../release_notes.rst:182
+#: ../../release_notes.rst:255
 msgid "For Debian, run: ::"
 msgstr ""
 
-#: ../../release_notes.rst:187
+#: ../../release_notes.rst:260
 msgid ""
 "**Rocky Linux 9.4** -- Since Core release 2.8.1, the pre-built images are"
 " based on the official Rocky Linux 9.4 cloud image."
 msgstr ""
 
-#: ../../release_notes.rst:192
+#: ../../release_notes.rst:265
 msgid "Major changes on 2024-02-13"
 msgstr "Principali cambiamenti del 2024-02-13"
 
-#: ../../release_notes.rst:194
+#: ../../release_notes.rst:267
 msgid "**Stable release**"
 msgstr "**Release stabile**"
 
-#: ../../release_notes.rst:196
+#: ../../release_notes.rst:269
 msgid "New features introduced by this release are:"
 msgstr "Le nuove funzionalità introdotte in questa release sono:"
 
-#: ../../release_notes.rst:198
+#: ../../release_notes.rst:271
 msgid ""
 "**Subscription** -- Nethesis Enterprise and Community Subscription plans "
 "are now available for NS8. See the details in :ref:`subscription-section`"
@@ -12156,7 +12249,7 @@ msgstr ""
 " Subscription sono ora disponibili per NS8. Maggiori dettagli nella "
 "pagina :ref:`subscription-section`."
 
-#: ../../release_notes.rst:202
+#: ../../release_notes.rst:275
 msgid ""
 "**User management portal** -- Members of the Domain Admins group can now "
 "create, edit and delete user accounts from the :ref:`User management "
@@ -12169,7 +12262,7 @@ msgstr ""
 "schermata di login ora visualizza il nome del dominio dell'utente per "
 "distinguere a quale dominio utente si accede."
 
-#: ../../release_notes.rst:208
+#: ../../release_notes.rst:281
 msgid ""
 "**Skip certificate validation** in HTTP routes -- When an HTTP route is "
 "created or edited in the :ref:`HTTP routes <traefik-section>` page, the "
@@ -12183,7 +12276,7 @@ msgstr ""
 "essere abilitata per una rete fidata nel caso in cui il server all'URL di"
 " destinazione non abbia un certificato TLS valido."
 
-#: ../../release_notes.rst:214
+#: ../../release_notes.rst:287
 msgid ""
 "**Cockpit removed from pre-built image** -- Cockpit is not required to "
 "run NS8, therefore it is no more available in the NS8 pre-built image. If"
@@ -12195,7 +12288,7 @@ msgstr ""
 "lo si desidera, può essere installato e abilitato manualmente con i "
 "seguenti comandi: ::"
 
-#: ../../release_notes.rst:222
+#: ../../release_notes.rst:295
 msgid ""
 "The default Cockpit configuration forbids ``root`` access: log in as a "
 "member of the ``wheel`` group, then enter the \"administrative access\" "
@@ -12205,11 +12298,11 @@ msgstr ""
 "accedere con un utente membro del gruppo ``wheel``, quindi attivare la "
 "modalità \"accesso amministrativo\"."
 
-#: ../../release_notes.rst:226
+#: ../../release_notes.rst:299
 msgid "Known issues:"
 msgstr "Problemi noti:"
 
-#: ../../release_notes.rst:228
+#: ../../release_notes.rst:301
 msgid ""
 "**Core upgrade freezes Software Center page** -- The `bug 6778`_ has been"
 " fixed in core version 2.2.6. If the upgrade from RC1 starts from core "
@@ -12227,20 +12320,20 @@ msgstr ""
 " può essere lento; evitare di interrompere o riavviare fino al "
 "completamento."
 
-#: ../../release_notes.rst:238
+#: ../../release_notes.rst:311
 msgid "Major changes on 2023-11-21"
 msgstr "Cambiamenti principali del 2023-11-21"
 
-#: ../../release_notes.rst:240
+#: ../../release_notes.rst:313
 #, fuzzy
 msgid "**Release Candidate 1**"
 msgstr "**Release Candidate 1**"
 
-#: ../../release_notes.rst:242
+#: ../../release_notes.rst:315
 msgid "New features introduced by RC1 are:"
 msgstr "Nuove funzionalità introdotte dalla RC1:"
 
-#: ../../release_notes.rst:244
+#: ../../release_notes.rst:317
 msgid ""
 "**Password policy** -- Added a new configuration option to the ``Domains "
 "and users`` page. It is possible to modify the password complexity and "
@@ -12257,7 +12350,7 @@ msgstr ""
 "aggiornamento è dettagliata nelle note successive. Vedi anche :ref"
 ":`password-policy-section`."
 
-#: ../../release_notes.rst:251
+#: ../../release_notes.rst:324
 msgid ""
 "**User management portal** -- Users of a domain can now access a web page"
 " to change their own password. The user portal is available at "
@@ -12277,7 +12370,7 @@ msgstr ""
 "aggiornamento per Samba e OpenLDAP nelle note successive, e la pagina: "
 "`user-management-portal-section` ."
 
-#: ../../release_notes.rst:259
+#: ../../release_notes.rst:332
 msgid ""
 "**Backup repositories** -- Beside existing cloud protocols, it is now "
 "easier to send backups to some local device. A backup repository can now "
@@ -12291,7 +12384,7 @@ msgstr ""
 "locale*, come un disco attaccato a un nodo di cluster. Vedi :ref:`backup-"
 "restore-section` per maggiori informazioni."
 
-#: ../../release_notes.rst:265
+#: ../../release_notes.rst:338
 msgid ""
 "**Fetch mail from other servers** -- :ref:`imapsync-section` is a new "
 "advanced application designed to retrieve email messages from remote IMAP"
@@ -12302,7 +12395,7 @@ msgstr ""
 "server IMAP remoti a intervalli programmati e sincronizzare interi "
 "account IMAP."
 
-#: ../../release_notes.rst:270
+#: ../../release_notes.rst:343
 msgid ""
 "**Mirror list for Rocky Linux nodes** -- If Rocky Linux is the node OS "
 "distribution, the default DNF configuration is overridden and mirrors are"
@@ -12315,7 +12408,7 @@ msgstr ""
 "``mirrorlist.nethserver.org``. Nelle future versioni i pacchetti RPM di "
 "Rocky Linux saranno ospitati da mirror specifici di NethServer."
 
-#: ../../release_notes.rst:275
+#: ../../release_notes.rst:348
 msgid ""
 "Upgrade of existing Beta 2 installations can be started from the Software"
 " center page as usual. After the core components are up-to-date, run the "
@@ -12326,7 +12419,7 @@ msgstr ""
 "principali sono aggiornati, eseguire le seguenti procedure manuali per "
 "completare l'aggiornamento."
 
-#: ../../release_notes.rst:279
+#: ../../release_notes.rst:352
 msgid ""
 "**Core upgrade procedure** -- To upgrade Beta 2 installations run the "
 "following command on the leader node. It defines the new ``tunadm`` "
@@ -12338,13 +12431,13 @@ msgstr ""
 "Definisce il nuovo ruolo di autorizzazione ``tunadm``, disponibile su "
 "nuove installazioni dalla versione core 2.1.0: ::"
 
-#: ../../release_notes.rst:286
+#: ../../release_notes.rst:359
 msgid "For each cluster node, enable the local WebDAV service for backups: ::"
 msgstr ""
 "Per ogni nodo del cluster, abilitare il servizio WebDAV locale per i "
 "backup: ::"
 
-#: ../../release_notes.rst:290
+#: ../../release_notes.rst:363
 msgid ""
 "Finally, only for Rocky Linux nodes, enable the NethServer default "
 "repositories: ::"
@@ -12352,7 +12445,7 @@ msgstr ""
 "Infine, solo per i nodi Rocky Linux, abilitare i repository di default "
 "NethServer: ::"
 
-#: ../../release_notes.rst:296
+#: ../../release_notes.rst:369
 msgid ""
 "**Samba upgrade procedure** -- To upgrade Beta 2 installations run the "
 "following procedure for each Samba account provider instance. The list of"
@@ -12365,15 +12458,15 @@ msgstr ""
 " utenti``, sotto le impostazioni di configurazione del dominio; "
 "**annotare per ogni provider**:"
 
-#: ../../release_notes.rst:301
+#: ../../release_notes.rst:374
 msgid "the module ID (string), for example ``samba1``"
 msgstr "L'ID del modulo (stringa), per esempio ``samba1``"
 
-#: ../../release_notes.rst:302 ../../release_notes.rst:337
+#: ../../release_notes.rst:375 ../../release_notes.rst:410
 msgid "the node ID (number), for example ``1``"
 msgstr "L'ID del nodo (numero), per esempio ``1``"
 
-#: ../../release_notes.rst:303 ../../release_notes.rst:338
+#: ../../release_notes.rst:376 ../../release_notes.rst:411
 msgid ""
 "a free TCP port number, generated by executing on the leader node a "
 "command like this: ::"
@@ -12381,7 +12474,7 @@ msgstr ""
 "il numero di una porta TCP disponibile, generato eseguendo sul nodo "
 "leader questo comando: ::"
 
-#: ../../release_notes.rst:309 ../../release_notes.rst:344
+#: ../../release_notes.rst:382 ../../release_notes.rst:417
 msgid ""
 "In the above example set ``node_id`` with the correct node ID (number). "
 "Let's assume the above command prints the port number below: ::"
@@ -12390,23 +12483,23 @@ msgstr ""
 "del nodo (numero). Supponiamo che il comando stampi il seguente numero di"
 " porta: ::"
 
-#: ../../release_notes.rst:314 ../../release_notes.rst:349
+#: ../../release_notes.rst:387 ../../release_notes.rst:422
 msgid "With the above annotations, run the following steps for each provider:"
 msgstr ""
 "Con le annotazioni recuperate precedentemente, eseguire i seguenti "
 "passaggi per ogni provider:"
 
-#: ../../release_notes.rst:316 ../../release_notes.rst:351
+#: ../../release_notes.rst:389 ../../release_notes.rst:424
 msgid "Log on the cluster node where the provider instance runs."
 msgstr "Accedere al nodo del cluster in cui viene eseguita l'istanza del provider."
 
-#: ../../release_notes.rst:318 ../../release_notes.rst:353
+#: ../../release_notes.rst:391 ../../release_notes.rst:426
 msgid "Apply the TCP port configuration and start the user portal service: ::"
 msgstr ""
 "Applicare la configurazione della porta TCP e avviare il servizio del "
 "portale utente: ::"
 
-#: ../../release_notes.rst:331
+#: ../../release_notes.rst:404
 msgid ""
 "**OpenLDAP upgrade procedure** -- To upgrade Beta 2 installations run the"
 " following procedure for each OpenLDAP account provider instance. The "
@@ -12419,11 +12512,11 @@ msgstr ""
 "ottenuto dalla pagina ``Domini e utenti``, sotto le impostazioni di "
 "configurazione del dominio; **annotare per ogni provider**:"
 
-#: ../../release_notes.rst:336
+#: ../../release_notes.rst:409
 msgid "the module ID (string), for example ``openldap1``"
 msgstr "L'ID del modulo (stringa), per esempio ``openldap1``"
 
-#: ../../release_notes.rst:366
+#: ../../release_notes.rst:439
 msgid ""
 "After repeating the above steps on each cluster node, run the following "
 "commands in one instance of your choice (the example is for "
@@ -12433,7 +12526,7 @@ msgstr ""
 " seguenti comandi in un'istanza a scelta (l'esempio è per ``openldap1``):"
 " ::"
 
-#: ../../release_notes.rst:427
+#: ../../release_notes.rst:500
 msgid ""
 "**Mattermost upgrade procedure** -- Mattermost upgrade must be completed "
 "manually to allocate and open UDP ports required by the Calls plugin. "
@@ -12448,15 +12541,15 @@ msgstr ""
 "quindi l'istanza in esecuzione e, completato il clone, rimuovere la "
 "vecchia istanza."
 
-#: ../../release_notes.rst:434
+#: ../../release_notes.rst:507
 msgid "Major changes on 2023-09-13"
 msgstr "Principali cambiamenti del 2023-09-13"
 
-#: ../../release_notes.rst:436
+#: ../../release_notes.rst:509
 msgid "**Beta 2**"
 msgstr "**Beta 2**"
 
-#: ../../release_notes.rst:438
+#: ../../release_notes.rst:511
 msgid ""
 "**Pre-built image** -- Images are based on Rocky Linux. Available formats"
 " are ``.qcow2`` for QEMU/Proxmox and ``.vmdk`` for VMware. See :ref"
@@ -12467,7 +12560,7 @@ msgstr ""
 "Fare riferimento a :ref:`install_image-section` per i link di download "
 "dell e immagini."
 
-#: ../../release_notes.rst:442
+#: ../../release_notes.rst:515
 msgid ""
 "**FQDN requirement** -- The cluster creation procedure now asks to review"
 " and set the current system host name. The host name is expected in short"
@@ -12483,11 +12576,11 @@ msgstr ""
 "il file ``/etc/hosts`` aggiungendo un record per risolvere correttamente "
 "il fully qualified domain name (FQDN). Per esempio:"
 
-#: ../../release_notes.rst:450
+#: ../../release_notes.rst:523
 msgid "See also :ref:`dns-reqs`."
 msgstr "Vedi anche :ref:`dns-reqs`."
 
-#: ../../release_notes.rst:452
+#: ../../release_notes.rst:525
 msgid ""
 "**WireGuard port 55820** -- The UDP port used by WireGuard in the "
 "creation of the cluster VPN is now fixed to ``55820``. Clusters already "
@@ -12502,7 +12595,7 @@ msgstr ""
 "se la porta personalizzata è ``55821`` eseguire sul nodo leader i "
 "seguenti passaggi per risolvere il problema."
 
-#: ../../release_notes.rst:458
+#: ../../release_notes.rst:531
 msgid ""
 "Fix the VPN public endpoint address in Redis. For example, if the leader "
 "node is ``1`` and its FQDN is ``node1.example.org`` ::"
@@ -12510,15 +12603,15 @@ msgstr ""
 "Correggere l'indirizzo di endpoint pubblico VPN in Redis. Ad esempio, se "
 "il nodo leader è ``1`` e il suo FQDN è ``node1.example.org``::"
 
-#: ../../release_notes.rst:463
+#: ../../release_notes.rst:536
 msgid "Fix the firewall configuration ::"
 msgstr "Correggere la configurazione del firewall ::"
 
-#: ../../release_notes.rst:469
+#: ../../release_notes.rst:542
 msgid "Change the running WireGuard listen port ::"
 msgstr "Modificare la porta di ascolto dell'istanza WireGuard in esecuzione ::"
 
-#: ../../release_notes.rst:473
+#: ../../release_notes.rst:546
 msgid ""
 "Make the change permanent, by setting ``ListenPort = 55820`` in "
 "``/etc/wireguard/wg0.conf`` ::"
@@ -12526,11 +12619,11 @@ msgstr ""
 "Rendere le modifiche permanenti, impostando ``ListenPort = 55820`` nel "
 "file ``/etc/wireguard/wg0.conf`` ::"
 
-#: ../../release_notes.rst:478
+#: ../../release_notes.rst:551
 msgid "Repeat steps 2-4 on each worker node, too."
 msgstr "Ripetere i passi da 2 a 4 anche su ogni nodo worker."
 
-#: ../../release_notes.rst:480
+#: ../../release_notes.rst:553
 msgid ""
 "**Debian upgrade** -- After running the core update, installations based "
 "on Debian 11 (Bullseye) must be manually upgraded to distribution version"
@@ -12540,7 +12633,7 @@ msgstr ""
 "le installazioni basate su Debian 11 (Bullseye) devono essere aggiornate "
 "manualmente alla versione di distribuzione 12 (Bookworm) ::"
 
-#: ../../release_notes.rst:488
+#: ../../release_notes.rst:561
 msgid ""
 "Follow also the instructions for Python 3.11 upgrade, then **reboot the "
 "system**. Apply the same procedure for each cluster node."
@@ -12549,7 +12642,7 @@ msgstr ""
 "**riavviare il sistema**. Applicare la stessa procedura per ogni nodo del"
 " cluster."
 
-#: ../../release_notes.rst:491
+#: ../../release_notes.rst:564
 msgid ""
 "**Python 3.11** -- After running the core update, installations based on "
 "Rocky Linux (and other EL-like distributions) must manually install "
@@ -12559,7 +12652,7 @@ msgstr ""
 "installazioni basate su Rocky Linux (e altre distribuzioni EL-like) "
 "devono installare manualmente Python 3.11: ::"
 
-#: ../../release_notes.rst:497
+#: ../../release_notes.rst:570
 msgid ""
 "The following Bash script is required by Debian, too. Do not forget the "
 "round brackets! ::"
@@ -12567,15 +12660,15 @@ msgstr ""
 "Debian necessita anche l'esecuzione del seguente script Bash. Non "
 "tralasciare le parentesi tonde! ::"
 
-#: ../../release_notes.rst:509
+#: ../../release_notes.rst:582
 msgid "Check if the Python upgrade was successfull: ::"
 msgstr "Controllare se l'aggiornamento Python ha avuto successo: ::"
 
-#: ../../release_notes.rst:513 ../../release_notes.rst:548
+#: ../../release_notes.rst:586 ../../release_notes.rst:621
 msgid "Apply the same procedure for each cluster node."
 msgstr "Applicare la stessa procedura per ogni nodo del cluster."
 
-#: ../../release_notes.rst:515
+#: ../../release_notes.rst:588
 msgid ""
 "**UI security enhancements** -- Since the Beta 1 release an important "
 "security update has been released, and other security improvements are "
@@ -12588,7 +12681,7 @@ msgstr ""
 "l'aggiornamento del core, ricaricare la pagina del browser con ``CTRL + "
 "Shift + R`` o altro metodo equivalente."
 
-#: ../../release_notes.rst:520
+#: ../../release_notes.rst:593
 msgid ""
 "**Logs backend improved** -- The Logs page backend has been improved to "
 "be faster and more accurate in capturing the logs of every cluster "
@@ -12603,7 +12696,7 @@ msgstr ""
 "possibile disinstallare i moduli di base di Promtail eseguendo questo "
 "comando sul nodo leader: ::"
 
-#: ../../release_notes.rst:528
+#: ../../release_notes.rst:601
 msgid ""
 "Note that the new Logs page cannot access old log entries. To see log "
 "entries before the Beta 2 upgrade, use the `logcli` command."
@@ -12612,7 +12705,7 @@ msgstr ""
 " registro. Per visualizzare le voci di registro precedenti "
 "all'aggiornamento Beta 2, utilizzare il comando `logcli`."
 
-#: ../../release_notes.rst:531
+#: ../../release_notes.rst:604
 msgid ""
 "**TLS certificate upload** -- The ``TLS certificates`` card under the "
 "``Settings`` page was extended to allow the upload of a certificate and "
@@ -12624,7 +12717,7 @@ msgstr ""
 "un certificato e della chiave privata ad esso associata. Si veda la "
 "sezione :ref:`certificate_manager-section`."
 
-#: ../../release_notes.rst:536
+#: ../../release_notes.rst:609
 msgid ""
 "**Additional backup providers** -- Backup repositories can be created "
 "also on Microsoft Azure and S3-compatible cloud storage providers."
@@ -12633,7 +12726,7 @@ msgstr ""
 "essere creati anche su cloud storage provider compatibili con Microsoft "
 "Azure e S3."
 
-#: ../../release_notes.rst:539
+#: ../../release_notes.rst:612
 msgid ""
 "**New Traefik configuration backend** -- The cluster Redis DB is not used"
 " any more by Traefik module instances as their dynamic configuration "
@@ -12648,11 +12741,11 @@ msgstr ""
 "possibile disabilitare una funzione specifica per Traefik con i seguenti "
 "comandi: ::"
 
-#: ../../release_notes.rst:550
+#: ../../release_notes.rst:623
 msgid "**Mail module improvements**"
 msgstr "**Miglioramenti modulo mail**"
 
-#: ../../release_notes.rst:552
+#: ../../release_notes.rst:625
 msgid ""
 "New installations of the Mail module have the ``Shared seen`` option "
 "enabled by default. Existing installations will find the switch disabled."
@@ -12664,7 +12757,7 @@ msgstr ""
 " l'interruttore disabilitato. Vedi anche la sezione relativa a "
 ":ref:`impostazioni caselle e-mail <mail-mailboxes-settings>`."
 
-#: ../../release_notes.rst:557
+#: ../../release_notes.rst:630
 msgid ""
 "Added the open source Dovecot plugin *Flatcurve* to enable full text "
 "search (FTS) of email messages.  To massively rebuild the search indexes "
@@ -12675,7 +12768,7 @@ msgstr ""
 "massicciamente gli indici di ricerca eseguire il seguente comando durante"
 " il tempo di inattività del sistema: ::"
 
-#: ../../release_notes.rst:563
+#: ../../release_notes.rst:636
 msgid ""
 "Only PDF attachments and the email itself are added to the index. In "
 "future releases more attachment formats will be supported."
@@ -12683,29 +12776,29 @@ msgstr ""
 "Solo gli allegati PDF e l'e-mail stessa vengono aggiunti all'indice. In "
 "futuro saranno supportati più formati di allegati."
 
-#: ../../release_notes.rst:568
+#: ../../release_notes.rst:641
 msgid "Major changes on 2023-05-10"
 msgstr "Principali cambiamenti del 2023-05-10"
 
-#: ../../release_notes.rst:570
+#: ../../release_notes.rst:643
 msgid "**Beta 1**"
 msgstr "**Beta 1**"
 
-#: ../../release_notes.rst:572
+#: ../../release_notes.rst:645
 msgid "Main core features include:"
 msgstr "Le caratteristiche principali del core includono:"
 
-#: ../../release_notes.rst:574
+#: ../../release_notes.rst:647
 msgid "Node management: add and remove nodes from the system"
 msgstr "Gestione dei nodi: aggiunta e rimozione di nodi dal sistema"
 
-#: ../../release_notes.rst:575
+#: ../../release_notes.rst:648
 msgid "Centralized logging: collect all logs in one place for easy monitoring"
 msgstr ""
 "Centralizzazione log: raccolta di tutti i log in un unico posto per un "
 "monitoraggio semplificato"
 
-#: ../../release_notes.rst:576
+#: ../../release_notes.rst:649
 msgid ""
 "Configuration and data backups: regularly save cluster settings and "
 "application data to remote providers like Amazon S3 and Backblaze B2"
@@ -12714,7 +12807,7 @@ msgstr ""
 "cluster e i dati delle applicazioni in provider remoti come Amazon S3 e "
 "Backblaze B2"
 
-#: ../../release_notes.rst:577
+#: ../../release_notes.rst:650
 msgid ""
 "Authentication: support for both Active Directory and LDAP (RFC2307) user"
 " directories"
@@ -12722,7 +12815,7 @@ msgstr ""
 "Autenticazione: supporto per le directory utente Active Directory e LDAP "
 "(RFC2307)"
 
-#: ../../release_notes.rst:578
+#: ../../release_notes.rst:651
 msgid ""
 "File server: implement an SMB (Server Message Block) file server that "
 "enables seamless integration with Windows-based networks"
@@ -12731,7 +12824,7 @@ msgstr ""
 " che consente l'integrazione senza soluzione di continuità con le reti "
 "basate su Windows"
 
-#: ../../release_notes.rst:579
+#: ../../release_notes.rst:652
 msgid ""
 "Auditing: track changes made within the system to ensure security and "
 "accountability"
@@ -12739,7 +12832,7 @@ msgstr ""
 "Auditing: tracciatura delle modifiche apportate all'interno del sistema "
 "per garantire sicurezza e responsabilità"
 
-#: ../../release_notes.rst:580
+#: ../../release_notes.rst:653
 msgid ""
 "Email relay: use a smart host to route outgoing emails  through a trusted"
 " server"
@@ -12747,13 +12840,13 @@ msgstr ""
 "Relay e-mail: utilizzo di uno smart host per l'invio delle e-mail in "
 "uscita tramite un server affidabile"
 
-#: ../../release_notes.rst:581
+#: ../../release_notes.rst:654
 msgid "Custom web routing: define custom URLs to handle specific requests"
 msgstr ""
 "Web routing personalizzato: definire URL personalizzati per gestire "
 "richieste specifiche"
 
-#: ../../release_notes.rst:582
+#: ../../release_notes.rst:655
 msgid ""
 "Multi-factor authentication: enable two-step verification for "
 "administrator accounts"
@@ -12761,7 +12854,7 @@ msgstr ""
 "Autenticazione multifattore: abilitare la verifica a due fasi per gli "
 "account amministratore"
 
-#: ../../release_notes.rst:583
+#: ../../release_notes.rst:656
 msgid ""
 "Built-in firewall: protect against unauthorized access at the network "
 "level by implementing a local firewall"
@@ -12769,7 +12862,7 @@ msgstr ""
 "Firewall integrato: proteggere dall'accesso non autorizzato a livello di "
 "rete implementando un firewall locale"
 
-#: ../../release_notes.rst:584
+#: ../../release_notes.rst:657
 msgid ""
 "Migration: :ref:`Cockpit module <migration-section>` to import NethServer"
 " 7 applications"
@@ -12777,11 +12870,11 @@ msgstr ""
 "Migrazione: :ref:`Modulo Cockpit <migration-section>` per importare "
 "applicazioni da NethServer 7"
 
-#: ../../release_notes.rst:586
+#: ../../release_notes.rst:659
 msgid "Additional modules:"
 msgstr "Moduli aggiuntivi:"
 
-#: ../../release_notes.rst:588
+#: ../../release_notes.rst:661
 msgid ""
 "Collaborative tools: includes Dovecot/Postfix/Rspamd mail server, WebTop,"
 " Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, "
@@ -12791,7 +12884,7 @@ msgstr ""
 "Dovecot/Postfix/Rspamd, WebTop, Roundcubemail, Nextcloud, Collabora "
 "Online, Dokuwiki, ejabberd, Mattermost"
 
-#: ../../release_notes.rst:589
+#: ../../release_notes.rst:662
 msgid ""
 "Development utilities: features MariaDB and NGINX web server for creating"
 " dynamic applications and services"
@@ -12799,7 +12892,7 @@ msgstr ""
 "Utility di sviluppo: funzionalità MariaDB e web server NGINX per la "
 "creazione di applicazioni e servizi dinamici"
 
-#: ../../release_notes.rst:590
+#: ../../release_notes.rst:663
 msgid ""
 "Monitoring and analysis: offers Grafana, Prometheus, and node_exporter "
 "for tracking performance metrics and identifying potential issues"
@@ -12808,7 +12901,7 @@ msgstr ""
 "monitoraggio delle metriche delle prestazioni e l'individuazione di "
 "potenziali problemi"
 
-#: ../../release_notes.rst:591
+#: ../../release_notes.rst:664
 msgid ""
 "Data storage: offers MinIO for managing large amounts of structured and "
 "unstructured data"
@@ -12816,7 +12909,7 @@ msgstr ""
 "Memorizzazione dati: offre MinIO per la gestione di grandi quantità di "
 "dati strutturati e non strutturati"
 
-#: ../../release_notes.rst:592
+#: ../../release_notes.rst:665
 msgid ""
 "Network defense: implements CrowdSec for protecting local applications "
 "against remote attacks"
@@ -12824,11 +12917,11 @@ msgstr ""
 "Protezione di rete: implementa CrowdSec per proteggere le applicazioni "
 "locali da attacchi remoti"
 
-#: ../../release_notes.rst:594
+#: ../../release_notes.rst:667
 msgid "The following known limitations will be resolved in future updates:"
 msgstr "Le seguenti limitazioni note saranno risolte negli aggiornamenti futuri:"
 
-#: ../../release_notes.rst:596
+#: ../../release_notes.rst:669
 msgid ""
 "currently, the system only uses TLS certificates issued by Let's Encrypt "
 "or self-signed certificates generated locally"
@@ -12837,11 +12930,11 @@ msgstr ""
 "rilasciati da Let's Encrypt o certificati auto-firmati generati "
 "localmente"
 
-#: ../../release_notes.rst:597
+#: ../../release_notes.rst:670
 msgid "user login is not supported on worker nodes"
 msgstr "il login utente non è supportato su nodi worker"
 
-#: ../../release_notes.rst:598
+#: ../../release_notes.rst:671
 msgid ""
 "the mail module does not offer sender-based or destination-based message "
 "relay options"
@@ -12849,7 +12942,7 @@ msgstr ""
 "il modulo di posta non offre opzioni di relay dei messaggi basati sul "
 "mittente o sulla destinazione"
 
-#: ../../release_notes.rst:599
+#: ../../release_notes.rst:672
 msgid ""
 "only a limited number of cloud storage providers are available for "
 "backing up data"
@@ -12857,11 +12950,11 @@ msgstr ""
 "solo un numero limitato di cloud storage provider sono disponibili per il"
 " backup dei dati"
 
-#: ../../release_notes.rst:604
+#: ../../release_notes.rst:677
 msgid "Releases glossary"
 msgstr "Glossario rilasci"
 
-#: ../../release_notes.rst:606
+#: ../../release_notes.rst:679
 msgid ""
 "The software release cycle includes four stages: Alpha, Beta, Release "
 "Candidate (RC), and Stable."
@@ -12869,7 +12962,7 @@ msgstr ""
 "Il ciclo di rilascio del software comprende quattro fasi: Alpha, Beta, "
 "Release Candidate (RC), e Stable."
 
-#: ../../release_notes.rst:608
+#: ../../release_notes.rst:681
 msgid ""
 "During the **Alpha** stage, the software is not thoroughly tested and may"
 " not include all planned features. This release is not suitable for "
@@ -12884,7 +12977,7 @@ msgstr ""
 "Gli aggiornamenti da un rilascio Alpha ad altre versioni non sono "
 "supportati."
 
-#: ../../release_notes.rst:612
+#: ../../release_notes.rst:685
 msgid ""
 "The **Beta** stage indicates that the software is mostly feature "
 "complete, but it may still contain many known and unknown bugs. This "
@@ -12900,7 +12993,7 @@ msgstr ""
 "produzione. Gli aggiornamenti da un rilascio Beta a un rilascio RC o "
 "stabile sono supportati ma possono richiedere una procedura manuale."
 
-#: ../../release_notes.rst:616
+#: ../../release_notes.rst:689
 msgid ""
 "During the **Release Candidate (RC)** stage, the software is feature "
 "complete, and it contains no known bugs. If no major issues arise, it can"
@@ -12916,7 +13009,7 @@ msgstr ""
 "Tuttavia è meglio utilizzarlo in produzione solo se hai già esperienza "
 "con il software."
 
-#: ../../release_notes.rst:621
+#: ../../release_notes.rst:694
 msgid ""
 "The **Stable** release is the most reliable and safe to use in production"
 " environments. It has been thoroughly tested and is considered to be free"
@@ -13575,11 +13668,11 @@ msgstr ""
 msgid ""
 "The cluster node where the destination instance runs can be the same as "
 "the source instance. Generally, there should be no limitation on running "
-"multiple application instances on the same node. In some cases, the "
-"services provided by the instance might require exclusive access to a "
-"particular system resource, such as binding a fixed TCP port number. In "
-"this case starting additional instances of the same service becomes "
-"impossible."
+"multiple application instances on the same node. However, in some cases, "
+"cloning to certain cluster nodes may be restricted due to application "
+"policies, node resource limitations, or because the instance requires "
+"exclusive access to a system resource, such as binding a fixed TCP port "
+"number."
 msgstr ""
 "Il nodo del cluster in cui viene eseguita l'istanza destinazione può "
 "essere lo stesso dell'istanza sorgente. Generalmente, non dovrebbe "
@@ -20269,4 +20362,19 @@ msgstr ""
 #~ "domain in NS8 (applicable only for "
 #~ "OpenLDAP account providers)."
 #~ msgstr ""
+
+#~ msgid "Select the target node."
+#~ msgstr "selezionare il nodo di destinazione"
+
+#~ msgid ""
+#~ "List of `known bugs "
+#~ "<https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_"
+#~ msgstr ""
+#~ "Elenco dei `bug noti "
+#~ "<https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_"
+
+#~ msgid ""
+#~ "Discussions around `possible bugs "
+#~ "<http://community.nethserver.org/c/bug>`_"
+#~ msgstr "Discussioni su `possibili bug <http://community.nethserver.org/c/bug>`_"
 
