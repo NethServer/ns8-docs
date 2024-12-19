@@ -6,8 +6,14 @@ Release notes
 
 NethServer 8 releases
 
-- List of `known bugs <https://github.com/NethServer/dev/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug>`_
-- Discussions around `possible bugs <http://community.nethserver.org/c/bug>`_
+- List of `known bugs`__ on GitHub
+
+  __ https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8
+
+- Discussions around `possible bugs`__ on our public forum
+
+  __ http://community.nethserver.org/c/bug
+
 
 Major changes on 2024-10-16
 ===========================
