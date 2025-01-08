@@ -40,15 +40,16 @@ The Netdata Agent configuration is derived from the stock Netdata official
 Docker image. It has three tiers of storage with different metrics
 resolution and retention policies: second, minute, hour. 
 
-.. csv-table:: Retention policy per storage tier
+.. csv-table:: Configured retention policy per storage tier
    :header: "Tier", "Resolution", "Retention period", "Disk retention"
 
-    "Tier 0", "1 second", "3 hours",  "268 MB"
-    "Tier 1", "1 minute", "infinite", "268 MB"
-    "Tier 2", "1 hour",   "infinite", "67 MB"
+    "Tier 0", "1 second", "14 days",  "1 GB"
+    "Tier 1", "1 minute", "3 months", "1 GB"
+    "Tier 2", "1 hour",   "2 years", "1 GB"
 
-The stock configuration provides 3 hours of fine-grained metrics with one
-second resolution. The minute-level tier should be sufficient to cover one day
-of recordings, while the hour-level should cover a time range of weeks.
-Actual retention may vary depending on system activity or the specific metrics
-being collected.
+The stock configuration provides up to 14 days of fine-grained metrics
+with one-second resolution. The minute-level tier can cover up to 3 months
+of recordings, while the hour-level tier can cover up to 2 years. Actual
+retention may vary depending on system activity and the specific metrics
+collected. The actual disk space used depends on the data's compression
+efficiency.
