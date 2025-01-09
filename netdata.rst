@@ -40,7 +40,7 @@ The Netdata Agent configuration is derived from the stock Netdata official
 Docker image. It has three tiers of storage with different metrics
 resolution and retention policies: second, minute, hour. 
 
-.. csv-table:: Configured retention policy per storage tier
+.. csv-table:: Configured retention limits per storage tier
    :header: "Tier", "Resolution", "Retention period", "Disk retention"
 
     "Tier 0", "1 second", "14 days",  "1 GB"
@@ -53,3 +53,6 @@ of recordings, while the hour-level tier can cover up to 2 years. Actual
 retention may vary depending on system activity and the specific metrics
 collected. The actual disk space used depends on the data's compression
 efficiency.
+
+Data is deleted once it reaches either the time limit or the disk space
+limit, whichever comes first.
