@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-19 17:17+0000\n"
+"POT-Creation-Date: 2025-01-09 09:44+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -6707,7 +6707,7 @@ msgid ""
 msgstr ""
 
 #: ../../netdata.rst:43
-msgid "Retention policy per storage tier"
+msgid "Configured retention limits per storage tier"
 msgstr ""
 
 #: ../../netdata.rst:1
@@ -6739,11 +6739,11 @@ msgid "1 second"
 msgstr ""
 
 #: ../../netdata.rst:1
-msgid "3 hours"
+msgid "14 days"
 msgstr ""
 
 #: ../../netdata.rst:1
-msgid "268 MB"
+msgid "1 GB"
 msgstr ""
 
 #: ../../netdata.rst:1
@@ -6755,7 +6755,7 @@ msgid "1 minute"
 msgstr ""
 
 #: ../../netdata.rst:1
-msgid "infinite"
+msgid "3 months"
 msgstr ""
 
 #: ../../netdata.rst:1
@@ -6767,16 +6767,24 @@ msgid "1 hour"
 msgstr ""
 
 #: ../../netdata.rst:1
-msgid "67 MB"
-msgstr ""
+#, fuzzy
+msgid "2 years"
+msgstr "Yes"
 
 #: ../../netdata.rst:50
 msgid ""
-"The stock configuration provides 3 hours of fine-grained metrics with one"
-" second resolution. The minute-level tier should be sufficient to cover "
-"one day of recordings, while the hour-level should cover a time range of "
-"weeks. Actual retention may vary depending on system activity or the "
-"specific metrics being collected."
+"The stock configuration provides up to 14 days of fine-grained metrics "
+"with one-second resolution. The minute-level tier can cover up to 3 "
+"months of recordings, while the hour-level tier can cover up to 2 years. "
+"Actual retention may vary depending on system activity and the specific "
+"metrics collected. The actual disk space used depends on the data's "
+"compression efficiency."
+msgstr ""
+
+#: ../../netdata.rst:57
+msgid ""
+"Data is deleted once it reaches either the time limit or the disk space "
+"limit, whichever comes first."
 msgstr ""
 
 #: ../../nethsecurity_controller.rst:5
@@ -20377,4 +20385,31 @@ msgstr ""
 #~ "Discussions around `possible bugs "
 #~ "<http://community.nethserver.org/c/bug>`_"
 #~ msgstr "Discussioni su `possibili bug <http://community.nethserver.org/c/bug>`_"
+
+#~ msgid "Retention policy per storage tier"
+#~ msgstr ""
+
+#~ msgid "3 hours"
+#~ msgstr ""
+
+#~ msgid "268 MB"
+#~ msgstr ""
+
+#~ msgid "infinite"
+#~ msgstr ""
+
+#~ msgid "67 MB"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The stock configuration provides 3 hours"
+#~ " of fine-grained metrics with one "
+#~ "second resolution. The minute-level tier"
+#~ " should be sufficient to cover one"
+#~ " day of recordings, while the "
+#~ "hour-level should cover a time range"
+#~ " of weeks. Actual retention may vary"
+#~ " depending on system activity or the"
+#~ " specific metrics being collected."
+#~ msgstr ""
 
