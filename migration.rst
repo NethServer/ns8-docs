@@ -361,8 +361,8 @@ The following configurations are not migrated:
 - System smart host settings, if the NS7 Email app is either not installed
   or not migrated
 
-- The feature ``Accept unknown recipients`` of the mail server that will catch all messages sent to non-existing addresses.(see
-  :ref:`email_domains`)
+- The ``Accept unknown recipients`` setting of the mail server, which catches
+  messages sent to non-existing addresses. See :ref:`email_domains` for details.
 
 Additionally, shared folders will not be migrated if NS7 uses a remote
 account provider.
