@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 09:44+0000\n"
+"POT-Creation-Date: 2025-01-16 11:41+0000\n"
 "PO-Revision-Date: 2024-05-22 09:01+0000\n"
 "Last-Translator: mamengoni <matteo.mengoni@nethesis.it>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.10.3\n"
 
 #: ../../backup.rst:5
 msgid "Backup and restore"
@@ -3175,7 +3175,7 @@ msgstr "Informazioni"
 msgid "Installation"
 msgstr "Installazione"
 
-#: ../../index.rst:48 ../../modules.rst:7 ../../nethvoice.rst:1041
+#: ../../index.rst:48 ../../modules.rst:7 ../../nethvoice.rst:1065
 msgid "Applications"
 msgstr "Applicazioni"
 
@@ -4980,7 +4980,7 @@ msgid ""
 msgstr ""
 
 #: ../../mail.rst:496 ../../nethvoice.rst:227 ../../nethvoice.rst:370
-#: ../../nethvoice.rst:1240
+#: ../../nethvoice.rst:1264
 #, fuzzy
 msgid "Settings"
 msgstr "Settings"
@@ -6762,7 +6762,7 @@ msgstr ""
 msgid "Tier 2"
 msgstr ""
 
-#: ../../netdata.rst:1 ../../nethvoice.rst:1248
+#: ../../netdata.rst:1 ../../nethvoice.rst:1272
 msgid "1 hour"
 msgstr ""
 
@@ -7146,7 +7146,7 @@ msgstr ""
 "The user is highlighted, and a green checkmark appears if everything has "
 "been successful."
 
-#: ../../nethvoice.rst:69 ../../nethvoice.rst:1034
+#: ../../nethvoice.rst:69 ../../nethvoice.rst:1058
 #, fuzzy
 msgid "Trunks"
 msgstr "Trunks"
@@ -7851,7 +7851,7 @@ msgstr ""
 "``Group CDR``: Enables the viewing of call history for calls within one's"
 " assigned group."
 
-#: ../../nethvoice.rst:265 ../../nethvoice.rst:1048 ../../nethvoice.rst:1083
+#: ../../nethvoice.rst:265 ../../nethvoice.rst:1072 ../../nethvoice.rst:1107
 #, fuzzy
 msgid "Customer Cards"
 msgstr "Etichette personalizzate"
@@ -8036,7 +8036,7 @@ msgstr ""
 "Only one configured queue in NethVoice needs to be enabled to use it as "
 "the source of calls to manage."
 
-#: ../../nethvoice.rst:308 ../../nethvoice.rst:1017
+#: ../../nethvoice.rst:308 ../../nethvoice.rst:1041
 msgid "Users"
 msgstr "Utenti"
 
@@ -8321,7 +8321,7 @@ msgstr ""
 "The Advanced section allows direct access to the advanced interface of "
 "NethVoice."
 
-#: ../../nethvoice.rst:384 ../../nethvoice.rst:984
+#: ../../nethvoice.rst:384 ../../nethvoice.rst:1008
 #, fuzzy
 msgid "Provisioning"
 msgstr "Permissions"
@@ -9878,51 +9878,116 @@ msgstr ""
 msgid "Entering an incorrect VLAN identifier can render the phone unreachable."
 msgstr "Entering an incorrect VLAN identifier can render the phone unreachable."
 
-#: ../../nethvoice.rst:964
-msgid "Gateway Provisioning"
+#: ../../nethvoice.rst:966
+msgid "Click to Call"
 msgstr ""
 
-#: ../../nethvoice.rst:967
-msgid "Supported Gateways"
-msgstr ""
-
-#: ../../nethvoice.rst:970
-msgid "GRANDSTREAM"
+#: ../../nethvoice.rst:968
+msgid ""
+"**Click-to-Call** refers to the functionality of initiating calls "
+"automatically by clicking on a phone number. The methods available depend"
+" on the chosen device:"
 msgstr ""
 
 #: ../../nethvoice.rst:972
-msgid "FXS Models HT801 and HT802"
+msgid "**Web Phone**:"
 msgstr ""
 
-#: ../../nethvoice.rst:973
-msgid "FXS Models HT812 and HT814"
+#: ../../nethvoice.rst:972
+msgid "Click-to-call is only possible within the **NethVoice CTI** web interface."
 msgstr ""
 
-#: ../../nethvoice.rst:974
-msgid "FXS Models GXW4216, GXW4224, GXW4232, and GXW4248"
+#: ../../nethvoice.rst:985
+msgid "**Other Devices**:"
+msgstr ""
+
+#: ../../nethvoice.rst:975
+msgid ""
+"To use click-to-call with devices other than the web phone, the `NethLink"
+" <https://nethserver.github.io/nethlink/>`_ client must be installed and "
+"configured on the user's system. Additionally, **NethLink** must be "
+"enabled for the user beforehand."
 msgstr ""
 
 #: ../../nethvoice.rst:977
-msgid "PATTON"
+msgid "**Desktop Phone** client provided by **NethLink**:"
+msgstr ""
+
+#: ../../nethvoice.rst:978
+msgid ""
+"Click-to-call can be performed directly in the **NethVoice CTI** web "
+"interface."
 msgstr ""
 
 #: ../../nethvoice.rst:979
-msgid "BRI Trinity Models"
+msgid ""
+"On a Windows or Mac PC, **NethLink** can be set as the client for the "
+"`tel` or `callto` protocol, allowing it to handle phone numbers "
+"recognized by the operating system."
 msgstr ""
 
 #: ../../nethvoice.rst:980
-msgid "PRI Trinity Models"
+msgid "**Physical Phones**:"
 msgstr ""
 
 #: ../../nethvoice.rst:981
-msgid "FXO Trinity Models"
-msgstr ""
-
-#: ../../nethvoice.rst:986
-msgid "Gateway configuration is carried out in the Wizard."
+msgid ""
+"For physical phones supported and configured through **NethVoice** "
+"provisioning, click-to-call can only be performed if the client and the "
+"phone can communicate directly, such as when they are on the same local "
+"network or in two interconnected networks. The click-to-call process in "
+"this configuration is identical to that of the **Desktop Phone** client: "
+"- Click-to-call can be performed directly in the **NethVoice CTI** web "
+"interface. - On a Windows or Mac PC, **NethLink** can be set as the "
+"client for the `tel` or `callto` protocol, allowing it to handle phone "
+"numbers recognized by the operating system."
 msgstr ""
 
 #: ../../nethvoice.rst:988
+msgid "Gateway Provisioning"
+msgstr ""
+
+#: ../../nethvoice.rst:991
+msgid "Supported Gateways"
+msgstr ""
+
+#: ../../nethvoice.rst:994
+msgid "GRANDSTREAM"
+msgstr ""
+
+#: ../../nethvoice.rst:996
+msgid "FXS Models HT801 and HT802"
+msgstr ""
+
+#: ../../nethvoice.rst:997
+msgid "FXS Models HT812 and HT814"
+msgstr ""
+
+#: ../../nethvoice.rst:998
+msgid "FXS Models GXW4216, GXW4224, GXW4232, and GXW4248"
+msgstr ""
+
+#: ../../nethvoice.rst:1001
+msgid "PATTON"
+msgstr ""
+
+#: ../../nethvoice.rst:1003
+msgid "BRI Trinity Models"
+msgstr ""
+
+#: ../../nethvoice.rst:1004
+msgid "PRI Trinity Models"
+msgstr ""
+
+#: ../../nethvoice.rst:1005
+msgid "FXO Trinity Models"
+msgstr ""
+
+#: ../../nethvoice.rst:1010
+msgid "Gateway configuration is carried out in the Wizard."
+msgstr ""
+
+#: ../../nethvoice.rst:1012
 msgid ""
 "Gateway provisioning adheres to the same guidelines as provisioning for "
 "phones, with one key distinction: unlike phones, NethVoice establishes a "
@@ -9930,148 +9995,148 @@ msgid ""
 "eliminating the need for the gateway to fetch it."
 msgstr ""
 
-#: ../../nethvoice.rst:990
+#: ../../nethvoice.rst:1014
 msgid ""
 "Gateway configuration is performed with the gateway online; by default, "
 "gateways initiate in DHCP mode."
 msgstr ""
 
-#: ../../nethvoice.rst:992
+#: ../../nethvoice.rst:1016
 msgid ""
 "However, by selecting :guilabel:`Add Gateway`, it is feasible to generate"
 " a configuration for a gateway not yet connected and subsequently "
 "configure it by uploading the file through the gateway's web interface."
 msgstr ""
 
-#: ../../nethvoice.rst:995
+#: ../../nethvoice.rst:1019
 #, fuzzy
 msgid "Configuring Gateways"
 msgstr "Configurazione"
 
-#: ../../nethvoice.rst:997
+#: ../../nethvoice.rst:1021
 msgid ""
 "To configure the gateway, it is necessary to specify a few required "
 "configuration parameters:"
 msgstr ""
 
-#: ../../nethvoice.rst:999
+#: ../../nethvoice.rst:1023
 msgid "Device IP address; gateway configuration necessitates a static IP."
 msgstr ""
 
-#: ../../nethvoice.rst:1000
+#: ../../nethvoice.rst:1024
 #, fuzzy
 msgid "Subnet mask."
 msgstr "Sub-tasks"
 
-#: ../../nethvoice.rst:1001
+#: ../../nethvoice.rst:1025
 #, fuzzy
 msgid "Network gateway."
 msgstr "Network"
 
-#: ../../nethvoice.rst:1002
+#: ../../nethvoice.rst:1026
 msgid ""
 "NethVoice IP address; in some installation scenarios, the gateway may "
 "connect to NethVoice via a non-local IP."
 msgstr ""
 
-#: ../../nethvoice.rst:1003
+#: ../../nethvoice.rst:1027
 msgid ""
 "Any characteristics required for configuring connected lines (for ISDN "
 "lines, the ISDN terminal adapter's mode; for analog lines, the dialed "
 "number of the line)."
 msgstr ""
 
-#: ../../nethvoice.rst:1005
+#: ../../nethvoice.rst:1029
 msgid ""
 "For Grandstream models with 2 network interfaces, the LAN interface's MAC"
 " address must be provided, but NethVoice's configuration utilizes the WAN"
 " interface, which will be the one used."
 msgstr ""
 
-#: ../../nethvoice.rst:1007
+#: ../../nethvoice.rst:1031
 msgid ""
 "To download the gateway configuration for uploading via the web "
 "interface, click on the management button (symbol with three squares)."
 msgstr ""
 
-#: ../../nethvoice.rst:1010
+#: ../../nethvoice.rst:1034
 msgid "Dashboard"
 msgstr ""
 
-#: ../../nethvoice.rst:1012
+#: ../../nethvoice.rst:1036
 msgid ""
 "The dashboard serves as the initial page of NethVoice following the first"
 " configuration."
 msgstr ""
 
-#: ../../nethvoice.rst:1014
+#: ../../nethvoice.rst:1038
 msgid "It offers an overview of the elements involved in NethVoice's operation."
 msgstr ""
 
-#: ../../nethvoice.rst:1019
+#: ../../nethvoice.rst:1043
 msgid ""
 "The dashboard showcases the users configured in NethVoice along with "
 "their presence status and telephone devices."
 msgstr ""
 
-#: ../../nethvoice.rst:1021
+#: ../../nethvoice.rst:1045
 msgid ""
 "If a user's presence configuration deviates from the default (Available),"
 " an option exists to reset it to the normal state by clicking on the "
 "eraser symbol."
 msgstr ""
 
-#: ../../nethvoice.rst:1023
+#: ../../nethvoice.rst:1047
 msgid ""
 "Clicking to view details about an individual device displays the "
 "telephone device's specifics:"
 msgstr ""
 
-#: ../../nethvoice.rst:1025
+#: ../../nethvoice.rst:1049
 #, fuzzy
 msgid "Name"
 msgstr "User name"
 
-#: ../../nethvoice.rst:1026
+#: ../../nethvoice.rst:1050
 #, fuzzy
 msgid "Model"
 msgstr "Models"
 
-#: ../../nethvoice.rst:1027
+#: ../../nethvoice.rst:1051
 msgid "IP Address: Clicking facilitates connection over the local network."
 msgstr ""
 
-#: ../../nethvoice.rst:1028
+#: ../../nethvoice.rst:1052
 msgid "SIP Port"
 msgstr ""
 
-#: ../../nethvoice.rst:1029
+#: ../../nethvoice.rst:1053
 msgid "Codecs Used"
 msgstr ""
 
-#: ../../nethvoice.rst:1030
+#: ../../nethvoice.rst:1054
 msgid "DND (Do Not Disturb)"
 msgstr ""
 
-#: ../../nethvoice.rst:1031
+#: ../../nethvoice.rst:1055
 #, fuzzy
 msgid "Call Forward"
 msgstr "Forward"
 
-#: ../../nethvoice.rst:1036
+#: ../../nethvoice.rst:1060
 msgid ""
 "The configured VoIP trunks in NethVoice are displayed along with their "
 "status, indicating technology, IP, port, status, and codec."
 msgstr ""
 
-#: ../../nethvoice.rst:1043
+#: ../../nethvoice.rst:1067
 msgid ""
 "The *Applications* section allows for the creation, modification, or "
 "deletion of certain PBX features, which are initially created and "
 "configured in the wizard but subsequently utilized in the NethVoice CTI."
 msgstr ""
 
-#: ../../nethvoice.rst:1045
+#: ../../nethvoice.rst:1069
 msgid ""
 "For instance, customer cards are set up in the wizard to access the "
 "database and to practically display the obtained information, but the "
@@ -10079,7 +10144,7 @@ msgid ""
 "searching for specific information."
 msgstr ""
 
-#: ../../nethvoice.rst:1050
+#: ../../nethvoice.rst:1074
 msgid ""
 "The *customer cards* section enables the grouping of information from "
 "external databases to the PBX and its display during calls. For example, "
@@ -10089,65 +10154,65 @@ msgid ""
 "card, follow these steps:"
 msgstr ""
 
-#: ../../nethvoice.rst:1054
+#: ../../nethvoice.rst:1078
 #, fuzzy
 msgid "Address Book Sources"
 msgstr "Address Book"
 
-#: ../../nethvoice.rst:1056
+#: ../../nethvoice.rst:1080
 #, fuzzy
 msgid "Click on :guilabel:`Create New Source` and complete the form that appears:"
 msgstr "fare clic sul pulsante :guilabel:`Crea dominio` e scegliere ``Interno``"
 
-#: ../../nethvoice.rst:1058
+#: ../../nethvoice.rst:1082
 msgid ""
 "``Database Type``: Specify the type of database from which information "
 "will be retrieved."
 msgstr ""
 
-#: ../../nethvoice.rst:1059
+#: ../../nethvoice.rst:1083
 #, fuzzy
 msgid "``Database Name``: Specify the name of the database to connect to."
 msgstr "``Trunk Name``: specify name of the trunk"
 
-#: ../../nethvoice.rst:1060
+#: ../../nethvoice.rst:1084
 msgid ""
 "``Database Address``: Specify the address for connecting to the database "
 "(localhost, socket, or external IP)."
 msgstr ""
 
-#: ../../nethvoice.rst:1061
+#: ../../nethvoice.rst:1085
 msgid ""
 "``Database Port``: Specify a port for the database different from the "
 "default one proposed."
 msgstr ""
 
-#: ../../nethvoice.rst:1062
+#: ../../nethvoice.rst:1086
 msgid "``Database User``: Specify the user for database connection."
 msgstr ""
 
-#: ../../nethvoice.rst:1063
+#: ../../nethvoice.rst:1087
 msgid "``Database Password``: Specify the password for database connection."
 msgstr ""
 
-#: ../../nethvoice.rst:1064
+#: ../../nethvoice.rst:1088
 msgid ""
 "``Connection``: Press the \"Verify\" button to test the accuracy of the "
 "entered connection information."
 msgstr ""
 
-#: ../../nethvoice.rst:1066
+#: ../../nethvoice.rst:1090
 msgid ""
 "Press :guilabel:`Save` to add the database source. The newly created "
 "source will be listed among the available sources."
 msgstr ""
 
-#: ../../nethvoice.rst:1069
+#: ../../nethvoice.rst:1093
 #, fuzzy
 msgid "Template"
 msgstr "template custom"
 
-#: ../../nethvoice.rst:1071
+#: ../../nethvoice.rst:1095
 msgid ""
 "Templates serve as the blueprint for your customer cards. They utilize "
 "the `ejs` engine, which boasts a JavaScript-like syntax. This allows for "
@@ -10155,45 +10220,45 @@ msgid ""
 "website https://github.com/tj/ejs."
 msgstr ""
 
-#: ../../nethvoice.rst:1073
+#: ../../nethvoice.rst:1097
 #, fuzzy
 msgid ""
 "To begin the creation process, click on the :guilabel:`Create New "
 "Template` button:"
 msgstr "cliccare sul pulsante :guilabel: `Create route`"
 
-#: ../../nethvoice.rst:1075
+#: ../../nethvoice.rst:1099
 #, fuzzy
 msgid "``Name``: Specify the template's name."
 msgstr "``Model``: specify the gateway model"
 
-#: ../../nethvoice.rst:1076
+#: ../../nethvoice.rst:1100
 msgid ""
 "``Results``: This field contains the output of your query in JSON format."
 " Use the text field to test and see how your HTML template will appear "
 "with your data."
 msgstr ""
 
-#: ../../nethvoice.rst:1077
+#: ../../nethvoice.rst:1101
 msgid ""
 "``Code (ejs)``: Enter your template's code in this text field, adhering "
 "to the ejs syntax and using the values mentioned above (which are "
 "essentially the result columns of your query)."
 msgstr ""
 
-#: ../../nethvoice.rst:1078
+#: ../../nethvoice.rst:1102
 msgid ""
 "``Preview``: By combining the results and the ejs code, you will see the "
 "corresponding HTML output, which will serve as your customer card."
 msgstr ""
 
-#: ../../nethvoice.rst:1080
+#: ../../nethvoice.rst:1104
 msgid ""
 "The PBX already offers some predefined templates with pre-written HTML "
 "code that you can duplicate and modify by altering the color."
 msgstr ""
 
-#: ../../nethvoice.rst:1085
+#: ../../nethvoice.rst:1109
 msgid ""
 "After creating the data source and the template for your card, this "
 "section requires you to merge the two pieces of information to ensure the"
@@ -10201,77 +10266,77 @@ msgid ""
 " and fill out the form:"
 msgstr ""
 
-#: ../../nethvoice.rst:1087
+#: ../../nethvoice.rst:1111
 #, fuzzy
 msgid "``Name``: Name of the customer card."
 msgstr "``Name``: the name of the shared folder"
 
-#: ../../nethvoice.rst:1088
+#: ../../nethvoice.rst:1112
 msgid "``Source``: Specify the previously created database source."
 msgstr ""
 
-#: ../../nethvoice.rst:1089
+#: ../../nethvoice.rst:1113
 msgid "``Template``: Choose the template you previously created."
 msgstr ""
 
-#: ../../nethvoice.rst:1090
+#: ../../nethvoice.rst:1114
 msgid ""
 "``Profile``: Select the type of user profile to which the customer card "
 "you are creating will be displayed."
 msgstr ""
 
-#: ../../nethvoice.rst:1091
+#: ../../nethvoice.rst:1115
 msgid "``Query``: Input the query that will return the relevant information."
 msgstr ""
 
-#: ../../nethvoice.rst:1092
+#: ../../nethvoice.rst:1116
 msgid ""
 "``Render``: By pressing this button, the query will execute on the "
 "specified source, and the data will be inserted into the selected "
 "template, producing the desired output."
 msgstr ""
 
-#: ../../nethvoice.rst:1094
+#: ../../nethvoice.rst:1118
 #, fuzzy
 msgid "Press the :guilabel:`Save` button to save your customer card."
 msgstr "Use the :guilabel:`Add` button to add a custom field inside the panel."
 
-#: ../../nethvoice.rst:1097
+#: ../../nethvoice.rst:1121
 msgid ""
 "Once the query and card have been created and it is verified that "
 "everything works, use the `$NUMBER` variable to replace numerical "
 "parameters in your query."
 msgstr ""
 
-#: ../../nethvoice.rst:1099 ../../user_domains.rst:81
+#: ../../nethvoice.rst:1123 ../../user_domains.rst:81
 msgid "Example:"
 msgstr "Esempio:"
 
-#: ../../nethvoice.rst:1101
+#: ../../nethvoice.rst:1125
 msgid "If your query is as follows: ::"
 msgstr ""
 
-#: ../../nethvoice.rst:1105
+#: ../../nethvoice.rst:1129
 msgid "It should be changed to::"
 msgstr ""
 
-#: ../../nethvoice.rst:1109
+#: ../../nethvoice.rst:1133
 msgid ""
 "The `$NUMBER` variable represents the caller ID of the PBX, referring to "
 "collect the data to be displayed on the customer card."
 msgstr ""
 
-#: ../../nethvoice.rst:1113
+#: ../../nethvoice.rst:1137
 #, fuzzy
 msgid "Phonebook Sources"
 msgstr "Address Book"
 
-#: ../../nethvoice.rst:1115
+#: ../../nethvoice.rst:1139
 #, fuzzy
 msgid "Adding External Address Books"
 msgstr "Google CardDAV remote address book"
 
-#: ../../nethvoice.rst:1117
+#: ../../nethvoice.rst:1141
 msgid ""
 "From the menu :guilabel:`Applications -> Address Book Sources`, you can "
 "define an external source for the contacts NethVoice should use to "
@@ -10280,54 +10345,54 @@ msgid ""
 "NethVoice App."
 msgstr ""
 
-#: ../../nethvoice.rst:1120
+#: ../../nethvoice.rst:1144
 msgid "To configure a new source, three steps are required:"
 msgstr ""
 
-#: ../../nethvoice.rst:1122
+#: ../../nethvoice.rst:1146
 msgid "**Source**: Configure access to the source database of contacts."
 msgstr ""
 
-#: ../../nethvoice.rst:1124
+#: ../../nethvoice.rst:1148
 msgid ""
 "**Mapping**: Associate fields from the source database with those of the "
 "NethVoice address book."
 msgstr ""
 
-#: ../../nethvoice.rst:1126
+#: ../../nethvoice.rst:1150
 msgid "**Settings**: Choose the synchronization interval."
 msgstr ""
 
-#: ../../nethvoice.rst:1129
+#: ../../nethvoice.rst:1153
 #, fuzzy
 msgid "Phonebook Source"
 msgstr "Address Book"
 
-#: ../../nethvoice.rst:1131
+#: ../../nethvoice.rst:1155
 msgid ""
 "A unique :guilabel:`Phonebook Name` must be assigned to the source to "
 "distinguish the origin of the contacts imported into the NethVoice "
 "phonebook."
 msgstr ""
 
-#: ../../nethvoice.rst:1133
+#: ../../nethvoice.rst:1157
 msgid ""
 "Based on the :guilabel:`Source Type`, additional attributes need to be "
 "specified:"
 msgstr ""
 
-#: ../../nethvoice.rst:1135
+#: ../../nethvoice.rst:1159
 #, fuzzy
 msgid "**MySQL**"
 msgstr "**Esempio**"
 
-#: ../../nethvoice.rst:1137
+#: ../../nethvoice.rst:1161
 msgid ""
 "Database name, server address/port, username, and password for the source"
 " database are required."
 msgstr ""
 
-#: ../../nethvoice.rst:1139
+#: ../../nethvoice.rst:1163
 msgid ""
 "Additionally, in the Select query text area, the SQL query used to "
 "retrieve data to be imported into the centralized address book must be "
@@ -10335,11 +10400,11 @@ msgid ""
 "the name of the source table."
 msgstr ""
 
-#: ../../nethvoice.rst:1141
+#: ../../nethvoice.rst:1165
 msgid "**CSV**"
 msgstr ""
 
-#: ../../nethvoice.rst:1143
+#: ../../nethvoice.rst:1167
 msgid ""
 "In the :guilabel:`URL` field, you can specify the web address of a file "
 "in CSV format (Comma-Separated Values, values separated by commas and "
@@ -10348,31 +10413,31 @@ msgid ""
 " accepted."
 msgstr ""
 
-#: ../../nethvoice.rst:1145
+#: ../../nethvoice.rst:1169
 msgid ""
 "Alternatively, you can upload a CSV file via the button to the right of "
 "the same text field. In this case, the :guilabel:`URL` field will be "
 "automatically populated."
 msgstr ""
 
-#: ../../nethvoice.rst:1147
+#: ../../nethvoice.rst:1171
 msgid ""
 "The CSV file must be encoded in UTF-8 and contain column names on the "
 "first row."
 msgstr ""
 
-#: ../../nethvoice.rst:1149
+#: ../../nethvoice.rst:1173
 msgid ""
 "The :guilabel:`Verify` button allows you to preview the data retrieved "
 "from the source."
 msgstr ""
 
-#: ../../nethvoice.rst:1152
+#: ../../nethvoice.rst:1176
 #, fuzzy
 msgid "Custom Name Resolution"
 msgstr "Introduzione"
 
-#: ../../nethvoice.rst:1154
+#: ../../nethvoice.rst:1178
 msgid ""
 "If you wish to use a source other than the centralized address book to "
 "resolve names, you can create a custom resolution script and place it in "
@@ -10380,7 +10445,7 @@ msgid ""
 "directory."
 msgstr ""
 
-#: ../../nethvoice.rst:1156
+#: ../../nethvoice.rst:1180
 msgid ""
 "In the Github repository "
 "`https://github.com/nethesis/ns8-nethvoice/tree/main/freepbx/usr/src/nethvoice/samples`,"
@@ -10388,125 +10453,125 @@ msgid ""
 "which can serve as a starting point for creating your own custom script."
 msgstr ""
 
-#: ../../nethvoice.rst:1158
+#: ../../nethvoice.rst:1182
 msgid ""
 "The *lookup_dummy.php* script returns a fake result for any number dialed"
 " or incoming call, while the lookup_vte.php script utilizes an external "
 "API."
 msgstr ""
 
-#: ../../nethvoice.rst:1242
+#: ../../nethvoice.rst:1266
 msgid "You can choose the synchronization interval for contacts between:"
 msgstr ""
 
-#: ../../nethvoice.rst:1244
+#: ../../nethvoice.rst:1268
 msgid "15 minutes"
 msgstr ""
 
-#: ../../nethvoice.rst:1246
+#: ../../nethvoice.rst:1270
 msgid "30 minutes"
 msgstr ""
 
-#: ../../nethvoice.rst:1250
+#: ../../nethvoice.rst:1274
 msgid "6 hours"
 msgstr ""
 
-#: ../../nethvoice.rst:1252
+#: ../../nethvoice.rst:1276
 msgid "24 hours"
 msgstr ""
 
-#: ../../nethvoice.rst:1254
+#: ../../nethvoice.rst:1278
 msgid "Once the source is created, you can:"
 msgstr ""
 
-#: ../../nethvoice.rst:1256
+#: ../../nethvoice.rst:1280
 #, fuzzy
 msgid "Immediately synchronize using the :guilabel:`Sync` button"
 msgstr "Click the :guilabel:`Save` button"
 
-#: ../../nethvoice.rst:1258
+#: ../../nethvoice.rst:1282
 #, fuzzy
 msgid "Enable/disable synchronization"
 msgstr "Sincronizzazione multipla"
 
-#: ../../nethvoice.rst:1261
+#: ../../nethvoice.rst:1285
 msgid "Parameterized URLs"
 msgstr ""
 
-#: ../../nethvoice.rst:1263
+#: ../../nethvoice.rst:1287
 msgid ""
 "Allows the end user to invoke a parameterized URL upon receiving a call. "
 "The URL will be parameterized with caller data and can be \"opened\" in "
 "one of the following four scenarios:"
 msgstr ""
 
-#: ../../nethvoice.rst:1265
+#: ../../nethvoice.rst:1289
 msgid "Never"
 msgstr ""
 
-#: ../../nethvoice.rst:1267
+#: ../../nethvoice.rst:1291
 msgid "When the incoming call is ringing"
 msgstr ""
 
-#: ../../nethvoice.rst:1269
+#: ../../nethvoice.rst:1293
 msgid "When the incoming call is answered"
 msgstr ""
 
-#: ../../nethvoice.rst:1271
+#: ../../nethvoice.rst:1295
 msgid "By clicking the appropriate button in the call management box"
 msgstr ""
 
-#: ../../nethvoice.rst:1273
+#: ../../nethvoice.rst:1297
 msgid "To create a URL, two pieces of information are required:"
 msgstr ""
 
-#: ../../nethvoice.rst:1275
+#: ../../nethvoice.rst:1299
 msgid "The URL itself"
 msgstr ""
 
-#: ../../nethvoice.rst:1277
+#: ../../nethvoice.rst:1301
 msgid "The selection of a user profile"
 msgstr ""
 
-#: ../../nethvoice.rst:1279
+#: ../../nethvoice.rst:1303
 msgid ""
 "The composition of the URL can be done using these parameters, which are "
 "populated for each call:"
 msgstr ""
 
-#: ../../nethvoice.rst:1281
+#: ../../nethvoice.rst:1305
 msgid "*$CALLER_NUMBER* (Caller Number)"
 msgstr ""
 
-#: ../../nethvoice.rst:1283
+#: ../../nethvoice.rst:1307
 msgid "*$CALLER_NAME* (Name associated by NethVoice to the caller number)"
 msgstr ""
 
-#: ../../nethvoice.rst:1285
+#: ../../nethvoice.rst:1309
 msgid "*$CALLED* (Called Number)"
 msgstr ""
 
-#: ../../nethvoice.rst:1287
+#: ../../nethvoice.rst:1311
 msgid "*$UNIQUEID* (Unique identifier of the call)"
 msgstr ""
 
-#: ../../nethvoice.rst:1289
+#: ../../nethvoice.rst:1313
 msgid ""
 "It is possible to enable the option \"Only calls on queues\" to activate "
 "the parameterized URL only for calls that ring in a queue."
 msgstr ""
 
-#: ../../nethvoice.rst:1291
+#: ../../nethvoice.rst:1315
 msgid ""
 "All users who have that profile will be enabled to use the newly created "
 "URL."
 msgstr ""
 
-#: ../../nethvoice.rst:1294
+#: ../../nethvoice.rst:1318
 msgid "Only one URL can be associated with a profile."
 msgstr ""
 
-#: ../../nethvoice.rst:1295
+#: ../../nethvoice.rst:1319
 msgid ""
 "For the URL to be invoked, it is necessary for the end user to have "
 "enabled pop-up display in their browser!"
@@ -16370,7 +16435,7 @@ msgstr ""
 " condivise (Calendari e contatti) dovrebbero avere attivato la "
 "sincronizzazione (con permessi completi o in sola lettura):"
 
-#: ../../webtop.rst:216
+#: ../../webtop.rst
 msgid "Multiple synchronization"
 msgstr "Sincronizzazione multipla"
 
