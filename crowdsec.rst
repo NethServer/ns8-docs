@@ -31,6 +31,15 @@ disabling the ``Enable central API`` option under the ``Advanced`` section.
 You can also connect your instance to `CrowdSec console <https://app.crowdsec.net>`_
 by filling the ``Enroll the CrowdSec instance`` field.
 
+Community blocklist vs Community blocklist (Lite)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+CrowdSec provides a `community blocklist <https://docs.crowdsec.net/docs/next/central_api/community_blocklist>`_  that is shared among all users. To activate this feature, you need to:
+
+- Enable the Central API option.
+- Enroll your CrowdSec instance in the console.
+
+To access the full community blocklist (beyond the Lite version), you must share at least some ban decisions with the Central API every 24 hours. 
+If your server has few or no bans, it will be considered as a blocking state, preventing access to the complete blocklist.
 
 Command-line interface
 ======================
