@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-20 10:00+0000\n"
+"POT-Creation-Date: 2025-01-22 13:56+0000\n"
 "PO-Revision-Date: 2025-01-17 15:51+0000\n"
 "Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language: it\n"
@@ -1409,19 +1409,46 @@ msgstr ""
 "<https://app.crowdsec.net>`_ by filling the ``Enroll the CrowdSec "
 "instance`` field."
 
+#: ../../crowdsec.rst:35
+msgid "Community blocklist vs Community blocklist (Lite)"
+msgstr ""
+
 #: ../../crowdsec.rst:36
+msgid ""
+"CrowdSec provides a `community blocklist "
+"<https://docs.crowdsec.net/docs/next/central_api/community_blocklist>`_  "
+"that is shared among all users. To activate this feature, you need to:"
+msgstr ""
+
+#: ../../crowdsec.rst:38
+msgid "Enable the Central API option."
+msgstr ""
+
+#: ../../crowdsec.rst:39
+msgid "Enroll your CrowdSec instance in the console."
+msgstr ""
+
+#: ../../crowdsec.rst:41
+msgid ""
+"To access the full community blocklist (beyond the Lite version), you "
+"must share at least some ban decisions with the Central API every 24 "
+"hours. If your server has few or no bans, it will be considered as a "
+"blocking state, preventing access to the complete blocklist."
+msgstr ""
+
+#: ../../crowdsec.rst:45
 #, fuzzy
 msgid "Command-line interface"
 msgstr "Command line"
 
-#: ../../crowdsec.rst:38
+#: ../../crowdsec.rst:47
 msgid ""
 "The ``cscli`` command is a powerful command-line interface to access "
 "advanced Crowdsec functions. To run ``cscli``, you have to enter the "
 "application environment first. Type in a root shell the following command"
 msgstr ""
 
-#: ../../crowdsec.rst:46
+#: ../../crowdsec.rst:55
 msgid ""
 "Then the ``cscli`` command becomes available. For instance, print the "
 "help message with"
