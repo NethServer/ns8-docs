@@ -296,8 +296,9 @@ NethVoice
 =========
 
 .. note::
-
-   Before proceeding with the migration of NethVoice, install and configure :ref:`NethVoice Proxy <nethvoice_proxy-section>` on NS8.
+   
+   The migration tool automatically installs the :ref:`NethVoice Proxy <nethvoice_proxy-section>` if it is not already present on the destination node.
+   In such cases, it is recommended to configure the :ref:`NethVoice Proxy <nethvoice_proxy-section>` prior to completing the NethVoice setup.
 
 The migration procedure requires two FQDNs to be assigned: 
 
