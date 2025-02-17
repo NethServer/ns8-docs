@@ -11,6 +11,24 @@ Subscription
 A NethServer 8 cluster can be registered to a web portal to enable
 additional services.
 
+Nethesis_ offers two types of subscription services for NethServer, which
+provide additional benefits and features:
+
+- **Community subscription**: self-service registration mostly suited for
+  IT consultants. For more information, see the `subscription plans`_ page.
+
+  Community subscription portal is available at `my.nethserver.com`_.
+
+- **Enterprise subscription**: service reserved to Nethesis resellers,
+  please contact the Sales Department at info@nethesis.it.
+
+  Enterprise subscription portal is available at `my.nethesis.it`_.
+
+.. _Nethesis: https://www.nethesis.it
+.. _`subscription plans`: https://www.nethserver.org/subscription
+.. _`my.nethserver.com`: https://my.nethserver.com
+.. _`my.nethesis.it`: https://my.nethesis.it
+
 When a cluster has an active subscription, the following services are
 enabled:
 
