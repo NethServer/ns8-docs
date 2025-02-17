@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-23 09:00+0000\n"
+"POT-Creation-Date: 2025-02-17 16:31+0000\n"
 "PO-Revision-Date: 2025-01-17 15:51+0000\n"
 "Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language: it\n"
@@ -14674,25 +14674,51 @@ msgstr ""
 
 #: ../../subscription.rst:14
 msgid ""
+"Nethesis_ offers two types of subscription services for NethServer, which"
+" provide additional benefits and features:"
+msgstr ""
+
+#: ../../subscription.rst:17
+msgid ""
+"**Community subscription**: self-service registration mostly suited for "
+"IT consultants. For more information, see the `subscription plans`_ page."
+msgstr ""
+
+#: ../../subscription.rst:20
+msgid "Community subscription portal is available at `my.nethserver.com`_."
+msgstr ""
+
+#: ../../subscription.rst:22
+msgid ""
+"**Enterprise subscription**: service reserved to Nethesis resellers, "
+"please contact the Sales Department at info@nethesis.it."
+msgstr ""
+
+#: ../../subscription.rst:25
+msgid "Enterprise subscription portal is available at `my.nethesis.it`_."
+msgstr ""
+
+#: ../../subscription.rst:32
+msgid ""
 "When a cluster has an active subscription, the following services are "
 "enabled:"
 msgstr ""
 "Quando un cluster ha una subscription attiva, i seguenti servizi vengono "
 "abilitati:"
 
-#: ../../subscription.rst:17
+#: ../../subscription.rst:35
 msgid "Remote support by Nethesis"
 msgstr "Supporto remoto di Nethesis"
 
-#: ../../subscription.rst:18
+#: ../../subscription.rst:36
 msgid "Resources monitoring and alerting"
 msgstr "Monitoraggio delle risorse e notifiche"
 
-#: ../../subscription.rst:19
+#: ../../subscription.rst:37
 msgid "Upload of leader node inventory"
 msgstr "Upload inventario del nodo leader"
 
-#: ../../subscription.rst:20
+#: ../../subscription.rst:38
 msgid ""
 "Scheduled updates for node operating systems, core components, and "
 "applications"
@@ -14700,11 +14726,11 @@ msgstr ""
 "Aggiornamenti automatici per il sistema operativo dei nodi, i componenti "
 "core e le applicazioni"
 
-#: ../../subscription.rst:22
+#: ../../subscription.rst:40
 msgid "Upload of cluster backup (Enterprise only)"
 msgstr "Upload del backup del cluster (solo Enterprise)"
 
-#: ../../subscription.rst:24
+#: ../../subscription.rst:42
 msgid ""
 "Regarding software repositories, only the ``subscription`` repository "
 "remains enabled."
@@ -14712,7 +14738,7 @@ msgstr ""
 "Per quanto riguarda i repository software, resta attivo solo il "
 "repository ``subscription``."
 
-#: ../../subscription.rst:29
+#: ../../subscription.rst:47
 msgid ""
 "Please avoid enabling third-party repositories and refrain from "
 "installing software not covered by the subscription plan"
@@ -14720,11 +14746,11 @@ msgstr ""
 "È sconsigliato attivare repository di terze parti e installare software "
 "non coperti dal piano subscription attivo"
 
-#: ../../subscription.rst:34
+#: ../../subscription.rst:52
 msgid "Register the cluster"
 msgstr "Registrazione del cluster"
 
-#: ../../subscription.rst:36
+#: ../../subscription.rst:54
 msgid ""
 "Depending on your subscription type, log in to `my.nethserver.com "
 "<https://my.nethserver.com>`_ or `my.nethesis.it "
@@ -14736,7 +14762,7 @@ msgstr ""
 "`my.nethesis.it <https://my.nethesis.it>`_ e generare un token univoco "
 "per il cluster seguendo la procedura specifica per il portale utilizzato."
 
-#: ../../subscription.rst:43
+#: ../../subscription.rst:61
 msgid ""
 "The subscription token is a secret: never communicate or share it with "
 "someone else"
@@ -14744,7 +14770,7 @@ msgstr ""
 "Il token di subscription è un segreto: non comunicarlo o condividerlo con"
 " qualcun altro"
 
-#: ../../subscription.rst:46
+#: ../../subscription.rst:64
 msgid ""
 "Once you have copied the token to the clipboard, go to the ``Settings`` "
 "page and click the ``Subscription`` card. Paste the token in the "
@@ -14756,7 +14782,7 @@ msgstr ""
 "token nel campo ``Token di autenticazione``, quindi fare clic sul "
 "pulsante :guilabel:`Registra`."
 
-#: ../../subscription.rst:51
+#: ../../subscription.rst:69
 msgid ""
 "If the procedure is successful the Subscription page displays the "
 "``System ID``, ``Plan`` type and ``Expiration`` date."
@@ -14764,11 +14790,11 @@ msgstr ""
 "Se la procedura termina con successo, la pagina Subscription visualizza "
 "l'``ID Sistema``, il tipo di ``Piano`` e la data di ``Scadenza``."
 
-#: ../../subscription.rst:57
+#: ../../subscription.rst:75
 msgid "Terms and Conditions"
 msgstr ""
 
-#: ../../subscription.rst:59
+#: ../../subscription.rst:77
 msgid ""
 "Please read the Terms and Conditions carefully. By maintaining an active "
 "NethServer 8 subscription, you confirm that you accept the Terms and "
@@ -14776,11 +14802,11 @@ msgid ""
 " and Conditions, you may not activate or continue your subscription."
 msgstr ""
 
-#: ../../subscription.rst:64
+#: ../../subscription.rst:82
 msgid "Details of subscription plans can be found on the `NethServer website`_."
 msgstr ""
 
-#: ../../subscription.rst:68
+#: ../../subscription.rst:86
 msgid ""
 "Personal identification information is stored and processed when "
 "necessary to fulfill a contract to which the data subject is a party, or "
@@ -14789,24 +14815,24 @@ msgid ""
 "related to the subscribed service."
 msgstr ""
 
-#: ../../subscription.rst:74
+#: ../../subscription.rst:92
 msgid ""
 "The data controller is Nethesis S.r.l unipersonale CF/PI/RI IT "
 "02734760412, located at Strada degli Olmi 8 -- 61122 Pesaro (PU) -- "
 "Italy."
 msgstr ""
 
-#: ../../subscription.rst:77
+#: ../../subscription.rst:95
 msgid ""
 "Any requests concerning the processing of personal identification "
 "information (PII) may be addressed to privacy@nethesis.it."
 msgstr ""
 
-#: ../../subscription.rst:84
+#: ../../subscription.rst:102
 msgid "Scheduled updates"
 msgstr "Aggiornamenti programmati"
 
-#: ../../subscription.rst:86
+#: ../../subscription.rst:104
 #, fuzzy
 msgid ""
 "A scheduled overnight task automatically installs software updates "
@@ -14822,7 +14848,7 @@ msgstr ""
 "mattino. Questa variabilità aiuta a distribuire il carico sulla rete e "
 "sui server. Gli aggiornamenti riguardano:"
 
-#: ../../subscription.rst:92
+#: ../../subscription.rst:110
 #, fuzzy
 msgid ""
 "**Operating system**: Updates are sourced from the DNF repositories "
@@ -14837,7 +14863,7 @@ msgstr ""
 "la distribuzione di aggiornamenti che possano introdurre problemi "
 "inaspettati."
 
-#: ../../subscription.rst:97
+#: ../../subscription.rst:115
 #, fuzzy
 msgid ""
 "**Core components**: Updates are fetched from the ``subscription`` "
@@ -14846,7 +14872,7 @@ msgstr ""
 "**Componenti core**: Gli aggiornamenti vengono scaricati dal repository "
 "``subscription``"
 
-#: ../../subscription.rst:100
+#: ../../subscription.rst:118
 #, fuzzy
 msgid ""
 "**Applications**: Updates are also sourced from the ``subscription`` "
@@ -14855,14 +14881,14 @@ msgstr ""
 "**Applicazioni**: Gli aggiornamenti vengono scaricati dal repository "
 "``subscription``"
 
-#: ../../subscription.rst:103
+#: ../../subscription.rst:121
 msgid ""
 "Managed repositories follow a conservative update policy to ensure "
 "stability and thorough testing of updates, making them suitable for "
 "automated updates."
 msgstr ""
 
-#: ../../subscription.rst:107
+#: ../../subscription.rst:125
 msgid ""
 "It is possible to override the managed update policy by manually "
 "installing or updating core components or applications via the Software "
@@ -14870,7 +14896,7 @@ msgid ""
 "``subscription`` repository is refreshed hourly in the Software Center."
 msgstr ""
 
-#: ../../subscription.rst:112
+#: ../../subscription.rst:130
 msgid ""
 "Scheduled updates are inhibited when an NS7 node joins the cluster to "
 "migrate applications. This is necessary because the migration procedure "
@@ -14879,11 +14905,11 @@ msgid ""
 " node is automatically removed from the cluster."
 msgstr ""
 
-#: ../../subscription.rst:119
+#: ../../subscription.rst:137
 msgid "Remove the subscription"
 msgstr "Rimozione subscription"
 
-#: ../../subscription.rst:121
+#: ../../subscription.rst:139
 msgid ""
 "Go to the ``Settings`` page and click the ``Subscription`` card. "
 "Alternatively, go to the cluster dashboard page and click the ``Go to "
@@ -14893,7 +14919,7 @@ msgstr ""
 "``Subscription``. In alternativa, dalla dashboard del cluster fare clic "
 "sul link ``Vai a Subscription``."
 
-#: ../../subscription.rst:125
+#: ../../subscription.rst:143
 msgid ""
 "In the ``Subscription`` page, click the :guilabel:`Remove subscription` "
 "button. The action must be confirmed."
@@ -14901,15 +14927,15 @@ msgstr ""
 "Nella pagina ``Subscription``, fare clic sul pulsante :guilabel:`Rimuovi "
 "subscription`. Verrà richiesta conferma dell'azione."
 
-#: ../../subscription.rst:129
+#: ../../subscription.rst:147
 msgid "Remote support"
 msgstr "Supporto remoto"
 
-#: ../../subscription.rst:133 ../../webtop.rst:1184
+#: ../../subscription.rst:151 ../../webtop.rst:1184
 msgid "Available in Nethesis Enterprise only"
 msgstr "Disponibile solo per Nethesis Enterprise"
 
-#: ../../subscription.rst:135
+#: ../../subscription.rst:153
 msgid ""
 "Depending on the subscription type and plan, the ``Subscription`` page "
 "can allow starting and controlling a remote support session:"
@@ -14918,7 +14944,7 @@ msgstr ""
 "``Subscription`` può consentire l'avvio e il controllo di una sessione di"
 " supporto remoto:"
 
-#: ../../subscription.rst:138
+#: ../../subscription.rst:156
 msgid ""
 "Click :guilabel:`Start session` to activate a special access for the "
 "Nethesis support team. Both SSH and cluster-admin administrative access "
@@ -14930,7 +14956,7 @@ msgstr ""
 "l'accesso amministrativo sia SSH che al cluster-admin. Le connessioni di "
 "supporto sono veicolate attraverso un tunnel VPN privato."
 
-#: ../../subscription.rst:143
+#: ../../subscription.rst:161
 msgid ""
 "When the access is granted, a unique ``Session ID`` secret is displayed: "
 "copy and paste it in your support request."
@@ -14939,7 +14965,7 @@ msgstr ""
 " denominato ``ID sessione``: il segreto va copiato e incollato nella "
 "richiesta di supporto."
 
-#: ../../subscription.rst:146
+#: ../../subscription.rst:164
 msgid ""
 "To end the support session, close the VPN tunnel and revoke any granted "
 "access, click :guilabel:`End session`."
@@ -14948,7 +14974,7 @@ msgstr ""
 "qualsiasi accesso consentito, fare clic sul pulsante :guilabel:`Termina "
 "sessione`."
 
-#: ../../subscription.rst:149
+#: ../../subscription.rst:167
 msgid ""
 "The support session is valid only to reach the leader node. The support "
 "team can access worker nodes by starting individual support sessions in "
@@ -14961,19 +14987,19 @@ msgstr ""
 " 2 è un nodo worker, il comando per avviare una sessione di supporto per "
 "esso è il seguente: ::"
 
-#: ../../subscription.rst:156
+#: ../../subscription.rst:174
 msgid "The Session ID is printed to the standard output. To stop the session: ::"
 msgstr ""
 "L'ID sessione viene stampato sullo standard output. Per interrompere la "
 "sessione: ::"
 
-#: ../../subscription.rst:160
+#: ../../subscription.rst:178
 msgid "Check the support session status for any node with: ::"
 msgstr ""
 "È possibile verificare lo stato della sessione di supporto su un "
 "qualsiasi nodo con il comando: ::"
 
-#: ../../subscription.rst:164
+#: ../../subscription.rst:182
 msgid ""
 "If a worker node (e.g., node 2) becomes unreachable from the leader node,"
 " you can manually start a support session for it with the following "
@@ -14983,25 +15009,25 @@ msgstr ""
 "leader, è possibile avviare manualmente una sessione di supporto per esso"
 " con la seguente procedura:"
 
-#: ../../subscription.rst:168
+#: ../../subscription.rst:186
 msgid "Log in on the worker node, using the console or SSH access."
 msgstr "Accedere al nodo worker, utilizzando la console o l'accesso SSH."
 
-#: ../../subscription.rst:170
+#: ../../subscription.rst:188
 msgid "Run the following command to start the support session: ::"
 msgstr "Eseguire il seguente comando per avviare la sessione di supporto: ::"
 
-#: ../../subscription.rst:174
+#: ../../subscription.rst:192
 msgid "Obtain the session ID with: ::"
 msgstr "Ottenere l'ID sessione con: ::"
 
-#: ../../subscription.rst:178
+#: ../../subscription.rst:196
 msgid "The Session ID is always recorded in the system journal and node log."
 msgstr ""
 "L'ID sessione viene sempre registrato nel journal di sistema e nel log "
 "dei nodi."
 
-#: ../../subscription.rst:180
+#: ../../subscription.rst:198
 msgid "To end the support session: ::"
 msgstr "Per terminare una sessione di supporto: ::"
 
