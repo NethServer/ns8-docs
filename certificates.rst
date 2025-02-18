@@ -15,8 +15,10 @@ NethServer 8 can request valid `Let's Encrypt <https://letsencrypt.org/>`_ certi
 
 Requesting Let's Encrypt is possible if the following requirements are met:
 
-1. the server must be reachable from outside on port 80. Make sure your port 80
-   is open to the public Internet (you can check with sites like `CSM <http://www.canyouseeme.org/>`_)
+1. the server must be reachable from outside on port 443. Make sure your port 443
+   is open to the public Internet (you can check with sites like `CSM <http://www.canyouseeme.org/>`_).
+   For nodes installed before the Traefik 3.0.0 release, the same requirement applies to port 80.
+   Starting from new installations of Traefik 3.0.0, only port 443 is required.
 
 2. the domains for which you want the certificate must be public domain
    names associated with the server's own public IP. Make sure you have
