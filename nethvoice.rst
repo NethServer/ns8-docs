@@ -1,4 +1,5 @@
 .. _nethvoice-section:
+
 =========
 NethVoice
 =========
@@ -448,9 +449,9 @@ Phones can access their configuration via standard web protocols, HTTP or HTTPS 
 
 When the MAC address of the phone is entered into NethVoice, a provisioning URL (address) is generated.
 
-For example:
+For example: ::
 
-    https://NethVoiceBaseHost/provisioning/1234567890.1234/{mac}.cfg
+  https://NethVoiceBaseHost/provisioning/1234567890.1234/{mac}.cfg
 
 This URL contains a secret (``1234567890.1234`` in the example) that authenticates and identifies the device that will use it.
 
@@ -895,6 +896,8 @@ Screen and Ringtone
 
 * ``Screen Brightness`` "Screen Contrast": Select the brightness and contrast levels of the screen.
 
+.. _panel-preferences:
+
 Preferences
 ^^^^^^^^^^^
 
@@ -969,17 +972,20 @@ Click to Call
 The methods available depend on the chosen device:
 
 * **Web Phone**:
-   * Click-to-call is only possible within the **NethVoice CTI** web interface.
+  Click-to-call is only possible within the **NethVoice CTI** web interface.
 
 * **Other Devices**:
-    To use click-to-call with devices other than the web phone, the `NethLink <https://nethserver.github.io/nethlink/>`_ client must be installed and configured on the user's system. Additionally, **NethLink** must be enabled for the user beforehand.   
+  To use click-to-call with devices other than the web phone, the `NethLink <https://nethserver.github.io/nethlink/>`_ client must be installed and configured on the user's system. Additionally, **NethLink** must be enabled for the user beforehand.   
 
-   1. **Desktop Phone** client provided by **NethLink**:
+  1. **Desktop Phone** client provided by **NethLink**:
+
      - Click-to-call can be performed directly in the **NethVoice CTI** web interface.
      - On a Windows or Mac PC, **NethLink** can be set as the client for the `tel` or `callto` protocol, allowing it to handle phone numbers recognized by the operating system.
-   2. **Physical Phones**:
+  
+  2. **Physical Phones**:
      For physical phones supported and configured through **NethVoice** provisioning, click-to-call can only be performed if the client and the phone can communicate directly, such as when they are on the same local network or in two interconnected networks.
      The click-to-call process in this configuration is identical to that of the **Desktop Phone** client:
+ 
      - Click-to-call can be performed directly in the **NethVoice CTI** web interface.
      - On a Windows or Mac PC, **NethLink** can be set as the client for the `tel` or `callto` protocol, allowing it to handle phone numbers recognized by the operating system.
 
@@ -1133,8 +1139,10 @@ It should be changed to::
 The `$NUMBER` variable represents the caller ID of the PBX, referring to collect the data to be displayed on the customer card.
 
 .. _external-phonebook:
+
 Phonebook Sources
 -----------------
+
 Adding External Address Books
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1182,83 +1190,86 @@ In the Github repository `https://github.com/nethesis/ns8-nethvoice/tree/main/fr
 The *lookup_dummy.php* script returns a fake result for any number dialed or incoming call, while the lookup_vte.php script utilizes an external API.
 
 .. list-table:: Fields of the Centralized Address Book
-    :widths: 10 10
-    :header-rows: 1
- 
- * - owner_id
-   - Owner of the contact
+   :widths: 10 10
+   :header-rows: 1
 
- * - type
-   - Source of origin
+   * - Field
+     - Description
 
- * - homeemail
-   - Home email address
+   * - owner_id
+     - Owner of the contact
 
- * - workemail
-   - Work email address
+   * - type
+     - Source of origin
 
- * - homephone
-   - Home phone number
+   * - homeemail
+     - Home email address
 
- * - workphone
-   - Work phone number
+   * - workemail
+     - Work email address
 
- * - cellphone
-   - Cell phone number
+   * - homephone
+     - Home phone number
 
- * - fax
-   - Fax number
+   * - workphone
+     - Work phone number
 
- * - title
-   - Job title
+   * - cellphone
+     - Cell phone number
 
- * - company
-   - Company
+   * - fax
+     - Fax number
 
- * - notes
-   - Notes
+   * - title
+     - Job title
 
- * - name
-   - First and last name
+   * - company
+     - Company
 
- * - homestreet
-   - Home address
+   * - notes
+     - Notes
 
- * - homepob
-   - Home PO Box
+   * - name
+     - First and last name
 
- * - homecity
-   - Home city
+   * - homestreet
+     - Home address
 
- * - homeprovince
-   - Home province
+   * - homepob
+     - Home PO Box
 
- * - homepostalcode
-   - Home postal code
+   * - homecity
+     - Home city
 
- * - homecountry
-   - Home country/region
+   * - homeprovince
+     - Home province
 
- * - workstreet
-   - Work address
+   * - homepostalcode
+     - Home postal code
 
- * - workpob
-   - Work PO Box
+   * - homecountry
+     - Home country/region
 
- * - workcity
-   - Work city
+   * - workstreet
+     - Work address
 
- * - workprovince
-   - Work province
+   * - workpob
+     - Work PO Box
 
- * - workpostalcode
-   - Work postal code
+   * - workcity
+     - Work city
 
- * - workcountry
-   _ Work country/region
+   * - workprovince
+     - Work province
 
- * - url
-   - Website address
+   * - workpostalcode
+     - Work postal code
+
+   * - workcountry
+     - Work country/region
+
+   * - url
+     - Website address
 
 Settings
 ^^^^^^^^
