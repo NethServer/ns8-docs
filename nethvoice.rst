@@ -227,7 +227,9 @@ Permissions
 Settings
 ^^^^^^^^
 
-* General permission enables or disables access to all the functionalities of the section and general notification settings.
+General permission enables or disables access to all the functionalities of the section and general notification settings.
+Available permissions are:
+
 * ``DND``: Enables the configuration of Do Not Disturb.
 * ``Call Forwarding``: Enables the configuration of call forwarding.
 * ``Recording``: Enables the recording of own conversations. It is also possible to view, listen to, and delete own recordings.
