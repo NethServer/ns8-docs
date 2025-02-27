@@ -159,7 +159,7 @@ In any case, it is possible to choose on each individual phone whether encryptio
 Other settings can be changed in :ref:`Preferences <panel-preferences>` section:
 
 * :guilabel:`Phone languages`
-* :guilabel:`Provisiong scheduling`
+* :guilabel:`Provisioning scheduling`
 * :guilabel:`Tone zone`
   
 Once the settings are saved, they can be modified again from the :guilabel:`Devices > Models page`, :guilabel:`Default Settings`.
@@ -170,9 +170,9 @@ Phones
 The page ``Devices > Phones`` allows the identification of phones by NethVoice by entering the MAC address. 
 You can enter the MAC address using the following methods:
 
-* :guilabel:`Paste from file` of multiple MAC addresses. Syntaxes separated by a hyphen - (e.g., AA-BB-CC-11-22-33), colons : (e.g., AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are accepted. Letters can be either uppercase or lowercase.
+* :guilabel:`Paste from file` of multiple MAC addresses. Syntax separated by a hyphen - (e.g., AA-BB-CC-11-22-33), colons : (e.g., AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are accepted. Letters can be either uppercase or lowercase.
 
-* :guilabel:`Manual addition` of one MAC address at a time. Useful if you have a barcode reader.
+* :guilabel:`Manual addition` of one MAC address at a time. Useful if you have a bar code reader.
 
 In any case, after entering the MAC address, you can select the phone model. Selecting the exact model is required for the correct configuration of the phone.
 
@@ -271,7 +271,7 @@ Customer Cards
 Presence Panel
 ^^^^^^^^^^^^^^
 
-* The general permission enables the display of the operators' panel in NethVoice CTI.
+* The general permission enables the display of the operator's panel in NethVoice CTI.
 * ``Advanced Recording``: Enables recording of calls from other users.
 * ``Call Transfer``: Enables call transfer for calls from other users.
 * ``Advanced Parking``: Enables the ability to park calls from other users and retrieve them.
@@ -284,7 +284,7 @@ Queue Agent Panel
 
 * The general permission enables the Queue section in NethVoice CTI with information about the assigned queues, the ability to log in/out, and enter/exit break.
 * ``Advanced Queue Agent Panel``: Enables advanced information about the status of queues and agents.
-* ``Unhandled Calls``: Enables access to the unhandled calls section.
+* ``Unhanded Calls``: Enables access to the unhanded calls section.
 
 Phone Lines
 ^^^^^^^^^^^
@@ -377,7 +377,7 @@ The Settings page allows you to manage various aspects of the configuration.
 Advanced
 --------
 
-The Advanced section provides direct access to NethVoice's advanced interface.
+The Advanced section provides direct access to Nethvoice advanced interface.
 
 .. _wizard-provisioning-section:
 
@@ -421,7 +421,7 @@ NethVoice assigns a progressive number to each device associated with the user u
 
 * ...
 
-However, from the users' perspective, the Main Extension is the only important number to remember.
+However, from the user perspective, the Main Extension is the only important number to remember.
 
 Actions to Be Performed on the Phones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -469,7 +469,7 @@ In any case, once the provisioning URL is obtained, the phone always uses this t
 
 .. warning::
 
-    Refer to section :ref:`provisioning-support-section` for further information on manufacturers' support for RPS and DHCP.
+    Refer to section :ref:`provisioning-support-section` for further information on manufacturer support for RPS and DHCP.
 
 Phone Configuration Specifications
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
