@@ -1098,7 +1098,7 @@ Press :guilabel:`Save` to add the database source. The newly created source will
 Template
 ^^^^^^^^
 
-Templates serve as the blueprint for your customer cards. They utilize the `ejs` engine, which boasts a JavaScript-like syntax. This allows for the writing of HTML code using specific directives available on the website https://github.com/tj/ejs.
+Templates serve as the blueprint for your customer cards. They utilize the `ejs` engine, which boasts a JavaScript-like syntax. This allows for the writing of HTML code using specific directives available on the `EJS website <https://github.com/tj/ejs>`_.
 
 To begin the creation process, click on the :guilabel:`Create New Template` button:
 
@@ -1185,7 +1185,7 @@ Custom Name Resolution
 
 If you wish to use a source other than the centralized address book to resolve names, you can create a custom resolution script and place it in the *~/.local/share/containers/storage/volumes/lookup.d/_data/* directory.
 
-In the Github repository `https://github.com/nethesis/ns8-nethvoice/tree/main/freepbx/usr/src/nethvoice/samples`, there are two example scripts: *lookup_dummy.php* and *lookup_vte.php*, which can serve as a starting point for creating your own custom script.
+In the `Github repository <https://github.com/nethesis/ns8-nethvoice/tree/main/freepbx/usr/src/nethvoice/samples>`_, there are two example scripts: *lookup_dummy.php* and *lookup_vte.php*, which can serve as a starting point for creating your own custom script.
 
 The *lookup_dummy.php* script returns a fake result for any number dialed or incoming call, while the lookup_vte.php script utilizes an external API.
 
