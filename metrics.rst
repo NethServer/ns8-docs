@@ -65,7 +65,6 @@ During the first login, you will be asked to change the password.
 Grafana will automatically display:
 
 - a dashboard for all nodes metrics like CPU load, memory usage, and disk space
-- a dashboard for :ref:`Loki <loki-section>` server metrics like number of logs ingested and number of logs queried
 - a dashboard for fired alerts
 
 .. warning::
