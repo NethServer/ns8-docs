@@ -1,4 +1,5 @@
 .. _nethvoice-section:
+
 =========
 NethVoice
 =========
@@ -158,7 +159,7 @@ In any case, it is possible to choose on each individual phone whether encryptio
 Other settings can be changed in :ref:`Preferences <panel-preferences>` section:
 
 * :guilabel:`Phone languages`
-* :guilabel:`Provisiong scheduling`
+* :guilabel:`Provisioning scheduling`
 * :guilabel:`Tone zone`
   
 Once the settings are saved, they can be modified again from the :guilabel:`Devices > Models page`, :guilabel:`Default Settings`.
@@ -169,9 +170,9 @@ Phones
 The page ``Devices > Phones`` allows the identification of phones by NethVoice by entering the MAC address. 
 You can enter the MAC address using the following methods:
 
-* :guilabel:`Paste from file` of multiple MAC addresses. Syntaxes separated by a hyphen - (e.g., AA-BB-CC-11-22-33), colons : (e.g., AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are accepted. Letters can be either uppercase or lowercase.
+* :guilabel:`Paste from file` of multiple MAC addresses. Syntax separated by a hyphen - (e.g., AA-BB-CC-11-22-33), colons : (e.g., AA:BB:CC:11:22:33), or without a separator (e.g., AABBCC112233) are accepted. Letters can be either uppercase or lowercase.
 
-* :guilabel:`Manual addition` of one MAC address at a time. Useful if you have a barcode reader.
+* :guilabel:`Manual addition` of one MAC address at a time. Useful if you have a bar code reader.
 
 In any case, after entering the MAC address, you can select the phone model. Selecting the exact model is required for the correct configuration of the phone.
 
@@ -226,7 +227,9 @@ Permissions
 Settings
 ^^^^^^^^
 
-* General permission enables or disables access to all the functionalities of the section and general notification settings.
+General permission enables or disables access to all the functionalities of the section and general notification settings.
+Available permissions are:
+
 * ``DND``: Enables the configuration of Do Not Disturb.
 * ``Call Forwarding``: Enables the configuration of call forwarding.
 * ``Recording``: Enables the recording of own conversations. It is also possible to view, listen to, and delete own recordings.
@@ -270,7 +273,7 @@ Customer Cards
 Presence Panel
 ^^^^^^^^^^^^^^
 
-* The general permission enables the display of the operators' panel in NethVoice CTI.
+* The general permission enables the display of the operator's panel in NethVoice CTI.
 * ``Advanced Recording``: Enables recording of calls from other users.
 * ``Call Transfer``: Enables call transfer for calls from other users.
 * ``Advanced Parking``: Enables the ability to park calls from other users and retrieve them.
@@ -283,7 +286,7 @@ Queue Agent Panel
 
 * The general permission enables the Queue section in NethVoice CTI with information about the assigned queues, the ability to log in/out, and enter/exit break.
 * ``Advanced Queue Agent Panel``: Enables advanced information about the status of queues and agents.
-* ``Unhandled Calls``: Enables access to the unhandled calls section.
+* ``Unhanded Calls``: Enables access to the unhanded calls section.
 
 Phone Lines
 ^^^^^^^^^^^
@@ -376,7 +379,7 @@ The Settings page allows you to manage various aspects of the configuration.
 Advanced
 --------
 
-The Advanced section provides direct access to NethVoice's advanced interface.
+The Advanced section provides direct access to Nethvoice advanced interface.
 
 .. _wizard-provisioning-section:
 
@@ -420,7 +423,7 @@ NethVoice assigns a progressive number to each device associated with the user u
 
 * ...
 
-However, from the users' perspective, the Main Extension is the only important number to remember.
+However, from the user perspective, the Main Extension is the only important number to remember.
 
 Actions to Be Performed on the Phones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -448,9 +451,9 @@ Phones can access their configuration via standard web protocols, HTTP or HTTPS 
 
 When the MAC address of the phone is entered into NethVoice, a provisioning URL (address) is generated.
 
-For example:
+For example: ::
 
-    https://NethVoiceBaseHost/provisioning/1234567890.1234/{mac}.cfg
+  https://NethVoiceBaseHost/provisioning/1234567890.1234/{mac}.cfg
 
 This URL contains a secret (``1234567890.1234`` in the example) that authenticates and identifies the device that will use it.
 
@@ -468,7 +471,7 @@ In any case, once the provisioning URL is obtained, the phone always uses this t
 
 .. warning::
 
-    Refer to section :ref:`provisioning-support-section` for further information on manufacturers' support for RPS and DHCP.
+    Refer to section :ref:`provisioning-support-section` for further information on manufacturer support for RPS and DHCP.
 
 Phone Configuration Specifications
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -895,6 +898,8 @@ Screen and Ringtone
 
 * ``Screen Brightness`` "Screen Contrast": Select the brightness and contrast levels of the screen.
 
+.. _panel-preferences:
+
 Preferences
 ^^^^^^^^^^^
 
@@ -969,17 +974,20 @@ Click to Call
 The methods available depend on the chosen device:
 
 * **Web Phone**:
-   * Click-to-call is only possible within the **NethVoice CTI** web interface.
+  Click-to-call is only possible within the **NethVoice CTI** web interface.
 
 * **Other Devices**:
-    To use click-to-call with devices other than the web phone, the `NethLink <https://nethserver.github.io/nethlink/>`_ client must be installed and configured on the user's system. Additionally, **NethLink** must be enabled for the user beforehand.   
+  To use click-to-call with devices other than the web phone, the `NethLink <https://nethserver.github.io/nethlink/>`_ client must be installed and configured on the user's system. Additionally, **NethLink** must be enabled for the user beforehand.   
 
-   1. **Desktop Phone** client provided by **NethLink**:
+  1. **Desktop Phone** client provided by **NethLink**:
+
      - Click-to-call can be performed directly in the **NethVoice CTI** web interface.
      - On a Windows or Mac PC, **NethLink** can be set as the client for the `tel` or `callto` protocol, allowing it to handle phone numbers recognized by the operating system.
-   2. **Physical Phones**:
+  
+  2. **Physical Phones**:
      For physical phones supported and configured through **NethVoice** provisioning, click-to-call can only be performed if the client and the phone can communicate directly, such as when they are on the same local network or in two interconnected networks.
      The click-to-call process in this configuration is identical to that of the **Desktop Phone** client:
+ 
      - Click-to-call can be performed directly in the **NethVoice CTI** web interface.
      - On a Windows or Mac PC, **NethLink** can be set as the client for the `tel` or `callto` protocol, allowing it to handle phone numbers recognized by the operating system.
 
@@ -1092,7 +1100,7 @@ Press :guilabel:`Save` to add the database source. The newly created source will
 Template
 ^^^^^^^^
 
-Templates serve as the blueprint for your customer cards. They utilize the `ejs` engine, which boasts a JavaScript-like syntax. This allows for the writing of HTML code using specific directives available on the website https://github.com/tj/ejs.
+Templates serve as the blueprint for your customer cards. They utilize the `ejs` engine, which boasts a JavaScript-like syntax. This allows for the writing of HTML code using specific directives available on the `EJS website <https://github.com/tj/ejs>`_.
 
 To begin the creation process, click on the :guilabel:`Create New Template` button:
 
@@ -1133,8 +1141,10 @@ It should be changed to::
 The `$NUMBER` variable represents the caller ID of the PBX, referring to collect the data to be displayed on the customer card.
 
 .. _external-phonebook:
+
 Phonebook Sources
 -----------------
+
 Adding External Address Books
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1177,88 +1187,91 @@ Custom Name Resolution
 
 If you wish to use a source other than the centralized address book to resolve names, you can create a custom resolution script and place it in the *~/.local/share/containers/storage/volumes/lookup.d/_data/* directory.
 
-In the Github repository `https://github.com/nethesis/ns8-nethvoice/tree/main/freepbx/usr/src/nethvoice/samples`, there are two example scripts: *lookup_dummy.php* and *lookup_vte.php*, which can serve as a starting point for creating your own custom script.
+In the `Github repository <https://github.com/nethesis/ns8-nethvoice/tree/main/freepbx/usr/src/nethvoice/samples>`_, there are two example scripts: *lookup_dummy.php* and *lookup_vte.php*, which can serve as a starting point for creating your own custom script.
 
 The *lookup_dummy.php* script returns a fake result for any number dialed or incoming call, while the lookup_vte.php script utilizes an external API.
 
 .. list-table:: Fields of the Centralized Address Book
-    :widths: 10 10
-    :header-rows: 1
- 
- * - owner_id
-   - Owner of the contact
+   :widths: 10 10
+   :header-rows: 1
 
- * - type
-   - Source of origin
+   * - Field
+     - Description
 
- * - homeemail
-   - Home email address
+   * - owner_id
+     - Owner of the contact
 
- * - workemail
-   - Work email address
+   * - type
+     - Source of origin
 
- * - homephone
-   - Home phone number
+   * - homeemail
+     - Home email address
 
- * - workphone
-   - Work phone number
+   * - workemail
+     - Work email address
 
- * - cellphone
-   - Cell phone number
+   * - homephone
+     - Home phone number
 
- * - fax
-   - Fax number
+   * - workphone
+     - Work phone number
 
- * - title
-   - Job title
+   * - cellphone
+     - Cell phone number
 
- * - company
-   - Company
+   * - fax
+     - Fax number
 
- * - notes
-   - Notes
+   * - title
+     - Job title
 
- * - name
-   - First and last name
+   * - company
+     - Company
 
- * - homestreet
-   - Home address
+   * - notes
+     - Notes
 
- * - homepob
-   - Home PO Box
+   * - name
+     - First and last name
 
- * - homecity
-   - Home city
+   * - homestreet
+     - Home address
 
- * - homeprovince
-   - Home province
+   * - homepob
+     - Home PO Box
 
- * - homepostalcode
-   - Home postal code
+   * - homecity
+     - Home city
 
- * - homecountry
-   - Home country/region
+   * - homeprovince
+     - Home province
 
- * - workstreet
-   - Work address
+   * - homepostalcode
+     - Home postal code
 
- * - workpob
-   - Work PO Box
+   * - homecountry
+     - Home country/region
 
- * - workcity
-   - Work city
+   * - workstreet
+     - Work address
 
- * - workprovince
-   - Work province
+   * - workpob
+     - Work PO Box
 
- * - workpostalcode
-   - Work postal code
+   * - workcity
+     - Work city
 
- * - workcountry
-   _ Work country/region
+   * - workprovince
+     - Work province
 
- * - url
-   - Website address
+   * - workpostalcode
+     - Work postal code
+
+   * - workcountry
+     - Work country/region
+
+   * - url
+     - Website address
 
 Settings
 ^^^^^^^^
