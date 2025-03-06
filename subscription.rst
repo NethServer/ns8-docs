@@ -33,7 +33,7 @@ When a cluster has an active subscription, the following services are
 enabled:
 
 - Remote support by Nethesis
-- Resources monitoring and alerting
+- Resources :ref:`monitoring and alerting <metrics-section>`
 - Upload of leader node inventory
 - Scheduled updates for node operating systems, core components, and
   applications
