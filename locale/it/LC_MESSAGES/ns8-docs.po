@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 11:49+0000\n"
+"POT-Creation-Date: 2025-03-12 16:26+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -554,16 +554,19 @@ msgstr ""
 "soddisfatti:"
 
 #: ../../certificates.rst:18
+#, fuzzy
 msgid ""
-"the server must be reachable from outside on port 80. Make sure your port"
-" 80 is open to the public Internet (you can check with sites like `CSM "
-"<http://www.canyouseeme.org/>`_)"
+"the server must be reachable from outside on port 443. Make sure your "
+"port 443 is open to the public Internet (you can check with sites like "
+"`CSM <http://www.canyouseeme.org/>`_). For nodes installed before the "
+"Traefik 3.0.0 release, the same requirement applies to port 80. Starting "
+"from new installations of Traefik 3.0.0, only port 443 is required."
 msgstr ""
 "il server deve essere raggiungibile dall'esterno sulla porta 80. "
 "Assicurarsi che la vostra porta 80 sia aperto da Internet (puoi "
 "controllare con siti come `CSM <http://www.canyouseeme.org/> `_)"
 
-#: ../../certificates.rst:21
+#: ../../certificates.rst:23
 msgid ""
 "the domains for which you want the certificate must be public domain "
 "names associated with the server's own public IP. Make sure you have "
@@ -578,11 +581,11 @@ msgstr ""
 "<http://viewdns.info/>`_  per verificare se il DNS è configurato "
 "correttamente."
 
-#: ../../certificates.rst:29
+#: ../../certificates.rst:31
 msgid "Wildcard certificates (i.e. ``*.nethserver.org``) are not supported."
 msgstr "I certificati Wildcard (i.e. ``*.nethserver.org``) non sono supportati."
 
-#: ../../certificates.rst:31
+#: ../../certificates.rst:33
 msgid ""
 "If the above requirements are met, you can obtain a valid certificate for"
 " a domain by following these steps:"
@@ -590,21 +593,21 @@ msgstr ""
 "Se i requisiti di cui sopra sono soddisfatti, è possibile ottenere un "
 "certificato valido per un dominio seguendo questi passaggi:"
 
-#: ../../certificates.rst:33
+#: ../../certificates.rst:35
 msgid "access the ``Settings`` page and click the ``TLS certificates`` card"
 msgstr ""
 "accedere alla pagina ``Impostazioni`` e fare clic sulla scheda "
 "``certificati TLS ``"
 
-#: ../../certificates.rst:34 ../../certificates.rst:36
+#: ../../certificates.rst:36 ../../certificates.rst:38
 msgid "click on :guilabel:`Request certificate` button"
 msgstr "clicca sul pulsante :guilabel:`Richiesta certificato`"
 
-#: ../../certificates.rst:35
+#: ../../certificates.rst:37
 msgid "enter the node FQDN and select the node"
 msgstr "inserire il nodo FQDN e selezionare il nodo"
 
-#: ../../certificates.rst:38
+#: ../../certificates.rst:40
 msgid ""
 "The procedure will take a while, but the system will notify you when the "
 "certificate is ready. The Let's Encrypt certificate is automatically "
@@ -614,7 +617,7 @@ msgstr ""
 "certificato è pronto. Il certificato Let's Encrypt viene rinnovato "
 "automaticamente 30 giorni prima della scadenza."
 
-#: ../../certificates.rst:41
+#: ../../certificates.rst:43
 msgid ""
 "If the procedure fails, the certificate status is set to ``Not obtained``"
 " and an error notification is displayed."
@@ -622,7 +625,7 @@ msgstr ""
 "Se la procedura fallisce, lo stato del certificato viene impostato su "
 "``Non ottenuto`` e viene visualizzata una notifica di errore."
 
-#: ../../certificates.rst:44
+#: ../../certificates.rst:46
 msgid ""
 "Failures may occur if the DNS record is not correctly configured, or DNS "
 "update propagation is slower than expected.  In both cases Traefik "
@@ -633,17 +636,17 @@ msgstr ""
 "previsto. In entrambi i casi Traefik si ritira per ottenere il "
 "certificato in un secondo momento quando:"
 
-#: ../../certificates.rst:48
+#: ../../certificates.rst:50
 msgid "the Traefik service is restarted, or"
 msgstr "il servizio Traefik è riavviato, o"
 
-#: ../../certificates.rst:49
+#: ../../certificates.rst:51
 msgid "an HTTPS request that matches the certificate name is received."
 msgstr ""
 "una richiesta HTTPS che corrisponde al nome del certificato viene "
 "ricevuta."
 
-#: ../../certificates.rst:53
+#: ../../certificates.rst:55
 msgid ""
 "Traefik stores the time of the last certificate issue attempt in memory. "
 "Do not restart Traefik too often, to avoid incurring in Let's Encrypt "
@@ -653,11 +656,11 @@ msgstr ""
 "certificato in memoria. Non riavviare Traefik troppo spesso, per evitare "
 "di incorrere nei limiti di velocità Let's Encrypt."
 
-#: ../../certificates.rst:58
+#: ../../certificates.rst:60
 msgid "Custom certificates"
 msgstr "Certificati personalizzati"
 
-#: ../../certificates.rst:60
+#: ../../certificates.rst:62
 msgid ""
 "If you are already in possession of a certificate and its private key, "
 "you can upload them to the cluster. You can follow this procedure to "
@@ -667,15 +670,15 @@ msgstr ""
 " caricarli sul cluster. È possibile seguire questa procedura per "
 "installare il certificato:"
 
-#: ../../certificates.rst:63
+#: ../../certificates.rst:65
 msgid "access ``Settings`` page and click the ``TLS Certificates`` card"
 msgstr "accesso alla ``Impostazioni`` e fare clic sulla scheda ``Certificati TLS``"
 
-#: ../../certificates.rst:64
+#: ../../certificates.rst:66
 msgid "click on :guilabel:`Upload certificate`"
 msgstr "cliccare su :guilabel:`Upload certificate`"
 
-#: ../../certificates.rst:65
+#: ../../certificates.rst:67
 msgid ""
 "once the modal is open, select the Traefik instance where the certificate"
 " will be installed to"
@@ -683,7 +686,7 @@ msgstr ""
 "una volta aperta la modalità, selezionare l'istanza Traefik dove verrà "
 "installato il certificato"
 
-#: ../../certificates.rst:66
+#: ../../certificates.rst:68
 msgid ""
 "upload the key file and the certificate file. They are checked on upload "
 "and if the key does not match the certificate, you receive an error"
@@ -691,13 +694,13 @@ msgstr ""
 "caricare il file chiave e il file di certificato. Sono controllati su "
 "upload e se la chiave non corrisponde al certificato, si riceve un errore"
 
-#: ../../certificates.rst:67
+#: ../../certificates.rst:69
 msgid "once selected the files for the upload, click on :guilabel:`Upload`"
 msgstr ""
 "una volta selezionato i file per il caricamento, clicca su "
 ":guilabel:`Upload`"
 
-#: ../../certificates.rst:69
+#: ../../certificates.rst:71
 msgid ""
 "You receive an error if something with the upload goes wrong, otherwise "
 "the modal closes itself and the certificate list is refreshed."
