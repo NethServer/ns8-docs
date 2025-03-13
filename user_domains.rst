@@ -251,6 +251,81 @@ By enabling the ``Password strength`` switch, you can configure the following pa
 
 After editing the password policy, you can click on :guilabel:`Edit password policy` button to save the changes. Strength setting changes do not affect old passwords: they are valid from now on. Age setting changes are retroactive and are applied to already set passwords, too.
 
+Password expiration warning
+---------------------------
+
+The system can send email notifications to users when their password
+is about to expire.
+
+This feature is available **only for internal user domains** and can be enabled on each user domain.
+
+To enable this feature, ensure the following:
+
+- password aging must be enabled on the user domain
+- the cluster must be configured to send :ref:`mail notifications <email-notifications>`
+
+The feature can be enabled from the configuration page of the user domain by clicking the :guilabel:`Edit password warning` button on the ``Password`` card.
+
+After enabling the feature, fill the following fields:
+
+- ``Days before expiration``: the number of days before the password expiration when the notification is sent.
+  The notification is sent every day until the password expires
+- ``Sender mail address``: the email address of the sender, make sure this is a valid email address to avoid issues with spam filters
+- ``Mail template``: select the template to use for the notification email. You can choose between the default templates or a custom one.
+  Default templates are available in English and Italian.
+  To use a custom template, see :ref:`password_warning_custom_template-section`.
+
+The notification email is sent to the user mail address which can be automatically discovered or manually set by an administrator, depending on the
+cluster configuration.
+
+Internal SMTP server
+~~~~~~~~~~~~~~~~~~~~
+
+When a :ref:`internal mail server <mail-section>` instance is installed, and the cluster is configured to send mail notifications using it,
+the user mail address is automatically discovered and used to send the password expiration notification.
+
+The mail address can be overwritten by an administrator setting the ``mail`` field inside the :ref:`user-management-portal-section`.
+
+.. note::
+  If the cluster is configured to send mail notifications using an external SMTP server,
+  the automatically discovered mail address is not valid because the user domain is not known to the external server.
+  In this case you must explicitly set the mail address for the user.
+  
+External SMTP server
+~~~~~~~~~~~~~~~~~~~~
+
+When the cluster is configured to send mail notifications using an external SMTP server, the user mail address is not automatically discovered.
+An administrator must manually set for each user using the :ref:`user-management-portal-section`.
+
+The mail address field is available for both OpenLDAP and Active Directory user domains.
+
+.. _password_warning_custom_template-section:
+
+Custom template
+~~~~~~~~~~~~~~~
+
+After selecting a custom template inside the ``Mail template`` field, you can specify 2 more fields:
+
+- ``Mail subject``: the subject of the notification email
+- ``Mail template``: the body of the notification email in HTML or plain text
+
+Both mail subject and mail body can include the following placeholder:
+
+- ``$user``: the username
+- ``$name``: the full name of the user
+- ``$domain``: the user domain name
+- ``$days``: the actual number of days before the password expiration
+- ``$portal_url``: the URL of the user management portal
+
+Example of a plain text custom template: ::
+
+  Dear $user ($name) of domain $domain.
+  Your password is going to expire in $days days.
+  Change it here: $portal_url
+
+If you want to create an HTML template, you can start by copying a default one like ``/etc/nethserver/password_warning/default_en.tmpl``.
+Copy and paste it inside the ``Mail template`` field, then modify it as needed.
+
 .. _user_groups-section:
 
 User and groups
