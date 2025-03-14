@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-12 16:26+0000\n"
+"POT-Creation-Date: 2025-03-14 10:43+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -17263,12 +17263,185 @@ msgstr ""
 "not affect old passwords: they are valid from now on. Age setting changes"
 " are retroactive and are applied to already set passwords, too."
 
+#: ../../user_domains.rst:255
+msgid "Password expiration warning"
+msgstr ""
+
 #: ../../user_domains.rst:257
+msgid ""
+"The system can send email notifications to users when their password is "
+"about to expire."
+msgstr ""
+
+#: ../../user_domains.rst:260
+msgid ""
+"This feature is available **only for internal user domains** and can be "
+"enabled on each user domain."
+msgstr ""
+
+#: ../../user_domains.rst:262
+msgid "To enable this feature, ensure the following:"
+msgstr ""
+
+#: ../../user_domains.rst:264
+msgid "password aging must be enabled on the user domain"
+msgstr ""
+
+#: ../../user_domains.rst:265
+msgid ""
+"the cluster must be configured to send :ref:`mail notifications <email-"
+"notifications>`"
+msgstr ""
+
+#: ../../user_domains.rst:267
+msgid ""
+"The feature can be enabled from the configuration page of the user domain"
+" by clicking the :guilabel:`Edit password warning` button on the "
+"``Password`` card."
+msgstr ""
+
+#: ../../user_domains.rst:269
+msgid "After enabling the feature, fill the following fields:"
+msgstr ""
+
+#: ../../user_domains.rst:271
+msgid ""
+"``Days before expiration``: the number of days before the password "
+"expiration when the notification is sent. The notification is sent every "
+"day until the password expires"
+msgstr ""
+
+#: ../../user_domains.rst:273
+msgid ""
+"``Sender mail address``: the email address of the sender, make sure this "
+"is a valid email address to avoid issues with spam filters"
+msgstr ""
+
+#: ../../user_domains.rst:274
+msgid ""
+"``Mail template``: select the template to use for the notification email."
+" You can choose between the default templates or a custom one. Default "
+"templates are available in English and Italian. To use a custom template,"
+" see :ref:`password_warning_custom_template-section`."
+msgstr ""
+
+#: ../../user_domains.rst:278
+msgid ""
+"The notification email is sent to the user mail address which can be "
+"automatically discovered or manually set by an administrator, depending "
+"on the cluster configuration."
+msgstr ""
+
+#: ../../user_domains.rst:282
+#, fuzzy
+msgid "Internal SMTP server"
+msgstr "External LDAP server"
+
+#: ../../user_domains.rst:284
+msgid ""
+"When a :ref:`internal mail server <mail-section>` instance is installed, "
+"and the cluster is configured to send mail notifications using it, the "
+"user mail address is automatically discovered and used to send the "
+"password expiration notification."
+msgstr ""
+
+#: ../../user_domains.rst:287
+msgid ""
+"The mail address can be overwritten by an administrator setting the "
+"``mail`` field inside the :ref:`user-management-portal-section`."
+msgstr ""
+
+#: ../../user_domains.rst:290
+msgid ""
+"If the cluster is configured to send mail notifications using an external"
+" SMTP server, the automatically discovered mail address is not valid "
+"because the user domain is not known to the external server. In this case"
+" you must explicitly set the mail address for the user."
+msgstr ""
+
+#: ../../user_domains.rst:295
+#, fuzzy
+msgid "External SMTP server"
+msgstr "External LDAP server"
+
+#: ../../user_domains.rst:297
+msgid ""
+"When the cluster is configured to send mail notifications using an "
+"external SMTP server, the user mail address is not automatically "
+"discovered. An administrator must manually set for each user using the "
+":ref:`user-management-portal-section`."
+msgstr ""
+
+#: ../../user_domains.rst:300
+msgid ""
+"The mail address field is available for both OpenLDAP and Active "
+"Directory user domains."
+msgstr ""
+
+#: ../../user_domains.rst:305
+#, fuzzy
+msgid "Custom template"
+msgstr "template custom"
+
+#: ../../user_domains.rst:307
+msgid ""
+"After selecting a custom template inside the ``Mail template`` field, you"
+" can specify 2 more fields:"
+msgstr ""
+
+#: ../../user_domains.rst:309
+msgid "``Mail subject``: the subject of the notification email"
+msgstr ""
+
+#: ../../user_domains.rst:310
+msgid ""
+"``Mail template``: the body of the notification email in HTML or plain "
+"text"
+msgstr ""
+
+#: ../../user_domains.rst:312
+msgid "Both mail subject and mail body can include the following placeholder:"
+msgstr ""
+
+#: ../../user_domains.rst:314
+msgid "``$user``: the username"
+msgstr ""
+
+#: ../../user_domains.rst:315
+#, fuzzy
+msgid "``$name``: the full name of the user"
+msgstr "``Name``: the name of the shared folder"
+
+#: ../../user_domains.rst:316
+msgid "``$domain``: the user domain name"
+msgstr ""
+
+#: ../../user_domains.rst:317
+msgid "``$days``: the actual number of days before the password expiration"
+msgstr ""
+
+#: ../../user_domains.rst:318
+msgid "``$portal_url``: the URL of the user management portal"
+msgstr ""
+
+#: ../../user_domains.rst:320
+msgid "Example of a plain text custom template: ::"
+msgstr ""
+
+#: ../../user_domains.rst:326
+msgid ""
+"If you want to create an HTML template, you can start by copying a "
+"default one like ``/etc/nethserver/password_warning/default_en.tmpl``. "
+"Copy and paste it inside the ``Mail template`` field, then modify it as "
+"needed."
+msgstr ""
+
+#: ../../user_domains.rst:332
 #, fuzzy
 msgid "User and groups"
 msgstr "User and groups"
 
-#: ../../user_domains.rst:259
+#: ../../user_domains.rst:334
 #, fuzzy
 msgid ""
 "You can manage users and groups of a domain by clicking on ``User and "
@@ -17277,7 +17450,7 @@ msgstr ""
 "You can manage users and groups of a domain by clicking on ``User and "
 "groups`` link from the ``Domains and users`` page."
 
-#: ../../user_domains.rst:261
+#: ../../user_domains.rst:336
 #, fuzzy
 msgid ""
 "If an external user domain has been configured, the page shows read-only "
@@ -17286,7 +17459,7 @@ msgstr ""
 "If an external user domain has been configured, the page shows read-only "
 "lists. Changes to the user base must be done on the external server."
 
-#: ../../user_domains.rst:264
+#: ../../user_domains.rst:339
 #, fuzzy
 msgid ""
 "On the other hand, if a local AD or LDAP account provider has been "
@@ -17295,32 +17468,32 @@ msgstr ""
 "On the other hand, if a local AD or LDAP account provider has been "
 "installed, the page allows to create, modify and delete users and groups."
 
-#: ../../user_domains.rst:267
+#: ../../user_domains.rst:342
 #, fuzzy
 msgid "When creating a user, the following fields are mandatory:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:269
+#: ../../user_domains.rst:344
 #, fuzzy
 msgid "User name"
 msgstr "User name"
 
-#: ../../user_domains.rst:270
+#: ../../user_domains.rst:345
 #, fuzzy
 msgid "Full name (name and surname)"
 msgstr "Full name (name and surname)"
 
-#: ../../user_domains.rst:271
+#: ../../user_domains.rst:346
 #, fuzzy
 msgid "Password"
 msgstr "Password"
 
-#: ../../user_domains.rst:273
+#: ../../user_domains.rst:348
 #, fuzzy
 msgid "A user can be added to one or more groups."
 msgstr "A user can be added to one or more groups."
 
-#: ../../user_domains.rst:275
+#: ../../user_domains.rst:350
 #, fuzzy
 msgid ""
 "Sometimes you need to block user access to services without deleting the "
@@ -17329,27 +17502,27 @@ msgstr ""
 "Sometimes you need to block user access to services without deleting the "
 "account. The safest approach is:"
 
-#: ../../user_domains.rst:278
+#: ../../user_domains.rst:353
 #, fuzzy
 msgid "(optionally) change the user's password with a random one"
 msgstr "(optionally) change the user's password with a random one"
 
-#: ../../user_domains.rst:279
+#: ../../user_domains.rst:354
 #, fuzzy
 msgid "disable the user using the ``Disable`` action from the three-dots menu"
 msgstr "disable the user using the ``Disable`` action from the three-dots menu"
 
-#: ../../user_domains.rst:281
+#: ../../user_domains.rst:356
 #, fuzzy
 msgid "When a user is deleted, user data will not be removed."
 msgstr "When a user is deleted, user data will not be removed."
 
-#: ../../user_domains.rst:286
+#: ../../user_domains.rst:361
 #, fuzzy
 msgid "User Management portal"
 msgstr "User Management portal"
 
-#: ../../user_domains.rst:288
+#: ../../user_domains.rst:363
 #, fuzzy
 msgid ""
 "The user management portal is a web application that allows any non-"
@@ -17360,7 +17533,7 @@ msgstr ""
 "administrator user to change their own password without the need for "
 "administrator intervention."
 
-#: ../../user_domains.rst:292
+#: ../../user_domains.rst:367
 msgid ""
 "Members of the Domain Admins group can also manage users and groups in "
 "the domain, independently from the Cluster Admin UI."
@@ -17368,7 +17541,7 @@ msgstr ""
 "I membri del gruppo Domain Admins possono anche gestire utenti e gruppi "
 "nel dominio, indipendentemente dal Cluster Admin UI."
 
-#: ../../user_domains.rst:295
+#: ../../user_domains.rst:370
 #, fuzzy
 msgid ""
 "The portal is automatically configured on every instance of :ref"
@@ -17377,12 +17550,12 @@ msgstr ""
 "The portal is automatically configured on every instance of :ref"
 ":`active_directory-section` or :ref:`openldap-section` provider."
 
-#: ../../user_domains.rst:297
+#: ../../user_domains.rst:372
 #, fuzzy
 msgid "The portal is available at the following URL: ::"
 msgstr "The portal is available at the following URL: ::"
 
-#: ../../user_domains.rst:301
+#: ../../user_domains.rst:376
 #, fuzzy
 msgid ""
 "Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
@@ -17393,12 +17566,12 @@ msgstr ""
 "``<domain_name>`` is the name of the domain provided while configuring "
 "the domain."
 
-#: ../../user_domains.rst:303
+#: ../../user_domains.rst:378
 #, fuzzy
 msgid "Without the trailing slash, the portal will not work."
 msgstr "Without the trailing slash, the portal will not work."
 
-#: ../../user_domains.rst:305
+#: ../../user_domains.rst:380
 #, fuzzy
 msgid ""
 "Once reached the page, the user is prompted for login and they can "
@@ -17407,7 +17580,7 @@ msgstr ""
 "Once reached the page, the user is prompted for login and they can "
 "authenticate to the domain with user name and password."
 
-#: ../../user_domains.rst:307
+#: ../../user_domains.rst:382
 #, fuzzy
 msgid ""
 "If the login is successful, the user is directed to the ``User "
