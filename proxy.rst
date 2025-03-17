@@ -54,4 +54,4 @@ Follow these steps:
   
      api-cli run module/traefik1/set-route --data '{"instance": "cluster-admin", "ip_allowlist": []}'
 
-   Replace ``traefik1`` with the correct instance name if you have more than one instance.
+   Replace ``traefik1`` with the correct module identifier, if your cluster has multiple nodes. Traefik identifiers are listed in the ``HTTP routes`` page.
