@@ -36,3 +36,22 @@ Then enter the following details:
 - ``Request Let's Encrypt certificate`` enable this option to request a valid certificate, please remember :ref:`all requirements <certificate_manager-section>`
 - ``Restrict access from``: restrict access to the route to a specific network, by default the route is accessible from any network.
   Enter a valid IPv4 address or CIDR network per line.
+
+.. note::
+   The route named ``cluster-admin`` is a special route that is automatically created during the cluster setup.
+   It is used to access the cluster administration interface.
+   Please bear in mind that if you restrict access to this route:
+
+   - you may prevent a new worker from joining the cluster
+   - you may lose access to the cluster configuration if you do not correctly enter your own IP address
+
+
+If you loose access to the cluster administration interface, you can remove the access restriction from the command line.
+Follow these steps:
+
+1. Access the cluster node using SSH with root privileges
+2. Run the following command to remove the access restriction from the ``cluster-admin`` route: ::
+  
+     api-cli run module/traefik1/set-route --data '{"instance": "cluster-admin", "ip_allowlist": []}'
+
+   Replace ``traefik1`` with the correct instance name if you have more than one instance.
