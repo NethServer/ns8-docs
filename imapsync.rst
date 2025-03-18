@@ -33,7 +33,7 @@ Configuration
 Imapsync needs to be configured to use a Mail module already installed in the NethServer 8 cluster. Once configured, you can create as many tasks as needed for each user of the domain.
 
 .. note::
-   Imasync is integrated with LDAP user domain that you can configure at :ref:`user-domains-section`.
+   Imapsync is integrated with LDAP user domain that you can configure at :ref:`user-domains-section`.
 
 .. _imapsync_limitations:
 
