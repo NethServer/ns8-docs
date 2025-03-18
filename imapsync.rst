@@ -35,6 +35,7 @@ Imapsync needs to be configured to use a Mail module already installed in the Ne
 .. note::
    Imasync is integrated with LDAP user domain that you can configure at :ref:`user-domains-section`.
 
+.. _imapsync_limitations:
 
 Known limitations
 =================
@@ -44,8 +45,3 @@ Known limitations
 
 - Imapsync does not integrate with :ref:`Piler <piler-section>`: messages
   copied by Imapsync are not archived.
-
-- Sieve filters do not work with Imapsync, as they are evaluated during
-  LMTP delivery. Instead, Imapsync uses IMAP commands to interact directly
-  with Dovecot, bypassing LMTP and preventing the execution of Sieve
-  scripts.
