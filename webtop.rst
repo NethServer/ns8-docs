@@ -1197,3 +1197,82 @@ through the `NethService category`_ in the Nethesis online shop.
 
 Once the purchase is completed, Nethesis will provide instructions to
 activate the license and configure the PEC Bridge.
+
+NethVoice phonebook integration
+===============================
+
+Inside the WebTop application there is an automated workflow that allows to:
+
+- export WebTop contacts to the NethVoice centralized phonebook
+- import the NethVoice centralized phonebook to the WebTop contacts
+
+The workflow is disabled by default, to enable it:
+
+- make sure at least one NethVoice instance is installed inside the cluster
+- in the ``Settings`` page, select the NethVoice instance from the ``Syncronize Phonebook with NethVoice instance``
+  field inside the ``Advanced`` section
+- save the settings
+
+The synchronization occurs every night, ensuring that the NethVoice centralized phonebook is regularly updated in WebTop.
+This automated process helps maintain consistency and accuracy between the two systems, allowing users to access the most current contact
+information without manual intervention.
+
+From Webtop to NethVoice
+------------------------
+
+To add contacts from any WebTop 5 user address book to the NethVoice centralized phonebook,
+simply share it with the system **admin** user named *Admin (NethServer)*.
+
+Users can voluntarily choose to share their contacts for import into the NethVoice phonebook.
+This operation must be performed individually by each user who wishes to share their contacts.
+
+The user must follow these steps:
+
+- open the ``Contacts`` section
+- under the ``My Categories`` section, choose an address book to share, then
+  click on the kebab menu (three dots) and select the ``Sharing and Permissions`` menu item
+- a drawer will open on the right side of the screen, click the :guilabel:`Add` button
+- in the search field, type ``admin`` and select the user from the list
+
+.. note::
+
+   The address book must be shared directly with the **admin** user.
+   Sharing it with a group containing the **admin** user is not sufficient.
+
+   Ensure that only individual address books are shared and not the entire category, 
+   to prevent synchronization errors.
+
+From NethVoice to WebTop
+------------------------
+
+When the synchronization is active, the NethVoice centralized phonebook is imported into WebTop 5 every night.
+
+Contacts are imported into a newly created address book named *Rubrica Centralizzata*, within the administrator user account, named *Builtin Administrator user*.
+The username corresponds to the one used to provision the user domain associated with the mail server connected to WebTop 5.
+
+To allow other groupware users to access the address book, access with the administrator user and share it with the desired users or groups
+as *READ-ONLY*.
+To share it with all users, select the *Users* group.
+
+It's possibile to override both the address book name and the user name by setting the following environment variables inside the `phonebook.env` file:
+
+- ``PHONEBOOK_WEBTOP_ADMIN``
+- ``PHONEBOOK_WEBTOP_FOLDER``
+
+To do so, access the shell and enter the WebTop instance environment, replace  *webtop1* with the actual WebTop instance name: ::
+
+   runagent -m webtop1
+   echo "PHONEBOOK_WEBTOP_ADMIN=myuser" >> phonebook.env
+   echo "PHONEBOOK_WEBTOP_FOLDER=MyPhonebook" >> phonebook.env
+
+On next synchronization, the address book will be created with the specified name and shared with the specified user.
+
+Manual synchronization
+----------------------
+
+To manually force synchronization and verify correct configuration, run the following 
+command from the shell: ::
+
+   runagent -m webtop1 systemctl --user start phonebook
+
+Replace *webtop1* with the actual WebTop instance name.
