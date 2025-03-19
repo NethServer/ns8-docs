@@ -48,7 +48,7 @@ logical volume or disk partition has to be grown.
 
 On a physical machine, the best option is to set up LVM during the
 distribution installation. LVM helps with device management, and there are
-plenty of HOW-TOs that explain how to achieve this goal.
+plenty of how-to guides that explain how to achieve this goal.
 
 On a virtual machine, you can easily expand the entire root disk and
 filesystem. If you created the VM with the pre-built image, read the next
@@ -66,10 +66,10 @@ this procedure.
 
     sudo qemu-img resize ns8-disk.qcow2 +50G
 
-2. Start the node and grow its 5th partition (remove -N, dry-run flag,
+2. Start the node and grow its 5th partition (remove the --dry-run option,
    when you are confident): ::
 
-    growpart -N /dev/vda 5
+    growpart --dry-run /dev/vda 5
 
 3. Grow the root filesystem: ::
 
