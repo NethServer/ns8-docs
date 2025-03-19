@@ -2,90 +2,129 @@
 Disk usage
 ==========
 
-NethServer 8 uses `podman <https://podman.io/>`_ to manage OCI containers.
-When running multiple containers the disk usage will grow quite fast and you could quickly run out of space.
+NethServer 8 uses Podman__ to manage OCI containers.
 
-Rootless containers put their data inside the user home directory ``/home``.
-So if you plan to run many services on the same host, consider mounting an extra disk or partition at the ``/home`` path.
+.. __: https://podman.io/
 
-Rootful containers usually save images and volumes inside the ``/var/lib/containers/storage`` directory.
+- Rootless applications require the most space. They put their data inside
+  the user's home directory, for example
+  ``/home/loki1/.local/share/containers/storage``.
 
-To inspect podman storage configuration of your distribution, you can use the following command: ::
+- Rootful applications typically store images and volumes in the
+  ``/var/lib/containers/storage`` directory.
 
-  podman info -f json | jq .store.graphRoot
+Inspect the default directories used by Podman with commands like: ::
 
-There is another growing directory ``/var/lib/nethserver``: it contains the user interface and actions of rootful modules.
+  podman info -f json | jq -r '.store.graphRoot'
+  podman info -f json | jq -r '.store.volumePath'
 
-Add more space
-==============
+For rootless applications, prepend ``runagent -m <module_id>``, e.g.: ::
 
-If you’re running out of disk space, consider expanding the ``/home`` filesystem.
+  runagent -m loki1 podman info -f json | jq -r '.store.graphRoot'
+  runagent -m loki1 podman info -f json | jq -r '.store.volumePath'
 
-On a physical machine, the best option is to setup LVM during the distribution installation.
-On the other hand, on a virtual machine you could easily expand the whole root filesystem.
+To get a list of the applications running on the local node, run: ::
 
-If you can't do any of the above, consider adding a new disk and migrating existing data using the script below.
+  runagent -l
+
+There is another growing directory, ``/var/lib/nethserver``, that contains
+the actions and state data of rootful modules, and core components like
+the user interface code. Space requirements for this directory should be
+minimal.
+
+When NS8 runs multiple applications, disk usage increases rapidly, and you
+may run out of space. If disk space runs low, consider expanding the
+filesystem using the methods described in the following sections.
+
+Expand the filesystem with external tools
+-----------------------------------------
+
+As a general approach, to expand a filesystem, you have to grow the device
+where it is mounted first.
+
+Often, the device itself is contained by some other device, logical or
+physical, like a logical volume or a disk partition. In this case, the
+logical volume or disk partition has to be grown.
+
+On a physical machine, the best option is to set up LVM during the
+distribution installation. LVM helps with device management, and there are
+plenty of how-to guides that explain how to achieve this goal.
+
+On a virtual machine, you can easily expand the entire root disk and
+filesystem. If you created the VM with the pre-built image, read the next
+section for detailed commands.
+
+Expand pre-built image filesystem
+---------------------------------
+
+If NS8 was installed as a virtual machine starting from the
+:ref:`pre-built image <install_image-section>` in QCOW2 format, follow
+this procedure.
+
+1. Shut down the node and resize its .qcow2 image from its host system.
+   For example ::
+
+    sudo qemu-img resize ns8-disk.qcow2 +50G
+
+2. Start the node and grow its 5th partition (remove the --dry-run option,
+   when you are confident): ::
+
+    growpart --dry-run /dev/vda 5
+
+3. Grow the root filesystem: ::
+
+    xfs_growfs /
+
+Attach a disk for new applications
+----------------------------------
+
+At any time in the NS8 node's life, you can mount a new disk on an
+alternative path, like ``/home1``, and start to install applications on
+it. Existing rootless applications will continue to use their home
+directory on the old disk, whilst new apps will be created under
+``/home1`` and consume the new disk space.
+
+1. Create the alternative base path: ::
+
+    mkdir -m 0755 /home1
+
+2. Mount the device on the new path: ::
+
+    mount /dev/some /home1
+
+   To persist the mount, edit `/etc/fstab` or create a systemd `.mount`
+   unit. Verify that the device remains mounted after a reboot.
+
+3. Configure the node agent to use `/home1` as the base directory for new
+   applications: ::
+
+    runagent -m node configure-home-basedir --set /home1
+
+Migrate /home data to a new disk
+--------------------------------
+
+If the previous section is not applicable, consider adding a new disk and
+migrating existing data with a Bash script included in the core:
+``migrate-home-disk.sh``. This script illustrates the basic steps required
+for data migration.
+
+.. warning::
+
+  The included script is just an example that may not fit your system. USE
+  AT YOUR OWN RISK!
+
 The script will:
 
-* stop all rootless containers
-* copy all rootless containers inside the new disk
+* stop all rootless applications
+* copy all rootless applications inside the new disk
 * reclaim space from the root filesystem
 * mount the new disk under ``/home``
-* restart all rootless containers
+* restart all rootless applications
 
-Before running the script, make sure to attach the disk to the machine, format it and mount to a custom
-location like ``/mnt/temp_disk``.
-Then launch the script by passing the mount location as parameter, like: ::
+Before running the script, make sure to attach the disk to the node,
+format it, and mount it to a custom location like ``/mnt/temp_disk``.
 
-  migrate /mnt/temp_disk
+Then launch the Bash script by passing the mount location as a parameter,
+like: ::
 
-The ``migrate`` script:.
-
-.. code-block:: bash
-
-  #!/bin/bash
-  set -e
-  mount_dir=$1
-  if [ -z "$mount_dir" ]; then
-    echo "Please provide the disk mount dir"
-    exit 1
-  fi
-  if [ ! -d "$mount_dir" ]; then
-    echo "Mount dir not found"
-    exit 1
-  fi
-  if ! which rsync &>/dev/null; then
-    echo "rsync not found, please install it before proceed"
-    exit 1
-  fi
-  device=$(grep $(echo "$mount_dir" | sed 's/\/$//') /etc/mtab | awk '{print $1}')
-  if [ -z "$device" ]; then
-    echo "Device not found for $mount_dir"
-    exit 1
-  fi
-  for userhome in /home/*[0-9]; do
-    moduleid=$(basename $userhome)
-    echo "Disabling rootless module ${moduleid}..."
-    systemctl stop user@$(id -u $moduleid)
-  done
-  echo "Copying files..."
-  rsync -avrX --delete-after /home/ $mount_dir/
-  echo "Reclaim space..."
-  for userhome in /home/*[0-9]; do
-   rm -rf $userhome
-  done
-  echo "Remount disk to /home..."
-  umount $device
-  mount $device /home
-  for userhome in /home/*[0-9]; do
-    moduleid=$(basename $userhome)
-    echo "Starting rootless module ${moduleid}..."
-    systemctl start user@$(id -u $moduleid)
-  done
-  echo "Done"
-  echo
-  eval $(blkid $device -o export)
-  echo "Add this line to fstab:"
-  echo
-  echo "UUID=$UUID /home $TYPE rw,errors=remount-ro 0 1"
-
+  bash /var/lib/nethserver/node/migrate-home-disk.sh /mnt/temp_disk
