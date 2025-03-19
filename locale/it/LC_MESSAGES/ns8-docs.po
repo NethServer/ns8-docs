@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-14 10:43+0000\n"
+"POT-Creation-Date: 2025-03-19 09:49+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -1542,117 +1542,206 @@ msgid "Disk usage"
 msgstr "Utilizzo del disco"
 
 #: ../../disk_usage.rst:5
-msgid ""
-"NethServer 8 uses `podman <https://podman.io/>`_ to manage OCI "
-"containers. When running multiple containers the disk usage will grow "
-"quite fast and you could quickly run out of space."
+msgid "NethServer 8 uses Podman__ to manage OCI containers."
 msgstr ""
-"NethServer 8 utilizza `podman <https://podman.io/>`_ per gestire i "
-"container OCI. Quando si eseguono più container, l'utilizzo del disco "
-"crescerà abbastanza velocemente e si potrebbe rapidamente esaurire lo "
-"spazio."
 
-#: ../../disk_usage.rst:8
+#: ../../disk_usage.rst:9
 msgid ""
-"Rootless containers put their data inside the user home directory "
-"``/home``. So if you plan to run many services on the same host, consider"
-" mounting an extra disk or partition at the ``/home`` path."
+"Rootless applications require the most space. They put their data inside "
+"the user's home directory, for example "
+"``/home/loki1/.local/share/containers/storage``."
 msgstr ""
-"I container rootless inseriscono i dati all'interno della directory "
-"``/home`` dell'utente. Quindi, se si prevede di eseguire molti servizi "
-"sullo stesso host, prendere in considerazione montare un disco o una "
-"partizione supplementare sul percorso ``/home``."
 
-#: ../../disk_usage.rst:11
+#: ../../disk_usage.rst:13
+#, fuzzy
 msgid ""
-"Rootful containers usually save images and volumes inside the "
+"Rootful applications typically store images and volumes in the "
 "``/var/lib/containers/storage`` directory."
 msgstr ""
 "I container rootful solitamente salvano immagini e volumi all'interno "
 "della directory ``/var/lib/containers/storage``."
 
-#: ../../disk_usage.rst:13
-msgid ""
-"To inspect podman storage configuration of your distribution, you can use"
-" the following command: ::"
+#: ../../disk_usage.rst:16
+msgid "Inspect the default directories used by Podman with commands like: ::"
 msgstr ""
-"Per ispezionare la configurazione di storage di podman della "
-"distribuzione, è possibile utilizzare il seguente comando: ::"
 
-#: ../../disk_usage.rst:17
-msgid ""
-"There is another growing directory ``/var/lib/nethserver``: it contains "
-"the user interface and actions of rootful modules."
+#: ../../disk_usage.rst:21
+msgid "For rootless applications, prepend ``runagent -m <module_id>``, e.g.: ::"
 msgstr ""
-"C'è un'altra directory che tende a crescere ``/var/lib/nethserver``: "
-"contiene l'interfaccia utente e le azioni dei moduli rootful."
 
-#: ../../disk_usage.rst:20
-msgid "Add more space"
-msgstr "Aggiungere più spazio"
-
-#: ../../disk_usage.rst:22
-msgid ""
-"If you’re running out of disk space, consider expanding the ``/home`` "
-"filesystem."
+#: ../../disk_usage.rst:26
+msgid "To get a list of the applications running on the local node, run: ::"
 msgstr ""
-"Se stai esaurendo lo spazio su disco, considera di espandere il "
-"filesystem ``/home``."
-
-#: ../../disk_usage.rst:24
-msgid ""
-"On a physical machine, the best option is to setup LVM during the "
-"distribution installation. On the other hand, on a virtual machine you "
-"could easily expand the whole root filesystem."
-msgstr ""
-"Su una macchina fisica, l'opzione migliore è quella di impostare LVM "
-"durante l'installazione della distribuzione. D'altra parte, su una "
-"macchina virtuale si potrebbe facilmente espandere l'intero filesystem "
-"root."
-
-#: ../../disk_usage.rst:27
-msgid ""
-"If you can't do any of the above, consider adding a new disk and "
-"migrating existing data using the script below. The script will:"
-msgstr ""
-"Se non è possibile nessuna delle suddette azioni, si può prendere in "
-"considerazione l'aggiunta di un nuovo disco e la migrazione dei dati "
-"esistenti utilizzando lo script qui sotto. Lo script:"
 
 #: ../../disk_usage.rst:30
-msgid "stop all rootless containers"
+msgid ""
+"There is another growing directory, ``/var/lib/nethserver``, that "
+"contains the actions and state data of rootful modules, and core "
+"components like the user interface code. Space requirements for this "
+"directory should be minimal."
+msgstr ""
+
+#: ../../disk_usage.rst:35
+msgid ""
+"When NS8 runs multiple applications, disk usage increases rapidly, and "
+"you may run out of space. If disk space runs low, consider expanding the "
+"filesystem using the methods described in the following sections."
+msgstr ""
+
+#: ../../disk_usage.rst:40
+msgid "Expand the filesystem with external tools"
+msgstr ""
+
+#: ../../disk_usage.rst:42
+msgid ""
+"As a general approach, to expand a filesystem, you have to grow the "
+"device where it is mounted first."
+msgstr ""
+
+#: ../../disk_usage.rst:45
+msgid ""
+"Often, the device itself is contained by some other device, logical or "
+"physical, like a logical volume or a disk partition. In this case, the "
+"logical volume or disk partition has to be grown."
+msgstr ""
+
+#: ../../disk_usage.rst:49
+msgid ""
+"On a physical machine, the best option is to set up LVM during the "
+"distribution installation. LVM helps with device management, and there "
+"are plenty of how-to guides that explain how to achieve this goal."
+msgstr ""
+
+#: ../../disk_usage.rst:53
+msgid ""
+"On a virtual machine, you can easily expand the entire root disk and "
+"filesystem. If you created the VM with the pre-built image, read the next"
+" section for detailed commands."
+msgstr ""
+
+#: ../../disk_usage.rst:58
+msgid "Expand pre-built image filesystem"
+msgstr ""
+
+#: ../../disk_usage.rst:60
+msgid ""
+"If NS8 was installed as a virtual machine starting from the :ref:`pre-"
+"built image <install_image-section>` in QCOW2 format, follow this "
+"procedure."
+msgstr ""
+
+#: ../../disk_usage.rst:64
+msgid ""
+"Shut down the node and resize its .qcow2 image from its host system. For "
+"example ::"
+msgstr ""
+
+#: ../../disk_usage.rst:69
+msgid ""
+"Start the node and grow its 5th partition (remove the --dry-run option, "
+"when you are confident): ::"
+msgstr ""
+
+#: ../../disk_usage.rst:74
+#, fuzzy
+msgid "Grow the root filesystem: ::"
+msgstr "recupera spazio dal filesystem root"
+
+#: ../../disk_usage.rst:79
+#, fuzzy
+msgid "Attach a disk for new applications"
+msgstr "Applicazioni NethForge"
+
+#: ../../disk_usage.rst:81
+msgid ""
+"At any time in the NS8 node's life, you can mount a new disk on an "
+"alternative path, like ``/home1``, and start to install applications on "
+"it. Existing rootless applications will continue to use their home "
+"directory on the old disk, whilst new apps will be created under "
+"``/home1`` and consume the new disk space."
+msgstr ""
+
+#: ../../disk_usage.rst:87
+msgid "Create the alternative base path: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:91
+msgid "Mount the device on the new path: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:95
+msgid ""
+"To persist the mount, edit `/etc/fstab` or create a systemd `.mount` "
+"unit. Verify that the device remains mounted after a reboot."
+msgstr ""
+
+#: ../../disk_usage.rst:98
+msgid ""
+"Configure the node agent to use `/home1` as the base directory for new "
+"applications: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:104
+msgid "Migrate /home data to a new disk"
+msgstr ""
+
+#: ../../disk_usage.rst:106
+msgid ""
+"If the previous section is not applicable, consider adding a new disk and"
+" migrating existing data with a Bash script included in the core: "
+"``migrate-home-disk.sh``. This script illustrates the basic steps "
+"required for data migration."
+msgstr ""
+
+#: ../../disk_usage.rst:113
+msgid ""
+"The included script is just an example that may not fit your system. USE "
+"AT YOUR OWN RISK!"
+msgstr ""
+
+#: ../../disk_usage.rst:116
+msgid "The script will:"
+msgstr ""
+
+#: ../../disk_usage.rst:118
+#, fuzzy
+msgid "stop all rootless applications"
 msgstr "arresta tutti i container rootless"
 
-#: ../../disk_usage.rst:31
-msgid "copy all rootless containers inside the new disk"
+#: ../../disk_usage.rst:119
+#, fuzzy
+msgid "copy all rootless applications inside the new disk"
 msgstr "copia tutti i container rootless all'interno del nuovo disco"
 
-#: ../../disk_usage.rst:32
+#: ../../disk_usage.rst:120
 msgid "reclaim space from the root filesystem"
 msgstr "recupera spazio dal filesystem root"
 
-#: ../../disk_usage.rst:33
+#: ../../disk_usage.rst:121
 msgid "mount the new disk under ``/home``"
 msgstr "monta il nuovo disco sotto ``/home``"
 
-#: ../../disk_usage.rst:34
-msgid "restart all rootless containers"
+#: ../../disk_usage.rst:122
+#, fuzzy
+msgid "restart all rootless applications"
 msgstr "riavvia tutti i container rootless"
 
-#: ../../disk_usage.rst:36
+#: ../../disk_usage.rst:124
+#, fuzzy
 msgid ""
-"Before running the script, make sure to attach the disk to the machine, "
-"format it and mount to a custom location like ``/mnt/temp_disk``. Then "
-"launch the script by passing the mount location as parameter, like: ::"
+"Before running the script, make sure to attach the disk to the node, "
+"format it, and mount it to a custom location like ``/mnt/temp_disk``."
 msgstr ""
 "Prima di eseguire lo script, assicurarsi di collegare il disco alla "
 "macchina, formattarlo e montarlo in un percorso personalizzato come "
 "``/mnt/temp_disk``. Quindi lanciare lo script inserendo il percorso di "
 "mount come parametro, così: ::"
 
-#: ../../disk_usage.rst:42
-msgid "The ``migrate`` script:."
-msgstr "Lo script ``migrate```:."
+#: ../../disk_usage.rst:127
+msgid ""
+"Then launch the Bash script by passing the mount location as a parameter,"
+" like: ::"
+msgstr ""
 
 #: ../../dnsmasq.rst:5
 msgid "DNSMasq"
@@ -22152,4 +22241,99 @@ msgstr ""
 #~ "with the exporter is installed, "
 #~ "Prometheus will automatically collect the "
 #~ "node metrics."
+
+#~ msgid ""
+#~ "NethServer 8 uses `podman "
+#~ "<https://podman.io/>`_ to manage OCI "
+#~ "containers. When running multiple containers"
+#~ " the disk usage will grow quite "
+#~ "fast and you could quickly run out"
+#~ " of space."
+#~ msgstr ""
+#~ "NethServer 8 utilizza `podman "
+#~ "<https://podman.io/>`_ per gestire i container"
+#~ " OCI. Quando si eseguono più "
+#~ "container, l'utilizzo del disco crescerà "
+#~ "abbastanza velocemente e si potrebbe "
+#~ "rapidamente esaurire lo spazio."
+
+#~ msgid ""
+#~ "Rootless containers put their data "
+#~ "inside the user home directory "
+#~ "``/home``. So if you plan to run"
+#~ " many services on the same host, "
+#~ "consider mounting an extra disk or "
+#~ "partition at the ``/home`` path."
+#~ msgstr ""
+#~ "I container rootless inseriscono i dati"
+#~ " all'interno della directory ``/home`` "
+#~ "dell'utente. Quindi, se si prevede di"
+#~ " eseguire molti servizi sullo stesso "
+#~ "host, prendere in considerazione montare "
+#~ "un disco o una partizione supplementare"
+#~ " sul percorso ``/home``."
+
+#~ msgid ""
+#~ "To inspect podman storage configuration "
+#~ "of your distribution, you can use "
+#~ "the following command: ::"
+#~ msgstr ""
+#~ "Per ispezionare la configurazione di "
+#~ "storage di podman della distribuzione, è"
+#~ " possibile utilizzare il seguente comando:"
+#~ " ::"
+
+#~ msgid ""
+#~ "There is another growing directory "
+#~ "``/var/lib/nethserver``: it contains the user"
+#~ " interface and actions of rootful "
+#~ "modules."
+#~ msgstr ""
+#~ "C'è un'altra directory che tende a "
+#~ "crescere ``/var/lib/nethserver``: contiene "
+#~ "l'interfaccia utente e le azioni dei "
+#~ "moduli rootful."
+
+#~ msgid "Add more space"
+#~ msgstr "Aggiungere più spazio"
+
+#~ msgid ""
+#~ "If you’re running out of disk "
+#~ "space, consider expanding the ``/home`` "
+#~ "filesystem."
+#~ msgstr ""
+#~ "Se stai esaurendo lo spazio su "
+#~ "disco, considera di espandere il "
+#~ "filesystem ``/home``."
+
+#~ msgid ""
+#~ "On a physical machine, the best "
+#~ "option is to setup LVM during the"
+#~ " distribution installation. On the other"
+#~ " hand, on a virtual machine you "
+#~ "could easily expand the whole root "
+#~ "filesystem."
+#~ msgstr ""
+#~ "Su una macchina fisica, l'opzione "
+#~ "migliore è quella di impostare LVM "
+#~ "durante l'installazione della distribuzione. "
+#~ "D'altra parte, su una macchina virtuale"
+#~ " si potrebbe facilmente espandere l'intero"
+#~ " filesystem root."
+
+#~ msgid ""
+#~ "If you can't do any of the "
+#~ "above, consider adding a new disk "
+#~ "and migrating existing data using the"
+#~ " script below. The script will:"
+#~ msgstr ""
+#~ "Se non è possibile nessuna delle "
+#~ "suddette azioni, si può prendere in "
+#~ "considerazione l'aggiunta di un nuovo "
+#~ "disco e la migrazione dei dati "
+#~ "esistenti utilizzando lo script qui "
+#~ "sotto. Lo script:"
+
+#~ msgid "The ``migrate`` script:."
+#~ msgstr "Lo script ``migrate```:."
 
