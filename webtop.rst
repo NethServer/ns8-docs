@@ -1209,7 +1209,7 @@ Inside the WebTop application there is an automated workflow that allows to:
 The workflow is disabled by default, to enable it:
 
 - make sure at least one NethVoice instance is installed inside the cluster
-- in the ``Settings`` page, select the NethVoice instance from the ``Syncronize Phonebook with NethVoice instance``
+- in the ``Settings`` page, select the NethVoice instance from the ``Synchronize Phonebook with NethVoice instance``
   field inside the ``Advanced`` section
 - save the settings
 
