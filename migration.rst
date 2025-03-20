@@ -287,8 +287,8 @@ For accounts using POP3, it is necessary to review the settings and commence syn
 
 .. warning::
 
-  Emails fetched by Imapsync are not subject to anti-spam, anti-virus, or
-  Sieve filtering.
+  Emails fetched by Imapsync are not subject to anti-spam and anti-virus
+  filtering. See :ref:`imapsync_limitations`.
 
 .. _migrated_nethvoice-section:
 
