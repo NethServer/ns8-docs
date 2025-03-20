@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 09:49+0000\n"
+"POT-Creation-Date: 2025-03-20 13:25+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -13339,89 +13339,102 @@ msgstr ""
 msgid ""
 "Access the ``HTTP routes`` card inside the ``Settings`` page to see all "
 "configured routes. Applications usually automatically setup the proxy "
-"during the configuration phase. Automatic routes can't be modified."
+"during the configuration phase. Automatic routes can't be modified except"
+" for the allowed IPs."
 msgstr ""
 "Access the ``HTTP routes`` card inside the ``Settings`` page to see all "
 "configured routes. Applications usually automatically setup the proxy "
 "during the configuration phase. Automatic routes can't be modified."
 
 #: ../../proxy.rst:14
-#, fuzzy
-msgid ""
-"You can add a custom route by clicking :guilabel:`Create route` button. "
-"Then enter the following details:"
+msgid "Each route can have a list of special attributes visible from the list:"
 msgstr ""
-"You can add a custom route by clicking :guilabel:`Create route` button. "
-"Then enter the following details:"
+
+#: ../../proxy.rst:16
+msgid "``automatic`` for created rules created by the applications"
+msgstr ""
 
 #: ../../proxy.rst:17
-#, fuzzy
-msgid "``Name``: a unique name to identify the route"
-msgstr "``Name``: a unique name to identify the route"
-
-#: ../../proxy.rst:18
-#, fuzzy
-msgid "``Node``: the node where the proxy instance is running"
-msgstr "``Node``: the node where the proxy instance is running"
+msgid "``access restricted`` if access is restricted to a specific network"
+msgstr ""
 
 #: ../../proxy.rst:19
 #, fuzzy
 msgid ""
-"``URL``: target URL of the route. It must correspond to a reachable "
-"backend HTTP server. It can be both internal or external to the cluster."
+"You can add a custom route by clicking :guilabel:`Create route` button. "
+"Then enter the following details:"
 msgstr ""
-"``URL``: target URL of the route. It must correspond to a reachable "
-"backend HTTP server. It can be both internal or external to the cluster."
+"You can add a custom route by clicking :guilabel:`Create route` button. "
+"Then enter the following details:"
 
-#: ../../proxy.rst:21
+#: ../../proxy.rst:22
+#, fuzzy
+msgid "``Name``: a unique name to identify the route"
+msgstr "``Name``: a unique name to identify the route"
+
+#: ../../proxy.rst:23
+#, fuzzy
+msgid "``Node``: the node where the proxy instance is running"
+msgstr "``Node``: the node where the proxy instance is running"
+
+#: ../../proxy.rst:24
 #, fuzzy
 msgid ""
-"``Skip certificate validation``: if the URL starts with ``https://``, "
-"this switch disables the verification of the backend TLS certificate. If "
-"the backend is reached through a trusted network but it cannot provide a "
-"valid TLS certificate, it could be acceptable to skip the TLS "
-"verification."
+"``URL``: target URL of the route. It must correspond to a reachable "
+"backend HTTP server. It can be both internal or external to the cluster."
 msgstr ""
-"``Skip certificate validation``: if the URL starts with ``https://``, "
-"this switch disables the verification of the backend TLS certificate. If "
-"the backend is reached through a trusted network but it cannot provide a "
-"valid TLS certificate, it could be acceptable to skip the TLS "
-"verification."
+"``URL``: target URL of the route. It must correspond to a reachable "
+"backend HTTP server. It can be both internal or external to the cluster."
 
 #: ../../proxy.rst:26
 #, fuzzy
 msgid ""
-"``Host``: fill this field with a valid FQDN if you want a host-based "
-"route, sometimes also referred as virtual host; the application will be "
-"available on a URL like ``https://myapp.nethserver.org``"
+"``Skip certificate validation``: if the URL starts with ``https://``, "
+"this switch disables the verification of the backend TLS certificate. If "
+"the backend is reached through a trusted network but it cannot provide a "
+"valid TLS certificate, it could be acceptable to skip the TLS "
+"verification."
 msgstr ""
-"``Host``: fill this field with a valid FQDN if you want a host-based "
-"route, sometimes also referred as virtual host; the application will be "
-"available on a URL like ``https://myapp.nethserver.org``"
-
-#: ../../proxy.rst:28
-#, fuzzy
-msgid ""
-"``Path``: fill this field with a valid path if you want a path-based "
-"route accessible from the cluster FQDN; the application will be available"
-" on a URL like ``https://cluster.nethserver.org/myapp``"
-msgstr ""
-"``Path``: fill this field with a valid path if you want a path-based "
-"route accessible from the cluster FQDN; the application will be available"
-" on a URL like ``https://cluster.nethserver.org/myapp``"
-
-#: ../../proxy.rst:30
-#, fuzzy
-msgid ""
-"``Strip URL path prefix``: when ``Path`` field is not empty, strip the "
-"path before routing the request to the target URL"
-msgstr ""
-"``Strip URL path prefix``: when ``Path`` field is not empty, strip the "
-"path before routing the request to the target URL"
+"``Skip certificate validation``: if the URL starts with ``https://``, "
+"this switch disables the verification of the backend TLS certificate. If "
+"the backend is reached through a trusted network but it cannot provide a "
+"valid TLS certificate, it could be acceptable to skip the TLS "
+"verification."
 
 #: ../../proxy.rst:31
 #, fuzzy
 msgid ""
+"``Host``: fill this field with a valid FQDN if you want a host-based "
+"route, sometimes also referred as virtual host; the application will be "
+"available on a URL like ``https://myapp.nethserver.org``"
+msgstr ""
+"``Host``: fill this field with a valid FQDN if you want a host-based "
+"route, sometimes also referred as virtual host; the application will be "
+"available on a URL like ``https://myapp.nethserver.org``"
+
+#: ../../proxy.rst:33
+#, fuzzy
+msgid ""
+"``Path``: fill this field with a valid path if you want a path-based "
+"route accessible from the cluster FQDN; the application will be available"
+" on a URL like ``https://cluster.nethserver.org/myapp``"
+msgstr ""
+"``Path``: fill this field with a valid path if you want a path-based "
+"route accessible from the cluster FQDN; the application will be available"
+" on a URL like ``https://cluster.nethserver.org/myapp``"
+
+#: ../../proxy.rst:35
+#, fuzzy
+msgid ""
+"``Strip URL path prefix``: when ``Path`` field is not empty, strip the "
+"path before routing the request to the target URL"
+msgstr ""
+"``Strip URL path prefix``: when ``Path`` field is not empty, strip the "
+"path before routing the request to the target URL"
+
+#: ../../proxy.rst:36
+#, fuzzy
+msgid ""
 "``Request Let's Encrypt certificate`` enable this option to request a "
 "valid certificate, please remember :ref:`all requirements "
 "<certificate_manager-section>`"
@@ -13429,6 +13442,54 @@ msgstr ""
 "``Request Let's Encrypt certificate`` enable this option to request a "
 "valid certificate, please remember :ref:`all requirements "
 "<certificate_manager-section>`"
+
+#: ../../proxy.rst:37
+msgid ""
+"``Restrict access from``: restrict access to the route to a specific "
+"network, by default the route is accessible from any network. Enter a "
+"valid IPv4 address or CIDR network per line."
+msgstr ""
+
+#: ../../proxy.rst:41
+msgid ""
+"The route named ``cluster-admin`` is a special route that is "
+"automatically created during the cluster setup. It is used to access the "
+"cluster administration interface. Please bear in mind that if you "
+"restrict access to this route:"
+msgstr ""
+
+#: ../../proxy.rst:45
+msgid "you may prevent a new worker from joining the cluster"
+msgstr ""
+
+#: ../../proxy.rst:46
+msgid ""
+"you may lose access to the cluster configuration if you do not correctly "
+"enter your own IP address"
+msgstr ""
+
+#: ../../proxy.rst:49
+msgid ""
+"If you loose access to the cluster administration interface, you can "
+"remove the access restriction from the command line. Follow these steps:"
+msgstr ""
+
+#: ../../proxy.rst:52
+msgid "Access the cluster node using SSH with root privileges"
+msgstr ""
+
+#: ../../proxy.rst:53
+msgid ""
+"Run the following command to remove the access restriction from the "
+"``cluster-admin`` route: ::"
+msgstr ""
+
+#: ../../proxy.rst:57
+msgid ""
+"Replace ``traefik1`` with the correct module identifier, if your cluster "
+"has multiple nodes. Traefik identifiers are listed in the ``HTTP routes``"
+" page."
+msgstr ""
 
 #: ../../release_notes.rst:5
 msgid "Release notes"
