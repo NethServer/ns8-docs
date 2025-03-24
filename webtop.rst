@@ -1198,6 +1198,37 @@ through the `NethService category`_ in the Nethesis online shop.
 Once the purchase is completed, Nethesis will provide instructions to
 activate the license and configure the PEC Bridge.
 
+Inside the Advanced settings of the WebTop administration panel, you can set the
+``PEC Bridge notify address`` to receive notifications when a new PEC event is received.
+
+Customization
+-------------
+
+It's possible to customize the PEC Bridge behavior by setting the following environment variables:
+
+- ``PECBRIDGE_NOTIFY_OWNER``: indicates which notifications to send to the PEC account owner.
+   Possible values are:
+
+   - ``all``: all notifications sent to the PEC owner (this is the default if the variable is not set)
+   - ``auth``: only authentication failure notifications are sent to the PEC owner
+   - ``none``: no notifications are sent to the PEC owner
+
+   All notifications will always be sent to the address configured in "PEC Bridge notify address", if configured.
+
+- ``PECBRIDGE_FROM_ADDRESS``: the email address used as the sender of the PEC Bridge notifications
+
+To configure these variables, access the WebTop server via SSH and execute the following commands: ::
+
+  runagent -m webtop1
+  echo PECBRIDGE_FROM_ADDRESS=no-reply@test.org >> environment
+  echo PECBRIDGE_NOTIFY_OWNER=auth >> environment
+  systemctl --user restart pecbridge
+
+Replace `webtop1` with the actual WebTop instance name.
+
+Please note that the command above appends the variables to the `environment` file, use it only when customizing the environment
+variables for the first time. On next changes, edit the file directly using a text editor like `nano` or `vi`.
+
 NethVoice phonebook integration
 ===============================
 
@@ -1266,6 +1297,9 @@ To do so, access the shell and enter the WebTop instance environment, replace  *
    echo "PHONEBOOK_WEBTOP_FOLDER=MyPhonebook" >> phonebook.env
 
 On next synchronization, the address book will be created with the specified name and shared with the specified user.
+
+Please note that the command above appends the variables to the `phonebook.env` file, use it only when customizing the environment variables
+for the first time. On next changes, edit the file directly using a text editor like `nano` or `vi`.
 
 Manual synchronization
 ----------------------
