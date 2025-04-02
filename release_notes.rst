@@ -17,6 +17,8 @@ NethServer 8 releases
 Major changes on 2025-04-04
 ===========================
 
+**Milestone 8.4**
+
 - **Notify users of expiring passwords** -- Internal user domains with an
   enabled expiring password policy can now be configured to send email
   notifications to users approaching their password expiration date. See
@@ -120,6 +122,8 @@ Major changes on 2025-04-04
 Major changes on 2024-12-20
 ===========================
 
+**Milestone 8.3**
+
 - **Selective restoration from backup** -- In the Mail and Samba File
   Server applications, it is possible to search and select specific
   content (IMAP folder, file, or directory) from backup snapshots and
@@ -187,6 +191,8 @@ Major changes on 2024-12-20
 
 Major changes on 2024-10-16
 ===========================
+
+**Milestone 8.2**
 
 - **Disk minimum requirements increased** -- The :ref:`minimum disk
   requirements <system-requirements-section>` have been increased to a
@@ -297,6 +303,8 @@ Major changes on 2024-10-16
 Major changes on 2024-05-31
 ===========================
 
+**Milestone 8.1**
+
 - **Mail improvements** -- Added the :ref:`Relay rules
   <relay-rules-section>` feature, which allows configuration and use of a
   default smarthost for outgoing email messages, and more. A Mail instance
@@ -367,7 +375,7 @@ Major changes on 2024-05-31
 Major changes on 2024-02-13
 ===========================
 
-**Stable release**
+**Stable release 8.0**
 
 New features introduced by this release are:
 
