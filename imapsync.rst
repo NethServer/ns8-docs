@@ -119,8 +119,10 @@ filter to be applied safely to transferred messages.
 NethServer as a Remote IMAP Server
 ----------------------------------
 
-If the remote IMAP server is a NethServer instance, the synchronization
-task can be configured using the IMAP master user password.
+If the remote IMAP server is a NethServer instance, you can configure the
+synchronization task using either a regular user account or the IMAP master
+user password. The master user simplifies migration by avoiding the need
+to know individual account passwords.
 
 In NethServer 7 the ``vmail`` master user password can be retrieved at
 ``/var/lib/nethserver/secrets/vmail``.
