@@ -14,6 +14,109 @@ NethServer 8 releases
 
   __ http://community.nethserver.org/c/bug
 
+Major changes on 2025-04-04
+===========================
+
+- **Notify users of expiring passwords** -- Internal user domains with an
+  enabled expiring password policy can now be configured to send email
+  notifications to users approaching their password expiration date. See
+  :ref:`password-warning`.
+
+- **Modify external LDAP settings** -- Bind credentials and TLS settings
+  of an external user domain can now be changed after domain creation. See
+  :ref:`modify-external-ldap`.
+
+- **Set up base home directory path for applications** -- The default
+  application home directory base path is ``/home`` (per-distro default).
+  It is now possible to specify and use a different base path, as documented
+  in :ref:`disk-usage-section`, along with other techniques to expand
+  available disk space.
+
+- **Wildcard TLS certificate support** -- Wildcard certificates can be
+  uploaded and distributed to cluster applications directly from the ``TLS
+  certificates`` page. Refer to :ref:`certificate_manager-section` for
+  more information. Mail, NethVoice, and NethVoice Proxy have been updated
+  to support wildcard certificates. Support for Ejabberd is coming soon.
+
+- **New TLS-ALPN-01 default ACME challenge format** -- Let's Encrypt TLS
+  certificates are now obtained using the TLS-ALPN-01 challenge type through
+  TCP port 443. Port 80 is no longer used by new installations of
+  NethServer 8 core. Existing systems retain the previous HTTP-01 challenge
+  type and still require port 80 to be open. It is possible to upgrade to
+  the new default with the following command: ::
+
+    api-cli run module/traefik1/set-acme-server --data '{"challenge":"TLS-ALPN-01","url":"https://acme-v02.api.letsencrypt.org/directory"}'
+
+- **Traefik core module enhancements** -- The core Traefik instance,
+  running on every cluster node, has been upgraded to Traefik version 3.
+  The previous v2-compatible configuration is saved for reference under the
+  Traefik "state/" directory in ``*.v2`` directories. These can be safely
+  removed if desired.
+
+  The Traefik restoration procedure has been fixed and no longer returns a
+  conflicting Traefik instance. Instead, the backup contents are merged
+  with the active Traefik instance on the node, allowing the restoration of
+  custom HTTP routes and TLS certificates.
+
+  Additionally, this release introduces two new advanced experimental
+  features, accessible through API calls and manual configuration:
+
+  1. Support for deploying NS8 behind a network HTTP L7 Proxy.
+  2. Passing extra parameters to the Traefik container to configure custom
+     CA certificates and DNS-01 challenges.
+
+  Refer to available support channels for more information.
+
+- **Per-IP access restrictions on HTTP routes** -- The ``HTTP routes``
+  page now allows access restrictions for automatic and manually-created
+  routes based on a list of IP addresses. Additionally, a ``cluster-admin``
+  HTTP route entry is now displayed and can be used to restrict access to
+  the Cluster Admin UI. Refer to the :ref:`traefik-section` for detailed
+  information.
+
+- **New Monitoring/Alarms stack** -- The Metrics core application,
+  including a running Prometheus instance, is now part of the default core
+  applications and is automatically installed on the leader node of existing
+  clusters with a simple core update. Metrics can be easily integrated
+  with other monitoring solutions and configured to send alert and
+  resolution notifications. Read further details in :ref:`metrics-section`.
+
+- **Migration tool enhancements** -- In addition to "Application
+  conflict management," previously released, the NS7 migration tool now
+  considers application instance conflicts, providing guidance to avoid
+  misconfigurations during migration.
+
+  Furthermore, for NethVoice migration, the NethVoice Proxy installation
+  is now handled automatically by the migration tool.
+
+- **Imapsync and Sieve filters** -- The Imapsync application can now be
+  configured to enable Sieve filter execution during "INBOX-only"
+  synchronization. See :ref:`imapsync-section` for more information.
+  Additionally, recursive synchronization has been optimized to reduce
+  system load when executing multiple concurrent Imapsync tasks.
+
+- **DNSMasq gateway option** -- The client gateway can now be set from the
+  :ref:`DHCP section <dnsmasq-dhcp-section>` of DNSMasq. Additionally,
+  selectable network interfaces are now limited to those with a private IP
+  address to prevent configuration errors.
+
+- **Webtop updates** -- Webtop has been updated to upstream release 5.27.3
+  with the new Pecbridge component version 5.4.5. The memory limit has been
+  raised to 4GB for better performance. This release also introduces
+  automated TinyMCE Plugin Integration with an active subscription and
+  enhanced contact sharing with the latest NethVoice application release.
+
+- **Other application updates** -- Updated application versions:
+
+  - Nextcloud 29 and Nextcloud 30
+  - Collabora 24.04
+  - Mattermost 10 ESR
+  - Netdata 2
+  - Crowdsec 1.6.4
+  - Ejabberd 24.12
+
+
+
 Major changes on 2024-12-20
 ===========================
 
