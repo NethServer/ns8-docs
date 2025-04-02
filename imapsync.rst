@@ -19,7 +19,8 @@ application <email-section>` instance. It serves two main purposes:
 
 2. **INBOX retrieval**: Messages received in the INBOX folder of a remote
    IMAP account can be periodically transferred to the INBOX folder of a
-   local Mail account.
+   local Mail account. See :ref:`only-inbox-mode` for details on how this
+   process works.
 
 Configuration
 =============
@@ -64,9 +65,9 @@ fields as follows:
 - **Folder synchronization**: Choose which folders to sync from the remote
   server:
 
-  - ``Only INBOX``: Synchronizes only the main inbox. This option allows
-    the user's Sieve filter to be enabled and applied during each task
-    run.
+  - ``Only INBOX``: Synchronizes only the main inbox. This option enables
+    the user's Sieve filter to process messages during each task run. See
+    :ref:`only-inbox-mode` for a detailed explanation.
 
   - ``All folders``: Synchronizes all available folders recursively.
 
@@ -95,6 +96,8 @@ fields as follows:
 
 Once all fields are set, click :guilabel:`Create task` to create the task.
 To discard the changes, click :guilabel:`Cancel`.
+
+.. _only-inbox-mode:
 
 Understanding "Only INBOX" option
 ---------------------------------
