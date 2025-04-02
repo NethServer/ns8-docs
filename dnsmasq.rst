@@ -25,6 +25,7 @@ Select in the ``Interface`` field the interface that you want to use for DNS and
 
 Once the configuration is saved, there will be available two toggle switches to enable/disable DNS and DHCP server.
 
+.. _dnsmasq-dhcp-section:
 
 DHCP
 ====
@@ -34,6 +35,9 @@ The DHCP server can be configured with the following options:
 - ``IP range start``: The first IP address that will be assigned to clients.
 - ``IP range end``: The last IP address that will be assigned to clients.
 - ``Lease time``: The time that the IP address will be assigned to the client, expressed in hours.
+- ``Gateway``:  The gateway IP address for client configuration (DHCP
+  router option 3). If left empty, the gateway address configured for the
+  local node is assigned to clients.
 
 The fields are automatically filled with default values at the first configuration, but you can change them according to your needs. Additional options can be configured manually, please refer to `Advanced Configuration`_ section.
 
