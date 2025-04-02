@@ -281,14 +281,23 @@ configured as the SMTP server for every application in the cluster: see
 POP3 connector
 --------------
 
-The migration involves transferring POP3 Connector settings to NS8 :ref:`Imapsync module <imapsync-section>`, together with Email application.
-Configurations of accounts using the IMAP protocol are translated to working Imapsync tasks.
-For accounts using POP3, it is necessary to review the settings and commence synchronization manually.
+The migration transfers POP3 Connector settings to the NS8  
+:ref:`Imapsync application <imapsync-section>`.
 
-.. warning::
+- Accounts configured with IMAP are automatically converted into working
+  Imapsync tasks.
 
-  Emails fetched by Imapsync are not subject to anti-spam, anti-virus, or
-  Sieve filtering.
+- Accounts using POP3 require manual review and adjustment before starting
+  synchronization.
+
+In both cases, the Imapsync task is created with the ``Sieve filter``
+option disabled.
+
+.. note::
+
+  Messages copied by Imapsync bypass anti-spam and anti-virus checks. To
+  ensure security, enable these protections on the remote IMAP server
+  before synchronization.
 
 .. _migrated_nethvoice-section:
 
