@@ -44,6 +44,7 @@ NethServer 8 administrator manual
    firewall
    software_center
    email_notifications
+   metrics
 
 .. toctree::
    :maxdepth: 2
@@ -66,7 +67,6 @@ NethServer 8 administrator manual
    dnsmasq
    netdata
    piler
-   metrics
 
 .. toctree::
    :maxdepth: 2
