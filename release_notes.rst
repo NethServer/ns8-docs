@@ -91,11 +91,13 @@ Major changes on 2025-04-04
   Furthermore, for NethVoice migration, the NethVoice Proxy installation
   is now handled automatically by the migration tool.
 
-- **Imapsync and Sieve filters** -- The Imapsync application can now be
-  configured to enable Sieve filter execution during "INBOX-only"
-  synchronization. See :ref:`imapsync-section` for more information.
-  Additionally, recursive synchronization has been optimized to reduce
-  system load when executing multiple concurrent Imapsync tasks.
+- **Imapsync and Sieve filters** --  The Imapsync application can now be
+  configured to execute the user's Sieve filter during "INBOX-only"
+  synchronization. Additionally, it can be set to remove messages from the
+  remote server after a specified number of days. See
+  :ref:`imapsync-section` for more details. Recursive synchronization has
+  also been optimized to reduce system load when handling multiple
+  concurrent Imapsync tasks.
 
 - **DNSMasq gateway option** -- The client gateway can now be set from the
   :ref:`DHCP section <dnsmasq-dhcp-section>` of DNSMasq. Additionally,
