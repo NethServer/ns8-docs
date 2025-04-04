@@ -1,3 +1,5 @@
+.. _disk-usage-section:
+
 ==========
 Disk usage
 ==========

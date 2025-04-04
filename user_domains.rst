@@ -197,9 +197,16 @@ You can connect the NethServer 8 cluster to an existing LDAP server.
 4. Once all fields are filled, click on the :guilabel:`Configure domain`
    button.
 
-.. warning::
+.. [#admail] https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-directory
 
-    Once configured, domain settings cannot be changed later!
+.. _modify-external-ldap:
+
+Modify external LDAP settings
+-----------------------------
+
+When a domain is configured for the first time, the LDAP server settings
+are saved in its first provider entry. Bind credentials and TLS settings
+can be modified at a later from the ``Domain Settings`` card.
 
 If you choose not to verify TLS, you can configure additional hosts as
 backup providers. The first configured provider is considered the primary
@@ -211,10 +218,10 @@ Enabling "TLS verify" adds extra security but has limitations: only the
 first provider is considered. If it becomes unreachable, connection
 recovery is not possible.
 
-Ensure each provider is accessible from all cluster nodes for seamless
-operation.
+.. note::
 
-.. [#admail] https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-directory
+  Ensure each provider is accessible from all cluster nodes for seamless
+  operation.
 
 .. _password-policy-section:
 
@@ -250,6 +257,8 @@ By enabling the ``Password strength`` switch, you can configure the following pa
     * The password must contain at least one special character.
 
 After editing the password policy, you can click on :guilabel:`Edit password policy` button to save the changes. Strength setting changes do not affect old passwords: they are valid from now on. Age setting changes are retroactive and are applied to already set passwords, too.
+
+.. _password-warning:
 
 Password expiration warning
 ---------------------------
