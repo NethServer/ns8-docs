@@ -110,6 +110,29 @@ Major changes on 2025-04-04
   automated TinyMCE Plugin Integration with an active subscription and
   enhanced contact sharing with the latest NethVoice application release.
 
+- **NethVoice enhancements** -- Version 1.2 introduces new CTI features,
+  including audio conferencing, video calls, screen sharing, and voicemail
+  management. A new permission allows viewing all users in the CTI
+  interface. Device settings now include video options, and the
+  provisioning process has been improved with two-phase support for all
+  methods (HTTPS, DHCP). Additional updates:
+
+  - Support for the new NP-X5 phone model.
+
+  - Improved TLS certificate management and wildcard certificates support.
+
+  - Phone-island updated to version 0.13.0.
+
+  - Logging verbosity reduced in NethVoice Proxy.
+
+  - Fixes for SRTP on Yealink phones (firmware > 86), REINVITE with TLS on
+    SNOM phones, phone reconfiguration issues, call-back on busy, and CTI
+    interface problems, including user group display and call recording
+    deletion.
+
+  - Resolved an audio issue in CTI caused by an initial misconfiguration
+    of NethVoice Proxy.
+
 - **Other application updates** -- Updated application versions:
 
   - Nextcloud 29 and Nextcloud 30
