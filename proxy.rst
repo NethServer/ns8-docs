@@ -34,7 +34,7 @@ Then enter the following details:
   the application will be available on a URL like ``https://cluster.nethserver.org/myapp``
 - ``Strip URL path prefix``: when ``Path`` field is not empty, strip the path before routing the request to the target URL
 - ``Request Let's Encrypt certificate`` enable this option to request a valid certificate, please remember :ref:`all requirements <certificate_manager-section>`
-- ``Restrict access from``: restrict access to the route to a specific network, by default the route is accessible from any network.
+- ``Allow access from`` (optional): limit access to this route to specific IP addresses or networks. By default, the route is accessible from any network.
   Enter a valid IPv4 address or CIDR network per line.
 
 .. note::
