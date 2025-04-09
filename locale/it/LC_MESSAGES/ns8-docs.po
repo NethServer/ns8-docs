@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-04 11:03+0000\n"
+"POT-Creation-Date: 2025-04-09 15:56+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -13567,9 +13567,9 @@ msgstr ""
 
 #: ../../proxy.rst:37
 msgid ""
-"``Restrict access from``: restrict access to the route to a specific "
-"network, by default the route is accessible from any network. Enter a "
-"valid IPv4 address or CIDR network per line."
+"``Allow access from`` (optional): limit access to this route to specific "
+"IP addresses or networks. By default, the route is accessible from any "
+"network. Enter a valid IPv4 address or CIDR network per line."
 msgstr ""
 
 #: ../../proxy.rst:41
@@ -23137,4 +23137,13 @@ msgstr ""
 
 #~ msgid "Once configured, domain settings cannot be changed later!"
 #~ msgstr "Once configured, domain settings cannot be changed later!"
+
+#~ msgid ""
+#~ "``Restrict access from``: restrict access "
+#~ "to the route to a specific "
+#~ "network, by default the route is "
+#~ "accessible from any network. Enter a "
+#~ "valid IPv4 address or CIDR network "
+#~ "per line."
+#~ msgstr ""
 
