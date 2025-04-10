@@ -13,7 +13,7 @@ NethVoice Proxy allows you to manage all incoming and outgoing SIP and RTP conne
 
 The proxy will be used by :ref:`NethVoice <nethvoice-section>` instances that must be installed after this proxy is up and running.
 
-.. note:: You can install only one NethVoice Proxy per node from the :ref:`software_center-section`.
+.. note:: Only one NethVoice Proxy can be installed per node, and each node must have a NethVoice Proxy installed from the :ref:`software_center-section`.
 
 Configuration
 =============
