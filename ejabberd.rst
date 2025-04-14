@@ -105,7 +105,15 @@ Some widespread clients:
 When you configure the client, make sure TLS (or SSL) is enabled.
 Enter the user name and the domain of the machine. 
 
-With TLS capabilities, strictly configured servers or clients could reject connections with your Ejabberd server 
-if the SSL/TLS certificate doesn't match the domain name.
+.. note::
+   With TLS capabilities, strictly configured servers or clients (e.g. Gajim) could reject connections with your Ejabberd server if the SSL/TLS certificate doesn't match the domain name.
+
+This is a common problem with self-signed certificates. The client will refuse to connect to the server because the certificate does not match the Common Name
+
+Possible solutions:
+
+* Disable the certificate check on the client side.
+* Upload a valid certificate to the server (see :ref:`custom-certificates-section`).
+* Request a valid certificate from a trusted authority (e.g. Let's Encrypt). This certificate can be obtained for free with Let's Encrypt.
+
 Also, the certificate should contain two sub-domains ``pubsub.*`` and ``conference.*``.
-This certificate can be obtained for free with Let's Encrypt.
