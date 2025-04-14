@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-09 15:56+0000\n"
+"POT-Creation-Date: 2025-04-14 13:57+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -656,11 +656,11 @@ msgstr ""
 "certificato in memoria. Non riavviare Traefik troppo spesso, per evitare "
 "di incorrere nei limiti di velocità Let's Encrypt."
 
-#: ../../certificates.rst:60
+#: ../../certificates.rst:62
 msgid "Custom certificates"
 msgstr "Certificati personalizzati"
 
-#: ../../certificates.rst:62
+#: ../../certificates.rst:64
 msgid ""
 "If you are already in possession of a certificate and its private key, "
 "you can upload them to the cluster. You can follow this procedure to "
@@ -670,15 +670,15 @@ msgstr ""
 " caricarli sul cluster. È possibile seguire questa procedura per "
 "installare il certificato:"
 
-#: ../../certificates.rst:65
+#: ../../certificates.rst:67
 msgid "access ``Settings`` page and click the ``TLS Certificates`` card"
 msgstr "accesso alla ``Impostazioni`` e fare clic sulla scheda ``Certificati TLS``"
 
-#: ../../certificates.rst:66
+#: ../../certificates.rst:68
 msgid "click on :guilabel:`Upload certificate`"
 msgstr "cliccare su :guilabel:`Upload certificate`"
 
-#: ../../certificates.rst:67
+#: ../../certificates.rst:69
 msgid ""
 "once the modal is open, select the Traefik instance where the certificate"
 " will be installed to"
@@ -686,7 +686,7 @@ msgstr ""
 "una volta aperta la modalità, selezionare l'istanza Traefik dove verrà "
 "installato il certificato"
 
-#: ../../certificates.rst:68
+#: ../../certificates.rst:70
 msgid ""
 "upload the key file and the certificate file. They are checked on upload "
 "and if the key does not match the certificate, you receive an error"
@@ -694,13 +694,13 @@ msgstr ""
 "caricare il file chiave e il file di certificato. Sono controllati su "
 "upload e se la chiave non corrisponde al certificato, si riceve un errore"
 
-#: ../../certificates.rst:69
+#: ../../certificates.rst:71
 msgid "once selected the files for the upload, click on :guilabel:`Upload`"
 msgstr ""
 "una volta selezionato i file per il caricamento, clicca su "
 ":guilabel:`Upload`"
 
-#: ../../certificates.rst:71
+#: ../../certificates.rst:73
 msgid ""
 "You receive an error if something with the upload goes wrong, otherwise "
 "the modal closes itself and the certificate list is refreshed."
@@ -2490,20 +2490,55 @@ msgstr ""
 "When you configure the client, make sure TLS (or SSL) is enabled. Enter "
 "the user name and the domain of the machine."
 
-#: ../../ejabberd.rst:108
+#: ../../ejabberd.rst:109
 #, fuzzy
 msgid ""
-"With TLS capabilities, strictly configured servers or clients could "
-"reject connections with your Ejabberd server if the SSL/TLS certificate "
-"doesn't match the domain name. Also, the certificate should contain two "
-"sub-domains ``pubsub.*`` and ``conference.*``. This certificate can be "
-"obtained for free with Let's Encrypt."
+"With TLS capabilities, strictly configured servers or clients (e.g. "
+"Gajim) could reject connections with your Ejabberd server if the SSL/TLS "
+"certificate doesn't match the domain name."
 msgstr ""
 "With TLS capabilities, strictly configured servers or clients could "
 "reject connections with your Ejabberd server if the SSL/TLS certificate "
 "doesn't match the domain name. Also, the certificate should contain two "
 "sub-domains ``pubsub.*`` and ``conference.*``. This certificate can be "
 "obtained for free with Let's Encrypt."
+
+#: ../../ejabberd.rst:111
+msgid ""
+"This is a common problem with self-signed certificates. The client will "
+"refuse to connect to the server because the certificate does not match "
+"the Common Name"
+msgstr ""
+
+#: ../../ejabberd.rst:113
+#, fuzzy
+msgid "Possible solutions:"
+msgstr "Introduzione"
+
+#: ../../ejabberd.rst:115
+msgid "Disable the certificate check on the client side."
+msgstr ""
+
+#: ../../ejabberd.rst:116
+#, fuzzy
+msgid ""
+"Upload a valid certificate to the server (see :ref:`custom-certificates-"
+"section`)."
+msgstr ""
+"i dispositivi iOS richiedono un certificato SSL valido sul server. Vedi "
+":ref:`certificate_manager-section`"
+
+#: ../../ejabberd.rst:117
+msgid ""
+"Request a valid certificate from a trusted authority (e.g. Let's "
+"Encrypt). This certificate can be obtained for free with Let's Encrypt."
+msgstr ""
+
+#: ../../ejabberd.rst:119
+msgid ""
+"Also, the certificate should contain two sub-domains ``pubsub.*`` and "
+"``conference.*``."
+msgstr ""
 
 #: ../../email_notifications.rst:7
 #, fuzzy
