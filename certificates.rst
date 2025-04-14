@@ -56,6 +56,8 @@ to obtain the certificate at a later time when:
    memory. Do not restart Traefik too often, to avoid incurring in Let's
    Encrypt rate limits.
 
+.. _custom-certificates-section:
+
 Custom certificates
 ===================
 
