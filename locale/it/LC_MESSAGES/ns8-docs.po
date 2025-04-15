@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-15 14:25+0000\n"
+"POT-Creation-Date: 2025-04-15 14:38+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -21127,7 +21127,7 @@ msgstr ""
 "click on the phonebook (or on the calendar), :guilabel:`Edit Category`, "
 ":guilabel:`Internet Addressbook` (or :guilabel:`Internet Calendar`):"
 
-#: ../../webtop.rst:1011 ../../webtop.rst:1271
+#: ../../webtop.rst:1011 ../../webtop.rst:1305
 msgid "Manual synchronization"
 msgstr "Sincronizzazione manuale"
 
@@ -21576,46 +21576,121 @@ msgstr ""
 "Una volta completato l'acquisto, Nethesis fornirà istruzioni per attivare"
 " la licenza e configurare il ponte PEC."
 
-#: ../../webtop.rst:1202
+#: ../../webtop.rst:1201
+msgid ""
+"Inside the Advanced settings of the WebTop administration panel, you can "
+"set the ``PEC Bridge notify address`` to receive notifications when a new"
+" PEC event is received."
+msgstr ""
+
+#: ../../webtop.rst:1205
+#, fuzzy
+msgid "Customization"
+msgstr "Launcher customization"
+
+#: ../../webtop.rst:1207
+msgid ""
+"It's possible to customize the PEC Bridge behavior by setting the "
+"following environment variables:"
+msgstr ""
+
+#: ../../webtop.rst:1216
+msgid ""
+"``PECBRIDGE_NOTIFY_OWNER``: indicates which notifications to send to the "
+"PEC account owner."
+msgstr ""
+
+#: ../../webtop.rst:1210
+#, fuzzy
+msgid "Possible values are:"
+msgstr "Introduzione"
+
+#: ../../webtop.rst:1212
+msgid ""
+"``all``: all notifications sent to the PEC owner (this is the default if "
+"the variable is not set)"
+msgstr ""
+
+#: ../../webtop.rst:1213
+msgid ""
+"``auth``: only authentication failure notifications are sent to the PEC "
+"owner"
+msgstr ""
+
+#: ../../webtop.rst:1214
+msgid "``none``: no notifications are sent to the PEC owner"
+msgstr ""
+
+#: ../../webtop.rst:1216
+msgid ""
+"All notifications will always be sent to the address configured in \"PEC "
+"Bridge notify address\", if configured."
+msgstr ""
+
+#: ../../webtop.rst:1218
+msgid ""
+"``PECBRIDGE_FROM_ADDRESS``: the email address used as the sender of the "
+"PEC Bridge notifications"
+msgstr ""
+
+#: ../../webtop.rst:1220
+msgid ""
+"To configure these variables, access the WebTop server via SSH and "
+"execute the following commands: ::"
+msgstr ""
+
+#: ../../webtop.rst:1227
+msgid "Replace `webtop1` with the actual WebTop instance name."
+msgstr ""
+
+#: ../../webtop.rst:1229
+msgid ""
+"Please note that the command above appends the variables to the "
+"`environment` file, use it only when customizing the environment "
+"variables for the first time. On next changes, edit the file directly "
+"using a text editor like `nano` or `vi`."
+msgstr ""
+
+#: ../../webtop.rst:1233
 #, fuzzy
 msgid "NethVoice phonebook integration"
 msgstr "Nextcloud integration"
 
-#: ../../webtop.rst:1204
+#: ../../webtop.rst:1235
 msgid ""
 "Inside the WebTop application there is an automated workflow that allows "
 "to:"
 msgstr ""
 
-#: ../../webtop.rst:1206
+#: ../../webtop.rst:1237
 msgid "export WebTop contacts to the NethVoice centralized phonebook"
 msgstr ""
 
-#: ../../webtop.rst:1207
+#: ../../webtop.rst:1238
 msgid "import the NethVoice centralized phonebook to the WebTop contacts"
 msgstr ""
 
-#: ../../webtop.rst:1209
+#: ../../webtop.rst:1240
 msgid "The workflow is disabled by default, to enable it:"
 msgstr ""
 
-#: ../../webtop.rst:1211
+#: ../../webtop.rst:1242
 msgid "make sure at least one NethVoice instance is installed inside the cluster"
 msgstr ""
 
-#: ../../webtop.rst:1212
+#: ../../webtop.rst:1243
 msgid ""
 "in the ``Settings`` page, select the NethVoice instance from the "
 "``Synchronize Phonebook with NethVoice instance`` field inside the "
 "``Advanced`` section"
 msgstr ""
 
-#: ../../webtop.rst:1214
+#: ../../webtop.rst:1245
 #, fuzzy
 msgid "save the settings"
 msgstr "Impostazioni generali"
 
-#: ../../webtop.rst:1216
+#: ../../webtop.rst:1247
 msgid ""
 "The synchronization occurs every night, ensuring that the NethVoice "
 "centralized phonebook is regularly updated in WebTop. This automated "
@@ -21624,74 +21699,74 @@ msgid ""
 "manual intervention."
 msgstr ""
 
-#: ../../webtop.rst:1221
+#: ../../webtop.rst:1252
 msgid "From Webtop to NethVoice"
 msgstr ""
 
-#: ../../webtop.rst:1223
+#: ../../webtop.rst:1254
 msgid ""
 "To add contacts from any WebTop 5 user address book to the NethVoice "
 "centralized phonebook, simply share it with the system **admin** user "
 "named *Admin (NethServer)*."
 msgstr ""
 
-#: ../../webtop.rst:1226
+#: ../../webtop.rst:1257
 msgid ""
 "Users can voluntarily choose to share their contacts for import into the "
 "NethVoice phonebook. This operation must be performed individually by "
 "each user who wishes to share their contacts."
 msgstr ""
 
-#: ../../webtop.rst:1229
+#: ../../webtop.rst:1260
 #, fuzzy
 msgid "The user must follow these steps:"
 msgstr "Per soddisfare questi requisiti, seguire questi passaggi:"
 
-#: ../../webtop.rst:1231
+#: ../../webtop.rst:1262
 #, fuzzy
 msgid "open the ``Contacts`` section"
 msgstr "Remote contacts (directory)"
 
-#: ../../webtop.rst:1232
+#: ../../webtop.rst:1263
 msgid ""
 "under the ``My Categories`` section, choose an address book to share, "
 "then click on the kebab menu (three dots) and select the ``Sharing and "
 "Permissions`` menu item"
 msgstr ""
 
-#: ../../webtop.rst:1234
+#: ../../webtop.rst:1265
 msgid ""
 "a drawer will open on the right side of the screen, click the "
 ":guilabel:`Add` button"
 msgstr ""
 
-#: ../../webtop.rst:1235
+#: ../../webtop.rst:1266
 msgid "in the search field, type ``admin`` and select the user from the list"
 msgstr ""
 
-#: ../../webtop.rst:1239
+#: ../../webtop.rst:1270
 msgid ""
 "The address book must be shared directly with the **admin** user. Sharing"
 " it with a group containing the **admin** user is not sufficient."
 msgstr ""
 
-#: ../../webtop.rst:1242
+#: ../../webtop.rst:1273
 msgid ""
 "Ensure that only individual address books are shared and not the entire "
 "category, to prevent synchronization errors."
 msgstr ""
 
-#: ../../webtop.rst:1246
+#: ../../webtop.rst:1277
 msgid "From NethVoice to WebTop"
 msgstr ""
 
-#: ../../webtop.rst:1248
+#: ../../webtop.rst:1279
 msgid ""
 "When the synchronization is active, the NethVoice centralized phonebook "
 "is imported into WebTop 5 every night."
 msgstr ""
 
-#: ../../webtop.rst:1250
+#: ../../webtop.rst:1281
 msgid ""
 "Contacts are imported into a newly created address book named *Rubrica "
 "Centralizzata*, within the administrator user account, named *Builtin "
@@ -21700,47 +21775,55 @@ msgid ""
 "WebTop 5."
 msgstr ""
 
-#: ../../webtop.rst:1253
+#: ../../webtop.rst:1284
 msgid ""
 "To allow other groupware users to access the address book, access with "
 "the administrator user and share it with the desired users or groups as "
 "*READ-ONLY*. To share it with all users, select the *Users* group."
 msgstr ""
 
-#: ../../webtop.rst:1257
+#: ../../webtop.rst:1288
 msgid ""
 "It's possibile to override both the address book name and the user name "
 "by setting the following environment variables inside the `phonebook.env`"
 " file:"
 msgstr ""
 
-#: ../../webtop.rst:1259
+#: ../../webtop.rst:1290
 msgid "``PHONEBOOK_WEBTOP_ADMIN``"
 msgstr ""
 
-#: ../../webtop.rst:1260
+#: ../../webtop.rst:1291
 msgid "``PHONEBOOK_WEBTOP_FOLDER``"
 msgstr ""
 
-#: ../../webtop.rst:1262
+#: ../../webtop.rst:1293
 msgid ""
 "To do so, access the shell and enter the WebTop instance environment, "
 "replace  *webtop1* with the actual WebTop instance name: ::"
 msgstr ""
 
-#: ../../webtop.rst:1268
+#: ../../webtop.rst:1299
 msgid ""
 "On next synchronization, the address book will be created with the "
 "specified name and shared with the specified user."
 msgstr ""
 
-#: ../../webtop.rst:1273
+#: ../../webtop.rst:1301
+msgid ""
+"Please note that the command above appends the variables to the "
+"`phonebook.env` file, use it only when customizing the environment "
+"variables for the first time. On next changes, edit the file directly "
+"using a text editor like `nano` or `vi`."
+msgstr ""
+
+#: ../../webtop.rst:1307
 msgid ""
 "To manually force synchronization and verify correct configuration, run "
 "the following command from the shell: ::"
 msgstr ""
 
-#: ../../webtop.rst:1278
+#: ../../webtop.rst:1312
 msgid "Replace *webtop1* with the actual WebTop instance name."
 msgstr ""
 
