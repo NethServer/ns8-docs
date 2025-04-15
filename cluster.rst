@@ -31,13 +31,15 @@ Add a node
 ==========
 
 You can add (join) a worker node to an existing cluster.
-The process consists of three steps:
+The process consists of the following steps:
 
-* install the new node
+* ensure the leader node is running the latest Core version
+* install the new node using the same Core version installed on the leader node
 * obtain the join code from the leader node
 * enter the join code into the worker node
 
-First, prepare a machine with the same Linux distribution used for the leader node, then follow the :ref:`install instruction <install-section>`
+First, prepare a machine with the same Linux distribution and Core version
+as the leader node. Then follow the :ref:`install instruction <install-section>`
 until the login to the Web user interface.
 
 After the login on the worker node, click the :guilabel:`Join cluster` button.
