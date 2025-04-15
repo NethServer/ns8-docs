@@ -161,7 +161,7 @@ Publish procedure
 
 The manual is hosted on ReadTheDocs. The ``main`` and ``latest`` branches
 are automatically published each time a commit is pushed, as configured in
-the project dashboard: https://app.readthedocs.org/projects/nethserver/.
+the project dashboard: https://app.readthedocs.org/projects/ns8-docs/.
 
 * The ``main`` branch is used for testing and staging. Pull requests are
   merged into ``main`` and immediately published at
