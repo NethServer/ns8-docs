@@ -34,7 +34,7 @@ You can add (join) a worker node to an existing cluster.
 The process consists of the following steps:
 
 * ensure the leader node is running the latest Core version
-* install the new node using the same Core version
+* install the new node using the same Core version installed on the leader node
 * obtain the join code from the leader node
 * enter the join code into the worker node
 
