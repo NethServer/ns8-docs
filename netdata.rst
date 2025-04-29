@@ -19,8 +19,7 @@ Netdata Cloud.
 Configuration
 =============
 
-After installation, the application does not require any special
-configuration. To access the Netdata web interface, navigate to the Status
+To access the Netdata web interface, navigate to the Status
 page and follow the ``Application URL`` link.
 
 The random URL path component is generated at installation time and never
@@ -32,6 +31,26 @@ changes. It can also be obtained from the cluster Settings page, under the
     The web interface has no authentication. While it does not contain any
     inherently sensitive information, be sure to keep the random URL path
     secret.
+
+After installation, the application does not require any special configuration.
+
+- Choose the option ``skip and use the dashboard anonymously`` at the bottom right corner of the login screen to immediately access the node metrics.
+- As alternative, refer to the next section to connect Netdata Cloud.
+
+
+Netdata Cloud
+-------------
+
+The Netdata instance can be connected to Netdata Cloud.
+
+To do this, you must create a free Netdata Cloud account (or log in if you already have one).
+This account allows you to securely claim your node (by pasting a unique identifier) and access its metrics remotely via https://app.netdata.cloud.
+
+The file ``netdata_random_session_id`` contains the string used to identify your node.
+To retrieve it, run the following command:
+
+  podman exec netdata1 cat /var/lib/netdata/netdata_random_session_id
+
 
 Metrics storage
 ===============
