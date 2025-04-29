@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-15 14:38+0000\n"
+"POT-Creation-Date: 2025-04-29 13:57+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -7781,16 +7781,16 @@ msgstr ""
 " applicazioni specifiche o integrazione con Netdata Cloud."
 
 #: ../../netdata.rst:22
+#, fuzzy
 msgid ""
-"After installation, the application does not require any special "
-"configuration. To access the Netdata web interface, navigate to the "
-"Status page and follow the ``Application URL`` link."
+"To access the Netdata web interface, navigate to the Status page and "
+"follow the ``Application URL`` link."
 msgstr ""
 "Dopo l'installazione, l'applicazione non richiede alcuna configurazione "
 "speciale. Per accedere all'interfaccia web Netdata, passare alla pagina "
 "Stato e seguire il link ``Application URL``."
 
-#: ../../netdata.rst:26
+#: ../../netdata.rst:25
 msgid ""
 "The random URL path component is generated at installation time and never"
 " changes. It can also be obtained from the cluster Settings page, under "
@@ -7801,7 +7801,7 @@ msgstr ""
 "pagina Impostazioni cluster, sotto la sezione \"percorsi HTTP\", cercando"
 " ``netdata`."
 
-#: ../../netdata.rst:32
+#: ../../netdata.rst:31
 msgid ""
 "The web interface has no authentication. While it does not contain any "
 "inherently sensitive information, be sure to keep the random URL path "
@@ -7811,12 +7811,56 @@ msgstr ""
 " intrinsecamente sensibili, assicurarsi di mantenere il percorso URL "
 "casuale segreto."
 
+#: ../../netdata.rst:35
+msgid ""
+"After installation, the application does not require any special "
+"configuration."
+msgstr ""
+
 #: ../../netdata.rst:37
+msgid ""
+"Choose the option ``skip and use the dashboard anonymously`` at the "
+"bottom right corner of the login screen to immediately access the node "
+"metrics."
+msgstr ""
+
+#: ../../netdata.rst:38
+msgid "As alternative, refer to the next section to connect Netdata Cloud."
+msgstr ""
+
+#: ../../netdata.rst:42
+#, fuzzy
+msgid "Netdata Cloud"
+msgstr "Nextcloud"
+
+#: ../../netdata.rst:44
+msgid "The Netdata instance can be connected to Netdata Cloud."
+msgstr ""
+
+#: ../../netdata.rst:46
+msgid ""
+"To do this, you must create a free Netdata Cloud account (or log in if "
+"you already have one). This account allows you to securely claim your "
+"node (by pasting a unique identifier) and access its metrics remotely via"
+" https://app.netdata.cloud."
+msgstr ""
+
+#: ../../netdata.rst:49
+msgid ""
+"The file ``netdata_random_session_id`` contains the string used to "
+"identify your node. To retrieve it, run the following command:"
+msgstr ""
+
+#: ../../netdata.rst:52
+msgid "podman exec netdata1 cat /var/lib/netdata/netdata_random_session_id"
+msgstr ""
+
+#: ../../netdata.rst:56
 #, fuzzy
 msgid "Metrics storage"
 msgstr "Local storage"
 
-#: ../../netdata.rst:39
+#: ../../netdata.rst:58
 msgid ""
 "The Netdata Agent configuration is derived from the stock Netdata "
 "official Docker image. It has three tiers of storage with different "
@@ -7826,7 +7870,7 @@ msgstr ""
 "Docker di azioni Netdata. Ha tre livelli di storage con diverse "
 "risoluzioni metriche e politiche di ritenzione: secondo, minuto, ora."
 
-#: ../../netdata.rst:43
+#: ../../netdata.rst:62
 msgid "Configured retention limits per storage tier"
 msgstr ""
 
@@ -7891,7 +7935,7 @@ msgstr "1 ora"
 msgid "2 years"
 msgstr "Yes"
 
-#: ../../netdata.rst:50
+#: ../../netdata.rst:69
 msgid ""
 "The stock configuration provides up to 14 days of fine-grained metrics "
 "with one-second resolution. The minute-level tier can cover up to 3 "
@@ -7908,7 +7952,7 @@ msgstr ""
 " effettivo del disco utilizzato dipende dall'efficienza di compressione "
 "dei dati."
 
-#: ../../netdata.rst:57
+#: ../../netdata.rst:76
 msgid ""
 "Data is deleted once it reaches either the time limit or the disk space "
 "limit, whichever comes first."
