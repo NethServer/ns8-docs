@@ -33,7 +33,7 @@ changes. It can also be obtained from the cluster Settings page, under the
     secret.
 
 After installation, the application does not require any special configuration 
-if you choose the option ``keep and use the dashboard anonymously`` during the first login.
+if you choose the option ``skip and use the dashboard anonymously`` during the first login.
 
 However, Netdata also provides the option to connect your local Netdata Agent to Netdata Cloud.
 To do this, you must create a free Netdata Cloud account (or log in if you already have one).
