@@ -32,8 +32,11 @@ changes. It can also be obtained from the cluster Settings page, under the
     inherently sensitive information, be sure to keep the random URL path
     secret.
 
-After installation, the application does not require any special configuration 
-if you choose the option ``skip and use the dashboard anonymously`` during the first login.
+After installation, the application does not require any special configuration.
+
+- Choose the option ``skip and use the dashboard anonymously`` at the bottom right corner of the login screen to immediately access the node metrics.
+- As alternative, refer to the next section to connect Netdata Cloud.
+
 
 Netdata Cloud
 -------------
