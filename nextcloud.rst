@@ -53,6 +53,30 @@ All users are listed inside the administrator panel of Nextcloud using a unique 
 This is because the system ensures that there are no duplicate internal user names as reported 
 in section `Internal Username` of `Official Nextcloud documentation <https://docs.nextcloud.com>`_.
 
+Change Ldap mail field (Samba AD)
+---------------------------------
+When the account provider is an active directory, You can change the mail field used by Nextcloud with an environment variable. The default LDAP mail field is ``userPrincipalName``, which corresponds to the AD domain name and not the user's email address.
+This can be confusing for users, as they will have to use the ``userPrincipalName`` to login instead of their email address. The Email address field can be set in the :ref:`user_groups-section` page if the Samba AD is configured as the local account provider.
+
+By adding ``LDAP_MAIL_ATTRIBUTE`` your users wil be able to login with :
+
+- ``sAMAccountName``: eg ``john``
+- ``userPrincipalName``: eg ``john@ad.domain.com``
+- ``mail``: eg ``john@domain.com``
+
+.. note::   The ``runagent`` command is available only on the NethServer 8 node where the application is installed.
+
+Type in a root shell the following command
+::
+
+  runagent -m nextcloud1
+  vim environment
+
+add : ``LDAP_MAIL_ATTRIBUTE=mail``
+
+::
+
+  systemctl --user restart nextcloud
 
 .. _collabora-integration-section:
 
