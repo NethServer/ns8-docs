@@ -354,6 +354,10 @@ When creating a user, the following fields are mandatory:
 * Full name (name and surname)
 * Password
 
+optional field:
+
+* Email address
+
 A user can be added to one or more groups.
 
 Sometimes you need to block user access to services without deleting the
