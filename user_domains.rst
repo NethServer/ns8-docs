@@ -353,10 +353,7 @@ When creating a user, the following fields are mandatory:
 * User name
 * Full name (name and surname)
 * Password
-
-optional field:
-
-* Email address
+* Email address (optional field)
 
 A user can be added to one or more groups.
 

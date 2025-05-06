@@ -53,9 +53,9 @@ All users are listed inside the administrator panel of Nextcloud using a unique 
 This is because the system ensures that there are no duplicate internal user names as reported 
 in section `Internal Username` of `Official Nextcloud documentation <https://docs.nextcloud.com>`_.
 
-Change Ldap mail field (Samba AD)
+Alternative LDAP mail field (Samba AD)
 ---------------------------------
-When the account provider is an active directory, You can change the mail field used by Nextcloud with an environment variable. The default LDAP mail field is ``userPrincipalName``, which corresponds to the AD domain name and not the user's email address.
+When the account provider is an Active Directory, you can change the mail field used by Nextcloud with an environment variable. The default LDAP mail field is ``userPrincipalName``, which corresponds to the AD domain name and not the user's email address (e.g. ``user@ad.example.org`` vs ``user@example.org``).
 This can be confusing for users, as they will have to use the ``userPrincipalName`` to login instead of their email address. The Email address field can be set in the :ref:`user_groups-section` page if the Samba AD is configured as the local account provider.
 
 By adding ``LDAP_MAIL_ATTRIBUTE`` your users wil be able to login with :
@@ -69,14 +69,8 @@ By adding ``LDAP_MAIL_ATTRIBUTE`` your users wil be able to login with :
 Type in a root shell the following command
 ::
 
-  runagent -m nextcloud1
-  vim environment
-
-add : ``LDAP_MAIL_ATTRIBUTE=mail``
-
-::
-
-  systemctl --user restart nextcloud
+  runagent -m nextcloud1 python3 -c 'import agent ; agent.set_env("LDAP_MAIL_ATTRIBUTE", "mail")'
+  runagent -m nextcloud1 systemctl --user restart nextcloud
 
 .. _collabora-integration-section:
 
