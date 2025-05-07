@@ -353,6 +353,7 @@ When creating a user, the following fields are mandatory:
 * User name
 * Full name (name and surname)
 * Password
+* Email address (optional field)
 
 A user can be added to one or more groups.
 
@@ -375,6 +376,21 @@ administrator intervention, even if the password is expired.
 
 Members of the Domain Admins group can also manage users and groups in the
 domain, independently from the Cluster Admin UI.
+
+The possible administrative actions are:
+
+* group creation/modification
+* user creation/modification
+* user disabled/enabled
+* user password change
+
+When creating a user, the following fields are available:
+
+* User name
+* Full name (name and surname)
+* Password
+* Group (optional field)
+* Email address (optional field)
 
 The portal is automatically configured on every instance of :ref:`active_directory-section` or :ref:`openldap-section` provider.
 
