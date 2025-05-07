@@ -58,7 +58,7 @@ Alternative LDAP mail field (Samba AD)
 When the account provider is an Active Directory, you can change the mail field used by Nextcloud with an environment variable. The default LDAP mail field is ``userPrincipalName``, which corresponds to the AD domain name and not the user's email address (e.g. ``user@ad.example.org`` vs ``user@example.org``).
 This can be confusing for users, as they will have to use the ``userPrincipalName`` to login instead of their email address. The Email address field can be set in the :ref:`user_groups-section` page if the Samba AD is configured as the local account provider.
 
-By adding ``LDAP_MAIL_ATTRIBUTE`` your users wil be able to login with :
+By adding ``LDAP_MAIL_ATTRIBUTE`` your users will be able to login with:
 
 - ``sAMAccountName``: eg ``john``
 - ``userPrincipalName``: eg ``john@ad.domain.com``

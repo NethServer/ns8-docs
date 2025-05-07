@@ -384,7 +384,7 @@ The possible administrative actions are:
 * user disabled/enabled
 * user password change
 
-When creating a user, the following fields are mandatory:
+When creating a user, the following fields are available:
 
 * User name
 * Full name (name and surname)
