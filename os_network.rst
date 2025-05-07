@@ -45,3 +45,6 @@ This is a summary of keyboard functions:
 * ``Space``, modify checkbox, selection
 * ``Ctrl+C``, abort
 
+To apply the changes restart NetworkManager: ::
+
+    systemctl restart NetworkManager
