@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-29 13:57+0000\n"
+"POT-Creation-Date: 2025-05-07 07:00+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -1313,7 +1313,7 @@ msgstr ""
 "le informazioni del log di audit nel vecchio leader non sono più "
 "accessibili."
 
-#: ../../collabora.rst:5 ../../nextcloud.rst:60
+#: ../../collabora.rst:5 ../../nextcloud.rst:78
 msgid "Collabora Online"
 msgstr "Collaborare online"
 
@@ -12372,68 +12372,112 @@ msgstr ""
 "reported in section `Internal Username` of `Official Nextcloud "
 "documentation <https://docs.nextcloud.com>`_."
 
-#: ../../nextcloud.rst:62
-#, fuzzy
-msgid ""
-"First, install and configure a :ref:`Collabora Online <collabora-"
-"section>` instance."
+#: ../../nextcloud.rst:57
+msgid "Alternative LDAP mail field (Samba AD)"
 msgstr ""
-"First, install and configure a :ref:`Collabora Online <collabora-"
-"section>` instance."
+
+#: ../../nextcloud.rst:58
+msgid ""
+"When the account provider is an Active Directory, you can change the mail"
+" field used by Nextcloud with an environment variable. The default LDAP "
+"mail field is ``userPrincipalName``, which corresponds to the AD domain "
+"name and not the user's email address (e.g. ``user@ad.example.org`` vs "
+"``user@example.org``). This can be confusing for users, as they will have"
+" to use the ``userPrincipalName`` to login instead of their email "
+"address. The Email address field can be set in the :ref:`user_groups-"
+"section` page if the Samba AD is configured as the local account "
+"provider."
+msgstr ""
+
+#: ../../nextcloud.rst:61
+msgid "By adding ``LDAP_MAIL_ATTRIBUTE`` your users will be able to login with:"
+msgstr ""
+
+#: ../../nextcloud.rst:63
+msgid "``sAMAccountName``: eg ``john``"
+msgstr ""
 
 #: ../../nextcloud.rst:64
-#, fuzzy
-msgid "Then, access the ``Settings`` page of Nextcloud module."
-msgstr "Then, access the ``Settings`` page of Nextcloud module."
-
-#: ../../nextcloud.rst:66
-#, fuzzy
-msgid ""
-"You will find an option named ``CODE server host name``. Select one of "
-"the existing Collabora instances or enter a domain of another Collabora "
-"installation."
+msgid "``userPrincipalName``: eg ``john@ad.domain.com``"
 msgstr ""
-"You will find an option named ``CODE server host name``. Select one of "
-"the existing Collabora instances or enter a domain of another Collabora "
-"installation."
+
+#: ../../nextcloud.rst:65
+msgid "``mail``: eg ``john@domain.com``"
+msgstr ""
+
+#: ../../nextcloud.rst:67
+msgid ""
+"The ``runagent`` command is available only on the NethServer 8 node where"
+" the application is installed."
+msgstr ""
 
 #: ../../nextcloud.rst:69
 #, fuzzy
-msgid ""
-"The Collabora instance will be accessed using HTTPS protocol, so remember"
-" to disable the ``Verify TLS certification`` option if the Collabora does"
-" not have a valid TLS certificate."
-msgstr ""
-"The Collabora instance will be accessed using HTTPS protocol, so remember"
-" to disable the ``Verify TLS certification`` option if the Collabora does"
-" not have a valid TLS certificate."
-
-#: ../../nextcloud.rst:72
-#, fuzzy
-msgid ""
-"Finally, click the :guilabel:`Save` button. You will now be able to edit "
-"documents directly inside Nextcloud."
-msgstr ""
-"Finally, click the :guilabel:`Save` button. You will now be able to edit "
-"documents directly inside Nextcloud."
-
-#: ../../nextcloud.rst:76
-#, fuzzy
-msgid "Data retention policy"
-msgstr "Data retention policy"
-
-#: ../../nextcloud.rst:78
-#, fuzzy
-msgid ""
-"When it comes to account deletion in Nextcloud, a specific data retention"
-" policy is employed based on the user's account origin:"
-msgstr ""
-"When it comes to account deletion in Nextcloud, a specific data retention"
-" policy is employed based on the user's account origin:"
+msgid "Type in a root shell the following command ::"
+msgstr "In a root shell prompt, execute the following command:"
 
 #: ../../nextcloud.rst:80
 #, fuzzy
 msgid ""
+"First, install and configure a :ref:`Collabora Online <collabora-"
+"section>` instance."
+msgstr ""
+"First, install and configure a :ref:`Collabora Online <collabora-"
+"section>` instance."
+
+#: ../../nextcloud.rst:82
+#, fuzzy
+msgid "Then, access the ``Settings`` page of Nextcloud module."
+msgstr "Then, access the ``Settings`` page of Nextcloud module."
+
+#: ../../nextcloud.rst:84
+#, fuzzy
+msgid ""
+"You will find an option named ``CODE server host name``. Select one of "
+"the existing Collabora instances or enter a domain of another Collabora "
+"installation."
+msgstr ""
+"You will find an option named ``CODE server host name``. Select one of "
+"the existing Collabora instances or enter a domain of another Collabora "
+"installation."
+
+#: ../../nextcloud.rst:87
+#, fuzzy
+msgid ""
+"The Collabora instance will be accessed using HTTPS protocol, so remember"
+" to disable the ``Verify TLS certification`` option if the Collabora does"
+" not have a valid TLS certificate."
+msgstr ""
+"The Collabora instance will be accessed using HTTPS protocol, so remember"
+" to disable the ``Verify TLS certification`` option if the Collabora does"
+" not have a valid TLS certificate."
+
+#: ../../nextcloud.rst:90
+#, fuzzy
+msgid ""
+"Finally, click the :guilabel:`Save` button. You will now be able to edit "
+"documents directly inside Nextcloud."
+msgstr ""
+"Finally, click the :guilabel:`Save` button. You will now be able to edit "
+"documents directly inside Nextcloud."
+
+#: ../../nextcloud.rst:94
+#, fuzzy
+msgid "Data retention policy"
+msgstr "Data retention policy"
+
+#: ../../nextcloud.rst:96
+#, fuzzy
+msgid ""
+"When it comes to account deletion in Nextcloud, a specific data retention"
+" policy is employed based on the user's account origin:"
+msgstr ""
+"When it comes to account deletion in Nextcloud, a specific data retention"
+" policy is employed based on the user's account origin:"
+
+#: ../../nextcloud.rst:98
+#, fuzzy
+msgid ""
 "if the account originates from the LDAP account provider, its data isn't "
 "subject to automatic removal. You can find detailed information about "
 "this policy in the documentation: `LDAP Cleanup "
@@ -12444,7 +12488,7 @@ msgstr ""
 "this policy in the documentation: `LDAP Cleanup "
 "<https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_auth_ldap_cleanup.html>`_."
 
-#: ../../nextcloud.rst:83
+#: ../../nextcloud.rst:101
 #, fuzzy
 msgid ""
 "in the case of accounts stored within the internal Nextcloud database, "
@@ -18076,27 +18120,31 @@ msgstr ""
 msgid "When creating a user, the following fields are mandatory:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:353
+#: ../../user_domains.rst:353 ../../user_domains.rst:389
 #, fuzzy
 msgid "User name"
 msgstr "User name"
 
-#: ../../user_domains.rst:354
+#: ../../user_domains.rst:354 ../../user_domains.rst:390
 #, fuzzy
 msgid "Full name (name and surname)"
 msgstr "Full name (name and surname)"
 
-#: ../../user_domains.rst:355
+#: ../../user_domains.rst:355 ../../user_domains.rst:391
 #, fuzzy
 msgid "Password"
 msgstr "Password"
 
-#: ../../user_domains.rst:357
+#: ../../user_domains.rst:356 ../../user_domains.rst:393
+msgid "Email address (optional field)"
+msgstr ""
+
+#: ../../user_domains.rst:358
 #, fuzzy
 msgid "A user can be added to one or more groups."
 msgstr "A user can be added to one or more groups."
 
-#: ../../user_domains.rst:359
+#: ../../user_domains.rst:360
 #, fuzzy
 msgid ""
 "Sometimes you need to block user access to services without deleting the "
@@ -18105,27 +18153,27 @@ msgstr ""
 "Sometimes you need to block user access to services without deleting the "
 "account. The safest approach is:"
 
-#: ../../user_domains.rst:362
+#: ../../user_domains.rst:363
 #, fuzzy
 msgid "(optionally) change the user's password with a random one"
 msgstr "(optionally) change the user's password with a random one"
 
-#: ../../user_domains.rst:363
+#: ../../user_domains.rst:364
 #, fuzzy
 msgid "disable the user using the ``Disable`` action from the three-dots menu"
 msgstr "disable the user using the ``Disable`` action from the three-dots menu"
 
-#: ../../user_domains.rst:365
+#: ../../user_domains.rst:366
 #, fuzzy
 msgid "When a user is deleted, user data will not be removed."
 msgstr "When a user is deleted, user data will not be removed."
 
-#: ../../user_domains.rst:370
+#: ../../user_domains.rst:371
 #, fuzzy
 msgid "User Management portal"
 msgstr "User Management portal"
 
-#: ../../user_domains.rst:372
+#: ../../user_domains.rst:373
 #, fuzzy
 msgid ""
 "The user management portal is a web application that allows any non-"
@@ -18136,7 +18184,7 @@ msgstr ""
 "administrator user to change their own password without the need for "
 "administrator intervention."
 
-#: ../../user_domains.rst:376
+#: ../../user_domains.rst:377
 msgid ""
 "Members of the Domain Admins group can also manage users and groups in "
 "the domain, independently from the Cluster Admin UI."
@@ -18144,7 +18192,39 @@ msgstr ""
 "I membri del gruppo Domain Admins possono anche gestire utenti e gruppi "
 "nel dominio, indipendentemente dal Cluster Admin UI."
 
-#: ../../user_domains.rst:379
+#: ../../user_domains.rst:380
+#, fuzzy
+msgid "The possible administrative actions are:"
+msgstr "Le credenziali amministrative predefinite del sistema operativo sono"
+
+#: ../../user_domains.rst:382
+msgid "group creation/modification"
+msgstr ""
+
+#: ../../user_domains.rst:383
+#, fuzzy
+msgid "user creation/modification"
+msgstr "Browser notifications"
+
+#: ../../user_domains.rst:384
+msgid "user disabled/enabled"
+msgstr ""
+
+#: ../../user_domains.rst:385
+#, fuzzy
+msgid "user password change"
+msgstr "Password age"
+
+#: ../../user_domains.rst:387
+#, fuzzy
+msgid "When creating a user, the following fields are available:"
+msgstr "When creating a user, the following fields are mandatory:"
+
+#: ../../user_domains.rst:392
+msgid "Group (optional field)"
+msgstr ""
+
+#: ../../user_domains.rst:395
 #, fuzzy
 msgid ""
 "The portal is automatically configured on every instance of :ref"
@@ -18153,12 +18233,12 @@ msgstr ""
 "The portal is automatically configured on every instance of :ref"
 ":`active_directory-section` or :ref:`openldap-section` provider."
 
-#: ../../user_domains.rst:381
+#: ../../user_domains.rst:397
 #, fuzzy
 msgid "The portal is available at the following URL: ::"
 msgstr "The portal is available at the following URL: ::"
 
-#: ../../user_domains.rst:385
+#: ../../user_domains.rst:401
 #, fuzzy
 msgid ""
 "Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
@@ -18169,12 +18249,12 @@ msgstr ""
 "``<domain_name>`` is the name of the domain provided while configuring "
 "the domain."
 
-#: ../../user_domains.rst:387
+#: ../../user_domains.rst:403
 #, fuzzy
 msgid "Without the trailing slash, the portal will not work."
 msgstr "Without the trailing slash, the portal will not work."
 
-#: ../../user_domains.rst:389
+#: ../../user_domains.rst:405
 #, fuzzy
 msgid ""
 "Once reached the page, the user is prompted for login and they can "
@@ -18183,7 +18263,7 @@ msgstr ""
 "Once reached the page, the user is prompted for login and they can "
 "authenticate to the domain with user name and password."
 
-#: ../../user_domains.rst:391
+#: ../../user_domains.rst:407
 #, fuzzy
 msgid ""
 "If the login is successful, the user is directed to the ``User "
