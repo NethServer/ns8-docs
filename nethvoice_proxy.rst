@@ -33,4 +33,7 @@ How to configure:
 .. warning::
    If the machine is not accessible from the internet and its fully qualified domain name (FQDN) cannot be reached externally, and it is used only within a local network, the IP address field should contain the machine's private IP address.
 
+.. warning::
+   If your public IP address changes due to connectivity changes, relocation of hardware or any other reasons, the new IP must be correctly configured in this section; otherwise, operational issues may occur.
+
 Now, you can install and configure one ore more :ref:`NethVoice <nethvoice-section>` instances.
