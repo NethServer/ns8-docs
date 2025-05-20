@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-20 08:37+0000\n"
+"POT-Creation-Date: 2025-05-20 16:32+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -6259,7 +6259,7 @@ msgstr ""
 msgid "user: ``admin``"
 msgstr "user: ``admin``"
 
-#: ../../mariadb.rst:26 ../../metrics.rst:61 ../../webserver.rst:30
+#: ../../mariadb.rst:26 ../../webserver.rst:30
 #, fuzzy
 msgid "password: ``admin``"
 msgstr "password: ``admin``"
@@ -6424,10 +6424,10 @@ msgstr "`Grafana <https://grafana.com/>`_ visualizes the collected metrics"
 
 #: ../../metrics.rst:17
 msgid ""
-"The monitoring stack does not require any configuration and it will "
-"automatically reconfigure when new nodes are added or removed from the "
-"cluster. When a node is promoted to leader, the monitoring stack will be "
-"automatically installed to new leader node and removed from the old one."
+"The monitoring is always available and it will automatically reconfigure "
+"when new nodes are added or removed from the cluster. When a node is "
+"promoted to leader, the monitoring stack will be automatically installed "
+"to new leader node and removed from the old one."
 msgstr ""
 
 #: ../../metrics.rst:22
@@ -6435,132 +6435,204 @@ msgid "Metrics and alerts are not preserved when the leader node is switched."
 msgstr ""
 
 #: ../../metrics.rst:25
+msgid ""
+"Metrics and alerts can be configured from the ``Settings`` page, under "
+"the ``Metrics`` section. The page will allow you to configure the "
+"following parameters:"
+msgstr ""
+
+#: ../../metrics.rst:28
+#, fuzzy
+msgid ":ref:`grafana_access-section`"
+msgstr ":ref:`core updates <core_updates-section>`"
+
+#: ../../metrics.rst:29
+msgid ":ref:`Alert notifications <alerts_notifications-section>`"
+msgstr ""
+
+#: ../../metrics.rst:34
 #, fuzzy
 msgid "Alerts"
 msgstr "Calendari"
 
-#: ../../metrics.rst:27
+#: ../../metrics.rst:36
 msgid ""
 "Prometheus will automatically send alerts to the Alertmanager when a rule"
 " is triggered. Current rules will send alerts for:"
 msgstr ""
 
-#: ../../metrics.rst:30
+#: ../../metrics.rst:39
 #, fuzzy
 msgid "No SWAP is configured"
 msgstr "No (the group is configured)"
 
-#: ../../metrics.rst:31
+#: ../../metrics.rst:40
 msgid "SWAP space is nearly full"
 msgstr ""
 
-#: ../../metrics.rst:32
+#: ../../metrics.rst:41
 msgid "One or more backups have failed"
 msgstr ""
 
-#: ../../metrics.rst:33
+#: ../../metrics.rst:42
 msgid "Disk partitions are nearly full"
 msgstr ""
 
-#: ../../metrics.rst:35
+#: ../../metrics.rst:43
+msgid "Software RAID (mdadm) is degraded"
+msgstr ""
+
+#: ../../metrics.rst:45
 msgid ""
 "If the machine has a valid subscription, the alerts will be forwarded to "
 "the Nethesis portal like `my.nethesis.it <https://my.nethesis.it>`_ or "
 "`my.nethserver.com <https://my.nethserver.com>`_."
 msgstr ""
 
-#: ../../metrics.rst:38
-msgid ""
-"If the machine does not have a valid subscription, the alerts will be "
-"visible only in the Grafana dashboard. Still you can configure the alerts"
-" to be sent to a specific email address. See :ref:`mail-notifications` "
-"section."
-msgstr ""
-
-#: ../../metrics.rst:42
-msgid "Enable Grafana"
-msgstr ""
-
-#: ../../metrics.rst:44
-msgid ""
-"Grafana is an open-source platform for monitoring and observability. It "
-"allows you to query, visualize, alert on, and understand your metrics no "
-"matter where they are stored. Grafana provides you with tools to turn "
-"your time-series into insightful graphs and visualizations."
-msgstr ""
-
 #: ../../metrics.rst:48
-msgid ""
-"By default, Grafana is not enabled. You can enable it by configuring a "
-"path where it will be exposed."
+msgid "Still, you can configure the alerts to be sent to custom email addresses."
 msgstr ""
 
 #: ../../metrics.rst:50
 msgid ""
-"Grafana can be exposed on a path of your choice. To enable Grafana "
-"access, run the following command on the leader node: ::"
+"Alerts are also be visible inside in the :ref:`Grafana <grafana_access-"
+"section>`."
 msgstr ""
 
 #: ../../metrics.rst:55
+#, fuzzy
+msgid "Alerts notifications"
+msgstr "Email notifications"
+
+#: ../../metrics.rst:57
 msgid ""
-"Grafana will be then accessible at the following URL: ``https://<leader-"
-"node>/grafana``. If you switched the leader, please note that you may "
-"have to replace ``metrics1`` with actual metrics module instance name."
+"Mail notifications can be sent to users when an alert is fired or "
+"resolved."
 msgstr ""
 
-#: ../../metrics.rst:58
-#, fuzzy
-msgid "Default Grafana credentials are:"
-msgstr "Le credenziali di default sono:"
-
-#: ../../metrics.rst:60
-#, fuzzy
-msgid "username: ``admin``"
-msgstr "Nome utente: ``admin``"
-
-#: ../../metrics.rst:63
-#, fuzzy
-msgid "During the first login, you will be asked to change the password."
+#: ../../metrics.rst:59
+msgid ""
+"The cluster needs an SMTP server to send the notifications. So first, "
+"make sure to enable the :ref:`email-notifications` feature."
 msgstr ""
-"Accedere alla console di sistema utilizzando le credenziali di default. "
-"Al primo login, verrà richiesto di cambiare la password."
+
+#: ../../metrics.rst:61
+msgid ""
+"To configure alert notifications, access the ``Metrics`` section in the "
+"``Settings`` page. The page allows you to configure the following "
+"parameters:"
+msgstr ""
+
+#: ../../metrics.rst:64
+msgid ""
+"``Language template``: the language used for the email template. The "
+"default is ``English``."
+msgstr ""
 
 #: ../../metrics.rst:65
-msgid "Grafana will automatically display:"
+msgid ""
+"``Sender email address``: the email address that will be used as the "
+"sender. The default is calculated from the leader FQDN."
 msgstr ""
 
 #: ../../metrics.rst:67
+msgid ""
+"``Recipient email addresses``: the email addresses to which alerts will "
+"be sent. Enter one address per line. Multiple recipients are supported."
+msgstr ""
+
+#: ../../metrics.rst:70
+msgid ""
+"Please note that if the cluster has a valid subscription, the alerts will"
+" also be sent to the Nethesis portals."
+msgstr ""
+
+#: ../../metrics.rst:75
+msgid "Grafana access"
+msgstr ""
+
+#: ../../metrics.rst:77
+msgid ""
+"Grafana is an open-source platform for monitoring and observability. It "
+"allows you to query, visualize and understand your metrics no matter "
+"where they are stored. Grafana provides you with tools to turn your time-"
+"series into insightful graphs and visualizations."
+msgstr ""
+
+#: ../../metrics.rst:81
+msgid ""
+"By default, Grafana is disabled. You can enable it using the ``Access "
+"Grafana`` option in the ``Settings`` page, under the ``Metrics`` section."
+msgstr ""
+
+#: ../../metrics.rst:83
+msgid ""
+"When enabled, Grafana will be accessible on the leader node at ``https"
+"://<leader-node>/grafana``."
+msgstr ""
+
+#: ../../metrics.rst:85
+msgid ""
+"To access Grafana, you need to authenticate with the cluster admin "
+"credentials."
+msgstr ""
+
+#: ../../metrics.rst:87
+msgid "Grafana will automatically display some default dashboards:"
+msgstr ""
+
+#: ../../metrics.rst:89
+msgid ""
+"*core* folder: it contains the default dashboards for the cluster. "
+"Available dashboards are:"
+msgstr ""
+
+#: ../../metrics.rst:92
 msgid ""
 "a dashboard for all nodes metrics like CPU load, memory usage, and disk "
 "space"
 msgstr ""
 
-#: ../../metrics.rst:68
+#: ../../metrics.rst:93
 msgid "a dashboard for fired alerts"
 msgstr ""
 
-#: ../../metrics.rst:71
-msgid ""
-"If the leader node is switched, Grafana will be accessible on the new "
-"leader node but the configuration will be lost: you will need to "
-"reconfigure the admin password and customization to the dashboards."
+#: ../../metrics.rst:94
+msgid "a dashboard about Loki statistics"
 msgstr ""
 
-#: ../../metrics.rst:75
+#: ../../metrics.rst:95
+msgid "a dashboard to execute query on Loki logs"
+msgstr ""
+
+#: ../../metrics.rst:97
+msgid ""
+"*modules* folder: it contains the default dashboards for the installed "
+"modules, like Samba Audit"
+msgstr ""
+
+#: ../../metrics.rst:100
+msgid ""
+"If the leader node is switched, Grafana will be accessible on the new "
+"leader node but dashboard customizations will be lost."
+msgstr ""
+
+#: ../../metrics.rst:104
 msgid "Access Prometheus web interface"
 msgstr ""
 
-#: ../../metrics.rst:77
+#: ../../metrics.rst:106
 msgid "By default, Prometheus web interface is not exposed to the public network."
 msgstr ""
 
-#: ../../metrics.rst:79
+#: ../../metrics.rst:108
 msgid ""
-"If you need to troubleshoot the Prometheus configuration, you can expose "
-"the Prometheus web interface on a path of your choice."
+"If you need to troubleshoot the Prometheus configuration, you can enable "
+"it on ``https://<leader-node>/prometheus``. As for Grafana, you will need"
+" to authenticate with cluster admin credentials."
 msgstr ""
 
-#: ../../metrics.rst:81
+#: ../../metrics.rst:111
 #, fuzzy
 msgid ""
 "To enable Prometheus web interface access, run the following command on "
@@ -6569,45 +6641,6 @@ msgstr ""
 "Ad esempio, per promuovere il nodo con ID ``3``, VPN endpoint "
 "``node3.example.com``, porta UDP ``55820``, eseguire il seguente comando "
 "su ogni nodo worker: ::"
-
-#: ../../metrics.rst:85
-msgid ""
-"Prometheus will be then accessible at the following URL: ``https"
-"://<leader-node>/prometheus``."
-msgstr ""
-
-#: ../../metrics.rst:87
-msgid ""
-"Prometheus web interface will be accessible from any IP address without "
-"authentication. Use with caution."
-msgstr ""
-
-#: ../../metrics.rst:92
-#, fuzzy
-msgid "Mail notifications"
-msgstr "Email notifications"
-
-#: ../../metrics.rst:94
-msgid ""
-"Mail notifications can be sent to users when an alert is fired or "
-"resolved. The cluster needs an SMTP server to send the notifications. So "
-"first, make sure to enable the :ref:`email-notifications` feature. If "
-"mail notifications are not enabled, the alerts will be visible only in "
-"the Grafana dashboard and not sent to any email address."
-msgstr ""
-
-#: ../../metrics.rst:98
-msgid ""
-"Then, configure the mail notifications by running the following command "
-"on the leader node: ::"
-msgstr ""
-
-#: ../../metrics.rst:102
-msgid ""
-"The ``mail_to`` parameter is a list of email addresses that will receive "
-"the alerts. The ``mail_from`` parameter is the email address that will be"
-" used as the sender."
-msgstr ""
 
 #: ../../migration.rst:5
 msgid "NethServer 7 migration"
@@ -23403,4 +23436,133 @@ msgstr ""
 
 #~ msgid "install the new node"
 #~ msgstr "installare il nuovo nodo"
+
+#~ msgid ""
+#~ "The monitoring stack does not require"
+#~ " any configuration and it will "
+#~ "automatically reconfigure when new nodes "
+#~ "are added or removed from the "
+#~ "cluster. When a node is promoted "
+#~ "to leader, the monitoring stack will "
+#~ "be automatically installed to new leader"
+#~ " node and removed from the old "
+#~ "one."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If the machine does not have a "
+#~ "valid subscription, the alerts will be"
+#~ " visible only in the Grafana "
+#~ "dashboard. Still you can configure the"
+#~ " alerts to be sent to a "
+#~ "specific email address. See :ref:`mail-"
+#~ "notifications` section."
+#~ msgstr ""
+
+#~ msgid "Enable Grafana"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Grafana is an open-source platform "
+#~ "for monitoring and observability. It "
+#~ "allows you to query, visualize, alert"
+#~ " on, and understand your metrics no"
+#~ " matter where they are stored. "
+#~ "Grafana provides you with tools to "
+#~ "turn your time-series into insightful"
+#~ " graphs and visualizations."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "By default, Grafana is not enabled. "
+#~ "You can enable it by configuring a"
+#~ " path where it will be exposed."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Grafana can be exposed on a path"
+#~ " of your choice. To enable Grafana"
+#~ " access, run the following command on"
+#~ " the leader node: ::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Grafana will be then accessible at "
+#~ "the following URL: ``https://<leader-"
+#~ "node>/grafana``. If you switched the "
+#~ "leader, please note that you may "
+#~ "have to replace ``metrics1`` with actual"
+#~ " metrics module instance name."
+#~ msgstr ""
+
+#~ msgid "Default Grafana credentials are:"
+#~ msgstr "Le credenziali di default sono:"
+
+#~ msgid "username: ``admin``"
+#~ msgstr "Nome utente: ``admin``"
+
+#~ msgid "During the first login, you will be asked to change the password."
+#~ msgstr ""
+#~ "Accedere alla console di sistema "
+#~ "utilizzando le credenziali di default. "
+#~ "Al primo login, verrà richiesto di "
+#~ "cambiare la password."
+
+#~ msgid "Grafana will automatically display:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If the leader node is switched, "
+#~ "Grafana will be accessible on the "
+#~ "new leader node but the configuration"
+#~ " will be lost: you will need to"
+#~ " reconfigure the admin password and "
+#~ "customization to the dashboards."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you need to troubleshoot the "
+#~ "Prometheus configuration, you can expose "
+#~ "the Prometheus web interface on a "
+#~ "path of your choice."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Prometheus will be then accessible at"
+#~ " the following URL: ``https://<leader-"
+#~ "node>/prometheus``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Prometheus web interface will be "
+#~ "accessible from any IP address without"
+#~ " authentication. Use with caution."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Mail notifications can be sent to "
+#~ "users when an alert is fired or"
+#~ " resolved. The cluster needs an SMTP"
+#~ " server to send the notifications. So"
+#~ " first, make sure to enable the "
+#~ ":ref:`email-notifications` feature. If mail"
+#~ " notifications are not enabled, the "
+#~ "alerts will be visible only in the"
+#~ " Grafana dashboard and not sent to"
+#~ " any email address."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Then, configure the mail notifications "
+#~ "by running the following command on "
+#~ "the leader node: ::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The ``mail_to`` parameter is a list "
+#~ "of email addresses that will receive "
+#~ "the alerts. The ``mail_from`` parameter "
+#~ "is the email address that will be"
+#~ " used as the sender."
+#~ msgstr ""
 
