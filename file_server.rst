@@ -71,6 +71,7 @@ address`` and choose a different private IP address from those assigned to
 the node. Note that a domain controller cannot change its IP address if
 there are other domain controllers in the same AD domain.
 
+.. _shared-folders-section:
 
 Shared folders
 ==============
