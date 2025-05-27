@@ -14,6 +14,18 @@ NethServer 8 releases
 
   __ http://community.nethserver.org/c/bug
 
+Major changes on 2025-06-30
+===========================
+
+**Milestone 8.5**
+
+- **Debian Bookworm missing package** -- Some Debian installations may be
+  missing the ``gettext-base`` package. Debian users must ensure it is
+  properly installed with this command: ::
+
+    apt-get update
+    apt install gettext-base
+
 Major changes on 2025-04-04
 ===========================
 
