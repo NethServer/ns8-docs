@@ -287,6 +287,54 @@ The Open Source `CalDAV Synchronizer <https://caldavsynchronizer.org/>`_ plugin 
 
    The use of CalDAV/CardDAV through third-party clients **cannot be considered a web interface alternative**.
 
+.. _webtop_email_clients_autoconfiguration:
+
+Email clients autoconfiguration
+===============================
+
+The Autodiscover and Autoconfig protocols allow email clients to
+automatically discover the mail server settings, such as the
+incoming and outgoing mail server addresses, the ports, and the
+authentication methods. This simplifies the configuration process for
+end users, as they do not need to manually enter the server settings.
+
+To enable email client autoconfiguration, the following DNS records **must be configured and are mandatory** for each mail domain:
+
+**A records:**
+
+- ``mail.domain.com`` pointing to the public static IP of the **mail server**
+- ``imap.domain.com``  pointing to the public static IP of the **mail server**
+- ``smtp.domain.com``  pointing to the public static IP of the **mail server**
+- ``autodiscover.domain.com`` pointing to the public static IP of the **server hosting WebTop**
+- ``autoconfig.domain.com`` pointing to the public static IP of the **server hosting WebTop**
+
+**MX record:**
+
+- Directs email for the domain to ``mail.domain.com`` (the mail server’s A record).
+
+**SRV record (only for Autodiscover):**
+
+This enables clients to locate the Autodiscover service using the service record:
+
+- Name: ``_autodiscover._tcp.domain.com`` with the following values:
+- Type: ``SRV``
+- Service: ``_autodiscover``
+- Protocol: ``_tcp``
+- TTL: ``3600``
+- Priority: ``10``
+- Weight: ``10``
+- Port: ``443``
+- Target: ``autodiscover.domain.com`` (the DNS record to WebTop server)  
+
+.. warning::
+
+   The Autodiscover and Autoconfig protocols require a valid SSL/TLS certificate. Make sure to configure a valid SSL/TLS certificate
+   for all domains used in the DNS records.
+
+.. note::
+   The Autodiscover and Autoconfig protocols are not supported by all email clients. For example, iOS devices do not support them, 
+   while clients like Thunderbird and Microsoft Outlook on Windows and Linux desktops, as well as on Android devices, do. 
+   Some clients may still require manual configuration of server settings.
 
 Sharing email
 =============
