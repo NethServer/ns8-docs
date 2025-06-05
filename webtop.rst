@@ -287,36 +287,55 @@ The Open Source `CalDAV Synchronizer <https://caldavsynchronizer.org/>`_ plugin 
 
    The use of CalDAV/CardDAV through third-party clients **cannot be considered a web interface alternative**.
 
-.. _webtop_email_clients_autoconfiguration:
+.. _email_autoconfig:
 
-Email clients autoconfiguration
-===============================
+Automatic configuration of email clients
+========================================
 
-The Autodiscover and Autoconfig protocols allow email clients to
-automatically discover the mail server settings, such as the
-incoming and outgoing mail server addresses, the ports, and the
-authentication methods. This simplifies the configuration process for
-end users, as they do not need to manually enter the server settings.
+The Autodiscover_ and Autoconfig_ protocols allow email clients to
+automatically discover mail server settings, such as incoming and outgoing
+mail server addresses, ports, and authentication methods. This simplifies
+the configuration process for end users, as they do not need to manually
+enter server settings.
 
-To enable email client autoconfiguration, the following DNS records **must be configured and are mandatory** for each mail domain:
+.. _Autoconfig: https://wiki.mozilla.org/Thunderbird:Autoconfiguration
+.. _Autodiscover: https://learn.microsoft.com/en-us/previous-versions/office/office-2010/cc511507(v=office.14)#The%20Autodiscover%20XML%20schema
 
-**A records:**
+The Autodiscover and Autoconfig protocols are not supported by all email
+clients. For example, iOS devices do not support them, while clients like
+Thunderbird and Microsoft Outlook on Windows and Linux desktops, as well
+as Android devices, do support them. Some clients may still require manual
+configuration of server settings.
 
-- ``mail.domain.com`` pointing to the public static IP of the **mail server**
-- ``imap.domain.com``  pointing to the public static IP of the **mail server**
-- ``smtp.domain.com``  pointing to the public static IP of the **mail server**
-- ``autodiscover.domain.com`` pointing to the public static IP of the **server hosting WebTop**
-- ``autoconfig.domain.com`` pointing to the public static IP of the **server hosting WebTop**
+To enable automatic email client configuration, some DNS records must be
+configured for the WebTop mail domain (e.g. ``example.org``).
 
-**MX record:**
+A records
+---------
 
-- Directs email for the domain to ``mail.domain.com`` (the mail server’s A record).
+The A-type records are used by email clients to establish TLS connections,
+therefore their names must be associated with a valid TLS certificate.
 
-**SRV record (only for Autodiscover):**
+- ``mail.example.org``, ``imap.example.org``, ``smtp.example.org`` must
+  point to the public static IP of the **mail server**
 
-This enables clients to locate the Autodiscover service using the service record:
+- ``autodiscover.example.org``, ``autoconfig.example.org`` must point to
+  the public static IP of the **server hosting WebTop**.
 
-- Name: ``_autodiscover._tcp.domain.com`` with the following values:
+MX record
+---------
+
+An MX-type record is also a Mail application requirement, as explained in
+:ref:`mail-general-settings`. For the MX record of ``example.org``
+Autodiscover prefers a name like ``mail.example.org``.
+
+SRV record
+----------
+
+This enables clients to locate the Autodiscover service using a SRV-type
+record.
+
+- Name: ``_autodiscover._tcp.example.org``
 - Type: ``SRV``
 - Service: ``_autodiscover``
 - Protocol: ``_tcp``
@@ -324,17 +343,7 @@ This enables clients to locate the Autodiscover service using the service record
 - Priority: ``10``
 - Weight: ``10``
 - Port: ``443``
-- Target: ``autodiscover.domain.com`` (the DNS record to WebTop server)  
-
-.. warning::
-
-   The Autodiscover and Autoconfig protocols require a valid SSL/TLS certificate. Make sure to configure a valid SSL/TLS certificate
-   for all domains used in the DNS records.
-
-.. note::
-   The Autodiscover and Autoconfig protocols are not supported by all email clients. For example, iOS devices do not support them, 
-   while clients like Thunderbird and Microsoft Outlook on Windows and Linux desktops, as well as on Android devices, do. 
-   Some clients may still require manual configuration of server settings.
+- Target: ``autodiscover.example.org`` -- the DNS A record pointing to the WebTop server.
 
 Sharing email
 =============

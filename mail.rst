@@ -698,20 +698,11 @@ that still does not support STARTTLS:
 * pop3s/995
 * smtps/465
 
-.. warning::
+.. note::
 
     The standard SMTP port 25 is reserved for mail transfers between MTA
     servers. Mail user agents (MUA) must use the submission port.
 
-.. _email_clients_autoconfiguration:
-
-Autoconfiguration
------------------
-The Mail application supports the autoconfiguration of email clients
-using the `Autodiscover`__ protocol and the `Autoconfig`__ protocol:
-
-- The Autodiscover protocol is used by Microsoft Outlook and other email clients to automatically configure the email account settings.
-
-- The Autoconfig protocol is used by Mozilla Thunderbird and other email clients to automatically configure the email account settings.
-
-The autoconfiguration is provided by the :ref:`webtop module <webtop_email_clients_autoconfiguration>`.
+Refer to the :ref:`Webtop application <email_autoconfig>` for the
+implementation of automatic configuration protocols like Autodiscover and
+Autoconfig.
