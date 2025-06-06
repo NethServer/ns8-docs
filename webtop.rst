@@ -287,6 +287,63 @@ The Open Source `CalDAV Synchronizer <https://caldavsynchronizer.org/>`_ plugin 
 
    The use of CalDAV/CardDAV through third-party clients **cannot be considered a web interface alternative**.
 
+.. _email_autoconfig:
+
+Automatic configuration of email clients
+========================================
+
+The Autodiscover_ and Autoconfig_ protocols allow email clients to
+automatically discover mail server settings, such as incoming and outgoing
+mail server addresses, ports, and authentication methods. This simplifies
+the configuration process for end users, as they do not need to manually
+enter server settings.
+
+.. _Autoconfig: https://wiki.mozilla.org/Thunderbird:Autoconfiguration
+.. _Autodiscover: https://learn.microsoft.com/en-us/previous-versions/office/office-2010/cc511507(v=office.14)#The%20Autodiscover%20XML%20schema
+
+The Autodiscover and Autoconfig protocols are not supported by all email
+clients. For example, iOS devices do not support them, while clients like
+Thunderbird and Microsoft Outlook on Windows and Linux desktops, as well
+as Android devices, do support them. Some clients may still require manual
+configuration of server settings.
+
+To enable automatic email client configuration, some DNS records must be
+configured for the WebTop mail domain (e.g. ``example.org``).
+
+A records
+---------
+
+The A-type records are used by email clients to establish TLS connections,
+therefore their names must be associated with a valid TLS certificate.
+
+- ``mail.example.org``, ``imap.example.org``, ``smtp.example.org`` must
+  point to the public static IP of the **mail server**
+
+- ``autodiscover.example.org``, ``autoconfig.example.org`` must point to
+  the public static IP of the **server hosting WebTop**.
+
+MX record
+---------
+
+An MX-type record is also a Mail application requirement, as explained in
+:ref:`mail-general-settings`. For the MX record of ``example.org``
+Autodiscover prefers a name like ``mail.example.org``.
+
+SRV record
+----------
+
+This enables clients to locate the Autodiscover service using a SRV-type
+record.
+
+- Name: ``_autodiscover._tcp.example.org``
+- Type: ``SRV``
+- Service: ``_autodiscover``
+- Protocol: ``_tcp``
+- TTL: ``3600``
+- Priority: ``10``
+- Weight: ``10``
+- Port: ``443``
+- Target: ``autodiscover.example.org`` -- the DNS A record pointing to the WebTop server.
 
 Sharing email
 =============

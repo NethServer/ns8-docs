@@ -698,7 +698,11 @@ that still does not support STARTTLS:
 * pop3s/995
 * smtps/465
 
-.. warning::
+.. note::
 
     The standard SMTP port 25 is reserved for mail transfers between MTA
     servers. Mail user agents (MUA) must use the submission port.
+
+Refer to the :ref:`Webtop application <email_autoconfig>` for the
+implementation of automatic configuration protocols like Autodiscover and
+Autoconfig.
