@@ -30,7 +30,7 @@ to change the port of worker node 2 to 55823:
 #. Update the VPN endpoint record for node 2 in Redis. Run this command on
    the leader node: ::
 
-    redis-cli hset node/2/vpn endpoint $(hostname -f):55823
+    redis-cli hset node/2/vpn endpoint node2.example.org:55823
 
 #. On node 2, change the WireGuard listening port: ::
 
