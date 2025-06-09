@@ -92,12 +92,19 @@ Example:
 
 .. [#MsDnsBestPratices] https://social.technet.microsoft.com/wiki/contents/articles/34981.active-directory-best-practices-for-internal-domain-and-network-names.aspx#Recommendation
 
-Furthermore, the AD Windows clients must be configured to use the domain
-controller as their DNS server for network name resolution. Set the IP
-address of DC ``dc1.ad.nethserver.org`` in client DNS configuration.
+AD Windows clients must use a primary DNS server that can resolve the AD
+domain names. A secondary DNS server is optional, but if configured, it
+must also be able to resolve AD domain names.
 
-The domain controller inherits the node DNS settings in
-``/etc/resolv.conf`` for name resolution request forwarding.
+- **Small networks**: Use Samba Active Directory as the DNS server by
+  setting the domain controller's IP address in client DNS settings.
+  Non-AD DNS queries are automatically forwarded to the servers in the NS8
+  node's ``/etc/resolv.conf`` file.
+
+- **Larger networks**: Use a dedicated DNS server with *conditional
+  forwarding*. Configure it to forward AD domain requests to the Samba
+  Active Directory DNS server while directing other requests to your
+  preferred DNS service (ISP or public DNS).
 
 .. _openldap-section:
 
