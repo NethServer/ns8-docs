@@ -159,23 +159,13 @@ When editing documents, please keep in mind the following guidelines:
 Publish procedure
 =================
 
-The manual is hosted on ReadTheDocs. The ``main`` and ``latest`` branches
-are automatically published each time a commit is pushed, as configured in
-the project dashboard: https://app.readthedocs.org/projects/ns8-docs/.
-
-* The ``main`` branch is used for testing and staging. Pull requests are
-  merged into ``main`` and immediately published at
-  https://docs.nethserver.org/en/main/.
-
-* The ``latest`` branch contains the official, stable documentation and
-  requires a manual step to publish updates. Once all changes in ``main``
-  are approved, run the following command to publish them: ::
-
-      git push origin main:latest
-
-This workflow requires that the push is always a *fast-forward* in Git
-terminology.
-
 The official NS8 documentation is available at:
 https://docs.nethserver.org/en/latest/.
 
+The documentation is hosted on ReadTheDocs. The ``main`` branch
+is automatically published each time a commit is pushed, as configured in
+the project dashboard: https://app.readthedocs.org/projects/ns8-docs/.
+
+`Pull requests previews`__ are built automatically to ease the review process.
+
+__ https://docs.readthedocs.com/platform/stable/pull-requests.html
