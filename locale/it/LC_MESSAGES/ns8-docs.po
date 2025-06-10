@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-06 09:52+0000\n"
+"POT-Creation-Date: 2025-06-10 14:19+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -1339,12 +1339,13 @@ msgstr ""
 " :ref:`software_center-section`."
 
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dnsmasq.rst:20
-#: ../../dokuwiki.rst:10 ../../ejabberd.rst:22 ../../imapsync.rst:26
-#: ../../index.rst:34 ../../mail.rst:54 ../../mariadb.rst:11
-#: ../../mattermost.rst:13 ../../minio.rst:12 ../../netdata.rst:20
-#: ../../nethvoice.rst:21 ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21
-#: ../../odoo.rst:20 ../../piler.rst:30 ../../roundcube.rst:19
-#: ../../sogo.rst:39 ../../webserver.rst:14 ../../webtop.rst:12
+#: ../../dokuwiki.rst:10 ../../ejabberd.rst:22 ../../file_server.rst:33
+#: ../../imapsync.rst:26 ../../index.rst:34 ../../mail.rst:54
+#: ../../mariadb.rst:11 ../../mattermost.rst:13 ../../minio.rst:12
+#: ../../netdata.rst:20 ../../nethvoice.rst:21 ../../nethvoice_proxy.rst:19
+#: ../../nextcloud.rst:21 ../../odoo.rst:20 ../../piler.rst:30
+#: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webserver.rst:14
+#: ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -2907,179 +2908,328 @@ msgstr ""
 
 #: ../../file_server.rst:5
 #, fuzzy
-msgid "File server"
+msgid "Samba file server"
 msgstr "File server"
 
 #: ../../file_server.rst:7
 #, fuzzy
 msgid ""
-"The ``File server`` application is built with `Samba "
-"<http://www.samba.org>`_. It provides shared folders and home directories"
-" to users and groups of an Active Directory domain."
+"The Samba_ file server application provides shared folders and home "
+"directories to users and groups within an Active Directory domain."
 msgstr ""
 "The ``File server`` application is built with `Samba "
 "<http://www.samba.org>`_. It provides shared folders and home directories"
 " to users and groups of an Active Directory domain."
 
-#: ../../file_server.rst:11
-#, fuzzy
+#: ../../file_server.rst:12
 msgid ""
-"This application is available by installing a Samba account provider (see"
-" :ref:`active_directory-section`) with the ``Provide file shares and "
-"authentication to Windows clients`` switch enabled."
+"Only one instance of Samba can be installed per NS8 node. The "
+"installation method depends on the role Samba will play in the Active "
+"Directory domain."
 msgstr ""
-"This application is available by installing a Samba account provider (see"
-" :ref:`active_directory-section`) with the ``Provide file shares and "
-"authentication to Windows clients`` switch enabled."
 
-#: ../../file_server.rst:17
+#: ../../file_server.rst:15
+msgid ""
+"**Domain Controller**: To install a Samba instance as an Active Directory"
+" Domain Controller, refer to :ref:`active_directory-section`. When "
+"configuring it as an account provider, ensure the ``Provide file shares "
+"and authentication to Windows clients`` switch is enabled."
+msgstr ""
+
+#: ../../file_server.rst:20
 #, fuzzy
 msgid ""
+"Only one AD domain controller can be configured with a LAN IP address to "
+"serve Authentication, Shares, and DNS to Windows clients. Other DCs are "
+"bound to the cluster private VPN and are accessible only to cluster "
+"applications."
+msgstr ""
 "Only one domain controller in the AD domain can be configured with a LAN "
 "IP address and serves Authentication, Shares and DNS to Windows clients. "
 "Other DCs are bound to the cluster private VPN and are accessible only to"
 " cluster applications."
-msgstr ""
-"Only one domain controller in the AD domain can be configured with a LAN "
-"IP address and serves Authentication, Shares and DNS to Windows clients. "
-"Other DCs are bound to the cluster private VPN and are accessible only to"
-" cluster applications."
 
-#: ../../file_server.rst:23
+#: ../../file_server.rst:25
+msgid ""
+"**Domain Member**: To install a Samba instance as an Active Directory "
+"Domain Member, start from the Software Center as with any other "
+"application. A domain member can connect to both internal and external AD"
+" providers. See :ref:`user-domains-section`."
+msgstr ""
+
+#: ../../file_server.rst:35
+msgid ""
+"When Samba is installed as a **domain member**, a first-time "
+"configuration procedure starts to collect essential information."
+msgstr ""
+
+#: ../../file_server.rst:38
+msgid ""
+"**Domain**: Select an item from the list of available NS8 user domains. "
+"Only internal and external Active Directory domains are listed."
+msgstr ""
+
+#: ../../file_server.rst:41
+msgid ""
+"**Admin credentials**: These are required to join Samba to the domain as "
+"a file server member. Enter the username and password of a member from "
+"the Active Directory \"Domain Admins\" group."
+msgstr ""
+
+#: ../../file_server.rst:45
+msgid ""
+"**File server name and alias**: Assign a unique computer account name to "
+"Samba. Choose carefully, as this cannot be changed later. The alias name "
+"is optional and can be changed at any time."
+msgstr ""
+
+#: ../../file_server.rst:49
+#, fuzzy
+msgid "**File server IP address**: Select the IP address for the file server."
+msgstr ""
+"``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
+"NethServer 8"
+
+#: ../../file_server.rst:54
+#, fuzzy
+msgid "File server alias"
+msgstr "File server"
+
+#: ../../file_server.rst:56
+msgid ""
+"Once the first-time configuration procedure is completed, use the "
+"``Settings`` page from the left menu to modify the optional ``File server"
+" alias`` value. The server alias name is useful for migrating and "
+"consolidating shared folders from another server. The alias name is added"
+" to the Active Directory DNS as a CNAME record pointing to the Samba file"
+" server name. The alias name is also added as a Service Principal Name "
+"(SPN) to the computer account."
+msgstr ""
+
+#: ../../file_server.rst:67
+#, fuzzy
+msgid "File server IP address"
+msgstr "indirizzo mail secondario"
+
+#: ../../file_server.rst:69
+msgid ""
+"In some cases, it is also possible to modify the ``File server IP "
+"address`` and choose a different private IP address from those assigned "
+"to the node. Note that a domain controller cannot change its IP address "
+"if there are other domain controllers in the same AD domain."
+msgstr ""
+
+#: ../../file_server.rst:76
 #, fuzzy
 msgid "Shared folders"
 msgstr "Shared folders"
 
-#: ../../file_server.rst:25
+#: ../../file_server.rst:78
 #, fuzzy
 msgid ""
-"Open Samba application from the app drawer, select ``Shared folders`` "
-"from the left menu and click on :guilabel:`Create shared folder`."
+"Open the Samba application from the app drawer, select ``Shared folders``"
+" from the left menu, and click on :guilabel:`Create shared folder`."
 msgstr ""
 "Open Samba application from the app drawer, select ``Shared folders`` "
 "from the left menu and click on :guilabel:`Create shared folder`."
 
-#: ../../file_server.rst:28
+#: ../../file_server.rst:81
 #, fuzzy
-msgid "The following parameters are required to create the new shared folder:"
+msgid "The following parameters are required to create a new shared folder:"
 msgstr "The following parameters are required to create the new shared folder:"
 
-#: ../../file_server.rst:30
-#, fuzzy
-msgid "``Name``: the name of the shared folder"
-msgstr "``Name``: the name of the shared folder"
+#: ../../file_server.rst:83
+msgid ""
+"**Name**: The name of the shared folder. Avoid naming it after a domain "
+"user, as that user's home directory will be accessed instead of the "
+"shared folder."
+msgstr ""
 
-#: ../../file_server.rst:32
+#: ../../file_server.rst:87
 #, fuzzy
 msgid ""
-"``Description``: free text, displayed to SMB clients as the \"share "
-"comment\""
+"**Description**: Free text displayed to network clients as the \"share "
+"comment\"."
 msgstr ""
 "``Description``: free text, displayed to SMB clients as the \"share "
 "comment\""
 
-#: ../../file_server.rst:34
+#: ../../file_server.rst:90
 #, fuzzy
 msgid ""
-"``Main group``: select a domain group to assign initial permissions to "
-"the share"
+"**Main group**: Select a domain group to assign initial permissions to "
+"the share."
 msgstr ""
 "``Main group``: select a domain group to assign initial permissions to "
 "the share"
 
-#: ../../file_server.rst:36
+#: ../../file_server.rst:92
 #, fuzzy
 msgid ""
-"``Initial permissions``: pick one of the three available choices. Note "
-"that in any case the ``Domain Admins`` group is initially granted full "
-"privileges."
+"**Initial permissions**: Choose one of the three available options. Note "
+"that the ``Domain Admins`` group is initially granted full privileges in "
+"all cases."
 msgstr ""
 "``Initial permissions``: pick one of the three available choices. Note "
 "that in any case the ``Domain Admins`` group is initially granted full "
 "privileges."
 
-#: ../../file_server.rst:40
+#: ../../file_server.rst:96
 #, fuzzy
-msgid "Main group can read and write, everyone else can read"
+msgid "Main group can read and write; everyone else can read."
 msgstr "Main group can read and write, everyone else can read"
 
-#: ../../file_server.rst:42
+#: ../../file_server.rst:98
 #, fuzzy
-msgid "Main group can read and write, everyone else has no access"
+msgid "Main group can read and write; everyone else has no access."
 msgstr "Main group can read and write, everyone else has no access"
 
-#: ../../file_server.rst:44
+#: ../../file_server.rst:100
 #, fuzzy
-msgid "Everyone can read and write, main group included"
+msgid "Everyone can read and write, including the main group."
 msgstr "Everyone can read and write, main group included"
 
-#: ../../file_server.rst:48
+#: ../../file_server.rst:104
 #, fuzzy
 msgid ""
-"To access the shared folder it is necessary to provide valid domain "
-"credentials. Anonymous or guest access is not allowed for security "
-"reasons [#anon]_\\ ."
+"To access the shared folder, you must provide valid domain credentials. "
+"Anonymous or guest access is not allowed for security reasons [#anon]_\\ "
+"."
 msgstr ""
 "To access the shared folder it is necessary to provide valid domain "
 "credentials. Anonymous or guest access is not allowed for security "
 "reasons [#anon]_\\ ."
 
-#: ../../file_server.rst:52
+#: ../../file_server.rst:108
 #, fuzzy
 msgid ""
-"Once created, from the three-dots menu, the following actions are "
-"available on the shared folder:"
+"Once created, the following actions are available on the shared folder "
+"from the three-dots menu:"
 msgstr ""
 "Once created, from the three-dots menu, the following actions are "
 "available on the shared folder:"
 
-#: ../../file_server.rst:55
-#, fuzzy
-msgid "``Edit description``: change the share descriptive text"
-msgstr "``Edit description``: change the share descriptive text"
-
-#: ../../file_server.rst:57
+#: ../../file_server.rst:111
 #, fuzzy
 msgid ""
-"``Set permissions``: remove any existing ACLs and recursively grant new "
-"initial ACLs"
+"**Edit**: Change the share description displayed to network clients as "
+"the \"share comment\"."
+msgstr ""
+"``Description``: free text, displayed to SMB clients as the \"share "
+"comment\""
+
+#: ../../file_server.rst:114
+#, fuzzy
+msgid ""
+"**Set permissions**: Remove any existing ACLs and recursively grant new "
+"initial ACLs."
 msgstr ""
 "``Set permissions``: remove any existing ACLs and recursively grant new "
 "initial ACLs"
 
-#: ../../file_server.rst:60
+#: ../../file_server.rst:117
+#, fuzzy
 msgid ""
-"``Restore file or folder``: search files and folders of a past backup "
+"**Restore file or folder**: Search files and folders from a past backup "
 "snapshot and restore them. See :ref:`share-selective-restore`."
 msgstr ""
 "``Ripristina file o cartella``: file di ricerca e cartelle di "
 "un'istantanea di backup passato e ripristinali. Vedi :ref:`share-"
 "selective-restore`."
 
-#: ../../file_server.rst:63
+#: ../../file_server.rst:120
 #, fuzzy
-msgid "``Delete``: remove the shared folder and its contents"
+msgid "**Delete**: Remove the shared folder and its contents."
 msgstr "``Delete``: remove the shared folder and its contents"
 
-#: ../../file_server.rst:65
-#, fuzzy
+#: ../../file_server.rst:122
 msgid ""
 "The :guilabel:`Show ACLs` button displays the filesystem ACLs applied to "
-"the shared folder root directory. It is possible to edit ACLs with a SMB "
-"client, like the Windows Explorer application installed with Windows Pro "
-"flavours, or the ``smbcacls`` command provided by the Samba project."
+"the shared folder root directory. You can edit ACLs with an SMB client, "
+"such as the Windows Explorer application installed with Windows Pro "
+"editions, or the ``smbcacls`` command provided by the Samba project."
 msgstr ""
-"The :guilabel:`Show ACLs` button displays the filesystem ACLs applied to "
-"the shared folder root directory. It is possible to edit ACLs with a SMB "
-"client, like the Windows Explorer application installed with Windows Pro "
-"flavours, or the ``smbcacls`` command provided by the Samba project."
 
-#: ../../file_server.rst:73
+#: ../../file_server.rst:127
+#, fuzzy
+msgid ""
+"In both creation and edit workflows, some additional settings are "
+"available under the ``Advanced`` section and are described below."
+msgstr "The following settings are available Inside the ``Advanced`` section:"
+
+#: ../../file_server.rst:133
+msgid "Audit logging"
+msgstr ""
+
+#: ../../file_server.rst:135
+msgid ""
+"If the ``Audit logging`` switch is enabled for a shared folder, access "
+"operations and permission changes are recorded in a database. For "
+"troubleshooting purposes, you can enable the recording of failed "
+"operations with the ``Log failed events`` switch."
+msgstr ""
+
+#: ../../file_server.rst:140
+msgid ""
+"Recorded events are accessible from the ``Samba Audit search`` Grafana "
+"dashboard, as explained in :ref:`grafana_access-section`."
+msgstr ""
+
+#: ../../file_server.rst:143
+msgid ""
+"More information about the audit database is available from the ``Samba "
+"Audit statistics`` Grafana dashboard."
+msgstr ""
+
+#: ../../file_server.rst:149
+msgid "Folder visibility"
+msgstr ""
+
+#: ../../file_server.rst:151
+msgid ""
+"The ``Make folder visible when browsing`` switch controls whether the "
+"shared folder is listed from the network. If the switch is disabled, "
+"accessing the share is possible only by knowing its name and network "
+"path."
+msgstr ""
+
+#: ../../file_server.rst:155
+msgid ""
+"This feature is also referred to as a *hidden share* or the *share "
+"browseable/browsable* attribute."
+msgstr ""
+
+#: ../../file_server.rst:161
+msgid "Recycle bin"
+msgstr ""
+
+#: ../../file_server.rst:163
+msgid ""
+"The ``Keep deleted files in a recycle bin`` switch enables a special "
+"\"Recycle bin\" subfolder where files or directories are moved instead of"
+" being deleted when network clients attempt to delete them."
+msgstr ""
+
+#: ../../file_server.rst:167
+msgid ""
+"**Retention**: If a limited number of days is set, a daily automated "
+"procedure erases Recycle bin contents older than the specified number of "
+"days (default: 30)."
+msgstr ""
+
+#: ../../file_server.rst:170
+msgid ""
+"**When files with the same name are deleted**: Determines whether to keep"
+" just a single version of a deleted file with a given name, or multiple "
+"versions of it."
+msgstr ""
+
+#: ../../file_server.rst:177
 #, fuzzy
 msgid "Restore a single file or folder from a shared folder backup"
 msgstr "Restore file server from backup"
 
-#: ../../file_server.rst:75
+#: ../../file_server.rst:179
 msgid ""
 "If the application has one or more backup destinations configured and a "
 "backup has already been executed, you can search for and restore a file "
@@ -3090,7 +3240,7 @@ msgstr ""
 " una cartella da un'istantanea di backup precedente di una specifica "
 "cartella condivisa."
 
-#: ../../file_server.rst:81 ../../mail.rst:182
+#: ../../file_server.rst:185 ../../mail.rst:182
 msgid ""
 "The procedure does not calculate the disk space usage required for the "
 "restore. Ensure sufficient disk space is available before proceeding."
@@ -3099,7 +3249,7 @@ msgstr ""
 "il ripristino. Assicurare sufficiente spazio su disco è disponibile prima"
 " di procedere."
 
-#: ../../file_server.rst:84
+#: ../../file_server.rst:188
 msgid ""
 "Navigate to the Samba application instance and open the Shared Folders "
 "page. Each shared folder is displayed as a card. From the three-dots menu"
@@ -3110,7 +3260,7 @@ msgstr ""
 "menu a tre punti della cartella condivisa desiderata, selezionare "
 "``Ripristina file o cartella``."
 
-#: ../../file_server.rst:88
+#: ../../file_server.rst:192
 msgid ""
 "Choose the backup destination from which to restore the contents. Loading"
 " remote destinations may take some time."
@@ -3118,7 +3268,7 @@ msgstr ""
 "Scegliere la destinazione di backup da cui ripristinare il contenuto. "
 "Caricamento di destinazioni remote può richiedere un po 'di tempo."
 
-#: ../../file_server.rst:91
+#: ../../file_server.rst:195
 msgid ""
 "Select the date of the backup snapshot to restore. Snapshots are listed "
 "from newest to oldest."
@@ -3126,7 +3276,7 @@ msgstr ""
 "Selezionare la data dell'istantanea di backup da ripristinare. Le istanze"
 " sono elencate da più nuovo a più vecchio."
 
-#: ../../file_server.rst:94
+#: ../../file_server.rst:198
 msgid ""
 "Start typing the name of the file or folder to restore. The search "
 "matches both the name and the relative path, starting from the root of "
@@ -3139,114 +3289,176 @@ msgstr ""
 " di nome che appaiono prima delle partite del percorso. Selezionare un "
 "elemento dai risultati."
 
-#: ../../file_server.rst:99
+#: ../../file_server.rst:203
 #, fuzzy
 msgid "Click :guilabel:`Restore` to initiate the restore process."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../file_server.rst:101
+#: ../../file_server.rst:205
 msgid ""
 "The selected item will be restored into a subfolder of the shared folder,"
 " named \"Restored folder\". This folder is readable by everyone, while "
 "its contents retain the ACLs from the backup."
 msgstr ""
 
-#: ../../file_server.rst:109
+#: ../../file_server.rst:213
+msgid "Clone a file server instance"
+msgstr ""
+
+#: ../../file_server.rst:215
+msgid ""
+"When Samba has the Domain Member role, it is possible to clone it as "
+"described in :ref:`move_clone-section`."
+msgstr ""
+
+#: ../../file_server.rst:218
+msgid ""
+"After the clone process finishes, navigate to the Samba application "
+"``Status`` page. The first-configuration procedure will start to acquire "
+"the missing information. A new computer account is created in Active "
+"Directory. Follow the procedure as described in :ref:`samba-"
+"configuration`."
+msgstr ""
+
+#: ../../file_server.rst:227
 #, fuzzy
-msgid "Restore File server from backup"
+msgid "Restore file server from backup"
 msgstr "Restore file server from backup"
 
-#: ../../file_server.rst:113
+#: ../../file_server.rst:229
 #, fuzzy
 msgid ""
-"To avoid reconfiguring network clients, the system should provide the "
-"same IP address that was used in the Samba File server backup."
-msgstr ""
-"To avoid reconfiguring network clients the system should provide the same"
-" IP address used in the file server backup."
-
-#: ../../file_server.rst:116
-#, fuzzy
-msgid ""
-"First of all, apply the procedure described in :ref:`application_restore-"
+"First, follow the procedure described in :ref:`application_restore-"
 "section` by selecting the backup of the **Samba module**."
 msgstr ""
 "First of all, apply the procedure described in :ref:`application_restore-"
 "section` by selecting the backup of the **Samba module**."
 
-#: ../../file_server.rst:120
+#: ../../file_server.rst:233
+msgid ""
+"After the restoration process completes, further actions may be needed to"
+" start the file server, depending on the original Samba role: member or "
+"controller."
+msgstr ""
+
+#: ../../file_server.rst:238
+#, fuzzy
+msgid "Restore a domain member"
+msgstr "support for HTML messages"
+
+#: ../../file_server.rst:240
+msgid ""
+"To complete the restoration of a **domain member**, navigate to the Samba"
+" application ``Status`` page."
+msgstr ""
+
+#: ../../file_server.rst:243
+msgid ""
+"If the original IP address and user domain were found, the restore "
+"procedure automatically starts the file server. No manual operations are "
+"needed."
+msgstr ""
+
+#: ../../file_server.rst:247
+msgid ""
+"Otherwise, the first-configuration procedure will start to acquire the "
+"missing information. In this case, a new computer account is created in "
+"Active Directory. Follow the procedure as described in :ref:`samba-"
+"configuration`."
+msgstr ""
+
+#: ../../file_server.rst:252
+msgid ""
+"If you manually remove the original computer account, you may set the "
+"original name as the ``File server alias`` to provide seamless access to "
+"shared folders from network clients."
+msgstr ""
+
+#: ../../file_server.rst:256
+msgid ""
+"To manage computer accounts of an NS8 internal Active Directory domain, "
+"invoke the ``samba-tool`` command from an NS8 node that hosts a Samba "
+"Domain Controller. For example, this command prints an inline help "
+"message: ::"
+msgstr ""
+
+#: ../../file_server.rst:263
+msgid "Replace ``samba0`` with your correct DC module identifier."
+msgstr ""
+
+#: ../../file_server.rst:267
+msgid "Restore a domain controller"
+msgstr ""
+
+#: ../../file_server.rst:269
 #, fuzzy
 msgid ""
-"If the restored controller is the first of the domain there are two "
-"alternatives:"
+"If the restored **domain controller** is the first in the domain, there "
+"are two alternatives:"
 msgstr ""
 "If the restored controller is the first of the domain there are two "
 "alternatives:"
 
-#: ../../file_server.rst:123
+#: ../../file_server.rst:272
 #, fuzzy
 msgid ""
-"If the system IP address is the same used in the backup set, DC services "
-"are started automatically and no further actions are required."
+"If the system IP address is the same as the one used in the backup set, "
+"DC services are started automatically and no further actions are "
+"required."
 msgstr ""
 "If the system IP address is the same used in the backup set, DC services "
 "are started automatically and no further actions are required."
 
-#: ../../file_server.rst:126
+#: ../../file_server.rst:275
 #, fuzzy
 msgid ""
 "If the previous condition does not apply, DC services are started using "
-"the system VPN IP address as fallback. A similar command is required to "
-"select another IP address in a second time: ::"
+"the system VPN IP address as a fallback. A similar command is required to"
+" select another IP address at a later time: ::"
 msgstr ""
 "If the previous condition does not apply, DC services are started using "
 "the system VPN IP address as fallback. A similar command is required to "
 "select another IP address in a second time: ::"
 
-#: ../../file_server.rst:132
+#: ../../file_server.rst:281
 #, fuzzy
 msgid ""
-"Replace `samba0` with the correct module identifier. Replace the "
-"`ipaddress` value with the correct IP address."
+"Replace ``samba0`` with the correct module identifier. Replace the "
+"``ipaddress`` value with the correct IP address."
 msgstr ""
 "Replace `samba0` with the correct module identifier. Replace the "
 "`ipaddress` value with the correct IP address."
 
-#: ../../file_server.rst:135
+#: ../../file_server.rst:284
 #, fuzzy
 msgid "Otherwise, if one or more domain controllers already exist:"
 msgstr "Otherwise, if one or more domain controllers already exist:"
 
-#: ../../file_server.rst:137
+#: ../../file_server.rst:286
 #, fuzzy
 msgid ""
-"go to ``Domain and users`` page and open the :guilabel:`Unconfigured "
-"provider` link;"
+"Go to the ``Domain and users`` page and open the :guilabel:`Unconfigured "
+"provider` link."
 msgstr ""
 "go to ``Domain and users`` page and open the :guilabel:`Unconfigured "
 "provider` link;"
 
-#: ../../file_server.rst:140
+#: ../../file_server.rst:289
 #, fuzzy
-msgid "fill the form to join a new DC to the domain."
+msgid "Fill the form to join a new DC to the domain."
 msgstr "fill the form to join a new DC to the domain."
 
-#: ../../file_server.rst:144 ../../log_server.rst:223
-#: ../../software_center.rst:263
+#: ../../file_server.rst:292 ../../log_server.rst:223
+#: ../../software_center.rst:263 ../../user_domains.rst:416
 #, fuzzy
 msgid "Footnotes"
 msgstr "Footnotes"
 
-#: ../../file_server.rst:145
-#, fuzzy
+#: ../../file_server.rst:295
 msgid ""
-"*Guest access in SMB2 and SMB3 disabled by default in Windows* `link to "
-"learn.microsoft.com <https://learn.microsoft.com/en-us/troubleshoot"
-"/windows-server/networking/guest-access-in-smb2-is-disabled-by-default>`_"
+"The guest access in SMB2 and SMB3 is disabled by default in Windows, see "
+"Microsoft `File server`_ documentation."
 msgstr ""
-"*Guest access in SMB2 and SMB3 disabled by default in Windows* `link to "
-"learn.microsoft.com <https://learn.microsoft.com/en-us/troubleshoot"
-"/windows-server/networking/guest-access-in-smb2-is-disabled-by-default>`_"
 
 #: ../../firewall.rst:5
 msgid "Firewall"
@@ -17333,11 +17545,11 @@ msgstr ""
 "Per installare un nuovo dominio utente con Samba Active Directory come "
 "provider locale:"
 
-#: ../../user_domains.rst:38 ../../user_domains.rst:109
+#: ../../user_domains.rst:38 ../../user_domains.rst:114
 msgid "access the ``Domains and users`` page"
 msgstr "accedere alla pagina ``Domini e utenti``"
 
-#: ../../user_domains.rst:39 ../../user_domains.rst:110
+#: ../../user_domains.rst:39 ../../user_domains.rst:115
 msgid "click on :guilabel:`Create domain` button and choose ``Internal``"
 msgstr "fare clic sul pulsante :guilabel:`Crea dominio` e scegliere ``Interno``"
 
@@ -17347,7 +17559,7 @@ msgstr ""
 "selezionare ``Samba`` nella finestra di dialogo e fare clic su "
 ":guilabel:`Installa provider`"
 
-#: ../../user_domains.rst:42 ../../user_domains.rst:113
+#: ../../user_domains.rst:42 ../../user_domains.rst:118
 msgid ""
 "Once the provider is installed, you will be asked to enter the following "
 "parameters:"
@@ -17484,43 +17696,36 @@ msgstr ""
 
 #: ../../user_domains.rst:93
 msgid ""
-"https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
-"directory-best-practices-for-internal-domain-and-network-"
-"names.aspx#Recommendation"
+"AD Windows clients must use a primary DNS server that can resolve the AD "
+"domain names. A secondary DNS server is optional, but if configured, it "
+"must also be able to resolve AD domain names."
 msgstr ""
-"https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
-"directory-best-practices-for-internal-domain-and-network-"
-"names.aspx#Recommendation"
 
-#: ../../user_domains.rst:95
+#: ../../user_domains.rst:97
 msgid ""
-"Furthermore, the AD Windows clients must be configured to use the domain "
-"controller as their DNS server for network name resolution. Set the IP "
-"address of DC ``dc1.ad.nethserver.org`` in client DNS configuration."
+"**Small networks**: Use Samba Active Directory as the DNS server by "
+"setting the domain controller's IP address in client DNS settings. Non-AD"
+" DNS queries are automatically forwarded to the servers in the NS8 node's"
+" ``/etc/resolv.conf`` file."
 msgstr ""
-"Inoltre, i client AD Windows devono essere configurati per utilizzare il "
-"controller di dominio come server DNS per la risoluzione dei nomi di "
-"rete. Impostare l'indirizzo IP di DC ``dc1.ad.nethserver.org`` nella "
-"configurazione DNS del client."
 
-#: ../../user_domains.rst:99
+#: ../../user_domains.rst:102
 msgid ""
-"The domain controller inherits the node DNS settings in "
-"``/etc/resolv.conf`` for name resolution request forwarding."
+"**Larger networks**: Use a dedicated DNS server with *conditional "
+"forwarding*. Configure it to forward AD domain requests to the Samba "
+"Active Directory DNS server while directing other requests to your "
+"preferred DNS service (ISP or public DNS)."
 msgstr ""
-"Il controller di dominio eredita le impostazioni DNS contenute nel file "
-"``/etc/resolv.conf`` del nodo per l'inoltro delle richieste di "
-"risoluzione dei nomi."
 
-#: ../../user_domains.rst:105
+#: ../../user_domains.rst:110
 msgid "LDAP server RFC2307"
 msgstr "Server LDAP RFC2307"
 
-#: ../../user_domains.rst:107
+#: ../../user_domains.rst:112
 msgid "To install a new user domain with a local OpenLDAP as provider:"
 msgstr "Per installare un nuovo dominio utenti con un provider locale OpenLDAP:"
 
-#: ../../user_domains.rst:111
+#: ../../user_domains.rst:116
 msgid ""
 "select ``OpenLDAP`` on the dialog box and click :guilabel:`Install "
 "provider`"
@@ -17528,7 +17733,7 @@ msgstr ""
 "selezionare ``OpenLDAP`` nella finestra di dialogo e fare clic su "
 ":guilabel:`Installa provider`"
 
-#: ../../user_domains.rst:115
+#: ../../user_domains.rst:120
 #, fuzzy
 msgid ""
 "``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
@@ -17536,38 +17741,38 @@ msgid ""
 msgstr ""
 "``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
 "the proposed value."
-
-#: ../../user_domains.rst:116
-#, fuzzy
-msgid ""
-"``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
-"credentials"
-msgstr ""
-"``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
-"credentials"
-
-#: ../../user_domains.rst:118
-#, fuzzy
-msgid ""
-"Finally, you will see a new user domain with one connected provider. You "
-"can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
-" a replica <provider_replica-section>`."
-msgstr ""
-"Finally, you will see a new user domain with one connected provider. You "
-"can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
-" a replica <provider_replica-section>`."
 
 #: ../../user_domains.rst:121
+#, fuzzy
+msgid ""
+"``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
+"credentials"
+msgstr ""
+"``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
+"credentials"
+
+#: ../../user_domains.rst:123
+#, fuzzy
+msgid ""
+"Finally, you will see a new user domain with one connected provider. You "
+"can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
+" a replica <provider_replica-section>`."
+msgstr ""
+"Finally, you will see a new user domain with one connected provider. You "
+"can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
+" a replica <provider_replica-section>`."
+
+#: ../../user_domains.rst:126
 #, fuzzy
 msgid "OpenLDAP provider is not currently accessible from outside the cluster."
 msgstr "OpenLDAP provider is not currently accessible from outside the cluster."
 
-#: ../../user_domains.rst:126
+#: ../../user_domains.rst:131
 #, fuzzy
 msgid "Provider replicas"
 msgstr "Provider replicas"
 
-#: ../../user_domains.rst:128
+#: ../../user_domains.rst:133
 #, fuzzy
 msgid ""
 "Provider replicas implement fault tolerance for user domains. To achieve "
@@ -17575,28 +17780,28 @@ msgid ""
 msgstr ""
 "Provider replicas implement fault tolerance for user domains. To achieve "
 "real fault tolerance, replicas should be installed on different nodes."
-
-#: ../../user_domains.rst:131
-#, fuzzy
-msgid ""
-"You can add a replica from the ``Domains and users`` page by selecting "
-"the ``Configuration`` link from the three-dots menu. Then click the "
-":guilabel:`Add provider` button, select the target node and proceed with "
-"the installation."
-msgstr ""
-"You can add a replica from the ``Domains and users`` page by selecting "
-"the ``Configuration`` link from the three-dots menu. Then click the "
-":guilabel:`Add provider` button, select the target node and proceed with "
-"the installation."
-
-#: ../../user_domains.rst:134
-#, fuzzy
-msgid "Replicas are configured in master-master mode."
-msgstr "Replicas are configured in master-master mode."
 
 #: ../../user_domains.rst:136
 #, fuzzy
 msgid ""
+"You can add a replica from the ``Domains and users`` page by selecting "
+"the ``Configuration`` link from the three-dots menu. Then click the "
+":guilabel:`Add provider` button, select the target node and proceed with "
+"the installation."
+msgstr ""
+"You can add a replica from the ``Domains and users`` page by selecting "
+"the ``Configuration`` link from the three-dots menu. Then click the "
+":guilabel:`Add provider` button, select the target node and proceed with "
+"the installation."
+
+#: ../../user_domains.rst:139
+#, fuzzy
+msgid "Replicas are configured in master-master mode."
+msgstr "Replicas are configured in master-master mode."
+
+#: ../../user_domains.rst:141
+#, fuzzy
+msgid ""
 "Active Directory provider does not replicate the SysVol volume. Therefore"
 " Microsoft's Group Policy Object (GPO) will not be synchronized between "
 "replicas."
@@ -17605,34 +17810,34 @@ msgstr ""
 " Microsoft's Group Policy Object (GPO) will not be synchronized between "
 "replicas."
 
-#: ../../user_domains.rst:142
+#: ../../user_domains.rst:147
 #, fuzzy
 msgid "LDAP bind settings"
 msgstr "LDAP bind settings"
 
-#: ../../user_domains.rst:144
-#, fuzzy
-msgid ""
-"External applications can connect only to a local Active Directory "
-"provider."
-msgstr ""
-"External applications can connect only to a local Active Directory "
-"provider."
-
-#: ../../user_domains.rst:146
-#, fuzzy
-msgid ""
-"Binding is the process where the LDAP server authenticates the client "
-"and, if the client is successfully authenticated, the server allows "
-"client access."
-msgstr ""
-"Binding is the process where the LDAP server authenticates the client "
-"and, if the client is successfully authenticated, the server allows "
-"client access."
-
 #: ../../user_domains.rst:149
 #, fuzzy
 msgid ""
+"External applications can connect only to a local Active Directory "
+"provider."
+msgstr ""
+"External applications can connect only to a local Active Directory "
+"provider."
+
+#: ../../user_domains.rst:151
+#, fuzzy
+msgid ""
+"Binding is the process where the LDAP server authenticates the client "
+"and, if the client is successfully authenticated, the server allows "
+"client access."
+msgstr ""
+"Binding is the process where the LDAP server authenticates the client "
+"and, if the client is successfully authenticated, the server allows "
+"client access."
+
+#: ../../user_domains.rst:154
+#, fuzzy
+msgid ""
 "Many applications may require to be bound to an existing NethServer 8 "
 "user domain. Bind settings can be accessed by selecting the "
 "``Configuration`` link from the three-dots menu: user domain details are "
@@ -17643,27 +17848,27 @@ msgstr ""
 "``Configuration`` link from the three-dots menu: user domain details are "
 "displayed on the top of the page."
 
-#: ../../user_domains.rst:156
+#: ../../user_domains.rst:161
 #, fuzzy
 msgid "External LDAP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:158
+#: ../../user_domains.rst:163
 #, fuzzy
 msgid "You can connect the NethServer 8 cluster to an existing LDAP server."
 msgstr "You can connect the NethServer 8 cluster to an existing LDAP server:"
 
-#: ../../user_domains.rst:160
+#: ../../user_domains.rst:165
 #, fuzzy
 msgid "Access the ``Domains and users`` page."
 msgstr "accedere alla pagina ``Domini e utenti`"
 
-#: ../../user_domains.rst:162
+#: ../../user_domains.rst:167
 #, fuzzy
 msgid "Click on :guilabel:`Create domain` button and choose ``External``."
 msgstr "click on :guilabel:`Create domain` button and choose ``External``"
 
-#: ../../user_domains.rst:164
+#: ../../user_domains.rst:169
 #, fuzzy
 msgid ""
 "Fill all required fields. Bear in mind that apart from \"Host\" and "
@@ -17671,28 +17876,28 @@ msgid ""
 msgstr ""
 "Fill all required fields. Bear in mind that apart from \"Host\" and "
 "\"Port\", the domain settings cannot be changed later:"
-
-#: ../../user_domains.rst:167
-#, fuzzy
-msgid ""
-"``Domain``: This should be in fully qualified domain name (FQDN) syntax, "
-"but it can be any logical name matching the LDAP base DN structure. For "
-"example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain "
-"name would be \"example.org\"."
-msgstr ""
-"``Domain``: This should be in fully qualified domain name (FQDN) syntax, "
-"but it can be any logical name matching the LDAP base DN structure. For "
-"example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain "
-"name would be \"example.org\"."
 
 #: ../../user_domains.rst:172
+#, fuzzy
+msgid ""
+"``Domain``: This should be in fully qualified domain name (FQDN) syntax, "
+"but it can be any logical name matching the LDAP base DN structure. For "
+"example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain "
+"name would be \"example.org\"."
+msgstr ""
+"``Domain``: This should be in fully qualified domain name (FQDN) syntax, "
+"but it can be any logical name matching the LDAP base DN structure. For "
+"example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain "
+"name would be \"example.org\"."
+
+#: ../../user_domains.rst:177
 #, fuzzy
 msgid "``Host``: Enter the IP address or hostname of the LDAP server."
 msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../user_domains.rst:174
+#: ../../user_domains.rst:179
 msgid ""
 "``Port``: Specify the TCP port number of the remote LDAP service. "
 "Standard values are 389 for LDAP and 636 for LDAPS. However, with Active "
@@ -17706,7 +17911,7 @@ msgstr ""
 "l'impostazione della porta LDAP 3268 o della porta LDAPS 3269. Questo "
 "perché non supportano i \"ferrali subordinati MONAP\"."
 
-#: ../../user_domains.rst:180
+#: ../../user_domains.rst:185
 #, fuzzy
 msgid ""
 "``Bind DN`` and ``Password``: Credentials required to access the remote "
@@ -17715,7 +17920,7 @@ msgstr ""
 "``Bind DN`` and ``Password``: Credentials required to access the remote "
 "LDAP server."
 
-#: ../../user_domains.rst:183
+#: ../../user_domains.rst:188
 #, fuzzy
 msgid ""
 "``Base DN``: Define the level of the LDAP hierarchy to use as the base "
@@ -17726,7 +17931,7 @@ msgstr ""
 "for user and group lookup. Leaving this field empty retrieves the correct"
 " value from the LDAP server itself."
 
-#: ../../user_domains.rst:187
+#: ../../user_domains.rst:192
 #, fuzzy
 msgid ""
 "``TLS``: Enable this switch to encrypt the connection with TLS. If the "
@@ -17735,7 +17940,7 @@ msgstr ""
 "``TLS``: Enable this switch to encrypt the connection with TLS. If the "
 "server does not support TLS on the specified port, an error will occur."
 
-#: ../../user_domains.rst:191
+#: ../../user_domains.rst:196
 #, fuzzy
 msgid ""
 "``TLS verify``: Enable this switch to ensure that the LDAP server "
@@ -17748,34 +17953,26 @@ msgstr ""
 "certificate name matching the hostname specified in the \"Host\" field. "
 "Continue reading to fully understand the implications of this option."
 
-#: ../../user_domains.rst:197
+#: ../../user_domains.rst:202
 #, fuzzy
 msgid ""
 "Once all fields are filled, click on the :guilabel:`Configure domain` "
 "button."
 msgstr "click on :guilabel:`Configure domain` button"
 
-#: ../../user_domains.rst:200
-msgid ""
-"https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-"
-"directory"
-msgstr ""
-"https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-"
-"directory"
-
-#: ../../user_domains.rst:205
+#: ../../user_domains.rst:209
 #, fuzzy
 msgid "Modify external LDAP settings"
 msgstr "Impostazioni generali"
 
-#: ../../user_domains.rst:207
+#: ../../user_domains.rst:211
 msgid ""
 "When a domain is configured for the first time, the LDAP server settings "
 "are saved in its first provider entry. Bind credentials and TLS settings "
 "can be modified at a later from the ``Domain Settings`` card."
 msgstr ""
 
-#: ../../user_domains.rst:211
+#: ../../user_domains.rst:215
 #, fuzzy
 msgid ""
 "If you choose not to verify TLS, you can configure additional hosts as "
@@ -17790,7 +17987,7 @@ msgstr ""
 "another provider. It's crucial that all domain providers are accessible "
 "from any cluster node."
 
-#: ../../user_domains.rst:217
+#: ../../user_domains.rst:221
 #, fuzzy
 msgid ""
 "Enabling \"TLS verify\" adds extra security but has limitations: only the"
@@ -17801,7 +17998,7 @@ msgstr ""
 " first provider is considered. If it becomes unreachable, connection "
 "recovery is not possible."
 
-#: ../../user_domains.rst:223
+#: ../../user_domains.rst:227
 #, fuzzy
 msgid ""
 "Ensure each provider is accessible from all cluster nodes for seamless "
@@ -17810,12 +18007,12 @@ msgstr ""
 "Ensure each provider is accessible from all cluster nodes for seamless "
 "operation."
 
-#: ../../user_domains.rst:229
+#: ../../user_domains.rst:233
 #, fuzzy
 msgid "Password policy"
 msgstr "Password policy"
 
-#: ../../user_domains.rst:231
+#: ../../user_domains.rst:235
 #, fuzzy
 msgid ""
 "The password policy is a set of rules that defines the password "
@@ -17830,17 +18027,17 @@ msgstr ""
 "interested domain and clicking :guilabel:`Edit password policy` from the "
 "three-dots menu of the ``Password`` card."
 
-#: ../../user_domains.rst:233
+#: ../../user_domains.rst:237
 #, fuzzy
 msgid "You can configure password age and password strength policy separately."
 msgstr "You can configure password age and password strength policy separately."
 
-#: ../../user_domains.rst:236
+#: ../../user_domains.rst:240
 #, fuzzy
 msgid "Password age"
 msgstr "Password age"
 
-#: ../../user_domains.rst:238
+#: ../../user_domains.rst:242
 #, fuzzy
 msgid ""
 "You can toggle password age policy by clicking on the ``Password age`` "
@@ -17848,100 +18045,100 @@ msgid ""
 msgstr ""
 "You can toggle password age policy by clicking on the ``Password age`` "
 "switch. If enabled, you can configure the following parameters:"
-
-#: ../../user_domains.rst:240
-#, fuzzy
-msgid ""
-"``Minimum password age``: the minimum number of days that must pass "
-"before a new password change."
-msgstr ""
-"``Minimum password age``: the minimum number of days that must pass "
-"before a new password change."
-
-#: ../../user_domains.rst:241
-#, fuzzy
-msgid ""
-"``Maximum password age``: password expiration time in days. After this "
-"period, the password is no longer valid for logins and must be changed. "
-"Users can change their expired password with :ref:`user-management-"
-"portal-section`."
-msgstr ""
-"``Maximum password age``: password expiration time in days. After this "
-"period, the password is no longer valid for logins and must be changed. "
-"Users can change their expired password with :ref:`user-management-"
-"portal-section`."
 
 #: ../../user_domains.rst:244
+#, fuzzy
+msgid ""
+"``Minimum password age``: the minimum number of days that must pass "
+"before a new password change."
+msgstr ""
+"``Minimum password age``: the minimum number of days that must pass "
+"before a new password change."
+
+#: ../../user_domains.rst:245
+#, fuzzy
+msgid ""
+"``Maximum password age``: password expiration time in days. After this "
+"period, the password is no longer valid for logins and must be changed. "
+"Users can change their expired password with :ref:`user-management-"
+"portal-section`."
+msgstr ""
+"``Maximum password age``: password expiration time in days. After this "
+"period, the password is no longer valid for logins and must be changed. "
+"Users can change their expired password with :ref:`user-management-"
+"portal-section`."
+
+#: ../../user_domains.rst:248
 #, fuzzy
 msgid "Password strength"
 msgstr "Password strength"
 
-#: ../../user_domains.rst:246
-#, fuzzy
-msgid ""
-"By enabling the ``Password strength`` switch, you can configure the "
-"following parameters:"
-msgstr ""
-"By enabling the ``Password strength`` switch, you can configure the "
-"following parameters:"
-
-#: ../../user_domains.rst:248
-#, fuzzy
-msgid ""
-"``Password history length``: the number of old passwords that cannot be "
-"reused."
-msgstr ""
-"``Password history length``: the number of old passwords that cannot be "
-"reused."
-
-#: ../../user_domains.rst:249
-#, fuzzy
-msgid ""
-"``Minimum password length``: the minimum number of characters that a "
-"password must have."
-msgstr ""
-"``Minimum password length``: the minimum number of characters that a "
-"password must have."
-
 #: ../../user_domains.rst:250
 #, fuzzy
 msgid ""
-"``Enforce password complexity``: enforce use of complex password, see "
-"note for more details."
+"By enabling the ``Password strength`` switch, you can configure the "
+"following parameters:"
 msgstr ""
-"``Enforce password complexity``: enforce use of complex password, see "
-"note for more details."
+"By enabling the ``Password strength`` switch, you can configure the "
+"following parameters:"
 
 #: ../../user_domains.rst:252
 #, fuzzy
 msgid ""
+"``Password history length``: the number of old passwords that cannot be "
+"reused."
+msgstr ""
+"``Password history length``: the number of old passwords that cannot be "
+"reused."
+
+#: ../../user_domains.rst:253
+#, fuzzy
+msgid ""
+"``Minimum password length``: the minimum number of characters that a "
+"password must have."
+msgstr ""
+"``Minimum password length``: the minimum number of characters that a "
+"password must have."
+
+#: ../../user_domains.rst:254
+#, fuzzy
+msgid ""
+"``Enforce password complexity``: enforce use of complex password, see "
+"note for more details."
+msgstr ""
+"``Enforce password complexity``: enforce use of complex password, see "
+"note for more details."
+
+#: ../../user_domains.rst:256
+#, fuzzy
+msgid ""
 "A password is considered complex if it is long enough and meets three of "
 "the following rules:"
 msgstr ""
 "A password is considered complex if it is long enough and meets three of "
 "the following rules:"
 
-#: ../../user_domains.rst:254
+#: ../../user_domains.rst:258
 #, fuzzy
 msgid "The password must contain at least one uppercase letter."
 msgstr "The password must contain at least one uppercase letter."
 
-#: ../../user_domains.rst:255
+#: ../../user_domains.rst:259
 #, fuzzy
 msgid "The password must contain at least one lowercase letter."
 msgstr "The password must contain at least one lowercase letter."
 
-#: ../../user_domains.rst:256
+#: ../../user_domains.rst:260
 #, fuzzy
 msgid "The password must contain at least one digit."
 msgstr "The password must contain at least one digit."
 
-#: ../../user_domains.rst:257
+#: ../../user_domains.rst:261
 #, fuzzy
 msgid "The password must contain at least one special character."
 msgstr "The password must contain at least one special character."
 
-#: ../../user_domains.rst:259
+#: ../../user_domains.rst:263
 #, fuzzy
 msgid ""
 "After editing the password policy, you can click on :guilabel:`Edit "
@@ -17954,61 +18151,61 @@ msgstr ""
 "not affect old passwords: they are valid from now on. Age setting changes"
 " are retroactive and are applied to already set passwords, too."
 
-#: ../../user_domains.rst:264
+#: ../../user_domains.rst:268
 msgid "Password expiration warning"
 msgstr ""
 
-#: ../../user_domains.rst:266
+#: ../../user_domains.rst:270
 msgid ""
 "The system can send email notifications to users when their password is "
 "about to expire."
 msgstr ""
 
-#: ../../user_domains.rst:269
+#: ../../user_domains.rst:273
 msgid ""
 "This feature is available **only for internal user domains** and can be "
 "enabled on each user domain."
 msgstr ""
 
-#: ../../user_domains.rst:271
+#: ../../user_domains.rst:275
 msgid "To enable this feature, ensure the following:"
 msgstr ""
 
-#: ../../user_domains.rst:273
+#: ../../user_domains.rst:277
 msgid "password aging must be enabled on the user domain"
 msgstr ""
 
-#: ../../user_domains.rst:274
+#: ../../user_domains.rst:278
 msgid ""
 "the cluster must be configured to send :ref:`mail notifications <email-"
 "notifications>`"
 msgstr ""
 
-#: ../../user_domains.rst:276
+#: ../../user_domains.rst:280
 msgid ""
 "The feature can be enabled from the configuration page of the user domain"
 " by clicking the :guilabel:`Edit password warning` button on the "
 "``Password`` card."
 msgstr ""
 
-#: ../../user_domains.rst:278
+#: ../../user_domains.rst:282
 msgid "After enabling the feature, fill the following fields:"
 msgstr ""
 
-#: ../../user_domains.rst:280
+#: ../../user_domains.rst:284
 msgid ""
 "``Days before expiration``: the number of days before the password "
 "expiration when the notification is sent. The notification is sent every "
 "day until the password expires"
 msgstr ""
 
-#: ../../user_domains.rst:282
+#: ../../user_domains.rst:286
 msgid ""
 "``Sender mail address``: the email address of the sender, make sure this "
 "is a valid email address to avoid issues with spam filters"
 msgstr ""
 
-#: ../../user_domains.rst:283
+#: ../../user_domains.rst:287
 msgid ""
 "``Mail template``: select the template to use for the notification email."
 " You can choose between the default templates or a custom one. Default "
@@ -18016,19 +18213,19 @@ msgid ""
 " see :ref:`password_warning_custom_template-section`."
 msgstr ""
 
-#: ../../user_domains.rst:287
+#: ../../user_domains.rst:291
 msgid ""
 "The notification email is sent to the user mail address which can be "
 "automatically discovered or manually set by an administrator, depending "
 "on the cluster configuration."
 msgstr ""
 
-#: ../../user_domains.rst:291
+#: ../../user_domains.rst:295
 #, fuzzy
 msgid "Internal SMTP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:293
+#: ../../user_domains.rst:297
 msgid ""
 "When a :ref:`internal mail server <mail-section>` instance is installed, "
 "and the cluster is configured to send mail notifications using it, the "
@@ -18036,13 +18233,13 @@ msgid ""
 "password expiration notification."
 msgstr ""
 
-#: ../../user_domains.rst:296
+#: ../../user_domains.rst:300
 msgid ""
 "The mail address can be overwritten by an administrator setting the "
 "``mail`` field inside the :ref:`user-management-portal-section`."
 msgstr ""
 
-#: ../../user_domains.rst:299
+#: ../../user_domains.rst:303
 msgid ""
 "If the cluster is configured to send mail notifications using an external"
 " SMTP server, the automatically discovered mail address is not valid "
@@ -18050,12 +18247,12 @@ msgid ""
 " you must explicitly set the mail address for the user."
 msgstr ""
 
-#: ../../user_domains.rst:304
+#: ../../user_domains.rst:308
 #, fuzzy
 msgid "External SMTP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:306
+#: ../../user_domains.rst:310
 msgid ""
 "When the cluster is configured to send mail notifications using an "
 "external SMTP server, the user mail address is not automatically "
@@ -18063,63 +18260,63 @@ msgid ""
 ":ref:`user-management-portal-section`."
 msgstr ""
 
-#: ../../user_domains.rst:309
+#: ../../user_domains.rst:313
 msgid ""
 "The mail address field is available for both OpenLDAP and Active "
 "Directory user domains."
 msgstr ""
 
-#: ../../user_domains.rst:314
+#: ../../user_domains.rst:318
 #, fuzzy
 msgid "Custom template"
 msgstr "template custom"
 
-#: ../../user_domains.rst:316
+#: ../../user_domains.rst:320
 msgid ""
 "After selecting a custom template inside the ``Mail template`` field, you"
 " can specify 2 more fields:"
 msgstr ""
 
-#: ../../user_domains.rst:318
+#: ../../user_domains.rst:322
 msgid "``Mail subject``: the subject of the notification email"
 msgstr ""
 
-#: ../../user_domains.rst:319
+#: ../../user_domains.rst:323
 msgid ""
 "``Mail template``: the body of the notification email in HTML or plain "
 "text"
 msgstr ""
 
-#: ../../user_domains.rst:321
+#: ../../user_domains.rst:325
 msgid "Both mail subject and mail body can include the following placeholder:"
 msgstr ""
 
-#: ../../user_domains.rst:323
+#: ../../user_domains.rst:327
 msgid "``$user``: the username"
 msgstr ""
 
-#: ../../user_domains.rst:324
+#: ../../user_domains.rst:328
 #, fuzzy
 msgid "``$name``: the full name of the user"
 msgstr "``Name``: the name of the shared folder"
 
-#: ../../user_domains.rst:325
+#: ../../user_domains.rst:329
 msgid "``$domain``: the user domain name"
 msgstr ""
 
-#: ../../user_domains.rst:326
+#: ../../user_domains.rst:330
 msgid "``$days``: the actual number of days before the password expiration"
 msgstr ""
 
-#: ../../user_domains.rst:327
+#: ../../user_domains.rst:331
 msgid "``$portal_url``: the URL of the user management portal"
 msgstr ""
 
-#: ../../user_domains.rst:329
+#: ../../user_domains.rst:333
 msgid "Example of a plain text custom template: ::"
 msgstr ""
 
-#: ../../user_domains.rst:335
+#: ../../user_domains.rst:339
 msgid ""
 "If you want to create an HTML template, you can start by copying a "
 "default one like ``/etc/nethserver/password_warning/default_en.tmpl``. "
@@ -18127,12 +18324,12 @@ msgid ""
 "needed."
 msgstr ""
 
-#: ../../user_domains.rst:341
+#: ../../user_domains.rst:345
 #, fuzzy
 msgid "User and groups"
 msgstr "User and groups"
 
-#: ../../user_domains.rst:343
+#: ../../user_domains.rst:347
 #, fuzzy
 msgid ""
 "You can manage users and groups of a domain by clicking on ``User and "
@@ -18141,7 +18338,7 @@ msgstr ""
 "You can manage users and groups of a domain by clicking on ``User and "
 "groups`` link from the ``Domains and users`` page."
 
-#: ../../user_domains.rst:345
+#: ../../user_domains.rst:349
 #, fuzzy
 msgid ""
 "If an external user domain has been configured, the page shows read-only "
@@ -18150,7 +18347,7 @@ msgstr ""
 "If an external user domain has been configured, the page shows read-only "
 "lists. Changes to the user base must be done on the external server."
 
-#: ../../user_domains.rst:348
+#: ../../user_domains.rst:352
 #, fuzzy
 msgid ""
 "On the other hand, if a local AD or LDAP account provider has been "
@@ -18159,36 +18356,36 @@ msgstr ""
 "On the other hand, if a local AD or LDAP account provider has been "
 "installed, the page allows to create, modify and delete users and groups."
 
-#: ../../user_domains.rst:351
+#: ../../user_domains.rst:355
 #, fuzzy
 msgid "When creating a user, the following fields are mandatory:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:353 ../../user_domains.rst:389
+#: ../../user_domains.rst:357 ../../user_domains.rst:393
 #, fuzzy
 msgid "User name"
 msgstr "User name"
 
-#: ../../user_domains.rst:354 ../../user_domains.rst:390
+#: ../../user_domains.rst:358 ../../user_domains.rst:394
 #, fuzzy
 msgid "Full name (name and surname)"
 msgstr "Full name (name and surname)"
 
-#: ../../user_domains.rst:355 ../../user_domains.rst:391
+#: ../../user_domains.rst:359 ../../user_domains.rst:395
 #, fuzzy
 msgid "Password"
 msgstr "Password"
 
-#: ../../user_domains.rst:356 ../../user_domains.rst:393
+#: ../../user_domains.rst:360 ../../user_domains.rst:397
 msgid "Email address (optional field)"
 msgstr ""
 
-#: ../../user_domains.rst:358
+#: ../../user_domains.rst:362
 #, fuzzy
 msgid "A user can be added to one or more groups."
 msgstr "A user can be added to one or more groups."
 
-#: ../../user_domains.rst:360
+#: ../../user_domains.rst:364
 #, fuzzy
 msgid ""
 "Sometimes you need to block user access to services without deleting the "
@@ -18197,27 +18394,27 @@ msgstr ""
 "Sometimes you need to block user access to services without deleting the "
 "account. The safest approach is:"
 
-#: ../../user_domains.rst:363
+#: ../../user_domains.rst:367
 #, fuzzy
 msgid "(optionally) change the user's password with a random one"
 msgstr "(optionally) change the user's password with a random one"
 
-#: ../../user_domains.rst:364
+#: ../../user_domains.rst:368
 #, fuzzy
 msgid "disable the user using the ``Disable`` action from the three-dots menu"
 msgstr "disable the user using the ``Disable`` action from the three-dots menu"
 
-#: ../../user_domains.rst:366
+#: ../../user_domains.rst:370
 #, fuzzy
 msgid "When a user is deleted, user data will not be removed."
 msgstr "When a user is deleted, user data will not be removed."
 
-#: ../../user_domains.rst:371
+#: ../../user_domains.rst:375
 #, fuzzy
 msgid "User Management portal"
 msgstr "User Management portal"
 
-#: ../../user_domains.rst:373
+#: ../../user_domains.rst:377
 #, fuzzy
 msgid ""
 "The user management portal is a web application that allows any non-"
@@ -18228,7 +18425,7 @@ msgstr ""
 "administrator user to change their own password without the need for "
 "administrator intervention."
 
-#: ../../user_domains.rst:377
+#: ../../user_domains.rst:381
 msgid ""
 "Members of the Domain Admins group can also manage users and groups in "
 "the domain, independently from the Cluster Admin UI."
@@ -18236,39 +18433,39 @@ msgstr ""
 "I membri del gruppo Domain Admins possono anche gestire utenti e gruppi "
 "nel dominio, indipendentemente dal Cluster Admin UI."
 
-#: ../../user_domains.rst:380
+#: ../../user_domains.rst:384
 #, fuzzy
 msgid "The possible administrative actions are:"
 msgstr "Le credenziali amministrative predefinite del sistema operativo sono"
 
-#: ../../user_domains.rst:382
+#: ../../user_domains.rst:386
 msgid "group creation/modification"
 msgstr ""
 
-#: ../../user_domains.rst:383
+#: ../../user_domains.rst:387
 #, fuzzy
 msgid "user creation/modification"
 msgstr "Browser notifications"
 
-#: ../../user_domains.rst:384
+#: ../../user_domains.rst:388
 msgid "user disabled/enabled"
 msgstr ""
 
-#: ../../user_domains.rst:385
+#: ../../user_domains.rst:389
 #, fuzzy
 msgid "user password change"
 msgstr "Password age"
 
-#: ../../user_domains.rst:387
+#: ../../user_domains.rst:391
 #, fuzzy
 msgid "When creating a user, the following fields are available:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:392
+#: ../../user_domains.rst:396
 msgid "Group (optional field)"
 msgstr ""
 
-#: ../../user_domains.rst:395
+#: ../../user_domains.rst:399
 #, fuzzy
 msgid ""
 "The portal is automatically configured on every instance of :ref"
@@ -18277,12 +18474,12 @@ msgstr ""
 "The portal is automatically configured on every instance of :ref"
 ":`active_directory-section` or :ref:`openldap-section` provider."
 
-#: ../../user_domains.rst:397
+#: ../../user_domains.rst:401
 #, fuzzy
 msgid "The portal is available at the following URL: ::"
 msgstr "The portal is available at the following URL: ::"
 
-#: ../../user_domains.rst:401
+#: ../../user_domains.rst:405
 #, fuzzy
 msgid ""
 "Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
@@ -18293,12 +18490,12 @@ msgstr ""
 "``<domain_name>`` is the name of the domain provided while configuring "
 "the domain."
 
-#: ../../user_domains.rst:403
+#: ../../user_domains.rst:407
 #, fuzzy
 msgid "Without the trailing slash, the portal will not work."
 msgstr "Without the trailing slash, the portal will not work."
 
-#: ../../user_domains.rst:405
+#: ../../user_domains.rst:409
 #, fuzzy
 msgid ""
 "Once reached the page, the user is prompted for login and they can "
@@ -18307,7 +18504,7 @@ msgstr ""
 "Once reached the page, the user is prompted for login and they can "
 "authenticate to the domain with user name and password."
 
-#: ../../user_domains.rst:407
+#: ../../user_domains.rst:411
 #, fuzzy
 msgid ""
 "If the login is successful, the user is directed to the ``User "
@@ -18321,6 +18518,24 @@ msgstr ""
 "password must comply with the domain password policy during this process."
 " The list of applications where the new password is effective is "
 "displayed next to the password changing form."
+
+#: ../../user_domains.rst:417
+msgid ""
+"https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
+"directory-best-practices-for-internal-domain-and-network-"
+"names.aspx#Recommendation"
+msgstr ""
+"https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
+"directory-best-practices-for-internal-domain-and-network-"
+"names.aspx#Recommendation"
+
+#: ../../user_domains.rst:419
+msgid ""
+"https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-"
+"directory"
+msgstr ""
+"https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-"
+"directory"
 
 #: ../../vpn.rst:5
 msgid "VPN Custom Setup"
@@ -23686,4 +23901,93 @@ msgstr ""
 #~ "is the email address that will be"
 #~ " used as the sender."
 #~ msgstr ""
+
+#~ msgid ""
+#~ "This application is available by "
+#~ "installing a Samba account provider (see"
+#~ " :ref:`active_directory-section`) with the "
+#~ "``Provide file shares and authentication "
+#~ "to Windows clients`` switch enabled."
+#~ msgstr ""
+#~ "This application is available by "
+#~ "installing a Samba account provider (see"
+#~ " :ref:`active_directory-section`) with the "
+#~ "``Provide file shares and authentication "
+#~ "to Windows clients`` switch enabled."
+
+#~ msgid "``Name``: the name of the shared folder"
+#~ msgstr "``Name``: the name of the shared folder"
+
+#~ msgid "``Edit description``: change the share descriptive text"
+#~ msgstr "``Edit description``: change the share descriptive text"
+
+#~ msgid ""
+#~ "The :guilabel:`Show ACLs` button displays "
+#~ "the filesystem ACLs applied to the "
+#~ "shared folder root directory. It is "
+#~ "possible to edit ACLs with a SMB"
+#~ " client, like the Windows Explorer "
+#~ "application installed with Windows Pro "
+#~ "flavours, or the ``smbcacls`` command "
+#~ "provided by the Samba project."
+#~ msgstr ""
+#~ "The :guilabel:`Show ACLs` button displays "
+#~ "the filesystem ACLs applied to the "
+#~ "shared folder root directory. It is "
+#~ "possible to edit ACLs with a SMB"
+#~ " client, like the Windows Explorer "
+#~ "application installed with Windows Pro "
+#~ "flavours, or the ``smbcacls`` command "
+#~ "provided by the Samba project."
+
+#~ msgid ""
+#~ "To avoid reconfiguring network clients, "
+#~ "the system should provide the same "
+#~ "IP address that was used in the"
+#~ " Samba File server backup."
+#~ msgstr ""
+#~ "To avoid reconfiguring network clients "
+#~ "the system should provide the same "
+#~ "IP address used in the file server"
+#~ " backup."
+
+#~ msgid ""
+#~ "*Guest access in SMB2 and SMB3 "
+#~ "disabled by default in Windows* `link"
+#~ " to learn.microsoft.com <https://learn.microsoft.com"
+#~ "/en-us/troubleshoot/windows-server/networking/guest-"
+#~ "access-in-smb2-is-disabled-by-default>`_"
+#~ msgstr ""
+#~ "*Guest access in SMB2 and SMB3 "
+#~ "disabled by default in Windows* `link"
+#~ " to learn.microsoft.com <https://learn.microsoft.com"
+#~ "/en-us/troubleshoot/windows-server/networking/guest-"
+#~ "access-in-smb2-is-disabled-by-default>`_"
+
+#~ msgid ""
+#~ "Furthermore, the AD Windows clients must"
+#~ " be configured to use the domain "
+#~ "controller as their DNS server for "
+#~ "network name resolution. Set the IP "
+#~ "address of DC ``dc1.ad.nethserver.org`` in "
+#~ "client DNS configuration."
+#~ msgstr ""
+#~ "Inoltre, i client AD Windows devono "
+#~ "essere configurati per utilizzare il "
+#~ "controller di dominio come server DNS"
+#~ " per la risoluzione dei nomi di "
+#~ "rete. Impostare l'indirizzo IP di DC "
+#~ "``dc1.ad.nethserver.org`` nella configurazione DNS"
+#~ " del client."
+
+#~ msgid ""
+#~ "The domain controller inherits the node"
+#~ " DNS settings in ``/etc/resolv.conf`` for"
+#~ " name resolution request forwarding."
+#~ msgstr ""
+#~ "Il controller di dominio eredita le "
+#~ "impostazioni DNS contenute nel file "
+#~ "``/etc/resolv.conf`` del nodo per l'inoltro"
+#~ " delle richieste di risoluzione dei "
+#~ "nomi."
 
