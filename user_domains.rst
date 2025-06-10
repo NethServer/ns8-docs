@@ -90,14 +90,19 @@ Example:
     When choosing a domain for Active Directory use an *internal* domain which
     is a sub-domain of the *external* domain [#MsDnsBestPratices]_
 
-.. [#MsDnsBestPratices] https://social.technet.microsoft.com/wiki/contents/articles/34981.active-directory-best-practices-for-internal-domain-and-network-names.aspx#Recommendation
+AD Windows clients must use a primary DNS server that can resolve the AD
+domain names. A secondary DNS server is optional, but if configured, it
+must also be able to resolve AD domain names.
 
-Furthermore, the AD Windows clients must be configured to use the domain
-controller as their DNS server for network name resolution. Set the IP
-address of DC ``dc1.ad.nethserver.org`` in client DNS configuration.
+- **Small networks**: Use Samba Active Directory as the DNS server by
+  setting the domain controller's IP address in client DNS settings.
+  Non-AD DNS queries are automatically forwarded to the servers in the NS8
+  node's ``/etc/resolv.conf`` file.
 
-The domain controller inherits the node DNS settings in
-``/etc/resolv.conf`` for name resolution request forwarding.
+- **Larger networks**: Use a dedicated DNS server with *conditional
+  forwarding*. Configure it to forward AD domain requests to the Samba
+  Active Directory DNS server while directing other requests to your
+  preferred DNS service (ISP or public DNS).
 
 .. _openldap-section:
 
@@ -197,7 +202,6 @@ You can connect the NethServer 8 cluster to an existing LDAP server.
 4. Once all fields are filled, click on the :guilabel:`Configure domain`
    button.
 
-.. [#admail] https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-directory
 
 .. _modify-external-ldap:
 
@@ -406,3 +410,10 @@ Once reached the page, the user is prompted for login and they can authenticate 
 
 If the login is successful, the user is directed to the ``User Management`` page, where they can proceed to change the password. The password must comply with the domain password policy during this process.
 The list of applications where the new password is effective is displayed next to the password changing form.
+
+
+.. rubric:: Footnotes
+
+.. [#MsDnsBestPratices] https://social.technet.microsoft.com/wiki/contents/articles/34981.active-directory-best-practices-for-internal-domain-and-network-names.aspx#Recommendation
+
+.. [#admail] https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-directory
