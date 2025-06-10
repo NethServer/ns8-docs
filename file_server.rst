@@ -290,6 +290,9 @@ Otherwise, if one or more domain controllers already exist:
 
 .. rubric:: Footnotes
 
-.. [#anon] *Guest access in SMB2 and SMB3 disabled by default in Windows*
-    `link to learn.microsoft.com
-    <https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/guest-access-in-smb2-is-disabled-by-default>`_
+.. [#anon]
+
+    The guest access in SMB2 and SMB3 is disabled by default in
+    Windows, see Microsoft `File server`_ documentation.
+
+    .. _`File server`: https://learn.microsoft.com/en-us/windows-server/storage/file-server/enable-insecure-guest-logons-smb2-and-smb3?tabs=group-policy#reason-for-enabling-guest-logons
