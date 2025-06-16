@@ -73,6 +73,7 @@ NethServer 8 administrator manual
    :caption: NethForge applications
 
    dokuwiki
+   dependencytrack
    mariadb
    prometheus
    webserver
