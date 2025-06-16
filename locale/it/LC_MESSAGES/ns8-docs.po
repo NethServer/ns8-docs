@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-10 14:19+0000\n"
+"POT-Creation-Date: 2025-06-16 14:28+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -1338,14 +1338,14 @@ msgstr ""
 "È possibile installare più istanze Collabora Online sullo stesso nodo dal"
 " :ref:`software_center-section`."
 
-#: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dnsmasq.rst:20
-#: ../../dokuwiki.rst:10 ../../ejabberd.rst:22 ../../file_server.rst:33
-#: ../../imapsync.rst:26 ../../index.rst:34 ../../mail.rst:54
-#: ../../mariadb.rst:11 ../../mattermost.rst:13 ../../minio.rst:12
-#: ../../netdata.rst:20 ../../nethvoice.rst:21 ../../nethvoice_proxy.rst:19
-#: ../../nextcloud.rst:21 ../../odoo.rst:20 ../../piler.rst:30
-#: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webserver.rst:14
-#: ../../webtop.rst:12
+#: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dependencytrack.rst:16
+#: ../../dnsmasq.rst:20 ../../dokuwiki.rst:10 ../../ejabberd.rst:22
+#: ../../file_server.rst:33 ../../imapsync.rst:26 ../../index.rst:34
+#: ../../mail.rst:54 ../../mariadb.rst:11 ../../mattermost.rst:13
+#: ../../minio.rst:12 ../../netdata.rst:20 ../../nethvoice.rst:21
+#: ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21 ../../odoo.rst:20
+#: ../../piler.rst:30 ../../roundcube.rst:19 ../../sogo.rst:39
+#: ../../webserver.rst:14 ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -1371,10 +1371,10 @@ msgstr ""
 "utilizzare un certificato Let's Encrypt come predefinito, assicurati "
 "anche di avere un record DNS pubblico corrispondente."
 
-#: ../../collabora.rst:22 ../../dokuwiki.rst:17 ../../ejabberd.rst:35
-#: ../../mariadb.rst:13 ../../mattermost.rst:24 ../../minio.rst:19
-#: ../../nethvoice_proxy.rst:27 ../../roundcube.rst:30 ../../sogo.rst:46
-#: ../../webserver.rst:16 ../../webtop.rst:19
+#: ../../collabora.rst:22 ../../dependencytrack.rst:18 ../../dokuwiki.rst:17
+#: ../../ejabberd.rst:35 ../../mariadb.rst:13 ../../mattermost.rst:24
+#: ../../minio.rst:19 ../../nethvoice_proxy.rst:27 ../../roundcube.rst:30
+#: ../../sogo.rst:46 ../../webserver.rst:16 ../../webtop.rst:19
 msgid "How to configure:"
 msgstr "Come configurare:"
 
@@ -1545,6 +1545,128 @@ msgid ""
 msgstr ""
 "Poi il comando ``cscli``` diventa disponibile. Per esempio, stampa il "
 "messaggio di aiuto con"
+
+#: ../../dependencytrack.rst:5
+msgid "Dependency-Track"
+msgstr ""
+
+#: ../../dependencytrack.rst:7
+msgid ""
+"Dependency-Track is an intelligent Component Analysis platform that "
+"allows organizations to identify and reduce risk in the software supply "
+"chain"
+msgstr ""
+
+#: ../../dependencytrack.rst:9
+msgid ""
+"This application installs the `Dependency-Track "
+"<https://dependencytrack.org/>`_ server with `Trivy "
+"<https://docs.dependencytrack.org/datasources/trivy/>`_ as the "
+"vulnerability data source. It provides a web interface to manage "
+"components, vulnerabilities, and policies."
+msgstr ""
+
+#: ../../dependencytrack.rst:13
+#, fuzzy
+msgid ""
+"You can install multiple dependencytrack instances on the same node from "
+"the :ref:`software_center-section`."
+msgstr ""
+"È possibile installare più istanze WebTop sullo stesso nodo dal :ref"
+":`software_center-section`."
+
+#: ../../dependencytrack.rst:20
+#, fuzzy
+msgid ""
+"Access the application ``Settings`` page and enter the FQDN for "
+"Dependency-Track, eg. ``sub.domain.com``"
+msgstr ""
+"access the application ``Settings`` page and enter the path for SFTPGo, "
+"eg. ``/sftpgo``"
+
+#: ../../dependencytrack.rst:21
+#, fuzzy
+msgid "Enable ``Request LE Certificate`` option accordingly to your needs"
+msgstr "enable ``Request LE certificate`` option accordingly to your needs"
+
+#: ../../dependencytrack.rst:22 ../../ejabberd.rst:40 ../../mariadb.rst:17
+#: ../../mattermost.rst:28 ../../webserver.rst:21
+#, fuzzy
+msgid "Click the :guilabel:`Save` button"
+msgstr "Click the :guilabel:`Save` button"
+
+#: ../../dependencytrack.rst:24
+#, fuzzy
+msgid "Default credentials of Dependency-Track are:"
+msgstr "Le credenziali di default sono:"
+
+#: ../../dependencytrack.rst:26 ../../mariadb.rst:25 ../../webserver.rst:29
+#, fuzzy
+msgid "user: ``admin``"
+msgstr "user: ``admin``"
+
+#: ../../dependencytrack.rst:27 ../../mariadb.rst:26 ../../webserver.rst:30
+#, fuzzy
+msgid "password: ``admin``"
+msgstr "password: ``admin``"
+
+#: ../../dependencytrack.rst:29
+#, fuzzy
+msgid "You can change them after the first login."
+msgstr "Please change them after the first login."
+
+#: ../../dependencytrack.rst:31
+msgid "You can access the application at ``https://<FQDN>`` set in the settings."
+msgstr ""
+
+#: ../../dependencytrack.rst:34
+msgid "Trivy security scanner"
+msgstr ""
+
+#: ../../dependencytrack.rst:35
+#, fuzzy
+msgid "To enable the Trivy security scanner, follow these steps:"
+msgstr "Per soddisfare questi requisiti, seguire questi passaggi:"
+
+#: ../../dependencytrack.rst:37
+msgid "Go to the Dependency-Track web interface."
+msgstr ""
+
+#: ../../dependencytrack.rst:38
+#, fuzzy
+msgid "Navigate to the :guilabel:`Administration` section."
+msgstr "cliccare sul tasto: `Restore`"
+
+#: ../../dependencytrack.rst:39
+#, fuzzy
+msgid "Click on :guilabel:`Analysers`."
+msgstr "cliccare su :guilabel:`Upload certificate`"
+
+#: ../../dependencytrack.rst:40
+#, fuzzy
+msgid "Click on :guilabel:`Trivy`."
+msgstr "cliccare su :guilabel:`Upload certificate`"
+
+#: ../../dependencytrack.rst:41
+msgid ""
+"Configure the Trivy data source settings as needed. with the following "
+"options:"
+msgstr ""
+
+#: ../../dependencytrack.rst:43
+msgid "**Base URL**: ``http://127.0.0.1:8282``."
+msgstr ""
+
+#: ../../dependencytrack.rst:44
+msgid ""
+"**API Token**: You can retrieve the Trivy Token under the advanced "
+"section of the Settings page."
+msgstr ""
+
+#: ../../dependencytrack.rst:46
+#, fuzzy
+msgid "Click on :guilabel:`Save` to apply the changes."
+msgstr "cliccare sul pulsante :guilabel:`Save`"
 
 #: ../../disk_usage.rst:5
 msgid "Disk usage"
@@ -2294,12 +2416,6 @@ msgstr "Enable ``Let's Encrypt`` option accordingly to your needs"
 #, fuzzy
 msgid "Select the LDAP user Domain to identify users"
 msgstr "Select the LDAP user Domain to identify users"
-
-#: ../../ejabberd.rst:40 ../../mariadb.rst:17 ../../mattermost.rst:28
-#: ../../webserver.rst:21
-#, fuzzy
-msgid "Click the :guilabel:`Save` button"
-msgstr "Click the :guilabel:`Save` button"
 
 #: ../../ejabberd.rst:41
 #, fuzzy
@@ -3876,7 +3992,7 @@ msgstr "Applicazioni"
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:82
+#: ../../index.rst:83
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -6472,16 +6588,6 @@ msgid ""
 msgstr ""
 "The phpMyAdmin instance will be available at the "
 "``https://<server_fqn>/<path>``. Default credentials for phpMyAdmin are:"
-
-#: ../../mariadb.rst:25 ../../webserver.rst:29
-#, fuzzy
-msgid "user: ``admin``"
-msgstr "user: ``admin``"
-
-#: ../../mariadb.rst:26 ../../webserver.rst:30
-#, fuzzy
-msgid "password: ``admin``"
-msgstr "password: ``admin``"
 
 #: ../../mariadb.rst:28 ../../webserver.rst:32
 #, fuzzy
