@@ -307,8 +307,9 @@ Thunderbird and Microsoft Outlook on Windows and Linux desktops, as well
 as Android devices, do support them. Some clients may still require manual
 configuration of server settings.
 
-To enable automatic email client configuration, some DNS records must be
-configured for the WebTop mail domain (e.g. ``example.org``).
+To enable automatic email client configuration, some DNS records and HTTP
+routes must be configured for the WebTop mail domain (e.g.
+``example.org``).
 
 A records
 ---------
@@ -322,16 +323,21 @@ therefore their names must be associated with a valid TLS certificate.
 - ``autodiscover.example.org``, ``autoconfig.example.org`` must point to
   the public static IP of the **server hosting WebTop**.
 
+HTTP routes
+-----------
+
 To ensure that Autodiscover and Autoconfig requests are directed to the correct WebTop instance,
 you need to set up an HTTP route to the WebTop server. Navigate to :guilabel:`Settings` → :guilabel:`HTTP routes`
-from the  :ref:`proxy page <traefik-section>`. This configuration is necessary for DNS records like
+from the  :ref:`proxy page <traefik-section>`. This configuration is necessary for A-type DNS records like
 ``autodiscover.example.org`` and ``autoconfig.example.org`` to be properly managed by the WebTop application.
 
 Configure the HTTP route with the following parameters for both Autodiscover and Autoconfig:
 
 - Name: ``autodiscover_webtop`` and ``autoconfig_webtop``
 - Node: Select the node where your WebTop instance is running
-- URL: ``http://127.0.0.1:20001`` (replace 20001 with your WebTop HTTP port if different)
+- URL: Copy the URL, including its specific port number, from the
+  automatically generated Webtop HTTP route details (e.g.
+  http://127.0.0.1:20001)
 - Host: ``autodiscover.example.org`` and ``autoconfig.example.org``
 - Request Let's Encrypt certificate: Enable this option if you wish to use a Let's Encrypt certificate (optional)
 
