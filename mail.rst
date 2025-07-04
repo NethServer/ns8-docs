@@ -89,8 +89,9 @@ names from the LDAP user domain using the following options:
 - ``Add user addresses from user domain``
 - ``Add group addresses from user domain``
 
-User and group names will be accepted as email addresses if the corresponding
-option is enabled.
+If the corresponding option is enabled, user and group names are treated as valid
+email addresses. In the rare case where a user and a group share the same name,
+incoming messages addressed to that name are always delivered to the group members.
 
 Additional email addresses for the domain can also be configured, as explained
 in section :ref:`email_addresses`.
