@@ -14,6 +14,141 @@ NethServer 8 releases
 
   __ http://community.nethserver.org/c/bug
 
+Major changes on 2025-07-08
+===========================
+
+**Milestone 8.5** -- Dedicated to the memory of `Andy Wismer`_
+
+.. _`Andy Wismer`: https://community.nethserver.org/t/in-memory-of-andy-wismer/25698
+
+- **Worker node version check** -- A safety check has been added when a
+  new worker node joins the cluster: its core version is now compared with
+  that of the leader node to ensure compatibility. Before joining the
+  cluster, always update the cluster core and ensure the latest core
+  version is used on new worker nodes.
+
+- **Hetzner S3 backup support** -- Added support for configuring Hetzner
+  S3 as a custom backup destination. Also fixed a bug that prevented
+  renaming custom S3 backup destinations.
+
+- **Samba domain member role and new features** -- The core Samba
+  application can now be installed from the Software Center and configured
+  as an Active Directory domain member, providing shared folders in a
+  domain File Server role. See :ref:`file-server-section`.
+
+  It is now possible to assign an alias name to Samba using the File
+  Server user interface (see :ref:`file-server-alias`). This feature helps
+  simplify the migration of existing SMB file servers to the NS8 Samba
+  application.
+
+  The **WSDD service** has been added to make the Samba file server
+  discoverable in the local network neighborhood using a modern multicast
+  protocol that replaces the legacy NetBIOS name resolution.
+
+  Samba shared folders now offer three new advanced features: Recycle bin,
+  audit logging with a centralized Grafana dashboard, and folder
+  visibility control. For more information, refer to
+  :ref:`shared-folders-section`.
+
+- **Metrics Settings** -- A new "Metrics" section has been added under the
+  cluster settings page, allowing configuration of the Grafana web
+  interface and cluster alert notifications via email. See
+  :ref:`metrics-section` for details.
+
+- **Promtail replaced by Alloy** -- The Promtail node service, previously
+  used to forward node logs to the central Loki log collector (now
+  upgraded to version 3), has reached EOL and is replaced by **Alloy**,
+  its upstream successor.
+
+- **Mail domain catch-all and other fixes** -- Since version 1.7, the Mail
+  application can deliver messages sent to unknown domain addresses to a
+  special **catch-all** destination—either an individual user or a group—
+  regardless of other domain settings. This resolves a limitation in
+  earlier versions where the ``Add user addresses from user domain``
+  setting was incompatible with the catch-all feature.
+
+  A bug affecting sender-based relay rules and remote SMTP server
+  credentials has also been fixed.
+
+  Lastly, a configuration limitation was acknowledged: in the rare case
+  where a user and a group share the same name, incoming messages sent to
+  that name will always be delivered to the group members. See
+  :ref:`email_domains`.
+
+- **TLS certificates page enhancements** -- The **Request certificate**
+  procedure now includes a validation check to prevent requesting names
+  already configured as HTTP routes.  ACME errors are now displayed as
+  inline notifications during certificate validation before the new
+  configuration is applied.
+
+- **HTTP routes and slash redirect** -- The HTTP routes table under the
+  Settings page now shows the **host and path** under a new **Route**
+  column for better route identification.
+
+  A new **automatic trailing slash redirect** has been added for
+  path-based routes. This benefits applications with web interfaces that
+  do not handle trailing slashes, such as the User portal.
+
+  New installations already include this feature. To enable it on older
+  User portal instances, run a command like: ::
+
+    api-cli run module/traefik1/set-route --data '{"name":"samba1-amld","slash_redirect":true}'
+
+  Replace `"traefik1"` and `"samba1"` with the actual module identifiers,
+  which can be found in the HTTP routes page. Search for `"amld"` and
+  check the route details.
+
+- **Webtop updates** -- The Webtop application has been updated to the
+  latest upstream version 5.28.6, along with the new PEC Bridge 5.4.8 that
+  features custom notifications.
+
+  Integration with the centralized NethVoice address book has been
+  restored, and the *click2call* feature has been updated to use the
+  ``tel:`` protocol with NethLink.
+
+  Webtop now supports :ref:`Autoconfig and Autodiscovery
+  <email_autoconfig>`, simplifying mail account setup on mobile devices.
+
+  Other improvements include:
+
+  - Faster mail search with attachments
+  - Improved grouping by discussion
+  - Ability to load custom JAR files at startup
+  - New login page for OTP and maintenance mode
+
+- **NethVoice 1.3.4** -- New Features and Improvements:
+
+  - Advanced Interface Enhancements: Asterisk CLI and log viewer
+    directly in the UI
+  - New Phone Island: Call recording support, Device switching
+    functionality
+  - Collaboration Tools: Audio conferencing, Video calling, Screen
+    sharing
+  - NethVoice Hotel Module: Integration with hotel systems via FIAS
+    protocol
+  - NethVoice CTI Improvements: Updated user interface and graphics,
+    Call pickup functionality, Collapsible side drawer for enhanced
+    usability
+  - Streaming Management: Video stream display within NethVoice CTI
+    (e.g., for intercoms)
+
+- **Debian Bookworm missing package** -- Some Debian installations may
+  lack the ``gettext-base`` package. Ensure it is installed with: ::
+
+    apt-get update
+    apt install gettext-base
+
+- **Other application updates** -- Updated application versions:
+
+  - Nextcloud 31
+  - Collabora 25
+  - Roundcube 1.6.11
+  - SOGo 5.12
+  - Mattermost 10.5.5 with PostgreSQL 17.5
+  - Netdata 2.4
+  - CrowdSec 1.6.8
+  - Ejabberd 25.4
+
 Major changes on 2025-04-04
 ===========================
 
