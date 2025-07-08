@@ -74,32 +74,35 @@ An email address will be created for every user in the selected domain.
 Domains
 =======
 
-Mail can handle an unlimited number of mail domains, configurable
-from the ``Domains`` page.
+Mail can handle an unlimited number of mail domains, which are
+configurable from the ``Domains`` page.
 
-.. note:: If a domain is deleted, email will not be deleted;
-   any message already received is preserved.
+.. note:: Deleting a domain does not delete any existing emails;
+   all previously received messages are preserved.
 
-You can add a new domain by clicking on the :guilabel:`Create domain` button and fill
-the ``Name`` field with the mail domain, like ``mymail.org``.
+To add a new domain, click the :guilabel:`Create domain` button and enter
+the domain name, such as ``mymail.org``, in the ``Name`` field.
 
-If the ``Add user addresses from user domain`` option is disabled, you can enable the ``Accept unknown recipients`` switch and select
-a mailbox that will catch all messages sent to non-existing addresses.
+You can define the domain’s email addresses by inheriting user and group
+names from the LDAP user domain using the following options:
 
-Mail allows storing a hidden copy of all messages
-directed to a particular domain: they will be delivered to the final
-recipient *and also* to a custom email address. The hidden copy is
-enabled by the ``Copy inbound messages`` switch.
+- ``Add user addresses from user domain``
+- ``Add group addresses from user domain``
 
-.. warning:: On some countries, enabling the *Copy inbound messages*
-             switch can be against privacy laws.
+If the corresponding option is enabled, user and group names are treated as valid
+email addresses. In the rare case where a user and a group share the same name,
+incoming messages addressed to that name are always delivered to the group members.
 
-If the final recipient cannot be reached (i.e. the recipient address does
-not exist), the message is normally rejected. Sometimes (i.e. when a mail domain
-is migrated) it could be useful to accept it and silently deliver the message to
-a catch-all mailbox. This behavior can be achieved by enabling the
+Additional email addresses for the domain can also be configured, as explained
+in section :ref:`email_addresses`.
+
+Under the ``Advanced`` section, the ``Accept unknown recipients`` switch controls
+how to handle messages addressed to undefined recipients within the domain.
+By default, such messages are rejected. However, in some scenarios—such as during
+a mail domain migration—it may be useful to accept these messages and deliver them
+silently to a catch-all mailbox. This behavior can be enabled by turning on the
 ``Accept unknown recipients`` option.
-This configuration is available only if ``Add user address from user domain`` option is disabled.
+
 
 DKIM signature
 --------------
