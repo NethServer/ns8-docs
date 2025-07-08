@@ -51,7 +51,7 @@ Major changes on 2025-07-08
   :ref:`shared-folders-section`.
 
 - **Metrics Settings** -- A new "Metrics" section has been added under the
-  cluster Settings page, allowing configuration of the Grafana web
+  cluster settings page, allowing configuration of the Grafana web
   interface and cluster alert notifications via email. See
   :ref:`metrics-section` for details.
 
