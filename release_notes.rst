@@ -34,7 +34,7 @@ Major changes on 2025-07-08
 - **Samba domain member role and new features** -- The core Samba
   application can now be installed from the Software Center and configured
   as an Active Directory domain member, providing shared folders in a
-  standalone File Server role. See :ref:`file-server-section`.
+  domain File Server role. See :ref:`file-server-section`.
 
   It is now possible to assign an alias name to Samba using the File
   Server user interface (see :ref:`file-server-alias`). This feature helps
@@ -75,21 +75,11 @@ Major changes on 2025-07-08
   that name will always be delivered to the group members. See
   :ref:`email_domains`.
 
-- **TLS certificates page enhancements** -- The **Upload certificate**
-  button is now the primary page action and has been moved to the left
-  position. The **Request certificate** button is now a secondary action.
-
-  The **Request certificate** procedure now includes a validation check to
-  prevent requesting multiple certificates for the same name; this check
-  can be bypassed if needed.
-
-  ACME errors are now displayed as inline notifications during certificate
-  validation.
-
-  On the HTTP routes page, the **host+path** is displayed as a URL-like
-  string under the **Route** column, replacing the previous **Name**
-  column. As this new route string may not be unique, the original Name
-  remains available via an additional column or tooltip.
+- **TLS certificates page enhancements** -- The **Request certificate**
+  procedure now includes a validation check to prevent requesting names
+  already configured as HTTP routes.  ACME errors are now displayed as
+  inline notifications during certificate validation before the new
+  configuration is applied.
 
 - **HTTP routes and slash redirect** -- The HTTP routes table under the
   Settings page now shows the **host and path** under a new **Route**
@@ -125,6 +115,22 @@ Major changes on 2025-07-08
   - Improved grouping by discussion
   - Ability to load custom JAR files at startup
   - New login page for OTP and maintenance mode
+
+- **NethVoice 1.3.4** -- New Features and Improvements:
+
+  - Advanced Interface Enhancements: Asterisk CLI and log viewer
+    directly in the UI
+  - New Phone Island: Call recording support, Device switching
+    functionality
+  - Collaboration Tools: Audio conferencing, Video calling, Screen
+    sharing
+  - NethVoice Hotel Module: Integration with hotel systems via FIAS
+    protocol
+  - NethVoice CTI Improvements: Updated user interface and graphics,
+    Call pickup functionality, Collapsible side drawer for enhanced
+    usability
+  - Streaming Management: Video stream display within NethVoice CTI
+    (e.g., for intercoms)
 
 - **Debian Bookworm missing package** -- Some Debian installations may
   lack the ``gettext-base`` package. Ensure it is installed with: ::
