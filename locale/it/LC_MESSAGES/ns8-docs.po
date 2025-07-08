@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 15:38+0000\n"
+"POT-Creation-Date: 2025-07-08 07:54+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -3356,7 +3356,7 @@ msgstr ""
 " una cartella da un'istantanea di backup precedente di una specifica "
 "cartella condivisa."
 
-#: ../../file_server.rst:185 ../../mail.rst:182
+#: ../../file_server.rst:185 ../../mail.rst:185
 msgid ""
 "The procedure does not calculate the disk space usage required for the "
 "restore. Ensure sufficient disk space is available before proceeding."
@@ -5124,25 +5124,23 @@ msgstr "Domini"
 #: ../../mail.rst:77
 #, fuzzy
 msgid ""
-"Mail can handle an unlimited number of mail domains, configurable from "
-"the ``Domains`` page."
+"Mail can handle an unlimited number of mail domains, which are "
+"configurable from the ``Domains`` page."
 msgstr ""
 "NethServer può gestire un numero illimitato di domini postali, "
 "configurabili dalla pagina ``Domains``."
 
 #: ../../mail.rst:80
 msgid ""
-"If a domain is deleted, email will not be deleted; any message already "
-"received is preserved."
+"Deleting a domain does not delete any existing emails; all previously "
+"received messages are preserved."
 msgstr ""
-"Se un dominio viene cancellato, l'email non verrà cancellata; qualsiasi "
-"messaggio già ricevuto viene conservato."
 
 #: ../../mail.rst:83
+#, fuzzy
 msgid ""
-"You can add a new domain by clicking on the :guilabel:`Create domain` "
-"button and fill the ``Name`` field with the mail domain, like "
-"``mymail.org``."
+"To add a new domain, click the :guilabel:`Create domain` button and enter"
+" the domain name, such as ``mymail.org``, in the ``Name`` field."
 msgstr ""
 "È possibile aggiungere un nuovo dominio cliccando sul pulsante: `Crea "
 "dominio` e riempire il campo ``Name``` con il dominio della posta, come "
@@ -5150,62 +5148,49 @@ msgstr ""
 
 #: ../../mail.rst:86
 msgid ""
-"If the ``Add user addresses from user domain`` option is disabled, you "
-"can enable the ``Accept unknown recipients`` switch and select a mailbox "
-"that will catch all messages sent to non-existing addresses."
+"You can define the domain’s email addresses by inheriting user and group "
+"names from the LDAP user domain using the following options:"
 msgstr ""
-"Se l'opzione ``Add user address from user domain`` è disabilitata, è "
-"possibile attivare l'opzione ``Accetta destinatari sconosciuti`` e "
-"selezionare una casella di posta che cattura tutti i messaggi inviati in "
-"indirizzi non esistenti."
 
 #: ../../mail.rst:89
-#, fuzzy
-msgid ""
-"Mail allows storing a hidden copy of all messages directed to a "
-"particular domain: they will be delivered to the final recipient *and "
-"also* to a custom email address. The hidden copy is enabled by the ``Copy"
-" inbound messages`` switch."
+msgid "``Add user addresses from user domain``"
 msgstr ""
-"NethServer allows storing a hidden copy of all messages directed to a "
-"particular domain: they will be delivered to the final recipient *and "
-"also* to a custom email address. The hidden copy is enabled by the "
-":guilabel:`Copy inbound messages` switch."
 
-#: ../../mail.rst:94
-#, fuzzy
-msgid ""
-"On some countries, enabling the *Copy inbound messages* switch can be "
-"against privacy laws."
+#: ../../mail.rst:90
+msgid "``Add group addresses from user domain``"
 msgstr ""
-"On some countries, enabling the *Copy inbound messages* switch can be "
-"against privacy laws."
 
-#: ../../mail.rst:97
-#, fuzzy
+#: ../../mail.rst:92
 msgid ""
-"If the final recipient cannot be reached (i.e. the recipient address does"
-" not exist), the message is normally rejected. Sometimes (i.e. when a "
-"mail domain is migrated) it could be useful to accept it and silently "
-"deliver the message to a catch-all mailbox. This behavior can be achieved"
-" by enabling the ``Accept unknown recipients`` option. This configuration"
-" is available only if ``Add user address from user domain`` option is "
-"disabled."
+"If the corresponding option is enabled, user and group names are treated "
+"as valid email addresses. In the rare case where a user and a group share"
+" the same name, incoming messages addressed to that name are always "
+"delivered to the group members."
 msgstr ""
-"If the final recipient cannot be reached (i.e. the recipient address does"
-" not exist), the message is normally rejected. Sometimes (i.e. when a "
-"mail domain is migrated) it could be useful to accept it and silently "
-"deliver the message to a catch-all mailbox. This behavior can be achieved"
-" by enabling the ``Accept unknown recipients`` option. This configuration"
-" is available only if ``Add user address from user domain`` option is "
-"disabled."
 
-#: ../../mail.rst:105
+#: ../../mail.rst:96
+msgid ""
+"Additional email addresses for the domain can also be configured, as "
+"explained in section :ref:`email_addresses`."
+msgstr ""
+
+#: ../../mail.rst:99
+msgid ""
+"Under the ``Advanced`` section, the ``Accept unknown recipients`` switch "
+"controls how to handle messages addressed to undefined recipients within "
+"the domain. By default, such messages are rejected. However, in some "
+"scenarios—such as during a mail domain migration—it may be useful to "
+"accept these messages and deliver them silently to a catch-all mailbox. "
+"This behavior can be enabled by turning on the ``Accept unknown "
+"recipients`` option."
+msgstr ""
+
+#: ../../mail.rst:108
 #, fuzzy
 msgid "DKIM signature"
 msgstr "DKIM signature"
 
-#: ../../mail.rst:107
+#: ../../mail.rst:110
 #, fuzzy
 msgid ""
 "DomainKeys Identified Mail (DKIM__) validates the identity of the sending"
@@ -5215,7 +5200,7 @@ msgstr ""
 "MTA, which adds a cryptographic signature to the outbound message MIME "
 "headers."
 
-#: ../../mail.rst:112
+#: ../../mail.rst:115
 msgid ""
 "In the ``Domains`` page, click the three-dots menu on the domain card and"
 " select ``Configure DKIM`` to enable or disable the DKIM signature for "
@@ -5229,7 +5214,7 @@ msgstr ""
 " abilitata per ogni dominio e il valore chiave viene visualizzato in "
 "formati \"zone file\" grezzi e compatibili con Bind."
 
-#: ../../mail.rst:118
+#: ../../mail.rst:121
 #, fuzzy
 msgid ""
 "DKIM signature headers are added only to messages sent through TCP ports "
@@ -5239,7 +5224,7 @@ msgstr ""
 "The DKIM signature headers are added only to messages sent through TCP "
 "ports 587 (submission) and 465 (smtps)."
 
-#: ../../mail.rst:122
+#: ../../mail.rst:125
 msgid ""
 "For DKIM to function correctly, ensure your public DNS is configured as "
 "follows, using the instructions provided by your DNS provider:"
@@ -5248,7 +5233,7 @@ msgstr ""
 "configurato come segue, utilizzando le istruzioni fornite dal provider "
 "DNS:"
 
-#: ../../mail.rst:125
+#: ../../mail.rst:128
 msgid ""
 "Add a TXT record with the key ``default._domainKey`` to your public DNS "
 "service."
@@ -5256,14 +5241,14 @@ msgstr ""
 "Aggiungi un record TXT con la chiave ``default._domainKey``` al tuo "
 "servizio DNS pubblico."
 
-#: ../../mail.rst:127
+#: ../../mail.rst:130
 #, fuzzy
 msgid ""
 "Copy the key text provided and paste it into the DNS record data (RDATA) "
 "field."
 msgstr "Copy and paste the given key text in the DNS record data (RDATA) section"
 
-#: ../../mail.rst:130
+#: ../../mail.rst:133
 msgid ""
 "To further protect against mail domain spoofing, consider adding DNS "
 "records for DMARC_ (Domain-based Message Authentication, Reporting, and "
@@ -5273,37 +5258,37 @@ msgstr ""
 "considerare l'aggiunta di record DNS per DMARC_ (Autenticazione dei "
 "messaggi, Reporting e Conformance) e SPF_ (Sender Policy Framework)."
 
-#: ../../mail.rst:140 ../../mail.rst:532
+#: ../../mail.rst:143 ../../mail.rst:535
 #, fuzzy
 msgid "Mailboxes"
 msgstr "Mailboxes"
 
-#: ../../mail.rst:142
-#, fuzzy
-msgid ""
-"Each user has a personal mailbox and any user name in the form "
-"*<username>@<domain>* is also a valid email address to deliver messages "
-"into it."
-msgstr ""
-"Each user has a personal mailbox and any user name in the form "
-"*<username>@<domain>* is also a valid email address to deliver messages "
-"into it."
-
 #: ../../mail.rst:145
 #, fuzzy
 msgid ""
+"Each user has a personal mailbox and any user name in the form "
+"*<username>@<domain>* is also a valid email address to deliver messages "
+"into it."
+msgstr ""
+"Each user has a personal mailbox and any user name in the form "
+"*<username>@<domain>* is also a valid email address to deliver messages "
+"into it."
+
+#: ../../mail.rst:148
+#, fuzzy
+msgid ""
 "The list of mailboxes is shown on the ``Mailboxes`` page. There are two "
 "types of mailboxes: users and public mailboxes."
 msgstr ""
 "The list of mailboxes is shown on the ``Mailboxes`` page. There are two "
 "types of mailboxes: users and public mailboxes."
 
-#: ../../mail.rst:149
+#: ../../mail.rst:152
 #, fuzzy
 msgid "Users mailboxes"
 msgstr "Users mailboxes"
 
-#: ../../mail.rst:151
+#: ../../mail.rst:154
 #, fuzzy
 msgid ""
 "You can disable each mailbox by selecting the ``Disable`` item from the "
@@ -5311,31 +5296,31 @@ msgid ""
 msgstr ""
 "You can disable each mailbox by selecting the ``Disable`` item from the "
 "three-dots menu on the mailbox line."
-
-#: ../../mail.rst:153
-#, fuzzy
-msgid ""
-"By clicking the ``Edit`` item from the three-dots menu it's possible to "
-"setup the following options:"
-msgstr ""
-"By clicking the ``Edit`` item from the three-dots menu it's possible to "
-"setup the following options:"
-
-#: ../../mail.rst:155
-#, fuzzy
-msgid "``Forward messages``: forward all messages to another email address"
-msgstr "``Forward messages``: forward all messages to another mail address"
 
 #: ../../mail.rst:156
 #, fuzzy
 msgid ""
+"By clicking the ``Edit`` item from the three-dots menu it's possible to "
+"setup the following options:"
+msgstr ""
+"By clicking the ``Edit`` item from the three-dots menu it's possible to "
+"setup the following options:"
+
+#: ../../mail.rst:158
+#, fuzzy
+msgid "``Forward messages``: forward all messages to another email address"
+msgstr "``Forward messages``: forward all messages to another mail address"
+
+#: ../../mail.rst:159
+#, fuzzy
+msgid ""
 "``Custom mailbox quota``: override the quota configured from the :ref"
 ":`mail_settings-section`"
 msgstr ""
 "``Custom mailbox quota``: override the quota configured from the :ref"
 ":`mail_settings-section`"
 
-#: ../../mail.rst:157
+#: ../../mail.rst:160
 #, fuzzy
 msgid ""
 "``Custom spam retention``: override the retention configured from the "
@@ -5344,12 +5329,12 @@ msgstr ""
 "``Custom spam retention``: override the retention configured from the "
 ":ref:`mail_settings-section`"
 
-#: ../../mail.rst:160
+#: ../../mail.rst:163
 #, fuzzy
 msgid "Public mailboxes"
 msgstr "Public mailboxes"
 
-#: ../../mail.rst:162
+#: ../../mail.rst:165
 #, fuzzy
 msgid ""
 "Public mailboxes can be shared among groups of users. The "
@@ -5364,7 +5349,7 @@ msgstr ""
 "mailboxes can also be created by any IMAP client supporting IMAP ACL "
 "protocol extension (RFC 4314)."
 
-#: ../../mail.rst:167
+#: ../../mail.rst:170
 #, fuzzy
 msgid ""
 "When a new public mailbox is created, the mail server will automatically "
@@ -5373,12 +5358,12 @@ msgstr ""
 "When a new public mailbox is created, the mail server will automatically "
 "add a new address for all existing mail domains."
 
-#: ../../mail.rst:174
+#: ../../mail.rst:177
 #, fuzzy
 msgid "Restore a mailbox folder from a backup"
 msgstr "Restore file server from backup"
 
-#: ../../mail.rst:176
+#: ../../mail.rst:179
 msgid ""
 "If the application has one or more backup destinations configured and a "
 "backup has already been executed, you can search for and restore a "
@@ -5390,7 +5375,7 @@ msgstr ""
 "cartella casella di posta da un'istantanea di backup passata di un utente"
 " specifico o una casella di posta pubblica."
 
-#: ../../mail.rst:185
+#: ../../mail.rst:188
 msgid ""
 "Navigate to the Mail application instance and open the Mailboxes page. "
 "Choose the ``User mailboxes`` or ``Public mailboxes`` tab to view a list "
@@ -5402,7 +5387,7 @@ msgstr ""
 "visualizzare un elenco di caselle di posta. Dal menu a tre punti della "
 "casella di posta desiderata, selezionare ``Restore folder``."
 
-#: ../../mail.rst:190
+#: ../../mail.rst:193
 msgid ""
 "Select the backup destination from which to restore the folder. Loading "
 "remote destinations may take some time."
@@ -5410,7 +5395,7 @@ msgstr ""
 "Selezionare la destinazione di backup da cui ripristinare la cartella. "
 "Caricamento di destinazioni remote può richiedere un po 'di tempo."
 
-#: ../../mail.rst:193
+#: ../../mail.rst:196
 msgid ""
 "Choose the date of the backup snapshot to restore. Snapshots are listed "
 "from newest to oldest."
@@ -5418,17 +5403,17 @@ msgstr ""
 "Scegliere la data dell'istantanea di backup da ripristinare. Le istanze "
 "sono elencate da più nuovo a più vecchio."
 
-#: ../../mail.rst:196
+#: ../../mail.rst:199
 msgid "Select a folder from the list or start typing its name to filter the list."
 msgstr ""
 "Selezionare una cartella dall'elenco o iniziare a digitare il suo nome "
 "per filtrare l'elenco."
 
-#: ../../mail.rst:199
+#: ../../mail.rst:202
 msgid "Press :guilabel:`Restore` to begin the restore process."
 msgstr "Premere :guilabel:`Restore` per avviare il processo di ripristino."
 
-#: ../../mail.rst:201
+#: ../../mail.rst:204
 msgid ""
 "The selected folder will be restored into a subfolder of the mailbox "
 "named \"Restored folder\". If the subfolder already exists, it will be "
@@ -5438,7 +5423,7 @@ msgstr ""
 "casella di posta denominata \"cartella ripristinata\". Se la "
 "sottocartella già esiste, verrà rimossa prima del ripristino."
 
-#: ../../mail.rst:205
+#: ../../mail.rst:208
 msgid ""
 "If the mailbox quota is exceeded during the restore process, it will be "
 "set to unlimited."
@@ -5446,12 +5431,12 @@ msgstr ""
 "Se la quota della casella di posta viene superata durante il processo di "
 "ripristino, sarà impostata al illimitato."
 
-#: ../../mail.rst:212
+#: ../../mail.rst:215
 #, fuzzy
 msgid "Addresses"
 msgstr "Addresses"
 
-#: ../../mail.rst:214
+#: ../../mail.rst:217
 #, fuzzy
 msgid ""
 "In addition to the users, groups and public mailboxes addresses, "
@@ -5466,40 +5451,40 @@ msgstr ""
 "mail address is associated with one or more destinations. A destination "
 "can be of the following types:"
 
-#: ../../mail.rst:220
+#: ../../mail.rst:223
 #, fuzzy
 msgid "user mailbox"
 msgstr "user mailbox"
 
-#: ../../mail.rst:221
+#: ../../mail.rst:224
 #, fuzzy
 msgid "public mailbox"
 msgstr "public mailbox"
 
-#: ../../mail.rst:222
+#: ../../mail.rst:225
 #, fuzzy
 msgid "external email address"
 msgstr "external email address"
 
-#: ../../mail.rst:224
+#: ../../mail.rst:227
 msgid ""
 "A mail address can be specific to one mail domain, or generic to all "
 "configured mail domains. In the latter case, we call it a \"wildcard "
 "address\". For example:"
 msgstr ""
 
-#: ../../mail.rst:228
+#: ../../mail.rst:231
 msgid "Two domains are configured, *mydomain.net* and *example.com*"
 msgstr "Due domini sono configurati, *mydomain.net* e *example.com*"
 
-#: ../../mail.rst:229
+#: ../../mail.rst:232
 #, fuzzy
 msgid ""
 "A specific email address *goofy* for domain *example.com* corresponds to "
 "*goofy@example.com*."
 msgstr "Email address *goofy* specific to one domain: ``goofy@example.com``"
 
-#: ../../mail.rst:231
+#: ../../mail.rst:234
 #, fuzzy
 msgid ""
 "A wildcard email address *info* is bound to all domains: it is equivalent"
@@ -5508,7 +5493,7 @@ msgstr ""
 "Email address *info* bound to any domain: ``info@mydomain.net``, "
 "``info@example.com``"
 
-#: ../../mail.rst:234
+#: ../../mail.rst:237
 msgid ""
 "Sometimes a company forbids communications from outside the organization "
 "using personal email addresses. To change the *visibility* of an address,"
@@ -5523,7 +5508,7 @@ msgstr ""
 "``Edit`` e abilitare la casella di controllo ``Internal` sotto la sezione"
 " ``Avanzate`."
 
-#: ../../mail.rst:240
+#: ../../mail.rst:243
 #, fuzzy
 msgid ""
 "When an address is *internal* it cannot receive messages from the "
@@ -5536,33 +5521,33 @@ msgstr ""
 "*internal* address can be used to exchange messages with other accounts "
 "of the system."
 
-#: ../../mail.rst:247
+#: ../../mail.rst:250
 #, fuzzy
 msgid "Filter"
 msgstr "Filter"
 
-#: ../../mail.rst:249
+#: ../../mail.rst:252
 #, fuzzy
 msgid ""
 "All transiting email messages are subjected to a list of checks that fall"
 " into two main categories, described in the following sections:"
 msgstr "All transiting email messages are subjected to a list of checks:"
 
-#: ../../mail.rst:252 ../../mail.rst:260
+#: ../../mail.rst:255 ../../mail.rst:263
 #, fuzzy
 msgid "Antivirus"
 msgstr "Antivirus"
 
-#: ../../mail.rst:253 ../../mail.rst:280
+#: ../../mail.rst:256 ../../mail.rst:283
 #, fuzzy
 msgid "Antispam"
 msgstr "Antispam"
 
-#: ../../mail.rst:255
+#: ../../mail.rst:258
 msgid "Navigate to the ``Filter`` page to adjust their settings."
 msgstr "Navigare alla pagina ``Filter```` per regolare le impostazioni."
 
-#: ../../mail.rst:262
+#: ../../mail.rst:265
 #, fuzzy
 msgid ""
 "The ClamAV antivirus component finds email messages containing viruses. "
@@ -5573,7 +5558,7 @@ msgstr ""
 " messages are discarded. The virus signature database is updated "
 "periodically."
 
-#: ../../mail.rst:266
+#: ../../mail.rst:269
 msgid ""
 "The default ClamAV signatures database is normally disabled because it "
 "consumes a large amount of memory. Select the ``Enable ClamAV official "
@@ -5583,7 +5568,7 @@ msgstr ""
 "perché consuma una grande quantità di memoria. Selezionare la casella di "
 "controllo ``Enable ClamAV firma ufficiale `` se desiderato."
 
-#: ../../mail.rst:270
+#: ../../mail.rst:273
 msgid ""
 "ClamAV unofficial signatures are always active instead. It is possible to"
 " choose the desired signature rating level among *Low*, *Medium*, *High*."
@@ -5596,7 +5581,7 @@ msgstr ""
 "partite positive indesiderate, quindi i buoni messaggi possono essere "
 "bloccati."
 
-#: ../../mail.rst:282
+#: ../../mail.rst:285
 #, fuzzy
 msgid ""
 "The antispam component Rspamd analyzes emails by detecting and "
@@ -5608,7 +5593,7 @@ msgstr ""
 "using heuristic criteria, predetermined rules and statistical evaluations"
 " of the content of messages."
 
-#: ../../mail.rst:288
+#: ../../mail.rst:291
 #, fuzzy
 msgid ""
 "The filter can also check if the sending server is listed in one or more "
@@ -5619,7 +5604,7 @@ msgstr ""
 "block lists (`DNSBL <https://en.wikipedia.org/wiki/Spamming>`_). A score "
 "is associated with each rule."
 
-#: ../../mail.rst:294
+#: ../../mail.rst:297
 #, fuzzy
 msgid ""
 "Statistical (or `Bayesian`__) filters, are special rules that evolve and "
@@ -5629,7 +5614,7 @@ msgstr ""
 "/sicurezza-informatica-pavia-blu-system>`_, are special rules that evolve"
 " and quickly adapt analyzing messages marked as **spam** or **ham**."
 
-#: ../../mail.rst:300
+#: ../../mail.rst:303
 #, fuzzy
 msgid ""
 "Total spam score collected at the end of the analysis allows the server "
@@ -5638,7 +5623,7 @@ msgstr ""
 "Total spam score collected at the end of the analysis allows the server "
 "to decide what to do with a message."
 
-#: ../../mail.rst:303
+#: ../../mail.rst:306
 msgid ""
 "The spam score thresholds can be configured under the ``Antispam`` "
 "section of the ``Filter`` page."
@@ -5646,7 +5631,7 @@ msgstr ""
 "Le soglie del punteggio spam possono essere configurate nella sezione "
 "``Antispam`` della pagina ``Filter``."
 
-#: ../../mail.rst:306
+#: ../../mail.rst:309
 msgid ""
 "``Spam flag threshold`` determines the score value where a message is "
 "marked as spam. When a message has the spam flag set the consequent "
@@ -5658,7 +5643,7 @@ msgstr ""
 "spam impostare la conseguente azione di consegna dipende dalle "
 "impostazioni generali di :ref:`mailboxes <mail-mailboxes-settings>`."
 
-#: ../../mail.rst:311
+#: ../../mail.rst:314
 msgid ""
 "``Deny message spam threshold`` instead regulates the score that is "
 "considered too high to accept a message. If the score exceeds this value,"
@@ -5668,7 +5653,7 @@ msgstr ""
 "considerato troppo alto per accettare un messaggio. Se il punteggio "
 "supera questo valore, il filtro rifiuta completamente il messaggio."
 
-#: ../../mail.rst:315
+#: ../../mail.rst:318
 msgid ""
 "Under the ``Advanced`` section it is possible to enable the ``Greylist "
 "threshold``. When the message score exceeds this limit the filter asks "
@@ -5685,7 +5670,7 @@ msgstr ""
 "impostazione predefinita perché introduce ritardi di consegna anche per i"
 " mittenti legittimi."
 
-#: ../../mail.rst:322
+#: ../../mail.rst:325
 msgid ""
 "In some cases an email client, recipient, or sender must bypass the "
 "filter checks: the ``Bypass rules`` section allows to define a set of "
@@ -5696,30 +5681,30 @@ msgstr ""
 "Rules`` consente di definire un insieme di regole in base ai criteri di "
 "follwing:"
 
-#: ../../mail.rst:326
+#: ../../mail.rst:329
 msgid "Sender IP address or network (CIDR format)."
 msgstr "Invia indirizzo IP o rete (formato CIDR)."
 
-#: ../../mail.rst:328
+#: ../../mail.rst:331
 #, fuzzy
 msgid "Complete sender email address."
 msgstr "indirizzo mail secondario"
 
-#: ../../mail.rst:330
+#: ../../mail.rst:333
 #, fuzzy
 msgid "Sender email domain (exact match)."
 msgstr "DNS and AD domain"
 
-#: ../../mail.rst:332
+#: ../../mail.rst:335
 #, fuzzy
 msgid "Complete recipient email address."
 msgstr "external email address"
 
-#: ../../mail.rst:334
+#: ../../mail.rst:337
 msgid "Recipient email domain (exact match)."
 msgstr "Recipiente dominio e-mail (incontro esatto)."
 
-#: ../../mail.rst:336
+#: ../../mail.rst:339
 msgid ""
 "To access additional settings and review recent Rspamd activity, navigate"
 " to the web interface of Rspamd by selecting the :guilabel:`Open Rspamd` "
@@ -5732,7 +5717,7 @@ msgstr ""
 "pagina Filtro. Dovrai fornire le credenziali di cluster-admin per "
 "l'autenticazione."
 
-#: ../../mail.rst:341
+#: ../../mail.rst:344
 msgid ""
 "The Bayesian statistical filters can then be trained with any IMAP client"
 " by simply moving a message in and out of the Junk folder. As a "
@@ -5740,7 +5725,7 @@ msgid ""
 ":`mail-mailboxes-settings`."
 msgstr ""
 
-#: ../../mail.rst:346
+#: ../../mail.rst:349
 msgid ""
 "By *putting a message into the Junk folder*, the filters learn it is spam"
 " and will assign an higher score to similar messages."
@@ -5748,7 +5733,7 @@ msgstr ""
 "Con *putando un messaggio nella cartella Junk*, i filtri imparano che è "
 "spam e assegnerà un punteggio più alto a messaggi simili."
 
-#: ../../mail.rst:349
+#: ../../mail.rst:352
 msgid ""
 "On the contrary, by *getting a message out of Junk*, the filters learn it"
 " is ham: next time a lower score will be assigned."
@@ -5756,11 +5741,11 @@ msgstr ""
 "Al contrario, con *getting un messaggio da Junk*, i filtri imparano che è"
 " prosciutto: la prossima volta verrà assegnato un punteggio più basso."
 
-#: ../../mail.rst:352
+#: ../../mail.rst:355
 msgid "All users can train the filters using this technique."
 msgstr "Tutti gli utenti possono formare i filtri utilizzando questa tecnica."
 
-#: ../../mail.rst:356
+#: ../../mail.rst:359
 msgid ""
 "It is a good habit to frequently check the Junk folder in order not to "
 "lose email wrongly recognized as spam."
@@ -5768,7 +5753,7 @@ msgstr ""
 "È una buona abitudine controllare frequentemente la cartella Junk al fine"
 " di non perdere email erroneamente riconosciuto come spam."
 
-#: ../../mail.rst:359
+#: ../../mail.rst:362
 msgid ""
 "The bayesian filter training applies to all users on the system, not only"
 " the user that marked an email as spam or ham."
@@ -5777,11 +5762,11 @@ msgstr ""
 "sistema, non solo l'utente che ha segnato un'email come spam o "
 "prosciutto."
 
-#: ../../mail.rst:362
+#: ../../mail.rst:365
 msgid "It is important to understand how the Bayesian tests really work:"
 msgstr "È importante capire come funzionano veramente i test Bayesian:"
 
-#: ../../mail.rst:364
+#: ../../mail.rst:367
 msgid ""
 "It does not outright flag messages as spam if they contain a specific "
 "subject, or sender address. It is only collecting specific "
@@ -5791,7 +5776,7 @@ msgstr ""
 " o un indirizzo del mittente. È solo la raccolta di caratteristiche "
 "specifiche del messaggio."
 
-#: ../../mail.rst:368
+#: ../../mail.rst:371
 msgid ""
 "A message can only be flagged one time. If the same message is flagged "
 "multiple times, it will not affect anything as the dynamic tests have "
@@ -5801,7 +5786,7 @@ msgstr ""
 "messaggio è contrassegnato più volte, non influenzerà nulla come i test "
 "dinamici sono già stati addestrati da quel messaggio."
 
-#: ../../mail.rst:372
+#: ../../mail.rst:375
 msgid ""
 "The Bayesian filter **is not active until it has received enough "
 "information. This includes a minimum of 200 spams AND 200 hams (false "
@@ -5811,7 +5796,7 @@ msgstr ""
 "abbastanza informazioni. Questo include un minimo di 200 spam e 200 "
 "prosciutto (falsi positivi). # #"
 
-#: ../../mail.rst:376
+#: ../../mail.rst:379
 msgid ""
 "As the system receives that information, the progress of bayesian filter "
 "training can be monitored from the Rspamd web UI."
@@ -5819,11 +5804,11 @@ msgstr ""
 "Poiché il sistema riceve tali informazioni, il progresso della formazione"
 " del filtro bayesian può essere monitorato dall'interfaccia web Rspamd."
 
-#: ../../mail.rst:381
+#: ../../mail.rst:384
 msgid "Queue"
 msgstr "Coda"
 
-#: ../../mail.rst:383
+#: ../../mail.rst:386
 msgid ""
 "The ``Queue`` page shows the status of the Postifx mail queue. Under "
 "normal conditions the queue should be empty because messages are "
@@ -5833,7 +5818,7 @@ msgstr ""
 "condizioni normali la coda dovrebbe essere vuota perché i messaggi "
 "vengono immediatamente scambiati tra i server di posta."
 
-#: ../../mail.rst:387
+#: ../../mail.rst:390
 msgid ""
 "If the mail queue contains some messages, try to click the "
 ":guilabel:`Refresh` button to quickly check if the condition is "
@@ -5843,7 +5828,7 @@ msgstr ""
 "pulsante :guilabel:`Refresh` per controllare rapidamente se la condizione"
 " è temporanea."
 
-#: ../../mail.rst:390
+#: ../../mail.rst:393
 msgid ""
 "As alternative, trigger an immediate new delivery attempt with the button"
 " :guilabel:`Resend all`, or remove all messages from the queue with "
@@ -5853,7 +5838,7 @@ msgstr ""
 "pulsante :guilabel:`Resend all`, o rimuovere tutti i messaggi dalla coda "
 "con :guilabel:`Delete all`."
 
-#: ../../mail.rst:394
+#: ../../mail.rst:397
 msgid ""
 "The same actions can be selectively executed for each message in the "
 "queue, from its three-dots menu. The message delay reason, queue ID, "
@@ -5861,7 +5846,7 @@ msgid ""
 "``See details`` action."
 msgstr ""
 
-#: ../../mail.rst:401
+#: ../../mail.rst:404
 msgid ""
 "The ``Message ID`` value can be used to search the message in both "
 ":ref:`Rspamd web interface <antispam-section>` and :ref:`system-logs-"
@@ -5871,7 +5856,7 @@ msgstr ""
 "messaggio sia :ref:`Rspamd web interface <antispam-section>` che :ref"
 ":`system-logs-section`."
 
-#: ../../mail.rst:405
+#: ../../mail.rst:408
 msgid ""
 "If the delay reason is not resolved, and the message is not deleted, the "
 "message is returned to the sender after a configurable amount of time. "
@@ -5879,11 +5864,11 @@ msgid ""
 "settings-section` for details."
 msgstr ""
 
-#: ../../mail.rst:414
+#: ../../mail.rst:417
 msgid "Relay"
 msgstr "Relay"
 
-#: ../../mail.rst:416
+#: ../../mail.rst:419
 msgid ""
 "When a message is received from another mail server (MTA), or from a mail"
 " user agent (MUA), Postfix determines if and how to relay it towards its "
@@ -5891,7 +5876,7 @@ msgid ""
 "authorization and the domain suffix of the recipient address."
 msgstr ""
 
-#: ../../mail.rst:421
+#: ../../mail.rst:424
 msgid ""
 "If the domain is handled by Postfix (i.e. it is listed in "
 ":ref:`email_domains`) the message is delivered locally."
@@ -5899,7 +5884,7 @@ msgstr ""
 "Se il dominio è gestito da Postfix (cioè è elencato in "
 ":ref:`email_domains`) il messaggio viene consegnato localmente."
 
-#: ../../mail.rst:424
+#: ../../mail.rst:427
 msgid ""
 "Otherwise, if the domain is external and relay authorization is valid, "
 "the destination server (also known as the \"next-hop\" server) is "
@@ -5909,7 +5894,7 @@ msgstr ""
 "valida, il server di destinazione (noto anche come server \"next-hop\") "
 "viene risolto utilizzando una query DNS MX."
 
-#: ../../mail.rst:428
+#: ../../mail.rst:431
 msgid ""
 "The ``Relay`` page allows to configure a set of rules that overrides the "
 "external domain resolution based on DNS."
@@ -5917,33 +5902,33 @@ msgstr ""
 "La pagina ``Relay`` consente di configurare un insieme di regole che "
 "sovrascrive la risoluzione di dominio esterno basata su DNS."
 
-#: ../../mail.rst:431
+#: ../../mail.rst:434
 msgid "To configure IP-based relay authorization, see :ref:`mail-relay-settings`."
 msgstr ""
 "Per configurare l'autorizzazione a relè basata su IP, vedere :ref:`mail-"
 "relay-settings`."
 
-#: ../../mail.rst:434
+#: ../../mail.rst:437
 msgid "Rules priority"
 msgstr "Regole prioritarie"
 
-#: ../../mail.rst:436
+#: ../../mail.rst:439
 msgid "Relay rules can be of three types:"
 msgstr "Le regole di relè possono essere di tre tipi:"
 
-#: ../../mail.rst:438
+#: ../../mail.rst:441
 msgid "Recipient rule."
 msgstr "Regola sensibile."
 
-#: ../../mail.rst:440
+#: ../../mail.rst:443
 msgid "Sender rule."
 msgstr "Regola del mittente."
 
-#: ../../mail.rst:442
+#: ../../mail.rst:445
 msgid "Default rule. Only one default rule is allowed."
 msgstr "Regola di default. È consentita solo una regola predefinita."
 
-#: ../../mail.rst:444
+#: ../../mail.rst:447
 msgid ""
 "The rules evaluation order is Recipient, Sender, Default: the first "
 "matching rule is applied. A match occurs based on the message sender or "
@@ -5956,7 +5941,7 @@ msgstr ""
 " una regola predefinita (che corrisponde a qualsiasi mittente e "
 "destinatario)."
 
-#: ../../mail.rst:449
+#: ../../mail.rst:452
 msgid ""
 "Sender and Recipient matches can be an exact correspondence of the full "
 "email address, or match only the domain suffix. In the rules evaluation "
@@ -5968,11 +5953,11 @@ msgstr ""
 " corrispondenza esatta viene valutata prima della corrispondenza del "
 "suffisso di dominio."
 
-#: ../../mail.rst:454
+#: ../../mail.rst:457
 msgid "Managing rules"
 msgstr "Gestione delle regole"
 
-#: ../../mail.rst:456
+#: ../../mail.rst:459
 msgid ""
 "Click on button :guilabel:`Add relay rule` to define a Sender or a "
 "Recipient rule. Specify the rule type and subject value (sender or "
@@ -5982,7 +5967,7 @@ msgstr ""
 "o una regola Recipiente. Specificare il tipo di regola e il valore "
 "soggetto (sender o destinatario), quindi riempire i campi rimanenti:"
 
-#: ../../mail.rst:460
+#: ../../mail.rst:463
 msgid ""
 "**Hostname**, the name or IP address of the server where the message is "
 "relayed if the rule match."
@@ -5990,18 +5975,18 @@ msgstr ""
 "**Hostname**, il nome o l'indirizzo IP del server in cui il messaggio "
 "viene relè se la regola corrisponde."
 
-#: ../../mail.rst:462
+#: ../../mail.rst:465
 #, fuzzy
 msgid "**Port**, the TCP port number used by the server."
 msgstr "``Port Number`` TCP port used by the LDAP server."
 
-#: ../../mail.rst:464
+#: ../../mail.rst:467
 msgid ""
 "**Authentication**. If the server requires SMTP authentication provide "
 "the necessary credentials here."
 msgstr ""
 
-#: ../../mail.rst:466
+#: ../../mail.rst:469
 msgid ""
 "**TLS**. Enable this switch if the server expects TLS or STARTTLS "
 "encryption. It is recommended to enable it to encrypt both credentials "
@@ -6011,7 +5996,7 @@ msgstr ""
 "crittografia TLS o STARTTLS. Si consiglia di abilitarlo a crittografare "
 "sia le credenziali che i dati durante le connessioni SMTP."
 
-#: ../../mail.rst:470
+#: ../../mail.rst:473
 msgid ""
 "The :guilabel:`Set default rule` defines a rule that matches if none of "
 "the remaining rules do, or if no rule is defined at all. This type of "
@@ -6024,7 +6009,7 @@ msgstr ""
 "`smarthost`__, un server di posta in cui vengono trasmessi messaggi di "
 "posta per domini esterni."
 
-#: ../../mail.rst:477
+#: ../../mail.rst:480
 msgid ""
 "When a Default or Recipient rule is created or modified, existing rules "
 "of the same type with the same Hostname and Port combination are updated "
@@ -6041,14 +6026,14 @@ msgstr ""
 "utilizzino credenziali coerenti e preferenze TLS, indipendentemente "
 "dall'indirizzo di destinazione."
 
-#: ../../mail.rst:484
+#: ../../mail.rst:487
 msgid ""
 "Once created, a rule can be edited, disabled or deleted from the three-"
 "dots menu. When a rule is edited, the rule type and subject cannot be "
 "changed: delete it instead."
 msgstr ""
 
-#: ../../mail.rst:488
+#: ../../mail.rst:491
 msgid ""
 "See also :ref:`mail-relay-settings` for other configurations about the "
 "relay of messages towards other mail servers. In the ``Relay`` page, the "
@@ -6058,13 +6043,13 @@ msgstr ""
 "dei messaggi verso altri server di posta. Nella pagina ``Relay``, il "
 "pulsante :guilabel:`Settings` porta a loro."
 
-#: ../../mail.rst:496 ../../nethvoice.rst:228 ../../nethvoice.rst:373
+#: ../../mail.rst:499 ../../nethvoice.rst:228 ../../nethvoice.rst:373
 #: ../../nethvoice.rst:1277
 #, fuzzy
 msgid "Settings"
 msgstr "Settings"
 
-#: ../../mail.rst:498
+#: ../../mail.rst:501
 #, fuzzy
 msgid ""
 "Application settings are split up and accessible under the cards "
@@ -6073,11 +6058,11 @@ msgstr ""
 "Module settings are split up and accessible under the cards described by "
 "the following sections."
 
-#: ../../mail.rst:504
+#: ../../mail.rst:507
 msgid "General settings"
 msgstr "Impostazioni generali"
 
-#: ../../mail.rst:506
+#: ../../mail.rst:509
 #, fuzzy
 msgid ""
 "The following values are set at application first configuration time. "
@@ -6086,7 +6071,7 @@ msgstr ""
 "The following values are set at module first configuration time. They "
 "should not be changed in production:"
 
-#: ../../mail.rst:509
+#: ../../mail.rst:512
 #, fuzzy
 msgid ""
 "``Mail server hostname`` configures how the MTA identifies itself with "
@@ -6097,7 +6082,7 @@ msgstr ""
 "other MTAs. To successfully receive email messages, use this host name to"
 " configure the following DNS records:"
 
-#: ../../mail.rst:513
+#: ../../mail.rst:516
 #, fuzzy
 msgid ""
 "`A` record, resolving the Mail server hostname to the public and static "
@@ -6106,24 +6091,24 @@ msgstr ""
 "`A` record, resolving the Mail server hostname to the public and static "
 "IP address of the server"
 
-#: ../../mail.rst:516
+#: ../../mail.rst:519
 #, fuzzy
 msgid "`PTR` record, resolving back the IP address to the Mail server hostname."
 msgstr "`PTR` record, resolving back the IP address to the Mail server hostaname"
 
-#: ../../mail.rst:519
+#: ../../mail.rst:522
 #, fuzzy
 msgid ""
 "`MX` records, one for each mail domain handled by the Mail application "
 "instance."
 msgstr "`MX` records, one for each mail domain handled by the Mail module instance"
 
-#: ../../mail.rst:522
+#: ../../mail.rst:525
 #, fuzzy
 msgid "`TXT` records, as specified by DKIM, SPF and DMARC."
 msgstr "`TXT` records, as specified by DKIM, SPF and DMARC"
 
-#: ../../mail.rst:524
+#: ../../mail.rst:527
 #, fuzzy
 msgid ""
 "``User domain`` selects a LDAP database with user, groups and passwords. "
@@ -6136,12 +6121,12 @@ msgstr ""
 "still accessible if the same user name is present in both the old and the"
 " new database."
 
-#: ../../mail.rst:534
+#: ../../mail.rst:537
 #, fuzzy
 msgid "Under the ``Mailboxes`` card you can configure the ``Default mail quota``."
 msgstr "Under the ``Mailboxes`` card you can configure the ``Default mail quota``."
 
-#: ../../mail.rst:536
+#: ../../mail.rst:539
 #, fuzzy
 msgid ""
 "If the general mailbox quota is enabled, the ``Mailboxes`` page "
@@ -6152,7 +6137,7 @@ msgstr ""
 "summarizes the quota usage for each user. This summary is updated when a "
 "user logs in or a message is delivered."
 
-#: ../../mail.rst:540
+#: ../../mail.rst:543
 #, fuzzy
 msgid ""
 "Under the ``Shared mailboxes`` section, ``Shared seen`` selects if the "
@@ -6165,7 +6150,7 @@ msgstr ""
 "*seen* flag is used to mark if a message has been read or not. In a "
 "shared mailbox, each user can access the same message."
 
-#: ../../mail.rst:545
+#: ../../mail.rst:548
 #, fuzzy
 msgid ""
 "If users accessing the shared mailbox prefer to know if a mail has "
@@ -6176,7 +6161,7 @@ msgstr ""
 "already been read by someone else, set ``Shared seen`` to ``enabled`` "
 "(default)."
 
-#: ../../mail.rst:549
+#: ../../mail.rst:552
 #, fuzzy
 msgid ""
 "If users accessing the shared mailbox are not interested if a message has"
@@ -6185,7 +6170,7 @@ msgstr ""
 "If users accessing the shared mailbox are not interested if a message has"
 " been already read by someone else, set ``Shared seen`` to ``disabled``."
 
-#: ../../mail.rst:553
+#: ../../mail.rst:556
 #, fuzzy
 msgid ""
 "Messages marked as **spam** (see :ref:`email_filter`) can be "
@@ -6200,12 +6185,12 @@ msgstr ""
 " after a period of time. You can configure it from the ``Default spam "
 "retention`` option."
 
-#: ../../mail.rst:562
+#: ../../mail.rst:565
 #, fuzzy
 msgid "Master users"
 msgstr "Master users"
 
-#: ../../mail.rst:564
+#: ../../mail.rst:567
 #, fuzzy
 msgid ""
 "Under the ``Master users`` card, you can setup a user that can "
@@ -6216,22 +6201,22 @@ msgstr ""
 "impersonate another user, gaining full rights to any mailbox contents and"
 " folder permissions."
 
-#: ../../mail.rst:567
+#: ../../mail.rst:570
 #, fuzzy
 msgid "Credentials are accepted by the IMAP server:"
 msgstr "Credentials are accepted by the IMAP server:"
 
-#: ../../mail.rst:569
+#: ../../mail.rst:572
 #, fuzzy
 msgid "user name of the master user, e.g. ``master``"
 msgstr "user name of the master user, eg. ``master``"
 
-#: ../../mail.rst:570
+#: ../../mail.rst:573
 #, fuzzy
 msgid "master user password"
 msgstr "master user password"
 
-#: ../../mail.rst:572
+#: ../../mail.rst:575
 #, fuzzy
 msgid ""
 "For instance, to access as ``john`` with root password ``secr3t``, use "
@@ -6240,22 +6225,22 @@ msgstr ""
 "For instance, to access as ``john`` with root password ``secr3t``, use "
 "the following credentials:"
 
-#: ../../mail.rst:575
+#: ../../mail.rst:578
 #, fuzzy
 msgid "user name: ``john*master``"
 msgstr "user name: ``john*master``"
 
-#: ../../mail.rst:576
+#: ../../mail.rst:579
 #, fuzzy
 msgid "password: ``secr3t``"
 msgstr "password: ``secr3t``"
 
-#: ../../mail.rst:581
+#: ../../mail.rst:584
 #, fuzzy
 msgid "Queue settings"
 msgstr "Impostazioni generali"
 
-#: ../../mail.rst:583
+#: ../../mail.rst:586
 msgid ""
 "The ``Maximal queue lifetime`` parameter defines how many hours a message"
 " can remain in the mail queue before it is returned to the sender."
@@ -6263,7 +6248,7 @@ msgstr ""
 "Il parametro ``Maximal code life``` definisce quante ore un messaggio può"
 " rimanere nella coda della posta prima che venga restituito al mittente."
 
-#: ../../mail.rst:586
+#: ../../mail.rst:589
 msgid ""
 "The default value, 120 hours (5 days), is the retry time suggested by "
 "RFC5321. Lower values might be set to warn the sender early if some error"
@@ -6278,12 +6263,12 @@ msgstr ""
 " è in un elenco di blocco pubblico, il mittente del messaggio verrà "
 "notificato dopo 5 giorni: potrebbe essere considerato troppo tardi."
 
-#: ../../mail.rst:595
+#: ../../mail.rst:598
 #, fuzzy
 msgid "Relay settings"
 msgstr "Impostazioni generali"
 
-#: ../../mail.rst:597
+#: ../../mail.rst:600
 msgid ""
 "This section controls the Mail application configuration for special "
 "scenarios, described in the following sections."
@@ -6291,11 +6276,11 @@ msgstr ""
 "Questa sezione controlla la configurazione dell'applicazione Mail per "
 "scenari speciali, descritti nelle sezioni seguenti."
 
-#: ../../mail.rst:601
+#: ../../mail.rst:604
 msgid "IP-based relay"
 msgstr "Relè basato su IP"
 
-#: ../../mail.rst:603
+#: ../../mail.rst:606
 msgid ""
 "Some old mail clients, like scanners, which provide limited software "
 "capabilities, might not support SMTP authentication or encryption: in "
@@ -6309,7 +6294,7 @@ msgstr ""
 "autorizzare il relè di messaggi a domini esterni guardando il loro "
 "indirizzo IP anziché il controllo delle solite credenziali."
 
-#: ../../mail.rst:608
+#: ../../mail.rst:611
 msgid ""
 "List the IP address of such devices in the ``Allow relay from these IP "
 "addresses`` field. The address can be in IPv4 or IPv6 format. The IP "
@@ -6321,22 +6306,22 @@ msgstr ""
 "politica basata su IP può essere diffusa in un'intera rete, "
 "specificandola in formato CIDR."
 
-#: ../../mail.rst:612
+#: ../../mail.rst:615
 msgid "For example, a value for the field can be"
 msgstr "Ad esempio, un valore per il campo può essere"
 
-#: ../../mail.rst:619
+#: ../../mail.rst:622
 msgid ""
 "The IP address *192.168.12.42* (e.g. a document scanner) and the clients "
 "in the network subnet *10.77.4.0/24* can send mail messages without "
 "providing SMTP authentication."
 msgstr ""
 
-#: ../../mail.rst:624
+#: ../../mail.rst:627
 msgid "Sender/login correspondence"
 msgstr "Sender/login corrispondenza"
 
-#: ../../mail.rst:626
+#: ../../mail.rst:629
 msgid ""
 "To avoid the unauthorized use of email addresses and the sender address "
 "spoofing within the organization, enable the ``Enforce sender/login "
@@ -6346,7 +6331,7 @@ msgstr ""
 "dell'indirizzo del mittente all'interno dell'organizzazione, abilitare "
 "l'interruttore ``Enforce sender/login match`."
 
-#: ../../mail.rst:630
+#: ../../mail.rst:633
 msgid ""
 "If the switch is enabled the sender address of a message must correspond "
 "to the login name used by the mail client to connect with the mail "
@@ -6359,7 +6344,7 @@ msgstr ""
 ":ref:`email_addresses` per vedere quali sono gli indirizzi che può "
 "utilizzare."
 
-#: ../../mail.rst:635
+#: ../../mail.rst:638
 msgid ""
 "For example, with that switch enabled, if user ``john`` has email address"
 " ``john.doe@example.org`` he cannot write an email message with a "
@@ -6370,7 +6355,7 @@ msgstr ""
 " e-mail con un indirizzo diverso del mittente, come "
 "``sarah.smith@example.org`."
 
-#: ../../mail.rst:639
+#: ../../mail.rst:642
 msgid ""
 "If the switch is disabled, as per default Mail configuration, an "
 "authenticated mail client is allowed to send messages using any sender "
@@ -6383,7 +6368,7 @@ msgstr ""
 "esempio ``john` potrebbe scrivere il messaggio anche come "
 "``sarah.smith@example.org`."
 
-#: ../../mail.rst:646
+#: ../../mail.rst:649
 msgid ""
 "If you decide to enable the switch consider that public mailboxes and "
 "LDAP group addresses are not evaluated for the login/address "
@@ -6393,18 +6378,18 @@ msgstr ""
 "posta pubbliche e gli indirizzi di gruppo LDAP non sono valutati per la "
 "corrispondenza login/indirizzo."
 
-#: ../../mail.rst:653
+#: ../../mail.rst:656
 #, fuzzy
 msgid "Mail archive"
 msgstr "Mail archiving"
 
-#: ../../mail.rst:655
+#: ../../mail.rst:658
 msgid ""
 "The ``Always BCC`` switch controls a feature often required by mail "
 "archiving solutions."
 msgstr ""
 
-#: ../../mail.rst:658
+#: ../../mail.rst:661
 msgid ""
 "The acronym BCC stands for Blind Carbon Copy. When the switch is enabled,"
 " enter a value in the ``Always BCC address`` field: this address will "
@@ -6416,7 +6401,7 @@ msgstr ""
 "indirizzo riceverà una copia nascosta di qualsiasi messaggio di posta "
 "elettronica inviato o ricevuto dal server Mail."
 
-#: ../../mail.rst:665
+#: ../../mail.rst:668
 msgid ""
 "Making a hidden copy of private email messages is a privacy-sensitive "
 "feature. Ensure its use complies with your country's privacy laws, "
@@ -6427,7 +6412,7 @@ msgstr ""
 "conforme alle leggi sulla privacy del vostro paese, alle normative e alle"
 " politiche aziendali."
 
-#: ../../mail.rst:669
+#: ../../mail.rst:672
 msgid ""
 "The :ref:`Piler application <piler-section>` can automatically configure "
 "this field with the appropriate value, such as ``archive@piler1`` or "
@@ -6439,12 +6424,12 @@ msgstr ""
 "``archive@piler1` o simili. In questo caso, cambiare l'indirizzo potrebbe"
 " impedire a Piler di archiviare nuovi messaggi."
 
-#: ../../mail.rst:678
+#: ../../mail.rst:681
 #, fuzzy
 msgid "Client configuration"
 msgstr "Client configuration"
 
-#: ../../mail.rst:680
+#: ../../mail.rst:683
 #, fuzzy
 msgid ""
 "The server supports standard-compliant email clients using the following "
@@ -6453,27 +6438,27 @@ msgstr ""
 "The server supports standard-compliant email clients using the following "
 "IANA ports:"
 
-#: ../../mail.rst:683
+#: ../../mail.rst:686
 #, fuzzy
 msgid "imap/143"
 msgstr "imap/143"
 
-#: ../../mail.rst:684
+#: ../../mail.rst:687
 #, fuzzy
 msgid "pop3/110"
 msgstr "pop3/110"
 
-#: ../../mail.rst:685
+#: ../../mail.rst:688
 #, fuzzy
 msgid "smtp/587"
 msgstr "smtp/587"
 
-#: ../../mail.rst:686
+#: ../../mail.rst:689
 #, fuzzy
 msgid "sieve/4190"
 msgstr "sieve/4190"
 
-#: ../../mail.rst:688
+#: ../../mail.rst:691
 #, fuzzy
 msgid ""
 "Authentication requires the STARTTLS command and supports the following "
@@ -6482,16 +6467,16 @@ msgstr ""
 "Authentication requires the STARTTLS command and supports the following "
 "variants:"
 
-#: ../../mail.rst:691
+#: ../../mail.rst:694
 msgid "LOGIN"
 msgstr "LOGIN"
 
-#: ../../mail.rst:692
+#: ../../mail.rst:695
 #, fuzzy
 msgid "PLAIN"
 msgstr "PLAIN"
 
-#: ../../mail.rst:694
+#: ../../mail.rst:697
 #, fuzzy
 msgid ""
 "Also the following TLS-enabled ports are available for legacy software "
@@ -6500,22 +6485,22 @@ msgstr ""
 "Also the following SSL-enabled ports are available for legacy software "
 "that still does not support STARTTLS:"
 
-#: ../../mail.rst:697
+#: ../../mail.rst:700
 #, fuzzy
 msgid "imaps/993"
 msgstr "imaps/993"
 
-#: ../../mail.rst:698
+#: ../../mail.rst:701
 #, fuzzy
 msgid "pop3s/995"
 msgstr "pop3s/995"
 
-#: ../../mail.rst:699
+#: ../../mail.rst:702
 #, fuzzy
 msgid "smtps/465"
 msgstr "smtps/465"
 
-#: ../../mail.rst:703
+#: ../../mail.rst:706
 #, fuzzy
 msgid ""
 "The standard SMTP port 25 is reserved for mail transfers between MTA "
@@ -6524,7 +6509,7 @@ msgstr ""
 "The standard SMTP port 25 is reserved for mail transfers between MTA "
 "servers. Mail user agents (MUA) must use the submission port."
 
-#: ../../mail.rst:706
+#: ../../mail.rst:709
 msgid ""
 "Refer to the :ref:`Webtop application <email_autoconfig>` for the "
 "implementation of automatic configuration protocols like Autodiscover and"
@@ -24151,4 +24136,84 @@ msgstr ""
 #~ " configured for the WebTop mail "
 #~ "domain (e.g. ``example.org``)."
 #~ msgstr ""
+
+#~ msgid ""
+#~ "If a domain is deleted, email will"
+#~ " not be deleted; any message already"
+#~ " received is preserved."
+#~ msgstr ""
+#~ "Se un dominio viene cancellato, l'email"
+#~ " non verrà cancellata; qualsiasi messaggio"
+#~ " già ricevuto viene conservato."
+
+#~ msgid ""
+#~ "If the ``Add user addresses from "
+#~ "user domain`` option is disabled, you"
+#~ " can enable the ``Accept unknown "
+#~ "recipients`` switch and select a mailbox"
+#~ " that will catch all messages sent"
+#~ " to non-existing addresses."
+#~ msgstr ""
+#~ "Se l'opzione ``Add user address from "
+#~ "user domain`` è disabilitata, è "
+#~ "possibile attivare l'opzione ``Accetta "
+#~ "destinatari sconosciuti`` e selezionare una"
+#~ " casella di posta che cattura tutti"
+#~ " i messaggi inviati in indirizzi non"
+#~ " esistenti."
+
+#~ msgid ""
+#~ "Mail allows storing a hidden copy "
+#~ "of all messages directed to a "
+#~ "particular domain: they will be "
+#~ "delivered to the final recipient *and"
+#~ " also* to a custom email address. "
+#~ "The hidden copy is enabled by the"
+#~ " ``Copy inbound messages`` switch."
+#~ msgstr ""
+#~ "NethServer allows storing a hidden copy"
+#~ " of all messages directed to a "
+#~ "particular domain: they will be "
+#~ "delivered to the final recipient *and"
+#~ " also* to a custom email address. "
+#~ "The hidden copy is enabled by the"
+#~ " :guilabel:`Copy inbound messages` switch."
+
+#~ msgid ""
+#~ "On some countries, enabling the *Copy"
+#~ " inbound messages* switch can be "
+#~ "against privacy laws."
+#~ msgstr ""
+#~ "On some countries, enabling the *Copy"
+#~ " inbound messages* switch can be "
+#~ "against privacy laws."
+
+#~ msgid ""
+#~ "If the final recipient cannot be "
+#~ "reached (i.e. the recipient address does"
+#~ " not exist), the message is normally"
+#~ " rejected. Sometimes (i.e. when a "
+#~ "mail domain is migrated) it could "
+#~ "be useful to accept it and "
+#~ "silently deliver the message to a "
+#~ "catch-all mailbox. This behavior can "
+#~ "be achieved by enabling the ``Accept "
+#~ "unknown recipients`` option. This "
+#~ "configuration is available only if ``Add"
+#~ " user address from user domain`` "
+#~ "option is disabled."
+#~ msgstr ""
+#~ "If the final recipient cannot be "
+#~ "reached (i.e. the recipient address does"
+#~ " not exist), the message is normally"
+#~ " rejected. Sometimes (i.e. when a "
+#~ "mail domain is migrated) it could "
+#~ "be useful to accept it and "
+#~ "silently deliver the message to a "
+#~ "catch-all mailbox. This behavior can "
+#~ "be achieved by enabling the ``Accept "
+#~ "unknown recipients`` option. This "
+#~ "configuration is available only if ``Add"
+#~ " user address from user domain`` "
+#~ "option is disabled."
 
