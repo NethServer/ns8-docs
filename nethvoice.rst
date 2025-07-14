@@ -40,6 +40,9 @@ During the first configuration wizard, you will be prompted to provide the follo
 * ``Request Let's Encrypt certificate``: If enabled, a Let's Encrypt certificate will be requested for each of the two hosts.
 * ``Reports Prefix``: Insert the international telephone prefix to be considered local in the reporting system.
 * ``Reset NethVoice admin password to access user interface``: Insert a valid password for the NethVoice administrator user (optional, the default password is *Nethesis,1234*).
+* ``Enable Hotel module``: Enable/Disable Hotel module :ref:`NethHotel <nethhotel-section>`
+* ``Hotel FIAS server host``: Insert Hotel PMS server host.
+* ``Hotel FIAS server port``: Insert Hotel PMS server port.
 
 After saving the configuration parameters, NethVoice will be accessible on its base host with the administration credentials:
 
@@ -1330,3 +1333,186 @@ All users who have that profile will be enabled to use the newly created URL.
 .. note::
   * Only one URL can be associated with a profile.
   * For the URL to be invoked, it is necessary for the end user to have enabled pop-up display in their browser!
+
+.. _nethhotel-section:
+
+NethHotel
+=========
+
+NethHotel is a module of NethVoice that allows the management of extensions properly configured as hotel rooms.
+By default, access to NethHotel is granted to the admin user.
+
+Main Features:
+
+* Room Check-in/Check-out
+* Wake-up Call
+* Group Wake-up Call
+* Call Reports
+* Customizable Rates
+* Speed Dial Numbers
+* Call History
+* Enable/Disable Calls Between Rooms
+
+Configuration
+-------------
+
+NethHotel can be enabled within the NethVoice instance configuration.
+From this section, you can also specify the address and port of the FIAS server, if available.
+
+After enabling the NethHotel module, some configurations are required on the NethVoice side:
+
+* In the advanced interface of NethVoice, go to ``Connectivity > Outbound Routes``, and create a dedicated outbound route for the hotel rooms. This route should use a prefix (typically 0) and be placed at the end of the route list. Click Save and Apply Configuration.
+
+* From the NethVoice wizard page, access the Hotel profile and enable the newly created outbound route.
+
+* Add the room extensions to the hotel profile, either from the NethVoice configuration panel or via the Multiple Extension Management tool.
+
+* All extensions included in the hotel profile will automatically be managed by NethHotel.
+
+
+How to configure the PBX
+------------------------
+
+We recommend configuring the PBX as follows:
+
+* All room extensions must be added to the hotel profile via the Configurations section or by using the Multiple Extension Management application.
+
+* Service extensions, such as the reception, should not be added to the hotel profile and must be configured as standard extensions, following the hotel's usual numbering policy.
+For example, if room extensions range from 201 to 299, the reception extension should always be a three-digit number outside this range, such as 200 or 300.
+To allow rooms to call reception, a speed dial number should be configured. Service extensions, however, can call each other directly.
+
+* It is advisable to use a separate Outbound Route without a prefix for service extensions, different from the one used for room extensions.
+
+Phone Feature Codes
+-------------------
+
+In the NethVoice PBX management interface, under Service Codes, you can find the codes to use NethHotel features directly from the phones.
+For example, to add an extra charge to a room, you would dial:
+
+   ``*33 + Room Extension + # + Extra ID + # + Quantity``
+
+Room Management
+---------------
+
+On the main page, all configured extensions are listed. Rooms are divided into tabs based on the numeric value of the callgroup field of the telephone extension, which can be configured from the NethVoice interface.
+Available rooms are marked in green, the rooms that have already checked in are marked in red while te rooms that need cleaning are marked in yellow.
+
+All available functions are presented directly within the room’s panel. It is also possible to use the contextual menu by right-clicking.
+
+Wake-up Call
+^^^^^^^^^^^^
+
+The wake-up call can be scheduled either as a one-time event or repeated over multiple days. Each guest can set the wake-up call for their room by dialing the number
+
+``977``
+
+Groups
+------
+
+It is possible to group multiple rooms into a single group. This allows performing actions (check-in, check-out, wake-up call) on all rooms in the group simultaneously, and to define call policies for group members in the settings (e.g., enabling calls between rooms, between all rooms, or allowing external calls).
+
+Add an Extra
+------------
+
+To add an extra to a room, simply click the corresponding icon.
+
+Report
+------
+
+To generate a bill report for currently occupied rooms, click the related icon.
+The report includes a detailed list of all calls and extras, with a final summary showing the total amount in real time.
+
+Rates
+-----
+
+NethHotel includes a default set of call rates based on the type of call (e.g., mobile, local, etc.).
+You can modify existing rates or create new ones. It is also possible to enable or disable calls to specific number types.
+
+Extras
+------
+
+Extras can be configured within the system and later assigned to rooms either via the web interface or directly from the phone.
+
+For example, to charge three units of the extra with code 99 to room 201, simply dial:
+
+``*33201#99#3 will charge three units of the extra with code 99 to room 201``
+
+Options
+-------
+
+* The general options include:
+
+* Configuration of the prefix for making external calls
+
+* Extension number format
+
+* Enable/disable calls between rooms
+
+* Enable/disable calls between rooms belonging to the same group
+
+* Enable/disable external calls
+
+* Enable/disable calls between rooms that have not checked in
+
+* Extension to contact in case of missed wake-up call alarms
+
+* Enable the Room Cleaning feature
+
+* Enable the code for Room Cleaning status update
+
+* Language for reception messages, which will also act as a fallback language for rooms without specific settings
+
+Speed Dial Numbers
+------------------
+
+The Speed Dial Numbers section allows you to define shortcuts to quickly call predefined extensions, for example, dialing `9` to reach the reception.
+You can also associate a speed dial number with one of the time groups configured in the NethVoice PBX management interface.
+This lets you set up two destinations for the call: one if the time condition is met (Destination), and another if it is not (Otherwise).
+
+Call History
+------------
+
+If you need to review all calls made from the rooms, you can use the History section.
+Call history can be filtered by date and room number, making it easy to track and analyze call activity.
+
+FIAS
+====
+
+NethHotel can be connected to a hotel Property Management System (PMS) such as Oracle Opera, or any other system compatible with the FIAS data exchange protocol.
+NethVoice is Oracle certified, ensuring smooth integration.
+
+By connecting NethHotel to a compatible PMS, the following functions can be managed directly from the PMS interface:
+
+* Check-in, with automatic activation of the room phone
+
+* Check-out
+
+* Wake-up call scheduling and status reporting
+
+* Billing of calls made from the room
+
+* Billing of minibar items and other extras, including via telephone codes
+
+* Setting the guest's audio message language based on the language of the reservation
+
+Oracle and FIAS Versions:
+
+* Oracle Hospitality OPERA: 5.5
+
+* Oracle Hospitality Interface IFC8: 8.14.7.0
+
+* FIAS Protocol Version: Fidelio Interface Application Specification (FIAS) 2.20.23
+
+Minimum Required Versions of Oracle PMS
+(Higher versions are also compatible):
+
+* Opera 5 PMS
+
+* V5.0.03.03 E43
+
+* V5.0.04.01 E24
+
+* V5.0.04.02 E17
+
+* V5.0.04.03 E10
+
