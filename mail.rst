@@ -338,7 +338,7 @@ on the follwing criteria:
 
 Note that address and domain-based rules match the *envelope sender
 address*, which may differ from the message's "From" address in some cases
-(e.g., mailing lists).
+(e.g. mailing lists).
 
 To view message details such as the envelope sender address, access
 advanced settings, or review recent Rspamd activity, open the Rspamd web
