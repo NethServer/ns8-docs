@@ -336,10 +336,15 @@ on the follwing criteria:
 
 * Recipient email domain (exact match).
 
-To access additional settings and review recent Rspamd activity, navigate
-to the web interface of Rspamd by selecting the :guilabel:`Open Rspamd`
-button located in the top-right corner of the Filter page. You'll need to
-provide your cluster-admin credentials for authentication.
+Note that address and domain-based rules match the *envelope sender
+address*, which may differ from the message's "From" address in some cases
+(e.g. mailing lists).
+
+To view message details such as the envelope sender address, access
+advanced settings, or review recent Rspamd activity, open the Rspamd web
+interface by clicking the :guilabel:`Open Rspamd` button in the top-right
+corner of the Filter page. You will need your cluster-admin credentials to
+log in.
 
 The Bayesian statistical filters can then be trained with any IMAP client
 by simply moving a message in and out of the Junk folder. As a
