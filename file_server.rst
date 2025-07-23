@@ -161,16 +161,26 @@ browseable/browsable* attribute.
 Recycle bin
 -----------
 
-The ``Keep deleted files in a recycle bin`` switch enables a special "Recycle bin"
-subfolder where files or directories are moved instead of being deleted when
-network clients attempt to delete them.
+The ``Keep deleted files in a recycle bin`` switch enables a special
+``.recycle`` subfolder where files or directories are moved instead of
+being permanently deleted when users attempt to remove them from the
+share.
 
-- **Retention**: If a limited number of days is set, a daily automated
-  procedure erases Recycle bin contents older than the specified number of days (default: 30).
+Deleted content is placed in a private subfolder automatically created
+under the ``.recycle`` subfolder. This private subfolder is named after
+the user and is accessible only to the user who deleted the content and
+the Administrator.
 
-- **When files with the same name are deleted**: Determines whether to keep just a
-  single version of a deleted file with a given name, or multiple versions
-  of it.
+When the switch is enabled, two additional options become available:
+
+- **Retention**: If a limit is set, a daily automated task removes items
+  in the ``.recycle`` subfolder that are older than the specified number
+  of days (default: 30).
+
+- **When files with the same name are deleted**: Determines whether to
+  keep only the latest version of a deleted file with the same name, or
+  preserve multiple versions.
+
 
 .. _share-selective-restore:
 
