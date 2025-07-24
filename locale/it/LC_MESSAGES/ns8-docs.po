@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-22 08:52+0000\n"
+"POT-Creation-Date: 2025-07-24 09:42+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -3322,30 +3322,43 @@ msgstr ""
 #: ../../file_server.rst:164
 msgid ""
 "The ``Keep deleted files in a recycle bin`` switch enables a special "
-"\"Recycle bin\" subfolder where files or directories are moved instead of"
-" being deleted when network clients attempt to delete them."
+"``.recycle`` subfolder where files or directories are moved instead of "
+"being permanently deleted when users attempt to remove them from the "
+"share."
 msgstr ""
 
-#: ../../file_server.rst:168
+#: ../../file_server.rst:169
 msgid ""
-"**Retention**: If a limited number of days is set, a daily automated "
-"procedure erases Recycle bin contents older than the specified number of "
+"Deleted content is placed in a private subfolder automatically created "
+"under the ``.recycle`` subfolder. This private subfolder is named after "
+"the user and is accessible only to the user who deleted the content and "
+"the Administrator."
+msgstr ""
+
+#: ../../file_server.rst:174
+msgid "When the switch is enabled, two additional options become available:"
+msgstr ""
+
+#: ../../file_server.rst:176
+msgid ""
+"**Retention**: If a limit is set, a daily automated task removes items in"
+" the ``.recycle`` subfolder that are older than the specified number of "
 "days (default: 30)."
 msgstr ""
 
-#: ../../file_server.rst:171
+#: ../../file_server.rst:180
 msgid ""
 "**When files with the same name are deleted**: Determines whether to keep"
-" just a single version of a deleted file with a given name, or multiple "
-"versions of it."
+" only the latest version of a deleted file with the same name, or "
+"preserve multiple versions."
 msgstr ""
 
-#: ../../file_server.rst:178
+#: ../../file_server.rst:188
 #, fuzzy
 msgid "Restore a single file or folder from a shared folder backup"
 msgstr "Restore file server from backup"
 
-#: ../../file_server.rst:180
+#: ../../file_server.rst:190
 msgid ""
 "If the application has one or more backup destinations configured and a "
 "backup has already been executed, you can search for and restore a file "
@@ -3356,7 +3369,7 @@ msgstr ""
 " una cartella da un'istantanea di backup precedente di una specifica "
 "cartella condivisa."
 
-#: ../../file_server.rst:186 ../../mail.rst:185
+#: ../../file_server.rst:196 ../../mail.rst:185
 msgid ""
 "The procedure does not calculate the disk space usage required for the "
 "restore. Ensure sufficient disk space is available before proceeding."
@@ -3365,7 +3378,7 @@ msgstr ""
 "il ripristino. Assicurare sufficiente spazio su disco è disponibile prima"
 " di procedere."
 
-#: ../../file_server.rst:189
+#: ../../file_server.rst:199
 msgid ""
 "Navigate to the Samba application instance and open the Shared Folders "
 "page. Each shared folder is displayed as a card. From the three-dots menu"
@@ -3376,7 +3389,7 @@ msgstr ""
 "menu a tre punti della cartella condivisa desiderata, selezionare "
 "``Ripristina file o cartella``."
 
-#: ../../file_server.rst:193
+#: ../../file_server.rst:203
 msgid ""
 "Choose the backup destination from which to restore the contents. Loading"
 " remote destinations may take some time."
@@ -3384,7 +3397,7 @@ msgstr ""
 "Scegliere la destinazione di backup da cui ripristinare il contenuto. "
 "Caricamento di destinazioni remote può richiedere un po 'di tempo."
 
-#: ../../file_server.rst:196
+#: ../../file_server.rst:206
 msgid ""
 "Select the date of the backup snapshot to restore. Snapshots are listed "
 "from newest to oldest."
@@ -3392,7 +3405,7 @@ msgstr ""
 "Selezionare la data dell'istantanea di backup da ripristinare. Le istanze"
 " sono elencate da più nuovo a più vecchio."
 
-#: ../../file_server.rst:199
+#: ../../file_server.rst:209
 msgid ""
 "Start typing the name of the file or folder to restore. The search "
 "matches both the name and the relative path, starting from the root of "
@@ -3405,29 +3418,29 @@ msgstr ""
 " di nome che appaiono prima delle partite del percorso. Selezionare un "
 "elemento dai risultati."
 
-#: ../../file_server.rst:204
+#: ../../file_server.rst:214
 #, fuzzy
 msgid "Click :guilabel:`Restore` to initiate the restore process."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../file_server.rst:206
+#: ../../file_server.rst:216
 msgid ""
 "The selected item will be restored into a subfolder of the shared folder,"
 " named \"Restored folder\". This folder is readable by everyone, while "
 "its contents retain the ACLs from the backup."
 msgstr ""
 
-#: ../../file_server.rst:214
+#: ../../file_server.rst:224
 msgid "Clone a file server instance"
 msgstr ""
 
-#: ../../file_server.rst:216
+#: ../../file_server.rst:226
 msgid ""
 "When Samba has the Domain Member role, it is possible to clone it as "
 "described in :ref:`move_clone-section`."
 msgstr ""
 
-#: ../../file_server.rst:219
+#: ../../file_server.rst:229
 msgid ""
 "After the clone process finishes, navigate to the Samba application "
 "``Status`` page. The first-configuration procedure will start to acquire "
@@ -3436,12 +3449,12 @@ msgid ""
 "configuration`."
 msgstr ""
 
-#: ../../file_server.rst:228
+#: ../../file_server.rst:238
 #, fuzzy
 msgid "Restore file server from backup"
 msgstr "Restore file server from backup"
 
-#: ../../file_server.rst:230
+#: ../../file_server.rst:240
 #, fuzzy
 msgid ""
 "First, follow the procedure described in :ref:`application_restore-"
@@ -3450,32 +3463,32 @@ msgstr ""
 "First of all, apply the procedure described in :ref:`application_restore-"
 "section` by selecting the backup of the **Samba module**."
 
-#: ../../file_server.rst:234
+#: ../../file_server.rst:244
 msgid ""
 "After the restoration process completes, further actions may be needed to"
 " start the file server, depending on the original Samba role: member or "
 "controller."
 msgstr ""
 
-#: ../../file_server.rst:239
+#: ../../file_server.rst:249
 #, fuzzy
 msgid "Restore a domain member"
 msgstr "support for HTML messages"
 
-#: ../../file_server.rst:241
+#: ../../file_server.rst:251
 msgid ""
 "To complete the restoration of a **domain member**, navigate to the Samba"
 " application ``Status`` page."
 msgstr ""
 
-#: ../../file_server.rst:244
+#: ../../file_server.rst:254
 msgid ""
 "If the original IP address and user domain were found, the restore "
 "procedure automatically starts the file server. No manual operations are "
 "needed."
 msgstr ""
 
-#: ../../file_server.rst:248
+#: ../../file_server.rst:258
 msgid ""
 "Otherwise, the first-configuration procedure will start to acquire the "
 "missing information. In this case, a new computer account is created in "
@@ -3483,14 +3496,14 @@ msgid ""
 "configuration`."
 msgstr ""
 
-#: ../../file_server.rst:253
+#: ../../file_server.rst:263
 msgid ""
 "If you manually remove the original computer account, you may set the "
 "original name as the ``File server alias`` to provide seamless access to "
 "shared folders from network clients."
 msgstr ""
 
-#: ../../file_server.rst:257
+#: ../../file_server.rst:267
 msgid ""
 "To manage computer accounts of an NS8 internal Active Directory domain, "
 "invoke the ``samba-tool`` command from an NS8 node that hosts a Samba "
@@ -3498,15 +3511,15 @@ msgid ""
 "message: ::"
 msgstr ""
 
-#: ../../file_server.rst:264
+#: ../../file_server.rst:274
 msgid "Replace ``samba0`` with your correct DC module identifier."
 msgstr ""
 
-#: ../../file_server.rst:268
+#: ../../file_server.rst:278
 msgid "Restore a domain controller"
 msgstr ""
 
-#: ../../file_server.rst:270
+#: ../../file_server.rst:280
 #, fuzzy
 msgid ""
 "If the restored **domain controller** is the first in the domain, there "
@@ -3515,7 +3528,7 @@ msgstr ""
 "If the restored controller is the first of the domain there are two "
 "alternatives:"
 
-#: ../../file_server.rst:273
+#: ../../file_server.rst:283
 #, fuzzy
 msgid ""
 "If the system IP address is the same as the one used in the backup set, "
@@ -3525,7 +3538,7 @@ msgstr ""
 "If the system IP address is the same used in the backup set, DC services "
 "are started automatically and no further actions are required."
 
-#: ../../file_server.rst:276
+#: ../../file_server.rst:286
 #, fuzzy
 msgid ""
 "If the previous condition does not apply, DC services are started using "
@@ -3536,7 +3549,7 @@ msgstr ""
 "the system VPN IP address as fallback. A similar command is required to "
 "select another IP address in a second time: ::"
 
-#: ../../file_server.rst:282
+#: ../../file_server.rst:292
 #, fuzzy
 msgid ""
 "Replace ``samba0`` with the correct module identifier. Replace the "
@@ -3545,12 +3558,12 @@ msgstr ""
 "Replace `samba0` with the correct module identifier. Replace the "
 "`ipaddress` value with the correct IP address."
 
-#: ../../file_server.rst:285
+#: ../../file_server.rst:295
 #, fuzzy
 msgid "Otherwise, if one or more domain controllers already exist:"
 msgstr "Otherwise, if one or more domain controllers already exist:"
 
-#: ../../file_server.rst:287
+#: ../../file_server.rst:297
 #, fuzzy
 msgid ""
 "Go to the ``Domain and users`` page and open the :guilabel:`Unconfigured "
@@ -3559,18 +3572,18 @@ msgstr ""
 "go to ``Domain and users`` page and open the :guilabel:`Unconfigured "
 "provider` link;"
 
-#: ../../file_server.rst:290
+#: ../../file_server.rst:300
 #, fuzzy
 msgid "Fill the form to join a new DC to the domain."
 msgstr "fill the form to join a new DC to the domain."
 
-#: ../../file_server.rst:293 ../../log_server.rst:223
+#: ../../file_server.rst:303 ../../log_server.rst:223
 #: ../../software_center.rst:263 ../../user_domains.rst:416
 #, fuzzy
 msgid "Footnotes"
 msgstr "Footnotes"
 
-#: ../../file_server.rst:296
+#: ../../file_server.rst:306
 msgid ""
 "The guest access in SMB2 and SMB3 is disabled by default in Windows, see "
 "Microsoft `File server`_ documentation."
@@ -24486,4 +24499,29 @@ msgstr ""
 #~ " alto a destra della pagina Filtro."
 #~ " Dovrai fornire le credenziali di "
 #~ "cluster-admin per l'autenticazione."
+
+#~ msgid ""
+#~ "The ``Keep deleted files in a "
+#~ "recycle bin`` switch enables a special"
+#~ " \"Recycle bin\" subfolder where files "
+#~ "or directories are moved instead of "
+#~ "being deleted when network clients "
+#~ "attempt to delete them."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Retention**: If a limited number of"
+#~ " days is set, a daily automated "
+#~ "procedure erases Recycle bin contents "
+#~ "older than the specified number of "
+#~ "days (default: 30)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**When files with the same name "
+#~ "are deleted**: Determines whether to "
+#~ "keep just a single version of a"
+#~ " deleted file with a given name, "
+#~ "or multiple versions of it."
+#~ msgstr ""
 
