@@ -153,3 +153,9 @@ Known limitations
 
 - Imapsync does not integrate with :ref:`Piler <piler-section>`, meaning
   that messages transferred via Imapsync are not archived.
+
+- Messages copied by Imapsync do not trigger the Dovecot vacation (out-of-office)
+  auto-reply. If the local account has the vacation plugin enabled, remote
+  senders will not receive an automatic vacation response, 
+  because messages delivered via Imapsync lack the envelope attributes
+  required to properly compose and send the automated reply.
