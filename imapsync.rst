@@ -156,5 +156,6 @@ Known limitations
 
 - Messages copied by Imapsync do not trigger the Dovecot vacation (out-of-office)
   auto-reply. If the local account has the vacation plugin enabled, remote
-  senders will not receive an automatic vacation response, since messages
-  delivered via Imapsync are not processed by the sieve filter.
+  senders will not receive an automatic vacation response, 
+  because messages delivered via Imapsync lack the envelope attributes
+  required to properly compose and send the automated reply.
