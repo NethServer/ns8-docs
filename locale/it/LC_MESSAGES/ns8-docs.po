@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-07 08:56+0000\n"
+"POT-Creation-Date: 2025-08-22 10:32+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -12600,7 +12600,14 @@ msgstr ""
 " viene utilizzato solo all'interno di una rete locale, il campo indirizzo"
 " IP dovrebbe contenere l'indirizzo IP privato della macchina."
 
-#: ../../nethvoice_proxy.rst:36
+#: ../../nethvoice_proxy.rst:37
+msgid ""
+"If your public IP address changes due to connectivity changes, relocation"
+" of hardware or any other reasons, the new IP must be correctly "
+"configured in this section; otherwise, operational issues may occur."
+msgstr ""
+
+#: ../../nethvoice_proxy.rst:39
 msgid ""
 "Now, you can install and configure one ore more :ref:`NethVoice "
 "<nethvoice-section>` instances."
