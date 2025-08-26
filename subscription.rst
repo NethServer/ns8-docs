@@ -37,7 +37,7 @@ enabled:
 - Upload of leader node inventory
 - Scheduled updates for node operating systems, core components, and
   applications
-- Upload of cluster backup (Enterprise only)
+- Upload of cluster backup
 
 Regarding software repositories, only the ``subscription`` repository
 remains enabled.
