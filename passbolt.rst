@@ -20,17 +20,19 @@ required fields:
   obtain a valid encryption certificate.
 
 - **Admin mail address**: Enter the mail address of the Passbolt Admin. It's
-  used for password recovery.
+  used for password recovery. For example, if the FQDN changes and you want to
+  login to Passbolt, a recovery link mail is sent to the user. Follow that link
+  to recover your account.
 
 .. warning::
 
     If an incorrect FQDN is configured, there is no way to get the right Admin
-    URL anymore. The preferred way to recover from this situation is to
+    registration link anymore. The preferred way to recover from this situation is to
     remove the incorrect Passbolt instance, then install and configure a new
     one.
 
 After first configuration, the Admin registration link is shown. Please follow 
-the link to create the Admin account.
+the link to create the Admin account, set a password and save the Passbolt keys.
 
 .. note::    
     Consider storing the Passbolt keys in a safe place to be able to restore your account if needed.
@@ -43,4 +45,4 @@ Known limitations
 =================
 
 1. After changing the app FQDN, the password needs to be recovered.
-2. Passbolt supports LDAP only in the Pro version.
+2. The NethServer app ships the Passbolt Community Edition (CE) which does not support LDAP authentication.
