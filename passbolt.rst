@@ -32,7 +32,8 @@ required fields:
 After first configuration, the Admin registration link is shown. Please follow 
 the link to create the Admin account.
 
-Consider storing the Passbolt keys in a safe place to be able to restore your account if needed.
+.. note::    
+    Consider storing the Passbolt keys in a safe place to be able to restore your account if needed.
 
 For managing Passbolt, please refer to the official `Documentation`_ 
 

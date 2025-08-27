@@ -75,6 +75,7 @@ NethServer 8 administrator manual
    dokuwiki
    dependencytrack
    mariadb
+   passbolt
    prometheus
    webserver
    sogo
