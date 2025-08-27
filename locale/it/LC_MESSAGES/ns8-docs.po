@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 13:58+0000\n"
+"POT-Creation-Date: 2025-08-27 09:45+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -1344,8 +1344,8 @@ msgstr ""
 #: ../../mail.rst:54 ../../mariadb.rst:11 ../../mattermost.rst:13
 #: ../../minio.rst:12 ../../netdata.rst:20 ../../nethvoice.rst:21
 #: ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21 ../../odoo.rst:20
-#: ../../piler.rst:30 ../../roundcube.rst:19 ../../sogo.rst:39
-#: ../../webserver.rst:14 ../../webtop.rst:12
+#: ../../passbolt.rst:12 ../../piler.rst:30 ../../roundcube.rst:19
+#: ../../sogo.rst:39 ../../webserver.rst:14 ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -3972,7 +3972,7 @@ msgstr ""
 msgid "``ns7user@example.org`` becomes ``ns7user@example.org*vmail``"
 msgstr ""
 
-#: ../../imapsync.rst:148 ../../piler.rst:177
+#: ../../imapsync.rst:148 ../../passbolt.rst:45 ../../piler.rst:177
 msgid "Known limitations"
 msgstr "Limitazioni conosciute"
 
@@ -4014,7 +4014,7 @@ msgstr "Applicazioni"
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:83
+#: ../../index.rst:84
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -13476,6 +13476,78 @@ msgstr ""
 "Per gli aggiornamenti al core e ai moduli, fare riferimento a:ref: "
 "`updates-section`."
 
+#: ../../passbolt.rst:5
+msgid "Passbolt"
+msgstr ""
+
+#: ../../passbolt.rst:7
+msgid "Passbolt_ is an open source credential platform for modern teams."
+msgstr ""
+
+#: ../../passbolt.rst:14 ../../piler.rst:32
+#, fuzzy
+msgid ""
+"Once installed, navigate to the application Settings page and fill in the"
+" required fields:"
+msgstr "access the application configuration page and enter all required fields"
+
+#: ../../passbolt.rst:17
+#, fuzzy
+msgid ""
+"**Passbolt FQDN**: Enter the fully-qualified domain name where the "
+"Passbolt web UI will be accessible. If the FQDN is already registered in "
+"the public DNS, you can enable the **Let's Encrypt certificate** switch "
+"to obtain a valid encryption certificate."
+msgstr ""
+"**Piler FQDN**: Inserire il nome di dominio completamente qualificato "
+"dove l'interfaccia utente web Piler sarà accessibile. Se la FQDN è già "
+"registrata nel DNS pubblico, è possibile abilitare l'interruttore **Let's"
+" Encrypt certificate** per ottenere un certificato di crittografia "
+"valido."
+
+#: ../../passbolt.rst:22
+msgid ""
+"**Admin mail address**: Enter the mail address of the Passbolt Admin. "
+"It's used for password recovery. For example, if the FQDN changes and you"
+" want to login to Passbolt, a recovery link mail is sent to the user. "
+"Follow that link to recover your account."
+msgstr ""
+
+#: ../../passbolt.rst:29
+msgid ""
+"If an incorrect FQDN is configured, there is no way to get the right "
+"Admin registration link anymore. The preferred way to recover from this "
+"situation is to remove the incorrect Passbolt instance, then install and "
+"configure a new one."
+msgstr ""
+
+#: ../../passbolt.rst:34
+msgid ""
+"After first configuration, the Admin registration link is shown. Please "
+"follow the link to create the Admin account, set a password and save the "
+"Passbolt keys."
+msgstr ""
+
+#: ../../passbolt.rst:38
+msgid ""
+"Consider storing the Passbolt keys in a safe place to be able to restore "
+"your account if needed."
+msgstr ""
+
+#: ../../passbolt.rst:40
+msgid "For managing Passbolt, please refer to the official `Documentation`_"
+msgstr ""
+
+#: ../../passbolt.rst:47
+msgid "After changing the app FQDN, the password needs to be recovered."
+msgstr ""
+
+#: ../../passbolt.rst:48
+msgid ""
+"The NethServer app ships the Passbolt Community Edition (CE) which does "
+"not support LDAP authentication."
+msgstr ""
+
 #: ../../piler.rst:5
 #, fuzzy
 msgid "Piler"
@@ -13522,13 +13594,6 @@ msgstr ""
 "default. Per motivi di sicurezza, fare riferimento alla sezione :ref"
 ":`default-piler-credentials` per modificare immediatamente le password di"
 " default."
-
-#: ../../piler.rst:32
-#, fuzzy
-msgid ""
-"Once installed, navigate to the application Settings page and fill in the"
-" required fields:"
-msgstr "access the application configuration page and enter all required fields"
 
 #: ../../piler.rst:35
 msgid ""
