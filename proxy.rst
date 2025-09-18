@@ -1,57 +1,150 @@
 .. _traefik-section:
 
-=====
-Proxy
-=====
+===========
+HTTP routes
+===========
 
-`Traefik <https://traefik.io/>`_ proxy is part of NethServer core and it handles all HTTP routes.
-The proxy is installed on each cluster node.
+The ``HTTP routes`` section of the Settings page shows how each cluster
+node routes HTTP traffic received on standard TCP ports 80 (HTTP) and 443
+(HTTPS) to applications installed in the cluster or towards custom network
+destinations.
 
-Access the ``HTTP routes`` card inside the ``Settings`` page to see all configured routes.
-Applications usually automatically setup the proxy during the configuration phase.
-Automatic routes can't be modified except for the allowed IPs.
+The core component that implements HTTP routes is the Traefik_ HTTP proxy.
+Each cluster node runs its own Traefik instance and acts as an independent
+web server. Traefik terminates TLS connections and works as the reverse
+proxy for applications typically hosted on that node.
 
-Each route can have a list of special attributes visible from the list:
+.. _Traefik: https://traefik.io/
 
-- ``automatic`` for created rules created by the applications
-- ``access restricted`` if access is restricted to a specific network
+Routes can be managed automatically by installed applications. In that
+case, they are marked with the ``Automatic`` badge. Alternatively, you can
+create custom routes and define their properties as needed.
 
-You can add a custom route by clicking :guilabel:`Create route` button.
-Then enter the following details:
+A route is defined by a match rule for incoming requests, based on the
+HTTP **host name** and/or the **request path**. It also specifies the
+destination URL where matching traffic is forwarded.
 
-- ``Name``: a unique name to identify the route
-- ``Node``: the node where the proxy instance is running
-- ``URL``: target URL of the route. It must correspond to a reachable
-  backend HTTP server. It can be both internal or external to the cluster.
-- ``Skip certificate validation``: if the URL starts with ``https://``,
-  this switch disables the verification of the backend TLS certificate. If
-  the backend is reached through a trusted network but it cannot provide a
-  valid TLS certificate, it could be acceptable to skip the TLS
-  verification.
-- ``Host``: fill this field with a valid FQDN if you want a host-based route, sometimes also referred as virtual host;
-  the application will be available on a URL like ``https://myapp.nethserver.org``
-- ``Path``: fill this field with a valid path if you want a path-based route accessible from the cluster FQDN;
-  the application will be available on a URL like ``https://cluster.nethserver.org/myapp``
-- ``Strip URL path prefix``: when ``Path`` field is not empty, strip the path before routing the request to the target URL
-- ``Request Let's Encrypt certificate`` enable this option to request a valid certificate, please remember :ref:`all requirements <certificate_manager-section>`
-- ``Allow access from`` (optional): limit access to this route to specific IP addresses or networks. By default, the route is accessible from any network.
-  Enter a valid IPv4 address or CIDR network per line.
+Automatic routes usually point their destination URL to local services
+(often using ``http://127.0.0.1``), so their traffic does not cross the
+cluster network. Custom routes, instead, can be configured with any
+reachable destination URL, including services in the node’s LAN or even on
+another cluster node if desired.
+
+There is no special HTTP traffic handling for the cluster leader node:
+all nodes behave in the same way.
+
+Each route can have special attributes, visible in the main table:
+
+- ``Automatic`` for rules created and managed by applications
+- ``Access restricted`` if access is limited to specific IP addresses
+
+Automatic routes cannot be modified except for the list of allowed IPs.
+When IP restrictions are added, they also gain the ``Access restricted``
+attribute.
 
 .. note::
-   The route named ``cluster-admin`` is a special route that is automatically created during the cluster setup.
-   It is used to access the cluster administration interface.
-   Please bear in mind that if you restrict access to this route:
 
-   - you may prevent a new worker from joining the cluster
-   - you may lose access to the cluster configuration if you do not correctly enter your own IP address
+   The route named ``cluster-admin`` is an automatic route, created during
+   node setup. On the leader node it provides access to the cluster
+   administration interface. On worker nodes it is required to elect a new
+   cluster leader. If you restrict access to this route:
 
+   - You may prevent a new worker from joining the cluster.
+   - You may lose access to the cluster configuration if your own IP
+     address is not allowed.
 
-If you loose access to the cluster administration interface, you can remove the access restriction from the command line.
-Follow these steps:
+   Refer to :ref:`clear-cluster-admin-restrictions` to restore access if
+   needed.
 
-1. Access the cluster node using SSH with root privileges
-2. Run the following command to remove the access restriction from the ``cluster-admin`` route: ::
-  
+You can view the detailed attributes of any route by clicking its
+``Name``.
+
+Create a custom HTTP route
+==========================
+
+To add a custom route, click the :guilabel:`Create route` button and enter
+the following details:
+
+- ``Name``: a unique identifier for the route
+
+- ``Node``: the node where the rule applies
+
+- ``URL``: the target URL of the route. It must point to a reachable
+  backend HTTP server, either inside or outside the cluster. For better
+  performance, use the local host address ``127.0.0.1`` without encryption
+  for local applications, or ``https://`` for external applications in the
+  node’s LAN. In the latter case, encrypting the backend connection is
+  strongly recommended.
+
+- ``Skip certificate validation``: if the URL starts with ``https://``,
+  this option disables verification of the backend TLS certificate.
+  Skipping validation may be acceptable only if the backend is in a
+  trusted network and cannot provide a valid TLS certificate.
+
+- ``Host``: set a valid FQDN to create a host-based route (virtual host).
+  The rule matches requests where the ``Host`` header equals the given FQDN.
+  Example: with host ``myapp.nethserver.org`` the route matches
+  ``https://myapp.nethserver.org``.
+
+- ``Path``: set a valid URL path starting with ``/`` (slash) to create a
+  path-based route. The rule matches any request path that begins with it,
+  regardless of the host name. For example, with path ``/myapp`` the route
+  matches both ``https://ns8leader.nethserver.org/myapp`` and
+  ``https://192.168.6.3/myapp/contents.html``.
+
+- ``Host`` + ``Path``: if both fields are set, the request must match
+  both the host name and the path. For example, with host
+  ``myapp.nethserver.org`` and path ``/mypath``, the route matches
+  ``https://myapp.nethserver.org/mypath/contents.html`` but not
+  ``https://ns8leader.nethserver.org/mypath/contents.html``.
+
+- ``Strip URL path prefix``: when ``Path`` is set, remove the prefix
+  before routing the request to the target URL.
+
+- ``Request Let's Encrypt certificate``: enable this option to
+  automatically obtain a valid TLS certificate. See
+  :ref:`lets_encrypt_routes` for important details if you disable this
+  option later.
+
+- ``Allow access from`` (optional): restrict access to the route by
+  listing allowed IPv4 addresses or CIDR networks, one per line. By
+  default, the route is open to all networks.
+
+.. _lets_encrypt_routes:
+
+Let's Encrypt certificate for HTTP routes
+=========================================
+
+The ``Request Let's Encrypt certificate`` option enables automatic
+provisioning of a TLS certificate for the ``Host`` name, signed by the
+Let's Encrypt Certificate Authority. Once obtained, the certificate is
+periodically renewed by Traefik. Refer to :ref:`lets-encrypt-requirements`
+for details about requirements and how the process works.
+
+When this option is disabled, the old TLS certificate is automatically
+removed from Traefik’s internal certificate storage, and Traefik is
+restarted after clicking the :guilabel:`Save` button.
+
+.. warning::
+
+  Restarting Traefik can forcibly disconnect users from applications.
+  Avoid disabling the ``Request Let's Encrypt certificate`` option during
+  office hours.
+
+.. _clear-cluster-admin-restrictions:
+
+Clear IP restrictions on cluster-admin route
+============================================
+
+If you lose access to the cluster administration interface due to IP
+restrictions, you can remove them from the command line:
+
+1. Connect to the cluster leader node via SSH with root privileges and get
+   the Traefik module identifier: ::
+
+     runagent -l | grep traefik        # prints: traefik1
+
+2. Run the following command to clear restrictions on the
+   ``cluster-admin`` route of module ``traefik1``: ::
+
      api-cli run module/traefik1/set-route --data '{"instance": "cluster-admin", "ip_allowlist": []}'
-
-   Replace ``traefik1`` with the correct module identifier, if your cluster has multiple nodes. Traefik identifiers are listed in the ``HTTP routes`` page.

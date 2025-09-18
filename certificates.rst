@@ -8,6 +8,8 @@ An SSL/TLS certificate is a digital object issued by a Certificate Authority (CA
 The certificate is used to verify the identity of a host and to establish encrypted communication channels.
 Upon installation, NethServer 8 uses a default self-signed certificate for all TLS services, including the Web user interface.
 
+.. _lets-encrypt-requirements:
+
 Let's Encrypt certificates
 ==========================
 
