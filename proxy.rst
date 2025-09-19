@@ -1,5 +1,7 @@
 .. _traefik-section:
 
+.. _http-routes-section:
+
 ===========
 HTTP routes
 ===========
@@ -58,6 +60,8 @@ attribute.
 
 You can view the detailed attributes of any route by clicking its
 ``Name``.
+
+.. _custom-http-route-section:
 
 Create a custom HTTP route
 ==========================
