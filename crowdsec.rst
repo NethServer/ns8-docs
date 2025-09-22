@@ -29,7 +29,7 @@ If you do not want to share such data and disable the community blocklist, you c
 disabling the ``Enable central API`` option under the ``Advanced`` section.
 
 You can also connect your instance to `CrowdSec console <https://app.crowdsec.net>`_
-by filling the ``Enroll the CrowdSec instance`` field.
+by filling the ``Enroll key`` optional field.
 
 * CrowdSec sends a daily notification email listing blocked IPs to the configured recipient. 
   To prevent mailbox flooding, you can set a notification threshold 
