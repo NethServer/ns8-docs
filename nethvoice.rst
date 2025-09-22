@@ -1389,7 +1389,7 @@ Phone Feature Codes
 In the NethVoice PBX management interface, under Service Codes, you can find the codes to use NethHotel features directly from the phones.
 For example, to add an extra charge to a room, you would dial:
 
-   ``*33 + Room Extension + # + Extra ID + # + Quantity``
+``*33 + Room Extension + # + Extra ID + # + Quantity``
 
 Room Management
 ---------------
