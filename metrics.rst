@@ -61,7 +61,6 @@ The cluster needs an SMTP server to send the notifications. So first, make sure 
 To configure alert notifications, access the ``Metrics`` section in the ``Settings`` page.
 The page allows you to configure the following parameters:
 
-- ``Language template``: the language used for the email template. The default is ``English``.
 - ``Sender email address``: the email address that will be used as the sender. The default is calculated from the
   leader FQDN.
 - ``Recipient email addresses``: the email addresses to which alerts will be sent.
