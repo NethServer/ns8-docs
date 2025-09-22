@@ -1363,8 +1363,9 @@ To enable it follow these steps:
 
 - access the NethVoice applications inside NethServer
 - go to the ``Settings`` page
-- check the ``Enable Hotel module` option
+- check the ``Enable Hotel module`` option
 - save the changes
+
 From this section, you can also specify the address and port of the FIAS server, if available.
 
 After enabling the NethHotel module, some configurations are required on the NethVoice side:
