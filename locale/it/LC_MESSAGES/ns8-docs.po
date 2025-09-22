@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 12:12+0000\n"
+"POT-Creation-Date: 2025-09-22 12:23+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -6860,33 +6860,27 @@ msgstr ""
 
 #: ../../metrics.rst:64
 msgid ""
-"``Language template``: the language used for the email template. The "
-"default is ``English``."
-msgstr ""
-
-#: ../../metrics.rst:65
-msgid ""
 "``Sender email address``: the email address that will be used as the "
 "sender. The default is calculated from the leader FQDN."
 msgstr ""
 
-#: ../../metrics.rst:67
+#: ../../metrics.rst:66
 msgid ""
 "``Recipient email addresses``: the email addresses to which alerts will "
 "be sent. Enter one address per line. Multiple recipients are supported."
 msgstr ""
 
-#: ../../metrics.rst:70
+#: ../../metrics.rst:69
 msgid ""
 "Please note that if the cluster has a valid subscription, the alerts will"
 " also be sent to the Nethesis portals."
 msgstr ""
 
-#: ../../metrics.rst:75
+#: ../../metrics.rst:74
 msgid "Grafana access"
 msgstr ""
 
-#: ../../metrics.rst:77
+#: ../../metrics.rst:76
 msgid ""
 "Grafana is an open-source platform for monitoring and observability. It "
 "allows you to query, visualize and understand your metrics no matter "
@@ -6894,80 +6888,80 @@ msgid ""
 "series into insightful graphs and visualizations."
 msgstr ""
 
-#: ../../metrics.rst:81
+#: ../../metrics.rst:80
 msgid ""
 "By default, Grafana is disabled. You can enable it using the ``Access "
 "Grafana`` option in the ``Settings`` page, under the ``Metrics`` section."
 msgstr ""
 
-#: ../../metrics.rst:83
+#: ../../metrics.rst:82
 msgid ""
 "When enabled, Grafana will be accessible on the leader node at ``https"
 "://<leader-node>/grafana``."
 msgstr ""
 
-#: ../../metrics.rst:85
+#: ../../metrics.rst:84
 msgid ""
 "To access Grafana, you need to authenticate with the cluster admin "
 "credentials."
 msgstr ""
 
-#: ../../metrics.rst:87
+#: ../../metrics.rst:86
 msgid "Grafana will automatically display some default dashboards:"
 msgstr ""
 
-#: ../../metrics.rst:89
+#: ../../metrics.rst:88
 msgid ""
 "*core* folder: it contains the default dashboards for the cluster. "
 "Available dashboards are:"
 msgstr ""
 
-#: ../../metrics.rst:92
+#: ../../metrics.rst:91
 msgid ""
 "a dashboard for all nodes metrics like CPU load, memory usage, and disk "
 "space"
 msgstr ""
 
-#: ../../metrics.rst:93
+#: ../../metrics.rst:92
 msgid "a dashboard for fired alerts"
 msgstr ""
 
-#: ../../metrics.rst:94
+#: ../../metrics.rst:93
 msgid "a dashboard about Loki statistics"
 msgstr ""
 
-#: ../../metrics.rst:95
+#: ../../metrics.rst:94
 msgid "a dashboard to execute query on Loki logs"
 msgstr ""
 
-#: ../../metrics.rst:97
+#: ../../metrics.rst:96
 msgid ""
 "*modules* folder: it contains the default dashboards for the installed "
 "modules, like Samba Audit"
 msgstr ""
 
-#: ../../metrics.rst:100
+#: ../../metrics.rst:99
 msgid ""
 "If the leader node is switched, Grafana will be accessible on the new "
 "leader node but dashboard customizations will be lost."
 msgstr ""
 
-#: ../../metrics.rst:104
+#: ../../metrics.rst:103
 msgid "Access Prometheus web interface"
 msgstr ""
 
-#: ../../metrics.rst:106
+#: ../../metrics.rst:105
 msgid "By default, Prometheus web interface is not exposed to the public network."
 msgstr ""
 
-#: ../../metrics.rst:108
+#: ../../metrics.rst:107
 msgid ""
 "If you need to troubleshoot the Prometheus configuration, you can enable "
 "it on ``https://<leader-node>/prometheus``. As for Grafana, you will need"
 " to authenticate with cluster admin credentials."
 msgstr ""
 
-#: ../../metrics.rst:111
+#: ../../metrics.rst:110
 #, fuzzy
 msgid ""
 "To enable Prometheus web interface access, run the following command on "
@@ -24617,4 +24611,10 @@ msgstr ""
 
 #~ msgid "T19(P) E2, T21(P) E2, T23P/G, T27G, T29G"
 #~ msgstr "T19(P) E2, T21(P) E2, T23P/G, T27G, T29G"
+
+#~ msgid ""
+#~ "``Language template``: the language used "
+#~ "for the email template. The default "
+#~ "is ``English``."
+#~ msgstr ""
 
