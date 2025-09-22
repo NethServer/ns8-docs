@@ -1358,6 +1358,7 @@ Configuration
 
 NethHotel can be enabled within the NethVoice instance configuration.
 To enable it follow these steps:
+
 - access the NethVoice applications inside NethServer
 - go to the ``Settings`` page
 - check the ``Enable Hotel module` option
