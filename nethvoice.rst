@@ -1378,8 +1378,8 @@ We recommend configuring the PBX as follows:
 * All room extensions must be added to the hotel profile via the Configurations section or by using the Multiple Extension Management application.
 
 * Service extensions, such as the reception, should not be added to the hotel profile and must be configured as standard extensions, following the hotel's usual numbering policy.
-For example, if room extensions range from 201 to 299, the reception extension should always be a three-digit number outside this range, such as 200 or 300.
-To allow rooms to call reception, a speed dial number should be configured. Service extensions, however, can call each other directly.
+  For example, if room extensions range from 201 to 299, the reception extension should always be a three-digit number outside this range, such as 200 or 300.
+  To allow rooms to call reception, a speed dial number should be configured. Service extensions, however, can call each other directly.
 
 * It is advisable to use a separate Outbound Route without a prefix for service extensions, different from the one used for room extensions.
 
