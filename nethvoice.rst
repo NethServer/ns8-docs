@@ -1375,6 +1375,7 @@ After enabling the NethHotel module, some configurations are required on the Net
 * All extensions included in the hotel profile will automatically be managed by NethHotel.
 
 Finally, the NethHotel application is accessible at the following URL: ``https://<nethvoice_domain>/freepbx/hotel/rooms.php``.
+
 The same URL is available from NethVoice administrator wizard, by accessing ``Administration`` -> ``Advanced ( freepbx)`` -> ``Applications`` -> ``NethHotel``.
 
 How to configure the PBX
