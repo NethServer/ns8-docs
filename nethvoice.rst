@@ -1440,7 +1440,7 @@ For example, to charge three units of the extra with code 99 to room 201, simply
 Options
 -------
 
-* The general options include:
+The general options include:
 
 * Configuration of the prefix for making external calls
 
