@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 14:18+0000\n"
+"POT-Creation-Date: 2025-09-23 09:06+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -1343,7 +1343,7 @@ msgstr ""
 #: ../../file_server.rst:33 ../../imapsync.rst:26 ../../index.rst:34
 #: ../../mail.rst:54 ../../mariadb.rst:11 ../../mattermost.rst:13
 #: ../../minio.rst:12 ../../netdata.rst:20 ../../nethvoice.rst:21
-#: ../../nethvoice.rst:1359 ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21
+#: ../../nethvoice.rst:1373 ../../nethvoice_proxy.rst:19 ../../nextcloud.rst:21
 #: ../../odoo.rst:20 ../../passbolt.rst:12 ../../piler.rst:30
 #: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webserver.rst:14
 #: ../../webtop.rst:12
@@ -9096,7 +9096,7 @@ msgstr ""
 msgid "Configurations"
 msgstr "Configurazioni"
 
-#: ../../nethvoice.rst:204 ../../nethvoice.rst:1422
+#: ../../nethvoice.rst:204 ../../nethvoice.rst:1436
 msgid "Groups"
 msgstr "Gruppi"
 
@@ -12421,7 +12421,50 @@ msgstr "URLs Parametrizzato"
 
 #: ../../nethvoice.rst:1305
 msgid ""
-"Allows the end user to invoke a parameterized URL upon receiving a call. "
+"The parameterized URL allows for the automatic or on-demand opening of a "
+"URL that can be parameterized with values identifying the incoming call. "
+"These values can be used to query an external HTTP/HTTPS service."
+msgstr ""
+
+#: ../../nethvoice.rst:1307
+msgid ""
+"It is possible to configure Parameterized URLs directly from the "
+"NethVoice wizard in the **Applications -> Parameterized URLs** section."
+msgstr ""
+
+#: ../../nethvoice.rst:1309
+#, fuzzy
+msgid "The parameters to be configured are:"
+msgstr "However, the following parameters can be configured in this panel:"
+
+#: ../../nethvoice.rst:1311
+msgid "``URL``: The actual URL to be contacted"
+msgstr ""
+
+#: ../../nethvoice.rst:1313
+msgid ""
+"``Profile``: Select the profiles, and therefore the users, who will be "
+"able to use this Parameterized URL. Users who have that profile assigned "
+"will be able to use the Parameterized URL by configuring how to use it "
+"directly from NethCTI in the **Settings -> Incoming Calls** section, "
+"choosing the mode in which the URL should be opened."
+msgstr ""
+
+#: ../../nethvoice.rst:1315
+msgid ""
+"``Calls only through queues``: When enabled, this option allows the "
+"opening of the Parameterized URL only if the incoming call comes from a "
+"queue"
+msgstr ""
+
+#: ../../nethvoice.rst:1317
+#, fuzzy
+msgid "Press :guilabel:`Save` to create the Parameterized URL."
+msgstr "Premere :guilabel:`Restore` per avviare il processo di ripristino."
+
+#: ../../nethvoice.rst:1319
+#, fuzzy
+msgid ""
 "The URL will be parameterized with caller data and can be \"opened\" in "
 "one of the following four scenarios:"
 msgstr ""
@@ -12429,37 +12472,37 @@ msgstr ""
 "della ricezione di una chiamata. L'URL sarà parametrizzato con i dati del"
 " chiamante e può essere \"aperto\" in uno dei seguenti quattro scenari:"
 
-#: ../../nethvoice.rst:1307
+#: ../../nethvoice.rst:1321
 msgid "Never"
 msgstr "Mai"
 
-#: ../../nethvoice.rst:1309
+#: ../../nethvoice.rst:1323
 msgid "When the incoming call is ringing"
 msgstr "Quando la chiamata in ingresso sta suonando"
 
-#: ../../nethvoice.rst:1311
+#: ../../nethvoice.rst:1325
 msgid "When the incoming call is answered"
 msgstr "Quando la chiamata in ingresso viene risposta"
 
-#: ../../nethvoice.rst:1313
+#: ../../nethvoice.rst:1327
 msgid "By clicking the appropriate button in the call management box"
 msgstr ""
 "Cliccando sul pulsante appropriato nella casella di gestione delle "
 "chiamate"
 
-#: ../../nethvoice.rst:1315
+#: ../../nethvoice.rst:1329
 msgid "To create a URL, two pieces of information are required:"
 msgstr "Per creare un URL, sono necessarie due informazioni:"
 
-#: ../../nethvoice.rst:1317
+#: ../../nethvoice.rst:1331
 msgid "The URL itself"
 msgstr "L'URL stesso"
 
-#: ../../nethvoice.rst:1319
+#: ../../nethvoice.rst:1333
 msgid "The selection of a user profile"
 msgstr "La selezione di un profilo utente"
 
-#: ../../nethvoice.rst:1321
+#: ../../nethvoice.rst:1335
 msgid ""
 "The composition of the URL can be done using these parameters, which are "
 "populated for each call:"
@@ -12467,23 +12510,23 @@ msgstr ""
 "La composizione dell'URL può essere fatta utilizzando questi parametri, "
 "che vengono popolati per ogni chiamata:"
 
-#: ../../nethvoice.rst:1323
+#: ../../nethvoice.rst:1337
 msgid "*$CALLER_NUMBER* (Caller Number)"
 msgstr "*$CALLER_NUMBER* (Numero del Chiamante)"
 
-#: ../../nethvoice.rst:1325
+#: ../../nethvoice.rst:1339
 msgid "*$CALLER_NAME* (Name associated by NethVoice to the caller number)"
 msgstr "*$CALLER_NAME* (Nome associato dal NethVoice al numero del chiamante)"
 
-#: ../../nethvoice.rst:1327
+#: ../../nethvoice.rst:1341
 msgid "*$CALLED* (Called Number)"
 msgstr "*$CALLED* (Numero Chiamato)"
 
-#: ../../nethvoice.rst:1329
+#: ../../nethvoice.rst:1343
 msgid "*$UNIQUEID* (Unique identifier of the call)"
 msgstr "*$UNIQUEID* (Identificatore unico della chiamata)"
 
-#: ../../nethvoice.rst:1331
+#: ../../nethvoice.rst:1345
 msgid ""
 "It is possible to enable the option \"Only calls on queues\" to activate "
 "the parameterized URL only for calls that ring in a queue."
@@ -12491,7 +12534,7 @@ msgstr ""
 "È possibile abilitare l'opzione \"Solo chiamate in code\" per attivare "
 "l'URL parametrizzato solo per le chiamate che squillano in una coda."
 
-#: ../../nethvoice.rst:1333
+#: ../../nethvoice.rst:1347
 msgid ""
 "All users who have that profile will be enabled to use the newly created "
 "URL."
@@ -12499,11 +12542,11 @@ msgstr ""
 "Tutti gli utenti che hanno quel profilo saranno abilitati per utilizzare "
 "l'URL appena creato."
 
-#: ../../nethvoice.rst:1336
+#: ../../nethvoice.rst:1350
 msgid "Only one URL can be associated with a profile."
 msgstr "Solo un URL può essere associato a un profilo."
 
-#: ../../nethvoice.rst:1337
+#: ../../nethvoice.rst:1351
 msgid ""
 "For the URL to be invoked, it is necessary for the end user to have "
 "enabled pop-up display in their browser!"
@@ -12511,94 +12554,94 @@ msgstr ""
 "Affinché l'URL venga invocato, è necessario che l'utente finale abbia "
 "abilitato la visualizzazione dei pop-up nel proprio browser!"
 
-#: ../../nethvoice.rst:1342
+#: ../../nethvoice.rst:1356
 #, fuzzy
 msgid "NethHotel"
 msgstr "Phones"
 
-#: ../../nethvoice.rst:1344
+#: ../../nethvoice.rst:1358
 msgid ""
 "NethHotel is a module of NethVoice that allows the management of "
 "extensions properly configured as hotel rooms. By default, access to "
 "NethHotel is granted to the admin user."
 msgstr ""
 
-#: ../../nethvoice.rst:1347
+#: ../../nethvoice.rst:1361
 #, fuzzy
 msgid "Main Features:"
 msgstr "SOGo's main features are:"
 
-#: ../../nethvoice.rst:1349
+#: ../../nethvoice.rst:1363
 msgid "Room Check-in/Check-out"
 msgstr ""
 
-#: ../../nethvoice.rst:1350 ../../nethvoice.rst:1415
+#: ../../nethvoice.rst:1364 ../../nethvoice.rst:1429
 msgid "Wake-up Call"
 msgstr ""
 
-#: ../../nethvoice.rst:1351
+#: ../../nethvoice.rst:1365
 msgid "Group Wake-up Call"
 msgstr ""
 
-#: ../../nethvoice.rst:1352
+#: ../../nethvoice.rst:1366
 msgid "Call Reports"
 msgstr ""
 
-#: ../../nethvoice.rst:1353
+#: ../../nethvoice.rst:1367
 msgid "Customizable Rates"
 msgstr ""
 
-#: ../../nethvoice.rst:1354 ../../nethvoice.rst:1478
+#: ../../nethvoice.rst:1368 ../../nethvoice.rst:1492
 #, fuzzy
 msgid "Speed Dial Numbers"
 msgstr "Speed dial"
 
-#: ../../nethvoice.rst:1355 ../../nethvoice.rst:1485
+#: ../../nethvoice.rst:1369 ../../nethvoice.rst:1499
 #, fuzzy
 msgid "Call History"
 msgstr "Local storage"
 
-#: ../../nethvoice.rst:1356
+#: ../../nethvoice.rst:1370
 msgid "Enable/Disable Calls Between Rooms"
 msgstr ""
 
-#: ../../nethvoice.rst:1361
+#: ../../nethvoice.rst:1375
 msgid ""
 "NethHotel can be enabled within the NethVoice instance configuration. To "
 "enable it follow these steps:"
 msgstr ""
 
-#: ../../nethvoice.rst:1364
+#: ../../nethvoice.rst:1378
 msgid "access the NethVoice applications inside NethServer"
 msgstr ""
 
-#: ../../nethvoice.rst:1365
+#: ../../nethvoice.rst:1379
 #, fuzzy
 msgid "go to the ``Settings`` page"
 msgstr "Le impostazioni sono:"
 
-#: ../../nethvoice.rst:1366
+#: ../../nethvoice.rst:1380
 msgid "check the ``Enable Hotel module`` option"
 msgstr ""
 
-#: ../../nethvoice.rst:1367
+#: ../../nethvoice.rst:1381
 #, fuzzy
 msgid "save the changes"
 msgstr "Impostazioni generali"
 
-#: ../../nethvoice.rst:1369
+#: ../../nethvoice.rst:1383
 msgid ""
 "From this section, you can also specify the address and port of the FIAS "
 "server, if available."
 msgstr ""
 
-#: ../../nethvoice.rst:1371
+#: ../../nethvoice.rst:1385
 msgid ""
 "After enabling the NethHotel module, some configurations are required on "
 "the NethVoice side:"
 msgstr ""
 
-#: ../../nethvoice.rst:1373
+#: ../../nethvoice.rst:1387
 msgid ""
 "In the advanced interface of NethVoice, go to ``Connectivity > Outbound "
 "Routes``, and create a dedicated outbound route for the hotel rooms. This"
@@ -12606,54 +12649,54 @@ msgid ""
 "route list. Click Save and Apply Configuration."
 msgstr ""
 
-#: ../../nethvoice.rst:1375
+#: ../../nethvoice.rst:1389
 msgid ""
 "From the NethVoice wizard page, access the Hotel profile and enable the "
 "newly created outbound route."
 msgstr ""
 
-#: ../../nethvoice.rst:1377
+#: ../../nethvoice.rst:1391
 msgid ""
 "Add the room extensions to the hotel profile, either from the NethVoice "
 "configuration panel or via the Multiple Extension Management tool."
 msgstr ""
 
-#: ../../nethvoice.rst:1379
+#: ../../nethvoice.rst:1393
 msgid ""
 "All extensions included in the hotel profile will automatically be "
 "managed by NethHotel."
 msgstr ""
 
-#: ../../nethvoice.rst:1381
+#: ../../nethvoice.rst:1395
 msgid ""
 "Finally, the NethHotel application is accessible at the following URL: "
 "``https://<nethvoice_domain>/freepbx/hotel/rooms.php``."
 msgstr ""
 
-#: ../../nethvoice.rst:1383
+#: ../../nethvoice.rst:1397
 msgid ""
 "The same URL is available from NethVoice administrator wizard, by "
 "accessing ``Administration`` -> ``Advanced ( freepbx)`` -> "
 "``Applications`` -> ``NethHotel``."
 msgstr ""
 
-#: ../../nethvoice.rst:1386
+#: ../../nethvoice.rst:1400
 #, fuzzy
 msgid "How to configure the PBX"
 msgstr "Come configurare:"
 
-#: ../../nethvoice.rst:1388
+#: ../../nethvoice.rst:1402
 msgid "We recommend configuring the PBX as follows:"
 msgstr ""
 
-#: ../../nethvoice.rst:1390
+#: ../../nethvoice.rst:1404
 msgid ""
 "All room extensions must be added to the hotel profile via the "
 "Configurations section or by using the Multiple Extension Management "
 "application."
 msgstr ""
 
-#: ../../nethvoice.rst:1392
+#: ../../nethvoice.rst:1406
 msgid ""
 "Service extensions, such as the reception, should not be added to the "
 "hotel profile and must be configured as standard extensions, following "
@@ -12664,34 +12707,34 @@ msgid ""
 "however, can call each other directly."
 msgstr ""
 
-#: ../../nethvoice.rst:1396
+#: ../../nethvoice.rst:1410
 msgid ""
 "It is advisable to use a separate Outbound Route without a prefix for "
 "service extensions, different from the one used for room extensions."
 msgstr ""
 
-#: ../../nethvoice.rst:1399
+#: ../../nethvoice.rst:1413
 #, fuzzy
 msgid "Phone Feature Codes"
 msgstr "Le caratteristiche principali del core includono:"
 
-#: ../../nethvoice.rst:1401
+#: ../../nethvoice.rst:1415
 msgid ""
 "In the NethVoice PBX management interface, under Service Codes, you can "
 "find the codes to use NethHotel features directly from the phones. For "
 "example, to add an extra charge to a room, you would dial:"
 msgstr ""
 
-#: ../../nethvoice.rst:1404
+#: ../../nethvoice.rst:1418
 msgid "``*33 + Room Extension + # + Extra ID + # + Quantity``"
 msgstr ""
 
-#: ../../nethvoice.rst:1407
+#: ../../nethvoice.rst:1421
 #, fuzzy
 msgid "Room Management"
 msgstr "Gestione cluster"
 
-#: ../../nethvoice.rst:1409
+#: ../../nethvoice.rst:1423
 msgid ""
 "On the main page, all configured extensions are listed. Rooms are divided"
 " into tabs based on the numeric value of the callgroup field of the "
@@ -12701,24 +12744,24 @@ msgid ""
 "are marked in yellow."
 msgstr ""
 
-#: ../../nethvoice.rst:1412
+#: ../../nethvoice.rst:1426
 msgid ""
 "All available functions are presented directly within the room’s panel. "
 "It is also possible to use the contextual menu by right-clicking."
 msgstr ""
 
-#: ../../nethvoice.rst:1417
+#: ../../nethvoice.rst:1431
 msgid ""
 "The wake-up call can be scheduled either as a one-time event or repeated "
 "over multiple days. Each guest can set the wake-up call for their room by"
 " dialing the number"
 msgstr ""
 
-#: ../../nethvoice.rst:1419
+#: ../../nethvoice.rst:1433
 msgid "``977``"
 msgstr ""
 
-#: ../../nethvoice.rst:1424
+#: ../../nethvoice.rst:1438
 msgid ""
 "It is possible to group multiple rooms into a single group. This allows "
 "performing actions (check-in, check-out, wake-up call) on all rooms in "
@@ -12727,31 +12770,31 @@ msgid ""
 "or allowing external calls)."
 msgstr ""
 
-#: ../../nethvoice.rst:1427
+#: ../../nethvoice.rst:1441
 msgid "Add an Extra"
 msgstr ""
 
-#: ../../nethvoice.rst:1429
+#: ../../nethvoice.rst:1443
 msgid "To add an extra to a room, simply click the corresponding icon."
 msgstr ""
 
-#: ../../nethvoice.rst:1432
+#: ../../nethvoice.rst:1446
 msgid "Report"
 msgstr ""
 
-#: ../../nethvoice.rst:1434
+#: ../../nethvoice.rst:1448
 msgid ""
 "To generate a bill report for currently occupied rooms, click the related"
 " icon. The report includes a detailed list of all calls and extras, with "
 "a final summary showing the total amount in real time."
 msgstr ""
 
-#: ../../nethvoice.rst:1438
+#: ../../nethvoice.rst:1452
 #, fuzzy
 msgid "Rates"
 msgstr "Updates"
 
-#: ../../nethvoice.rst:1440
+#: ../../nethvoice.rst:1454
 msgid ""
 "NethHotel includes a default set of call rates based on the type of call "
 "(e.g., mobile, local, etc.). You can modify existing rates or create new "
@@ -12759,83 +12802,83 @@ msgid ""
 "types."
 msgstr ""
 
-#: ../../nethvoice.rst:1444
+#: ../../nethvoice.rst:1458
 msgid "Extras"
 msgstr ""
 
-#: ../../nethvoice.rst:1446
+#: ../../nethvoice.rst:1460
 msgid ""
 "Extras can be configured within the system and later assigned to rooms "
 "either via the web interface or directly from the phone."
 msgstr ""
 
-#: ../../nethvoice.rst:1448
+#: ../../nethvoice.rst:1462
 msgid ""
 "For example, to charge three units of the extra with code 99 to room 201,"
 " simply dial:"
 msgstr ""
 
-#: ../../nethvoice.rst:1450
+#: ../../nethvoice.rst:1464
 msgid ""
 "``*33201#99#3 will charge three units of the extra with code 99 to room "
 "201``"
 msgstr ""
 
-#: ../../nethvoice.rst:1453
+#: ../../nethvoice.rst:1467
 #, fuzzy
 msgid "Options"
 msgstr "Emoticons"
 
-#: ../../nethvoice.rst:1455
+#: ../../nethvoice.rst:1469
 #, fuzzy
 msgid "The general options include:"
 msgstr "I parametri modificabili includono:"
 
-#: ../../nethvoice.rst:1457
+#: ../../nethvoice.rst:1471
 msgid "Configuration of the prefix for making external calls"
 msgstr ""
 
-#: ../../nethvoice.rst:1459
+#: ../../nethvoice.rst:1473
 #, fuzzy
 msgid "Extension number format"
 msgstr "Formato data/ora"
 
-#: ../../nethvoice.rst:1461
+#: ../../nethvoice.rst:1475
 msgid "Enable/disable calls between rooms"
 msgstr ""
 
-#: ../../nethvoice.rst:1463
+#: ../../nethvoice.rst:1477
 msgid "Enable/disable calls between rooms belonging to the same group"
 msgstr ""
 
-#: ../../nethvoice.rst:1465
+#: ../../nethvoice.rst:1479
 msgid "Enable/disable external calls"
 msgstr ""
 
-#: ../../nethvoice.rst:1467
+#: ../../nethvoice.rst:1481
 msgid "Enable/disable calls between rooms that have not checked in"
 msgstr ""
 
-#: ../../nethvoice.rst:1469
+#: ../../nethvoice.rst:1483
 msgid "Extension to contact in case of missed wake-up call alarms"
 msgstr ""
 
-#: ../../nethvoice.rst:1471
+#: ../../nethvoice.rst:1485
 #, fuzzy
 msgid "Enable the Room Cleaning feature"
 msgstr "To enable the feature:"
 
-#: ../../nethvoice.rst:1473
+#: ../../nethvoice.rst:1487
 msgid "Enable the code for Room Cleaning status update"
 msgstr ""
 
-#: ../../nethvoice.rst:1475
+#: ../../nethvoice.rst:1489
 msgid ""
 "Language for reception messages, which will also act as a fallback "
 "language for rooms without specific settings"
 msgstr ""
 
-#: ../../nethvoice.rst:1480
+#: ../../nethvoice.rst:1494
 msgid ""
 "The Speed Dial Numbers section allows you to define shortcuts to quickly "
 "call predefined extensions, for example, dialing `9` to reach the "
@@ -12845,18 +12888,18 @@ msgid ""
 "is met (Destination), and another if it is not (Otherwise)."
 msgstr ""
 
-#: ../../nethvoice.rst:1487
+#: ../../nethvoice.rst:1501
 msgid ""
 "If you need to review all calls made from the rooms, you can use the "
 "History section. Call history can be filtered by date and room number, "
 "making it easy to track and analyze call activity."
 msgstr ""
 
-#: ../../nethvoice.rst:1491
+#: ../../nethvoice.rst:1505
 msgid "FIAS"
 msgstr ""
 
-#: ../../nethvoice.rst:1493
+#: ../../nethvoice.rst:1507
 msgid ""
 "NethHotel can be connected to a hotel Property Management System (PMS) "
 "such as Oracle Opera, or any other system compatible with the FIAS data "
@@ -12864,79 +12907,79 @@ msgid ""
 "integration."
 msgstr ""
 
-#: ../../nethvoice.rst:1496
+#: ../../nethvoice.rst:1510
 msgid ""
 "By connecting NethHotel to a compatible PMS, the following functions can "
 "be managed directly from the PMS interface:"
 msgstr ""
 
-#: ../../nethvoice.rst:1498
+#: ../../nethvoice.rst:1512
 msgid "Check-in, with automatic activation of the room phone"
 msgstr ""
 
-#: ../../nethvoice.rst:1500
+#: ../../nethvoice.rst:1514
 msgid "Check-out"
 msgstr ""
 
-#: ../../nethvoice.rst:1502
+#: ../../nethvoice.rst:1516
 msgid "Wake-up call scheduling and status reporting"
 msgstr ""
 
-#: ../../nethvoice.rst:1504
+#: ../../nethvoice.rst:1518
 msgid "Billing of calls made from the room"
 msgstr ""
 
-#: ../../nethvoice.rst:1506
+#: ../../nethvoice.rst:1520
 msgid "Billing of minibar items and other extras, including via telephone codes"
 msgstr ""
 
-#: ../../nethvoice.rst:1508
+#: ../../nethvoice.rst:1522
 msgid ""
 "Setting the guest's audio message language based on the language of the "
 "reservation"
 msgstr ""
 
-#: ../../nethvoice.rst:1510
+#: ../../nethvoice.rst:1524
 msgid "Oracle and FIAS Versions:"
 msgstr ""
 
-#: ../../nethvoice.rst:1512
+#: ../../nethvoice.rst:1526
 msgid "Oracle Hospitality OPERA: 5.5"
 msgstr ""
 
-#: ../../nethvoice.rst:1514
+#: ../../nethvoice.rst:1528
 msgid "Oracle Hospitality Interface IFC8: 8.14.7.0"
 msgstr ""
 
-#: ../../nethvoice.rst:1516
+#: ../../nethvoice.rst:1530
 msgid ""
 "FIAS Protocol Version: Fidelio Interface Application Specification (FIAS)"
 " 2.20.23"
 msgstr ""
 
-#: ../../nethvoice.rst:1518
+#: ../../nethvoice.rst:1532
 msgid ""
 "Minimum Required Versions of Oracle PMS (Higher versions are also "
 "compatible):"
 msgstr ""
 
-#: ../../nethvoice.rst:1521
+#: ../../nethvoice.rst:1535
 msgid "Opera 5 PMS"
 msgstr ""
 
-#: ../../nethvoice.rst:1523
+#: ../../nethvoice.rst:1537
 msgid "V5.0.03.03 E43"
 msgstr ""
 
-#: ../../nethvoice.rst:1525
+#: ../../nethvoice.rst:1539
 msgid "V5.0.04.01 E24"
 msgstr ""
 
-#: ../../nethvoice.rst:1527
+#: ../../nethvoice.rst:1541
 msgid "V5.0.04.02 E17"
 msgstr ""
 
-#: ../../nethvoice.rst:1529
+#: ../../nethvoice.rst:1543
 msgid "V5.0.04.03 E10"
 msgstr ""
 
