@@ -1302,7 +1302,21 @@ Once the source is created, you can:
 Parameterized URLs
 ------------------
 
-Allows the end user to invoke a parameterized URL upon receiving a call. The URL will be parameterized with caller data and can be "opened" in one of the following four scenarios:
+The parameterized URL allows for the automatic or on-demand opening of a URL that can be parameterized with values identifying the incoming call. These values can be used to query an external HTTP/HTTPS service.
+
+It is possible to configure Parameterized URLs directly from the NethVoice wizard in the **Applications -> Parameterized URLs** section.
+
+The parameters to be configured are:
+
+* ``URL``: The actual URL to be contacted
+
+* ``Profile``: Select the profiles, and therefore the users, who will be able to use this Parameterized URL. Users who have that profile assigned will be able to use the Parameterized URL by configuring how to use it directly from NethCTI in the **Settings -> Incoming Calls** section, choosing the mode in which the URL should be opened.
+
+* ``Calls only through queues``: When enabled, this option allows the opening of the Parameterized URL only if the incoming call comes from a queue
+
+Press :guilabel:`Save` to create the Parameterized URL.
+
+The URL will be parameterized with caller data and can be "opened" in one of the following four scenarios:
 
 * Never
 
