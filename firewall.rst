@@ -58,3 +58,21 @@ for more information.
 To see the list of allowed services and ports, run: ::
 
     firewall-cmd --list-all
+
+Manage SSH port
+---------------
+
+Following commands open port 2222 and restrict port 22 to trusted interfaces: ::
+
+    firewall-cmd --permanent --add-forward-port=port=2222:proto=tcp:toport=22
+    firewall-cmd --permanent --service=ssh --add-port=2222/tcp
+    firewall-cmd --permanent --service=ssh --remove-port=22/tcp
+    firewall-cmd --reload
+
+To change it to another port e.g. from above 2222 to 2019: ::
+
+    firewall-cmd --permanent --add-forward-port=port=2019:proto=tcp:toport=22
+    firewall-cmd --permanent --service=ssh --add-port=2019/tcp
+    firewall-cmd --permanent --remove-forward-port=port=2222:proto=tcp:toport=22
+    firewall-cmd --reload
+ 
