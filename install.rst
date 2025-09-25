@@ -64,6 +64,7 @@ Virtualization platform-specific notes:
 
 - For VMWare, configure the virtual machine to use the IDE driver for the disk.
 - For Proxmox, for maximum performance, select ``host`` for the CPU type.
+Avoid "kvm64", refer to Proxmox documentation for further details.
 
 Finally, start the NS8 image within your virtualization platform, or
 upload it to a cloud provider to create a public virtual machine.
