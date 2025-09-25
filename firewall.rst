@@ -16,7 +16,7 @@ By default, an NS8 node has the following open ports:
 
 - Wireguard VPN, 55820 UDP
 - HTTP and HTTPS, 80 and 443 TCP
-- SSH, 22 TCP
+- SSH, 22 TCP (see :ref:`ssh-redirection`)
 - Cockpit (not installed by default), 9090 TCP
 
 Applications that require publicly open ports, such as the Mail server, will
@@ -58,6 +58,8 @@ for more information.
 To see the list of allowed services and ports, run: ::
 
     firewall-cmd --list-all
+
+.. _ssh-redirection:
 
 Manage SSH port redirection
 ---------------------------
