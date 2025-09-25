@@ -88,5 +88,6 @@ forward must be removed first. The procedure is as follows: ::
     firewall-cmd --permanent --add-forward-port=port=2019:proto=tcp:toport=22
     firewall-cmd --permanent --service=ssh --add-port=2019/tcp
     firewall-cmd --permanent --remove-forward-port=port=2222:proto=tcp:toport=22
+    firewall-cmd --permanent --service=ssh --remove-port=2222/tcp
     firewall-cmd --reload
  
