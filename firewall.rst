@@ -59,8 +59,8 @@ To see the list of allowed services and ports, run: ::
 
     firewall-cmd --list-all
 
-Manage SSH port
----------------
+Manage SSH port redirection
+---------------------------
 
 Following commands open port 2222 and restrict port 22 to trusted interfaces: ::
 
