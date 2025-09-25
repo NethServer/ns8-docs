@@ -80,7 +80,8 @@ to trusted interfaces: ::
     firewall-cmd --permanent --service=ssh --remove-port=22/tcp
     firewall-cmd --reload
 
-To change it to another port e.g. from above 2222 to 2019: ::
+If you later decide to change the port (for example, from 2222 to 2019), the old port
+forward must be removed first. The procedure is as follows: ::
 
     firewall-cmd --permanent --add-forward-port=port=2019:proto=tcp:toport=22
     firewall-cmd --permanent --service=ssh --add-port=2019/tcp
