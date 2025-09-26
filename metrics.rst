@@ -33,14 +33,15 @@ The page will allow you to configure the following parameters:
 Alerts
 ======
 
-Prometheus will automatically send alerts to the Alertmanager when a rule is triggered.
-Current rules will send alerts for:
+Prometheus automatically sends alerts to the Alertmanager when a rule is
+triggered. The current rules generate alerts for:
 
-- No SWAP is configured
-- SWAP space is nearly full
-- One or more backups have failed
-- Disk partitions are nearly full
-- Software RAID (mdadm) is degraded
+- No swap space configured
+- Swap space nearly full
+- One or more backup failures
+- Disk partitions nearly full
+- Software RAID (mdadm) degraded
+- TLS certificate expired or expiring within 28 days
 
 If the machine has a valid subscription, the alerts will be forwarded to the Nethesis portal like `my.nethesis.it <https://my.nethesis.it>`_
 or `my.nethserver.com <https://my.nethserver.com>`_.
