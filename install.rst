@@ -63,7 +63,7 @@ checksum then run for example the following command: ::
 Virtualization platform-specific notes:
 
 - For VMWare, configure the virtual machine to use the IDE driver for the disk.
-- For Proxmox, for maximum performance, select ``host`` for the CPU type. Avoid "kvm64", because Rocky Linux image does not support it.  Refer to `Proxmox documentation`_ for further details about CPU selection.
+- On Proxmox, for maximum performance, select ``host`` as the CPU type. Avoid "kvm64", because Rocky Linux image does not support it.  Refer to `Proxmox documentation`_ for further details about CPU selection.
 
 .. _Proxmox documentation: https://pve.proxmox.com/pve-docs/chapter-qm.html#qm_cpu
 
