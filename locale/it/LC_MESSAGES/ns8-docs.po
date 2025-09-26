@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 12:53+0000\n"
+"POT-Creation-Date: 2025-09-26 13:35+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -4228,13 +4228,12 @@ msgstr ""
 
 #: ../../install.rst:66
 msgid ""
-"For Proxmox, change the default CPU model to anything other than "
-"``kvm64``."
+"On Proxmox, for maximum performance, select ``host`` as the CPU type. "
+"Avoid \"kvm64\", because Rocky Linux image does not support it.  Refer to"
+" `Proxmox documentation`_ for further details about CPU selection."
 msgstr ""
-"Per Proxmox, cambiare la CPU predefinita, evitando l'uso del modello "
-"``kvm64``."
 
-#: ../../install.rst:68
+#: ../../install.rst:71
 msgid ""
 "Finally, start the NS8 image within your virtualization platform, or "
 "upload it to a cloud provider to create a public virtual machine."
@@ -4243,19 +4242,19 @@ msgstr ""
 "virtualizzazione, o caricarla su un provider cloud per creare una "
 "macchina virtuale pubblica."
 
-#: ../../install.rst:71
+#: ../../install.rst:74
 msgid "Default OS administrative credentials are"
 msgstr "Le credenziali amministrative predefinite del sistema operativo sono"
 
-#: ../../install.rst:73
+#: ../../install.rst:76
 msgid "Username: ``root``"
 msgstr "Nome utente: ``root``"
 
-#: ../../install.rst:74 ../../install.rst:114
+#: ../../install.rst:77 ../../install.rst:117
 msgid "Password: ``Nethesis,1234``"
 msgstr "Password: ``Nethesis,1234``"
 
-#: ../../install.rst:76
+#: ../../install.rst:79
 msgid ""
 "Access the system console and log in using the default credentials. Upon "
 "the first login, you will be prompted to change the password."
@@ -4263,7 +4262,7 @@ msgstr ""
 "Accedere alla console di sistema utilizzando le credenziali di default. "
 "Al primo login, verrà richiesto di cambiare la password."
 
-#: ../../install.rst:79
+#: ../../install.rst:82
 msgid ""
 "To obtain administrative SSH access to the system, create a personal user"
 " account in the ``wheel`` group and set a password. For instance, execute"
@@ -4274,7 +4273,7 @@ msgstr ""
 "esempio, eseguire i seguenti comandi e inserire la password desiderata: "
 "::"
 
-#: ../../install.rst:86
+#: ../../install.rst:89
 msgid ""
 "After logging in with the personal user account, gain root access by "
 "executing: ::"
@@ -4282,7 +4281,7 @@ msgstr ""
 "Dopo l'accesso con l'account utente personale, ottenere l'accesso root "
 "eseguendo: ::"
 
-#: ../../install.rst:93
+#: ../../install.rst:96
 msgid ""
 "If DHCP was used to obtain the initial network configuration, change the "
 "Rocky Linux network settings and configure a static IP address. For more "
@@ -4293,11 +4292,11 @@ msgstr ""
 " indirizzo IP statico. Per ulteriori informazioni si rimanda a :ref:`os-"
 "network-section`."
 
-#: ../../install.rst:100
+#: ../../install.rst:103
 msgid "Post-installation steps"
 msgstr "Passi post-installazione"
 
-#: ../../install.rst:102
+#: ../../install.rst:105
 #, fuzzy
 msgid ""
 "When the installation script completes or the pre-built image has "
@@ -4307,23 +4306,23 @@ msgstr ""
 "inizializzata, accedere all'interfaccia utente Web tramite il seguente "
 "URL::"
 
-#: ../../install.rst:109
+#: ../../install.rst:112
 #, fuzzy
 msgid "If the node is unreachable, refer to :ref:`os-network-section`."
 msgstr ""
 "Se il nodo fosse irraggiungibile, fare riferimento a :ref:`os-network-"
 "section`"
 
-#: ../../install.rst:111
+#: ../../install.rst:114
 #, fuzzy
 msgid "The default credentials for logging in to the cluster-admin interface are:"
 msgstr "Le credenziali di default per accedere a cluster-admin sono"
 
-#: ../../install.rst:113 ../../odoo.rst:55
+#: ../../install.rst:116 ../../odoo.rst:55
 msgid "Username: ``admin``"
 msgstr "Nome utente: ``admin``"
 
-#: ../../install.rst:116
+#: ../../install.rst:119
 msgid ""
 "Choose :guilabel:`Create cluster` and follow the procedure to set up a "
 "new single-node cluster. Alternatively, you can join the node to an "
@@ -4336,7 +4335,7 @@ msgstr ""
 "ripristinare un backup di cluster come dettagliato in :ref"
 ":`disaster_recovery-section`."
 
-#: ../../install.rst:121
+#: ../../install.rst:124
 #, fuzzy
 msgid ""
 "For security reasons, change the admin password immediately if it is "
@@ -4345,7 +4344,7 @@ msgstr ""
 "Per motivi di sicurezza, la password dell'amministratore deve essere "
 "cambiata al primo accesso, se è ancora al valore predefinito."
 
-#: ../../install.rst:124
+#: ../../install.rst:127
 #, fuzzy
 msgid ""
 "Ensure the node's Fully Qualified Domain Name (FQDN) is correct and meets"
@@ -4354,7 +4353,7 @@ msgstr ""
 "Assicurarsi che il Fully Qualified Domain Name (FQDN) del nodo sia "
 "corretto e rispetti i :ref:`requisiti DNS <dns-reqs>`."
 
-#: ../../install.rst:127
+#: ../../install.rst:130
 #, fuzzy
 msgid ""
 "Even if running on a single node, the system will set up a Virtual "
@@ -4373,14 +4372,14 @@ msgstr ""
 " l'ambiente di rete esistente, perché non potrà essere modificata una "
 "volta impostata."
 
-#: ../../install.rst:134
+#: ../../install.rst:137
 #, fuzzy
 msgid ""
 "Finally, click the :guilabel:`Create cluster` button. Your NS8 is now "
 "ready."
 msgstr "Infine, cliccare sul pulsante :guilabel:`Crea cluster`. NS8 è pronto."
 
-#: ../../install.rst:137
+#: ../../install.rst:140
 #, fuzzy
 msgid ""
 "By default, the new cluster is named ``NethServer 8``. If you wish to "
@@ -4389,26 +4388,26 @@ msgstr ""
 "Un nuovo cluster ha l'etichetta ``NethServer 8`` assegnata di default. Se"
 " si desidera cambiarla:"
 
-#: ../../install.rst:140
+#: ../../install.rst:143
 #, fuzzy
 msgid "Go to the ``Settings`` page and click on the ``Cluster`` card."
 msgstr "recarsi alla pagina ``Impostazioni`` e cliccare sulla scheda ``Cluster``"
 
-#: ../../install.rst:141
+#: ../../install.rst:144
 #, fuzzy
 msgid "Enter a new name in the ``Cluster label`` field."
 msgstr "inserire un nome all'interno del campo ``Etichetta cluster``"
 
-#: ../../install.rst:142
+#: ../../install.rst:145
 #, fuzzy
 msgid "Click the :guilabel:`Save settings` button."
 msgstr "cliccare sul pulsante :guilabel:`Salva impostazioni`"
 
-#: ../../install.rst:144
+#: ../../install.rst:147
 msgid "Not sure where to go from here? You can:"
 msgstr "Non sei sicuro di dove andare da qui? Potete:"
 
-#: ../../install.rst:146
+#: ../../install.rst:149
 msgid ""
 "Install an :ref:`LDAP <openldap-section>` or :ref:`Active Directory "
 "<active_directory-section>` user domain."
@@ -4416,33 +4415,33 @@ msgstr ""
 "Installare un dominio utente :ref:`LDAP <openldap-section>` o "
 ":ref:`Active Directory <active_directory-section>`."
 
-#: ../../install.rst:148
+#: ../../install.rst:151
 msgid "Read an introduction about :ref:`NS8 applications <modules-section>`."
 msgstr "Leggi un'introduzione su :ref:`NS8 applications <modules-section>`."
 
-#: ../../install.rst:149
+#: ../../install.rst:152
 #, fuzzy
 msgid "Take a look at :ref:`system logs <loki-section>`."
 msgstr ":ref:`Loki log server <loki-section>`"
 
-#: ../../install.rst:150
+#: ../../install.rst:153
 #, fuzzy
 msgid "Add :ref:`new nodes <cluster-section>`."
 msgstr ":ref:`core updates <core_updates-section>`"
 
-#: ../../install.rst:151
+#: ../../install.rst:154
 msgid "Set up a :ref:`metric dashboard <metrics-section>`."
 msgstr "Impostare un :ref:`metric dashboard <metrics-section>`."
 
-#: ../../install.rst:154
+#: ../../install.rst:157
 msgid "Uninstall"
 msgstr "Rimozione"
 
-#: ../../install.rst:156
+#: ../../install.rst:159
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr "È possibile disinstallare NS8 dalla distribuzione Linux usata come base."
 
-#: ../../install.rst:158
+#: ../../install.rst:161
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
@@ -4452,7 +4451,7 @@ msgstr ""
 "moduli aggiuntivi. L'attività va studiata con cura perché rimuove tutto "
 "ciò che si trova nelle directory ``/home`` e ``/var/lib/nethserver``."
 
-#: ../../install.rst:161
+#: ../../install.rst:164
 msgid "To uninstall NS8, execute: ::"
 msgstr "Per disinstallare NS8, eseguire: ::"
 
@@ -25151,4 +25150,12 @@ msgstr ""
 
 #~ msgid "SSH, 22 TCP"
 #~ msgstr "SSH, 22 TCP"
+
+#~ msgid ""
+#~ "For Proxmox, change the default CPU "
+#~ "model to anything other than ``kvm64``."
+#~ msgstr ""
+#~ "Per Proxmox, cambiare la CPU "
+#~ "predefinita, evitando l'uso del modello "
+#~ "``kvm64``."
 
