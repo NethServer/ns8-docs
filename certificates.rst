@@ -4,70 +4,194 @@
 TLS certificates
 ================
 
-An SSL/TLS certificate is a digital object issued by a Certificate Authority (CA).
-The certificate is used to verify the identity of a host and to establish encrypted communication channels.
-Upon installation, NethServer 8 uses a default self-signed certificate for all TLS services, including the Web user interface.
+A TLS (or SSL) certificate is issued by a Certificate Authority (CA) and
+is used by clients to establish an encrypted channel and verify the
+server's identity.
 
-Let's Encrypt certificates
-==========================
+In NethServer 8, applications do not handle TLS directly. Each cluster
+node runs a Traefik HTTP proxy in front of local applications, receiving
+TLS connections. Traefik presents the correct certificate based on the
+requested site name (the "Host" header in HTTP). See
+:ref:`http-routes-section` for details. Even non-HTTP services, such as
+IMAP, rely on Traefik to store and distribute certificates.
 
-NethServer 8 can request valid `Let's Encrypt <https://letsencrypt.org/>`_ certificates using `traefik <https://traefik.io/>`_.
+Upon installation, Traefik generates a self-signed certificate and uses it
+as the default for local applications, including the cluster web interface.
 
-Requesting Let's Encrypt is possible if the following requirements are met:
+The ``TLS certificates`` page lists certificates available on every node
+and in use by its applications. The table can be filtered by ``Node``,
+``Status``, ``Type``, or by typing a keyword that matches a certificate
+attribute.
 
-1. the server must be reachable from outside on port 443. Make sure your port 443
-   is open to the public Internet (you can check with sites like `CSM <http://www.canyouseeme.org/>`_).
-   For nodes installed before the Traefik 3.0.0 release, the same requirement applies to port 80.
-   Starting from new installations of Traefik 3.0.0, only port 443 is required.
+Certificates can either be uploaded or requested from Let's Encrypt,
+provided :ref:`some requirements <lets-encrypt-requirements>` are met.
 
-2. the domains for which you want the certificate must be public domain
-   names associated with the server's own public IP. Make sure you have
-   public DNS names pointing to your server for both IPv4 and IPv6
-   addresses. There are plenty of sites like `VDNS
-   <http://viewdns.info/>`_  to check if the DNS is correctly configured.
+The **certificate types** are:
 
-.. warning::
+- ``Requested``: each node can have one Let's Encrypt certificate with up
+  to 100 names. Use ``Manage names`` to update it by requesting a new one.
+  Certificates of this type are renewed automatically. If renewal fails,
+  check :ref:`Let's Encrypt requirements <lets-encrypt-requirements>`.  
+  Can be :ref:`deleted <delete-certificates-section>`.
 
-   Wildcard certificates (i.e. ``*.nethserver.org``) are not supported.
+- ``Automatic``: some applications request a Let's Encrypt certificate
+  automatically for their host name. The same applies to
+  :ref:`custom HTTP routes <custom-http-route-section>`.  
+  Can be :ref:`deleted <delete-certificates-section>`, but doing so alters
+  HTTP route configuration and clears renewal requests.
 
-If the above requirements are met, you can obtain a valid certificate for a domain by following these steps:
+- ``Obsolete``: when a node requests a new certificate, the old one is
+  marked "obsolete" but still renewed automatically. If renewal fails,
+  check :ref:`Let's Encrypt requirements <lets-encrypt-requirements>`.  
+  Can be :ref:`deleted <delete-certificates-section>`.
 
-- access the ``Settings`` page and click the ``TLS certificates`` card
-- click on :guilabel:`Request certificate` button
-- enter the node FQDN and select the node
-- click on :guilabel:`Request certificate` button
+- ``Uploaded``: custom certificates uploaded through
+  :ref:`Upload certificate <uploaded-certificates-section>` are never
+  renewed automatically and apply only to the node where they are
+  uploaded.  
+  Can be :ref:`deleted <delete-certificates-section>`.
 
-The procedure will take a while, but the system will notify you when the certificate is ready.
-The Let's Encrypt certificate is automatically renewed 30 days before expiration.
+.. _lets-encrypt-requirements:
 
-If the procedure fails, the certificate status is set to ``Not obtained``
-and an error notification is displayed.
+Let's Encrypt certificate requirements
+======================================
 
-Failures may occur if the DNS record is not correctly configured, or DNS
-update propagation is slower than expected.  In both cases Traefik retries
-to obtain the certificate at a later time when:
+`Let's Encrypt`_ is a nonprofit CA that issues TLS certificates for free.
+NethServer 8 uses HTTP-based ACME challenges to obtain them, if these
+requirements are met:
 
-- the Traefik service is restarted, or
-- an HTTPS request that matches the certificate name is received.
+.. _`Let's Encrypt`: https://letsencrypt.org
 
-.. warning::
+1. **The cluster node must be publicly reachable on port 443**.
 
-   Traefik stores the time of the last certificate issue attempt in
-   memory. Do not restart Traefik too often, to avoid incurring in Let's
-   Encrypt rate limits.
+   - Ensure port 443 is open to the public internet. You can test it with
+     sites like CSM_.
+
+   - Ensure there are no IP-based firewall rules on the node's network.
+     Let's Encrypt uses unpredictable IPs for the TLS-ALPN-01 challenge,
+     which may be blocked by geographic or custom filters.
+
+   Nodes installed before Traefik 3.0.0 used HTTP-01 challenges. In that
+   case, port 80 must be open as well. See :ref:`release notes
+   <release-notes-section>` for milestone 8.4.
+
+2. Certificate names must be public domains pointing to the server's
+   public IP. Ensure you have **DNS records for both IPv4 and IPv6
+   addresses**. Sites like `VDNS <http://viewdns.info/>`_ can help verify
+   DNS.
+
+.. _CSM: http://www.canyouseeme.org/
+
+.. note::
+
+   Wildcard certificates (e.g. ``*.nethserver.org``) are **not supported**
+   with HTTP-based ACME challenges.
+
+.. lets-encrypt-request-section:
+
+Request a Let's Encrypt certificate
+===================================
+
+If requirements are met, request a certificate as follows:
+
+1. Go to ``Settings`` → ``TLS certificates``.
+
+2. Click :guilabel:`Request certificate`.
+
+3. Select the cluster node that will issue the request. Only this node can
+   use the certificate.
+
+4. Enter the list of names to include. Each must meet the above
+   requirements.
+
+5. Click :guilabel:`Request certificate` to confirm.
+
+Validation may take up to 30 seconds before a timeout.
+
+Certificates are renewed automatically before expiration. If renewal
+fails, an expiration alert is triggered (see
+:ref:`certificate-alerts-section`). Check the :ref:`Let's Encrypt
+requirements <lets-encrypt-requirements>` to investigate the cause.
 
 .. _custom-certificates-section:
 
-Custom certificates
-===================
+.. _uploaded-certificates-section:
 
-If you are already in possession of a certificate and its private key, you can upload them to the cluster.
-You can follow this procedure to install the certificate:
+Upload custom TLS certificates
+==============================
 
-- access ``Settings`` page and click the ``TLS Certificates`` card
-- click on :guilabel:`Upload certificate`
-- once the modal is open, select the Traefik instance where the certificate will be installed to
-- upload the key file and the certificate file. They are checked on upload and if the key does not match the certificate, you receive an error
-- once selected the files for the upload, click on :guilabel:`Upload`
+If you already have a certificate and private key, you can upload them to
+a node:
 
-You receive an error if something with the upload goes wrong, otherwise the modal closes itself and the certificate list is refreshed.
+1. Go to ``Settings`` → ``TLS certificates``.
+
+2. Click :guilabel:`Upload certificate`.
+
+3. Select the cluster node. Only this node and its apps can use the
+   certificate.
+
+4. Select the ``Certificate`` and ``Private key`` files. If provided by
+   the CA, also select the ``Chain file``. Use drag-and-drop or the file
+   picker. All files must be **PEM-encoded**.
+
+5. Click :guilabel:`Upload`.
+
+If upload fails, an error is shown. Otherwise, the modal closes and the
+list refreshes.
+
+Common errors include uploading files in the wrong order or mismatched
+certificate, private key, and chain.
+
+An application uses the uploaded certificate if it matches its configured
+host name. Wildcard names are also supported.
+
+.. _certificate-alerts-section:
+
+Receive certificate expiration alerts
+=====================================
+
+If alert notifications are configured (see
+:ref:`alerts_notifications-section`), the cluster sends an alert when a
+certificate is nearing expiration or has already expired. Alerts begin
+28 days before the expiration date.
+
+- For an ``Uploaded`` certificate, resolve the alert by uploading a new
+  certificate. The old one can then be deleted.
+
+- For Let's Encrypt certificates (``Requested``, ``Automatic``,
+  ``Obsolete``), an expiration alert indicates renewal has failed. Check
+  that :ref:`requirements <lets-encrypt-requirements>` are still met.
+
+  Common **renewal failure causes** include:
+
+  - DNS records for a certificate name were changed or removed.
+  - A firewall blocks HTTP challenges, either by network address or by
+    geographic IP rules.
+
+
+.. _delete-certificates-section:
+
+Delete a TLS certificate
+========================
+
+You can delete a certificate if it is no longer needed. Do this with
+caution, because removing a certificate can break applications.
+
+When you delete a certificate:
+
+- Applications using it may lose TLS support.
+- If no alternative matches the host name, clients will fail to connect.
+- Automatic renewal (for Let's Encrypt) stops.
+
+To delete a certificate:
+
+1. Go to ``Settings`` → ``TLS certificates``.
+
+2. Find the certificate to remove.
+
+3. Click :guilabel:`Delete` and confirm.
+
+.. note::
+
+   Deletion is irreversible. Ensure no application depends on the
+   certificate, or install a replacement first to avoid downtime.
