@@ -112,9 +112,10 @@ If requirements are met, request a certificate as follows:
 
 Validation may take up to 60 seconds before a timeout.
 
-Certificates are renewed automatically 30 days before expiration. If
-renewal fails, check :ref:`Let's Encrypt requirements
-<lets-encrypt-requirements>`.
+Certificates are renewed automatically before expiration. If renewal
+fails, an expiration alert is triggered (see
+:ref:`certificate-alerts-section`). Check the :ref:`Let's Encrypt
+requirements <lets-encrypt-requirements>` to investigate the cause.
 
 .. _custom-certificates-section:
 
@@ -147,6 +148,30 @@ key, and chain.
 
 An application uses the uploaded certificate if it matches its configured
 host name. Wildcard names are supported.
+
+.. _certificate-alerts-section:
+
+Receive certificate expiration alerts
+=====================================
+
+If alert notifications are configured (see
+:ref:`alerts_notifications-section`), the cluster sends an alert when a
+certificate is nearing expiration or has already expired. Alerts begin
+28 days before the expiration date.
+
+- For an ``Uploaded`` certificate, resolve the alert by uploading a new
+  certificate. The old one can then be deleted.
+
+- For Let's Encrypt certificates (``Requested``, ``Automatic``,
+  ``Obsolete``), an expiration alert indicates renewal has failed. Check
+  that :ref:`requirements <lets-encrypt-requirements>` are still met.
+
+  Common **renewal failure causes** include:
+
+  - DNS records for a certificate name were changed or removed.
+  - A firewall blocks HTTP challenges, either by network address or by
+    geographic IP rules.
+
 
 .. _delete-certificates-section:
 
