@@ -16,7 +16,7 @@ By default, an NS8 node has the following open ports:
 
 - Wireguard VPN, 55820 UDP
 - HTTP and HTTPS, 80 and 443 TCP
-- SSH, 22 TCP
+- SSH, 22 TCP (see :ref:`ssh-redirection`)
 - Cockpit (not installed by default), 9090 TCP
 
 Applications that require publicly open ports, such as the Mail server, will
@@ -58,3 +58,36 @@ for more information.
 To see the list of allowed services and ports, run: ::
 
     firewall-cmd --list-all
+
+.. _ssh-redirection:
+
+Manage SSH port redirection
+---------------------------
+When a node is publicly accessible, such as a cloud VPS, it is desirable to change the
+default SSH port 22 to a custom port. However, changing the port at the ``sshd``
+configuration level has two drawbacks:
+
+1. The default SELinux policy must be adjusted.
+2. The :ref:`Subscription <subscription-section>` remote support requirement does not work,
+   because ``sshd`` must continue to accept local connections on port 22.
+
+Since the Firewalld configuration must be changed in any case, the preferred approach
+is to configure only Firewalld with a *port forward* (or *port redirection*) and leave ``sshd`` unchanged.
+
+The following commands open port 2222 and restrict access to port 22
+to trusted interfaces: ::
+
+    firewall-cmd --permanent --add-forward-port=port=2222:proto=tcp:toport=22
+    firewall-cmd --permanent --service=ssh --add-port=2222/tcp
+    firewall-cmd --permanent --service=ssh --remove-port=22/tcp
+    firewall-cmd --reload
+
+If you later decide to change the port (for example, from 2222 to 2019), the old port
+forward must be removed first. The procedure is as follows: ::
+
+    firewall-cmd --permanent --add-forward-port=port=2019:proto=tcp:toport=22
+    firewall-cmd --permanent --service=ssh --add-port=2019/tcp
+    firewall-cmd --permanent --remove-forward-port=port=2222:proto=tcp:toport=22
+    firewall-cmd --permanent --service=ssh --remove-port=2222/tcp
+    firewall-cmd --reload
+ 
