@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 09:06+0000\n"
+"POT-Creation-Date: 2025-09-26 12:53+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -3630,9 +3630,8 @@ msgid "HTTP and HTTPS, 80 and 443 TCP"
 msgstr "HTTP and HTTPS, 80 and 443 TCP"
 
 #: ../../firewall.rst:19
-#, fuzzy
-msgid "SSH, 22 TCP"
-msgstr "SSH, 22 TCP"
+msgid "SSH, 22 TCP (see :ref:`ssh-redirection`)"
+msgstr ""
 
 #: ../../firewall.rst:20
 #, fuzzy
@@ -3724,6 +3723,48 @@ msgstr ""
 #, fuzzy
 msgid "To see the list of allowed services and ports, run: ::"
 msgstr "To see the list of allowed services and ports, run ::"
+
+#: ../../firewall.rst:65
+msgid "Manage SSH port redirection"
+msgstr ""
+
+#: ../../firewall.rst:66
+msgid ""
+"When a node is publicly accessible, such as a cloud VPS, it is desirable "
+"to change the default SSH port 22 to a custom port. However, changing the"
+" port at the ``sshd`` configuration level has two drawbacks:"
+msgstr ""
+
+#: ../../firewall.rst:70
+msgid "The default SELinux policy must be adjusted."
+msgstr ""
+
+#: ../../firewall.rst:71
+msgid ""
+"The :ref:`Subscription <subscription-section>` remote support requirement"
+" does not work, because ``sshd`` must continue to accept local "
+"connections on port 22."
+msgstr ""
+
+#: ../../firewall.rst:74
+msgid ""
+"Since the Firewalld configuration must be changed in any case, the "
+"preferred approach is to configure only Firewalld with a *port forward* "
+"(or *port redirection*) and leave ``sshd`` unchanged."
+msgstr ""
+
+#: ../../firewall.rst:77
+msgid ""
+"The following commands open port 2222 and restrict access to port 22 to "
+"trusted interfaces: ::"
+msgstr ""
+
+#: ../../firewall.rst:85
+msgid ""
+"If you later decide to change the port (for example, from 2222 to 2019), "
+"the old port forward must be removed first. The procedure is as follows: "
+"::"
+msgstr ""
 
 #: ../../imapsync.rst:5
 #, fuzzy
@@ -25107,4 +25148,7 @@ msgstr ""
 
 #~ msgid "check the ``Enable Hotel module` option"
 #~ msgstr ""
+
+#~ msgid "SSH, 22 TCP"
+#~ msgstr "SSH, 22 TCP"
 
