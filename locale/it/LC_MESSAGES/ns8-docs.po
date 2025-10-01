@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version:  NS8\n"
+"Project-Id-Version: NS8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-26 13:35+0000\n"
-"PO-Revision-Date: 2025-02-04 10:01+0000\n"
-"Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
+"PO-Revision-Date: 2025-10-01 09:38+0000\n"
+"Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
 "Language: it\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>"
-"\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14-dev\n"
 "Generated-By: Babel 2.10.3\n"
 
 #: ../../backup.rst:5
@@ -58,9 +58,9 @@ msgid ""
 "change its encryption password. See :ref:`cluster_backup-section` for "
 "more information."
 msgstr ""
-"** Configurazione cluster**: Scarica il piccolo file di backup cluster e "
-"modifica la password di crittografia. Vedere :ref:`cluster_backup-"
-"section` per ulteriori informazioni."
+"**Configurazione cluster**: Scarica il piccolo file di backup cluster e "
+"modifica la password di crittografia. Vedere :ref:`cluster_backup-section` "
+"per ulteriori informazioni."
 
 #: ../../backup.rst:22
 msgid ""
@@ -87,14 +87,12 @@ msgstr ""
 " un backup o ripristinare un'applicazione."
 
 #: ../../backup.rst:34
-#, fuzzy
 msgid ""
 "Access the ``Backup`` page, click on the :guilabel:`Add destination` "
 "button, and choose a provider. Supported providers are:"
 msgstr ""
-"Accedi alla pagina ``Backup``, clicca sul pulsante :guilabel:` Add "
-"repository` e scegli un provider. Attualmente i fornitori supportati "
-"sono:"
+"Accedi alla pagina ``Backup``, clicca sul pulsante :guilabel:`Add repository`"
+" e scegli un provider. Attualmente i fornitori supportati sono:"
 
 #: ../../backup.rst:37
 msgid "`Backblaze B2`_"
@@ -4002,9 +4000,8 @@ msgid "Append the ``*vmail`` suffix to the task's ``Remote user`` field value."
 msgstr ""
 
 #: ../../imapsync.rst:140
-#, fuzzy
 msgid "For example:"
-msgstr "Example:"
+msgstr "Per esempio:"
 
 #: ../../imapsync.rst:142
 msgid "``ns8user`` becomes ``ns8user*vmail``"
@@ -7428,13 +7425,12 @@ msgstr ""
 "external user domain is automatically removed."
 
 #: ../../migration.rst:166
-#, fuzzy
 msgid ""
 "Refer to the next sections for specific information about the local "
 "account provider migration."
 msgstr ""
-"Refer to the next sections for specific information about the local "
-"account provider migration."
+"Consulta le sezioni successive per informazioni specifiche sulla migrazione "
+"del provider di account locale."
 
 #: ../../migration.rst:170
 msgid "Samba DC"
@@ -8530,9 +8526,8 @@ msgid ""
 "remember to configure :ref:`NethVoice Proxy <nethvoice_proxy-section>` "
 "instance."
 msgstr ""
-"Prima di procedere con la configurazione dell'istanza NethVoice, "
-"ricordatevi di configurare l'istanza di :ref: `NethVoice Proxy "
-"<nethvoice_proxy-sezione>`."
+"Prima di procedere con la configurazione dell'istanza NethVoice, ricordatevi "
+"di configurare l'istanza di :ref:`NethVoice Proxy <nethvoice_proxy-sezione>`."
 
 #: ../../nethvoice.rst:26
 msgid ""
@@ -8782,7 +8777,7 @@ msgstr "``Gateway di rete``: gateway di rete"
 
 #: ../../nethvoice.rst:93
 msgid "``PBX IP``: NethVoice IP"
-msgstr "``IP PBX ``: IP del NethVoice"
+msgstr "``IP PBX``: IP del NethVoice"
 
 #: ../../nethvoice.rst:95
 msgid "Dynamic settings based on the model:"
@@ -9111,17 +9106,17 @@ msgstr ""
 "tramite il pulsante :guilabel:`Crea nuovo modello`"
 
 #: ../../nethvoice.rst:194
-#, fuzzy
 msgid ""
 "On this page, some parameters inherited from all models can also be "
 "modified using the :guilabel:`Default Settings`. These parameters include"
 " ``Encryption`` and ``PBX Address``, already set during the initial "
 "configuration process as explained in :ref:`wizard-devices`."
 msgstr ""
-"On this page, some parameters inherited from all models can also be "
-"modified using the :guilabel:`Default Settings`. These parameters include"
-" ``Encryption`` and ``PBX Address``, already set during the initial "
-"configuration process as explained in :ref:`wizard-devices`."
+"In questa pagina è possibile modificare alcuni parametri ereditati da tutti "
+"i modelli utilizzando le :guilabel:`Impostazioni predefinite`. Tra questi "
+"parametri rientrano ``Encryption`` e ``Indirizzo PBX``, già configurati "
+"durante il processo di configurazione iniziale come spiegato in :ref:`wizard-"
+"devices`."
 
 #: ../../nethvoice.rst:196
 msgid ""
@@ -9213,14 +9208,14 @@ msgid "Permissions"
 msgstr "Permessi"
 
 #: ../../nethvoice.rst:233
-#, fuzzy
 msgid ""
 "General permission enables or disables access to all the functionalities "
 "of the section and general notification settings. Available permissions "
 "are:"
 msgstr ""
-"L'autorizzazione generale abilita o disabilita l'accesso a tutte le "
-"funzionalità della sezione e alle impostazioni generali delle notifiche."
+"L’autorizzazione generale abilita o disabilita l’accesso a tutte le "
+"funzionalità della sezione e alle impostazioni generali delle notifiche. Le "
+"autorizzazioni disponibili sono:"
 
 #: ../../nethvoice.rst:236
 msgid "``DND``: Enables the configuration of Do Not Disturb."
@@ -9547,7 +9542,6 @@ msgstr ""
 " personali e i dispositivi associati."
 
 #: ../../nethvoice.rst:318
-#, fuzzy
 msgid ""
 "The settings that can be modified are: * ``Profile``: Determines the "
 "permissions the user has. * ``Group``: Allows grouping of users to "
@@ -9561,17 +9555,18 @@ msgid ""
 "not supported by provisioning. In this case, a custom device must be "
 "used."
 msgstr ""
-"The settings that can be modify are: * ``Profile``: Determines the "
-"permissions the user has. * ``Group``: Allows grouping users to "
-"facilitate the distribution of configurations through :ref:wizard-"
-"multiple-phones. * ``Mobile``: Allows associating a mobile number with "
-"the user to display it in the operator panel of NethVoice CTI and use it "
-"in presence management. * ``Voicemail Box``: Allows activating the "
-"voicemail box for the user as a destination for any failed calls within. "
-"* ``Associate Device``: Allows selecting an unassociated phone and "
-"assigning it to the user among those managed with provisioning. It is "
-"possible to create credentials for use on a device not supported by "
-"provisioning. In this case, a custom device must be used."
+"Le impostazioni che possono essere modificate sono: * ``Profilo``: Determina "
+"le autorizzazioni dell’utente. *  ``Gruppo``:  consente di raggruppare gli "
+"utenti per facilitare la distribuzione delle configurazioni tramite :ref"
+":wizard-multiple-phones.* ``Mobile``:  Permette di associare un numero di "
+"cellulare all’utente per visualizzarlo nel pannello operatore di NethVoice "
+"CTI e utilizzarlo nella gestione della presenza. * ``Casella Vocale``:  "
+"Consente di attivare la casella vocale per l’utente come destinazione di "
+"eventuali chiamate non andate a buon fine.. * ``Associa Dispositivo``: "
+"Permette di selezionare un telefono non associato e assegnarlo all’utente "
+"tra quelli gestiti tramite provisioning. È possibile creare credenziali da "
+"utilizzare su un dispositivo non supportato dal provisioning. In questo caso "
+"è necessario utilizzare un dispositivo personalizzato."
 
 #: ../../nethvoice.rst:325
 msgid ""
@@ -9960,9 +9955,8 @@ msgstr ""
 "l'interfaccia di amministrazione web del telefono."
 
 #: ../../nethvoice.rst:451
-#, fuzzy
 msgid "Provisioning Methods"
-msgstr "Provisioning Parameters Guide"
+msgstr "Metodi di provisioning"
 
 #: ../../nethvoice.rst:453
 msgid ""
@@ -13064,8 +13058,8 @@ msgid ""
 "The proxy will be used by :ref:`NethVoice <nethvoice-section>` instances "
 "that must be installed after this proxy is up and running."
 msgstr ""
-"Il proxy sarà utilizzato da :ref:`NethVoice <nethvoice-section> ` istanze"
-" che devono essere installate dopo che questo proxy è in funzione."
+"Il proxy sarà utilizzato da :ref:`NethVoice <nethvoice-section>` istanze che "
+"devono essere installate dopo che questo proxy è in funzione."
 
 #: ../../nethvoice_proxy.rst:16
 msgid ""
@@ -25158,4 +25152,3 @@ msgstr ""
 #~ "Per Proxmox, cambiare la CPU "
 #~ "predefinita, evitando l'uso del modello "
 #~ "``kvm64``."
-
