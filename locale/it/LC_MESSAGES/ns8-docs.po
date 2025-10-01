@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 09:38+0000\n"
+"POT-Creation-Date: 2025-10-01 14:51+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -519,194 +519,350 @@ msgstr "Certificati TLS"
 
 #: ../../certificates.rst:7
 msgid ""
-"An SSL/TLS certificate is a digital object issued by a Certificate "
-"Authority (CA). The certificate is used to verify the identity of a host "
-"and to establish encrypted communication channels. Upon installation, "
-"NethServer 8 uses a default self-signed certificate for all TLS services,"
-" including the Web user interface."
+"A TLS (or SSL) certificate is issued by a Certificate Authority (CA) and "
+"is used by clients to establish an encrypted channel and verify the "
+"server's identity."
 msgstr ""
-"Un certificato SSL/TLS è un oggetto digitale rilasciato da un'Autorità di"
-" certificazione (CA). Il certificato viene utilizzato per verificare "
-"l'identità di un host e per stabilire canali di comunicazione "
-"crittografati. Al momento dell'installazione, NethServer 8 utilizza un "
-"certificato autofirmato predefinito per tutti i servizi TLS, inclusa "
-"l'interfaccia utente Web."
 
-#: ../../certificates.rst:12
-msgid "Let's Encrypt certificates"
-msgstr "Certificati Let's Encrypt"
-
-#: ../../certificates.rst:14
+#: ../../certificates.rst:11
 msgid ""
-"NethServer 8 can request valid `Let's Encrypt "
-"<https://letsencrypt.org/>`_ certificates using `traefik "
-"<https://traefik.io/>`_."
+"In NethServer 8, applications do not handle TLS directly. Each cluster "
+"node runs a Traefik HTTP proxy in front of local applications, receiving "
+"TLS connections. Traefik presents the correct certificate based on the "
+"requested site name (the \"Host\" header in HTTP). See :ref:`http-routes-"
+"section` for details. Even non-HTTP services, such as IMAP, rely on "
+"Traefik to store and distribute certificates."
 msgstr ""
-"NethServer 8 può richiedere certificati validi `Let's Encrypt "
-"<https://letsencrypt.org/>`_ usando `traefik <https://traefik.io/>`_."
-
-#: ../../certificates.rst:16
-msgid ""
-"Requesting Let's Encrypt is possible if the following requirements are "
-"met:"
-msgstr ""
-"Richiedi Let's Encrypt è possibile se i seguenti requisiti sono "
-"soddisfatti:"
 
 #: ../../certificates.rst:18
+msgid ""
+"Upon installation, Traefik generates a self-signed certificate and uses "
+"it as the default for local applications, including the cluster web "
+"interface."
+msgstr ""
+
+#: ../../certificates.rst:22
+msgid ""
+"The ``TLS certificates`` page lists certificates available on every node "
+"and in use by its applications. The table can be filtered by ``Node``, "
+"``Status``, ``Type``, or by typing a keyword that matches a certificate "
+"attribute."
+msgstr ""
+
+#: ../../certificates.rst:27
+msgid ""
+"Certificates are not shared between cluster nodes. They are valid only on"
+" the node where they are requested or uploaded."
+msgstr ""
+
+#: ../../certificates.rst:30
+msgid "The main **types** of certificates are:"
+msgstr ""
+
+#: ../../certificates.rst:32
+msgid ""
+"``Uploaded``: custom certificates added through :ref:`Upload certificate "
+"<uploaded-certificates-section>`. They are not renewed automatically."
+msgstr ""
+
+#: ../../certificates.rst:35
+msgid ""
+"``Requested``: one :ref:`Let's Encrypt certificate <lets-encrypt-"
+"requirements>` can be requested for each cluster node, with up to 100 "
+"names. It is used by applications only if no other suitable certificate "
+"is available. Use the ``Manage names`` action to replace it with a new "
+"request; the old one is then marked as ``Obsolete``. Let's Encrypt "
+"certificates are renewed automatically."
+msgstr ""
+
+#: ../../certificates.rst:42
+#, fuzzy
+msgid "Other certificate types:"
+msgstr "Certificati personalizzati"
+
+#: ../../certificates.rst:44
+msgid ""
+"``Automatic``: a Let's Encrypt certificate requested and currently used "
+"by applications or :ref:`custom HTTP routes <custom-http-route-section>` "
+"for their host name."
+msgstr ""
+
+#: ../../certificates.rst:48
+msgid ""
+"``Obsolete``: a Let's Encrypt certificate that was obtained by an "
+"application, an HTTP route, or a user request, and is no longer in use. "
+"See also :ref:`delete-certificates-section`."
+msgstr ""
+
+#: ../../certificates.rst:52
+msgid "Both Automatic and Obsolete certificates are renewed automatically."
+msgstr ""
+
+#: ../../certificates.rst:58
+#, fuzzy
+msgid "Let's Encrypt certificate requirements"
+msgstr "Certificati Let's Encrypt"
+
+#: ../../certificates.rst:60
+msgid ""
+"`Let's Encrypt`_ is a nonprofit CA that issues TLS certificates for free."
+" NethServer 8 uses HTTP-based ACME challenges to obtain them, which "
+"require:"
+msgstr ""
+
+#: ../../certificates.rst:65
+msgid "**The cluster node must be publicly reachable on port 443**."
+msgstr ""
+
+#: ../../certificates.rst:67
+msgid ""
+"Ensure port 443 is open to the public internet. You can test it with "
+"sites like CSM_."
+msgstr ""
+
+#: ../../certificates.rst:70
+msgid ""
+"Ensure there are no IP-based firewall rules on the node's network. Let's "
+"Encrypt uses unpredictable IPs for the TLS-ALPN-01 challenge, which may "
+"be blocked by geographic or custom filters."
+msgstr ""
+
+#: ../../certificates.rst:74
+msgid ""
+"Nodes installed before Traefik 3.0.0 used HTTP-01 challenges. In that "
+"case, port 80 must be open as well. See :ref:`release notes <release-"
+"notes-section>` for milestone 8.4."
+msgstr ""
+
+#: ../../certificates.rst:78
+msgid ""
+"Certificate names must be public domains pointing to the server's public "
+"IP. Ensure you have **DNS records for both IPv4 and IPv6 addresses**. "
+"Sites like `VDNS <http://viewdns.info/>`_ can help verify DNS."
+msgstr ""
+
+#: ../../certificates.rst:87
 #, fuzzy
 msgid ""
-"the server must be reachable from outside on port 443. Make sure your "
-"port 443 is open to the public Internet (you can check with sites like "
-"`CSM <http://www.canyouseeme.org/>`_). For nodes installed before the "
-"Traefik 3.0.0 release, the same requirement applies to port 80. Starting "
-"from new installations of Traefik 3.0.0, only port 443 is required."
-msgstr ""
-"il server deve essere raggiungibile dall'esterno sulla porta 80. "
-"Assicurarsi che la vostra porta 80 sia aperto da Internet (puoi "
-"controllare con siti come `CSM <http://www.canyouseeme.org/> `_)"
-
-#: ../../certificates.rst:23
-msgid ""
-"the domains for which you want the certificate must be public domain "
-"names associated with the server's own public IP. Make sure you have "
-"public DNS names pointing to your server for both IPv4 and IPv6 "
-"addresses. There are plenty of sites like `VDNS <http://viewdns.info/>`_"
-"  to check if the DNS is correctly configured."
-msgstr ""
-"i domini per i quali si desidera il certificato devono essere nomi di "
-"dominio pubblici associati all'IP pubblico del proprio server. Assicurati"
-" di avere nomi DNS pubblici che puntano al tuo server sia per gli "
-"indirizzi IPv4 che IPv6. Ci sono molti siti come `VDNS "
-"<http://viewdns.info/>`_  per verificare se il DNS è configurato "
-"correttamente."
-
-#: ../../certificates.rst:31
-msgid "Wildcard certificates (i.e. ``*.nethserver.org``) are not supported."
+"Wildcard certificates (e.g. ``*.nethserver.org``) are **not supported** "
+"with HTTP-based ACME challenges."
 msgstr "I certificati Wildcard (i.e. ``*.nethserver.org``) non sono supportati."
 
-#: ../../certificates.rst:33
+#: ../../certificates.rst:90
 msgid ""
-"If the above requirements are met, you can obtain a valid certificate for"
-" a domain by following these steps:"
+"Certificates obtained from Let's Encrypt are renewed automatically before"
+" expiration. If one is marked as ``Expiring`` or ``Expired``, verify the "
+"requirements above and wait for the next renewal attempt, or remove it as"
+" explained in :ref:`delete-certificates-section`."
+msgstr ""
+
+#: ../../certificates.rst:98
+#, fuzzy
+msgid "Request a Let's Encrypt certificate"
+msgstr "abilitare ``Richiedi certificato Let's Encrypt``"
+
+#: ../../certificates.rst:100
+#, fuzzy
+msgid "If requirements are met, request a certificate as follows:"
 msgstr ""
 "Se i requisiti di cui sopra sono soddisfatti, è possibile ottenere un "
 "certificato valido per un dominio seguendo questi passaggi:"
 
-#: ../../certificates.rst:35
-msgid "access the ``Settings`` page and click the ``TLS certificates`` card"
+#: ../../certificates.rst:102 ../../certificates.rst:130
+#: ../../certificates.rst:202
+#, fuzzy
+msgid "Go to ``Settings`` → ``TLS certificates``."
 msgstr ""
 "accedere alla pagina ``Impostazioni`` e fare clic sulla scheda "
 "``certificati TLS ``"
 
-#: ../../certificates.rst:36 ../../certificates.rst:38
-msgid "click on :guilabel:`Request certificate` button"
+#: ../../certificates.rst:104
+#, fuzzy
+msgid "Click :guilabel:`Request certificate`."
 msgstr "clicca sul pulsante :guilabel:`Richiesta certificato`"
 
-#: ../../certificates.rst:37
-msgid "enter the node FQDN and select the node"
-msgstr "inserire il nodo FQDN e selezionare il nodo"
-
-#: ../../certificates.rst:40
+#: ../../certificates.rst:106
 msgid ""
-"The procedure will take a while, but the system will notify you when the "
-"certificate is ready. The Let's Encrypt certificate is automatically "
-"renewed 30 days before expiration."
+"Select the cluster node that will issue the request. Only this node can "
+"use the certificate."
 msgstr ""
-"La procedura richiederà un po', ma il sistema vi informerà quando il "
-"certificato è pronto. Il certificato Let's Encrypt viene rinnovato "
-"automaticamente 30 giorni prima della scadenza."
 
-#: ../../certificates.rst:43
+#: ../../certificates.rst:109
+msgid "Enter the list of names to include. Each must meet the requirements."
+msgstr ""
+
+#: ../../certificates.rst:111
+#, fuzzy
+msgid "Click :guilabel:`Request certificate` to confirm."
+msgstr "clicca sul pulsante :guilabel:`Richiesta certificato`"
+
+#: ../../certificates.rst:113
+msgid "Validation may take up to 60 seconds before a timeout."
+msgstr ""
+
+#: ../../certificates.rst:115
 msgid ""
-"If the procedure fails, the certificate status is set to ``Not obtained``"
-" and an error notification is displayed."
+"Certificates are renewed automatically before expiration. If renewal "
+"fails, an expiration alert is triggered (see :ref:`certificate-alerts-"
+"section`). Check the :ref:`Let's Encrypt requirements <lets-encrypt-"
+"requirements>` to investigate the cause."
 msgstr ""
-"Se la procedura fallisce, lo stato del certificato viene impostato su "
-"``Non ottenuto`` e viene visualizzata una notifica di errore."
 
-#: ../../certificates.rst:46
-msgid ""
-"Failures may occur if the DNS record is not correctly configured, or DNS "
-"update propagation is slower than expected.  In both cases Traefik "
-"retries to obtain the certificate at a later time when:"
-msgstr ""
-"I guasti possono verificarsi se il record DNS non è configurato "
-"correttamente, o la propagazione dell'aggiornamento DNS è più lenta del "
-"previsto. In entrambi i casi Traefik si ritira per ottenere il "
-"certificato in un secondo momento quando:"
-
-#: ../../certificates.rst:50
-msgid "the Traefik service is restarted, or"
-msgstr "il servizio Traefik è riavviato, o"
-
-#: ../../certificates.rst:51
-msgid "an HTTPS request that matches the certificate name is received."
-msgstr ""
-"una richiesta HTTPS che corrisponde al nome del certificato viene "
-"ricevuta."
-
-#: ../../certificates.rst:55
-msgid ""
-"Traefik stores the time of the last certificate issue attempt in memory. "
-"Do not restart Traefik too often, to avoid incurring in Let's Encrypt "
-"rate limits."
-msgstr ""
-"Traefik memorizza il tempo dell'ultimo tentativo di rilascio di "
-"certificato in memoria. Non riavviare Traefik troppo spesso, per evitare "
-"di incorrere nei limiti di velocità Let's Encrypt."
-
-#: ../../certificates.rst:62
-msgid "Custom certificates"
+#: ../../certificates.rst:125
+#, fuzzy
+msgid "Upload custom TLS certificates"
 msgstr "Certificati personalizzati"
 
-#: ../../certificates.rst:64
+#: ../../certificates.rst:127
+#, fuzzy
 msgid ""
-"If you are already in possession of a certificate and its private key, "
-"you can upload them to the cluster. You can follow this procedure to "
-"install the certificate:"
+"If you already have a certificate and private key, you can upload them to"
+" a node:"
 msgstr ""
 "Se sei già in possesso di un certificato e della sua chiave privata, puoi"
 " caricarli sul cluster. È possibile seguire questa procedura per "
 "installare il certificato:"
 
-#: ../../certificates.rst:67
-msgid "access ``Settings`` page and click the ``TLS Certificates`` card"
-msgstr "accesso alla ``Impostazioni`` e fare clic sulla scheda ``Certificati TLS``"
-
-#: ../../certificates.rst:68
-msgid "click on :guilabel:`Upload certificate`"
+#: ../../certificates.rst:132
+#, fuzzy
+msgid "Click :guilabel:`Upload certificate`."
 msgstr "cliccare su :guilabel:`Upload certificate`"
 
-#: ../../certificates.rst:69
+#: ../../certificates.rst:134
 msgid ""
-"once the modal is open, select the Traefik instance where the certificate"
-" will be installed to"
+"Select the cluster node. Only this node and its applications can use the "
+"certificate."
 msgstr ""
-"una volta aperta la modalità, selezionare l'istanza Traefik dove verrà "
-"installato il certificato"
 
-#: ../../certificates.rst:70
+#: ../../certificates.rst:137
 msgid ""
-"upload the key file and the certificate file. They are checked on upload "
-"and if the key does not match the certificate, you receive an error"
+"Select the ``Certificate`` and ``Private key`` files. If provided by the "
+"CA, also select the ``Chain file``. Use drag-and-drop or the file picker."
+" All files must be **PEM-encoded**."
 msgstr ""
-"caricare il file chiave e il file di certificato. Sono controllati su "
-"upload e se la chiave non corrisponde al certificato, si riceve un errore"
 
-#: ../../certificates.rst:71
-msgid "once selected the files for the upload, click on :guilabel:`Upload`"
-msgstr ""
-"una volta selezionato i file per il caricamento, clicca su "
-":guilabel:`Upload`"
+#: ../../certificates.rst:141
+#, fuzzy
+msgid "Click :guilabel:`Upload`."
+msgstr "cliccare su :guilabel:`Upload certificate`"
 
-#: ../../certificates.rst:73
+#: ../../certificates.rst:143
+#, fuzzy
 msgid ""
-"You receive an error if something with the upload goes wrong, otherwise "
-"the modal closes itself and the certificate list is refreshed."
+"If the upload fails, an error is shown. Otherwise, the modal closes and "
+"the list refreshes."
 msgstr ""
 "Si riceve un errore se qualcosa con il caricamento va storto, altrimenti "
 "il modal si chiude e l'elenco dei certificati viene aggiornato."
+
+#: ../../certificates.rst:146
+msgid ""
+"Common errors include wrong file order or mismatched certificate, private"
+" key, and chain."
+msgstr ""
+
+#: ../../certificates.rst:149
+msgid ""
+"An application uses the uploaded certificate if it matches its configured"
+" host name. Wildcard names are supported."
+msgstr ""
+
+#: ../../certificates.rst:155
+msgid "Receive certificate expiration alerts"
+msgstr ""
+
+#: ../../certificates.rst:157
+msgid ""
+"If alert notifications are configured (see :ref:`alerts_notifications-"
+"section`), the cluster sends an alert when a certificate is nearing "
+"expiration or has already expired. Alerts begin 28 days before the "
+"expiration date."
+msgstr ""
+
+#: ../../certificates.rst:162
+msgid ""
+"For an ``Uploaded`` certificate, resolve the alert by uploading a new "
+"certificate. The old one can then be deleted."
+msgstr ""
+
+#: ../../certificates.rst:165
+msgid ""
+"For Let's Encrypt certificates (``Requested``, ``Automatic``, "
+"``Obsolete``), an expiration alert indicates renewal has failed. Check "
+"that :ref:`requirements <lets-encrypt-requirements>` are still met."
+msgstr ""
+
+#: ../../certificates.rst:169
+msgid "Common **renewal failure causes** include:"
+msgstr ""
+
+#: ../../certificates.rst:171
+msgid "DNS records for a certificate name were changed or removed."
+msgstr ""
+
+#: ../../certificates.rst:172
+msgid ""
+"A firewall blocks HTTP challenges, either by network address or by "
+"geographic IP rules."
+msgstr ""
+
+#: ../../certificates.rst:179
+#, fuzzy
+msgid "Delete a TLS certificate"
+msgstr "Certificati personalizzati"
+
+#: ../../certificates.rst:181
+msgid ""
+"You can delete a certificate if it is no longer needed. Do this with "
+"caution, because removing a certificate can break applications. When you "
+"delete a certificate:"
+msgstr ""
+
+#: ../../certificates.rst:185
+msgid ""
+"Traefik is restarted and HTTP connections are closed. For some "
+"applications this may lead to client data loss."
+msgstr ""
+
+#: ../../certificates.rst:188
+msgid "If no alternative matches the host name, clients will fail to reconnect."
+msgstr ""
+
+#: ../../certificates.rst:191
+msgid "Automatic renewal (for Let's Encrypt) stops."
+msgstr ""
+
+#: ../../certificates.rst:193
+msgid ""
+"If you delete an ``Automatic`` certificate, the related HTTP route is "
+"modified and its Let's Encrypt switch is cleared."
+msgstr ""
+
+#: ../../certificates.rst:196
+msgid ""
+"Use :guilabel:`Delete obsolete certificates` to remove all obsolete "
+"certificates of a node in a single operation. This limits Traefik "
+"restarts."
+msgstr ""
+
+#: ../../certificates.rst:200
+msgid "Alternatively, to delete a single certificate:"
+msgstr ""
+
+#: ../../certificates.rst:204
+msgid "Find the certificate to remove."
+msgstr ""
+
+#: ../../certificates.rst:206
+#, fuzzy
+msgid "Click :guilabel:`Delete` and confirm."
+msgstr "cliccare su :guilabel:`Upload certificate`"
+
+#: ../../certificates.rst:210
+msgid ""
+"Deletion is irreversible. Ensure no application depends on the "
+"certificate, or install a replacement first to avoid downtime."
+msgstr ""
 
 #: ../../cluster.rst:5
 msgid "Cluster management"
@@ -6842,95 +6998,99 @@ msgstr "Calendari"
 
 #: ../../metrics.rst:36
 msgid ""
-"Prometheus will automatically send alerts to the Alertmanager when a rule"
-" is triggered. Current rules will send alerts for:"
+"Prometheus automatically sends alerts to the Alertmanager when a rule is "
+"triggered. The current rules generate alerts for:"
 msgstr ""
 
 #: ../../metrics.rst:39
 #, fuzzy
-msgid "No SWAP is configured"
+msgid "No swap space configured"
 msgstr "No (the group is configured)"
 
 #: ../../metrics.rst:40
-msgid "SWAP space is nearly full"
+msgid "Swap space nearly full"
 msgstr ""
 
 #: ../../metrics.rst:41
-msgid "One or more backups have failed"
+msgid "One or more backup failures"
 msgstr ""
 
 #: ../../metrics.rst:42
-msgid "Disk partitions are nearly full"
+msgid "Disk partitions nearly full"
 msgstr ""
 
 #: ../../metrics.rst:43
-msgid "Software RAID (mdadm) is degraded"
+msgid "Software RAID (mdadm) degraded"
 msgstr ""
 
-#: ../../metrics.rst:45
+#: ../../metrics.rst:44
+msgid "TLS certificate expired or expiring within 28 days"
+msgstr ""
+
+#: ../../metrics.rst:46
 msgid ""
 "If the machine has a valid subscription, the alerts will be forwarded to "
 "the Nethesis portal like `my.nethesis.it <https://my.nethesis.it>`_ or "
 "`my.nethserver.com <https://my.nethserver.com>`_."
 msgstr ""
 
-#: ../../metrics.rst:48
+#: ../../metrics.rst:49
 msgid "Still, you can configure the alerts to be sent to custom email addresses."
 msgstr ""
 
-#: ../../metrics.rst:50
+#: ../../metrics.rst:51
 msgid ""
 "Alerts are also be visible inside in the :ref:`Grafana <grafana_access-"
 "section>`."
 msgstr ""
 
-#: ../../metrics.rst:55
+#: ../../metrics.rst:56
 #, fuzzy
 msgid "Alerts notifications"
 msgstr "Email notifications"
 
-#: ../../metrics.rst:57
+#: ../../metrics.rst:58
 msgid ""
 "Mail notifications can be sent to users when an alert is fired or "
 "resolved."
 msgstr ""
 
-#: ../../metrics.rst:59
+#: ../../metrics.rst:60
 msgid ""
 "The cluster needs an SMTP server to send the notifications. So first, "
 "make sure to enable the :ref:`email-notifications` feature."
 msgstr ""
 
-#: ../../metrics.rst:61
+#: ../../metrics.rst:62
 msgid ""
 "To configure alert notifications, access the ``Metrics`` section in the "
 "``Settings`` page. The page allows you to configure the following "
 "parameters:"
 msgstr ""
 
-#: ../../metrics.rst:64
+#: ../../metrics.rst:65
 msgid ""
 "``Sender email address``: the email address that will be used as the "
 "sender. The default is calculated from the leader FQDN."
 msgstr ""
 
-#: ../../metrics.rst:66
+#: ../../metrics.rst:67
 msgid ""
 "``Recipient email addresses``: the email addresses to which alerts will "
 "be sent. Enter one address per line. Multiple recipients are supported."
 msgstr ""
 
-#: ../../metrics.rst:69
+#: ../../metrics.rst:70
 msgid ""
 "Please note that if the cluster has a valid subscription, the alerts will"
 " also be sent to the Nethesis portals."
 msgstr ""
 
-#: ../../metrics.rst:74
+#: ../../metrics.rst:75
 msgid "Grafana access"
 msgstr ""
 
-#: ../../metrics.rst:76
+#: ../../metrics.rst:77
 msgid ""
 "Grafana is an open-source platform for monitoring and observability. It "
 "allows you to query, visualize and understand your metrics no matter "
@@ -6938,80 +7098,80 @@ msgid ""
 "series into insightful graphs and visualizations."
 msgstr ""
 
-#: ../../metrics.rst:80
+#: ../../metrics.rst:81
 msgid ""
 "By default, Grafana is disabled. You can enable it using the ``Access "
 "Grafana`` option in the ``Settings`` page, under the ``Metrics`` section."
 msgstr ""
 
-#: ../../metrics.rst:82
+#: ../../metrics.rst:83
 msgid ""
 "When enabled, Grafana will be accessible on the leader node at ``https"
 "://<leader-node>/grafana``."
 msgstr ""
 
-#: ../../metrics.rst:84
+#: ../../metrics.rst:85
 msgid ""
 "To access Grafana, you need to authenticate with the cluster admin "
 "credentials."
 msgstr ""
 
-#: ../../metrics.rst:86
+#: ../../metrics.rst:87
 msgid "Grafana will automatically display some default dashboards:"
 msgstr ""
 
-#: ../../metrics.rst:88
+#: ../../metrics.rst:89
 msgid ""
 "*core* folder: it contains the default dashboards for the cluster. "
 "Available dashboards are:"
 msgstr ""
 
-#: ../../metrics.rst:91
+#: ../../metrics.rst:92
 msgid ""
 "a dashboard for all nodes metrics like CPU load, memory usage, and disk "
 "space"
 msgstr ""
 
-#: ../../metrics.rst:92
+#: ../../metrics.rst:93
 msgid "a dashboard for fired alerts"
 msgstr ""
 
-#: ../../metrics.rst:93
+#: ../../metrics.rst:94
 msgid "a dashboard about Loki statistics"
 msgstr ""
 
-#: ../../metrics.rst:94
+#: ../../metrics.rst:95
 msgid "a dashboard to execute query on Loki logs"
 msgstr ""
 
-#: ../../metrics.rst:96
+#: ../../metrics.rst:97
 msgid ""
 "*modules* folder: it contains the default dashboards for the installed "
 "modules, like Samba Audit"
 msgstr ""
 
-#: ../../metrics.rst:99
+#: ../../metrics.rst:100
 msgid ""
 "If the leader node is switched, Grafana will be accessible on the new "
 "leader node but dashboard customizations will be lost."
 msgstr ""
 
-#: ../../metrics.rst:103
+#: ../../metrics.rst:104
 msgid "Access Prometheus web interface"
 msgstr ""
 
-#: ../../metrics.rst:105
+#: ../../metrics.rst:106
 msgid "By default, Prometheus web interface is not exposed to the public network."
 msgstr ""
 
-#: ../../metrics.rst:107
+#: ../../metrics.rst:108
 msgid ""
 "If you need to troubleshoot the Prometheus configuration, you can enable "
 "it on ``https://<leader-node>/prometheus``. As for Grafana, you will need"
 " to authenticate with cluster admin credentials."
 msgstr ""
 
-#: ../../metrics.rst:110
+#: ../../metrics.rst:111
 #, fuzzy
 msgid ""
 "To enable Prometheus web interface access, run the following command on "
@@ -14555,175 +14715,247 @@ msgstr ""
 "Grafana will automatically display metrics from Prometheus and :ref:`Loki"
 " <loki-section>`."
 
-#: ../../proxy.rst:5
-#, fuzzy
-msgid "Proxy"
-msgstr "Proxy"
-
-#: ../../proxy.rst:7
-#, fuzzy
-msgid ""
-"`Traefik <https://traefik.io/>`_ proxy is part of NethServer core and it "
-"handles all HTTP routes. The proxy is installed on each cluster node."
+#: ../../proxy.rst:7 ../../webtop.rst:327
+msgid "HTTP routes"
 msgstr ""
-"`Traefik <https://traefik.io/>`_ proxy is part of NethServer core and it "
-"handles all HTTP routes. The proxy is installed on each cluster node."
 
-#: ../../proxy.rst:10
-#, fuzzy
+#: ../../proxy.rst:9
 msgid ""
-"Access the ``HTTP routes`` card inside the ``Settings`` page to see all "
-"configured routes. Applications usually automatically setup the proxy "
-"during the configuration phase. Automatic routes can't be modified except"
-" for the allowed IPs."
+"The ``HTTP routes`` section of the Settings page shows how each cluster "
+"node routes HTTP traffic received on standard TCP ports 80 (HTTP) and 443"
+" (HTTPS) to applications installed in the cluster or towards custom "
+"network destinations."
 msgstr ""
-"Access the ``HTTP routes`` card inside the ``Settings`` page to see all "
-"configured routes. Applications usually automatically setup the proxy "
-"during the configuration phase. Automatic routes can't be modified."
 
 #: ../../proxy.rst:14
-msgid "Each route can have a list of special attributes visible from the list:"
-msgstr ""
-
-#: ../../proxy.rst:16
-msgid "``automatic`` for created rules created by the applications"
-msgstr ""
-
-#: ../../proxy.rst:17
-msgid "``access restricted`` if access is restricted to a specific network"
-msgstr ""
-
-#: ../../proxy.rst:19
-#, fuzzy
 msgid ""
-"You can add a custom route by clicking :guilabel:`Create route` button. "
-"Then enter the following details:"
+"The core component that implements HTTP routes is the Traefik_ HTTP "
+"proxy. Each cluster node runs its own Traefik instance and acts as an "
+"independent web server. Traefik terminates TLS connections and works as "
+"the reverse proxy for applications typically hosted on that node."
 msgstr ""
-"You can add a custom route by clicking :guilabel:`Create route` button. "
-"Then enter the following details:"
 
-#: ../../proxy.rst:22
-#, fuzzy
-msgid "``Name``: a unique name to identify the route"
-msgstr "``Name``: a unique name to identify the route"
-
-#: ../../proxy.rst:23
-#, fuzzy
-msgid "``Node``: the node where the proxy instance is running"
-msgstr "``Node``: the node where the proxy instance is running"
-
-#: ../../proxy.rst:24
-#, fuzzy
+#: ../../proxy.rst:21
 msgid ""
-"``URL``: target URL of the route. It must correspond to a reachable "
-"backend HTTP server. It can be both internal or external to the cluster."
+"Routes can be managed automatically by installed applications. In that "
+"case, they are marked with the ``Automatic`` badge. Alternatively, you "
+"can create custom routes and define their properties as needed."
 msgstr ""
-"``URL``: target URL of the route. It must correspond to a reachable "
-"backend HTTP server. It can be both internal or external to the cluster."
 
-#: ../../proxy.rst:26
-#, fuzzy
+#: ../../proxy.rst:25
 msgid ""
-"``Skip certificate validation``: if the URL starts with ``https://``, "
-"this switch disables the verification of the backend TLS certificate. If "
-"the backend is reached through a trusted network but it cannot provide a "
-"valid TLS certificate, it could be acceptable to skip the TLS "
-"verification."
+"A route is defined by a match rule for incoming requests, based on the "
+"HTTP **host name** and/or the **request path**. It also specifies the "
+"destination URL where matching traffic is forwarded."
 msgstr ""
-"``Skip certificate validation``: if the URL starts with ``https://``, "
-"this switch disables the verification of the backend TLS certificate. If "
-"the backend is reached through a trusted network but it cannot provide a "
-"valid TLS certificate, it could be acceptable to skip the TLS "
-"verification."
 
-#: ../../proxy.rst:31
-#, fuzzy
+#: ../../proxy.rst:29
 msgid ""
-"``Host``: fill this field with a valid FQDN if you want a host-based "
-"route, sometimes also referred as virtual host; the application will be "
-"available on a URL like ``https://myapp.nethserver.org``"
+"Automatic routes usually point their destination URL to local services "
+"(often using ``http://127.0.0.1``), so their traffic does not cross the "
+"cluster network. Custom routes, instead, can be configured with any "
+"reachable destination URL, including services in the node’s LAN or even "
+"on another cluster node if desired."
 msgstr ""
-"``Host``: fill this field with a valid FQDN if you want a host-based "
-"route, sometimes also referred as virtual host; the application will be "
-"available on a URL like ``https://myapp.nethserver.org``"
-
-#: ../../proxy.rst:33
-#, fuzzy
-msgid ""
-"``Path``: fill this field with a valid path if you want a path-based "
-"route accessible from the cluster FQDN; the application will be available"
-" on a URL like ``https://cluster.nethserver.org/myapp``"
-msgstr ""
-"``Path``: fill this field with a valid path if you want a path-based "
-"route accessible from the cluster FQDN; the application will be available"
-" on a URL like ``https://cluster.nethserver.org/myapp``"
 
 #: ../../proxy.rst:35
-#, fuzzy
 msgid ""
-"``Strip URL path prefix``: when ``Path`` field is not empty, strip the "
-"path before routing the request to the target URL"
+"There is no special HTTP traffic handling for the cluster leader node: "
+"all nodes behave in the same way."
 msgstr ""
-"``Strip URL path prefix``: when ``Path`` field is not empty, strip the "
-"path before routing the request to the target URL"
 
-#: ../../proxy.rst:36
-#, fuzzy
-msgid ""
-"``Request Let's Encrypt certificate`` enable this option to request a "
-"valid certificate, please remember :ref:`all requirements "
-"<certificate_manager-section>`"
+#: ../../proxy.rst:38
+msgid "Each route can have special attributes, visible in the main table:"
 msgstr ""
-"``Request Let's Encrypt certificate`` enable this option to request a "
-"valid certificate, please remember :ref:`all requirements "
-"<certificate_manager-section>`"
 
-#: ../../proxy.rst:37
-msgid ""
-"``Allow access from`` (optional): limit access to this route to specific "
-"IP addresses or networks. By default, the route is accessible from any "
-"network. Enter a valid IPv4 address or CIDR network per line."
+#: ../../proxy.rst:40
+msgid "``Automatic`` for rules created and managed by applications"
 msgstr ""
 
 #: ../../proxy.rst:41
-msgid ""
-"The route named ``cluster-admin`` is a special route that is "
-"automatically created during the cluster setup. It is used to access the "
-"cluster administration interface. Please bear in mind that if you "
-"restrict access to this route:"
+msgid "``Access restricted`` if access is limited to specific IP addresses"
 msgstr ""
 
-#: ../../proxy.rst:45
-msgid "you may prevent a new worker from joining the cluster"
-msgstr ""
-
-#: ../../proxy.rst:46
+#: ../../proxy.rst:43
 msgid ""
-"you may lose access to the cluster configuration if you do not correctly "
-"enter your own IP address"
+"Automatic routes cannot be modified except for the list of allowed IPs. "
+"When IP restrictions are added, they also gain the ``Access restricted`` "
+"attribute."
 msgstr ""
 
 #: ../../proxy.rst:49
 msgid ""
-"If you loose access to the cluster administration interface, you can "
-"remove the access restriction from the command line. Follow these steps:"
+"The route named ``cluster-admin`` is an automatic route, created during "
+"node setup. On the leader node it provides access to the cluster "
+"administration interface. On worker nodes it is required to elect a new "
+"cluster leader. If you restrict access to this route:"
 msgstr ""
 
-#: ../../proxy.rst:52
-msgid "Access the cluster node using SSH with root privileges"
+#: ../../proxy.rst:54
+msgid "You may prevent a new worker from joining the cluster."
 msgstr ""
 
-#: ../../proxy.rst:53
+#: ../../proxy.rst:55
 msgid ""
-"Run the following command to remove the access restriction from the "
-"``cluster-admin`` route: ::"
+"You may lose access to the cluster configuration if your own IP address "
+"is not allowed."
 msgstr ""
 
-#: ../../proxy.rst:57
+#: ../../proxy.rst:58
 msgid ""
-"Replace ``traefik1`` with the correct module identifier, if your cluster "
-"has multiple nodes. Traefik identifiers are listed in the ``HTTP routes``"
-" page."
+"Refer to :ref:`clear-cluster-admin-restrictions` to restore access if "
+"needed."
+msgstr ""
+
+#: ../../proxy.rst:61
+msgid ""
+"You can view the detailed attributes of any route by clicking its "
+"``Name``."
+msgstr ""
+
+#: ../../proxy.rst:67
+msgid "Create a custom HTTP route"
+msgstr ""
+
+#: ../../proxy.rst:69
+#, fuzzy
+msgid ""
+"To add a custom route, click the :guilabel:`Create route` button and "
+"enter the following details:"
+msgstr ""
+"You can add a custom route by clicking :guilabel:`Create route` button. "
+"Then enter the following details:"
+
+#: ../../proxy.rst:72
+#, fuzzy
+msgid "``Name``: a unique identifier for the route"
+msgstr "``Name``: a unique name to identify the route"
+
+#: ../../proxy.rst:74
+#, fuzzy
+msgid "``Node``: the node where the rule applies"
+msgstr "``Node``: the node where the proxy instance is running"
+
+#: ../../proxy.rst:76
+msgid ""
+"``URL``: the target URL of the route. It must point to a reachable "
+"backend HTTP server, either inside or outside the cluster. For better "
+"performance, use the local host address ``127.0.0.1`` without encryption "
+"for local applications, or ``https://`` for external applications in the "
+"node’s LAN. In the latter case, encrypting the backend connection is "
+"strongly recommended."
+msgstr ""
+
+#: ../../proxy.rst:83
+msgid ""
+"``Skip certificate validation``: if the URL starts with ``https://``, "
+"this option disables verification of the backend TLS certificate. "
+"Skipping validation may be acceptable only if the backend is in a trusted"
+" network and cannot provide a valid TLS certificate."
+msgstr ""
+
+#: ../../proxy.rst:88
+msgid ""
+"``Host``: set a valid FQDN to create a host-based route (virtual host). "
+"The rule matches requests where the ``Host`` header equals the given "
+"FQDN. Example: with host ``myapp.nethserver.org`` the route matches "
+"``https://myapp.nethserver.org``."
+msgstr ""
+
+#: ../../proxy.rst:93
+msgid ""
+"``Path``: set a valid URL path starting with ``/`` (slash) to create a "
+"path-based route. The rule matches any request path that begins with it, "
+"regardless of the host name. For example, with path ``/myapp`` the route "
+"matches both ``https://ns8leader.nethserver.org/myapp`` and "
+"``https://192.168.6.3/myapp/contents.html``."
+msgstr ""
+
+#: ../../proxy.rst:99
+msgid ""
+"``Host`` + ``Path``: if both fields are set, the request must match both "
+"the host name and the path. For example, with host "
+"``myapp.nethserver.org`` and path ``/mypath``, the route matches "
+"``https://myapp.nethserver.org/mypath/contents.html`` but not "
+"``https://ns8leader.nethserver.org/mypath/contents.html``."
+msgstr ""
+
+#: ../../proxy.rst:105
+#, fuzzy
+msgid ""
+"``Strip URL path prefix``: when ``Path`` is set, remove the prefix before"
+" routing the request to the target URL."
+msgstr ""
+"``Strip URL path prefix``: when ``Path`` field is not empty, strip the "
+"path before routing the request to the target URL"
+
+#: ../../proxy.rst:108
+#, fuzzy
+msgid ""
+"``Request Let's Encrypt certificate``: enable this option to "
+"automatically obtain a valid TLS certificate. See "
+":ref:`lets_encrypt_routes` for important details if you disable this "
+"option later."
+msgstr ""
+"``Request Let's Encrypt certificate`` enable this option to request a "
+"valid certificate, please remember :ref:`all requirements "
+"<certificate_manager-section>`"
+
+#: ../../proxy.rst:113
+msgid ""
+"``Allow access from`` (optional): restrict access to the route by listing"
+" allowed IPv4 addresses or CIDR networks, one per line. By default, the "
+"route is open to all networks."
+msgstr ""
+
+#: ../../proxy.rst:120
+#, fuzzy
+msgid "Let's Encrypt certificate for HTTP routes"
+msgstr "Certificati Let's Encrypt"
+
+#: ../../proxy.rst:122
+msgid ""
+"The ``Request Let's Encrypt certificate`` option enables automatic "
+"provisioning of a TLS certificate for the ``Host`` name, signed by the "
+"Let's Encrypt Certificate Authority. Once obtained, the certificate is "
+"periodically renewed by Traefik. Refer to :ref:`lets-encrypt-"
+"requirements` for details about requirements and how the process works."
+msgstr ""
+
+#: ../../proxy.rst:128
+msgid ""
+"When this option is disabled, the old TLS certificate is automatically "
+"removed from Traefik’s internal certificate storage, and Traefik is "
+"restarted after clicking the :guilabel:`Save` button."
+msgstr ""
+
+#: ../../proxy.rst:134
+msgid ""
+"Restarting Traefik can forcibly disconnect users from applications. Avoid"
+" disabling the ``Request Let's Encrypt certificate`` option during office"
+" hours."
+msgstr ""
+
+#: ../../proxy.rst:141
+msgid "Clear IP restrictions on cluster-admin route"
+msgstr ""
+
+#: ../../proxy.rst:143
+msgid ""
+"If you lose access to the cluster administration interface due to IP "
+"restrictions, you can remove them from the command line:"
+msgstr ""
+
+#: ../../proxy.rst:146
+msgid ""
+"Connect to the cluster leader node via SSH with root privileges and get "
+"the Traefik module identifier: ::"
+msgstr ""
+
+#: ../../proxy.rst:151
+msgid ""
+"Run the following command to clear restrictions on the ``cluster-admin`` "
+"route of module ``traefik1``: ::"
 msgstr ""
 
 #: ../../release_notes.rst:5
@@ -20456,10 +20688,6 @@ msgid ""
 "the public static IP of the **server hosting WebTop**."
 msgstr ""
 
-#: ../../webtop.rst:327
-msgid "HTTP routes"
-msgstr ""
-
 #: ../../webtop.rst:329
 msgid ""
 "To ensure that Autodiscover and Autoconfig requests are directed to the "
@@ -25167,4 +25395,351 @@ msgstr ""
 #~ "Per Proxmox, cambiare la CPU "
 #~ "predefinita, evitando l'uso del modello "
 #~ "``kvm64``."
+
+#~ msgid ""
+#~ "An SSL/TLS certificate is a digital "
+#~ "object issued by a Certificate Authority"
+#~ " (CA). The certificate is used to "
+#~ "verify the identity of a host and"
+#~ " to establish encrypted communication "
+#~ "channels. Upon installation, NethServer 8 "
+#~ "uses a default self-signed certificate"
+#~ " for all TLS services, including the"
+#~ " Web user interface."
+#~ msgstr ""
+#~ "Un certificato SSL/TLS è un oggetto "
+#~ "digitale rilasciato da un'Autorità di "
+#~ "certificazione (CA). Il certificato viene "
+#~ "utilizzato per verificare l'identità di "
+#~ "un host e per stabilire canali di"
+#~ " comunicazione crittografati. Al momento "
+#~ "dell'installazione, NethServer 8 utilizza un"
+#~ " certificato autofirmato predefinito per "
+#~ "tutti i servizi TLS, inclusa "
+#~ "l'interfaccia utente Web."
+
+#~ msgid ""
+#~ "NethServer 8 can request valid `Let's"
+#~ " Encrypt <https://letsencrypt.org/>`_ certificates "
+#~ "using `traefik <https://traefik.io/>`_."
+#~ msgstr ""
+#~ "NethServer 8 può richiedere certificati "
+#~ "validi `Let's Encrypt <https://letsencrypt.org/>`_"
+#~ " usando `traefik <https://traefik.io/>`_."
+
+#~ msgid ""
+#~ "Requesting Let's Encrypt is possible if"
+#~ " the following requirements are met:"
+#~ msgstr ""
+#~ "Richiedi Let's Encrypt è possibile se"
+#~ " i seguenti requisiti sono soddisfatti:"
+
+#~ msgid ""
+#~ "the server must be reachable from "
+#~ "outside on port 443. Make sure "
+#~ "your port 443 is open to the "
+#~ "public Internet (you can check with "
+#~ "sites like `CSM <http://www.canyouseeme.org/>`_)."
+#~ " For nodes installed before the "
+#~ "Traefik 3.0.0 release, the same "
+#~ "requirement applies to port 80. Starting"
+#~ " from new installations of Traefik "
+#~ "3.0.0, only port 443 is required."
+#~ msgstr ""
+#~ "il server deve essere raggiungibile "
+#~ "dall'esterno sulla porta 80. Assicurarsi "
+#~ "che la vostra porta 80 sia aperto"
+#~ " da Internet (puoi controllare con "
+#~ "siti come `CSM <http://www.canyouseeme.org/> "
+#~ "`_)"
+
+#~ msgid ""
+#~ "the domains for which you want the"
+#~ " certificate must be public domain "
+#~ "names associated with the server's own"
+#~ " public IP. Make sure you have "
+#~ "public DNS names pointing to your "
+#~ "server for both IPv4 and IPv6 "
+#~ "addresses. There are plenty of sites "
+#~ "like `VDNS <http://viewdns.info/>`_  to check"
+#~ " if the DNS is correctly configured."
+#~ msgstr ""
+#~ "i domini per i quali si desidera"
+#~ " il certificato devono essere nomi di"
+#~ " dominio pubblici associati all'IP pubblico"
+#~ " del proprio server. Assicurati di "
+#~ "avere nomi DNS pubblici che puntano "
+#~ "al tuo server sia per gli "
+#~ "indirizzi IPv4 che IPv6. Ci sono "
+#~ "molti siti come `VDNS <http://viewdns.info/>`_"
+#~ "  per verificare se il DNS è "
+#~ "configurato correttamente."
+
+#~ msgid "enter the node FQDN and select the node"
+#~ msgstr "inserire il nodo FQDN e selezionare il nodo"
+
+#~ msgid ""
+#~ "The procedure will take a while, "
+#~ "but the system will notify you "
+#~ "when the certificate is ready. The "
+#~ "Let's Encrypt certificate is automatically "
+#~ "renewed 30 days before expiration."
+#~ msgstr ""
+#~ "La procedura richiederà un po', ma "
+#~ "il sistema vi informerà quando il "
+#~ "certificato è pronto. Il certificato "
+#~ "Let's Encrypt viene rinnovato automaticamente"
+#~ " 30 giorni prima della scadenza."
+
+#~ msgid ""
+#~ "If the procedure fails, the certificate"
+#~ " status is set to ``Not obtained``"
+#~ " and an error notification is "
+#~ "displayed."
+#~ msgstr ""
+#~ "Se la procedura fallisce, lo stato "
+#~ "del certificato viene impostato su ``Non"
+#~ " ottenuto`` e viene visualizzata una "
+#~ "notifica di errore."
+
+#~ msgid ""
+#~ "Failures may occur if the DNS "
+#~ "record is not correctly configured, or"
+#~ " DNS update propagation is slower "
+#~ "than expected.  In both cases Traefik"
+#~ " retries to obtain the certificate at"
+#~ " a later time when:"
+#~ msgstr ""
+#~ "I guasti possono verificarsi se il "
+#~ "record DNS non è configurato "
+#~ "correttamente, o la propagazione "
+#~ "dell'aggiornamento DNS è più lenta del"
+#~ " previsto. In entrambi i casi Traefik"
+#~ " si ritira per ottenere il "
+#~ "certificato in un secondo momento "
+#~ "quando:"
+
+#~ msgid "the Traefik service is restarted, or"
+#~ msgstr "il servizio Traefik è riavviato, o"
+
+#~ msgid "an HTTPS request that matches the certificate name is received."
+#~ msgstr ""
+#~ "una richiesta HTTPS che corrisponde al"
+#~ " nome del certificato viene ricevuta."
+
+#~ msgid ""
+#~ "Traefik stores the time of the "
+#~ "last certificate issue attempt in "
+#~ "memory. Do not restart Traefik too "
+#~ "often, to avoid incurring in Let's "
+#~ "Encrypt rate limits."
+#~ msgstr ""
+#~ "Traefik memorizza il tempo dell'ultimo "
+#~ "tentativo di rilascio di certificato in"
+#~ " memoria. Non riavviare Traefik troppo "
+#~ "spesso, per evitare di incorrere nei "
+#~ "limiti di velocità Let's Encrypt."
+
+#~ msgid "access ``Settings`` page and click the ``TLS Certificates`` card"
+#~ msgstr ""
+#~ "accesso alla ``Impostazioni`` e fare "
+#~ "clic sulla scheda ``Certificati TLS``"
+
+#~ msgid ""
+#~ "once the modal is open, select the"
+#~ " Traefik instance where the certificate "
+#~ "will be installed to"
+#~ msgstr ""
+#~ "una volta aperta la modalità, "
+#~ "selezionare l'istanza Traefik dove verrà "
+#~ "installato il certificato"
+
+#~ msgid ""
+#~ "upload the key file and the "
+#~ "certificate file. They are checked on"
+#~ " upload and if the key does not"
+#~ " match the certificate, you receive "
+#~ "an error"
+#~ msgstr ""
+#~ "caricare il file chiave e il file"
+#~ " di certificato. Sono controllati su "
+#~ "upload e se la chiave non "
+#~ "corrisponde al certificato, si riceve un"
+#~ " errore"
+
+#~ msgid "once selected the files for the upload, click on :guilabel:`Upload`"
+#~ msgstr ""
+#~ "una volta selezionato i file per "
+#~ "il caricamento, clicca su :guilabel:`Upload`"
+
+#~ msgid ""
+#~ "Prometheus will automatically send alerts "
+#~ "to the Alertmanager when a rule is"
+#~ " triggered. Current rules will send "
+#~ "alerts for:"
+#~ msgstr ""
+
+#~ msgid "SWAP space is nearly full"
+#~ msgstr ""
+
+#~ msgid "One or more backups have failed"
+#~ msgstr ""
+
+#~ msgid "Disk partitions are nearly full"
+#~ msgstr ""
+
+#~ msgid "Software RAID (mdadm) is degraded"
+#~ msgstr ""
+
+#~ msgid "Proxy"
+#~ msgstr "Proxy"
+
+#~ msgid ""
+#~ "`Traefik <https://traefik.io/>`_ proxy is part"
+#~ " of NethServer core and it handles"
+#~ " all HTTP routes. The proxy is "
+#~ "installed on each cluster node."
+#~ msgstr ""
+#~ "`Traefik <https://traefik.io/>`_ proxy is part"
+#~ " of NethServer core and it handles"
+#~ " all HTTP routes. The proxy is "
+#~ "installed on each cluster node."
+
+#~ msgid ""
+#~ "Access the ``HTTP routes`` card inside"
+#~ " the ``Settings`` page to see all "
+#~ "configured routes. Applications usually "
+#~ "automatically setup the proxy during the"
+#~ " configuration phase. Automatic routes "
+#~ "can't be modified except for the "
+#~ "allowed IPs."
+#~ msgstr ""
+#~ "Access the ``HTTP routes`` card inside"
+#~ " the ``Settings`` page to see all "
+#~ "configured routes. Applications usually "
+#~ "automatically setup the proxy during the"
+#~ " configuration phase. Automatic routes "
+#~ "can't be modified."
+
+#~ msgid "Each route can have a list of special attributes visible from the list:"
+#~ msgstr ""
+
+#~ msgid "``automatic`` for created rules created by the applications"
+#~ msgstr ""
+
+#~ msgid "``access restricted`` if access is restricted to a specific network"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``URL``: target URL of the route. "
+#~ "It must correspond to a reachable "
+#~ "backend HTTP server. It can be "
+#~ "both internal or external to the "
+#~ "cluster."
+#~ msgstr ""
+#~ "``URL``: target URL of the route. "
+#~ "It must correspond to a reachable "
+#~ "backend HTTP server. It can be "
+#~ "both internal or external to the "
+#~ "cluster."
+
+#~ msgid ""
+#~ "``Skip certificate validation``: if the "
+#~ "URL starts with ``https://``, this "
+#~ "switch disables the verification of the"
+#~ " backend TLS certificate. If the "
+#~ "backend is reached through a trusted "
+#~ "network but it cannot provide a "
+#~ "valid TLS certificate, it could be "
+#~ "acceptable to skip the TLS verification."
+#~ msgstr ""
+#~ "``Skip certificate validation``: if the "
+#~ "URL starts with ``https://``, this "
+#~ "switch disables the verification of the"
+#~ " backend TLS certificate. If the "
+#~ "backend is reached through a trusted "
+#~ "network but it cannot provide a "
+#~ "valid TLS certificate, it could be "
+#~ "acceptable to skip the TLS verification."
+
+#~ msgid ""
+#~ "``Host``: fill this field with a "
+#~ "valid FQDN if you want a host-"
+#~ "based route, sometimes also referred as"
+#~ " virtual host; the application will "
+#~ "be available on a URL like "
+#~ "``https://myapp.nethserver.org``"
+#~ msgstr ""
+#~ "``Host``: fill this field with a "
+#~ "valid FQDN if you want a host-"
+#~ "based route, sometimes also referred as"
+#~ " virtual host; the application will "
+#~ "be available on a URL like "
+#~ "``https://myapp.nethserver.org``"
+
+#~ msgid ""
+#~ "``Path``: fill this field with a "
+#~ "valid path if you want a path-"
+#~ "based route accessible from the cluster"
+#~ " FQDN; the application will be "
+#~ "available on a URL like "
+#~ "``https://cluster.nethserver.org/myapp``"
+#~ msgstr ""
+#~ "``Path``: fill this field with a "
+#~ "valid path if you want a path-"
+#~ "based route accessible from the cluster"
+#~ " FQDN; the application will be "
+#~ "available on a URL like "
+#~ "``https://cluster.nethserver.org/myapp``"
+
+#~ msgid ""
+#~ "``Allow access from`` (optional): limit "
+#~ "access to this route to specific "
+#~ "IP addresses or networks. By default,"
+#~ " the route is accessible from any "
+#~ "network. Enter a valid IPv4 address "
+#~ "or CIDR network per line."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The route named ``cluster-admin`` is "
+#~ "a special route that is automatically"
+#~ " created during the cluster setup. It"
+#~ " is used to access the cluster "
+#~ "administration interface. Please bear in "
+#~ "mind that if you restrict access "
+#~ "to this route:"
+#~ msgstr ""
+
+#~ msgid "you may prevent a new worker from joining the cluster"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "you may lose access to the cluster"
+#~ " configuration if you do not "
+#~ "correctly enter your own IP address"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you loose access to the cluster"
+#~ " administration interface, you can remove"
+#~ " the access restriction from the "
+#~ "command line. Follow these steps:"
+#~ msgstr ""
+
+#~ msgid "Access the cluster node using SSH with root privileges"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Run the following command to remove "
+#~ "the access restriction from the "
+#~ "``cluster-admin`` route: ::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Replace ``traefik1`` with the correct "
+#~ "module identifier, if your cluster has"
+#~ " multiple nodes. Traefik identifiers are"
+#~ " listed in the ``HTTP routes`` page."
+#~ msgstr ""
 
