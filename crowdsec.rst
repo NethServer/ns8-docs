@@ -35,7 +35,7 @@ CrowdSec sends a daily notification email listing newly blocked IPs to the
 configured recipients. If the default threshold of 100 new blocked IPs is
 reached before the daily report, the notification is sent immediately. The
 `Notification threshold` field, under the ``Advanced`` section, controls
-this value and can be set between 1 and 500.
+this value and can be set between 1 and 10000.
 
 Community blocklist vs Community blocklist (Lite)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
