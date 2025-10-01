@@ -31,9 +31,11 @@ disabling the ``Enable central API`` option under the ``Advanced`` section.
 You can also connect your instance to `CrowdSec console <https://app.crowdsec.net>`_
 by filling the ``Enroll key`` optional field.
 
-* CrowdSec sends a daily notification email listing blocked IPs to the configured recipient. 
-  To prevent mailbox flooding, you can set a notification threshold 
-  (default: 100 blocked IPs per email, configurable between 1 and 500).
+CrowdSec sends a daily notification email listing newly blocked IPs to the
+configured recipients. If the default threshold of 100 new blocked IPs is
+reached before the daily report, the notification is sent immediately. The
+`Notification threshold` field, under the ``Advanced`` section, controls
+this value and can be set between 1 and 500.
 
 Community blocklist vs Community blocklist (Lite)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
