@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 14:51+0000\n"
+"POT-Creation-Date: 2025-10-02 14:37+0000\n"
 "PO-Revision-Date: 2025-02-04 10:01+0000\n"
 "Last-Translator: Marco Fabbri <marco.fabbri@nethesis.it>\n"
 "Language: it\n"
@@ -8036,12 +8036,26 @@ msgstr "``/.well-known``"
 msgid "``/webtop-dav``"
 msgstr "``/webtop-dav``"
 
-#: ../../migration.rst:358
+#: ../../migration.rst:358 ../../nextcloud.rst:5
+#, fuzzy
+msgid "Nextcloud"
+msgstr "Nextcloud"
+
+#: ../../migration.rst:360
+msgid ""
+"After upgrading to Nextcloud 31, installations originally deployed with "
+"Nextcloud 24 or earlier may display a warning in the administration "
+"settings about the database row format. In this case the database can be "
+"optimized with the database optimization command, more information can be"
+" found on the :ref:`Nextcloud page <nextcloud-section>`."
+msgstr ""
+
+#: ../../migration.rst:364
 #, fuzzy
 msgid "Limitations"
 msgstr "Applicazioni"
 
-#: ../../migration.rst:360
+#: ../../migration.rst:366
 msgid ""
 "The migration tool supports a limited set of applications. If an "
 "application is installed but not listed on the migration tool page, it "
@@ -8051,17 +8065,17 @@ msgstr ""
 "Se un'applicazione è installata ma non elencata nella pagina degli "
 "strumenti di migrazione, non sarà coperta dal processo di migrazione."
 
-#: ../../migration.rst:364
+#: ../../migration.rst:370
 #, fuzzy
 msgid "The following configurations are not migrated:"
 msgstr "Le seguenti configurazioni non verranno migrate:"
 
-#: ../../migration.rst:366
+#: ../../migration.rst:372
 #, fuzzy
 msgid "Custom templates"
 msgstr "template custom"
 
-#: ../../migration.rst:368
+#: ../../migration.rst:374
 #, fuzzy
 msgid ""
 "Account provider password policy settings (see :ref:`migrate-account-"
@@ -8070,7 +8084,7 @@ msgstr ""
 "impostazioni della policy delle password dell'account provider (vedere: "
 "`migrate-account-provider`)"
 
-#: ../../migration.rst:371
+#: ../../migration.rst:377
 msgid ""
 "System smart host settings, if the NS7 Email app is either not installed "
 "or not migrated"
@@ -8078,7 +8092,7 @@ msgstr ""
 "Impostazioni host intelligenti di sistema, se l'applicazione NS7 Email "
 "non è installata o non migrata"
 
-#: ../../migration.rst:374
+#: ../../migration.rst:380
 msgid ""
 "The ``Accept unknown recipients`` setting of the mail server, which "
 "catches messages sent to non-existing addresses. See :ref:`email_domains`"
@@ -8088,7 +8102,7 @@ msgstr ""
 "che cattura i messaggi inviati a indirizzi non esistenti. Vedere "
 ":ref:`email_domains` per i dettagli."
 
-#: ../../migration.rst:377
+#: ../../migration.rst:383
 msgid ""
 "Additionally, shared folders will not be migrated if NS7 uses a remote "
 "account provider."
@@ -13313,11 +13327,6 @@ msgstr ""
 "Ora, è possibile installare e configurare una o più :ref:`NethVoice "
 "<nethvoice-section> ` istanze."
 
-#: ../../nextcloud.rst:5
-#, fuzzy
-msgid "Nextcloud"
-msgstr "Nextcloud"
-
 #: ../../nextcloud.rst:7
 #, fuzzy
 msgid ""
@@ -13575,6 +13584,24 @@ msgstr ""
 "deletion. Further insights can be accessed here: `Deleting Users "
 "<https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_configuration.html"
 "#deleting-users>`_."
+
+#: ../../nextcloud.rst:105
+msgid "Database optimization command"
+msgstr ""
+
+#: ../../nextcloud.rst:107
+msgid ""
+"Nextcloud requires manual database fixes that cannot be automated during "
+"upgrade, as operations may take a long time with large amounts of data. "
+"In such cases, the ``nextcloud-db-optimize`` command can be run manually "
+"to optimize the Nextcloud database outside production hours."
+msgstr ""
+
+#: ../../nextcloud.rst:109
+msgid ""
+"Execute the following command in a root shell, replacing ``nextcloud1`` "
+"with the correct application identifier: ::"
+msgstr ""
 
 #: ../../odoo.rst:6
 msgid "Odoo"
