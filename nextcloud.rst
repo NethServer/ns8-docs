@@ -106,7 +106,7 @@ Database optimization command
 
 Nextcloud requires manual database fixes that cannot be automated during upgrade, as operations may take a long time with large amounts of data. In such cases, the ``nextcloud-db-optimize`` command can be run manually to optimize the Nextcloud database outside production hours.
 
-Execute the following command in a root shell
+Execute the following command in a root shell, replacing ``nextcloud1`` with the correct application identifier:
 ::
 
   runagent -m nextcloud1 nextcloud-db-optimize
