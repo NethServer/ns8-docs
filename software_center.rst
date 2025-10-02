@@ -90,6 +90,8 @@ actions on each instance by clicking on its three-dots menu:
 - ``Clone``: Clone the application. See :ref:`move_clone-section`.
 - ``Move``: Move the application to another node. See
   :ref:`move_clone-section`.
+- ``Restart instance``: stop all application components and start them
+  again, similar to a system reboot but limited to the application.
 - ``Uninstall``: Remove the application and all related data.
 
 .. |bento| image:: _static/bento.png

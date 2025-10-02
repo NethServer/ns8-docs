@@ -101,6 +101,8 @@ When it comes to account deletion in Nextcloud, a specific data retention policy
 - in the case of accounts stored within the internal Nextcloud database, their associated data is immediately and automatically removed upon deletion.
   Further insights can be accessed here: `Deleting Users <https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_configuration.html#deleting-users>`_.
 
+.. _nextcloud-db-optimize-section:
+
 Database optimization command
 =============================
 
