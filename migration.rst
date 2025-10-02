@@ -354,6 +354,12 @@ Example for adding WebTop routes:
 
 .. _config-excluded-migration:
 
+Nextcloud
+=========
+
+After upgrading to Nextcloud 31, installations originally deployed with Nextcloud 24 or earlier may display a warning in the administration settings about the database row format.
+In this case the database can be optimized with the database optimization command, more information can be found on the :ref:`Nextcloud page <nextcloud-section>`.
+
 Limitations
 ===========
 

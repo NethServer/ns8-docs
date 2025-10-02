@@ -100,3 +100,13 @@ When it comes to account deletion in Nextcloud, a specific data retention policy
 
 - in the case of accounts stored within the internal Nextcloud database, their associated data is immediately and automatically removed upon deletion.
   Further insights can be accessed here: `Deleting Users <https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_configuration.html#deleting-users>`_.
+
+Database optimization command
+=============================
+
+Nextcloud requires manual database fixes that cannot be automated during upgrade, as operations may take a long time with large amounts of data. In such cases, the ``nextcloud-db-optimize`` command can be run manually to optimize the Nextcloud database outside production hours.
+
+Execute the following command in a root shell, replacing ``nextcloud1`` with the correct application identifier:
+::
+
+  runagent -m nextcloud1 nextcloud-db-optimize
