@@ -211,7 +211,7 @@ a single view. Contacts can be modified and changes will be saved in the origina
 .. note::
 
   In order to receive data via EAS on mobile devices, 
-  shared resources (Calendars and Contacts) should have synchronization enabled (Full or Read-only):
+  shared resources (Calendars and Contacts) should have synchronization enabled (Active or Read-only):
 
   .. image:: _static/webtop-multiple_sync.png
                :alt: Multiple synchronization
@@ -523,7 +523,7 @@ It is possible to do this from web interface by accessing the administration pan
 ``public.resource.links.as.inline.attachments`` = true (default = false)
 
 
-To change the signature, each user can access the :menuselection:`Settings --> Mail --> Editing --> Edit User mailcard`:
+To change the signature, each user can access the :menuselection:`Settings --> Mail --> Editing --> Edit`:
 
 .. image:: _static/webtop-edit_mailcard.png
 
@@ -564,10 +564,6 @@ To edit every single signature select :menuselection:`Settings --> Mail --> Iden
 .. image:: _static/webtop-sig_sig2.png
 .. image:: _static/webtop-sig_sig3.png
 
-When finished, close the window and click YES:
-
-.. image:: _static/webtop-sig_sig4.png
-
 to use multiple mailcards, create a new email, and choose the signature:
 
 .. image:: _static/webtop-sig_sig5.png
@@ -602,7 +598,7 @@ There are three archiving criteria:
 
 .. image:: _static/webtop-archive_archive2.png
 
-To maintain the original structure of the folders is possible to activate :guilabel:`Keep folder structure`
+To maintain the original structure of the folders it is possible to activate :guilabel:`Keep folders structure`
 
 .. image:: _static/webtop-archive_archive3.png
 
@@ -618,9 +614,9 @@ IMAP folders subscription
 By default, all IMAP folders on the server are automatically subscribed and therefore visible since the first login.
 
 If you want to hide some folders from the view, which is equivalent to removing the subscription,
-you can simply right-click on the folder to hide and select from the interactive menu the item :guilabel:`Hide from the list`.
+you can simply right-click on the folder to hide and select from the interactive menu the item :guilabel:`Hide from list`.
 
-For example, if you want to hide the subfolder ``folder1`` from this list, just right-click on it and select :guilabel:`Hide from the list`:
+For example, if you want to hide the subfolder ``folder1`` from this list, just right-click on it and select :guilabel:`Hide from list`:
 
 .. image:: _static/webtop-sub_imap_folder1.png
 
@@ -800,7 +796,7 @@ A pre-filled wizard will open:
 
 .. note::
 
-   If Nextcloud has been configured with a custom virtual host (eg. ``nextcloud.mydomain.com``) the :guilabel:`Path` must be changed from `/nextcloud/remote.php/webdav` to `/remote.php/webdav`, please note that `/nextcloud` prefix has been removed. Also make sure to enter the name of the custom virtual host inside the :guilabel:`Host` (eg. ``nextcloud.mydomain.com``).
+   The :guilabel:`Path` must be changed from `/nextcloud/remote.php/webdav` to `/remote.php/webdav`. Also make sure to enter the Nextcloud FQDN inside the :guilabel:`Host` (eg. ``nextcloud.mydomain.com``).
   
 Proceed with the Next button until the Wizard is complete.
 
@@ -1109,7 +1105,7 @@ For each access, the table reports the following data in columns: session ID, us
 
 You can enable public IP geolocation. First, you need to register an account on `ipstack <https://ipstack.com/>`_ and obtain the ``API KEY`` to insert in the configuration db.
 
-Login to the administration panel -> :guilabel:`Property (system)` -> :guilabel:`add` -> :guilabel:`com.sonicle.webtop.core (WebTop)` -> enter the following data in the fields :guilabel:`Key` e :guilabel:`Value` :
+Login to the administration panel -> :guilabel:`Properties (system)` -> :guilabel:`add` -> :guilabel:`com.sonicle.webtop.core (WebTop)` -> enter the following data in the fields :guilabel:`Key` e :guilabel:`Value` :
 
 * ``geolocation.provider`` = ``ipstack``
 * ``geolocation.ipstack.apikey``  = ``<API KEY FROM PROVIDER>``
