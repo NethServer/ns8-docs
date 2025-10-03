@@ -30,7 +30,7 @@ After the installation:
 1. access the ``Settings`` page of the newly installed instance
 2. enter a valid FQDN inside the ``Host name`` field
 3. enable ``Let's Encrypt`` option accordingly to your needs
-4. setup a ``Password for user 'admin'``, or leave the default one
+4. setup a ``Password for user 'admin'``, or leave the default one (``Nethesis,1234``)
 5. click the :guilabel:`Save` button
 
 As default, Nextcloud has its own user database.
