@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 15:36+0000\n"
+"POT-Creation-Date: 2025-10-03 16:05+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -18495,7 +18495,7 @@ msgstr ""
 msgid "Remote support"
 msgstr "Supporto remoto"
 
-#: ../../subscription.rst:151 ../../webtop.rst:1260
+#: ../../subscription.rst:151 ../../webtop.rst:1256
 msgid "Available in Nethesis Enterprise only"
 msgstr "Disponibile solo per Nethesis Enterprise"
 
@@ -20585,9 +20585,10 @@ msgstr ""
 "originale."
 
 #: ../../webtop.rst:213
+#, fuzzy
 msgid ""
 "In order to receive data via EAS on mobile devices, shared resources "
-"(Calendars and Contacts) should have synchronization enabled (Full or "
+"(Calendars and Contacts) should have synchronization enabled (Active or "
 "Read-only):"
 msgstr ""
 "Al fine di ricevere i dati tramite EAS sui dispositivi mobili, le risorse"
@@ -20785,8 +20786,9 @@ msgstr ""
 "CalDAV."
 
 #: ../../webtop.rst:286
+#, fuzzy
 msgid ""
-"Webtop is a **client-less groupware**: its functionalities are fully "
+"WebTop is a **client-less groupware**: its functionalities are fully "
 "available **only using the web interface**!"
 msgstr ""
 "Webtop è un groupware **client-less**: le sue funzionalità sono "
@@ -20882,7 +20884,7 @@ msgstr "``Node``: the node where the proxy instance is running"
 #: ../../webtop.rst:338
 msgid ""
 "URL: Copy the URL, including its specific port number, from the "
-"automatically generated Webtop HTTP route details (e.g. "
+"automatically generated WebTop HTTP route details (e.g. "
 "http://127.0.0.1:20001)"
 msgstr ""
 
@@ -21444,7 +21446,7 @@ msgstr "``public.resource.links.as.inline.attachments`` = true (default = false)
 #, fuzzy
 msgid ""
 "To change the signature, each user can access the "
-":menuselection:`Settings --> Mail --> Editing --> Edit User mailcard`:"
+":menuselection:`Settings --> Mail --> Editing --> Edit`:"
 msgstr ""
 "To change the signature, each user can access the "
 ":menuselection:`Settings --> Mail --> Editing --> Edit User mailcard`:"
@@ -21541,20 +21543,15 @@ msgstr ""
 
 #: ../../webtop.rst:567
 #, fuzzy
-msgid "When finished, close the window and click YES:"
-msgstr "When finished, close the window and click YES:"
-
-#: ../../webtop.rst:571
-#, fuzzy
 msgid "to use multiple mailcards, create a new email, and choose the signature:"
 msgstr "to use multiple mailcards, create a new email, and choose the signature:"
 
-#: ../../webtop.rst:576
+#: ../../webtop.rst:572
 #, fuzzy
 msgid "Mail inline preview"
 msgstr "Mail inline preview"
 
-#: ../../webtop.rst:578
+#: ../../webtop.rst:574
 #, fuzzy
 msgid ""
 "By default, the mail page will display a preview of the content of the "
@@ -21562,24 +21559,24 @@ msgid ""
 msgstr ""
 "By default, the mail page will display a preview of the content of the "
 "latest received messages."
+
+#: ../../webtop.rst:576
+#, fuzzy
+msgid ""
+"This feature can be enabled or disabled from the :guilabel:`Settings` "
+"menu, under the :guilabel:`Mail` tab, the check box is named "
+":guilabel:`Show quick preview on message row`."
+msgstr ""
+"This feature can be enabled or disabled from the :guilabel:`Settings` "
+"menu, under the :guilabel:`Mail` tab, the check box is named "
+":guilabel:`Show quick preview on message row`."
 
 #: ../../webtop.rst:580
-#, fuzzy
-msgid ""
-"This feature can be enabled or disabled from the :guilabel:`Settings` "
-"menu, under the :guilabel:`Mail` tab, the check box is named "
-":guilabel:`Show quick preview on message row`."
-msgstr ""
-"This feature can be enabled or disabled from the :guilabel:`Settings` "
-"menu, under the :guilabel:`Mail` tab, the check box is named "
-":guilabel:`Show quick preview on message row`."
-
-#: ../../webtop.rst:584
 #, fuzzy
 msgid "Mail archiving"
 msgstr "Mail archiving"
 
-#: ../../webtop.rst:586
+#: ../../webtop.rst:582
 #, fuzzy
 msgid ""
 "Archiving is useful for keeping your inbox folder organized by manually "
@@ -21588,17 +21585,17 @@ msgstr ""
 "Archiving is useful for keeping your inbox folder organized by manually "
 "moving messages."
 
-#: ../../webtop.rst:589
+#: ../../webtop.rst:585
 #, fuzzy
 msgid "Mail archiving is not a backup."
 msgstr "Mail archiving is not a backup."
 
-#: ../../webtop.rst:591
+#: ../../webtop.rst:587
 #, fuzzy
 msgid "The system automatically creates a new special Archives folder"
 msgstr "The system automatically creates a new special Archives folder"
 
-#: ../../webtop.rst:595
+#: ../../webtop.rst:591
 #, fuzzy
 msgid ""
 "If the :guilabel:`Archives` folder does not appear immediately upon "
@@ -21607,55 +21604,55 @@ msgstr ""
 "If the :guilabel:`Archives` folder does not appear immediately upon "
 "login, it will appear at the first archiving."
 
-#: ../../webtop.rst:597
+#: ../../webtop.rst:593
 #, fuzzy
 msgid "There are three archiving criteria:"
 msgstr "There are three archiving criteria:"
 
-#: ../../webtop.rst:599
+#: ../../webtop.rst:595
 #, fuzzy
 msgid "**Single folder:** a single root for all archived emails"
 msgstr "**Single folder:** a single root for all archived emails"
 
-#: ../../webtop.rst:600
+#: ../../webtop.rst:596
 #, fuzzy
 msgid "**Per year:** a root for each year"
 msgstr "**Per year:** a root for each year"
 
-#: ../../webtop.rst:601
+#: ../../webtop.rst:597
 #, fuzzy
 msgid "**By year / month:** a root for each year and month"
 msgstr "**By year / month:** a root for each year and month"
 
+#: ../../webtop.rst:601
+#, fuzzy
+msgid ""
+"To maintain the original structure of the folders it is possible to "
+"activate :guilabel:`Keep folders structure`"
+msgstr ""
+"To maintain the original structure of the folders is possible to activate"
+" :guilabel:`Keep folder structure`"
+
 #: ../../webtop.rst:605
 #, fuzzy
 msgid ""
-"To maintain the original structure of the folders is possible to activate"
-" :guilabel:`Keep folder structure`"
+"The archiving operation is accessible from the contextual menu (right-"
+"click). Click on :guilabel:`Archive`"
 msgstr ""
-"To maintain the original structure of the folders is possible to activate"
-" :guilabel:`Keep folder structure`"
+"The archiving operation is accessible from the contextual menu (right-"
+"click). Click on :guilabel:`Archive`"
 
 #: ../../webtop.rst:609
-#, fuzzy
-msgid ""
-"The archiving operation is accessible from the contextual menu (right-"
-"click). Click on :guilabel:`Archive`"
-msgstr ""
-"The archiving operation is accessible from the contextual menu (right-"
-"click). Click on :guilabel:`Archive`"
-
-#: ../../webtop.rst:613
 #, fuzzy
 msgid "The system will process archiving according to the last settings chosen."
 msgstr "The system will process archiving according to the last settings chosen."
 
-#: ../../webtop.rst:616
+#: ../../webtop.rst:612
 #, fuzzy
 msgid "IMAP folders subscription"
 msgstr "IMAP folders subscription"
 
-#: ../../webtop.rst:618
+#: ../../webtop.rst:614
 #, fuzzy
 msgid ""
 "By default, all IMAP folders on the server are automatically subscribed "
@@ -21664,40 +21661,40 @@ msgstr ""
 "By default, all IMAP folders on the server are automatically subscribed "
 "and therefore visible since the first login."
 
-#: ../../webtop.rst:620
+#: ../../webtop.rst:616
 #, fuzzy
 msgid ""
 "If you want to hide some folders from the view, which is equivalent to "
 "removing the subscription, you can simply right-click on the folder to "
 "hide and select from the interactive menu the item :guilabel:`Hide from "
-"the list`."
+"list`."
 msgstr ""
 "If you want to hide some folders from the view, which is equivalent to "
 "removing the subscription, you can simply right-click on the folder to "
 "hide and select from the interactive menu the item :guilabel:`Hide from "
 "the list`."
+
+#: ../../webtop.rst:619
+#, fuzzy
+msgid ""
+"For example, if you want to hide the subfolder ``folder1`` from this "
+"list, just right-click on it and select :guilabel:`Hide from list`:"
+msgstr ""
+"For example, if you want to hide the subfolder ``folder1`` from this "
+"list, just right-click on it and select :guilabel:`Hide from the list`:"
 
 #: ../../webtop.rst:623
 #, fuzzy
 msgid ""
-"For example, if you want to hide the subfolder ``folder1`` from this "
-"list, just right-click on it and select :guilabel:`Hide from the list`:"
+"It is possible to manage the visibility of hidden folders by selecting "
+"the :guilabel:`Manage visibility` function:"
 msgstr ""
-"For example, if you want to hide the subfolder ``folder1`` from this "
-"list, just right-click on it and select :guilabel:`Hide from the list`:"
+"It is possible to manage the visibility of hidden folders by selecting "
+"the :guilabel:`Manage visibility` function:"
 
 #: ../../webtop.rst:627
 #, fuzzy
 msgid ""
-"It is possible to manage the visibility of hidden folders by selecting "
-"the :guilabel:`Manage visibility` function:"
-msgstr ""
-"It is possible to manage the visibility of hidden folders by selecting "
-"the :guilabel:`Manage visibility` function:"
-
-#: ../../webtop.rst:631
-#, fuzzy
-msgid ""
 "For example, if you want to restore the subscription of the "
 ":guilabel:`folder1` just hidden, just select it from the list of hidden "
 "folders and click on the icon on the left:"
@@ -21706,12 +21703,12 @@ msgstr ""
 ":guilabel:`folder1` just hidden, just select it from the list of hidden "
 "folders and click on the icon on the left:"
 
-#: ../../webtop.rst:637
+#: ../../webtop.rst:633
 #, fuzzy
 msgid "Customize proactive security on emails"
 msgstr "Customize proactive security on emails"
 
-#: ../../webtop.rst:639
+#: ../../webtop.rst:635
 #, fuzzy
 msgid ""
 "The Proactive Security module (PAS) warns the end user of possible "
@@ -21724,7 +21721,7 @@ msgstr ""
 "also be warned when trying to open potentially dangerous attachments or "
 "links contained in emails."
 
-#: ../../webtop.rst:642
+#: ../../webtop.rst:638
 #, fuzzy
 msgid ""
 "The PAS function allows some customization both for the **end user** and "
@@ -21733,7 +21730,7 @@ msgstr ""
 "The PAS function allows some customization both for the **end user** and "
 "the WebTop **admin**."
 
-#: ../../webtop.rst:644
+#: ../../webtop.rst:640
 #, fuzzy
 msgid ""
 "For the **end user** it is possible to mark a sender as trusted when it "
@@ -21746,7 +21743,7 @@ msgstr ""
 "click directly on the shield or right click on the sender and select the "
 ":guilabel:`Mark as trusted` entry."
 
-#: ../../webtop.rst:649
+#: ../../webtop.rst:645
 #, fuzzy
 msgid ""
 "This type of customization is only valid for the user that performed the "
@@ -21757,7 +21754,7 @@ msgstr ""
 "action. It is possible to mark a sender as trusted only if the shield is "
 "yellow."
 
-#: ../../webtop.rst:652
+#: ../../webtop.rst:648
 #, fuzzy
 msgid ""
 "The **admin user** can disable all or some of the rules that are part of "
@@ -21772,17 +21769,17 @@ msgstr ""
 "the group of users) for the Service ``com.sonicle.webtop.mail (Mail)`` "
 "and for the ``PRO_ACTIVE_SECURITY`` resource:"
 
-#: ../../webtop.rst:657
+#: ../../webtop.rst:653
 #, fuzzy
 msgid "Below is an explanation of every single entry available as ``Action`` :"
 msgstr "Below is an explanation of every single entry available as ``Action`` :"
 
-#: ../../webtop.rst:659
+#: ../../webtop.rst:655
 #, fuzzy
 msgid "``DISABLED``: completely disables PAS"
 msgstr "``DISABLED``: completely disables PAS"
 
-#: ../../webtop.rst:660
+#: ../../webtop.rst:656
 #, fuzzy
 msgid ""
 "``NO_LINK_DOMAIN_CHECK``: do not check domains different from the "
@@ -21790,85 +21787,85 @@ msgid ""
 msgstr ""
 "``NO_LINK_DOMAIN_CHECK``: do not check domains different from the "
 "sender’s domain"
+
+#: ../../webtop.rst:657
+#, fuzzy
+msgid ""
+"``NO_MY_DOMAIN_CHECK``: do not verify if the sender’s domain is in my "
+"domain"
+msgstr ""
+"``NO_MY_DOMAIN_CHECK``: do not verify if the sender’s domain is in my "
+"domain"
+
+#: ../../webtop.rst:658
+#, fuzzy
+msgid ""
+"``NO_FREQUENT_CONTACT_CHECK``: do not check if the sender is in my "
+"contacts which are saved automatically"
+msgstr ""
+"``NO_FREQUENT_CONTACT_CHECK``: do not check if the sender is in my "
+"contacts which are saved automatically"
+
+#: ../../webtop.rst:659
+#, fuzzy
+msgid ""
+"``NO_ANY_CONTACTS_CHECK``: do not check if the sender is among one of my "
+"contacts"
+msgstr ""
+"``NO_ANY_CONTACTS_CHECK``: do not check if the sender is among one of my "
+"contacts"
+
+#: ../../webtop.rst:660
+#, fuzzy
+msgid ""
+"``NO_FAKE_PATTERNS_CHECK``: do not verify the presence of false patterns "
+"in the sender (e.g. email address of the name shown is different from the"
+" sender’s email address)"
+msgstr ""
+"``NO_FAKE_PATTERNS_CHECK``: do not verify the presence of false patterns "
+"in the sender (e.g. email address of the name shown is different from the"
+" sender’s email address)"
 
 #: ../../webtop.rst:661
 #, fuzzy
 msgid ""
-"``NO_MY_DOMAIN_CHECK``: do not verify if the sender’s domain is in my "
-"domain"
+"``NO_UNSUBSCRIBE_DIRECTIVES_CHECK``: do not check the entry for the "
+"unsubscribe directives to the mailing list (only if the spam status is "
+"green)"
 msgstr ""
-"``NO_MY_DOMAIN_CHECK``: do not verify if the sender’s domain is in my "
-"domain"
+"``NO_UNSUBSCRIBE_DIRECTIVES_CHECK``: do not check the entry for the "
+"unsubscribe directives to the mailing list (only if the spam status is "
+"green)"
 
 #: ../../webtop.rst:662
 #, fuzzy
 msgid ""
-"``NO_FREQUENT_CONTACT_CHECK``: do not check if the sender is in my "
-"contacts which are saved automatically"
+"``NO_DISPLAYNAME_CHECK``: do not compare the contact’s display name with "
+"the contact in my address book with the same email"
 msgstr ""
-"``NO_FREQUENT_CONTACT_CHECK``: do not check if the sender is in my "
-"contacts which are saved automatically"
+"``NO_DISPLAYNAME_CHECK``: do not compare the contact’s display name with "
+"the contact in my address book with the same email"
 
 #: ../../webtop.rst:663
 #, fuzzy
 msgid ""
-"``NO_ANY_CONTACTS_CHECK``: do not check if the sender is among one of my "
-"contacts"
+"``NO_SPAM_SCORE_VISUALIZATION``: do not show/check the spam score "
+"displayed in the message header"
 msgstr ""
-"``NO_ANY_CONTACTS_CHECK``: do not check if the sender is among one of my "
-"contacts"
+"``NO_SPAM_SCORE_VISUALIZATION``: do not show/check the spam score "
+"displayed in the message header"
 
 #: ../../webtop.rst:664
-#, fuzzy
-msgid ""
-"``NO_FAKE_PATTERNS_CHECK``: do not verify the presence of false patterns "
-"in the sender (e.g. email address of the name shown is different from the"
-" sender’s email address)"
-msgstr ""
-"``NO_FAKE_PATTERNS_CHECK``: do not verify the presence of false patterns "
-"in the sender (e.g. email address of the name shown is different from the"
-" sender’s email address)"
-
-#: ../../webtop.rst:665
-#, fuzzy
-msgid ""
-"``NO_UNSUBSCRIBE_DIRECTIVES_CHECK``: do not check the entry for the "
-"unsubscribe directives to the mailing list (only if the spam status is "
-"green)"
-msgstr ""
-"``NO_UNSUBSCRIBE_DIRECTIVES_CHECK``: do not check the entry for the "
-"unsubscribe directives to the mailing list (only if the spam status is "
-"green)"
-
-#: ../../webtop.rst:666
-#, fuzzy
-msgid ""
-"``NO_DISPLAYNAME_CHECK``: do not compare the contact’s display name with "
-"the contact in my address book with the same email"
-msgstr ""
-"``NO_DISPLAYNAME_CHECK``: do not compare the contact’s display name with "
-"the contact in my address book with the same email"
-
-#: ../../webtop.rst:667
-#, fuzzy
-msgid ""
-"``NO_SPAM_SCORE_VISUALIZATION``: do not show/check the spam score "
-"displayed in the message header"
-msgstr ""
-"``NO_SPAM_SCORE_VISUALIZATION``: do not show/check the spam score "
-"displayed in the message header"
-
-#: ../../webtop.rst:668
 #, fuzzy
 msgid "``NO_LINK_CLICK_PROMPT``: do not check the click action on links"
 msgstr "``NO_LINK_CLICK_PROMPT``: do not check the click action on links"
 
-#: ../../webtop.rst:669
+#: ../../webtop.rst:665
 #, fuzzy
 msgid "``NO_ZIP_CHECK``: do not give warning about zip attachments"
 msgstr "``NO_ZIP_CHECK``: do not give warning about zip attachments"
 
-#: ../../webtop.rst:671
+#: ../../webtop.rst:667
 #, fuzzy
 msgid ""
 "This way it is possible to customize and create special profiles for some"
@@ -21877,7 +21874,7 @@ msgstr ""
 "This way it is possible to customize and create special profiles for some"
 " users who might not want all the actions to be active."
 
-#: ../../webtop.rst:673
+#: ../../webtop.rst:669
 #, fuzzy
 msgid ""
 "The administrator can also choose the list of **file extensions for "
@@ -21890,22 +21887,22 @@ msgstr ""
 "extensions that are considered dangerous: "
 "``exe,bat,dll,com,cmd,bin,cab,js,jar``"
 
-#: ../../webtop.rst:676
+#: ../../webtop.rst:672
 #, fuzzy
 msgid "To modify this list it is necessary to add this global setting:"
 msgstr "To modify this list it is necessary to add this global setting:"
 
-#: ../../webtop.rst:678
+#: ../../webtop.rst:674
 #, fuzzy
 msgid ":guilabel:`Service` = ``com.sonicle.webtop.mail``"
 msgstr ":guilabel:`Service` = ``com.sonicle.webtop.mail``"
 
-#: ../../webtop.rst:679
+#: ../../webtop.rst:675
 #, fuzzy
 msgid ":guilabel:`Key` = ``pas.dangerous.extensions``"
 msgstr ":guilabel:`Key` = ``pas.dangerous.extensions``"
 
-#: ../../webtop.rst:681
+#: ../../webtop.rst:677
 #, fuzzy
 msgid ""
 "For example, if you wanted to add the HTML extension among those that are"
@@ -21913,22 +21910,22 @@ msgid ""
 msgstr ""
 "For example, if you wanted to add the HTML extension among those that are"
 " considered dangerous, the value field should contain the following:"
+
+#: ../../webtop.rst:679
+#, fuzzy
+msgid ""
+":guilabel:`Value` = ``exe,bat,dll,com,cmd,bin,cab,js,jar,html`` (Values "
+"always need to be separated by a comma)"
+msgstr ""
+":guilabel:`Value` = ``exe,bat,dll,com,cmd,bin,cab,js,jar,html`` (Values "
+"always need to be separated by a comma)"
 
 #: ../../webtop.rst:683
-#, fuzzy
-msgid ""
-":guilabel:`Value` = ``exe,bat,dll,com,cmd,bin,cab,js,jar,html`` (Values "
-"always need to be separated by a comma)"
-msgstr ""
-":guilabel:`Value` = ``exe,bat,dll,com,cmd,bin,cab,js,jar,html`` (Values "
-"always need to be separated by a comma)"
-
-#: ../../webtop.rst:687
 #, fuzzy
 msgid "Export events (CSV)"
 msgstr "Export events (CSV)"
 
-#: ../../webtop.rst:689
+#: ../../webtop.rst:685
 #, fuzzy
 msgid ""
 "To export calendars events in CSV (Comma Separated Value) format, click "
@@ -21939,7 +21936,7 @@ msgstr ""
 "on the |tools| button in the top right corner and select :guilabel:`ERP "
 "export (CSV)`"
 
-#: ../../webtop.rst:691
+#: ../../webtop.rst:687
 #, fuzzy
 msgid ""
 "Finally, select a time interval and click on :guilabel:`Next` to export "
@@ -21948,17 +21945,17 @@ msgstr ""
 "Finally, select a time interval and click on :guilabel:`Next` to export "
 "into a CSV file."
 
-#: ../../webtop.rst:694
+#: ../../webtop.rst:690
 #, fuzzy
 msgid "Tasks"
 msgstr "Tasks"
 
-#: ../../webtop.rst:697
+#: ../../webtop.rst:693
 #, fuzzy
 msgid "Quick view filters"
 msgstr "Quick view filters"
 
-#: ../../webtop.rst:699
+#: ../../webtop.rst:695
 #, fuzzy
 msgid ""
 "In the toolbar above the grid there are 7 buttons that allow you to "
@@ -21969,7 +21966,7 @@ msgstr ""
 "select the most suitable quick view. The first two buttons refer to "
 "today's activities or to those planned within the next 7 days:"
 
-#: ../../webtop.rst:704
+#: ../../webtop.rst:700
 #, fuzzy
 msgid ""
 "**Today**: shows unfinished tasks without a start date or with a start "
@@ -21980,7 +21977,7 @@ msgstr ""
 "date up to today (inclusive) and those completed with an end date up to "
 "today (inclusive)"
 
-#: ../../webtop.rst:705
+#: ../../webtop.rst:701
 #, fuzzy
 msgid ""
 "**Next 7 days**: shows uncompleted tasks with no start date or starting "
@@ -21990,79 +21987,79 @@ msgstr ""
 "**Next 7 days**: shows uncompleted tasks with no start date or starting "
 "up to 7 days from today and completed tasks with completion date up to "
 "now (inclusive)"
+
+#: ../../webtop.rst:703
+#, fuzzy
+msgid ""
+"The remaining 5 buttons allow you to obtain these other types of quick "
+"views:"
+msgstr ""
+"The remaining 5 buttons allow you to obtain these other types of quick "
+"views:"
 
 #: ../../webtop.rst:707
 #, fuzzy
 msgid ""
-"The remaining 5 buttons allow you to obtain these other types of quick "
-"views:"
+"**Not started**: shows only activities with status \"To be started\" and "
+"starting today (inclusive)"
 msgstr ""
-"The remaining 5 buttons allow you to obtain these other types of quick "
-"views:"
+"**Not started**: shows only activities with status \"To be started\" and "
+"starting today (inclusive)"
+
+#: ../../webtop.rst:708
+#, fuzzy
+msgid ""
+"**Late**: shows only uncompleted tasks with start date up to today "
+"(inclusive) and completion date previous to the current one"
+msgstr ""
+"**Late**: shows only uncompleted tasks with start date up to today "
+"(inclusive) and completion date previous to the current one"
+
+#: ../../webtop.rst:709
+#, fuzzy
+msgid ""
+"**Completed**: shows all activities with status completed and with any "
+"date range"
+msgstr ""
+"**Completed**: shows all activities with status completed and with any "
+"date range"
+
+#: ../../webtop.rst:710
+#, fuzzy
+msgid ""
+"**Not completed**: shows all activities with status other than completed "
+"and start date within 1 year (for recurring tasks, only the first "
+"instance of the series still to be completed is shown)"
+msgstr ""
+"**Not completed**: shows all activities with status other than completed "
+"and start date within 1 year (for recurring tasks, only the first "
+"instance of the series still to be completed is shown)"
 
 #: ../../webtop.rst:711
 #, fuzzy
 msgid ""
-"**Not started**: shows only activities with status \"To be started\" and "
-"starting today (inclusive)"
+"**All**: shows all activities in any status (for recurring tasks the "
+"series icon main is shown)"
 msgstr ""
-"**Not started**: shows only activities with status \"To be started\" and "
-"starting today (inclusive)"
-
-#: ../../webtop.rst:712
-#, fuzzy
-msgid ""
-"**Late**: shows only uncompleted tasks with start date up to today "
-"(inclusive) and completion date previous to the current one"
-msgstr ""
-"**Late**: shows only uncompleted tasks with start date up to today "
-"(inclusive) and completion date previous to the current one"
-
-#: ../../webtop.rst:713
-#, fuzzy
-msgid ""
-"**Completed**: shows all activities with status completed and with any "
-"date range"
-msgstr ""
-"**Completed**: shows all activities with status completed and with any "
-"date range"
+"**All**: shows all activities in any status (for recurring tasks the "
+"series icon main is shown)"
 
 #: ../../webtop.rst:714
-#, fuzzy
-msgid ""
-"**Not completed**: shows all activities with status other than completed "
-"and start date within 1 year (for recurring tasks, only the first "
-"instance of the series still to be completed is shown)"
-msgstr ""
-"**Not completed**: shows all activities with status other than completed "
-"and start date within 1 year (for recurring tasks, only the first "
-"instance of the series still to be completed is shown)"
-
-#: ../../webtop.rst:715
-#, fuzzy
-msgid ""
-"**All**: shows all activities in any status (for recurring tasks the "
-"series icon main is shown)"
-msgstr ""
-"**All**: shows all activities in any status (for recurring tasks the "
-"series icon main is shown)"
-
-#: ../../webtop.rst:718
 #, fuzzy
 msgid "Recurring tasks"
 msgstr "Recurring tasks"
 
-#: ../../webtop.rst:720
+#: ../../webtop.rst:716
 #, fuzzy
 msgid "It is possible to configure any type of recurrence:"
 msgstr "It is possible to configure any type of recurrence:"
 
-#: ../../webtop.rst:724
+#: ../../webtop.rst:720
 #, fuzzy
 msgid "Editing a recurring activity can be done in two different ways:"
 msgstr "Editing a recurring activity can be done in two different ways:"
 
-#: ../../webtop.rst:726
+#: ../../webtop.rst:722
 #, fuzzy
 msgid ""
 "on the individual task by opening it with a double click from a view "
@@ -22073,7 +22070,7 @@ msgstr ""
 "other than :guilabel:`All` In this case the task will be **removed** from"
 " the recurrence and its icon will become this one:"
 
-#: ../../webtop.rst:731
+#: ../../webtop.rst:727
 #, fuzzy
 msgid ""
 "on the entire series with a double click from the :guilabel:`All` view or"
@@ -22082,12 +22079,12 @@ msgstr ""
 "on the entire series with a double click from the :guilabel:`All` view or"
 " by using the following button on the single task already open:"
 
-#: ../../webtop.rst:736
+#: ../../webtop.rst:732
 #, fuzzy
 msgid "Sub-tasks"
 msgstr "Sub-tasks"
 
-#: ../../webtop.rst:738
+#: ../../webtop.rst:734
 #, fuzzy
 msgid ""
 "On any task it is always possible to add related sub-tasks (one "
@@ -22102,7 +22099,7 @@ msgstr ""
 "and in the slave, a link is available at the bottom right to open the "
 "related tasks:"
 
-#: ../../webtop.rst:743
+#: ../../webtop.rst:739
 #, fuzzy
 msgid ""
 "It is possible to **Move** or **Copy** this type of activity (right click"
@@ -22113,12 +22110,12 @@ msgstr ""
 " -> :guilabel:`Move/Copy`) by choosing to copy or move the sub-activities"
 " through an option active by default."
 
-#: ../../webtop.rst:746
+#: ../../webtop.rst:742
 #, fuzzy
 msgid "Multiple searches"
 msgstr "Multiple searches"
 
-#: ../../webtop.rst:748
+#: ../../webtop.rst:744
 #, fuzzy
 msgid ""
 "In the bar at the top there is a quick search that is executed on all "
@@ -22127,12 +22124,12 @@ msgstr ""
 "In the bar at the top there is a quick search that is executed on all "
 "fields. You can also narrow the search by filling multiple search fields."
 
-#: ../../webtop.rst:754
+#: ../../webtop.rst:750
 #, fuzzy
 msgid "Nextcloud integration"
 msgstr "Nextcloud integration"
 
-#: ../../webtop.rst:756
+#: ../../webtop.rst:752
 #, fuzzy
 msgid ""
 "Before proceeding, verify that the **Nextcloud** module has been "
@@ -22141,7 +22138,7 @@ msgstr ""
 "Before proceeding, verify that the **Nextcloud** module has been "
 "installed from the :ref:`software_center-section`."
 
-#: ../../webtop.rst:759
+#: ../../webtop.rst:755
 #, fuzzy
 msgid ""
 "By default, Nextcloud integration is disabled for all users. To enable "
@@ -22152,45 +22149,45 @@ msgstr ""
 "it, use the administration panel which can be accessed using the webtop "
 "admin password"
 
-#: ../../webtop.rst:762
+#: ../../webtop.rst:758
 #, fuzzy
 msgid "If you want to enable the service for all users, proceed as follows:"
 msgstr "If you want to enable the service for all users, proceed as follows:"
 
-#: ../../webtop.rst:764
+#: ../../webtop.rst:760
 #, fuzzy
 msgid "access the administrative panel and select :guilabel:`Groups`:"
 msgstr "access the administrative panel and select :guilabel:`Groups`:"
 
+#: ../../webtop.rst:764
+#, fuzzy
+msgid ""
+"modify the properties of the \"users\" group by double-clicking and "
+"selecting the button related to the Authorizations:"
+msgstr ""
+"modify the properties of the \"users\" group by double-clicking and "
+"selecting the button related to the Authorizations:"
+
 #: ../../webtop.rst:768
 #, fuzzy
 msgid ""
-"modify the properties of the \"users\" group by double-clicking and "
-"selecting the button related to the Authorizations:"
-msgstr ""
-"modify the properties of the \"users\" group by double-clicking and "
-"selecting the button related to the Authorizations:"
-
-#: ../../webtop.rst:772
-#, fuzzy
-msgid ""
 "add to existing authorizations those related to both the ``STORE_CLOUD`` "
 "and ``STORE_OTHER`` resources by selecting the items as shown below:"
 msgstr ""
 "add to existing authorizations those related to both the ``STORE_CLOUD`` "
 "and ``STORE_OTHER`` resources by selecting the items as shown below:"
 
-#: ../../webtop.rst:779
+#: ../../webtop.rst:775
 #, fuzzy
 msgid "to get this:"
 msgstr "to get this:"
 
-#: ../../webtop.rst:784
+#: ../../webtop.rst:780
 #, fuzzy
 msgid "save and close."
 msgstr "save and close."
 
-#: ../../webtop.rst:786
+#: ../../webtop.rst:782
 #, fuzzy
 msgid ""
 "Fron now on, any user it will be able to insert the Nextcloud resource "
@@ -22198,24 +22195,24 @@ msgid ""
 msgstr ""
 "Fron now on, any user it will be able to insert the Nextcloud resource "
 "(local or remote) in the personal Cloud."
+
+#: ../../webtop.rst:784
+#, fuzzy
+msgid ""
+"To do this, simply select the Cloud button and add a new Nextcloud "
+"resource by right-clicking on :guilabel:`My resources` and then "
+":guilabel:`Add resource` in this way:"
+msgstr ""
+"To do this, simply select the Cloud button and add a new Nextcloud "
+"resource by right-clicking on :guilabel:`My resources` and then "
+":guilabel:`Add resource` in this way:"
 
 #: ../../webtop.rst:788
-#, fuzzy
-msgid ""
-"To do this, simply select the Cloud button and add a new Nextcloud "
-"resource by right-clicking on :guilabel:`My resources` and then "
-":guilabel:`Add resource` in this way:"
-msgstr ""
-"To do this, simply select the Cloud button and add a new Nextcloud "
-"resource by right-clicking on :guilabel:`My resources` and then "
-":guilabel:`Add resource` in this way:"
-
-#: ../../webtop.rst:792
 #, fuzzy
 msgid "A pre-filled wizard will open:"
 msgstr "A pre-filled wizard will open:"
 
-#: ../../webtop.rst:798
+#: ../../webtop.rst:794
 #, fuzzy
 msgid ""
 "Remember to fill in the User name and Password fields related to access "
@@ -22226,34 +22223,24 @@ msgstr ""
 "to the Nextcloud resource, otherwise it will not be possible to use the "
 "public link to the shared files"
 
-#: ../../webtop.rst:803
-#, fuzzy
+#: ../../webtop.rst:799
 msgid ""
-"If Nextcloud has been configured with a custom virtual host (eg. "
-"``nextcloud.mydomain.com``) the :guilabel:`Path` must be changed from "
-"`/nextcloud/remote.php/webdav` to `/remote.php/webdav`, please note that "
-"`/nextcloud` prefix has been removed. Also make sure to enter the name of"
-" the custom virtual host inside the :guilabel:`Host` (eg. "
-"``nextcloud.mydomain.com``)."
+"The :guilabel:`Path` must be changed from `/nextcloud/remote.php/webdav` "
+"to `/remote.php/webdav`. Also make sure to enter the Nextcloud FQDN "
+"inside the :guilabel:`Host` (eg. ``nextcloud.mydomain.com``)."
 msgstr ""
-"If Nextcloud has been configured with a custom virtual host (eg. "
-"``nextcloud.mydomain.com``) the :guilabel:`Path` must be changed from "
-"`/nextcloud/remote.php/webdav` to `/remote.php/webdav`, please note that "
-"`/nextcloud` prefix has been removed. Also make sure to enter the name of"
-" the custom virtual host inside the :guilabel:`Host` (eg. "
-"``nextcloud.mydomain.com``)."
 
-#: ../../webtop.rst:805
+#: ../../webtop.rst:801
 #, fuzzy
 msgid "Proceed with the Next button until the Wizard is complete."
 msgstr "Proceed with the Next button until the Wizard is complete."
 
-#: ../../webtop.rst:808
+#: ../../webtop.rst:804
 #, fuzzy
 msgid "Personal Cloud"
 msgstr "Personal Cloud"
 
-#: ../../webtop.rst:810
+#: ../../webtop.rst:806
 #, fuzzy
 msgid ""
 "The personal Cloud module allows you to send and receive documents via "
@@ -22262,17 +22249,17 @@ msgstr ""
 "The personal Cloud module allows you to send and receive documents via "
 "web links."
 
-#: ../../webtop.rst:813
+#: ../../webtop.rst:809
 #, fuzzy
 msgid "How to create a link to send a document"
 msgstr "How to create a link to send a document"
 
-#: ../../webtop.rst:815
+#: ../../webtop.rst:811
 #, fuzzy
 msgid "To create the link, select the button at the top right:"
 msgstr "To create the link, select the button at the top right:"
 
-#: ../../webtop.rst:819
+#: ../../webtop.rst:815
 #, fuzzy
 msgid ""
 "Follow the wizard to generate the link, use the field :guilabel:`date` to"
@@ -22281,83 +22268,83 @@ msgstr ""
 "Follow the wizard to generate the link, use the field :guilabel:`date` to"
 " set the deadline."
 
-#: ../../webtop.rst:823
+#: ../../webtop.rst:819
 #, fuzzy
 msgid "you can create a :guilabel:`password` to protect it:"
 msgstr "you can create a :guilabel:`password` to protect it:"
 
-#: ../../webtop.rst:827
+#: ../../webtop.rst:823
 #, fuzzy
 msgid "The link will be generated and will be inserted in the new mail:"
 msgstr "The link will be generated and will be inserted in the new mail:"
 
-#: ../../webtop.rst:832
+#: ../../webtop.rst:828
 #, fuzzy
 msgid "Downloading the file generates a notification to the sender:"
 msgstr "Downloading the file generates a notification to the sender:"
 
-#: ../../webtop.rst:837
+#: ../../webtop.rst:833
 #, fuzzy
 msgid "Request for a document"
 msgstr "Request for a document"
 
+#: ../../webtop.rst:834
+#, fuzzy
+msgid ""
+"To create the request, insert the subject of the email then select the "
+"button at the top right:"
+msgstr ""
+"To create the request, insert the subject of the email then select the "
+"button at the top right:"
+
 #: ../../webtop.rst:838
 #, fuzzy
 msgid ""
-"To create the request, insert the subject of the email then select the "
-"button at the top right:"
+"Follow the wizard. You can set both an expiration date and a password. "
+"The link will be automatically inserted into the message:"
 msgstr ""
-"To create the request, insert the subject of the email then select the "
-"button at the top right:"
+"Follow the wizard. You can set both an expiration date and a password. "
+"The link will be automatically inserted into the message:"
 
 #: ../../webtop.rst:842
-#, fuzzy
-msgid ""
-"Follow the wizard. You can set both an expiration date and a password. "
-"The link will be automatically inserted into the message:"
-msgstr ""
-"Follow the wizard. You can set both an expiration date and a password. "
-"The link will be automatically inserted into the message:"
-
-#: ../../webtop.rst:846
 #, fuzzy
 msgid "A request email will be sent to upload the document to the Cloud:"
 msgstr "A request email will be sent to upload the document to the Cloud:"
 
+#: ../../webtop.rst:846
+#, fuzzy
+msgid ""
+"The sender will receive a notification for each file that will be "
+"uploaded:"
+msgstr ""
+"The sender will receive a notification for each file that will be "
+"uploaded:"
+
 #: ../../webtop.rst:850
 #, fuzzy
 msgid ""
-"The sender will receive a notification for each file that will be "
-"uploaded:"
-msgstr ""
-"The sender will receive a notification for each file that will be "
-"uploaded:"
-
-#: ../../webtop.rst:854
-#, fuzzy
-msgid ""
 "To download the files just access your personal :menuselection:`Cloud -->"
 " Uploads --> Folder` with date and name:"
 msgstr ""
 "To download the files just access your personal :menuselection:`Cloud -->"
 " Uploads --> Folder` with date and name:"
 
-#: ../../webtop.rst:861
+#: ../../webtop.rst:857
 #, fuzzy
 msgid "Chat integration"
 msgstr "Chat integration"
 
-#: ../../webtop.rst:863
+#: ../../webtop.rst:859
 #, fuzzy
 msgid "Web chat integration installation is disabled by default for all users."
 msgstr "Web chat integration installation is disabled by default for all users."
 
-#: ../../webtop.rst:865
+#: ../../webtop.rst:861
 #, fuzzy
 msgid "To enable chat integration:"
 msgstr "To enable chat integration:"
 
-#: ../../webtop.rst:867
+#: ../../webtop.rst:863
 msgid ""
 "Install the \"Ejabberd\" application from the ``Software center`` page "
 "See :ref:`install-applications` and :ref:`ejabberd-section`."
@@ -22365,18 +22352,18 @@ msgstr ""
 "Installare l'applicazione \"Ejabberd\" dal ``Software center` `` pagina "
 "Vedere :ref:`install-applications` e :ref:`ejabberd-section`."
 
-#: ../../webtop.rst:870
+#: ../../webtop.rst:866
 msgid ""
 "In Ejabberd ``Settings`` page, the field ``Ejabberd domain (FQDN)`` must "
-"match the value of ``Mail domain`` in Webtop's settings."
+"match the value of ``Mail domain`` in WebTop's settings."
 msgstr ""
 
-#: ../../webtop.rst:873
+#: ../../webtop.rst:869
 #, fuzzy
 msgid "Access WebTop as admin user then enable the web chat authorization:"
 msgstr "Access WebTop as admin user then enable the web chat authorization:"
 
-#: ../../webtop.rst:875 ../../webtop.rst:888
+#: ../../webtop.rst:871 ../../webtop.rst:884
 #, fuzzy
 msgid ""
 "Access the :guilabel:`Administration` menu, then :menuselection:`Domains "
@@ -22385,7 +22372,7 @@ msgstr ""
 "Access the :guilabel:`Administration` menu, then :menuselection:`Domains "
 "--> NethServer --> Groups --> Users --> Authorizations`"
 
-#: ../../webtop.rst:876
+#: ../../webtop.rst:872
 #, fuzzy
 msgid ""
 ":menuselection:`Add (+) --> Services --> com.sonicle.webtop.core (WebTop)"
@@ -22394,17 +22381,17 @@ msgstr ""
 ":menuselection:`Add (+) --> Services --> com.sonicle.webtop.core (WebTop)"
 " --> Resource --> WEBCHAT --> Action --> ACCESS`"
 
-#: ../../webtop.rst:877 ../../webtop.rst:890
+#: ../../webtop.rst:873 ../../webtop.rst:886
 #, fuzzy
 msgid "Click :guilabel:`OK` then save and close"
 msgstr "Click :guilabel:`OK` then save and close"
 
-#: ../../webtop.rst:880
+#: ../../webtop.rst:876
 #, fuzzy
 msgid "Jitsi integration"
 msgstr "Jitsi integration"
 
-#: ../../webtop.rst:882
+#: ../../webtop.rst:878
 #, fuzzy
 msgid ""
 "With this integration it is possible to start a new video conference and "
@@ -22422,33 +22409,33 @@ msgstr ""
 "like to use directly from admin panel by modifying the `documented global"
 " settings <https://www.sonicle.com/docs/webtop5/core.html#meeting-"
 "integration-settings>`_"
+
+#: ../../webtop.rst:881
+#, fuzzy
+msgid ""
+"By default, the videoconferencing service is disabled for all users. To "
+"enable it, for all users it is necessary to add a specific authorization "
+"from the administration panel:"
+msgstr ""
+"By default, the videoconferencing service is disabled for all users. To "
+"enable it, for all users it is necessary to add a specific authorization "
+"from the administration panel:"
 
 #: ../../webtop.rst:885
 #, fuzzy
 msgid ""
-"By default, the videoconferencing service is disabled for all users. To "
-"enable it, for all users it is necessary to add a specific authorization "
-"from the administration panel:"
-msgstr ""
-"By default, the videoconferencing service is disabled for all users. To "
-"enable it, for all users it is necessary to add a specific authorization "
-"from the administration panel:"
-
-#: ../../webtop.rst:889
-#, fuzzy
-msgid ""
 ":menuselection:`Add (+) --> Services --> com.sonicle.webtop.core (WebTop)"
 " --> Resource MEETING --> Action --> CREATE`"
 msgstr ""
 ":menuselection:`Add (+) --> Services --> com.sonicle.webtop.core (WebTop)"
 " --> Resource MEETING --> Action --> CREATE`"
 
-#: ../../webtop.rst:892
+#: ../../webtop.rst:888
 #, fuzzy
 msgid "The conference will be available for the users after a new login."
 msgstr "The conference will be available for the users after a new login."
 
-#: ../../webtop.rst:894
+#: ../../webtop.rst:890
 #, fuzzy
 msgid ""
 "To create a new video conference meeting, you can start from these two "
@@ -22457,40 +22444,40 @@ msgstr ""
 "To create a new video conference meeting, you can start from these two "
 "buttons:"
 
-#: ../../webtop.rst:896
+#: ../../webtop.rst:892
 #, fuzzy
 msgid "(top left)"
 msgstr "(top left)"
 
-#: ../../webtop.rst:900
+#: ../../webtop.rst:896
 #, fuzzy
 msgid "(top right)"
 msgstr "(top right)"
 
+#: ../../webtop.rst:900
+#, fuzzy
+msgid ""
+"It is also possible to do this from a new email window or a new calendar "
+"event."
+msgstr ""
+"It is also possible to do this from a new email window or a new calendar "
+"event."
+
+#: ../../webtop.rst:902
+#, fuzzy
+msgid ""
+"For each new meeting you have to decide whether it should start "
+"immediately (instant meeting) or if it should be scheduled by invitation."
+msgstr ""
+"For each new meeting you have to decide whether it should start "
+"immediately (instant meeting) or if it should be scheduled by invitation."
+
 #: ../../webtop.rst:904
-#, fuzzy
-msgid ""
-"It is also possible to do this from a new email window or a new calendar "
-"event."
-msgstr ""
-"It is also possible to do this from a new email window or a new calendar "
-"event."
-
-#: ../../webtop.rst:906
-#, fuzzy
-msgid ""
-"For each new meeting you have to decide whether it should start "
-"immediately (instant meeting) or if it should be scheduled by invitation."
-msgstr ""
-"For each new meeting you have to decide whether it should start "
-"immediately (instant meeting) or if it should be scheduled by invitation."
-
-#: ../../webtop.rst:908
 #, fuzzy
 msgid "There are several ways to share the new meeting link:"
 msgstr "There are several ways to share the new meeting link:"
 
-#: ../../webtop.rst:912
+#: ../../webtop.rst:908
 #, fuzzy
 msgid ""
 ":guilabel:`Start now` allows you to immediately access the newly created "
@@ -22499,7 +22486,7 @@ msgstr ""
 ":guilabel:`Start now` allows you to immediately access the newly created "
 "meeting room and copy the link via the button available next to the URL"
 
-#: ../../webtop.rst:913
+#: ../../webtop.rst:909
 #, fuzzy
 msgid ""
 ":guilabel:`Send invitation` -> :guilabel:`Copy meeting invite`: in this "
@@ -22509,21 +22496,21 @@ msgstr ""
 ":guilabel:`Send invitation` -> :guilabel:`Copy meeting invite`: in this "
 "case an invitation message, which also includes the meeting link, will be"
 " copied (e.g: To join the meeting on Jitsi Meet, click this link: …)"
+
+#: ../../webtop.rst:910
+#, fuzzy
+msgid ""
+":guilabel:`Send invitation` -> :guilabel:`Share by email`: you will be "
+"asked if you would like to change the subject and date of the meeting, "
+"which will then be inserted in the newly generated email:"
+msgstr ""
+":guilabel:`Send invitation` -> :guilabel:`Share by email`: you will be "
+"asked if you would like to change the subject and date of the meeting, "
+"which will then be inserted in the newly generated email:"
 
 #: ../../webtop.rst:914
 #, fuzzy
 msgid ""
-":guilabel:`Send invitation` -> :guilabel:`Share by email`: you will be "
-"asked if you would like to change the subject and date of the meeting, "
-"which will then be inserted in the newly generated email:"
-msgstr ""
-":guilabel:`Send invitation` -> :guilabel:`Share by email`: you will be "
-"asked if you would like to change the subject and date of the meeting, "
-"which will then be inserted in the newly generated email:"
-
-#: ../../webtop.rst:918
-#, fuzzy
-msgid ""
 ":guilabel:`Send invitation` -> :guilabel:`Plan event`: also in this case "
 "you will be asked if you would like to change the subject and date/time "
 "of the meeting before creating the calendar event that will allow you to "
@@ -22534,7 +22521,7 @@ msgstr ""
 "of the meeting before creating the calendar event that will allow you to "
 "invite other participants."
 
-#: ../../webtop.rst:920
+#: ../../webtop.rst:916
 #, fuzzy
 msgid ""
 "If an event contains a link to a third-party video conference, the "
@@ -22543,12 +22530,12 @@ msgstr ""
 "If an event contains a link to a third-party video conference, the "
 "buttons that will allow you to access the meeting directly:"
 
-#: ../../webtop.rst:926
+#: ../../webtop.rst:922
 #, fuzzy
 msgid "Third-party video calls"
 msgstr "Third-party video calls"
 
-#: ../../webtop.rst:928
+#: ../../webtop.rst:924
 #, fuzzy
 msgid ""
 "The video conferencing services that are currently supported, in addition"
@@ -22563,12 +22550,12 @@ msgstr ""
 "<https://www.sonicle.com/docs/webtop5/core.html#meeting-integration-"
 "settings>`_."
 
-#: ../../webtop.rst:933
+#: ../../webtop.rst:929
 #, fuzzy
 msgid "SMS integration"
 msgstr "SMS integration"
 
-#: ../../webtop.rst:935
+#: ../../webtop.rst:931
 #, fuzzy
 msgid ""
 "It is possible to send SMS (Short Message Service) messages to a contact "
@@ -22581,7 +22568,7 @@ msgstr ""
 "first you need to choose one of the two supported providers: `smshosting "
 "<https://www.smshosting.it/it>`_ or `twilio <https://www.twilio.com/>`_."
 
-#: ../../webtop.rst:938
+#: ../../webtop.rst:934
 #, fuzzy
 msgid ""
 "Once registered to the service of the chosen provider, retrieve the API "
@@ -22594,7 +22581,7 @@ msgstr ""
 "configuration db. The settings to configure are those shown `here "
 "<https://www.sonicle.com/docs/webtop5/core.html#sms-settings>`_ ."
 
-#: ../../webtop.rst:941
+#: ../../webtop.rst:937
 #, fuzzy
 msgid ""
 "You can do it by accessing the administration panel -> "
@@ -22609,27 +22596,27 @@ msgstr ""
 ":guilabel:`Key` and :guilabel:`Value` fields according to the key to be "
 "configured:"
 
-#: ../../webtop.rst:943
+#: ../../webtop.rst:939
 #, fuzzy
 msgid "``sms.provider`` = smshosting or twilio"
 msgstr "``sms.provider`` = smshosting or twilio"
 
-#: ../../webtop.rst:945
+#: ../../webtop.rst:941
 #, fuzzy
 msgid "``sms.provider.webrest.user`` = API AUTH_KEY"
 msgstr "``sms.provider.webrest.user`` = API AUTH_KEY"
 
-#: ../../webtop.rst:947
+#: ../../webtop.rst:943
 #, fuzzy
 msgid "``sms.provider.webrest.password`` = API AUTH_SECRET"
 msgstr "``sms.provider.webrest.password`` = API AUTH_SECRET"
 
-#: ../../webtop.rst:949
+#: ../../webtop.rst:945
 #, fuzzy
 msgid "``sms.sender`` = (default optional)"
 msgstr "``sms.sender`` = (default optional)"
 
-#: ../../webtop.rst:951
+#: ../../webtop.rst:947
 #, fuzzy
 msgid ""
 "The ``sms.sender`` key is optional and is used to specify the default "
@@ -22640,7 +22627,7 @@ msgstr ""
 "sender when sending SMS. It is possible to indicate a number (max 16 "
 "characters) or a text (max 11 characters)."
 
-#: ../../webtop.rst:956
+#: ../../webtop.rst:952
 #, fuzzy
 msgid ""
 "Each user can overwrite the sender by customizing it as desired through "
@@ -22653,7 +22640,7 @@ msgstr ""
 " SMS` -> :guilabel:`SMS Hosting service configured` -> :guilabel:`Default"
 " sender`"
 
-#: ../../webtop.rst:958
+#: ../../webtop.rst:954
 #, fuzzy
 msgid ""
 "To send an SMS from the address book, right-click on a contact that has "
@@ -22662,12 +22649,12 @@ msgstr ""
 "To send an SMS from the address book, right-click on a contact that has "
 "the mobile field filled in -> :guilabel:`Send SMS`"
 
-#: ../../webtop.rst:961
+#: ../../webtop.rst:957
 #, fuzzy
 msgid "Launcher customization"
 msgstr "Launcher customization"
 
-#: ../../webtop.rst:963
+#: ../../webtop.rst:959
 #, fuzzy
 msgid ""
 "The launcher is the icon-based menu on the left of the page. You can add "
@@ -22676,7 +22663,7 @@ msgstr ""
 "The launcher is the icon-based menu on the left of the page. You can add "
 "custom buttons to the launcher."
 
-#: ../../webtop.rst:966
+#: ../../webtop.rst:962
 #, fuzzy
 msgid ""
 "To configure the buttons, access the WebTop administration panel and "
@@ -22687,22 +22674,22 @@ msgstr ""
 "select -> :guilabel:`Domains` -> :guilabel:`NethServer` ->  "
 ":guilabel:`Launcher` :"
 
-#: ../../webtop.rst:971
+#: ../../webtop.rst:967
 #, fuzzy
 msgid "For each button, enter these three values"
 msgstr "For each button, enter these three values"
 
-#: ../../webtop.rst:973
+#: ../../webtop.rst:969
 #, fuzzy
 msgid "``Name`` : tab descriptive text that appears with mouse-over"
 msgstr "``Name`` : tab descriptive text that appears with mouse-over"
 
-#: ../../webtop.rst:974
+#: ../../webtop.rst:970
 #, fuzzy
 msgid "``Link URL`` : URL to be opened in a new browser"
 msgstr "``Link URL`` : URL to be opened in a new browser"
 
-#: ../../webtop.rst:975
+#: ../../webtop.rst:971
 #, fuzzy
 msgid ""
 "``Icon URL`` : icon image URL, it should always be a publicly reachable "
@@ -22711,11 +22698,11 @@ msgstr ""
 "``Icon URL`` : icon image URL, it should always be a publicly reachable "
 "address. To avoid scaling problems, use vector images"
 
-#: ../../webtop.rst:977
+#: ../../webtop.rst:973
 #, fuzzy
 msgid ""
 "If you can't find a public URL for the icon image, you can upload the "
-"icon on Webtop public cloud. WebTop public cloud already hosts mailcards "
+"icon on WebTop public cloud. WebTop public cloud already hosts mailcards "
 "images. Access the administrator panel and click on :guilabel:`Cloud` -> "
 ":guilabel:`Public Images`, then insert a URL like "
 "``https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>``."
@@ -22725,37 +22712,37 @@ msgstr ""
 "images. Access the administrator panel and click on :guilabel:`Cloud` -> "
 ":guilabel:`Public Images`, then insert a URL like "
 "``https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>``."
+
+#: ../../webtop.rst:978
+#, fuzzy
+msgid ""
+"The configured custom link buttons will be shown to all users at the next"
+" login."
+msgstr ""
+"The configured custom link buttons will be shown to all users at the next"
+" login."
 
 #: ../../webtop.rst:982
-#, fuzzy
-msgid ""
-"The configured custom link buttons will be shown to all users at the next"
-" login."
-msgstr ""
-"The configured custom link buttons will be shown to all users at the next"
-" login."
-
-#: ../../webtop.rst:986
 #, fuzzy
 msgid "Browser notifications"
 msgstr "Browser notifications"
 
-#: ../../webtop.rst:988
+#: ../../webtop.rst:984
 #, fuzzy
 msgid "WebTop can notify new mail messages and upcoming calendar events."
 msgstr "WebTop can notify new mail messages and upcoming calendar events."
 
-#: ../../webtop.rst:990
+#: ../../webtop.rst:986
 #, fuzzy
 msgid "To activate it, simply access the general settings of your user:"
 msgstr "To activate it, simply access the general settings of your user:"
 
-#: ../../webtop.rst:994
+#: ../../webtop.rst:990
 #, fuzzy
 msgid "It is possible to enable desktop notifications in two modes:"
 msgstr "It is possible to enable desktop notifications in two modes:"
 
-#: ../../webtop.rst:996
+#: ../../webtop.rst:992
 #, fuzzy
 msgid ""
 ":guilabel:`Always`: notifications will always be shown, even with the "
@@ -22764,7 +22751,7 @@ msgstr ""
 ":guilabel:`Always`: notifications will always be shown, even with the "
 "browser open"
 
-#: ../../webtop.rst:997
+#: ../../webtop.rst:993
 #, fuzzy
 msgid ""
 ":guilabel:`Auto (in background only)`: notifications will be shown only "
@@ -22773,12 +22760,12 @@ msgstr ""
 ":guilabel:`Auto (in background only)`: notifications will be shown only "
 "when the browser is in the background"
 
-#: ../../webtop.rst:999
+#: ../../webtop.rst:995
 #, fuzzy
 msgid "Make sure to allow notifications inside your browser."
 msgstr "Make sure to allow notifications inside your browser."
 
-#: ../../webtop.rst:1001
+#: ../../webtop.rst:997
 #, fuzzy
 msgid ""
 "If you need to enable this consent later on a different browser just "
@@ -22787,12 +22774,12 @@ msgstr ""
 "If you need to enable this consent later on a different browser just "
 "click on the appropriate button:"
 
-#: ../../webtop.rst:1007
+#: ../../webtop.rst:1003
 #, fuzzy
 msgid "External IMAP accounts (Beta)"
 msgstr "External IMAP accounts (Beta)"
 
-#: ../../webtop.rst:1009
+#: ../../webtop.rst:1005
 #, fuzzy
 msgid ""
 "External IMAP accounts can be accessed in read-only mode. Each user can "
@@ -22801,12 +22788,12 @@ msgstr ""
 "External IMAP accounts can be accessed in read-only mode. Each user can "
 "have a maximum of 3 external accounts."
 
-#: ../../webtop.rst:1012
+#: ../../webtop.rst:1008
 #, fuzzy
 msgid "To enable the feature:"
 msgstr "To enable the feature:"
 
-#: ../../webtop.rst:1014
+#: ../../webtop.rst:1010
 #, fuzzy
 msgid ""
 "Access the administration panel, then selected :guilabel:`Properties "
@@ -22815,7 +22802,7 @@ msgstr ""
 "Access the administration panel, then selected :guilabel:`Properties "
 "(system)`"
 
-#: ../../webtop.rst:1015
+#: ../../webtop.rst:1011
 #, fuzzy
 msgid ""
 "Click on :guilabel:`Add` button and select "
@@ -22824,32 +22811,32 @@ msgstr ""
 "Click on :guilabel:`Add` button and select "
 ":guilabel:`com.sonicle.webtop.mail`"
 
-#: ../../webtop.rst:1016
+#: ../../webtop.rst:1012
 #, fuzzy
 msgid "Create a new key named ``external-account.enabled`` with value ``true``"
 msgstr "Create a new key named ``external-account.enabled`` with value ``true``"
 
-#: ../../webtop.rst:1017
+#: ../../webtop.rst:1013
 #, fuzzy
 msgid "Give a specific authorization to the user by setting:"
 msgstr "Give a specific authorization to the user by setting:"
 
-#: ../../webtop.rst:1019
+#: ../../webtop.rst:1015
 #, fuzzy
 msgid "Service: ``com.sonicle.webtop-mail``"
 msgstr "Service: ``com.sonicle.webtop-mail``"
 
-#: ../../webtop.rst:1020
+#: ../../webtop.rst:1016
 #, fuzzy
 msgid "Resource: ``EXTERNAL_ACCOUNT_SETTINGS``"
 msgstr "Resource: ``EXTERNAL_ACCOUNT_SETTINGS``"
 
-#: ../../webtop.rst:1021
+#: ../../webtop.rst:1017
 #, fuzzy
 msgid "Action: ``CHANGE``"
 msgstr "Action: ``CHANGE``"
 
-#: ../../webtop.rst:1023
+#: ../../webtop.rst:1019
 #, fuzzy
 msgid ""
 "Users can now configure personal external accounts by accessing the "
@@ -22858,12 +22845,12 @@ msgstr ""
 "Users can now configure personal external accounts by accessing the "
 ":guilabel:`Settings` section."
 
-#: ../../webtop.rst:1026
+#: ../../webtop.rst:1022
 #, fuzzy
 msgid "Subscribing remote resources"
 msgstr "Subscribing remote resources"
 
-#: ../../webtop.rst:1028
+#: ../../webtop.rst:1024
 #, fuzzy
 msgid ""
 "WebTop supports subscriptions to remote calendars and contacts "
@@ -22872,12 +22859,12 @@ msgstr ""
 "WebTop supports subscriptions to remote calendars and contacts "
 "(directory) using CardDAV, CalDAV and iCal."
 
-#: ../../webtop.rst:1031
+#: ../../webtop.rst:1027
 #, fuzzy
 msgid "Remote calendars"
 msgstr "Remote calendars"
 
-#: ../../webtop.rst:1033
+#: ../../webtop.rst:1029
 #, fuzzy
 msgid ""
 "An Internet Calendar can be added and synchronized. To do so just click "
@@ -22890,7 +22877,7 @@ msgstr ""
 "Calendar`. Two types of remote calendars are supported: WebCal (ICS "
 "format) and CalDAV."
 
-#: ../../webtop.rst:1039
+#: ../../webtop.rst:1035
 #, fuzzy
 msgid ""
 "Synchronization of Webcal calendars (ICS) is always done by downloading "
@@ -22901,12 +22888,12 @@ msgstr ""
 "every event on the remote resource every time, while only the differences"
 " are synchronized with the CalDAV mode"
 
-#: ../../webtop.rst:1042
+#: ../../webtop.rst:1038
 #, fuzzy
 msgid "Example of Google Cal remote calendar (Webcal only - ICS)"
 msgstr "Example of Google Cal remote calendar (Webcal only - ICS)"
 
-#: ../../webtop.rst:1044
+#: ../../webtop.rst:1040
 #, fuzzy
 msgid ""
 "Take the public access ICS link from your Google calendar: "
@@ -22917,7 +22904,7 @@ msgstr ""
 ":guilabel:`Calendar options -> Settings and sharing -> Secret address in "
 "iCal format`"
 
-#: ../../webtop.rst:1046
+#: ../../webtop.rst:1042
 #, fuzzy
 msgid ""
 "On WebTop, add an Internet calendar of type Webcal and paste the copied "
@@ -22927,48 +22914,48 @@ msgstr ""
 "On WebTop, add an Internet calendar of type Webcal and paste the copied "
 "URL without entering the authentication credentials in step 1 of the "
 "wizard."
+
+#: ../../webtop.rst:1044
+#, fuzzy
+msgid ""
+"The wizard will connect to the calendar, giving the possibility to change"
+" the name and color, and then perform the first synchronization."
+msgstr ""
+"The wizard will connect to the calendar, giving the possibility to change"
+" the name and color, and then perform the first synchronization."
 
 #: ../../webtop.rst:1048
 #, fuzzy
 msgid ""
-"The wizard will connect to the calendar, giving the possibility to change"
-" the name and color, and then perform the first synchronization."
+"The first synchronization may fail due to Google's security settings. If "
+"you receive a notification that warns you about accessing your resources "
+"you need to allow them to be used confirming that it is a legitimate "
+"attempt."
 msgstr ""
-"The wizard will connect to the calendar, giving the possibility to change"
-" the name and color, and then perform the first synchronization."
+"The first synchronization may fail due to Google's security settings. If "
+"you receive a notification that warns you about accessing your resources "
+"you need to allow them to be used confirming that it is a legitimate "
+"attempt."
 
 #: ../../webtop.rst:1052
-#, fuzzy
-msgid ""
-"The first synchronization may fail due to Google's security settings. If "
-"you receive a notification that warns you about accessing your resources "
-"you need to allow them to be used confirming that it is a legitimate "
-"attempt."
-msgstr ""
-"The first synchronization may fail due to Google's security settings. If "
-"you receive a notification that warns you about accessing your resources "
-"you need to allow them to be used confirming that it is a legitimate "
-"attempt."
-
-#: ../../webtop.rst:1056
 #, fuzzy
 msgid "Remote contacts (directory)"
 msgstr "Remote contacts (directory)"
 
-#: ../../webtop.rst:1059
+#: ../../webtop.rst:1055
 #, fuzzy
 msgid "Google CardDAV remote address book"
 msgstr "Google CardDAV remote address book"
 
-#: ../../webtop.rst:1061
+#: ../../webtop.rst:1057
 #, fuzzy
 msgid "Steps:"
 msgstr "Steps:"
 
-#: ../../webtop.rst:1063
+#: ../../webtop.rst:1059
 #, fuzzy
 msgid ""
-"on Webtop, configure a new Internet address book, right-click on "
+"on WebTop, configure a new Internet address book, right-click on "
 ":guilabel:`Personal Categories -> Add Internet address book` and and "
 "enter a URL of this type in step 1 of the wizard: "
 "``https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/``"
@@ -22979,53 +22966,53 @@ msgstr ""
 "enter a URL of this type in step 1 of the wizard: "
 "``https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/``"
 " Replace the ``X`` with your GMail account"
+
+#: ../../webtop.rst:1063
+#, fuzzy
+msgid ""
+"enter the authentication credentials (as user name use the full address "
+"of gmail):"
+msgstr ""
+"enter the authentication credentials (as user name use the full address "
+"of gmail):"
 
 #: ../../webtop.rst:1067
 #, fuzzy
 msgid ""
-"enter the authentication credentials (as user name use the full address "
-"of gmail):"
+"the wizard in the following steps will connect to the phonebook, giving "
+"the possibility to change the name and color, and then perform the first "
+"synchronization"
 msgstr ""
-"enter the authentication credentials (as user name use the full address "
-"of gmail):"
+"the wizard in the following steps will connect to the phonebook, giving "
+"the possibility to change the name and color, and then perform the first "
+"synchronization"
+
+#: ../../webtop.rst:1069
+#, fuzzy
+msgid ""
+"You must enable the synchronization into your Google account and enable "
+"access for `App Password "
+"<https://support.google.com/accounts/answer/185833>`_."
+msgstr ""
+"You must enable the synchronization into your Google account and enable "
+"access for `App Password "
+"<https://support.google.com/accounts/answer/185833>`_."
 
 #: ../../webtop.rst:1071
 #, fuzzy
 msgid ""
-"the wizard in the following steps will connect to the phonebook, giving "
-"the possibility to change the name and color, and then perform the first "
-"synchronization"
-msgstr ""
-"the wizard in the following steps will connect to the phonebook, giving "
-"the possibility to change the name and color, and then perform the first "
-"synchronization"
-
-#: ../../webtop.rst:1073
-#, fuzzy
-msgid ""
-"You must enable the synchronization into your Google account and enable "
-"access for `App Password "
-"<https://support.google.com/accounts/answer/185833>`_."
-msgstr ""
-"You must enable the synchronization into your Google account and enable "
-"access for `App Password "
-"<https://support.google.com/accounts/answer/185833>`_."
-
-#: ../../webtop.rst:1075
-#, fuzzy
-msgid ""
 "Synchronization of remote resources can be performed manually or "
 "automatically."
 msgstr ""
 "Synchronization of remote resources can be performed manually or "
 "automatically."
 
-#: ../../webtop.rst:1078
+#: ../../webtop.rst:1074
 #, fuzzy
 msgid "Automatic synchronization"
 msgstr "Automatic synchronization"
 
-#: ../../webtop.rst:1080
+#: ../../webtop.rst:1076
 #, fuzzy
 msgid ""
 "To synchronize automatically you can choose between three time intervals:"
@@ -23040,11 +23027,11 @@ msgstr ""
 "click on the phonebook (or on the calendar), :guilabel:`Edit Category`, "
 ":guilabel:`Internet Addressbook` (or :guilabel:`Internet Calendar`):"
 
-#: ../../webtop.rst:1087 ../../webtop.rst:1381
+#: ../../webtop.rst:1083 ../../webtop.rst:1377
 msgid "Manual synchronization"
 msgstr "Sincronizzazione manuale"
 
-#: ../../webtop.rst:1089
+#: ../../webtop.rst:1085
 msgid ""
 "To update a remote address book, for example, click on it with the right "
 "mouse button and then select the item \"Synchronize\":"
@@ -23052,7 +23039,7 @@ msgstr ""
 "Per aggiornare una rubrica remota, ad esempio, fare clic su di essa con "
 "il pulsante destro del mouse e quindi selezionare \"Sincronizza\":"
 
-#: ../../webtop.rst:1093
+#: ../../webtop.rst:1089
 msgid ""
 "For CardDAV address books, as well as for remote CalDAV calendars, you "
 "can select whether to perform a full synchronization or only for changes."
@@ -23064,17 +23051,17 @@ msgstr ""
 "per le modifiche. Per fare questo, fare clic con il pulsante destro del "
 "mouse sulla rubrica (o sul calendario), :guilabel:`Modifica categoria`:"
 
-#: ../../webtop.rst:1098
+#: ../../webtop.rst:1094
 msgid "Select the desired mode next to the synchronization button:"
 msgstr ""
 "Selezionare la modalità desiderata accanto al pulsante di "
 "sincronizzazione:"
 
-#: ../../webtop.rst:1103
+#: ../../webtop.rst:1099
 msgid "User access and user session logs"
 msgstr "Accesso utente e log di sessione utenti"
 
-#: ../../webtop.rst:1105
+#: ../../webtop.rst:1101
 msgid ""
 "The table showing the entire log of accesses and sessions for each user "
 "is available under the administrator panel. Access the "
@@ -23088,7 +23075,7 @@ msgstr ""
 ":guilabel:`NethServer` --> :guilabel:`Audit (dominio)` --> :guilabel:`Log"
 " accessi`."
 
-#: ../../webtop.rst:1108
+#: ../../webtop.rst:1104
 msgid ""
 "For each access, the table reports the following data in columns: session"
 " ID, user name, date and time, session duration, authentication status "
@@ -23098,7 +23085,7 @@ msgstr ""
 "sessione, nome utente, data e ora, durata della sessione, stato di "
 "autenticazione ed eventuali errori di login."
 
-#: ../../webtop.rst:1110
+#: ../../webtop.rst:1106
 msgid ""
 "You can enable public IP geolocation. First, you need to register an "
 "account on `ipstack <https://ipstack.com/>`_ and obtain the ``API KEY`` "
@@ -23108,9 +23095,10 @@ msgstr ""
 " necessario registrare un account su `ipstack <https://ipstack.com/>`_ e "
 "ottenere la ``API KEY`` da inserire nel db di configurazione."
 
-#: ../../webtop.rst:1112
+#: ../../webtop.rst:1108
+#, fuzzy
 msgid ""
-"Login to the administration panel -> :guilabel:`Property (system)` -> "
+"Login to the administration panel -> :guilabel:`Properties (system)` -> "
 ":guilabel:`add` -> :guilabel:`com.sonicle.webtop.core (WebTop)` -> enter "
 "the following data in the fields :guilabel:`Key` e :guilabel:`Value` :"
 msgstr ""
@@ -23119,15 +23107,15 @@ msgstr ""
 "-> inserire i seguenti dati nei campi :guilabel:`Chiave` e "
 ":guilabel:`Valore` :"
 
-#: ../../webtop.rst:1114
+#: ../../webtop.rst:1110
 msgid "``geolocation.provider`` = ``ipstack``"
 msgstr "``geolocation.provider`` = ``ipstack``"
 
-#: ../../webtop.rst:1115
+#: ../../webtop.rst:1111
 msgid "``geolocation.ipstack.apikey``  = ``<API KEY FROM PROVIDER>``"
 msgstr "``geolocation.ipstack.apikey`` = ``<API KEY FROM PROVIDER>``"
 
-#: ../../webtop.rst:1117
+#: ../../webtop.rst:1113
 msgid ""
 "Then, logout and a login again. To show the IP geolocation please click "
 "on the icon at the far right of the row:"
@@ -23135,11 +23123,11 @@ msgstr ""
 "Poi, logout e un nuovo login. Per mostrare la geolocalizzazione IP "
 "cliccare sull'icona all'estrema destra della riga:"
 
-#: ../../webtop.rst:1121
+#: ../../webtop.rst:1117
 msgid "**Impersonate login**"
 msgstr "**Impersonate login**"
 
-#: ../../webtop.rst:1123
+#: ../../webtop.rst:1119
 msgid ""
 "By default, the logins made through impersonate (``admin!<user>``) are "
 "not shown in the access logs table. In order to also add this type of "
@@ -23150,19 +23138,19 @@ msgstr ""
 "accesso. Per aggiungere anche questo tipo di accesso, è necessario "
 "aggiungere la seguente chiave per il servizio core:"
 
-#: ../../webtop.rst:1126
+#: ../../webtop.rst:1122
 msgid "``key`` = ``audit.logimpersonated``"
 msgstr "``chiave`` = ``audit.logimpersonated``"
 
-#: ../../webtop.rst:1127
+#: ../../webtop.rst:1123
 msgid "``value`` = ``true``"
 msgstr "``valore`` = ``true``"
 
-#: ../../webtop.rst:1130
+#: ../../webtop.rst:1126
 msgid "New device notification"
 msgstr "Nuova notifica del dispositivo"
 
-#: ../../webtop.rst:1132
+#: ../../webtop.rst:1128
 msgid ""
 "You can receive an email that notifies when a new device accesses the "
 "account for the first time."
@@ -23170,7 +23158,7 @@ msgstr ""
 "È possibile ricevere una e-mail che avvisa quando un nuovo dispositivo "
 "accede all'account per la prima volta."
 
-#: ../../webtop.rst:1134
+#: ../../webtop.rst:1130
 msgid ""
 "By default, this feature is disabled for all users to avoid too many "
 "unintentional false positives on first login."
@@ -23179,7 +23167,7 @@ msgstr ""
 "intenzionali sul primo login, questa funzione è disabilitata per tutti "
 "gli utenti."
 
-#: ../../webtop.rst:1136
+#: ../../webtop.rst:1132
 msgid ""
 "You can `customize this feature "
 "<https://www.sonicle.com/docs/webtop5/core.html#security-settings>`_ by "
@@ -23189,7 +23177,7 @@ msgstr ""
 "<https://www.sonicle.com/docs/webtop5/core.html#security-settings>`_ "
 "accedendo al pannello di amministratore."
 
-#: ../../webtop.rst:1140
+#: ../../webtop.rst:1136
 msgid ""
 "Accesses made through impersonate (``admin!<user>``) will never send an "
 "email notification"
@@ -23197,39 +23185,39 @@ msgstr ""
 "Per gli accessi effettuati tramite impersonate (``admin!<user>``) non "
 "verranno inviate notifiche via email"
 
-#: ../../webtop.rst:1143
+#: ../../webtop.rst:1139
 msgid "Maximum file size limit"
 msgstr "Limite massimo della dimensione del file"
 
-#: ../../webtop.rst:1145
+#: ../../webtop.rst:1141
 msgid "There are pre-configured limits related to the maximum file size:"
 msgstr "Ci sono limiti predefiniti relativi alla dimensione massima del file:"
 
-#: ../../webtop.rst:1147
+#: ../../webtop.rst:1143
 msgid "Maximum file size for chat uploads (internal default = 10 MB)"
 msgstr ""
 "Dimensione massima del file per gli upload di chat (impostazione "
 "predefinita interna = 10 MB)"
 
-#: ../../webtop.rst:1148
+#: ../../webtop.rst:1144
 msgid "Maximum file size single message attachment (internal default = 10 MB)"
 msgstr ""
 "Dimensione massima del singolo file allegato nel messaggio (impostazione "
 "predefinita interna = 10 MB)"
 
-#: ../../webtop.rst:1149
+#: ../../webtop.rst:1145
 msgid "Maximum file size for cloud internal uploads (internal default = 500 MB)"
 msgstr ""
 "Dimensione massima del file per caricamenti interni nel cloud "
 "(impostazione predefinita interna = 500 MB)"
 
-#: ../../webtop.rst:1150
+#: ../../webtop.rst:1146
 msgid "Maximum file size for cloud public uploads (internal default = 100 MB)"
 msgstr ""
 "Dimensione massima del file per gli upload pubblici nel cloud "
 "(impostazione predefinita interna = 100 MB)"
 
-#: ../../webtop.rst:1152
+#: ../../webtop.rst:1148
 msgid ""
 "To change these default values for all users, the following keys can be "
 "added via the admin interface: :guilabel:`Properties (system) -> Add`. "
@@ -23241,55 +23229,55 @@ msgstr ""
 "amministrazione: :guilabel:`Proprietà (sistema) `-> `Aggiungi`. Il valore"
 " deve essere espresso in ``bytes``. Esempio: ``10MB = 10485760 bytes``."
 
-#: ../../webtop.rst:1155
+#: ../../webtop.rst:1151
 msgid "**Maximum file size for chat uploads**"
 msgstr "**Dimensione massima del file per gli upload delle chat**"
 
-#: ../../webtop.rst:1157
+#: ../../webtop.rst:1153
 msgid "Service: ``com.sonicle.webtop.core``"
 msgstr "Servizio: ``com.sonicle.webtop.core``"
 
-#: ../../webtop.rst:1158
+#: ../../webtop.rst:1154
 msgid "Key: ``im.upload.maxfilesize``"
 msgstr "Chiave: ``im.upload.maxfilesize``"
 
-#: ../../webtop.rst:1160
+#: ../../webtop.rst:1156
 msgid "**Maximum file size for single message attachment**"
 msgstr "**Dimensione massima del singolo file allegato nel messaggio**"
 
-#: ../../webtop.rst:1162
+#: ../../webtop.rst:1158
 msgid "Service: ``com.sonicle.webtop.mail``"
 msgstr "Servizio: ``com.sonicle.webtop.mail``"
 
-#: ../../webtop.rst:1163
+#: ../../webtop.rst:1159
 msgid "Key: ``attachment.maxfilesize``"
 msgstr "Chiave: ``attachment.maxfilesize``"
 
-#: ../../webtop.rst:1165
+#: ../../webtop.rst:1161
 msgid "**Maximum file size for cloud internal uploads**"
 msgstr "**Dimensione massima del file per caricamenti interni sul cloud**"
 
-#: ../../webtop.rst:1167 ../../webtop.rst:1172
+#: ../../webtop.rst:1163 ../../webtop.rst:1168
 msgid "Service: ``com.sonicle.webtop.vfs``"
 msgstr "Servizio: ``com.sonicle.webtop.vfs``"
 
-#: ../../webtop.rst:1168
+#: ../../webtop.rst:1164
 msgid "Key: ``upload.private.maxfilesize``"
 msgstr "Chiave: ``upload.private.maxfilesize``"
 
-#: ../../webtop.rst:1170
+#: ../../webtop.rst:1166
 msgid "**Maximum file size for cloud public uploads**"
 msgstr "**Dimensione massima del file per gli upload pubblici sul cloud**"
 
-#: ../../webtop.rst:1173
+#: ../../webtop.rst:1169
 msgid "Key: ``upload.public.maxfilesize``"
 msgstr "Chiave: ``upload.public.maxfilesize``"
 
-#: ../../webtop.rst:1177
+#: ../../webtop.rst:1173
 msgid "Import contacts and calendars"
 msgstr "Importa contatti e calendari"
 
-#: ../../webtop.rst:1179
+#: ../../webtop.rst:1175
 msgid ""
 "WebTop supports importing contacts and calendars from various file "
 "formats."
@@ -23297,35 +23285,35 @@ msgstr ""
 "WebTop supporta l'importazione di contatti e calendari da vari formati di"
 " file."
 
-#: ../../webtop.rst:1182
+#: ../../webtop.rst:1178
 msgid "Contacts"
 msgstr "Contatti"
 
-#: ../../webtop.rst:1184
+#: ../../webtop.rst:1180
 msgid "Supported contacts format:"
 msgstr "Formato di contatti supportati:"
 
-#: ../../webtop.rst:1186
+#: ../../webtop.rst:1182
 msgid "CSV  - Comma Separated values (\\*.txt, \\*.csv)"
 msgstr "CSV - Comma Valori separati (\\*.txt, \\*.csv)"
 
-#: ../../webtop.rst:1187
+#: ../../webtop.rst:1183
 msgid "Excel (\\.*xls, \\*.xlsx)"
 msgstr "Excel (\\.*xls, \\*.xlsx)"
 
-#: ../../webtop.rst:1188
+#: ../../webtop.rst:1184
 msgid "VCard (\\*.vcf, \\*.vcard)"
 msgstr "VCard (\\*.vcf, \\*.vcard)"
 
-#: ../../webtop.rst:1189
+#: ../../webtop.rst:1185
 msgid "LDIF (\\*.ldif)"
 msgstr "LDIF (\\*.ldif)"
 
-#: ../../webtop.rst:1192
+#: ../../webtop.rst:1188
 msgid "To import contacts:"
 msgstr "Per importare contatti:"
 
-#: ../../webtop.rst:1194
+#: ../../webtop.rst:1190
 msgid ""
 "right click on the target phone book, then select :guilabel:`Import "
 "contacts`"
@@ -23333,7 +23321,7 @@ msgstr ""
 "cliccare a destra sulla rubrica, quindi selezionare :guilabel:`Importare "
 "contatti`"
 
-#: ../../webtop.rst:1198
+#: ../../webtop.rst:1194
 msgid ""
 "select the import format and make sure that the fields on the file match "
 "the ones available on WebTop"
@@ -23341,7 +23329,7 @@ msgstr ""
 "selezionare il formato di importazione e assicurarsi che i campi sul file"
 " corrispondono a quelli disponibili su WebTop"
 
-#: ../../webtop.rst:1202
+#: ../../webtop.rst:1198
 msgid ""
 "If you are importing a phone book exported from Outlook, make sure to set"
 " :guilabel:`Text qualifier` to ``\"`` value."
@@ -23349,31 +23337,31 @@ msgstr ""
 "Se si sta importando una rubrica esportata da Outlook, assicurarsi di "
 "impostare :guilabel:`Testo qualificante` come ``\"`` valore."
 
-#: ../../webtop.rst:1208
+#: ../../webtop.rst:1204
 msgid "Calendars"
 msgstr "Calendari"
 
-#: ../../webtop.rst:1210
+#: ../../webtop.rst:1206
 msgid "Supported calendar format: iCalendar (\\*.ics, \\*.ical, \\*.icalendar)"
 msgstr ""
 "Formati di calendario supportati: iCalendar (\\*.ics, \\*.ical, "
 "\\*.icalendar)"
 
-#: ../../webtop.rst:1212
+#: ../../webtop.rst:1208
 msgid "To import events:"
 msgstr "Per importare eventi:"
 
-#: ../../webtop.rst:1214
+#: ../../webtop.rst:1210
 msgid "right click on the target calendar, then select :guilabel:`Import events`"
 msgstr ""
 "cliccare a destra sul calendario di destinazione, quindi selezionare "
 ":guilabel:`Importa eventi`"
 
-#: ../../webtop.rst:1218
+#: ../../webtop.rst:1214
 msgid "select the import format"
 msgstr "selezionare il formato di importazione"
 
-#: ../../webtop.rst:1222
+#: ../../webtop.rst:1218
 msgid ""
 "then choose if you want to delete all existing events and import new "
 "ones, or just append imported data to existing calendar events"
@@ -23382,15 +23370,15 @@ msgstr ""
 "importare nuovi, o semplicemente aggiungere i dati importati agli eventi "
 "di calendario esistenti"
 
-#: ../../webtop.rst:1228
+#: ../../webtop.rst:1224
 msgid "Mail composer customization"
 msgstr "Personalizzazione della composizione email"
 
-#: ../../webtop.rst:1231
+#: ../../webtop.rst:1227
 msgid "Hide auto-suggested recipient in lookups"
 msgstr "Nascondere il destinatario auto suggerito"
 
-#: ../../webtop.rst:1233
+#: ../../webtop.rst:1229
 msgid ""
 "You can disable the suggestion of automatically saved addresses. Access "
 "the web administration panel -> :guilabel:`Properties (system)` -> "
@@ -23404,15 +23392,15 @@ msgstr ""
 ":guilabel:`com.sonicle.webtop.core (WebTop)` e inserire i dati in "
 ":guilabel:`Chiave` e :guilabel:`Valore` secondo la chiave da configurare:"
 
-#: ../../webtop.rst:1237
+#: ../../webtop.rst:1233
 msgid "``recipient.provider.auto.enabled`` = false  (default is true)"
 msgstr "``recipient.provider.auto.enabled`` = false (default is true)"
 
-#: ../../webtop.rst:1240
+#: ../../webtop.rst:1236
 msgid "Edit subject of a mail and save it"
 msgstr "Modificare oggetto di una mail e salvare"
 
-#: ../../webtop.rst:1242
+#: ../../webtop.rst:1238
 msgid ""
 "To enable the modification of the subject for received and sent emails, "
 "access the web administration panel -> :guilabel:`Properties (system)` ->"
@@ -23427,15 +23415,15 @@ msgstr ""
 ":guilabel:`Chiave` e :guilabel: `Valore` campi secondo la chiave da "
 "configurare:"
 
-#: ../../webtop.rst:1244
+#: ../../webtop.rst:1240
 msgid "``message.edit.subject`` = true  (default is false)"
 msgstr "``message.edit.subject``= true (default is false)"
 
-#: ../../webtop.rst:1247
+#: ../../webtop.rst:1243
 msgid "Delete automatically suggested email addresses"
 msgstr "Eliminare gli indirizzi email suggeriti automaticamente"
 
-#: ../../webtop.rst:1249
+#: ../../webtop.rst:1245
 msgid ""
 "When compiling the recipient of a mail, some automatically saved email "
 "addresses are suggested. If you need to delete someone because it is "
@@ -23449,11 +23437,11 @@ msgstr ""
 "che si desidera eliminare (senza fare clic su di esso), quindi "
 "cancellarlo con :guilabel:`Shift + Canc`"
 
-#: ../../webtop.rst:1256
+#: ../../webtop.rst:1252
 msgid "PEC Bridge"
 msgstr "PECO Ponte"
 
-#: ../../webtop.rst:1262
+#: ../../webtop.rst:1258
 msgid ""
 "PEC (Posta Elettronica Certificata) is widely used in Italy as a virtual "
 "substitute for registered mail, as it holds the same legal validity."
@@ -23462,7 +23450,7 @@ msgstr ""
 "come sostituto virtuale per posta raccomandata, in quanto detiene la "
 "stessa validità legale."
 
-#: ../../webtop.rst:1265
+#: ../../webtop.rst:1261
 msgid ""
 "PEC Bridge is a WebTop feature that integrates external PEC mailboxes "
 "with WebTop."
@@ -23470,7 +23458,7 @@ msgstr ""
 "PECO Bridge è una funzione WebTop che integra caselle di posta PEC "
 "esterne con WebTop."
 
-#: ../../webtop.rst:1268
+#: ../../webtop.rst:1264
 msgid ""
 "If your system has an active :ref:`Subscription <subscription-section>` "
 "under the Nethesis Enterprise plan, you can purchase a PEC Bridge license"
@@ -23481,7 +23469,7 @@ msgstr ""
 "PEC Bridge attraverso la categoria `NethService`_ nel negozio online "
 "Nethesis."
 
-#: ../../webtop.rst:1274
+#: ../../webtop.rst:1270
 msgid ""
 "Once the purchase is completed, Nethesis will provide instructions to "
 "activate the license and configure the PEC Bridge."
@@ -23489,74 +23477,74 @@ msgstr ""
 "Una volta completato l'acquisto, Nethesis fornirà istruzioni per attivare"
 " la licenza e configurare il ponte PEC."
 
-#: ../../webtop.rst:1277
+#: ../../webtop.rst:1273
 msgid ""
 "Inside the Advanced settings of the WebTop administration panel, you can "
 "set the ``PEC Bridge notify address`` to receive notifications when a new"
 " PEC event is received."
 msgstr ""
 
-#: ../../webtop.rst:1281
+#: ../../webtop.rst:1277
 #, fuzzy
 msgid "Customization"
 msgstr "Launcher customization"
 
-#: ../../webtop.rst:1283
+#: ../../webtop.rst:1279
 msgid ""
 "It's possible to customize the PEC Bridge behavior by setting the "
 "following environment variables:"
 msgstr ""
 
-#: ../../webtop.rst:1292
+#: ../../webtop.rst:1288
 msgid ""
 "``PECBRIDGE_NOTIFY_OWNER``: indicates which notifications to send to the "
 "PEC account owner."
 msgstr ""
 
-#: ../../webtop.rst:1286
+#: ../../webtop.rst:1282
 #, fuzzy
 msgid "Possible values are:"
 msgstr "Introduzione"
 
-#: ../../webtop.rst:1288
+#: ../../webtop.rst:1284
 msgid ""
 "``all``: all notifications sent to the PEC owner (this is the default if "
 "the variable is not set)"
 msgstr ""
 
-#: ../../webtop.rst:1289
+#: ../../webtop.rst:1285
 msgid ""
 "``auth``: only authentication failure notifications are sent to the PEC "
 "owner"
 msgstr ""
 
-#: ../../webtop.rst:1290
+#: ../../webtop.rst:1286
 msgid "``none``: no notifications are sent to the PEC owner"
 msgstr ""
 
-#: ../../webtop.rst:1292
+#: ../../webtop.rst:1288
 msgid ""
 "All notifications will always be sent to the address configured in \"PEC "
 "Bridge notify address\", if configured."
 msgstr ""
 
-#: ../../webtop.rst:1294
+#: ../../webtop.rst:1290
 msgid ""
 "``PECBRIDGE_FROM_ADDRESS``: the email address used as the sender of the "
 "PEC Bridge notifications"
 msgstr ""
 
-#: ../../webtop.rst:1296
+#: ../../webtop.rst:1292
 msgid ""
 "To configure these variables, access the WebTop server via SSH and "
 "execute the following commands: ::"
 msgstr ""
 
-#: ../../webtop.rst:1303
+#: ../../webtop.rst:1299
 msgid "Replace `webtop1` with the actual WebTop instance name."
 msgstr ""
 
-#: ../../webtop.rst:1305
+#: ../../webtop.rst:1301
 msgid ""
 "Please note that the command above appends the variables to the "
 "`environment` file, use it only when customizing the environment "
@@ -23564,46 +23552,46 @@ msgid ""
 "using a text editor like `nano` or `vi`."
 msgstr ""
 
-#: ../../webtop.rst:1309
+#: ../../webtop.rst:1305
 #, fuzzy
 msgid "NethVoice phonebook integration"
 msgstr "Nextcloud integration"
 
-#: ../../webtop.rst:1311
+#: ../../webtop.rst:1307
 msgid ""
 "Inside the WebTop application there is an automated workflow that allows "
 "to:"
 msgstr ""
 
-#: ../../webtop.rst:1313
+#: ../../webtop.rst:1309
 msgid "export WebTop contacts to the NethVoice centralized phonebook"
 msgstr ""
 
-#: ../../webtop.rst:1314
+#: ../../webtop.rst:1310
 msgid "import the NethVoice centralized phonebook to the WebTop contacts"
 msgstr ""
 
-#: ../../webtop.rst:1316
+#: ../../webtop.rst:1312
 msgid "The workflow is disabled by default, to enable it:"
 msgstr ""
 
-#: ../../webtop.rst:1318
+#: ../../webtop.rst:1314
 msgid "make sure at least one NethVoice instance is installed inside the cluster"
 msgstr ""
 
-#: ../../webtop.rst:1319
+#: ../../webtop.rst:1315
 msgid ""
 "in the ``Settings`` page, select the NethVoice instance from the "
 "``Synchronize Phonebook with NethVoice instance`` field inside the "
 "``Advanced`` section"
 msgstr ""
 
-#: ../../webtop.rst:1321
+#: ../../webtop.rst:1317
 #, fuzzy
 msgid "save the settings"
 msgstr "Impostazioni generali"
 
-#: ../../webtop.rst:1323
+#: ../../webtop.rst:1319
 msgid ""
 "The synchronization occurs every night, ensuring that the NethVoice "
 "centralized phonebook is regularly updated in WebTop. This automated "
@@ -23612,74 +23600,74 @@ msgid ""
 "manual intervention."
 msgstr ""
 
-#: ../../webtop.rst:1328
-msgid "From Webtop to NethVoice"
+#: ../../webtop.rst:1324
+msgid "From WebTop to NethVoice"
 msgstr ""
 
-#: ../../webtop.rst:1330
+#: ../../webtop.rst:1326
 msgid ""
 "To add contacts from any WebTop 5 user address book to the NethVoice "
 "centralized phonebook, simply share it with the system **admin** user "
 "named *Admin (NethServer)*."
 msgstr ""
 
-#: ../../webtop.rst:1333
+#: ../../webtop.rst:1329
 msgid ""
 "Users can voluntarily choose to share their contacts for import into the "
 "NethVoice phonebook. This operation must be performed individually by "
 "each user who wishes to share their contacts."
 msgstr ""
 
-#: ../../webtop.rst:1336
+#: ../../webtop.rst:1332
 #, fuzzy
 msgid "The user must follow these steps:"
 msgstr "Per soddisfare questi requisiti, seguire questi passaggi:"
 
-#: ../../webtop.rst:1338
+#: ../../webtop.rst:1334
 #, fuzzy
 msgid "open the ``Contacts`` section"
 msgstr "Remote contacts (directory)"
 
-#: ../../webtop.rst:1339
+#: ../../webtop.rst:1335
 msgid ""
 "under the ``My Categories`` section, choose an address book to share, "
 "then click on the kebab menu (three dots) and select the ``Sharing and "
 "Permissions`` menu item"
 msgstr ""
 
-#: ../../webtop.rst:1341
+#: ../../webtop.rst:1337
 msgid ""
 "a drawer will open on the right side of the screen, click the "
 ":guilabel:`Add` button"
 msgstr ""
 
-#: ../../webtop.rst:1342
+#: ../../webtop.rst:1338
 msgid "in the search field, type ``admin`` and select the user from the list"
 msgstr ""
 
-#: ../../webtop.rst:1346
+#: ../../webtop.rst:1342
 msgid ""
 "The address book must be shared directly with the **admin** user. Sharing"
 " it with a group containing the **admin** user is not sufficient."
 msgstr ""
 
-#: ../../webtop.rst:1349
+#: ../../webtop.rst:1345
 msgid ""
 "Ensure that only individual address books are shared and not the entire "
 "category, to prevent synchronization errors."
 msgstr ""
 
-#: ../../webtop.rst:1353
+#: ../../webtop.rst:1349
 msgid "From NethVoice to WebTop"
 msgstr ""
 
-#: ../../webtop.rst:1355
+#: ../../webtop.rst:1351
 msgid ""
 "When the synchronization is active, the NethVoice centralized phonebook "
 "is imported into WebTop 5 every night."
 msgstr ""
 
-#: ../../webtop.rst:1357
+#: ../../webtop.rst:1353
 msgid ""
 "Contacts are imported into a newly created address book named *Rubrica "
 "Centralizzata*, within the administrator user account, named *Builtin "
@@ -23688,41 +23676,41 @@ msgid ""
 "WebTop 5."
 msgstr ""
 
-#: ../../webtop.rst:1360
+#: ../../webtop.rst:1356
 msgid ""
 "To allow other groupware users to access the address book, access with "
 "the administrator user and share it with the desired users or groups as "
 "*READ-ONLY*. To share it with all users, select the *Users* group."
 msgstr ""
 
-#: ../../webtop.rst:1364
+#: ../../webtop.rst:1360
 msgid ""
 "It's possibile to override both the address book name and the user name "
 "by setting the following environment variables inside the `phonebook.env`"
 " file:"
 msgstr ""
 
-#: ../../webtop.rst:1366
+#: ../../webtop.rst:1362
 msgid "``PHONEBOOK_WEBTOP_ADMIN``"
 msgstr ""
 
-#: ../../webtop.rst:1367
+#: ../../webtop.rst:1363
 msgid "``PHONEBOOK_WEBTOP_FOLDER``"
 msgstr ""
 
-#: ../../webtop.rst:1369
+#: ../../webtop.rst:1365
 msgid ""
 "To do so, access the shell and enter the WebTop instance environment, "
 "replace  *webtop1* with the actual WebTop instance name: ::"
 msgstr ""
 
-#: ../../webtop.rst:1375
+#: ../../webtop.rst:1371
 msgid ""
 "On next synchronization, the address book will be created with the "
 "specified name and shared with the specified user."
 msgstr ""
 
-#: ../../webtop.rst:1377
+#: ../../webtop.rst:1373
 msgid ""
 "Please note that the command above appends the variables to the "
 "`phonebook.env` file, use it only when customizing the environment "
@@ -23730,13 +23718,13 @@ msgid ""
 "using a text editor like `nano` or `vi`."
 msgstr ""
 
-#: ../../webtop.rst:1383
+#: ../../webtop.rst:1379
 msgid ""
 "To manually force synchronization and verify correct configuration, run "
 "the following command from the shell: ::"
 msgstr ""
 
-#: ../../webtop.rst:1388
+#: ../../webtop.rst:1384
 msgid "Replace *webtop1* with the actual WebTop instance name."
 msgstr ""
 
@@ -25949,5 +25937,48 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Crowdsec 1.6.4"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "URL: Copy the URL, including its "
+#~ "specific port number, from the "
+#~ "automatically generated Webtop HTTP route "
+#~ "details (e.g. http://127.0.0.1:20001)"
+#~ msgstr ""
+
+#~ msgid "When finished, close the window and click YES:"
+#~ msgstr "When finished, close the window and click YES:"
+
+#~ msgid ""
+#~ "If Nextcloud has been configured with"
+#~ " a custom virtual host (eg. "
+#~ "``nextcloud.mydomain.com``) the :guilabel:`Path` "
+#~ "must be changed from "
+#~ "`/nextcloud/remote.php/webdav` to `/remote.php/webdav`,"
+#~ " please note that `/nextcloud` prefix "
+#~ "has been removed. Also make sure "
+#~ "to enter the name of the custom"
+#~ " virtual host inside the :guilabel:`Host`"
+#~ " (eg. ``nextcloud.mydomain.com``)."
+#~ msgstr ""
+#~ "If Nextcloud has been configured with"
+#~ " a custom virtual host (eg. "
+#~ "``nextcloud.mydomain.com``) the :guilabel:`Path` "
+#~ "must be changed from "
+#~ "`/nextcloud/remote.php/webdav` to `/remote.php/webdav`,"
+#~ " please note that `/nextcloud` prefix "
+#~ "has been removed. Also make sure "
+#~ "to enter the name of the custom"
+#~ " virtual host inside the :guilabel:`Host`"
+#~ " (eg. ``nextcloud.mydomain.com``)."
+
+#~ msgid ""
+#~ "In Ejabberd ``Settings`` page, the field"
+#~ " ``Ejabberd domain (FQDN)`` must match "
+#~ "the value of ``Mail domain`` in "
+#~ "Webtop's settings."
+#~ msgstr ""
+
+#~ msgid "From Webtop to NethVoice"
 #~ msgstr ""
 
