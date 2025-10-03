@@ -14,6 +14,106 @@ NethServer 8 releases
 
   __ http://community.nethserver.org/c/bug
 
+Major changes on 2025-09-30
+===========================
+
+**Milestone 8.6**
+
+- **Default password expiration age change** -- Both Samba AD and OpenLDAP
+  user domains are now created with a default password age between 0 and
+  180 days. These settings can be adjusted after domain creation. See
+  :ref:`password-policy-section` for details. The previous default policy
+  for Samba AD was between 1 and 42 days.
+
+- **New TLS certificates page** -- The :ref:`TLS certificates
+  <certificate_manager-section>` UI page has completed its enhancement
+  cycle started in previous releases, providing full management of Let's
+  Encrypt certificates with clear validation and deletion procedures.
+
+- **Expiring TLS certificate alert** -- An automated alert message is
+  sent when a TLS certificate is due to expire within 28 days. See
+  :ref:`metrics-section` to configure alerts.
+
+- **Application restart action** -- An application instance can now be
+  fully restarted from the :ref:`Software Center page
+  <application-instances>`. The effect is similar to a node reboot but
+  limited to the application: all its components are completely stopped
+  and then started again.
+
+- **Disabled application UI during migration** -- The cluster admin UI of
+  an application is disabled while migration is in progress. This is a
+  safety measure to prevent accidental actions that could disrupt the
+  migration process.
+
+- **Reduced CrowdSec email notifications** -- The notification volume has
+  been reduced to one daily message containing a summary of CrowdSec ban
+  decisions. If the number of decisions exceeds a given threshold (500 by
+  default), the notification is sent immediately. The notification sender
+  can now be customized to improve message quality and better pass
+  anti-spam filters. The message body also features an enhanced layout and
+  style.
+
+- **Cluster configuration backup on my.nethserver.com** -- The cluster
+  configuration backup of systems with an active *my.nethserver.com*
+  subscription is checked, encrypted, and uploaded every night to the
+  cloud. It can be downloaded with the following procedure.
+
+  1. Obtain the cluster **System ID** and **Secret** from my.nethserver.com.
+
+  2. List the available cloud backups: ::
+
+       curl -u SYSTEM_ID:SECRET https://backupd.nethesis.it/community/api/v2/backup/ | jq
+
+     Example output: ::
+
+        {
+          "backups": [
+            {
+              "id": "7791926e6cee5455e06eb59e645737ae6a4b542a4f6014a213cb00648789b043.gpg",
+              "name": "7791926e6cee5455e06eb59e645737ae6a4b542a4f6014a213cb00648789b043.gpg",
+              "created": 1756213506,
+              "size": 755,
+              "mimetype": "application/pgp-encrypted"
+            }
+          ]
+        }
+
+  3. Note the backup ``id`` value and download it: ::
+
+      curl -f -O -u SYSTEM_ID:SECRET https://backupd.nethesis.it/community/api/v2/backup/7791926e6cee5455e06eb59e645737ae6a4b542a4f6014a213cb00648789b043.gpg
+
+- **Nextcloud DB optimizer** -- After NS7 migration or other major
+  updates, Nextcloud may require manual database fixes that cannot be
+  automated during the upgrade, as these operations may take a long time
+  with large datasets. In such cases, the ``nextcloud-db-optimize`` command
+  can be run manually to optimize the Nextcloud database outside
+  production hours. Refer to :ref:`nextcloud-db-optimize-section`.
+
+- **WebTop updates** -- WebTop 5.29.2 (app version 1.4.4) introduces a
+  refreshed user interface with streamlined layouts, new quick-access
+  buttons, and updated icons. Key new features include delayed email
+  sending, with the ability to cancel before delivery, and automatic
+  IMAP/SMTP configuration for easier setup on mobile devices (see
+  :ref:`email_autoconfig`). The update also brings numerous usability
+  improvements, bug fixes, and security enhancements.
+
+- **NethVoice updates** -- NethVoice 1.4.0 introduces real-time JPG video
+  streaming for intercoms, with previews directly in call notifications
+  and Phone Island. The release also delivers an improved operator panel
+  design, enhanced dashboard accessibility, and better SRTP handling in
+  NethVoice Proxy. Numerous fixes improve reliability and usability across
+  CTI, VoIP trunks, conferencing, voicemail, and call transfers.
+
+- **Other application updates** -- Several applications were updated to
+  include the latest upstream changes. This is a brief list from the
+  Default repository:
+
+  * Mattermost 10.5.11 ESR
+  * Ejabberd 25.07
+  * Nextcloud 31.0.7
+  * CrowdSec 1.16.11
+
+
 Major changes on 2025-07-08
 ===========================
 
@@ -98,7 +198,7 @@ Major changes on 2025-07-08
   which can be found in the HTTP routes page. Search for `"amld"` and
   check the route details.
 
-- **Webtop updates** -- The Webtop application has been updated to the
+- **WebTop updates** -- The WebTop application has been updated to the
   latest upstream version 5.28.6, along with the new PEC Bridge 5.4.8 that
   features custom notifications.
 
@@ -106,7 +206,7 @@ Major changes on 2025-07-08
   restored, and the *click2call* feature has been updated to use the
   ``tel:`` protocol with NethLink.
 
-  Webtop now supports :ref:`Autoconfig and Autodiscovery
+  WebTop now supports :ref:`Autoconfig and Autodiscovery
   <email_autoconfig>`, simplifying mail account setup on mobile devices.
 
   Other improvements include:
@@ -239,7 +339,7 @@ Major changes on 2025-04-04
   selectable network interfaces are now limited to those with a private IP
   address to prevent configuration errors.
 
-- **Webtop updates** -- Webtop has been updated to upstream release 5.27.3
+- **WebTop updates** -- WebTop has been updated to upstream release 5.27.3
   with the new Pecbridge component version 5.4.5. The memory limit has been
   raised to 4GB for better performance. This release also introduces
   automated TinyMCE Plugin Integration with an active subscription and
@@ -274,7 +374,7 @@ Major changes on 2025-04-04
   - Collabora 24.04
   - Mattermost 10 ESR
   - Netdata 2
-  - Crowdsec 1.6.4
+  - CrowdSec 1.6.4
   - Ejabberd 24.12
 
 
@@ -439,7 +539,7 @@ Major changes on 2024-10-16
   professional IP telephony solution that offers a host of advanced
   features and an intuitive user interface.
 
-- **Webtop application** -- :ref:`Webtop <webtop-section>` now features a
+- **WebTop application** -- :ref:`WebTop <webtop-section>` now features a
   new default UI theme, exclusively available on the NS8 platform.
   Administrators can choose to apply the new theme across existing
   installations or allow end-users to decide. Additionally, for those on
@@ -505,7 +605,7 @@ Major changes on 2024-05-31
   automatically started and configured when a new leader node is promoted.
   Refer to the section :ref:`system-logs-section` for more information.
 
-- **Crowdsec bouncer container** -- Since Crowdsec release 1.0.7, the
+- **CrowdSec bouncer container** -- Since CrowdSec release 1.0.7, the
   bouncer component runs inside a container and uses Netfilter tables to
   block IPs. Execute the following commands to clean up some files and
   resources left by previous versions.
