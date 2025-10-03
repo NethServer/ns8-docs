@@ -211,7 +211,7 @@ a single view. Contacts can be modified and changes will be saved in the origina
 .. note::
 
   In order to receive data via EAS on mobile devices, 
-  shared resources (Calendars and Contacts) should have synchronization enabled (Full or Read-only):
+  shared resources (Calendars and Contacts) should have synchronization enabled (Active or Read-only):
 
   .. image:: _static/webtop-multiple_sync.png
                :alt: Multiple synchronization
@@ -283,7 +283,7 @@ The Open Source `CalDAV Synchronizer <https://caldavsynchronizer.org/>`_ plugin 
 
 .. warning::
 
-   Webtop is a **client-less groupware**: its functionalities are fully available **only using the web interface**!
+   WebTop is a **client-less groupware**: its functionalities are fully available **only using the web interface**!
 
    The use of CalDAV/CardDAV through third-party clients **cannot be considered a web interface alternative**.
 
@@ -336,7 +336,7 @@ Configure the HTTP route with the following parameters for both Autodiscover and
 - Name: ``autodiscover_webtop`` and ``autoconfig_webtop``
 - Node: Select the node where your WebTop instance is running
 - URL: Copy the URL, including its specific port number, from the
-  automatically generated Webtop HTTP route details (e.g.
+  automatically generated WebTop HTTP route details (e.g.
   http://127.0.0.1:20001)
 - Host: ``autodiscover.example.org`` and ``autoconfig.example.org``
 - Request Let's Encrypt certificate: Enable this option if you wish to use a Let's Encrypt certificate (optional)
@@ -523,7 +523,7 @@ It is possible to do this from web interface by accessing the administration pan
 ``public.resource.links.as.inline.attachments`` = true (default = false)
 
 
-To change the signature, each user can access the :menuselection:`Settings --> Mail --> Editing --> Edit User mailcard`:
+To change the signature, each user can access the :menuselection:`Settings --> Mail --> Editing --> Edit`:
 
 .. image:: _static/webtop-edit_mailcard.png
 
@@ -564,10 +564,6 @@ To edit every single signature select :menuselection:`Settings --> Mail --> Iden
 .. image:: _static/webtop-sig_sig2.png
 .. image:: _static/webtop-sig_sig3.png
 
-When finished, close the window and click YES:
-
-.. image:: _static/webtop-sig_sig4.png
-
 to use multiple mailcards, create a new email, and choose the signature:
 
 .. image:: _static/webtop-sig_sig5.png
@@ -602,7 +598,7 @@ There are three archiving criteria:
 
 .. image:: _static/webtop-archive_archive2.png
 
-To maintain the original structure of the folders is possible to activate :guilabel:`Keep folder structure`
+To maintain the original structure of the folders it is possible to activate :guilabel:`Keep folders structure`
 
 .. image:: _static/webtop-archive_archive3.png
 
@@ -618,9 +614,9 @@ IMAP folders subscription
 By default, all IMAP folders on the server are automatically subscribed and therefore visible since the first login.
 
 If you want to hide some folders from the view, which is equivalent to removing the subscription,
-you can simply right-click on the folder to hide and select from the interactive menu the item :guilabel:`Hide from the list`.
+you can simply right-click on the folder to hide and select from the interactive menu the item :guilabel:`Hide from list`.
 
-For example, if you want to hide the subfolder ``folder1`` from this list, just right-click on it and select :guilabel:`Hide from the list`:
+For example, if you want to hide the subfolder ``folder1`` from this list, just right-click on it and select :guilabel:`Hide from list`:
 
 .. image:: _static/webtop-sub_imap_folder1.png
 
@@ -800,7 +796,7 @@ A pre-filled wizard will open:
 
 .. note::
 
-   If Nextcloud has been configured with a custom virtual host (eg. ``nextcloud.mydomain.com``) the :guilabel:`Path` must be changed from `/nextcloud/remote.php/webdav` to `/remote.php/webdav`, please note that `/nextcloud` prefix has been removed. Also make sure to enter the name of the custom virtual host inside the :guilabel:`Host` (eg. ``nextcloud.mydomain.com``).
+   The :guilabel:`Path` must be changed from `/nextcloud/remote.php/webdav` to `/remote.php/webdav`. Also make sure to enter the Nextcloud FQDN inside the :guilabel:`Host` (eg. ``nextcloud.mydomain.com``).
   
 Proceed with the Next button until the Wizard is complete.
 
@@ -868,7 +864,7 @@ To enable chat integration:
    See :ref:`install-applications` and :ref:`ejabberd-section`.
 
 #. In Ejabberd ``Settings`` page, the field ``Ejabberd domain (FQDN)``
-   must match the value of ``Mail domain`` in Webtop's settings.
+   must match the value of ``Mail domain`` in WebTop's settings.
 
 #. Access WebTop as admin user then enable the web chat authorization:
 
@@ -974,7 +970,7 @@ For each button, enter these three values
 * ``Link URL`` : URL to be opened in a new browser
 * ``Icon URL`` : icon image URL, it should always be a publicly reachable address. To avoid scaling problems, use vector images
 
-If you can't find a public URL for the icon image, you can upload the icon on Webtop public cloud.
+If you can't find a public URL for the icon image, you can upload the icon on WebTop public cloud.
 WebTop public cloud already hosts mailcards images.
 Access the administrator panel and click on :guilabel:`Cloud` -> :guilabel:`Public Images`,
 then insert a URL like ``https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>``.
@@ -1060,7 +1056,7 @@ Google CardDAV remote address book
 
 Steps:
 
-* on Webtop, configure a new Internet address book, right-click on :guilabel:`Personal Categories -> Add Internet address book` and
+* on WebTop, configure a new Internet address book, right-click on :guilabel:`Personal Categories -> Add Internet address book` and
   and enter a URL of this type in step 1 of the wizard: ``https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/``
   Replace the ``X`` with your GMail account
 
@@ -1109,7 +1105,7 @@ For each access, the table reports the following data in columns: session ID, us
 
 You can enable public IP geolocation. First, you need to register an account on `ipstack <https://ipstack.com/>`_ and obtain the ``API KEY`` to insert in the configuration db.
 
-Login to the administration panel -> :guilabel:`Property (system)` -> :guilabel:`add` -> :guilabel:`com.sonicle.webtop.core (WebTop)` -> enter the following data in the fields :guilabel:`Key` e :guilabel:`Value` :
+Login to the administration panel -> :guilabel:`Properties (system)` -> :guilabel:`add` -> :guilabel:`com.sonicle.webtop.core (WebTop)` -> enter the following data in the fields :guilabel:`Key` e :guilabel:`Value` :
 
 * ``geolocation.provider`` = ``ipstack``
 * ``geolocation.ipstack.apikey``  = ``<API KEY FROM PROVIDER>``
@@ -1324,7 +1320,7 @@ The synchronization occurs every night, ensuring that the NethVoice centralized 
 This automated process helps maintain consistency and accuracy between the two systems, allowing users to access the most current contact
 information without manual intervention.
 
-From Webtop to NethVoice
+From WebTop to NethVoice
 ------------------------
 
 To add contacts from any WebTop 5 user address book to the NethVoice centralized phonebook,
