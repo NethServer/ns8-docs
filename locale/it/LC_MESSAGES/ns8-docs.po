@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: NS8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-03 07:46+0000\n"
-"PO-Revision-Date: 2025-10-03 13:42+0000\n"
+"PO-Revision-Date: 2025-10-03 15:36+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/ns8/docs/it/>\n"
 "Language: it\n"
@@ -4167,9 +4167,8 @@ msgid "Append the ``*vmail`` suffix to the task's ``Remote user`` field value."
 msgstr ""
 
 #: ../../imapsync.rst:140
-#, fuzzy
 msgid "For example:"
-msgstr "Example:"
+msgstr "Per esempio:"
 
 #: ../../imapsync.rst:142
 msgid "``ns8user`` becomes ``ns8user*vmail``"
@@ -8818,6 +8817,8 @@ msgid ""
 "``Enable Hotel module``: Enable/Disable Hotel module :ref:`NethHotel "
 "<nethhotel-section>`"
 msgstr ""
+"``Abilita modulo Hotel``: Abilita/Disabilita il modulo Hotel :ref:`NethHotel "
+"<nethhotel-section>`"
 
 #: ../../nethvoice.rst:44
 msgid "``Hotel FIAS server host``: Insert Hotel PMS server host."
@@ -8945,7 +8946,7 @@ msgstr "``Produttore``: produttore del gateway"
 
 #: ../../nethvoice.rst:88
 msgid "``Model``: Specify the gateway model"
-msgstr "``Model``: specificare il modello del gateway"
+msgstr "``Modello``: specificare il modello del gateway"
 
 #: ../../nethvoice.rst:89
 msgid "``IP``: IP to be assigned to the device"
@@ -9007,7 +9008,6 @@ msgid "VoIP"
 msgstr "VoIP"
 
 #: ../../nethvoice.rst:107
-#, fuzzy
 msgid ""
 "You can create VoIP trunks by selecting one of the supported providers "
 "and entering the necessary information."
@@ -9045,7 +9045,8 @@ msgstr "``Forza codec``: Consenti solo i codec consentiti."
 
 #: ../../nethvoice.rst:117
 msgid "Press :guilabel:`Save` to create the configuration for that VoIP trunk."
-msgstr "Premere :guilabel:`Save` per creare la configurazione per quel trunk VoIP"
+msgstr ""
+"Premere :guilabel:`Salva` per creare la configurazione per quel trunk VoIP"
 
 #: ../../nethvoice.rst:120
 msgid "Routes"
@@ -10139,9 +10140,8 @@ msgstr ""
 "l'interfaccia di amministrazione web del telefono."
 
 #: ../../nethvoice.rst:451
-#, fuzzy
 msgid "Provisioning Methods"
-msgstr "Provisioning Parameters Guide"
+msgstr "Metodi di Provisioning"
 
 #: ../../nethvoice.rst:453
 msgid ""
@@ -10240,14 +10240,12 @@ msgid ""
 "Refer to section :ref:`provisioning-support-section` for further "
 "information on manufacturer support for RPS and DHCP."
 msgstr ""
-"Fare riferimento alla sezione :ref:`provisioning-support-sezione :ref"
-":`provisioning-support-section` per ulteriori informazioni sul supporto dei "
-"produttori per RPS e DHCP."
+"Fare riferimento alla sezione :ref:`provisioning-support-section` per "
+"ulteriori informazioni sul supporto dei produttori per RPS e DHCP."
 
 #: ../../nethvoice.rst:480
-#, fuzzy
 msgid "Phone Configuration Specifications"
-msgstr "Configurazione"
+msgstr "Specifiche di Configurazione del Telefono"
 
 #: ../../nethvoice.rst:482
 msgid ""
@@ -10645,9 +10643,8 @@ msgid "Maxwell Basic, Maxwell 2, Maxwell 3, Maxwell 4"
 msgstr "Maxwell Basic, Maxwell 2, Maxwell 3, Maxwell 4"
 
 #: ../../nethvoice.rst:621
-#, fuzzy
 msgid "Provisioning compatibility"
-msgstr "Provisioning Parameters Guide"
+msgstr "Compatibilità del Provisioning"
 
 #: ../../nethvoice.rst:623
 msgid ""
@@ -10730,9 +10727,8 @@ msgstr ""
 "fornisce OPTION 66."
 
 #: ../../nethvoice.rst:665
-#, fuzzy
 msgid "Provisioning Parameters Guide"
-msgstr "Provisioning Parameters Guide"
+msgstr "Guida ai Parametri di Provisioning"
 
 #: ../../nethvoice.rst:667
 msgid ""
@@ -10839,18 +10835,17 @@ msgid "Forward"
 msgstr "Forward"
 
 #: ../../nethvoice.rst:699 ../../nethvoice.rst:781
-#, fuzzy
 msgid ""
 "Enable/disable the forward state (unconditional forwarding). If enabled, "
 "all incoming calls are forwarded to the specified number"
 msgstr ""
-"Enable/disable the forward state (unconditional forwarding). If enabled, "
-"all incoming calls are forwarded to the specified number"
+"Abilita/disabilita lo stato di inoltro (inoltro incondizionato). Se "
+"abilitato, tutte le chiamate in arrivo vengono inoltrate al numero "
+"specificato."
 
 #: ../../nethvoice.rst:700 ../../nethvoice.rst:782 ../../nethvoice.rst:787
-#, fuzzy
 msgid "Phone number or extension"
-msgstr "Phone number or extension"
+msgstr "Numero di telefono o interno"
 
 #: ../../nethvoice.rst:701 ../../nethvoice.rst:711 ../../nethvoice.rst:731
 #: ../../nethvoice.rst:736 ../../nethvoice.rst:741 ../../nethvoice.rst:746
@@ -10858,9 +10853,8 @@ msgstr "Phone number or extension"
 #: ../../nethvoice.rst:793 ../../nethvoice.rst:803 ../../nethvoice.rst:823
 #: ../../nethvoice.rst:833 ../../nethvoice.rst:853 ../../nethvoice.rst:858
 #: ../../nethvoice.rst:863 ../../nethvoice.rst:869 ../../nethvoice.rst:874
-#, fuzzy
 msgid "Yes (default)"
-msgstr "Yes (default)"
+msgstr "Si (default)"
 
 #: ../../nethvoice.rst:703 ../../nethvoice.rst:795
 #, fuzzy
@@ -10868,13 +10862,12 @@ msgid "DND"
 msgstr "DND"
 
 #: ../../nethvoice.rst:704
-#, fuzzy
 msgid ""
 "Enable/disable the do not disturb state. If enabled, all incoming calls "
 "are rejected"
 msgstr ""
-"Enable/disable the do not disturb state. If enabled, all incoming calls "
-"are rejected"
+"Abilita/disabilita lo stato Non disturbare. Se abilitato, tutte le chiamate "
+"in arrivo vengono rifiutate."
 
 #: ../../nethvoice.rst:705 ../../nethvoice.rst:706 ../../nethvoice.rst:710
 #: ../../nethvoice.rst:726 ../../nethvoice.rst:730 ../../nethvoice.rst:735
@@ -10893,9 +10886,8 @@ msgid "Recall"
 msgstr "Firewall"
 
 #: ../../nethvoice.rst:709
-#, fuzzy
 msgid "Call back the last dialed number"
-msgstr "Call back the last dialed number"
+msgstr "Richiama l'ultimo numero chiamato"
 
 #: ../../nethvoice.rst:713 ../../nethvoice.rst:805
 #, fuzzy
@@ -10903,15 +10895,13 @@ msgid "Pick up"
 msgstr "Pick up"
 
 #: ../../nethvoice.rst:714
-#, fuzzy
 msgid "Answer an ongoing call to the specified extension"
-msgstr "Answer an ongoing call to the specified extension"
+msgstr "Rispondere a una chiamata in corso all'estensione specificata"
 
 #: ../../nethvoice.rst:715 ../../nethvoice.rst:720 ../../nethvoice.rst:807
 #: ../../nethvoice.rst:827 ../../nethvoice.rst:837 ../../nethvoice.rst:852
-#, fuzzy
 msgid "Phone number"
-msgstr "Phone number"
+msgstr "Numero di telefono"
 
 #: ../../nethvoice.rst:716 ../../nethvoice.rst:721 ../../nethvoice.rst:788
 #: ../../nethvoice.rst:808 ../../nethvoice.rst:813 ../../nethvoice.rst:818
@@ -10926,9 +10916,8 @@ msgid "Speed dial"
 msgstr "Speed dial"
 
 #: ../../nethvoice.rst:719 ../../nethvoice.rst:826
-#, fuzzy
 msgid "Call the given number by pressing the key"
-msgstr "Call the given number by pressing the key"
+msgstr "Chiama il numero indicato premendo il tasto"
 
 #: ../../nethvoice.rst:723 ../../nethvoice.rst:845
 #, fuzzy
@@ -10936,9 +10925,8 @@ msgid "Group pickup"
 msgstr "Group pickup"
 
 #: ../../nethvoice.rst:724
-#, fuzzy
 msgid "Answer an ongoing call to the configured pickup group"
-msgstr "Answer an ongoing call to the configured pickup group"
+msgstr "Rispondere a una chiamata in corso al gruppo di risposta configurato"
 
 #: ../../nethvoice.rst:725
 #, fuzzy
@@ -10951,9 +10939,8 @@ msgid "History"
 msgstr "History"
 
 #: ../../nethvoice.rst:729
-#, fuzzy
 msgid "Display the call history screen"
-msgstr "Display the call history screen"
+msgstr "Visualizza la schermata della cronologia delle chiamate"
 
 #: ../../nethvoice.rst:733
 #, fuzzy
@@ -10961,9 +10948,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: ../../nethvoice.rst:734
-#, fuzzy
 msgid "Show the phone configuration menu"
-msgstr "Configurazione"
+msgstr "Mostra il menu di configurazione del telefono"
 
 #: ../../nethvoice.rst:738
 #, fuzzy
@@ -10971,13 +10957,12 @@ msgid "Status"
 msgstr "Status"
 
 #: ../../nethvoice.rst:739
-#, fuzzy
 msgid ""
 "Display phone status information (e.g., firmware version, registration "
 "status...)"
 msgstr ""
-"Display phone status information (e.g., firmware version, registration "
-"status...)"
+"Visualizza le informazioni sullo stato del telefono (e.g., versione del "
+"firmware, stato di registrazione...)"
 
 #: ../../nethvoice.rst:743 ../../nethvoice.rst:860
 #, fuzzy
@@ -10985,14 +10970,12 @@ msgid "Prefix"
 msgstr "Prefix"
 
 #: ../../nethvoice.rst:744 ../../nethvoice.rst:861
-#, fuzzy
 msgid "Add the specified digits to the dialed number"
-msgstr "Add the specified digits to the dialed number"
+msgstr "Aggiungere le cifre specificate al numero composto"
 
 #: ../../nethvoice.rst:745
-#, fuzzy
 msgid "The digits of the prefix"
-msgstr "The digits of the prefix"
+msgstr "Le cifre del prefisso"
 
 #: ../../nethvoice.rst:748 ../../nethvoice.rst:871
 #, fuzzy
@@ -11000,9 +10983,8 @@ msgid "LDAP"
 msgstr "OpenLDAP"
 
 #: ../../nethvoice.rst:749
-#, fuzzy
 msgid "Display the LDAP address book configured on the phone"
-msgstr "Display the LDAP address book configured on the phone"
+msgstr "Visualizza la rubrica LDAP configurata sul telefono"
 
 #: ../../nethvoice.rst:756
 #, fuzzy
@@ -11256,20 +11238,20 @@ msgstr ""
 "aumentare il numero di tasti disponibili."
 
 #: ../../nethvoice.rst:883
-#, fuzzy
 msgid ""
 "If the expansion module provides more keys than are displayed in the "
 "NethVoice administration interface, a ``View more`` button is available "
 "to add additional keys."
 msgstr ""
-"If the expansion module provides more keys than are displayed in the "
-"Nethvoice administration interface, there is a ``View more`` button to "
-"add additional keys."
+"Se il modulo di espansione offre più tasti rispetto a quelli mostrati nell’"
+"interfaccia di amministrazione di NethVoice, è disponibile un pulsante ``"
+"Mostra altri`` per aggiungere ulteriori tasti."
 
 #: ../../nethvoice.rst:885
-#, fuzzy
 msgid "This type of key is configured similarly to the Line key."
-msgstr "This type of key is configured like the :ref:`Line key <panel-linekeys>`."
+msgstr ""
+"Questo tipo di tasto è configurato in modo simile al tasto :ref:`Line key "
+"<panel-linekeys>`."
 
 #: ../../nethvoice.rst:887
 #, fuzzy
@@ -11279,75 +11261,70 @@ msgid ""
 msgstr "This type of key is configured like the :ref:`Line key <panel-linekeys>`."
 
 #: ../../nethvoice.rst:892
-#, fuzzy
 msgid "Screen and Ringtone"
-msgstr "Screen and Ringtone"
+msgstr "Schermo e Suoneria"
 
 #: ../../nethvoice.rst:894
-#, fuzzy
 msgid ""
 "``Ringtone Selection``: Each phone has some predefined ringtones that can"
 " be selected based on their progressive number. Where supported, a custom"
 " ringtone can also be chosen, which should then be uploaded into the "
 "field described below."
 msgstr ""
-"``Ringtone Selection`` Each phone has some predefined ringtones that can "
-"be selected based on the progressive number. Where supported, you can "
-"also choose a custom ringtone, which should then be loaded into the field"
-" described below."
+"``Selezione suoneria``: ogni telefono dispone di alcune suonerie predefinite "
+"che possono essere selezionate in base al numero progressivo. Dove "
+"supportato, è anche possibile scegliere una suoneria personalizzata, che "
+"dovrà poi essere caricata nel campo descritto di seguito."
 
 #: ../../nethvoice.rst:896
-#, fuzzy
 msgid ""
 "``Custom Ringtone Management``: Select an audio file for the custom "
 "ringtone that has been previously uploaded, or upload a new one by "
 "opening the dedicated management module. The audio format must be "
 "compatible with the specifications of the phone manufacturer."
 msgstr ""
-"``Custom Ringtone Management`` Select an audio file for the custom "
-"ringtone that has been previously uploaded, or upload a new one by "
-"opening the dedicated management module. The audio format must be "
-"compatible with the specifications of the phone manufacturer."
+"``Gestione Suoneria Personalizzata``: Seleziona un file audio per la "
+"suoneria personalizzata precedentemente caricato, oppure caricane uno nuovo "
+"aprendo l’apposito modulo di gestione. Il formato audio deve essere "
+"compatibile con le specifiche del produttore del telefono."
 
 #: ../../nethvoice.rst:898
-#, fuzzy
 msgid ""
 "``Background Image\" \"Screensaver Image``: Select an image file for the "
 "phone screen background and screensaver, or upload a new one by opening "
 "the dedicated management panel. The image format must be compatible with "
 "the specifications of the phone manufacturer."
 msgstr ""
-"``Background Image`` ``Screensaver Image`` Select an image file for the "
-"phone screen background and screensaver, or upload a new one by opening "
-"the dedicated management panel. The image format must be compatible with "
-"the specifications of the phone manufacturer."
+"``Immagine di Sfondo`` e ``Immagine Salvaschermo`` Seleziona un file "
+"immagine da utilizzare come sfondo del display e come salvaschermo del "
+"telefono, oppure caricane uno nuovo aprendo l’apposito pannello di gestione. "
+"Il formato dell’immagine deve essere compatibile con le specifiche del "
+"produttore del telefono."
 
 #: ../../nethvoice.rst:900
-#, fuzzy
 msgid ""
 "``Screensaver Activation``: Time interval after which the screensaver is "
 "activated."
 msgstr ""
-"``Screensaver Activation`` Time interval after which the screensaver is "
-"activated."
+"``Attivazione screensaver``: intervallo di tempo dopo il quale viene "
+"attivato lo screensaver."
 
 #: ../../nethvoice.rst:902
-#, fuzzy
 msgid ""
 "``Backlight Off``: Time interval after which the screen lowers brightness"
 " or turns off the screen backlight."
 msgstr ""
-"``Backlight Off`` Time interval after which the screen lowers brightness "
-"or turns off the screen backlight."
+"``Retroilluminazione disattivata``: intervallo di tempo dopo il quale la "
+"luminosità dello schermo diminuisce o la retroilluminazione viene "
+"disattivata."
 
 #: ../../nethvoice.rst:904
-#, fuzzy
 msgid ""
 "``Screen Brightness`` \"Screen Contrast\": Select the brightness and "
 "contrast levels of the screen."
 msgstr ""
-"``Screen Brightness`` ``Screen Contrast`` Select the brightness and "
-"contrast levels of the screen."
+"``Luminosità schermo`` e ``Contrasto schermo``: seleziona i livelli di "
+"luminosità e contrasto dello schermo."
 
 #: ../../nethvoice.rst:909
 #, fuzzy
@@ -12614,9 +12591,8 @@ msgid "Immediately synchronize using the :guilabel:`Sync` button"
 msgstr "Click the :guilabel:`Save` button"
 
 #: ../../nethvoice.rst:1300
-#, fuzzy
 msgid "Enable/disable synchronization"
-msgstr "Sincronizzazione multipla"
+msgstr "Abilita/disabilita sincronizzazione"
 
 #: ../../nethvoice.rst:1303
 msgid "Parameterized URLs"
@@ -12806,7 +12782,7 @@ msgstr "Local storage"
 
 #: ../../nethvoice.rst:1370
 msgid "Enable/Disable Calls Between Rooms"
-msgstr ""
+msgstr "Abilita/Disabilita le chiamate tra camere"
 
 #: ../../nethvoice.rst:1375
 msgid ""
@@ -13050,19 +13026,22 @@ msgstr "Formato data/ora"
 
 #: ../../nethvoice.rst:1475
 msgid "Enable/disable calls between rooms"
-msgstr ""
+msgstr "Abilita/Disabilita le chiamate tra camere"
 
 #: ../../nethvoice.rst:1477
 msgid "Enable/disable calls between rooms belonging to the same group"
 msgstr ""
+"Abilita/disabilita le chiamate tra stanze appartenenti allo stesso gruppo"
 
 #: ../../nethvoice.rst:1479
 msgid "Enable/disable external calls"
-msgstr ""
+msgstr "Abilita/disabilita le chiamate esterne"
 
 #: ../../nethvoice.rst:1481
 msgid "Enable/disable calls between rooms that have not checked in"
 msgstr ""
+"Abilita/disabilita le chiamate tra le stanze che non hanno effettuato il "
+"check-in"
 
 #: ../../nethvoice.rst:1483
 msgid "Extension to contact in case of missed wake-up call alarms"
