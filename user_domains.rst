@@ -241,8 +241,8 @@ Password age
 
 You can toggle password age policy by clicking on the ``Password age`` switch. If enabled, you can configure the following parameters:
 
-* ``Minimum password age``: the minimum number of days that must pass before a new password change.
-* ``Maximum password age``: password expiration time in days. After this period, the password is no longer valid for logins and must be changed. Users can change their expired password with :ref:`user-management-portal-section`.
+* ``Minimum password age`` (default 0): the minimum number of days that must pass before a new password change.
+* ``Maximum password age`` (default 180: password expiration time in days. After this period, the password is no longer valid for logins and must be changed. Users can change their expired password with :ref:`user-management-portal-section`.
 
 Password strength
 -----------------
@@ -357,7 +357,19 @@ When creating a user, the following fields are mandatory:
 * User name
 * Full name (name and surname)
 * Password
-* Email address (optional field)
+
+Optional attributes are:
+
+* Email address -- Corresponds to the standard LDAP ``mail`` attribute. It
+  can be set to the user's personal email address, where password
+  expiration warnings are sent. Some applications may also use it as a
+  valid login name.
+* Password never expires (AD only) -- When enabled, the user's password
+  remains valid indefinitely, bypassing the domain password age policy.
+* Required password change / User has to change password at next login (AD
+  only) -- When enabled, the user is prompted to change their password at
+  the next login.
+
 
 A user can be added to one or more groups.
 
@@ -395,6 +407,8 @@ When creating a user, the following fields are available:
 * Password
 * Group (optional field)
 * Email address (optional field)
+* Password never expires (optional field, AD only)
+* Required password change / User has to change password at next login (optional field, AD only)
 
 The portal is automatically configured on every instance of :ref:`active_directory-section` or :ref:`openldap-section` provider.
 

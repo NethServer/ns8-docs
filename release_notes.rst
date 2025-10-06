@@ -25,6 +25,11 @@ Major changes on 2025-09-30
   :ref:`password-policy-section` for details. The previous default policy
   for Samba AD was between 1 and 42 days.
 
+- **Samba AD password attributes** -- For internal AD domains, two new
+  attributes can be controlled from the cluster-admin and user portal web
+  interfaces: ``Required password change`` and ``Password never expires``.
+  See :ref:`user_groups-section`.
+
 - **New TLS certificates page** -- The :ref:`TLS certificates
   <certificate_manager-section>` UI page has completed its enhancement
   cycle started in previous releases, providing full management of Let's
