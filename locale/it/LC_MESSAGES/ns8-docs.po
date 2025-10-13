@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-06 13:55+0000\n"
+"POT-Creation-Date: 2025-10-13 14:46+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -567,153 +567,159 @@ msgstr ""
 
 #: ../../certificates.rst:35
 msgid ""
-"``Requested``: one :ref:`Let's Encrypt certificate <lets-encrypt-"
-"requirements>` can be requested for each cluster node, with up to 100 "
-"names. It is used by applications only if no other suitable certificate "
-"is available. Use the ``Manage names`` action to replace it with a new "
-"request; the old one is then marked as ``Obsolete``. Let's Encrypt "
+"``Requested``: each cluster node can request one :ref:`Let's Encrypt "
+"certificate <lets-encrypt-requirements>` containing up to 100 names. Use "
+"the ``Manage names`` action to update the list of names; this issues a "
+"new request and marks the old certificate as ``Obsolete``. Let's Encrypt "
 "certificates are renewed automatically."
 msgstr ""
 
-#: ../../certificates.rst:42
+#: ../../certificates.rst:41
 #, fuzzy
 msgid "Other certificate types:"
 msgstr "Certificati personalizzati"
 
-#: ../../certificates.rst:44
+#: ../../certificates.rst:43
 msgid ""
 "``Automatic``: a Let's Encrypt certificate requested and currently used "
 "by applications or :ref:`custom HTTP routes <custom-http-route-section>` "
 "for their host name."
 msgstr ""
 
-#: ../../certificates.rst:48
+#: ../../certificates.rst:47
 msgid ""
 "``Obsolete``: a Let's Encrypt certificate that was obtained by an "
 "application, an HTTP route, or a user request, and is no longer in use. "
 "See also :ref:`delete-certificates-section`."
 msgstr ""
 
-#: ../../certificates.rst:52
+#: ../../certificates.rst:51
 msgid "Both Automatic and Obsolete certificates are renewed automatically."
 msgstr ""
 
-#: ../../certificates.rst:58
+#: ../../certificates.rst:57
 #, fuzzy
 msgid "Let's Encrypt certificate requirements"
 msgstr "Certificati Let's Encrypt"
 
-#: ../../certificates.rst:60
+#: ../../certificates.rst:59
 msgid ""
 "`Let's Encrypt`_ is a nonprofit CA that issues TLS certificates for free."
 " NethServer 8 uses HTTP-based ACME challenges to obtain them, which "
 "require:"
 msgstr ""
 
-#: ../../certificates.rst:65
+#: ../../certificates.rst:64
 msgid "**The cluster node must be publicly reachable on port 443**."
 msgstr ""
 
-#: ../../certificates.rst:67
+#: ../../certificates.rst:66
 msgid ""
 "Ensure port 443 is open to the public internet. You can test it with "
 "sites like CSM_."
 msgstr ""
 
-#: ../../certificates.rst:70
+#: ../../certificates.rst:69
 msgid ""
 "Ensure there are no IP-based firewall rules on the node's network. Let's "
 "Encrypt uses unpredictable IPs for the TLS-ALPN-01 challenge, which may "
 "be blocked by geographic or custom filters."
 msgstr ""
 
-#: ../../certificates.rst:74
+#: ../../certificates.rst:73
 msgid ""
 "Nodes installed before Traefik 3.0.0 used HTTP-01 challenges. In that "
 "case, port 80 must be open as well. See :ref:`release notes <release-"
 "notes-section>` for milestone 8.4."
 msgstr ""
 
-#: ../../certificates.rst:78
+#: ../../certificates.rst:77
 msgid ""
 "Certificate names must be public domains pointing to the server's public "
 "IP. Ensure you have **DNS records for both IPv4 and IPv6 addresses**. "
 "Sites like `VDNS <http://viewdns.info/>`_ can help verify DNS."
 msgstr ""
 
-#: ../../certificates.rst:87
+#: ../../certificates.rst:86
 #, fuzzy
 msgid ""
 "Wildcard certificates (e.g. ``*.nethserver.org``) are **not supported** "
 "with HTTP-based ACME challenges."
 msgstr "I certificati Wildcard (i.e. ``*.nethserver.org``) non sono supportati."
 
-#: ../../certificates.rst:90
+#: ../../certificates.rst:89
 msgid ""
 "Certificates obtained from Let's Encrypt are renewed automatically before"
-" expiration. If one is marked as ``Expiring`` or ``Expired``, verify the "
-"requirements above and wait for the next renewal attempt, or remove it as"
-" explained in :ref:`delete-certificates-section`."
+" expiration. Renewal attempts run daily, starting 30 days before the "
+"certificate expires."
 msgstr ""
 
-#: ../../certificates.rst:98
+#: ../../certificates.rst:93
+msgid ""
+"If a certificate is marked as ``Expiring`` or ``Expired``, check that the"
+" requirements above are still met and wait for the next renewal attempt. "
+"Alternatively, remove the certificate as explained in :ref:`delete-"
+"certificates-section`."
+msgstr ""
+
+#: ../../certificates.rst:101
 #, fuzzy
 msgid "Request a Let's Encrypt certificate"
 msgstr "abilitare ``Richiedi certificato Let's Encrypt``"
 
-#: ../../certificates.rst:100
+#: ../../certificates.rst:103
 #, fuzzy
 msgid "If requirements are met, request a certificate as follows:"
 msgstr ""
 "Se i requisiti di cui sopra sono soddisfatti, è possibile ottenere un "
 "certificato valido per un dominio seguendo questi passaggi:"
 
-#: ../../certificates.rst:102 ../../certificates.rst:130
-#: ../../certificates.rst:202
+#: ../../certificates.rst:105 ../../certificates.rst:133
+#: ../../certificates.rst:205
 #, fuzzy
 msgid "Go to ``Settings`` → ``TLS certificates``."
 msgstr ""
 "accedere alla pagina ``Impostazioni`` e fare clic sulla scheda "
 "``certificati TLS ``"
 
-#: ../../certificates.rst:104
+#: ../../certificates.rst:107
 #, fuzzy
 msgid "Click :guilabel:`Request certificate`."
 msgstr "clicca sul pulsante :guilabel:`Richiesta certificato`"
 
-#: ../../certificates.rst:106
+#: ../../certificates.rst:109
 msgid ""
 "Select the cluster node that will issue the request. Only this node can "
 "use the certificate."
 msgstr ""
 
-#: ../../certificates.rst:109
+#: ../../certificates.rst:112
 msgid "Enter the list of names to include. Each must meet the requirements."
 msgstr ""
 
-#: ../../certificates.rst:111
+#: ../../certificates.rst:114
 #, fuzzy
 msgid "Click :guilabel:`Request certificate` to confirm."
 msgstr "clicca sul pulsante :guilabel:`Richiesta certificato`"
 
-#: ../../certificates.rst:113
+#: ../../certificates.rst:116
 msgid "Validation may take up to 60 seconds before a timeout."
 msgstr ""
 
-#: ../../certificates.rst:115
+#: ../../certificates.rst:118
 msgid ""
-"Certificates are renewed automatically before expiration. If renewal "
-"fails, an expiration alert is triggered (see :ref:`certificate-alerts-"
-"section`). Check the :ref:`Let's Encrypt requirements <lets-encrypt-"
-"requirements>` to investigate the cause."
+"Certificates are renewed automatically by a daily process that begins 30 "
+"days before expiration. If renewal fails, an expiration alert is "
+"triggered (see :ref:`certificate-alerts-section`). See the :ref:`Let's "
+"Encrypt requirements <lets-encrypt-requirements>` to identify the cause."
 msgstr ""
 
-#: ../../certificates.rst:125
+#: ../../certificates.rst:128
 #, fuzzy
 msgid "Upload custom TLS certificates"
 msgstr "Certificati personalizzati"
 
-#: ../../certificates.rst:127
+#: ../../certificates.rst:130
 #, fuzzy
 msgid ""
 "If you already have a certificate and private key, you can upload them to"
@@ -723,30 +729,30 @@ msgstr ""
 " caricarli sul cluster. È possibile seguire questa procedura per "
 "installare il certificato:"
 
-#: ../../certificates.rst:132
+#: ../../certificates.rst:135
 #, fuzzy
 msgid "Click :guilabel:`Upload certificate`."
 msgstr "cliccare su :guilabel:`Upload certificate`"
 
-#: ../../certificates.rst:134
+#: ../../certificates.rst:137
 msgid ""
 "Select the cluster node. Only this node and its applications can use the "
 "certificate."
 msgstr ""
 
-#: ../../certificates.rst:137
+#: ../../certificates.rst:140
 msgid ""
 "Select the ``Certificate`` and ``Private key`` files. If provided by the "
 "CA, also select the ``Chain file``. Use drag-and-drop or the file picker."
 " All files must be **PEM-encoded**."
 msgstr ""
 
-#: ../../certificates.rst:141
+#: ../../certificates.rst:144
 #, fuzzy
 msgid "Click :guilabel:`Upload`."
 msgstr "cliccare su :guilabel:`Upload certificate`"
 
-#: ../../certificates.rst:143
+#: ../../certificates.rst:146
 #, fuzzy
 msgid ""
 "If the upload fails, an error is shown. Otherwise, the modal closes and "
@@ -755,23 +761,23 @@ msgstr ""
 "Si riceve un errore se qualcosa con il caricamento va storto, altrimenti "
 "il modal si chiude e l'elenco dei certificati viene aggiornato."
 
-#: ../../certificates.rst:146
+#: ../../certificates.rst:149
 msgid ""
 "Common errors include wrong file order or mismatched certificate, private"
 " key, and chain."
 msgstr ""
 
-#: ../../certificates.rst:149
+#: ../../certificates.rst:152
 msgid ""
 "An application uses the uploaded certificate if it matches its configured"
 " host name. Wildcard names are supported."
 msgstr ""
 
-#: ../../certificates.rst:155
+#: ../../certificates.rst:158
 msgid "Receive certificate expiration alerts"
 msgstr ""
 
-#: ../../certificates.rst:157
+#: ../../certificates.rst:160
 msgid ""
 "If alert notifications are configured (see :ref:`alerts_notifications-"
 "section`), the cluster sends an alert when a certificate is nearing "
@@ -779,86 +785,86 @@ msgid ""
 "expiration date."
 msgstr ""
 
-#: ../../certificates.rst:162
+#: ../../certificates.rst:165
 msgid ""
 "For an ``Uploaded`` certificate, resolve the alert by uploading a new "
 "certificate. The old one can then be deleted."
 msgstr ""
 
-#: ../../certificates.rst:165
+#: ../../certificates.rst:168
 msgid ""
 "For Let's Encrypt certificates (``Requested``, ``Automatic``, "
 "``Obsolete``), an expiration alert indicates renewal has failed. Check "
 "that :ref:`requirements <lets-encrypt-requirements>` are still met."
 msgstr ""
 
-#: ../../certificates.rst:169
+#: ../../certificates.rst:172
 msgid "Common **renewal failure causes** include:"
 msgstr ""
 
-#: ../../certificates.rst:171
+#: ../../certificates.rst:174
 msgid "DNS records for a certificate name were changed or removed."
 msgstr ""
 
-#: ../../certificates.rst:172
+#: ../../certificates.rst:175
 msgid ""
 "A firewall blocks HTTP challenges, either by network address or by "
 "geographic IP rules."
 msgstr ""
 
-#: ../../certificates.rst:179
+#: ../../certificates.rst:182
 #, fuzzy
 msgid "Delete a TLS certificate"
 msgstr "Certificati personalizzati"
 
-#: ../../certificates.rst:181
+#: ../../certificates.rst:184
 msgid ""
 "You can delete a certificate if it is no longer needed. Do this with "
 "caution, because removing a certificate can break applications. When you "
 "delete a certificate:"
 msgstr ""
 
-#: ../../certificates.rst:185
+#: ../../certificates.rst:188
 msgid ""
 "Traefik is restarted and HTTP connections are closed. For some "
 "applications this may lead to client data loss."
 msgstr ""
 
-#: ../../certificates.rst:188
+#: ../../certificates.rst:191
 msgid "If no alternative matches the host name, clients will fail to reconnect."
 msgstr ""
 
-#: ../../certificates.rst:191
+#: ../../certificates.rst:194
 msgid "Automatic renewal (for Let's Encrypt) stops."
 msgstr ""
 
-#: ../../certificates.rst:193
+#: ../../certificates.rst:196
 msgid ""
 "If you delete an ``Automatic`` certificate, the related HTTP route is "
 "modified and its Let's Encrypt switch is cleared."
 msgstr ""
 
-#: ../../certificates.rst:196
+#: ../../certificates.rst:199
 msgid ""
 "Use :guilabel:`Delete obsolete certificates` to remove all obsolete "
 "certificates of a node in a single operation. This limits Traefik "
 "restarts."
 msgstr ""
 
-#: ../../certificates.rst:200
+#: ../../certificates.rst:203
 msgid "Alternatively, to delete a single certificate:"
 msgstr ""
 
-#: ../../certificates.rst:204
+#: ../../certificates.rst:207
 msgid "Find the certificate to remove."
 msgstr ""
 
-#: ../../certificates.rst:206
+#: ../../certificates.rst:209
 #, fuzzy
 msgid "Click :guilabel:`Delete` and confirm."
 msgstr "cliccare su :guilabel:`Upload certificate`"
 
-#: ../../certificates.rst:210
+#: ../../certificates.rst:213
 msgid ""
 "Deletion is irreversible. Ensure no application depends on the "
 "certificate, or install a replacement first to avoid downtime."
@@ -19438,9 +19444,9 @@ msgstr ""
 #: ../../user_domains.rst:245
 #, fuzzy
 msgid ""
-"``Maximum password age`` (default 180: password expiration time in days. "
-"After this period, the password is no longer valid for logins and must be"
-" changed. Users can change their expired password with :ref:`user-"
+"``Maximum password age`` (default 180): password expiration time in days."
+" After this period, the password is no longer valid for logins and must "
+"be changed. Users can change their expired password with :ref:`user-"
 "management-portal-section`."
 msgstr ""
 "``Maximum password age``: password expiration time in days. After this "
@@ -26023,5 +26029,40 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "From Webtop to NethVoice"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``Requested``: one :ref:`Let's Encrypt "
+#~ "certificate <lets-encrypt-requirements>` can"
+#~ " be requested for each cluster node,"
+#~ " with up to 100 names. It is"
+#~ " used by applications only if no "
+#~ "other suitable certificate is available. "
+#~ "Use the ``Manage names`` action to "
+#~ "replace it with a new request; the"
+#~ " old one is then marked as "
+#~ "``Obsolete``. Let's Encrypt certificates are"
+#~ " renewed automatically."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Certificates obtained from Let's Encrypt "
+#~ "are renewed automatically before expiration."
+#~ " If one is marked as ``Expiring`` "
+#~ "or ``Expired``, verify the requirements "
+#~ "above and wait for the next "
+#~ "renewal attempt, or remove it as "
+#~ "explained in :ref:`delete-certificates-"
+#~ "section`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Certificates are renewed automatically before"
+#~ " expiration. If renewal fails, an "
+#~ "expiration alert is triggered (see :ref"
+#~ ":`certificate-alerts-section`). Check the "
+#~ ":ref:`Let's Encrypt requirements <lets-"
+#~ "encrypt-requirements>` to investigate the "
+#~ "cause."
 #~ msgstr ""
 
