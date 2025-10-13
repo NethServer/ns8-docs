@@ -242,7 +242,7 @@ Password age
 You can toggle password age policy by clicking on the ``Password age`` switch. If enabled, you can configure the following parameters:
 
 * ``Minimum password age`` (default 0): the minimum number of days that must pass before a new password change.
-* ``Maximum password age`` (default 180: password expiration time in days. After this period, the password is no longer valid for logins and must be changed. Users can change their expired password with :ref:`user-management-portal-section`.
+* ``Maximum password age`` (default 180): password expiration time in days. After this period, the password is no longer valid for logins and must be changed. Users can change their expired password with :ref:`user-management-portal-section`.
 
 Password strength
 -----------------
