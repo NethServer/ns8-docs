@@ -32,12 +32,11 @@ The main **types** of certificates are:
 - ``Uploaded``: custom certificates added through :ref:`Upload certificate
   <uploaded-certificates-section>`. They are not renewed automatically.
 
-- ``Requested``: one :ref:`Let's Encrypt certificate
-  <lets-encrypt-requirements>` can be requested for each cluster node, with
-  up to 100 names. It is used by applications only if no other suitable
-  certificate is available. Use the ``Manage names`` action to replace it
-  with a new request; the old one is then marked as ``Obsolete``. Let's
-  Encrypt certificates are renewed automatically.
+- ``Requested``: each cluster node can request one :ref:`Let's Encrypt
+  certificate <lets-encrypt-requirements>` containing up to 100 names. Use
+  the ``Manage names`` action to update the list of names; this issues a
+  new request and marks the old certificate as ``Obsolete``. Let's Encrypt
+  certificates are renewed automatically.
 
 Other certificate types:
 
@@ -88,9 +87,13 @@ NethServer 8 uses HTTP-based ACME challenges to obtain them, which require:
    with HTTP-based ACME challenges.
 
 Certificates obtained from Let's Encrypt are renewed automatically before
-expiration. If one is marked as ``Expiring`` or ``Expired``, verify the
-requirements above and wait for the next renewal attempt, or remove it as
-explained in :ref:`delete-certificates-section`.
+expiration. Renewal attempts run daily, starting 30 days before the
+certificate expires.
+
+If a certificate is marked as ``Expiring`` or ``Expired``, check that the
+requirements above are still met and wait for the next renewal attempt.
+Alternatively, remove the certificate as explained in
+:ref:`delete-certificates-section`.
 
 .. _lets-encrypt-request-section:
 
@@ -112,10 +115,10 @@ If requirements are met, request a certificate as follows:
 
 Validation may take up to 60 seconds before a timeout.
 
-Certificates are renewed automatically before expiration. If renewal
-fails, an expiration alert is triggered (see
-:ref:`certificate-alerts-section`). Check the :ref:`Let's Encrypt
-requirements <lets-encrypt-requirements>` to investigate the cause.
+Certificates are renewed automatically by a daily process that begins 30
+days before expiration. If renewal fails, an expiration alert is triggered
+(see :ref:`certificate-alerts-section`). See the :ref:`Let's Encrypt
+requirements <lets-encrypt-requirements>` to identify the cause.
 
 .. _custom-certificates-section:
 
