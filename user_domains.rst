@@ -104,6 +104,12 @@ must also be able to resolve AD domain names.
   Active Directory DNS server while directing other requests to your
   preferred DNS service (ISP or public DNS).
 
+.. note::
+
+  Do not configure Samba Active Directory as the NS8 node name resolver in
+  ``/etc/resolv.conf``. For more information, see :ref:`resolv-conf`.
+
+
 .. _openldap-section:
 
 LDAP server RFC2307
@@ -138,7 +144,7 @@ Then click the :guilabel:`Add provider` button, select the target node and proce
 
 Replicas are configured in master-master mode.
 
-.. warning:: Active Directory provider does not replicate the SysVol volume.
+.. note:: Active Directory provider does not replicate the SysVol volume.
    Therefore Microsoft's Group Policy Object (GPO) will not be synchronized between replicas.
 
 .. _domain_bind-section:
@@ -417,8 +423,6 @@ The portal is available at the following URL: ::
     https://<fqdn_node>/users-admin/<domain_name>/
 
 Where ``<fqdn_node>`` is the FQDN of the node where the provider is and ``<domain_name>`` is the name of the domain provided while configuring the domain.
-
-.. warning:: Without the trailing slash, the portal will not work.
 
 Once reached the page, the user is prompted for login and they can authenticate to the domain with user name and password.
 

@@ -6,7 +6,10 @@ DNSMasq
 
 The DNSMasq module is a lightweight DNS and DHCP server designed to provide its services within a private network. It is not recommended for use as a public DNS server.
 
-It can be installed through the :ref:`software_center-section`.
+.. note::
+
+  Do not configure Dnsmasq as the NS8 node name resolver in
+  ``/etc/resolv.conf``. For more information, see :ref:`resolv-conf`.
 
 
 Prerequisites
