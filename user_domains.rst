@@ -104,6 +104,12 @@ must also be able to resolve AD domain names.
   Active Directory DNS server while directing other requests to your
   preferred DNS service (ISP or public DNS).
 
+.. note::
+
+  Do not configure Samba Active Directory as the NS8 node name resolver in
+  ``/etc/resolv.conf``. For more information, see :ref:`resolv-conf`.
+
+
 .. _openldap-section:
 
 LDAP server RFC2307
