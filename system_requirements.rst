@@ -47,10 +47,10 @@ Static IP address
 =================
 
 A working internet connection is necessary for the installation,
-configuration, and updating of the system. It is required also if an
+configuration, and updating of the node. It is required also if an
 active :ref:`subscription <subscription-section>` is in place.
 
-Assign a static IP address to the system. DHCP and any other
+Assign a static IP address to the node. DHCP and any other
 dynamic IP discovery protocols are not allowed.
 
 .. _dns-reqs:
@@ -58,27 +58,27 @@ dynamic IP discovery protocols are not allowed.
 DNS configuration
 =================
 
-To ensure network clients can connect to the server, its fully qualified
+To ensure network clients can connect to the node, its fully qualified
 domain name (FQDN) must resolve to a routable IP address via DNS. Register
 the FQDN with DNS record type A for IPv4 addresses and type AAAA for IPv6
 addresses.
 
 A correct FQDN and DNS setup is essential for TLS encryption to function
-properly. Once connected to the server, network clients verify the TLS
+properly. Once connected to the node, network clients verify the TLS
 certificate against the given FQDN.
 
 To meet these requirements, follow these steps:
 
-1. **Determine your DNS provider**: Based on your server's purpose, DNS
+1. **Determine your DNS provider**: Based on your node's purpose, DNS
    can be provided by a public internet service, a private network appliance,
    or a combination of both. Review and understand the documentation for
    your chosen DNS provider.
 
-2. **Register the FQDN**: Choose the FQDN for your server and register it
-   in the DNS with the server's public IP address. An FQDN consists of a
-   hostname prefix (a single word) and a DNS domain suffix. For example,
-   if the hostname is ``jupiter`` and the domain suffix is ``example.org``,
-   the resulting FQDN will be ``jupiter.example.org``.
+2. **Register the FQDN**: Choose the FQDN for your node and register it in
+   the DNS with its public IP address. An FQDN consists of a hostname
+   prefix (a single word) and a DNS domain suffix. For example, if the
+   hostname is ``jupiter`` and the domain suffix is ``example.org``, the
+   resulting FQDN will be ``jupiter.example.org``.
 
 
 .. _worker-node-reqs:
