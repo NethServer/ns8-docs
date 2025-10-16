@@ -53,6 +53,38 @@ active :ref:`subscription <subscription-section>` is in place.
 Assign a static IP address to the node. DHCP and any other
 dynamic IP discovery protocols are not allowed.
 
+.. _resolv-conf:
+
+Name resolution
+===============
+
+The node name resolver must be configured to use DNS servers that are not
+provided by NS8 itself. This is required because the ``/etc/resolv.conf``
+file is inherited by application containers, which may use private network
+setups that can conflict with the node’s own DNS service.
+
+The ``/etc/resolv.conf`` file should contain one or more ``nameserver``
+lines specifying the IP addresses of DNS servers available to the node.
+These servers can be in the same LAN or on the public Internet. If the
+file is managed by tools such as ``NetworkManager`` or ``cloud-init``, do
+not edit it directly. Instead, follow the configuration guidelines
+provided by those tools.
+
+Avoid the following configurations:
+
+- Do not use ``nameserver 127.0.0.1`` or any IP address assigned to the
+  node itself. If the Linux distribution has installed a local DNS
+  resolver service, refer to its documentation to disable or remove it.
+
+- Do not use any NS8 application providing DNS service as the node name
+  resolver, such as Samba Active Directory or DNSMasq. This can cause
+  name resolution loops or prevent node updates.
+
+- Do not mix DNS servers from different network scopes, for example,
+  ``1.1.1.1`` (public, Cloudflare) and ``192.168.1.1`` (private). Doing so
+  can lead to inconsistent DNS query results.
+
+
 .. _dns-reqs:
 
 DNS configuration
