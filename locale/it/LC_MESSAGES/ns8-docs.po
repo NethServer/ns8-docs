@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 14:46+0000\n"
+"POT-Creation-Date: 2025-10-16 13:32+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -1501,7 +1501,7 @@ msgstr ""
 " :ref:`software_center-section`."
 
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dependencytrack.rst:16
-#: ../../dnsmasq.rst:20 ../../dokuwiki.rst:10 ../../ejabberd.rst:22
+#: ../../dnsmasq.rst:23 ../../dokuwiki.rst:10 ../../ejabberd.rst:22
 #: ../../file_server.rst:33 ../../imapsync.rst:26 ../../index.rst:34
 #: ../../mail.rst:54 ../../mariadb.rst:11 ../../mattermost.rst:13
 #: ../../minio.rst:12 ../../netdata.rst:20 ../../nethvoice.rst:21
@@ -2060,18 +2060,17 @@ msgstr ""
 " propri servizi all'interno di una rete privata. Non è raccomandato per "
 "l'uso come server DNS pubblico."
 
-#: ../../dnsmasq.rst:9
-#, fuzzy
-msgid "It can be installed through the :ref:`software_center-section`."
+#: ../../dnsmasq.rst:11
+msgid ""
+"Do not configure Dnsmasq as the NS8 node name resolver in "
+"``/etc/resolv.conf``. For more information, see :ref:`resolv-conf`."
 msgstr ""
-"È possibile installare solo un NethVoice Proxy per nodo dal :ref"
-":`software_center-section`."
 
-#: ../../dnsmasq.rst:13
+#: ../../dnsmasq.rst:16
 msgid "Prerequisites"
 msgstr "Prerequisiti"
 
-#: ../../dnsmasq.rst:15
+#: ../../dnsmasq.rst:18
 msgid ""
 "The only prerequisite is a network interface configured. This means that "
 "the network should have a valid IPv4 address and a valid subnet mask. "
@@ -2083,7 +2082,7 @@ msgstr ""
 "subnet valida. Si prega di fare riferimento alla documentazione distro su"
 " come configurare correttamente un'interfaccia di rete."
 
-#: ../../dnsmasq.rst:22
+#: ../../dnsmasq.rst:25
 msgid ""
 "After installing the module, you can configure both the DNS and DHCP "
 "server through the web interface."
@@ -2091,7 +2090,7 @@ msgstr ""
 "Dopo aver installato il modulo, è possibile configurare sia il server DNS"
 " che il server DHCP attraverso l'interfaccia web."
 
-#: ../../dnsmasq.rst:24
+#: ../../dnsmasq.rst:27
 msgid ""
 "Select in the ``Interface`` field the interface that you want to use for "
 "DNS and DHCP server, then press :guilabel:`Save`."
@@ -2099,7 +2098,7 @@ msgstr ""
 "Selezionare nel campo ``Interface``` l'interfaccia che si desidera "
 "utilizzare per il server DNS e DHCP, quindi premere :guilabel:`Save`."
 
-#: ../../dnsmasq.rst:26
+#: ../../dnsmasq.rst:29
 msgid ""
 "Once the configuration is saved, there will be available two toggle "
 "switches to enable/disable DNS and DHCP server."
@@ -2107,24 +2106,24 @@ msgstr ""
 "Una volta salvata la configurazione, ci saranno due switch per "
 "attivare/disattivare il server DNS e DHCP."
 
-#: ../../dnsmasq.rst:31 ../../nethvoice.rst:636 ../../nethvoice.rst:641
+#: ../../dnsmasq.rst:34 ../../nethvoice.rst:636 ../../nethvoice.rst:641
 #: ../../nethvoice.rst:646 ../../nethvoice.rst:651
 msgid "DHCP"
 msgstr "DHCP"
 
-#: ../../dnsmasq.rst:33
+#: ../../dnsmasq.rst:36
 msgid "The DHCP server can be configured with the following options:"
 msgstr "Il server DHCP può essere configurato con le seguenti opzioni:"
 
-#: ../../dnsmasq.rst:35
+#: ../../dnsmasq.rst:38
 msgid "``IP range start``: The first IP address that will be assigned to clients."
 msgstr "``IP range start```: Il primo indirizzo IP che verrà assegnato ai client."
 
-#: ../../dnsmasq.rst:36
+#: ../../dnsmasq.rst:39
 msgid "``IP range end``: The last IP address that will be assigned to clients."
 msgstr "``IP range end``: L'ultimo indirizzo IP che verrà assegnato ai client."
 
-#: ../../dnsmasq.rst:37
+#: ../../dnsmasq.rst:40
 msgid ""
 "``Lease time``: The time that the IP address will be assigned to the "
 "client, expressed in hours."
@@ -2132,14 +2131,14 @@ msgstr ""
 "`` Tempo di rilascio`: Il tempo che l'indirizzo IP verrà assegnato al "
 "client, espresso in ore."
 
-#: ../../dnsmasq.rst:38
+#: ../../dnsmasq.rst:41
 msgid ""
 "``Gateway``:  The gateway IP address for client configuration (DHCP "
 "router option 3). If left empty, the gateway address configured for the "
 "local node is assigned to clients."
 msgstr ""
 
-#: ../../dnsmasq.rst:42
+#: ../../dnsmasq.rst:45
 msgid ""
 "The fields are automatically filled with default values at the first "
 "configuration, but you can change them according to your needs. "
@@ -2151,19 +2150,19 @@ msgstr ""
 "Ulteriori opzioni possono essere configurate manualmente, fare "
 "riferimento alla sezione `Advanced Configuration`_ ."
 
-#: ../../dnsmasq.rst:45
+#: ../../dnsmasq.rst:48
 #, fuzzy
 msgid "DNS"
 msgstr "DND"
 
-#: ../../dnsmasq.rst:47
+#: ../../dnsmasq.rst:50
 #, fuzzy
 msgid "The DNS server can be configured with the following options:"
 msgstr ""
 "La prima procedura guidata di configurazione richiederà le seguenti "
 "informazioni:"
 
-#: ../../dnsmasq.rst:49
+#: ../../dnsmasq.rst:52
 msgid ""
 "``Primary forwarding server``: The primary DNS server that will be used "
 "to resolve the queries."
@@ -2171,7 +2170,7 @@ msgstr ""
 "``Primary forwarding server``: Il server DNS primario che verrà "
 "utilizzato per risolvere le query."
 
-#: ../../dnsmasq.rst:50
+#: ../../dnsmasq.rst:53
 msgid ""
 "``Secondary forwarding server``: The secondary DNS server that will be "
 "used to resolve the queries."
@@ -2179,7 +2178,7 @@ msgstr ""
 "``Secondary forwarding server``: Il server DNS secondario che verrà "
 "utilizzato per risolvere le query."
 
-#: ../../dnsmasq.rst:52
+#: ../../dnsmasq.rst:55
 msgid ""
 "When the DNS server is enabled, all Fully Qualified Domain Names (FQDNs) "
 "configured within the node will be resolved using a 'CNAME' record "
@@ -2189,19 +2188,19 @@ msgstr ""
 "qualificati (FQDN) configurati all'interno del nodo saranno risolti "
 "utilizzando un record 'CNAME' che indica il nome host del nodo."
 
-#: ../../dnsmasq.rst:55
+#: ../../dnsmasq.rst:58
 msgid ""
 "The DNS server will not automatically resolve the entries in the "
 "``/etc/hosts`` file. To resolve the entries in the ``/etc/hosts`` file, "
 "you need to add them manually in the `DNS Records`_ section."
 msgstr ""
 
-#: ../../dnsmasq.rst:59
+#: ../../dnsmasq.rst:62
 #, fuzzy
 msgid "DNS Records"
 msgstr "Record"
 
-#: ../../dnsmasq.rst:61
+#: ../../dnsmasq.rst:64
 msgid ""
 "Additional DNS entries can be added in the ``DNS Records`` section. "
 "Simply press the :guilabel:`Add DNS Record` button and fill the fields "
@@ -2211,25 +2210,25 @@ msgstr ""
 "Records```. Basta premere il tasto :guilabel:`Add DNS Record` e riempire "
 "i campi con i valori desiderati:"
 
-#: ../../dnsmasq.rst:63
+#: ../../dnsmasq.rst:66
 #, fuzzy
 msgid "``Hostname``: The hostname that will be resolved."
 msgstr "``Name``: the name of the shared folder"
 
-#: ../../dnsmasq.rst:64
+#: ../../dnsmasq.rst:67
 msgid "``IP Address``: The IP address that will be resolved to the hostname."
 msgstr "``IP Indirizzo``: L'indirizzo IP che verrà risolto al nome host."
 
-#: ../../dnsmasq.rst:66
+#: ../../dnsmasq.rst:69
 msgid "IP addresses can be either IPv4 or IPv6."
 msgstr "Gli indirizzi IP possono essere IPv4 o IPv6."
 
-#: ../../dnsmasq.rst:70
+#: ../../dnsmasq.rst:73
 #, fuzzy
 msgid "Advanced Configuration"
 msgstr "DNS configuration"
 
-#: ../../dnsmasq.rst:72
+#: ../../dnsmasq.rst:75
 msgid ""
 "The module provides additional configuration options that can be accessed"
 " manually through the configuration files."
@@ -2237,7 +2236,7 @@ msgstr ""
 "Il modulo fornisce ulteriori opzioni di configurazione che possono essere"
 " accessibili manualmente tramite i file di configurazione."
 
-#: ../../dnsmasq.rst:74
+#: ../../dnsmasq.rst:77
 msgid ""
 "The directories that accept custom files are located in the root "
 "directory of the module, under the `state` directory."
@@ -2245,13 +2244,13 @@ msgstr ""
 "Le directory che accettano i file personalizzati si trovano nella "
 "directory root del modulo, sotto la directory `state`."
 
-#: ../../dnsmasq.rst:76
+#: ../../dnsmasq.rst:79
 msgid "The following directories can be used to add custom configuration files:"
 msgstr ""
 "Le seguenti directory possono essere utilizzate per aggiungere file di "
 "configurazione personalizzati:"
 
-#: ../../dnsmasq.rst:78
+#: ../../dnsmasq.rst:81
 msgid ""
 "``dnsmasq.d``: This directory is used to add custom configuration files "
 "for the DNSMasq service. The files must have the `.conf` extension. "
@@ -2265,7 +2264,7 @@ msgstr ""
 "configurare il servizio, fare riferimento alla documentazione `DNSMasq "
 "<https://dnsmasq.org/docs/dnsmasq-man.html>`_."
 
-#: ../../dnsmasq.rst:81
+#: ../../dnsmasq.rst:84
 msgid ""
 "``dnsmasq_hosts.d``: This directory is used to add custom hosts files "
 "that will be used by the DNSMasq service. The format of the file is the "
@@ -2279,7 +2278,7 @@ msgstr ""
 "`manual <https://man7.org/linux/man-pages/man5/hosts.5.html>`_ per "
 "ulteriori informazioni su come scrivere il file."
 
-#: ../../dnsmasq.rst:85
+#: ../../dnsmasq.rst:88
 msgid ""
 "After adding the custom files, you need to restart the service to apply "
 "the changes."
@@ -2287,7 +2286,7 @@ msgstr ""
 "Dopo aver aggiunto i file personalizzati, è necessario riavviare il "
 "servizio per applicare le modifiche."
 
-#: ../../dnsmasq.rst:87
+#: ../../dnsmasq.rst:90
 msgid ""
 "The custom files enrich the existing configuration. You can customize the"
 " provided DHCP instance without creating a custom one using the tag "
@@ -2295,7 +2294,7 @@ msgid ""
 "<https://dnsmasq.org/docs/dnsmasq-man.html>`_."
 msgstr ""
 
-#: ../../dnsmasq.rst:89
+#: ../../dnsmasq.rst:92
 msgid "The custom files are included in the module backup."
 msgstr "I file personalizzati sono inclusi nel backup del modulo."
 
@@ -3750,7 +3749,7 @@ msgid "Fill the form to join a new DC to the domain."
 msgstr "fill the form to join a new DC to the domain."
 
 #: ../../file_server.rst:303 ../../log_server.rst:223
-#: ../../software_center.rst:265 ../../user_domains.rst:430
+#: ../../software_center.rst:265 ../../user_domains.rst:434
 #, fuzzy
 msgid "Footnotes"
 msgstr "Footnotes"
@@ -18700,10 +18699,11 @@ msgid "Static IP address"
 msgstr "Indirizzo IP statico"
 
 #: ../../system_requirements.rst:49
+#, fuzzy
 msgid ""
 "A working internet connection is necessary for the installation, "
-"configuration, and updating of the system. It is required also if an "
-"active :ref:`subscription <subscription-section>` is in place."
+"configuration, and updating of the node. It is required also if an active"
+" :ref:`subscription <subscription-section>` is in place."
 msgstr ""
 "Per l'installazione, la configurazione e l'aggiornamento del sistema è "
 "necessaria una connessione internet funzionante. È richiesta connettività"
@@ -18711,21 +18711,72 @@ msgstr ""
 "section>`."
 
 #: ../../system_requirements.rst:53
+#, fuzzy
 msgid ""
-"Assign a static IP address to the system. DHCP and any other dynamic IP "
+"Assign a static IP address to the node. DHCP and any other dynamic IP "
 "discovery protocols are not allowed."
 msgstr ""
 "Utilizzare per il sistema un indirizzo IP statico. DHCP e altri "
 "protocolli di discovery di IP dinamici non sono ammessi."
 
 #: ../../system_requirements.rst:59
+#, fuzzy
+msgid "Name resolution"
+msgstr "Introduzione"
+
+#: ../../system_requirements.rst:61
+msgid ""
+"The node name resolver must be configured to use DNS servers that are not"
+" provided by NS8 itself. This is required because the "
+"``/etc/resolv.conf`` file is inherited by application containers, which "
+"may use private network setups that can conflict with the node’s own DNS "
+"service."
+msgstr ""
+
+#: ../../system_requirements.rst:66
+msgid ""
+"The ``/etc/resolv.conf`` file should contain one or more ``nameserver`` "
+"lines specifying the IP addresses of DNS servers available to the node. "
+"These servers can be in the same LAN or on the public Internet. If the "
+"file is managed by tools such as ``NetworkManager`` or ``cloud-init``, do"
+" not edit it directly. Instead, follow the configuration guidelines "
+"provided by those tools."
+msgstr ""
+
+#: ../../system_requirements.rst:73
+#, fuzzy
+msgid "Avoid the following configurations:"
+msgstr "Correggere la configurazione del firewall ::"
+
+#: ../../system_requirements.rst:75
+msgid ""
+"Do not use ``nameserver 127.0.0.1`` or any IP address assigned to the "
+"node itself. If the Linux distribution has installed a local DNS resolver"
+" service, refer to its documentation to disable or remove it."
+msgstr ""
+
+#: ../../system_requirements.rst:79
+msgid ""
+"Do not use any NS8 application providing DNS service as the node name "
+"resolver, such as Samba Active Directory or DNSMasq. This can cause name "
+"resolution loops or prevent node updates."
+msgstr ""
+
+#: ../../system_requirements.rst:83
+msgid ""
+"Do not mix DNS servers from different network scopes, for example, "
+"``1.1.1.1`` (public, Cloudflare) and ``192.168.1.1`` (private). Doing so "
+"can lead to inconsistent DNS query results."
+msgstr ""
+
+#: ../../system_requirements.rst:91
 msgid "DNS configuration"
 msgstr "Configurazione DNS"
 
-#: ../../system_requirements.rst:61
+#: ../../system_requirements.rst:93
 #, fuzzy
 msgid ""
-"To ensure network clients can connect to the server, its fully qualified "
+"To ensure network clients can connect to the node, its fully qualified "
 "domain name (FQDN) must resolve to a routable IP address via DNS. "
 "Register the FQDN with DNS record type A for IPv4 addresses and type AAAA"
 " for IPv6 addresses."
@@ -18737,11 +18788,11 @@ msgstr ""
 "DNS utilizzando record di tipo A per gli indirizzi IPv4 e di tipo AAAA "
 "per gli indirizzi IPv6."
 
-#: ../../system_requirements.rst:66
+#: ../../system_requirements.rst:98
 #, fuzzy
 msgid ""
 "A correct FQDN and DNS setup is essential for TLS encryption to function "
-"properly. Once connected to the server, network clients verify the TLS "
+"properly. Once connected to the node, network clients verify the TLS "
 "certificate against the given FQDN."
 msgstr ""
 "Una corretta configurazione di FQDN e DNS è anche un requisito per il "
@@ -18749,30 +18800,30 @@ msgstr ""
 "server, i client di rete controllano se il certificato TLS è valido per "
 "l'FQDN utilizzato."
 
-#: ../../system_requirements.rst:70
+#: ../../system_requirements.rst:102
 msgid "To meet these requirements, follow these steps:"
 msgstr "Per soddisfare questi requisiti, seguire questi passaggi:"
 
-#: ../../system_requirements.rst:72
+#: ../../system_requirements.rst:104
 #, fuzzy
 msgid ""
-"**Determine your DNS provider**: Based on your server's purpose, DNS can "
-"be provided by a public internet service, a private network appliance, or"
-" a combination of both. Review and understand the documentation for your "
+"**Determine your DNS provider**: Based on your node's purpose, DNS can be"
+" provided by a public internet service, a private network appliance, or a"
+" combination of both. Review and understand the documentation for your "
 "chosen DNS provider."
 msgstr ""
 "A seconda dello scopo del server, il DNS può essere erogato da un "
 "servizio internet pubblico, da un appliance di rete privato, o da "
 "entrambi. Leggere attentamente la relativa documentazione."
 
-#: ../../system_requirements.rst:77
+#: ../../system_requirements.rst:109
 #, fuzzy
 msgid ""
-"**Register the FQDN**: Choose the FQDN for your server and register it in"
-" the DNS with the server's public IP address. An FQDN consists of a "
-"hostname prefix (a single word) and a DNS domain suffix. For example, if "
-"the hostname is ``jupiter`` and the domain suffix is ``example.org``, the"
-" resulting FQDN will be ``jupiter.example.org``."
+"**Register the FQDN**: Choose the FQDN for your node and register it in "
+"the DNS with its public IP address. An FQDN consists of a hostname prefix"
+" (a single word) and a DNS domain suffix. For example, if the hostname is"
+" ``jupiter`` and the domain suffix is ``example.org``, the resulting FQDN"
+" will be ``jupiter.example.org``."
 msgstr ""
 "Scelto l'FQDN del server, questo andrà registrato nel DNS con il relativo"
 " indirizzo IP pubblico. Un FQDN è composto da un prefisso, il nome host "
@@ -18780,11 +18831,11 @@ msgstr ""
 "nome host è ``jupiter`` e il suffisso di dominio ``example.org`` l'FQDN "
 "risultante è ``jupiter.example.org``."
 
-#: ../../system_requirements.rst:87
+#: ../../system_requirements.rst:119
 msgid "Worker node requirements"
 msgstr "Requisiti del nodo worker"
 
-#: ../../system_requirements.rst:89
+#: ../../system_requirements.rst:121
 #, fuzzy
 msgid ""
 "A worker node has specific requirements for installation and "
@@ -18793,7 +18844,7 @@ msgstr ""
 "Tra i client di rete, un nodo worker ha alcuni requisiti speciali che "
 "devono essere soddisfatti."
 
-#: ../../system_requirements.rst:92
+#: ../../system_requirements.rst:124
 msgid ""
 "During the join procedure, the worker node connects to the leader at the "
 "following URL: ::"
@@ -18801,7 +18852,7 @@ msgstr ""
 "Durante la procedura di adesione, il nodo del lavoratore si collega al "
 "leader al seguente URL::"
 
-#: ../../system_requirements.rst:97
+#: ../../system_requirements.rst:129
 msgid ""
 "It also establishes a WireGuard VPN connection with the leader using the "
 "default UDP port 55820."
@@ -18809,11 +18860,11 @@ msgstr ""
 "Stabilisce anche una connessione VPN WireGuard con il leader utilizzando "
 "la porta predefinita UDP 55820."
 
-#: ../../system_requirements.rst:100
+#: ../../system_requirements.rst:132
 msgid "Ensure the following requirements are met:"
 msgstr "Assicurarsi che i seguenti requisiti siano soddisfatti:"
 
-#: ../../system_requirements.rst:102
+#: ../../system_requirements.rst:134
 #, fuzzy
 msgid ""
 "The worker node must resolve the leader's FQDN to the correct routable "
@@ -18822,7 +18873,7 @@ msgstr ""
 "il nodo worker deve risolvere correttamente l'FQDN del nodo leader nel "
 "relativo indirizzo IP"
 
-#: ../../system_requirements.rst:105
+#: ../../system_requirements.rst:137
 #, fuzzy
 msgid ""
 "The HTTPS server (TCP port 443) at that address must handle the API "
@@ -18831,7 +18882,7 @@ msgstr ""
 "il server HTTPS (porta 443 TCP) a tale indirizzo deve gestire la "
 "richiesta API"
 
-#: ../../system_requirements.rst:108
+#: ../../system_requirements.rst:140
 msgid ""
 "The VPN UDP port (default 55820) must not be blocked by any network "
 "appliances."
@@ -18839,11 +18890,11 @@ msgstr ""
 "La porta UDP VPN (default 55820) non deve essere bloccata da eventuali "
 "elettrodomestici di rete."
 
-#: ../../system_requirements.rst:113
+#: ../../system_requirements.rst:145
 msgid "Web browser requirements"
 msgstr "Requisiti per il browser Web"
 
-#: ../../system_requirements.rst:115
+#: ../../system_requirements.rst:147
 msgid ""
 "To access the cluster administration web user interface, you need an up-"
 "to-date release of Firefox, Chrome, or Chromium browser as the web "
@@ -18931,11 +18982,11 @@ msgstr ""
 "Per installare un nuovo dominio utente con Samba Active Directory come "
 "provider locale:"
 
-#: ../../user_domains.rst:38 ../../user_domains.rst:114
+#: ../../user_domains.rst:38 ../../user_domains.rst:120
 msgid "access the ``Domains and users`` page"
 msgstr "accedere alla pagina ``Domini e utenti``"
 
-#: ../../user_domains.rst:39 ../../user_domains.rst:115
+#: ../../user_domains.rst:39 ../../user_domains.rst:121
 msgid "click on :guilabel:`Create domain` button and choose ``Internal``"
 msgstr "fare clic sul pulsante :guilabel:`Crea dominio` e scegliere ``Interno``"
 
@@ -18945,7 +18996,7 @@ msgstr ""
 "selezionare ``Samba`` nella finestra di dialogo e fare clic su "
 ":guilabel:`Installa provider`"
 
-#: ../../user_domains.rst:42 ../../user_domains.rst:118
+#: ../../user_domains.rst:42 ../../user_domains.rst:124
 msgid ""
 "Once the provider is installed, you will be asked to enter the following "
 "parameters:"
@@ -19103,15 +19154,21 @@ msgid ""
 "preferred DNS service (ISP or public DNS)."
 msgstr ""
 
-#: ../../user_domains.rst:110
+#: ../../user_domains.rst:109
+msgid ""
+"Do not configure Samba Active Directory as the NS8 node name resolver in "
+"``/etc/resolv.conf``. For more information, see :ref:`resolv-conf`."
+msgstr ""
+
+#: ../../user_domains.rst:116
 msgid "LDAP server RFC2307"
 msgstr "Server LDAP RFC2307"
 
-#: ../../user_domains.rst:112
+#: ../../user_domains.rst:118
 msgid "To install a new user domain with a local OpenLDAP as provider:"
 msgstr "Per installare un nuovo dominio utenti con un provider locale OpenLDAP:"
 
-#: ../../user_domains.rst:116
+#: ../../user_domains.rst:122
 msgid ""
 "select ``OpenLDAP`` on the dialog box and click :guilabel:`Install "
 "provider`"
@@ -19119,73 +19176,73 @@ msgstr ""
 "selezionare ``OpenLDAP`` nella finestra di dialogo e fare clic su "
 ":guilabel:`Installa provider`"
 
-#: ../../user_domains.rst:120
-#, fuzzy
-msgid ""
-"``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
-"the proposed value."
-msgstr ""
-"``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
-"the proposed value."
-
-#: ../../user_domains.rst:121
-#, fuzzy
-msgid ""
-"``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
-"credentials"
-msgstr ""
-"``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
-"credentials"
-
-#: ../../user_domains.rst:123
-#, fuzzy
-msgid ""
-"Finally, you will see a new user domain with one connected provider. You "
-"can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
-" a replica <provider_replica-section>`."
-msgstr ""
-"Finally, you will see a new user domain with one connected provider. You "
-"can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
-" a replica <provider_replica-section>`."
-
 #: ../../user_domains.rst:126
+#, fuzzy
+msgid ""
+"``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
+"the proposed value."
+msgstr ""
+"``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
+"the proposed value."
+
+#: ../../user_domains.rst:127
+#, fuzzy
+msgid ""
+"``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
+"credentials"
+msgstr ""
+"``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
+"credentials"
+
+#: ../../user_domains.rst:129
+#, fuzzy
+msgid ""
+"Finally, you will see a new user domain with one connected provider. You "
+"can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
+" a replica <provider_replica-section>`."
+msgstr ""
+"Finally, you will see a new user domain with one connected provider. You "
+"can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
+" a replica <provider_replica-section>`."
+
+#: ../../user_domains.rst:132
 #, fuzzy
 msgid "OpenLDAP provider is not currently accessible from outside the cluster."
 msgstr "OpenLDAP provider is not currently accessible from outside the cluster."
 
-#: ../../user_domains.rst:131
+#: ../../user_domains.rst:137
 #, fuzzy
 msgid "Provider replicas"
 msgstr "Provider replicas"
 
-#: ../../user_domains.rst:133
-#, fuzzy
-msgid ""
-"Provider replicas implement fault tolerance for user domains. To achieve "
-"real fault tolerance, replicas should be installed on different nodes."
-msgstr ""
-"Provider replicas implement fault tolerance for user domains. To achieve "
-"real fault tolerance, replicas should be installed on different nodes."
-
-#: ../../user_domains.rst:136
-#, fuzzy
-msgid ""
-"You can add a replica from the ``Domains and users`` page by selecting "
-"the ``Configuration`` link from the three-dots menu. Then click the "
-":guilabel:`Add provider` button, select the target node and proceed with "
-"the installation."
-msgstr ""
-"You can add a replica from the ``Domains and users`` page by selecting "
-"the ``Configuration`` link from the three-dots menu. Then click the "
-":guilabel:`Add provider` button, select the target node and proceed with "
-"the installation."
-
 #: ../../user_domains.rst:139
+#, fuzzy
+msgid ""
+"Provider replicas implement fault tolerance for user domains. To achieve "
+"real fault tolerance, replicas should be installed on different nodes."
+msgstr ""
+"Provider replicas implement fault tolerance for user domains. To achieve "
+"real fault tolerance, replicas should be installed on different nodes."
+
+#: ../../user_domains.rst:142
+#, fuzzy
+msgid ""
+"You can add a replica from the ``Domains and users`` page by selecting "
+"the ``Configuration`` link from the three-dots menu. Then click the "
+":guilabel:`Add provider` button, select the target node and proceed with "
+"the installation."
+msgstr ""
+"You can add a replica from the ``Domains and users`` page by selecting "
+"the ``Configuration`` link from the three-dots menu. Then click the "
+":guilabel:`Add provider` button, select the target node and proceed with "
+"the installation."
+
+#: ../../user_domains.rst:145
 #, fuzzy
 msgid "Replicas are configured in master-master mode."
 msgstr "Replicas are configured in master-master mode."
 
-#: ../../user_domains.rst:141
+#: ../../user_domains.rst:147
 #, fuzzy
 msgid ""
 "Active Directory provider does not replicate the SysVol volume. Therefore"
@@ -19196,12 +19253,12 @@ msgstr ""
 " Microsoft's Group Policy Object (GPO) will not be synchronized between "
 "replicas."
 
-#: ../../user_domains.rst:147
+#: ../../user_domains.rst:153
 #, fuzzy
 msgid "LDAP bind settings"
 msgstr "LDAP bind settings"
 
-#: ../../user_domains.rst:149
+#: ../../user_domains.rst:155
 #, fuzzy
 msgid ""
 "External applications can connect only to a local Active Directory "
@@ -19210,7 +19267,7 @@ msgstr ""
 "External applications can connect only to a local Active Directory "
 "provider."
 
-#: ../../user_domains.rst:151
+#: ../../user_domains.rst:157
 #, fuzzy
 msgid ""
 "Binding is the process where the LDAP server authenticates the client "
@@ -19221,7 +19278,7 @@ msgstr ""
 "and, if the client is successfully authenticated, the server allows "
 "client access."
 
-#: ../../user_domains.rst:154
+#: ../../user_domains.rst:160
 #, fuzzy
 msgid ""
 "Many applications may require to be bound to an existing NethServer 8 "
@@ -19234,27 +19291,27 @@ msgstr ""
 "``Configuration`` link from the three-dots menu: user domain details are "
 "displayed on the top of the page."
 
-#: ../../user_domains.rst:161
+#: ../../user_domains.rst:167
 #, fuzzy
 msgid "External LDAP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:163
+#: ../../user_domains.rst:169
 #, fuzzy
 msgid "You can connect the NethServer 8 cluster to an existing LDAP server."
 msgstr "You can connect the NethServer 8 cluster to an existing LDAP server:"
 
-#: ../../user_domains.rst:165
+#: ../../user_domains.rst:171
 #, fuzzy
 msgid "Access the ``Domains and users`` page."
 msgstr "accedere alla pagina ``Domini e utenti`"
 
-#: ../../user_domains.rst:167
+#: ../../user_domains.rst:173
 #, fuzzy
 msgid "Click on :guilabel:`Create domain` button and choose ``External``."
 msgstr "click on :guilabel:`Create domain` button and choose ``External``"
 
-#: ../../user_domains.rst:169
+#: ../../user_domains.rst:175
 #, fuzzy
 msgid ""
 "Fill all required fields. Bear in mind that apart from \"Host\" and "
@@ -19263,7 +19320,7 @@ msgstr ""
 "Fill all required fields. Bear in mind that apart from \"Host\" and "
 "\"Port\", the domain settings cannot be changed later:"
 
-#: ../../user_domains.rst:172
+#: ../../user_domains.rst:178
 #, fuzzy
 msgid ""
 "``Domain``: This should be in fully qualified domain name (FQDN) syntax, "
@@ -19276,14 +19333,14 @@ msgstr ""
 "example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain "
 "name would be \"example.org\"."
 
-#: ../../user_domains.rst:177
+#: ../../user_domains.rst:183
 #, fuzzy
 msgid "``Host``: Enter the IP address or hostname of the LDAP server."
 msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../user_domains.rst:179
+#: ../../user_domains.rst:185
 msgid ""
 "``Port``: Specify the TCP port number of the remote LDAP service. "
 "Standard values are 389 for LDAP and 636 for LDAPS. However, with Active "
@@ -19297,7 +19354,7 @@ msgstr ""
 "l'impostazione della porta LDAP 3268 o della porta LDAPS 3269. Questo "
 "perché non supportano i \"ferrali subordinati MONAP\"."
 
-#: ../../user_domains.rst:185
+#: ../../user_domains.rst:191
 #, fuzzy
 msgid ""
 "``Bind DN`` and ``Password``: Credentials required to access the remote "
@@ -19306,7 +19363,7 @@ msgstr ""
 "``Bind DN`` and ``Password``: Credentials required to access the remote "
 "LDAP server."
 
-#: ../../user_domains.rst:188
+#: ../../user_domains.rst:194
 #, fuzzy
 msgid ""
 "``Base DN``: Define the level of the LDAP hierarchy to use as the base "
@@ -19317,7 +19374,7 @@ msgstr ""
 "for user and group lookup. Leaving this field empty retrieves the correct"
 " value from the LDAP server itself."
 
-#: ../../user_domains.rst:192
+#: ../../user_domains.rst:198
 #, fuzzy
 msgid ""
 "``TLS``: Enable this switch to encrypt the connection with TLS. If the "
@@ -19325,80 +19382,80 @@ msgid ""
 msgstr ""
 "``TLS``: Enable this switch to encrypt the connection with TLS. If the "
 "server does not support TLS on the specified port, an error will occur."
-
-#: ../../user_domains.rst:196
-#, fuzzy
-msgid ""
-"``TLS verify``: Enable this switch to ensure that the LDAP server "
-"provides a valid TLS certificate signed by a trusted authority, with the "
-"certificate name matching the hostname specified in the \"Host\" field. "
-"Continue reading to fully understand the implications of this option."
-msgstr ""
-"``TLS verify``: Enable this switch to ensure that the LDAP server "
-"provides a valid TLS certificate signed by a trusted authority, with the "
-"certificate name matching the hostname specified in the \"Host\" field. "
-"Continue reading to fully understand the implications of this option."
 
 #: ../../user_domains.rst:202
+#, fuzzy
+msgid ""
+"``TLS verify``: Enable this switch to ensure that the LDAP server "
+"provides a valid TLS certificate signed by a trusted authority, with the "
+"certificate name matching the hostname specified in the \"Host\" field. "
+"Continue reading to fully understand the implications of this option."
+msgstr ""
+"``TLS verify``: Enable this switch to ensure that the LDAP server "
+"provides a valid TLS certificate signed by a trusted authority, with the "
+"certificate name matching the hostname specified in the \"Host\" field. "
+"Continue reading to fully understand the implications of this option."
+
+#: ../../user_domains.rst:208
 #, fuzzy
 msgid ""
 "Once all fields are filled, click on the :guilabel:`Configure domain` "
 "button."
 msgstr "click on :guilabel:`Configure domain` button"
 
-#: ../../user_domains.rst:209
+#: ../../user_domains.rst:215
 #, fuzzy
 msgid "Modify external LDAP settings"
 msgstr "Impostazioni generali"
 
-#: ../../user_domains.rst:211
+#: ../../user_domains.rst:217
 msgid ""
 "When a domain is configured for the first time, the LDAP server settings "
 "are saved in its first provider entry. Bind credentials and TLS settings "
 "can be modified at a later from the ``Domain Settings`` card."
 msgstr ""
 
-#: ../../user_domains.rst:215
-#, fuzzy
-msgid ""
-"If you choose not to verify TLS, you can configure additional hosts as "
-"backup providers. The first configured provider is considered the primary"
-" LDAP backend server. If a cluster node cannot reach it, it switches to "
-"another provider. It's crucial that all domain providers are accessible "
-"from any cluster node."
-msgstr ""
-"If you choose not to verify TLS, you can configure additional hosts as "
-"backup providers. The first configured provider is considered the primary"
-" LDAP backend server. If a cluster node cannot reach it, it switches to "
-"another provider. It's crucial that all domain providers are accessible "
-"from any cluster node."
-
 #: ../../user_domains.rst:221
 #, fuzzy
 msgid ""
-"Enabling \"TLS verify\" adds extra security but has limitations: only the"
-" first provider is considered. If it becomes unreachable, connection "
-"recovery is not possible."
+"If you choose not to verify TLS, you can configure additional hosts as "
+"backup providers. The first configured provider is considered the primary"
+" LDAP backend server. If a cluster node cannot reach it, it switches to "
+"another provider. It's crucial that all domain providers are accessible "
+"from any cluster node."
 msgstr ""
-"Enabling \"TLS verify\" adds extra security but has limitations: only the"
-" first provider is considered. If it becomes unreachable, connection "
-"recovery is not possible."
+"If you choose not to verify TLS, you can configure additional hosts as "
+"backup providers. The first configured provider is considered the primary"
+" LDAP backend server. If a cluster node cannot reach it, it switches to "
+"another provider. It's crucial that all domain providers are accessible "
+"from any cluster node."
 
 #: ../../user_domains.rst:227
 #, fuzzy
 msgid ""
+"Enabling \"TLS verify\" adds extra security but has limitations: only the"
+" first provider is considered. If it becomes unreachable, connection "
+"recovery is not possible."
+msgstr ""
+"Enabling \"TLS verify\" adds extra security but has limitations: only the"
+" first provider is considered. If it becomes unreachable, connection "
+"recovery is not possible."
+
+#: ../../user_domains.rst:233
+#, fuzzy
+msgid ""
 "Ensure each provider is accessible from all cluster nodes for seamless "
 "operation."
 msgstr ""
 "Ensure each provider is accessible from all cluster nodes for seamless "
 "operation."
 
-#: ../../user_domains.rst:233
+#: ../../user_domains.rst:239
 #, fuzzy
 msgid "Password policy"
 msgstr "Password policy"
 
-#: ../../user_domains.rst:235
+#: ../../user_domains.rst:241
 #, fuzzy
 msgid ""
 "The password policy is a set of rules that defines the password "
@@ -19413,17 +19470,17 @@ msgstr ""
 "interested domain and clicking :guilabel:`Edit password policy` from the "
 "three-dots menu of the ``Password`` card."
 
-#: ../../user_domains.rst:237
+#: ../../user_domains.rst:243
 #, fuzzy
 msgid "You can configure password age and password strength policy separately."
 msgstr "You can configure password age and password strength policy separately."
 
-#: ../../user_domains.rst:240
+#: ../../user_domains.rst:246
 #, fuzzy
 msgid "Password age"
 msgstr "Password age"
 
-#: ../../user_domains.rst:242
+#: ../../user_domains.rst:248
 #, fuzzy
 msgid ""
 "You can toggle password age policy by clicking on the ``Password age`` "
@@ -19432,7 +19489,7 @@ msgstr ""
 "You can toggle password age policy by clicking on the ``Password age`` "
 "switch. If enabled, you can configure the following parameters:"
 
-#: ../../user_domains.rst:244
+#: ../../user_domains.rst:250
 #, fuzzy
 msgid ""
 "``Minimum password age`` (default 0): the minimum number of days that "
@@ -19441,7 +19498,7 @@ msgstr ""
 "``Minimum password age``: the minimum number of days that must pass "
 "before a new password change."
 
-#: ../../user_domains.rst:245
+#: ../../user_domains.rst:251
 #, fuzzy
 msgid ""
 "``Maximum password age`` (default 180): password expiration time in days."
@@ -19454,77 +19511,77 @@ msgstr ""
 "Users can change their expired password with :ref:`user-management-"
 "portal-section`."
 
-#: ../../user_domains.rst:248
+#: ../../user_domains.rst:254
 #, fuzzy
 msgid "Password strength"
 msgstr "Password strength"
 
-#: ../../user_domains.rst:250
-#, fuzzy
-msgid ""
-"By enabling the ``Password strength`` switch, you can configure the "
-"following parameters:"
-msgstr ""
-"By enabling the ``Password strength`` switch, you can configure the "
-"following parameters:"
-
-#: ../../user_domains.rst:252
-#, fuzzy
-msgid ""
-"``Password history length``: the number of old passwords that cannot be "
-"reused."
-msgstr ""
-"``Password history length``: the number of old passwords that cannot be "
-"reused."
-
-#: ../../user_domains.rst:253
-#, fuzzy
-msgid ""
-"``Minimum password length``: the minimum number of characters that a "
-"password must have."
-msgstr ""
-"``Minimum password length``: the minimum number of characters that a "
-"password must have."
-
-#: ../../user_domains.rst:254
-#, fuzzy
-msgid ""
-"``Enforce password complexity``: enforce use of complex password, see "
-"note for more details."
-msgstr ""
-"``Enforce password complexity``: enforce use of complex password, see "
-"note for more details."
-
 #: ../../user_domains.rst:256
 #, fuzzy
 msgid ""
+"By enabling the ``Password strength`` switch, you can configure the "
+"following parameters:"
+msgstr ""
+"By enabling the ``Password strength`` switch, you can configure the "
+"following parameters:"
+
+#: ../../user_domains.rst:258
+#, fuzzy
+msgid ""
+"``Password history length``: the number of old passwords that cannot be "
+"reused."
+msgstr ""
+"``Password history length``: the number of old passwords that cannot be "
+"reused."
+
+#: ../../user_domains.rst:259
+#, fuzzy
+msgid ""
+"``Minimum password length``: the minimum number of characters that a "
+"password must have."
+msgstr ""
+"``Minimum password length``: the minimum number of characters that a "
+"password must have."
+
+#: ../../user_domains.rst:260
+#, fuzzy
+msgid ""
+"``Enforce password complexity``: enforce use of complex password, see "
+"note for more details."
+msgstr ""
+"``Enforce password complexity``: enforce use of complex password, see "
+"note for more details."
+
+#: ../../user_domains.rst:262
+#, fuzzy
+msgid ""
 "A password is considered complex if it is long enough and meets three of "
 "the following rules:"
 msgstr ""
 "A password is considered complex if it is long enough and meets three of "
 "the following rules:"
 
-#: ../../user_domains.rst:258
+#: ../../user_domains.rst:264
 #, fuzzy
 msgid "The password must contain at least one uppercase letter."
 msgstr "The password must contain at least one uppercase letter."
 
-#: ../../user_domains.rst:259
+#: ../../user_domains.rst:265
 #, fuzzy
 msgid "The password must contain at least one lowercase letter."
 msgstr "The password must contain at least one lowercase letter."
 
-#: ../../user_domains.rst:260
+#: ../../user_domains.rst:266
 #, fuzzy
 msgid "The password must contain at least one digit."
 msgstr "The password must contain at least one digit."
 
-#: ../../user_domains.rst:261
+#: ../../user_domains.rst:267
 #, fuzzy
 msgid "The password must contain at least one special character."
 msgstr "The password must contain at least one special character."
 
-#: ../../user_domains.rst:263
+#: ../../user_domains.rst:269
 #, fuzzy
 msgid ""
 "After editing the password policy, you can click on :guilabel:`Edit "
@@ -19537,61 +19594,61 @@ msgstr ""
 "not affect old passwords: they are valid from now on. Age setting changes"
 " are retroactive and are applied to already set passwords, too."
 
-#: ../../user_domains.rst:268
+#: ../../user_domains.rst:274
 msgid "Password expiration warning"
 msgstr ""
 
-#: ../../user_domains.rst:270
+#: ../../user_domains.rst:276
 msgid ""
 "The system can send email notifications to users when their password is "
 "about to expire."
 msgstr ""
 
-#: ../../user_domains.rst:273
+#: ../../user_domains.rst:279
 msgid ""
 "This feature is available **only for internal user domains** and can be "
 "enabled on each user domain."
 msgstr ""
 
-#: ../../user_domains.rst:275
+#: ../../user_domains.rst:281
 msgid "To enable this feature, ensure the following:"
 msgstr ""
 
-#: ../../user_domains.rst:277
+#: ../../user_domains.rst:283
 msgid "password aging must be enabled on the user domain"
 msgstr ""
 
-#: ../../user_domains.rst:278
+#: ../../user_domains.rst:284
 msgid ""
 "the cluster must be configured to send :ref:`mail notifications <email-"
 "notifications>`"
 msgstr ""
 
-#: ../../user_domains.rst:280
+#: ../../user_domains.rst:286
 msgid ""
 "The feature can be enabled from the configuration page of the user domain"
 " by clicking the :guilabel:`Edit password warning` button on the "
 "``Password`` card."
 msgstr ""
 
-#: ../../user_domains.rst:282
+#: ../../user_domains.rst:288
 msgid "After enabling the feature, fill the following fields:"
 msgstr ""
 
-#: ../../user_domains.rst:284
+#: ../../user_domains.rst:290
 msgid ""
 "``Days before expiration``: the number of days before the password "
 "expiration when the notification is sent. The notification is sent every "
 "day until the password expires"
 msgstr ""
 
-#: ../../user_domains.rst:286
+#: ../../user_domains.rst:292
 msgid ""
 "``Sender mail address``: the email address of the sender, make sure this "
 "is a valid email address to avoid issues with spam filters"
 msgstr ""
 
-#: ../../user_domains.rst:287
+#: ../../user_domains.rst:293
 msgid ""
 "``Mail template``: select the template to use for the notification email."
 " You can choose between the default templates or a custom one. Default "
@@ -19599,19 +19656,19 @@ msgid ""
 " see :ref:`password_warning_custom_template-section`."
 msgstr ""
 
-#: ../../user_domains.rst:291
+#: ../../user_domains.rst:297
 msgid ""
 "The notification email is sent to the user mail address which can be "
 "automatically discovered or manually set by an administrator, depending "
 "on the cluster configuration."
 msgstr ""
 
-#: ../../user_domains.rst:295
+#: ../../user_domains.rst:301
 #, fuzzy
 msgid "Internal SMTP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:297
+#: ../../user_domains.rst:303
 msgid ""
 "When a :ref:`internal mail server <mail-section>` instance is installed, "
 "and the cluster is configured to send mail notifications using it, the "
@@ -19619,13 +19676,13 @@ msgid ""
 "password expiration notification."
 msgstr ""
 
-#: ../../user_domains.rst:300
+#: ../../user_domains.rst:306
 msgid ""
 "The mail address can be overwritten by an administrator setting the "
 "``mail`` field inside the :ref:`user-management-portal-section`."
 msgstr ""
 
-#: ../../user_domains.rst:303
+#: ../../user_domains.rst:309
 msgid ""
 "If the cluster is configured to send mail notifications using an external"
 " SMTP server, the automatically discovered mail address is not valid "
@@ -19633,12 +19690,12 @@ msgid ""
 " you must explicitly set the mail address for the user."
 msgstr ""
 
-#: ../../user_domains.rst:308
+#: ../../user_domains.rst:314
 #, fuzzy
 msgid "External SMTP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:310
+#: ../../user_domains.rst:316
 msgid ""
 "When the cluster is configured to send mail notifications using an "
 "external SMTP server, the user mail address is not automatically "
@@ -19646,63 +19703,63 @@ msgid ""
 ":ref:`user-management-portal-section`."
 msgstr ""
 
-#: ../../user_domains.rst:313
+#: ../../user_domains.rst:319
 msgid ""
 "The mail address field is available for both OpenLDAP and Active "
 "Directory user domains."
 msgstr ""
 
-#: ../../user_domains.rst:318
+#: ../../user_domains.rst:324
 #, fuzzy
 msgid "Custom template"
 msgstr "template custom"
 
-#: ../../user_domains.rst:320
+#: ../../user_domains.rst:326
 msgid ""
 "After selecting a custom template inside the ``Mail template`` field, you"
 " can specify 2 more fields:"
 msgstr ""
 
-#: ../../user_domains.rst:322
+#: ../../user_domains.rst:328
 msgid "``Mail subject``: the subject of the notification email"
 msgstr ""
 
-#: ../../user_domains.rst:323
+#: ../../user_domains.rst:329
 msgid ""
 "``Mail template``: the body of the notification email in HTML or plain "
 "text"
 msgstr ""
 
-#: ../../user_domains.rst:325
+#: ../../user_domains.rst:331
 msgid "Both mail subject and mail body can include the following placeholder:"
 msgstr ""
 
-#: ../../user_domains.rst:327
+#: ../../user_domains.rst:333
 msgid "``$user``: the username"
 msgstr ""
 
-#: ../../user_domains.rst:328
+#: ../../user_domains.rst:334
 #, fuzzy
 msgid "``$name``: the full name of the user"
 msgstr "``Name``: the name of the shared folder"
 
-#: ../../user_domains.rst:329
+#: ../../user_domains.rst:335
 msgid "``$domain``: the user domain name"
 msgstr ""
 
-#: ../../user_domains.rst:330
+#: ../../user_domains.rst:336
 msgid "``$days``: the actual number of days before the password expiration"
 msgstr ""
 
-#: ../../user_domains.rst:331
+#: ../../user_domains.rst:337
 msgid "``$portal_url``: the URL of the user management portal"
 msgstr ""
 
-#: ../../user_domains.rst:333
+#: ../../user_domains.rst:339
 msgid "Example of a plain text custom template: ::"
 msgstr ""
 
-#: ../../user_domains.rst:339
+#: ../../user_domains.rst:345
 msgid ""
 "If you want to create an HTML template, you can start by copying a "
 "default one like ``/etc/nethserver/password_warning/default_en.tmpl``. "
@@ -19710,12 +19767,12 @@ msgid ""
 "needed."
 msgstr ""
 
-#: ../../user_domains.rst:345
+#: ../../user_domains.rst:351
 #, fuzzy
 msgid "User and groups"
 msgstr "User and groups"
 
-#: ../../user_domains.rst:347
+#: ../../user_domains.rst:353
 #, fuzzy
 msgid ""
 "You can manage users and groups of a domain by clicking on ``User and "
@@ -19723,50 +19780,50 @@ msgid ""
 msgstr ""
 "You can manage users and groups of a domain by clicking on ``User and "
 "groups`` link from the ``Domains and users`` page."
-
-#: ../../user_domains.rst:349
-#, fuzzy
-msgid ""
-"If an external user domain has been configured, the page shows read-only "
-"lists. Changes to the user base must be done on the external server."
-msgstr ""
-"If an external user domain has been configured, the page shows read-only "
-"lists. Changes to the user base must be done on the external server."
-
-#: ../../user_domains.rst:352
-#, fuzzy
-msgid ""
-"On the other hand, if a local AD or LDAP account provider has been "
-"installed, the page allows to create, modify and delete users and groups."
-msgstr ""
-"On the other hand, if a local AD or LDAP account provider has been "
-"installed, the page allows to create, modify and delete users and groups."
 
 #: ../../user_domains.rst:355
+#, fuzzy
+msgid ""
+"If an external user domain has been configured, the page shows read-only "
+"lists. Changes to the user base must be done on the external server."
+msgstr ""
+"If an external user domain has been configured, the page shows read-only "
+"lists. Changes to the user base must be done on the external server."
+
+#: ../../user_domains.rst:358
+#, fuzzy
+msgid ""
+"On the other hand, if a local AD or LDAP account provider has been "
+"installed, the page allows to create, modify and delete users and groups."
+msgstr ""
+"On the other hand, if a local AD or LDAP account provider has been "
+"installed, the page allows to create, modify and delete users and groups."
+
+#: ../../user_domains.rst:361
 #, fuzzy
 msgid "When creating a user, the following fields are mandatory:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:357 ../../user_domains.rst:405
+#: ../../user_domains.rst:363 ../../user_domains.rst:411
 #, fuzzy
 msgid "User name"
 msgstr "User name"
 
-#: ../../user_domains.rst:358 ../../user_domains.rst:406
+#: ../../user_domains.rst:364 ../../user_domains.rst:412
 #, fuzzy
 msgid "Full name (name and surname)"
 msgstr "Full name (name and surname)"
 
-#: ../../user_domains.rst:359 ../../user_domains.rst:407
+#: ../../user_domains.rst:365 ../../user_domains.rst:413
 #, fuzzy
 msgid "Password"
 msgstr "Password"
 
-#: ../../user_domains.rst:361
+#: ../../user_domains.rst:367
 msgid "Optional attributes are:"
 msgstr ""
 
-#: ../../user_domains.rst:363
+#: ../../user_domains.rst:369
 msgid ""
 "Email address -- Corresponds to the standard LDAP ``mail`` attribute. It "
 "can be set to the user's personal email address, where password "
@@ -19774,25 +19831,25 @@ msgid ""
 "valid login name."
 msgstr ""
 
-#: ../../user_domains.rst:367
+#: ../../user_domains.rst:373
 msgid ""
 "Password never expires (AD only) -- When enabled, the user's password "
 "remains valid indefinitely, bypassing the domain password age policy."
 msgstr ""
 
-#: ../../user_domains.rst:369
+#: ../../user_domains.rst:375
 msgid ""
 "Required password change / User has to change password at next login (AD "
 "only) -- When enabled, the user is prompted to change their password at "
 "the next login."
 msgstr ""
 
-#: ../../user_domains.rst:374
+#: ../../user_domains.rst:380
 #, fuzzy
 msgid "A user can be added to one or more groups."
 msgstr "A user can be added to one or more groups."
 
-#: ../../user_domains.rst:376
+#: ../../user_domains.rst:382
 #, fuzzy
 msgid ""
 "Sometimes you need to block user access to services without deleting the "
@@ -19801,27 +19858,27 @@ msgstr ""
 "Sometimes you need to block user access to services without deleting the "
 "account. The safest approach is:"
 
-#: ../../user_domains.rst:379
+#: ../../user_domains.rst:385
 #, fuzzy
 msgid "(optionally) change the user's password with a random one"
 msgstr "(optionally) change the user's password with a random one"
 
-#: ../../user_domains.rst:380
+#: ../../user_domains.rst:386
 #, fuzzy
 msgid "disable the user using the ``Disable`` action from the three-dots menu"
 msgstr "disable the user using the ``Disable`` action from the three-dots menu"
 
-#: ../../user_domains.rst:382
+#: ../../user_domains.rst:388
 #, fuzzy
 msgid "When a user is deleted, user data will not be removed."
 msgstr "When a user is deleted, user data will not be removed."
 
-#: ../../user_domains.rst:387
+#: ../../user_domains.rst:393
 #, fuzzy
 msgid "User Management portal"
 msgstr "User Management portal"
 
-#: ../../user_domains.rst:389
+#: ../../user_domains.rst:395
 #, fuzzy
 msgid ""
 "The user management portal is a web application that allows any non-"
@@ -19832,7 +19889,7 @@ msgstr ""
 "administrator user to change their own password without the need for "
 "administrator intervention."
 
-#: ../../user_domains.rst:393
+#: ../../user_domains.rst:399
 msgid ""
 "Members of the Domain Admins group can also manage users and groups in "
 "the domain, independently from the Cluster Admin UI."
@@ -19840,53 +19897,53 @@ msgstr ""
 "I membri del gruppo Domain Admins possono anche gestire utenti e gruppi "
 "nel dominio, indipendentemente dal Cluster Admin UI."
 
-#: ../../user_domains.rst:396
+#: ../../user_domains.rst:402
 #, fuzzy
 msgid "The possible administrative actions are:"
 msgstr "Le credenziali amministrative predefinite del sistema operativo sono"
 
-#: ../../user_domains.rst:398
+#: ../../user_domains.rst:404
 msgid "group creation/modification"
 msgstr ""
 
-#: ../../user_domains.rst:399
+#: ../../user_domains.rst:405
 #, fuzzy
 msgid "user creation/modification"
 msgstr "Browser notifications"
 
-#: ../../user_domains.rst:400
+#: ../../user_domains.rst:406
 msgid "user disabled/enabled"
 msgstr ""
 
-#: ../../user_domains.rst:401
+#: ../../user_domains.rst:407
 #, fuzzy
 msgid "user password change"
 msgstr "Password age"
 
-#: ../../user_domains.rst:403
+#: ../../user_domains.rst:409
 #, fuzzy
 msgid "When creating a user, the following fields are available:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:408
+#: ../../user_domains.rst:414
 msgid "Group (optional field)"
 msgstr ""
 
-#: ../../user_domains.rst:409
+#: ../../user_domains.rst:415
 msgid "Email address (optional field)"
 msgstr ""
 
-#: ../../user_domains.rst:410
+#: ../../user_domains.rst:416
 msgid "Password never expires (optional field, AD only)"
 msgstr ""
 
-#: ../../user_domains.rst:411
+#: ../../user_domains.rst:417
 msgid ""
 "Required password change / User has to change password at next login "
 "(optional field, AD only)"
 msgstr ""
 
-#: ../../user_domains.rst:413
+#: ../../user_domains.rst:419
 #, fuzzy
 msgid ""
 "The portal is automatically configured on every instance of :ref"
@@ -19895,39 +19952,34 @@ msgstr ""
 "The portal is automatically configured on every instance of :ref"
 ":`active_directory-section` or :ref:`openldap-section` provider."
 
-#: ../../user_domains.rst:415
+#: ../../user_domains.rst:421
 #, fuzzy
 msgid "The portal is available at the following URL: ::"
 msgstr "The portal is available at the following URL: ::"
 
-#: ../../user_domains.rst:419
-#, fuzzy
-msgid ""
-"Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
-"``<domain_name>`` is the name of the domain provided while configuring "
-"the domain."
-msgstr ""
-"Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
-"``<domain_name>`` is the name of the domain provided while configuring "
-"the domain."
-
-#: ../../user_domains.rst:421
-#, fuzzy
-msgid "Without the trailing slash, the portal will not work."
-msgstr "Without the trailing slash, the portal will not work."
-
-#: ../../user_domains.rst:423
-#, fuzzy
-msgid ""
-"Once reached the page, the user is prompted for login and they can "
-"authenticate to the domain with user name and password."
-msgstr ""
-"Once reached the page, the user is prompted for login and they can "
-"authenticate to the domain with user name and password."
-
 #: ../../user_domains.rst:425
 #, fuzzy
 msgid ""
+"Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
+"``<domain_name>`` is the name of the domain provided while configuring "
+"the domain."
+msgstr ""
+"Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
+"``<domain_name>`` is the name of the domain provided while configuring "
+"the domain."
+
+#: ../../user_domains.rst:427
+#, fuzzy
+msgid ""
+"Once reached the page, the user is prompted for login and they can "
+"authenticate to the domain with user name and password."
+msgstr ""
+"Once reached the page, the user is prompted for login and they can "
+"authenticate to the domain with user name and password."
+
+#: ../../user_domains.rst:429
+#, fuzzy
+msgid ""
 "If the login is successful, the user is directed to the ``User "
 "Management`` page, where they can proceed to change the password. The "
 "password must comply with the domain password policy during this process."
@@ -19940,7 +19992,7 @@ msgstr ""
 " The list of applications where the new password is effective is "
 "displayed next to the password changing form."
 
-#: ../../user_domains.rst:431
+#: ../../user_domains.rst:435
 msgid ""
 "https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
 "directory-best-practices-for-internal-domain-and-network-"
@@ -19950,7 +20002,7 @@ msgstr ""
 "directory-best-practices-for-internal-domain-and-network-"
 "names.aspx#Recommendation"
 
-#: ../../user_domains.rst:433
+#: ../../user_domains.rst:437
 msgid ""
 "https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-"
 "directory"
@@ -26065,4 +26117,13 @@ msgstr ""
 #~ "encrypt-requirements>` to investigate the "
 #~ "cause."
 #~ msgstr ""
+
+#~ msgid "It can be installed through the :ref:`software_center-section`."
+#~ msgstr ""
+#~ "È possibile installare solo un NethVoice"
+#~ " Proxy per nodo dal :ref"
+#~ ":`software_center-section`."
+
+#~ msgid "Without the trailing slash, the portal will not work."
+#~ msgstr "Without the trailing slash, the portal will not work."
 
