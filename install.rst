@@ -3,18 +3,15 @@
 ============
 Installation
 ============
+.. note::
 
+  Please ensure that the :ref:`System requirements <system-requirements-section>` are met before installation.
 
 Installation methods
 ====================
 
 You can install NethServer 8 :ref:`on a supported distribution <install_linux-section>` or use one of :ref:`pre-built images <install_image-section>`.
 Both methods require a working Internet connection.
-
-.. note::
-
-  As NethServer 8 uses Podman application containers, it does not run in an LXC.
-  Please see the `Proxmox Wiki <https://pve.proxmox.com/wiki/Linux_Container>`_ for more information.
 
 .. _install_linux-section:
 
