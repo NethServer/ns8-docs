@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 13:32+0000\n"
+"POT-Creation-Date: 2025-10-20 08:42+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -4246,11 +4246,17 @@ msgstr "`Community <http://community.nethserver.org>`_ di supporto"
 msgid ":ref:`Subscription plans <subscription-section>`"
 msgstr ":ref:`Piani di abbonamento <subscription-section>`"
 
-#: ../../install.rst:9
+#: ../../install.rst:8
+msgid ""
+"Please ensure that the :ref:`System requirements <system-requirements-"
+"section>` are met before installation."
+msgstr ""
+
+#: ../../install.rst:11
 msgid "Installation methods"
 msgstr "Metodi di installazione"
 
-#: ../../install.rst:11
+#: ../../install.rst:13
 msgid ""
 "You can install NethServer 8 :ref:`on a supported distribution "
 "<install_linux-section>` or use one of :ref:`pre-built images "
@@ -4262,11 +4268,11 @@ msgstr ""
 " pre-built<install_image-section>` già pronte. Entrambi i metodi "
 "richiedono una connessione Internet funzionante."
 
-#: ../../install.rst:17
+#: ../../install.rst:19
 msgid "Install on a supported distribution"
 msgstr "Installazione su distribuzione supportata"
 
-#: ../../install.rst:19
+#: ../../install.rst:21
 msgid ""
 "Pick your preferred Linux distribution between :ref:`supported ones "
 "<supported-distros-section>`."
@@ -4274,21 +4280,21 @@ msgstr ""
 "Scegliere la distribuzione Linux preferita tra :ref:`quelle supportate "
 "<supported-distros-section>`."
 
-#: ../../install.rst:22
+#: ../../install.rst:24
 msgid "Start the installation procedure as ``root``: ::"
 msgstr "Avviare la procedura di installazione come ``root``: ::"
 
-#: ../../install.rst:26
+#: ../../install.rst:28
 msgid "If the ``curl`` command is not available try to install it with: ::"
 msgstr ""
 "Se il comando ``curl`` non fosse disponibile, sarà possibile installarlo "
 "con il comando: ::"
 
-#: ../../install.rst:33
+#: ../../install.rst:35
 msgid "Pre-built image"
 msgstr "Immagine pre-built"
 
-#: ../../install.rst:38
+#: ../../install.rst:40
 msgid ""
 "NethServer 8 provides an image built upon the stable foundation Rocky "
 "Linux 9, making it suitable for a wide range of server applications."
@@ -4296,7 +4302,7 @@ msgstr ""
 "NethServer 8 fornisce un'immagine costruita su base stabile Rocky Linux "
 "9, cosa che lo rende adatto per una vasta gamma di applicazioni server."
 
-#: ../../install.rst:41
+#: ../../install.rst:43
 msgid ""
 "The pre-built image uses Cloud-init for network initialization. The "
 "default method to obtain network configuration is the DHCP protocol. "
@@ -4308,7 +4314,7 @@ msgstr ""
 "protocollo DHCP. Fare riferimento alla documentazione della piattaforma "
 "di virtualizzazione per ulteriori informazioni sul supporto Cloud-init."
 
-#: ../../install.rst:46
+#: ../../install.rst:48
 msgid "NS8 image download links"
 msgstr "Link per il download delle immagini NS8"
 
@@ -4360,7 +4366,7 @@ msgstr "3.0 |nbsp| GB"
 msgid "https://tinyurl.com/ns8-rocky-vmdk"
 msgstr ""
 
-#: ../../install.rst:52
+#: ../../install.rst:54
 msgid ""
 "Choose the ``qcow2`` image format if you are using a KVM-based "
 "virtualization platform, like `Proxmox <https://www.proxmox.com/>`_, or "
@@ -4372,7 +4378,7 @@ msgstr ""
 "<https://www.proxmox.com/>`_, o il formato ``vmdk`` se si utilizza "
 "`VMware <https://www.vmware.com>`_."
 
-#: ../../install.rst:56
+#: ../../install.rst:58
 msgid ""
 "When the image download has completed verify the file integrity with the "
 "`sha256 checksum file "
@@ -4384,11 +4390,11 @@ msgstr ""
 "<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_. Scaricare il "
 "checksum ed eseguire, per esempio, il seguente comando: ::"
 
-#: ../../install.rst:63
+#: ../../install.rst:65
 msgid "Virtualization platform-specific notes:"
 msgstr "Note specifiche per piattaforma di virtualizzazione:"
 
-#: ../../install.rst:65
+#: ../../install.rst:67
 msgid ""
 "For VMWare, configure the virtual machine to use the IDE driver for the "
 "disk."
@@ -4396,14 +4402,14 @@ msgstr ""
 "Per VMWare, configurare la macchina virtuale per utilizzare il driver IDE"
 " per il disco."
 
-#: ../../install.rst:66
+#: ../../install.rst:68
 msgid ""
 "On Proxmox, for maximum performance, select ``host`` as the CPU type. "
 "Avoid \"kvm64\", because Rocky Linux image does not support it.  Refer to"
 " `Proxmox documentation`_ for further details about CPU selection."
 msgstr ""
 
-#: ../../install.rst:71
+#: ../../install.rst:73
 msgid ""
 "Finally, start the NS8 image within your virtualization platform, or "
 "upload it to a cloud provider to create a public virtual machine."
@@ -4412,19 +4418,19 @@ msgstr ""
 "virtualizzazione, o caricarla su un provider cloud per creare una "
 "macchina virtuale pubblica."
 
-#: ../../install.rst:74
+#: ../../install.rst:76
 msgid "Default OS administrative credentials are"
 msgstr "Le credenziali amministrative predefinite del sistema operativo sono"
 
-#: ../../install.rst:76
+#: ../../install.rst:78
 msgid "Username: ``root``"
 msgstr "Nome utente: ``root``"
 
-#: ../../install.rst:77 ../../install.rst:117
+#: ../../install.rst:79 ../../install.rst:119
 msgid "Password: ``Nethesis,1234``"
 msgstr "Password: ``Nethesis,1234``"
 
-#: ../../install.rst:79
+#: ../../install.rst:81
 msgid ""
 "Access the system console and log in using the default credentials. Upon "
 "the first login, you will be prompted to change the password."
@@ -4432,7 +4438,7 @@ msgstr ""
 "Accedere alla console di sistema utilizzando le credenziali di default. "
 "Al primo login, verrà richiesto di cambiare la password."
 
-#: ../../install.rst:82
+#: ../../install.rst:84
 msgid ""
 "To obtain administrative SSH access to the system, create a personal user"
 " account in the ``wheel`` group and set a password. For instance, execute"
@@ -4443,7 +4449,7 @@ msgstr ""
 "esempio, eseguire i seguenti comandi e inserire la password desiderata: "
 "::"
 
-#: ../../install.rst:89
+#: ../../install.rst:91
 msgid ""
 "After logging in with the personal user account, gain root access by "
 "executing: ::"
@@ -4451,7 +4457,7 @@ msgstr ""
 "Dopo l'accesso con l'account utente personale, ottenere l'accesso root "
 "eseguendo: ::"
 
-#: ../../install.rst:96
+#: ../../install.rst:98
 msgid ""
 "If DHCP was used to obtain the initial network configuration, change the "
 "Rocky Linux network settings and configure a static IP address. For more "
@@ -4462,11 +4468,11 @@ msgstr ""
 " indirizzo IP statico. Per ulteriori informazioni si rimanda a :ref:`os-"
 "network-section`."
 
-#: ../../install.rst:103
+#: ../../install.rst:105
 msgid "Post-installation steps"
 msgstr "Passi post-installazione"
 
-#: ../../install.rst:105
+#: ../../install.rst:107
 #, fuzzy
 msgid ""
 "When the installation script completes or the pre-built image has "
@@ -4476,23 +4482,23 @@ msgstr ""
 "inizializzata, accedere all'interfaccia utente Web tramite il seguente "
 "URL::"
 
-#: ../../install.rst:112
+#: ../../install.rst:114
 #, fuzzy
 msgid "If the node is unreachable, refer to :ref:`os-network-section`."
 msgstr ""
 "Se il nodo fosse irraggiungibile, fare riferimento a :ref:`os-network-"
 "section`"
 
-#: ../../install.rst:114
+#: ../../install.rst:116
 #, fuzzy
 msgid "The default credentials for logging in to the cluster-admin interface are:"
 msgstr "Le credenziali di default per accedere a cluster-admin sono"
 
-#: ../../install.rst:116 ../../odoo.rst:55
+#: ../../install.rst:118 ../../odoo.rst:55
 msgid "Username: ``admin``"
 msgstr "Nome utente: ``admin``"
 
-#: ../../install.rst:119
+#: ../../install.rst:121
 msgid ""
 "Choose :guilabel:`Create cluster` and follow the procedure to set up a "
 "new single-node cluster. Alternatively, you can join the node to an "
@@ -4505,7 +4511,7 @@ msgstr ""
 "ripristinare un backup di cluster come dettagliato in :ref"
 ":`disaster_recovery-section`."
 
-#: ../../install.rst:124
+#: ../../install.rst:126
 #, fuzzy
 msgid ""
 "For security reasons, change the admin password immediately if it is "
@@ -4514,7 +4520,7 @@ msgstr ""
 "Per motivi di sicurezza, la password dell'amministratore deve essere "
 "cambiata al primo accesso, se è ancora al valore predefinito."
 
-#: ../../install.rst:127
+#: ../../install.rst:129
 #, fuzzy
 msgid ""
 "Ensure the node's Fully Qualified Domain Name (FQDN) is correct and meets"
@@ -4523,7 +4529,7 @@ msgstr ""
 "Assicurarsi che il Fully Qualified Domain Name (FQDN) del nodo sia "
 "corretto e rispetti i :ref:`requisiti DNS <dns-reqs>`."
 
-#: ../../install.rst:130
+#: ../../install.rst:132
 #, fuzzy
 msgid ""
 "Even if running on a single node, the system will set up a Virtual "
@@ -4542,14 +4548,14 @@ msgstr ""
 " l'ambiente di rete esistente, perché non potrà essere modificata una "
 "volta impostata."
 
-#: ../../install.rst:137
+#: ../../install.rst:139
 #, fuzzy
 msgid ""
 "Finally, click the :guilabel:`Create cluster` button. Your NS8 is now "
 "ready."
 msgstr "Infine, cliccare sul pulsante :guilabel:`Crea cluster`. NS8 è pronto."
 
-#: ../../install.rst:140
+#: ../../install.rst:142
 #, fuzzy
 msgid ""
 "By default, the new cluster is named ``NethServer 8``. If you wish to "
@@ -4558,26 +4564,26 @@ msgstr ""
 "Un nuovo cluster ha l'etichetta ``NethServer 8`` assegnata di default. Se"
 " si desidera cambiarla:"
 
-#: ../../install.rst:143
+#: ../../install.rst:145
 #, fuzzy
 msgid "Go to the ``Settings`` page and click on the ``Cluster`` card."
 msgstr "recarsi alla pagina ``Impostazioni`` e cliccare sulla scheda ``Cluster``"
 
-#: ../../install.rst:144
+#: ../../install.rst:146
 #, fuzzy
 msgid "Enter a new name in the ``Cluster label`` field."
 msgstr "inserire un nome all'interno del campo ``Etichetta cluster``"
 
-#: ../../install.rst:145
+#: ../../install.rst:147
 #, fuzzy
 msgid "Click the :guilabel:`Save settings` button."
 msgstr "cliccare sul pulsante :guilabel:`Salva impostazioni`"
 
-#: ../../install.rst:147
+#: ../../install.rst:149
 msgid "Not sure where to go from here? You can:"
 msgstr "Non sei sicuro di dove andare da qui? Potete:"
 
-#: ../../install.rst:149
+#: ../../install.rst:151
 msgid ""
 "Install an :ref:`LDAP <openldap-section>` or :ref:`Active Directory "
 "<active_directory-section>` user domain."
@@ -4585,33 +4591,33 @@ msgstr ""
 "Installare un dominio utente :ref:`LDAP <openldap-section>` o "
 ":ref:`Active Directory <active_directory-section>`."
 
-#: ../../install.rst:151
+#: ../../install.rst:153
 msgid "Read an introduction about :ref:`NS8 applications <modules-section>`."
 msgstr "Leggi un'introduzione su :ref:`NS8 applications <modules-section>`."
 
-#: ../../install.rst:152
+#: ../../install.rst:154
 #, fuzzy
 msgid "Take a look at :ref:`system logs <loki-section>`."
 msgstr ":ref:`Loki log server <loki-section>`"
 
-#: ../../install.rst:153
+#: ../../install.rst:155
 #, fuzzy
 msgid "Add :ref:`new nodes <cluster-section>`."
 msgstr ":ref:`core updates <core_updates-section>`"
 
-#: ../../install.rst:154
+#: ../../install.rst:156
 msgid "Set up a :ref:`metric dashboard <metrics-section>`."
 msgstr "Impostare un :ref:`metric dashboard <metrics-section>`."
 
-#: ../../install.rst:157
+#: ../../install.rst:159
 msgid "Uninstall"
 msgstr "Rimozione"
 
-#: ../../install.rst:159
+#: ../../install.rst:161
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr "È possibile disinstallare NS8 dalla distribuzione Linux usata come base."
 
-#: ../../install.rst:161
+#: ../../install.rst:163
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
@@ -4621,7 +4627,7 @@ msgstr ""
 "moduli aggiuntivi. L'attività va studiata con cura perché rimuove tutto "
 "ciò che si trova nelle directory ``/home`` e ``/var/lib/nethserver``."
 
-#: ../../install.rst:164
+#: ../../install.rst:166
 msgid "To uninstall NS8, execute: ::"
 msgstr "Per disinstallare NS8, eseguire: ::"
 
@@ -18615,28 +18621,28 @@ msgstr "Requisiti di sistema"
 #: ../../system_requirements.rst:7
 msgid ""
 "NethServer 8 (NS8) can be deployed on a single node or across multiple "
-"nodes. In both cases it is called \"cluster\"."
+"nodes. In both cases it is called \"cluster\". A node can be either a "
+"physical or virtual machine. Deployment on container-based virtualization"
+" solutions, such as Proxmox LXC, is not supported."
 msgstr ""
-"NethServer 8 (NS8) può essere installato su un nodo singolo o su più "
-"nodi. In entrambi i casi prende il nome di \"cluster\"."
 
-#: ../../system_requirements.rst:10
+#: ../../system_requirements.rst:12
 msgid "Minimum hardware requirements for a single node installation:"
 msgstr "Requisiti hardware minimi per un'installazione su singolo nodo:"
 
-#: ../../system_requirements.rst:12
+#: ../../system_requirements.rst:14
 msgid "2 vCPU/cores, x86-64 architecture"
 msgstr "2 vCPU/core, architettura x86-64"
 
-#: ../../system_requirements.rst:13
+#: ../../system_requirements.rst:15
 msgid "2GB RAM"
 msgstr "2GB RAM"
 
-#: ../../system_requirements.rst:14
+#: ../../system_requirements.rst:16
 msgid "40GB Solid-state drive"
 msgstr "40GB Solid-state drive"
 
-#: ../../system_requirements.rst:16
+#: ../../system_requirements.rst:18
 msgid ""
 "More nodes can be added later, and when adding a new node, it is "
 "recommended to use similar hardware and the same Linux distribution "
@@ -18646,7 +18652,7 @@ msgstr ""
 "un nuovo nodo, si consiglia di utilizzare hardware simile e la stessa "
 "distribuzione Linux installata sugli altri nodi."
 
-#: ../../system_requirements.rst:20
+#: ../../system_requirements.rst:22
 msgid ""
 "The above requirements must be increased to match users, applications, "
 "and load needs."
@@ -18654,11 +18660,11 @@ msgstr ""
 "I requisiti di cui sopra devono essere aumentati per soddisfare le "
 "esigenze di carico legate al numero di utenti e applicazioni installati."
 
-#: ../../system_requirements.rst:26
+#: ../../system_requirements.rst:28
 msgid "Linux distribution"
 msgstr "Distribuzione Linux"
 
-#: ../../system_requirements.rst:28
+#: ../../system_requirements.rst:30
 msgid ""
 "Install NS8 on a clean Linux server distribution, avoiding installation "
 "on desktop systems or servers already running other services."
@@ -18666,7 +18672,7 @@ msgstr ""
 "È necessario installare NS8 su una distribuzione di server Linux pulita, "
 "evitando sistemi desktop o server con altri servizi già in esecuzione."
 
-#: ../../system_requirements.rst:31
+#: ../../system_requirements.rst:33
 msgid ""
 "Linux distributions and versions with Nethesis :ref:`Subscription "
 "<subscription-section>` (including \"Enterprise\" plan) support:"
@@ -18674,31 +18680,31 @@ msgstr ""
 "Distribuzioni e versioni Linux con Nethesis :ref:`Subscription "
 "<subscription-section>` (compreso il piano \"Enterprise\") supporto:"
 
-#: ../../system_requirements.rst:34 ../../system_requirements.rst:38
+#: ../../system_requirements.rst:36 ../../system_requirements.rst:40
 msgid "`Rocky Linux <https://rockylinux.org/>`_ 9"
 msgstr "`Rocky Linux <https://rockylinux.org/>`_ 9"
 
-#: ../../system_requirements.rst:36
+#: ../../system_requirements.rst:38
 msgid "Linux distributions and versions with NethServer's community support:"
 msgstr "Distribuzioni e versioni Linux con il supporto comunitario di NethServer:"
 
-#: ../../system_requirements.rst:39
+#: ../../system_requirements.rst:41
 msgid "`CentOS Stream <https://www.centos.org/centos-stream/>`_ 9"
 msgstr "`CentOS Stream <https://www.centos.org/centos-stream/>`_ 9"
 
-#: ../../system_requirements.rst:40
+#: ../../system_requirements.rst:42
 msgid "`AlmaLinux <https://almalinux.org>`_ 9"
 msgstr "`AlmaLinux <https://almalinux.org>`_ 9"
 
-#: ../../system_requirements.rst:41
+#: ../../system_requirements.rst:43
 msgid "`Debian <https://www.debian.org/>`_ 12"
 msgstr "`Debian <https://www.debian.org/>`_ 12"
 
-#: ../../system_requirements.rst:47
+#: ../../system_requirements.rst:49
 msgid "Static IP address"
 msgstr "Indirizzo IP statico"
 
-#: ../../system_requirements.rst:49
+#: ../../system_requirements.rst:51
 #, fuzzy
 msgid ""
 "A working internet connection is necessary for the installation, "
@@ -18710,7 +18716,7 @@ msgstr ""
 " anche per l'attivazione di una :ref:`subscription <subscription-"
 "section>`."
 
-#: ../../system_requirements.rst:53
+#: ../../system_requirements.rst:55
 #, fuzzy
 msgid ""
 "Assign a static IP address to the node. DHCP and any other dynamic IP "
@@ -18719,12 +18725,12 @@ msgstr ""
 "Utilizzare per il sistema un indirizzo IP statico. DHCP e altri "
 "protocolli di discovery di IP dinamici non sono ammessi."
 
-#: ../../system_requirements.rst:59
+#: ../../system_requirements.rst:61
 #, fuzzy
 msgid "Name resolution"
 msgstr "Introduzione"
 
-#: ../../system_requirements.rst:61
+#: ../../system_requirements.rst:63
 msgid ""
 "The node name resolver must be configured to use DNS servers that are not"
 " provided by NS8 itself. This is required because the "
@@ -18733,7 +18739,7 @@ msgid ""
 "service."
 msgstr ""
 
-#: ../../system_requirements.rst:66
+#: ../../system_requirements.rst:68
 msgid ""
 "The ``/etc/resolv.conf`` file should contain one or more ``nameserver`` "
 "lines specifying the IP addresses of DNS servers available to the node. "
@@ -18743,37 +18749,37 @@ msgid ""
 "provided by those tools."
 msgstr ""
 
-#: ../../system_requirements.rst:73
+#: ../../system_requirements.rst:75
 #, fuzzy
 msgid "Avoid the following configurations:"
 msgstr "Correggere la configurazione del firewall ::"
 
-#: ../../system_requirements.rst:75
+#: ../../system_requirements.rst:77
 msgid ""
 "Do not use ``nameserver 127.0.0.1`` or any IP address assigned to the "
 "node itself. If the Linux distribution has installed a local DNS resolver"
 " service, refer to its documentation to disable or remove it."
 msgstr ""
 
-#: ../../system_requirements.rst:79
+#: ../../system_requirements.rst:81
 msgid ""
 "Do not use any NS8 application providing DNS service as the node name "
 "resolver, such as Samba Active Directory or DNSMasq. This can cause name "
 "resolution loops or prevent node updates."
 msgstr ""
 
-#: ../../system_requirements.rst:83
+#: ../../system_requirements.rst:85
 msgid ""
 "Do not mix DNS servers from different network scopes, for example, "
 "``1.1.1.1`` (public, Cloudflare) and ``192.168.1.1`` (private). Doing so "
 "can lead to inconsistent DNS query results."
 msgstr ""
 
-#: ../../system_requirements.rst:91
+#: ../../system_requirements.rst:93
 msgid "DNS configuration"
 msgstr "Configurazione DNS"
 
-#: ../../system_requirements.rst:93
+#: ../../system_requirements.rst:95
 #, fuzzy
 msgid ""
 "To ensure network clients can connect to the node, its fully qualified "
@@ -18788,7 +18794,7 @@ msgstr ""
 "DNS utilizzando record di tipo A per gli indirizzi IPv4 e di tipo AAAA "
 "per gli indirizzi IPv6."
 
-#: ../../system_requirements.rst:98
+#: ../../system_requirements.rst:100
 #, fuzzy
 msgid ""
 "A correct FQDN and DNS setup is essential for TLS encryption to function "
@@ -18800,11 +18806,11 @@ msgstr ""
 "server, i client di rete controllano se il certificato TLS è valido per "
 "l'FQDN utilizzato."
 
-#: ../../system_requirements.rst:102
+#: ../../system_requirements.rst:104
 msgid "To meet these requirements, follow these steps:"
 msgstr "Per soddisfare questi requisiti, seguire questi passaggi:"
 
-#: ../../system_requirements.rst:104
+#: ../../system_requirements.rst:106
 #, fuzzy
 msgid ""
 "**Determine your DNS provider**: Based on your node's purpose, DNS can be"
@@ -18816,7 +18822,7 @@ msgstr ""
 "servizio internet pubblico, da un appliance di rete privato, o da "
 "entrambi. Leggere attentamente la relativa documentazione."
 
-#: ../../system_requirements.rst:109
+#: ../../system_requirements.rst:111
 #, fuzzy
 msgid ""
 "**Register the FQDN**: Choose the FQDN for your node and register it in "
@@ -18831,11 +18837,11 @@ msgstr ""
 "nome host è ``jupiter`` e il suffisso di dominio ``example.org`` l'FQDN "
 "risultante è ``jupiter.example.org``."
 
-#: ../../system_requirements.rst:119
+#: ../../system_requirements.rst:121
 msgid "Worker node requirements"
 msgstr "Requisiti del nodo worker"
 
-#: ../../system_requirements.rst:121
+#: ../../system_requirements.rst:123
 #, fuzzy
 msgid ""
 "A worker node has specific requirements for installation and "
@@ -18844,7 +18850,7 @@ msgstr ""
 "Tra i client di rete, un nodo worker ha alcuni requisiti speciali che "
 "devono essere soddisfatti."
 
-#: ../../system_requirements.rst:124
+#: ../../system_requirements.rst:126
 msgid ""
 "During the join procedure, the worker node connects to the leader at the "
 "following URL: ::"
@@ -18852,7 +18858,7 @@ msgstr ""
 "Durante la procedura di adesione, il nodo del lavoratore si collega al "
 "leader al seguente URL::"
 
-#: ../../system_requirements.rst:129
+#: ../../system_requirements.rst:131
 msgid ""
 "It also establishes a WireGuard VPN connection with the leader using the "
 "default UDP port 55820."
@@ -18860,11 +18866,11 @@ msgstr ""
 "Stabilisce anche una connessione VPN WireGuard con il leader utilizzando "
 "la porta predefinita UDP 55820."
 
-#: ../../system_requirements.rst:132
+#: ../../system_requirements.rst:134
 msgid "Ensure the following requirements are met:"
 msgstr "Assicurarsi che i seguenti requisiti siano soddisfatti:"
 
-#: ../../system_requirements.rst:134
+#: ../../system_requirements.rst:136
 #, fuzzy
 msgid ""
 "The worker node must resolve the leader's FQDN to the correct routable "
@@ -18873,7 +18879,7 @@ msgstr ""
 "il nodo worker deve risolvere correttamente l'FQDN del nodo leader nel "
 "relativo indirizzo IP"
 
-#: ../../system_requirements.rst:137
+#: ../../system_requirements.rst:139
 #, fuzzy
 msgid ""
 "The HTTPS server (TCP port 443) at that address must handle the API "
@@ -18882,7 +18888,7 @@ msgstr ""
 "il server HTTPS (porta 443 TCP) a tale indirizzo deve gestire la "
 "richiesta API"
 
-#: ../../system_requirements.rst:140
+#: ../../system_requirements.rst:142
 msgid ""
 "The VPN UDP port (default 55820) must not be blocked by any network "
 "appliances."
@@ -18890,11 +18896,11 @@ msgstr ""
 "La porta UDP VPN (default 55820) non deve essere bloccata da eventuali "
 "elettrodomestici di rete."
 
-#: ../../system_requirements.rst:145
+#: ../../system_requirements.rst:147
 msgid "Web browser requirements"
 msgstr "Requisiti per il browser Web"
 
-#: ../../system_requirements.rst:147
+#: ../../system_requirements.rst:149
 msgid ""
 "To access the cluster administration web user interface, you need an up-"
 "to-date release of Firefox, Chrome, or Chromium browser as the web "
@@ -26126,4 +26132,15 @@ msgstr ""
 
 #~ msgid "Without the trailing slash, the portal will not work."
 #~ msgstr "Without the trailing slash, the portal will not work."
+
+#~ msgid ""
+#~ "NethServer 8 (NS8) can be deployed "
+#~ "on a single node or across "
+#~ "multiple nodes. In both cases it "
+#~ "is called \"cluster\"."
+#~ msgstr ""
+#~ "NethServer 8 (NS8) può essere installato"
+#~ " su un nodo singolo o su più"
+#~ " nodi. In entrambi i casi prende "
+#~ "il nome di \"cluster\"."
 
