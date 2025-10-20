@@ -5,7 +5,9 @@ System requirements
 ===================
 
 NethServer 8 (NS8) can be deployed on a single node or across multiple
-nodes. In both cases it is called "cluster".
+nodes. In both cases it is called "cluster". A node can be either a physical 
+or virtual machine. Deployment on container-based virtualization solutions, 
+such as Proxmox LXC, is not supported.
 
 Minimum hardware requirements for a single node installation:
 

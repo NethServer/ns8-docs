@@ -3,7 +3,9 @@
 ============
 Installation
 ============
+.. note::
 
+  Please ensure that the :ref:`System requirements <system-requirements-section>` are met before installation.
 
 Installation methods
 ====================
