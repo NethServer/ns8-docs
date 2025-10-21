@@ -12,8 +12,8 @@ pre-built image. Both methods require an active Internet connection.
 
 .. _install_linux-section:
 
-Install on a supported distribution
-===================================
+Standard procedure
+==================
 
 Pick your preferred Linux distribution between :ref:`supported ones
 <supported-distros-section>`.
@@ -34,11 +34,11 @@ Pre-built image
 .. |nbsp| unicode:: 0xA0
    :trim:
 
-The pre-built image is based on Rocky Linux 9 and comes preconfigured with
-the packages and NS8 core components installed by the standard
-installation procedure. It uses Cloud-init for network initialization.
-Refer to your virtualization platform documentation for more information
-about Cloud-init support.
+The pre-built virtual machine image is based on Rocky Linux 9 and comes
+preconfigured with the packages and NS8 core components installed by the
+standard installation procedure. It uses Cloud-init for network
+initialization. Refer to your virtualization platform documentation for
+more information about Cloud-init support.
 
 .. csv-table:: NS8 image download links
    :header: "Platform", "Format", "Size", "URL"
