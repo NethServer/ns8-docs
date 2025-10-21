@@ -43,8 +43,8 @@ about Cloud-init support.
 .. csv-table:: NS8 image download links
    :header: "Platform", "Format", "Size", "URL"
 
-   "Proxmox_ (QEMU)", "qcow2", "1.3 |nbsp| GB", "https://tinyurl.com/ns8-rocky-qcow2"
-   "VMWare_ ESXi 8+", "vmdk",  "1.3 |nbsp| GB", "https://tinyurl.com/ns8-rocky-vmdk"
+   "Proxmox_ (QEMU)", "qcow2", "1.4 |nbsp| GB", "https://tinyurl.com/ns8-rocky-qcow2"
+   "VMWare_ ESXi 8+", "vmdk",  "2.8 |nbsp| GB", "https://tinyurl.com/ns8-rocky-vmdk"
 
 .. _Proxmox: https://www.proxmox.com
 .. _VMWare: https://www.vmware.com
