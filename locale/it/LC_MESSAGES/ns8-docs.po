@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-20 08:42+0000\n"
+"POT-Creation-Date: 2025-10-22 17:26+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -4246,33 +4246,28 @@ msgstr "`Community <http://community.nethserver.org>`_ di supporto"
 msgid ":ref:`Subscription plans <subscription-section>`"
 msgstr ":ref:`Piani di abbonamento <subscription-section>`"
 
-#: ../../install.rst:8
+#: ../../install.rst:7
 msgid ""
-"Please ensure that the :ref:`System requirements <system-requirements-"
-"section>` are met before installation."
+"First, ensure that the :ref:`System requirements <system-requirements-"
+"section>` are met."
 msgstr ""
 
-#: ../../install.rst:11
-msgid "Installation methods"
-msgstr "Metodi di installazione"
-
-#: ../../install.rst:13
+#: ../../install.rst:10
+#, fuzzy
 msgid ""
-"You can install NethServer 8 :ref:`on a supported distribution "
-"<install_linux-section>` or use one of :ref:`pre-built images "
-"<install_image-section>`. Both methods require a working Internet "
-"connection."
+"You can install NethServer 8 on a supported distribution or use a pre-"
+"built image. Both methods require an active Internet connection."
 msgstr ""
 "È possibile installare NethServer 8 su una delle :ref:`distribuzioni "
 "supportate <install_linux-section>` o utilizzare una delle :ref:`immagini"
 " pre-built<install_image-section>` già pronte. Entrambi i metodi "
 "richiedono una connessione Internet funzionante."
 
-#: ../../install.rst:19
-msgid "Install on a supported distribution"
-msgstr "Installazione su distribuzione supportata"
+#: ../../install.rst:16
+msgid "Standard procedure"
+msgstr ""
 
-#: ../../install.rst:21
+#: ../../install.rst:18
 msgid ""
 "Pick your preferred Linux distribution between :ref:`supported ones "
 "<supported-distros-section>`."
@@ -4280,41 +4275,30 @@ msgstr ""
 "Scegliere la distribuzione Linux preferita tra :ref:`quelle supportate "
 "<supported-distros-section>`."
 
-#: ../../install.rst:24
+#: ../../install.rst:21
 msgid "Start the installation procedure as ``root``: ::"
 msgstr "Avviare la procedura di installazione come ``root``: ::"
 
-#: ../../install.rst:28
+#: ../../install.rst:25
 msgid "If the ``curl`` command is not available try to install it with: ::"
 msgstr ""
 "Se il comando ``curl`` non fosse disponibile, sarà possibile installarlo "
 "con il comando: ::"
 
-#: ../../install.rst:35
+#: ../../install.rst:32
 msgid "Pre-built image"
 msgstr "Immagine pre-built"
 
-#: ../../install.rst:40
+#: ../../install.rst:37
 msgid ""
-"NethServer 8 provides an image built upon the stable foundation Rocky "
-"Linux 9, making it suitable for a wide range of server applications."
+"The pre-built virtual machine image is based on Rocky Linux 9 and comes "
+"preconfigured with the packages and NS8 core components installed by the "
+"standard installation procedure. It uses Cloud-init for network "
+"initialization. Refer to your virtualization platform documentation for "
+"more information about Cloud-init support."
 msgstr ""
-"NethServer 8 fornisce un'immagine costruita su base stabile Rocky Linux "
-"9, cosa che lo rende adatto per una vasta gamma di applicazioni server."
 
 #: ../../install.rst:43
-msgid ""
-"The pre-built image uses Cloud-init for network initialization. The "
-"default method to obtain network configuration is the DHCP protocol. "
-"Refer to your virtualization platform documentation for more information "
-"about Cloud-init support."
-msgstr ""
-"Le immagini pre-bult utilizzano Cloud-init per l'inizializzazione della "
-"rete. Il metodo predefinito per ottenere la configurazione di rete è il "
-"protocollo DHCP. Fare riferimento alla documentazione della piattaforma "
-"di virtualizzazione per ulteriori informazioni sul supporto Cloud-init."
-
-#: ../../install.rst:48
 msgid "NS8 image download links"
 msgstr "Link per il download delle immagini NS8"
 
@@ -4335,15 +4319,16 @@ msgid "URL"
 msgstr "URL"
 
 #: ../../install.rst:1
-msgid "QEMU/Proxmox"
-msgstr "QEMU/Proxmox"
+msgid "Proxmox_ (QEMU)"
+msgstr ""
 
 #: ../../install.rst:1
 msgid "qcow2"
 msgstr "qcow2"
 
 #: ../../install.rst:1
-msgid "1.7 |nbsp| GB"
+#, fuzzy
+msgid "1.4 |nbsp| GB"
 msgstr "1.7 |nbsp| GB"
 
 #: ../../install.rst:1
@@ -4351,34 +4336,29 @@ msgid "https://tinyurl.com/ns8-rocky-qcow2"
 msgstr "https://tinyurl.com/ns8-rocky-qcow2"
 
 #: ../../install.rst:1
-msgid "VMWare"
-msgstr "VMWare"
+msgid "VMWare_ ESXi 8+"
+msgstr ""
 
 #: ../../install.rst:1
 msgid "vmdk"
 msgstr "vmdk"
 
 #: ../../install.rst:1
-msgid "3.0 |nbsp| GB"
+#, fuzzy
+msgid "2.8 |nbsp| GB"
 msgstr "3.0 |nbsp| GB"
 
 #: ../../install.rst:1
 msgid "https://tinyurl.com/ns8-rocky-vmdk"
 msgstr ""
 
-#: ../../install.rst:54
+#: ../../install.rst:52
 msgid ""
-"Choose the ``qcow2`` image format if you are using a KVM-based "
-"virtualization platform, like `Proxmox <https://www.proxmox.com/>`_, or "
-"the ``vmdk`` format if you are using something like `VMware "
-"<https://www.vmware.com>`_."
+"If your platform is not in the above list the prebuilt image cannot be "
+"used. Please refer to :ref:`install_linux-section`."
 msgstr ""
-"Scegliere il formato di immagine ``qcow2`` se si utilizza una piattaforma"
-" di virtualizzazione basata su KVM, come `Proxmox "
-"<https://www.proxmox.com/>`_, o il formato ``vmdk`` se si utilizza "
-"`VMware <https://www.vmware.com>`_."
 
-#: ../../install.rst:58
+#: ../../install.rst:55
 msgid ""
 "When the image download has completed verify the file integrity with the "
 "`sha256 checksum file "
@@ -4390,33 +4370,30 @@ msgstr ""
 "<https://distfeed.nethserver.org/ns8-images/CHECKSUM>`_. Scaricare il "
 "checksum ed eseguire, per esempio, il seguente comando: ::"
 
-#: ../../install.rst:65
+#: ../../install.rst:62
 msgid "Virtualization platform-specific notes:"
 msgstr "Note specifiche per piattaforma di virtualizzazione:"
 
-#: ../../install.rst:67
+#: ../../install.rst:64
 msgid ""
-"For VMWare, configure the virtual machine to use the IDE driver for the "
-"disk."
+"For VMWare ESXi 8+, add a hard disk with existing image and select *IDE "
+"controller 1 (Master)*."
 msgstr ""
-"Per VMWare, configurare la macchina virtuale per utilizzare il driver IDE"
-" per il disco."
 
-#: ../../install.rst:68
+#: ../../install.rst:67
 msgid ""
 "On Proxmox, for maximum performance, select ``host`` as the CPU type. "
 "Avoid \"kvm64\", because Rocky Linux image does not support it.  Refer to"
 " `Proxmox documentation`_ for further details about CPU selection."
 msgstr ""
 
-#: ../../install.rst:73
+#: ../../install.rst:71
 msgid ""
-"Finally, start the NS8 image within your virtualization platform, or "
-"upload it to a cloud provider to create a public virtual machine."
+"Finally, start the NS8 image within your virtualization platform. If "
+"Cloud-init does not find a network configuration, it attempts to obtain "
+"one via DHCP. After a few seconds, the system console displays a login "
+"prompt showing the assigned IP address."
 msgstr ""
-"Infine, avviare l'immagine NS8 all'interno della piattaforma di "
-"virtualizzazione, o caricarla su un provider cloud per creare una "
-"macchina virtuale pubblica."
 
 #: ../../install.rst:76
 msgid "Default OS administrative credentials are"
@@ -4431,18 +4408,21 @@ msgid "Password: ``Nethesis,1234``"
 msgstr "Password: ``Nethesis,1234``"
 
 #: ../../install.rst:81
+#, fuzzy
 msgid ""
-"Access the system console and log in using the default credentials. Upon "
-"the first login, you will be prompted to change the password."
+"Log in using the default credentials. On the first login, you will be "
+"prompted to change the root password."
 msgstr ""
 "Accedere alla console di sistema utilizzando le credenziali di default. "
 "Al primo login, verrà richiesto di cambiare la password."
 
 #: ../../install.rst:84
+#, fuzzy
 msgid ""
-"To obtain administrative SSH access to the system, create a personal user"
-" account in the ``wheel`` group and set a password. For instance, execute"
-" the following commands and enter the desired password: ::"
+"SSH access is disabled for root. To obtain administrative SSH access, "
+"create a personal user account in the ``wheel`` group and set a password."
+" For example, run the following commands and enter the desired password: "
+"::"
 msgstr ""
 "Per ottenere l'accesso SSH amministrativo al sistema, creare un account "
 "utente personale nel gruppo ``wheel``, impostandogli una password. Per "
@@ -26143,4 +26123,86 @@ msgstr ""
 #~ " su un nodo singolo o su più"
 #~ " nodi. In entrambi i casi prende "
 #~ "il nome di \"cluster\"."
+
+#~ msgid ""
+#~ "Please ensure that the :ref:`System "
+#~ "requirements <system-requirements-section>` "
+#~ "are met before installation."
+#~ msgstr ""
+
+#~ msgid "Installation methods"
+#~ msgstr "Metodi di installazione"
+
+#~ msgid "Install on a supported distribution"
+#~ msgstr "Installazione su distribuzione supportata"
+
+#~ msgid ""
+#~ "NethServer 8 provides an image built "
+#~ "upon the stable foundation Rocky Linux"
+#~ " 9, making it suitable for a "
+#~ "wide range of server applications."
+#~ msgstr ""
+#~ "NethServer 8 fornisce un'immagine costruita"
+#~ " su base stabile Rocky Linux 9, "
+#~ "cosa che lo rende adatto per una"
+#~ " vasta gamma di applicazioni server."
+
+#~ msgid ""
+#~ "The pre-built image uses Cloud-"
+#~ "init for network initialization. The "
+#~ "default method to obtain network "
+#~ "configuration is the DHCP protocol. "
+#~ "Refer to your virtualization platform "
+#~ "documentation for more information about "
+#~ "Cloud-init support."
+#~ msgstr ""
+#~ "Le immagini pre-bult utilizzano "
+#~ "Cloud-init per l'inizializzazione della "
+#~ "rete. Il metodo predefinito per ottenere"
+#~ " la configurazione di rete è il "
+#~ "protocollo DHCP. Fare riferimento alla "
+#~ "documentazione della piattaforma di "
+#~ "virtualizzazione per ulteriori informazioni "
+#~ "sul supporto Cloud-init."
+
+#~ msgid "QEMU/Proxmox"
+#~ msgstr "QEMU/Proxmox"
+
+#~ msgid "VMWare"
+#~ msgstr "VMWare"
+
+#~ msgid ""
+#~ "Choose the ``qcow2`` image format if "
+#~ "you are using a KVM-based "
+#~ "virtualization platform, like `Proxmox "
+#~ "<https://www.proxmox.com/>`_, or the ``vmdk`` "
+#~ "format if you are using something "
+#~ "like `VMware <https://www.vmware.com>`_."
+#~ msgstr ""
+#~ "Scegliere il formato di immagine "
+#~ "``qcow2`` se si utilizza una piattaforma"
+#~ " di virtualizzazione basata su KVM, "
+#~ "come `Proxmox <https://www.proxmox.com/>`_, o "
+#~ "il formato ``vmdk`` se si utilizza "
+#~ "`VMware <https://www.vmware.com>`_."
+
+#~ msgid ""
+#~ "For VMWare, configure the virtual "
+#~ "machine to use the IDE driver for"
+#~ " the disk."
+#~ msgstr ""
+#~ "Per VMWare, configurare la macchina "
+#~ "virtuale per utilizzare il driver IDE"
+#~ " per il disco."
+
+#~ msgid ""
+#~ "Finally, start the NS8 image within "
+#~ "your virtualization platform, or upload "
+#~ "it to a cloud provider to create"
+#~ " a public virtual machine."
+#~ msgstr ""
+#~ "Infine, avviare l'immagine NS8 all'interno "
+#~ "della piattaforma di virtualizzazione, o "
+#~ "caricarla su un provider cloud per "
+#~ "creare una macchina virtuale pubblica."
 
