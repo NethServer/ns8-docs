@@ -3,20 +3,17 @@
 ============
 Installation
 ============
-.. note::
 
-  Please ensure that the :ref:`System requirements <system-requirements-section>` are met before installation.
+First, ensure that the :ref:`System requirements
+<system-requirements-section>` are met.
 
-Installation methods
-====================
-
-You can install NethServer 8 :ref:`on a supported distribution <install_linux-section>` or use one of :ref:`pre-built images <install_image-section>`.
-Both methods require a working Internet connection.
+You can install NethServer 8 on a supported distribution or use a
+pre-built image. Both methods require an active Internet connection.
 
 .. _install_linux-section:
 
-Install on a supported distribution
------------------------------------
+Standard procedure
+==================
 
 Pick your preferred Linux distribution between :ref:`supported ones
 <supported-distros-section>`.
@@ -32,28 +29,28 @@ If the ``curl`` command is not available try to install it with: ::
 .. _install_image-section:
 
 Pre-built image
----------------
+===============
 
 .. |nbsp| unicode:: 0xA0
    :trim:
 
-NethServer 8 provides an image built upon the stable foundation Rocky
-Linux 9, making it suitable for a wide range of server applications.
-
-The pre-built image uses Cloud-init for network initialization. The
-default method to obtain network configuration is the DHCP protocol. Refer
-to your virtualization platform documentation for more information about
-Cloud-init support.
+The pre-built virtual machine image is based on Rocky Linux 9 and comes
+preconfigured with the packages and NS8 core components installed by the
+standard installation procedure. It uses Cloud-init for network
+initialization. Refer to your virtualization platform documentation for
+more information about Cloud-init support.
 
 .. csv-table:: NS8 image download links
    :header: "Platform", "Format", "Size", "URL"
 
-   "QEMU/Proxmox", "qcow2", "1.7 |nbsp| GB", "https://tinyurl.com/ns8-rocky-qcow2"
-   "VMWare", "vmdk", "3.0 |nbsp| GB", "https://tinyurl.com/ns8-rocky-vmdk"
+   "Proxmox_ (QEMU)", "qcow2", "1.4 |nbsp| GB", "https://tinyurl.com/ns8-rocky-qcow2"
+   "VMWare_ ESXi 8+", "vmdk",  "2.8 |nbsp| GB", "https://tinyurl.com/ns8-rocky-vmdk"
 
-Choose the ``qcow2`` image format if you are using a KVM-based virtualization
-platform, like `Proxmox <https://www.proxmox.com/>`_, or the ``vmdk`` format
-if you are using something like `VMware <https://www.vmware.com>`_.
+.. _Proxmox: https://www.proxmox.com
+.. _VMWare: https://www.vmware.com
+
+If your platform is not in the above list the prebuilt image cannot be
+used. Please refer to :ref:`install_linux-section`.
 
 When the image download has completed verify the file integrity with the
 `sha256 checksum file
@@ -64,26 +61,29 @@ checksum then run for example the following command: ::
 
 Virtualization platform-specific notes:
 
-- For VMWare, configure the virtual machine to use the IDE driver for the disk.
+- For VMWare ESXi 8+, add a hard disk with existing image and select *IDE
+  controller 1 (Master)*.
+
 - On Proxmox, for maximum performance, select ``host`` as the CPU type. Avoid "kvm64", because Rocky Linux image does not support it.  Refer to `Proxmox documentation`_ for further details about CPU selection.
 
 .. _Proxmox documentation: https://pve.proxmox.com/pve-docs/chapter-qm.html#qm_cpu
 
-
-Finally, start the NS8 image within your virtualization platform, or
-upload it to a cloud provider to create a public virtual machine.
+Finally, start the NS8 image within your virtualization platform. If
+Cloud-init does not find a network configuration, it attempts to obtain
+one via DHCP. After a few seconds, the system console displays a login
+prompt showing the assigned IP address.
 
 Default OS administrative credentials are
 
 * Username: ``root``
 * Password: ``Nethesis,1234``
 
-Access the system console and log in using the default credentials. Upon
-the first login, you will be prompted to change the password.
+Log in using the default credentials. On the first login, you will be
+prompted to change the root password.
 
-To obtain administrative SSH access to the system, create a personal user
-account in the ``wheel`` group and set a password. For instance, execute
-the following commands and enter the desired password: ::
+SSH access is disabled for root. To obtain administrative SSH access,
+create a personal user account in the ``wheel`` group and set a password.
+For example, run the following commands and enter the desired password: ::
 
   useradd -G wheel ethan.smith
   passwd ethan.smith
