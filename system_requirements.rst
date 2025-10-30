@@ -48,8 +48,9 @@ Swap space
 ==========
 
 Set up a swap partition or swap file. In most environments, `4 GB of
-swap`__ space provides a good balance between performance and resource
-usage.
+swap space`__ provides a good balance between performance and resource
+usage. The decision to allocate more space depends on the system's memory
+workload.
 
 .. __: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap
 
