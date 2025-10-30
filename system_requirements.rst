@@ -42,6 +42,16 @@ Linux distributions and versions with NethServer's community support:
 - `AlmaLinux <https://almalinux.org>`_ 9
 - `Debian <https://www.debian.org/>`_ 12
 
+.. _swap-reqs:
+
+Swap space
+==========
+
+Set up a swap partition or swap file. In most environments, `4 GB of
+swap`__ space provides a good balance between performance and resource
+usage.
+
+.. __: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap
 
 .. _static-ip-reqs:
 
