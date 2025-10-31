@@ -434,4 +434,4 @@ The list of applications where the new password is effective is displayed next t
 
 .. [#MsDnsBestPratices] https://social.technet.microsoft.com/wiki/contents/articles/34981.active-directory-best-practices-for-internal-domain-and-network-names.aspx#Recommendation
 
-.. [#admail] https://doc.dovecot.org/configuration_manual/authentication/ldap/#active-directory
+.. [#admail] https://doc.dovecot.org/2.3/configuration_manual/authentication/ldap/#active-directory
