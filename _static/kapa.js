@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   script.setAttribute("data-project-color", "#000000");
   script.setAttribute("data-project-logo", "https://docs.nethserver.org/projects/ns8/en/latest/_static/logo.png");
   script.setAttribute("data-button-position-bottom", "120px");
-  script.setAttribute("data-source-group-ids-include", "eae9b182-9aad-45f7-a616-30c91dd2e019,915b6e33-6790-4084-b8f7-33296993472d");
+  script.setAttribute("data-source-group-ids-include", "eae9b182-9aad-45f7-a616-30c91dd2e019");
   script.setAttribute("data-modal-disclaimer", "This is an AI bot that will give you answers only about **NethServer and NethVoice 8**. Older NethServer or NethVoice versions are not supported.");
   script.async = true;
   document.head.appendChild(script);
