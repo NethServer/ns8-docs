@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 10:37+0000\n"
+"POT-Creation-Date: 2025-10-31 15:15+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -18680,11 +18680,23 @@ msgstr "`AlmaLinux <https://almalinux.org>`_ 9"
 msgid "`Debian <https://www.debian.org/>`_ 12"
 msgstr "`Debian <https://www.debian.org/>`_ 12"
 
-#: ../../system_requirements.rst:49
+#: ../../system_requirements.rst:48
+msgid "Swap space"
+msgstr ""
+
+#: ../../system_requirements.rst:50
+msgid ""
+"Set up a swap partition or swap file. In most environments, `4 GB of swap"
+" space`__ provides a good balance between performance and resource usage."
+" The decision to allocate more space depends on the system's memory "
+"workload."
+msgstr ""
+
+#: ../../system_requirements.rst:60
 msgid "Static IP address"
 msgstr "Indirizzo IP statico"
 
-#: ../../system_requirements.rst:51
+#: ../../system_requirements.rst:62
 #, fuzzy
 msgid ""
 "A working internet connection is necessary for the installation, "
@@ -18696,7 +18708,7 @@ msgstr ""
 " anche per l'attivazione di una :ref:`subscription <subscription-"
 "section>`."
 
-#: ../../system_requirements.rst:55
+#: ../../system_requirements.rst:66
 #, fuzzy
 msgid ""
 "Assign a static IP address to the node. DHCP and any other dynamic IP "
@@ -18705,12 +18717,12 @@ msgstr ""
 "Utilizzare per il sistema un indirizzo IP statico. DHCP e altri "
 "protocolli di discovery di IP dinamici non sono ammessi."
 
-#: ../../system_requirements.rst:61
+#: ../../system_requirements.rst:72
 #, fuzzy
 msgid "Name resolution"
 msgstr "Introduzione"
 
-#: ../../system_requirements.rst:63
+#: ../../system_requirements.rst:74
 msgid ""
 "The node name resolver must be configured to use DNS servers that are not"
 " provided by NS8 itself. This is required because the "
@@ -18719,7 +18731,7 @@ msgid ""
 "service."
 msgstr ""
 
-#: ../../system_requirements.rst:68
+#: ../../system_requirements.rst:79
 msgid ""
 "The ``/etc/resolv.conf`` file should contain one or more ``nameserver`` "
 "lines specifying the IP addresses of DNS servers available to the node. "
@@ -18729,37 +18741,37 @@ msgid ""
 "provided by those tools."
 msgstr ""
 
-#: ../../system_requirements.rst:75
+#: ../../system_requirements.rst:86
 #, fuzzy
 msgid "Avoid the following configurations:"
 msgstr "Correggere la configurazione del firewall ::"
 
-#: ../../system_requirements.rst:77
+#: ../../system_requirements.rst:88
 msgid ""
 "Do not use ``nameserver 127.0.0.1`` or any IP address assigned to the "
 "node itself. If the Linux distribution has installed a local DNS resolver"
 " service, refer to its documentation to disable or remove it."
 msgstr ""
 
-#: ../../system_requirements.rst:81
+#: ../../system_requirements.rst:92
 msgid ""
 "Do not use any NS8 application providing DNS service as the node name "
 "resolver, such as Samba Active Directory or DNSMasq. This can cause name "
 "resolution loops or prevent node updates."
 msgstr ""
 
-#: ../../system_requirements.rst:85
+#: ../../system_requirements.rst:96
 msgid ""
 "Do not mix DNS servers from different network scopes, for example, "
 "``1.1.1.1`` (public, Cloudflare) and ``192.168.1.1`` (private). Doing so "
 "can lead to inconsistent DNS query results."
 msgstr ""
 
-#: ../../system_requirements.rst:93
+#: ../../system_requirements.rst:104
 msgid "DNS configuration"
 msgstr "Configurazione DNS"
 
-#: ../../system_requirements.rst:95
+#: ../../system_requirements.rst:106
 #, fuzzy
 msgid ""
 "To ensure network clients can connect to the node, its fully qualified "
@@ -18774,7 +18786,7 @@ msgstr ""
 "DNS utilizzando record di tipo A per gli indirizzi IPv4 e di tipo AAAA "
 "per gli indirizzi IPv6."
 
-#: ../../system_requirements.rst:100
+#: ../../system_requirements.rst:111
 #, fuzzy
 msgid ""
 "A correct FQDN and DNS setup is essential for TLS encryption to function "
@@ -18786,11 +18798,11 @@ msgstr ""
 "server, i client di rete controllano se il certificato TLS è valido per "
 "l'FQDN utilizzato."
 
-#: ../../system_requirements.rst:104
+#: ../../system_requirements.rst:115
 msgid "To meet these requirements, follow these steps:"
 msgstr "Per soddisfare questi requisiti, seguire questi passaggi:"
 
-#: ../../system_requirements.rst:106
+#: ../../system_requirements.rst:117
 #, fuzzy
 msgid ""
 "**Determine your DNS provider**: Based on your node's purpose, DNS can be"
@@ -18802,7 +18814,7 @@ msgstr ""
 "servizio internet pubblico, da un appliance di rete privato, o da "
 "entrambi. Leggere attentamente la relativa documentazione."
 
-#: ../../system_requirements.rst:111
+#: ../../system_requirements.rst:122
 #, fuzzy
 msgid ""
 "**Register the FQDN**: Choose the FQDN for your node and register it in "
@@ -18817,11 +18829,11 @@ msgstr ""
 "nome host è ``jupiter`` e il suffisso di dominio ``example.org`` l'FQDN "
 "risultante è ``jupiter.example.org``."
 
-#: ../../system_requirements.rst:121
+#: ../../system_requirements.rst:132
 msgid "Worker node requirements"
 msgstr "Requisiti del nodo worker"
 
-#: ../../system_requirements.rst:123
+#: ../../system_requirements.rst:134
 #, fuzzy
 msgid ""
 "A worker node has specific requirements for installation and "
@@ -18830,7 +18842,7 @@ msgstr ""
 "Tra i client di rete, un nodo worker ha alcuni requisiti speciali che "
 "devono essere soddisfatti."
 
-#: ../../system_requirements.rst:126
+#: ../../system_requirements.rst:137
 msgid ""
 "During the join procedure, the worker node connects to the leader at the "
 "following URL: ::"
@@ -18838,7 +18850,7 @@ msgstr ""
 "Durante la procedura di adesione, il nodo del lavoratore si collega al "
 "leader al seguente URL::"
 
-#: ../../system_requirements.rst:131
+#: ../../system_requirements.rst:142
 msgid ""
 "It also establishes a WireGuard VPN connection with the leader using the "
 "default UDP port 55820."
@@ -18846,11 +18858,11 @@ msgstr ""
 "Stabilisce anche una connessione VPN WireGuard con il leader utilizzando "
 "la porta predefinita UDP 55820."
 
-#: ../../system_requirements.rst:134
+#: ../../system_requirements.rst:145
 msgid "Ensure the following requirements are met:"
 msgstr "Assicurarsi che i seguenti requisiti siano soddisfatti:"
 
-#: ../../system_requirements.rst:136
+#: ../../system_requirements.rst:147
 #, fuzzy
 msgid ""
 "The worker node must resolve the leader's FQDN to the correct routable "
@@ -18859,7 +18871,7 @@ msgstr ""
 "il nodo worker deve risolvere correttamente l'FQDN del nodo leader nel "
 "relativo indirizzo IP"
 
-#: ../../system_requirements.rst:139
+#: ../../system_requirements.rst:150
 #, fuzzy
 msgid ""
 "The HTTPS server (TCP port 443) at that address must handle the API "
@@ -18868,7 +18880,7 @@ msgstr ""
 "il server HTTPS (porta 443 TCP) a tale indirizzo deve gestire la "
 "richiesta API"
 
-#: ../../system_requirements.rst:142
+#: ../../system_requirements.rst:153
 msgid ""
 "The VPN UDP port (default 55820) must not be blocked by any network "
 "appliances."
@@ -18876,11 +18888,11 @@ msgstr ""
 "La porta UDP VPN (default 55820) non deve essere bloccata da eventuali "
 "elettrodomestici di rete."
 
-#: ../../system_requirements.rst:147
+#: ../../system_requirements.rst:158
 msgid "Web browser requirements"
 msgstr "Requisiti per il browser Web"
 
-#: ../../system_requirements.rst:149
+#: ../../system_requirements.rst:160
 msgid ""
 "To access the cluster administration web user interface, you need an up-"
 "to-date release of Firefox, Chrome, or Chromium browser as the web "
