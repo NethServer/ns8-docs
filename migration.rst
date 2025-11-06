@@ -304,11 +304,6 @@ option disabled.
 NethVoice
 =========
 
-.. note::
-   
-   The migration tool automatically installs the :ref:`NethVoice Proxy <nethvoice_proxy-section>` if it is not already present on the destination node.
-   In such cases, it is recommended to configure the :ref:`NethVoice Proxy <nethvoice_proxy-section>` prior to completing the NethVoice setup.
-
 The migration procedure requires two FQDNs to be assigned: 
 
 - one for the administration interface of the **NethVoice** application 
@@ -321,6 +316,7 @@ After :guilabel:`Finish migration` is clicked, some time-consuming operations ar
 Remember to update the DNS records if you plan to use the same FQDN as NethVoice on NS7
 at the end of the migration.
 
+More information are available inside: `NethVoice Documentation <https://docs.nethvoice.com/>`_.
 
 .. _migrated_routes-section:
 
