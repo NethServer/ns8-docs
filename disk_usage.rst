@@ -146,26 +146,31 @@ like: ::
 Assign named volume to an additional disk
 =========================================
 
-Applications organize user's data with Podman named volumes which normally
+Applications organize user data with Podman named volumes, which normally
 live under the default Podman paths (see above). This section explains how
-to pre-configure named volumes to be created under alternative base paths
-and disks.
+to preconfigure named volumes so they are created under alternative base
+paths and disks. We will consider the Samba application, but the method
+works for any NS8 rootless application that relies on named volumes. This
+method does not work with rootful applications.
+
+Redirecting named volumes helps achieve better storage organization,
+reduces pressure on the system disk, and aligns data placement with
+performance or capacity characteristics.
 
 .. note::
 
   Configure the named volume assignment *before* installing, restoring, or
-  cloning the application.
+  cloning the rootless application.
 
-For example, Samba File Server application will contain a large amount of
-user's data and you want to offload them to a separate disk. This is a
+For example, the Samba File Server application contains a large amount of
+user data, and you may want to offload it to a separate disk. This is a
 typical scenario where the root disk space is dedicated to the operating
 system, application images, and named volumes for fast random-access
 databases. The separate disk, slower but larger than the root one, will
-contain the bigger part of user's data.
+contain most of the user data.
 
-Let's assume the disk is already mounted under ``/srv/disk0`` and
-formatted with a ``xfs`` filesystem. The mount configuration is persistent
-with a ``/etc/fstab`` entry and it survives after a system reboot.
+Since NS8 does not manage disk mounting, the system administrator must
+ensure disk mount reliability.
 
 Assumptions:
 
@@ -175,8 +180,8 @@ Assumptions:
 - Format the disk with ``xfs`` or ``ext4`` filesystems. Their features and
   defaults match NS8 expectations.
 
-- Set a filesystem label, (e.g. ``LABDISK0``) to easily recognize the disk.
-  It may also ease ``/etc/fstab`` configuration.
+- Set a filesystem label (e.g. ``LABDISK0``) to easily recognize the disk.
+  It may also simplify the ``/etc/fstab`` configuration.
 
 - After a system reboot, an entry in ``/etc/fstab`` or a Systemd
   ``.mount`` unit correctly mounts the disk on ``/srv/disk0``.
@@ -184,30 +189,45 @@ Assumptions:
 - The disk is not mounted elsewhere. Multiple mount points for the same
   disk may lead to SELinux relabeling issues.
 
+Let's assume the disk is already mounted under ``/srv/disk0`` and
+formatted with an ``xfs`` filesystem. The mount configuration is
+persistent with an ``/etc/fstab`` entry and survives after a system
+reboot.
+
 List available base paths
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Disks mount points constitute the base directories where named volumes
-will be placed with our custom configuration.
+Disk mount points constitute the base directories where named volumes will
+be placed with the custom configuration.
 
 Obtain a list of base paths with this command ::
 
   volumectl list-base-paths
   /srv/disk0 (LABDISK0) size=2.0G available=1.9G used=46.5M
 
-In this example ``LABDISK0`` is the label set after the filesystem
-creation. It's a mnemonic label that helps to identify the disk.
+In this output example:
+
+- The first field, ``/srv/disk0``, refers to the disk mount point and will
+  be used in the next commands.
+
+- ``LABDISK0`` is the label set during filesystem creation, if present. It
+  is a mnemonic label that helps identify the disk. If no label is set,
+  the mount point base directory is shown instead.
+
+- The fields ``size``, ``available``, and ``used`` refer to disk space
+  information.
 
 Use the disk for Samba shares
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From direct experience, or by reading ns8-samba documentation we know that
-we can assign two named volumes:
+From direct experience, or by reading the ns8-samba documentation, we know
+that we can assign two named volumes:
 
 - `shares`
 - `homes`
 
-The following commands will assign them to LABDISK0: ::
+The following commands assign them to ``LABDISK0`` and take effect the
+next time Samba is installed: ::
 
   volumectl add-volume shares --for samba --target /srv/disk0
   volumectl add-volume homes --for samba --target /srv/disk0
@@ -216,7 +236,28 @@ Check the assignments by printing ``/etc/nethserver/volumes.conf``:
 
   cat /etc/nethserver/volumes.conf
 
-Next time Samba is installed on the local node its ``shares`` and
-``homes`` volumes will be created under ``/mnt/disk0``. The same
-configuration is applied also if Samba is installed by the restore and
-clone procedures.
+The next time Samba is installed on the local node, its ``shares`` and
+``homes`` volumes will be created under ``/srv/disk0``. The same
+configuration is applied if Samba is installed by the restore or clone
+procedures.
+
+Clear named volume assignments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Existing volume assignments are recorded in
+``/etc/nethserver/volumes.conf``. To remove one of them, delete the
+corresponding line with a text editor, or run the following commands: ::
+
+  volumectl remove-volume --for samba homes
+  volumectl remove-volume --for samba shares
+
+Removing the assignment does not remove any data; it only updates the
+``volumes.conf`` file.
+
+Move existing volume to a new disk
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+
+  The ``volumectl`` command still does not allow moving volume data to a
+  different disk. This feature is planned for future releases.
