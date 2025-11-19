@@ -14,6 +14,80 @@ NethServer 8 releases
 
   __ http://community.nethserver.org/c/bug
 
+Major changes on 2025-12-19
+===========================
+
+**Milestone 8.7**
+
+- **Import/export data** [Core 3.16] -- Users and groups can be
+  imported/exported with a file in CSV format, containing username,
+  password, groups and other details. The import/export procedure can be
+  executed also from cluster-admin and user portal APIs. Refer to
+  :ref:`import-export-data-section` for more information.
+
+- **Firewalld rich rules** [Core 3.16] -- Application developers can
+  configure arbitrary Firewalld rich rules to cover complex network
+  routing use cases.
+
+- **Applications page** [Core 3.15] -- A new :ref:`Applications page
+  <applications-section>` was added to quickly gather information about
+  applications installed in the cluster, their installation node, type,
+  version and links to act on them.
+
+- **Nodes page** [Core 3.14] -- The :ref:`Nodes page <node-views>` was
+  streamlined to make it easier to identify cluster nodes also by FQDN,
+  while resource usage metrics were moved into the node detailed view,
+  along with node alerts and links to detailed IP addresses and
+  applications. If an NS7 migration is in progress, the NS7 system is
+  displayed as a special node.
+
+- **Additional disks management** [Core 3.14] -- Added support for
+  :ref:`assigning Podman named volumes to additional disks
+  <named-volume-disk>`. Administrators can now preconfigure the base path
+  used when creating named volumes for rootless applications. This allows
+  redirecting application data to alternative disks, improving storage
+  organization and reducing pressure on the system disk. This feature is
+  especially useful for data-intensive applications such as the Samba File
+  Server. A new command, ``volumectl``, provides the ability to list
+  available base paths, assign volumes to a selected disk, and remove
+  existing assignments. The configuration is applied when applications are
+  installed, restored, or cloned; relocation of existing volumes is not
+  supported yet. A future update will extend this functionality to the
+  cluster-admin UI, allowing disk selection during application
+  installation, clone, and restore operations.
+
+- **Boot load shaping** [Core 3.14] -- The system load at boot time is
+  dynamically optimized based on the number of available processors. The
+  load is distributed in a sequential way over a longer time span,
+  reducing application concurrency and preventing resource bottlenecks.
+
+- **Reduced Audit trail size** [Core 3.14] -- The event types stored in
+  the :ref:`audit-trail-section` have been reduced to limit the volume of
+  api-server writes. Only ``create-tasks`` and ``login-ok`` (successful
+  logins) events are stored. Note that failed login events are still
+  logged.
+
+- **Limited agent worker processes** [Core 3.12] -- The default number of
+  simultaneous processes spawned by agents is now limited to 32.
+  Subsequent tasks are rejected with *Agent is busy* until the number of
+  running processes falls below the limit.
+
+- **Cloud Log Manager (CLM) login records** [Core 3.12] -- Cluster-admin
+  login events are marked with *security* category and sent to :ref:`Cloud
+  Log Manager <clm-section>`, if enabled.
+
+- **Samba [homes] customization** [3.2.0] -- The Samba core application
+  supports ``[homes]`` section customization in the ``include.conf`` file,
+  consistent with other sections.
+
+- **Piler update** [1.1.0] -- Piler has been updated to upstream version
+  1.4.8, providing new features, performance improvements, and many bug
+  and security fixes.
+
+- **Nextcloud 32 / HUB 25 Autumn** [1.6.0] -- Updated to the latest major
+  Nextcloud release.
+
+
 Major changes on 2025-09-30
 ===========================
 
