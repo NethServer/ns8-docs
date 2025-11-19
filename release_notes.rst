@@ -14,6 +14,29 @@ NethServer 8 releases
 
   __ http://community.nethserver.org/c/bug
 
+Major changes on 2025-12-19
+===========================
+
+**Milestone 8.7**
+
+- [Core 3.14+] Added support for :ref:`assigning Podman named volumes to
+  additional disks <named-volume-disk>`. Administrators can now
+  preconfigure the base path used when creating named volumes for rootless
+  applications. This allows redirecting application data to alternative
+  disks, improving storage organization and reducing pressure on the
+  system disk.
+
+  A new command, ``volumectl``, provides the ability to list available
+  base paths, assign volumes to a selected disk, and remove existing
+  assignments. The configuration is applied when applications are
+  installed, restored, or cloned. This feature is especially useful for
+  data-intensive applications such as the Samba File Server.
+
+  A future update will extend this functionality to the cluster-admin UI,
+  allowing disk selection during application installation and restore
+  operations.
+
+
 Major changes on 2025-09-30
 ===========================
 
