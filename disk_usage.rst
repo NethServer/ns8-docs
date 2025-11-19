@@ -40,7 +40,7 @@ Application data includes:
 
 It is always advisable to **plan in advance where user data is stored**.
 To decide the disk where a named volume will reside before installing an
-application refer to :ref:`named-volume-location`.
+application refer to :ref:`named-volume-disk`.
 
 However, when NS8 runs multiple applications, disk usage increases
 rapidly, and you may **run out of space**. If disk space runs low,
@@ -141,7 +141,7 @@ like: ::
   bash /var/lib/nethserver/node/migrate-home-disk.sh /mnt/temp_disk
 
 
-.. _named-volume-location:
+.. _named-volume-disk:
 
 Assign named volume to an additional disk
 =========================================
@@ -149,9 +149,10 @@ Assign named volume to an additional disk
 Applications organize user data with Podman named volumes, which normally
 live under the default Podman paths (see above). This section explains how
 to preconfigure named volumes so they are created under alternative base
-paths and disks. We will consider the Samba application, but the method
-works for any NS8 rootless application that relies on named volumes. This
-method does not work with rootful applications.
+paths and therefore on different disks. We will consider the Samba
+application, but the method works for any NS8 rootless application that
+relies on named volumes. This method does not work with rootful
+applications.
 
 Redirecting named volumes helps achieve better storage organization,
 reduces pressure on the system disk, and aligns data placement with
@@ -162,8 +163,8 @@ performance or capacity characteristics.
   Configure the named volume assignment *before* installing, restoring, or
   cloning the rootless application.
 
-For example, the Samba File Server application contains a large amount of
-user data, and you may want to offload it to a separate disk. This is a
+For example, the Samba File Server application contains a large amount
+of user data, and you may want to offload it to a separate disk. This is a
 typical scenario where the root disk space is dedicated to the operating
 system, application images, and named volumes for fast random-access
 databases. The separate disk, slower but larger than the root one, will
@@ -200,7 +201,7 @@ List available base paths
 Disk mount points constitute the base directories where named volumes will
 be placed with the custom configuration.
 
-Obtain a list of base paths with this command ::
+Obtain a list of base paths with this command: ::
 
   volumectl list-base-paths
   /srv/disk0 (LABDISK0) size=2.0G available=1.9G used=46.5M
@@ -217,11 +218,12 @@ In this output example:
 - The fields ``size``, ``available``, and ``used`` refer to disk space
   information.
 
-Use the disk for Samba shares
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Use the disk for selected volumes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From direct experience, or by reading the ns8-samba documentation, we know
-that we can assign two named volumes:
+Let's continue the Samba File Server example. From direct experience, or
+by reading the ns8-samba documentation, we know it provides two named
+volumes:
 
 - `shares`
 - `homes`
@@ -232,7 +234,8 @@ next time Samba is installed: ::
   volumectl add-volume shares --for samba --target /srv/disk0
   volumectl add-volume homes --for samba --target /srv/disk0
 
-Check the assignments by printing ``/etc/nethserver/volumes.conf``:
+Check the assignments by printing ``/etc/nethserver/volumes.conf``. This
+file is in INI-compatible format: ::
 
   cat /etc/nethserver/volumes.conf
 
@@ -241,12 +244,22 @@ The next time Samba is installed on the local node, its ``shares`` and
 configuration is applied if Samba is installed by the restore or clone
 procedures.
 
+.. note::
+
+  In future releases, disk selection will be available from the
+  cluster-admin UI for applications that support it. When an application
+  is installed, restored, or cloned, it will be possible to select the
+  disk to use, or keep the root disk as the default unless a different
+  target is configured in ``volumes.conf``.
+
+
 Clear named volume assignments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Existing volume assignments are recorded in
-``/etc/nethserver/volumes.conf``. To remove one of them, delete the
-corresponding line with a text editor, or run the following commands: ::
+``/etc/nethserver/volumes.conf``. Since the file is in INI-compatible
+format, to remove an assignment delete the corresponding line with a text
+editor. As an alternative, run the following commands: ::
 
   volumectl remove-volume --for samba homes
   volumectl remove-volume --for samba shares
@@ -254,8 +267,8 @@ corresponding line with a text editor, or run the following commands: ::
 Removing the assignment does not remove any data; it only updates the
 ``volumes.conf`` file.
 
-Move existing volume to a new disk
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Move named volume data to a new disk
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
 
