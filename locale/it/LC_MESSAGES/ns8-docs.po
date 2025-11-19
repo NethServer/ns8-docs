@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-06 11:33+0000\n"
+"POT-Creation-Date: 2025-11-19 15:07+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -1851,14 +1851,14 @@ msgstr ""
 msgid ""
 "Rootless applications require the most space. They put their data inside "
 "the user's home directory, for example "
-"``/home/loki1/.local/share/containers/storage``."
+"``/home/loki1/.local/share/containers/storage``, ``/home/loki1/.config``"
 msgstr ""
 
 #: ../../disk_usage.rst:15
 #, fuzzy
 msgid ""
-"Rootful applications typically store images and volumes in the "
-"``/var/lib/containers/storage`` directory."
+"Rootful applications typically store data under "
+"``/var/lib/containers/storage`` and ``/var/lib/nethserver`` directories"
 msgstr ""
 "I container rootful solitamente salvano immagini e volumi all'interno "
 "della directory ``/var/lib/containers/storage``."
@@ -1876,85 +1876,108 @@ msgid "To get a list of the applications running on the local node, run: ::"
 msgstr ""
 
 #: ../../disk_usage.rst:32
+#, fuzzy
+msgid "Application data includes:"
+msgstr "Applicazioni"
+
+#: ../../disk_usage.rst:34
 msgid ""
-"There is another growing directory, ``/var/lib/nethserver``, that "
-"contains the actions and state data of rootful modules, and core "
-"components like the user interface code. Space requirements for this "
-"directory should be minimal."
+"Container images, like binary code, scripts, static configuration, and "
+"everything the app needs to run."
 msgstr ""
 
-#: ../../disk_usage.rst:37
+#: ../../disk_usage.rst:36
 msgid ""
-"When NS8 runs multiple applications, disk usage increases rapidly, and "
-"you may run out of space. If disk space runs low, consider expanding the "
-"filesystem using the methods described in the following sections."
+"API code, UI code, and the dynamic configuration they generate to "
+"integrate the application with the rest of the cluster."
 msgstr ""
 
-#: ../../disk_usage.rst:42
+#: ../../disk_usage.rst:38
+msgid ""
+"User's data like files, messages, pictures, organized in Podman *named "
+"volumes*."
+msgstr ""
+
+#: ../../disk_usage.rst:41
+msgid ""
+"It is always advisable to **plan in advance where user data is stored**. "
+"To decide the disk where a named volume will reside before installing an "
+"application refer to :ref:`named-volume-disk`."
+msgstr ""
+
+#: ../../disk_usage.rst:45
+msgid ""
+"However, when NS8 runs multiple applications, disk usage increases "
+"rapidly, and you may **run out of space**. If disk space runs low, "
+"consider expanding the filesystem using the methods described in the "
+"following sections."
+msgstr ""
+
+#: ../../disk_usage.rst:51
 msgid "Expand the filesystem with external tools"
 msgstr ""
 
-#: ../../disk_usage.rst:44
+#: ../../disk_usage.rst:53
 msgid ""
 "As a general approach, to expand a filesystem, you have to grow the "
 "device where it is mounted first."
 msgstr ""
 
-#: ../../disk_usage.rst:47
+#: ../../disk_usage.rst:56
 msgid ""
 "Often, the device itself is contained by some other device, logical or "
 "physical, like a logical volume or a disk partition. In this case, the "
 "logical volume or disk partition has to be grown."
 msgstr ""
 
-#: ../../disk_usage.rst:51
+#: ../../disk_usage.rst:60
 msgid ""
 "On a physical machine, the best option is to set up LVM during the "
 "distribution installation. LVM helps with device management, and there "
 "are plenty of how-to guides that explain how to achieve this goal."
 msgstr ""
 
-#: ../../disk_usage.rst:55
+#: ../../disk_usage.rst:64
 msgid ""
 "On a virtual machine, you can easily expand the entire root disk and "
 "filesystem. If you created the VM with the pre-built image, read the next"
 " section for detailed commands."
 msgstr ""
 
-#: ../../disk_usage.rst:60
+#: ../../disk_usage.rst:69
 msgid "Expand pre-built image filesystem"
 msgstr ""
 
-#: ../../disk_usage.rst:62
+#: ../../disk_usage.rst:71
 msgid ""
 "If NS8 was installed as a virtual machine starting from the :ref:`pre-"
 "built image <install_image-section>` in QCOW2 format, follow this "
 "procedure."
 msgstr ""
 
-#: ../../disk_usage.rst:66
+#: ../../disk_usage.rst:75
 msgid ""
 "Shut down the node and resize its .qcow2 image from its host system. For "
 "example ::"
 msgstr ""
 
-#: ../../disk_usage.rst:71
+#: ../../disk_usage.rst:80
 msgid ""
 "Start the node and grow its 5th partition (remove the --dry-run option, "
 "when you are confident): ::"
 msgstr ""
 
-#: ../../disk_usage.rst:76
+#: ../../disk_usage.rst:85
 #, fuzzy
 msgid "Grow the root filesystem: ::"
 msgstr "recupera spazio dal filesystem root"
 
-#: ../../disk_usage.rst:81
+#: ../../disk_usage.rst:90
 #, fuzzy
 msgid "Attach a disk for new applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../disk_usage.rst:83
+#: ../../disk_usage.rst:92
 msgid ""
 "At any time in the NS8 node's life, you can mount a new disk on an "
 "alternative path, like ``/home1``, and start to install applications on "
@@ -1963,31 +1986,31 @@ msgid ""
 "``/home1`` and consume the new disk space."
 msgstr ""
 
-#: ../../disk_usage.rst:89
+#: ../../disk_usage.rst:98
 msgid "Create the alternative base path: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:93
+#: ../../disk_usage.rst:102
 msgid "Mount the device on the new path: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:97
+#: ../../disk_usage.rst:106
 msgid ""
 "To persist the mount, edit `/etc/fstab` or create a systemd `.mount` "
 "unit. Verify that the device remains mounted after a reboot."
 msgstr ""
 
-#: ../../disk_usage.rst:100
+#: ../../disk_usage.rst:109
 msgid ""
 "Configure the node agent to use `/home1` as the base directory for new "
 "applications: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:106
+#: ../../disk_usage.rst:115
 msgid "Migrate /home data to a new disk"
 msgstr ""
 
-#: ../../disk_usage.rst:108
+#: ../../disk_usage.rst:117
 msgid ""
 "If the previous section is not applicable, consider adding a new disk and"
 " migrating existing data with a Bash script included in the core: "
@@ -1995,40 +2018,40 @@ msgid ""
 "required for data migration."
 msgstr ""
 
-#: ../../disk_usage.rst:115
+#: ../../disk_usage.rst:124
 msgid ""
 "The included script is just an example that may not fit your system. USE "
 "AT YOUR OWN RISK!"
 msgstr ""
 
-#: ../../disk_usage.rst:118
+#: ../../disk_usage.rst:127
 msgid "The script will:"
 msgstr ""
 
-#: ../../disk_usage.rst:120
+#: ../../disk_usage.rst:129
 #, fuzzy
 msgid "stop all rootless applications"
 msgstr "arresta tutti i container rootless"
 
-#: ../../disk_usage.rst:121
+#: ../../disk_usage.rst:130
 #, fuzzy
 msgid "copy all rootless applications inside the new disk"
 msgstr "copia tutti i container rootless all'interno del nuovo disco"
 
-#: ../../disk_usage.rst:122
+#: ../../disk_usage.rst:131
 msgid "reclaim space from the root filesystem"
 msgstr "recupera spazio dal filesystem root"
 
-#: ../../disk_usage.rst:123
+#: ../../disk_usage.rst:132
 msgid "mount the new disk under ``/home``"
 msgstr "monta il nuovo disco sotto ``/home``"
 
-#: ../../disk_usage.rst:124
+#: ../../disk_usage.rst:133
 #, fuzzy
 msgid "restart all rootless applications"
 msgstr "riavvia tutti i container rootless"
 
-#: ../../disk_usage.rst:126
+#: ../../disk_usage.rst:135
 #, fuzzy
 msgid ""
 "Before running the script, make sure to attach the disk to the node, "
@@ -2039,10 +2062,200 @@ msgstr ""
 "``/mnt/temp_disk``. Quindi lanciare lo script inserendo il percorso di "
 "mount come parametro, così: ::"
 
-#: ../../disk_usage.rst:129
+#: ../../disk_usage.rst:138
 msgid ""
 "Then launch the Bash script by passing the mount location as a parameter,"
 " like: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:147
+msgid "Assign named volume to an additional disk"
+msgstr ""
+
+#: ../../disk_usage.rst:149
+msgid ""
+"Applications organize user data with Podman named volumes, which normally"
+" live under the default Podman paths (see above). This section explains "
+"how to preconfigure named volumes so they are created under alternative "
+"base paths and therefore on different disks. We will consider the Samba "
+"application, but the method works for any NS8 rootless application that "
+"relies on named volumes. This method does not work with rootful "
+"applications."
+msgstr ""
+
+#: ../../disk_usage.rst:157
+msgid ""
+"Redirecting named volumes helps achieve better storage organization, "
+"reduces pressure on the system disk, and aligns data placement with "
+"performance or capacity characteristics."
+msgstr ""
+
+#: ../../disk_usage.rst:163
+msgid ""
+"Configure the named volume assignment *before* installing, restoring, or "
+"cloning the rootless application."
+msgstr ""
+
+#: ../../disk_usage.rst:166
+msgid ""
+"For example, the Samba File Server application contains a large amount of"
+" user data, and you may want to offload it to a separate disk. This is a "
+"typical scenario where the root disk space is dedicated to the operating "
+"system, application images, and named volumes for fast random-access "
+"databases. The separate disk, slower but larger than the root one, will "
+"contain most of the user data."
+msgstr ""
+
+#: ../../disk_usage.rst:173
+msgid ""
+"Since NS8 does not manage disk mounting, the system administrator must "
+"ensure disk mount reliability."
+msgstr ""
+
+#: ../../disk_usage.rst:176
+msgid "Assumptions:"
+msgstr ""
+
+#: ../../disk_usage.rst:178
+msgid ""
+"Mount the disk under ``/mnt`` or ``/srv`` base paths. They are commonly "
+"used for this purpose."
+msgstr ""
+
+#: ../../disk_usage.rst:181
+msgid ""
+"Format the disk with ``xfs`` or ``ext4`` filesystems. Their features and "
+"defaults match NS8 expectations."
+msgstr ""
+
+#: ../../disk_usage.rst:184
+msgid ""
+"Set a filesystem label (e.g. ``LABDISK0``) to easily recognize the disk. "
+"It may also simplify the ``/etc/fstab`` configuration."
+msgstr ""
+
+#: ../../disk_usage.rst:187
+msgid ""
+"After a system reboot, an entry in ``/etc/fstab`` or a Systemd ``.mount``"
+" unit correctly mounts the disk on ``/srv/disk0``."
+msgstr ""
+
+#: ../../disk_usage.rst:190
+msgid ""
+"The disk is not mounted elsewhere. Multiple mount points for the same "
+"disk may lead to SELinux relabeling issues."
+msgstr ""
+
+#: ../../disk_usage.rst:193
+msgid ""
+"Let's assume the disk is already mounted under ``/srv/disk0`` and "
+"formatted with an ``xfs`` filesystem. The mount configuration is "
+"persistent with an ``/etc/fstab`` entry and survives after a system "
+"reboot."
+msgstr ""
+
+#: ../../disk_usage.rst:199
+msgid "List available base paths"
+msgstr ""
+
+#: ../../disk_usage.rst:201
+msgid ""
+"Disk mount points constitute the base directories where named volumes "
+"will be placed with the custom configuration."
+msgstr ""
+
+#: ../../disk_usage.rst:204
+msgid "Obtain a list of base paths with this command: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:209
+msgid "In this output example:"
+msgstr ""
+
+#: ../../disk_usage.rst:211
+msgid ""
+"The first field, ``/srv/disk0``, refers to the disk mount point and will "
+"be used in the next commands."
+msgstr ""
+
+#: ../../disk_usage.rst:214
+msgid ""
+"``LABDISK0`` is the label set during filesystem creation, if present. It "
+"is a mnemonic label that helps identify the disk. If no label is set, the"
+" mount point base directory is shown instead."
+msgstr ""
+
+#: ../../disk_usage.rst:218
+msgid ""
+"The fields ``size``, ``available``, and ``used`` refer to disk space "
+"information."
+msgstr ""
+
+#: ../../disk_usage.rst:222
+msgid "Use the disk for selected volumes"
+msgstr ""
+
+#: ../../disk_usage.rst:224
+msgid ""
+"Let's continue the Samba File Server example. The ns8-samba documentation"
+" describes two named volumes provided by the Samba File Server: "
+"``shares`` and ``homes``."
+msgstr ""
+
+#: ../../disk_usage.rst:228
+msgid ""
+"The following commands assign them to ``LABDISK0`` and take effect the "
+"next time Samba is installed: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:234
+msgid ""
+"Check the assignments by printing ``/etc/nethserver/volumes.conf``. This "
+"file is in INI-compatible format: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:239
+msgid ""
+"The next time Samba is installed on the local node, its ``shares`` and "
+"``homes`` volumes will be created under ``/srv/disk0``. The same "
+"configuration is applied if Samba is installed by the restore or clone "
+"procedures."
+msgstr ""
+
+#: ../../disk_usage.rst:246
+msgid ""
+"In future releases, disk selection will be available from the cluster-"
+"admin UI for applications that support it. When an application is "
+"installed, restored, or cloned, it will be possible to select the disk to"
+" use, or keep the root disk as the default unless a different target is "
+"configured in ``volumes.conf``."
+msgstr ""
+
+#: ../../disk_usage.rst:254
+msgid "Clear named volume assignments"
+msgstr ""
+
+#: ../../disk_usage.rst:256
+msgid ""
+"To remove an assignment, delete the corresponding line from "
+"``/etc/nethserver/volumes.conf`` with a text editor, or run the following"
+" commands: ::"
+msgstr ""
+
+#: ../../disk_usage.rst:263
+msgid ""
+"Removing the assignment does not remove any data; it only updates the "
+"``volumes.conf`` file."
+msgstr ""
+
+#: ../../disk_usage.rst:267
+msgid "Move named volume data to a new disk"
+msgstr ""
+
+#: ../../disk_usage.rst:271
+msgid ""
+"The ``volumectl`` command does yet support moving volume data to a "
+"different disk. This feature is planned for future releases."
 msgstr ""
 
 #: ../../dnsmasq.rst:5
@@ -26407,4 +26620,30 @@ msgstr ""
 #~ "Ora, è possibile installare e "
 #~ "configurare una o più :ref:`NethVoice "
 #~ "<nethvoice-section> ` istanze."
+
+#~ msgid ""
+#~ "Rootless applications require the most "
+#~ "space. They put their data inside "
+#~ "the user's home directory, for example"
+#~ " ``/home/loki1/.local/share/containers/storage``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "There is another growing directory, "
+#~ "``/var/lib/nethserver``, that contains the "
+#~ "actions and state data of rootful "
+#~ "modules, and core components like the"
+#~ " user interface code. Space requirements"
+#~ " for this directory should be "
+#~ "minimal."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When NS8 runs multiple applications, "
+#~ "disk usage increases rapidly, and you"
+#~ " may run out of space. If disk"
+#~ " space runs low, consider expanding "
+#~ "the filesystem using the methods "
+#~ "described in the following sections."
+#~ msgstr ""
 
