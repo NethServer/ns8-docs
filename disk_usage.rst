@@ -221,12 +221,9 @@ In this output example:
 Use the disk for selected volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's continue the Samba File Server example. From direct experience, or
-by reading the ns8-samba documentation, we know it provides two named
-volumes:
-
-- `shares`
-- `homes`
+Let's continue the Samba File Server example. The ns8-samba documentation
+describes two named volumes provided by the Samba File Server: ``shares``
+and ``homes``.
 
 The following commands assign them to ``LABDISK0`` and take effect the
 next time Samba is installed: ::
@@ -256,10 +253,9 @@ procedures.
 Clear named volume assignments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Existing volume assignments are recorded in
-``/etc/nethserver/volumes.conf``. Since the file is in INI-compatible
-format, to remove an assignment delete the corresponding line with a text
-editor. As an alternative, run the following commands: ::
+To remove an assignment, delete the corresponding line from
+``/etc/nethserver/volumes.conf`` with a text editor, or run the following
+commands: ::
 
   volumectl remove-volume --for samba homes
   volumectl remove-volume --for samba shares
@@ -272,5 +268,5 @@ Move named volume data to a new disk
 
 .. note::
 
-  The ``volumectl`` command still does not allow moving volume data to a
+  The ``volumectl`` command does yet support moving volume data to a
   different disk. This feature is planned for future releases.
