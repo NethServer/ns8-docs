@@ -4,36 +4,50 @@
 User domains
 ============
 
-Users and groups are stored in an LDAP database, served by one **account
-provider module**. Multiple modules can work together to serve the same
-LDAP database as replicas. An LDAP database represents an account
-**domain**.
+Users, passwords, and groups are stored in LDAP databases and constitute a
+**user domain**.
 
-The NS8 cluster can host multiple local account domains from different
-implementations. It is possible to configure and connect external LDAP
-services, too. Supported LDAP schemas are
+An NS8 cluster can host multiple *internal* user domains of different LDAP
+schemas. It is also possible to configure *external* user domains that
+connect NS8 with LDAP services running outside the cluster. Supported LDAP
+schemas are:
 
-* Active Directory - `Samba <https://www.samba.org/>`_
-* Unix attributes `RFC2307 <https://www.rfc-editor.org/rfc/rfc2307>`_ - `OpenLDAP <https://www.openldap.org/>`_
+* Active Directory - Samba_
+* Unix attributes RFC2307_ - OpenLDAP_
 
-Besides choosing to bind an external provider or install an internal one, the
-administrator has to decide which backend type suits his needs.
-The Samba File server application
-can authenticate SMB/CIFS clients only when using an Active Directory domain.
-On the other hand, the internal OpenLDAP provider is easier to install and
-configure.
-In the end, if the SMB file sharing protocol support is not required, an
-LDAP provider is the best choice.
+.. _Samba: https://www.samba.org/
+.. _RFC2307: https://www.rfc-editor.org/rfc/rfc2307
+.. _OpenLDAP: https://www.openldap.org/
 
-Also note that you can host multiple OpenLDAP instances on the same node,
-while you can install only one Samba instance per node.
+With an *internal* user domain, the same LDAP database can be replicated
+and provided by multiple cluster nodes to ensure availability for
+applications running on those nodes (see also
+:ref:`provider_replica-section`).
+
+With an *external* user domain, it is still possible to configure multiple
+LDAP replicas, but they must be reachable from every node of the cluster.
+
+An LDAP replica is called an **account provider**.
+
+Besides choosing to bind an external provider or install an internal one,
+consider that the LDAP schema and its implementation may provide different
+features. Some important examples:
+
+- The Samba File Server application works only with Active Directory.
+
+- With OpenLDAP, multiple providers can be hosted on the same node, while
+  Samba can host only one user domain per node.
+
+- RFC2307 providers may not fully support advanced password policies.
+
 
 .. _active_directory-section:
 
 Active Directory
 ================
 
-To install a new user domain with a local Samba Active Directory as provider:
+To install a new user domain with an internal Samba Active Directory as
+provider:
 
 * access the ``Domains and users`` page
 * click on :guilabel:`Create domain` button and choose ``Internal``
@@ -115,7 +129,7 @@ must also be able to resolve AD domain names.
 LDAP server RFC2307
 ===================
 
-To install a new user domain with a local OpenLDAP as provider:
+To install a new user domain with an internal OpenLDAP as provider:
 
 * access the ``Domains and users`` page
 * click on :guilabel:`Create domain` button and choose ``Internal``

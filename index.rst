@@ -21,7 +21,6 @@ NethServer 8 administrator manual
 
    introduction
    release_notes
-   modules
    subscription
 
 .. toctree::
@@ -30,19 +29,21 @@ NethServer 8 administrator manual
 
    system_requirements
    install
+   user_domains
+   software_center
+   modules
 
 .. toctree::
    :maxdepth: 2
    :caption: Configuration
 
    cluster
-   user_domains
    log_server
    proxy
    certificates
    backup
    firewall
-   software_center
+
    email_notifications
    metrics
 
