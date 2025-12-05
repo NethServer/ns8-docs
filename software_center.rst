@@ -4,11 +4,11 @@
 Software center
 ===============
 
-The Software Center displays and manages applications available from all
-configured repositories [#fileserver]_\ .
+The Software Center page displays and manages applications available from
+all configured repositories.
 
 Application information
-========================
+=======================
 
 Each application is represented by a card displaying its name, level of
 certification, and category. Click on the application's name to view
@@ -65,7 +65,7 @@ To install a new application, simply click the :guilabel:`Install` button
 of the application card. If your cluster has multiple nodes, you will also
 need to select the target node.
 
-To install an additional instance of an existing application, click on the
+To install more applications of the same type, click on the
 ``Instances`` link within the application's card. Then, select
 :guilabel:`Install new instance`. Note that in some cases, installation on
 certain cluster nodes may be restricted due to application policies or
@@ -73,19 +73,19 @@ node resource limitations.
 
 .. _application-instances:
 
-Application instances
+Installed applications
 ======================
 
-Once an application has one or more installed instances, click on the
+Once an application has been installed, click on the
 ``Instances`` link within the application's card. You can perform various
 actions on each instance by clicking on its three-dots menu:
 
 - ``Update to testing version``: This action is visible only when a
-  testing version is available as an instance update. Carefully review the
+  testing version is available. Carefully review the
   pre-release documentation or consult the app developer before
   proceeding.
-- ``Add to favorites``: The application will always be listed at the top
-  of the application drawer.
+- ``Add to favorites``: Pin the application at the top of the
+  **application drawer**.
 - ``Edit instance label``: Add a custom name to the instance.
 - ``Clone``: Clone the application. See :ref:`move_clone-section`.
 - ``Move``: Move the application to another node. See
@@ -94,12 +94,15 @@ actions on each instance by clicking on its three-dots menu:
   again, similar to a system reboot but limited to the application.
 - ``Uninstall``: Remove the application and all related data.
 
+The :ref:`Applications page <applications-section>` is an alternative and
+comprehensive place where the applications installed in the cluster can be
+managed.
+
 .. |bento| image:: _static/bento.png
            :alt: application drawer
 
-Installed application instances are also accessible from the application
-drawer by clicking on the |bento| menu in the top-right corner of the
-screen.
+Installed applications are also listed in the **application drawer**, by
+clicking on the |bento| menu in the top-right corner of the screen.
 
 .. _software_repositories-section:
 
@@ -213,55 +216,3 @@ see all module instances that require an update. You can update each
 instance separately by clicking on the :guilabel:`Update` button. If you
 prefer to update all instances of the same module, just click
 :guilabel:`Update all instances` button.
-
-
-.. _move_clone-section:
-
-Clone and move applications
-===========================
-
-An application instance can be cloned to any cluster node. The clone
-procedure creates a new application instance that is equivalent to the
-source one.
-
-The cluster node where the destination instance runs can be the same as
-the source instance. Generally, there should be no limitation on running
-multiple application instances on the same node. However, in some cases,
-cloning to certain cluster nodes may be restricted due to application
-policies, node resource limitations, or because the instance requires
-exclusive access to a system resource, such as binding a fixed TCP port
-number.
-
-In a nutshell the clone procedure:
-
-1. Creates a new application instance for the destination.
-2. Starts the data transfer between the instances, during this phase the
-   source is still up and running.
-3. Stops briefly the source instance.
-4. Executes the final data synchronization.
-5. Starts the source and the destination instances.
-
-Instead, when moving an application, you must select a target node other
-than the one where the instance is currently running.
-
-The move procedure
-
-1. Creates a new application instance for the destination.
-2. Starts the data transfer between the instances, during this phase the
-   source is still up and running.
-3. Stops briefly the source instance.
-4. Executes the final data synchronization.
-5. Starts the destination instance and removes the source one.
-
-If the moved application is referenced by a fully qualified domain name
-(FQDN), ensure you update the DNS record to point to the address of the
-target node.
-
-To start moving/cloning an application instance see the
-:ref:`application-instances` section.
-
-
-.. rubric:: Footnotes
-
-.. [#fileserver] Except for :ref:`file-server-section`, that is provided
-   by a core module, installed with :ref:`active_directory-section`
