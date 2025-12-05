@@ -127,20 +127,30 @@ and best practices, a recommended retention period is 200 days or longer.
 Inactive Loki instances
 -----------------------
 
-When a worker node is promoted to leader, a new Loki instance is installed
-on it and becomes the active instance, while the old instance is marked as
-*inactive*.
+In a NS8 cluster, Loki instances are managed automatically. Only one Loki
+instance is configured as *active* and receives log streams from
+applications. Other instances are *inactive*: they can only be used for
+log searches.
 
-- The new active instance inherits the retention setting from the old one.
+An inactive Loki instance can originate from two situations:
 
-- An inactive instance retains logs based on its last retention setting.
+1. A Loki instance is restored from backup.
+2. When a worker node is promoted to leader, a new Loki instance is
+   installed on the new leader and becomes the active instance, while the
+   previous active instance is marked as *inactive*.
 
-- Log searches can still be performed within an inactive instance.
+In case of a leader promotion, the following also applies:
 
-- Restoring a Loki instance from backup renders it inactive.
+- The new active instance inherits the retention setting of the previous
+  active instance.
 
-- To remove an inactive instance, select the three-dots menu and choose
-  the ``Uninstall`` action.
+- An inactive instance continues to retain logs according to its last
+  retention setting.
+
+As noted, log searches can still be performed on an inactive instance.
+
+To remove an inactive instance, select the three-dots menu and choose the
+``Uninstall`` action.
 
 .. _logs-forwarding-section:
 

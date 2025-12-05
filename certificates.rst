@@ -152,6 +152,9 @@ key, and chain.
 An application uses the uploaded certificate if it matches its configured
 host name. Wildcard names are supported.
 
+Uploaded certificates are added to Traefik's backup and can be restored
+from it.
+
 .. _certificate-alerts-section:
 
 Receive certificate expiration alerts

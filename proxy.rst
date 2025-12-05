@@ -114,6 +114,9 @@ the following details:
   listing allowed IPv4 addresses or CIDR networks, one per line. By
   default, the route is open to all networks.
 
+Custom HTTP routes are added to Traefik's backup and can be restored from
+it.
+
 .. _lets_encrypt_routes:
 
 Let's Encrypt certificate for HTTP routes

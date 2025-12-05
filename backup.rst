@@ -144,16 +144,31 @@ To restore an application, at least one backup destination must be
 available.
 
 * Click on the :guilabel:`Restore an app` button.
-* A dialog box will list all applications in the defined backup
+* A dialog box lists all applications found in the configured backup
   destinations. Select the application you want to restore.
 * If the selected application is already installed, a ``Replace existing
-  app`` checkbox becomes visible. If enabled, the existing instance will
-  be removed upon restore.
-* Select an older backup snapshot if the latest one is not preferable.
+  app`` checkbox becomes visible. When enabled, the existing instance will
+  be removed during the restore.
+* Select an older backup snapshot if the latest one is not suitable.
 * Select the target node. Note that in some cases, restoring to certain
   cluster nodes may be restricted due to application policies or node
   resource limitations.
 * Click on the :guilabel:`Restore` button.
+
+Some core applications have special behavior during restore:
+
+- **Traefik** restores only uploaded certificates and user-defined HTTP
+  routes. Refer to :ref:`uploaded-certificates-section` and
+  :ref:`custom-http-route-section`.
+
+- **Loki** restore installs an additional *inactive* Loki instance. It can
+  be used only for log searches, as explained in
+  :ref:`system-logs-section`.
+
+- **Samba** restore behavior depends on whether the AD user domain is
+  already present in the cluster. If present, only shared folder data is
+  restored. If not present, the DC LDAP database is restored as well. See
+  :ref:`file-server-restore` for more information.
 
 
 .. _selective-content-restore:
