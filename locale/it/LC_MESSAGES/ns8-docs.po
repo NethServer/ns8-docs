@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 15:07+0000\n"
+"POT-Creation-Date: 2025-12-05 12:40+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -303,24 +303,26 @@ msgstr "cliccare sul bottone :guilabel:`Restore an app`."
 #: ../../backup.rst:147
 #, fuzzy
 msgid ""
-"A dialog box will list all applications in the defined backup "
+"A dialog box lists all applications found in the configured backup "
 "destinations. Select the application you want to restore."
 msgstr ""
 "una finestra di dialogo elenca tutte le applicazioni all'interno del "
 "backup esistente, selezionare l'applicazione che si desidera ripristinare"
 
 #: ../../backup.rst:149
+#, fuzzy
 msgid ""
 "If the selected application is already installed, a ``Replace existing "
-"app`` checkbox becomes visible. If enabled, the existing instance will be"
-" removed upon restore."
+"app`` checkbox becomes visible. When enabled, the existing instance will "
+"be removed during the restore."
 msgstr ""
 "Se l'applicazione selezionata è già installata, la casella di controllo "
 "``Sostituisci app`` esistente diventa visibile. Se abilitato, l'istanza "
 "esistente verrà rimossa al momento del ripristino."
 
 #: ../../backup.rst:152
-msgid "Select an older backup snapshot if the latest one is not preferable."
+#, fuzzy
+msgid "Select an older backup snapshot if the latest one is not suitable."
 msgstr "Selezionare una vecchia snapshot di backup se l'ultima non è preferibile."
 
 #: ../../backup.rst:153
@@ -339,12 +341,38 @@ msgstr ""
 msgid "Click on the :guilabel:`Restore` button."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../backup.rst:162
+#: ../../backup.rst:158
+msgid "Some core applications have special behavior during restore:"
+msgstr ""
+
+#: ../../backup.rst:160
+msgid ""
+"**Traefik** restores only uploaded certificates and user-defined HTTP "
+"routes. Refer to :ref:`uploaded-certificates-section` and :ref:`custom-"
+"http-route-section`."
+msgstr ""
+
+#: ../../backup.rst:164
+msgid ""
+"**Loki** restore installs an additional *inactive* Loki instance. It can "
+"be used only for log searches, as explained in :ref:`system-logs-"
+"section`."
+msgstr ""
+
+#: ../../backup.rst:168
+msgid ""
+"**Samba** restore behavior depends on whether the AD user domain is "
+"already present in the cluster. If present, only shared folder data is "
+"restored. If not present, the DC LDAP database is restored as well. See "
+":ref:`file-server-restore` for more information."
+msgstr ""
+
+#: ../../backup.rst:177
 #, fuzzy
 msgid "Selective content restore"
 msgstr "selezionare le applicazioni da ripristinare"
 
-#: ../../backup.rst:164
+#: ../../backup.rst:179
 msgid ""
 "Some applications allow you to search for and restore specific items from"
 " a backup snapshot. For more information, refer to:"
@@ -353,7 +381,7 @@ msgstr ""
 "specifici da una snapshot di backup. Per ulteriori informazioni, "
 "consultare:"
 
-#: ../../backup.rst:167
+#: ../../backup.rst:182
 msgid ""
 "Samba :ref:`share-selective-restore`, for files and directories within a "
 "Samba share."
@@ -361,7 +389,7 @@ msgstr ""
 "Samba :ref:`share-selective-restore`, per file e directory all'interno di"
 " una quota Samba."
 
-#: ../../backup.rst:169
+#: ../../backup.rst:184
 msgid ""
 "Mail :ref:`mailbox-selective-restore`, for public mailboxes and user "
 "mailbox folders."
@@ -369,11 +397,11 @@ msgstr ""
 "Mail :ref:`mailbox-selective-restore`, per caselle di posta pubbliche e "
 "cartelle della casella di posta utente."
 
-#: ../../backup.rst:176
+#: ../../backup.rst:191
 msgid "Cluster backup"
 msgstr "Cluster backup"
 
-#: ../../backup.rst:178
+#: ../../backup.rst:193
 #, fuzzy
 msgid ""
 "The cluster configuration backup contains all required data for :ref"
@@ -386,7 +414,7 @@ msgstr ""
 "necessari per eseguire un :ref: `disaster_recovery-section`. È un file "
 "JSON compresso crittografato con GPG."
 
-#: ../../backup.rst:184
+#: ../../backup.rst:199
 #, fuzzy
 msgid ""
 "The first time the ``Backup`` page is accessed, you must set an "
@@ -399,7 +427,7 @@ msgstr ""
 "password di crittografia è necessaria anche dopo l'elezione di un nuovo "
 "nodo leader (vedere :ref: `node-promotion-section`)."
 
-#: ../../backup.rst:188
+#: ../../backup.rst:203
 msgid ""
 "The cluster configuration backup is automatically copied to backup "
 "destinations during scheduled runs, ensuring up-to-date backups of both "
@@ -416,7 +444,7 @@ msgstr ""
 "il backup della configurazione del cluster è disponibile anche dal "
 "portale di abbonamento."
 
-#: ../../backup.rst:195
+#: ../../backup.rst:210
 #, fuzzy
 msgid ""
 "Periodically download the cluster configuration backup and keep it in a "
@@ -427,7 +455,7 @@ msgstr ""
 "tasto :guilabel:`Download cluster backup` sotto la sezione "
 "``Configurazione cluster`` della pagina ``Backup``."
 
-#: ../../backup.rst:201
+#: ../../backup.rst:216
 #, fuzzy
 msgid ""
 "If you lose the cluster configuration backup, you can still restore "
@@ -438,7 +466,7 @@ msgstr ""
 "ripristinare le applicazioni in un altro cluster solo se si conosce la "
 "password di crittografia del repository di backup."
 
-#: ../../backup.rst:205
+#: ../../backup.rst:220
 #, fuzzy
 msgid ""
 "To inspect the content of the downloaded file, use the following command,"
@@ -448,11 +476,11 @@ msgstr ""
 "dove ``<pass>`` è la password di crittografia inserita prima del "
 "download: ::"
 
-#: ../../backup.rst:214
+#: ../../backup.rst:229
 msgid "Disaster recovery"
 msgstr "Disaster recovery"
 
-#: ../../backup.rst:216
+#: ../../backup.rst:231
 #, fuzzy
 msgid ""
 "You can restore a previously configured cluster using the disaster "
@@ -464,7 +492,7 @@ msgstr ""
 "necessario un:ref: `un backup di configurazione del cluster "
 "<cluster_backup-sezione>`:"
 
-#: ../../backup.rst:220
+#: ../../backup.rst:235
 #, fuzzy
 msgid ""
 ":ref:`Install <install-section>` a new cluster and log in using the "
@@ -473,17 +501,17 @@ msgstr ""
 ":ref:`install <install-section>` un nuovo cluster e login utilizzando le "
 "credenziali di default"
 
-#: ../../backup.rst:222
+#: ../../backup.rst:237
 #, fuzzy
 msgid "Change the default administrator password."
 msgstr "modificare la password di amministratore predefinito"
 
-#: ../../backup.rst:223
+#: ../../backup.rst:238
 #, fuzzy
 msgid "Click on the :guilabel:`Restore cluster` button."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../backup.rst:224
+#: ../../backup.rst:239
 #, fuzzy
 msgid ""
 "Choose whether to restore a cluster configuration from a remote HTTP "
@@ -492,16 +520,16 @@ msgstr ""
 "è ora possibile scegliere se ripristinare una configurazione di cluster "
 "ospitata su un server HTTP remoto o caricare il backup dal browser"
 
-#: ../../backup.rst:226
+#: ../../backup.rst:241
 msgid "Enter the encryption secret in the ``Backup password`` field."
 msgstr "Inserisci il segreto di crittografia nel campo ``Backup password```."
 
-#: ../../backup.rst:227
+#: ../../backup.rst:242
 #, fuzzy
 msgid "Select the applications to restore."
 msgstr "selezionare le applicazioni da ripristinare"
 
-#: ../../backup.rst:229
+#: ../../backup.rst:244
 msgid ""
 "For more information, refer to the backup and restore notes for each "
 "application. For example:"
@@ -509,7 +537,7 @@ msgstr ""
 "Per ulteriori informazioni, fare riferimento al backup e ripristinare le "
 "note per ogni applicazione. Per esempio:"
 
-#: ../../backup.rst:232
+#: ../../backup.rst:247
 msgid ":ref:`file-server-restore`"
 msgstr ":ref:`file-server-restore`"
 
@@ -675,7 +703,7 @@ msgstr ""
 "certificato valido per un dominio seguendo questi passaggi:"
 
 #: ../../certificates.rst:105 ../../certificates.rst:133
-#: ../../certificates.rst:205
+#: ../../certificates.rst:208
 #, fuzzy
 msgid "Go to ``Settings`` → ``TLS certificates``."
 msgstr ""
@@ -773,11 +801,17 @@ msgid ""
 " host name. Wildcard names are supported."
 msgstr ""
 
-#: ../../certificates.rst:158
+#: ../../certificates.rst:155
+msgid ""
+"Uploaded certificates are added to Traefik's backup and can be restored "
+"from it."
+msgstr ""
+
+#: ../../certificates.rst:161
 msgid "Receive certificate expiration alerts"
 msgstr ""
 
-#: ../../certificates.rst:160
+#: ../../certificates.rst:163
 msgid ""
 "If alert notifications are configured (see :ref:`alerts_notifications-"
 "section`), the cluster sends an alert when a certificate is nearing "
@@ -785,86 +819,86 @@ msgid ""
 "expiration date."
 msgstr ""
 
-#: ../../certificates.rst:165
+#: ../../certificates.rst:168
 msgid ""
 "For an ``Uploaded`` certificate, resolve the alert by uploading a new "
 "certificate. The old one can then be deleted."
 msgstr ""
 
-#: ../../certificates.rst:168
+#: ../../certificates.rst:171
 msgid ""
 "For Let's Encrypt certificates (``Requested``, ``Automatic``, "
 "``Obsolete``), an expiration alert indicates renewal has failed. Check "
 "that :ref:`requirements <lets-encrypt-requirements>` are still met."
 msgstr ""
 
-#: ../../certificates.rst:172
+#: ../../certificates.rst:175
 msgid "Common **renewal failure causes** include:"
 msgstr ""
 
-#: ../../certificates.rst:174
+#: ../../certificates.rst:177
 msgid "DNS records for a certificate name were changed or removed."
 msgstr ""
 
-#: ../../certificates.rst:175
+#: ../../certificates.rst:178
 msgid ""
 "A firewall blocks HTTP challenges, either by network address or by "
 "geographic IP rules."
 msgstr ""
 
-#: ../../certificates.rst:182
+#: ../../certificates.rst:185
 #, fuzzy
 msgid "Delete a TLS certificate"
 msgstr "Certificati personalizzati"
 
-#: ../../certificates.rst:184
+#: ../../certificates.rst:187
 msgid ""
 "You can delete a certificate if it is no longer needed. Do this with "
 "caution, because removing a certificate can break applications. When you "
 "delete a certificate:"
 msgstr ""
 
-#: ../../certificates.rst:188
+#: ../../certificates.rst:191
 msgid ""
 "Traefik is restarted and HTTP connections are closed. For some "
 "applications this may lead to client data loss."
 msgstr ""
 
-#: ../../certificates.rst:191
+#: ../../certificates.rst:194
 msgid "If no alternative matches the host name, clients will fail to reconnect."
 msgstr ""
 
-#: ../../certificates.rst:194
+#: ../../certificates.rst:197
 msgid "Automatic renewal (for Let's Encrypt) stops."
 msgstr ""
 
-#: ../../certificates.rst:196
+#: ../../certificates.rst:199
 msgid ""
 "If you delete an ``Automatic`` certificate, the related HTTP route is "
 "modified and its Let's Encrypt switch is cleared."
 msgstr ""
 
-#: ../../certificates.rst:199
+#: ../../certificates.rst:202
 msgid ""
 "Use :guilabel:`Delete obsolete certificates` to remove all obsolete "
 "certificates of a node in a single operation. This limits Traefik "
 "restarts."
 msgstr ""
 
-#: ../../certificates.rst:203
+#: ../../certificates.rst:206
 msgid "Alternatively, to delete a single certificate:"
 msgstr ""
 
-#: ../../certificates.rst:207
+#: ../../certificates.rst:210
 msgid "Find the certificate to remove."
 msgstr ""
 
-#: ../../certificates.rst:209
+#: ../../certificates.rst:212
 #, fuzzy
 msgid "Click :guilabel:`Delete` and confirm."
 msgstr "cliccare su :guilabel:`Upload certificate`"
 
-#: ../../certificates.rst:213
+#: ../../certificates.rst:216
 msgid ""
 "Deletion is irreversible. Ensure no application depends on the "
 "certificate, or install a replacement first to avoid downtime."
@@ -3959,7 +3993,7 @@ msgstr ""
 msgid "Fill the form to join a new DC to the domain."
 msgstr "fill the form to join a new DC to the domain."
 
-#: ../../file_server.rst:303 ../../log_server.rst:223
+#: ../../file_server.rst:303 ../../log_server.rst:233
 #: ../../software_center.rst:265 ../../user_domains.rst:434
 #, fuzzy
 msgid "Footnotes"
@@ -5121,46 +5155,70 @@ msgstr "Esempi di Loki inattivi"
 
 #: ../../log_server.rst:130
 msgid ""
+"In a NS8 cluster, Loki instances are managed automatically. Only one Loki"
+" instance is configured as *active* and receives log streams from "
+"applications. Other instances are *inactive*: they can only be used for "
+"log searches."
+msgstr ""
+
+#: ../../log_server.rst:135
+msgid "An inactive Loki instance can originate from two situations:"
+msgstr ""
+
+#: ../../log_server.rst:137
+msgid "A Loki instance is restored from backup."
+msgstr ""
+
+#: ../../log_server.rst:138
+#, fuzzy
+msgid ""
 "When a worker node is promoted to leader, a new Loki instance is "
-"installed on it and becomes the active instance, while the old instance "
-"is marked as *inactive*."
+"installed on the new leader and becomes the active instance, while the "
+"previous active instance is marked as *inactive*."
 msgstr ""
 "Quando un nodo operaio è promosso a leader, una nuova istanza Loki è "
 "installato su di esso e diventa l'istanza attiva, mentre la vecchia "
 "istanza è contrassegnata come *inactive*."
 
-#: ../../log_server.rst:134
-msgid "The new active instance inherits the retention setting from the old one."
+#: ../../log_server.rst:142
+msgid "In case of a leader promotion, the following also applies:"
+msgstr ""
+
+#: ../../log_server.rst:144
+#, fuzzy
+msgid ""
+"The new active instance inherits the retention setting of the previous "
+"active instance."
 msgstr "La nuova istanza attiva eredita l'impostazione di ritenzione dal vecchio."
 
-#: ../../log_server.rst:136
-msgid "An inactive instance retains logs based on its last retention setting."
+#: ../../log_server.rst:147
+#, fuzzy
+msgid ""
+"An inactive instance continues to retain logs according to its last "
+"retention setting."
 msgstr ""
 "Un'istanza inattiva mantiene i registri in base alla sua ultima "
 "impostazione di conservazione."
 
-#: ../../log_server.rst:138
-msgid "Log searches can still be performed within an inactive instance."
+#: ../../log_server.rst:150
+#, fuzzy
+msgid "As noted, log searches can still be performed on an inactive instance."
 msgstr ""
 "Le ricerche di log possono ancora essere eseguite all'interno di "
 "un'istanza inattiva."
 
-#: ../../log_server.rst:140
-msgid "Restoring a Loki instance from backup renders it inactive."
-msgstr "Ripristinare un'istanza Loki dal backup lo rende inattivo."
-
-#: ../../log_server.rst:142
+#: ../../log_server.rst:152
 msgid ""
 "To remove an inactive instance, select the three-dots menu and choose the"
 " ``Uninstall`` action."
 msgstr ""
 
-#: ../../log_server.rst:148
+#: ../../log_server.rst:158
 #, fuzzy
 msgid "Logs forwarding"
 msgstr "Forward"
 
-#: ../../log_server.rst:150
+#: ../../log_server.rst:160
 msgid ""
 "On the leader node, you have the capability to forward log streams "
 "managed by the active Loki instance to either an external syslog server "
@@ -5174,7 +5232,7 @@ msgstr ""
 "facilitando il monitoraggio, l'analisi e la risoluzione dei problemi "
 "dell'ambiente NethServer."
 
-#: ../../log_server.rst:154
+#: ../../log_server.rst:164
 msgid ""
 "To enable forwarders, navigate to ``Settings`` -> ``System Logs`` page, "
 "where all Loki instances, including the active one, are listed. Here, you"
@@ -5185,20 +5243,20 @@ msgstr ""
 "elencate. Qui è possibile configurare i servizi aprendo il menu della "
 "carta Loki."
 
-#: ../../log_server.rst:157
+#: ../../log_server.rst:167
 msgid "If the forwarder is enabled, its status can be viewed in two places:"
 msgstr ""
 "Se il inoltratore è abilitato, il suo stato può essere visto in due "
 "luoghi:"
 
-#: ../../log_server.rst:159
+#: ../../log_server.rst:169
 #, fuzzy
 msgid "On the ``Cluster Status`` page under the ``System Logs`` card."
 msgstr ""
 "accedere alla pagina ``Impostazioni`` e fare clic sulla scheda "
 "``certificati TLS ``"
 
-#: ../../log_server.rst:160
+#: ../../log_server.rst:170
 msgid ""
 "On the ``Settings`` -> ``System Logs`` page under the active Loki "
 "instance card."
@@ -5206,12 +5264,12 @@ msgstr ""
 "Sul ``Settings`` -> ``System Logs`` pagina sotto la scheda di istanza "
 "Loki attiva."
 
-#: ../../log_server.rst:162
+#: ../../log_server.rst:172
 #, fuzzy
 msgid "The displayed states are:"
 msgstr "Gestione delle impostazioni utente"
 
-#: ../../log_server.rst:164
+#: ../../log_server.rst:174
 msgid ""
 "**Enabled**: A green circle with a description indicates the forwarder is"
 " active."
@@ -5219,7 +5277,7 @@ msgstr ""
 "**Enabled**: Un cerchio verde con una descrizione indica che il forwarder"
 " è attivo."
 
-#: ../../log_server.rst:165
+#: ../../log_server.rst:175
 msgid ""
 "**Failed**: A red circle with a description indicates the forwarder has "
 "encountered an issue."
@@ -5227,12 +5285,12 @@ msgstr ""
 "**Failed**: Un cerchio rosso con una descrizione indica che il forwarder "
 "ha incontrato un problema."
 
-#: ../../log_server.rst:170
+#: ../../log_server.rst:180
 #, fuzzy
 msgid "Syslog"
 msgstr "System logs"
 
-#: ../../log_server.rst:171
+#: ../../log_server.rst:181
 msgid ""
 "A syslog server receives, stores, and manages log messages from network "
 "devices and applications, facilitating centralized log monitoring and "
@@ -5242,7 +5300,7 @@ msgstr ""
 "dispositivi e applicazioni di rete, facilitando il monitoraggio e "
 "l'analisi centralizzati del registro."
 
-#: ../../log_server.rst:174
+#: ../../log_server.rst:184
 msgid ""
 "Before setting up the forwarder, ensure your syslog server is functioning"
 " properly. You will need the following information to enable the syslog "
@@ -5252,25 +5310,25 @@ msgstr ""
 "syslog funzioni correttamente. Avrete bisogno delle seguenti informazioni"
 " per attivare il server syslog:"
 
-#: ../../log_server.rst:176
+#: ../../log_server.rst:186
 #, fuzzy
 msgid "**Host name or IP address**: The IP address of the syslog server."
 msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../log_server.rst:177
+#: ../../log_server.rst:187
 #, fuzzy
 msgid "**Port**: The port number on which the syslog server listens."
 msgstr "``Port Number`` TCP port used by the LDAP server."
 
-#: ../../log_server.rst:178
+#: ../../log_server.rst:188
 msgid "**Protocol**: The protocol used for server communication (UDP or TCP)."
 msgstr ""
 "**Protocollo ** Il protocollo utilizzato per la comunicazione del server "
 "(UDP o TCP)."
 
-#: ../../log_server.rst:179
+#: ../../log_server.rst:189
 msgid ""
 "**Filter**: Choose whether to forward all log records or only those "
 "related to security events."
@@ -5278,7 +5336,7 @@ msgstr ""
 "**Filter**: Scegli se inoltrare tutti i record di registro o solo quelli "
 "relativi agli eventi di sicurezza."
 
-#: ../../log_server.rst:180
+#: ../../log_server.rst:190
 #, fuzzy
 msgid ""
 "**Format**: Log format (`RFC 3164 <https://www.rfc-"
@@ -5288,7 +5346,7 @@ msgstr ""
 "Attributi Unix `RFC2307 <https://www.rfc-editor.org/rfc/rfc2307> `_ - "
 "`OpenLDAP <https://www.openldap.org/>`_"
 
-#: ../../log_server.rst:181 ../../log_server.rst:206
+#: ../../log_server.rst:191 ../../log_server.rst:216
 msgid ""
 "**Export start date**: Specify from when logs should be forwarded. You "
 "can choose the last timestamp [#last_timestamp]_ or manually enter a date"
@@ -5298,19 +5356,19 @@ msgstr ""
 " essere inoltrati. È possibile scegliere l'ultimo timestamp "
 "[#last_timestamp]_ o inserire manualmente una data e l'ora."
 
-#: ../../log_server.rst:184
+#: ../../log_server.rst:194
 #, fuzzy
 msgid "Cloud Log Manager"
 msgstr "Queue Manager"
 
-#: ../../log_server.rst:186
+#: ../../log_server.rst:196
 #, fuzzy
 msgid ""
 "This service is available only with :ref:`subscription <subscription-"
 "section>`."
 msgstr ":ref:`Piani di abbonamento <subscription-section>`"
 
-#: ../../log_server.rst:188
+#: ../../log_server.rst:198
 msgid ""
 "The Nethesis Cloud Log Manager is a centralized solution for collecting, "
 "storing, and managing logs from various devices within an organization. "
@@ -5319,7 +5377,7 @@ msgid ""
 " a single interface."
 msgstr ""
 
-#: ../../log_server.rst:193
+#: ../../log_server.rst:203
 msgid ""
 "To enable the forwarder for Cloud Log Manager, navigate to the "
 "``Settings`` page and select ``System Logs``. Open the three-dots menu of"
@@ -5331,7 +5389,7 @@ msgstr ""
 "dell'istanza attiva Loki, quindi fare clic su ``Configurare Cloud Log "
 "Manager` azione. Compila il modulo con le seguenti informazioni:"
 
-#: ../../log_server.rst:198
+#: ../../log_server.rst:208
 msgid ""
 "**Cloud Log Manager URL**: The URL of the Cloud Log Manager (usually "
 "``https://nar.nethesis.it/``)."
@@ -5339,7 +5397,7 @@ msgstr ""
 "**Cloud Log Manager URL**: L'URL del Cloud Log Manager (solitamente "
 "``https://nar.nethesis.it/`)."
 
-#: ../../log_server.rst:201
+#: ../../log_server.rst:211
 msgid ""
 "**Company unique key**: This key, also known as 'tenant', identifies and "
 "associates the cluster logs within a company in Cloud Log Manager. You "
@@ -5351,7 +5409,7 @@ msgstr ""
 "Cloud Log Manager. È possibile trovarlo nell'applicazione web Cloud Log "
 "Manager, sotto Utenti e Aziende > Aziende."
 
-#: ../../log_server.rst:210
+#: ../../log_server.rst:220
 msgid ""
 "Take note of the *cluster identifier*, displayed in the notice at the top"
 " of the form. The cluster identifier value is a string like ``cluster-"
@@ -5359,7 +5417,7 @@ msgid ""
 "web application."
 msgstr ""
 
-#: ../../log_server.rst:215
+#: ../../log_server.rst:225
 msgid ""
 "Once the form is saved, the export procedure begins. After a few minutes,"
 " the cluster security logs will be available at "
@@ -5369,7 +5427,7 @@ msgstr ""
 "pochi minuti, i registri di sicurezza del cluster saranno disponibili "
 "all'indirizzo https://naradmin.nethesis.it/."
 
-#: ../../log_server.rst:218
+#: ../../log_server.rst:228
 msgid ""
 "Only security logs are forwarded to the Cloud Log Manager. To forward the"
 " full log stream, which may generate considerable data, refer to :ref"
@@ -5379,14 +5437,14 @@ msgstr ""
 "inoltrare il flusso di registro completo, che può generare dati "
 "considerevoli, fare riferimento a :ref:`syslog-section`."
 
-#: ../../log_server.rst:226
+#: ../../log_server.rst:236
 msgid ""
 "Grafana Loki is a special database designed to store, index and search "
 "system logs. For more information, see "
 "https://github.com/nethserver/ns8-loki"
 msgstr ""
 
-#: ../../log_server.rst:232
+#: ../../log_server.rst:242
 msgid ""
 "The promtail.service core service operates on every node, reading system "
 "journals, forwarding new records to the active Loki instance, and "
@@ -5398,7 +5456,7 @@ msgstr ""
 "l'ultima posizione del cursore della rivista inviata per garantire "
 "riavviamento senza interruzioni senza perdita di registro."
 
-#: ../../log_server.rst:239
+#: ../../log_server.rst:249
 msgid ""
 "Last timestamp indicates the last time that the forwarder successfully "
 "sent logs. This allows the forwarder to resume forwarding from where it "
@@ -10460,12 +10518,18 @@ msgid ""
 "route is open to all networks."
 msgstr ""
 
-#: ../../proxy.rst:120
+#: ../../proxy.rst:117
+msgid ""
+"Custom HTTP routes are added to Traefik's backup and can be restored from"
+" it."
+msgstr ""
+
+#: ../../proxy.rst:123
 #, fuzzy
 msgid "Let's Encrypt certificate for HTTP routes"
 msgstr "Certificati Let's Encrypt"
 
-#: ../../proxy.rst:122
+#: ../../proxy.rst:125
 msgid ""
 "The ``Request Let's Encrypt certificate`` option enables automatic "
 "provisioning of a TLS certificate for the ``Host`` name, signed by the "
@@ -10474,37 +10538,37 @@ msgid ""
 "requirements` for details about requirements and how the process works."
 msgstr ""
 
-#: ../../proxy.rst:128
+#: ../../proxy.rst:131
 msgid ""
 "When this option is disabled, the old TLS certificate is automatically "
 "removed from Traefik’s internal certificate storage, and Traefik is "
 "restarted after clicking the :guilabel:`Save` button."
 msgstr ""
 
-#: ../../proxy.rst:134
+#: ../../proxy.rst:137
 msgid ""
 "Restarting Traefik can forcibly disconnect users from applications. Avoid"
 " disabling the ``Request Let's Encrypt certificate`` option during office"
 " hours."
 msgstr ""
 
-#: ../../proxy.rst:141
+#: ../../proxy.rst:144
 msgid "Clear IP restrictions on cluster-admin route"
 msgstr ""
 
-#: ../../proxy.rst:143
+#: ../../proxy.rst:146
 msgid ""
 "If you lose access to the cluster administration interface due to IP "
 "restrictions, you can remove them from the command line:"
 msgstr ""
 
-#: ../../proxy.rst:146
+#: ../../proxy.rst:149
 msgid ""
 "Connect to the cluster leader node via SSH with root privileges and get "
 "the Traefik module identifier: ::"
 msgstr ""
 
-#: ../../proxy.rst:151
+#: ../../proxy.rst:154
 msgid ""
 "Run the following command to clear restrictions on the ``cluster-admin`` "
 "route of module ``traefik1``: ::"
@@ -26646,4 +26710,7 @@ msgstr ""
 #~ "the filesystem using the methods "
 #~ "described in the following sections."
 #~ msgstr ""
+
+#~ msgid "Restoring a Loki instance from backup renders it inactive."
+#~ msgstr "Ripristinare un'istanza Loki dal backup lo rende inattivo."
 
