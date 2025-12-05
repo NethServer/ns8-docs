@@ -102,7 +102,7 @@ managed.
            :alt: application drawer
 
 Installed applications are also listed in the **application drawer**, by
-clicking on the |bento| menu in the top-right corner of the screen. 
+clicking on the |bento| menu in the top-right corner of the screen.
 
 .. _software_repositories-section:
 

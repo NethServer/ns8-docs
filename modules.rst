@@ -75,7 +75,7 @@ Once started, ``Clone`` and ``Move`` actions run through these steps:
 4. Execute the final data synchronization.
 5. The final step differs between the two actions:
 
-   - *For Clone*, start both the source and the destination applications. 
+   - *For Clone*, start both the source and the destination applications.
 
    - *For Move*, **start the destination** application and **remove the
      source** one.

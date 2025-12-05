@@ -43,7 +43,6 @@ NethServer 8 administrator manual
    certificates
    backup
    firewall
-
    email_notifications
    metrics
 
