@@ -153,8 +153,11 @@ Provider replicas
 Provider replicas implement fault tolerance for user domains.
 To achieve real fault tolerance, replicas should be installed on different nodes.
 
-You can add a replica from the ``Domains and users`` page by selecting the ``Configuration`` link from the three-dots menu.
-Then click the :guilabel:`Add provider` button, select the target node and proceed with the installation.
+You can add a replica from the ``Domains and users`` page by selecting the
+``Configuration`` tab in the domain details. Then click the :guilabel:`Add
+provider` button, select the target node, and proceed with the
+installation.
+
 
 Replicas are configured in master-master mode.
 
@@ -166,14 +169,21 @@ Replicas are configured in master-master mode.
 LDAP bind settings
 ==================
 
-.. note:: External applications can connect only to a local Active Directory provider. 
-
 Binding is the process where the LDAP server authenticates the client and, if the client is successfully authenticated, 
 the server allows client access.
 
 Many applications may require to be bound to an existing NethServer 8 user domain.
-Bind settings can be accessed by selecting the ``Configuration`` link from the three-dots menu: user domain
-details are displayed on the top of the page.
+Bind settings can be accessed from the ``Configuration`` tab of the domain details.
+
+The Samba AD provider exposes standard LDAP and LDAPS ports (389/636) to
+applications outside the cluster only if it has been created with
+``Provide file shares and authentication to Windows clients`` (see
+:ref:`active_directory-section`).
+
+OpenLDAP RFC2307 providers do not expose any port for external
+applications. They listen on a single clear-text LDAP port accessible to
+services inside the cluster network. Manual configurations are not
+needed.
 
 .. _ldap_proxy-section:
 
@@ -372,6 +382,11 @@ Changes to the user base must be done on the external server.
 On the other hand, if a local AD or LDAP account provider has been installed, the page
 allows to create, modify and delete users and groups.
 
+.. _create-users-and-groups-section:
+
+Create users and groups
+-----------------------
+
 When creating a user, the following fields are mandatory:
 
 * User name
@@ -399,7 +414,58 @@ account. The safest approach is:
 1. (optionally) change the user's password with a random one
 2. disable the user using the ``Disable`` action from the three-dots menu
 
-When a user is deleted, user data will not be removed.
+When a user is deleted, user data will not be removed. Deleting a user
+does not remove mailbox contents, home directories, or
+application-specific data. These must be cleaned up manually depending on
+the installed applications.
+
+User names must be unique within the same domain but can be reused across
+different domains hosted on the cluster.
+
+.. _import-export-data-section:
+
+Import and export data
+----------------------
+
+Users and groups can be managed in bulk with the *import* and *export
+data* actions. The supported data format is CSV_ (comma-separated values)
+with the following fields:
+
+.. _CSV: https://www.rfc-editor.org/rfc/rfc4180
+
+1. *username*
+2. *display_name* -- An empty value removes the LDAP ``displayName``
+   attribute.
+3. *password* -- If the password contains a comma (e.g.
+   ``Nethesis,1234``), enclose this field in double quotes. An empty value
+   leaves the current password unchanged.
+4. *mail* -- A valid email address. Note that unlike Samba Active
+   Directory, the OpenLDAP RFC2307 schema does not allow special
+   characters. An empty value removes the corresponding ``mail`` LDAP
+   attribute.
+5. *groups* -- A list of groups separated by the ``|`` (pipe) character.
+   If a group does not exist yet, it is created on the fly during the
+   import. If this field is empty, the user is removed from all groups.
+6. *locked* (boolean)
+7. *must_change_password* (boolean)
+8. *no_password_expiration* (boolean)
+
+The fields must be present in the above, exact order. They correspond to
+the attributes described in the previous section; refer to
+:ref:`create-users-and-groups-section` for more information.
+
+The last three fields are boolean values. Accepted values are limited to
+the strings ``true`` and ``false``. The empty string, and any value other
+than ``true``, is interpreted as ``false``.
+
+For example, this CSV file includes an optional header line with the eight
+mandatory fields, followed by one record for user ``john``, who is a
+member of the ``devs`` and ``web`` groups.
+
+::
+
+  user,display_name,password,mail,groups,locked,must_change_password,no_password_expiration
+  john,Johnny Smith,s3Cr3tXX,john@example.org,devs|web,false,true,false
 
 .. _user-management-portal-section:
 
