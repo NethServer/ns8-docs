@@ -190,6 +190,8 @@ Before setting up the forwarder, ensure your syslog server is functioning proper
 * **Format**: Log format (`RFC 3164 <https://www.rfc-editor.org/rfc/rfc3164>`_ or `RFC 5424 <https://www.rfc-editor.org/rfc/rfc5424>`_).
 * **Export start date**: Specify from when logs should be forwarded. You can choose the last timestamp [#last_timestamp]_ or manually enter a date and time.
 
+.. _clm-section:
+
 Cloud Log Manager
 -----------------
 
