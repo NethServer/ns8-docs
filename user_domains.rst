@@ -438,7 +438,8 @@ with the following fields:
    attribute.
 3. *password* -- If the password contains a comma (e.g.
    ``Nethesis,1234``), enclose this field in double quotes. An empty value
-   leaves the current password unchanged.
+   leaves the password unchanged for existing users, and sets a random
+   initial password for newly created users.
 4. *mail* -- A valid email address. Note that unlike Samba Active
    Directory, the OpenLDAP RFC2307 schema does not allow special
    characters. An empty value removes the corresponding ``mail`` LDAP
