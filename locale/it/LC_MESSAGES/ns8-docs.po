@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-05 15:57+0000\n"
+"POT-Creation-Date: 2025-12-10 09:49+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -1605,7 +1605,7 @@ msgstr ""
 "accessibili."
 
 #: ../../cluster.rst:323 ../../file_server.rst:303 ../../log_server.rst:233
-#: ../../user_domains.rst:448
+#: ../../user_domains.rst:515
 #, fuzzy
 msgid "Footnotes"
 msgstr "Footnotes"
@@ -14986,24 +14986,19 @@ msgstr ""
 "real fault tolerance, replicas should be installed on different nodes."
 
 #: ../../user_domains.rst:156
-#, fuzzy
 msgid ""
 "You can add a replica from the ``Domains and users`` page by selecting "
-"the ``Configuration`` link from the three-dots menu. Then click the "
-":guilabel:`Add provider` button, select the target node and proceed with "
-"the installation."
+"the ``Configuration`` tab in the domain details. Then click the "
+":guilabel:`Add provider` button, select the target node, and proceed with"
+" the installation."
 msgstr ""
-"You can add a replica from the ``Domains and users`` page by selecting "
-"the ``Configuration`` link from the three-dots menu. Then click the "
-":guilabel:`Add provider` button, select the target node and proceed with "
-"the installation."
 
-#: ../../user_domains.rst:159
+#: ../../user_domains.rst:162
 #, fuzzy
 msgid "Replicas are configured in master-master mode."
 msgstr "Replicas are configured in master-master mode."
 
-#: ../../user_domains.rst:161
+#: ../../user_domains.rst:164
 #, fuzzy
 msgid ""
 "Active Directory provider does not replicate the SysVol volume. Therefore"
@@ -15014,21 +15009,12 @@ msgstr ""
 " Microsoft's Group Policy Object (GPO) will not be synchronized between "
 "replicas."
 
-#: ../../user_domains.rst:167
+#: ../../user_domains.rst:170
 #, fuzzy
 msgid "LDAP bind settings"
 msgstr "LDAP bind settings"
 
-#: ../../user_domains.rst:169
-#, fuzzy
-msgid ""
-"External applications can connect only to a local Active Directory "
-"provider."
-msgstr ""
-"External applications can connect only to a local Active Directory "
-"provider."
-
-#: ../../user_domains.rst:171
+#: ../../user_domains.rst:172
 #, fuzzy
 msgid ""
 "Binding is the process where the LDAP server authenticates the client "
@@ -15039,40 +15025,55 @@ msgstr ""
 "and, if the client is successfully authenticated, the server allows "
 "client access."
 
-#: ../../user_domains.rst:174
+#: ../../user_domains.rst:175
 #, fuzzy
 msgid ""
 "Many applications may require to be bound to an existing NethServer 8 "
-"user domain. Bind settings can be accessed by selecting the "
-"``Configuration`` link from the three-dots menu: user domain details are "
-"displayed on the top of the page."
+"user domain. Bind settings can be accessed from the ``Configuration`` tab"
+" of the domain details."
 msgstr ""
 "Many applications may require to be bound to an existing NethServer 8 "
 "user domain. Bind settings can be accessed by selecting the "
 "``Configuration`` link from the three-dots menu: user domain details are "
 "displayed on the top of the page."
 
-#: ../../user_domains.rst:181
+#: ../../user_domains.rst:178
+msgid ""
+"The Samba AD provider exposes standard LDAP and LDAPS ports (389/636) to "
+"applications outside the cluster only if it has been created with "
+"``Provide file shares and authentication to Windows clients`` (see :ref"
+":`active_directory-section`)."
+msgstr ""
+
+#: ../../user_domains.rst:183
+msgid ""
+"OpenLDAP RFC2307 providers do not expose any port for external "
+"applications. They listen on a single clear-text LDAP port accessible to "
+"services inside the cluster network. Manual configurations are not "
+"needed."
+msgstr ""
+
+#: ../../user_domains.rst:191
 #, fuzzy
 msgid "External LDAP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:183
+#: ../../user_domains.rst:193
 #, fuzzy
 msgid "You can connect the NethServer 8 cluster to an existing LDAP server."
 msgstr "You can connect the NethServer 8 cluster to an existing LDAP server:"
 
-#: ../../user_domains.rst:185
+#: ../../user_domains.rst:195
 #, fuzzy
 msgid "Access the ``Domains and users`` page."
 msgstr "accedere alla pagina ``Domini e utenti`"
 
-#: ../../user_domains.rst:187
+#: ../../user_domains.rst:197
 #, fuzzy
 msgid "Click on :guilabel:`Create domain` button and choose ``External``."
 msgstr "click on :guilabel:`Create domain` button and choose ``External``"
 
-#: ../../user_domains.rst:189
+#: ../../user_domains.rst:199
 #, fuzzy
 msgid ""
 "Fill all required fields. Bear in mind that apart from \"Host\" and "
@@ -15081,7 +15082,7 @@ msgstr ""
 "Fill all required fields. Bear in mind that apart from \"Host\" and "
 "\"Port\", the domain settings cannot be changed later:"
 
-#: ../../user_domains.rst:192
+#: ../../user_domains.rst:202
 #, fuzzy
 msgid ""
 "``Domain``: This should be in fully qualified domain name (FQDN) syntax, "
@@ -15094,14 +15095,14 @@ msgstr ""
 "example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain "
 "name would be \"example.org\"."
 
-#: ../../user_domains.rst:197
+#: ../../user_domains.rst:207
 #, fuzzy
 msgid "``Host``: Enter the IP address or hostname of the LDAP server."
 msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../user_domains.rst:199
+#: ../../user_domains.rst:209
 msgid ""
 "``Port``: Specify the TCP port number of the remote LDAP service. "
 "Standard values are 389 for LDAP and 636 for LDAPS. However, with Active "
@@ -15115,7 +15116,7 @@ msgstr ""
 "l'impostazione della porta LDAP 3268 o della porta LDAPS 3269. Questo "
 "perché non supportano i \"ferrali subordinati MONAP\"."
 
-#: ../../user_domains.rst:205
+#: ../../user_domains.rst:215
 #, fuzzy
 msgid ""
 "``Bind DN`` and ``Password``: Credentials required to access the remote "
@@ -15124,7 +15125,7 @@ msgstr ""
 "``Bind DN`` and ``Password``: Credentials required to access the remote "
 "LDAP server."
 
-#: ../../user_domains.rst:208
+#: ../../user_domains.rst:218
 #, fuzzy
 msgid ""
 "``Base DN``: Define the level of the LDAP hierarchy to use as the base "
@@ -15134,49 +15135,49 @@ msgstr ""
 "``Base DN``: Define the level of the LDAP hierarchy to use as the base "
 "for user and group lookup. Leaving this field empty retrieves the correct"
 " value from the LDAP server itself."
-
-#: ../../user_domains.rst:212
-#, fuzzy
-msgid ""
-"``TLS``: Enable this switch to encrypt the connection with TLS. If the "
-"server does not support TLS on the specified port, an error will occur."
-msgstr ""
-"``TLS``: Enable this switch to encrypt the connection with TLS. If the "
-"server does not support TLS on the specified port, an error will occur."
-
-#: ../../user_domains.rst:216
-#, fuzzy
-msgid ""
-"``TLS verify``: Enable this switch to ensure that the LDAP server "
-"provides a valid TLS certificate signed by a trusted authority, with the "
-"certificate name matching the hostname specified in the \"Host\" field. "
-"Continue reading to fully understand the implications of this option."
-msgstr ""
-"``TLS verify``: Enable this switch to ensure that the LDAP server "
-"provides a valid TLS certificate signed by a trusted authority, with the "
-"certificate name matching the hostname specified in the \"Host\" field. "
-"Continue reading to fully understand the implications of this option."
 
 #: ../../user_domains.rst:222
+#, fuzzy
+msgid ""
+"``TLS``: Enable this switch to encrypt the connection with TLS. If the "
+"server does not support TLS on the specified port, an error will occur."
+msgstr ""
+"``TLS``: Enable this switch to encrypt the connection with TLS. If the "
+"server does not support TLS on the specified port, an error will occur."
+
+#: ../../user_domains.rst:226
+#, fuzzy
+msgid ""
+"``TLS verify``: Enable this switch to ensure that the LDAP server "
+"provides a valid TLS certificate signed by a trusted authority, with the "
+"certificate name matching the hostname specified in the \"Host\" field. "
+"Continue reading to fully understand the implications of this option."
+msgstr ""
+"``TLS verify``: Enable this switch to ensure that the LDAP server "
+"provides a valid TLS certificate signed by a trusted authority, with the "
+"certificate name matching the hostname specified in the \"Host\" field. "
+"Continue reading to fully understand the implications of this option."
+
+#: ../../user_domains.rst:232
 #, fuzzy
 msgid ""
 "Once all fields are filled, click on the :guilabel:`Configure domain` "
 "button."
 msgstr "click on :guilabel:`Configure domain` button"
 
-#: ../../user_domains.rst:229
+#: ../../user_domains.rst:239
 #, fuzzy
 msgid "Modify external LDAP settings"
 msgstr "Impostazioni generali"
 
-#: ../../user_domains.rst:231
+#: ../../user_domains.rst:241
 msgid ""
 "When a domain is configured for the first time, the LDAP server settings "
 "are saved in its first provider entry. Bind credentials and TLS settings "
 "can be modified at a later from the ``Domain Settings`` card."
 msgstr ""
 
-#: ../../user_domains.rst:235
+#: ../../user_domains.rst:245
 #, fuzzy
 msgid ""
 "If you choose not to verify TLS, you can configure additional hosts as "
@@ -15191,7 +15192,7 @@ msgstr ""
 "another provider. It's crucial that all domain providers are accessible "
 "from any cluster node."
 
-#: ../../user_domains.rst:241
+#: ../../user_domains.rst:251
 #, fuzzy
 msgid ""
 "Enabling \"TLS verify\" adds extra security but has limitations: only the"
@@ -15202,7 +15203,7 @@ msgstr ""
 " first provider is considered. If it becomes unreachable, connection "
 "recovery is not possible."
 
-#: ../../user_domains.rst:247
+#: ../../user_domains.rst:257
 #, fuzzy
 msgid ""
 "Ensure each provider is accessible from all cluster nodes for seamless "
@@ -15211,12 +15212,12 @@ msgstr ""
 "Ensure each provider is accessible from all cluster nodes for seamless "
 "operation."
 
-#: ../../user_domains.rst:253
+#: ../../user_domains.rst:263
 #, fuzzy
 msgid "Password policy"
 msgstr "Password policy"
 
-#: ../../user_domains.rst:255
+#: ../../user_domains.rst:265
 #, fuzzy
 msgid ""
 "The password policy is a set of rules that defines the password "
@@ -15231,17 +15232,17 @@ msgstr ""
 "interested domain and clicking :guilabel:`Edit password policy` from the "
 "three-dots menu of the ``Password`` card."
 
-#: ../../user_domains.rst:257
+#: ../../user_domains.rst:267
 #, fuzzy
 msgid "You can configure password age and password strength policy separately."
 msgstr "You can configure password age and password strength policy separately."
 
-#: ../../user_domains.rst:260
+#: ../../user_domains.rst:270
 #, fuzzy
 msgid "Password age"
 msgstr "Password age"
 
-#: ../../user_domains.rst:262
+#: ../../user_domains.rst:272
 #, fuzzy
 msgid ""
 "You can toggle password age policy by clicking on the ``Password age`` "
@@ -15250,7 +15251,7 @@ msgstr ""
 "You can toggle password age policy by clicking on the ``Password age`` "
 "switch. If enabled, you can configure the following parameters:"
 
-#: ../../user_domains.rst:264
+#: ../../user_domains.rst:274
 #, fuzzy
 msgid ""
 "``Minimum password age`` (default 0): the minimum number of days that "
@@ -15259,7 +15260,7 @@ msgstr ""
 "``Minimum password age``: the minimum number of days that must pass "
 "before a new password change."
 
-#: ../../user_domains.rst:265
+#: ../../user_domains.rst:275
 #, fuzzy
 msgid ""
 "``Maximum password age`` (default 180): password expiration time in days."
@@ -15272,79 +15273,79 @@ msgstr ""
 "Users can change their expired password with :ref:`user-management-"
 "portal-section`."
 
-#: ../../user_domains.rst:268
+#: ../../user_domains.rst:278
 #, fuzzy
 msgid "Password strength"
 msgstr "Password strength"
 
-#: ../../user_domains.rst:270
-#, fuzzy
-msgid ""
-"By enabling the ``Password strength`` switch, you can configure the "
-"following parameters:"
-msgstr ""
-"By enabling the ``Password strength`` switch, you can configure the "
-"following parameters:"
-
-#: ../../user_domains.rst:272
-#, fuzzy
-msgid ""
-"``Password history length``: the number of old passwords that cannot be "
-"reused."
-msgstr ""
-"``Password history length``: the number of old passwords that cannot be "
-"reused."
-
-#: ../../user_domains.rst:273
-#, fuzzy
-msgid ""
-"``Minimum password length``: the minimum number of characters that a "
-"password must have."
-msgstr ""
-"``Minimum password length``: the minimum number of characters that a "
-"password must have."
-
-#: ../../user_domains.rst:274
-#, fuzzy
-msgid ""
-"``Enforce password complexity``: enforce use of complex password, see "
-"note for more details."
-msgstr ""
-"``Enforce password complexity``: enforce use of complex password, see "
-"note for more details."
-
-#: ../../user_domains.rst:276
-#, fuzzy
-msgid ""
-"A password is considered complex if it is long enough and meets three of "
-"the following rules:"
-msgstr ""
-"A password is considered complex if it is long enough and meets three of "
-"the following rules:"
-
-#: ../../user_domains.rst:278
-#, fuzzy
-msgid "The password must contain at least one uppercase letter."
-msgstr "The password must contain at least one uppercase letter."
-
-#: ../../user_domains.rst:279
-#, fuzzy
-msgid "The password must contain at least one lowercase letter."
-msgstr "The password must contain at least one lowercase letter."
-
 #: ../../user_domains.rst:280
 #, fuzzy
-msgid "The password must contain at least one digit."
-msgstr "The password must contain at least one digit."
+msgid ""
+"By enabling the ``Password strength`` switch, you can configure the "
+"following parameters:"
+msgstr ""
+"By enabling the ``Password strength`` switch, you can configure the "
+"following parameters:"
 
-#: ../../user_domains.rst:281
+#: ../../user_domains.rst:282
 #, fuzzy
-msgid "The password must contain at least one special character."
-msgstr "The password must contain at least one special character."
+msgid ""
+"``Password history length``: the number of old passwords that cannot be "
+"reused."
+msgstr ""
+"``Password history length``: the number of old passwords that cannot be "
+"reused."
 
 #: ../../user_domains.rst:283
 #, fuzzy
 msgid ""
+"``Minimum password length``: the minimum number of characters that a "
+"password must have."
+msgstr ""
+"``Minimum password length``: the minimum number of characters that a "
+"password must have."
+
+#: ../../user_domains.rst:284
+#, fuzzy
+msgid ""
+"``Enforce password complexity``: enforce use of complex password, see "
+"note for more details."
+msgstr ""
+"``Enforce password complexity``: enforce use of complex password, see "
+"note for more details."
+
+#: ../../user_domains.rst:286
+#, fuzzy
+msgid ""
+"A password is considered complex if it is long enough and meets three of "
+"the following rules:"
+msgstr ""
+"A password is considered complex if it is long enough and meets three of "
+"the following rules:"
+
+#: ../../user_domains.rst:288
+#, fuzzy
+msgid "The password must contain at least one uppercase letter."
+msgstr "The password must contain at least one uppercase letter."
+
+#: ../../user_domains.rst:289
+#, fuzzy
+msgid "The password must contain at least one lowercase letter."
+msgstr "The password must contain at least one lowercase letter."
+
+#: ../../user_domains.rst:290
+#, fuzzy
+msgid "The password must contain at least one digit."
+msgstr "The password must contain at least one digit."
+
+#: ../../user_domains.rst:291
+#, fuzzy
+msgid "The password must contain at least one special character."
+msgstr "The password must contain at least one special character."
+
+#: ../../user_domains.rst:293
+#, fuzzy
+msgid ""
 "After editing the password policy, you can click on :guilabel:`Edit "
 "password policy` button to save the changes. Strength setting changes do "
 "not affect old passwords: they are valid from now on. Age setting changes"
@@ -15355,61 +15356,61 @@ msgstr ""
 "not affect old passwords: they are valid from now on. Age setting changes"
 " are retroactive and are applied to already set passwords, too."
 
-#: ../../user_domains.rst:288
+#: ../../user_domains.rst:298
 msgid "Password expiration warning"
 msgstr ""
 
-#: ../../user_domains.rst:290
+#: ../../user_domains.rst:300
 msgid ""
 "The system can send email notifications to users when their password is "
 "about to expire."
 msgstr ""
 
-#: ../../user_domains.rst:293
+#: ../../user_domains.rst:303
 msgid ""
 "This feature is available **only for internal user domains** and can be "
 "enabled on each user domain."
 msgstr ""
 
-#: ../../user_domains.rst:295
+#: ../../user_domains.rst:305
 msgid "To enable this feature, ensure the following:"
 msgstr ""
 
-#: ../../user_domains.rst:297
+#: ../../user_domains.rst:307
 msgid "password aging must be enabled on the user domain"
 msgstr ""
 
-#: ../../user_domains.rst:298
+#: ../../user_domains.rst:308
 msgid ""
 "the cluster must be configured to send :ref:`mail notifications <email-"
 "notifications>`"
 msgstr ""
 
-#: ../../user_domains.rst:300
+#: ../../user_domains.rst:310
 msgid ""
 "The feature can be enabled from the configuration page of the user domain"
 " by clicking the :guilabel:`Edit password warning` button on the "
 "``Password`` card."
 msgstr ""
 
-#: ../../user_domains.rst:302
+#: ../../user_domains.rst:312
 msgid "After enabling the feature, fill the following fields:"
 msgstr ""
 
-#: ../../user_domains.rst:304
+#: ../../user_domains.rst:314
 msgid ""
 "``Days before expiration``: the number of days before the password "
 "expiration when the notification is sent. The notification is sent every "
 "day until the password expires"
 msgstr ""
 
-#: ../../user_domains.rst:306
+#: ../../user_domains.rst:316
 msgid ""
 "``Sender mail address``: the email address of the sender, make sure this "
 "is a valid email address to avoid issues with spam filters"
 msgstr ""
 
-#: ../../user_domains.rst:307
+#: ../../user_domains.rst:317
 msgid ""
 "``Mail template``: select the template to use for the notification email."
 " You can choose between the default templates or a custom one. Default "
@@ -15417,19 +15418,19 @@ msgid ""
 " see :ref:`password_warning_custom_template-section`."
 msgstr ""
 
-#: ../../user_domains.rst:311
+#: ../../user_domains.rst:321
 msgid ""
 "The notification email is sent to the user mail address which can be "
 "automatically discovered or manually set by an administrator, depending "
 "on the cluster configuration."
 msgstr ""
 
-#: ../../user_domains.rst:315
+#: ../../user_domains.rst:325
 #, fuzzy
 msgid "Internal SMTP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:317
+#: ../../user_domains.rst:327
 msgid ""
 "When a :ref:`internal mail server <mail-section>` instance is installed, "
 "and the cluster is configured to send mail notifications using it, the "
@@ -15437,13 +15438,13 @@ msgid ""
 "password expiration notification."
 msgstr ""
 
-#: ../../user_domains.rst:320
+#: ../../user_domains.rst:330
 msgid ""
 "The mail address can be overwritten by an administrator setting the "
 "``mail`` field inside the :ref:`user-management-portal-section`."
 msgstr ""
 
-#: ../../user_domains.rst:323
+#: ../../user_domains.rst:333
 msgid ""
 "If the cluster is configured to send mail notifications using an external"
 " SMTP server, the automatically discovered mail address is not valid "
@@ -15451,12 +15452,12 @@ msgid ""
 " you must explicitly set the mail address for the user."
 msgstr ""
 
-#: ../../user_domains.rst:328
+#: ../../user_domains.rst:338
 #, fuzzy
 msgid "External SMTP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:330
+#: ../../user_domains.rst:340
 msgid ""
 "When the cluster is configured to send mail notifications using an "
 "external SMTP server, the user mail address is not automatically "
@@ -15464,63 +15465,63 @@ msgid ""
 ":ref:`user-management-portal-section`."
 msgstr ""
 
-#: ../../user_domains.rst:333
+#: ../../user_domains.rst:343
 msgid ""
 "The mail address field is available for both OpenLDAP and Active "
 "Directory user domains."
 msgstr ""
 
-#: ../../user_domains.rst:338
+#: ../../user_domains.rst:348
 #, fuzzy
 msgid "Custom template"
 msgstr "template custom"
 
-#: ../../user_domains.rst:340
+#: ../../user_domains.rst:350
 msgid ""
 "After selecting a custom template inside the ``Mail template`` field, you"
 " can specify 2 more fields:"
 msgstr ""
 
-#: ../../user_domains.rst:342
+#: ../../user_domains.rst:352
 msgid "``Mail subject``: the subject of the notification email"
 msgstr ""
 
-#: ../../user_domains.rst:343
+#: ../../user_domains.rst:353
 msgid ""
 "``Mail template``: the body of the notification email in HTML or plain "
 "text"
 msgstr ""
 
-#: ../../user_domains.rst:345
+#: ../../user_domains.rst:355
 msgid "Both mail subject and mail body can include the following placeholder:"
 msgstr ""
 
-#: ../../user_domains.rst:347
+#: ../../user_domains.rst:357
 msgid "``$user``: the username"
 msgstr ""
 
-#: ../../user_domains.rst:348
+#: ../../user_domains.rst:358
 #, fuzzy
 msgid "``$name``: the full name of the user"
 msgstr "``Name``: the name of the shared folder"
 
-#: ../../user_domains.rst:349
+#: ../../user_domains.rst:359
 msgid "``$domain``: the user domain name"
 msgstr ""
 
-#: ../../user_domains.rst:350
+#: ../../user_domains.rst:360
 msgid "``$days``: the actual number of days before the password expiration"
 msgstr ""
 
-#: ../../user_domains.rst:351
+#: ../../user_domains.rst:361
 msgid "``$portal_url``: the URL of the user management portal"
 msgstr ""
 
-#: ../../user_domains.rst:353
+#: ../../user_domains.rst:363
 msgid "Example of a plain text custom template: ::"
 msgstr ""
 
-#: ../../user_domains.rst:359
+#: ../../user_domains.rst:369
 msgid ""
 "If you want to create an HTML template, you can start by copying a "
 "default one like ``/etc/nethserver/password_warning/default_en.tmpl``. "
@@ -15528,12 +15529,12 @@ msgid ""
 "needed."
 msgstr ""
 
-#: ../../user_domains.rst:365
+#: ../../user_domains.rst:375
 #, fuzzy
 msgid "User and groups"
 msgstr "User and groups"
 
-#: ../../user_domains.rst:367
+#: ../../user_domains.rst:377
 #, fuzzy
 msgid ""
 "You can manage users and groups of a domain by clicking on ``User and "
@@ -15542,7 +15543,7 @@ msgstr ""
 "You can manage users and groups of a domain by clicking on ``User and "
 "groups`` link from the ``Domains and users`` page."
 
-#: ../../user_domains.rst:369
+#: ../../user_domains.rst:379
 #, fuzzy
 msgid ""
 "If an external user domain has been configured, the page shows read-only "
@@ -15551,7 +15552,7 @@ msgstr ""
 "If an external user domain has been configured, the page shows read-only "
 "lists. Changes to the user base must be done on the external server."
 
-#: ../../user_domains.rst:372
+#: ../../user_domains.rst:382
 #, fuzzy
 msgid ""
 "On the other hand, if a local AD or LDAP account provider has been "
@@ -15560,31 +15561,36 @@ msgstr ""
 "On the other hand, if a local AD or LDAP account provider has been "
 "installed, the page allows to create, modify and delete users and groups."
 
-#: ../../user_domains.rst:375
+#: ../../user_domains.rst:388
+#, fuzzy
+msgid "Create users and groups"
+msgstr "User and groups"
+
+#: ../../user_domains.rst:390
 #, fuzzy
 msgid "When creating a user, the following fields are mandatory:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:377 ../../user_domains.rst:425
+#: ../../user_domains.rst:392 ../../user_domains.rst:492
 #, fuzzy
 msgid "User name"
 msgstr "User name"
 
-#: ../../user_domains.rst:378 ../../user_domains.rst:426
+#: ../../user_domains.rst:393 ../../user_domains.rst:493
 #, fuzzy
 msgid "Full name (name and surname)"
 msgstr "Full name (name and surname)"
 
-#: ../../user_domains.rst:379 ../../user_domains.rst:427
+#: ../../user_domains.rst:394 ../../user_domains.rst:494
 #, fuzzy
 msgid "Password"
 msgstr "Password"
 
-#: ../../user_domains.rst:381
+#: ../../user_domains.rst:396
 msgid "Optional attributes are:"
 msgstr ""
 
-#: ../../user_domains.rst:383
+#: ../../user_domains.rst:398
 msgid ""
 "Email address -- Corresponds to the standard LDAP ``mail`` attribute. It "
 "can be set to the user's personal email address, where password "
@@ -15592,25 +15598,25 @@ msgid ""
 "valid login name."
 msgstr ""
 
-#: ../../user_domains.rst:387
+#: ../../user_domains.rst:402
 msgid ""
 "Password never expires (AD only) -- When enabled, the user's password "
 "remains valid indefinitely, bypassing the domain password age policy."
 msgstr ""
 
-#: ../../user_domains.rst:389
+#: ../../user_domains.rst:404
 msgid ""
 "Required password change / User has to change password at next login (AD "
 "only) -- When enabled, the user is prompted to change their password at "
 "the next login."
 msgstr ""
 
-#: ../../user_domains.rst:394
+#: ../../user_domains.rst:409
 #, fuzzy
 msgid "A user can be added to one or more groups."
 msgstr "A user can be added to one or more groups."
 
-#: ../../user_domains.rst:396
+#: ../../user_domains.rst:411
 #, fuzzy
 msgid ""
 "Sometimes you need to block user access to services without deleting the "
@@ -15619,27 +15625,113 @@ msgstr ""
 "Sometimes you need to block user access to services without deleting the "
 "account. The safest approach is:"
 
-#: ../../user_domains.rst:399
+#: ../../user_domains.rst:414
 #, fuzzy
 msgid "(optionally) change the user's password with a random one"
 msgstr "(optionally) change the user's password with a random one"
 
-#: ../../user_domains.rst:400
+#: ../../user_domains.rst:415
 #, fuzzy
 msgid "disable the user using the ``Disable`` action from the three-dots menu"
 msgstr "disable the user using the ``Disable`` action from the three-dots menu"
 
-#: ../../user_domains.rst:402
-#, fuzzy
-msgid "When a user is deleted, user data will not be removed."
-msgstr "When a user is deleted, user data will not be removed."
+#: ../../user_domains.rst:417
+msgid ""
+"When a user is deleted, user data will not be removed. Deleting a user "
+"does not remove mailbox contents, home directories, or application-"
+"specific data. These must be cleaned up manually depending on the "
+"installed applications."
+msgstr ""
 
-#: ../../user_domains.rst:407
+#: ../../user_domains.rst:422
+msgid ""
+"User names must be unique within the same domain but can be reused across"
+" different domains hosted on the cluster."
+msgstr ""
+
+#: ../../user_domains.rst:428
+msgid "Import and export data"
+msgstr ""
+
+#: ../../user_domains.rst:430
+msgid ""
+"Users and groups can be managed in bulk with the *import* and *export "
+"data* actions. The supported data format is CSV_ (comma-separated values)"
+" with the following fields:"
+msgstr ""
+
+#: ../../user_domains.rst:436
+#, fuzzy
+msgid "*username*"
+msgstr "User name"
+
+#: ../../user_domains.rst:437
+msgid ""
+"*display_name* -- An empty value removes the LDAP ``displayName`` "
+"attribute."
+msgstr ""
+
+#: ../../user_domains.rst:439
+msgid ""
+"*password* -- If the password contains a comma (e.g. ``Nethesis,1234``), "
+"enclose this field in double quotes. An empty value leaves the password "
+"unchanged for existing users, and sets a random initial password for "
+"newly created users."
+msgstr ""
+
+#: ../../user_domains.rst:443
+msgid ""
+"*mail* -- A valid email address. Note that unlike Samba Active Directory,"
+" the OpenLDAP RFC2307 schema does not allow special characters. An empty "
+"value removes the corresponding ``mail`` LDAP attribute."
+msgstr ""
+
+#: ../../user_domains.rst:447
+msgid ""
+"*groups* -- A list of groups separated by the ``|`` (pipe) character. If "
+"a group does not exist yet, it is created on the fly during the import. "
+"If this field is empty, the user is removed from all groups."
+msgstr ""
+
+#: ../../user_domains.rst:450
+msgid "*locked* (boolean)"
+msgstr ""
+
+#: ../../user_domains.rst:451
+msgid "*must_change_password* (boolean)"
+msgstr ""
+
+#: ../../user_domains.rst:452
+msgid "*no_password_expiration* (boolean)"
+msgstr ""
+
+#: ../../user_domains.rst:454
+msgid ""
+"The fields must be present in the above, exact order. They correspond to "
+"the attributes described in the previous section; refer to :ref:`create-"
+"users-and-groups-section` for more information."
+msgstr ""
+
+#: ../../user_domains.rst:458
+msgid ""
+"The last three fields are boolean values. Accepted values are limited to "
+"the strings ``true`` and ``false``. The empty string, and any value other"
+" than ``true``, is interpreted as ``false``."
+msgstr ""
+
+#: ../../user_domains.rst:462
+msgid ""
+"For example, this CSV file includes an optional header line with the "
+"eight mandatory fields, followed by one record for user ``john``, who is "
+"a member of the ``devs`` and ``web`` groups."
+msgstr ""
+
+#: ../../user_domains.rst:474
 #, fuzzy
 msgid "User Management portal"
 msgstr "User Management portal"
 
-#: ../../user_domains.rst:409
+#: ../../user_domains.rst:476
 #, fuzzy
 msgid ""
 "The user management portal is a web application that allows any non-"
@@ -15650,7 +15742,7 @@ msgstr ""
 "administrator user to change their own password without the need for "
 "administrator intervention."
 
-#: ../../user_domains.rst:413
+#: ../../user_domains.rst:480
 msgid ""
 "Members of the Domain Admins group can also manage users and groups in "
 "the domain, independently from the Cluster Admin UI."
@@ -15658,53 +15750,53 @@ msgstr ""
 "I membri del gruppo Domain Admins possono anche gestire utenti e gruppi "
 "nel dominio, indipendentemente dal Cluster Admin UI."
 
-#: ../../user_domains.rst:416
+#: ../../user_domains.rst:483
 #, fuzzy
 msgid "The possible administrative actions are:"
 msgstr "Le credenziali amministrative predefinite del sistema operativo sono"
 
-#: ../../user_domains.rst:418
+#: ../../user_domains.rst:485
 msgid "group creation/modification"
 msgstr ""
 
-#: ../../user_domains.rst:419
+#: ../../user_domains.rst:486
 #, fuzzy
 msgid "user creation/modification"
 msgstr "Browser notifications"
 
-#: ../../user_domains.rst:420
+#: ../../user_domains.rst:487
 msgid "user disabled/enabled"
 msgstr ""
 
-#: ../../user_domains.rst:421
+#: ../../user_domains.rst:488
 #, fuzzy
 msgid "user password change"
 msgstr "Password age"
 
-#: ../../user_domains.rst:423
+#: ../../user_domains.rst:490
 #, fuzzy
 msgid "When creating a user, the following fields are available:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:428
+#: ../../user_domains.rst:495
 msgid "Group (optional field)"
 msgstr ""
 
-#: ../../user_domains.rst:429
+#: ../../user_domains.rst:496
 msgid "Email address (optional field)"
 msgstr ""
 
-#: ../../user_domains.rst:430
+#: ../../user_domains.rst:497
 msgid "Password never expires (optional field, AD only)"
 msgstr ""
 
-#: ../../user_domains.rst:431
+#: ../../user_domains.rst:498
 msgid ""
 "Required password change / User has to change password at next login "
 "(optional field, AD only)"
 msgstr ""
 
-#: ../../user_domains.rst:433
+#: ../../user_domains.rst:500
 #, fuzzy
 msgid ""
 "The portal is automatically configured on every instance of :ref"
@@ -15713,12 +15805,12 @@ msgstr ""
 "The portal is automatically configured on every instance of :ref"
 ":`active_directory-section` or :ref:`openldap-section` provider."
 
-#: ../../user_domains.rst:435
+#: ../../user_domains.rst:502
 #, fuzzy
 msgid "The portal is available at the following URL: ::"
 msgstr "The portal is available at the following URL: ::"
 
-#: ../../user_domains.rst:439
+#: ../../user_domains.rst:506
 #, fuzzy
 msgid ""
 "Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
@@ -15729,7 +15821,7 @@ msgstr ""
 "``<domain_name>`` is the name of the domain provided while configuring "
 "the domain."
 
-#: ../../user_domains.rst:441
+#: ../../user_domains.rst:508
 #, fuzzy
 msgid ""
 "Once reached the page, the user is prompted for login and they can "
@@ -15738,7 +15830,7 @@ msgstr ""
 "Once reached the page, the user is prompted for login and they can "
 "authenticate to the domain with user name and password."
 
-#: ../../user_domains.rst:443
+#: ../../user_domains.rst:510
 #, fuzzy
 msgid ""
 "If the login is successful, the user is directed to the ``User "
@@ -15753,7 +15845,7 @@ msgstr ""
 " The list of applications where the new password is effective is "
 "displayed next to the password changing form."
 
-#: ../../user_domains.rst:449
+#: ../../user_domains.rst:516
 msgid ""
 "https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
 "directory-best-practices-for-internal-domain-and-network-"
@@ -15763,7 +15855,7 @@ msgstr ""
 "directory-best-practices-for-internal-domain-and-network-"
 "names.aspx#Recommendation"
 
-#: ../../user_domains.rst:451
+#: ../../user_domains.rst:518
 #, fuzzy
 msgid ""
 "https://doc.dovecot.org/2.3/configuration_manual/authentication/ldap"
@@ -27123,4 +27215,31 @@ msgstr ""
 #~ "condivisione dei file SMB non è "
 #~ "richiesto, un provider LDAP è la "
 #~ "scelta migliore."
+
+#~ msgid ""
+#~ "You can add a replica from the "
+#~ "``Domains and users`` page by selecting"
+#~ " the ``Configuration`` link from the "
+#~ "three-dots menu. Then click the "
+#~ ":guilabel:`Add provider` button, select the"
+#~ " target node and proceed with the "
+#~ "installation."
+#~ msgstr ""
+#~ "You can add a replica from the "
+#~ "``Domains and users`` page by selecting"
+#~ " the ``Configuration`` link from the "
+#~ "three-dots menu. Then click the "
+#~ ":guilabel:`Add provider` button, select the"
+#~ " target node and proceed with the "
+#~ "installation."
+
+#~ msgid ""
+#~ "External applications can connect only "
+#~ "to a local Active Directory provider."
+#~ msgstr ""
+#~ "External applications can connect only "
+#~ "to a local Active Directory provider."
+
+#~ msgid "When a user is deleted, user data will not be removed."
+#~ msgstr "When a user is deleted, user data will not be removed."
 
