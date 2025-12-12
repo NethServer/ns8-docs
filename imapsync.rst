@@ -119,7 +119,7 @@ Required columns:
 - ``remotepassword`` – Remote IMAP account password (quote if contains special characters)
 - ``remotehostname`` – Remote IMAP server hostname or IP address
 - ``remoteport`` – Remote IMAP server port (typically ``993`` for SSL/TLS, ``143`` for STARTTLS)
-- ``security`` – Security protocol: ``ssl``, ``tls``, or empty string for no encryption
+- ``security`` – Security protocol: ``ssl`` Implicit IMAPS encryption (connection starts encrypted on port 993), ``tls`` STARTTLS encryption (plain connection on port 143 upgraded to TLS), or empty string for no encryption
 
 All fields except ``security`` are mandatory. Column order does not matter.
 
