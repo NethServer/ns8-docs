@@ -97,6 +97,59 @@ fields as follows:
 Once all fields are set, click :guilabel:`Create task` to create the task.
 To discard the changes, click :guilabel:`Cancel`.
 
+Importing tasks from CSV
+------------------------
+
+To create multiple synchronization tasks at once, use a CSV file with the
+``import-csv-tasks`` utility script. This is ideal for bulk migrations of
+multiple email accounts.
+
+**CSV file format:**
+
+The CSV file must contain a header row with these 6 required columns::
+
+  localusername,remoteusername,remotepassword,remotehostname,remoteport,security
+  user1,user1@example.org,"password123",imap.example.org,993,ssl
+  user2,user2@example.org,"password456",imap.example.org,143,tls
+
+Required columns:
+
+- ``localusername`` – Local user account name (must exist on the Mail server)
+- ``remoteusername`` – Remote IMAP account username or email
+- ``remotepassword`` – Remote IMAP account password (quote if contains special characters)
+- ``remotehostname`` – Remote IMAP server hostname or IP address
+- ``remoteport`` – Remote IMAP server port (typically ``993`` for SSL/TLS, ``143`` for STARTTLS)
+- ``security`` – Security protocol: ``ssl``, ``tls``, or empty string for no encryption
+
+All fields except ``security`` are mandatory. Column order does not matter.
+
+**Basic usage:**
+
+Import tasks from a CSV file::
+
+  runagent -m imapsync1 import-csv-tasks < users.csv
+
+**Validate CSV format without creating tasks:**
+
+::
+
+  runagent -m imapsync1 import-csv-tasks -c < users.csv
+
+This validates the CSV structure, required columns, mandatory field values,
+and port numbers without making any API calls.
+
+**Display the help:**
+
+::
+
+  runagent -m imapsync1 import-csv-tasks -h
+
+**Important note for NethServer migrations:**
+
+When migrating from a NethServer instance, you can use the IMAP master user
+password by appending the ``*vmail`` suffix to the ``remoteusername`` field.
+For example: ``ns8user*vmail`` or ``ns7user@example.org*vmail``.
+
 .. _only-inbox-mode:
 
 Understanding "Only INBOX" option
