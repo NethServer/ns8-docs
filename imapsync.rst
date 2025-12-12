@@ -97,8 +97,8 @@ fields as follows:
 Once all fields are set, click :guilabel:`Create task` to create the task.
 To discard the changes, click :guilabel:`Cancel`.
 
-Importing tasks from CSV
-------------------------
+Import tasks from CSV
+---------------------
 
 To create multiple synchronization tasks at once, use a CSV file with the
 ``import-csv-tasks`` utility script. This is ideal for bulk migrations of
@@ -143,12 +143,6 @@ and port numbers without making any API calls.
 ::
 
   runagent -m imapsync1 import-csv-tasks -h
-
-**Important note for NethServer migrations:**
-
-When migrating from a NethServer instance, you can use the IMAP master user
-password by appending the ``*vmail`` suffix to the ``remoteusername`` field.
-For example: ``ns8user*vmail`` or ``ns7user@example.org*vmail``.
 
 .. _only-inbox-mode:
 
