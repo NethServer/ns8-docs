@@ -154,6 +154,68 @@ Ensure the following requirements are met:
    appliances.
 
 
+.. _ssh-service-reqs:
+
+SSH service requirements
+========================
+
+A running SSH service is not strictly required by NS8 unless a
+:ref:`subscription <subscription-section>` is active. In this case,
+``sshd`` must be listening on the standard TCP port 22 to correctly
+integrate with the remote support service.
+
+If you want to change the public SSH port, configure a port redirect
+without altering the ``sshd`` listening port configuration. See
+:ref:`ssh-redirection` for instructions.
+
+.. _external-services:
+
+External network connectivity
+=============================
+
+A NethServer 8 (NS8) node requires outbound network connectivity to a
+number of external services to operate correctly. These services are used
+for system updates, application distribution, cluster operations,
+subscription management, backup, support, and TLS certificate issuance.
+
+Unless otherwise stated, connections are outbound only and use HTTPS
+over TCP port 443.
+
+.. csv-table:: External services and endpoints required by NS8
+   :header: "Purpose", "Host name", "Port", "Protocol", "Notes"
+
+   "Name resolution", "<DNS address>", "53", "UDP/TCP", "Public or private DNS address"
+   "Cluster VPN and node communication", "<leader node address>", "55820", "TCP", "Inter-node VPN and cluster traffic"
+   "Cluster-admin leader API", "<leader node address>", "443", "HTTPS", "Join a new worker to the cluster"
+   "OS and NS8 repositories mirror resolution", "mirrorlist.nethserver.org", "80", "HTTP", "Used to resolve Rocky Linux and NS8 mirrors"
+   "Rocky Linux DNF repositories", "u4.nethesis.it, u5.nethesis.it", "443", "HTTPS", "Rocky Linux BaseOS and AppStream updates"
+   "TLS certificate issuance", "acme-v02.api.letsencrypt.org", "443", "HTTPS", "Let's Encrypt ACME v2 endpoint"
+   "NS8 core and updates repository", "distfeed.nethserver.org", "443", "HTTPS", "Core updates and patches"
+   "Community application repository", "forge.nethserver.org", "443", "HTTPS", "Optional community modules"
+   "Container image registry", "ghcr.io", "443", "HTTPS", "Official NS8 application and container images"
+   "Container image registry", "docker.io", "443", "HTTPS", "Third-party container images"
+   "Container image registry", "quay.io", "443", "HTTPS", "Third-party container images"
+   "Cluster phone-home service", "phonehome.nethserver.org", "443", "HTTPS", "Cluster registration and metadata"
+
+.. csv-table:: Endpoints used by cluster leader node with an active Subscription
+   :header: "Purpose", "Host name", "Port", "Protocol", "Notes"
+
+   "Subscription validation and feeds", "subscription.nethserver.com", "443", "HTTPS", "Core updates and patches for Subscription"
+   "Subscription portal", "my.nethserver.com", "443", "HTTPS", "System and subscription management"
+   "Subscription portal for resellers", "my.nethesis.it", "443", "HTTPS", "Inventory, heartbeat, entitlement checks"
+   "Support VPN peer", "sos.nethesis.it", "1194", "UDP", "Remote support VPN (optional)"
+   "Support VPN peer", "sos.nethesis.it", "443", "TCP", "Remote support VPN (optional)"
+   "Cloud backup service", "backupd.nethesis.it", "443", "HTTPS", "Off-site backup and restore for cluster configuration"
+
+Notes
+
+* All listed connections are initiated by the NS8 node.
+* Blocking access to these services can prevent updates, application
+  installation, backups, cluster formation, or subscription validation.
+* Additional outbound connections may be required by specific
+  applications, depending on their configuration and upstream services.
+
+
 Web browser requirements
 ========================
 
