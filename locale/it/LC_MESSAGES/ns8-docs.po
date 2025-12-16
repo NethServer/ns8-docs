@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-10 09:49+0000\n"
+"POT-Creation-Date: 2025-12-16 16:23+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -14030,11 +14030,17 @@ msgstr ""
 "È sconsigliato attivare repository di terze parti e installare software "
 "non coperti dal piano subscription attivo"
 
-#: ../../subscription.rst:52
+#: ../../subscription.rst:50
+msgid ""
+"Refer to :ref:`external-services` for a complete list of Nethesis service"
+" endpoints required by a cluster to activate and manage a subscription."
+msgstr ""
+
+#: ../../subscription.rst:54
 msgid "Register the cluster"
 msgstr "Registrazione del cluster"
 
-#: ../../subscription.rst:54
+#: ../../subscription.rst:56
 msgid ""
 "Depending on your subscription type, log in to `my.nethserver.com "
 "<https://my.nethserver.com>`_ or `my.nethesis.it "
@@ -14046,7 +14052,7 @@ msgstr ""
 "`my.nethesis.it <https://my.nethesis.it>`_ e generare un token univoco "
 "per il cluster seguendo la procedura specifica per il portale utilizzato."
 
-#: ../../subscription.rst:61
+#: ../../subscription.rst:63
 msgid ""
 "The subscription token is a secret: never communicate or share it with "
 "someone else"
@@ -14054,7 +14060,7 @@ msgstr ""
 "Il token di subscription è un segreto: non comunicarlo o condividerlo con"
 " qualcun altro"
 
-#: ../../subscription.rst:64
+#: ../../subscription.rst:66
 msgid ""
 "Once you have copied the token to the clipboard, go to the ``Settings`` "
 "page and click the ``Subscription`` card. Paste the token in the "
@@ -14066,7 +14072,7 @@ msgstr ""
 "token nel campo ``Token di autenticazione``, quindi fare clic sul "
 "pulsante :guilabel:`Registra`."
 
-#: ../../subscription.rst:69
+#: ../../subscription.rst:71
 msgid ""
 "If the procedure is successful the Subscription page displays the "
 "``System ID``, ``Plan`` type and ``Expiration`` date."
@@ -14074,11 +14080,11 @@ msgstr ""
 "Se la procedura termina con successo, la pagina Subscription visualizza "
 "l'``ID Sistema``, il tipo di ``Piano`` e la data di ``Scadenza``."
 
-#: ../../subscription.rst:75
+#: ../../subscription.rst:77
 msgid "Terms and Conditions"
 msgstr "Termini e Condizioni"
 
-#: ../../subscription.rst:77
+#: ../../subscription.rst:79
 msgid ""
 "Please read the Terms and Conditions carefully. By maintaining an active "
 "NethServer 8 subscription, you confirm that you accept the Terms and "
@@ -14090,13 +14096,13 @@ msgstr ""
 "Condizioni e si accetta di rispettare da loro. Se non accetti i presenti "
 "Termini e Condizioni, non puoi attivare o continuare l'abbonamento."
 
-#: ../../subscription.rst:82
+#: ../../subscription.rst:84
 msgid "Details of subscription plans can be found on the `NethServer website`_."
 msgstr ""
 "Dettagli dei piani di abbonamento si possono trovare sul sito web "
 "`NethServer`_."
 
-#: ../../subscription.rst:86
+#: ../../subscription.rst:88
 msgid ""
 "Personal identification information is stored and processed when "
 "necessary to fulfill a contract to which the data subject is a party, or "
@@ -14111,7 +14117,7 @@ msgstr ""
 "possono anche essere utilizzate per condividere aggiornamenti e notizie "
 "relative al servizio sottoscritto."
 
-#: ../../subscription.rst:92
+#: ../../subscription.rst:94
 msgid ""
 "The data controller is Nethesis S.r.l unipersonale CF/PI/RI IT "
 "02734760412, located at Strada degli Olmi 8 -- 61122 Pesaro (PU) -- "
@@ -14121,7 +14127,7 @@ msgstr ""
 "02734760412, situato alla Strada degli Olmi 8 -- 61122 Pesaro (PU) -- "
 "Italia."
 
-#: ../../subscription.rst:95
+#: ../../subscription.rst:97
 msgid ""
 "Any requests concerning the processing of personal identification "
 "information (PII) may be addressed to privacy@nethesis.it."
@@ -14130,11 +14136,11 @@ msgstr ""
 "identificazione personale (PII) possono essere indirizzate a "
 "privacy@nethesis.it."
 
-#: ../../subscription.rst:102
+#: ../../subscription.rst:104
 msgid "Scheduled updates"
 msgstr "Aggiornamenti programmati"
 
-#: ../../subscription.rst:104
+#: ../../subscription.rst:106
 #, fuzzy
 msgid ""
 "A scheduled overnight task automatically installs software updates "
@@ -14150,7 +14156,7 @@ msgstr ""
 "mattino. Questa variabilità aiuta a distribuire il carico sulla rete e "
 "sui server. Gli aggiornamenti riguardano:"
 
-#: ../../subscription.rst:110
+#: ../../subscription.rst:112
 #, fuzzy
 msgid ""
 "**Operating system**: Updates are sourced from the DNF repositories "
@@ -14165,7 +14171,7 @@ msgstr ""
 "la distribuzione di aggiornamenti che possano introdurre problemi "
 "inaspettati."
 
-#: ../../subscription.rst:115
+#: ../../subscription.rst:117
 #, fuzzy
 msgid ""
 "**Core components**: Updates are fetched from the ``subscription`` "
@@ -14174,7 +14180,7 @@ msgstr ""
 "**Componenti core**: Gli aggiornamenti vengono scaricati dal repository "
 "``subscription``"
 
-#: ../../subscription.rst:118
+#: ../../subscription.rst:120
 #, fuzzy
 msgid ""
 "**Applications**: Updates are also sourced from the ``subscription`` "
@@ -14183,7 +14189,7 @@ msgstr ""
 "**Applicazioni**: Gli aggiornamenti vengono scaricati dal repository "
 "``subscription``"
 
-#: ../../subscription.rst:121
+#: ../../subscription.rst:123
 msgid ""
 "Managed repositories follow a conservative update policy to ensure "
 "stability and thorough testing of updates, making them suitable for "
@@ -14193,7 +14199,7 @@ msgstr ""
 "per garantire stabilità e test approfonditi degli aggiornamenti, "
 "rendendoli adatti agli aggiornamenti automatizzati."
 
-#: ../../subscription.rst:125
+#: ../../subscription.rst:127
 msgid ""
 "It is possible to override the managed update policy by manually "
 "installing or updating core components or applications via the Software "
@@ -14206,7 +14212,7 @@ msgstr ""
 "componenti fondamentali del repository ``subscription`` sono aggiornati "
 "orariamente nel Software Center."
 
-#: ../../subscription.rst:130
+#: ../../subscription.rst:132
 msgid ""
 "Scheduled updates are inhibited when an NS7 node joins the cluster to "
 "migrate applications. This is necessary because the migration procedure "
@@ -14221,11 +14227,11 @@ msgstr ""
 "riattivati una volta terminata la migrazione NS7 e il nodo NS7 viene "
 "rimosso automaticamente dal cluster."
 
-#: ../../subscription.rst:137
+#: ../../subscription.rst:139
 msgid "Remove the subscription"
 msgstr "Rimozione subscription"
 
-#: ../../subscription.rst:139
+#: ../../subscription.rst:141
 msgid ""
 "Go to the ``Settings`` page and click the ``Subscription`` card. "
 "Alternatively, go to the cluster dashboard page and click the ``Go to "
@@ -14235,7 +14241,7 @@ msgstr ""
 "``Subscription``. In alternativa, dalla dashboard del cluster fare clic "
 "sul link ``Vai a Subscription``."
 
-#: ../../subscription.rst:143
+#: ../../subscription.rst:145
 msgid ""
 "In the ``Subscription`` page, click the :guilabel:`Remove subscription` "
 "button. The action must be confirmed."
@@ -14243,24 +14249,26 @@ msgstr ""
 "Nella pagina ``Subscription``, fare clic sul pulsante :guilabel:`Rimuovi "
 "subscription`. Verrà richiesta conferma dell'azione."
 
-#: ../../subscription.rst:147
+#: ../../subscription.rst:149
 msgid "Remote support"
 msgstr "Supporto remoto"
 
-#: ../../subscription.rst:151 ../../webtop.rst:1256
+#: ../../subscription.rst:153 ../../webtop.rst:1256
 msgid "Available in Nethesis Enterprise only"
 msgstr "Disponibile solo per Nethesis Enterprise"
 
-#: ../../subscription.rst:153
+#: ../../subscription.rst:155
+#, fuzzy
 msgid ""
 "Depending on the subscription type and plan, the ``Subscription`` page "
-"can allow starting and controlling a remote support session:"
+"allows starting and controlling a remote support session, provided the "
+":ref:`ssh-service-reqs` are met."
 msgstr ""
 "A seconda del tipo e del piano di subscription attivi, la pagina "
 "``Subscription`` può consentire l'avvio e il controllo di una sessione di"
 " supporto remoto:"
 
-#: ../../subscription.rst:156
+#: ../../subscription.rst:159
 msgid ""
 "Click :guilabel:`Start session` to activate a special access for the "
 "Nethesis support team. Both SSH and cluster-admin administrative access "
@@ -14272,7 +14280,7 @@ msgstr ""
 "l'accesso amministrativo sia SSH che al cluster-admin. Le connessioni di "
 "supporto sono veicolate attraverso un tunnel VPN privato."
 
-#: ../../subscription.rst:161
+#: ../../subscription.rst:164
 msgid ""
 "When the access is granted, a unique ``Session ID`` secret is displayed: "
 "copy and paste it in your support request."
@@ -14281,7 +14289,7 @@ msgstr ""
 " denominato ``ID sessione``: il segreto va copiato e incollato nella "
 "richiesta di supporto."
 
-#: ../../subscription.rst:164
+#: ../../subscription.rst:167
 msgid ""
 "To end the support session, close the VPN tunnel and revoke any granted "
 "access, click :guilabel:`End session`."
@@ -14290,7 +14298,7 @@ msgstr ""
 "qualsiasi accesso consentito, fare clic sul pulsante :guilabel:`Termina "
 "sessione`."
 
-#: ../../subscription.rst:167
+#: ../../subscription.rst:170
 msgid ""
 "The support session is valid only to reach the leader node. The support "
 "team can access worker nodes by starting individual support sessions in "
@@ -14303,19 +14311,19 @@ msgstr ""
 " 2 è un nodo worker, il comando per avviare una sessione di supporto per "
 "esso è il seguente: ::"
 
-#: ../../subscription.rst:174
+#: ../../subscription.rst:177
 msgid "The Session ID is printed to the standard output. To stop the session: ::"
 msgstr ""
 "L'ID sessione viene stampato sullo standard output. Per interrompere la "
 "sessione: ::"
 
-#: ../../subscription.rst:178
+#: ../../subscription.rst:181
 msgid "Check the support session status for any node with: ::"
 msgstr ""
 "È possibile verificare lo stato della sessione di supporto su un "
 "qualsiasi nodo con il comando: ::"
 
-#: ../../subscription.rst:182
+#: ../../subscription.rst:185
 msgid ""
 "If a worker node (e.g., node 2) becomes unreachable from the leader node,"
 " you can manually start a support session for it with the following "
@@ -14325,25 +14333,25 @@ msgstr ""
 "leader, è possibile avviare manualmente una sessione di supporto per esso"
 " con la seguente procedura:"
 
-#: ../../subscription.rst:186
+#: ../../subscription.rst:189
 msgid "Log in on the worker node, using the console or SSH access."
 msgstr "Accedere al nodo worker, utilizzando la console o l'accesso SSH."
 
-#: ../../subscription.rst:188
+#: ../../subscription.rst:191
 msgid "Run the following command to start the support session: ::"
 msgstr "Eseguire il seguente comando per avviare la sessione di supporto: ::"
 
-#: ../../subscription.rst:192
+#: ../../subscription.rst:195
 msgid "Obtain the session ID with: ::"
 msgstr "Ottenere l'ID sessione con: ::"
 
-#: ../../subscription.rst:196
+#: ../../subscription.rst:199
 msgid "The Session ID is always recorded in the system journal and node log."
 msgstr ""
 "L'ID sessione viene sempre registrato nel journal di sistema e nel log "
 "dei nodi."
 
-#: ../../subscription.rst:198
+#: ../../subscription.rst:201
 msgid "To end the support session: ::"
 msgstr "Per terminare una sessione di supporto: ::"
 
@@ -14470,7 +14478,7 @@ msgstr ""
 "Utilizzare per il sistema un indirizzo IP statico. DHCP e altri "
 "protocolli di discovery di IP dinamici non sono ammessi."
 
-#: ../../system_requirements.rst:72
+#: ../../system_requirements.rst:1 ../../system_requirements.rst:72
 #, fuzzy
 msgid "Name resolution"
 msgstr "Introduzione"
@@ -14641,11 +14649,332 @@ msgstr ""
 "La porta UDP VPN (default 55820) non deve essere bloccata da eventuali "
 "elettrodomestici di rete."
 
-#: ../../system_requirements.rst:158
+#: ../../system_requirements.rst:160
+#, fuzzy
+msgid "SSH service requirements"
+msgstr "Requisiti per il browser Web"
+
+#: ../../system_requirements.rst:162
+msgid ""
+"A running SSH service is not strictly required by NS8 unless a "
+":ref:`subscription <subscription-section>` is active. In this case, "
+"``sshd`` must be listening on the standard TCP port 22 to correctly "
+"integrate with the remote support service."
+msgstr ""
+
+#: ../../system_requirements.rst:167
+msgid ""
+"If you want to change the public SSH port, configure a port redirect "
+"without altering the ``sshd`` listening port configuration. See :ref"
+":`ssh-redirection` for instructions."
+msgstr ""
+
+#: ../../system_requirements.rst:174
+msgid "External network connectivity"
+msgstr ""
+
+#: ../../system_requirements.rst:176
+msgid ""
+"A NethServer 8 (NS8) node requires outbound network connectivity to a "
+"number of external services to operate correctly. These services are used"
+" for system updates, application distribution, cluster operations, "
+"subscription management, backup, support, and TLS certificate issuance."
+msgstr ""
+
+#: ../../system_requirements.rst:181
+msgid ""
+"Unless otherwise stated, connections are outbound only and use HTTPS over"
+" TCP port 443."
+msgstr ""
+
+#: ../../system_requirements.rst:184
+msgid "External services and endpoints required by NS8"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Purpose"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "Host name"
+msgstr "User name"
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "Port"
+msgstr "Formato"
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "Protocol"
+msgstr "tools"
+
+#: ../../system_requirements.rst:1 ../../system_requirements.rst:210
+#, fuzzy
+msgid "Notes"
+msgstr "Footnotes"
+
+#: ../../system_requirements.rst:1
+msgid "<DNS address>"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "53"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "UDP/TCP"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Public or private DNS address"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Cluster VPN and node communication"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "<leader node address>"
+msgstr "external email address"
+
+#: ../../system_requirements.rst:1
+msgid "55820"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "TCP"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Inter-node VPN and cluster traffic"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Cluster-admin leader API"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "443"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "HTTPS"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Join a new worker to the cluster"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "OS and NS8 repositories mirror resolution"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "mirrorlist.nethserver.org"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "80"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "HTTP"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Used to resolve Rocky Linux and NS8 mirrors"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "Rocky Linux DNF repositories"
+msgstr "Software repositories"
+
+#: ../../system_requirements.rst:1
+msgid "u4.nethesis.it, u5.nethesis.it"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Rocky Linux BaseOS and AppStream updates"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "TLS certificate issuance"
+msgstr "Certificati TLS"
+
+#: ../../system_requirements.rst:1
+msgid "acme-v02.api.letsencrypt.org"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Let's Encrypt ACME v2 endpoint"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "NS8 core and updates repository"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "distfeed.nethserver.org"
+msgstr "server FQDN: ``mail.nethserver.org``"
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "Core updates and patches"
+msgstr "Core updates"
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "Community application repository"
+msgstr "selezionare le applicazioni da ripristinare"
+
+#: ../../system_requirements.rst:1
+msgid "forge.nethserver.org"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "Optional community modules"
+msgstr "Moduli aggiuntivi:"
+
+#: ../../system_requirements.rst:1
+msgid "Container image registry"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "ghcr.io"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Official NS8 application and container images"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "docker.io"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "Third-party container images"
+msgstr "Third-party video calls"
+
+#: ../../system_requirements.rst:1
+msgid "quay.io"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Cluster phone-home service"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "phonehome.nethserver.org"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Cluster registration and metadata"
+msgstr ""
+
+#: ../../system_requirements.rst:200
+msgid "Endpoints used by cluster leader node with an active Subscription"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Subscription validation and feeds"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "subscription.nethserver.com"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Core updates and patches for Subscription"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "Subscription portal"
+msgstr "Subscription"
+
+#: ../../system_requirements.rst:1
+msgid "my.nethserver.com"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "System and subscription management"
+msgstr "Gestione delle impostazioni utente"
+
+#: ../../system_requirements.rst:1
+msgid "Subscription portal for resellers"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "my.nethesis.it"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Inventory, heartbeat, entitlement checks"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Support VPN peer"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "sos.nethesis.it"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "1194"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "UDP"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+#, fuzzy
+msgid "Remote support VPN (optional)"
+msgstr "Supporto remoto di Nethesis"
+
+#: ../../system_requirements.rst:1
+msgid "Cloud backup service"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "backupd.nethesis.it"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Off-site backup and restore for cluster configuration"
+msgstr ""
+
+#: ../../system_requirements.rst:212
+msgid "All listed connections are initiated by the NS8 node."
+msgstr ""
+
+#: ../../system_requirements.rst:213
+msgid ""
+"Blocking access to these services can prevent updates, application "
+"installation, backups, cluster formation, or subscription validation."
+msgstr ""
+
+#: ../../system_requirements.rst:215
+msgid ""
+"Additional outbound connections may be required by specific applications,"
+" depending on their configuration and upstream services."
+msgstr ""
+
+#: ../../system_requirements.rst:220
 msgid "Web browser requirements"
 msgstr "Requisiti per il browser Web"
 
-#: ../../system_requirements.rst:160
+#: ../../system_requirements.rst:222
 msgid ""
 "To access the cluster administration web user interface, you need an up-"
 "to-date release of Firefox, Chrome, or Chromium browser as the web "
