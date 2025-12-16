@@ -47,6 +47,8 @@ remains enabled.
   Please avoid enabling third-party repositories and refrain from
   installing software not covered by the subscription plan
 
+Refer to :ref:`external-services` for a complete list of Nethesis service
+endpoints required by a cluster to activate and manage a subscription.
 
 Register the cluster
 ====================
@@ -150,8 +152,9 @@ Remote support
 
     Available in Nethesis Enterprise only
 
-Depending on the subscription type and plan, the ``Subscription`` page can
-allow starting and controlling a remote support session:
+Depending on the subscription type and plan, the ``Subscription`` page
+allows starting and controlling a remote support session, provided
+the :ref:`ssh-service-reqs` are met.
 
 - Click :guilabel:`Start session` to activate a special access for the
   Nethesis support team. Both SSH and cluster-admin administrative access
