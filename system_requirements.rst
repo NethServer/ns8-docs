@@ -206,6 +206,7 @@ over TCP port 443.
    "Support VPN peer", "sos.nethesis.it", "1194", "UDP", "Remote support VPN (optional)"
    "Support VPN peer", "sos.nethesis.it", "443", "TCP", "Remote support VPN (optional)"
    "Cloud backup service", "backupd.nethesis.it", "443", "HTTPS", "Off-site backup and restore for cluster configuration"
+   "Cloud Log Manager", "nar.nethesis.it", "443", "HTTPS", "Cloud storage and management for security logs (optional)"
 
 Notes
 
