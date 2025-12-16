@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-16 16:23+0000\n"
+"POT-Creation-Date: 2025-12-16 16:32+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -5455,7 +5455,7 @@ msgstr ""
 " essere inoltrati. È possibile scegliere l'ultimo timestamp "
 "[#last_timestamp]_ o inserire manualmente una data e l'ora."
 
-#: ../../log_server.rst:194
+#: ../../log_server.rst:194 ../../system_requirements.rst:1
 #, fuzzy
 msgid "Cloud Log Manager"
 msgstr "Queue Manager"
@@ -14710,7 +14710,7 @@ msgstr "Formato"
 msgid "Protocol"
 msgstr "tools"
 
-#: ../../system_requirements.rst:1 ../../system_requirements.rst:210
+#: ../../system_requirements.rst:1 ../../system_requirements.rst:211
 #, fuzzy
 msgid "Notes"
 msgstr "Footnotes"
@@ -14954,27 +14954,35 @@ msgstr ""
 msgid "Off-site backup and restore for cluster configuration"
 msgstr ""
 
-#: ../../system_requirements.rst:212
-msgid "All listed connections are initiated by the NS8 node."
+#: ../../system_requirements.rst:1
+msgid "nar.nethesis.it"
+msgstr ""
+
+#: ../../system_requirements.rst:1
+msgid "Cloud storage and management for security logs (optional)"
 msgstr ""
 
 #: ../../system_requirements.rst:213
+msgid "All listed connections are initiated by the NS8 node."
+msgstr ""
+
+#: ../../system_requirements.rst:214
 msgid ""
 "Blocking access to these services can prevent updates, application "
 "installation, backups, cluster formation, or subscription validation."
 msgstr ""
 
-#: ../../system_requirements.rst:215
+#: ../../system_requirements.rst:216
 msgid ""
 "Additional outbound connections may be required by specific applications,"
 " depending on their configuration and upstream services."
 msgstr ""
 
-#: ../../system_requirements.rst:220
+#: ../../system_requirements.rst:221
 msgid "Web browser requirements"
 msgstr "Requisiti per il browser Web"
 
-#: ../../system_requirements.rst:222
+#: ../../system_requirements.rst:223
 msgid ""
 "To access the cluster administration web user interface, you need an up-"
 "to-date release of Firefox, Chrome, or Chromium browser as the web "
