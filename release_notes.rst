@@ -14,7 +14,7 @@ NethServer 8 releases
 
   __ http://community.nethserver.org/c/bug
 
-Major changes on 2025-12-19
+Major changes on 2025-12-17
 ===========================
 
 **Milestone 8.7**
