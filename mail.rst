@@ -275,6 +275,9 @@ choose the desired signature rating level among *Low*, *Medium*, *High*.
 Bear in mind that higher ratings may lead to unwanted false positive
 matches, therefore good messages can be blocked.
 
+Signature updates are fetched from third-party ClamAV signature sites; see
+:ref:`mail-outbound-connections`.
+
 .. _antispam-section:
 
 .. _anti-spam:
@@ -290,7 +293,8 @@ __ https://en.wikipedia.org/wiki/Spamming
 
 The filter can also check if the sending server is listed in one or more
 DNS-based block lists (or `DNSBL`__). A score is associated with each
-rule.
+rule. The check generates outbound DNS queries to third-party DNS servers;
+see :ref:`mail-outbound-connections`.
 
 __ https://en.wikipedia.org/wiki/Domain_Name_System_blocklist
 
@@ -714,3 +718,36 @@ that still does not support STARTTLS:
 Refer to the :ref:`Webtop application <email_autoconfig>` for the
 implementation of automatic configuration protocols like Autodiscover and
 Autoconfig.
+
+.. _mail-outbound-connections:
+
+Mail outbound connections
+=========================
+
+The Mail application generates outbound SMTP traffic towards other mail
+servers, as well as DNS, HTTPS, and RSYNC traffic for antispam and antivirus
+checks.
+
+.. csv-table:: Summary of Mail outbound connections
+   :header: "Purpose", "Host name", "Port", "Protocol", "Notes"
+
+   "SMTP session", "<any>", "25", "SMTP", "Outbound connection to remote MTA"
+   "DNSBL queries", "<any>", "53", "DNS", "Rspamd DNS queries and resolver recursive DNS queries"
+   "ClamAV DB updates", "database.clamav.net, sigs.interserver.net, cdn.rfxn.com, signatures.malware.expert, lists.malwarepatrol.net, www.sanesecurity.com, www.securiteinfo.com, urlhaus.abuse.ch, raw.githubusercontent.com", "443", "HTTPS", "Fetch official and unofficial ClamAV signatures"
+   "ClamAV DB updates", "rsync.sanesecurity.net", "873", "RSYNC", "Fetch official and unofficial ClamAV signatures"
+
+Notes
+
+* The complete list of host names has been extracted from the
+  clamav-unofficial-sigs_ source code.
+* Obtain a complete list of DNSBL servers with this command on the node
+  where Mail is installed:
+
+  ::
+
+    runagent -m mail1 podman exec rspamd rspamadm configdump rbl | grep "rbl = "
+
+  To resolve their IP addresses, the Rspamd DNS recursive resolver (Unbound)
+  queries authoritative DNS servers directly.
+
+.. _clamav-unofficial-sigs: https://github.com/extremeshok/clamav-unofficial-sigs
