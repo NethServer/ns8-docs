@@ -213,9 +213,9 @@ Notes
 * All listed connections are initiated by the NS8 node.
 * Blocking access to these services can prevent updates, application
   installation, backups, cluster formation, or subscription validation.
-* Additional outbound connections may be required by specific
+* Additional outbound connections may be required by specific features,
+  such as email notifications and HTTP routes, and by installed
   applications, depending on their configuration and upstream services.
-
 
 Web browser requirements
 ========================
