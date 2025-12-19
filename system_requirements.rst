@@ -184,7 +184,7 @@ over TCP port 443.
 .. csv-table:: External services and endpoints required by NS8
    :header: "Purpose", "Host name", "Port", "Protocol", "Notes"
 
-   "Name resolution", "<DNS address>", "53", "UDP/TCP", "DNS address"
+   "Name resolution", "<Name server address>", "53", "UDP/TCP", "IP address of primary and, optionally, secondary DNS servers"
    "Cluster VPN and node communication", "<leader node address>", "55820", "UDP", "Inter-node VPN and cluster traffic"
    "Cluster-admin leader API", "<leader node address>", "443", "HTTPS", "Join a new worker to the cluster"
    "OS and NS8 repositories mirror resolution", "mirrorlist.nethserver.org", "80", "HTTP", "Used to resolve Rocky Linux and NS8 mirrors"
