@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-17 11:33+0000\n"
+"POT-Creation-Date: 2025-12-19 10:18+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -14938,15 +14938,16 @@ msgid "External services and endpoints required by NS8"
 msgstr ""
 
 #: ../../system_requirements.rst:1
-msgid "<DNS address>"
-msgstr ""
+#, fuzzy
+msgid "<Name server address>"
+msgstr "indirizzo mail secondario"
 
 #: ../../system_requirements.rst:1
 msgid "UDP/TCP"
 msgstr ""
 
 #: ../../system_requirements.rst:1
-msgid "Public or private DNS address"
+msgid "IP address of primary and, optionally, secondary DNS servers"
 msgstr ""
 
 #: ../../system_requirements.rst:1
@@ -14963,7 +14964,7 @@ msgid "55820"
 msgstr ""
 
 #: ../../system_requirements.rst:1
-msgid "TCP"
+msgid "UDP"
 msgstr ""
 
 #: ../../system_requirements.rst:1
@@ -15144,13 +15145,13 @@ msgid "1194"
 msgstr ""
 
 #: ../../system_requirements.rst:1
-msgid "UDP"
-msgstr ""
-
-#: ../../system_requirements.rst:1
 #, fuzzy
 msgid "Remote support VPN (optional)"
 msgstr "Supporto remoto di Nethesis"
+
+#: ../../system_requirements.rst:1
+msgid "TCP"
+msgstr ""
 
 #: ../../system_requirements.rst:1
 msgid "Cloud backup service"
@@ -27796,5 +27797,11 @@ msgstr ""
 #~ "required by specific applications, depending"
 #~ " on their configuration and upstream "
 #~ "services."
+#~ msgstr ""
+
+#~ msgid "<DNS address>"
+#~ msgstr ""
+
+#~ msgid "Public or private DNS address"
 #~ msgstr ""
 
