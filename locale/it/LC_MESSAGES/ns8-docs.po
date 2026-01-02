@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-19 10:18+0000\n"
+"POT-Creation-Date: 2026-01-02 09:47+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -4528,24 +4528,109 @@ msgstr ""
 msgid "``ns7user@example.org`` becomes ``ns7user@example.org*vmail``"
 msgstr ""
 
-#: ../../imapsync.rst:148 ../../passbolt.rst:45 ../../piler.rst:177
+#: ../../imapsync.rst:147
+msgid "Import tasks from CSV"
+msgstr ""
+
+#: ../../imapsync.rst:149
+msgid ""
+"To create multiple synchronization tasks at once, use a CSV file with the"
+" ``import-csv-tasks`` utility script. This is ideal for bulk migrations "
+"of multiple email accounts."
+msgstr ""
+
+#: ../../imapsync.rst:153
+msgid "**CSV file format:**"
+msgstr ""
+
+#: ../../imapsync.rst:155
+msgid "The CSV file must contain a header row with these 6 required columns::"
+msgstr ""
+
+#: ../../imapsync.rst:161
+msgid "Required columns:"
+msgstr ""
+
+#: ../../imapsync.rst:163
+msgid ""
+"``localusername`` – Local user account name (must exist on the Mail "
+"server)"
+msgstr ""
+
+#: ../../imapsync.rst:164
+msgid "``remoteusername`` – Remote IMAP account username or email"
+msgstr ""
+
+#: ../../imapsync.rst:165
+msgid ""
+"``remotepassword`` – Remote IMAP account password (quote if contains "
+"special characters)"
+msgstr ""
+
+#: ../../imapsync.rst:166
+msgid "``remotehostname`` – Remote IMAP server hostname or IP address"
+msgstr ""
+
+#: ../../imapsync.rst:167
+msgid ""
+"``remoteport`` – Remote IMAP server port (typically ``993`` for SSL/TLS, "
+"``143`` for STARTTLS)"
+msgstr ""
+
+#: ../../imapsync.rst:168
+msgid ""
+"``security`` – Security protocol: ``ssl`` Implicit IMAPS encryption "
+"(connection starts encrypted on port 993), ``tls`` STARTTLS encryption "
+"(plain connection on port 143 upgraded to TLS), or empty string for no "
+"encryption"
+msgstr ""
+
+#: ../../imapsync.rst:170
+msgid ""
+"All fields except ``security`` are mandatory. Column order does not "
+"matter."
+msgstr ""
+
+#: ../../imapsync.rst:172
+msgid "**Basic usage:**"
+msgstr ""
+
+#: ../../imapsync.rst:174
+msgid "Import tasks from a CSV file::"
+msgstr ""
+
+#: ../../imapsync.rst:178
+msgid "**Validate CSV format without creating tasks:**"
+msgstr ""
+
+#: ../../imapsync.rst:184
+msgid ""
+"This validates the CSV structure, required columns, mandatory field "
+"values, and port numbers without making any API calls."
+msgstr ""
+
+#: ../../imapsync.rst:187
+msgid "**Display the help:**"
+msgstr ""
+
+#: ../../imapsync.rst:194 ../../passbolt.rst:45 ../../piler.rst:177
 msgid "Known limitations"
 msgstr "Limitazioni conosciute"
 
-#: ../../imapsync.rst:150 ../../migration.rst:298
+#: ../../imapsync.rst:196 ../../migration.rst:298
 msgid ""
 "Messages copied by Imapsync bypass anti-spam and anti-virus checks. To "
 "ensure security, enable these protections on the remote IMAP server "
 "before synchronization."
 msgstr ""
 
-#: ../../imapsync.rst:154
+#: ../../imapsync.rst:200
 msgid ""
 "Imapsync does not integrate with :ref:`Piler <piler-section>`, meaning "
 "that messages transferred via Imapsync are not archived."
 msgstr ""
 
-#: ../../imapsync.rst:157
+#: ../../imapsync.rst:203
 msgid ""
 "Messages copied by Imapsync do not trigger the Dovecot vacation (out-of-"
 "office) auto-reply. If the local account has the vacation plugin enabled,"
