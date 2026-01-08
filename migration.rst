@@ -376,5 +376,10 @@ The following configurations are not migrated:
 - The ``Accept unknown recipients`` setting of the mail server, which catches
   messages sent to non-existing addresses. See :ref:`email_domains` for details.
 
-Additionally, shared folders will not be migrated if NS7 uses a remote
-account provider.
+The following data is not migrated:
+
+- System logs
+
+- Samba Audit DB
+
+- Shared folders (if NS7 uses a remote account provider)
