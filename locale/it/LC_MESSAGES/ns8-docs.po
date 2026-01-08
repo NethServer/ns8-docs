@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-02 09:47+0000\n"
+"POT-Creation-Date: 2026-01-08 18:07+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -5118,7 +5118,7 @@ msgstr ""
 "<https://community.nethserver.org>`_. L'issue tracker pubblico è "
 "disponibile su `GitHub <https://github.com/NethServer/dev/issues>`_."
 
-#: ../../log_server.rst:7
+#: ../../log_server.rst:7 ../../migration.rst:381
 #, fuzzy
 msgid "System logs"
 msgstr "System logs"
@@ -8677,9 +8677,17 @@ msgstr ""
 ":ref:`email_domains` per i dettagli."
 
 #: ../../migration.rst:379
-msgid ""
-"Additionally, shared folders will not be migrated if NS7 uses a remote "
-"account provider."
+#, fuzzy
+msgid "The following data is not migrated:"
+msgstr "Le seguenti configurazioni non verranno migrate:"
+
+#: ../../migration.rst:383
+msgid "Samba Audit DB"
+msgstr ""
+
+#: ../../migration.rst:385
+#, fuzzy
+msgid "Shared folders (if NS7 uses a remote account provider)"
 msgstr ""
 "Inoltre, le cartelle condivise non verranno migrate se NS7 utilizza un "
 "provider di account remoto."
