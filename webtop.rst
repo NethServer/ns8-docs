@@ -104,11 +104,36 @@ Proceed as follows:
 
 3. upload the image (via the Upload button at the bottom left or simply dragging with a drag & drop)
 
-4. rename the loaded image so that its name is **"login.png"** (use right click -> Rename):
-
-   .. image:: _static/webtop-login_page.png
+4. rename the loaded image so that its name is **"login.svg"** (use right click -> Rename):
 
 5. the next login will show the new logo on the login page
+
+Custom logos for light and dark color schemes
+---------------------------------------------
+
+It is possible to provide **custom logos for both light and dark modes** by
+uploading two different image files to the public cloud.
+
+During the login process, the system looks for a custom login image using the
+following filename priority order:
+
+1. ``login@{color-scheme}.svg``
+2. ``login@{color-scheme}.png``
+3. ``login@{color-scheme}.jpg``
+4. ``login.svg``
+5. ``login.jpg``
+6. ``login.png``
+
+Where ``{color-scheme}`` can be either ``light`` or ``dark``.
+
+Examples::
+
+  login@dark.svg
+  login@light.svg
+
+If a color-scheme–specific image is not found, the system falls back to the
+generic ``login.*`` filenames.
+
 
 User settings management
 ========================
