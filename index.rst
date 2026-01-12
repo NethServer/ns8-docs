@@ -79,6 +79,7 @@ NethServer 8 administrator manual
    webserver
    sogo
    odoo
+   n8n
 
 .. toctree::
    :maxdepth: 2
