@@ -20,7 +20,7 @@ How to configure:
 
 1. access the ``Settings`` page of the newly installed instance
 2. enter a valid FQDN inside the ``Matrix server domain`` field
-3. to start the web clients, you need to enter a valid FQDN inside the ``Element web domain`` or the ``Cinny domain`` fields.
-4. enable ``Let's Encrypt`` and ``HTTP to HTTPS`` options accordingly to your needs
+3. to start the web clients, you need to enter a valid FQDN inside the ``Element web domain`` or the ``Cinny domain`` fields
+4. enable ``Let's Encrypt`` accordingly to your needs
 5. select a ``Timezone``
 6. click the :guilabel:`Save` button
