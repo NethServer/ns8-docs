@@ -43,7 +43,7 @@ to change the port of worker node 2 to 55823:
     firewall-cmd --reload
 
 This procedure also works to change the listening port of the leader node.
-However, to make it effective, all worker nodes must be rebooted or the
-following command must be executed on each of them: ::
+However, to make it effective, the following command must be executed on
+each of them: ::
 
     apply-vpn-routes
