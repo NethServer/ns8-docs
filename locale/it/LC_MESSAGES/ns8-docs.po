@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-09 13:44+0000\n"
+"POT-Creation-Date: 2026-01-15 13:29+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -1643,10 +1643,10 @@ msgstr ""
 #: ../../dnsmasq.rst:23 ../../dokuwiki.rst:10 ../../ejabberd.rst:22
 #: ../../file_server.rst:33 ../../imapsync.rst:26 ../../index.rst:36
 #: ../../mail.rst:54 ../../mariadb.rst:11 ../../mattermost.rst:13
-#: ../../minio.rst:12 ../../netdata.rst:20 ../../nextcloud.rst:21
-#: ../../odoo.rst:20 ../../passbolt.rst:12 ../../piler.rst:30
-#: ../../roundcube.rst:19 ../../sogo.rst:39 ../../webserver.rst:14
-#: ../../webtop.rst:12
+#: ../../minio.rst:12 ../../n8n.rst:11 ../../netdata.rst:20
+#: ../../nextcloud.rst:21 ../../odoo.rst:20 ../../passbolt.rst:12
+#: ../../piler.rst:30 ../../roundcube.rst:19 ../../sogo.rst:39
+#: ../../webserver.rst:14 ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -1659,8 +1659,8 @@ msgstr ""
 "``collabora.nethserver.org``."
 
 #: ../../collabora.rst:19 ../../dokuwiki.rst:14 ../../mattermost.rst:17
-#: ../../nextcloud.rst:25 ../../roundcube.rst:23 ../../sogo.rst:43
-#: ../../webtop.rst:16
+#: ../../n8n.rst:15 ../../nextcloud.rst:25 ../../roundcube.rst:23
+#: ../../sogo.rst:43 ../../webtop.rst:16
 msgid ""
 "Before proceeding with the configuration, make sure to create the "
 "corresponding name record inside your DNS server. If you are planning to "
@@ -1674,7 +1674,7 @@ msgstr ""
 
 #: ../../collabora.rst:22 ../../dependencytrack.rst:18 ../../dokuwiki.rst:17
 #: ../../ejabberd.rst:35 ../../mariadb.rst:13 ../../mattermost.rst:24
-#: ../../minio.rst:19 ../../roundcube.rst:30 ../../sogo.rst:46
+#: ../../minio.rst:19 ../../n8n.rst:18 ../../roundcube.rst:30 ../../sogo.rst:46
 #: ../../webserver.rst:16 ../../webtop.rst:19
 msgid "How to configure:"
 msgstr "Come configurare:"
@@ -1696,6 +1696,7 @@ msgstr ""
 "utilizzato per accedere alla console di amministrazione"
 
 #: ../../collabora.rst:27 ../../dokuwiki.rst:20 ../../mattermost.rst:27
+#: ../../n8n.rst:21
 msgid ""
 "enable ``Let's Encrypt`` and ``HTTP to HTTPS`` options accordingly to "
 "your needs"
@@ -1704,8 +1705,8 @@ msgstr ""
 "alle vostre esigenze"
 
 #: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:26
-#: ../../nextcloud.rst:34 ../../roundcube.rst:35 ../../sogo.rst:52
-#: ../../webtop.rst:25
+#: ../../n8n.rst:22 ../../nextcloud.rst:34 ../../roundcube.rst:35
+#: ../../sogo.rst:52 ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
 msgstr "cliccare sul pulsante :guilabel:`Save`"
 
@@ -2810,7 +2811,7 @@ msgstr ""
 "DokuWiki needs a dedicated virtual host, an FQDN like "
 "``wiki.nethserver.org``."
 
-#: ../../dokuwiki.rst:19
+#: ../../dokuwiki.rst:19 ../../n8n.rst:20
 #, fuzzy
 msgid "access the application configuration page and enter all required fields"
 msgstr "access the application configuration page and enter all required fields"
@@ -4655,7 +4656,7 @@ msgstr "Applicazioni"
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:83
+#: ../../index.rst:84
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -9073,6 +9074,35 @@ msgid ""
 "not include a configuration UI. For example, Core components such as "
 ":ref:`Loki <logs-persistence-section>` and :ref:`Grafana <grafana_access-"
 "section>` are implemented as modules running on the leader node."
+msgstr ""
+
+#: ../../n8n.rst:5
+msgid "n8n"
+msgstr ""
+
+#: ../../n8n.rst:7
+msgid ""
+"`n8n <https://n8n.io/>`_ is a flexible AI workflow automation for "
+"technical teams. It allows you to build flexible workflows focused on "
+"deep data integration."
+msgstr ""
+
+#: ../../n8n.rst:13
+#, fuzzy
+msgid "n8n needs a dedicated virtual host, an FQDN like ``n8n.nethserver.org``."
+msgstr "SOGo needs a dedicated virtual host, a FQDN like ``sogo.nethserver.org``."
+
+#: ../../n8n.rst:23
+#, fuzzy
+msgid ""
+"use your browser to go to the selected FQDN, eg: "
+"``https://n8n.nethserver.org``"
+msgstr ""
+"use your browser to go to the selected FQDN, eg: "
+"``https://wiki.nethserver.org``."
+
+#: ../../n8n.rst:24
+msgid "create the n8n admin account"
 msgstr ""
 
 #: ../../netdata.rst:5
