@@ -155,6 +155,13 @@ host name. Wildcard names are supported.
 Uploaded certificates are added to Traefik's backup and can be restored
 from it.
 
+If the certificate is signed by a private/custom certification authority (CA),
+it needs be added to the OS certificate store to be trusted and to allow the upload:
+
+- `RHEL distributions (Rocky) <https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/securing_networks/using-shared-system-certificates_securing-networks>`_
+
+- `Debian <https://manpages.debian.org/trixie/ca-certificates/update-ca-certificates.8.en.html>`_
+
 .. _certificate-alerts-section:
 
 Receive certificate expiration alerts
