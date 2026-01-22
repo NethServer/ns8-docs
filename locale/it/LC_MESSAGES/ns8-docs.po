@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-15 13:29+0000\n"
+"POT-Creation-Date: 2026-01-22 13:16+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -1642,11 +1642,11 @@ msgstr ""
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dependencytrack.rst:16
 #: ../../dnsmasq.rst:23 ../../dokuwiki.rst:10 ../../ejabberd.rst:22
 #: ../../file_server.rst:33 ../../imapsync.rst:26 ../../index.rst:36
-#: ../../mail.rst:54 ../../mariadb.rst:11 ../../mattermost.rst:13
-#: ../../minio.rst:12 ../../n8n.rst:11 ../../netdata.rst:20
-#: ../../nextcloud.rst:21 ../../odoo.rst:20 ../../passbolt.rst:12
-#: ../../piler.rst:30 ../../roundcube.rst:19 ../../sogo.rst:39
-#: ../../webserver.rst:14 ../../webtop.rst:12
+#: ../../mail.rst:54 ../../mariadb.rst:11 ../../matrix.rst:12
+#: ../../mattermost.rst:13 ../../minio.rst:12 ../../n8n.rst:11
+#: ../../netdata.rst:20 ../../nextcloud.rst:21 ../../odoo.rst:20
+#: ../../passbolt.rst:12 ../../piler.rst:30 ../../roundcube.rst:19
+#: ../../sogo.rst:39 ../../webserver.rst:14 ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -1673,13 +1673,14 @@ msgstr ""
 "anche di avere un record DNS pubblico corrispondente."
 
 #: ../../collabora.rst:22 ../../dependencytrack.rst:18 ../../dokuwiki.rst:17
-#: ../../ejabberd.rst:35 ../../mariadb.rst:13 ../../mattermost.rst:24
-#: ../../minio.rst:19 ../../n8n.rst:18 ../../roundcube.rst:30 ../../sogo.rst:46
-#: ../../webserver.rst:16 ../../webtop.rst:19
+#: ../../ejabberd.rst:35 ../../mariadb.rst:13 ../../matrix.rst:19
+#: ../../mattermost.rst:24 ../../minio.rst:19 ../../n8n.rst:18
+#: ../../roundcube.rst:30 ../../sogo.rst:46 ../../webserver.rst:16
+#: ../../webtop.rst:19
 msgid "How to configure:"
 msgstr "Come configurare:"
 
-#: ../../collabora.rst:24 ../../nextcloud.rst:30
+#: ../../collabora.rst:24 ../../matrix.rst:21 ../../nextcloud.rst:30
 msgid "access the ``Settings`` page of the newly installed instance"
 msgstr "accedere alla pagina ``Impostazioni`` dell'istanza appena installata"
 
@@ -1704,9 +1705,9 @@ msgstr ""
 "abilitare ``Let's Encrypt`` e le opzioni ``HTTP a HTTPS`` di conseguenza "
 "alle vostre esigenze"
 
-#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../minio.rst:26
-#: ../../n8n.rst:22 ../../nextcloud.rst:34 ../../roundcube.rst:35
-#: ../../sogo.rst:52 ../../webtop.rst:25
+#: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../matrix.rst:26
+#: ../../minio.rst:26 ../../n8n.rst:22 ../../nextcloud.rst:34
+#: ../../roundcube.rst:35 ../../sogo.rst:52 ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
 msgstr "cliccare sul pulsante :guilabel:`Save`"
 
@@ -4656,7 +4657,7 @@ msgstr "Applicazioni"
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:84
+#: ../../index.rst:85
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -7405,6 +7406,59 @@ msgstr ""
 #: ../../mariadb.rst:37
 msgid "For instance : 10.5.4.1:20001"
 msgstr "Per esempio: 10.5.4.1:20001"
+
+#: ../../matrix.rst:5
+msgid "Matrix"
+msgstr ""
+
+#: ../../matrix.rst:7
+msgid ""
+"Matrix is an open network for secure, decentralised communication. This "
+"implementation provides a complete chat solution, including the synapse "
+"homeserver and web clients like `Element <https://element.io>`_ or `Cinny"
+" <https://cinny.in/>`_. Please see the `official website "
+"<https://www.matrix.org>`_."
+msgstr ""
+
+#: ../../matrix.rst:14
+#, fuzzy
+msgid ""
+"Synapse, Element web and Cinny need a dedicated virtual host, a FQDN like"
+" ``fqdn.nethserver.org``."
+msgstr "SOGo needs a dedicated virtual host, a FQDN like ``sogo.nethserver.org``."
+
+#: ../../matrix.rst:16
+#, fuzzy
+msgid ""
+"Before proceeding with the configuration, make sure to create the "
+"corresponding name records inside your DNS server. If you are planning to"
+" use a Let's Encrypt certificate as default, make also sure to have a "
+"corresponding public DNS record."
+msgstr ""
+"Prima di procedere con la configurazione, assicurarsi di creare il "
+"relativo record all'interno del server DNS. Se hai intenzione di "
+"utilizzare un certificato Let's Encrypt come predefinito, assicurati "
+"anche di avere un record DNS pubblico corrispondente."
+
+#: ../../matrix.rst:22
+#, fuzzy
+msgid "enter a valid FQDN inside the ``Matrix server domain`` field"
+msgstr "enter a valid FQDN inside the ``Host name`` field"
+
+#: ../../matrix.rst:23
+msgid ""
+"to start the web clients, you need to enter a valid FQDN inside the "
+"``Element web domain`` or the ``Cinny domain`` fields"
+msgstr ""
+
+#: ../../matrix.rst:24
+#, fuzzy
+msgid "enable ``Let's Encrypt`` accordingly to your needs"
+msgstr "enable ``Let's Encrypt`` option accordingly to your needs"
+
+#: ../../matrix.rst:25
+msgid "select a ``Timezone``"
+msgstr ""
 
 #: ../../mattermost.rst:3
 msgid "Mattermost"
