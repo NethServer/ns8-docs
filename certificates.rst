@@ -160,7 +160,7 @@ it needs to be added to the OS certificate store to be trusted and to allow the 
 
 - `RHEL distributions (Rocky) <https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/securing_networks/using-shared-system-certificates_securing-networks>`_
 
-- `Debian <https://manpages.debian.org/trixie/ca-certificates/update-ca-certificates.8.en.html>`_
+- `Debian <https://manpages.debian.org/stable/ca-certificates/update-ca-certificates.8.en.html>`_
 
 .. _certificate-alerts-section:
 
