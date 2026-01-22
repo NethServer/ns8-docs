@@ -5,7 +5,7 @@ Matrix
 ======
 
 Matrix is an open network for secure, decentralised communication. This implementation provides a complete chat solution, 
-including the synapse homeserver and web clients like Element web or Cinny.
+including the synapse homeserver and web clients like `Element <https://element.io>`_ or `Cinny <https://cinny.in/>`_.
 Please see the `official website <https://www.matrix.org>`_.
 
 Configuration
