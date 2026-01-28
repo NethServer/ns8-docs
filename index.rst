@@ -66,6 +66,7 @@ NethServer 8 administrator manual
    dnsmasq
    netdata
    piler
+   rustfs
 
 .. toctree::
    :maxdepth: 2
