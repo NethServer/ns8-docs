@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-22 13:16+0000\n"
+"POT-Creation-Date: 2026-01-30 15:05+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -703,7 +703,7 @@ msgstr ""
 "certificato valido per un dominio seguendo questi passaggi:"
 
 #: ../../certificates.rst:105 ../../certificates.rst:133
-#: ../../certificates.rst:208
+#: ../../certificates.rst:215
 #, fuzzy
 msgid "Go to ``Settings`` → ``TLS certificates``."
 msgstr ""
@@ -807,11 +807,31 @@ msgid ""
 "from it."
 msgstr ""
 
+#: ../../certificates.rst:158
+msgid ""
+"If the certificate is signed by a private/custom certification authority "
+"(CA), it needs to be added to the OS certificate store to be trusted and "
+"to allow the upload:"
+msgstr ""
+
 #: ../../certificates.rst:161
-msgid "Receive certificate expiration alerts"
+msgid ""
+"`RHEL distributions (Rocky) "
+"<https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/securing_networks"
+"/using-shared-system-certificates_securing-networks>`_"
 msgstr ""
 
 #: ../../certificates.rst:163
+msgid ""
+"`Debian <https://manpages.debian.org/stable/ca-certificates/update-ca-"
+"certificates.8.en.html>`_"
+msgstr ""
+
+#: ../../certificates.rst:168
+msgid "Receive certificate expiration alerts"
+msgstr ""
+
+#: ../../certificates.rst:170
 msgid ""
 "If alert notifications are configured (see :ref:`alerts_notifications-"
 "section`), the cluster sends an alert when a certificate is nearing "
@@ -819,86 +839,86 @@ msgid ""
 "expiration date."
 msgstr ""
 
-#: ../../certificates.rst:168
+#: ../../certificates.rst:175
 msgid ""
 "For an ``Uploaded`` certificate, resolve the alert by uploading a new "
 "certificate. The old one can then be deleted."
 msgstr ""
 
-#: ../../certificates.rst:171
+#: ../../certificates.rst:178
 msgid ""
 "For Let's Encrypt certificates (``Requested``, ``Automatic``, "
 "``Obsolete``), an expiration alert indicates renewal has failed. Check "
 "that :ref:`requirements <lets-encrypt-requirements>` are still met."
 msgstr ""
 
-#: ../../certificates.rst:175
+#: ../../certificates.rst:182
 msgid "Common **renewal failure causes** include:"
 msgstr ""
 
-#: ../../certificates.rst:177
+#: ../../certificates.rst:184
 msgid "DNS records for a certificate name were changed or removed."
 msgstr ""
 
-#: ../../certificates.rst:178
+#: ../../certificates.rst:185
 msgid ""
 "A firewall blocks HTTP challenges, either by network address or by "
 "geographic IP rules."
 msgstr ""
 
-#: ../../certificates.rst:185
+#: ../../certificates.rst:192
 #, fuzzy
 msgid "Delete a TLS certificate"
 msgstr "Certificati personalizzati"
 
-#: ../../certificates.rst:187
+#: ../../certificates.rst:194
 msgid ""
 "You can delete a certificate if it is no longer needed. Do this with "
 "caution, because removing a certificate can break applications. When you "
 "delete a certificate:"
 msgstr ""
 
-#: ../../certificates.rst:191
+#: ../../certificates.rst:198
 msgid ""
 "Traefik is restarted and HTTP connections are closed. For some "
 "applications this may lead to client data loss."
 msgstr ""
 
-#: ../../certificates.rst:194
+#: ../../certificates.rst:201
 msgid "If no alternative matches the host name, clients will fail to reconnect."
 msgstr ""
 
-#: ../../certificates.rst:197
+#: ../../certificates.rst:204
 msgid "Automatic renewal (for Let's Encrypt) stops."
 msgstr ""
 
-#: ../../certificates.rst:199
+#: ../../certificates.rst:206
 msgid ""
 "If you delete an ``Automatic`` certificate, the related HTTP route is "
 "modified and its Let's Encrypt switch is cleared."
 msgstr ""
 
-#: ../../certificates.rst:202
+#: ../../certificates.rst:209
 msgid ""
 "Use :guilabel:`Delete obsolete certificates` to remove all obsolete "
 "certificates of a node in a single operation. This limits Traefik "
 "restarts."
 msgstr ""
 
-#: ../../certificates.rst:206
+#: ../../certificates.rst:213
 msgid "Alternatively, to delete a single certificate:"
 msgstr ""
 
-#: ../../certificates.rst:210
+#: ../../certificates.rst:217
 msgid "Find the certificate to remove."
 msgstr ""
 
-#: ../../certificates.rst:212
+#: ../../certificates.rst:219
 #, fuzzy
 msgid "Click :guilabel:`Delete` and confirm."
 msgstr "cliccare su :guilabel:`Upload certificate`"
 
-#: ../../certificates.rst:216
+#: ../../certificates.rst:223
 msgid ""
 "Deletion is irreversible. Ensure no application depends on the "
 "certificate, or install a replacement first to avoid downtime."
