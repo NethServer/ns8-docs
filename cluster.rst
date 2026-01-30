@@ -232,6 +232,32 @@ is incorrect, use the optional ``--endpoint`` parameter, for example: ::
 The VPN endpoint parameter consists of an address (name or IP) prefix and
 a UDP port number suffix, separated by a colon ``:``.
 
+Recover an offline node
+=======================
+
+If the leader node is offline, the cluster-admin interface is not
+accessible and it is not possible to issue commands to worker nodes. If
+there is no way to recover the leader, refer to
+:ref:`node-promotion-section` to select a new leader.
+
+If a worker node is offline, the cluster can continue to operate. Cluster
+operations such as adding or removing worker nodes and applications are
+still possible.
+
+When an offline node is recovered, in some cases it may be necessary to
+manually run the following command on the recovered node: ::
+
+  apply-vpn-routes
+
+The above command is required if, during the offline period, one or more of
+the following events occurred:
+
+- A node was added to or removed from the cluster.
+- Samba was added to or removed from the cluster.
+
+The ``apply-vpn-routes`` command adjusts the current WireGuard runtime
+settings and the system routing table, and persists the changes to reflect
+the cluster configuration stored in the Redis database.
 
 .. _administrators-section:
 
