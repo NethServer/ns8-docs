@@ -73,6 +73,7 @@ NethServer 8 administrator manual
 
    dokuwiki
    dependencytrack
+   lamp
    mariadb
    passbolt
    prometheus
