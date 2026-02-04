@@ -20,10 +20,10 @@ If you are planning to use a Let's Encrypt certificate as default, make also sur
 How to configure:
 
 1. access the application configuration page and enter the ``API server host name``:
-   this will be the FQDN used by hosts to connect to S3 services
+   this will be the FQDN used by hosts to connect to S3 services, e.g. ``s3.example.org``, ``storage.example.org``
 2. fill the ``Web interface host name``: you will be able to configure your
-   RustFS instance from this FQDN
+   RustFS instance from this FQDN, e.g. ``rustfs.example.org``
 3. enable ``Let's Encrypt`` option accordingly to your needs
 4. fill the ``rustfs root user name`` and the ``rustfs root password``: those are the login credentials
 5. click the :guilabel:`Save` button
-6. open the entered host name inside the browser, eg: ``https://rustfs-ui.nethserver.org``.
+6. open the entered host name inside the browser, e.g. ``https://rustfs.example.org``.
