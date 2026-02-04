@@ -24,7 +24,7 @@ Main settings
 
 The following settings are available during configuration:
 
-* **Fully Qualified Domain Name (FQDN)**: set the domain name for your web application
+* **Fully Qualified Domain Name (FQDN)**: set the domain name for your web application, for example, ``webapp1.example.org``
 * **HTTP to HTTPS**: enable automatic redirection from HTTP to HTTPS
 * **Request Let's Encrypt certificate**: automatically obtain and configure a free SSL certificate
 * **MySQL Configuration**:
@@ -115,7 +115,7 @@ Database management
 -------------------
 
 PhpMyAdmin is included and accessible through your domain at the ``/phpmyadmin`` path 
-(e.g., ``https://yourdomain.com/phpmyadmin``).
+(e.g., ``https://webapp1.example.org/phpmyadmin``).
 
 Default credentials:
 
