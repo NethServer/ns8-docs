@@ -11,7 +11,8 @@ You can install multiple RustFS instances on the same node from the :ref:`softwa
 Configuration
 =============
 
-RustFS needs two dedicated virtual hosts, a FQDN like ``rustfs-api.nethserver.org`` and ``rustfs-ui.nethserver.org``.
+Some S3 clients do not correctly support API endpoints exposed under a path prefix. For better compatibility, 
+two distinct server names need to be assigned: one dedicated to the S3 protocol endpoint and another dedicated to the administrative console.
 
 Before proceeding with the configuration, make sure to create the corresponding name records inside your DNS server.
 If you are planning to use a Let's Encrypt certificate as default, make also sure to have corresponding public DNS records.
@@ -26,4 +27,3 @@ How to configure:
 4. fill the ``rustfs root user name`` and the ``rustfs root password``: those are the login credentials
 5. click the :guilabel:`Save` button
 6. open the entered host name inside the browser, eg: ``https://rustfs-ui.nethserver.org``.
-
