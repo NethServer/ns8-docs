@@ -1,10 +1,10 @@
 .. _lamp-section:
 
 ====
-LAMP
+Lamp
 ====
 
-NS8-LAMP is a containerized environment that encapsulates the LAMP stack, which includes 
+Lamp is a containerized environment that encapsulates the Lamp stack, which includes 
 Linux (Ubuntu), Apache (web server), MariaDB (database), and PHP (scripting language). 
 This container allows for easy deployment and management of web applications, providing 
 consistency, portability, and isolation across different environments.
@@ -17,10 +17,14 @@ The application can be installed from the :ref:`software_center-section`.
 Configuration
 =============
 
-After installation, access the application settings page to configure your LAMP instance.
+After installation, access the application settings page to configure your Lamp instance.
 
 Main settings
 -------------
+
+.. note::
+
+   DNS must be configured with your DNS provider to point to your server for both the FQDN and Let's Encrypt certificate to work properly.
 
 The following settings are available during configuration:
 
@@ -51,7 +55,7 @@ Usage
 Application deployment
 ----------------------
 
-The LAMP stack provides a ``/app`` directory as the storage location for your web application files.
+The Lamp stack provides a ``/app`` directory as the storage location for your web application files.
 
 To access the application directory and deploy your files:
 
@@ -65,8 +69,8 @@ To access the application directory and deploy your files:
 3. Navigate to the ``/app`` directory and place your web application files there
 4. The files will be automatically served through the FQDN configured in the web interface
 
-Downloading your web application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Install your PHP source code
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once inside the ``/app`` directory, you can download your web application files using one of the following methods:
 
@@ -130,19 +134,10 @@ Default credentials:
 Advanced configuration
 ======================
 
-Environment access
-------------------
-
-To debug a container or view its environment variables::
-
-  runagent -m lamp1
-
-Replace ``lamp1`` with your actual module instance name.
-
 Scheduled tasks
 ---------------
 
-You can configure cron jobs for your LAMP instance using::
+You can configure cron jobs for your Lamp instance using::
 
   runagent -m lamp1 apache2-app crontab -e
 
