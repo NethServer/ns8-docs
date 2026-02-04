@@ -65,6 +65,47 @@ To access the application directory and deploy your files:
 3. Navigate to the ``/app`` directory and place your web application files there
 4. The files will be automatically served through the FQDN configured in the web interface
 
+Downloading your web application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once inside the ``/app`` directory, you can download your web application files using one of the following methods:
+
+**Git**
+
+Clone a Git repository to download your application code::
+
+  git clone http://github.com/url/of/project
+
+**Wget**
+
+Download files using wget, a command-line tool for downloading files from the web::
+
+  wget http://your-url
+
+**Rsync**
+
+Use rsync to synchronize files from a remote server::
+
+  rsync -avz user@hostname:/path .
+
+**SFTP**
+
+Open an interactive SFTP session to transfer files securely::
+
+  sftp user@hostname
+
+**FTP**
+
+Use standard FTP protocol for file transfer::
+
+  ftp hostname
+
+**FTP-SSL**
+
+Use FTP with SSL/TLS encryption for secure file transfer::
+
+  ftp-ssl hostname
+
 .. warning::
 
    After deploying your web application, delete the default ``phpinfo.php`` file 
