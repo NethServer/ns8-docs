@@ -66,13 +66,13 @@ To access the application directory and deploy your files:
 
    Replace ``lamp1`` with your actual module instance name.
 
-3. Navigate to the ``/app`` directory and place your web application files there
+3. Place your web application files in the working directory
 4. The files will be automatically served through the FQDN configured in the web interface
 
 Install your PHP source code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once inside the ``/app`` directory, you can download your web application files using one of the following methods:
+You can download your web application files using one of the following methods:
 
 **Git**
 
@@ -113,7 +113,7 @@ Use FTP with SSL/TLS encryption for secure file transfer::
 .. warning::
 
    After deploying your web application, delete the default ``phpinfo.php`` file 
-   in the ``/app`` folder to avoid exposing sensitive information about your server configuration.
+   to avoid exposing sensitive information about your server configuration.
 
 Database management
 -------------------
