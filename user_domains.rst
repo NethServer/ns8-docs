@@ -49,14 +49,26 @@ Active Directory
 To install a new user domain with an internal Samba Active Directory as
 provider:
 
-* access the ``Domains and users`` page
-* click on :guilabel:`Create domain` button and choose ``Internal``
-* select ``Samba`` on the dialog box and click :guilabel:`Install provider`
+* Access the ``Domains and users`` page.
 
-Once the provider is installed, you will be asked to enter the following parameters:
+* Click on :guilabel:`Create domain` button and choose ``Internal``.
 
-- ``Domain``: the user domain, it should be a valid FQDN. It defines the DNS suffix of the new domain.
-  The Domain Controller (DC) acts as an authoritative DNS server for that domain. If unsure, keep the proposed value.
+* Select ``Samba`` on the dialog box and follow the procedure. You may be
+  asked which node will install the provider, and -- if the selected node
+  has one -- the additional volume where Shared folders will be stored.
+  This choice is relevant if you will enable the option ``Provide Shared
+  folders and authentication to Windows clients`` in the post-installation
+  step. If you plan to use Samba as a file server, read now section
+  :ref:`file-server-section` before proceeding.
+
+* Finally click on :guilabel:`Install provider` button.
+
+Once the domain provider is installed, you will be asked to enter the
+following Active Directory parameters:
+
+- ``Domain``: the user domain in FQDN form. It defines the
+  DNS suffix of the new Active Directory domain. If unsure,
+  refer to the next section, or keep the proposed value.
 
 - ``NetBIOS domain``: a valid `NetBIOS <https://en.wikipedia.org/wiki/NetBIOS>`_ domain (also known as "domain short name", "NT
   domain name"), it is the alternative Active Directory domain identifier, compatible
@@ -68,12 +80,17 @@ Once the provider is installed, you will be asked to enter the following paramet
   the given user name is added to the ``Domain Admins`` group, whilst
   ``administrator`` user is disabled and a random password is set on it
 
-- ``Hostname``: the Domain Controller (DC) hostname. If unsure, keep the proposed value.
+In Active Directory jargon, an NS8 domain provider is a *Domain
+Controller* (DC). It acts as an LDAP server, Kerberos domain controller,
+and authoritative DNS server for the chosen domain name. Fill in the
+following DC-related fields:
 
-- ``Provide file shares and authentication to Windows clients``. If
-  enabled the DC shared folders are accessible from the local network.
-  Only one DC of the Active Directory domain can offer shared folders,
-  authentication and DNS services. See :ref:`File server
+- ``Hostname``: the DC hostname. If unsure, keep the proposed value.
+
+- ``Provide Shared folders and authentication to Windows clients``: if
+  this switch is enabled, the DC will be accessible from the local network
+  (LAN). Note the following limitation: only one DC per domain can offer
+  shared folders, authentication, and DNS services. See :ref:`File server
   <file-server-section>` for more information.
 
 .. note::
@@ -131,11 +148,15 @@ LDAP server RFC2307
 
 To install a new user domain with an internal OpenLDAP as provider:
 
-* access the ``Domains and users`` page
-* click on :guilabel:`Create domain` button and choose ``Internal``
-* select ``OpenLDAP`` on the dialog box and click :guilabel:`Install provider`
+* Access the ``Domains and users`` page.
 
-Once the provider is installed, you will be asked to enter the following parameters:
+* Click on :guilabel:`Create domain` and choose ``Internal``.
+
+* In the dialog box, select ``OpenLDAP`` and click :guilabel:`Install
+  provider`.
+
+Once the provider is installed, you will be asked to enter the following
+parameters:
 
 - ``Domain``: the user domain, it should be a valid FQDN. If unsure, keep the proposed value.
 - ``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin credentials
@@ -177,7 +198,7 @@ Bind settings can be accessed from the ``Configuration`` tab of the domain detai
 
 The Samba AD provider exposes standard LDAP and LDAPS ports (389/636) to
 applications outside the cluster only if it has been created with
-``Provide file shares and authentication to Windows clients`` (see
+``Provide Shared folders and authentication to Windows clients`` (see
 :ref:`active_directory-section`).
 
 OpenLDAP RFC2307 providers do not expose any port for external

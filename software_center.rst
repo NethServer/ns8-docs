@@ -61,15 +61,91 @@ Certification levels are determined based on the following factors:
 Install applications
 ====================
 
-To install a new application, simply click the :guilabel:`Install` button
-of the application card. If your cluster has multiple nodes, you will also
-need to select the target node.
+To install a new application, click the :guilabel:`Install` button of the
+application card.
+
+- If your cluster has multiple nodes, you will also need to select the
+  target node.
+
+- Some applications -- like Samba, Nextcloud, and Mail -- may require
+  large disk space and support additional volume selection, if the target
+  node provides one, as explained in section
+  :ref:`additional-volumes-section`.
+
+  The volume selector displays the volume mount directory, the filesystem
+  label and space usage.
 
 To install more applications of the same type, click on the
 ``Instances`` link within the application's card. Then, select
 :guilabel:`Install new instance`. Note that in some cases, installation on
 certain cluster nodes may be restricted due to application policies or
 node resource limitations.
+
+
+.. _additional-volumes-section:
+
+Configure additional volumes
+----------------------------
+
+Applications that host large amount of data may not fit the *default
+volume* where the node's root filesystem usually resides.
+
+When NS8 is installing an application that has such special data
+requirements on a node that provides one or more additional volumes the
+system administrator can decide which one to use, or choose the default
+volume.
+
+The additional volume must be configured before the application is
+installed.
+
+.. warning::
+
+  The additional volume setup procedure may lead to data-loss. It requires
+  some Linux command line experience, hence it is highly recommended to
+  test this procedure on a non-production system.
+
+When configuring an additional volume on a NS8 node, observe the following
+check list:
+
+- Make sure the volume is not already mounted elsewhere. Multiple mount
+  points for the same disk may lead to SELinux relabeling issues. The
+  following command briefly lists existing mountpoints: ::
+
+     findmnt --real
+
+- If the volume does not exist yet, format it with ``xfs`` or ``ext4``
+  filesystems. Their features and defaults match NS8 expectations.
+
+  Use ``lsblk`` to list the block devices (disks or partitions) available
+  on the node, and the ``mkfs`` command to create a new file system on one
+  of them. Be careful, formatting the wrong device will destroy your data.
+
+- Set a filesystem label (e.g. ``LABDISK0``) to easily recognize the
+  volume. It may also simplify the ``/etc/fstab`` or Systemd ``.mount``
+  unit configuration. Related commands are ``xfs_admin``, ``e2label``,
+  ``tune2fs``.
+
+- Mount the volume under ``/mnt`` or ``/srv`` base paths. They are
+  commonly used for this purpose. For example, create a mountpoint
+  directory and mount the volume on it ::
+
+      mkdir /srv/disk0
+      mount /dev/disk/by-label/LABDISK0 /srv/disk0
+
+- Make sure the volume is mounted automatically at boot time.
+  Append a ``/etc/fstab`` entry for the mounted volume ::
+
+    findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS /srv/disk0 >> /etc/fstab
+
+  A reboot test is then highly recommended.
+
+The NS8 cluster leader node, where Software center runs, needs a few
+minutes to record the configuration change and present the additional
+volume selection next time an application that supports it is installed.
+
+For advanced use cases, where an application do not enable the automatic
+volume selection, it is still possible to assign an arbitrary volume
+following :ref:`named-volume-redirection`.
 
 .. _application-instances:
 
