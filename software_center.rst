@@ -87,7 +87,7 @@ node resource limitations.
 Configure additional volumes
 ----------------------------
 
-Applications that host large amount of data may not fit the *default
+Applications that host a large amount of data may not fit the *default
 volume* where the node's root filesystem usually resides.
 
 When NS8 is installing an application that has such special data
@@ -143,7 +143,7 @@ The NS8 cluster leader node, where Software center runs, needs a few
 minutes to record the configuration change and present the additional
 volume selection next time an application that supports it is installed.
 
-For advanced use cases, where an application do not enable the automatic
+For advanced use cases, where an application does not enable the automatic
 volume selection, it is still possible to assign an arbitrary volume
 following :ref:`named-volume-redirection`.
 
