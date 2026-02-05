@@ -4,7 +4,7 @@
 Lamp
 ====
 
-Lamp is a containerized environment that encapsulates the Lamp stack, which includes 
+Lamp is a containerized environment that encapsulates a LAMP stack, which includes 
 Linux (Ubuntu), Apache (web server), MariaDB (database), and PHP (scripting language). 
 This container allows for easy deployment and management of web applications, providing 
 consistency, portability, and isolation across different environments.
@@ -55,7 +55,7 @@ Usage
 Application deployment
 ----------------------
 
-The Lamp stack provides a ``/app`` directory as the storage location for your web application files.
+Lamp provides a ``/app`` directory as the storage location for your web application files.
 
 To access the application directory and deploy your files:
 
