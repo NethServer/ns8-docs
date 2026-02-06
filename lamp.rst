@@ -143,7 +143,9 @@ You can configure cron jobs for your Lamp instance using::
 
 Example cron job to run a daily backup at 2:00 AM::
 
-  0 2 * * * /path/to/backup-script.sh
+  0 2 * * *  /app/maintenance.php # run maintenance script daily at 2:00 AM
+  30 2 * * * rm -rf /app/temp/* # clear temporary files after backup
+  0 3 * * *  find /app/logs -type f -mtime +30 -delete # delete log files older than 30 days
 
 To verify configured cron jobs::
 
