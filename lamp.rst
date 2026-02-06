@@ -141,7 +141,7 @@ You can configure cron jobs for your Lamp instance using::
 
   runagent -m lamp1 apache2-app crontab -e
 
-Example cron job to run a daily backup at 2:00 AM::
+Here are some example cronjobs::
 
   0 2 * * *  /app/maintenance.php # run maintenance script daily at 2:00 AM
   30 2 * * * rm -rf /app/temp/* # clear temporary files after backup
