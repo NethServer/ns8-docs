@@ -70,7 +70,7 @@ Once the provider is installed, you will be asked to enter the following paramet
 
 - ``Hostname``: the Domain Controller (DC) hostname. If unsure, keep the proposed value.
 
-- ``Provide file shares and authentication to Windows clients``. If
+- ``Provide shared folders and authentication to Windows clients``. If
   enabled the DC shared folders are accessible from the local network.
   Only one DC of the Active Directory domain can offer shared folders,
   authentication and DNS services. See :ref:`File server
@@ -177,7 +177,7 @@ Bind settings can be accessed from the ``Configuration`` tab of the domain detai
 
 The Samba AD provider exposes standard LDAP and LDAPS ports (389/636) to
 applications outside the cluster only if it has been created with
-``Provide file shares and authentication to Windows clients`` (see
+``Provide shared folders and authentication to Windows clients`` (see
 :ref:`active_directory-section`).
 
 OpenLDAP RFC2307 providers do not expose any port for external
