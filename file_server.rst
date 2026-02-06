@@ -21,7 +21,7 @@ method depends on the role Samba will play in the Active Directory domain.
 
 - **Domain Controller**: To install a Samba instance as an Active
   Directory Domain Controller, refer to :ref:`active_directory-section`.
-  When configuring it as an account provider, ensure the ``Provide Shared
+  When configuring it as an account provider, ensure the ``Provide shared
   folders and authentication to Windows clients`` switch is enabled.
 
   Only one AD domain controller can be configured with a LAN IP address to
