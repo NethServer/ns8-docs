@@ -147,7 +147,7 @@ If the upload fails, an error is shown. Otherwise, the modal closes and
 the list refreshes.
 
 Common errors include wrong file order or mismatched certificate, private
-key, and chain.
+key, and chain. The key must not be encrypted with a passphrase.
 
 An application uses the uploaded certificate if it matches its configured
 host name. Wildcard names are supported.
