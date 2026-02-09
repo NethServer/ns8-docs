@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-06 08:08+0000\n"
+"POT-Creation-Date: 2026-02-09 14:45+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -792,7 +792,7 @@ msgstr ""
 #: ../../certificates.rst:149
 msgid ""
 "Common errors include wrong file order or mismatched certificate, private"
-" key, and chain."
+" key, and chain. The key must not be encrypted with a passphrase."
 msgstr ""
 
 #: ../../certificates.rst:152
@@ -1429,11 +1429,59 @@ msgstr ""
 "Il parametro endpoint VPN consiste in un prefisso indirizzo (nome o IP) e"
 " un suffisso del numero di porta UDP, separato da un colon ``:``."
 
-#: ../../cluster.rst:239 ../../ejabberd.rst:85
+#: ../../cluster.rst:236
+#, fuzzy
+msgid "Recover an offline node"
+msgstr "Rimuovere un nodo"
+
+#: ../../cluster.rst:238
+msgid ""
+"If the leader node is offline, the cluster-admin interface is not "
+"accessible and it is not possible to issue commands to worker nodes. If "
+"there is no way to recover the leader, refer to :ref:`node-promotion-"
+"section` to select a new leader."
+msgstr ""
+
+#: ../../cluster.rst:243
+msgid ""
+"If a worker node is offline, the cluster can continue to operate. Cluster"
+" operations such as adding or removing worker nodes and applications are "
+"still possible."
+msgstr ""
+
+#: ../../cluster.rst:247
+msgid ""
+"When an offline node is recovered, in some cases it may be necessary to "
+"manually run the following command on the recovered node: ::"
+msgstr ""
+
+#: ../../cluster.rst:252
+msgid ""
+"The above command is required if, during the offline period, one or more "
+"of the following events occurred:"
+msgstr ""
+
+#: ../../cluster.rst:255
+#, fuzzy
+msgid "A node was added to or removed from the cluster."
+msgstr "Gestione dei nodi: aggiunta e rimozione di nodi dal sistema"
+
+#: ../../cluster.rst:256
+msgid "Samba was added to or removed from the cluster."
+msgstr ""
+
+#: ../../cluster.rst:258
+msgid ""
+"The ``apply-vpn-routes`` command adjusts the current WireGuard runtime "
+"settings and the system routing table, and persists the changes to "
+"reflect the cluster configuration stored in the Redis database."
+msgstr ""
+
+#: ../../cluster.rst:265 ../../ejabberd.rst:85
 msgid "Administrators"
 msgstr "Amministratori"
 
-#: ../../cluster.rst:241
+#: ../../cluster.rst:267
 msgid ""
 "Cluster administrators can fully manage the cluster. It's recommended to "
 "create a personal user for each cluster administrator. All actions "
@@ -1445,7 +1493,7 @@ msgstr ""
 "cluster. Tutte le azioni eseguite da un amministratore del cluster sono "
 "registrate all'interno di :ref:`Audit log <audit-trail-section>`."
 
-#: ../../cluster.rst:245
+#: ../../cluster.rst:271
 msgid ""
 "To add a new cluster administrator go to the ``Settings`` page and select"
 " the ``Cluster administrators`` card. Then click on :guilabel:`Create "
@@ -1456,7 +1504,7 @@ msgstr ""
 "Quindi fare clic su :guilabel:`Crea amministratore` e compilare i campi "
 "richiesti."
 
-#: ../../cluster.rst:248
+#: ../../cluster.rst:274
 msgid ""
 "An administrator can't delete its own user. To delete an administrator, "
 "you must log in with another existing cluster administrator."
@@ -1465,7 +1513,7 @@ msgstr ""
 "amministratore, è necessario accedere come un altro amministratore del "
 "cluster già esistente."
 
-#: ../../cluster.rst:251
+#: ../../cluster.rst:277
 msgid ""
 "Administrators can change their own password from the ``Account`` card "
 "inside the ``Settings`` page."
@@ -1473,11 +1521,11 @@ msgstr ""
 "Gli amministratori possono cambiare la propria password dalla scheda "
 "``Account`` all'interno della pagina ``Impostazioni``."
 
-#: ../../cluster.rst:256 ../../webtop.rst:158
+#: ../../cluster.rst:282 ../../webtop.rst:158
 msgid "Two-factor authentication (2FA)"
 msgstr "Autenticazione a due fattori (2FA)"
 
-#: ../../cluster.rst:258
+#: ../../cluster.rst:284
 msgid ""
 "Two-factor authentication (2FA) can be used to add an extra layer of "
 "security required to access the cluster management user interface."
@@ -1486,7 +1534,7 @@ msgstr ""
 " un ulteriore livello di sicurezza necessario per accedere "
 "all'interfaccia utente di gestione del cluster."
 
-#: ../../cluster.rst:261
+#: ../../cluster.rst:287
 msgid ""
 "The administrator can enable 2FA from the ``Account`` card inside the "
 "``Settings`` page by clicking the :guilabel:`Enable 2FA` button."
@@ -1495,19 +1543,19 @@ msgstr ""
 "della pagina ``Impostazioni`` facendo clic sul pulsante "
 ":guilabel:`Abilita 2FA` ."
 
-#: ../../cluster.rst:264
+#: ../../cluster.rst:290
 msgid "The user will have to:"
 msgstr "L'utente dovrà:"
 
-#: ../../cluster.rst:266
+#: ../../cluster.rst:292
 msgid "download and install the preferred 2FA application on the smartphone"
 msgstr "scaricare e installare l'applicazione 2FA preferita sullo smartphone"
 
-#: ../../cluster.rst:267
+#: ../../cluster.rst:293
 msgid "scan the QR code with the 2FA application"
 msgstr "eseguire la scansione del codice QR con l'applicazione 2FA"
 
-#: ../../cluster.rst:268
+#: ../../cluster.rst:294
 msgid ""
 "generate a new code and copy it inside the verification field, then click"
 " :guilabel:`Verify code`"
@@ -1515,19 +1563,19 @@ msgstr ""
 "generare un nuovo codice e copiarlo all'interno del campo di verifica, "
 "quindi fare clic su :guilabel:`Verifica codice`"
 
-#: ../../cluster.rst:271
+#: ../../cluster.rst:297
 msgid "Smartphone applications"
 msgstr "Applicazioni smartphone"
 
-#: ../../cluster.rst:273
+#: ../../cluster.rst:299
 msgid "There are several commercial and open source 2FA applications:"
 msgstr "Ci sono diverse applicazioni commerciali e open source per 2FA:"
 
-#: ../../cluster.rst:275
+#: ../../cluster.rst:301
 msgid "Available for both Android and iOS:"
 msgstr "Disponibile sia per Android che per iOS:"
 
-#: ../../cluster.rst:277
+#: ../../cluster.rst:303
 msgid ""
 "`FreeOTP <https://freeotp.github.io/>`_: available for both Android and "
 "iOS"
@@ -1535,7 +1583,7 @@ msgstr ""
 "`FreeOTP <https://freeotp.github.io/>`_: disponibile sia per Android che "
 "per iOS"
 
-#: ../../cluster.rst:278
+#: ../../cluster.rst:304
 msgid ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: available on iOS "
 "only"
@@ -1543,15 +1591,15 @@ msgstr ""
 "`Authenticator <https://mattrubin.me/authenticator/>`_: disponibile solo "
 "su iOS"
 
-#: ../../cluster.rst:279
+#: ../../cluster.rst:305
 msgid "`2FAS <https://2fas.com/>`_: available for both Android and iOS"
 msgstr "`2FAS <https://2fas.com/>`_: disponibile sia per Android che per iOS"
 
-#: ../../cluster.rst:282
+#: ../../cluster.rst:308
 msgid "Reset the cluster administrator password"
 msgstr "Reimpostare la password dell'amministratore del cluster"
 
-#: ../../cluster.rst:284
+#: ../../cluster.rst:310
 #, fuzzy
 msgid ""
 "If you are locked out of the web user interface but can still access a "
@@ -1564,7 +1612,7 @@ msgstr ""
 " sistema o SSH), eseguire il seguente comando per disabilitare 2FA e "
 "ripristinare la password:"
 
-#: ../../cluster.rst:293
+#: ../../cluster.rst:319
 #, fuzzy
 msgid ""
 "Replace the ``admin`` username and ``Nethesis,1234`` password with the "
@@ -1573,17 +1621,17 @@ msgstr ""
 "Sostituisci le credenziali ``admin`` e ``Nethesis,1234`` predefinite come"
 " necessario."
 
-#: ../../cluster.rst:298
+#: ../../cluster.rst:324
 msgid ""
 "The above command fails with ``AuthenticationError`` if executed on a "
 "**worker node**. Run it only on the leader node."
 msgstr ""
 
-#: ../../cluster.rst:305
+#: ../../cluster.rst:331
 msgid "Audit trail"
 msgstr "Audit log"
 
-#: ../../cluster.rst:307
+#: ../../cluster.rst:333
 msgid ""
 "Inside the audit trail page, cluster administrators can inspect all "
 "actions executed by any other administrator. Each event of the audit "
@@ -1593,19 +1641,19 @@ msgstr ""
 "cluster possono ispezionare tutte le azioni eseguite da qualsiasi altro "
 "amministratore. Ogni evento del percorso di audit contiene almeno:"
 
-#: ../../cluster.rst:310
+#: ../../cluster.rst:336
 msgid "date and time of the action"
 msgstr "data e ora dell'azione"
 
-#: ../../cluster.rst:311
+#: ../../cluster.rst:337
 msgid "user name of the cluster administrator"
 msgstr "nome utente dell'amministratore del cluster"
 
-#: ../../cluster.rst:312
+#: ../../cluster.rst:338
 msgid "name of the action"
 msgstr "nome dell'azione"
 
-#: ../../cluster.rst:314
+#: ../../cluster.rst:340
 msgid ""
 "Audit trail events can be filtered by user, date, action type, and custom"
 " text match."
@@ -1613,7 +1661,7 @@ msgstr ""
 "Gli eventi del log di audit possono essere filtrati per utente, data, "
 "tipo di azione e corrispondenza di testo personalizzata."
 
-#: ../../cluster.rst:318
+#: ../../cluster.rst:344
 msgid ""
 "Audit trail information is stored in the leader node disk. In case of "
 ":ref:`new leader promotion <node-promotion-section>` the audit trail "
@@ -1624,13 +1672,13 @@ msgstr ""
 "le informazioni del log di audit nel vecchio leader non sono più "
 "accessibili."
 
-#: ../../cluster.rst:323 ../../file_server.rst:303 ../../log_server.rst:235
-#: ../../user_domains.rst:515
+#: ../../cluster.rst:349 ../../file_server.rst:310 ../../log_server.rst:235
+#: ../../user_domains.rst:536
 #, fuzzy
 msgid "Footnotes"
 msgstr "Footnotes"
 
-#: ../../cluster.rst:324
+#: ../../cluster.rst:350
 msgid "https://en.wikipedia.org/wiki/Computer_cluster"
 msgstr ""
 
@@ -1661,7 +1709,7 @@ msgstr ""
 
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dependencytrack.rst:16
 #: ../../dnsmasq.rst:23 ../../dokuwiki.rst:10 ../../ejabberd.rst:22
-#: ../../file_server.rst:33 ../../imapsync.rst:26 ../../index.rst:36
+#: ../../file_server.rst:40 ../../imapsync.rst:26 ../../index.rst:36
 #: ../../mail.rst:54 ../../mariadb.rst:11 ../../matrix.rst:12
 #: ../../mattermost.rst:13 ../../minio.rst:12 ../../n8n.rst:11
 #: ../../netdata.rst:20 ../../nextcloud.rst:21 ../../odoo.rst:20
@@ -2063,7 +2111,7 @@ msgstr ""
 msgid ""
 "It is always advisable to **plan in advance where user data is stored**. "
 "To decide the disk where a named volume will reside before installing an "
-"application refer to :ref:`named-volume-disk`."
+"application, refer to :ref:`named-volume-redirection`."
 msgstr ""
 
 #: ../../disk_usage.rst:45
@@ -2229,35 +2277,47 @@ msgid ""
 " like: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:147
-msgid "Assign named volume to an additional disk"
+#: ../../disk_usage.rst:149
+msgid "Redirect Podman named volume mount points"
 msgstr ""
 
-#: ../../disk_usage.rst:149
+#: ../../disk_usage.rst:151
 msgid ""
 "Applications organize user data with Podman named volumes, which normally"
-" live under the default Podman paths (see above). This section explains "
-"how to preconfigure named volumes so they are created under alternative "
-"base paths and therefore on different disks. We will consider the Samba "
-"application, but the method works for any NS8 rootless application that "
-"relies on named volumes. This method does not work with rootful "
-"applications."
+" live under the default Podman paths (see above)."
 msgstr ""
 
-#: ../../disk_usage.rst:157
+#: ../../disk_usage.rst:154
+msgid ""
+"This section explains how to preconfigure named volumes so they are "
+"created under alternative base paths and therefore on different disks. "
+"The same result can also be achieved from the cluster-admin UI, with more"
+" automation and fewer choices, when an application is installed for the "
+"first time (see :ref:`install-applications`), or when it is restored or "
+"cloned."
+msgstr ""
+
+#: ../../disk_usage.rst:161
+msgid ""
+"Here we consider the Samba application, but the method works for any NS8 "
+"rootless application that relies on named volumes. This method does not "
+"work with rootful applications."
+msgstr ""
+
+#: ../../disk_usage.rst:165
 msgid ""
 "Redirecting named volumes helps achieve better storage organization, "
 "reduces pressure on the system disk, and aligns data placement with "
 "performance or capacity characteristics."
 msgstr ""
 
-#: ../../disk_usage.rst:163
+#: ../../disk_usage.rst:171
 msgid ""
 "Configure the named volume assignment *before* installing, restoring, or "
 "cloning the rootless application."
 msgstr ""
 
-#: ../../disk_usage.rst:166
+#: ../../disk_usage.rst:174
 msgid ""
 "For example, the Samba File Server application contains a large amount of"
 " user data, and you may want to offload it to a separate disk. This is a "
@@ -2267,47 +2327,47 @@ msgid ""
 "contain most of the user data."
 msgstr ""
 
-#: ../../disk_usage.rst:173
+#: ../../disk_usage.rst:181
 msgid ""
 "Since NS8 does not manage disk mounting, the system administrator must "
 "ensure disk mount reliability."
 msgstr ""
 
-#: ../../disk_usage.rst:176
+#: ../../disk_usage.rst:184
 msgid "Assumptions:"
 msgstr ""
 
-#: ../../disk_usage.rst:178
+#: ../../disk_usage.rst:186
 msgid ""
 "Mount the disk under ``/mnt`` or ``/srv`` base paths. They are commonly "
 "used for this purpose."
 msgstr ""
 
-#: ../../disk_usage.rst:181
+#: ../../disk_usage.rst:189
 msgid ""
 "Format the disk with ``xfs`` or ``ext4`` filesystems. Their features and "
 "defaults match NS8 expectations."
 msgstr ""
 
-#: ../../disk_usage.rst:184
+#: ../../disk_usage.rst:192
 msgid ""
 "Set a filesystem label (e.g. ``LABDISK0``) to easily recognize the disk. "
 "It may also simplify the ``/etc/fstab`` configuration."
 msgstr ""
 
-#: ../../disk_usage.rst:187
+#: ../../disk_usage.rst:195
 msgid ""
 "After a system reboot, an entry in ``/etc/fstab`` or a Systemd ``.mount``"
 " unit correctly mounts the disk on ``/srv/disk0``."
 msgstr ""
 
-#: ../../disk_usage.rst:190
+#: ../../disk_usage.rst:198
 msgid ""
 "The disk is not mounted elsewhere. Multiple mount points for the same "
 "disk may lead to SELinux relabeling issues."
 msgstr ""
 
-#: ../../disk_usage.rst:193
+#: ../../disk_usage.rst:201
 msgid ""
 "Let's assume the disk is already mounted under ``/srv/disk0`` and "
 "formatted with an ``xfs`` filesystem. The mount configuration is "
@@ -2315,67 +2375,67 @@ msgid ""
 "reboot."
 msgstr ""
 
-#: ../../disk_usage.rst:199
+#: ../../disk_usage.rst:207
 msgid "List available base paths"
 msgstr ""
 
-#: ../../disk_usage.rst:201
+#: ../../disk_usage.rst:209
 msgid ""
 "Disk mount points constitute the base directories where named volumes "
 "will be placed with the custom configuration."
 msgstr ""
 
-#: ../../disk_usage.rst:204
+#: ../../disk_usage.rst:212
 msgid "Obtain a list of base paths with this command: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:209
+#: ../../disk_usage.rst:217
 msgid "In this output example:"
 msgstr ""
 
-#: ../../disk_usage.rst:211
+#: ../../disk_usage.rst:219
 msgid ""
 "The first field, ``/srv/disk0``, refers to the disk mount point and will "
 "be used in the next commands."
 msgstr ""
 
-#: ../../disk_usage.rst:214
+#: ../../disk_usage.rst:222
 msgid ""
 "``LABDISK0`` is the label set during filesystem creation, if present. It "
 "is a mnemonic label that helps identify the disk. If no label is set, the"
 " mount point base directory is shown instead."
 msgstr ""
 
-#: ../../disk_usage.rst:218
+#: ../../disk_usage.rst:226
 msgid ""
 "The fields ``size``, ``available``, and ``used`` refer to disk space "
 "information."
 msgstr ""
 
-#: ../../disk_usage.rst:222
+#: ../../disk_usage.rst:230
 msgid "Use the disk for selected volumes"
 msgstr ""
 
-#: ../../disk_usage.rst:224
+#: ../../disk_usage.rst:232
 msgid ""
 "Let's continue the Samba File Server example. The ns8-samba documentation"
 " describes two named volumes provided by the Samba File Server: "
 "``shares`` and ``homes``."
 msgstr ""
 
-#: ../../disk_usage.rst:228
+#: ../../disk_usage.rst:236
 msgid ""
 "The following commands assign them to ``LABDISK0`` and take effect the "
 "next time Samba is installed: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:234
+#: ../../disk_usage.rst:242
 msgid ""
 "Check the assignments by printing ``/etc/nethserver/volumes.conf``. This "
 "file is in INI-compatible format: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:239
+#: ../../disk_usage.rst:247
 msgid ""
 "The next time Samba is installed on the local node, its ``shares`` and "
 "``homes`` volumes will be created under ``/srv/disk0``. The same "
@@ -2383,7 +2443,7 @@ msgid ""
 "procedures."
 msgstr ""
 
-#: ../../disk_usage.rst:246
+#: ../../disk_usage.rst:254
 msgid ""
 "In future releases, disk selection will be available from the cluster-"
 "admin UI for applications that support it. When an application is "
@@ -2392,28 +2452,28 @@ msgid ""
 "configured in ``volumes.conf``."
 msgstr ""
 
-#: ../../disk_usage.rst:254
+#: ../../disk_usage.rst:262
 msgid "Clear named volume assignments"
 msgstr ""
 
-#: ../../disk_usage.rst:256
+#: ../../disk_usage.rst:264
 msgid ""
 "To remove an assignment, delete the corresponding line from "
 "``/etc/nethserver/volumes.conf`` with a text editor, or run the following"
 " commands: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:263
+#: ../../disk_usage.rst:271
 msgid ""
 "Removing the assignment does not remove any data; it only updates the "
 "``volumes.conf`` file."
 msgstr ""
 
-#: ../../disk_usage.rst:267
+#: ../../disk_usage.rst:275
 msgid "Move named volume data to a new disk"
 msgstr ""
 
-#: ../../disk_usage.rst:271
+#: ../../disk_usage.rst:279
 msgid ""
 "The ``volumectl`` command does yet support moving volume data to a "
 "different disk. This feature is planned for future releases."
@@ -3582,12 +3642,22 @@ msgstr ""
 
 #: ../../file_server.rst:12
 msgid ""
+"Before installing Samba file server in a cluster node, evaluate the "
+"available disk space and estimate space requirements. Refer to section "
+":ref:`disk-usage-section` for disk space management strategies. For "
+"example, if you mount an additional volume on ``/mnt/disk1`` or "
+"``/srv/disk1`` directories, the install procedure will then ask if you "
+"want to use it for Samba."
+msgstr ""
+
+#: ../../file_server.rst:19
+msgid ""
 "Only one instance of Samba can be installed per NS8 node. The "
 "installation method depends on the role Samba will play in the Active "
 "Directory domain."
 msgstr ""
 
-#: ../../file_server.rst:15
+#: ../../file_server.rst:22
 msgid ""
 "**Domain Controller**: To install a Samba instance as an Active Directory"
 " Domain Controller, refer to :ref:`active_directory-section`. When "
@@ -3595,20 +3665,20 @@ msgid ""
 "folders and authentication to Windows clients`` switch is enabled."
 msgstr ""
 
-#: ../../file_server.rst:20
+#: ../../file_server.rst:27
 #, fuzzy
 msgid ""
 "Only one AD domain controller can be configured with a LAN IP address to "
-"serve Authentication, Shares, and DNS to Windows clients. Other DCs are "
-"bound to the cluster private VPN and are accessible only to cluster "
-"applications."
+"serve Authentication, Shared folders, and DNS to Windows clients. Other "
+"DCs are bound to the cluster private VPN and are accessible only to "
+"cluster applications."
 msgstr ""
 "Only one domain controller in the AD domain can be configured with a LAN "
 "IP address and serves Authentication, Shares and DNS to Windows clients. "
 "Other DCs are bound to the cluster private VPN and are accessible only to"
 " cluster applications."
 
-#: ../../file_server.rst:25
+#: ../../file_server.rst:32
 msgid ""
 "**Domain Member**: To install a Samba instance as an Active Directory "
 "Domain Member, start from the Software Center as with any other "
@@ -3616,45 +3686,45 @@ msgid ""
 " providers. See :ref:`user-domains-section`."
 msgstr ""
 
-#: ../../file_server.rst:35
+#: ../../file_server.rst:42
 msgid ""
 "When Samba is installed as a **domain member**, a first-time "
 "configuration procedure starts to collect essential information."
 msgstr ""
 
-#: ../../file_server.rst:38
+#: ../../file_server.rst:45
 msgid ""
 "**Domain**: Select an item from the list of available NS8 user domains. "
 "Only internal and external Active Directory domains are listed."
 msgstr ""
 
-#: ../../file_server.rst:41
+#: ../../file_server.rst:48
 msgid ""
 "**Admin credentials**: These are required to join Samba to the domain as "
 "a file server member. Enter the username and password of a member from "
 "the Active Directory \"Domain Admins\" group."
 msgstr ""
 
-#: ../../file_server.rst:45
+#: ../../file_server.rst:52
 msgid ""
 "**File server name and alias**: Assign a unique computer account name to "
 "Samba. Choose carefully, as this cannot be changed later. The alias name "
 "is optional and can be changed at any time."
 msgstr ""
 
-#: ../../file_server.rst:49
+#: ../../file_server.rst:56
 #, fuzzy
 msgid "**File server IP address**: Select the IP address for the file server."
 msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../file_server.rst:54
+#: ../../file_server.rst:61
 #, fuzzy
 msgid "File server alias"
 msgstr "File server"
 
-#: ../../file_server.rst:56
+#: ../../file_server.rst:63
 msgid ""
 "Once the first-time configuration procedure is completed, use the "
 "``Settings`` page from the left menu to modify the optional ``File server"
@@ -3665,12 +3735,12 @@ msgid ""
 "(SPN) to the computer account."
 msgstr ""
 
-#: ../../file_server.rst:67
+#: ../../file_server.rst:74
 #, fuzzy
 msgid "File server IP address"
 msgstr "indirizzo mail secondario"
 
-#: ../../file_server.rst:69
+#: ../../file_server.rst:76
 msgid ""
 "In some cases, it is also possible to modify the ``File server IP "
 "address`` and choose a different private IP address from those assigned "
@@ -3678,12 +3748,12 @@ msgid ""
 "if there are other domain controllers in the same AD domain."
 msgstr ""
 
-#: ../../file_server.rst:77
+#: ../../file_server.rst:84
 #, fuzzy
 msgid "Shared folders"
 msgstr "Shared folders"
 
-#: ../../file_server.rst:79
+#: ../../file_server.rst:86
 #, fuzzy
 msgid ""
 "Open the Samba application from the app drawer, select ``Shared folders``"
@@ -3692,19 +3762,19 @@ msgstr ""
 "Open Samba application from the app drawer, select ``Shared folders`` "
 "from the left menu and click on :guilabel:`Create shared folder`."
 
-#: ../../file_server.rst:82
+#: ../../file_server.rst:89
 #, fuzzy
 msgid "The following parameters are required to create a new shared folder:"
 msgstr "The following parameters are required to create the new shared folder:"
 
-#: ../../file_server.rst:84
+#: ../../file_server.rst:91
 msgid ""
 "**Name**: The name of the shared folder. Avoid naming it after a domain "
 "user, as that user's home directory will be accessed instead of the "
 "shared folder."
 msgstr ""
 
-#: ../../file_server.rst:88
+#: ../../file_server.rst:95
 #, fuzzy
 msgid ""
 "**Description**: Free text displayed to network clients as the \"share "
@@ -3713,7 +3783,7 @@ msgstr ""
 "``Description``: free text, displayed to SMB clients as the \"share "
 "comment\""
 
-#: ../../file_server.rst:91
+#: ../../file_server.rst:98
 #, fuzzy
 msgid ""
 "**Main group**: Select a domain group to assign initial permissions to "
@@ -3722,7 +3792,7 @@ msgstr ""
 "``Main group``: select a domain group to assign initial permissions to "
 "the share"
 
-#: ../../file_server.rst:93
+#: ../../file_server.rst:100
 #, fuzzy
 msgid ""
 "**Initial permissions**: Choose one of the three available options. Note "
@@ -3733,22 +3803,22 @@ msgstr ""
 "that in any case the ``Domain Admins`` group is initially granted full "
 "privileges."
 
-#: ../../file_server.rst:97
+#: ../../file_server.rst:104
 #, fuzzy
 msgid "Main group can read and write; everyone else can read."
 msgstr "Main group can read and write, everyone else can read"
 
-#: ../../file_server.rst:99
+#: ../../file_server.rst:106
 #, fuzzy
 msgid "Main group can read and write; everyone else has no access."
 msgstr "Main group can read and write, everyone else has no access"
 
-#: ../../file_server.rst:101
+#: ../../file_server.rst:108
 #, fuzzy
 msgid "Everyone can read and write, including the main group."
 msgstr "Everyone can read and write, main group included"
 
-#: ../../file_server.rst:105
+#: ../../file_server.rst:112
 #, fuzzy
 msgid ""
 "To access the shared folder, you must provide valid domain credentials. "
@@ -3759,7 +3829,7 @@ msgstr ""
 "credentials. Anonymous or guest access is not allowed for security "
 "reasons [#anon]_\\ ."
 
-#: ../../file_server.rst:109
+#: ../../file_server.rst:116
 #, fuzzy
 msgid ""
 "Once created, the following actions are available on the shared folder "
@@ -3768,7 +3838,7 @@ msgstr ""
 "Once created, from the three-dots menu, the following actions are "
 "available on the shared folder:"
 
-#: ../../file_server.rst:112
+#: ../../file_server.rst:119
 #, fuzzy
 msgid ""
 "**Edit**: Change the share description displayed to network clients as "
@@ -3777,7 +3847,7 @@ msgstr ""
 "``Description``: free text, displayed to SMB clients as the \"share "
 "comment\""
 
-#: ../../file_server.rst:115
+#: ../../file_server.rst:122
 #, fuzzy
 msgid ""
 "**Set permissions**: Remove any existing ACLs and recursively grant new "
@@ -3786,7 +3856,7 @@ msgstr ""
 "``Set permissions``: remove any existing ACLs and recursively grant new "
 "initial ACLs"
 
-#: ../../file_server.rst:118
+#: ../../file_server.rst:125
 #, fuzzy
 msgid ""
 "**Restore file or folder**: Search files and folders from a past backup "
@@ -3796,12 +3866,12 @@ msgstr ""
 "un'istantanea di backup passato e ripristinali. Vedi :ref:`share-"
 "selective-restore`."
 
-#: ../../file_server.rst:121
+#: ../../file_server.rst:128
 #, fuzzy
 msgid "**Delete**: Remove the shared folder and its contents."
 msgstr "``Delete``: remove the shared folder and its contents"
 
-#: ../../file_server.rst:123
+#: ../../file_server.rst:130
 msgid ""
 "The :guilabel:`Show ACLs` button displays the filesystem ACLs applied to "
 "the shared folder root directory. You can edit ACLs with an SMB client, "
@@ -3809,18 +3879,18 @@ msgid ""
 "editions, or the ``smbcacls`` command provided by the Samba project."
 msgstr ""
 
-#: ../../file_server.rst:128
+#: ../../file_server.rst:135
 #, fuzzy
 msgid ""
 "In both creation and edit workflows, some additional settings are "
 "available under the ``Advanced`` section and are described below."
 msgstr "The following settings are available Inside the ``Advanced`` section:"
 
-#: ../../file_server.rst:134
+#: ../../file_server.rst:141
 msgid "Audit logging"
 msgstr ""
 
-#: ../../file_server.rst:136
+#: ../../file_server.rst:143
 msgid ""
 "If the ``Audit logging`` switch is enabled for a shared folder, access "
 "operations and permission changes are recorded in a database. For "
@@ -3828,23 +3898,23 @@ msgid ""
 "operations with the ``Log failed events`` switch."
 msgstr ""
 
-#: ../../file_server.rst:141
+#: ../../file_server.rst:148
 msgid ""
 "Recorded events are accessible from the ``Samba Audit search`` Grafana "
 "dashboard, as explained in :ref:`grafana_access-section`."
 msgstr ""
 
-#: ../../file_server.rst:144
+#: ../../file_server.rst:151
 msgid ""
 "More information about the audit database is available from the ``Samba "
 "Audit statistics`` Grafana dashboard."
 msgstr ""
 
-#: ../../file_server.rst:150
+#: ../../file_server.rst:157
 msgid "Folder visibility"
 msgstr ""
 
-#: ../../file_server.rst:152
+#: ../../file_server.rst:159
 msgid ""
 "The ``Make folder visible when browsing`` switch controls whether the "
 "shared folder is listed from the network. If the switch is disabled, "
@@ -3852,17 +3922,17 @@ msgid ""
 "path."
 msgstr ""
 
-#: ../../file_server.rst:156
+#: ../../file_server.rst:163
 msgid ""
 "This feature is also referred to as a *hidden share* or the *share "
 "browseable/browsable* attribute."
 msgstr ""
 
-#: ../../file_server.rst:162
+#: ../../file_server.rst:169
 msgid "Recycle bin"
 msgstr ""
 
-#: ../../file_server.rst:164
+#: ../../file_server.rst:171
 msgid ""
 "The ``Keep deleted files in a recycle bin`` switch enables a special "
 "``.recycle`` subfolder where files or directories are moved instead of "
@@ -3870,7 +3940,7 @@ msgid ""
 "share."
 msgstr ""
 
-#: ../../file_server.rst:169
+#: ../../file_server.rst:176
 msgid ""
 "Deleted content is placed in a private subfolder automatically created "
 "under the ``.recycle`` subfolder. This private subfolder is named after "
@@ -3878,30 +3948,30 @@ msgid ""
 "the Administrator."
 msgstr ""
 
-#: ../../file_server.rst:174
+#: ../../file_server.rst:181
 msgid "When the switch is enabled, two additional options become available:"
 msgstr ""
 
-#: ../../file_server.rst:176
+#: ../../file_server.rst:183
 msgid ""
 "**Retention**: If a limit is set, a daily automated task removes items in"
 " the ``.recycle`` subfolder that are older than the specified number of "
 "days (default: 30)."
 msgstr ""
 
-#: ../../file_server.rst:180
+#: ../../file_server.rst:187
 msgid ""
 "**When files with the same name are deleted**: Determines whether to keep"
 " only the latest version of a deleted file with the same name, or "
 "preserve multiple versions."
 msgstr ""
 
-#: ../../file_server.rst:188
+#: ../../file_server.rst:195
 #, fuzzy
 msgid "Restore a single file or folder from a shared folder backup"
 msgstr "Restore file server from backup"
 
-#: ../../file_server.rst:190
+#: ../../file_server.rst:197
 msgid ""
 "If the application has one or more backup destinations configured and a "
 "backup has already been executed, you can search for and restore a file "
@@ -3912,7 +3982,7 @@ msgstr ""
 " una cartella da un'istantanea di backup precedente di una specifica "
 "cartella condivisa."
 
-#: ../../file_server.rst:196 ../../mail.rst:185
+#: ../../file_server.rst:203 ../../mail.rst:185
 msgid ""
 "The procedure does not calculate the disk space usage required for the "
 "restore. Ensure sufficient disk space is available before proceeding."
@@ -3921,7 +3991,7 @@ msgstr ""
 "il ripristino. Assicurare sufficiente spazio su disco è disponibile prima"
 " di procedere."
 
-#: ../../file_server.rst:199
+#: ../../file_server.rst:206
 msgid ""
 "Navigate to the Samba application instance and open the Shared Folders "
 "page. Each shared folder is displayed as a card. From the three-dots menu"
@@ -3932,7 +4002,7 @@ msgstr ""
 "menu a tre punti della cartella condivisa desiderata, selezionare "
 "``Ripristina file o cartella``."
 
-#: ../../file_server.rst:203
+#: ../../file_server.rst:210
 msgid ""
 "Choose the backup destination from which to restore the contents. Loading"
 " remote destinations may take some time."
@@ -3940,7 +4010,7 @@ msgstr ""
 "Scegliere la destinazione di backup da cui ripristinare il contenuto. "
 "Caricamento di destinazioni remote può richiedere un po 'di tempo."
 
-#: ../../file_server.rst:206
+#: ../../file_server.rst:213
 msgid ""
 "Select the date of the backup snapshot to restore. Snapshots are listed "
 "from newest to oldest."
@@ -3948,7 +4018,7 @@ msgstr ""
 "Selezionare la data dell'istantanea di backup da ripristinare. Le istanze"
 " sono elencate da più nuovo a più vecchio."
 
-#: ../../file_server.rst:209
+#: ../../file_server.rst:216
 msgid ""
 "Start typing the name of the file or folder to restore. The search "
 "matches both the name and the relative path, starting from the root of "
@@ -3961,29 +4031,29 @@ msgstr ""
 " di nome che appaiono prima delle partite del percorso. Selezionare un "
 "elemento dai risultati."
 
-#: ../../file_server.rst:214
+#: ../../file_server.rst:221
 #, fuzzy
 msgid "Click :guilabel:`Restore` to initiate the restore process."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../file_server.rst:216
+#: ../../file_server.rst:223
 msgid ""
 "The selected item will be restored into a subfolder of the shared folder,"
 " named \"Restored folder\". This folder is readable by everyone, while "
 "its contents retain the ACLs from the backup."
 msgstr ""
 
-#: ../../file_server.rst:224
+#: ../../file_server.rst:231
 msgid "Clone a file server instance"
 msgstr ""
 
-#: ../../file_server.rst:226
+#: ../../file_server.rst:233
 msgid ""
 "When Samba has the Domain Member role, it is possible to clone it as "
 "described in :ref:`move_clone-section`."
 msgstr ""
 
-#: ../../file_server.rst:229
+#: ../../file_server.rst:236
 msgid ""
 "After the clone process finishes, navigate to the Samba application "
 "``Status`` page. The first-configuration procedure will start to acquire "
@@ -3992,12 +4062,12 @@ msgid ""
 "configuration`."
 msgstr ""
 
-#: ../../file_server.rst:238
+#: ../../file_server.rst:245
 #, fuzzy
 msgid "Restore file server from backup"
 msgstr "Restore file server from backup"
 
-#: ../../file_server.rst:240
+#: ../../file_server.rst:247
 #, fuzzy
 msgid ""
 "First, follow the procedure described in :ref:`application_restore-"
@@ -4006,32 +4076,32 @@ msgstr ""
 "First of all, apply the procedure described in :ref:`application_restore-"
 "section` by selecting the backup of the **Samba module**."
 
-#: ../../file_server.rst:244
+#: ../../file_server.rst:251
 msgid ""
 "After the restoration process completes, further actions may be needed to"
 " start the file server, depending on the original Samba role: member or "
 "controller."
 msgstr ""
 
-#: ../../file_server.rst:249
+#: ../../file_server.rst:256
 #, fuzzy
 msgid "Restore a domain member"
 msgstr "support for HTML messages"
 
-#: ../../file_server.rst:251
+#: ../../file_server.rst:258
 msgid ""
 "To complete the restoration of a **domain member**, navigate to the Samba"
 " application ``Status`` page."
 msgstr ""
 
-#: ../../file_server.rst:254
+#: ../../file_server.rst:261
 msgid ""
 "If the original IP address and user domain were found, the restore "
 "procedure automatically starts the file server. No manual operations are "
 "needed."
 msgstr ""
 
-#: ../../file_server.rst:258
+#: ../../file_server.rst:265
 msgid ""
 "Otherwise, the first-configuration procedure will start to acquire the "
 "missing information. In this case, a new computer account is created in "
@@ -4039,14 +4109,14 @@ msgid ""
 "configuration`."
 msgstr ""
 
-#: ../../file_server.rst:263
+#: ../../file_server.rst:270
 msgid ""
 "If you manually remove the original computer account, you may set the "
 "original name as the ``File server alias`` to provide seamless access to "
 "shared folders from network clients."
 msgstr ""
 
-#: ../../file_server.rst:267
+#: ../../file_server.rst:274
 msgid ""
 "To manage computer accounts of an NS8 internal Active Directory domain, "
 "invoke the ``samba-tool`` command from an NS8 node that hosts a Samba "
@@ -4054,15 +4124,15 @@ msgid ""
 "message: ::"
 msgstr ""
 
-#: ../../file_server.rst:274
+#: ../../file_server.rst:281
 msgid "Replace ``samba0`` with your correct DC module identifier."
 msgstr ""
 
-#: ../../file_server.rst:278
+#: ../../file_server.rst:285
 msgid "Restore a domain controller"
 msgstr ""
 
-#: ../../file_server.rst:280
+#: ../../file_server.rst:287
 #, fuzzy
 msgid ""
 "If the restored **domain controller** is the first in the domain, there "
@@ -4071,7 +4141,7 @@ msgstr ""
 "If the restored controller is the first of the domain there are two "
 "alternatives:"
 
-#: ../../file_server.rst:283
+#: ../../file_server.rst:290
 #, fuzzy
 msgid ""
 "If the system IP address is the same as the one used in the backup set, "
@@ -4081,7 +4151,7 @@ msgstr ""
 "If the system IP address is the same used in the backup set, DC services "
 "are started automatically and no further actions are required."
 
-#: ../../file_server.rst:286
+#: ../../file_server.rst:293
 #, fuzzy
 msgid ""
 "If the previous condition does not apply, DC services are started using "
@@ -4092,7 +4162,7 @@ msgstr ""
 "the system VPN IP address as fallback. A similar command is required to "
 "select another IP address in a second time: ::"
 
-#: ../../file_server.rst:292
+#: ../../file_server.rst:299
 #, fuzzy
 msgid ""
 "Replace ``samba0`` with the correct module identifier. Replace the "
@@ -4101,12 +4171,12 @@ msgstr ""
 "Replace `samba0` with the correct module identifier. Replace the "
 "`ipaddress` value with the correct IP address."
 
-#: ../../file_server.rst:295
+#: ../../file_server.rst:302
 #, fuzzy
 msgid "Otherwise, if one or more domain controllers already exist:"
 msgstr "Otherwise, if one or more domain controllers already exist:"
 
-#: ../../file_server.rst:297
+#: ../../file_server.rst:304
 #, fuzzy
 msgid ""
 "Go to the ``Domain and users`` page and open the :guilabel:`Unconfigured "
@@ -4115,12 +4185,12 @@ msgstr ""
 "go to ``Domain and users`` page and open the :guilabel:`Unconfigured "
 "provider` link;"
 
-#: ../../file_server.rst:300
+#: ../../file_server.rst:307
 #, fuzzy
 msgid "Fill the form to join a new DC to the domain."
 msgstr "fill the form to join a new DC to the domain."
 
-#: ../../file_server.rst:306
+#: ../../file_server.rst:313
 msgid ""
 "The guest access in SMB2 and SMB3 is disabled by default in Windows, see "
 "Microsoft `File server`_ documentation."
@@ -8977,7 +9047,7 @@ msgid ""
 "installation."
 msgstr ""
 
-#: ../../modules.rst:26 ../../software_center.rst:101
+#: ../../modules.rst:26 ../../software_center.rst:177
 #, fuzzy
 msgid "application drawer"
 msgstr "Applicazioni"
@@ -9044,11 +9114,13 @@ msgid "Once started, ``Clone`` and ``Move`` actions run through these steps:"
 msgstr ""
 
 #: ../../modules.rst:70
-#, fuzzy
-msgid "Create the destination application."
-msgstr "Applicazioni smartphone"
+msgid ""
+"Create the destination application. This step may include the selection "
+"of an additional volume for the application data, as explained in :ref"
+":`install-applications`."
+msgstr ""
 
-#: ../../modules.rst:71
+#: ../../modules.rst:73
 #, fuzzy
 msgid ""
 "Start the data transfer between source and destination. During this step,"
@@ -9057,60 +9129,60 @@ msgstr ""
 "avvia il trasferimento dei dati tra le istanze, durante questa fase "
 "l'istanza sorgente rimane attiva"
 
-#: ../../modules.rst:73
+#: ../../modules.rst:75
 msgid ""
 "Briefly stop the source application (when required by its data "
 "synchronization strategy)."
 msgstr ""
 
-#: ../../modules.rst:75
+#: ../../modules.rst:77
 #, fuzzy
 msgid "Execute the final data synchronization."
 msgstr "esegue la sincronizzazione dei dati finali"
 
-#: ../../modules.rst:76
+#: ../../modules.rst:78
 msgid "The final step differs between the two actions:"
 msgstr ""
 
-#: ../../modules.rst:78
+#: ../../modules.rst:80
 #, fuzzy
 msgid "*For Clone*, start both the source and the destination applications."
 msgstr "avvia l'istanza sorgente e l'istanza destinazione"
 
-#: ../../modules.rst:80
+#: ../../modules.rst:82
 #, fuzzy
 msgid ""
 "*For Move*, **start the destination** application and **remove the "
 "source** one."
 msgstr "avvia l'istanza destinazione e rimuove quella sorgente"
 
-#: ../../modules.rst:83
+#: ../../modules.rst:85
 msgid ""
 "If the moved application is referenced by a fully qualified domain name "
 "(FQDN), ensure that external DNS records are updated to point to the "
 "target node. The cluster reverse proxy is automatically reconfigured."
 msgstr ""
 
-#: ../../modules.rst:88
+#: ../../modules.rst:90
 #, fuzzy
 msgid "Restart application"
 msgstr "Applicazioni NethForge"
 
-#: ../../modules.rst:90
+#: ../../modules.rst:92
 msgid ""
 "The ``Restart`` action fully stops the application and starts its "
 "services again, performing the same operations normally executed at node "
 "boot time."
 msgstr ""
 
-#: ../../modules.rst:93
+#: ../../modules.rst:95
 msgid ""
 "This action should be used sparingly and preferably during non-working "
 "hours, as it interrupts application operation with unpredictable effects "
 "on the end-user experience."
 msgstr ""
 
-#: ../../modules.rst:97
+#: ../../modules.rst:99
 msgid ""
 "Some unpredictable events, such as lack of disk space or memory "
 "exhaustion, may degrade application functionality. In these situations, "
@@ -9118,22 +9190,22 @@ msgid ""
 " available again."
 msgstr ""
 
-#: ../../modules.rst:103
+#: ../../modules.rst:105
 msgid "Core apps"
 msgstr ""
 
-#: ../../modules.rst:105
+#: ../../modules.rst:107
 msgid ""
 "From the ``Applications`` page, select the :guilabel:`Core apps` button "
 "to see a full list of installed Core applications and their versions. "
 "Core updates, when available, are always applied at the same time."
 msgstr ""
 
-#: ../../modules.rst:110
+#: ../../modules.rst:112
 msgid "The *module* term"
 msgstr ""
 
-#: ../../modules.rst:112
+#: ../../modules.rst:114
 msgid ""
 "The *module* term is often used by developers. An NS8 application is "
 "implemented by a unit called a *module*. It is usually composed of one or"
@@ -9141,7 +9213,7 @@ msgid ""
 "module is the deployable unit managed by the cluster orchestrator."
 msgstr ""
 
-#: ../../modules.rst:117
+#: ../../modules.rst:119
 msgid ""
 "The terms *application* and *module* are almost synonyms in the context "
 "of NS8. However, some modules provide services to other modules and do "
@@ -13501,15 +13573,37 @@ msgstr "Applicazioni NethForge"
 #: ../../software_center.rst:64
 #, fuzzy
 msgid ""
-"To install a new application, simply click the :guilabel:`Install` button"
-" of the application card. If your cluster has multiple nodes, you will "
-"also need to select the target node."
+"To install a new application, click the :guilabel:`Install` button of the"
+" application card."
 msgstr ""
 "To install a new application just click on the :guilabel:`Install` "
 "button. If the cluster has multiple nodes, you will be alse required to "
 "select the target node."
 
-#: ../../software_center.rst:68
+#: ../../software_center.rst:67
+#, fuzzy
+msgid ""
+"If your cluster has multiple nodes, you will also need to select the "
+"target node."
+msgstr ""
+"To install a new application just click on the :guilabel:`Install` "
+"button. If the cluster has multiple nodes, you will be alse required to "
+"select the target node."
+
+#: ../../software_center.rst:70
+msgid ""
+"Some applications -- like Samba, Nextcloud, and Mail -- may require large"
+" disk space and support additional volume selection, if the target node "
+"provides one, as explained in section :ref:`additional-volumes-section`."
+msgstr ""
+
+#: ../../software_center.rst:75
+msgid ""
+"The volume selector displays the volume mount directory, the filesystem "
+"label and space usage."
+msgstr ""
+
+#: ../../software_center.rst:78
 #, fuzzy
 msgid ""
 "To install more applications of the same type, click on the ``Instances``"
@@ -13522,12 +13616,108 @@ msgstr ""
 "``Instances`` link inside the application card. Then click on "
 ":guilabel:`Install new instance`."
 
-#: ../../software_center.rst:77
+#: ../../software_center.rst:88
+msgid "Configure additional volumes"
+msgstr ""
+
+#: ../../software_center.rst:90
+msgid ""
+"Applications that host a large amount of data may not fit the *default "
+"volume* where the node's root filesystem usually resides."
+msgstr ""
+
+#: ../../software_center.rst:93
+msgid ""
+"When NS8 is installing an application that has such special data "
+"requirements on a node that provides one or more additional volumes the "
+"system administrator can decide which one to use, or choose the default "
+"volume."
+msgstr ""
+
+#: ../../software_center.rst:98
+msgid ""
+"The additional volume must be configured before the application is "
+"installed."
+msgstr ""
+
+#: ../../software_center.rst:103
+msgid ""
+"The additional volume setup procedure may lead to data-loss. It requires "
+"some Linux command line experience, hence it is highly recommended to "
+"test this procedure on a non-production system."
+msgstr ""
+
+#: ../../software_center.rst:107
+msgid ""
+"When configuring an additional volume on a NS8 node, observe the "
+"following check list:"
+msgstr ""
+
+#: ../../software_center.rst:110
+msgid ""
+"Make sure the volume is not already mounted elsewhere. Multiple mount "
+"points for the same disk may lead to SELinux relabeling issues. The "
+"following command briefly lists existing mountpoints: ::"
+msgstr ""
+
+#: ../../software_center.rst:116
+msgid ""
+"If the volume does not exist yet, format it with ``xfs`` or ``ext4`` "
+"filesystems. Their features and defaults match NS8 expectations."
+msgstr ""
+
+#: ../../software_center.rst:119
+msgid ""
+"Use ``lsblk`` to list the block devices (disks or partitions) available "
+"on the node, and the ``mkfs`` command to create a new file system on one "
+"of them. Be careful, formatting the wrong device will destroy your data."
+msgstr ""
+
+#: ../../software_center.rst:123
+msgid ""
+"Set a filesystem label (e.g. ``LABDISK0``) to easily recognize the "
+"volume. It may also simplify the ``/etc/fstab`` or Systemd ``.mount`` "
+"unit configuration. Related commands are ``xfs_admin``, ``e2label``, "
+"``tune2fs``."
+msgstr ""
+
+#: ../../software_center.rst:128
+msgid ""
+"Mount the volume under ``/mnt`` or ``/srv`` base paths. They are commonly"
+" used for this purpose. For example, create a mountpoint directory and "
+"mount the volume on it ::"
+msgstr ""
+
+#: ../../software_center.rst:135
+msgid ""
+"Make sure the volume is mounted automatically at boot time. Append a "
+"``/etc/fstab`` entry for the mounted volume ::"
+msgstr ""
+
+#: ../../software_center.rst:140
+msgid "A reboot test is then highly recommended."
+msgstr ""
+
+#: ../../software_center.rst:142
+msgid ""
+"The NS8 cluster leader node, where Software center runs, needs a few "
+"minutes to record the configuration change and present the additional "
+"volume selection next time an application that supports it is installed."
+msgstr ""
+
+#: ../../software_center.rst:146
+msgid ""
+"For advanced use cases, where an application does not enable the "
+"automatic volume selection, it is still possible to assign an arbitrary "
+"volume following :ref:`named-volume-redirection`."
+msgstr ""
+
+#: ../../software_center.rst:153
 #, fuzzy
 msgid "Installed applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../software_center.rst:79
+#: ../../software_center.rst:155
 #, fuzzy
 msgid ""
 "Once an application has been installed, click on the ``Instances`` link "
@@ -13539,14 +13729,14 @@ msgstr ""
 "possibile eseguire varie azioni su ogni istanza facendo clic sul suo menu"
 " a tre punti:"
 
-#: ../../software_center.rst:83
+#: ../../software_center.rst:159
 msgid ""
 "``Update to testing version``: This action is visible only when a testing"
 " version is available. Carefully review the pre-release documentation or "
 "consult the app developer before proceeding."
 msgstr ""
 
-#: ../../software_center.rst:87
+#: ../../software_center.rst:163
 #, fuzzy
 msgid ""
 "``Add to favorites``: Pin the application at the top of the **application"
@@ -13555,17 +13745,17 @@ msgstr ""
 "``Add to favorites``: the application will be always listed on top of the"
 " application drawer"
 
-#: ../../software_center.rst:89
+#: ../../software_center.rst:165
 #, fuzzy
 msgid "``Edit instance label``: Add a custom name to the instance."
 msgstr "``Edit instance label``: add a name to the instance"
 
-#: ../../software_center.rst:90
+#: ../../software_center.rst:166
 #, fuzzy
 msgid "``Clone``: Clone the application. See :ref:`move_clone-section`."
 msgstr "``Clone``: clone the application, see :ref:`move_clone-section`"
 
-#: ../../software_center.rst:91
+#: ../../software_center.rst:167
 #, fuzzy
 msgid ""
 "``Move``: Move the application to another node. See :ref:`move_clone-"
@@ -13574,25 +13764,25 @@ msgstr ""
 "``Move``: move the application to another node, see :ref:`move_clone-"
 "section`"
 
-#: ../../software_center.rst:93
+#: ../../software_center.rst:169
 msgid ""
 "``Restart instance``: stop all application components and start them "
 "again, similar to a system reboot but limited to the application."
 msgstr ""
 
-#: ../../software_center.rst:95
+#: ../../software_center.rst:171
 #, fuzzy
 msgid "``Uninstall``: Remove the application and all related data."
 msgstr "``Uninstall``: remove the application and all related data"
 
-#: ../../software_center.rst:97
+#: ../../software_center.rst:173
 msgid ""
 "The :ref:`Applications page <applications-section>` is an alternative and"
 " comprehensive place where the applications installed in the cluster can "
 "be managed."
 msgstr ""
 
-#: ../../software_center.rst:104
+#: ../../software_center.rst:180
 #, fuzzy
 msgid ""
 "Installed applications are also listed in the **application drawer**, by "
@@ -13601,28 +13791,28 @@ msgstr ""
 "Installed applications are always available from the application drawer, "
 "by clicking on the |bento| menu in the top right corner."
 
-#: ../../software_center.rst:110
+#: ../../software_center.rst:186
 #, fuzzy
 msgid "Software repositories"
 msgstr "Software repositories"
 
-#: ../../software_center.rst:112
+#: ../../software_center.rst:188
 msgid ""
 "An NS8 software repository is an index of applications and a collection "
 "of their metadata."
 msgstr ""
 
-#: ../../software_center.rst:115
+#: ../../software_center.rst:191
 #, fuzzy
 msgid "You can access the list of configured repositories in several ways:"
 msgstr "The list of configured repositories is accessible by different ways:"
 
-#: ../../software_center.rst:117
+#: ../../software_center.rst:193
 #, fuzzy
 msgid "In the ``Settings`` page: click the ``Software repositories`` card."
 msgstr "In the ``Settings`` page: click the ``Software repositories`` card."
 
-#: ../../software_center.rst:118
+#: ../../software_center.rst:194
 #, fuzzy
 msgid ""
 "In the ``Software Center`` page: click the ``Software repositories`` item"
@@ -13631,7 +13821,7 @@ msgstr ""
 "In the ``Software Center`` page: click the ``Software repository`` item "
 "under the three-dots menu on the top right corner of the page."
 
-#: ../../software_center.rst:121
+#: ../../software_center.rst:197
 #, fuzzy
 msgid ""
 "NS8 includes a default set of software repositories, some enabled and "
@@ -13640,7 +13830,7 @@ msgstr ""
 "NethServer comes with a default set of software repositories in both "
 "enabled and disabled state."
 
-#: ../../software_center.rst:124
+#: ../../software_center.rst:200
 msgid ""
 "``default``: Contains applications developed and maintained mainly by "
 "NethServer developers. It also tracks updates for NS8 core modules and "
@@ -13650,7 +13840,7 @@ msgstr ""
 "dagli sviluppatori NethServer. Traccia anche aggiornamenti per moduli NS8"
 " core e il nucleo stesso."
 
-#: ../../software_center.rst:127
+#: ../../software_center.rst:203
 #, fuzzy
 msgid ""
 "``nethforge``: A repository of applications built and maintained by the "
@@ -13659,7 +13849,7 @@ msgstr ""
 "NethForge is a repository of applications built by the NethServer "
 "community, initially set in a disabled state."
 
-#: ../../software_center.rst:129
+#: ../../software_center.rst:205
 msgid ""
 "``subscription``: Added and enabled when the cluster has an active "
 "subscription. It overrides the contents of the ``default`` repository "
@@ -13667,7 +13857,7 @@ msgid ""
 "section` for details."
 msgstr ""
 
-#: ../../software_center.rst:134
+#: ../../software_center.rst:210
 #, fuzzy
 msgid ""
 "To add a custom repository, click on the :guilabel:`Add repository` "
@@ -13676,12 +13866,12 @@ msgstr ""
 "To add your own repository click on the :guilabel:`Add repository` "
 "button. Then fill all required fields:"
 
-#: ../../software_center.rst:137
+#: ../../software_center.rst:213
 #, fuzzy
 msgid "``Name``: A unique name for the repository."
 msgstr "``Name`` a unique name for the repository"
 
-#: ../../software_center.rst:138
+#: ../../software_center.rst:214
 #, fuzzy
 msgid ""
 "``URL``: The public URL of the repository. It must be a valid `NS8 "
@@ -13690,12 +13880,12 @@ msgstr ""
 "``URL`` public URL of the repository, it must be a valid `NS8 repository "
 "<https://nethserver.github.io/ns8-core/modules/metadata/>`_"
 
-#: ../../software_center.rst:140
+#: ../../software_center.rst:216
 #, fuzzy
 msgid "``Status``: Check this option to enable the repository."
 msgstr "``Status`` check this option to enable the repository"
 
-#: ../../software_center.rst:142
+#: ../../software_center.rst:218
 msgid ""
 "Note that if the same application is listed in multiple repositories, the"
 " one from the repository with the higher priority will be considered. "
@@ -13710,7 +13900,7 @@ msgstr ""
 "hanno una maggiore priorità rispetto a quelli precedenti (ad esempio, "
 "\"A\")."
 
-#: ../../software_center.rst:148
+#: ../../software_center.rst:224
 #, fuzzy
 msgid ""
 "You can refresh the metadata by clicking on the :guilabel:`Reload "
@@ -13719,12 +13909,12 @@ msgstr ""
 "You can force the metadata refresh by clicking on the :guilabel:`Reload "
 "repositories` button."
 
-#: ../../software_center.rst:155
+#: ../../software_center.rst:231
 #, fuzzy
 msgid "Updates"
 msgstr "Updates"
 
-#: ../../software_center.rst:157
+#: ../../software_center.rst:233
 msgid ""
 "If the enabled repositories contain an update for an installed "
 "application instance or any core component, a warning message is "
@@ -13737,22 +13927,22 @@ msgstr ""
 "del centro software. Puoi vedere se ci sono aggiornamenti disponibili "
 "anche accedendo alla pagina ``Cluster status```."
 
-#: ../../software_center.rst:162
+#: ../../software_center.rst:238
 #, fuzzy
 msgid "NethServer 8 can handle two different types of updates:"
 msgstr "NethServer 8 can handle two different types of updates:"
 
-#: ../../software_center.rst:164
+#: ../../software_center.rst:240
 #, fuzzy
 msgid ":ref:`core_updates-section`"
 msgstr ":ref:`core updates <core_updates-section>`"
 
-#: ../../software_center.rst:165
+#: ../../software_center.rst:241
 #, fuzzy
 msgid ":ref:`module_updates-section`"
 msgstr ":ref:`module updates <module_updates-section>`"
 
-#: ../../software_center.rst:167
+#: ../../software_center.rst:243
 #, fuzzy
 msgid ""
 ":ref:`Operating system updates <os_updates-section>` are demanded to the "
@@ -13761,7 +13951,7 @@ msgstr ""
 ":ref:`Operating system updates <os_updates-section>` are demanded to the "
 "underlying Linux distribution."
 
-#: ../../software_center.rst:170
+#: ../../software_center.rst:246
 #, fuzzy
 msgid ""
 "If you have an active subscription, available updates are applied "
@@ -13770,19 +13960,19 @@ msgstr ""
 "If you have an active subscription, available updates are applied "
 "automatically as described in :ref:`scheduled-updates`."
 
-#: ../../software_center.rst:176
+#: ../../software_center.rst:252
 #, fuzzy
 msgid "Core updates"
 msgstr "Core updates"
 
-#: ../../software_center.rst:178
+#: ../../software_center.rst:254
 msgid ""
 "NS8 consists of the core and several modules. Each core component has its"
 " own version number, and the Software Center will display a warning when "
 "an update is available."
 msgstr ""
 
-#: ../../software_center.rst:182
+#: ../../software_center.rst:258
 #, fuzzy
 msgid ""
 "*Core* contains the web user interface, the API server, the agents that "
@@ -13791,7 +13981,7 @@ msgstr ""
 "``core`` contains the web user interface, the API server, the agents that"
 " manage the containers and backup engines"
 
-#: ../../software_center.rst:184
+#: ../../software_center.rst:260
 #, fuzzy
 msgid ""
 "*LDAP proxy* is a proxy server for LDAP TCP connections that handles all "
@@ -13801,27 +13991,27 @@ msgstr ""
 "``LDAP proxy`` it's an `NGINX <https://www.nginx.com/>`_ instance that "
 "handles all connections from applications to :ref:`user-domains-section`"
 
-#: ../../software_center.rst:187
+#: ../../software_center.rst:263
 #, fuzzy
 msgid ":ref:`Loki log server <loki-section>`"
 msgstr ":ref:`Loki log server <loki-section>`"
 
-#: ../../software_center.rst:188
+#: ../../software_center.rst:264
 #, fuzzy
 msgid ":ref:`Traefik proxy <traefik-section>`"
 msgstr ":ref:`Traefik proxy <traefik-section>`"
 
-#: ../../software_center.rst:189
+#: ../../software_center.rst:265
 #, fuzzy
 msgid ":ref:`Samba Active Directory <active_directory-section>`"
 msgstr ":ref:`active_directory-section`"
 
-#: ../../software_center.rst:190
+#: ../../software_center.rst:266
 #, fuzzy
 msgid ":ref:`OpenLDAP <openldap-section>`"
 msgstr ":ref:`openldap-section`"
 
-#: ../../software_center.rst:192
+#: ../../software_center.rst:268
 msgid ""
 "You can review the components currently installed in the cluster at any "
 "time. To do this, click on the three-dots menu in the top-right corner of"
@@ -13829,7 +14019,7 @@ msgid ""
 "Click on :guilabel:`Update core` button to apply the updates."
 msgstr ""
 
-#: ../../software_center.rst:197
+#: ../../software_center.rst:273
 #, fuzzy
 msgid ""
 "Core module updates are always applied altogether to avoid version "
@@ -13838,12 +14028,12 @@ msgstr ""
 "Core module updates are always applied altogether to avoid version "
 "mismatch."
 
-#: ../../software_center.rst:205
+#: ../../software_center.rst:281
 #, fuzzy
 msgid "Application updates"
 msgstr "Applicazioni"
 
-#: ../../software_center.rst:207
+#: ../../software_center.rst:283
 #, fuzzy
 msgid ""
 "The list of available updates is listed inside the ``Updates`` tab of "
@@ -13854,7 +14044,7 @@ msgstr ""
 ":ref:`software_center-section`. The software center displays a card for "
 "each application with available updates."
 
-#: ../../software_center.rst:211
+#: ../../software_center.rst:287
 #, fuzzy
 msgid ""
 "You can apply all application updates by clicking the :guilabel:`Update "
@@ -13863,7 +14053,7 @@ msgstr ""
 "You can apply all module updates by clicking the :guilabel:`Update all "
 "apps` button."
 
-#: ../../software_center.rst:214
+#: ../../software_center.rst:290
 #, fuzzy
 msgid ""
 "By clicking the :guilabel:`Review and update` button on the application "
@@ -15484,41 +15674,55 @@ msgstr ""
 "Per installare un nuovo dominio utente con Samba Active Directory come "
 "provider locale:"
 
-#: ../../user_domains.rst:52 ../../user_domains.rst:134
-msgid "access the ``Domains and users`` page"
-msgstr "accedere alla pagina ``Domini e utenti``"
-
-#: ../../user_domains.rst:53 ../../user_domains.rst:135
-msgid "click on :guilabel:`Create domain` button and choose ``Internal``"
-msgstr "fare clic sul pulsante :guilabel:`Crea dominio` e scegliere ``Interno``"
+#: ../../user_domains.rst:52 ../../user_domains.rst:151
+#: ../../user_domains.rst:216
+#, fuzzy
+msgid "Access the ``Domains and users`` page."
+msgstr "accedere alla pagina ``Domini e utenti`"
 
 #: ../../user_domains.rst:54
-msgid "select ``Samba`` on the dialog box and click :guilabel:`Install provider`"
-msgstr ""
-"selezionare ``Samba`` nella finestra di dialogo e fare clic su "
-":guilabel:`Installa provider`"
+#, fuzzy
+msgid "Click on :guilabel:`Create domain` button and choose ``Internal``."
+msgstr "fare clic sul pulsante :guilabel:`Crea dominio` e scegliere ``Interno``"
 
-#: ../../user_domains.rst:56 ../../user_domains.rst:138
+#: ../../user_domains.rst:56
 msgid ""
-"Once the provider is installed, you will be asked to enter the following "
-"parameters:"
+"Select ``Samba`` on the dialog box and follow the procedure. You may be "
+"asked which node will install the provider, and -- if the selected node "
+"has one -- the additional volume where Shared folders will be stored. "
+"This choice is relevant if you will enable the option ``Provide Shared "
+"folders and authentication to Windows clients`` in the post-installation "
+"step. If you plan to use Samba as a file server, read now section :ref"
+":`file-server-section` before proceeding."
+msgstr ""
+
+#: ../../user_domains.rst:64
+#, fuzzy
+msgid "Finally click on :guilabel:`Install provider` button."
+msgstr "cliccare sul tasto: `Restore`"
+
+#: ../../user_domains.rst:66
+#, fuzzy
+msgid ""
+"Once the domain provider is installed, you will be asked to enter the "
+"following Active Directory parameters:"
 msgstr ""
 "Una volta installato il provider, verrà chiesto di inserire i seguenti "
 "parametri:"
 
-#: ../../user_domains.rst:58
+#: ../../user_domains.rst:69
+#, fuzzy
 msgid ""
-"``Domain``: the user domain, it should be a valid FQDN. It defines the "
-"DNS suffix of the new domain. The Domain Controller (DC) acts as an "
-"authoritative DNS server for that domain. If unsure, keep the proposed "
-"value."
+"``Domain``: the user domain in FQDN form. It defines the DNS suffix of "
+"the new Active Directory domain. If unsure, refer to the next section, or"
+" keep the proposed value."
 msgstr ""
 "``Dominio``: il dominio utente, che dovrebbe essere un FQDN valido. "
 "Definisce il suffisso DNS del nuovo dominio. Il Domain Controller (DC) "
 "funge da server DNS autoritativo per quel dominio. In caso di dubbi, "
 "mantenere il valore proposto."
 
-#: ../../user_domains.rst:61
+#: ../../user_domains.rst:73
 msgid ""
 "``NetBIOS domain``: a valid `NetBIOS "
 "<https://en.wikipedia.org/wiki/NetBIOS>`_ domain (also known as \"domain "
@@ -15533,7 +15737,7 @@ msgstr ""
 "lunghezza massima è di 15 caratteri ASCII. Se non si è sicuri, mantenere "
 "il valore proposto."
 
-#: ../../user_domains.rst:65
+#: ../../user_domains.rst:77
 msgid ""
 "``Samba admin username`` and ``Samba admin password``: set the initial "
 "administrative account credentials; it is possible to use "
@@ -15549,30 +15753,31 @@ msgstr ""
 "``Domain Admins``, mentre l'utente ``administrator`` viene disabilitato e"
 " configurato con una password casuale"
 
-#: ../../user_domains.rst:71
+#: ../../user_domains.rst:83
 msgid ""
-"``Hostname``: the Domain Controller (DC) hostname. If unsure, keep the "
-"proposed value."
+"In Active Directory jargon, an NS8 domain provider is a *Domain "
+"Controller* (DC). It acts as an LDAP server, Kerberos domain controller, "
+"and authoritative DNS server for the chosen domain name. Fill in the "
+"following DC-related fields:"
+msgstr ""
+
+#: ../../user_domains.rst:88
+#, fuzzy
+msgid "``Hostname``: the DC hostname. If unsure, keep the proposed value."
 msgstr ""
 "``Nome host`: il nome host del Domain Controller (DC). In caso di dubbio,"
 " mantenere il valore proposto."
 
-#: ../../user_domains.rst:73
-#, fuzzy
+#: ../../user_domains.rst:90
 msgid ""
-"``Provide shared folders and authentication to Windows clients``. If "
-"enabled the DC shared folders are accessible from the local network. Only"
-" one DC of the Active Directory domain can offer shared folders, "
-"authentication and DNS services. See :ref:`File server <file-server-"
-"section>` for more information."
+"``Provide shared folders and authentication to Windows clients``: if this"
+" switch is enabled, the DC will be accessible from the local network "
+"(LAN). Note the following limitation: only one DC per domain can offer "
+"shared folders, authentication, and DNS services. See :ref:`File server "
+"<file-server-section>` for more information."
 msgstr ""
-"``Fornire condivisioni di file e autenticazione per i client Windows``. "
-"Se abilitato, le cartelle condivise del DC sono accessibili dalla rete "
-"locale. Solo uno dei DC del dominio Active Directory può offrire cartelle"
-" condivise, autenticazione e servizi DNS. Per ulteriori informazioni, "
-"consultare :ref:`file-server-section`."
 
-#: ../../user_domains.rst:81
+#: ../../user_domains.rst:98
 msgid ""
 "Apart from the administrative credentials, other Active Directory "
 "parameters cannot be changed once that the domain has been created"
@@ -15581,7 +15786,7 @@ msgstr ""
 "Directory non possono essere modificati una volta che il dominio è stato "
 "creato"
 
-#: ../../user_domains.rst:84
+#: ../../user_domains.rst:101
 msgid ""
 "At the end, you will see a new user domain with one connected provider. "
 "You can now :ref:`manage users and groups <user_groups-section>`, "
@@ -15594,11 +15799,11 @@ msgstr ""
 "copiare le :ref:`le impostazioni di bind <domain_bind-section>`per "
 "collegare una applicazione esterna."
 
-#: ../../user_domains.rst:89
+#: ../../user_domains.rst:106
 msgid "DNS and AD domain"
 msgstr "DNS e Dominio AD"
 
-#: ../../user_domains.rst:91
+#: ../../user_domains.rst:108
 msgid ""
 "An Active Directory domain requires a reserved DNS domain to work. It is "
 "a good choice to allocate a sub-domain of the public DNS domain for it. "
@@ -15609,27 +15814,27 @@ msgstr ""
 "DNS pubblico principale. Il sottodominio AD è accessibile solo dalle reti"
 " locali."
 
-#: ../../user_domains.rst:95
+#: ../../user_domains.rst:112
 msgid "Example:"
 msgstr "Esempio:"
 
-#: ../../user_domains.rst:97
+#: ../../user_domains.rst:114
 msgid "public (*external*) domain: ``nethserver.org``"
 msgstr "dominio pubblico (*esterno*): ``nethserver.org``"
 
-#: ../../user_domains.rst:98
+#: ../../user_domains.rst:115
 msgid "server FQDN: ``mail.nethserver.org``"
 msgstr "server FQDN: ``mail.nethserver.org``"
 
-#: ../../user_domains.rst:99
+#: ../../user_domains.rst:116
 msgid "Active Directory (*internal* LAN only) domain: ``ad.nethserver.org``"
 msgstr "Dominio Active Directory (solo LAN *interna*): ``ad.nethserver.org``"
 
-#: ../../user_domains.rst:100
+#: ../../user_domains.rst:117
 msgid "domain controller FQDN: ``dc1.ad.nethserver.org``"
 msgstr "FQDN controller di dominio: ``dc1.ad.nethserver.org``"
 
-#: ../../user_domains.rst:104
+#: ../../user_domains.rst:121
 msgid ""
 "When choosing a domain for Active Directory use an *internal* domain "
 "which is a sub-domain of the *external* domain [#MsDnsBestPratices]_"
@@ -15638,14 +15843,14 @@ msgstr ""
 "*interno* che è un sottodominio del dominio *esterno* "
 "[#MsDnsBestPratices]_"
 
-#: ../../user_domains.rst:107
+#: ../../user_domains.rst:124
 msgid ""
 "AD Windows clients must use a primary DNS server that can resolve the AD "
 "domain names. A secondary DNS server is optional, but if configured, it "
 "must also be able to resolve AD domain names."
 msgstr ""
 
-#: ../../user_domains.rst:111
+#: ../../user_domains.rst:128
 msgid ""
 "**Small networks**: Use Samba Active Directory as the DNS server by "
 "setting the domain controller's IP address in client DNS settings. Non-AD"
@@ -15653,7 +15858,7 @@ msgid ""
 " ``/etc/resolv.conf`` file."
 msgstr ""
 
-#: ../../user_domains.rst:116
+#: ../../user_domains.rst:133
 msgid ""
 "**Larger networks**: Use a dedicated DNS server with *conditional "
 "forwarding*. Configure it to forward AD domain requests to the Samba "
@@ -15661,30 +15866,44 @@ msgid ""
 "preferred DNS service (ISP or public DNS)."
 msgstr ""
 
-#: ../../user_domains.rst:123
+#: ../../user_domains.rst:140
 msgid ""
 "Do not configure Samba Active Directory as the NS8 node name resolver in "
 "``/etc/resolv.conf``. For more information, see :ref:`resolv-conf`."
 msgstr ""
 
-#: ../../user_domains.rst:130
+#: ../../user_domains.rst:147
 msgid "LDAP server RFC2307"
 msgstr "Server LDAP RFC2307"
 
-#: ../../user_domains.rst:132
+#: ../../user_domains.rst:149
 #, fuzzy
 msgid "To install a new user domain with an internal OpenLDAP as provider:"
 msgstr "Per installare un nuovo dominio utenti con un provider locale OpenLDAP:"
 
-#: ../../user_domains.rst:136
+#: ../../user_domains.rst:153
+#, fuzzy
+msgid "Click on :guilabel:`Create domain` and choose ``Internal``."
+msgstr "fare clic sul pulsante :guilabel:`Crea dominio` e scegliere ``Interno``"
+
+#: ../../user_domains.rst:155
+#, fuzzy
 msgid ""
-"select ``OpenLDAP`` on the dialog box and click :guilabel:`Install "
-"provider`"
+"In the dialog box, select ``OpenLDAP`` and click :guilabel:`Install "
+"provider`."
 msgstr ""
-"selezionare ``OpenLDAP`` nella finestra di dialogo e fare clic su "
+"selezionare ``Samba`` nella finestra di dialogo e fare clic su "
 ":guilabel:`Installa provider`"
 
-#: ../../user_domains.rst:140
+#: ../../user_domains.rst:158
+msgid ""
+"Once the provider is installed, you will be asked to enter the following "
+"parameters:"
+msgstr ""
+"Una volta installato il provider, verrà chiesto di inserire i seguenti "
+"parametri:"
+
+#: ../../user_domains.rst:161
 #, fuzzy
 msgid ""
 "``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
@@ -15693,7 +15912,7 @@ msgstr ""
 "``Domain``: the user domain, it should be a valid FQDN. If unsure, keep "
 "the proposed value."
 
-#: ../../user_domains.rst:141
+#: ../../user_domains.rst:162
 #, fuzzy
 msgid ""
 "``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
@@ -15702,7 +15921,7 @@ msgstr ""
 "``OpenLDAP admin username`` and ``OpenLDAP admin password``: admin "
 "credentials"
 
-#: ../../user_domains.rst:143
+#: ../../user_domains.rst:164
 #, fuzzy
 msgid ""
 "Finally, you will see a new user domain with one connected provider. You "
@@ -15713,17 +15932,17 @@ msgstr ""
 "can now :ref:`manage users and groups <user_groups-section>` or :ref:`add"
 " a replica <provider_replica-section>`."
 
-#: ../../user_domains.rst:146
+#: ../../user_domains.rst:167
 #, fuzzy
 msgid "OpenLDAP provider is not currently accessible from outside the cluster."
 msgstr "OpenLDAP provider is not currently accessible from outside the cluster."
 
-#: ../../user_domains.rst:151
+#: ../../user_domains.rst:172
 #, fuzzy
 msgid "Provider replicas"
 msgstr "Provider replicas"
 
-#: ../../user_domains.rst:153
+#: ../../user_domains.rst:174
 #, fuzzy
 msgid ""
 "Provider replicas implement fault tolerance for user domains. To achieve "
@@ -15732,7 +15951,7 @@ msgstr ""
 "Provider replicas implement fault tolerance for user domains. To achieve "
 "real fault tolerance, replicas should be installed on different nodes."
 
-#: ../../user_domains.rst:156
+#: ../../user_domains.rst:177
 msgid ""
 "You can add a replica from the ``Domains and users`` page by selecting "
 "the ``Configuration`` tab in the domain details. Then click the "
@@ -15740,12 +15959,12 @@ msgid ""
 " the installation."
 msgstr ""
 
-#: ../../user_domains.rst:162
+#: ../../user_domains.rst:183
 #, fuzzy
 msgid "Replicas are configured in master-master mode."
 msgstr "Replicas are configured in master-master mode."
 
-#: ../../user_domains.rst:164
+#: ../../user_domains.rst:185
 #, fuzzy
 msgid ""
 "Active Directory provider does not replicate the SysVol volume. Therefore"
@@ -15756,12 +15975,12 @@ msgstr ""
 " Microsoft's Group Policy Object (GPO) will not be synchronized between "
 "replicas."
 
-#: ../../user_domains.rst:170
+#: ../../user_domains.rst:191
 #, fuzzy
 msgid "LDAP bind settings"
 msgstr "LDAP bind settings"
 
-#: ../../user_domains.rst:172
+#: ../../user_domains.rst:193
 #, fuzzy
 msgid ""
 "Binding is the process where the LDAP server authenticates the client "
@@ -15772,7 +15991,7 @@ msgstr ""
 "and, if the client is successfully authenticated, the server allows "
 "client access."
 
-#: ../../user_domains.rst:175
+#: ../../user_domains.rst:196
 #, fuzzy
 msgid ""
 "Many applications may require to be bound to an existing NethServer 8 "
@@ -15784,7 +16003,7 @@ msgstr ""
 "``Configuration`` link from the three-dots menu: user domain details are "
 "displayed on the top of the page."
 
-#: ../../user_domains.rst:178
+#: ../../user_domains.rst:199
 msgid ""
 "The Samba AD provider exposes standard LDAP and LDAPS ports (389/636) to "
 "applications outside the cluster only if it has been created with "
@@ -15792,7 +16011,7 @@ msgid ""
 ":ref:`active_directory-section`)."
 msgstr ""
 
-#: ../../user_domains.rst:183
+#: ../../user_domains.rst:204
 msgid ""
 "OpenLDAP RFC2307 providers do not expose any port for external "
 "applications. They listen on a single clear-text LDAP port accessible to "
@@ -15800,27 +16019,22 @@ msgid ""
 "needed."
 msgstr ""
 
-#: ../../user_domains.rst:191
+#: ../../user_domains.rst:212
 #, fuzzy
 msgid "External LDAP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:193
+#: ../../user_domains.rst:214
 #, fuzzy
 msgid "You can connect the NethServer 8 cluster to an existing LDAP server."
 msgstr "You can connect the NethServer 8 cluster to an existing LDAP server:"
 
-#: ../../user_domains.rst:195
-#, fuzzy
-msgid "Access the ``Domains and users`` page."
-msgstr "accedere alla pagina ``Domini e utenti`"
-
-#: ../../user_domains.rst:197
+#: ../../user_domains.rst:218
 #, fuzzy
 msgid "Click on :guilabel:`Create domain` button and choose ``External``."
 msgstr "click on :guilabel:`Create domain` button and choose ``External``"
 
-#: ../../user_domains.rst:199
+#: ../../user_domains.rst:220
 #, fuzzy
 msgid ""
 "Fill all required fields. Bear in mind that apart from \"Host\" and "
@@ -15829,7 +16043,7 @@ msgstr ""
 "Fill all required fields. Bear in mind that apart from \"Host\" and "
 "\"Port\", the domain settings cannot be changed later:"
 
-#: ../../user_domains.rst:202
+#: ../../user_domains.rst:223
 #, fuzzy
 msgid ""
 "``Domain``: This should be in fully qualified domain name (FQDN) syntax, "
@@ -15842,14 +16056,14 @@ msgstr ""
 "example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain "
 "name would be \"example.org\"."
 
-#: ../../user_domains.rst:207
+#: ../../user_domains.rst:228
 #, fuzzy
 msgid "``Host``: Enter the IP address or hostname of the LDAP server."
 msgstr ""
 "``NS8 leader node``: il nome host o l'indirizzo IP del nodo leader "
 "NethServer 8"
 
-#: ../../user_domains.rst:209
+#: ../../user_domains.rst:230
 msgid ""
 "``Port``: Specify the TCP port number of the remote LDAP service. "
 "Standard values are 389 for LDAP and 636 for LDAPS. However, with Active "
@@ -15863,7 +16077,7 @@ msgstr ""
 "l'impostazione della porta LDAP 3268 o della porta LDAPS 3269. Questo "
 "perché non supportano i \"ferrali subordinati MONAP\"."
 
-#: ../../user_domains.rst:215
+#: ../../user_domains.rst:236
 #, fuzzy
 msgid ""
 "``Bind DN`` and ``Password``: Credentials required to access the remote "
@@ -15872,7 +16086,7 @@ msgstr ""
 "``Bind DN`` and ``Password``: Credentials required to access the remote "
 "LDAP server."
 
-#: ../../user_domains.rst:218
+#: ../../user_domains.rst:239
 #, fuzzy
 msgid ""
 "``Base DN``: Define the level of the LDAP hierarchy to use as the base "
@@ -15883,7 +16097,7 @@ msgstr ""
 "for user and group lookup. Leaving this field empty retrieves the correct"
 " value from the LDAP server itself."
 
-#: ../../user_domains.rst:222
+#: ../../user_domains.rst:243
 #, fuzzy
 msgid ""
 "``TLS``: Enable this switch to encrypt the connection with TLS. If the "
@@ -15892,7 +16106,7 @@ msgstr ""
 "``TLS``: Enable this switch to encrypt the connection with TLS. If the "
 "server does not support TLS on the specified port, an error will occur."
 
-#: ../../user_domains.rst:226
+#: ../../user_domains.rst:247
 #, fuzzy
 msgid ""
 "``TLS verify``: Enable this switch to ensure that the LDAP server "
@@ -15905,26 +16119,26 @@ msgstr ""
 "certificate name matching the hostname specified in the \"Host\" field. "
 "Continue reading to fully understand the implications of this option."
 
-#: ../../user_domains.rst:232
+#: ../../user_domains.rst:253
 #, fuzzy
 msgid ""
 "Once all fields are filled, click on the :guilabel:`Configure domain` "
 "button."
 msgstr "click on :guilabel:`Configure domain` button"
 
-#: ../../user_domains.rst:239
+#: ../../user_domains.rst:260
 #, fuzzy
 msgid "Modify external LDAP settings"
 msgstr "Impostazioni generali"
 
-#: ../../user_domains.rst:241
+#: ../../user_domains.rst:262
 msgid ""
 "When a domain is configured for the first time, the LDAP server settings "
 "are saved in its first provider entry. Bind credentials and TLS settings "
 "can be modified at a later from the ``Domain Settings`` card."
 msgstr ""
 
-#: ../../user_domains.rst:245
+#: ../../user_domains.rst:266
 #, fuzzy
 msgid ""
 "If you choose not to verify TLS, you can configure additional hosts as "
@@ -15938,67 +16152,67 @@ msgstr ""
 " LDAP backend server. If a cluster node cannot reach it, it switches to "
 "another provider. It's crucial that all domain providers are accessible "
 "from any cluster node."
-
-#: ../../user_domains.rst:251
-#, fuzzy
-msgid ""
-"Enabling \"TLS verify\" adds extra security but has limitations: only the"
-" first provider is considered. If it becomes unreachable, connection "
-"recovery is not possible."
-msgstr ""
-"Enabling \"TLS verify\" adds extra security but has limitations: only the"
-" first provider is considered. If it becomes unreachable, connection "
-"recovery is not possible."
-
-#: ../../user_domains.rst:257
-#, fuzzy
-msgid ""
-"Ensure each provider is accessible from all cluster nodes for seamless "
-"operation."
-msgstr ""
-"Ensure each provider is accessible from all cluster nodes for seamless "
-"operation."
-
-#: ../../user_domains.rst:263
-#, fuzzy
-msgid "Password policy"
-msgstr "Password policy"
-
-#: ../../user_domains.rst:265
-#, fuzzy
-msgid ""
-"The password policy is a set of rules that defines the password "
-"complexity and the password expiration time. You can configure the "
-"password policy from the ``Domains and users`` page by selecting the "
-"interested domain and clicking :guilabel:`Edit password policy` from the "
-"three-dots menu of the ``Password`` card."
-msgstr ""
-"The password policy is a set of rules that defines the password "
-"complexity and the password expiration time. You can configure the "
-"password policy from the ``Domains and users`` page by selecting the "
-"interested domain and clicking :guilabel:`Edit password policy` from the "
-"three-dots menu of the ``Password`` card."
-
-#: ../../user_domains.rst:267
-#, fuzzy
-msgid "You can configure password age and password strength policy separately."
-msgstr "You can configure password age and password strength policy separately."
-
-#: ../../user_domains.rst:270
-#, fuzzy
-msgid "Password age"
-msgstr "Password age"
 
 #: ../../user_domains.rst:272
 #, fuzzy
 msgid ""
+"Enabling \"TLS verify\" adds extra security but has limitations: only the"
+" first provider is considered. If it becomes unreachable, connection "
+"recovery is not possible."
+msgstr ""
+"Enabling \"TLS verify\" adds extra security but has limitations: only the"
+" first provider is considered. If it becomes unreachable, connection "
+"recovery is not possible."
+
+#: ../../user_domains.rst:278
+#, fuzzy
+msgid ""
+"Ensure each provider is accessible from all cluster nodes for seamless "
+"operation."
+msgstr ""
+"Ensure each provider is accessible from all cluster nodes for seamless "
+"operation."
+
+#: ../../user_domains.rst:284
+#, fuzzy
+msgid "Password policy"
+msgstr "Password policy"
+
+#: ../../user_domains.rst:286
+#, fuzzy
+msgid ""
+"The password policy is a set of rules that defines the password "
+"complexity and the password expiration time. You can configure the "
+"password policy from the ``Domains and users`` page by selecting the "
+"interested domain and clicking :guilabel:`Edit password policy` from the "
+"three-dots menu of the ``Password`` card."
+msgstr ""
+"The password policy is a set of rules that defines the password "
+"complexity and the password expiration time. You can configure the "
+"password policy from the ``Domains and users`` page by selecting the "
+"interested domain and clicking :guilabel:`Edit password policy` from the "
+"three-dots menu of the ``Password`` card."
+
+#: ../../user_domains.rst:288
+#, fuzzy
+msgid "You can configure password age and password strength policy separately."
+msgstr "You can configure password age and password strength policy separately."
+
+#: ../../user_domains.rst:291
+#, fuzzy
+msgid "Password age"
+msgstr "Password age"
+
+#: ../../user_domains.rst:293
+#, fuzzy
+msgid ""
 "You can toggle password age policy by clicking on the ``Password age`` "
 "switch. If enabled, you can configure the following parameters:"
 msgstr ""
 "You can toggle password age policy by clicking on the ``Password age`` "
 "switch. If enabled, you can configure the following parameters:"
 
-#: ../../user_domains.rst:274
+#: ../../user_domains.rst:295
 #, fuzzy
 msgid ""
 "``Minimum password age`` (default 0): the minimum number of days that "
@@ -16007,7 +16221,7 @@ msgstr ""
 "``Minimum password age``: the minimum number of days that must pass "
 "before a new password change."
 
-#: ../../user_domains.rst:275
+#: ../../user_domains.rst:296
 #, fuzzy
 msgid ""
 "``Maximum password age`` (default 180): password expiration time in days."
@@ -16020,12 +16234,12 @@ msgstr ""
 "Users can change their expired password with :ref:`user-management-"
 "portal-section`."
 
-#: ../../user_domains.rst:278
+#: ../../user_domains.rst:299
 #, fuzzy
 msgid "Password strength"
 msgstr "Password strength"
 
-#: ../../user_domains.rst:280
+#: ../../user_domains.rst:301
 #, fuzzy
 msgid ""
 "By enabling the ``Password strength`` switch, you can configure the "
@@ -16034,7 +16248,7 @@ msgstr ""
 "By enabling the ``Password strength`` switch, you can configure the "
 "following parameters:"
 
-#: ../../user_domains.rst:282
+#: ../../user_domains.rst:303
 #, fuzzy
 msgid ""
 "``Password history length``: the number of old passwords that cannot be "
@@ -16043,7 +16257,7 @@ msgstr ""
 "``Password history length``: the number of old passwords that cannot be "
 "reused."
 
-#: ../../user_domains.rst:283
+#: ../../user_domains.rst:304
 #, fuzzy
 msgid ""
 "``Minimum password length``: the minimum number of characters that a "
@@ -16052,7 +16266,7 @@ msgstr ""
 "``Minimum password length``: the minimum number of characters that a "
 "password must have."
 
-#: ../../user_domains.rst:284
+#: ../../user_domains.rst:305
 #, fuzzy
 msgid ""
 "``Enforce password complexity``: enforce use of complex password, see "
@@ -16061,7 +16275,7 @@ msgstr ""
 "``Enforce password complexity``: enforce use of complex password, see "
 "note for more details."
 
-#: ../../user_domains.rst:286
+#: ../../user_domains.rst:307
 #, fuzzy
 msgid ""
 "A password is considered complex if it is long enough and meets three of "
@@ -16070,27 +16284,27 @@ msgstr ""
 "A password is considered complex if it is long enough and meets three of "
 "the following rules:"
 
-#: ../../user_domains.rst:288
+#: ../../user_domains.rst:309
 #, fuzzy
 msgid "The password must contain at least one uppercase letter."
 msgstr "The password must contain at least one uppercase letter."
 
-#: ../../user_domains.rst:289
+#: ../../user_domains.rst:310
 #, fuzzy
 msgid "The password must contain at least one lowercase letter."
 msgstr "The password must contain at least one lowercase letter."
 
-#: ../../user_domains.rst:290
+#: ../../user_domains.rst:311
 #, fuzzy
 msgid "The password must contain at least one digit."
 msgstr "The password must contain at least one digit."
 
-#: ../../user_domains.rst:291
+#: ../../user_domains.rst:312
 #, fuzzy
 msgid "The password must contain at least one special character."
 msgstr "The password must contain at least one special character."
 
-#: ../../user_domains.rst:293
+#: ../../user_domains.rst:314
 #, fuzzy
 msgid ""
 "After editing the password policy, you can click on :guilabel:`Edit "
@@ -16103,61 +16317,61 @@ msgstr ""
 "not affect old passwords: they are valid from now on. Age setting changes"
 " are retroactive and are applied to already set passwords, too."
 
-#: ../../user_domains.rst:298
+#: ../../user_domains.rst:319
 msgid "Password expiration warning"
 msgstr ""
 
-#: ../../user_domains.rst:300
+#: ../../user_domains.rst:321
 msgid ""
 "The system can send email notifications to users when their password is "
 "about to expire."
 msgstr ""
 
-#: ../../user_domains.rst:303
+#: ../../user_domains.rst:324
 msgid ""
 "This feature is available **only for internal user domains** and can be "
 "enabled on each user domain."
 msgstr ""
 
-#: ../../user_domains.rst:305
+#: ../../user_domains.rst:326
 msgid "To enable this feature, ensure the following:"
 msgstr ""
 
-#: ../../user_domains.rst:307
+#: ../../user_domains.rst:328
 msgid "password aging must be enabled on the user domain"
 msgstr ""
 
-#: ../../user_domains.rst:308
+#: ../../user_domains.rst:329
 msgid ""
 "the cluster must be configured to send :ref:`mail notifications <email-"
 "notifications>`"
 msgstr ""
 
-#: ../../user_domains.rst:310
+#: ../../user_domains.rst:331
 msgid ""
 "The feature can be enabled from the configuration page of the user domain"
 " by clicking the :guilabel:`Edit password warning` button on the "
 "``Password`` card."
 msgstr ""
 
-#: ../../user_domains.rst:312
+#: ../../user_domains.rst:333
 msgid "After enabling the feature, fill the following fields:"
 msgstr ""
 
-#: ../../user_domains.rst:314
+#: ../../user_domains.rst:335
 msgid ""
 "``Days before expiration``: the number of days before the password "
 "expiration when the notification is sent. The notification is sent every "
 "day until the password expires"
 msgstr ""
 
-#: ../../user_domains.rst:316
+#: ../../user_domains.rst:337
 msgid ""
 "``Sender mail address``: the email address of the sender, make sure this "
 "is a valid email address to avoid issues with spam filters"
 msgstr ""
 
-#: ../../user_domains.rst:317
+#: ../../user_domains.rst:338
 msgid ""
 "``Mail template``: select the template to use for the notification email."
 " You can choose between the default templates or a custom one. Default "
@@ -16165,19 +16379,19 @@ msgid ""
 " see :ref:`password_warning_custom_template-section`."
 msgstr ""
 
-#: ../../user_domains.rst:321
+#: ../../user_domains.rst:342
 msgid ""
 "The notification email is sent to the user mail address which can be "
 "automatically discovered or manually set by an administrator, depending "
 "on the cluster configuration."
 msgstr ""
 
-#: ../../user_domains.rst:325
+#: ../../user_domains.rst:346
 #, fuzzy
 msgid "Internal SMTP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:327
+#: ../../user_domains.rst:348
 msgid ""
 "When a :ref:`internal mail server <mail-section>` instance is installed, "
 "and the cluster is configured to send mail notifications using it, the "
@@ -16185,13 +16399,13 @@ msgid ""
 "password expiration notification."
 msgstr ""
 
-#: ../../user_domains.rst:330
+#: ../../user_domains.rst:351
 msgid ""
 "The mail address can be overwritten by an administrator setting the "
 "``mail`` field inside the :ref:`user-management-portal-section`."
 msgstr ""
 
-#: ../../user_domains.rst:333
+#: ../../user_domains.rst:354
 msgid ""
 "If the cluster is configured to send mail notifications using an external"
 " SMTP server, the automatically discovered mail address is not valid "
@@ -16199,12 +16413,12 @@ msgid ""
 " you must explicitly set the mail address for the user."
 msgstr ""
 
-#: ../../user_domains.rst:338
+#: ../../user_domains.rst:359
 #, fuzzy
 msgid "External SMTP server"
 msgstr "External LDAP server"
 
-#: ../../user_domains.rst:340
+#: ../../user_domains.rst:361
 msgid ""
 "When the cluster is configured to send mail notifications using an "
 "external SMTP server, the user mail address is not automatically "
@@ -16212,63 +16426,63 @@ msgid ""
 ":ref:`user-management-portal-section`."
 msgstr ""
 
-#: ../../user_domains.rst:343
+#: ../../user_domains.rst:364
 msgid ""
 "The mail address field is available for both OpenLDAP and Active "
 "Directory user domains."
 msgstr ""
 
-#: ../../user_domains.rst:348
+#: ../../user_domains.rst:369
 #, fuzzy
 msgid "Custom template"
 msgstr "template custom"
 
-#: ../../user_domains.rst:350
+#: ../../user_domains.rst:371
 msgid ""
 "After selecting a custom template inside the ``Mail template`` field, you"
 " can specify 2 more fields:"
 msgstr ""
 
-#: ../../user_domains.rst:352
+#: ../../user_domains.rst:373
 msgid "``Mail subject``: the subject of the notification email"
 msgstr ""
 
-#: ../../user_domains.rst:353
+#: ../../user_domains.rst:374
 msgid ""
 "``Mail template``: the body of the notification email in HTML or plain "
 "text"
 msgstr ""
 
-#: ../../user_domains.rst:355
+#: ../../user_domains.rst:376
 msgid "Both mail subject and mail body can include the following placeholder:"
 msgstr ""
 
-#: ../../user_domains.rst:357
+#: ../../user_domains.rst:378
 msgid "``$user``: the username"
 msgstr ""
 
-#: ../../user_domains.rst:358
+#: ../../user_domains.rst:379
 #, fuzzy
 msgid "``$name``: the full name of the user"
 msgstr "``Name``: the name of the shared folder"
 
-#: ../../user_domains.rst:359
+#: ../../user_domains.rst:380
 msgid "``$domain``: the user domain name"
 msgstr ""
 
-#: ../../user_domains.rst:360
+#: ../../user_domains.rst:381
 msgid "``$days``: the actual number of days before the password expiration"
 msgstr ""
 
-#: ../../user_domains.rst:361
+#: ../../user_domains.rst:382
 msgid "``$portal_url``: the URL of the user management portal"
 msgstr ""
 
-#: ../../user_domains.rst:363
+#: ../../user_domains.rst:384
 msgid "Example of a plain text custom template: ::"
 msgstr ""
 
-#: ../../user_domains.rst:369
+#: ../../user_domains.rst:390
 msgid ""
 "If you want to create an HTML template, you can start by copying a "
 "default one like ``/etc/nethserver/password_warning/default_en.tmpl``. "
@@ -16276,12 +16490,12 @@ msgid ""
 "needed."
 msgstr ""
 
-#: ../../user_domains.rst:375
+#: ../../user_domains.rst:396
 #, fuzzy
 msgid "User and groups"
 msgstr "User and groups"
 
-#: ../../user_domains.rst:377
+#: ../../user_domains.rst:398
 #, fuzzy
 msgid ""
 "You can manage users and groups of a domain by clicking on ``User and "
@@ -16290,7 +16504,7 @@ msgstr ""
 "You can manage users and groups of a domain by clicking on ``User and "
 "groups`` link from the ``Domains and users`` page."
 
-#: ../../user_domains.rst:379
+#: ../../user_domains.rst:400
 #, fuzzy
 msgid ""
 "If an external user domain has been configured, the page shows read-only "
@@ -16299,7 +16513,7 @@ msgstr ""
 "If an external user domain has been configured, the page shows read-only "
 "lists. Changes to the user base must be done on the external server."
 
-#: ../../user_domains.rst:382
+#: ../../user_domains.rst:403
 #, fuzzy
 msgid ""
 "On the other hand, if a local AD or LDAP account provider has been "
@@ -16308,36 +16522,36 @@ msgstr ""
 "On the other hand, if a local AD or LDAP account provider has been "
 "installed, the page allows to create, modify and delete users and groups."
 
-#: ../../user_domains.rst:388
+#: ../../user_domains.rst:409
 #, fuzzy
 msgid "Create users and groups"
 msgstr "User and groups"
 
-#: ../../user_domains.rst:390
+#: ../../user_domains.rst:411
 #, fuzzy
 msgid "When creating a user, the following fields are mandatory:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:392 ../../user_domains.rst:492
+#: ../../user_domains.rst:413 ../../user_domains.rst:513
 #, fuzzy
 msgid "User name"
 msgstr "User name"
 
-#: ../../user_domains.rst:393 ../../user_domains.rst:493
+#: ../../user_domains.rst:414 ../../user_domains.rst:514
 #, fuzzy
 msgid "Full name (name and surname)"
 msgstr "Full name (name and surname)"
 
-#: ../../user_domains.rst:394 ../../user_domains.rst:494
+#: ../../user_domains.rst:415 ../../user_domains.rst:515
 #, fuzzy
 msgid "Password"
 msgstr "Password"
 
-#: ../../user_domains.rst:396
+#: ../../user_domains.rst:417
 msgid "Optional attributes are:"
 msgstr ""
 
-#: ../../user_domains.rst:398
+#: ../../user_domains.rst:419
 msgid ""
 "Email address -- Corresponds to the standard LDAP ``mail`` attribute. It "
 "can be set to the user's personal email address, where password "
@@ -16345,25 +16559,25 @@ msgid ""
 "valid login name."
 msgstr ""
 
-#: ../../user_domains.rst:402
+#: ../../user_domains.rst:423
 msgid ""
 "Password never expires (AD only) -- When enabled, the user's password "
 "remains valid indefinitely, bypassing the domain password age policy."
 msgstr ""
 
-#: ../../user_domains.rst:404
+#: ../../user_domains.rst:425
 msgid ""
 "Required password change / User has to change password at next login (AD "
 "only) -- When enabled, the user is prompted to change their password at "
 "the next login."
 msgstr ""
 
-#: ../../user_domains.rst:409
+#: ../../user_domains.rst:430
 #, fuzzy
 msgid "A user can be added to one or more groups."
 msgstr "A user can be added to one or more groups."
 
-#: ../../user_domains.rst:411
+#: ../../user_domains.rst:432
 #, fuzzy
 msgid ""
 "Sometimes you need to block user access to services without deleting the "
@@ -16372,17 +16586,17 @@ msgstr ""
 "Sometimes you need to block user access to services without deleting the "
 "account. The safest approach is:"
 
-#: ../../user_domains.rst:414
+#: ../../user_domains.rst:435
 #, fuzzy
 msgid "(optionally) change the user's password with a random one"
 msgstr "(optionally) change the user's password with a random one"
 
-#: ../../user_domains.rst:415
+#: ../../user_domains.rst:436
 #, fuzzy
 msgid "disable the user using the ``Disable`` action from the three-dots menu"
 msgstr "disable the user using the ``Disable`` action from the three-dots menu"
 
-#: ../../user_domains.rst:417
+#: ../../user_domains.rst:438
 msgid ""
 "When a user is deleted, user data will not be removed. Deleting a user "
 "does not remove mailbox contents, home directories, or application-"
@@ -16390,35 +16604,35 @@ msgid ""
 "installed applications."
 msgstr ""
 
-#: ../../user_domains.rst:422
+#: ../../user_domains.rst:443
 msgid ""
 "User names must be unique within the same domain but can be reused across"
 " different domains hosted on the cluster."
 msgstr ""
 
-#: ../../user_domains.rst:428
+#: ../../user_domains.rst:449
 msgid "Import and export data"
 msgstr ""
 
-#: ../../user_domains.rst:430
+#: ../../user_domains.rst:451
 msgid ""
 "Users and groups can be managed in bulk with the *import* and *export "
 "data* actions. The supported data format is CSV_ (comma-separated values)"
 " with the following fields:"
 msgstr ""
 
-#: ../../user_domains.rst:436
+#: ../../user_domains.rst:457
 #, fuzzy
 msgid "*username*"
 msgstr "User name"
 
-#: ../../user_domains.rst:437
+#: ../../user_domains.rst:458
 msgid ""
 "*display_name* -- An empty value removes the LDAP ``displayName`` "
 "attribute."
 msgstr ""
 
-#: ../../user_domains.rst:439
+#: ../../user_domains.rst:460
 msgid ""
 "*password* -- If the password contains a comma (e.g. ``Nethesis,1234``), "
 "enclose this field in double quotes. An empty value leaves the password "
@@ -16426,59 +16640,59 @@ msgid ""
 "newly created users."
 msgstr ""
 
-#: ../../user_domains.rst:443
+#: ../../user_domains.rst:464
 msgid ""
 "*mail* -- A valid email address. Note that unlike Samba Active Directory,"
 " the OpenLDAP RFC2307 schema does not allow special characters. An empty "
 "value removes the corresponding ``mail`` LDAP attribute."
 msgstr ""
 
-#: ../../user_domains.rst:447
+#: ../../user_domains.rst:468
 msgid ""
 "*groups* -- A list of groups separated by the ``|`` (pipe) character. If "
 "a group does not exist yet, it is created on the fly during the import. "
 "If this field is empty, the user is removed from all groups."
 msgstr ""
 
-#: ../../user_domains.rst:450
+#: ../../user_domains.rst:471
 msgid "*locked* (boolean)"
 msgstr ""
 
-#: ../../user_domains.rst:451
+#: ../../user_domains.rst:472
 msgid "*must_change_password* (boolean)"
 msgstr ""
 
-#: ../../user_domains.rst:452
+#: ../../user_domains.rst:473
 msgid "*no_password_expiration* (boolean)"
 msgstr ""
 
-#: ../../user_domains.rst:454
+#: ../../user_domains.rst:475
 msgid ""
 "The fields must be present in the above, exact order. They correspond to "
 "the attributes described in the previous section; refer to :ref:`create-"
 "users-and-groups-section` for more information."
 msgstr ""
 
-#: ../../user_domains.rst:458
+#: ../../user_domains.rst:479
 msgid ""
 "The last three fields are boolean values. Accepted values are limited to "
 "the strings ``true`` and ``false``. The empty string, and any value other"
 " than ``true``, is interpreted as ``false``."
 msgstr ""
 
-#: ../../user_domains.rst:462
+#: ../../user_domains.rst:483
 msgid ""
 "For example, this CSV file includes an optional header line with the "
 "eight mandatory fields, followed by one record for user ``john``, who is "
 "a member of the ``devs`` and ``web`` groups."
 msgstr ""
 
-#: ../../user_domains.rst:474
+#: ../../user_domains.rst:495
 #, fuzzy
 msgid "User Management portal"
 msgstr "User Management portal"
 
-#: ../../user_domains.rst:476
+#: ../../user_domains.rst:497
 #, fuzzy
 msgid ""
 "The user management portal is a web application that allows any non-"
@@ -16489,7 +16703,7 @@ msgstr ""
 "administrator user to change their own password without the need for "
 "administrator intervention."
 
-#: ../../user_domains.rst:480
+#: ../../user_domains.rst:501
 msgid ""
 "Members of the Domain Admins group can also manage users and groups in "
 "the domain, independently from the Cluster Admin UI."
@@ -16497,53 +16711,53 @@ msgstr ""
 "I membri del gruppo Domain Admins possono anche gestire utenti e gruppi "
 "nel dominio, indipendentemente dal Cluster Admin UI."
 
-#: ../../user_domains.rst:483
+#: ../../user_domains.rst:504
 #, fuzzy
 msgid "The possible administrative actions are:"
 msgstr "Le credenziali amministrative predefinite del sistema operativo sono"
 
-#: ../../user_domains.rst:485
+#: ../../user_domains.rst:506
 msgid "group creation/modification"
 msgstr ""
 
-#: ../../user_domains.rst:486
+#: ../../user_domains.rst:507
 #, fuzzy
 msgid "user creation/modification"
 msgstr "Browser notifications"
 
-#: ../../user_domains.rst:487
+#: ../../user_domains.rst:508
 msgid "user disabled/enabled"
 msgstr ""
 
-#: ../../user_domains.rst:488
+#: ../../user_domains.rst:509
 #, fuzzy
 msgid "user password change"
 msgstr "Password age"
 
-#: ../../user_domains.rst:490
+#: ../../user_domains.rst:511
 #, fuzzy
 msgid "When creating a user, the following fields are available:"
 msgstr "When creating a user, the following fields are mandatory:"
 
-#: ../../user_domains.rst:495
+#: ../../user_domains.rst:516
 msgid "Group (optional field)"
 msgstr ""
 
-#: ../../user_domains.rst:496
+#: ../../user_domains.rst:517
 msgid "Email address (optional field)"
 msgstr ""
 
-#: ../../user_domains.rst:497
+#: ../../user_domains.rst:518
 msgid "Password never expires (optional field, AD only)"
 msgstr ""
 
-#: ../../user_domains.rst:498
+#: ../../user_domains.rst:519
 msgid ""
 "Required password change / User has to change password at next login "
 "(optional field, AD only)"
 msgstr ""
 
-#: ../../user_domains.rst:500
+#: ../../user_domains.rst:521
 #, fuzzy
 msgid ""
 "The portal is automatically configured on every instance of :ref"
@@ -16552,12 +16766,12 @@ msgstr ""
 "The portal is automatically configured on every instance of :ref"
 ":`active_directory-section` or :ref:`openldap-section` provider."
 
-#: ../../user_domains.rst:502
+#: ../../user_domains.rst:523
 #, fuzzy
 msgid "The portal is available at the following URL: ::"
 msgstr "The portal is available at the following URL: ::"
 
-#: ../../user_domains.rst:506
+#: ../../user_domains.rst:527
 #, fuzzy
 msgid ""
 "Where ``<fqdn_node>`` is the FQDN of the node where the provider is and "
@@ -16568,7 +16782,7 @@ msgstr ""
 "``<domain_name>`` is the name of the domain provided while configuring "
 "the domain."
 
-#: ../../user_domains.rst:508
+#: ../../user_domains.rst:529
 #, fuzzy
 msgid ""
 "Once reached the page, the user is prompted for login and they can "
@@ -16577,7 +16791,7 @@ msgstr ""
 "Once reached the page, the user is prompted for login and they can "
 "authenticate to the domain with user name and password."
 
-#: ../../user_domains.rst:510
+#: ../../user_domains.rst:531
 #, fuzzy
 msgid ""
 "If the login is successful, the user is directed to the ``User "
@@ -16592,7 +16806,7 @@ msgstr ""
 " The list of applications where the new password is effective is "
 "displayed next to the password changing form."
 
-#: ../../user_domains.rst:516
+#: ../../user_domains.rst:537
 msgid ""
 "https://social.technet.microsoft.com/wiki/contents/articles/34981.active-"
 "directory-best-practices-for-internal-domain-and-network-"
@@ -16602,7 +16816,7 @@ msgstr ""
 "directory-best-practices-for-internal-domain-and-network-"
 "names.aspx#Recommendation"
 
-#: ../../user_domains.rst:518
+#: ../../user_domains.rst:539
 #, fuzzy
 msgid ""
 "https://doc.dovecot.org/2.3/configuration_manual/authentication/ldap"
@@ -16687,10 +16901,11 @@ msgid "Adjust the firewall configuration on node 2: ::"
 msgstr "Correggere la configurazione del firewall ::"
 
 #: ../../vpn.rst:45
+#, fuzzy
 msgid ""
 "This procedure also works to change the listening port of the leader "
-"node. However, to make it effective, all worker nodes must be rebooted or"
-" the following command must be executed on each of them: ::"
+"node. However, to make it effective, the following command must be "
+"executed on each of them: ::"
 msgstr ""
 "Questa procedura funziona anche per cambiare la porta di ascolto del nodo"
 " leader. Tuttavia, per renderlo efficace, tutti i nodi del lavoratore "
@@ -28079,4 +28294,72 @@ msgstr ""
 #~ "to Windows clients`` (see :ref"
 #~ ":`active_directory-section`)."
 #~ msgstr ""
+
+#~ msgid ""
+#~ "Common errors include wrong file order"
+#~ " or mismatched certificate, private key,"
+#~ " and chain."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "It is always advisable to **plan "
+#~ "in advance where user data is "
+#~ "stored**. To decide the disk where "
+#~ "a named volume will reside before "
+#~ "installing an application refer to :ref"
+#~ ":`named-volume-disk`."
+#~ msgstr ""
+
+#~ msgid "Assign named volume to an additional disk"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Applications organize user data with "
+#~ "Podman named volumes, which normally "
+#~ "live under the default Podman paths "
+#~ "(see above). This section explains how"
+#~ " to preconfigure named volumes so "
+#~ "they are created under alternative base"
+#~ " paths and therefore on different "
+#~ "disks. We will consider the Samba "
+#~ "application, but the method works for"
+#~ " any NS8 rootless application that "
+#~ "relies on named volumes. This method "
+#~ "does not work with rootful applications."
+#~ msgstr ""
+
+#~ msgid "Create the destination application."
+#~ msgstr "Applicazioni smartphone"
+
+#~ msgid "access the ``Domains and users`` page"
+#~ msgstr "accedere alla pagina ``Domini e utenti``"
+
+#~ msgid ""
+#~ "``Provide shared folders and authentication"
+#~ " to Windows clients``. If enabled the"
+#~ " DC shared folders are accessible "
+#~ "from the local network. Only one "
+#~ "DC of the Active Directory domain "
+#~ "can offer shared folders, authentication "
+#~ "and DNS services. See :ref:`File server"
+#~ " <file-server-section>` for more "
+#~ "information."
+#~ msgstr ""
+#~ "``Fornire condivisioni di file e "
+#~ "autenticazione per i client Windows``. "
+#~ "Se abilitato, le cartelle condivise del"
+#~ " DC sono accessibili dalla rete "
+#~ "locale. Solo uno dei DC del "
+#~ "dominio Active Directory può offrire "
+#~ "cartelle condivise, autenticazione e servizi"
+#~ " DNS. Per ulteriori informazioni, "
+#~ "consultare :ref:`file-server-section`."
+
+#~ msgid ""
+#~ "select ``OpenLDAP`` on the dialog box"
+#~ " and click :guilabel:`Install provider`"
+#~ msgstr ""
+#~ "selezionare ``OpenLDAP`` nella finestra di "
+#~ "dialogo e fare clic su "
+#~ ":guilabel:`Installa provider`"
 
