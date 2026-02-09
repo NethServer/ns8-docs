@@ -9,18 +9,25 @@ directories to users and groups within an Active Directory domain.
 
 .. _Samba: http://www.samba.org
 
+Before installing Samba file server in a cluster node, evaluate the
+available disk space and estimate space requirements. Refer to section
+:ref:`disk-usage-section` for disk space management strategies. For
+example, if you mount an additional volume on ``/mnt/disk1`` or
+``/srv/disk1`` directories, the install procedure will then ask if you
+want to use it for Samba.
+
 Only one instance of Samba can be installed per NS8 node. The installation
 method depends on the role Samba will play in the Active Directory domain.
 
 - **Domain Controller**: To install a Samba instance as an Active
   Directory Domain Controller, refer to :ref:`active_directory-section`.
-  When configuring it as an account provider, ensure the ``Provide
-  shared folders and authentication to Windows clients`` switch is enabled.
+  When configuring it as an account provider, ensure the ``Provide shared
+  folders and authentication to Windows clients`` switch is enabled.
 
-  Only one AD domain controller can be configured with a LAN IP address
-  to serve Authentication, Shares, and DNS to Windows clients. Other DCs
-  are bound to the cluster private VPN and are accessible only to cluster
-  applications.
+  Only one AD domain controller can be configured with a LAN IP address to
+  serve Authentication, Shared folders, and DNS to Windows clients. Other
+  DCs are bound to the cluster private VPN and are accessible only to
+  cluster applications.
 
 - **Domain Member**: To install a Samba instance as an Active Directory
   Domain Member, start from the Software Center as with any other

@@ -67,7 +67,9 @@ exclusive access to a system resource, such as binding a fixed TCP port.
 
 Once started, ``Clone`` and ``Move`` actions run through these steps:
 
-1. Create the destination application.
+1. Create the destination application. This step may include the selection
+   of an additional volume for the application data, as explained in
+   :ref:`install-applications`.
 2. Start the data transfer between source and destination. During this
    step, the source remains up and running.
 3. Briefly stop the source application (when required by its data

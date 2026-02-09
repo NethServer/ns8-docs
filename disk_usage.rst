@@ -40,7 +40,7 @@ Application data includes:
 
 It is always advisable to **plan in advance where user data is stored**.
 To decide the disk where a named volume will reside before installing an
-application refer to :ref:`named-volume-disk`.
+application, refer to :ref:`named-volume-redirection`.
 
 However, when NS8 runs multiple applications, disk usage increases
 rapidly, and you may **run out of space**. If disk space runs low,
@@ -143,16 +143,24 @@ like: ::
 
 .. _named-volume-disk:
 
-Assign named volume to an additional disk
+.. _named-volume-redirection:
+
+Redirect Podman named volume mount points
 =========================================
 
 Applications organize user data with Podman named volumes, which normally
-live under the default Podman paths (see above). This section explains how
-to preconfigure named volumes so they are created under alternative base
-paths and therefore on different disks. We will consider the Samba
-application, but the method works for any NS8 rootless application that
-relies on named volumes. This method does not work with rootful
-applications.
+live under the default Podman paths (see above).
+
+This section explains how to preconfigure named volumes so they are
+created under alternative base paths and therefore on different disks. The
+same result can also be achieved from the cluster-admin UI, with more
+automation and fewer choices, when an application is installed for the
+first time (see :ref:`install-applications`), or when it is restored or
+cloned.
+
+Here we consider the Samba application, but the method works for any NS8
+rootless application that relies on named volumes. This method does not
+work with rootful applications.
 
 Redirecting named volumes helps achieve better storage organization,
 reduces pressure on the system disk, and aligns data placement with
