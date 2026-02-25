@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 14:45+0000\n"
+"POT-Creation-Date: 2026-02-25 16:17+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -1710,7 +1710,7 @@ msgstr ""
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dependencytrack.rst:16
 #: ../../dnsmasq.rst:23 ../../dokuwiki.rst:10 ../../ejabberd.rst:22
 #: ../../file_server.rst:40 ../../imapsync.rst:26 ../../index.rst:36
-#: ../../mail.rst:54 ../../mariadb.rst:11 ../../matrix.rst:12
+#: ../../lamp.rst:18 ../../mail.rst:54 ../../mariadb.rst:11 ../../matrix.rst:12
 #: ../../mattermost.rst:13 ../../minio.rst:12 ../../n8n.rst:11
 #: ../../netdata.rst:20 ../../nextcloud.rst:21 ../../odoo.rst:20
 #: ../../passbolt.rst:12 ../../piler.rst:30 ../../roundcube.rst:19
@@ -4735,7 +4735,7 @@ msgstr ""
 msgid "About"
 msgstr "Informazioni"
 
-#: ../../index.rst:26 ../../install.rst:5
+#: ../../index.rst:26 ../../install.rst:5 ../../lamp.rst:13
 msgid "Installation"
 msgstr "Installazione"
 
@@ -4747,7 +4747,7 @@ msgstr "Applicazioni"
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:85
+#: ../../index.rst:86
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -4995,7 +4995,7 @@ msgstr ""
 msgid "The default credentials for logging in to the cluster-admin interface are:"
 msgstr "Le credenziali di default per accedere a cluster-admin sono"
 
-#: ../../install.rst:118 ../../odoo.rst:55
+#: ../../install.rst:118 ../../lamp.rst:128 ../../odoo.rst:55
 msgid "Username: ``admin``"
 msgstr "Nome utente: ``admin``"
 
@@ -5209,6 +5209,365 @@ msgstr ""
 "I bug possono essere segnalati e discussi nel `forum community "
 "<https://community.nethserver.org>`_. L'issue tracker pubblico è "
 "disponibile su `GitHub <https://github.com/NethServer/dev/issues>`_."
+
+#: ../../lamp.rst:5
+msgid "Lamp"
+msgstr ""
+
+#: ../../lamp.rst:7
+msgid ""
+"Lamp is a containerized environment that encapsulates a LAMP stack, which"
+" includes Linux (Ubuntu), Apache (web server), MariaDB (database), and "
+"PHP (scripting language). This container allows for easy deployment and "
+"management of web applications, providing consistency, portability, and "
+"isolation across different environments."
+msgstr ""
+
+#: ../../lamp.rst:15
+#, fuzzy
+msgid "The application can be installed from the :ref:`software_center-section`."
+msgstr ""
+"You can install multiple SOGo instances on the same node from the :ref"
+":`software_center-section`."
+
+#: ../../lamp.rst:20
+msgid ""
+"After installation, access the application settings page to configure "
+"your Lamp instance."
+msgstr ""
+
+#: ../../lamp.rst:23
+#, fuzzy
+msgid "Main settings"
+msgstr "Impostazioni generali"
+
+#: ../../lamp.rst:27
+msgid ""
+"DNS must be configured with your DNS provider to point to your server for"
+" both the FQDN and Let's Encrypt certificate to work properly."
+msgstr ""
+
+#: ../../lamp.rst:29
+#, fuzzy
+msgid "The following settings are available during configuration:"
+msgstr "The following settings are available Inside the ``Advanced`` section:"
+
+#: ../../lamp.rst:31
+msgid ""
+"**Fully Qualified Domain Name (FQDN)**: set the domain name for your web "
+"application, for example, ``webapp1.example.org``"
+msgstr ""
+
+#: ../../lamp.rst:32
+msgid ""
+"**Request Let's Encrypt certificate**: automatically obtain and configure"
+" a free SSL certificate"
+msgstr ""
+
+#: ../../lamp.rst:33
+msgid "**HTTP to HTTPS**: enable automatic redirection from HTTP to HTTPS"
+msgstr ""
+
+#: ../../lamp.rst:34
+msgid ""
+"**Enable phpMyAdmin**: enable or disable the phpMyAdmin web interface "
+"(enabled by default)"
+msgstr ""
+
+#: ../../lamp.rst:35
+#, fuzzy
+msgid "**MySQL Configuration**:"
+msgstr "Configurazione DNS"
+
+#: ../../lamp.rst:37
+msgid ""
+"**MySQL Admin Password**: password for the MySQL root user to manage all "
+"databases"
+msgstr ""
+
+#: ../../lamp.rst:38
+msgid ""
+"**Create Database and User**: optionally create a database with a "
+"dedicated user during setup"
+msgstr ""
+
+#: ../../lamp.rst:40
+msgid "**Database Name**: name of the database to create"
+msgstr ""
+
+#: ../../lamp.rst:41
+msgid "**Database User**: username for database access"
+msgstr ""
+
+#: ../../lamp.rst:42
+msgid "**Database User Password**: password for the database user"
+msgstr ""
+
+#: ../../lamp.rst:44
+#, fuzzy
+msgid "**PHP Configuration**:"
+msgstr "Configurazione DNS"
+
+#: ../../lamp.rst:46
+msgid ""
+"**PHP Version**: select the PHP version to use (customizable to match "
+"your application requirements)"
+msgstr ""
+
+#: ../../lamp.rst:47
+msgid ""
+"**PHP Upload Max Filesize**: maximum allowed size for file uploads in "
+"megabytes (default: 100)"
+msgstr ""
+
+#: ../../lamp.rst:48
+msgid ""
+"**PHP Memory Limit**: maximum amount of memory a PHP script can consume "
+"in megabytes"
+msgstr ""
+
+#: ../../lamp.rst:49
+msgid ""
+"**PHP Max Execution Time Limit**: maximum time in seconds a PHP script is"
+" allowed to run before being terminated"
+msgstr ""
+
+#: ../../lamp.rst:52
+#, fuzzy
+msgid ""
+"After configuring these settings, click :guilabel:`Save` to apply the "
+"changes."
+msgstr "cliccare sul pulsante :guilabel:`Save`"
+
+#: ../../lamp.rst:55 ../../sogo.rst:55
+#, fuzzy
+msgid "Usage"
+msgstr "Usage"
+
+#: ../../lamp.rst:58
+#, fuzzy
+msgid "Application deployment"
+msgstr "Applicazioni"
+
+#: ../../lamp.rst:60
+msgid ""
+"Lamp provides a ``/app`` directory as the storage location for your web "
+"application files."
+msgstr ""
+
+#: ../../lamp.rst:62
+msgid "To access the application directory and deploy your files:"
+msgstr ""
+
+#: ../../lamp.rst:64
+msgid "Connect to the server via SSH"
+msgstr ""
+
+#: ../../lamp.rst:65
+#, fuzzy
+msgid "Use the following command to access the Apache container::"
+msgstr "Eseguire il seguente comando per avviare la sessione di supporto: ::"
+
+#: ../../lamp.rst:69 ../../lamp.rst:140
+msgid "Replace ``lamp1`` with your actual module instance name."
+msgstr ""
+
+#: ../../lamp.rst:71
+msgid "Place your web application files in the working directory"
+msgstr ""
+
+#: ../../lamp.rst:72
+msgid ""
+"The files will be automatically served through the FQDN configured in the"
+" web interface"
+msgstr ""
+
+#: ../../lamp.rst:75
+msgid "Install your PHP source code"
+msgstr ""
+
+#: ../../lamp.rst:77
+#, fuzzy
+msgid ""
+"You can download your web application files using one of the following "
+"methods:"
+msgstr "Al termine della migrazione delle applicazioni, il sistema:"
+
+#: ../../lamp.rst:79
+msgid "**Git**"
+msgstr ""
+
+#: ../../lamp.rst:81
+msgid "Clone a Git repository to download your application code::"
+msgstr ""
+
+#: ../../lamp.rst:85
+#, fuzzy
+msgid "**Wget**"
+msgstr "**Beta 2**"
+
+#: ../../lamp.rst:87
+msgid ""
+"Download files using wget, a command-line tool for downloading files from"
+" the web::"
+msgstr ""
+
+#: ../../lamp.rst:91
+msgid "**Rsync**"
+msgstr ""
+
+#: ../../lamp.rst:93
+msgid "Use rsync to synchronize files from a remote server::"
+msgstr ""
+
+#: ../../lamp.rst:97
+msgid "**SFTP**"
+msgstr ""
+
+#: ../../lamp.rst:99
+msgid "Open an interactive SFTP session to transfer files securely::"
+msgstr ""
+
+#: ../../lamp.rst:103
+msgid "**FTP**"
+msgstr ""
+
+#: ../../lamp.rst:105
+msgid "Use standard FTP protocol for file transfer::"
+msgstr ""
+
+#: ../../lamp.rst:109
+msgid "**FTP-SSL**"
+msgstr ""
+
+#: ../../lamp.rst:111
+msgid "Use FTP with SSL/TLS encryption for secure file transfer::"
+msgstr ""
+
+#: ../../lamp.rst:117
+msgid ""
+"After deploying your web application, delete the default ``phpinfo.php`` "
+"file to avoid exposing sensitive information about your server "
+"configuration."
+msgstr ""
+
+#: ../../lamp.rst:121 ../../odoo.rst:74
+#, fuzzy
+msgid "Database management"
+msgstr "Gestione cluster"
+
+#: ../../lamp.rst:123
+msgid ""
+"PhpMyAdmin is included and accessible through your domain at the "
+"``/phpmyadmin`` path (e.g., ``https://webapp1.example.org/phpmyadmin``)."
+msgstr ""
+
+#: ../../lamp.rst:126
+#, fuzzy
+msgid "Default credentials:"
+msgstr "Le credenziali di default sono:"
+
+#: ../../lamp.rst:129
+msgid "Password: the MySQL admin password set during configuration"
+msgstr ""
+
+#: ../../lamp.rst:133
+msgid ""
+"Change the default PhpMyAdmin access credentials immediately after first "
+"login for security purposes."
+msgstr ""
+
+#: ../../lamp.rst:136
+msgid "You can also connect directly to the database from the command line::"
+msgstr ""
+
+#: ../../lamp.rst:143
+#, fuzzy
+msgid "Advanced configuration"
+msgstr "DNS configuration"
+
+#: ../../lamp.rst:146
+#, fuzzy
+msgid "Scheduled tasks"
+msgstr "Aggiornamenti programmati"
+
+#: ../../lamp.rst:148
+msgid "You can configure cron jobs for your Lamp instance using::"
+msgstr ""
+
+#: ../../lamp.rst:152
+msgid "Here are some example cronjobs::"
+msgstr ""
+
+#: ../../lamp.rst:158
+msgid "To verify configured cron jobs::"
+msgstr ""
+
+#: ../../lamp.rst:163
+msgid "Custom PHP and Apache directives"
+msgstr ""
+
+#: ../../lamp.rst:165
+msgid ""
+"A ``.htaccess`` file is automatically created in the ``/app`` directory "
+"on first start, pre-populated with commented-out examples of common "
+"directives. Edit it directly to apply custom PHP or Apache settings — it "
+"will be read and applied by Apache accordingly::"
+msgstr ""
+
+#: ../../lamp.rst:171
+msgid "Then edit the file::"
+msgstr ""
+
+#: ../../lamp.rst:176
+msgid "Custom MySQL directives"
+msgstr ""
+
+#: ../../lamp.rst:178
+msgid ""
+"To tune MySQL, edit the configuration files stored in the module folder "
+"(they are included in the backup). Enter the module environment first::"
+msgstr ""
+
+#: ../../lamp.rst:183
+msgid "Two configuration files are available:"
+msgstr ""
+
+#: ../../lamp.rst:185
+msgid "``conf.d/mysql.cnf``: client and server options"
+msgstr ""
+
+#: ../../lamp.rst:186
+msgid "``conf.d/mysqldump.cnf``: options for ``mysqldump`` (used during backups)"
+msgstr ""
+
+#: ../../lamp.rst:188
+msgid ""
+"For example, to increase ``max_allowed_packet`` in both the client and "
+"server::"
+msgstr ""
+
+#: ../../lamp.rst:195
+msgid "After modifying the configuration, restart the module::"
+msgstr ""
+
+#: ../../lamp.rst:200
+#, fuzzy
+msgid "Email sending"
+msgstr "Impostazioni generali"
+
+#: ../../lamp.rst:202
+msgid ""
+"At every start, the module reads the cluster smarthost configuration and "
+"writes the corresponding SMTP parameters inside the container as "
+"environment variables. These variables are available to the web "
+"application, but **the application itself must be configured to use "
+"them** — no outgoing mail is set up automatically."
+msgstr ""
+
+#: ../../lamp.rst:207
+msgid "To inspect the SMTP settings available inside the container::"
+msgstr ""
 
 #: ../../log_server.rst:7 ../../migration.rst:381
 #, fuzzy
@@ -9974,11 +10333,6 @@ msgstr "Inserisci e conferma la nuova password."
 msgid "The session will be closed, and you will need to log in again."
 msgstr "La sessione sarà chiusa, e sarà necessario accedere di nuovo."
 
-#: ../../odoo.rst:74
-#, fuzzy
-msgid "Database management"
-msgstr "Gestione cluster"
-
 #: ../../odoo.rst:76
 msgid ""
 "From the login screen, it will be possible to manage databases by "
@@ -14178,11 +14532,6 @@ msgstr "enable ``Request LE certificate`` option accordingly to your needs"
 #, fuzzy
 msgid "bind the SOGo instance to an existing ``Mail server``"
 msgstr "bind the SOGo instance to an existing ``Mail server``"
-
-#: ../../sogo.rst:55
-#, fuzzy
-msgid "Usage"
-msgstr "Usage"
 
 #: ../../sogo.rst:57
 #, fuzzy
