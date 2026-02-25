@@ -29,8 +29,9 @@ Main settings
 The following settings are available during configuration:
 
 * **Fully Qualified Domain Name (FQDN)**: set the domain name for your web application, for example, ``webapp1.example.org``
-* **HTTP to HTTPS**: enable automatic redirection from HTTP to HTTPS
 * **Request Let's Encrypt certificate**: automatically obtain and configure a free SSL certificate
+* **HTTP to HTTPS**: enable automatic redirection from HTTP to HTTPS
+* **Enable phpMyAdmin**: enable or disable the phpMyAdmin web interface (enabled by default)
 * **MySQL Configuration**:
 
   * **MySQL Admin Password**: password for the MySQL root user to manage all databases
@@ -46,6 +47,7 @@ The following settings are available during configuration:
   * **PHP Upload Max Filesize**: maximum allowed size for file uploads in megabytes (default: 100)
   * **PHP Memory Limit**: maximum amount of memory a PHP script can consume in megabytes
   * **PHP Max Execution Time Limit**: maximum time in seconds a PHP script is allowed to run before being terminated
+
 
 After configuring these settings, click :guilabel:`Save` to apply the changes.
 
@@ -156,3 +158,53 @@ Here are some example cronjobs::
 To verify configured cron jobs::
 
   podman exec -ti apache2-app crontab -l
+
+Custom PHP and Apache directives
+---------------------------------
+
+A ``.htaccess`` file is automatically created in the ``/app`` directory on first start,
+pre-populated with commented-out examples of common directives. Edit it directly to apply
+custom PHP or Apache settings — it will be read and applied by Apache accordingly::
+
+  runagent -m lamp1 podman exec -ti apache2-app bash
+
+Then edit the file::
+
+  nano .htaccess
+
+Custom MySQL directives
+------------------------
+
+To tune MySQL, edit the configuration files stored in the module folder (they are included
+in the backup). Enter the module environment first::
+
+  runagent -m lamp1
+
+Two configuration files are available:
+
+* ``conf.d/mysql.cnf``: client and server options
+* ``conf.d/mysqldump.cnf``: options for ``mysqldump`` (used during backups)
+
+For example, to increase ``max_allowed_packet`` in both the client and server::
+
+  nano conf.d/mysql.cnf
+
+  [mysql]
+  max_allowed_packet=500M
+
+After modifying the configuration, restart the module::
+
+  systemctl restart --user lamp
+
+Email sending
+-------------
+
+At every start, the module reads the cluster smarthost configuration and writes the
+corresponding SMTP parameters inside the container as environment variables. These
+variables are available to the web application, but **the application itself must be
+configured to use them** — no outgoing mail is set up automatically.
+
+To inspect the SMTP settings available inside the container::
+
+  runagent -m lamp1 podman exec -ti apache2-app env | grep -i smtp
+
