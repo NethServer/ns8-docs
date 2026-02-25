@@ -131,6 +131,12 @@ Default credentials:
    Change the default PhpMyAdmin access credentials immediately after first login
    for security purposes.
 
+You can also connect directly to the database from the command line::
+
+  runagent -m lamp1 podman exec -ti apache2-app mysql
+
+Replace ``lamp1`` with your actual module instance name.
+
 Advanced configuration
 ======================
 
