@@ -31,7 +31,8 @@ After the installation:
 2. enter a valid FQDN inside the ``Host name`` field
 3. enable ``Let's Encrypt`` option accordingly to your needs
 4. setup a ``Password for user 'admin'``, or leave the default one (``Nethesis,1234``)
-5. click the :guilabel:`Save` button
+5. enable ``Manage email sending from Nextcloud admin panel`` to override the cluster smarthost settings
+6. click the :guilabel:`Save` button
 
 As default, Nextcloud has its own user database.
 You can also connect the instance to an existing :ref:`user domain <user-domains-section>`: all users from the
