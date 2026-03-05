@@ -4,23 +4,34 @@
 Backup and restore
 ==================
 
-Access the ``Backup`` page to manage the backup and restore of individual
-applications and global cluster configuration. If you have a single-node
-cluster and want to restore it on a new NS8 node, see
+The ``Backup and restore`` page manages **backup destinations** and
+**schedules**, and allows the download of the cluster backup, a small
+GPG-encrypted file containing cluster-wide configurations, like the backup
+destination settings, necessary to quickly restore applications. If you
+have a single-node cluster and want to restore it on a new NS8 node, see
 :ref:`disaster_recovery-section`.
 
-The first time you access the Backup page, you need to create a secret
-password to encrypt the cluster configuration file.
+The first time you access the ``Backup and restore`` page, you need to
+create a secret password to encrypt the cluster backup file.
 
-Once the cluster backup password is set, the full Backup page is
-displayed. It is divided into two main sections:
+Once the cluster backup password is set, the full ``Backup and restore``
+page is displayed. It is divided into:
 
-- **Cluster configuration**: Download the small cluster backup file and
+- **Download cluster backup**: Download the small cluster backup file and
   change its encryption password. See :ref:`cluster_backup-section` for
   more information.
 
-- **Applications**: Define backup destinations, set automated backup
-  schedules and retention rules, and restore individual applications.
+- **Backup destinations**: decide where backup data can be sent, for
+  example a remote S3 hosting service or a local SMB share. The
+  destinations embed access secrets and an end-to-end backup encryption key.
+
+- **Scheduled backups**: plan the backup runs at specific times, the
+  retention policy, and what applications are included.
+
+Finally, under the ``Restore`` tab, it is possible to start the restore of
+individual applications. See :ref:`application_restore-section`.
+
+The next sections illustrate each function in detail.
 
 .. _backup-destination:
 
@@ -31,8 +42,8 @@ A backup destination is where the backup data of applications is saved.
 Defining a destination is a prerequisite to schedule a backup or restore
 an application.
 
-Access the ``Backup`` page, click on the :guilabel:`Add destination`
-button, and choose a provider. Supported providers are:
+Access the ``Backup and restore`` page, click on the :guilabel:`Add
+destination` button, and choose a provider. Supported providers are:
 
 * `Backblaze B2`_
 * `Amazon S3`_
@@ -46,6 +57,11 @@ button, and choose a provider. Supported providers are:
 .. _`Amazon S3`: https://aws.amazon.com/s3/
 
 Fill in the required fields for the chosen provider.
+
+If adding a previously used destination (i.e., it already has data
+inside), you must fill the ``Data encryption key`` field under the
+``Advanced`` section, otherwise existing backups cannot be opened. For new
+destinations leave the field empty to generate a random key.
 
 The backup procedure generates a two-level structure where application
 instances are grouped by type at the first level, and by a UUID-named
@@ -61,15 +77,9 @@ folder at the second level. For example: ::
    └─ 652ea526-b0dc-4bfb-a356-8a841b22bbd2/
 
 Each UUID directory contains a Restic_ repository. All Restic repositories
-under the same backup destination share the same encryption key. This key
-can be automatically generated when the destination is created.
+under the same backup destination share the same data encryption key.
 
 .. _Restic: https://restic.readthedocs.io
-
-If adding a previously used destination (i.e., it has Restic directories
-inside), you must fill the `Data encryption key` field under the
-`Advanced` section with the previous key value, otherwise existing backups
-cannot be opened.
 
 Low-level access to Restic repositories can be performed using the
 restic-wrapper_ command, as documented in the NS8 Developer's Manual.
@@ -116,10 +126,10 @@ attached storage, like an external USB disk. Follow this procedure:
 Schedule application backup
 ===========================
 
-To schedule the backup of existing applications:
+To schedule the backup of installed applications:
 
 * Click on the :guilabel:`Schedule backup` button.
-* Select the application instances to be backed up.
+* Select the applications to include.
 * Choose one backup destination.
 * Set the day, time, and retention policy for the backup.
 * Enter a name for the backup schedule.
@@ -129,8 +139,8 @@ To schedule the backup of existing applications:
 To manually execute a backup, click the ``Run backup now`` item from the
 three-dots menu of the scheduled backup.
 
-To add more instances to an existing backup, click the ``Edit`` item from
-the three-dots menu of the scheduled backup.
+To change which applications are included in an existing backup, click
+the ``Edit`` item from the three-dots menu of the scheduled backup.
 
 After the first backup run, the backup status is reported under ``Backup >
 Schedules > See details``.
@@ -143,16 +153,23 @@ Restore applications
 To restore an application, at least one backup destination must be
 available.
 
-* Click on the :guilabel:`Restore an app` button.
+If no destinations are present and you have an encrypted cluster backup
+file, go to the ``Backup and restore`` page and click :guilabel:`Import
+destinations` to quickly restore them.
+
+Once destinations are defined, click the ``Restore`` tab and follow this
+procedure:
+
+* Click on the :guilabel:`Restore application` button.
 * A dialog box lists all applications found in the configured backup
   destinations. Select the application you want to restore.
 * If the selected application is already installed, a ``Replace existing
-  app`` checkbox becomes visible. When enabled, the existing instance will
-  be removed during the restore.
-* Select an older backup snapshot if the latest one is not suitable.
-* Select the target node. Note that in some cases, restoring to certain
-  cluster nodes may be restricted due to application policies or node
-  resource limitations.
+  app`` checkbox becomes visible. When enabled, the existing application will
+  be removed automatically at the end of the restore procedure.
+* Select the backup snapshot from the list.
+* Select the restore target node. Note that in some cases, restoring to
+  certain cluster nodes may be restricted due to application policies or
+  node resource limitations.
 * Click on the :guilabel:`Restore` button.
 
 Some core applications have special behavior during restore:
@@ -190,32 +207,33 @@ a backup snapshot. For more information, refer to:
 Cluster backup
 ==============
 
-The cluster configuration backup contains all required data for
+The cluster backup contains all required data for
 :ref:`disaster_recovery-section`, including destination configurations and
 their data encryption keys, which are also necessary for restoring
 individual application backups. It is a compressed JSON file encrypted
 with GPG.
 
-The first time the ``Backup`` page is accessed, you must set an encryption
-password and store it in a safe place. A new encryption password is needed
-after a new leader node is elected (see :ref:`node-promotion-section`).
+The first time the ``Backup and restore`` page is accessed, you must set
+an encryption password and store it in a safe place. A new encryption
+password is needed after a new leader node is elected (see
+:ref:`node-promotion-section`).
 
-The cluster configuration backup is automatically copied to backup
-destinations during scheduled runs, ensuring up-to-date backups of both
-your data and the cluster setup. If the cluster has an active
-:ref:`subscription <subscription-section>` that includes cloud backup of
-the cluster configuration, the cluster configuration backup is also
-available from the subscription portal.
+The cluster backup is automatically copied to backup destinations during
+scheduled runs, ensuring up-to-date backups of both your data and the
+cluster setup. If the cluster has an active :ref:`subscription
+<subscription-section>` that includes cloud backup of the cluster
+configuration, the cluster backup is also available from the subscription
+portal.
 
-Periodically download the cluster configuration backup and keep it in a
-safe place. Click on the :guilabel:`Download cluster backup` button under
-the ``Cluster configuration`` section of the ``Backup`` page.
+Periodically download the cluster backup and keep it in a safe place.
+Click on the :guilabel:`Download cluster backup` button of the ``Backup
+and restore`` page.
 
 .. note::
 
-   If you lose the cluster configuration backup, you can still restore
-   applications to another cluster if you know the data encryption
-   password of the backup destination.
+   If you lose the cluster backup, you can still restore applications to
+   another cluster only if you know the data encryption password of the
+   backup destination.
 
 To inspect the content of the downloaded file, use the following command,
 replacing "SECRET" with your encryption password: ::
@@ -228,10 +246,12 @@ replacing "SECRET" with your encryption password: ::
 Disaster recovery
 =================
 
-You can restore a previously configured cluster using the disaster
-recovery procedure. You will need a :ref:`cluster configuration backup
-<cluster_backup-section>`:
+The disaster recovery procedure is designed for the restoration of a
+**single-node cluster**. You just need the original :ref:`cluster backup
+<cluster_backup-section>` file.
 
+0. Make sure the new system has enough free disk space. The restore
+   procedure does not check the free disk space.
 1. :ref:`Install <install-section>` a new cluster and log in using the
    default credentials.
 2. Change the default administrator password.
