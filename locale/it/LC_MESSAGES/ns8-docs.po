@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 16:17+0000\n"
+"POT-Creation-Date: 2026-03-05 17:53+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -25,36 +25,37 @@ msgstr "Backup e ripristino"
 
 #: ../../backup.rst:7
 msgid ""
-"Access the ``Backup`` page to manage the backup and restore of individual"
-" applications and global cluster configuration. If you have a single-node"
-" cluster and want to restore it on a new NS8 node, see :ref"
-":`disaster_recovery-section`."
+"The ``Backup and restore`` page manages **backup destinations** and "
+"**schedules**, and allows the download of the cluster backup, a small "
+"GPG-encrypted file containing cluster-wide configurations, like the "
+"backup destination settings, necessary to quickly restore applications. "
+"If you have a single-node cluster and want to restore it on a new NS8 "
+"node, see :ref:`disaster_recovery-section`."
 msgstr ""
-"Accedi alla pagina ``Backup`` per gestire il backup e il ripristino delle"
-" singole applicazioni e la configurazione globale dei cluster. Se hai un "
-"cluster a singolo nodo e vuoi ripristinarlo su un nuovo nodo NS8, vedi "
-":ref:`disaster_recovery-section`."
 
-#: ../../backup.rst:12
+#: ../../backup.rst:14
+#, fuzzy
 msgid ""
-"The first time you access the Backup page, you need to create a secret "
-"password to encrypt the cluster configuration file."
+"The first time you access the ``Backup and restore`` page, you need to "
+"create a secret password to encrypt the cluster backup file."
 msgstr ""
 "La prima volta che si accede alla pagina di backup, è necessario creare "
 "una password segreta per crittografare il file di configurazione del "
 "cluster."
 
-#: ../../backup.rst:15
+#: ../../backup.rst:17
+#, fuzzy
 msgid ""
-"Once the cluster backup password is set, the full Backup page is "
-"displayed. It is divided into two main sections:"
+"Once the cluster backup password is set, the full ``Backup and restore`` "
+"page is displayed. It is divided into:"
 msgstr ""
 "Una volta impostata la password di backup del cluster, viene visualizzata"
 " la pagina di backup completa. È diviso in due sezioni principali:"
 
-#: ../../backup.rst:18
+#: ../../backup.rst:20
+#, fuzzy
 msgid ""
-"**Cluster configuration**: Download the small cluster backup file and "
+"**Download cluster backup**: Download the small cluster backup file and "
 "change its encryption password. See :ref:`cluster_backup-section` for "
 "more information."
 msgstr ""
@@ -62,21 +63,36 @@ msgstr ""
 "modifica la password di crittografia. Vedere :ref:`cluster_backup-"
 "section` per ulteriori informazioni."
 
-#: ../../backup.rst:22
+#: ../../backup.rst:24
 msgid ""
-"**Applications**: Define backup destinations, set automated backup "
-"schedules and retention rules, and restore individual applications."
+"**Backup destinations**: decide where backup data can be sent, for "
+"example a remote S3 hosting service or a local SMB share. The "
+"destinations embed access secrets and an end-to-end backup encryption "
+"key."
 msgstr ""
-"**Applicazioni**: Definire le destinazioni di backup, impostare i "
-"programmi di backup automatizzati e le regole di ritenzione e "
-"ripristinare le singole applicazioni."
 
 #: ../../backup.rst:28
+msgid ""
+"**Scheduled backups**: plan the backup runs at specific times, the "
+"retention policy, and what applications are included."
+msgstr ""
+
+#: ../../backup.rst:31
+msgid ""
+"Finally, under the ``Restore`` tab, it is possible to start the restore "
+"of individual applications. See :ref:`application_restore-section`."
+msgstr ""
+
+#: ../../backup.rst:34
+msgid "The next sections illustrate each function in detail."
+msgstr ""
+
+#: ../../backup.rst:39
 #, fuzzy
 msgid "Backup destination"
 msgstr "Backup e ripristino"
 
-#: ../../backup.rst:30
+#: ../../backup.rst:41
 msgid ""
 "A backup destination is where the backup data of applications is saved. "
 "Defining a destination is a prerequisite to schedule a backup or restore "
@@ -86,46 +102,54 @@ msgstr ""
 "applicazioni. Definire una destinazione è un prerequisito per pianificare"
 " un backup o ripristinare un'applicazione."
 
-#: ../../backup.rst:34
+#: ../../backup.rst:45
 #, fuzzy
 msgid ""
-"Access the ``Backup`` page, click on the :guilabel:`Add destination` "
-"button, and choose a provider. Supported providers are:"
+"Access the ``Backup and restore`` page, click on the :guilabel:`Add "
+"destination` button, and choose a provider. Supported providers are:"
 msgstr ""
 "Accedi alla pagina ``Backup``, clicca sul pulsante :guilabel:` Add "
 "repository` e scegli un provider. Attualmente i fornitori supportati "
 "sono:"
 
-#: ../../backup.rst:37
+#: ../../backup.rst:48
 msgid "`Backblaze B2`_"
 msgstr "Traduzione:"
 
-#: ../../backup.rst:38
+#: ../../backup.rst:49
 msgid "`Amazon S3`_"
 msgstr "Traduzione:"
 
-#: ../../backup.rst:39
+#: ../../backup.rst:50
 msgid "`Azure Blob Storage`_"
 msgstr "`Azure Blob Storage`_"
 
-#: ../../backup.rst:40
+#: ../../backup.rst:51
 msgid "Generic S3, like :ref:`MinIO <minio-section>`"
 msgstr "S3 generico come :ref:`MinIO <minio-section>`"
 
-#: ../../backup.rst:41
+#: ../../backup.rst:52
 msgid "Windows file share, through SMB2/3 protocols"
 msgstr "Condividi file di Windows, tramite protocolli SMB2/3"
 
-#: ../../backup.rst:42
+#: ../../backup.rst:53
 msgid ":ref:`Local storage <local-storage>`, attached to a node of the cluster"
 msgstr ":ref:`Local storage <local-storage>`, allegato ad un nodo del cluster"
 
-#: ../../backup.rst:48
+#: ../../backup.rst:59
 #, fuzzy
 msgid "Fill in the required fields for the chosen provider."
 msgstr "Compila i campi richiesti a seconda del fornitore scelto."
 
-#: ../../backup.rst:50
+#: ../../backup.rst:61
+msgid ""
+"If adding a previously used destination (i.e., it already has data "
+"inside), you must fill the ``Data encryption key`` field under the "
+"``Advanced`` section, otherwise existing backups cannot be opened. For "
+"new destinations leave the field empty to generate a random key."
+msgstr ""
+
+#: ../../backup.rst:66
 msgid ""
 "The backup procedure generates a two-level structure where application "
 "instances are grouped by type at the first level, and by a UUID-named "
@@ -135,31 +159,19 @@ msgstr ""
 "istanze delle applicazioni sono raggruppate per tipo al primo livello, e "
 "da una cartella denominata UUID al secondo livello. Per esempio:"
 
-#: ../../backup.rst:63
+#: ../../backup.rst:79
+#, fuzzy
 msgid ""
 "Each UUID directory contains a Restic_ repository. All Restic "
-"repositories under the same backup destination share the same encryption "
-"key. This key can be automatically generated when the destination is "
-"created."
+"repositories under the same backup destination share the same data "
+"encryption key."
 msgstr ""
 "Ogni directory UUID contiene un repository Restic_. Tutti i repository "
 "Restic sotto la stessa destinazione di backup condividono la stessa "
 "chiave di crittografia. Questa chiave può essere generata automaticamente"
 " quando la destinazione viene creata."
 
-#: ../../backup.rst:69
-msgid ""
-"If adding a previously used destination (i.e., it has Restic directories "
-"inside), you must fill the `Data encryption key` field under the "
-"`Advanced` section with the previous key value, otherwise existing "
-"backups cannot be opened."
-msgstr ""
-"Se si aggiunge una destinazione precedentemente utilizzata (cioè, ha "
-"directory Restic all'interno), è necessario riempire il campo di chiave "
-"di crittografia `Data' sotto la sezione `Advanced` con il valore chiave "
-"precedente, altrimenti i backup esistenti non possono essere aperti."
-
-#: ../../backup.rst:74
+#: ../../backup.rst:84
 msgid ""
 "Low-level access to Restic repositories can be performed using the "
 "restic-wrapper_ command, as documented in the NS8 Developer's Manual."
@@ -168,11 +180,11 @@ msgstr ""
 "utilizzando il comando restic-wrapper_, come documentato nel Manuale NS8 "
 "Sviluppatore."
 
-#: ../../backup.rst:82
+#: ../../backup.rst:92
 msgid "Local storage"
 msgstr "Local storage"
 
-#: ../../backup.rst:84
+#: ../../backup.rst:94
 #, fuzzy
 msgid ""
 "The ``Local storage`` destination allows storing backup data on locally "
@@ -181,32 +193,32 @@ msgstr ""
 "Se si desidera memorizzare i dati di backup in uno storage collegato "
 "localmente, come un disco USB esterno o simile, seguire questa procedura:"
 
-#: ../../backup.rst:87
+#: ../../backup.rst:97
 #, fuzzy
 msgid "Format the disk with a supported filesystem, e.g., XFS: ::"
 msgstr "Formattare il disco con un filesystem supportato, ad esempio XFS: ::"
 
-#: ../../backup.rst:91
+#: ../../backup.rst:101
 #, fuzzy
 msgid "Create a Podman volume named ``backup00``: ::"
 msgstr "Creare un volume Podman chiamato ``backup00`` per esso: ::"
 
-#: ../../backup.rst:99
+#: ../../backup.rst:109
 msgid "Configure the ``rclone-webdav.service`` unit to use that volume: ::"
 msgstr "Configura il ``rclone-webdav.service`` unità per l'uso di tale volume: ::"
 
-#: ../../backup.rst:103
+#: ../../backup.rst:113
 msgid "Restart the service. The disk is mounted automatically: ::"
 msgstr "Riavviare il servizio. Il disco viene montato automaticamente: ::"
 
-#: ../../backup.rst:109
+#: ../../backup.rst:119
 #, fuzzy
 msgid "The disk is unmounted when the ``rclone-webdav`` service is stopped."
 msgstr ""
 "Il disco viene smontato quando viene interrotto il servizio ``rclone-"
 "webdav``"
 
-#: ../../backup.rst:111
+#: ../../backup.rst:121
 #, fuzzy
 msgid ""
 "Remove the default volume used by the service, as it is no longer needed."
@@ -215,48 +227,48 @@ msgstr ""
 "Rimuovere il volume predefinito utilizzato dal servizio, perché non è più"
 " utilizzato. I contenuti esistenti saranno persi: ::"
 
-#: ../../backup.rst:117
+#: ../../backup.rst:127
 #, fuzzy
 msgid "Schedule application backup"
 msgstr "Backup delle applicazioni"
 
-#: ../../backup.rst:119
+#: ../../backup.rst:129
 #, fuzzy
-msgid "To schedule the backup of existing applications:"
+msgid "To schedule the backup of installed applications:"
 msgstr ""
 "Una volta configurato almeno un repository, è possibile pianificare il "
 "backup delle applicazioni esistenti:"
 
-#: ../../backup.rst:121
+#: ../../backup.rst:131
 #, fuzzy
 msgid "Click on the :guilabel:`Schedule backup` button."
 msgstr "clicca sul pulsante :guilabel:`Schedule backup`"
 
-#: ../../backup.rst:122
+#: ../../backup.rst:132
 #, fuzzy
-msgid "Select the application instances to be backed up."
-msgstr "selezionare quali istanze di applicazione devono essere aggiunte al backup"
+msgid "Select the applications to include."
+msgstr "selezionare le applicazioni da ripristinare"
 
-#: ../../backup.rst:123
+#: ../../backup.rst:133
 #, fuzzy
 msgid "Choose one backup destination."
 msgstr "scegliere un repository di backup"
 
-#: ../../backup.rst:124
+#: ../../backup.rst:134
 msgid "Set the day, time, and retention policy for the backup."
 msgstr "Impostare la politica giorno, tempo e ritenzione per il backup."
 
-#: ../../backup.rst:125
+#: ../../backup.rst:135
 #, fuzzy
 msgid "Enter a name for the backup schedule."
 msgstr "inserire un nome del backup"
 
-#: ../../backup.rst:126
+#: ../../backup.rst:136
 #, fuzzy
 msgid "Save the configuration by clicking the :guilabel:`Schedule backup` button."
 msgstr "salvare la configurazione facendo clic sul pulsante: `Schedule backup`"
 
-#: ../../backup.rst:129
+#: ../../backup.rst:139
 #, fuzzy
 msgid ""
 "To manually execute a backup, click the ``Run backup now`` item from the "
@@ -266,15 +278,16 @@ msgstr ""
 "sulla voce ``Avvia backup ora `` dal menu a tre punti del backup "
 "programmato."
 
-#: ../../backup.rst:132
+#: ../../backup.rst:142
+#, fuzzy
 msgid ""
-"To add more instances to an existing backup, click the ``Edit`` item from"
-" the three-dots menu of the scheduled backup."
+"To change which applications are included in an existing backup, click "
+"the ``Edit`` item from the three-dots menu of the scheduled backup."
 msgstr ""
 "Per aggiungere più istanze a un backup esistente, fare clic sulla voce "
 "``Edit`` dal menu a tre punti del backup pianificato."
 
-#: ../../backup.rst:135
+#: ../../backup.rst:145
 msgid ""
 "After the first backup run, the backup status is reported under ``Backup "
 "> Schedules > See details``."
@@ -282,12 +295,12 @@ msgstr ""
 "Dopo la prima esecuzione di un backup, lo stato del backup viene mostrato"
 " sotto ``Backup > Piani > Vedi i dettagli ``."
 
-#: ../../backup.rst:141
+#: ../../backup.rst:151
 #, fuzzy
 msgid "Restore applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../backup.rst:143
+#: ../../backup.rst:153
 msgid ""
 "To restore an application, at least one backup destination must be "
 "available."
@@ -295,12 +308,25 @@ msgstr ""
 "Per ripristinare un'applicazione, almeno una destinazione di backup deve "
 "essere disponibile."
 
-#: ../../backup.rst:146
+#: ../../backup.rst:156
+msgid ""
+"If no destinations are present and you have an encrypted cluster backup "
+"file, go to the ``Backup and restore`` page and click :guilabel:`Import "
+"destinations` to quickly restore them."
+msgstr ""
+
+#: ../../backup.rst:160
+msgid ""
+"Once destinations are defined, click the ``Restore`` tab and follow this "
+"procedure:"
+msgstr ""
+
+#: ../../backup.rst:163
 #, fuzzy
-msgid "Click on the :guilabel:`Restore an app` button."
+msgid "Click on the :guilabel:`Restore application` button."
 msgstr "cliccare sul bottone :guilabel:`Restore an app`."
 
-#: ../../backup.rst:147
+#: ../../backup.rst:164
 #, fuzzy
 msgid ""
 "A dialog box lists all applications found in the configured backup "
@@ -309,57 +335,57 @@ msgstr ""
 "una finestra di dialogo elenca tutte le applicazioni all'interno del "
 "backup esistente, selezionare l'applicazione che si desidera ripristinare"
 
-#: ../../backup.rst:149
+#: ../../backup.rst:166
 #, fuzzy
 msgid ""
 "If the selected application is already installed, a ``Replace existing "
-"app`` checkbox becomes visible. When enabled, the existing instance will "
-"be removed during the restore."
+"app`` checkbox becomes visible. When enabled, the existing application "
+"will be removed automatically at the end of the restore procedure."
 msgstr ""
 "Se l'applicazione selezionata è già installata, la casella di controllo "
 "``Sostituisci app`` esistente diventa visibile. Se abilitato, l'istanza "
 "esistente verrà rimossa al momento del ripristino."
 
-#: ../../backup.rst:152
+#: ../../backup.rst:169
 #, fuzzy
-msgid "Select an older backup snapshot if the latest one is not suitable."
+msgid "Select the backup snapshot from the list."
 msgstr "Selezionare una vecchia snapshot di backup se l'ultima non è preferibile."
 
-#: ../../backup.rst:153
+#: ../../backup.rst:170
 #, fuzzy
 msgid ""
-"Select the target node. Note that in some cases, restoring to certain "
-"cluster nodes may be restricted due to application policies or node "
-"resource limitations."
+"Select the restore target node. Note that in some cases, restoring to "
+"certain cluster nodes may be restricted due to application policies or "
+"node resource limitations."
 msgstr ""
 "To install another instance of an existing application, click on the "
 "``Instances`` link inside the application card. Then click on "
 ":guilabel:`Install new instance`."
 
-#: ../../backup.rst:156
+#: ../../backup.rst:173
 #, fuzzy
 msgid "Click on the :guilabel:`Restore` button."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../backup.rst:158
+#: ../../backup.rst:175
 msgid "Some core applications have special behavior during restore:"
 msgstr ""
 
-#: ../../backup.rst:160
+#: ../../backup.rst:177
 msgid ""
 "**Traefik** restores only uploaded certificates and user-defined HTTP "
 "routes. Refer to :ref:`uploaded-certificates-section` and :ref:`custom-"
 "http-route-section`."
 msgstr ""
 
-#: ../../backup.rst:164
+#: ../../backup.rst:181
 msgid ""
 "**Loki** restore installs an additional *inactive* Loki instance. It can "
 "be used only for log searches, as explained in :ref:`system-logs-"
 "section`."
 msgstr ""
 
-#: ../../backup.rst:168
+#: ../../backup.rst:185
 msgid ""
 "**Samba** restore behavior depends on whether the AD user domain is "
 "already present in the cluster. If present, only shared folder data is "
@@ -367,12 +393,12 @@ msgid ""
 ":ref:`file-server-restore` for more information."
 msgstr ""
 
-#: ../../backup.rst:177
+#: ../../backup.rst:194
 #, fuzzy
 msgid "Selective content restore"
 msgstr "selezionare le applicazioni da ripristinare"
 
-#: ../../backup.rst:179
+#: ../../backup.rst:196
 msgid ""
 "Some applications allow you to search for and restore specific items from"
 " a backup snapshot. For more information, refer to:"
@@ -381,7 +407,7 @@ msgstr ""
 "specifici da una snapshot di backup. Per ulteriori informazioni, "
 "consultare:"
 
-#: ../../backup.rst:182
+#: ../../backup.rst:199
 msgid ""
 "Samba :ref:`share-selective-restore`, for files and directories within a "
 "Samba share."
@@ -389,7 +415,7 @@ msgstr ""
 "Samba :ref:`share-selective-restore`, per file e directory all'interno di"
 " una quota Samba."
 
-#: ../../backup.rst:184
+#: ../../backup.rst:201
 msgid ""
 "Mail :ref:`mailbox-selective-restore`, for public mailboxes and user "
 "mailbox folders."
@@ -397,14 +423,14 @@ msgstr ""
 "Mail :ref:`mailbox-selective-restore`, per caselle di posta pubbliche e "
 "cartelle della casella di posta utente."
 
-#: ../../backup.rst:191
+#: ../../backup.rst:208
 msgid "Cluster backup"
 msgstr "Cluster backup"
 
-#: ../../backup.rst:193
+#: ../../backup.rst:210
 #, fuzzy
 msgid ""
-"The cluster configuration backup contains all required data for :ref"
+"The cluster backup contains all required data for :ref"
 ":`disaster_recovery-section`, including destination configurations and "
 "their data encryption keys, which are also necessary for restoring "
 "individual application backups. It is a compressed JSON file encrypted "
@@ -414,11 +440,11 @@ msgstr ""
 "necessari per eseguire un :ref: `disaster_recovery-section`. È un file "
 "JSON compresso crittografato con GPG."
 
-#: ../../backup.rst:199
+#: ../../backup.rst:216
 #, fuzzy
 msgid ""
-"The first time the ``Backup`` page is accessed, you must set an "
-"encryption password and store it in a safe place. A new encryption "
+"The first time the ``Backup and restore`` page is accessed, you must set "
+"an encryption password and store it in a safe place. A new encryption "
 "password is needed after a new leader node is elected (see :ref:`node-"
 "promotion-section`)."
 msgstr ""
@@ -427,14 +453,15 @@ msgstr ""
 "password di crittografia è necessaria anche dopo l'elezione di un nuovo "
 "nodo leader (vedere :ref: `node-promotion-section`)."
 
-#: ../../backup.rst:203
+#: ../../backup.rst:221
+#, fuzzy
 msgid ""
-"The cluster configuration backup is automatically copied to backup "
-"destinations during scheduled runs, ensuring up-to-date backups of both "
-"your data and the cluster setup. If the cluster has an active "
-":ref:`subscription <subscription-section>` that includes cloud backup of "
-"the cluster configuration, the cluster configuration backup is also "
-"available from the subscription portal."
+"The cluster backup is automatically copied to backup destinations during "
+"scheduled runs, ensuring up-to-date backups of both your data and the "
+"cluster setup. If the cluster has an active :ref:`subscription "
+"<subscription-section>` that includes cloud backup of the cluster "
+"configuration, the cluster backup is also available from the subscription"
+" portal."
 msgstr ""
 "Il backup di configurazione del cluster viene copiato automaticamente "
 "sulle destinazioni di backup durante le operazioni pianificate, "
@@ -444,29 +471,29 @@ msgstr ""
 "il backup della configurazione del cluster è disponibile anche dal "
 "portale di abbonamento."
 
-#: ../../backup.rst:210
+#: ../../backup.rst:228
 #, fuzzy
 msgid ""
-"Periodically download the cluster configuration backup and keep it in a "
-"safe place. Click on the :guilabel:`Download cluster backup` button under"
-" the ``Cluster configuration`` section of the ``Backup`` page."
+"Periodically download the cluster backup and keep it in a safe place. "
+"Click on the :guilabel:`Download cluster backup` button of the ``Backup "
+"and restore`` page."
 msgstr ""
 "Per scaricare il backup della configurazione del cluster, fare clic sul "
 "tasto :guilabel:`Download cluster backup` sotto la sezione "
 "``Configurazione cluster`` della pagina ``Backup``."
 
-#: ../../backup.rst:216
+#: ../../backup.rst:234
 #, fuzzy
 msgid ""
-"If you lose the cluster configuration backup, you can still restore "
-"applications to another cluster if you know the data encryption password "
-"of the backup destination."
+"If you lose the cluster backup, you can still restore applications to "
+"another cluster only if you know the data encryption password of the "
+"backup destination."
 msgstr ""
 "Nel caso in cui si perde il backup di configurazione, è ancora possibile "
 "ripristinare le applicazioni in un altro cluster solo se si conosce la "
 "password di crittografia del repository di backup."
 
-#: ../../backup.rst:220
+#: ../../backup.rst:238
 #, fuzzy
 msgid ""
 "To inspect the content of the downloaded file, use the following command,"
@@ -476,23 +503,24 @@ msgstr ""
 "dove ``<pass>`` è la password di crittografia inserita prima del "
 "download: ::"
 
-#: ../../backup.rst:229
+#: ../../backup.rst:247
 msgid "Disaster recovery"
 msgstr "Disaster recovery"
 
-#: ../../backup.rst:231
-#, fuzzy
+#: ../../backup.rst:249
 msgid ""
-"You can restore a previously configured cluster using the disaster "
-"recovery procedure. You will need a :ref:`cluster configuration backup "
-"<cluster_backup-section>`:"
+"The disaster recovery procedure is designed for the restoration of a "
+"**single-node cluster**. You just need the original :ref:`cluster backup "
+"<cluster_backup-section>` file."
 msgstr ""
-"È possibile ripristinare un cluster configurato in precedenza utilizzando"
-" la procedura di disaster recovery. Per seguire questa procedura è "
-"necessario un:ref: `un backup di configurazione del cluster "
-"<cluster_backup-sezione>`:"
 
-#: ../../backup.rst:235
+#: ../../backup.rst:253
+msgid ""
+"Make sure the new system has enough free disk space. The restore "
+"procedure does not check the free disk space."
+msgstr ""
+
+#: ../../backup.rst:255
 #, fuzzy
 msgid ""
 ":ref:`Install <install-section>` a new cluster and log in using the "
@@ -501,17 +529,17 @@ msgstr ""
 ":ref:`install <install-section>` un nuovo cluster e login utilizzando le "
 "credenziali di default"
 
-#: ../../backup.rst:237
+#: ../../backup.rst:257
 #, fuzzy
 msgid "Change the default administrator password."
 msgstr "modificare la password di amministratore predefinito"
 
-#: ../../backup.rst:238
+#: ../../backup.rst:258
 #, fuzzy
 msgid "Click on the :guilabel:`Restore cluster` button."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../backup.rst:239
+#: ../../backup.rst:259
 #, fuzzy
 msgid ""
 "Choose whether to restore a cluster configuration from a remote HTTP "
@@ -520,16 +548,16 @@ msgstr ""
 "è ora possibile scegliere se ripristinare una configurazione di cluster "
 "ospitata su un server HTTP remoto o caricare il backup dal browser"
 
-#: ../../backup.rst:241
+#: ../../backup.rst:261
 msgid "Enter the encryption secret in the ``Backup password`` field."
 msgstr "Inserisci il segreto di crittografia nel campo ``Backup password```."
 
-#: ../../backup.rst:242
+#: ../../backup.rst:262
 #, fuzzy
 msgid "Select the applications to restore."
 msgstr "selezionare le applicazioni da ripristinare"
 
-#: ../../backup.rst:244
+#: ../../backup.rst:264
 msgid ""
 "For more information, refer to the backup and restore notes for each "
 "application. For example:"
@@ -537,7 +565,7 @@ msgstr ""
 "Per ulteriori informazioni, fare riferimento al backup e ripristinare le "
 "note per ogni applicazione. Per esempio:"
 
-#: ../../backup.rst:247
+#: ../../backup.rst:267
 msgid ":ref:`file-server-restore`"
 msgstr ":ref:`file-server-restore`"
 
@@ -28711,4 +28739,69 @@ msgstr ""
 #~ "selezionare ``OpenLDAP`` nella finestra di "
 #~ "dialogo e fare clic su "
 #~ ":guilabel:`Installa provider`"
+
+#~ msgid ""
+#~ "Access the ``Backup`` page to manage "
+#~ "the backup and restore of individual "
+#~ "applications and global cluster configuration."
+#~ " If you have a single-node "
+#~ "cluster and want to restore it on"
+#~ " a new NS8 node, see :ref"
+#~ ":`disaster_recovery-section`."
+#~ msgstr ""
+#~ "Accedi alla pagina ``Backup`` per "
+#~ "gestire il backup e il ripristino "
+#~ "delle singole applicazioni e la "
+#~ "configurazione globale dei cluster. Se "
+#~ "hai un cluster a singolo nodo e"
+#~ " vuoi ripristinarlo su un nuovo nodo"
+#~ " NS8, vedi :ref:`disaster_recovery-section`."
+
+#~ msgid ""
+#~ "**Applications**: Define backup destinations, "
+#~ "set automated backup schedules and "
+#~ "retention rules, and restore individual "
+#~ "applications."
+#~ msgstr ""
+#~ "**Applicazioni**: Definire le destinazioni di"
+#~ " backup, impostare i programmi di "
+#~ "backup automatizzati e le regole di "
+#~ "ritenzione e ripristinare le singole "
+#~ "applicazioni."
+
+#~ msgid ""
+#~ "If adding a previously used destination"
+#~ " (i.e., it has Restic directories "
+#~ "inside), you must fill the `Data "
+#~ "encryption key` field under the "
+#~ "`Advanced` section with the previous key"
+#~ " value, otherwise existing backups cannot"
+#~ " be opened."
+#~ msgstr ""
+#~ "Se si aggiunge una destinazione "
+#~ "precedentemente utilizzata (cioè, ha directory"
+#~ " Restic all'interno), è necessario riempire"
+#~ " il campo di chiave di crittografia"
+#~ " `Data' sotto la sezione `Advanced` "
+#~ "con il valore chiave precedente, "
+#~ "altrimenti i backup esistenti non "
+#~ "possono essere aperti."
+
+#~ msgid "Select the application instances to be backed up."
+#~ msgstr ""
+#~ "selezionare quali istanze di applicazione "
+#~ "devono essere aggiunte al backup"
+
+#~ msgid ""
+#~ "You can restore a previously configured"
+#~ " cluster using the disaster recovery "
+#~ "procedure. You will need a :ref:`cluster"
+#~ " configuration backup <cluster_backup-section>`:"
+#~ msgstr ""
+#~ "È possibile ripristinare un cluster "
+#~ "configurato in precedenza utilizzando la "
+#~ "procedura di disaster recovery. Per "
+#~ "seguire questa procedura è necessario "
+#~ "un:ref: `un backup di configurazione del"
+#~ " cluster <cluster_backup-sezione>`:"
 
