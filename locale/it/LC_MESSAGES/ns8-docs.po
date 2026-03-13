@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-05 17:53+0000\n"
+"POT-Creation-Date: 2026-03-13 09:35+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -1742,7 +1742,8 @@ msgstr ""
 #: ../../mattermost.rst:13 ../../minio.rst:12 ../../n8n.rst:11
 #: ../../netdata.rst:20 ../../nextcloud.rst:21 ../../odoo.rst:20
 #: ../../passbolt.rst:12 ../../piler.rst:30 ../../roundcube.rst:19
-#: ../../sogo.rst:39 ../../webserver.rst:14 ../../webtop.rst:12
+#: ../../rustfs.rst:12 ../../sogo.rst:39 ../../webserver.rst:14
+#: ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -1771,8 +1772,8 @@ msgstr ""
 #: ../../collabora.rst:22 ../../dependencytrack.rst:18 ../../dokuwiki.rst:17
 #: ../../ejabberd.rst:35 ../../mariadb.rst:13 ../../matrix.rst:19
 #: ../../mattermost.rst:24 ../../minio.rst:19 ../../n8n.rst:18
-#: ../../roundcube.rst:30 ../../sogo.rst:46 ../../webserver.rst:16
-#: ../../webtop.rst:19
+#: ../../roundcube.rst:30 ../../rustfs.rst:20 ../../sogo.rst:46
+#: ../../webserver.rst:16 ../../webtop.rst:19
 msgid "How to configure:"
 msgstr "Come configurare:"
 
@@ -1803,7 +1804,8 @@ msgstr ""
 
 #: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../matrix.rst:26
 #: ../../minio.rst:26 ../../n8n.rst:22 ../../nextcloud.rst:34
-#: ../../roundcube.rst:35 ../../sogo.rst:52 ../../webtop.rst:25
+#: ../../roundcube.rst:35 ../../rustfs.rst:28 ../../sogo.rst:52
+#: ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
 msgstr "cliccare sul pulsante :guilabel:`Save`"
 
@@ -4771,11 +4773,11 @@ msgstr "Installazione"
 msgid "Applications"
 msgstr "Applicazioni"
 
-#: ../../index.rst:70
+#: ../../index.rst:71
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:86
+#: ../../index.rst:87
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -9255,7 +9257,7 @@ msgstr ""
 "MinIO needs two dedicated virtual host, a FQDN like ``minio-"
 "api.nethserver.org`` and ``minio-ui.nethserver.org``."
 
-#: ../../minio.rst:16
+#: ../../minio.rst:16 ../../rustfs.rst:17
 #, fuzzy
 msgid ""
 "Before proceeding with the configuration, make sure to create the "
@@ -9286,7 +9288,7 @@ msgstr ""
 "fill the ``Web interface host name``: you will be able to configure your "
 "MinIO instance from this FQDN"
 
-#: ../../minio.rst:25 ../../nextcloud.rst:32
+#: ../../minio.rst:25 ../../nextcloud.rst:32 ../../rustfs.rst:26
 #, fuzzy
 msgid "enable ``Let's Encrypt`` option accordingly to your needs"
 msgstr "enable ``Let's Encrypt`` option accordingly to your needs"
@@ -13812,6 +13814,70 @@ msgid ""
 msgstr ""
 "The complete list of official plugin could be find at `Roundcube plugins "
 "<https://github.com/roundcube/roundcubemail/tree/master/plugins>`_."
+
+#: ../../rustfs.rst:5
+msgid "RustFS"
+msgstr ""
+
+#: ../../rustfs.rst:7
+#, fuzzy
+msgid ""
+"`RustFS <https://rustfs.com/>`_ offers high-performance, S3 compatible "
+"object storage."
+msgstr ""
+"`MinIO <https://min.io/>`_ offers high-performance, S3 compatible object "
+"storage."
+
+#: ../../rustfs.rst:9
+#, fuzzy
+msgid ""
+"You can install multiple RustFS instances on the same node from the :ref"
+":`software_center-section`."
+msgstr ""
+"You can install multiple Mattermost instances on the same node from the "
+":ref:`software_center-section`."
+
+#: ../../rustfs.rst:14
+msgid ""
+"Some S3 clients do not correctly support API endpoints exposed under a "
+"path prefix. For better compatibility, two distinct server names need to "
+"be assigned: one dedicated to the S3 protocol endpoint and another "
+"dedicated to the administrative console."
+msgstr ""
+
+#: ../../rustfs.rst:22
+#, fuzzy
+msgid ""
+"access the application configuration page and enter the ``API server host"
+" name``: this will be the FQDN used by hosts to connect to S3 services, "
+"e.g. ``s3.example.org``, ``storage.example.org``"
+msgstr ""
+"access the application configuration page and enter the ``API server host"
+" name``: this will be the FQDN used by hosts to connect to S3 services"
+
+#: ../../rustfs.rst:24
+#, fuzzy
+msgid ""
+"fill the ``Web interface host name``: you will be able to configure your "
+"RustFS instance from this FQDN, e.g. ``rustfs.example.org``"
+msgstr ""
+"fill the ``Web interface host name``: you will be able to configure your "
+"MinIO instance from this FQDN"
+
+#: ../../rustfs.rst:27
+msgid ""
+"fill the ``rustfs root user name`` and the ``rustfs root password``: "
+"those are the login credentials"
+msgstr ""
+
+#: ../../rustfs.rst:29
+#, fuzzy
+msgid ""
+"open the entered host name inside the browser, e.g. "
+"``https://rustfs.example.org``."
+msgstr ""
+"open the entered host name inside the browser, eg: ``https://minio-"
+"ui.nethserver.org``."
 
 #: ../../software_center.rst:5
 #, fuzzy
