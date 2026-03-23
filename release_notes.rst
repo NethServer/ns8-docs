@@ -30,7 +30,7 @@ Major changes on 2026-03-27
   ``Backup and restore`` page, separate sections and clear text labels
   improve navigation across the different actions.
 
-  Configuring a backup destination is a pre-requisite for application
+  Configuring a backup destination is a prerequisite for application
   restoration. A new :guilabel:`Import destinations` action quickly sets
   up a backup destination starting from a cluster backup file. The backup
   encryption password is required to complete the action.
