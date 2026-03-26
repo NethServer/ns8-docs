@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-13 09:35+0000\n"
+"POT-Creation-Date: 2026-03-26 08:16+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -1710,7 +1710,7 @@ msgstr "Footnotes"
 msgid "https://en.wikipedia.org/wiki/Computer_cluster"
 msgstr ""
 
-#: ../../collabora.rst:5 ../../nextcloud.rst:78
+#: ../../collabora.rst:5 ../../nextcloud.rst:79
 msgid "Collabora Online"
 msgstr "Collaborare online"
 
@@ -1803,7 +1803,7 @@ msgstr ""
 "alle vostre esigenze"
 
 #: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../matrix.rst:26
-#: ../../minio.rst:26 ../../n8n.rst:22 ../../nextcloud.rst:34
+#: ../../minio.rst:26 ../../n8n.rst:22 ../../nextcloud.rst:35
 #: ../../roundcube.rst:35 ../../rustfs.rst:28 ../../sogo.rst:52
 #: ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
@@ -10024,7 +10024,13 @@ msgid ""
 "(``Nethesis,1234``)"
 msgstr "setup a ``Password for user 'admin'``, or leave the default one"
 
-#: ../../nextcloud.rst:36
+#: ../../nextcloud.rst:34
+msgid ""
+"enable ``Manage email sending from Nextcloud admin panel`` to override "
+"the cluster smarthost settings"
+msgstr ""
+
+#: ../../nextcloud.rst:37
 #, fuzzy
 msgid ""
 "As default, Nextcloud has its own user database. You can also connect the"
@@ -10037,7 +10043,7 @@ msgstr ""
 "users from the domain will be able to login with their own credentials. "
 "The built-in ``admin`` user is always enabled."
 
-#: ../../nextcloud.rst:41
+#: ../../nextcloud.rst:42
 #, fuzzy
 msgid ""
 "If you want to integrate with Collabora (CODE) online see :ref:`below "
@@ -10050,7 +10056,7 @@ msgstr ""
 "Nextcloud has been initialized on first start-up: it usually takes less "
 "then a minute."
 
-#: ../../nextcloud.rst:45
+#: ../../nextcloud.rst:46
 #, fuzzy
 msgid ""
 "Nextcloud update/upgrade procedure may disable the apps to avoid "
@@ -10063,12 +10069,12 @@ msgstr ""
 "disabled. After a successful update/upgrade procedure you can use the "
 "Applications page to update and re-enable the apps."
 
-#: ../../nextcloud.rst:50
+#: ../../nextcloud.rst:51
 #, fuzzy
 msgid "User list"
 msgstr "User list"
 
-#: ../../nextcloud.rst:52
+#: ../../nextcloud.rst:53
 #, fuzzy
 msgid ""
 "All users are listed inside the administrator panel of Nextcloud using a "
@@ -10083,11 +10089,11 @@ msgstr ""
 "reported in section `Internal Username` of `Official Nextcloud "
 "documentation <https://docs.nextcloud.com>`_."
 
-#: ../../nextcloud.rst:57
+#: ../../nextcloud.rst:58
 msgid "Alternative LDAP mail field (Samba AD)"
 msgstr ""
 
-#: ../../nextcloud.rst:58
+#: ../../nextcloud.rst:59
 msgid ""
 "When the account provider is an Active Directory, you can change the mail"
 " field used by Nextcloud with an environment variable. The default LDAP "
@@ -10100,34 +10106,34 @@ msgid ""
 "provider."
 msgstr ""
 
-#: ../../nextcloud.rst:61
+#: ../../nextcloud.rst:62
 msgid "By adding ``LDAP_MAIL_ATTRIBUTE`` your users will be able to login with:"
 msgstr ""
 
-#: ../../nextcloud.rst:63
+#: ../../nextcloud.rst:64
 msgid "``sAMAccountName``: eg ``john``"
 msgstr ""
 
-#: ../../nextcloud.rst:64
+#: ../../nextcloud.rst:65
 msgid "``userPrincipalName``: eg ``john@ad.domain.com``"
 msgstr ""
 
-#: ../../nextcloud.rst:65
+#: ../../nextcloud.rst:66
 msgid "``mail``: eg ``john@domain.com``"
 msgstr ""
 
-#: ../../nextcloud.rst:67
+#: ../../nextcloud.rst:68
 msgid ""
 "The ``runagent`` command is available only on the NethServer 8 node where"
 " the application is installed."
 msgstr ""
 
-#: ../../nextcloud.rst:69
+#: ../../nextcloud.rst:70
 #, fuzzy
 msgid "Type in a root shell the following command ::"
 msgstr "In a root shell prompt, execute the following command:"
 
-#: ../../nextcloud.rst:80
+#: ../../nextcloud.rst:81
 #, fuzzy
 msgid ""
 "First, install and configure a :ref:`Collabora Online <collabora-"
@@ -10136,12 +10142,12 @@ msgstr ""
 "First, install and configure a :ref:`Collabora Online <collabora-"
 "section>` instance."
 
-#: ../../nextcloud.rst:82
+#: ../../nextcloud.rst:83
 #, fuzzy
 msgid "Then, access the ``Settings`` page of Nextcloud module."
 msgstr "Then, access the ``Settings`` page of Nextcloud module."
 
-#: ../../nextcloud.rst:84
+#: ../../nextcloud.rst:85
 #, fuzzy
 msgid ""
 "You will find an option named ``CODE server host name``. Select one of "
@@ -10152,7 +10158,7 @@ msgstr ""
 "the existing Collabora instances or enter a domain of another Collabora "
 "installation."
 
-#: ../../nextcloud.rst:87
+#: ../../nextcloud.rst:88
 #, fuzzy
 msgid ""
 "The Collabora instance will be accessed using HTTPS protocol, so remember"
@@ -10163,7 +10169,7 @@ msgstr ""
 " to disable the ``Verify TLS certification`` option if the Collabora does"
 " not have a valid TLS certificate."
 
-#: ../../nextcloud.rst:90
+#: ../../nextcloud.rst:91
 #, fuzzy
 msgid ""
 "Finally, click the :guilabel:`Save` button. You will now be able to edit "
@@ -10172,12 +10178,12 @@ msgstr ""
 "Finally, click the :guilabel:`Save` button. You will now be able to edit "
 "documents directly inside Nextcloud."
 
-#: ../../nextcloud.rst:94
+#: ../../nextcloud.rst:95
 #, fuzzy
 msgid "Data retention policy"
 msgstr "Data retention policy"
 
-#: ../../nextcloud.rst:96
+#: ../../nextcloud.rst:97
 #, fuzzy
 msgid ""
 "When it comes to account deletion in Nextcloud, a specific data retention"
@@ -10186,7 +10192,7 @@ msgstr ""
 "When it comes to account deletion in Nextcloud, a specific data retention"
 " policy is employed based on the user's account origin:"
 
-#: ../../nextcloud.rst:98
+#: ../../nextcloud.rst:99
 #, fuzzy
 msgid ""
 "if the account originates from the LDAP account provider, its data isn't "
@@ -10199,7 +10205,7 @@ msgstr ""
 "this policy in the documentation: `LDAP Cleanup "
 "<https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_auth_ldap_cleanup.html>`_."
 
-#: ../../nextcloud.rst:101
+#: ../../nextcloud.rst:102
 #, fuzzy
 msgid ""
 "in the case of accounts stored within the internal Nextcloud database, "
@@ -10214,11 +10220,11 @@ msgstr ""
 "<https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_configuration.html"
 "#deleting-users>`_."
 
-#: ../../nextcloud.rst:107
+#: ../../nextcloud.rst:108
 msgid "Database optimization command"
 msgstr ""
 
-#: ../../nextcloud.rst:109
+#: ../../nextcloud.rst:110
 msgid ""
 "Nextcloud requires manual database fixes that cannot be automated during "
 "upgrade, as operations may take a long time with large amounts of data. "
@@ -10226,7 +10232,7 @@ msgid ""
 "to optimize the Nextcloud database outside production hours."
 msgstr ""
 
-#: ../../nextcloud.rst:111
+#: ../../nextcloud.rst:112
 msgid ""
 "Execute the following command in a root shell, replacing ``nextcloud1`` "
 "with the correct application identifier: ::"
