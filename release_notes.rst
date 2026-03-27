@@ -14,6 +14,82 @@ NethServer 8 releases
 
   __ http://community.nethserver.org/c/bug
 
+Major changes on 2026-03-27
+===========================
+
+**Milestone 8.8**
+
+- **Low-contrast UI notification** [Core 3.18] -- The cluster-admin UI
+  notification style is now low-contrast, as mandated by the Carbon Design
+  System guidelines.
+
+- **Cancelable backup runs** [Core 3.18] -- It is now possible to cancel a
+  backup run, provided it was started from cluster-admin UI.
+
+- **Import backup destinations and UI adjustments** [Core 3.18] -- In the
+  ``Backup and restore`` page, separate sections and clear text labels
+  improve navigation across the different actions.
+
+  Configuring a backup destination is a prerequisite for application
+  restoration. A new :guilabel:`Import destinations` action quickly sets
+  up a backup destination starting from a cluster backup file. The backup
+  encryption password is required to complete the action.
+
+- **Debian 13 (Trixie)** [Core 3.17] -- Installation of NethServer 8 is
+  now available on Debian 13 (Trixie). Starting from the next milestone
+  8.9, Debian 12 will no longer be compatible with the NS8 installer. This
+  is a summary of the commands required to upgrade an NS8 node from Debian
+  12.
+
+  Check the distro name and version: ::
+
+    cat /etc/os-release
+
+  Make sure the node is running on Debian 12, then fix APT references and
+  upgrade the system: ::
+
+    sed -i 's/bookworm/trixie/' /etc/apt/sources.list /etc/apt/sources.list.d/*
+    apt update && apt full-upgrade -y
+
+  If asked, restart services and keep local config file versions.
+
+  Upgrade NS8 Python 3 virtual environment: ::
+
+    (
+      set -e -x
+      core_dir=/usr/local/agent/pyenv
+      mv -v ${core_dir} ${core_dir}.bak
+      python3.13 -mvenv ${core_dir} --upgrade-deps --system-site-packages
+      ${core_dir}/bin/pip3 install -r /etc/nethserver/pyreq3_13.txt
+      echo "/usr/local/agent/pypkg" >$(${core_dir}/bin/python3 -c "import sys; print(sys.path[-1] + '/pypkg.pth')")
+      rm -rf ${core_dir}.bak
+    )
+    runagent python3 --version # output should be 3.13.5
+
+  Upgrade APT sources to deb822 (optional): ::
+
+    apt modernize-sources
+
+  Finally, reboot the node. Repeat the same procedure on every node of the
+  cluster.
+
+- **Additional volume selection** [Core 3.17] -- When an application is
+  restored, cloned, or installed for the first time, the UI may ask to
+  select the volume for the data.  The selection is available on nodes
+  with an additional volume and for applications that support it. See
+  :ref:`install-applications`.
+
+- **Samba TLS certificates** [Samba 3.4.2] -- Samba LDAP is integrated
+  with the ``TLS certificates`` page. An uploaded or obtained certificate,
+  matching Samba's FQDN, is used for the LDAP service.
+
+- **RustFS replaces MinIO** [RustFS 1.0] -- A new S3-compatible
+  application replaces MinIO in the Software Center. Existing MinIO
+  installations are advised to migrate to RustFS. See
+  :ref:`rustfs-section` for more information.
+
+- **Application upgrades** -- Mattermost 10.11 ESR, Ejabberd 26.02.
+
 Major changes on 2025-12-17
 ===========================
 
