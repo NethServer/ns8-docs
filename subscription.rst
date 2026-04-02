@@ -204,8 +204,6 @@ procedure:
 
      systemctl status support
 
-   The Session ID is always recorded in the system journal and node log.
-
 4. To end the support session: ::
 
      systemctl stop support
