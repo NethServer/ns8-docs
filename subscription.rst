@@ -152,6 +152,10 @@ Remote support
 
     Available in Nethesis Enterprise only
 
+Remote support is a service that allows Nethesis support team to access the
+cluster remotely to troubleshoot and resolve issues.
+Remote support sessions can be activated on demand by the user, and they are valid for 24 hours.
+
 Depending on the subscription type and plan, the ``Subscription`` page
 allows starting and controlling a remote support session, provided
 the :ref:`ssh-service-reqs` are met.
@@ -202,7 +206,7 @@ procedure:
 
 3. Obtain the session ID with: ::
 
-     systemctl status support
+     runagent -m node grep VPN_PASSWORD support.env
 
 4. To end the support session: ::
 
