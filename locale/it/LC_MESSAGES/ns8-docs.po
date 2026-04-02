@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-27 09:22+0000\n"
+"POT-Creation-Date: 2026-04-02 07:29+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -15442,6 +15442,14 @@ msgid "Available in Nethesis Enterprise only"
 msgstr "Disponibile solo per Nethesis Enterprise"
 
 #: ../../subscription.rst:155
+msgid ""
+"Remote support is a service that allows Nethesis support team to access "
+"the cluster remotely to troubleshoot and resolve issues. Remote support "
+"sessions can be activated on demand by the user, and they expire after 24"
+" hours."
+msgstr ""
+
+#: ../../subscription.rst:160
 #, fuzzy
 msgid ""
 "Depending on the subscription type and plan, the ``Subscription`` page "
@@ -15452,7 +15460,7 @@ msgstr ""
 "``Subscription`` può consentire l'avvio e il controllo di una sessione di"
 " supporto remoto:"
 
-#: ../../subscription.rst:159
+#: ../../subscription.rst:164
 msgid ""
 "Click :guilabel:`Start session` to activate a special access for the "
 "Nethesis support team. Both SSH and cluster-admin administrative access "
@@ -15464,7 +15472,7 @@ msgstr ""
 "l'accesso amministrativo sia SSH che al cluster-admin. Le connessioni di "
 "supporto sono veicolate attraverso un tunnel VPN privato."
 
-#: ../../subscription.rst:164
+#: ../../subscription.rst:169
 msgid ""
 "When the access is granted, a unique ``Session ID`` secret is displayed: "
 "copy and paste it in your support request."
@@ -15473,7 +15481,7 @@ msgstr ""
 " denominato ``ID sessione``: il segreto va copiato e incollato nella "
 "richiesta di supporto."
 
-#: ../../subscription.rst:167
+#: ../../subscription.rst:172
 msgid ""
 "To end the support session, close the VPN tunnel and revoke any granted "
 "access, click :guilabel:`End session`."
@@ -15482,7 +15490,7 @@ msgstr ""
 "qualsiasi accesso consentito, fare clic sul pulsante :guilabel:`Termina "
 "sessione`."
 
-#: ../../subscription.rst:170
+#: ../../subscription.rst:175
 msgid ""
 "The support session is valid only to reach the leader node. The support "
 "team can access worker nodes by starting individual support sessions in "
@@ -15495,19 +15503,24 @@ msgstr ""
 " 2 è un nodo worker, il comando per avviare una sessione di supporto per "
 "esso è il seguente: ::"
 
-#: ../../subscription.rst:177
+#: ../../subscription.rst:182
 msgid "The Session ID is printed to the standard output. To stop the session: ::"
 msgstr ""
 "L'ID sessione viene stampato sullo standard output. Per interrompere la "
 "sessione: ::"
 
-#: ../../subscription.rst:181
+#: ../../subscription.rst:186
 msgid "Check the support session status for any node with: ::"
 msgstr ""
 "È possibile verificare lo stato della sessione di supporto su un "
 "qualsiasi nodo con il comando: ::"
 
-#: ../../subscription.rst:185
+#: ../../subscription.rst:190
+#, fuzzy
+msgid "Output example: ::"
+msgstr "Example:"
+
+#: ../../subscription.rst:198
 msgid ""
 "If a worker node (e.g., node 2) becomes unreachable from the leader node,"
 " you can manually start a support session for it with the following "
@@ -15517,27 +15530,36 @@ msgstr ""
 "leader, è possibile avviare manualmente una sessione di supporto per esso"
 " con la seguente procedura:"
 
-#: ../../subscription.rst:189
+#: ../../subscription.rst:202
 msgid "Log in on the worker node, using the console or SSH access."
 msgstr "Accedere al nodo worker, utilizzando la console o l'accesso SSH."
 
-#: ../../subscription.rst:191
+#: ../../subscription.rst:204
 msgid "Run the following command to start the support session: ::"
 msgstr "Eseguire il seguente comando per avviare la sessione di supporto: ::"
 
-#: ../../subscription.rst:195
+#: ../../subscription.rst:208
 msgid "Obtain the session ID with: ::"
 msgstr "Ottenere l'ID sessione con: ::"
 
-#: ../../subscription.rst:199
-msgid "The Session ID is always recorded in the system journal and node log."
-msgstr ""
-"L'ID sessione viene sempre registrato nel journal di sistema e nel log "
-"dei nodi."
-
-#: ../../subscription.rst:201
+#: ../../subscription.rst:212
 msgid "To end the support session: ::"
 msgstr "Per terminare una sessione di supporto: ::"
+
+#: ../../subscription.rst:217
+msgid "Session expiration"
+msgstr ""
+
+#: ../../subscription.rst:219
+msgid ""
+"The support session is automatically terminated after 24 hours. To avoid "
+"automatic termination and allow it to run up to the maximum allowed "
+"duration of 7 days, execute this command on the relevant node: ::"
+msgstr ""
+
+#: ../../subscription.rst:225
+msgid "After 7 days the session is terminated unconditionally."
+msgstr ""
 
 #: ../../system_requirements.rst:5
 msgid "System requirements"
@@ -28979,4 +29001,10 @@ msgstr ""
 #~ "seguire questa procedura è necessario "
 #~ "un:ref: `un backup di configurazione del"
 #~ " cluster <cluster_backup-sezione>`:"
+
+#~ msgid "The Session ID is always recorded in the system journal and node log."
+#~ msgstr ""
+#~ "L'ID sessione viene sempre registrato "
+#~ "nel journal di sistema e nel log"
+#~ " dei nodi."
 
