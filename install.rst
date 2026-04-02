@@ -154,6 +154,7 @@ Not sure where to go from here? You can:
 * Take a look at :ref:`system logs <loki-section>`.
 * Add :ref:`new nodes <cluster-section>`.
 * Set up a :ref:`metric dashboard <metrics-section>`.
+* Read :ref:`fstrim-periodic` section to enable periodic ``fstrim`` runs.
 
 Uninstall
 =========
