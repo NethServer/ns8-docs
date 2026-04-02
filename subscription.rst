@@ -152,6 +152,11 @@ Remote support
 
     Available in Nethesis Enterprise only
 
+Remote support is a service that allows Nethesis support team to access the
+cluster remotely to troubleshoot and resolve issues.
+Remote support sessions can be activated on demand by the user, and they
+expire after 24 hours.
+
 Depending on the subscription type and plan, the ``Subscription`` page
 allows starting and controlling a remote support session, provided
 the :ref:`ssh-service-reqs` are met.
@@ -182,6 +187,14 @@ Check the support session status for any node with: ::
 
     api-cli run node/2/get-support-session
 
+Output example: ::
+
+  {
+    "session_id": "08e91254-4269-5c38-3120-a11e92f7699b",
+    "active": true,
+    "expires_at": "2026-04-03T06:41:32+00:00"
+  }
+
 If a worker node (e.g., node 2) becomes unreachable from the leader node,
 you can manually start a support session for it with the following
 procedure:
@@ -194,10 +207,19 @@ procedure:
 
 3. Obtain the session ID with: ::
 
-     systemctl status support
-
-   The Session ID is always recorded in the system journal and node log.
+     runagent -m node grep VPN_PASSWORD support.env
 
 4. To end the support session: ::
 
      systemctl stop support
+
+Session expiration
+------------------
+
+The support session is automatically terminated after 24 hours. To avoid automatic termination
+and allow it to run up to the maximum allowed duration of 7 days, execute this command on the
+relevant node: ::
+
+  systemctl stop support-expire.timer
+
+After 7 days the session is terminated unconditionally.
