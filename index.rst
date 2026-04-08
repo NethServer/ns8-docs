@@ -59,7 +59,6 @@ NethServer 8 administrator manual
    collabora
    mattermost
    ejabberd
-   minio
    crowdsec
    imapsync
    nethsecurity_controller

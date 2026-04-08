@@ -48,7 +48,7 @@ destination` button, and choose a provider. Supported providers are:
 * `Backblaze B2`_
 * `Amazon S3`_
 * `Azure Blob Storage`_
-* Generic S3, like :ref:`MinIO <minio-section>`
+* Generic S3, like :ref:`RustFS <rustfs-section>`
 * Windows file share, through SMB2/3 protocols
 * :ref:`Local storage <local-storage>`, attached to a node of the cluster
 
