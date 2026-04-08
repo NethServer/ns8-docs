@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-02 07:29+0000\n"
+"POT-Creation-Date: 2026-04-08 14:48+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -125,7 +125,8 @@ msgid "`Azure Blob Storage`_"
 msgstr "`Azure Blob Storage`_"
 
 #: ../../backup.rst:51
-msgid "Generic S3, like :ref:`MinIO <minio-section>`"
+#, fuzzy
+msgid "Generic S3, like :ref:`RustFS <rustfs-section>`"
 msgstr "S3 generico come :ref:`MinIO <minio-section>`"
 
 #: ../../backup.rst:52
@@ -1739,7 +1740,7 @@ msgstr ""
 #: ../../dnsmasq.rst:23 ../../dokuwiki.rst:10 ../../ejabberd.rst:22
 #: ../../file_server.rst:40 ../../imapsync.rst:26 ../../index.rst:36
 #: ../../lamp.rst:18 ../../mail.rst:54 ../../mariadb.rst:11 ../../matrix.rst:12
-#: ../../mattermost.rst:13 ../../minio.rst:12 ../../n8n.rst:11
+#: ../../mattermost.rst:13 ../../minio.rst:18 ../../n8n.rst:11
 #: ../../netdata.rst:20 ../../nextcloud.rst:21 ../../odoo.rst:20
 #: ../../passbolt.rst:12 ../../piler.rst:30 ../../roundcube.rst:19
 #: ../../rustfs.rst:12 ../../sogo.rst:39 ../../webserver.rst:14
@@ -1771,7 +1772,7 @@ msgstr ""
 
 #: ../../collabora.rst:22 ../../dependencytrack.rst:18 ../../dokuwiki.rst:17
 #: ../../ejabberd.rst:35 ../../mariadb.rst:13 ../../matrix.rst:19
-#: ../../mattermost.rst:24 ../../minio.rst:19 ../../n8n.rst:18
+#: ../../mattermost.rst:24 ../../minio.rst:25 ../../n8n.rst:18
 #: ../../roundcube.rst:30 ../../rustfs.rst:20 ../../sogo.rst:46
 #: ../../webserver.rst:16 ../../webtop.rst:19
 msgid "How to configure:"
@@ -1803,7 +1804,7 @@ msgstr ""
 "alle vostre esigenze"
 
 #: ../../collabora.rst:28 ../../dokuwiki.rst:21 ../../matrix.rst:26
-#: ../../minio.rst:26 ../../n8n.rst:22 ../../nextcloud.rst:35
+#: ../../minio.rst:32 ../../n8n.rst:22 ../../nextcloud.rst:35
 #: ../../roundcube.rst:35 ../../rustfs.rst:28 ../../sogo.rst:52
 #: ../../webtop.rst:25
 msgid "click the :guilabel:`Save` button"
@@ -4773,11 +4774,11 @@ msgstr "Installazione"
 msgid "Applications"
 msgstr "Applicazioni"
 
-#: ../../index.rst:71
+#: ../../index.rst:70
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:87
+#: ../../index.rst:86
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -9226,11 +9227,18 @@ msgstr ""
 "Inoltre, le cartelle condivise non verranno migrate se NS7 utilizza un "
 "provider di account remoto."
 
-#: ../../minio.rst:5
+#: ../../minio.rst:7
 msgid "MinIO"
 msgstr "MinIO"
 
-#: ../../minio.rst:7
+#: ../../minio.rst:11
+msgid ""
+"MinIO has been replaced by RustFS. Existing MinIO installations are "
+"advised to migrate to RustFS. Please refer to :ref:`rustfs-section` "
+"documentation."
+msgstr ""
+
+#: ../../minio.rst:13
 #, fuzzy
 msgid ""
 "`MinIO <https://min.io/>`_ offers high-performance, S3 compatible object "
@@ -9239,7 +9247,7 @@ msgstr ""
 "`MinIO <https://min.io/>`_ offers high-performance, S3 compatible object "
 "storage."
 
-#: ../../minio.rst:9
+#: ../../minio.rst:15
 #, fuzzy
 msgid ""
 "You can install multiple MinIO instances on the same node from the :ref"
@@ -9248,7 +9256,7 @@ msgstr ""
 "You can install multiple MinIO instances on the same node from the :ref"
 ":`software_center-section`."
 
-#: ../../minio.rst:14
+#: ../../minio.rst:20
 #, fuzzy
 msgid ""
 "MinIO needs two dedicated virtual host, a FQDN like ``minio-"
@@ -9257,7 +9265,7 @@ msgstr ""
 "MinIO needs two dedicated virtual host, a FQDN like ``minio-"
 "api.nethserver.org`` and ``minio-ui.nethserver.org``."
 
-#: ../../minio.rst:16 ../../rustfs.rst:17
+#: ../../minio.rst:22 ../../rustfs.rst:17
 #, fuzzy
 msgid ""
 "Before proceeding with the configuration, make sure to create the "
@@ -9269,45 +9277,45 @@ msgstr ""
 "corresponding name records inside your DNS server. If you are planning to"
 " use a Let's Encrypt certificate as default, make also sure to have "
 "corresponding public DNS records."
-
-#: ../../minio.rst:21
-#, fuzzy
-msgid ""
-"access the application configuration page and enter the ``API server host"
-" name``: this will be the FQDN used by hosts to connect to S3 services"
-msgstr ""
-"access the application configuration page and enter the ``API server host"
-" name``: this will be the FQDN used by hosts to connect to S3 services"
-
-#: ../../minio.rst:23
-#, fuzzy
-msgid ""
-"fill the ``Web interface host name``: you will be able to configure your "
-"MinIO instance from this FQDN"
-msgstr ""
-"fill the ``Web interface host name``: you will be able to configure your "
-"MinIO instance from this FQDN"
-
-#: ../../minio.rst:25 ../../nextcloud.rst:32 ../../rustfs.rst:26
-#, fuzzy
-msgid "enable ``Let's Encrypt`` option accordingly to your needs"
-msgstr "enable ``Let's Encrypt`` option accordingly to your needs"
 
 #: ../../minio.rst:27
 #, fuzzy
 msgid ""
+"access the application configuration page and enter the ``API server host"
+" name``: this will be the FQDN used by hosts to connect to S3 services"
+msgstr ""
+"access the application configuration page and enter the ``API server host"
+" name``: this will be the FQDN used by hosts to connect to S3 services"
+
+#: ../../minio.rst:29
+#, fuzzy
+msgid ""
+"fill the ``Web interface host name``: you will be able to configure your "
+"MinIO instance from this FQDN"
+msgstr ""
+"fill the ``Web interface host name``: you will be able to configure your "
+"MinIO instance from this FQDN"
+
+#: ../../minio.rst:31 ../../nextcloud.rst:32 ../../rustfs.rst:26
+#, fuzzy
+msgid "enable ``Let's Encrypt`` option accordingly to your needs"
+msgstr "enable ``Let's Encrypt`` option accordingly to your needs"
+
+#: ../../minio.rst:33
+#, fuzzy
+msgid ""
 "open the entered host name inside the browser, eg: ``https://minio-"
 "ui.nethserver.org``."
 msgstr ""
 "open the entered host name inside the browser, eg: ``https://minio-"
 "ui.nethserver.org``."
 
-#: ../../minio.rst:30
+#: ../../minio.rst:36
 #, fuzzy
 msgid "Configure local disks"
 msgstr "Configure local disks"
 
-#: ../../minio.rst:32
+#: ../../minio.rst:38
 #, fuzzy
 msgid ""
 "Setting up MinIO with a locally attached USB/SCSI disk provides two key "
@@ -9316,7 +9324,7 @@ msgstr ""
 "Setting up MinIO with a locally attached USB/SCSI disk provides two key "
 "benefits:"
 
-#: ../../minio.rst:34
+#: ../../minio.rst:40
 #, fuzzy
 msgid ""
 "data privacy: if you're cautious about sharing data with cloud providers,"
@@ -9327,7 +9335,7 @@ msgstr ""
 " this setup allows you to retain control over your information and "
 "prevent third-party access"
 
-#: ../../minio.rst:35
+#: ../../minio.rst:41
 #, fuzzy
 msgid ""
 "local data ownership: by utilizing a local disk, you maintain complete "
@@ -9338,17 +9346,17 @@ msgstr ""
 "data control within your own environment. This improves security and "
 "minimizes dependence on external services"
 
-#: ../../minio.rst:39
+#: ../../minio.rst:45
 #, fuzzy
 msgid "Instructions"
 msgstr "Instructions"
 
-#: ../../minio.rst:41
+#: ../../minio.rst:47
 #, fuzzy
 msgid "As system root user, follow these steps for a disk named ``scsi-disk1``:"
 msgstr "As system root user, follow these steps for a disk named ``scsi-disk1``:"
 
-#: ../../minio.rst:43
+#: ../../minio.rst:49
 #, fuzzy
 msgid ""
 "**Create a mount point:** make a directory to serve as the mount point "
@@ -9356,22 +9364,22 @@ msgid ""
 msgstr ""
 "**Create a mount point:** make a directory to serve as the mount point "
 "for the disk: ::"
-
-#: ../../minio.rst:48
-#, fuzzy
-msgid ""
-"**Automate mount at boot:** ensure the disk is automatically mounted "
-"during boot by modifying ``/etc/fstab``: ::"
-msgstr ""
-"**Automate mount at boot:** ensure the disk is automatically mounted "
-"during boot by modifying ``/etc/fstab``: ::"
 
 #: ../../minio.rst:54
+#, fuzzy
+msgid ""
+"**Automate mount at boot:** ensure the disk is automatically mounted "
+"during boot by modifying ``/etc/fstab``: ::"
+msgstr ""
+"**Automate mount at boot:** ensure the disk is automatically mounted "
+"during boot by modifying ``/etc/fstab``: ::"
+
+#: ../../minio.rst:60
 #, fuzzy
 msgid "**Mount the disk:** physically attach the disk using the mount command: ::"
 msgstr "**Mount the disk:** physically attach the disk using the mount command: ::"
 
-#: ../../minio.rst:59
+#: ../../minio.rst:65
 #, fuzzy
 msgid ""
 "**Ensure MinIO access:** allow the MinIO instance (e.g., ``minio1``) to "
@@ -9380,7 +9388,7 @@ msgstr ""
 "**Ensure MinIO access:** allow the MinIO instance (e.g., ``minio1``) to "
 "access the disk: ::"
 
-#: ../../minio.rst:64
+#: ../../minio.rst:70
 #, fuzzy
 msgid ""
 "Finally, within the module's user interface, configure the ``Storage "
