@@ -1,8 +1,14 @@
+:orphan:
+
 .. _minio-section:
 
 =====
 MinIO
 =====
+
+.. warning::
+
+   MinIO has been replaced by RustFS. Existing MinIO installations are advised to migrate to RustFS. Please refer to :ref:`rustfs-section` documentation.
 
 `MinIO <https://min.io/>`_ offers high-performance, S3 compatible object storage.
 
