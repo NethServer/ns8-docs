@@ -278,3 +278,56 @@ Move named volume data to a new disk
 
   The ``volumectl`` command does yet support moving volume data to a
   different disk. This feature is planned for future releases.
+
+.. _fstrim-periodic:
+
+SSD space reclamation
+=====================
+
+On systems backed by SSD or thin-provisioned storage, unused blocks can be
+periodically reclaimed using the ``fstrim`` utility. This operation
+informs the underlying storage that certain blocks are no longer in use,
+helping maintain consistent write performance over time.
+
+NS8 does not enable automatic trimming by default, as its effectiveness
+depends on the storage stack configuration (for example LVM, VDO, RAID, or
+virtualized block devices). In some environments, discard operations may
+be ignored or unsupported.
+
+To enable periodic trimming, activate the systemd timer:
+
+::
+
+    systemctl enable --now fstrim.timer
+
+The timer runs weekly by default, with a randomized delay to avoid
+concurrent execution across multiple systems.
+
+To verify the next scheduled run:
+
+::
+
+    systemctl status fstrim.timer
+
+Manual execution is also possible, however since the ``fstrim`` operation
+may generate a temporary I/O load spike during execution it's worth
+scheduling it during low-activity periods on performance-sensitive
+systems. Run it manually with:
+
+::
+
+    fstrim -av
+
+Ensure that discard operations are supported and propagated through the
+storage layers in use. In complex setups (e.g. LVM, dm-crypt, VDO), additional
+configuration may be required. Check the support with:
+
+::
+
+    lsblk --discard
+
+The ``DISC-GRAN`` and ``DISC-MAX`` columns indicate the discard (TRIM)
+granularity and maximum size supported by each device. Non-zero values
+mean that discard is supported, while ``0B`` indicates that the device
+does not support discard or that it is not passed through the storage
+stack.
