@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:48+0000\n"
+"POT-Creation-Date: 2026-04-09 06:51+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -2508,6 +2508,64 @@ msgstr ""
 msgid ""
 "The ``volumectl`` command does yet support moving volume data to a "
 "different disk. This feature is planned for future releases."
+msgstr ""
+
+#: ../../disk_usage.rst:285
+msgid "SSD space reclamation"
+msgstr ""
+
+#: ../../disk_usage.rst:287
+msgid ""
+"On systems backed by SSD or thin-provisioned storage, unused blocks can "
+"be periodically reclaimed using the ``fstrim`` utility. This operation "
+"informs the underlying storage that certain blocks are no longer in use, "
+"helping maintain consistent write performance over time."
+msgstr ""
+
+#: ../../disk_usage.rst:292
+msgid ""
+"NS8 does not enable automatic trimming by default, as its effectiveness "
+"depends on the storage stack configuration (for example LVM, VDO, RAID, "
+"or virtualized block devices). In some environments, discard operations "
+"may be ignored or unsupported."
+msgstr ""
+
+#: ../../disk_usage.rst:297
+msgid "To enable periodic trimming, activate the systemd timer:"
+msgstr ""
+
+#: ../../disk_usage.rst:303
+msgid ""
+"The timer runs weekly by default, with a randomized delay to avoid "
+"concurrent execution across multiple systems."
+msgstr ""
+
+#: ../../disk_usage.rst:306
+msgid "To verify the next scheduled run:"
+msgstr ""
+
+#: ../../disk_usage.rst:312
+msgid ""
+"Manual execution is also possible, however since the ``fstrim`` operation"
+" may generate a temporary I/O load spike during execution it's worth "
+"scheduling it during low-activity periods on performance-sensitive "
+"systems. Run it manually with:"
+msgstr ""
+
+#: ../../disk_usage.rst:321
+msgid ""
+"Ensure that discard operations are supported and propagated through the "
+"storage layers in use. In complex setups (e.g. LVM, dm-crypt, VDO), "
+"additional configuration may be required. Check the support with:"
+msgstr ""
+
+#: ../../disk_usage.rst:329
+msgid ""
+"The ``DISC-GRAN`` and ``DISC-MAX`` columns indicate the discard (TRIM) "
+"granularity and maximum size supported by each device. Non-zero values "
+"mean that discard is supported, while ``0B`` indicates that the device "
+"does not support discard or that it is not passed through the storage "
+"stack."
 msgstr ""
 
 #: ../../dnsmasq.rst:5
@@ -5141,15 +5199,19 @@ msgstr ":ref:`core updates <core_updates-section>`"
 msgid "Set up a :ref:`metric dashboard <metrics-section>`."
 msgstr "Impostare un :ref:`metric dashboard <metrics-section>`."
 
-#: ../../install.rst:159
+#: ../../install.rst:157
+msgid "Read :ref:`fstrim-periodic` section to enable periodic ``fstrim`` runs."
+msgstr ""
+
+#: ../../install.rst:160
 msgid "Uninstall"
 msgstr "Rimozione"
 
-#: ../../install.rst:161
+#: ../../install.rst:162
 msgid "You can uninstall NS8 from your Linux distribution."
 msgstr "È possibile disinstallare NS8 dalla distribuzione Linux usata come base."
 
-#: ../../install.rst:163
+#: ../../install.rst:164
 msgid ""
 "The uninstall command attempts to stop and erase core components and "
 "additional modules. Handle it with care because it erases everything "
@@ -5159,7 +5221,7 @@ msgstr ""
 "moduli aggiuntivi. L'attività va studiata con cura perché rimuove tutto "
 "ciò che si trova nelle directory ``/home`` e ``/var/lib/nethserver``."
 
-#: ../../install.rst:166
+#: ../../install.rst:167
 msgid "To uninstall NS8, execute: ::"
 msgstr "Per disinstallare NS8, eseguire: ::"
 
