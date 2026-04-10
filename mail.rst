@@ -733,6 +733,7 @@ checks.
 
    "SMTP session", "<any>", "25", "SMTP", "Outbound connection to remote MTA"
    "DNSBL queries", "<any>", "53", "DNS", "Rspamd DNS queries and resolver recursive DNS queries"
+   "DQS queries", "<any>", "53", "DNS", "Spamhaus Data Query Service DNS queries"
    "ClamAV DB updates", "database.clamav.net, sigs.interserver.net, cdn.rfxn.com, signatures.malware.expert, lists.malwarepatrol.net, www.sanesecurity.com, www.securiteinfo.com, urlhaus.abuse.ch, raw.githubusercontent.com", "443", "HTTPS", "Fetch official and unofficial ClamAV signatures"
    "ClamAV DB updates", "rsync.sanesecurity.net", "873", "RSYNC", "Fetch official and unofficial ClamAV signatures"
 
@@ -740,7 +741,7 @@ Notes
 
 * The complete list of host names has been extracted from the
   clamav-unofficial-sigs_ source code.
-* Obtain a complete list of DNSBL servers with this command on the node
+* Obtain a complete list of DNSBL/DQS servers with this command on the node
   where Mail is installed:
 
   ::
