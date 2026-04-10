@@ -394,8 +394,8 @@ It is important to understand how the Bayesian tests really work:
 Rspamd web interface
 --------------------
 
-The Rspamd web interface provides access to the advanced configurations and 
-overviews of Rspamd, for example the :guilabel:`Scan/Learn` tab to train Rspamd or 
+The Rspamd web interface provides access to the advanced configurations and
+overviews of Rspamd, for example the :guilabel:`Scan/Learn` tab to train Rspamd or
 the :guilabel:`History` tab to view and analyse incoming mail.
 
 The :guilabel:`Configuration` tab contains lists at the bottom. Rejecting mail
