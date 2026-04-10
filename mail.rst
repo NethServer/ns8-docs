@@ -411,7 +411,7 @@ To reject mails by domain, add for example ``domain.tld`` to the
 To reject mails by top-level domain or domain suffix, ``.tld`` or ``.domain.tld`` may be added to the 
 ``/var/lib/rspamd/block_sender_domain_suffix.map`` list.
 
-Don't touch the other lists as they are preconfigured.
+Do not modify the other lists, as they are preconfigured.
 
 Queue
 =====
