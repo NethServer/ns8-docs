@@ -396,19 +396,19 @@ Rspamd web interface
 
 The Rspamd web interface provides access to the advanced configurations and
 overviews of Rspamd, for example the :guilabel:`Scan/Learn` tab to train Rspamd or
-the :guilabel:`History` tab to view and analyze incoming mail.
+the :guilabel:`History` tab to view and analyze incoming emails.
 
-The :guilabel:`Configuration` tab contains lists at the bottom. Rejecting mail
+The :guilabel:`Configuration` tab contains lists at the bottom. Rejecting emails
 can be configured here.
 
-To reject mails by specific sender mail addresses, the
+To reject emails by specific sender email addresses, the
 ``/var/lib/rspamd/block_sender.map`` list needs to be configured, for
 example to add ``user@domain.tld``.
 
-To reject mails by domain, add for example ``domain.tld`` to the 
+To reject emails by domain, add for example ``domain.tld`` to the 
 ``/var/lib/rspamd/block_sender_domain.map`` list.
 
-To reject mails by top-level domain or domain suffix, ``.tld`` or ``.domain.tld`` may be added to the 
+To reject emails by top-level domain or domain suffix, ``.tld`` or ``.domain.tld`` may be added to the 
 ``/var/lib/rspamd/block_sender_domain_suffix.map`` list.
 
 Do not modify the other lists, as they are preconfigured.
@@ -416,7 +416,7 @@ Do not modify the other lists, as they are preconfigured.
 Queue
 =====
 
-The ``Queue`` page shows the status of the Postifx mail queue. Under
+The ``Queue`` page shows the status of the Postfix mail queue. Under
 normal conditions the queue should be empty because messages are
 immediately exchanged between mail servers.
 
