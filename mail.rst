@@ -348,7 +348,8 @@ To view message details such as the envelope sender address, access
 advanced settings, or review recent Rspamd activity, open the Rspamd web
 interface by clicking the :guilabel:`Open Rspamd` button in the top-right
 corner of the Filter page. You will need your cluster-admin credentials to
-log in.
+log in. For more information, see
+:ref:`rspamd-web-interface`.
 
 The Bayesian statistical filters can then be trained with any IMAP client
 by simply moving a message in and out of the Junk folder. As a
@@ -388,6 +389,28 @@ It is important to understand how the Bayesian tests really work:
   As the system receives that information, the progress of bayesian filter
   training can be monitored from the Rspamd web UI.
 
+.. _rspamd-web-interface:
+
+Rspamd web interface
+--------------------
+
+The Rspamd web interface provides access to the advanced configurations and 
+overviews of Rspamd, for example the :guilabel:`Scan/Learn` tab to train Rspamd or 
+the :guilabel:`History` tab to view and analyse incoming mail.
+
+The :guilabel:`Configuration` tab contains lists at the bottom. Rejecting mail
+can be configured here.
+
+To reject mails by specific sender mail addresses, the ``/var/lib/rspamd/block_sender.map`` list
+needs to be configured, for example to add ``user@domain.tld``.
+
+To reject mails by domain, add for example ``domain.tld`` to the 
+``/var/lib/rspamd/block_sender_domain.map`` list.
+
+To reject mails by top-level domain or domain suffix, ``.tld`` or ``.domain.tld`` may be added to the 
+``/var/lib/rspamd/block_sender_domain_suffix.map`` list.
+
+Don't touch the other lists as they are preconfigured.
 
 Queue
 =====
