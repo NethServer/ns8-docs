@@ -259,16 +259,17 @@ when an update is available.
   that manage the containers and backup engines.
 - *LDAP proxy* is a proxy server for LDAP TCP connections that handles all
   connections from applications to :ref:`User domain providers
-  <user-domains-section>`.
-- :ref:`Loki log server <loki-section>`
-- :ref:`Traefik proxy <traefik-section>`
-- :ref:`Samba Active Directory <active_directory-section>`
-- :ref:`OpenLDAP <openldap-section>`
+  <user-domains-section>` (every node)
+- :ref:`Traefik proxy <traefik-section>` (every node)
+- :ref:`Loki log server <loki-section>` (leader node only)
+- :ref:`Metrics <metrics-section>` (leader node only)
+- :ref:`Samba Active Directory <active_directory-section>` (optional)
+- :ref:`OpenLDAP <openldap-section>` (optional)
 
-You can review the components currently installed in the cluster at any
-time. To do this, click on the three-dots menu in the top-right corner of
-the ``Software Center`` page, then select the ``Core apps`` option.
-Click on :guilabel:`Update core` button to apply the updates.
+You can review the components currently installed on each node of the
+cluster at any time. To do this, click on the three-dots menu in the
+top-right corner of the ``Software Center`` page, then select ``Core
+apps``. Click on :guilabel:`Update core` to apply the updates.
 
 Core module updates are always applied altogether to avoid version
 mismatches.
