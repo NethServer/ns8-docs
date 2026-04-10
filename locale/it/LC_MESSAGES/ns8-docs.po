@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-09 06:51+0000\n"
+"POT-Creation-Date: 2026-04-10 12:29+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -7775,7 +7775,7 @@ msgstr "Formato"
 msgid "Protocol"
 msgstr "tools"
 
-#: ../../mail.rst:1 ../../mail.rst:739 ../../system_requirements.rst:1
+#: ../../mail.rst:1 ../../mail.rst:740 ../../system_requirements.rst:1
 #: ../../system_requirements.rst:211
 #, fuzzy
 msgid "Notes"
@@ -7815,6 +7815,14 @@ msgid "Rspamd DNS queries and resolver recursive DNS queries"
 msgstr ""
 
 #: ../../mail.rst:1
+msgid "DQS queries"
+msgstr ""
+
+#: ../../mail.rst:1
+msgid "Spamhaus Data Query Service DNS queries"
+msgstr ""
+
+#: ../../mail.rst:1
 msgid "ClamAV DB updates"
 msgstr ""
 
@@ -7850,19 +7858,19 @@ msgstr ""
 msgid "RSYNC"
 msgstr "Imapsync"
 
-#: ../../mail.rst:741
+#: ../../mail.rst:742
 msgid ""
 "The complete list of host names has been extracted from the clamav-"
 "unofficial-sigs_ source code."
 msgstr ""
 
-#: ../../mail.rst:743
+#: ../../mail.rst:744
 msgid ""
-"Obtain a complete list of DNSBL servers with this command on the node "
-"where Mail is installed:"
+"Obtain a complete list of DNSBL/DQS servers with this command on the node"
+" where Mail is installed:"
 msgstr ""
 
-#: ../../mail.rst:750
+#: ../../mail.rst:751
 msgid ""
 "To resolve their IP addresses, the Rspamd DNS recursive resolver "
 "(Unbound) queries authoritative DNS servers directly."
@@ -29077,4 +29085,10 @@ msgstr ""
 #~ "L'ID sessione viene sempre registrato "
 #~ "nel journal di sistema e nel log"
 #~ " dei nodi."
+
+#~ msgid ""
+#~ "Obtain a complete list of DNSBL "
+#~ "servers with this command on the "
+#~ "node where Mail is installed:"
+#~ msgstr ""
 
