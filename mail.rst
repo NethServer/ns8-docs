@@ -401,8 +401,9 @@ the :guilabel:`History` tab to view and analyze incoming mail.
 The :guilabel:`Configuration` tab contains lists at the bottom. Rejecting mail
 can be configured here.
 
-To reject mails by specific sender mail addresses, the ``/var/lib/rspamd/block_sender.map`` list
-needs to be configured, for example to add ``user@domain.tld``.
+To reject mails by specific sender mail addresses, the
+``/var/lib/rspamd/block_sender.map`` list needs to be configured, for
+example to add ``user@domain.tld``.
 
 To reject mails by domain, add for example ``domain.tld`` to the 
 ``/var/lib/rspamd/block_sender_domain.map`` list.
