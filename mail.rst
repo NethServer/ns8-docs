@@ -396,7 +396,7 @@ Rspamd web interface
 
 The Rspamd web interface provides access to the advanced configurations and
 overviews of Rspamd, for example the :guilabel:`Scan/Learn` tab to train Rspamd or
-the :guilabel:`History` tab to view and analyse incoming mail.
+the :guilabel:`History` tab to view and analyze incoming mail.
 
 The :guilabel:`Configuration` tab contains lists at the bottom. Rejecting mail
 can be configured here.
