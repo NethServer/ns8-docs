@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 12:29+0000\n"
+"POT-Creation-Date: 2026-04-10 17:02+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -14620,40 +14620,45 @@ msgstr ""
 msgid ""
 "*LDAP proxy* is a proxy server for LDAP TCP connections that handles all "
 "connections from applications to :ref:`User domain providers <user-"
-"domains-section>`."
+"domains-section>` (every node)"
 msgstr ""
 "``LDAP proxy`` it's an `NGINX <https://www.nginx.com/>`_ instance that "
 "handles all connections from applications to :ref:`user-domains-section`"
 
 #: ../../software_center.rst:263
 #, fuzzy
-msgid ":ref:`Loki log server <loki-section>`"
-msgstr ":ref:`Loki log server <loki-section>`"
+msgid ":ref:`Traefik proxy <traefik-section>` (every node)"
+msgstr ":ref:`Traefik proxy <traefik-section>`"
 
 #: ../../software_center.rst:264
 #, fuzzy
-msgid ":ref:`Traefik proxy <traefik-section>`"
-msgstr ":ref:`Traefik proxy <traefik-section>`"
+msgid ":ref:`Loki log server <loki-section>` (leader node only)"
+msgstr ":ref:`Loki log server <loki-section>`"
 
 #: ../../software_center.rst:265
 #, fuzzy
-msgid ":ref:`Samba Active Directory <active_directory-section>`"
-msgstr ":ref:`active_directory-section`"
+msgid ":ref:`Metrics <metrics-section>` (leader node only)"
+msgstr "Impostare un :ref:`metric dashboard <metrics-section>`."
 
 #: ../../software_center.rst:266
 #, fuzzy
-msgid ":ref:`OpenLDAP <openldap-section>`"
+msgid ":ref:`Samba Active Directory <active_directory-section>` (optional)"
+msgstr ":ref:`active_directory-section`"
+
+#: ../../software_center.rst:267
+#, fuzzy
+msgid ":ref:`OpenLDAP <openldap-section>` (optional)"
 msgstr ":ref:`openldap-section`"
 
-#: ../../software_center.rst:268
+#: ../../software_center.rst:269
 msgid ""
-"You can review the components currently installed in the cluster at any "
-"time. To do this, click on the three-dots menu in the top-right corner of"
-" the ``Software Center`` page, then select the ``Core apps`` option. "
-"Click on :guilabel:`Update core` button to apply the updates."
+"You can review the components currently installed on each node of the "
+"cluster at any time. To do this, click on the three-dots menu in the top-"
+"right corner of the ``Software Center`` page, then select ``Core apps``. "
+"Click on :guilabel:`Update core` to apply the updates."
 msgstr ""
 
-#: ../../software_center.rst:273
+#: ../../software_center.rst:274
 #, fuzzy
 msgid ""
 "Core module updates are always applied altogether to avoid version "
@@ -14662,12 +14667,12 @@ msgstr ""
 "Core module updates are always applied altogether to avoid version "
 "mismatch."
 
-#: ../../software_center.rst:281
+#: ../../software_center.rst:282
 #, fuzzy
 msgid "Application updates"
 msgstr "Applicazioni"
 
-#: ../../software_center.rst:283
+#: ../../software_center.rst:284
 #, fuzzy
 msgid ""
 "The list of available updates is listed inside the ``Updates`` tab of "
@@ -14678,7 +14683,7 @@ msgstr ""
 ":ref:`software_center-section`. The software center displays a card for "
 "each application with available updates."
 
-#: ../../software_center.rst:287
+#: ../../software_center.rst:288
 #, fuzzy
 msgid ""
 "You can apply all application updates by clicking the :guilabel:`Update "
@@ -14687,7 +14692,7 @@ msgstr ""
 "You can apply all module updates by clicking the :guilabel:`Update all "
 "apps` button."
 
-#: ../../software_center.rst:290
+#: ../../software_center.rst:291
 #, fuzzy
 msgid ""
 "By clicking the :guilabel:`Review and update` button on the application "
@@ -29090,5 +29095,16 @@ msgstr ""
 #~ "Obtain a complete list of DNSBL "
 #~ "servers with this command on the "
 #~ "node where Mail is installed:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can review the components currently"
+#~ " installed in the cluster at any "
+#~ "time. To do this, click on the "
+#~ "three-dots menu in the top-right"
+#~ " corner of the ``Software Center`` "
+#~ "page, then select the ``Core apps`` "
+#~ "option. Click on :guilabel:`Update core` "
+#~ "button to apply the updates."
 #~ msgstr ""
 
