@@ -406,7 +406,7 @@ To reject emails by specific sender email addresses, the
 ``/var/lib/rspamd/block_sender.map`` list needs to be configured, for
 example to add ``user@domain.tld``.
 
-To reject emails by domain, add for example ``domain.tld`` to the 
+To reject emails by domain, add for example ``domain.tld`` to the
 ``/var/lib/rspamd/block_sender_domain.map`` list.
 
 To reject emails by top-level domain or domain suffix, ``.tld`` or ``.domain.tld``
