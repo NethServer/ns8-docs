@@ -345,11 +345,7 @@ address*, which may differ from the message's "From" address in some cases
 (e.g. mailing lists).
 
 To view message details such as the envelope sender address, access
-advanced settings, or review recent Rspamd activity, open the Rspamd web
-interface by clicking the :guilabel:`Open Rspamd` button in the top-right
-corner of the Filter page. You will need your cluster-admin credentials to
-log in. For more information, see
-:ref:`rspamd-web-interface`.
+advanced settings, or review recent Rspamd activity, see :ref:`rspamd-web-interface`.
 
 The Bayesian statistical filters can then be trained with any IMAP client
 by simply moving a message in and out of the Junk folder. As a
@@ -394,9 +390,14 @@ It is important to understand how the Bayesian tests really work:
 Rspamd web interface
 --------------------
 
-The Rspamd web interface provides access to the advanced configurations and
-overviews of Rspamd, for example the :guilabel:`Scan/Learn` tab to train Rspamd or
-the :guilabel:`History` tab to view and analyze incoming emails.
+The Rspamd web interface can be opened by clicking the :guilabel:`Open Rspamd`
+button in the top-right corner of the Filter page or by browsing to
+``https://<yourIP>/rspamd`` or ``https://<yourFQDN>/rspamd``.
+You will need your cluster-admin credentials to log in.
+
+It provides access to the advanced configurations and overviews of Rspamd,
+for example the :guilabel:`Scan/Learn` tab to train Rspamd or the
+:guilabel:`History` tab to view and analyze incoming emails.
 
 The :guilabel:`Configuration` tab contains lists at the bottom. Rejecting emails
 can be configured here.
@@ -408,8 +409,8 @@ example to add ``user@domain.tld``.
 To reject emails by domain, add for example ``domain.tld`` to the 
 ``/var/lib/rspamd/block_sender_domain.map`` list.
 
-To reject emails by top-level domain or domain suffix, ``.tld`` or ``.domain.tld`` may be added to the 
-``/var/lib/rspamd/block_sender_domain_suffix.map`` list.
+To reject emails by top-level domain or domain suffix, ``.tld`` or ``.domain.tld``
+may be added to the ``/var/lib/rspamd/block_sender_domain_suffix.map`` list.
 
 Do not modify the other lists, as they are preconfigured.
 
