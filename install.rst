@@ -76,9 +76,9 @@ prompt showing the assigned IP address.
 Default OS administrative credentials are
 
 * Username: ``root``
-* Password: ``Nethesis,1234``
+* The password is a random one, generated on first boot and shown in the console until it's changed.
 
-Log in using the default credentials. On the first login, you will be
+Log in using those credentials. On the first login, you will be
 prompted to change the root password.
 
 SSH access is disabled for root. To obtain administrative SSH access,
