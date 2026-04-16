@@ -76,7 +76,7 @@ prompt showing the assigned IP address.
 Default OS administrative credentials are
 
 * Username: ``root``
-* The password is a random one, generated on first boot and shown in the console until it's changed.
+* Password: a random one, generated on first boot and shown on the system console until it's changed.
 
 Log in using those credentials. On the first login, you will be
 prompted to change the root password.
