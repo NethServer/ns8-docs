@@ -266,7 +266,7 @@ Move named volume data to a new disk
 
 .. note::
 
-  The ``volumectl`` command does yet support moving volume data to a
+  The ``volumectl`` command does not yet support moving volume data to a
   different disk. This feature is planned for future releases.
 
 .. _fstrim-periodic:
