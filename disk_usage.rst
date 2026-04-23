@@ -158,9 +158,9 @@ automation and fewer choices, when an application is installed for the
 first time (see :ref:`install-applications`), or when it is restored or
 cloned.
 
-Here we consider the Samba application, but the method works for any NS8
-rootless application that relies on named volumes. This method does not
-work with rootful applications.
+Here we consider the Mattermost application, but the method works for any
+NS8 rootless application that relies on named volumes. This method does
+not work with rootful applications.
 
 Redirecting named volumes helps achieve better storage organization,
 reduces pressure on the system disk, and aligns data placement with
@@ -171,12 +171,12 @@ performance or capacity characteristics.
   Configure the named volume assignment *before* installing, restoring, or
   cloning the rootless application.
 
-For example, the Samba File Server application contains a large amount
-of user data, and you may want to offload it to a separate disk. This is a
-typical scenario where the root disk space is dedicated to the operating
-system, application images, and named volumes for fast random-access
-databases. The separate disk, slower but larger than the root one, will
-contain most of the user data.
+For example, the Mattermost application uses PostgreSQL as its data
+backend, and you may want to assign the ``postgres-data`` named volume to
+a fast, dedicated disk to improve database performance. This is a typical
+scenario where a high-speed disk is dedicated to database workloads,
+while the root disk handles the operating system, application images, and
+other data.
 
 Since NS8 does not manage disk mounting, the system administrator must
 ensure disk mount reliability.
@@ -229,33 +229,24 @@ In this output example:
 Use the disk for selected volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's continue the Samba File Server example. The ns8-samba documentation
-describes two named volumes provided by the Samba File Server: ``shares``
-and ``homes``.
+Let's continue the Mattermost example. The ns8-mattermost documentation
+describes the ``postgres-data`` named volume, which holds the PostgreSQL
+database files used by Mattermost.
 
-The following commands assign them to ``LABDISK0`` and take effect the
-next time Samba is installed: ::
+The following command assigns it to ``LABDISK0`` and takes effect the
+next time Mattermost is installed: ::
 
-  volumectl add-volume shares --for samba --target /srv/disk0
-  volumectl add-volume homes --for samba --target /srv/disk0
+  volumectl add-volume postgres-data --for mattermost --target /srv/disk0
 
 Check the assignments by printing ``/etc/nethserver/volumes.conf``. This
 file is in INI-compatible format: ::
 
   cat /etc/nethserver/volumes.conf
 
-The next time Samba is installed on the local node, its ``shares`` and
-``homes`` volumes will be created under ``/srv/disk0``. The same
-configuration is applied if Samba is installed by the restore or clone
-procedures.
-
-.. note::
-
-  In future releases, disk selection will be available from the
-  cluster-admin UI for applications that support it. When an application
-  is installed, restored, or cloned, it will be possible to select the
-  disk to use, or keep the root disk as the default unless a different
-  target is configured in ``volumes.conf``.
+The next time Mattermost is installed on the local node, its
+``postgres-data`` volume will be created under ``/srv/disk0``. The same
+configuration is applied if Mattermost is installed by the restore or
+clone procedures.
 
 
 Clear named volume assignments
@@ -265,8 +256,7 @@ To remove an assignment, delete the corresponding line from
 ``/etc/nethserver/volumes.conf`` with a text editor, or run the following
 commands: ::
 
-  volumectl remove-volume --for samba homes
-  volumectl remove-volume --for samba shares
+  volumectl remove-volume --for mattermost postgres-data
 
 Removing the assignment does not remove any data; it only updates the
 ``volumes.conf`` file.
