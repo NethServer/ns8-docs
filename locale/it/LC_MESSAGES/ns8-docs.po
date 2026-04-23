@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-15 17:59+0000\n"
+"POT-Creation-Date: 2026-04-23 15:14+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -2330,9 +2330,9 @@ msgstr ""
 
 #: ../../disk_usage.rst:161
 msgid ""
-"Here we consider the Samba application, but the method works for any NS8 "
-"rootless application that relies on named volumes. This method does not "
-"work with rootful applications."
+"Here we consider the Mattermost application, but the method works for any"
+" NS8 rootless application that relies on named volumes. This method does "
+"not work with rootful applications."
 msgstr ""
 
 #: ../../disk_usage.rst:165
@@ -2350,12 +2350,12 @@ msgstr ""
 
 #: ../../disk_usage.rst:174
 msgid ""
-"For example, the Samba File Server application contains a large amount of"
-" user data, and you may want to offload it to a separate disk. This is a "
-"typical scenario where the root disk space is dedicated to the operating "
-"system, application images, and named volumes for fast random-access "
-"databases. The separate disk, slower but larger than the root one, will "
-"contain most of the user data."
+"For example, the Mattermost application uses PostgreSQL as its data "
+"backend, and you may want to assign the ``postgres-data`` named volume to"
+" a fast, dedicated disk to improve database performance. This is a "
+"typical scenario where a high-speed disk is dedicated to database "
+"workloads, while the root disk handles the operating system, application "
+"images, and other data."
 msgstr ""
 
 #: ../../disk_usage.rst:181
@@ -2449,72 +2449,63 @@ msgstr ""
 
 #: ../../disk_usage.rst:232
 msgid ""
-"Let's continue the Samba File Server example. The ns8-samba documentation"
-" describes two named volumes provided by the Samba File Server: "
-"``shares`` and ``homes``."
+"Let's continue the Mattermost example. The ns8-mattermost documentation "
+"describes the ``postgres-data`` named volume, which holds the PostgreSQL "
+"database files used by Mattermost."
 msgstr ""
 
 #: ../../disk_usage.rst:236
 msgid ""
-"The following commands assign them to ``LABDISK0`` and take effect the "
-"next time Samba is installed: ::"
+"The following command assigns it to ``LABDISK0`` and takes effect the "
+"next time Mattermost is installed: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:242
+#: ../../disk_usage.rst:241
 msgid ""
 "Check the assignments by printing ``/etc/nethserver/volumes.conf``. This "
 "file is in INI-compatible format: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:247
+#: ../../disk_usage.rst:246
 msgid ""
-"The next time Samba is installed on the local node, its ``shares`` and "
-"``homes`` volumes will be created under ``/srv/disk0``. The same "
-"configuration is applied if Samba is installed by the restore or clone "
-"procedures."
+"The next time Mattermost is installed on the local node, its ``postgres-"
+"data`` volume will be created under ``/srv/disk0``. The same "
+"configuration is applied if Mattermost is installed by the restore or "
+"clone procedures."
 msgstr ""
 
-#: ../../disk_usage.rst:254
-msgid ""
-"In future releases, disk selection will be available from the cluster-"
-"admin UI for applications that support it. When an application is "
-"installed, restored, or cloned, it will be possible to select the disk to"
-" use, or keep the root disk as the default unless a different target is "
-"configured in ``volumes.conf``."
-msgstr ""
-
-#: ../../disk_usage.rst:262
+#: ../../disk_usage.rst:253
 msgid "Clear named volume assignments"
 msgstr ""
 
-#: ../../disk_usage.rst:264
+#: ../../disk_usage.rst:255
 msgid ""
 "To remove an assignment, delete the corresponding line from "
 "``/etc/nethserver/volumes.conf`` with a text editor, or run the following"
 " commands: ::"
 msgstr ""
 
-#: ../../disk_usage.rst:271
+#: ../../disk_usage.rst:261
 msgid ""
 "Removing the assignment does not remove any data; it only updates the "
 "``volumes.conf`` file."
 msgstr ""
 
-#: ../../disk_usage.rst:275
+#: ../../disk_usage.rst:265
 msgid "Move named volume data to a new disk"
 msgstr ""
 
-#: ../../disk_usage.rst:279
+#: ../../disk_usage.rst:269
 msgid ""
-"The ``volumectl`` command does yet support moving volume data to a "
+"The ``volumectl`` command does not yet support moving volume data to a "
 "different disk. This feature is planned for future releases."
 msgstr ""
 
-#: ../../disk_usage.rst:285
+#: ../../disk_usage.rst:275
 msgid "SSD space reclamation"
 msgstr ""
 
-#: ../../disk_usage.rst:287
+#: ../../disk_usage.rst:277
 msgid ""
 "On systems backed by SSD or thin-provisioned storage, unused blocks can "
 "be periodically reclaimed using the ``fstrim`` utility. This operation "
@@ -2522,7 +2513,7 @@ msgid ""
 "helping maintain consistent write performance over time."
 msgstr ""
 
-#: ../../disk_usage.rst:292
+#: ../../disk_usage.rst:282
 msgid ""
 "NS8 does not enable automatic trimming by default, as its effectiveness "
 "depends on the storage stack configuration (for example LVM, VDO, RAID, "
@@ -2530,21 +2521,21 @@ msgid ""
 "may be ignored or unsupported."
 msgstr ""
 
-#: ../../disk_usage.rst:297
+#: ../../disk_usage.rst:287
 msgid "To enable periodic trimming, activate the systemd timer:"
 msgstr ""
 
-#: ../../disk_usage.rst:303
+#: ../../disk_usage.rst:293
 msgid ""
 "The timer runs weekly by default, with a randomized delay to avoid "
 "concurrent execution across multiple systems."
 msgstr ""
 
-#: ../../disk_usage.rst:306
+#: ../../disk_usage.rst:296
 msgid "To verify the next scheduled run:"
 msgstr ""
 
-#: ../../disk_usage.rst:312
+#: ../../disk_usage.rst:302
 msgid ""
 "Manual execution is also possible, however since the ``fstrim`` operation"
 " may generate a temporary I/O load spike during execution it's worth "
@@ -2552,14 +2543,14 @@ msgid ""
 "systems. Run it manually with:"
 msgstr ""
 
-#: ../../disk_usage.rst:321
+#: ../../disk_usage.rst:311
 msgid ""
 "Ensure that discard operations are supported and propagated through the "
 "storage layers in use. In complex setups (e.g. LVM, dm-crypt, VDO), "
 "additional configuration may be required. Check the support with:"
 msgstr ""
 
-#: ../../disk_usage.rst:329
+#: ../../disk_usage.rst:319
 msgid ""
 "The ``DISC-GRAN`` and ``DISC-MAX`` columns indicate the discard (TRIM) "
 "granularity and maximum size supported by each device. Non-zero values "
@@ -29167,5 +29158,71 @@ msgstr ""
 #~ "corner of the Filter page. You "
 #~ "will need your cluster-admin credentials"
 #~ " to log in."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Here we consider the Samba application,"
+#~ " but the method works for any "
+#~ "NS8 rootless application that relies on"
+#~ " named volumes. This method does not"
+#~ " work with rootful applications."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For example, the Samba File Server "
+#~ "application contains a large amount of"
+#~ " user data, and you may want to"
+#~ " offload it to a separate disk. "
+#~ "This is a typical scenario where "
+#~ "the root disk space is dedicated "
+#~ "to the operating system, application "
+#~ "images, and named volumes for fast "
+#~ "random-access databases. The separate "
+#~ "disk, slower but larger than the "
+#~ "root one, will contain most of the"
+#~ " user data."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Let's continue the Samba File Server "
+#~ "example. The ns8-samba documentation describes"
+#~ " two named volumes provided by the"
+#~ " Samba File Server: ``shares`` and "
+#~ "``homes``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following commands assign them to"
+#~ " ``LABDISK0`` and take effect the "
+#~ "next time Samba is installed: ::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The next time Samba is installed "
+#~ "on the local node, its ``shares`` "
+#~ "and ``homes`` volumes will be created"
+#~ " under ``/srv/disk0``. The same "
+#~ "configuration is applied if Samba is "
+#~ "installed by the restore or clone "
+#~ "procedures."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In future releases, disk selection will"
+#~ " be available from the cluster-admin"
+#~ " UI for applications that support it."
+#~ " When an application is installed, "
+#~ "restored, or cloned, it will be "
+#~ "possible to select the disk to "
+#~ "use, or keep the root disk as "
+#~ "the default unless a different target"
+#~ " is configured in ``volumes.conf``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The ``volumectl`` command does yet "
+#~ "support moving volume data to a "
+#~ "different disk. This feature is planned"
+#~ " for future releases."
 #~ msgstr ""
 
