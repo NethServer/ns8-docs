@@ -73,6 +73,13 @@ Cloud-init does not find a network configuration, it attempts to obtain
 one via DHCP. After a few seconds, the system console displays a login
 prompt showing the assigned IP address.
 
+.. warning::
+
+   A working DHCP network configuration is mandatory from the very 
+   first boot to complete the NS8 installation correctly.
+   If the instance cannot access the Internet freely and resolve 
+   public DNS names correctly, the NS8 installation will fail irreversibly.
+
 Default OS administrative credentials are
 
 * Username: ``root``
