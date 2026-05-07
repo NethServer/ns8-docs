@@ -37,6 +37,9 @@ reached before the daily report, the notification is sent immediately. The
 `Notification threshold` field, under the ``Advanced`` section, controls
 this value and can be set between 1 and 10000.
 
+CrowdSec data is accessible from the ``CrowdSec Overview`` and ``CrowdSec Metrics`` Grafana
+dashboards, as explained in :ref:`grafana_access-section`.
+
 Community blocklist vs Community blocklist (Lite)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 CrowdSec provides a `community blocklist <https://docs.crowdsec.net/docs/next/central_api/community_blocklist>`_  that is shared among all users. To activate this feature, you need to:
