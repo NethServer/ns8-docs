@@ -174,7 +174,7 @@ procedure:
 
 Note that TLS certificates obtained from Let's Encrypt are not part of
 the backup and are not restored with the application: they must be
-requested again from the application settings page.
+requested again from the application settings page after restore.
 
 Some core applications have special behavior during restore:
 
