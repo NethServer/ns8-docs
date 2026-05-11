@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-07 12:32+0000\n"
+"POT-Creation-Date: 2026-05-11 09:05+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -369,24 +369,31 @@ msgid "Click on the :guilabel:`Restore` button."
 msgstr "cliccare sul tasto: `Restore`"
 
 #: ../../backup.rst:175
+msgid ""
+"Note that TLS certificates obtained from Let's Encrypt are not part of "
+"the backup and are not restored with the application: they must be "
+"requested again from the application settings page after restore."
+msgstr ""
+
+#: ../../backup.rst:179
 msgid "Some core applications have special behavior during restore:"
 msgstr ""
 
-#: ../../backup.rst:177
+#: ../../backup.rst:181
 msgid ""
 "**Traefik** restores only uploaded certificates and user-defined HTTP "
 "routes. Refer to :ref:`uploaded-certificates-section` and :ref:`custom-"
 "http-route-section`."
 msgstr ""
 
-#: ../../backup.rst:181
+#: ../../backup.rst:185
 msgid ""
 "**Loki** restore installs an additional *inactive* Loki instance. It can "
 "be used only for log searches, as explained in :ref:`system-logs-"
 "section`."
 msgstr ""
 
-#: ../../backup.rst:185
+#: ../../backup.rst:189
 msgid ""
 "**Samba** restore behavior depends on whether the AD user domain is "
 "already present in the cluster. If present, only shared folder data is "
@@ -394,12 +401,12 @@ msgid ""
 ":ref:`file-server-restore` for more information."
 msgstr ""
 
-#: ../../backup.rst:194
+#: ../../backup.rst:198
 #, fuzzy
 msgid "Selective content restore"
 msgstr "selezionare le applicazioni da ripristinare"
 
-#: ../../backup.rst:196
+#: ../../backup.rst:200
 msgid ""
 "Some applications allow you to search for and restore specific items from"
 " a backup snapshot. For more information, refer to:"
@@ -408,7 +415,7 @@ msgstr ""
 "specifici da una snapshot di backup. Per ulteriori informazioni, "
 "consultare:"
 
-#: ../../backup.rst:199
+#: ../../backup.rst:203
 msgid ""
 "Samba :ref:`share-selective-restore`, for files and directories within a "
 "Samba share."
@@ -416,7 +423,7 @@ msgstr ""
 "Samba :ref:`share-selective-restore`, per file e directory all'interno di"
 " una quota Samba."
 
-#: ../../backup.rst:201
+#: ../../backup.rst:205
 msgid ""
 "Mail :ref:`mailbox-selective-restore`, for public mailboxes and user "
 "mailbox folders."
@@ -424,11 +431,11 @@ msgstr ""
 "Mail :ref:`mailbox-selective-restore`, per caselle di posta pubbliche e "
 "cartelle della casella di posta utente."
 
-#: ../../backup.rst:208
+#: ../../backup.rst:212
 msgid "Cluster backup"
 msgstr "Cluster backup"
 
-#: ../../backup.rst:210
+#: ../../backup.rst:214
 #, fuzzy
 msgid ""
 "The cluster backup contains all required data for :ref"
@@ -441,7 +448,7 @@ msgstr ""
 "necessari per eseguire un :ref: `disaster_recovery-section`. È un file "
 "JSON compresso crittografato con GPG."
 
-#: ../../backup.rst:216
+#: ../../backup.rst:220
 #, fuzzy
 msgid ""
 "The first time the ``Backup and restore`` page is accessed, you must set "
@@ -454,7 +461,7 @@ msgstr ""
 "password di crittografia è necessaria anche dopo l'elezione di un nuovo "
 "nodo leader (vedere :ref: `node-promotion-section`)."
 
-#: ../../backup.rst:221
+#: ../../backup.rst:225
 #, fuzzy
 msgid ""
 "The cluster backup is automatically copied to backup destinations during "
@@ -472,7 +479,7 @@ msgstr ""
 "il backup della configurazione del cluster è disponibile anche dal "
 "portale di abbonamento."
 
-#: ../../backup.rst:228
+#: ../../backup.rst:232
 #, fuzzy
 msgid ""
 "Periodically download the cluster backup and keep it in a safe place. "
@@ -483,7 +490,7 @@ msgstr ""
 "tasto :guilabel:`Download cluster backup` sotto la sezione "
 "``Configurazione cluster`` della pagina ``Backup``."
 
-#: ../../backup.rst:234
+#: ../../backup.rst:238
 #, fuzzy
 msgid ""
 "If you lose the cluster backup, you can still restore applications to "
@@ -494,7 +501,7 @@ msgstr ""
 "ripristinare le applicazioni in un altro cluster solo se si conosce la "
 "password di crittografia del repository di backup."
 
-#: ../../backup.rst:238
+#: ../../backup.rst:242
 #, fuzzy
 msgid ""
 "To inspect the content of the downloaded file, use the following command,"
@@ -504,24 +511,24 @@ msgstr ""
 "dove ``<pass>`` è la password di crittografia inserita prima del "
 "download: ::"
 
-#: ../../backup.rst:247
+#: ../../backup.rst:251
 msgid "Disaster recovery"
 msgstr "Disaster recovery"
 
-#: ../../backup.rst:249
+#: ../../backup.rst:253
 msgid ""
 "The disaster recovery procedure is designed for the restoration of a "
 "**single-node cluster**. You just need the original :ref:`cluster backup "
 "<cluster_backup-section>` file."
 msgstr ""
 
-#: ../../backup.rst:253
+#: ../../backup.rst:257
 msgid ""
 "Make sure the new system has enough free disk space. The restore "
 "procedure does not check the free disk space."
 msgstr ""
 
-#: ../../backup.rst:255
+#: ../../backup.rst:259
 #, fuzzy
 msgid ""
 ":ref:`Install <install-section>` a new cluster and log in using the "
@@ -530,17 +537,17 @@ msgstr ""
 ":ref:`install <install-section>` un nuovo cluster e login utilizzando le "
 "credenziali di default"
 
-#: ../../backup.rst:257
+#: ../../backup.rst:261
 #, fuzzy
 msgid "Change the default administrator password."
 msgstr "modificare la password di amministratore predefinito"
 
-#: ../../backup.rst:258
+#: ../../backup.rst:262
 #, fuzzy
 msgid "Click on the :guilabel:`Restore cluster` button."
 msgstr "cliccare sul tasto: `Restore`"
 
-#: ../../backup.rst:259
+#: ../../backup.rst:263
 #, fuzzy
 msgid ""
 "Choose whether to restore a cluster configuration from a remote HTTP "
@@ -549,16 +556,16 @@ msgstr ""
 "è ora possibile scegliere se ripristinare una configurazione di cluster "
 "ospitata su un server HTTP remoto o caricare il backup dal browser"
 
-#: ../../backup.rst:261
+#: ../../backup.rst:265
 msgid "Enter the encryption secret in the ``Backup password`` field."
 msgstr "Inserisci il segreto di crittografia nel campo ``Backup password```."
 
-#: ../../backup.rst:262
+#: ../../backup.rst:266
 #, fuzzy
 msgid "Select the applications to restore."
 msgstr "selezionare le applicazioni da ripristinare"
 
-#: ../../backup.rst:264
+#: ../../backup.rst:268
 msgid ""
 "For more information, refer to the backup and restore notes for each "
 "application. For example:"
@@ -566,7 +573,7 @@ msgstr ""
 "Per ulteriori informazioni, fare riferimento al backup e ripristinare le "
 "note per ogni applicazione. Per esempio:"
 
-#: ../../backup.rst:267
+#: ../../backup.rst:271
 msgid ":ref:`file-server-restore`"
 msgstr ":ref:`file-server-restore`"
 
