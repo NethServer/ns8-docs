@@ -26,6 +26,9 @@ If the ``curl`` command is not available try to install it with: ::
 
    apt install curl || dnf install curl
 
+The install script also applies the latest security distribution updates.
+Reboot the system at the end of the installation.
+
 .. _install_image-section:
 
 Pre-built image
@@ -68,7 +71,7 @@ Virtualization platform-specific notes:
 
 .. _Proxmox documentation: https://pve.proxmox.com/pve-docs/chapter-qm.html#qm_cpu
 
-Finally, start the NS8 image within your virtualization platform. If
+Start the NS8 image within your virtualization platform. If
 Cloud-init does not find a network configuration, it attempts to obtain
 one via DHCP. After a few seconds, the system console displays a login
 prompt showing the assigned IP address.
@@ -92,6 +95,12 @@ After logging in with the personal user account, gain root access by
 executing: ::
 
   sudo su -
+
+Finally, apply the latest distribution security updates and reboot the
+system: ::
+
+   dnf --refresh update -y
+   reboot
 
 .. warning::
 
