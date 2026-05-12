@@ -6,7 +6,22 @@ RustFS
 
 `RustFS <https://rustfs.com/>`_ offers high-performance, S3 compatible object storage.
 
+This NS8 application provides a basic single-node/single-disk RustFS
+installation that may fit small environments.
+
 You can install multiple RustFS instances on the same node from the :ref:`software_center-section`.
+
+Hardware requirements
+=====================
+
+Disk performance must match the workload, otherwise RustFS automated
+healthcheck marks the disk as failed. This means, for a single disk
+installation, that the service is offline until the application is restarted
+from NS8 Applications page.
+
+Refer to RustFS official documentation for a `basic hardware checklist`_.
+
+.. _basic hardware checklist: https://docs.rustfs.com/installation/checklists/hardware-checklists.html
 
 Configuration
 =============
