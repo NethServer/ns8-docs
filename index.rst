@@ -82,6 +82,7 @@ NethServer 8 administrator manual
    odoo
    matrix
    n8n
+   hermes_agent
 
 .. toctree::
    :maxdepth: 2
