@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NS8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-12 11:23+0000\n"
+"POT-Creation-Date: 2026-06-04 13:14+0000\n"
 "PO-Revision-Date: 2025-10-03 13:42+0000\n"
 "Last-Translator: Vittorio Viktec <russovittorio94@gmail.com>\n"
 "Language: it\n"
@@ -1745,13 +1745,13 @@ msgstr ""
 
 #: ../../collabora.rst:15 ../../crowdsec.rst:13 ../../dependencytrack.rst:16
 #: ../../dnsmasq.rst:23 ../../dokuwiki.rst:10 ../../ejabberd.rst:22
-#: ../../file_server.rst:40 ../../imapsync.rst:26 ../../index.rst:36
-#: ../../lamp.rst:18 ../../mail.rst:54 ../../mariadb.rst:11 ../../matrix.rst:12
-#: ../../mattermost.rst:13 ../../minio.rst:18 ../../n8n.rst:11
-#: ../../netdata.rst:20 ../../nextcloud.rst:21 ../../odoo.rst:20
-#: ../../passbolt.rst:12 ../../piler.rst:30 ../../roundcube.rst:19
-#: ../../rustfs.rst:27 ../../sogo.rst:39 ../../webserver.rst:14
-#: ../../webtop.rst:12
+#: ../../file_server.rst:40 ../../hermes_agent.rst:13 ../../imapsync.rst:26
+#: ../../index.rst:36 ../../lamp.rst:18 ../../mail.rst:54 ../../mariadb.rst:11
+#: ../../matrix.rst:12 ../../mattermost.rst:13 ../../minio.rst:18
+#: ../../n8n.rst:11 ../../netdata.rst:20 ../../nextcloud.rst:21
+#: ../../odoo.rst:20 ../../passbolt.rst:12 ../../piler.rst:30
+#: ../../roundcube.rst:19 ../../rustfs.rst:27 ../../sogo.rst:39
+#: ../../webserver.rst:14 ../../webtop.rst:12
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -4466,6 +4466,115 @@ msgid ""
 "::"
 msgstr ""
 
+#: ../../hermes_agent.rst:5
+msgid "Hermes Agent"
+msgstr ""
+
+#: ../../hermes_agent.rst:7
+msgid ""
+"`Hermes Agent <https://hermes-agent.nousresearch.com/>`__ is an "
+"autonomous AI agent from Nous Research. On NethServer 8, you can install "
+"it from the NethForge repository and deploy one or more instances. Each "
+"instance has its own dashboard virtual host and can manage one or more "
+"Hermes agents."
+msgstr ""
+
+#: ../../hermes_agent.rst:15
+msgid ""
+"Enable the NethForge repository from the :ref:`software_repositories-"
+"section` page if it is not already available, then install Hermes Agent "
+"from the Software Center."
+msgstr ""
+
+#: ../../hermes_agent.rst:19
+msgid ""
+"After installation, open the instance settings page and configure the "
+"application:"
+msgstr ""
+
+#: ../../hermes_agent.rst:22
+msgid ""
+"Enter a dedicated virtual host for the dashboard, for example "
+"``hermes.example.com``. Create the corresponding DNS record before "
+"publishing the service. If the name is publicly reachable, you can enable"
+" the :guilabel:`Let's Encrypt certificate` option."
+msgstr ""
+
+#: ../../hermes_agent.rst:27
+msgid ""
+"Select one of the available :ref:`user domains <user-domains-section>`. "
+"The instance uses that domain to authenticate users on the shared "
+"dashboard."
+msgstr ""
+
+#: ../../hermes_agent.rst:31
+msgid ""
+"Add one or more agents. For each agent, enter a name, choose a role, and "
+"assign an :guilabel:`Allowed user` from the selected user domain."
+msgstr ""
+
+#: ../../hermes_agent.rst:34
+#, fuzzy
+msgid "Click the :guilabel:`Save` button."
+msgstr "cliccare sul pulsante :guilabel:`Save`"
+
+#: ../../hermes_agent.rst:36
+msgid ""
+"Each agent is assigned to one user, and the same user cannot be assigned "
+"to multiple agents inside the same Hermes Agent instance."
+msgstr ""
+
+#: ../../hermes_agent.rst:39
+msgid ""
+"After saving, browse to ``https://hermes.example.com``. The Hermes Agent "
+"web dashboard is published on the configured virtual host. Users sign in "
+"with their credentials from the selected user domain and are routed to "
+"the agent assigned to them."
+msgstr ""
+
+#: ../../hermes_agent.rst:45 ../../log_server.rst:55
+#, fuzzy
+msgid "Command line interface"
+msgstr "Command line"
+
+#: ../../hermes_agent.rst:47
+msgid ""
+"Initial Hermes configuration is often easier from the command line than "
+"from the web dashboard."
+msgstr ""
+
+#: ../../hermes_agent.rst:50
+msgid ""
+"To open the Hermes text interface for agent 1 of the ``hermes-agent1`` "
+"instance::"
+msgstr ""
+
+#: ../../hermes_agent.rst:55
+msgid "To start the guided setup for the same agent::"
+msgstr ""
+
+#: ../../hermes_agent.rst:59
+msgid "To configure Telegram or another messaging gateway from the command line::"
+msgstr ""
+
+#: ../../hermes_agent.rst:63
+msgid ""
+"Replace ``hermes-agent1`` with your instance name and ``1`` with the "
+"target agent ID."
+msgstr ""
+
+#: ../../hermes_agent.rst:67 ../../sogo.rst:27
+#, fuzzy
+msgid "Official documentation"
+msgstr "Official documentation"
+
+#: ../../hermes_agent.rst:69
+msgid ""
+"See the official `Hermes Agent documentation <https://hermes-"
+"agent.nousresearch.com/docs/>`__ for details about providers, gateways, "
+"CLI commands, and advanced configuration."
+msgstr ""
+
 #: ../../imapsync.rst:5
 #, fuzzy
 msgid "Imapsync"
@@ -4841,7 +4950,7 @@ msgstr "Applicazioni"
 msgid "NethForge applications"
 msgstr "Applicazioni NethForge"
 
-#: ../../index.rst:86
+#: ../../index.rst:87
 msgid "Best practices"
 msgstr "Consigli pratici"
 
@@ -5789,11 +5898,6 @@ msgstr ""
 "all'istanza Loki attiva. Se ci sono :ref:`inactive Loki instances "
 "<inactive-loki-section>` all'interno del cluster, è possibile "
 "selezionarli per cercare le voci di registro passate."
-
-#: ../../log_server.rst:55
-#, fuzzy
-msgid "Command line interface"
-msgstr "Command line"
 
 #: ../../log_server.rst:57
 msgid ""
@@ -14841,11 +14945,6 @@ msgstr ""
 "EAS, they can sync mails, calendars, contacts, tasks. Apple Mail.app, and"
 " Outlook for Mac support EWS. But not EAS. **Clients work very well with "
 "POP3/IMAP account, caldav/carddav account**"
-
-#: ../../sogo.rst:27
-#, fuzzy
-msgid "Official documentation"
-msgstr "Official documentation"
 
 #: ../../sogo.rst:29
 #, fuzzy
