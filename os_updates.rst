@@ -10,8 +10,18 @@ operating system configuration under the control of the system administrator.
 The system administrator can decide how and when operating system updates
 are applied. In general, installing updates promptly is recommended.
 
-If you have an active subscription, operating system updates can be applied
-automatically as described in the :ref:`scheduled-updates` section.
+If you have an *active subscription*, the default operating system update
+policy applies the updates automatically as described in the
+:ref:`scheduled-updates` section.
+
+.. warning::
+
+  On Rocky Linux, do not enable `dnf-automatic` or any other automatic
+  update mechanism if you have an
+  :ref:`active subscription <subscription-section>`. Use the scheduled
+  updates feature instead. Running multiple update mechanisms may result
+  in updates being applied outside the intended rollout schedule.
+
 
 Automatic updates
 =================
@@ -39,13 +49,13 @@ Manual updates
 
 The command to update the operating system depends on the distribution:
 
-* APT_ (Debian):
+* APT_ (Debian): ::
 
-  ``apt update && apt upgrade -y``
+    apt update && apt upgrade
 
-* DNF_ (Rocky Linux, AlmaLinux and similar):
+* DNF_ (Rocky Linux, AlmaLinux and similar): ::
 
-  ``dnf update -y``
+    dnf update
 
 .. _APT: https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html#apt-get
 .. _DNF: https://docs.rockylinux.org/9/guides/package_management/dnf_package_manager/#update-and-upgrade
@@ -83,8 +93,8 @@ use mirrors managed by Nethesis_.
 
 .. _Nethesis: https://www.nethesis.it
 
-* ns-appstream (NS8 Rocky Linux 9 - AppStream)
-* ns-baseos (NS8 Rocky Linux 9 - BaseOS)
+* ``ns-appstream`` (NS8 Rocky Linux 9 - AppStream)
+* ``ns-baseos`` (NS8 Rocky Linux 9 - BaseOS)
 
 These mirrors are synchronized weekly with the official Rocky Linux
 repositories (Friday at 21:00 UTC) and act as a controlled snapshot of the
@@ -105,17 +115,18 @@ administrators can temporarily bypass or permanently disable the
 Nethesis-managed mirrors in order to access the official Rocky Linux
 repositories.
 
+Check the upstream repository status against the Nethesis mirror:
+
+::
+
+  dnf repolist -v --repo=*baseos
+  dnf repolist -v --repo=*appstream
+
 Single update run from official repositories:
 
 ::
 
   dnf --enablerepo=baseos,appstream --disablerepo=ns-baseos,ns-appstream update
-
-Check the current repositories status:
-
-::
-
-  dnf repolist -v
 
 Permanently switch to official Rocky Linux repositories:
 

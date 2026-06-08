@@ -112,7 +112,7 @@ and server resources. The updates include:
 - **Operating system**: Updates are sourced from the DNF repositories
   labeled ``ns-baseos`` and ``ns-appstream``. These repositories provide
   delayed snapshots of Rocky Linux repositories to avoid distributing
-  updates that could cause unexpected issues.
+  updates that could cause unexpected issues (see :ref:`neth-mirror`).
 
 - **Core components**: Updates are fetched from the ``subscription``
   repository.
