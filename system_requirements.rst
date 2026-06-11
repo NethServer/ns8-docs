@@ -59,6 +59,9 @@ workload.
 
 .. __: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap
 
+The :ref:`Rocky Linux pre-built image <install_image-section>` already
+provides a 4 GB swap file configured as default.
+
 .. _static-ip-reqs:
 
 Static IP address
