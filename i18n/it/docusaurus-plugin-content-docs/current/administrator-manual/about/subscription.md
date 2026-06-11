@@ -27,7 +27,7 @@ Quando un cluster ha una subscription attiva, i seguenti servizi vengono abilita
 - Supporto remoto di Nethesis
 - Resources [monitoring and alerting](../configuration/metrics.md)
 - Upload inventario del nodo leader
-- Aggiornamenti automatici per il sistema operativo dei nodi, i componenti core e le applicazioni
+- [Aggiornamenti programmati](../about/subscription.md#scheduled-updates) per il sistema operativo dei nodi, i componenti core e le applicazioni
 - Upload of cluster backup
 
 Per quanto riguarda i repository software, resta attivo solo il repository `subscription`.
@@ -68,11 +68,17 @@ Eventuali richieste relative al trattamento delle informazioni di identificazion
 
 ## Aggiornamenti programmati {#scheduled-updates}
 
-A scheduled overnight task automatically installs software updates available from Nethesis-managed repositories. This task runs daily from Tuesday through Friday, within a randomly selected time slot between midnight and 6 AM. The randomization helps distribute the load on network and server resources. The updates include:
+Un'attività programmata notturna installa automaticamente gli aggiornamenti software disponibili dai repository gestiti da Nethesis. Questa attività viene eseguita giornalmente da martedì a venerdì, all'interno di una fascia oraria casuale tra la mezzanotte e le 6 del mattino. La randomizzazione aiuta a distribuire il carico sulle risorse di rete e server. Gli aggiornamenti includono:
 
-- **Operating system**: Updates are sourced from the DNF repositories labeled `ns-baseos` and `ns-appstream`. These repositories provide delayed snapshots of Rocky Linux repositories to avoid distributing updates that could cause unexpected issues.
-- **Core components**: Updates are fetched from the `subscription` repository.
-- **Applications**: Updates are also sourced from the `subscription` repository.
+- **Sistema operativo**: Gli aggiornamenti provengono dai repository DNF etichettati `ns-baseos` e `ns-appstream`. Questi repository forniscono snapshot ritardate di repository Rocky Linux per evitare di distribuire aggiornamenti che potrebbero causare problemi inaspettati (vedere [Mirror gestito da Nethesis per Rocky Linux](../../tutorial/os_updates.md#neth-mirror)).
+- **Componenti core**: Gli aggiornamenti vengono prelevati dal repository `subscription`.
+- **Applicazioni**: Gli aggiornamenti provengono anche dal repository `subscription`.
+
+:::note
+
+Con una subscription attiva, non utilizzare procedure personalizzate per aggiornare il sistema operativo, i componenti core o le applicazioni. Questo include la funzione di aggiornamento software di Cockpit e `dnf-automatic`, che possono eseguire aggiornamenti incontrollati in background. Tali procedure creano una configurazione non supportata e possono causare instabilità del sistema. Lasciare che l'attività programmata gestisca tutti gli aggiornamenti.
+
+:::
 
 I repository gestiti seguono una politica di aggiornamento conservatrice per garantire stabilità e test approfonditi degli aggiornamenti, rendendoli adatti agli aggiornamenti automatizzati.
 

@@ -20,16 +20,13 @@ I requisiti di cui sopra devono essere aumentati per soddisfare le esigenze di c
 
 È necessario installare NS8 su una distribuzione di server Linux pulita, evitando sistemi desktop o server con altri servizi già in esecuzione.
 
-Distribuzioni e versioni Linux con Nethesis [Subscription](../about/subscription.md) (compreso il piano "Enterprise") supporto:
+NS8 è compatibile con [Rocky Linux](https://rockylinux.org/) 9 e distribuzioni derivate da RHEL 9, come AlmaLinux o CentOS Stream 9, nonché con [Debian](https://www.debian.org/) 13.
 
-- [Rocky Linux](https://rockylinux.org/) 9
+È possibile trovare supporto volontario nel forum della comunità pubblica di NethServer per tutte le distribuzioni compatibili.
 
-Distribuzioni e versioni Linux con il supporto comunitario di NethServer:
+L'[abbonamento Nethesis](../about/subscription.md) (incluso il piano "Enterprise") è disponibile solo per **Rocky Linux 9**.
 
-- [Rocky Linux](https://rockylinux.org/) 9
-- [CentOS Stream](https://www.centos.org/centos-stream/) 9
-- [AlmaLinux](https://almalinux.org) 9
-- [Debian](https://www.debian.org/) 12, 13
+Leggi la sezione [Aggiornamenti del sistema operativo](../../tutorial/os_updates.md#neth-mirror) per mantenere aggiornata la distribuzione Linux e per saperne di più sui repository DNF gestiti da Nethesis, che sono abilitati di default su Rocky Linux.
 
 ## Swap space {#swap-reqs}
 
@@ -98,7 +95,7 @@ Unless otherwise stated, connections are outbound only and use HTTPS over TCP po
 | Cluster VPN and node communication | \<leader node address\> | 55820 | UDP | Inter-node VPN and cluster traffic |
 | Cluster-admin leader API | \<leader node address\> | 443 | HTTPS | Join a new worker to the cluster |
 | OS and NS8 repositories mirror resolution | mirrorlist.nethserver.org | 80 | HTTP | Used to resolve Rocky Linux and NS8 mirrors |
-| Rocky Linux DNF repositories | u4.nethesis.it, u5.nethesis.it | 443 | HTTPS | Rocky Linux BaseOS and AppStream updates |
+| Rocky Linux DNF repositories | u4.nethesis.it, u5.nethesis.it | 443 | HTTPS | Mirror gestito da Nethesis di repository BaseOS e AppStream |
 | TLS certificate issuance | acme-v02.api.letsencrypt.org | 443 | HTTPS | Let's Encrypt ACME v2 endpoint |
 | NS8 core and updates repository | distfeed.nethserver.org | 443 | HTTPS | Core updates and patches |
 | Community application repository | forge.nethserver.org | 443 | HTTPS | Optional community modules |
