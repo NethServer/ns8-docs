@@ -1,0 +1,38 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  /* Active - darkened light blue for AA contrast (4.7:1 on white) */
+  --ifm-color-primary: #007ba8;
+  /* Hover */
+  --ifm-color-primary-dark: #006e97;
+  /* Focus */
+  --ifm-color-primary-darker: #00688e;
+  /* Unused */
+  --ifm-color-primary-darkest: #005676;
+  --ifm-color-primary-light: #008ec3;
+  --ifm-color-primary-lighter: #0098d1;
+  /* Brand light blue */
+  --ifm-color-primary-lightest: #00a1de;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  /* Active - brand light blue (5.2:1 on dark background) */
+  --ifm-color-primary: #00a1de;
+  /* Hover */
+  --ifm-color-primary-dark: #38b5e6;
+  /* Focus */
+  --ifm-color-primary-darker: #66c6ec;
+  /* Unused */
+  --ifm-color-primary-darkest: #007ba8;
+  --ifm-color-primary-light: #1aabe2;
+  --ifm-color-primary-lighter: #4dbeea;
+  --ifm-color-primary-lightest: #99d8f0;
+  /* Background color */
+  --ifm-background-color: #232429;
+}

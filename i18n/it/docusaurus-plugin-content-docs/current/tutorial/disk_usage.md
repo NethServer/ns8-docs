@@ -1,0 +1,203 @@
+---
+title: Utilizzo del disco
+sidebar_position: 3
+---
+# Utilizzo del disco
+
+NethServer 8 uses [Podman](https://podman.io/) to manage OCI containers.
+
+- Rootless applications require the most space. They put their data inside the user's home directory, for example `/home/loki1/.local/share/containers/storage`, `/home/loki1/.config`
+- Rootful applications typically store data under `/var/lib/containers/storage` and `/var/lib/nethserver` directories
+
+Inspect the default directories used by Podman with commands like:
+
+    podman info -f json | jq -r '.store.graphRoot'
+    podman info -f json | jq -r '.store.volumePath'
+
+For rootless applications, prepend `runagent -m <module_id>`, e.g.:
+
+    runagent -m loki1 podman info -f json | jq -r '.store.graphRoot'
+    runagent -m loki1 podman info -f json | jq -r '.store.volumePath'
+
+To get a list of the applications running on the local node, run:
+
+    runagent -l
+
+Application data includes:
+
+- Container images, like binary code, scripts, static configuration, and everything the app needs to run.
+- API code, UI code, and the dynamic configuration they generate to integrate the application with the rest of the cluster.
+- User's data like files, messages, pictures, organized in Podman *named volumes*.
+
+It is always advisable to **plan in advance where user data is stored**. To decide the disk where a named volume will reside before installing an application, refer to [Redirect Podman named volume mount points](#named-volume-disk).
+
+However, when NS8 runs multiple applications, disk usage increases rapidly, and you may **run out of space**. If disk space runs low, consider expanding the filesystem using the methods described in the following sections.
+
+## Expand the filesystem with external tools
+
+As a general approach, to expand a filesystem, you have to grow the device where it is mounted first.
+
+Often, the device itself is contained by some other device, logical or physical, like a logical volume or a disk partition. In this case, the logical volume or disk partition has to be grown.
+
+On a physical machine, the best option is to set up LVM during the distribution installation. LVM helps with device management, and there are plenty of how-to guides that explain how to achieve this goal.
+
+On a virtual machine, you can easily expand the entire root disk and filesystem. If you created the VM with the pre-built image, read the next section for detailed commands.
+
+## Expand pre-built image filesystem
+
+If NS8 was installed as a virtual machine starting from the [pre-built image](../administrator-manual/installation/install.md#install_image-section) in QCOW2 format, follow this procedure.
+
+1.  Shut down the node and resize its .qcow2 image from its host system. For example :
+
+        sudo qemu-img resize ns8-disk.qcow2 +50G
+
+2.  Start the node and grow its 5th partition (remove the --dry-run option, when you are confident):
+
+        growpart --dry-run /dev/vda 5
+
+3.  Grow the root filesystem:
+
+        xfs_growfs /
+
+## Attach a disk for new applications
+
+At any time in the NS8 node's life, you can mount a new disk on an alternative path, like `/home1`, and start to install applications on it. Existing rootless applications will continue to use their home directory on the old disk, whilst new apps will be created under `/home1` and consume the new disk space.
+
+1.  Create the alternative base path:
+
+        mkdir -m 0755 /home1
+
+2.  Mount the device on the new path:
+
+        mount /dev/some /home1
+
+    To persist the mount, edit `/etc/fstab` or create a systemd `.mount` unit. Verify that the device remains mounted after a reboot.
+
+3.  Configure the node agent to use `/home1` as the base directory for new applications:
+
+        runagent -m node configure-home-basedir --set /home1
+
+## Migrate /home data to a new disk
+
+If the previous section is not applicable, consider adding a new disk and migrating existing data with a Bash script included in the core: `migrate-home-disk.sh`. This script illustrates the basic steps required for data migration.
+
+:::warning
+
+The included script is just an example that may not fit your system. USE AT YOUR OWN RISK!
+
+:::
+
+The script will:
+
+- stop all rootless applications
+- copy all rootless applications inside the new disk
+- recupera spazio dal filesystem root
+- monta il nuovo disco sotto `/home`
+- restart all rootless applications
+
+Before running the script, make sure to attach the disk to the node, format it, and mount it to a custom location like `/mnt/temp_disk`.
+
+Then launch the Bash script by passing the mount location as a parameter, like:
+
+    bash /var/lib/nethserver/node/migrate-home-disk.sh /mnt/temp_disk
+
+## Redirect Podman named volume mount points {#named-volume-disk}
+
+Applications organize user data with Podman named volumes, which normally live under the default Podman paths (see above).
+
+This section explains how to preconfigure named volumes so they are created under alternative base paths and therefore on different disks. The same result can also be achieved from the cluster-admin UI, with more automation and fewer choices, when an application is installed for the first time (see [Install applications](../administrator-manual/installation/software_center.md#install-applications)), or when it is restored or cloned.
+
+Here we consider the Mattermost application, but the method works for any NS8 rootless application that relies on named volumes. This method does not work with rootful applications.
+
+Redirecting named volumes helps achieve better storage organization, reduces pressure on the system disk, and aligns data placement with performance or capacity characteristics.
+
+:::note
+
+Configure the named volume assignment *before* installing, restoring, or cloning the rootless application.
+
+:::
+
+For example, the Mattermost application uses PostgreSQL as its data backend, and you may want to assign the `postgres-data` named volume to a fast, dedicated disk to improve database performance. This is a typical scenario where a high-speed disk is dedicated to database workloads, while the root disk handles the operating system, application images, and other data.
+
+Since NS8 does not manage disk mounting, the system administrator must ensure disk mount reliability.
+
+Assumptions:
+
+- Mount the disk under `/mnt` or `/srv` base paths. They are commonly used for this purpose.
+- Format the disk with `xfs` or `ext4` filesystems. Their features and defaults match NS8 expectations.
+- Set a filesystem label (e.g. `LABDISK0`) to easily recognize the disk. It may also simplify the `/etc/fstab` configuration.
+- After a system reboot, an entry in `/etc/fstab` or a Systemd `.mount` unit correctly mounts the disk on `/srv/disk0`.
+- The disk is not mounted elsewhere. Multiple mount points for the same disk may lead to SELinux relabeling issues.
+
+Let's assume the disk is already mounted under `/srv/disk0` and formatted with an `xfs` filesystem. The mount configuration is persistent with an `/etc/fstab` entry and survives after a system reboot.
+
+### List available base paths
+
+Disk mount points constitute the base directories where named volumes will be placed with the custom configuration.
+
+Obtain a list of base paths with this command:
+
+    volumectl list-base-paths
+    /srv/disk0 (LABDISK0) size=2.0G available=1.9G used=46.5M
+
+In this output example:
+
+- The first field, `/srv/disk0`, refers to the disk mount point and will be used in the next commands.
+- `LABDISK0` is the label set during filesystem creation, if present. It is a mnemonic label that helps identify the disk. If no label is set, the mount point base directory is shown instead.
+- The fields `size`, `available`, and `used` refer to disk space information.
+
+### Use the disk for selected volumes
+
+Let's continue the Mattermost example. The ns8-mattermost documentation describes the `postgres-data` named volume, which holds the PostgreSQL database files used by Mattermost.
+
+The following command assigns it to `LABDISK0` and takes effect the next time Mattermost is installed:
+
+    volumectl add-volume postgres-data --for mattermost --target /srv/disk0
+
+Check the assignments by printing `/etc/nethserver/volumes.conf`. This file is in INI-compatible format:
+
+    cat /etc/nethserver/volumes.conf
+
+The next time Mattermost is installed on the local node, its `postgres-data` volume will be created under `/srv/disk0`. The same configuration is applied if Mattermost is installed by the restore or clone procedures.
+
+### Clear named volume assignments
+
+To remove an assignment, delete the corresponding line from `/etc/nethserver/volumes.conf` with a text editor, or run the following commands:
+
+    volumectl remove-volume --for mattermost postgres-data
+
+Removing the assignment does not remove any data; it only updates the `volumes.conf` file.
+
+### Move named volume data to a new disk
+
+:::note
+
+The `volumectl` command does not yet support moving volume data to a different disk. This feature is planned for future releases.
+
+:::
+
+## SSD space reclamation {#fstrim-periodic}
+
+On systems backed by SSD or thin-provisioned storage, unused blocks can be periodically reclaimed using the `fstrim` utility. This operation informs the underlying storage that certain blocks are no longer in use, helping maintain consistent write performance over time.
+
+NS8 does not enable automatic trimming by default, as its effectiveness depends on the storage stack configuration (for example LVM, VDO, RAID, or virtualized block devices). In some environments, discard operations may be ignored or unsupported.
+
+To enable periodic trimming, activate the systemd timer:
+
+    systemctl enable --now fstrim.timer
+
+The timer runs weekly by default, with a randomized delay to avoid concurrent execution across multiple systems.
+
+To verify the next scheduled run:
+
+    systemctl status fstrim.timer
+
+Manual execution is also possible, however since the `fstrim` operation may generate a temporary I/O load spike during execution it's worth scheduling it during low-activity periods on performance-sensitive systems. Run it manually with:
+
+    fstrim -av
+
+Ensure that discard operations are supported and propagated through the storage layers in use. In complex setups (e.g. LVM, dm-crypt, VDO), additional configuration may be required. Check the support with:
+
+    lsblk --discard
+
+The `DISC-GRAN` and `DISC-MAX` columns indicate the discard (TRIM) granularity and maximum size supported by each device. Non-zero values mean that discard is supported, while `0B` indicates that the device does not support discard or that it is not passed through the storage stack.
