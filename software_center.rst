@@ -104,6 +104,13 @@ installed.
   some Linux command line experience, hence it is highly recommended to
   test this procedure on a non-production system.
 
+.. note::
+
+  NFS is not supported as an additional volume. Unlike iSCSI or equivalent
+  network block device protocols, which present as a block device that you
+  can format locally, NFS manages the filesystem remotely and does not
+  handle the user ID mapping that container applications require.
+
 When configuring an additional volume on a NS8 node, observe the following
 check list:
 

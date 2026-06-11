@@ -13,7 +13,7 @@ Minimum hardware requirements for a single node installation:
 
 - 2 vCPU/cores, x86-64 architecture
 - 2GB RAM
-- 40GB Solid-state drive
+- 40GB Solid-state drive (SSD)
 
 More nodes can be added later, and when adding a new node, it is
 recommended to use similar hardware and the same Linux distribution
@@ -46,6 +46,35 @@ The :ref:`Nethesis Subscription <subscription-section>` (including the
 Read the section :ref:`os_updates-section` to keep the Linux distribution
 up to date and to learn more about the DNF repositories managed by
 Nethesis, which are enabled by default on Rocky Linux.
+
+.. _disk-partitions:
+
+Disk and partitions
+===================
+
+Disk performance depends on the system workload, but NS8 architecture
+generates high I/O load due to its container-based design. The main disk
+must be fast enough to sustain it: use a solid-state drive (SSD). A
+typical symptom of an underestimated disk is service startup timeout.
+
+NS8 has no special partitioning requirements. The :ref:`pre-built image
+<install_image-section>` comes with a single root partition covering all
+data. If desired, ``/home`` can be mounted on a separate disk with the same
+speed requirements: application data is stored there by default, so a
+dedicated ``/home`` partition separates application data from the
+operating system. It is also possible to add an alternative home path at a
+later time, as described in :ref:`alt-home-section`.
+
+Applications that store large amounts of data can be configured to use an
+additional volume as described in :ref:`additional-volumes-section`.
+For additional volumes, spinning disks and iSCSI devices are suitable
+choices.
+
+The supported local filesystems are XFS and EXT4. iSCSI and equivalent
+network block devices are also suitable, as they present as block devices
+that can be formatted locally. NFS is not supported: it manages the
+filesystem remotely and does not handle the user ID mapping that container
+applications require.
 
 .. _swap-reqs:
 
