@@ -20,16 +20,13 @@ The above requirements must be increased to match users, applications, and load 
 
 Install NS8 on a clean Linux server distribution, avoiding installation on desktop systems or servers already running other services.
 
-Linux distributions and versions with Nethesis [Subscription](../about/subscription.md) (including "Enterprise" plan) support:
+NS8 is compatible with [Rocky Linux](https://rockylinux.org/) 9 and RHEL 9 derivative distributions, such as AlmaLinux or CentOS Stream 9, as well as [Debian](https://www.debian.org/) 13.
 
-- [Rocky Linux](https://rockylinux.org/) 9
+You may find volunteer support in the NethServer community public forum for all compatible distributions.
 
-Linux distributions and versions with NethServer's community support:
+The [Nethesis Subscription](../about/subscription.md#subscription-section) (including the "Enterprise" plan) is available only for **Rocky Linux 9**.
 
-- [Rocky Linux](https://rockylinux.org/) 9
-- [CentOS Stream](https://www.centos.org/centos-stream/) 9
-- [AlmaLinux](https://almalinux.org) 9
-- [Debian](https://www.debian.org/) 12, 13
+Read the section [Operating system updates](../../tutorial/os_updates.md#neth-mirror) to keep the Linux distribution up to date and to learn more about the DNF repositories managed by Nethesis, which are enabled by default on Rocky Linux.
 
 ## Swap space {#swap-reqs}
 
@@ -98,7 +95,7 @@ Unless otherwise stated, connections are outbound only and use HTTPS over TCP po
 | Cluster VPN and node communication | \<leader node address\> | 55820 | UDP | Inter-node VPN and cluster traffic |
 | Cluster-admin leader API | \<leader node address\> | 443 | HTTPS | Join a new worker to the cluster |
 | OS and NS8 repositories mirror resolution | mirrorlist.nethserver.org | 80 | HTTP | Used to resolve Rocky Linux and NS8 mirrors |
-| Rocky Linux DNF repositories | u4.nethesis.it, u5.nethesis.it | 443 | HTTPS | Rocky Linux BaseOS and AppStream updates |
+| Rocky Linux DNF repositories | u4.nethesis.it, u5.nethesis.it | 443 | HTTPS | Nethesis-managed mirror of BaseOS and AppStream repositories |
 | TLS certificate issuance | acme-v02.api.letsencrypt.org | 443 | HTTPS | Let's Encrypt ACME v2 endpoint |
 | NS8 core and updates repository | distfeed.nethserver.org | 443 | HTTPS | Core updates and patches |
 | Community application repository | forge.nethserver.org | 443 | HTTPS | Optional community modules |

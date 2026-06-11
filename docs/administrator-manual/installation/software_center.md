@@ -140,7 +140,7 @@ NethServer 8 can handle two different types of updates:
 
 [Operating system updates](../../tutorial/os_updates.md) are demanded to the underlying Linux distribution.
 
-If you have an active subscription, available updates are applied automatically as described in [Scheduled updates](../about/subscription.md#scheduled-updates).
+If you have an active subscription, available updates (including operating system updates) are applied automatically as described in [Scheduled updates](../about/subscription.md#scheduled-updates).
 
 ### Core updates {#core_updates-section}
 

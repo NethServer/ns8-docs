@@ -27,7 +27,7 @@ When a cluster has an active subscription, the following services are enabled:
 - Remote support by Nethesis
 - Resources [monitoring and alerting](../configuration/metrics.md)
 - Upload of leader node inventory
-- Scheduled updates for node operating systems, core components, and applications
+- [Scheduled updates](../about/subscription.md#scheduled-updates) for node operating systems, core components, and applications
 - Upload of cluster backup
 
 Regarding software repositories, only the `subscription` repository remains enabled.
@@ -70,9 +70,15 @@ Any requests concerning the processing of personal identification information (P
 
 A scheduled overnight task automatically installs software updates available from Nethesis-managed repositories. This task runs daily from Tuesday through Friday, within a randomly selected time slot between midnight and 6 AM. The randomization helps distribute the load on network and server resources. The updates include:
 
-- **Operating system**: Updates are sourced from the DNF repositories labeled `ns-baseos` and `ns-appstream`. These repositories provide delayed snapshots of Rocky Linux repositories to avoid distributing updates that could cause unexpected issues.
+- **Operating system**: Updates are sourced from the DNF repositories labeled `ns-baseos` and `ns-appstream`. These repositories provide delayed snapshots of Rocky Linux repositories to avoid distributing updates that could cause unexpected issues (see [Nethesis-managed Rocky Linux mirror](../../tutorial/os_updates.md#neth-mirror)).
 - **Core components**: Updates are fetched from the `subscription` repository.
 - **Applications**: Updates are also sourced from the `subscription` repository.
+
+:::note
+
+With an active subscription, do not use custom procedures to update the operating system, core components, or applications. This includes Cockpit's software update feature and `dnf-automatic`, which may run uncontrolled updates in the background. Such procedures create an unsupported configuration and may cause system instability. Let the scheduled task handle all updates.
+
+:::
 
 Managed repositories follow a conservative update policy to ensure stability and thorough testing of updates, making them suitable for automated updates.
 
