@@ -35,8 +35,8 @@ enabled:
 - Remote support by Nethesis
 - Resources :ref:`monitoring and alerting <metrics-section>`
 - Upload of leader node inventory
-- Scheduled updates for node operating systems, core components, and
-  applications
+- :ref:`Scheduled updates <scheduled-updates>` for node operating systems,
+  core components, and applications
 - Upload of cluster backup
 
 Regarding software repositories, only the ``subscription`` repository
@@ -119,6 +119,15 @@ and server resources. The updates include:
 
 - **Applications**: Updates are also sourced from the ``subscription``
   repository.
+
+.. note::
+
+   With an active subscription, do not use custom procedures to update
+   the operating system, core components, or applications. This includes
+   Cockpit's software update feature and ``dnf-automatic``, which may
+   run uncontrolled updates in the background. Such procedures create an
+   unsupported configuration and may cause system instability. Let the
+   scheduled task handle all updates
 
 Managed repositories follow a conservative update policy to ensure
 stability and thorough testing of updates, making them suitable for
