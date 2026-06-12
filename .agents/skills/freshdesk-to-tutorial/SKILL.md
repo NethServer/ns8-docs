@@ -147,6 +147,24 @@ Convert Freshdesk-style callouts:
 - `<div class="tip">` → `:::tip`
 - `<div class="info">` → `:::info`
 
+### 4e. Rewrite docs.nethserver.org links
+
+If the converted content contains links to `docs.nethserver.org` that point to content already
+present in this repository, replace them with **internal relative links** instead of keeping
+external URLs.
+
+Examples:
+- `https://docs.nethserver.org/projects/ns8/en/latest/mail.html#rspamd-web-interface`
+  → `../administrator-manual/applications/mail.md#rspamd-web-interface`
+- `https://docs.nethserver.org/projects/ns8/en/latest/install.html#pre-built-image`
+  → `../administrator-manual/installation/install.md#pre-built-image`
+
+Rules:
+1. Prefer relative links to files under `docs/` or `i18n/it/.../current/` when the target page
+   exists in this repository.
+2. Preserve heading anchors when converting the link.
+3. Keep the external URL only if there is no matching local documentation page.
+
 ---
 
 ## Step 5 — Handle screenshots
@@ -200,6 +218,7 @@ Do **not** include:
 - "Last updated" timestamps from Freshdesk
 - Freshdesk-specific footer links
 - Tags or category breadcrumbs
+- External `docs.nethserver.org` links when an internal relative link is available
 
 ---
 
@@ -274,4 +293,6 @@ Authentication: `curl -u "<token>:X"` (Basic Auth, literal `X` as password).
 - Admonitions: `:::note`, `:::warning`, `:::tip`, `:::info`.
 - Images: absolute path from repo root `/…`.
 - Cross-links: relative paths like `../administrator-manual/installation/install.md`.
+- Replace `docs.nethserver.org` links with internal relative links whenever the referenced page
+  exists in this repository.
 - Write in second person, present tense, imperative mood for procedures.
