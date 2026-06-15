@@ -15,17 +15,23 @@ Minimum hardware requirements for a single node installation:
 - 2GB RAM
 - 40GB Solid-state drive
 
-More nodes can be added later, and when adding a new node, it is
-recommended to use similar hardware and the same Linux distribution
-installed on the other nodes.
-
 The above requirements must be increased to match users, applications, and
 load needs.
+
+More nodes can be added later, and when adding a new node, it is
+recommended to use similar hardware and the same Linux distribution
+installed on the other nodes, as explained in the next section.
 
 .. _supported-distros-section:
 
 Linux distribution
 ==================
+
+Mixing different distributions or distribution versions across cluster
+nodes is allowed temporarily — for example, while migrating to a new
+distribution or upgrading to a new major release — but long-term
+mismatches can cause unpredictable update issues due to different release
+cycles, and must be avoided.
 
 Install NS8 on a clean Linux server distribution, avoiding installation on
 desktop systems or servers already running other services.
@@ -34,11 +40,11 @@ NS8 is compatible with `Rocky Linux`_ 9 and RHEL 9 derivative
 distributions, such as AlmaLinux or CentOS Stream 9,
 as well as Debian_ 13.
 
-You may find volunteer support in the NethServer community public forum
-for all compatible distributions.
+* You may find volunteer support in the NethServer community public forum
+  for all compatible distributions.
 
-The :ref:`Nethesis Subscription <subscription-section>` (including the
-"Enterprise" plan) is available only for **Rocky Linux 9**.
+* The :ref:`Nethesis Subscription <subscription-section>` (including the
+  "Enterprise" plan) is available only for **Rocky Linux 9**.
 
 .. _`Rocky Linux`: https://rockylinux.org/
 .. _Debian: https://www.debian.org/
