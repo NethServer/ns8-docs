@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartelle condivise &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Ricerca" href="search.html" />
+    <link rel="next" title="Nextcloud" href="nextcloud.html" />
+    <link rel="prev" title="Webmail" href="webmail.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "it", "page": "shared_folder", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/shared_folder.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accesso al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applicazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Autenticazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applicazioni</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cartelle condivise</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requisiti</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-acl">Abilitazione ACL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#authorizations">Permessi di accesso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#network-access">Accesso alla rete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#network-recycle-bin">Cestino di rete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hide-a-shared-folder">Nascondere una cartella condivisa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#home-share">Share home</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-resource-permissions-from-windows-clients">Modifica autorizzazioni delle risorse dai client Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#administrative-access">Accesso amministrativo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auditing">Auditing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Altri moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Personalizzazione backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Macchine virtuali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Moduli NethForge</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Aggiornamento da NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Aggiornamento Email a Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vecchio Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Il vecchio Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">Groupware SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Cartelle condivise</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/shared_folder.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="shared-folders">
+<span id="shared-folders-section"></span><span id="index-0"></span><h1>Cartelle condivise<a class="headerlink" href="#shared-folders" title="Link a questa intestazione">¶</a></h1>
+<p>Una <em>cartella condivisa</em> è un posto dove i file sono accessibili da un gruppo di persone tramite Samba (SMB/CIFS).</p>
+<p>Le cartelle condivise fanno parte dell’applicazione File server nel nuovo Server Manager. La dashboard dell’applicazione integra il modulo Samba status che visualizzo lo stato delle cartelle condivise in tempo reale.</p>
+<p>Per creare, modificare e rimuovere una cartella condivisa andare alla pagina <span class="guilabel">Cartelle condivise</span>.</p>
+<section id="requirements">
+<span id="shared-folders-requirements-section"></span><h2>Requisiti<a class="headerlink" href="#requirements" title="Link a questa intestazione">¶</a></h2>
+<p>Le cartelle condivise utilizzano ACL (Access Control List) per fornire permessi flessibili su file e directory.</p>
+<p>Per abilitare le ACL, il filesystem deve essere montato con l’opzione <code class="docutils literal notranslate"><span class="pre">acl</span></code>. L’opzione <code class="docutils literal notranslate"><span class="pre">acl</span></code> è già abilitata su <code class="docutils literal notranslate"><span class="pre">XFS</span></code>, il filesystem CentOS predefinito, e di solito anche su filesystem <code class="docutils literal notranslate"><span class="pre">Ext3</span></code> e <code class="docutils literal notranslate"><span class="pre">Ext4</span></code>.</p>
+<section id="enabling-acl">
+<h3>Abilitazione ACL<a class="headerlink" href="#enabling-acl" title="Link a questa intestazione">¶</a></h3>
+<p>Sui filesystem Ext2/3/4, è possibile usare il comando <code class="docutils literal notranslate"><span class="pre">tune2fs</span></code> per verificare se l’opzione <code class="docutils literal notranslate"><span class="pre">acl</span></code> è già abilitata:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tune2fs -l /dev/sdXY | grep &quot;Default mount options:&quot;
+</pre></div>
+</div>
+<p>In cui  <code class="docutils literal notranslate"><span class="pre">sdXY</span></code> è il nome della partizione, l’output dovrebbe essere simile a  questo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Default mount options:    user_xattr acl
+</pre></div>
+</div>
+<p>Se l’opzione <code class="docutils literal notranslate"><span class="pre">acl</span></code> non è abilitata, aggiungere l’opzione all’interno di <code class="file docutils literal notranslate"><span class="pre">/etc/fstab</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/dev/mapper/VolGroup-lv_root /                       ext4     defaults,acl        0
+</pre></div>
+</div>
+<p>Oppure utilizzare <code class="docutils literal notranslate"><span class="pre">tune2fs</span></code> per abilitare la feature come opzione di mount predefinita:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tune2fs -o acl /dev/sdXY
+</pre></div>
+</div>
+</section>
+</section>
+<section id="authorizations">
+<span id="smb-auth-section"></span><h2>Permessi di accesso<a class="headerlink" href="#authorizations" title="Link a questa intestazione">¶</a></h2>
+<p>Se si è selezionato <strong>Active Directory</strong> come account provider, una cartella condivisa appartiene a un gruppo di utenti (<span class="guilabel">Owning group</span>). Ogni membro del gruppo è autorizzato a leggere il contenuto della cartella. Facoltativamente, il gruppo può avere il diritto di modificare il contenuto della cartella e l’autorizzazione di lettura può essere estesa a chiunque acceda al sistema. Questo semplice modello di autorizzazione si basa sulle tradizionali autorizzazioni del file system UNIX.</p>
+<p>I permessi di accesso possono essere ulteriormente raffinati utilizzando le <span class="guilabel">ACL</span>, consentendo a singoli utenti o ad altri gruppi i permessi di lettura o scrittura.</p>
+<p>Le ACL possono anche essere impostate su singoli file e directory da un client Windows, se l’utente dispone delle sufficienti autorizzazioni – fare riferimento alla sezione <a class="reference internal" href="#smb-perms-section"><span class="std std-ref">Modifica autorizzazioni delle risorse dai client Windows</span></a> per i dettagli.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Alcune impostazioni ACL supportate dai client Windows non possono essere convertite in ACL POSIX supportate da NethServer, quindi andranno perse in fase di propagazione</p>
+</div>
+<p>In qualsiasi momento, il pulsante <span class="guilabel">Reimposta permessi</span> propaga le autorizzazioni UNIX e le ACL POSIX alla cartella condivisa ai suoi contenuti.</p>
+<p>Se è attiva l’opzione <span class="guilabel">Accesso guest</span>, sono considerate valide qualsiasi credenziali vengano presentate.</p>
+<p>Se non è stato scelto alcun account provider o si è scelto LDAP, qualsiasi accesso alle cartelle condivise viene considerato come <em>Accesso ospite</em> in modo che a tutti sia consentito leggerne e scriverne il contenuto.</p>
+</section>
+<section id="network-access">
+<span id="smb-access-section"></span><h2>Accesso alla rete<a class="headerlink" href="#network-access" title="Link a questa intestazione">¶</a></h2>
+<p>SMB/CIFS è un protocollo molto diffuso che consente di condividere file in una rete di computer.  Il nome della cartella condivisa diventa il nome della condivisione SMB.</p>
+<p>Per esempio, l’indirizzo di rete SMB per la condivisione <code class="docutils literal notranslate"><span class="pre">docs</span></code> potrebbe essere</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\\192.168.1.1\docs
+\\MYSERVER\docs
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>L’accesso autenticato alle cartelle condivise è disponibile con un account provider Active Directory. Il provider LDAP consente solo l’accesso come guest.</p>
+</div>
+<p>Quando si accede ad una condivisione SMB, alcune interfacce utente forniscono un unico campo per indicare lo username. In questi casi fornire lo <strong>user short name</strong> anteposto dal <strong>nome di dominio NetBIOS</strong>. Ad esempio, se il nome di dominio NetBIOS fosse «DOMAIN» ed il nome utente fosse «john.smith», la stringa da utilizzare per accedere alla condivisione SMB sarebbe:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DOMAIN\john.smith
+</pre></div>
+</div>
+<p>Al contrario, altre applicazioni mostrano dei campi di input separati per il nome di dominio NetBIOS e per il nome utente; in tal caso riempire i campi separatamente.</p>
+</section>
+<section id="network-recycle-bin">
+<h2>Cestino di rete<a class="headerlink" href="#network-recycle-bin" title="Link a questa intestazione">¶</a></h2>
+<p>Se l’opzione <span class="guilabel">Cestino di rete</span> è abilitata, i file rimossi da una cartella condivisa vengono in realtà spostati in una directory «cestino» speciale. L’opzione <span class="guilabel">Mantieni più copie dei file con lo stesso nome</span> assicura che i file nel cestino abbiano sempre nomi distinti, impedendone la sovrascrittura.</p>
+</section>
+<section id="hide-a-shared-folder">
+<h2>Nascondere una cartella condivisa<a class="headerlink" href="#hide-a-shared-folder" title="Link a questa intestazione">¶</a></h2>
+<p>Se è attiva l’opzione <span class="guilabel">Visibile</span>, la cartella condivisa sarà elencata fra le cartelle disponibili. Questa opzione non influisce sui permessi di accesso della cartella.</p>
+</section>
+<section id="home-share">
+<h2>Share home<a class="headerlink" href="#home-share" title="Link a questa intestazione">¶</a></h2>
+<p>Ciascun utente di NethServer ha una condivisione personale mappata sulla sua home directory Unix. Il nome SMB della share corrisponde allo <strong>user short name</strong>. Ad esempio:</p>
+<ul class="simple">
+<li><p>user short name <code class="docutils literal notranslate"><span class="pre">john.smith</span></code></p></li>
+<li><p>nome server <code class="docutils literal notranslate"><span class="pre">MYSERVER</span></code></p></li>
+<li><p>indirizzo server <code class="docutils literal notranslate"><span class="pre">192.168.1.2</span></code></p></li>
+</ul>
+<p>L’indirizzo di rete SMB è:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\\MYSERVER\john.smith
+\\192.168.1.2\john.smith
+</pre></div>
+</div>
+<p>Fornire le credenziali dell’utente John come spiegato nella sezione <a class="reference internal" href="#smb-access-section"><span class="std std-ref">Accesso alla rete</span></a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>La directory home Unix viene creata al primo accesso dell’utente tramite SMB o via SFTP/SSH.</p>
+</div>
+</section>
+<section id="change-resource-permissions-from-windows-clients">
+<span id="smb-perms-section"></span><h2>Modifica autorizzazioni delle risorse dai client Windows<a class="headerlink" href="#change-resource-permissions-from-windows-clients" title="Link a questa intestazione">¶</a></h2>
+<p>Quando un utente si connette a una cartella condivisa con un client Windows, può modificare le autorizzazioni su singoli file e directory. Le autorizzazioni sono espresse dagli elenchi di controllo di accesso (ACL).</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Alcune impostazioni ACL supportate dai client Windows non possono essere convertite in ACL POSIX implementate da NethServer, quindi andranno perse in fase di propagazione</p>
+</div>
+<p>Solo il proprietario di una risorsa (che sia file o directory) ha il pieno controllo su di essa (lettura, scrittura, modifica delle autorizzazioni). L’autorizzazione per eliminare una risorsa è concessa agli utenti con permessi di scrittura sulla directory principale. L’unica eccezione a questa regola è descritta nella sezione <a class="reference internal" href="#smb-admins-section"><span class="std std-ref">Accesso amministrativo</span></a>.</p>
+<p>Quando viene creata una nuova risorsa, il proprietario può essere definito da una delle seguenti regole:</p>
+<ul class="simple">
+<li><p>il proprietario è l’utente che crea la risorsa</p></li>
+<li><p>il proprietario viene ereditato dalla directory padre</p></li>
+</ul>
+<p>Per applicare una di queste regole, spostarsi nel menu <a class="reference internal" href="ui/FileServer.html#fileserver-section"><span class="std std-ref">Windows file server</span></a> e selezionare l’opzione corrispondente nella sezione <span class="guilabel">Quando viene creato un nuovo file o directory in una cartella condivisa</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>L’impostazione <span class="guilabel">Owning group</span> di una cartella condivisa non influisce sul proprietario di una risorsa. Vedi anche la sezione <a class="reference internal" href="#smb-auth-section"><span class="std std-ref">Permessi di accesso</span></a> qui sopra</p>
+</div>
+</section>
+<section id="administrative-access">
+<span id="smb-admins-section"></span><h2>Accesso amministrativo<a class="headerlink" href="#administrative-access" title="Link a questa intestazione">¶</a></h2>
+<p>La pagina <a class="reference internal" href="ui/FileServer.html#fileserver-section"><span class="std std-ref">Windows file server</span></a> consente di concedere privilegi speciali ai membri del gruppo <code class="docutils literal notranslate"><span class="pre">Domain</span> <span class="pre">Admins</span></code>:</p>
+<ul>
+<li><p>estendere l’autorizzazione del proprietario abilitando il <span class="guilabel">Assegna il controllo completo sulle cartelle condivise al gruppo Domain Admins</span></p></li>
+<li><p>accedere alle home directory degli altri utenti abilitando <span class="guilabel">Concedi il pieno controllo sulle home directory al gruppo Domain Admins (home $ share)</span>. Per accedere alle home directory, è sufficiente connettersi alla condivisione nascosta <code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">$</span></code>. Ad esempio, l’indirizzo di rete SMB è:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\\MYSERVER\home$
+\\192.168.1.2\home$
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="auditing">
+<h2>Auditing<a class="headerlink" href="#auditing" title="Link a questa intestazione">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Il modulo di audit è stato integrato all’interno dell’applicazione File server nel nuovo Server Manager.</p>
+</div>
+<p>Samba audit è un modulo che consente di tenere traccia di tutte le attività effettuate dagli utenti sulle cartelle condivise. Il controllo è disabilitato per impostazione predefinita e deve essere abilitato esplicitamente per ogni cartella.</p>
+<p>Le azioni vengono registrate in un log durante il giorno e spostate in un database nella notte. Di default, per evitare di sovraccaricare il database, le operazioni di lettura quali l’accesso a file e directory vengono salvate solo nel <code class="file docutils literal notranslate"><span class="pre">/var/log/smbaudit.log</span></code>. Per modificare questo comportamento e registrare le operazioni di lettura nel database, andare alla pagina <span class="guilabel">Impostazioni</span> e abilitare <span class="guilabel">Abilita audit operazioni di lettura</span>.</p>
+<p>Il registro di audit è disponibile nella pagina <span class="guilabel">Audit</span>.</p>
+<p>Lo stesso report è anche disponibile nel vecchio Server Manager nella pagina <span class="menuselection">Applicazioni</span>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="webmail.html" class="btn btn-neutral float-left" title="Webmail" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="nextcloud.html" class="btn btn-neutral float-right" title="Nextcloud" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

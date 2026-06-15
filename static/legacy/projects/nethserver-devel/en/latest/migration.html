@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Migration from NethService/SME Server &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Certificate Management" href="certificate_management.html" />
+    <link rel="prev" title="Auto-generated random URL" href="random_url.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "migration", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/migration.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Migration from NethService/SME Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#coding-conventions">Coding conventions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code-snippets">Code snippets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#packages">Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nethserver-base">nethserver-base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nethserver-backup">nethserver-backup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nethserver-directory">nethserver-directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nethserver-hylafax">nethserver-hylafax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nethserver-httpd">nethserver-httpd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nethserver-mail-server">nethserver-mail-server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#forbidden-in-folder-names">Forbidden “&quot; in folder names</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nethserver-mail-filter">nethserver-mail-filter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Migration from NethService/SME Server</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/migration.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="migration-from-nethservice-sme-server">
+<h1>Migration from NethService/SME Server<a class="headerlink" href="#migration-from-nethservice-sme-server" title="Permalink to this headline">¶</a></h1>
+<p>Migration is the process to convert a SME Server (or NethService) machine into a NethServer.</p>
+<ol class="arabic">
+<li><p class="first">In the old host, create a full backup archive and move it
+to the new NethServer host.</p>
+</li>
+<li><p class="first">In the new server, install all packages that cover the same features of the old one.</p>
+</li>
+<li><p class="first">Explode the full backup archive on some directory (for instance
+<code class="docutils literal notranslate"><span class="pre">/var/lib/migration</span></code>)</p>
+</li>
+<li><p class="first">Signal the event:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event migration-import /var/lib/migration
+</pre></div>
+</div>
+<p>This step will require some time.</p>
+</li>
+<li><p class="first">Search for any <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> string in <code class="docutils literal notranslate"><span class="pre">/var/log/messages</span></code></p>
+</li>
+</ol>
+<div class="section" id="coding-conventions">
+<h2>Coding conventions<a class="headerlink" href="#coding-conventions" title="Permalink to this headline">¶</a></h2>
+<p>Most modules have already a migration action which handles the step
+automatically.</p>
+<p>A migration action:</p>
+<ul class="simple">
+<li>must be named as <code class="docutils literal notranslate"><span class="pre">&lt;packagename&gt;-migrate</span></code></li>
+<li>must be linked into <code class="docutils literal notranslate"><span class="pre">migration-import</span></code> event</li>
+<li>must migrate old properties values to new ones</li>
+<li>can copy original data files to the new location</li>
+<li>must take care to apply the imported configuration, possibly using
+the <code class="docutils literal notranslate"><span class="pre">&lt;packagename&gt;-update</span></code> event</li>
+</ul>
+<p>During migration some properties will not be imported:</p>
+<blockquote>
+<div><ul class="simple">
+<li>UDPPort, TCPPort, UDPPorts, TCPPorts: all network ports will be
+reset to new defaults</li>
+<li>DNS forwarder, green IP address, default gateway: these properties
+are filled up in bootstrap-console</li>
+</ul>
+</div></blockquote>
+<p>All e-smith databases are moved in <code class="docutils literal notranslate"><span class="pre">/var/lib/nethserver/db</span></code> directory.</p>
+<div class="section" id="code-snippets">
+<h3>Code snippets<a class="headerlink" href="#code-snippets" title="Permalink to this headline">¶</a></h3>
+<p>A simple migrate action in perl.</p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/perl
+use esmith::DB::db;
+use esmith::event;
+use strict;
+my $event = shift;
+my $sourceDir = shift;
+my $esmithDbDir = &#39;home/e-smith/db&#39;;
+my $errors = 0;
+if {
+  die;
+}
+my $srcConfigDb = esmith::DB::db]&gt;open\_ro(join(&#39;&#39;, $sourceDir, $esmithDbDir,&#39;configuration&#39;)) || die(&quot;Could not open source configuration database in $sourceDir&quot;);
+my $dstConfigDb = esmith::DB::db-&gt;open || die;
+my $service = ‘ejabberd’;
+my $old = $srcConfigDb-&gt;get($service);
+my $new = $dstConfigDb-&gt;get || $dstConfigDb-&gt;new_record($service);
+$new-&gt;merge_props($old-&gt;props);
+# Apply configuration
+if( ! esmith::event::event_signal(&#39;nethserver-ejabberd-update&#39;)) {
+ exit(1);
+}
+exit 0;
+</pre></div>
+</div>
+<p>Remember to change the service name and add a license header.</p>
+<p>Add the migrate action to createlinks:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#-----------------------------------
+# actions for migration-import event
+#-----------------------------------
+$event =&quot;migration-import&quot;;
+event_actions($event, &#39;&lt;packagename&gt;-migrate&#39; =&gt; 60);
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
+<p>Each packages with special migration notes is listed below.</p>
+<div class="section" id="nethserver-base">
+<h3>nethserver-base<a class="headerlink" href="#nethserver-base" title="Permalink to this headline">¶</a></h3>
+<p>Properties not migrated:</p>
+<ul class="simple">
+<li>PasswordSet</li>
+<li>UnsavedChanges</li>
+<li>bootstrap-console</li>
+<li>dns</li>
+<li>sysconfig</li>
+<li>SystemMode</li>
+<li>green network configuration</li>
+<li>ActiveAccounts (moved to nethserver-directory, calculated on-the-fly)</li>
+</ul>
+</div>
+<div class="section" id="nethserver-backup">
+<h3>nethserver-backup<a class="headerlink" href="#nethserver-backup" title="Permalink to this headline">¶</a></h3>
+<p>No migration is possible. The backup must be reconfigured.</p>
+</div>
+<div class="section" id="nethserver-directory">
+<h3>nethserver-directory<a class="headerlink" href="#nethserver-directory" title="Permalink to this headline">¶</a></h3>
+<p>Home directories: user’s home directoriy migrates into <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/home</span></code>,
+admin’s home directory migrates into <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/migration/admin</span></code>, and a symlink is created in <code class="file docutils literal notranslate"><span class="pre">/root/admin-migration-&lt;TIMESTAMP&gt;</span></code>.</p>
+</div>
+<div class="section" id="nethserver-hylafax">
+<h3>nethserver-hylafax<a class="headerlink" href="#nethserver-hylafax" title="Permalink to this headline">¶</a></h3>
+<p>After migration check the configuration of incoming fax notification.</p>
+</div>
+<div class="section" id="nethserver-httpd">
+<h3>nethserver-httpd<a class="headerlink" href="#nethserver-httpd" title="Permalink to this headline">¶</a></h3>
+<p>The ibay-virtualhost relation has been designed differently from SME/NethService.
+An automatic migration is not always possible; the resulting configuration must be checked manually.</p>
+<p>The <cite>global-pw-remote’</cite> case is currently not implemented in NethServer and is mapped as <code class="docutils literal notranslate"><span class="pre">global-pw</span></code>.
+The reason is we do not want make distinctions between internal/external connections.</p>
+</div>
+<div class="section" id="nethserver-mail-server">
+<h3>nethserver-mail-server<a class="headerlink" href="#nethserver-mail-server" title="Permalink to this headline">¶</a></h3>
+<p>During pseudonyms migration,</p>
+<ul class="simple">
+<li>pseudonyms pointing to <code class="docutils literal notranslate"><span class="pre">admin</span></code> and <code class="docutils literal notranslate"><span class="pre">shared</span></code> accounts are mapped to <code class="docutils literal notranslate"><span class="pre">postmaster</span></code>, as any other account not existing in destination AccountsDB.  Thus the resulting configuration requires post-migration supervision.</li>
+<li>recursive pseudonyms (pointing to another pseudonym) are flattened and a relation with a user or group account record is established.</li>
+</ul>
+<p>Index of shared mailboxes is not migrated. Each user must re-share its own mail directory.
+To workaround this problem copy the original index file (<code class="file docutils literal notranslate"><span class="pre">/etc/dovecot/sharedmailbox/dict.db</span></code>) to the new location (<code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/vmail/shared-mailboxes.db</span></code>) and restart dovecot.
+See <a class="reference external" href="http://wiki2.dovecot.org/SharedMailboxes/Shared">http://wiki2.dovecot.org/SharedMailboxes/Shared</a> for more information.</p>
+<div class="section" id="forbidden-in-folder-names">
+<h4>Forbidden “&quot; in folder names<a class="headerlink" href="#forbidden-in-folder-names" title="Permalink to this headline">¶</a></h4>
+<p>The dovecot plugin listplugin (<a class="reference external" href="http://wiki2.dovecot.org/Plugins/Listescape">http://wiki2.dovecot.org/Plugins/Listescape</a>) is enabled, and uses backslash “&quot; as escape character. If original folder names contains “&quot;, run the following command <em>after</em> post-migration mail synchronization, to rename them:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>find /var/lib/nethserver/vmail/ -type d -regex &#39;.*\\.*&#39; -prune | (while read -r SRC; do echo mv -iv &quot;$SRC&quot; &quot;${SRC//\\/\\5c}&quot;; done )
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="nethserver-mail-filter">
+<h3>nethserver-mail-filter<a class="headerlink" href="#nethserver-mail-filter" title="Permalink to this headline">¶</a></h3>
+<p>No wildcards expansions are supported by nethserver-mail-filter UI interface; only full mail addresses or domain names. The migration action must map email addresses in the form <code class="docutils literal notranslate"><span class="pre">*domain.tld</span></code> to domain names, and log a warning whenever another form of wildcard expansion is used.</p>
+<p>Also recipient blacklists are not implemented and bayes DB is not migrated</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="certificate_management.html" class="btn btn-neutral float-right" title="Certificate Management" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="random_url.html" class="btn btn-neutral float-left" title="Auto-generated random URL" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

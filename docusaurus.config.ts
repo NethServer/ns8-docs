@@ -20,14 +20,14 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  // Production: https://docs.nethserver.org with empty baseUrl
+  // Production: https://docs.nethserver.org with root baseUrl
   // Development: GitHub pages deployment
   url: process.env.NODE_ENV === 'production'
     ? 'https://docs.nethserver.org'
     : 'https://nethserver.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/ns8-docs/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -157,23 +157,39 @@ const config: Config = {
               label: 'Tutorial',
               to: '/docs/tutorial',
             },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
             {
-              label: 'NethServer Community',
-              href: 'https://community.nethserver.org',
+              label: 'Developer manual',
+              href: 'https://nethserver.github.io/ns8-core/',
             },
           ],
         },
         {
-          title: 'Developers',
+          title: 'Legacy docs',
           items: [
             {
-              label: 'Developer manual',
-              href: 'https://nethserver.github.io/ns8-core/',
+              html: `
+                <div class="legacy-docs-link-container">
+                NethServer 7
+                  <a class="footer__link-item" href="/en/v7/" target="_blank">en</a>
+                  <a class="footer__link-item" href="/it/v7/" target="_blank"> it</a>
+                </div>
+              `,
+            },
+            {
+              html: `
+                <div class="legacy-docs-link-container">
+                NethServer 6
+                  <a class="footer__link-item" href="/en/v6/" target="_blank">en</a>
+                  <a class="footer__link-item" href="/it/v6/" target="_blank"> it</a>
+                </div>
+              `,
+            },
+            {
+              html: `
+                <div class="legacy-docs-link-container">
+                  <a class="footer__link-item" href="/projects/nethserver-devel/en/latest/" target="_blank">Developer manual 7</a>
+                </div>
+              `,
             },
           ],
         },
@@ -187,6 +203,10 @@ const config: Config = {
             {
               label: 'NethServer website',
               href: 'https://www.nethserver.org',
+            },
+            {
+              label: 'NethServer Community',
+              href: 'https://community.nethserver.org',
             },
           ],
         },

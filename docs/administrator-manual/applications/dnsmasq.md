@@ -50,7 +50,7 @@ The DNS server will not automatically resolve the entries in the `/etc/hosts` fi
 
 :::
 
-## DNS Records
+## DNS Records {#dns-records}
 
 Additional DNS entries can be added in the `DNS Records` section. Simply press the **Add DNS Record** button and fill the fields with the desired values:
 
@@ -59,7 +59,7 @@ Additional DNS entries can be added in the `DNS Records` section. Simply press t
 
 IP addresses can be either IPv4 or IPv6.
 
-## Advanced Configuration
+## Advanced Configuration {#advanced-configuration}
 
 The module provides additional configuration options that can be accessed manually through the configuration files.
 

@@ -50,7 +50,7 @@ Il server DNS non risolverà automaticamente le voci presenti nel file `/etc/hos
 
 :::
 
-## Record DNS
+## Record DNS {#dns-records}
 
 Puoi aggiungere ulteriori voci DNS nella sezione `DNS Records`. Premi semplicemente il pulsante **Add DNS Record** e compila i campi con i valori desiderati:
 
@@ -59,7 +59,7 @@ Puoi aggiungere ulteriori voci DNS nella sezione `DNS Records`. Premi sempliceme
 
 Gli indirizzi IP possono essere sia IPv4 sia IPv6.
 
-## Configurazione avanzata
+## Configurazione avanzata {#advanced-configuration}
 
 Il modulo fornisce ulteriori opzioni di configurazione accessibili manualmente tramite i file di configurazione.
 

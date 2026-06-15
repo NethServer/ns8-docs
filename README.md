@@ -33,6 +33,63 @@ yarn serve     # serve the production build locally
 `yarn build` validates the site (MDX compilation, broken links and anchors),
 so run it before opening a pull request.
 
+The build also stages committed legacy static artifacts from `static/legacy/`
+into the final published paths:
+
+- `static/legacy/v7/` -> `build/en/v7/`
+- `static/legacy/v6/` -> `build/en/v6/`
+- `static/legacy/it/v7/` -> `build/it/v7/`
+- `static/legacy/it/v6/` -> `build/it/v6/`
+- `static/legacy/projects/nethserver-devel/en/latest/` -> `build/projects/nethserver-devel/en/latest/`
+
+## Refreshing legacy artifacts
+
+Legacy NS7/NS6 documentation is stored in this repository as static artifacts
+only. To refresh those artifacts from the legacy repository:
+
+```bash
+cd /home/giacomo/projects/nethserver/docs/administrator-manual/en
+git checkout v7
+make clean
+make html
+
+git checkout v6
+make clean
+make html
+```
+
+Then copy each generated `_build/html/` tree into:
+
+- `static/legacy/v7/`
+- `static/legacy/v6/`
+
+For the Italian archives, mirror the published pages instead:
+
+- `https://docs.nethserver.org/it/v7/` -> `static/legacy/it/v7/`
+- `https://docs.nethserver.org/it/v6/` -> `static/legacy/it/v6/`
+
+The legacy developer manual is English only. Mirror it from:
+
+- `https://docs.nethserver.org/projects/nethserver-devel/en/latest/` -> `static/legacy/projects/nethserver-devel/en/latest/`
+
+To test the final result locally:
+
+```bash
+yarn install
+yarn build
+yarn serve
+```
+
+Then open:
+
+- `http://localhost:3000/`
+- `http://localhost:3000/en/v7/`
+- `http://localhost:3000/en/v6/`
+- `http://localhost:3000/it/`
+- `http://localhost:3000/it/v7/`
+- `http://localhost:3000/it/v6/`
+- `http://localhost:3000/projects/nethserver-devel/en/latest/`
+
 ## How to contribute
 
 The easiest way to contribute is by forking and editing the repository on
