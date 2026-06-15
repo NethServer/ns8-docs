@@ -86,6 +86,8 @@ this procedure.
 
     xfs_growfs /
 
+.. _alt-home-section:
+
 Attach a disk for new applications
 ==================================
 
