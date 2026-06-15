@@ -79,7 +79,6 @@ NethServer 8 administrator manual
    prometheus
    webserver
    sogo
-   odoo
    matrix
    n8n
    hermes_agent
