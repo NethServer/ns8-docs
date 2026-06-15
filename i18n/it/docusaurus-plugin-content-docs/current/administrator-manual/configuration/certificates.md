@@ -4,121 +4,116 @@ sidebar_position: 4
 ---
 # Certificati TLS
 
-A TLS (or SSL) certificate is issued by a Certificate Authority (CA) and is used by clients to establish an encrypted channel and verify the server's identity.
+Un certificato TLS (o SSL) è emesso da un'Autorità di Certificazione (CA) ed è utilizzato dai client per stabilire un canale criptato e verificare l'identità del server.
 
-In NethServer 8, applications do not handle TLS directly. Each cluster node runs a Traefik HTTP proxy in front of local applications, receiving TLS connections. Traefik presents the correct certificate based on the requested site name (the "Host" header in HTTP). See [HTTP routes](proxy.md) for details. Even non-HTTP services, such as IMAP, rely on Traefik to store and distribute certificates.
+In NethServer 8, le applicazioni non gestiscono direttamente TLS. Ogni nodo del cluster esegue un proxy HTTP Traefik davanti alle applicazioni locali, ricevendo connessioni TLS. Traefik presenta il certificato corretto in base al nome del sito richiesto (l'intestazione "Host" in HTTP). Vedi [Rotte HTTP](proxy.md) per ulteriori dettagli. Anche i servizi non HTTP, come IMAP, si affidano a Traefik per archiviare e distribuire i certificati.
 
-Upon installation, Traefik generates a self-signed certificate and uses it as the default for local applications, including the cluster web interface.
+Durante l'installazione, Traefik genera un certificato autofirmato e lo utilizza come predefinito per le applicazioni locali, inclusa l'interfaccia web del cluster.
 
-The `TLS certificates` page lists certificates available on every node and in use by its applications. The table can be filtered by `Node`, `Status`, `Type`, or by typing a keyword that matches a certificate attribute.
+La pagina `Certificati TLS` elenca i certificati disponibili su ogni nodo e utilizzati dalle sue applicazioni. La tabella può essere filtrata per `Nodo`, `Stato`, `Tipo` o digitando una parola chiave che corrisponde a un attributo del certificato.
 
-Certificates are not shared between cluster nodes. They are valid only on the node where they are requested or uploaded.
+I certificati non sono condivisi tra i nodi del cluster. Sono validi solo sul nodo in cui sono stati richiesti o caricati.
 
-The main **types** of certificates are:
+I principali **tipi** di certificati sono:
 
-- `Uploaded`: custom certificates added through [Upload certificate](#custom-certificates-section). They are not renewed automatically.
-- `Requested`: each cluster node can request one [Let's Encrypt certificate](#lets-encrypt-requirements) containing up to 100 names. Use the `Manage names` action to update the list of names; this issues a new request and marks the old certificate as `Obsolete`. Let's Encrypt certificates are renewed automatically.
+- `Caricati`: certificati personalizzati aggiunti tramite [Carica certificato](#custom-certificates-section). Non vengono rinnovati automaticamente.
+- `Richiesti`: ogni nodo del cluster può richiedere un [certificato Let's Encrypt](#lets-encrypt-requirements) contenente fino a 100 nomi. Utilizza l'azione `Gestisci nomi` per aggiornare l'elenco dei nomi; ciò genera una nuova richiesta e contrassegna il vecchio certificato come `Obsoleto`. I certificati Let's Encrypt vengono rinnovati automaticamente.
 
-Other certificate types:
+Altri tipi di certificati:
 
-- `Automatic`: a Let's Encrypt certificate requested and currently used by applications or [custom HTTP routes](proxy.md#custom-http-route-section) for their host name.
-- `Obsolete`: a Let's Encrypt certificate that was obtained by an application, an HTTP route, or a user request, and is no longer in use. See also [Delete a TLS certificate](#delete-certificates-section).
+- `Automatico`: un certificato Let's Encrypt richiesto e attualmente utilizzato dalle applicazioni o dalle [rotte HTTP personalizzate](proxy.md#custom-http-route-section) per il loro nome host.
+- `Obsoleto`: un certificato Let's Encrypt ottenuto da un'applicazione, una rotta HTTP o una richiesta utente, che non è più in uso. Vedi anche [Elimina un certificato TLS](#delete-certificates-section).
 
-Both Automatic and Obsolete certificates are renewed automatically.
+Sia i certificati Automatici che quelli Obsoleti vengono rinnovati automaticamente.
+## Requisiti per i certificati Let's Encrypt {#lets-encrypt-requirements}
 
-## Let's Encrypt certificate requirements {#lets-encrypt-requirements}
+[Let's Encrypt](https://letsencrypt.org) è un'autorità di certificazione senza scopo di lucro che emette certificati TLS gratuitamente. NethServer 8 utilizza le sfide ACME basate su HTTP per ottenerli, che richiedono:
 
-[Let's Encrypt](https://letsencrypt.org) is a nonprofit CA that issues TLS certificates for free. NethServer 8 uses HTTP-based ACME challenges to obtain them, which require:
+1.  **Il nodo del cluster deve essere raggiungibile pubblicamente sulla porta 443**.
 
-1.  **The cluster node must be publicly reachable on port 443**.
+    - Assicurarsi che la porta 443 sia aperta verso Internet pubblico. È possibile testarla con siti come [CSM](http://www.canyouseeme.org/).
+    - Verificare che non ci siano regole firewall basate su IP nella rete del nodo. Let's Encrypt utilizza IP imprevedibili per la sfida TLS-ALPN-01, che potrebbero essere bloccati da filtri geografici o personalizzati.
 
-    - Ensure port 443 is open to the public internet. You can test it with sites like [CSM](http://www.canyouseeme.org/).
-    - Ensure there are no IP-based firewall rules on the node's network. Let's Encrypt uses unpredictable IPs for the TLS-ALPN-01 challenge, which may be blocked by geographic or custom filters.
+    I nodi installati prima di Traefik 3.0.0 utilizzavano le sfide HTTP-01. In tal caso, anche la porta 80 deve essere aperta. Consultare le [note di rilascio](../about/release_notes.md) per il traguardo 8.4.
 
-    Nodes installed before Traefik 3.0.0 used HTTP-01 challenges. In that case, port 80 must be open as well. See [release notes](../about/release_notes.md) for milestone 8.4.
-
-2.  Certificate names must be public domains pointing to the server's public IP. Ensure you have **DNS records for both IPv4 and IPv6 addresses**. Sites like [VDNS](http://viewdns.info/) can help verify DNS.
+2.  I nomi dei certificati devono essere domini pubblici che puntano all'IP pubblico del server. Assicurarsi di avere **record DNS per indirizzi IPv4 e IPv6**. Siti come [VDNS](http://viewdns.info/) possono aiutare a verificare i DNS.
 
 :::note
 
-Wildcard certificates (e.g. `*.nethserver.org`) are **not supported** with HTTP-based ACME challenges.
+I certificati wildcard (ad esempio `*.nethserver.org`) **non sono supportati** con le sfide ACME basate su HTTP.
 
 :::
 
-Certificates obtained from Let's Encrypt are renewed automatically before expiration. Renewal attempts run daily, starting 30 days before the certificate expires.
+I certificati ottenuti da Let's Encrypt vengono rinnovati automaticamente prima della scadenza. I tentativi di rinnovo vengono eseguiti quotidianamente, a partire da 30 giorni prima della scadenza del certificato.
 
-If a certificate is marked as `Expiring` or `Expired`, check that the requirements above are still met and wait for the next renewal attempt. Alternatively, remove the certificate as explained in [Delete a TLS certificate](#delete-certificates-section).
+Se un certificato è contrassegnato come `Expiring` o `Expired`, verificare che i requisiti sopra indicati siano ancora soddisfatti e attendere il prossimo tentativo di rinnovo. In alternativa, rimuovere il certificato come spiegato in [Eliminare un certificato TLS](#delete-certificates-section).
+## Richiedere un certificato Let's Encrypt {#lets-encrypt-request-section}
 
-## Request a Let's Encrypt certificate {#lets-encrypt-request-section}
+Se i requisiti sono soddisfatti, richiedere un certificato come segue:
 
-If requirements are met, request a certificate as follows:
+1.  Accedere a `Impostazioni` → `Certificati TLS`.
+2.  Fare clic su **Richiedi certificato**.
+3.  Selezionare il nodo del cluster che emetterà la richiesta. Solo questo nodo può utilizzare il certificato.
+4.  Inserire l'elenco dei nomi da includere. Ognuno deve soddisfare i requisiti.
+5.  Fare clic su **Richiedi certificato** per confermare.
 
-1.  Go to `Settings` → `TLS certificates`.
-2.  Click **Request certificate**.
-3.  Select the cluster node that will issue the request. Only this node can use the certificate.
-4.  Enter the list of names to include. Each must meet the requirements.
-5.  Click **Request certificate** to confirm.
+La validazione può richiedere fino a 60 secondi prima di un timeout.
 
-Validation may take up to 60 seconds before a timeout.
+I certificati vengono rinnovati automaticamente da un processo giornaliero che inizia 30 giorni prima della scadenza. Se il rinnovo fallisce, viene generato un avviso di scadenza (vedere [Ricevere avvisi di scadenza dei certificati](#certificate-alerts-section)). Consultare i [requisiti di Let's Encrypt](#lets-encrypt-requirements) per identificare la causa.
+## Caricare certificati TLS personalizzati {#custom-certificates-section}
 
-Certificates are renewed automatically by a daily process that begins 30 days before expiration. If renewal fails, an expiration alert is triggered (see [Receive certificate expiration alerts](#certificate-alerts-section)). See the [Let's Encrypt requirements](#lets-encrypt-requirements) to identify the cause.
+Se si dispone già di un certificato e di una chiave privata, è possibile caricarli su un nodo:
 
-## Upload custom TLS certificates {#custom-certificates-section}
+1.  Accedere a `Impostazioni` → `Certificati TLS`.
+2.  Fare clic su **Carica certificato**.
+3.  Selezionare il nodo del cluster. Solo questo nodo e le sue applicazioni potranno utilizzare il certificato.
+4.  Selezionare i file `Certificate` e `Private key`. Se fornito dall'autorità di certificazione (CA), selezionare anche il file `Chain file`. Utilizzare il trascinamento o il selettore di file. Tutti i file devono essere **codificati in PEM**.
+5.  Fare clic su **Carica**.
 
-If you already have a certificate and private key, you can upload them to a node:
+Se il caricamento non riesce, viene mostrato un errore. In caso contrario, la finestra modale si chiude e l'elenco si aggiorna.
 
-1.  Go to `Settings` → `TLS certificates`.
-2.  Click **Upload certificate**.
-3.  Select the cluster node. Only this node and its applications can use the certificate.
-4.  Select the `Certificate` and `Private key` files. If provided by the CA, also select the `Chain file`. Use drag-and-drop or the file picker. All files must be **PEM-encoded**.
-5.  Click **Upload**.
+Gli errori comuni includono l'ordine errato dei file o una mancata corrispondenza tra certificato, chiave privata e chain. La chiave non deve essere crittografata con una passphrase.
 
-If the upload fails, an error is shown. Otherwise, the modal closes and the list refreshes.
+Un'applicazione utilizza il certificato caricato se corrisponde al nome host configurato. Sono supportati i nomi wildcard.
 
-Common errors include wrong file order or mismatched certificate, private key, and chain. The key must not be encrypted with a passphrase.
+I certificati caricati vengono aggiunti al backup di Traefik e possono essere ripristinati da esso.
 
-An application uses the uploaded certificate if it matches its configured host name. Wildcard names are supported.
+Se il certificato è firmato da un'autorità di certificazione (CA) privata/personalizzata, deve essere aggiunto all'archivio certificati del sistema operativo per essere considerato attendibile e consentire il caricamento:
 
-Uploaded certificates are added to Traefik's backup and can be restored from it.
-
-If the certificate is signed by a private/custom certification authority (CA), it needs to be added to the OS certificate store to be trusted and to allow the upload:
-
-- [RHEL distributions (Rocky)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/securing_networks/using-shared-system-certificates_securing-networks)
+- [Distribuzioni RHEL (Rocky)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/securing_networks/using-shared-system-certificates_securing-networks)
 - [Debian](https://manpages.debian.org/stable/ca-certificates/update-ca-certificates.8.en.html)
+## Ricevere avvisi di scadenza dei certificati {#certificate-alerts-section}
 
-## Receive certificate expiration alerts {#certificate-alerts-section}
+Se le notifiche di avviso sono configurate (vedere [Notifiche di avviso](metrics.md#alerts_notifications-section)), il cluster invia un avviso quando un certificato sta per scadere o è già scaduto. Gli avvisi iniziano 28 giorni prima della data di scadenza.
 
-If alert notifications are configured (see [Alerts notifications](metrics.md#alerts_notifications-section)), the cluster sends an alert when a certificate is nearing expiration or has already expired. Alerts begin 28 days before the expiration date.
+- Per un certificato `Uploaded`, risolvi l'avviso caricando un nuovo certificato. Quello vecchio può quindi essere eliminato.
 
-- For an `Uploaded` certificate, resolve the alert by uploading a new certificate. The old one can then be deleted.
+- Per i certificati Let's Encrypt (`Requested`, `Automatic`, `Obsolete`), un avviso di scadenza indica che il rinnovo è fallito. Verifica che i [requisiti](#lets-encrypt-requirements) siano ancora soddisfatti.
 
-- For Let's Encrypt certificates (`Requested`, `Automatic`, `Obsolete`), an expiration alert indicates renewal has failed. Check that [requirements](#lets-encrypt-requirements) are still met.
+  Cause comuni di **fallimento del rinnovo** includono:
 
-  Common **renewal failure causes** include:
+  - I record DNS per un nome di certificato sono stati modificati o rimossi.
+  - Un firewall blocca le sfide HTTP, sia per indirizzo di rete che per regole IP geografiche.
+## Eliminare un certificato TLS {#delete-certificates-section}
 
-  - DNS records for a certificate name were changed or removed.
-  - A firewall blocks HTTP challenges, either by network address or by geographic IP rules.
+È possibile eliminare un certificato se non è più necessario. Eseguire questa operazione con cautela, poiché la rimozione di un certificato può compromettere il funzionamento delle applicazioni. Quando si elimina un certificato:
 
-## Delete a TLS certificate {#delete-certificates-section}
+- Traefik viene riavviato e le connessioni HTTP vengono chiuse. Per alcune applicazioni, ciò potrebbe comportare la perdita di dati dei client.
+- Se non esiste una corrispondenza alternativa per il nome host, i client non riusciranno a riconnettersi.
+- Il rinnovo automatico (per Let's Encrypt) si interrompe.
 
-You can delete a certificate if it is no longer needed. Do this with caution, because removing a certificate can break applications. When you delete a certificate:
+Se si elimina un certificato `Automatic`, il percorso HTTP correlato viene modificato e l'opzione di Let's Encrypt viene disattivata.
 
-- Traefik is restarted and HTTP connections are closed. For some applications this may lead to client data loss.
-- If no alternative matches the host name, clients will fail to reconnect.
-- Automatic renewal (for Let's Encrypt) stops.
+Utilizzare **Elimina certificati obsoleti** per rimuovere tutti i certificati obsoleti di un nodo in un'unica operazione. Questo limita i riavvii di Traefik.
 
-If you delete an `Automatic` certificate, the related HTTP route is modified and its Let's Encrypt switch is cleared.
+In alternativa, per eliminare un singolo certificato:
 
-Use **Delete obsolete certificates** to remove all obsolete certificates of a node in a single operation. This limits Traefik restarts.
-
-Alternatively, to delete a single certificate:
-
-1.  Go to `Settings` → `TLS certificates`.
-2.  Find the certificate to remove.
-3.  Click **Delete** and confirm.
+1.  Accedere a `Impostazioni` → `Certificati TLS`.
+2.  Individuare il certificato da rimuovere.
+3.  Fare clic su **Elimina** e confermare.
 
 :::note
 
-Deletion is irreversible. Ensure no application depends on the certificate, or install a replacement first to avoid downtime.
+L'eliminazione è irreversibile. Assicurarsi che nessuna applicazione dipenda dal certificato o installare prima un certificato sostitutivo per evitare interruzioni del servizio.
 
 :::

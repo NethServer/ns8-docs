@@ -6,21 +6,21 @@ sidebar_position: 6
 
 :::note
 
-The Prometheus module is different from the one in [Metrics and alerts](../configuration/metrics.md). This module is focused on monitoring external services and applications.
+Il modulo Prometheus è diverso da quello in [Metriche e avvisi](../configuration/metrics.md). Questo modulo è focalizzato sul monitoraggio di servizi e applicazioni esterni.
 
 :::
 
-NethServer 8 includes a widely adopted monitoring stack composed by:
+NethServer 8 include uno stack di monitoraggio ampiamente adottato composto da:
 
-- [Prometheus](https://prometheus.io/) scrapes all metrics endpoint and stores them on a local disk
-- [Grafana](https://grafana.com/) visualizes the collected metrics
+- [Prometheus](https://prometheus.io/) raccoglie tutti gli endpoint metrici e li memorizza su disco locale
+- [Grafana](https://grafana.com/) visualizza le metriche raccolte
 
-This is the same stack used by [Metrics and alerts](../configuration/metrics.md), but this module is focused on monitoring external services and applications.
+Si tratta dello stesso stack usato da [Metriche e avvisi](../configuration/metrics.md), ma questo modulo è focalizzato sul monitoraggio di servizi e applicazioni esterni.
 
-You can install only one instance of **Prometheus**, usually on the leader node. Prometheus does not require any configuration and it will be exposed on a random URL. The URL is available on the Prometheus instance `Status` page. You can access it from the software center or from the application menu in the top-right corner.
+Puoi installare una sola istanza di **Prometheus**, di solito sul nodo leader. Prometheus non richiede alcuna configurazione e sarà esposto su un URL casuale. L'URL è disponibile nella pagina `Status` dell'istanza Prometheus. Puoi accedervi dal software center oppure dal menu delle applicazioni in alto a destra.
 
-Since core 3.5.0, the node_exporter is already installed as core module on all nodes. Prometheus will automatically scrape metrics from all nodes.
+Dalla core 3.5.0, `node_exporter` è già installato come modulo core su tutti i nodi. Prometheus raccoglierà automaticamente le metriche da tutti i nodi.
 
-**Grafana** can be installed only on the leader node. After installation, you will need to configure the `Host name` with a valid FQDN to access the Grafana instance. Enable `Let's Encrypt` and `HTTP to HTTPS` options accordingly to your needs.
+**Grafana** può essere installato solo sul nodo leader. Dopo l'installazione, dovrai configurare `Host name` con un FQDN valido per accedere all'istanza Grafana. Abilita le opzioni `Let's Encrypt` e `HTTP to HTTPS` in base alle tue esigenze.
 
-Grafana will automatically display metrics from Prometheus and [Loki](../configuration/log_server.md).
+Grafana mostrerà automaticamente le metriche di Prometheus e [Loki](../configuration/log_server.md).

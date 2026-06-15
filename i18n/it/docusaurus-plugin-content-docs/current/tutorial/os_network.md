@@ -1,38 +1,38 @@
 ---
-title: Configurazione nodi della rete
+title: Configurazione di rete del nodo
 sidebar_position: 1
 ---
-# Configurazione nodi della rete
+# Configurazione di rete del nodo
 
-Una configurazione di rete funzionante potrebbe essere già fornita da una procedura automatica, come `cloud-init`. Se si esegue un VPS in cloud, non modificare le impostazioni di rete dei nodi, e **leggi la documentazione del cloud provider** prima di cambiare il nome dell'host del nodo.
+Una configurazione di rete funzionante potrebbe essere già fornita da una procedura automatica, come `cloud-init`. Se stai usando un VPS cloud, non modificare le impostazioni di rete del nodo e **leggi la documentazione del cloud provider** prima di cambiare il nome host del nodo.
 
-Anche la **procedura di installazione del Sistema Operativo** può aiutare a configurare una rete funzionante per il nodo. In questo caso fare riferimento alla documentazione del sistema operativo.
+Anche la **procedura di installazione del sistema operativo** può aiutarti a impostare una configurazione di rete funzionante per il tuo nodo. In questo caso fai riferimento alla documentazione del sistema operativo.
 
-In ogni altro caso, se il nodo non può essere raggiunto dalla rete, entrare nella console di sistema e cercare di correggere la configurazione di rete con uno dei seguenti metodi.
+In ogni altro caso, se il nodo non è raggiungibile dalla rete, accedi alla console di sistema e prova a correggere la configurazione di rete con uno dei metodi seguenti.
 
 I parametri di base per correggere la configurazione di rete del nodo sono:
 
 1.  Il nome dell'interfaccia di rete pubblica, per esempio `eth0`
-2.  Un indirizzo IP statico e una maschera di rete da assegnare, ad esempio `192.168.12.3/24`
-3.  L'indirizzo IP del gateway predefinito di rete. Si tratta di un indirizzo IP nella stessa rete del nodo, per esempio `192.168.12.1`
-4.  L'indirizzo del server DNS. Può essere un servizio DNS pubblico, come Google `8.8.8.8` o `8.8.4.4`, Cloudflare `1.1.1.1`, o un server DNS privato. In piccoli ambienti potrebbe essere lo stesso host che funge da gateway.
+2.  Un indirizzo IP statico e una maschera di rete da assegnare, per esempio `192.168.12.3/24`
+3.  L'indirizzo IP del gateway predefinito della rete. È un indirizzo IP nella stessa rete del tuo nodo, per esempio `192.168.12.1`
+4.  L'indirizzo del server DNS. Può essere un servizio DNS pubblico, come Google `8.8.8.8` o `8.8.4.4`, Cloudflare `1.1.1.1`, oppure un server DNS privato. In ambienti piccoli potrebbe essere il gateway stesso.
 
 ## `nmtui`
 
-La `nmtui` (Interfaccia utente testuale per il controllo di NetworkManager) è disponibile sulle distribuzioni EL, come CentOS Stream, Alma e Rocky Linux.
+`nmtui` (Text User Interface per controllare NetworkManager) è disponibile sulle distribuzioni EL, come CentOS Stream, Alma e Rocky Linux.
 
-Avviare l'interfaccia di testo per modificare le connessioni di rete con:
+Avvia l'interfaccia testuale per modificare le connessioni di rete con:
 
     nmtui edit
 
-Questo è un riassunto delle funzioni della tastiera:
+Questo è un riepilogo delle funzioni da tastiera:
 
-- Le frecce e il tasto tabulatore muovono tra gli elementi dell' interfaccia (come pulsanti e campi del modulo)
-- `Enter`, pulsante click
-- `Esc`, annullare, tornare alla schermata precedente
-- `Space`, modificare la casella di controllo, selezione
-- `Ctrl+C`, abort
+- Frecce e tasto Tab si spostano tra gli elementi dell'interfaccia (come pulsanti e campi del modulo)
+- `Enter`, clic sul pulsante
+- `Esc`, annulla e torna alla schermata precedente
+- `Space`, modifica checkbox e selezione
+- `Ctrl+C`, interrompe
 
-To apply the changes restart NetworkManager:
+Per applicare le modifiche, riavvia NetworkManager:
 
     systemctl restart NetworkManager

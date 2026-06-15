@@ -4,137 +4,137 @@ sidebar_position: 9
 ---
 # Odoo
 
-Odoo è una suite di software di gestione aziendale che comprende gestione delle relazioni con i clienti, e-commerce, fatturazione, contabilità, produzione, magazzino, gestione del progetto e gestione dell'inventario (fonte [Wikipedia](https://en.wikipedia.org/wiki/Odoo)).
+Odoo è una suite di software per la gestione aziendale che include customer relationship management, e-commerce, fatturazione, contabilità, produzione, magazzino, gestione progetti e gestione dell'inventario (fonte [Wikipedia](https://en.wikipedia.org/wiki/Odoo)).
 
-This application integrates Odoo within NS8 and is developed, maintained and supported by [Innovyou](https://www.innovyou.it), an Italian IT company.
+Questa applicazione integra Odoo in NS8 ed è sviluppata, mantenuta e supportata da [Innovyou](https://www.innovyou.it), un'azienda IT italiana.
 
 ## Configurazione
 
-Nella pagina Impostazioni, riempire il campo Odoo FQDN con il nome DNS assegnato a questa istanza Odoo. Se si desidera richiedere un certificato Let's Encrypt TLS, assicurarsi che il FQDN sia registrato nel DNS pubblico prima di procedere.
+Nella pagina Settings, compila il campo Odoo FQDN con il nome DNS assegnato a questa istanza Odoo. Se vuoi richiedere un certificato TLS Let's Encrypt, assicurati che l'FQDN sia registrato nel DNS pubblico prima di procedere.
 
-Odoo can be bound to an existing user domain. Users of the domain can log on to this Odoo instance with the same credentials of other applications in the same domain: choose the domain from the LDAP domain selector.
+Odoo può essere associato a un dominio utente esistente. Gli utenti del dominio possono accedere a questa istanza Odoo con le stesse credenziali delle altre applicazioni nello stesso dominio: scegli il dominio dal selettore del dominio LDAP.
 
 :::note
 
-Il dominio LDAP può essere scelto solo la prima volta. Una volta premuto il tasto **Save**, la selezione del dominio LDAP è disattivata.
+Il dominio LDAP può essere scelto solo la prima volta. Una volta premuto il pulsante **Save**, la selezione del dominio LDAP viene disabilitata.
 
 :::
 
-Una volta configurata l'applicazione per la prima volta, procedere alla pagina di login.
+Una volta che l'applicazione è stata configurata per la prima volta, procedi alla pagina di login.
 
-Dalla schermata di login, sarà possibile:
+Dalla schermata di login sarà possibile:
 
-- Accesso a Odoo.
-- Gestisci i database.
+- Accedere a Odoo.
+- Gestire i database.
 
 :::warning
 
-Change immediately the default passwod of `admin` user and the default DB master password, as explained in the next sections.
+Cambia immediatamente la password predefinita dell'utente `admin` e la password master predefinita del database, come spiegato nelle sezioni successive.
 
 :::
 
 ### Accesso a Odoo
 
-Per eseguire il primo login, è sufficiente utilizzare le seguenti credenziali:
+Per effettuare il primo accesso, usa semplicemente le seguenti credenziali:
 
-- Nome utente: `admin`
+- Username: `admin`
 - Password: `admin`
 
-Dopo il primo login, si consiglia vivamente di modificare la password di Odoo seguendo questi passaggi:
+Dopo il primo accesso, è fortemente consigliato cambiare la password di Odoo seguendo questi passaggi:
 
-1.  Fare clic su "Amministratore" nell'angolo in alto a destra, quindi su "Preferenze".
-2.  Set your own email address.
-3.  Aprire la scheda "Account Security", fare clic su "Change password", inserire la password corrente.
+1.  Fai clic su "Administrator" nell'angolo in alto a destra, quindi su "Preferences".
+2.  Imposta il tuo indirizzo email.
+3.  Apri la scheda "Account Security", fai clic su "Change password" e inserisci la password corrente.
 4.  Inserisci e conferma la nuova password.
 
-La sessione sarà chiusa, e sarà necessario accedere di nuovo.
+La sessione verrà chiusa e dovrai effettuare nuovamente l'accesso.
 
-### Database management
+### Gestione dei database
 
-Dalla schermata di login, sarà possibile gestire i database cliccando sul link "Database Management".
+Dalla schermata di login sarà possibile gestire i database facendo clic sul collegamento "Database Management".
 
-The default master password is: `adminmaster`.
+La password master predefinita è: `adminmaster`.
 
-Il primo passo per la sicurezza dell'applicazione sarà quello di cambiare la password master seguendo questi passaggi:
+Il primo passo per la sicurezza dell'applicazione sarà cambiare la password master seguendo questi passaggi:
 
-1.  Click on "Set Master Password".
-2.  Scrivi la password corrente e poi la nuova password.
-3.  Click on "Continue".
+1.  Fai clic su "Set Master Password".
+2.  Scrivi la password corrente e poi quella nuova.
+3.  Fai clic su "Continue".
 
-Una volta impostata la nuova password master, sarà possibile:
+Una volta impostata la nuova Master Password, sarà possibile:
 
 1.  Eseguire un backup del database.
-2.  Duplica il database.
-3.  Crea un nuovo database.
-4.  Elimina il database.
+2.  Duplicare il database.
+3.  Creare un nuovo database.
+4.  Eliminare il database.
 
-**Note**: The master password will always be necessary for the activities listed below.
+**Nota**: la password master sarà sempre necessaria per le attività elencate di seguito.
 
-#### Database Backup
+#### Backup del database
 
-Per eseguire un backup del database, basta seguire questi passaggi:
+Per eseguire un backup del database, segui semplicemente questi passaggi:
 
-1.  Click on "Backup".
-2.  Enter the Master Password.
-3.  Click on Backup.
+1.  Fai clic su "Backup".
+2.  Inserisci la Master Password.
+3.  Fai clic su Backup.
 
-Il database sarà scaricato localmente e può essere utilizzato per il restauro o come base per la creazione di un database di produzione parallela.
+Il database verrà scaricato in locale e potrà essere usato per il ripristino o come base per creare un database di produzione parallelo.
 
 #### Duplicare il database
 
-Per creare una copia del database di produzione, basta seguire questi passaggi:
+Per creare una copia del database di produzione, segui semplicemente questi passaggi:
 
-1.  Click on "Duplicate".
-2.  Enter the Master Password.
-3.  Enter the name of the new Database.
-4.  Controllare "Neutralize", che disabilita i lavori di cron e impedisce al sistema di inviare notifiche automatiche.
-5.  Click on Continue.
+1.  Fai clic su "Duplicate".
+2.  Inserisci la Master Password.
+3.  Inserisci il nome del nuovo database.
+4.  Seleziona "Neutralize", che disabilita i cron job e impedisce al sistema di inviare notifiche automatiche.
+5.  Fai clic su Continue.
 
-The new database will be displayed below the existing one.
+Il nuovo database verrà mostrato sotto quello esistente.
 
 #### Creare un nuovo database
 
-Per creare un nuovo database, basta seguire questi passaggi:
+Per creare un nuovo database, segui semplicemente questi passaggi:
 
-1.  Clicca su "Create Database".
-2.  Enter the Master Password.
-3.  Enter the name of the new Database.
-4.  Enter Email and Password.
-5.  Select the language.
+1.  Fai clic su "Create Database".
+2.  Inserisci la Master Password.
+3.  Inserisci il nome del nuovo database.
+4.  Inserisci Email e Password.
+5.  Seleziona la lingua.
 
-Nota: Il database appena creato sarà completamente vuoto e privo di qualsiasi configurazione, modulo o applicazione.
+Nota: il database appena creato sarà completamente vuoto e privo di qualsiasi configurazione, modulo o applicazione.
 
 #### Eliminare il database
 
-Per eliminare un database, basta seguire questi passaggi:
+Per eliminare un database, segui semplicemente questi passaggi:
 
-1.  Click on "Delete".
-2.  Enter the Master Password.
-3.  Click on Delete.
+1.  Fai clic su "Delete".
+2.  Inserisci la Master Password.
+3.  Fai clic su Delete.
 
-## Installation image
+## Immagine di installazione
 
 L'immagine di installazione è stata creata da Innovyou per i seguenti motivi:
 
-1.  L'immagine contiene moduli Odoo core, moduli OCA e moduli proprietari.
-2.  L'immagine ufficiale di Odoo non è versioneta oltre V16; il suo contenuto è sovrascritto periodicamente. Questo ci impedisce di sapere per certo quale codice viene utilizzato in quella particolare installazione e di conseguenza non ci permetterebbe di fornire un supporto adeguato o debug.
+1.  L'immagine contiene moduli core di Odoo, moduli OCA e moduli proprietari.
+2.  L'immagine ufficiale di Odoo non è versionata oltre la V16; il suo contenuto viene sovrascritto periodicamente. Questo ci impedirebbe di sapere con certezza quale codice viene usato in una determinata installazione e, di conseguenza, non ci permetterebbe di fornire supporto o debug adeguati.
 
-To request the source code and for information or support, you can visit the page <https://www.innovyou.co/odoo-nethserver-support/>
+Per richiedere il codice sorgente e per informazioni o supporto, puoi visitare la pagina <https://www.innovyou.co/odoo-nethserver-support/>
 
-## Updates and support
+## Aggiornamenti e supporto
 
-- La versione di applicazione 1.0.0 corrisponde alla versione di Odoo Community 16.0, fine del supporto novembre 2025.
+- La versione 1.0.0 dell'applicazione corrisponde a Odoo Community versione 16.0, con fine supporto a novembre 2025.
 
-Gli aggiornamenti per Odoo su NethServer 8 sono manuali.
+Gli aggiornamenti di Odoo su NethServer 8 sono manuali.
 
-Per qualsiasi richiesta di supporto, potete contattarci tramite la pagina <https://www.innovyou.co/odoo-nethserver-support/>
+Per qualsiasi richiesta di supporto, puoi contattarci tramite la pagina <https://www.innovyou.co/odoo-nethserver-support/>
 
-## Licenses
+## Licenze
 
-Nethserver 8 applicazione ha una licenza GPL-3, i moduli Odoo Core hanno una licenza LGPL.
+L'applicazione Nethserver 8 ha licenza GPL-3, i moduli Odoo Core hanno licenza LGPL.
 
-I moduli OCA possono avere una licenza AGPL o LGPL. Per visualizzare la licenza di ogni modulo, è possibile farlo seguendo i passaggi seguenti:
+I moduli OCA possono avere licenza AGPL o LGPL. Per visualizzare la licenza di ogni modulo, puoi seguire i passaggi sotto:
 
-1.  Go to the "Applications" module.
-2.  Individuare l'applicazione di interesse e fare clic sui tre punti nell'angolo in alto a destra.
-3.  Clicca su "module info" per accedere alle informazioni desiderate.
+1.  Vai al modulo "Applications".
+2.  Individua l'applicazione di interesse e fai clic sui tre puntini nell'angolo in alto a destra.
+3.  Fai clic su "module info" per accedere alle informazioni desiderate.

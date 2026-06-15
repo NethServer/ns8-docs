@@ -1,93 +1,93 @@
 ---
-title: Metrics and alerts
+title: Metriche e avvisi
 sidebar_position: 8
 ---
-# Metrics and alerts
+# Metriche e avvisi
 
-The monitoring stack is automatically installed on the leader node.
+Lo stack di monitoraggio viene installato automaticamente sul nodo leader.
 
-All nodes will run [Node exporter](https://prometheus.io/docs/guides/node-exporter/) that provides the node metrics endpoint
+Tutti i nodi eseguono [Node exporter](https://prometheus.io/docs/guides/node-exporter/), che fornisce l'endpoint delle metriche del nodo.
 
-The leader node will run:
+Il nodo leader esegue:
 
-- [Prometheus](https://prometheus.io/) scrapes all node_exporter metrics endpoint and stores them on a local disk
-- [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) sends alerts to the configured receivers
-- [Grafana](https://grafana.com/) visualizes the collected metrics, it is disabled by default
+- [Prometheus](https://prometheus.io/) raccoglie le metriche da tutti gli endpoint di node_exporter e le memorizza su disco locale
+- [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) invia gli avvisi ai destinatari configurati
+- [Grafana](https://grafana.com/) visualizza le metriche raccolte; è disabilitato per impostazione predefinita
 
-The monitoring is always available and it will automatically reconfigure when new nodes are added or removed from the cluster. When a node is promoted to leader, the monitoring stack will be automatically installed to new leader node and removed from the old one.
+Il monitoraggio è sempre disponibile e si riconfigura automaticamente quando nuovi nodi vengono aggiunti o rimossi dal cluster. Quando un nodo viene promosso a leader, lo stack di monitoraggio viene installato automaticamente sul nuovo nodo leader e rimosso da quello precedente.
 
 :::note
 
-Metrics and alerts are not preserved when the leader node is switched.
+Le metriche e gli avvisi non vengono preservati quando cambia il nodo leader.
 
 :::
 
-Metrics and alerts can be configured from the `Settings` page, under the `Metrics` section. The page will allow you to configure the following parameters:
+Puoi configurare metriche e avvisi dalla pagina `Settings`, nella sezione `Metrics`. La pagina ti permette di configurare i seguenti parametri:
 
-- [Grafana access](#grafana_access-section)
-- [Alert notifications](#alerts_notifications-section)
+- [Accesso a Grafana](#grafana_access-section)
+- [Notifiche degli avvisi](#alerts_notifications-section)
 
-## Alerts {#alerts-section}
+## Avvisi {#alerts-section}
 
-Prometheus automatically sends alerts to the Alertmanager when a rule is triggered. The current rules generate alerts for:
+Prometheus invia automaticamente gli avvisi ad Alertmanager quando una regola viene attivata. Le regole attuali generano avvisi per:
 
-- No swap space configured
-- Swap space nearly full
-- One or more backup failures
-- Disk partitions nearly full
-- Software RAID (mdadm) degraded
-- TLS certificate expired or expiring within 28 days
+- Nessuno spazio di swap configurato
+- Spazio di swap quasi esaurito
+- Uno o più backup non riusciti
+- Partizioni disco quasi piene
+- Software RAID (mdadm) degradato
+- Certificato TLS scaduto o in scadenza entro 28 giorni
 
-If the machine has a valid subscription, the alerts will be forwarded to the Nethesis portal like [my.nethesis.it](https://my.nethesis.it) or [my.nethserver.com](https://my.nethserver.com).
+Se la macchina ha una sottoscrizione valida, gli avvisi vengono inoltrati ai portali Nethesis come [my.nethesis.it](https://my.nethesis.it) o [my.nethserver.com](https://my.nethserver.com).
 
-Still, you can configure the alerts to be sent to custom email addresses.
+Puoi comunque configurare l'invio degli avvisi a indirizzi email personalizzati.
 
-Alerts are also be visible inside in the [Grafana](#grafana_access-section).
+Gli avvisi sono visibili anche in [Grafana](#grafana_access-section).
 
-### Alerts notifications {#alerts_notifications-section}
+### Notifiche degli avvisi {#alerts_notifications-section}
 
-Mail notifications can be sent to users when an alert is fired or resolved.
+Le notifiche email possono essere inviate agli utenti quando un avviso viene attivato o risolto.
 
-The cluster needs an SMTP server to send the notifications. So first, make sure to enable the [Email notifications](email_notifications.md) feature.
+Il cluster ha bisogno di un server SMTP per inviare le notifiche. Quindi, assicurati prima di abilitare la funzionalità [Email notifications](email_notifications.md).
 
-To configure alert notifications, access the `Metrics` section in the `Settings` page. The page allows you to configure the following parameters:
+Per configurare le notifiche degli avvisi, accedi alla sezione `Metrics` della pagina `Settings`. La pagina ti permette di configurare i seguenti parametri:
 
-- `Sender email address`: the email address that will be used as the sender. The default is calculated from the leader FQDN.
-- `Recipient email addresses`: the email addresses to which alerts will be sent. Enter one address per line. Multiple recipients are supported.
+- `Sender email address`: l'indirizzo email che verrà usato come mittente. Il valore predefinito è calcolato dall'FQDN del leader.
+- `Recipient email addresses`: gli indirizzi email a cui verranno inviati gli avvisi. Inserisci un indirizzo per riga. Sono supportati più destinatari.
 
-Please note that if the cluster has a valid subscription, the alerts will also be sent to the Nethesis portals.
+Tieni presente che, se il cluster ha una sottoscrizione valida, gli avvisi verranno inviati anche ai portali Nethesis.
 
-## Grafana access {#grafana_access-section}
+## Accesso a Grafana {#grafana_access-section}
 
-Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize and understand your metrics no matter where they are stored. Grafana provides you with tools to turn your time-series into insightful graphs and visualizations.
+Grafana è una piattaforma open source per il monitoraggio e l'osservabilità. Ti permette di interrogare, visualizzare e comprendere le tue metriche indipendentemente da dove sono archiviate. Grafana ti fornisce strumenti per trasformare le serie temporali in grafici e visualizzazioni utili.
 
-By default, Grafana is disabled. You can enable it using the `Access Grafana` option in the `Settings` page, under the `Metrics` section.
+Per impostazione predefinita, Grafana è disabilitato. Puoi abilitarlo usando l'opzione `Access Grafana` nella pagina `Settings`, nella sezione `Metrics`.
 
-When enabled, Grafana will be accessible on the leader node at `https://<leader-node>/grafana`.
+Quando è abilitato, Grafana è accessibile sul nodo leader all'indirizzo `https://<leader-node>/grafana`.
 
-To access Grafana, you need to authenticate with the cluster admin credentials.
+Per accedere a Grafana, devi autenticarti con le credenziali di amministrazione del cluster.
 
-Grafana will automatically display some default dashboards:
+Grafana mostrerà automaticamente alcune dashboard predefinite:
 
-- *core* folder: it contains the default dashboards for the cluster. Available dashboards are:
-  - a dashboard for all nodes metrics like CPU load, memory usage, and disk space
-  - a dashboard for fired alerts
-  - a dashboard about Loki statistics
-  - a dashboard to execute query on Loki logs
-- *modules* folder: it contains the default dashboards for the installed modules, like Samba Audit
+- cartella *core*: contiene le dashboard predefinite per il cluster. Le dashboard disponibili sono:
+  - una dashboard per le metriche di tutti i nodi, come carico CPU, uso della memoria e spazio disco
+  - una dashboard per gli avvisi attivati
+  - una dashboard sulle statistiche di Loki
+  - una dashboard per eseguire query sui log di Loki
+- cartella *modules*: contiene le dashboard predefinite per i moduli installati, come Samba Audit
 
 :::warning
 
-If the leader node is switched, Grafana will be accessible on the new leader node but dashboard customizations will be lost.
+Se cambia il nodo leader, Grafana sarà accessibile sul nuovo nodo leader ma le personalizzazioni delle dashboard andranno perse.
 
 :::
 
-## Access Prometheus web interface
+## Accesso all'interfaccia web di Prometheus
 
-By default, Prometheus web interface is not exposed to the public network.
+Per impostazione predefinita, l'interfaccia web di Prometheus non è esposta alla rete pubblica.
 
-If you need to troubleshoot the Prometheus configuration, you can enable it on `https://<leader-node>/prometheus`. As for Grafana, you will need to authenticate with cluster admin credentials.
+Se devi risolvere problemi nella configurazione di Prometheus, puoi abilitarla su `https://<leader-node>/prometheus`. Come per Grafana, dovrai autenticarti con le credenziali di amministrazione del cluster.
 
-To enable Prometheus web interface access, run the following command on the leader node:
+Per abilitare l'accesso all'interfaccia web di Prometheus, esegui il seguente comando sul nodo leader:
 
     api-cli run module/metrics1/configure-module --data '{"prometheus_path": "prometheus", "grafana_path": "grafana"}'

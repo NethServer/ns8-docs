@@ -1,20 +1,20 @@
 ---
-title: Regolatore di sicurezza
+title: Controller NethSecurity
 sidebar_position: 12
 ---
-# Regolatore di sicurezza
+# Controller NethSecurity
 
-Il controller NethSecurity consente la gestione remota di più installazioni [NethSecurity](https://docs.nethsecurity.org), denominate unità.
+Il controller NethSecurity consente la gestione remota di più installazioni di [NethSecurity](https://docs.nethsecurity.org), chiamate unità.
 
-The controller establishes a secure connection between the central server and the units. Each firewall registers with the server using the ns-plug client. Once registered, the server generates a VPN configuration that enables secure communication between the controller and the unit.
+Il controller stabilisce una connessione sicura tra il server centrale e le unità. Ogni firewall si registra sul server usando il client ns-plug. Una volta registrato, il server genera una configurazione VPN che consente la comunicazione sicura tra il controller e l'unità.
 
-Le caratteristiche chiave del controller NethSecurity includono:
+Le funzionalità principali del controller NethSecurity includono:
 
-- \*\* Gestione centralizzata \*\* Gestisci più firewall da un singolo controller.
-- **Secure Communication**: Stabilire una connessione OpenVPN sicura tra il server e i firewall.
-- \*\* Configurazione semplice \*\* Configura i firewall direttamente dall'interfaccia utente del controller.
-- **Monitoring and Logging**: Collect and analyze logs from the firewalls using Loki for troubleshooting and monitoring purposes.
-- **Metrics Visualization**: Visualize metrics from the firewalls using the built-in Grafana dashboard. Metrics are collected using Prometheus and TimescaleDB.
-- **SSH Web-based**: Accesso alla command line dei firewall utilizzando un client web SSH.
+- **Gestione centralizzata**: gestisci più firewall da un unico server.
+- **Comunicazione sicura**: stabilisci una connessione OpenVPN sicura tra il server e i firewall.
+- **Configurazione semplice**: configura i firewall direttamente dall'interfaccia utente del controller.
+- **Monitoraggio e log**: raccogli e analizza i log dei firewall con Loki per attività di troubleshooting e monitoraggio.
+- **Visualizzazione delle metriche**: visualizza le metriche dei firewall con la dashboard Grafana integrata. Le metriche vengono raccolte usando Prometheus e TimescaleDB.
+- **SSH via web**: accedi all'interfaccia a riga di comando dei firewall usando un client SSH via web.
 
-See the [NethSecurity controller documentation](https://docs.nethsecurity.org/en/latest/controller.html) to learn more about the controller's features and how to set it up.
+Consulta la [documentazione del controller NethSecurity](https://docs.nethsecurity.org/en/latest/controller.html) per saperne di più sulle funzionalità del controller e su come configurarlo.

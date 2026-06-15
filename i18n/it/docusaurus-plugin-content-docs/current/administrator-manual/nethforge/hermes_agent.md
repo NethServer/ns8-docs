@@ -4,41 +4,41 @@ sidebar_position: 12
 ---
 # Hermes Agent
 
-[Hermes Agent](https://hermes-agent.nousresearch.com/) is an autonomous AI agent from Nous Research. On NethServer 8, you can install it from the NethForge repository and deploy one or more instances. Each instance has its own dashboard virtual host and can manage one or more Hermes agents.
+[Hermes Agent](https://hermes-agent.nousresearch.com/) è un agente AI autonomo di Nous Research. Su NethServer 8 puoi installarlo dal repository NethForge e distribuire una o più istanze. Ogni istanza ha un proprio host virtuale per la dashboard e può gestire uno o più agenti Hermes.
 
 ## Configurazione
 
-Enable the NethForge repository from the [Software repositories](../installation/software_center.md#software_repositories-section) page if it is not already available, then install Hermes Agent from the Software Center.
+Abilita il repository NethForge dalla pagina [Software repositories](../installation/software_center.md#software_repositories-section) se non è già disponibile, quindi installa Hermes Agent dal Software Center.
 
-After installation, open the instance settings page and configure the application:
+Dopo l'installazione, apri la pagina delle impostazioni dell'istanza e configura l'applicazione:
 
-1.  Enter a dedicated virtual host for the dashboard, for example `hermes.example.com`. Create the corresponding DNS record before publishing the service. If the name is publicly reachable, you can enable the **Let's Encrypt certificate** option.
-2.  Select one of the available [user domains](../installation/user_domains.md). The instance uses that domain to authenticate users on the shared dashboard.
-3.  Add one or more agents. For each agent, enter a name, choose a role, and assign an **Allowed user** from the selected user domain.
-4.  Click the **Save** button.
+1.  Inserisci un host virtuale dedicato per la dashboard, per esempio `hermes.example.com`. Crea il record DNS corrispondente prima di pubblicare il servizio. Se il nome è raggiungibile pubblicamente, puoi abilitare l'opzione **Let's Encrypt certificate**.
+2.  Seleziona uno dei [domini utente](../installation/user_domains.md) disponibili. L'istanza usa quel dominio per autenticare gli utenti sulla dashboard condivisa.
+3.  Aggiungi uno o più agenti. Per ogni agente, inserisci un nome, scegli un ruolo e assegna un **Allowed user** dal dominio utente selezionato.
+4.  Fai clic sul pulsante **Save**.
 
-Each agent is assigned to one user, and the same user cannot be assigned to multiple agents inside the same Hermes Agent instance.
+Ogni agente è assegnato a un utente e lo stesso utente non può essere assegnato a più agenti nella stessa istanza di Hermes Agent.
 
-After saving, browse to `https://hermes.example.com`. The Hermes Agent web dashboard is published on the configured virtual host. Users sign in with their credentials from the selected user domain and are routed to the agent assigned to them.
+Dopo il salvataggio, apri `https://hermes.example.com`. La dashboard web di Hermes Agent viene pubblicata sull'host virtuale configurato. Gli utenti accedono con le credenziali del dominio utente selezionato e vengono indirizzati all'agente loro assegnato.
 
-## Command line interface
+## Interfaccia a riga di comando
 
-Initial Hermes configuration is often easier from the command line than from the web dashboard.
+La configurazione iniziale di Hermes è spesso più semplice dalla riga di comando che dalla dashboard web.
 
-To open the Hermes text interface for agent 1 of the `hermes-agent1` instance:
+Per aprire l'interfaccia testuale di Hermes per l'agente 1 dell'istanza `hermes-agent1`:
 
     runagent -m hermes-agent1 podman exec -it hermes-1 hermes
 
-To start the guided setup for the same agent:
+Per avviare la configurazione guidata dello stesso agente:
 
     runagent -m hermes-agent1 podman exec -it hermes-1 hermes setup
 
-To configure Telegram or another messaging gateway from the command line:
+Per configurare Telegram o un altro gateway di messaggistica dalla riga di comando:
 
     runagent -m hermes-agent1 podman exec -it hermes-1 hermes gateway setup
 
-Replace `hermes-agent1` with your instance name and `1` with the target agent ID.
+Sostituisci `hermes-agent1` con il nome della tua istanza e `1` con l'ID dell'agente di destinazione.
 
-## Official documentation
+## Documentazione ufficiale
 
-See the official [Hermes Agent documentation](https://hermes-agent.nousresearch.com/docs/) for details about providers, gateways, CLI commands, and advanced configuration.
+Consulta la [documentazione ufficiale di Hermes Agent](https://hermes-agent.nousresearch.com/docs/) per dettagli su provider, gateway, comandi CLI e configurazione avanzata.

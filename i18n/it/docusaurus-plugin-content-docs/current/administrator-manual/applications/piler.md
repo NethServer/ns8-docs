@@ -4,103 +4,103 @@ sidebar_position: 15
 ---
 # Piler
 
-[Piler](https://www.mailpiler.org/) è una soluzione di archiviazione di posta aperta.
+[Piler](https://www.mailpiler.org/) è una soluzione open source per l'archiviazione della posta.
 
-Questa applicazione Piler per NS8 configura un'istanza [Mail server](mail.md) che funge da archivio, registrando qualsiasi messaggio inviato o ricevuto dal server per una durata configurabile. Se un messaggio viene perso, gli utenti autorizzati (noti come "auditor") possono accedere al Piler UI, cercare il messaggio nell'archivio, e inviarlo al destinatario originale.
+Questa applicazione Piler per NS8 configura un'istanza di [Mail server](mail.md) come archivio, registrando ogni messaggio inviato o ricevuto dal server per una durata configurabile. Se un messaggio viene perso, gli utenti autorizzati (detti "auditor") possono accedere all'interfaccia di Piler, cercare il messaggio nell'archivio e reinviarlo al destinatario originale.
 
 :::note
 
-1.  Questa applicazione consente agli utenti revisori di visualizzare i messaggi di posta di altri utenti. Assicurarsi che il suo utilizzo sia conforme alle leggi sulla privacy del vostro paese, alle normative e alle politiche aziendali.
-2.  Dopo la configurazione iniziale, Piler inizia con le credenziali di default. Per motivi di sicurezza, fare riferimento alla sezione [Default credentials](#default-piler-credentials) per modificare immediatamente le password di default.
+1.  Questa applicazione consente agli utenti auditor di visualizzare i messaggi di posta di altri utenti. Assicurati che il suo utilizzo sia conforme alle leggi sulla privacy, alle normative e alle politiche aziendali del tuo Paese.
+2.  Dopo la configurazione iniziale, Piler parte con credenziali predefinite. Per motivi di sicurezza, fai riferimento alla sezione [Credenziali predefinite](#default-piler-credentials) per cambiare immediatamente le password predefinite.
 
 :::
 
 ## Configurazione
 
-Once installed, navigate to the application Settings page and fill in the required fields:
+Una volta installata, apri la pagina Settings dell'applicazione e compila i campi richiesti:
 
-- **Piler FQDN**: Inserire il nome di dominio completamente qualificato dove l'interfaccia utente web Piler sarà accessibile. Se la FQDN è già registrata nel DNS pubblico, è possibile abilitare l'interruttore **Let's Encrypt certificate** per ottenere un certificato di crittografia valido.
-- **HTTP a HTTPS**: Abilitare questo interruttore per garantire che tutte le comunicazioni con l'interfaccia utente Piler siano crittografate. Questo è consigliato se l'interfaccia utente è accessibile attraverso una rete pubblica o non attendibile.
-- \*\* server di posta\*\* Scegli una delle istanze del server Mail nel cluster. Sono etichettate come segue:
-  1.  *Archiving can be configured*: This means the Mail server currently has no archive configured and can be safely selected.
-  2.  *The archive destination is…*: This indicates that the Mail server already copies any message sent or received to another archive or external email address. If such an entry is selected and the form is saved, the previous configuration is overwritten, so use it with caution. See also the Mail [Always BCC](mail.md#mail-archive-section) setting.
-- \*\* Durata della conservazione \*\* Questo campo contiene il numero di giorni che un messaggio e-mail viene mantenuto nell'archivio. Dopo quel periodo, un lavoro di cron quotidiano purifica il messaggio dall'archivio.
+- **Piler FQDN**: inserisci il nome di dominio completo con cui sarà accessibile l'interfaccia web di Piler. Se l'FQDN è già registrato nel DNS pubblico, puoi abilitare l'opzione **Let's Encrypt certificate** per ottenere un certificato di cifratura valido.
+- **HTTP to HTTPS**: abilita questa opzione per garantire che tutte le comunicazioni con l'interfaccia di Piler siano cifrate. È consigliato se l'interfaccia è accessibile tramite una rete pubblica o non attendibile.
+- **Mail server**: scegli una delle istanze di Mail server nel cluster. Sono etichettate come segue:
+  1.  *Archiving can be configured*: significa che il Mail server al momento non ha alcun archivio configurato e può essere selezionato in sicurezza.
+  2.  *The archive destination is…*: indica che il Mail server sta già copiando ogni messaggio inviato o ricevuto verso un altro archivio o indirizzo email esterno. Se selezioni una voce di questo tipo e salvi il modulo, la configurazione precedente viene sovrascritta, quindi usala con cautela. Vedi anche l'impostazione Mail [Always BCC](mail.md#mail-archive-section).
+- **Retention duration**: questo campo contiene il numero di giorni per cui un messaggio email viene conservato nell'archivio. Dopo quel periodo, un cron job giornaliero elimina il messaggio dall'archivio.
 
-It is important to understand that the Mail server selection is allowed only once during the configuration of a Piler instance. In other words, you cannot change the Mail server selection once the Piler instance is initially configured.
+È importante capire che la selezione del Mail server è consentita una sola volta durante la configurazione di un'istanza Piler. In altre parole, non puoi cambiare la selezione del Mail server una volta completata la configurazione iniziale dell'istanza Piler.
 
 :::warning
 
-Se viene selezionato un server Mail errato, non è possibile modificare la selezione. Il modo preferito per recuperare da questa situazione è quello di rimuovere l'istanza Piler errata, quindi installare e configurare una nuova.
+Se viene selezionato un Mail server errato, non esiste alcun modo per cambiare la selezione. Il modo preferito per recuperare da questa situazione è rimuovere l'istanza Piler errata, quindi installare e configurare una nuova istanza.
 
 :::
 
-Other configuration settings can be changed as needed.
+Le altre impostazioni di configurazione possono essere modificate secondo necessità.
 
-## Default credentials {#default-piler-credentials}
+## Credenziali predefinite {#default-piler-credentials}
 
-Dopo la configurazione iniziale, Piler inizia con le credenziali di default. Per motivi di sicurezza, le password predefinite devono essere immediatamente modificate per i due account predefiniti esistenti:
+Dopo la configurazione iniziale, Piler parte con credenziali predefinite. Per motivi di sicurezza, le password predefinite devono essere cambiate immediatamente per i due account predefiniti esistenti:
 
-1.  User `admin@local`: This user has full administrative rights over the Piler application. They can create new user accounts and grant any kind of rights. However, they cannot read email messages archived in the Piler DB. The default password is `pilerrocks`.
-2.  Utente `auditor@local`: Questo utente, come suggerisce il nome, ha il ruolo *auditor*. Possono cercare qualsiasi messaggio di posta elettronica nell'archivio e inviarlo al destinatario originale. La password predefinita è `auditor`.
+1.  Utente `admin@local`: questo utente ha pieni diritti amministrativi sull'applicazione Piler. Può creare nuovi account utente e assegnare qualsiasi tipo di permesso. Tuttavia, non può leggere i messaggi email archiviati nel database di Piler. La password predefinita è `pilerrocks`.
+2.  Utente `auditor@local`: questo utente, come suggerisce il nome, ha il ruolo di *auditor*. Può cercare qualsiasi messaggio email nell'archivio e reinviarlo al destinatario originale. La password predefinita è `auditor`.
 
-Dopo aver effettuato l'accesso al sito web Piler, passare a Impostazioni sotto il menu nell'angolo in alto a destra dello schermo. Scorrere verso il basso della pagina Impostazioni personali, inserire la nuova password nei due campi di password (il secondo è per la conferma), e inviare il modulo.
+Dopo aver effettuato l'accesso al sito web di Piler, apri Settings dal menu nell'angolo in alto a destra dello schermo. Scorri fino in fondo alla pagina delle impostazioni personali, inserisci la nuova password nei due campi password (il secondo serve per la conferma) e invia il modulo.
 
-Administrators can change the password of other users from the **Users** action under the Administration menu.
+Gli amministratori possono cambiare la password di altri utenti tramite l'azione **Users** nel menu Administration.
 
-## Restore email messages
+## Ripristinare i messaggi email
 
-Gli utenti di Auditor possono cercare e recuperare i messaggi di posta elettronica archiviati.
+Gli utenti auditor possono cercare e recuperare i messaggi email archiviati.
 
-Quando un messaggio viene gestito dal server Mail, viene inviata una copia all'archivio. Tuttavia, Piler non indicizza immediatamente i messaggi ricevuti. Sono inseriti in una coda di archivio, e ogni mezz'ora, un'attività pianificata indicizza un lotto di messaggi in coda. I messaggi duplicati contano come uno.
+Quando un messaggio viene gestito dal Mail server, una copia viene inviata all'archivio. Tuttavia, Piler non indicizza immediatamente i messaggi ricevuti. Vengono inseriti in una coda di archiviazione e, ogni mezz'ora, un'attività pianificata indicizza un lotto di messaggi in coda. I messaggi duplicati contano come uno solo.
 
-Una volta indicizzato un messaggio, gli auditor possono cercarlo. I messaggi trovati possono essere scaricati o inoltrati a un indirizzo e-mail arbitrario.
+Una volta che un messaggio è stato indicizzato, gli auditor possono cercarlo. I messaggi trovati possono essere scaricati oppure inoltrati a un indirizzo email arbitrario.
 
 Se vengono selezionati più messaggi, vengono compressi in un archivio ZIP prima del download.
 
-When one or more messages are forwarded to an email address, the message and its original headers are preserved. Therefore, when received, the message will be sorted with its original date. Furthermore, Piler adds a MIME header `X-piler-id` to forwarded messages.
+Quando uno o più messaggi vengono inoltrati a un indirizzo email, il messaggio e le intestazioni originali vengono preservati. Di conseguenza, quando il messaggio viene ricevuto, sarà ordinato con la sua data originale. Inoltre, Piler aggiunge un'intestazione MIME `X-piler-id` ai messaggi inoltrati.
 
-## Importa email esistente
+## Importare email esistenti
 
-Existing email messages can be imported from the chosen Mail server instance into the Piler archive.
+I messaggi email esistenti possono essere importati dall'istanza di Mail server scelta nell'archivio Piler.
 
 :::warning
 
-Il processo di importazione può richiedere ore o anche giorni, a seconda del numero di utenti e della dimensione delle loro caselle di posta. Inoltre, l'indicizzazione dei messaggi è un'operazione a memoria e ad alta intensità di CPU che può influenzare le prestazioni dei nodi.
+Il processo di importazione può richiedere ore o persino giorni, a seconda del numero di utenti e della dimensione delle loro caselle di posta. Inoltre, l'indicizzazione dei messaggi è un'operazione intensiva in termini di memoria e CPU e può influire sulle prestazioni del nodo.
 
 :::
 
-Access a root terminal and run the following command:
+Accedi a un terminale root ed esegui il seguente comando:
 
     runagent -m piler1 import-emails --help
 
-Sostituisci `piler1` con l'identificatore corretto dell'istanza dell'applicazione Piler, visibile nella pagina Stato. Il comando sopra stampa solo il testo di aiuto di comando.
+Sostituisci `piler1` con l'identificatore corretto dell'istanza applicativa Piler, visibile nella pagina Status. Il comando sopra stampa solo il testo di aiuto del comando.
 
-The optional command arguments `-A` (after) and `-B` (before) can limit the time range for the import. As times must be expressed in Unix timestamp format, the `date` command can be invoked to obtain the desired timestamp from a date string, for example:
+Gli argomenti facoltativi `-A` (after) e `-B` (before) possono limitare l'intervallo temporale dell'importazione. Poiché i tempi devono essere espressi nel formato timestamp Unix, puoi usare il comando `date` per ottenere il timestamp desiderato da una stringa data, per esempio:
 
     date -d 2024-05-01 +%s
 
-## Fine-tune Piler's configuration
+## Ottimizzare la configurazione di Piler
 
-Dopo che l'applicazione è stata configurata per la prima volta e protetta modificando le credenziali degli utenti predefiniti, Piler è pronto ad archiviare e-mail.
+Dopo che l'applicazione è stata configurata per la prima volta e messa in sicurezza cambiando le credenziali degli utenti predefiniti, Piler è pronto per archiviare le email.
 
-Si tratta di un breve elenco di compiti di configurazione comuni, con link alla documentazione ufficiale:
+Questo è un breve elenco di attività di configurazione comuni, con link alla documentazione ufficiale:
 
-- **Amministrazione attività**, per gestire utenti, autorizzazioni e controllare il registro di audit.
-- **Rules e policy**, per definire quali messaggi vengono archiviati e per quanto tempo rimarranno. Ad esempio, è possibile definire una politica speciale per i messaggi di spam.
+- [Attività di amministrazione](https://docs.mailpiler.com/piler-ee/administering/#administrator-tasks), per gestire utenti, permessi e controllare l'audit log.
+- [Regole e criteri](https://docs.mailpiler.com/piler-ee/administering/#rules-and-policies), per definire quali messaggi vengono archiviati e per quanto tempo restano nell'archivio. Per esempio, puoi definire un criterio speciale per i messaggi spam.
 
-Si noti che la documentazione ufficiale dell'amministrazione si riferisce alla "edizione intrapresa" di Piler; quindi, alcuni contenuti non sono rilevanti per la "edizione comunitaria", che è la base dell'applicazione NS8.
+Tieni presente che la documentazione ufficiale di amministrazione fa riferimento alla "enterprise edition" di Piler; di conseguenza, alcuni contenuti non sono pertinenti per la "community edition", che è la base dell'applicazione NS8.
 
-## Limitazioni conosciute
+## Limitazioni note
 
-1.  I messaggi e-mail ricevuti con [Imapsync](imapsync.md) non sono archiviati.
+1.  I messaggi email ricevuti con [Imapsync](imapsync.md) non vengono archiviati.
 
-2.  Some features are not active/effective but are still visible in the Piler UI.
+2.  Alcune funzionalità non sono attive/efficaci, ma sono ancora visibili nell'interfaccia di Piler.
 
-    For administrators:
+    Per gli amministratori:
 
-    - Nel menu Amministrazione, l'azione **Import**.
+    - Nel menu Administration, l'azione **Import**.
     - Nel menu Monitor, l'azione **Archive accounting**.
 
-    Per i revisori:
+    Per gli auditor:
 
-    - Nell'area della schermata di anteprima del messaggio, il \*\* Ripristina all'azione mailbox\*\*.
+    - Nell'area di anteprima del messaggio, l'azione **Restore to mailbox**.

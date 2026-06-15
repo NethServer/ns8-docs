@@ -4,52 +4,52 @@ sidebar_position: 4
 ---
 # Roundcube
 
-[Roundcube](https://roundcube.net/) is a web mail client. Roundcube's main features are:
+[Roundcube](https://roundcube.net/) è un client di webmail. Le principali funzionalità di Roundcube sono:
 
-- simple and fast
-- built-in address book integrated with internal LDAP
-- support for HTML messages
-- shared folders support
-- plugins
+- semplice e veloce
+- rubrica integrata con LDAP interno
+- supporto per i messaggi HTML
+- supporto per le cartelle condivise
+- plugin
 
-You can install multiple Roundcube instances on the same node from the [Software center](../installation/software_center.md).
+Puoi installare più istanze di Roundcube sullo stesso nodo dal [Software center](../installation/software_center.md).
 
 ## Configurazione
 
-Roundcube needs a dedicated virtual host, a FQDN like `webmail.nethserver.org`.
+Roundcube richiede un host virtuale dedicato, un FQDN come `webmail.nethserver.org`.
 
-Prima di procedere con la configurazione, assicurarsi di creare il relativo record all'interno del server DNS. Se hai intenzione di utilizzare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
+Prima di procedere con la configurazione, assicurati di creare il record di nome corrispondente nel tuo server DNS. Se prevedi di usare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
 
 :::warning
 
-Please note that the mobile app **cannot connect to servers with self-signed certificates**!
+Tieni presente che l'app mobile **non può connettersi a server con certificati autofirmati**!
 
 :::
 
 Come configurare:
 
-1.  access the application configuration page and enter a valid FQDN inside `Roundcube hostname` field
-2.  enable `Request LE certificate` and `HTTP to HTTPS` options accordingly to your needs
-3.  bind the Roundcube instance to an existing `Mail server`
-4.  cliccare sul pulsante **Save**
+1.  accedi alla pagina di configurazione dell'applicazione e inserisci un FQDN valido nel campo `Roundcube hostname`
+2.  abilita le opzioni `Request LE certificate` e `HTTP to HTTPS` in base alle tue esigenze
+3.  collega l'istanza di Roundcube a un `Mail server` esistente
+4.  fai clic sul pulsante **Save**
 
-Inside the `Advanced` section, you can also configure a list of [Plugins](#roundcube_plugins-section) and the `Maximum size for attachments`.
+All'interno della sezione `Advanced`, puoi anche configurare un elenco di [Plugin](#roundcube_plugins-section) e la `Maximum size for attachments`.
 
-## Plugins {#roundcube_plugins-section}
+## Plugin {#roundcube_plugins-section}
 
-Roundcube supports many plugins that are already bundled within the installation.
+Roundcube supporta molti plugin già inclusi nell'installazione.
 
-The plugins that are enabled by default are:
+I plugin abilitati per impostazione predefinita sono:
 
 - archive
 - Zip download
-- Manage sieve: manage filters for incoming mail
-- Mark as junk: mark the selected messages as Junk and move them to the configured Junk folder
+- Manage sieve: gestisce i filtri per la posta in arrivo
+- Mark as junk: contrassegna i messaggi selezionati come Junk e li sposta nella cartella Junk configurata
 
-Recommended plugins:
+Plugin consigliati:
 
 - New mail notifier
 - Emoticons
 - VCard support
 
-The complete list of official plugin could be find at [Roundcube plugins](https://github.com/roundcube/roundcubemail/tree/master/plugins).
+L'elenco completo dei plugin ufficiali è disponibile in [Roundcube plugins](https://github.com/roundcube/roundcubemail/tree/master/plugins).

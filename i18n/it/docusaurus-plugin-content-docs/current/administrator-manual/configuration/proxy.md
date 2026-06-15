@@ -1,78 +1,78 @@
 ---
-title: HTTP routes
+title: Route HTTP
 sidebar_position: 3
 ---
-# HTTP routes
+# Route HTTP
 
-The `HTTP routes` section of the Settings page shows how each cluster node routes HTTP traffic received on standard TCP ports 80 (HTTP) and 443 (HTTPS) to applications installed in the cluster or towards custom network destinations.
+La sezione `HTTP routes` della pagina `Settings` mostra come ogni nodo del cluster instrada il traffico HTTP ricevuto sulle porte TCP standard 80 (HTTP) e 443 (HTTPS) verso le applicazioni installate nel cluster o verso destinazioni di rete personalizzate.
 
-The core component that implements HTTP routes is the [Traefik](https://traefik.io/) HTTP proxy. Each cluster node runs its own Traefik instance and acts as an independent web server. Traefik terminates TLS connections and works as the reverse proxy for applications typically hosted on that node.
+Il componente principale che implementa le route HTTP è il proxy HTTP [Traefik](https://traefik.io/). Ogni nodo del cluster esegue la propria istanza di Traefik e agisce come server web indipendente. Traefik termina le connessioni TLS e funziona come reverse proxy per le applicazioni tipicamente ospitate su quel nodo.
 
-Routes can be managed automatically by installed applications. In that case, they are marked with the `Automatic` badge. Alternatively, you can create custom routes and define their properties as needed.
+Le route possono essere gestite automaticamente dalle applicazioni installate. In questo caso, sono contrassegnate con il badge `Automatic`. In alternativa, puoi creare route personalizzate e definirne le proprietà in base alle tue esigenze.
 
-A route is defined by a match rule for incoming requests, based on the HTTP **host name** and/or the **request path**. It also specifies the destination URL where matching traffic is forwarded.
+Una route è definita da una regola di corrispondenza per le richieste in ingresso, basata sul **nome host** HTTP e/o sul **percorso della richiesta**. Specifica anche l'URL di destinazione verso cui viene inoltrato il traffico corrispondente.
 
-Automatic routes usually point their destination URL to local services (often using `http://127.0.0.1`), so their traffic does not cross the cluster network. Custom routes, instead, can be configured with any reachable destination URL, including services in the node’s LAN or even on another cluster node if desired.
+Le route automatiche di solito puntano il loro URL di destinazione a servizi locali (spesso usando `http://127.0.0.1`), quindi il loro traffico non attraversa la rete del cluster. Le route personalizzate, invece, possono essere configurate con qualsiasi URL di destinazione raggiungibile, inclusi servizi nella LAN del nodo o anche su un altro nodo del cluster, se necessario.
 
-There is no special HTTP traffic handling for the cluster leader node: all nodes behave in the same way.
+Non esiste una gestione speciale del traffico HTTP per il nodo leader del cluster: tutti i nodi si comportano allo stesso modo.
 
-Each route can have special attributes, visible in the main table:
+Ogni route può avere attributi speciali, visibili nella tabella principale:
 
-- `Automatic` for rules created and managed by applications
-- `Access restricted` if access is limited to specific IP addresses
+- `Automatic` per le regole create e gestite dalle applicazioni
+- `Access restricted` se l'accesso è limitato a indirizzi IP specifici
 
-Automatic routes cannot be modified except for the list of allowed IPs. When IP restrictions are added, they also gain the `Access restricted` attribute.
+Le route automatiche non possono essere modificate, tranne per l'elenco degli IP consentiti. Quando vengono aggiunte restrizioni IP, acquisiscono anche l'attributo `Access restricted`.
 
 :::note
 
-The route named `cluster-admin` is an automatic route, created during node setup. On the leader node it provides access to the cluster administration interface. On worker nodes it is required to elect a new cluster leader. If you restrict access to this route:
+La route chiamata `cluster-admin` è una route automatica, creata durante la configurazione del nodo. Sul nodo leader fornisce accesso all'interfaccia di amministrazione del cluster. Sui nodi worker è necessaria per eleggere un nuovo leader del cluster. Se limiti l'accesso a questa route:
 
-- You may prevent a new worker from joining the cluster.
-- You may lose access to the cluster configuration if your own IP address is not allowed.
+- Potresti impedire a un nuovo worker di unirsi al cluster.
+- Potresti perdere l'accesso alla configurazione del cluster se il tuo indirizzo IP non è consentito.
 
-Refer to [Clear IP restrictions on cluster-admin route](#clear-cluster-admin-restrictions) to restore access if needed.
+Fai riferimento a [Rimuovere le restrizioni IP sulla route cluster-admin](#clear-cluster-admin-restrictions) per ripristinare l'accesso, se necessario.
 
 :::
 
-You can view the detailed attributes of any route by clicking its `Name`.
+Puoi visualizzare gli attributi dettagliati di qualsiasi route facendo clic sul relativo `Name`.
 
-## Create a custom HTTP route {#custom-http-route-section}
+## Creare una route HTTP personalizzata {#custom-http-route-section}
 
-To add a custom route, click the **Create route** button and enter the following details:
+Per aggiungere una route personalizzata, fai clic sul pulsante **Create route** e inserisci i seguenti dettagli:
 
-- `Name`: a unique identifier for the route
-- `Node`: the node where the rule applies
-- `URL`: the target URL of the route. It must point to a reachable backend HTTP server, either inside or outside the cluster. For better performance, use the local host address `127.0.0.1` without encryption for local applications, or `https://` for external applications in the node’s LAN. In the latter case, encrypting the backend connection is strongly recommended.
-- `Skip certificate validation`: if the URL starts with `https://`, this option disables verification of the backend TLS certificate. Skipping validation may be acceptable only if the backend is in a trusted network and cannot provide a valid TLS certificate.
-- `Host`: set a valid FQDN to create a host-based route (virtual host). The rule matches requests where the `Host` header equals the given FQDN. Example: with host `myapp.nethserver.org` the route matches `https://myapp.nethserver.org`.
-- `Path`: set a valid URL path starting with `/` (slash) to create a path-based route. The rule matches any request path that begins with it, regardless of the host name. For example, with path `/myapp` the route matches both `https://ns8leader.nethserver.org/myapp` and `https://192.168.6.3/myapp/contents.html`.
-- `Host` + `Path`: if both fields are set, the request must match both the host name and the path. For example, with host `myapp.nethserver.org` and path `/mypath`, the route matches `https://myapp.nethserver.org/mypath/contents.html` but not `https://ns8leader.nethserver.org/mypath/contents.html`.
-- `Strip URL path prefix`: when `Path` is set, remove the prefix before routing the request to the target URL.
-- `Request Let's Encrypt certificate`: enable this option to automatically obtain a valid TLS certificate. See [Let's Encrypt certificate for HTTP routes](#lets_encrypt_routes) for important details if you disable this option later.
-- `Allow access from` (optional): restrict access to the route by listing allowed IPv4 addresses or CIDR networks, one per line. By default, the route is open to all networks.
+- `Name`: un identificatore univoco per la route
+- `Node`: il nodo a cui si applica la regola
+- `URL`: l'URL di destinazione della route. Deve puntare a un server HTTP backend raggiungibile, all'interno o all'esterno del cluster. Per prestazioni migliori, usa l'indirizzo host locale `127.0.0.1` senza cifratura per le applicazioni locali, oppure `https://` per le applicazioni esterne nella LAN del nodo. In quest'ultimo caso, la cifratura della connessione backend è fortemente raccomandata.
+- `Skip certificate validation`: se l'URL inizia con `https://`, questa opzione disabilita la verifica del certificato TLS del backend. Saltare la verifica può essere accettabile solo se il backend si trova in una rete fidata e non può fornire un certificato TLS valido.
+- `Host`: imposta un FQDN valido per creare una route basata sull'host (virtual host). La regola corrisponde alle richieste in cui l'header `Host` è uguale all'FQDN indicato. Esempio: con host `myapp.nethserver.org` la route corrisponde a `https://myapp.nethserver.org`.
+- `Path`: imposta un percorso URL valido che inizi con `/` (slash) per creare una route basata sul percorso. La regola corrisponde a qualsiasi percorso di richiesta che inizi con esso, indipendentemente dal nome host. Ad esempio, con percorso `/myapp` la route corrisponde sia a `https://ns8leader.nethserver.org/myapp` sia a `https://192.168.6.3/myapp/contents.html`.
+- `Host` + `Path`: se entrambi i campi sono impostati, la richiesta deve corrispondere sia al nome host sia al percorso. Ad esempio, con host `myapp.nethserver.org` e percorso `/mypath`, la route corrisponde a `https://myapp.nethserver.org/mypath/contents.html` ma non a `https://ns8leader.nethserver.org/mypath/contents.html`.
+- `Strip URL path prefix`: quando `Path` è impostato, rimuove il prefisso prima di instradare la richiesta verso l'URL di destinazione.
+- `Request Let's Encrypt certificate`: abilita questa opzione per ottenere automaticamente un certificato TLS valido. Consulta [Certificato Let's Encrypt per le route HTTP](#lets_encrypt_routes) per dettagli importanti se disabiliti questa opzione in seguito.
+- `Allow access from` (facoltativo): limita l'accesso alla route elencando gli indirizzi IPv4 o le reti CIDR consentiti, uno per riga. Per impostazione predefinita, la route è aperta a tutte le reti.
 
-Custom HTTP routes are added to Traefik's backup and can be restored from it.
+Le route HTTP personalizzate vengono aggiunte al backup di Traefik e possono essere ripristinate da esso.
 
-## Let's Encrypt certificate for HTTP routes {#lets_encrypt_routes}
+## Certificato Let's Encrypt per le route HTTP {#lets_encrypt_routes}
 
-The `Request Let's Encrypt certificate` option enables automatic provisioning of a TLS certificate for the `Host` name, signed by the Let's Encrypt Certificate Authority. Once obtained, the certificate is periodically renewed by Traefik. Refer to [Let's Encrypt certificate requirements](certificates.md#lets-encrypt-requirements) for details about requirements and how the process works.
+L'opzione `Request Let's Encrypt certificate` abilita il provisioning automatico di un certificato TLS per il nome `Host`, firmato dalla Certification Authority Let's Encrypt. Una volta ottenuto, il certificato viene rinnovato periodicamente da Traefik. Consulta [Requisiti del certificato Let's Encrypt](certificates.md#lets-encrypt-requirements) per i dettagli sui requisiti e sul funzionamento del processo.
 
-When this option is disabled, the old TLS certificate is automatically removed from Traefik’s internal certificate storage, and Traefik is restarted after clicking the **Save** button.
+Quando questa opzione è disabilitata, il vecchio certificato TLS viene rimosso automaticamente dall'archivio interno dei certificati di Traefik e Traefik viene riavviato dopo aver fatto clic sul pulsante **Save**.
 
 :::warning
 
-Restarting Traefik can forcibly disconnect users from applications. Avoid disabling the `Request Let's Encrypt certificate` option during office hours.
+Il riavvio di Traefik può disconnettere forzatamente gli utenti dalle applicazioni. Evita di disabilitare l'opzione `Request Let's Encrypt certificate` durante l'orario d'ufficio.
 
 :::
 
-## Clear IP restrictions on cluster-admin route {#clear-cluster-admin-restrictions}
+## Rimuovere le restrizioni IP sulla route cluster-admin {#clear-cluster-admin-restrictions}
 
-If you lose access to the cluster administration interface due to IP restrictions, you can remove them from the command line:
+Se perdi l'accesso all'interfaccia di amministrazione del cluster a causa delle restrizioni IP, puoi rimuoverle dalla riga di comando:
 
-1.  Connect to the cluster leader node via SSH with root privileges and get the Traefik module identifier:
+1.  Connettiti al nodo leader del cluster tramite SSH con privilegi di root e ottieni l'identificatore del modulo Traefik:
 
         runagent -l | grep traefik        # prints: traefik1
 
-2.  Run the following command to clear restrictions on the `cluster-admin` route of module `traefik1`:
+2.  Esegui il seguente comando per cancellare le restrizioni sulla route `cluster-admin` del modulo `traefik1`:
 
         api-cli run module/traefik1/set-route --data '{"instance": "cluster-admin", "ip_allowlist": []}'

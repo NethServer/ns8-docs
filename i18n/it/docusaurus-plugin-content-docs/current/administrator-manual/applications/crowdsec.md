@@ -4,43 +4,43 @@ sidebar_position: 10
 ---
 # CrowdSec
 
-[CrowdSec](https://www.crowdsec.net/) è un tool di rilevamento attività sospette. Cerca pattern conosciuti, come tentativi di login malevoli, nei log delle applicazioni e blocca l'indirizzo IP dell'attaccante.
+[CrowdSec](https://www.crowdsec.net/) è uno strumento di rilevamento di attività dannose. Cerca pattern conosciuti, come tentativi di accesso malevoli, nei log delle applicazioni e blocca l'indirizzo IP dell'attaccante.
 
-È possibile installare solo un'istanza CrowdSec per ogni nodo.
+Puoi installare una sola istanza di CrowdSec per ogni nodo.
 
 ## Configurazione
 
 Una volta installato, CrowdSec è già completamente funzionale e protegge molte applicazioni NS8.
 
-Dall'interfaccia web è possibile configurare:
+Dall'interfaccia web puoi configurare:
 
-- mail notification by adding one address per line inside `Email notifications` field: notifications will work only if [Email notifications](../configuration/email_notifications.md) has been configured
-- IP e rete che non saranno mai bloccati
-- tempo di divieto dinamico e statico
+- le notifiche email aggiungendo un indirizzo per riga nel campo `Email notifications`: le notifiche funzionano solo se [Email notifications](../configuration/email_notifications.md) è stato configurato
+- gli IP e le reti che non verranno mai bloccati
+- la durata dei ban dinamici e statici
 
-As default, CrowdSec will send some telemetry to remote CrowdSec-owned servers. The servers use such data to compose a community blocklist which is sent back to your installation. If you do not want to share such data and disable the community blocklist, you can do it by disabling the `Enable central API` option under the `Advanced` section.
+Per impostazione predefinita, CrowdSec invia alcuni dati di telemetria a server remoti gestiti da CrowdSec. I server usano questi dati per comporre una community blocklist che viene poi inviata alla tua installazione. Se non vuoi condividere questi dati e vuoi disabilitare la community blocklist, puoi farlo disabilitando l'opzione `Enable central API` nella sezione `Advanced`.
 
-You can also connect your instance to [CrowdSec console](https://app.crowdsec.net) by filling the `Enroll key` optional field.
+Puoi anche collegare la tua istanza alla [CrowdSec console](https://app.crowdsec.net) compilando il campo facoltativo `Enroll key`.
 
-CrowdSec sends a daily notification email listing newly blocked IPs to the configured recipients. If the default threshold of 100 new blocked IPs is reached before the daily report, the notification is sent immediately. The `Notification threshold` field, under the `Advanced` section, controls this value and can be set between 1 and 10000.
+CrowdSec invia ai destinatari configurati un'email di notifica giornaliera con l'elenco dei nuovi IP bloccati. Se la soglia predefinita di 100 nuovi IP bloccati viene raggiunta prima del report giornaliero, la notifica viene inviata immediatamente. Il campo `Notification threshold`, nella sezione `Advanced`, controlla questo valore e può essere impostato tra 1 e 10000.
 
-CrowdSec data is accessible from the `CrowdSec Overview` and `CrowdSec Metrics` Grafana dashboards, as explained in [Grafana access](../configuration/metrics.md#grafana_access-section).
+I dati di CrowdSec sono accessibili dalle dashboard Grafana `CrowdSec Overview` e `CrowdSec Metrics`, come spiegato in [accesso a Grafana](../configuration/metrics.md#grafana_access-section).
 
 ### Community blocklist vs Community blocklist (Lite)
 
-CrowdSec provides a [community blocklist](https://docs.crowdsec.net/docs/next/central_api/community_blocklist) that is shared among all users. To activate this feature, you need to:
+CrowdSec fornisce una [community blocklist](https://docs.crowdsec.net/docs/next/central_api/community_blocklist) condivisa tra tutti gli utenti. Per attivare questa funzionalità, devi:
 
-- Enable the Central API option.
-- Enroll your CrowdSec instance in the console.
+- abilitare l'opzione Central API
+- registrare la tua istanza CrowdSec nella console
 
-To access the full community blocklist (beyond the Lite version), you must share at least some ban decisions with the Central API every 24 hours. If your server has few or no bans, it will be considered as a blocking state, preventing access to the complete blocklist.
+Per accedere alla community blocklist completa, oltre alla versione Lite, devi condividere almeno alcune decisioni di ban con la Central API ogni 24 ore. Se il tuo server ha pochi o nessun ban, verrà considerato in stato di blocco, impedendo l'accesso alla blocklist completa.
 
-## Command-line interface
+## Interfaccia a riga di comando
 
-The `cscli` command is a powerful command-line interface to access advanced Crowdsec functions. To run `cscli`, you have to enter the application environment first. Type in a root shell the following command
+Il comando `cscli` è una potente interfaccia a riga di comando per accedere alle funzioni avanzate di CrowdSec. Per eseguire `cscli`, devi prima entrare nell'ambiente dell'applicazione. Digita il seguente comando in una shell di root
 
     runagent -m crowdsec1 bash
 
-Then the `cscli` command becomes available. For instance, print the help message with
+A questo punto il comando `cscli` diventa disponibile. Per esempio, puoi stampare il messaggio di aiuto con
 
     cscli --help

@@ -2,13 +2,13 @@
 title: WebTop
 sidebar_position: 2
 ---
-# WebTop
+# Guida utente di WebTop
 
-Funzionalità per gli utenti del groupware WebTop.
+Funzionalità per gli utenti finali del groupware WebTop.
 
 ## Autenticazione
 
-Utilizzare sempre il formato completo del nome utente `<utente>@<dominio>` per accedere all'applicazione web e Active Sync.
+Usa sempre il formato completo del nome utente `<user>@<domain>` per accedere all'applicazione web e ad ActiveSync.
 
 **Esempio**
 
@@ -19,55 +19,55 @@ Utilizzare sempre il formato completo del nome utente `<utente>@<dominio>` per a
 
 :::note
 
-Active Sync protocol is supported only on Android and iOS devices. Outlook is not supported.
+Il protocollo ActiveSync è supportato solo sui dispositivi Android e iOS. Outlook non è supportato.
 
 :::
 
 ## Gestione delle impostazioni utente
 
-La maggior parte delle impostazioni utente può essere gestita direttamente dall'utente stesso tramite il menu delle impostazioni. Le impostazioni bloccate richiedono privilegi amministrativi.
+La maggior parte delle impostazioni utente può essere gestita direttamente dall'utente tramite il menu delle impostazioni. Le impostazioni bloccate richiedono privilegi amministrativi.
 
-L'amministratore può impersonare utenti, per controllare gli account esistenti utilizzando credenziali di login speciali:
+L'amministratore può impersonare gli utenti per verificare gli account esistenti usando credenziali di accesso speciali:
 
-- \*\* Nome utente\*\* : `admin!<username>`
+- **User name**: `admin!<username>`
 - **Password**: `<WebTop admin password>`
 
-Mentre si assume l'identità di un utente si ricevono gli stessi privilegi dell'utente, avendo la possibilità di controllare ciò che l'utente può vedere. La gestione completa delle impostazioni dell'utente è disponibile direttamente nell'interfaccia di amministrazione, cliccando con il pulsante destro del mouse su un utente: il menu impostazioni aprirà il pannello delle impostazioni complete dell'utente, con tutte le opzioni sbloccate.
+Durante l'impersonificazione ottieni privilegi simili a quelli dell'utente, quindi puoi controllare esattamente ciò che l'utente può vedere. L'amministrazione completa delle impostazioni utente è disponibile direttamente nell'interfaccia di amministrazione, facendo clic con il tasto destro su un utente: il menu delle impostazioni aprirà il pannello completo delle impostazioni utente, con tutte le opzioni sbloccate.
 
-È inoltre possibile modificare l'email di tutti gli utenti selezionati:
+Puoi anche cambiare l'indirizzo email di tutti gli utenti selezionati:
 
-1.  selezionare gli utenti (Click + CTRL per la selezione multipla)
-2.  cliccare con il pulsante destro del mouse su **Aggiorna il dominio email**
+1.  seleziona gli utenti (Click + CTRL per la selezione multipla)
+2.  fai clic con il tasto destro su **Bulk update email domain**
 
 ## Autenticazione a due fattori (2FA)
 
-WebTop supporta two factor Authentication. L'utente può scegliere tra:
+WebTop supporta l'autenticazione a due fattori. L'utente può scegliere tra:
 
-- App di Google Authenticator ([Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2), [iOS](https://apple.com/it/app/google-authenticator/id388497605))
-- indirizzo mail secondario
+- app Google Authenticator ([Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2), [iOS](https://apps.apple.com/it/app/google-authenticator/id388497605))
+- indirizzo email secondario
 
-Per abilitare 2FA:
+Per abilitare la 2FA:
 
-- cliccare sul pulsante del menù in alto a destra e selezionare l'icona **Impostazioni**
-- quindi selezionare **Sicurezza (OTP)** e fare clic sul pulsante **Attiva**
+- fai clic sul pulsante del menu nell'angolo in alto a destra e seleziona l'icona **Settings**
+- quindi seleziona **Security** e fai clic sul pulsante **Activate**
 
 ![image](/_static/webtop-2fa.png)
 
 ## Sincronizzazione ActiveSync (EAS)
 
-I dispositivi mobili possono essere sincronizzati con ActiveSync. Active Sync può essere utilizzato solo per **contatti** e **calendari**.
+I dispositivi mobili possono essere sincronizzati usando ActiveSync. ActiveSync può essere usato solo per **contatti** e **calendari**.
 
 ### Apple iOS
 
-Accedi al tuo iOS device, naviga su Impostazioni e aggiungi un account Exchange seguendo la [guida ufficiale](https://support.apple.com/en-us/HT201729).
+Accedi al tuo dispositivo iOS, apri Settings e aggiungi un account Exchange seguendo la [guida ufficiale](https://support.apple.com/en-us/HT201729).
 
 Compila i campi richiesti con:
 
-- **E-mail**: aggiungi il tuo indirizzo email, ad esempio: <goofy@nethserver.org>
-- **Server**: aggiungi il nome pubblico del tuo server, ad esempio: mail.nethserver.org
-- **Domain**: lasciare vuoto
-- \*\* Nome utente\*\* : inserisci il tuo nome utente completo di dominio, ad esempio: <goofy@nethserver.org>
-- **Password**: inserire la password
+- **E-mail**: inserisci il tuo indirizzo email, ad esempio: <goofy@nethserver.org>
+- **Server**: inserisci il nome pubblico del tuo server, ad esempio: mail.nethserver.org
+- **Domain**: lascia vuoto
+- **User name**: inserisci il tuo nome utente completo, ad esempio: <goofy@nethserver.org>
+- **Password**: inserisci la tua password
 
 :::note
 
@@ -77,427 +77,427 @@ i dispositivi iOS richiedono un certificato SSL valido sul server. Vedi [Certifi
 
 ### Google Android
 
-Accedi al tuo Android device, naviga nelle Impostazioni, quindi seleziona **Aggiungi account** -\> **Exchange** (o `Aziendale` per le versioni precedenti).
+Accedi al tuo dispositivo Android, apri Settings, quindi seleziona **Add account** -\> **Exchange** (oppure `Company` nelle versioni più vecchie).
 
 Compila i campi richiesti con:
 
-- \*\* Nome utente\*\* : inserisci il tuo nome utente completo di dominio, ad esempio: <goofy@nethserver.org>
-- **Password**: inserire la password
+- **User name**: inserisci il tuo nome utente completo, ad esempio: <goofy@nethserver.org>
+- **Password**: inserisci la tua password
 
-Quindi selezionare **Configurazione manuale** e modificare il nome del campo *Server* con il nome pubblico del server. Infine, se hai un certificato autofirmato sul tuo server, assicurati di selezionare l'opzione **SSL/TLS (accetta tutti i certificati)**.
+Quindi seleziona **Manual configuration** e modifica il nome del campo *Server* impostandolo sul nome pubblico del tuo server. Infine, se sul server hai un certificato autofirmato, assicurati di selezionare l'opzione **SSL/TLS (accept all certificates)**.
 
 :::note
 
-Su alcune versioni Android (in particolare Samsung), il nome utente e il dominio devono essere inseriti nella stessa riga. In questo caso, lasciare vuoto il campo prima del carattere backslash `\`, e inserire il nome utente nel seguente formato: `\goofy@nethserver.org`
+Su alcune versioni di Android (in particolare Samsung), `User name` e `Domain` devono essere inseriti nella stessa riga. In questo caso, lascia vuoto il campo prima del carattere backslash `\` e inserisci il nome utente nel formato seguente: `\goofy@nethserver.org`
 
 :::
 
-### Calendario e contatti multipli
+### Calendari e contatti multipli
 
-I calendari e i contatti condivisi possono essere sincronizzati utilizzando il protocollo ActiveSync.
+Calendari condivisi e rubriche possono essere sincronizzati usando il protocollo ActiveSync.
 
-Le risorse condivise vengono visualizzate con il nome e la categoria del proprietario. Il numero tra parentesi quadrate è l'ID interno. Gli eventi privati non sono sincronizzati.
+Le risorse condivise vengono mostrate con il nome del proprietario e la categoria. Il numero tra parentesi quadre è l'ID interno. Gli eventi privati non vengono sincronizzati.
 
-Dispositivi mobili basati su Apple iOS supportano completamente cartelle/categorie per calendari, contatti e attività (chiamati promemoria), compresi i colori originali.
+I dispositivi mobili basati su Apple iOS supportano pienamente cartelle/categorie per calendari, contatti e attività (chiamate promemoria), inclusi i colori originali.
 
-I dispositivi mobili basati sul Android supportano solo calendari e contatti, le attività non sono supportate. Utilizzando l'applicazione Google Calendar tutti gli elementi avranno lo stesso colore.
+I dispositivi mobili basati su Android supportano solo calendari e contatti; le attività non sono supportate. Usando l'applicazione Google Calendar, tutti gli elementi avranno lo stesso colore.
 
-Installazione e utilizzo dell'applicazione [CloudCal](https://pselis.com/cloudcal/), è possibile modificare i colori associati a ciascun calendario, compresi quelli condivisi.
+Installando e usando l'applicazione [CloudCal](https://pselis.com/cloudcal/), puoi cambiare i colori associati a ogni calendario, compresi quelli condivisi.
 
-Su dispositivi Android, i contatti da rubriche condivise vengono uniti con la rubrica personale e visualizzati in una sola vista. I contatti possono essere modificati e le modifiche verranno salvate nella sorgente originale.
+Sui dispositivi Android, i contatti provenienti da rubriche condivise vengono uniti alla rubrica personale e mostrati in una vista unica. I contatti possono essere modificati e le modifiche verranno salvate nella sorgente originale.
 
 :::note
 
-In order to receive data via EAS on mobile devices, shared resources (Calendars and Contacts) should have synchronization enabled (Active or Read-only):
+Per ricevere dati via EAS sui dispositivi mobili, le risorse condivise (Calendari e Contatti) devono avere la sincronizzazione abilitata (`Active` o `Read-only`):
 
 ![Multiple synchronization](/_static/webtop-multiple_sync.png)
 
 :::
 
-È possibile attivare o disattivare la sincronizzazione per ogni risorsa condivisa.
+È possibile abilitare o disabilitare la sincronizzazione per ogni risorsa condivisa.
 
-Per farlo, basta cliccare con il pulsante destro del mouse sulla risorsa condivisa `Personalizza → Sincr. Dispositivi`:
+Per farlo, basta fare clic con il tasto destro sulla risorsa condivisa `Customize → Devices sync.`:
 
 > ![Sync shared EAS](/_static/webtop-sync_shared_eas.png)
 
-L'impostazione predefinita è `Non attivo`.
+L'impostazione predefinita è `Not active`.
 
 ## Sincronizzazione CalDAV e CardDAV
 
-I calendari e le rubriche possono essere sincronizzate anche attraverso i protocolli CalDAV e CardDAV.
+Calendari e rubriche possono essere sincronizzati anche tramite i protocolli CalDAV e CardDAV.
 
-Per sincronizzare un calendario, selezionare il link `URL` facendo clic con il tasto destro del mouse sul calendario e selezionando **Collegamenti al calendario**, quindi utilizzarlo per configurare il client di terze parti.
+Per sincronizzare un calendario, recupera il suo link `URL` facendo clic con il tasto destro sul calendario e selezionando **Links to this calendar**, quindi usalo per configurare il client di terze parti.
 
-To synchronize an address book, pick up its `URL` link right-clicking on the address book and selecting **Links to this address book**, then use it to configure your third-party client.
+Per sincronizzare una rubrica, recupera il suo link `URL` facendo clic con il tasto destro sulla rubrica e selezionando **Links to this address book**, quindi usalo per configurare il client di terze parti.
 
-Per autenticare, fornire le credenziali nel seguente modulo:
+Per autenticarti, fornisci le credenziali nel formato seguente:
 
-- \*\* Nome utente\*\* : inserisci il tuo nome utente completo di dominio (es: *goofy@nethserver.org*)
-- **Password**: inserire la password
+- **User name**: inserisci il tuo nome utente completo (cioè *goofy@nethserver.org*)
+- **Password**: inserisci la tua password
 
-Alcuni client di terze parti permettono di semplificare la configurazione tramite la funzione *auto-discovery* che scopre automaticamente le risorse sincronizzabili, come nel caso dei dispositivi mobili (ad esempio dispositivi Android o iOS).
+Alcuni client di terze parti consentono di semplificare la configurazione tramite la funzione di *auto-discovery*, che rileva automaticamente le risorse sincronizzabili, come accade sui dispositivi mobili (ad esempio dispositivi Android o iOS).
 
 :::note
 
-Se si utilizzano client che non supportano l'auto-discovery, è necessario utilizzare l'URL completo: `https://<server_name>/webtop-dav/server.php`
+Se usi client che non supportano l'auto-discovery, devi usare l'URL completo: `https://<server_name>/webtop-dav/server.php`
 
-Se si utilizzano client che supportano l'auto-discovery utilizzare l'URL: `https://<server_name>`
+Se usi client che supportano l'auto-discovery, usa l'URL: `https://<server_name>`
 
 :::
 
 ### Google Android
 
-A good Android third-party client is [DAVx5](https://www.davx5.com/).
+Un buon client Android di terze parti è [DAVx5](https://www.davx5.com/).
 
-- aggiungere un nuovo account cliccando sul **+** e selezionare **Login con URL e username**
-- insert the `URL` (`https://<server_name>`), full username (i.e. *goofy@nethserver.org*) and password
-- clicca sul nuovo profilo e seleziona le risorse che vuoi sincronizzare
+- aggiungi un nuovo account facendo clic sul tasto **+** e seleziona il metodo **Login with URL and username**
+- inserisci l'`URL` (`https://<server_name>`), il nome utente completo (cioè *goofy@nethserver.org*) e la password
+- fai clic sul nuovo profilo e seleziona le risorse che vuoi sincronizzare
 
 ### Apple iOS
 
-Il supporto CalDAV/CardDAV è integrato e nativo su iOS, quindi per configurarlo:
+Il supporto CalDAV/CardDAV è integrato in iOS, quindi per configurarlo:
 
-- andare su **Impostazioni** -\> **Account e Password** - \> `Aggiungi account`
-- selezionare **Altro** -\> Aggiungi **CalDAV** o **CardDAV** account
-- inserire il nome del server (es: *server.nethserver.org*), il nome utente completo (es: *goofy@nethserver.org*) e la password
+- vai in **Settings** -\> **Account and Password** -\> **Add account**
+- seleziona **Other** -\> **Add CalDAV or CardDAV account**
+- inserisci il nome del server (cioè *server.nethserver.org*), il nome utente completo (cioè *goofy@nethserver.org*) e la password
 
 ### Client desktop
 
 **Thunderbird**
 
-Thunderbird include già il supporto per i calendari CalDAV. Per sincronizzare i contatti con CardDAV è necessario un add-on di terze parti come [Cardbook](https://addons.thunderbird.net/it/thunderbird/addon/cardbook/) .
+Thunderbird include già il supporto per i calendari CalDAV. Per sincronizzare i contatti con CardDAV serve un add-on di terze parti come [Cardbook](https://addons.thunderbird.net/it/thunderbird/addon/cardbook/).
 
 **Outlook**
 
-Il plugin Open Source [CalDAV Synchronizer](https://caldavsynchronizer.org/) per Outlook supporta sia CardDAV che CalDAV.
+Il plugin open source [CalDAV Synchronizer](https://caldavsynchronizer.org/) per Outlook supporta sia CardDAV sia CalDAV.
 
 :::warning
 
-WebTop is a **client-less groupware**: its functionalities are fully available **only using the web interface**!
+WebTop è un **groupware client-less**: le sue funzionalità sono pienamente disponibili **solo usando l'interfaccia web**!
 
-L'uso di CalDAV/CardDAV attraverso clienti di terze parti **non può essere considerato un'alternativa all'interfaccia web**.
+L'uso di CalDAV/CardDAV tramite client di terze parti **non può essere considerato un'alternativa all'interfaccia web**.
 
 :::
 
-## Condivisione e-mail
+## Condivisione dell'email
 
-È possibile condividere una singola cartella o l'intero account con tutte le sottocartelle. Selezionare la cartella da condividere -\> click destro -\> **Gestisci condivisione**:
+È possibile condividere una singola cartella o l'intero account con tutte le sottocartelle. Seleziona la cartella da condividere -\> clic destro -\> **Manage sharing**:
 
 ![image](/_static/webtop-sharing_mail_folder_1.png)
 
-- selezionare l'utente per condividere la risorsa (1)
-- selezionare se si desidera condividere la propria identità con l'utente e anche forzare la firma (2)
-- scegliere il livello di autorizzazioni associate a questa quota (3)
-- se è necessario modificare ulteriormente le autorizzazioni, selezionare `Avanzate` (4)
-- infine, scegliere se applicare la condivisione solo alla cartella da cui hai iniziato, o solo al ramo delle sottocartelle o all'intero account (5)
+- seleziona l'utente con cui condividere la risorsa (1)
+- seleziona se vuoi condividere la tua identità con l'utente e perfino forzare la tua firma (2)
+- scegli il livello di permessi associato a questa condivisione (3)
+- se devi modificare ulteriormente i permessi, seleziona `Advanced` (4)
+- infine, scegli se applicare la condivisione solo alla cartella da cui sei partito, solo al ramo di sottocartelle oppure all'intero account (5)
 
 ![image](/_static/webtop-sharing_mail_folder_2.png)
 
 :::note
 
-L'opzione: `Forza firma` può essere utilizzata solo se la firma è stata associata all'indirizzo di posta.
+L'opzione **Force mailcard** può essere usata solo se la mailcard è stata associata all'indirizzo email.
 
 :::
 
-## Condivisione calendari e contatti
+## Condivisione di calendari e contatti
 
-### Condivisione Calendari
+### Condivisione del calendario
 
-Puoi condividere ogni calendario personale singolarmente. Selezionare il calendario da condividere -\> click destro -\> **Condivisione e permessi**:
+Puoi condividere ogni calendario personale singolarmente. Seleziona il calendario da condividere -\> clic destro -\> **Sharing and permissions**:
 
 ![image](/_static/webtop-sharing_cal_1.png)
 
-Selezionare l'utente destinatario della condivisione (o Gruppo) e abilitare le autorizzazioni sia per la cartella che per i singoli elementi:
+Seleziona l'utente destinatario della condivisione (o il gruppo) e abilita i permessi sia per la cartella sia per i singoli elementi:
 
 ![image](/_static/webtop-sharing_cal_2.png)
 
-### Condivisione Contatti
+### Condivisione dei contatti
 
-Allo stesso modo, è possibile condividere i contatti selezionando la directory che si desidera condividere -\> click destro -\> :guilabel: `Condivisione e permessi`. Selezionare l'utente destinatario della condivisione (o Gruppo) e abilitare le autorizzazioni sia per la cartella che per i singoli elementi.
+Allo stesso modo, puoi condividere i tuoi contatti selezionando la rubrica che vuoi condividere -\> clic destro -\> **Sharing and permissions**. Seleziona l'utente destinatario della condivisione (o il gruppo) e abilita i permessi sia per la cartella sia per i singoli elementi.
 
-## Mail inline preview
+## Anteprima rapida dei messaggi
 
-By default, the mail page will display a preview of the content of the latest received messages.
+Per impostazione predefinita, la pagina della posta mostra un'anteprima del contenuto degli ultimi messaggi ricevuti.
 
-This feature can be enabled or disabled from the **Settings** menu, under the **Mail** tab, the check box is named **Show quick preview on message row**.
+Questa funzione può essere abilitata o disabilitata dal menu **Settings**, nella scheda **Mail**. La checkbox si chiama **Show quick preview on message row**.
 
-## Mail archiving
+## Archiviazione della posta
 
-Archiving is useful for keeping your inbox folder organized by manually moving messages.
+L'archiviazione è utile per mantenere organizzata la cartella Posta in arrivo spostando manualmente i messaggi.
 
 :::note
 
-Mail archiving is not a backup.
+L'archiviazione della posta non è un backup.
 
 :::
 
-The system automatically creates a new special Archives folder
+Il sistema crea automaticamente una nuova cartella speciale **Archives**.
 
 ![image](/_static/webtop-archive_archive1.png)
 
-If the **Archives** folder does not appear immediately upon login, it will appear at the first archiving.
+Se la cartella **Archives** non appare subito dopo l'accesso, comparirà al primo utilizzo dell'archiviazione.
 
-There are three archiving criteria:
+Esistono tre criteri di archiviazione:
 
-- **Single folder:** a single root for all archived emails
-- **Per year:** a root for each year
-- **By year / month:** a root for each year and month
+- **Single folder:** una singola radice per tutte le email archiviate
+- **Per year:** una radice per ogni anno
+- **By year / month:** una radice per ogni anno e mese
 
 ![image](/_static/webtop-archive_archive2.png)
 
-To maintain the original structure of the folders it is possible to activate **Keep folders structure**
+Per mantenere la struttura originale delle cartelle è possibile attivare **Keep folders structure**.
 
 ![image](/_static/webtop-archive_archive3.png)
 
-The archiving operation is accessible from the contextual menu (right-click). Click on **Archive**
+L'operazione di archiviazione è accessibile dal menu contestuale (clic destro). Fai clic su **Archive**.
 
 ![image](/_static/webtop-archive_archive4.png)
 
-The system will process archiving according to the last settings chosen.
+Il sistema elaborerà l'archiviazione in base alle ultime impostazioni scelte.
 
-## IMAP folders subscription
+## Sottoscrizione delle cartelle IMAP
 
-By default, all IMAP folders on the server are automatically subscribed and therefore visible since the first login.
+Per impostazione predefinita, tutte le cartelle IMAP sul server vengono sottoscritte automaticamente e quindi sono visibili fin dal primo accesso.
 
-If you want to hide some folders from the view, which is equivalent to removing the subscription, you can simply right-click on the folder to hide and select from the interactive menu the item **Hide from list**.
+Se vuoi nascondere alcune cartelle dalla vista, operazione equivalente alla rimozione della sottoscrizione, puoi semplicemente fare clic con il tasto destro sulla cartella da nascondere e selezionare dal menu interattivo la voce **Hide from list**.
 
-For example, if you want to hide the subfolder `folder1` from this list, just right-click on it and select **Hide from list**:
+Per esempio, se vuoi nascondere la sottocartella `folder1` da questo elenco, fai clic con il tasto destro su di essa e seleziona **Hide from list**:
 
 ![image](/_static/webtop-sub_imap_folder1.png)
 
-It is possible to manage the visibility of hidden folders by selecting the **Manage visibility** function:
+È possibile gestire la visibilità delle cartelle nascoste selezionando la funzione **Manage visibility**:
 
 ![image](/_static/webtop-sub_imap_folder2.png)
 
-For example, if you want to restore the subscription of the **folder1** just hidden, just select it from the list of hidden folders and click on the icon on the left:
+Per esempio, se vuoi ripristinare la sottoscrizione della cartella **folder1** appena nascosta, selezionala dall'elenco delle cartelle nascoste e fai clic sull'icona a sinistra:
 
 ![image](/_static/webtop-sub_imap_folder3.png)
 
-## Export events (CSV)
+## Esportare eventi (CSV)
 
-To export calendars events in CSV (Comma Separated Value) format, click on the ![tools](/_static/webtop-tools.png) button in the top right corner and select **ERP export (CSV)**
+Per esportare gli eventi dei calendari in formato CSV (Comma Separated Value), fai clic sul pulsante ![tools](/_static/webtop-tools.png) in alto a destra e seleziona **ERP export (CSV)**.
 
-Finally, select a time interval and click on **Next** to export into a CSV file.
+Infine, seleziona un intervallo di tempo e fai clic su **Next** per esportare il file CSV.
 
-## Tasks
+## Attività
 
-### Quick view filters
+### Filtri di visualizzazione rapida
 
-In the toolbar above the grid there are 7 buttons that allow you to select the most suitable quick view. The first two buttons refer to today's activities or to those planned within the next 7 days:
+Nella barra degli strumenti sopra la griglia ci sono 7 pulsanti che ti permettono di selezionare la visualizzazione rapida più adatta. I primi due pulsanti si riferiscono alle attività di oggi o a quelle pianificate nei prossimi 7 giorni:
 
 ![image](/_static/webtop-task1.png)
 
-- **Today**: shows unfinished tasks without a start date or with a start date up to today (inclusive) and those completed with an end date up to today (inclusive)
-- **Next 7 days**: shows uncompleted tasks with no start date or starting up to 7 days from today and completed tasks with completion date up to now (inclusive)
+- **Today**: mostra le attività non concluse senza data di inizio o con data di inizio fino a oggi (incluso) e quelle completate con data di fine fino a oggi (incluso)
+- **Next 7 days**: mostra le attività non completate senza data di inizio o con inizio entro i prossimi 7 giorni e quelle completate con data di completamento fino a ora (incluso)
 
-The remaining 5 buttons allow you to obtain these other types of quick views:
+I restanti 5 pulsanti ti permettono di ottenere questi altri tipi di visualizzazione rapida:
 
 ![image](/_static/webtop-task2.png)
 
-- **Not started**: shows only activities with status "To be started" and starting today (inclusive)
-- **Late**: shows only uncompleted tasks with start date up to today (inclusive) and completion date previous to the current one
-- **Completed**: shows all activities with status completed and with any date range
-- **Not completed**: shows all activities with status other than completed and start date within 1 year (for recurring tasks, only the first instance of the series still to be completed is shown)
-- **All**: shows all activities in any status (for recurring tasks the series icon main is shown)
+- **Not started**: mostra solo attività con stato "To be started" e con inizio oggi (incluso)
+- **Late**: mostra solo attività non completate con data di inizio fino a oggi (incluso) e data di completamento precedente a quella corrente
+- **Completed**: mostra tutte le attività con stato completato e con qualsiasi intervallo di date
+- **Not completed**: mostra tutte le attività con stato diverso da completato e con data di inizio entro 1 anno (per le attività ricorrenti viene mostrata solo la prima istanza della serie ancora da completare)
+- **All**: mostra tutte le attività in qualsiasi stato (per le attività ricorrenti viene mostrata l'icona principale della serie)
 
-### Recurring tasks
+### Attività ricorrenti
 
-It is possible to configure any type of recurrence:
+È possibile configurare qualsiasi tipo di ricorrenza:
 
 ![image](/_static/webtop-task3.png)
 
-Editing a recurring activity can be done in two different ways:
+La modifica di un'attività ricorrente può essere fatta in due modi diversi:
 
-1.  on the individual task by opening it with a double click from a view other than **All** In this case the task will be **removed** from the recurrence and its icon will become this one:
+1.  sulla singola attività aprendola con un doppio clic da una vista diversa da **All**. In questo caso l'attività verrà **rimossa** dalla ricorrenza e la sua icona diventerà questa:
 
 ![image](/_static/webtop-task4.png)
 
-2.  on the entire series with a double click from the **All** view or by using the following button on the single task already open:
+2.  sull'intera serie con un doppio clic dalla vista **All** oppure usando il pulsante seguente sulla singola attività già aperta:
 
 ![image](/_static/webtop-task5.png)
 
-### Sub-tasks
+### Sotto-attività
 
-On any task it is always possible to add related sub-tasks (one Master/Slave level only) simply by using the right button and selecting **Add sub-task** Within the connected tasks, both in the master and in the slave, a link is available at the bottom right to open the related tasks:
+Su qualsiasi attività è sempre possibile aggiungere sotto-attività correlate (un solo livello Master/Slave) semplicemente usando il tasto destro e selezionando **Add sub-task**. Nelle attività collegate, sia nella master sia nella slave, è disponibile in basso a destra un link per aprire le attività correlate:
 
 ![image](/_static/webtop-task6.png)
 
-It is possible to **Move** or **Copy** this type of activity (right click -\> **Move/Copy**) by choosing to copy or move the sub-activities through an option active by default.
+È possibile **Move** o **Copy** questo tipo di attività (clic destro -\> **Move/Copy**) scegliendo se copiare o spostare le sotto-attività tramite un'opzione attiva per impostazione predefinita.
 
-### Multiple searches
+### Ricerche multiple
 
-In the bar at the top there is a quick search that is executed on all fields. You can also narrow the search by filling multiple search fields.
+Nella barra in alto c'è una ricerca rapida eseguita su tutti i campi. Puoi anche restringere la ricerca compilando più campi di ricerca.
 
 ![image](/_static/webtop-task7.png)
 
-## Nextcloud integration
+## Integrazione con Nextcloud
 
-Before proceeding, verify that the **Nextcloud** module has been installed from the [Software center](../../administrator-manual/installation/software_center.md).
+Prima di procedere, verifica che il modulo **Nextcloud** sia stato installato dal [Software center](../../administrator-manual/installation/software_center.md).
 
-By default, Nextcloud integration is disabled for all users. To enable it, use the administration panel which can be accessed using the webtop admin password
+Per impostazione predefinita, l'integrazione con Nextcloud è disabilitata per tutti gli utenti. Per abilitarla, usa il pannello di amministrazione a cui puoi accedere usando la password amministrativa di WebTop.
 
-If you want to enable the service for all users, proceed as follows:
+Se vuoi abilitare il servizio per tutti gli utenti, procedi come segue:
 
-1.  access the administrative panel and select **Groups**:
+1.  accedi al pannello di amministrazione e seleziona **Groups**:
 
 ![image](/_static/webtop-admin_panel_groups.png)
 
-2.  modify the properties of the "users" group by double-clicking and selecting the button related to the Authorizations:
+2.  modifica le proprietà del gruppo "users" facendo doppio clic e selezionando il pulsante relativo alle autorizzazioni:
 
 ![image](/_static/webtop-admin_panel_permission.png)
 
-3.  add to existing authorizations those related to both the `STORE_CLOUD` and `STORE_OTHER` resources by selecting the items as shown below:
+3.  aggiungi alle autorizzazioni esistenti quelle relative alle risorse `STORE_CLOUD` e `STORE_OTHER`, selezionando le voci come mostrato di seguito:
 
 ![image](/_static/webtop-admin_panel_nextcloud_auth_1.png)
 
 ![image](/_static/webtop-admin_panel_nextcloud_auth_2.png)
 
-to get this:
+per ottenere questo risultato:
 
 ![image](/_static/webtop-admin_panel_nextcloud_auth_3.png)
 
-4.  save and close.
+4.  salva e chiudi.
 
-Fron now on, any user it will be able to insert the Nextcloud resource (local or remote) in the personal Cloud.
+Da questo momento ogni utente potrà inserire la risorsa Nextcloud (locale o remota) nel Cloud personale.
 
-To do this, simply select the Cloud button and add a new Nextcloud resource by right-clicking on **My resources** and then **Add resource** in this way:
+Per farlo, basta selezionare il pulsante Cloud e aggiungere una nuova risorsa Nextcloud facendo clic con il tasto destro su **My resources** e poi su **Add resource** in questo modo:
 
 ![image](/_static/webtop-nextcloud_1.png)
 
-A pre-filled wizard will open:
+Si aprirà una procedura guidata precompilata:
 
 ![image](/_static/webtop-nextcloud_2.png)
 
 :::note
 
-Remember to fill in the User name and Password fields related to access to the Nextcloud resource, otherwise it will not be possible to use the public link to the shared files
+Ricorda di compilare i campi `User name` e `Password` relativi all'accesso alla risorsa Nextcloud, altrimenti non sarà possibile usare il link pubblico ai file condivisi.
 
 :::
 
 :::note
 
-The **Path** must be changed from `/nextcloud/remote.php/webdav` to `/remote.php/webdav`. Also make sure to enter the Nextcloud FQDN inside the **Host** (eg. `nextcloud.mydomain.com`).
+Il **Path** deve essere modificato da `/nextcloud/remote.php/webdav` a `/remote.php/webdav`. Assicurati inoltre di inserire il FQDN di Nextcloud nel campo **Host** (ad esempio `nextcloud.mydomain.com`).
 
 :::
 
-Proceed with the Next button until the Wizard is complete.
+Procedi con il pulsante **Next** fino al completamento del wizard.
 
-## Personal Cloud
+## Cloud personale
 
-The personal Cloud module allows you to send and receive documents via web links.
+Il modulo Cloud personale ti permette di inviare e ricevere documenti tramite link web.
 
-### How to create a link to send a document
+### Come creare un link per inviare un documento
 
-To create the link, select the button at the top right:
+Per creare il link, seleziona il pulsante in alto a destra:
 
 ![image](/_static/webtop-doc_cloud1.png)
 
-Follow the wizard to generate the link, use the field **date** to set the deadline.
+Segui il wizard per generare il link e usa il campo **date** per impostare la scadenza.
 
 ![image](/_static/webtop-doc_cloud2.png)
 
-you can create a **password** to protect it:
+puoi creare una **password** per proteggerlo:
 
 ![image](/_static/webtop-doc_cloud3.png)
 
-The link will be generated and will be inserted in the new mail:
+Il link verrà generato e inserito nella nuova email:
 
 ![image](/_static/webtop-doc_cloud4.png)
 
 ![image](/_static/webtop-doc_cloud5.png)
 
-Downloading the file generates a notification to the sender:
+Il download del file genera una notifica al mittente:
 
 ![image](/_static/webtop-doc_cloud6.png)
 
-### Request for a document
+### Richiesta di un documento
 
-To create the request, insert the subject of the email then select the button at the top right:
+Per creare la richiesta, inserisci l'oggetto dell'email e poi seleziona il pulsante in alto a destra:
 
 ![image](/_static/webtop-doc_cloud7.png)
 
-Follow the wizard. You can set both an expiration date and a password. The link will be automatically inserted into the message:
+Segui il wizard. Puoi impostare sia una data di scadenza sia una password. Il link verrà inserito automaticamente nel messaggio:
 
 ![image](/_static/webtop-doc_cloud8.png)
 
-A request email will be sent to upload the document to the Cloud:
+Verrà inviata un'email di richiesta per caricare il documento nel Cloud:
 
 ![image](/_static/webtop-doc_cloud9.png)
 
-The sender will receive a notification for each file that will be uploaded:
+Il mittente riceverà una notifica per ogni file caricato:
 
 ![image](/_static/webtop-doc_cloud10.png)
 
-To download the files just access your personal `Cloud --> Uploads --> Folder` with date and name:
+Per scaricare i file ti basta accedere al tuo `Cloud --> Uploads --> Folder` personale con data e nome:
 
 ![image](/_static/webtop-doc_cloud11.png)
 
-## Chat integration {#webtop-chat}
+## Integrazione chat {#webtop-chat}
 
-Web chat integration installation is disabled by default for all users.
+L'installazione dell'integrazione web chat è disabilitata per impostazione predefinita per tutti gli utenti.
 
-To enable chat integration:
+Per abilitare l'integrazione chat:
 
-1.  Install the "Ejabberd" application from the `Software center` page See [Install applications](../../administrator-manual/installation/software_center.md#install-applications) and [Ejabberd](../../administrator-manual/applications/ejabberd.md).
-2.  In Ejabberd `Settings` page, the field `Ejabberd domain (FQDN)` must match the value of `Mail domain` in WebTop's settings.
-3.  Access WebTop as admin user then enable the web chat authorization:
-    - Access the **Administration** menu, then `Domains --> NethServer --> Groups --> Users --> Authorizations`
+1.  Installa l'applicazione "Ejabberd" dalla pagina `Software center`. Vedi [Installare applicazioni](../../administrator-manual/installation/software_center.md#install-applications) ed [Ejabberd](../../administrator-manual/applications/ejabberd.md).
+2.  Nella pagina `Settings` di Ejabberd, il campo `Ejabberd domain (FQDN)` deve corrispondere al valore di `Mail domain` nelle impostazioni di WebTop.
+3.  Accedi a WebTop come utente admin e abilita l'autorizzazione alla web chat:
+    - accedi al menu **Administration**, quindi `Domains --> NethServer --> Groups --> Users --> Authorizations`
     - `Add (+) --> Services --> com.sonicle.webtop.core (WebTop) --> Resource --> WEBCHAT --> Action --> ACCESS`
-    - Click **OK** then save and close
+    - fai clic su **OK**, quindi salva e chiudi
 
-## Jitsi integration
+## Integrazione Jitsi
 
-With this integration it is possible to start a new video conference and send the invitation via email, or schedule one by creating the event directly from the calendar. To activate the integration it is necessary to configure the [Jitsi](https://jitsi.org/) instance that you would like to use directly from admin panel by modifying the [documented global settings](https://www.sonicle.com/docs/webtop5/core.html#meeting-integration-settings)
+Con questa integrazione è possibile avviare una nuova videoconferenza e inviare l'invito via email, oppure pianificarne una creando l'evento direttamente dal calendario. Per attivare l'integrazione è necessario configurare l'istanza [Jitsi](https://jitsi.org/) che vuoi usare direttamente dal pannello admin modificando le [impostazioni globali documentate](https://www.sonicle.com/docs/webtop5/core.html#meeting-integration-settings).
 
-By default, the videoconferencing service is disabled for all users. To enable it, for all users it is necessary to add a specific authorization from the administration panel:
+Per impostazione predefinita, il servizio di videoconferenza è disabilitato per tutti gli utenti. Per abilitarlo per tutti gli utenti è necessario aggiungere una specifica autorizzazione dal pannello di amministrazione:
 
-- Access the **Administration** menu, then `Domains --> NethServer --> Groups --> Users --> Authorizations`
+- accedi al menu **Administration**, quindi `Domains --> NethServer --> Groups --> Users --> Authorizations`
 - `Add (+) --> Services --> com.sonicle.webtop.core (WebTop) --> Resource MEETING --> Action --> CREATE`
-- Click **OK** then save and close
+- fai clic su **OK**, quindi salva e chiudi
 
-The conference will be available for the users after a new login.
+La conferenza sarà disponibile per gli utenti dopo un nuovo accesso.
 
-To create a new video conference meeting, you can start from these two buttons:
+Per creare una nuova videoconferenza puoi partire da questi due pulsanti:
 
-(top left)
+(in alto a sinistra)
 
 ![image](/_static/webtop_jitsi1.png)
 
-(top right)
+(in alto a destra)
 
 ![image](/_static/webtop_jitsi2.png)
 
-It is also possible to do this from a new email window or a new calendar event.
+È possibile farlo anche da una nuova finestra email o da un nuovo evento del calendario.
 
-For each new meeting you have to decide whether it should start immediately (instant meeting) or if it should be scheduled by invitation.
+Per ogni nuova riunione devi decidere se deve iniziare subito (riunione istantanea) oppure se deve essere pianificata tramite invito.
 
-There are several ways to share the new meeting link:
+Ci sono diversi modi per condividere il link della nuova riunione:
 
 ![image](/_static/webtop_jitsi3.png)
 
-- **Start now** allows you to immediately access the newly created meeting room and copy the link via the button available next to the URL
-- **Send invitation** -\> **Copy meeting invite**: in this case an invitation message, which also includes the meeting link, will be copied (e.g: To join the meeting on Jitsi Meet, click this link: …)
-- **Send invitation** -\> **Share by email**: you will be asked if you would like to change the subject and date of the meeting, which will then be inserted in the newly generated email:
+- **Start now** ti consente di accedere immediatamente alla stanza appena creata e copiare il link tramite il pulsante disponibile accanto all'URL
+- **Send invitation** -\> **Copy meeting invite**: in questo caso verrà copiato un messaggio di invito che include anche il link della riunione (ad esempio: To join the meeting on Jitsi Meet, click this link: …)
+- **Send invitation** -\> **Share by email**: ti verrà chiesto se vuoi cambiare l'oggetto e la data della riunione, che verranno poi inseriti nella nuova email generata:
 
 ![image](/_static/webtop_jitsi4.png)
 
-- **Send invitation** -\> **Plan event**: also in this case you will be asked if you would like to change the subject and date/time of the meeting before creating the calendar event that will allow you to invite other participants.
+- **Send invitation** -\> **Plan event**: anche in questo caso ti verrà chiesto se vuoi cambiare l'oggetto e la data/ora della riunione prima di creare l'evento del calendario che ti permetterà di invitare altri partecipanti.
 
-If an event contains a link to a third-party video conference, the buttons that will allow you to access the meeting directly:
+Se un evento contiene un link a una videoconferenza di terze parti, compariranno i pulsanti che ti permetteranno di accedere direttamente alla riunione:
 
 ![image](/_static/webtop_jitsi5.png)
 
-### Third-party video calls
+### Videochiamate di terze parti
 
-The video conferencing services that are currently supported, in addition to Jitsi, are: Google Meet, MS Teams and Zoom. It is possible to add additional platforms through a [global setting](https://www.sonicle.com/docs/webtop5/core.html#meeting-integration-settings).
+I servizi di videoconferenza attualmente supportati, oltre a Jitsi, sono: Google Meet, MS Teams e Zoom. È possibile aggiungere piattaforme aggiuntive tramite un'[impostazione globale](https://www.sonicle.com/docs/webtop5/core.html#meeting-integration-settings).
 
-## SMS integration
+## Integrazione SMS
 
-It is possible to send SMS (Short Message Service) messages to a contact that has the mobile number in the address book. To activate sending SMS, first you need to choose one of the two supported providers: [smshosting](https://www.smshosting.it/it) or [twilio](https://www.twilio.com/).
+È possibile inviare messaggi SMS (Short Message Service) a un contatto che abbia il numero di cellulare nella rubrica. Per attivare l'invio degli SMS, devi prima scegliere uno dei due provider supportati: [smshosting](https://www.smshosting.it/it) oppure [twilio](https://www.twilio.com/).
 
-Once registered to the service of the chosen provider, retrieve the API keys (`AUTH_KEY` and `AUTH_SECRET`) to be inserted in the WebTop configuration db. The settings to configure are those shown [here](https://www.sonicle.com/docs/webtop5/core.html#sms-settings) .
+Una volta registrato al servizio del provider scelto, recupera le API key (`AUTH_KEY` e `AUTH_SECRET`) da inserire nel database di configurazione di WebTop. Le impostazioni da configurare sono quelle mostrate [qui](https://www.sonicle.com/docs/webtop5/core.html#sms-settings).
 
-You can do it by accessing the administration panel -\> **Properties (system)** -\> **Add** -\> select **com.sonicle.webtop.core (WebTop)** and enter the data in the **Key** and **Value** fields according to the key to be configured:
+Puoi farlo accedendo al pannello di amministrazione -\> **Properties (system)** -\> **Add** -\> seleziona **com.sonicle.webtop.core (WebTop)** e inserisci i dati nei campi **Key** e **Value** in base alla chiave da configurare:
 
 `sms.provider` = smshosting or twilio
 
@@ -507,207 +507,206 @@ You can do it by accessing the administration panel -\> **Properties (system)** 
 
 `sms.sender` = (default optional)
 
-The `sms.sender` key is optional and is used to specify the default sender when sending SMS. It is possible to indicate a number (max 16 characters) or a text (max 11 characters).
+La chiave `sms.sender` è facoltativa e viene usata per specificare il mittente predefinito durante l'invio degli SMS. È possibile indicare un numero (massimo 16 caratteri) oppure un testo (massimo 11 caratteri).
 
 :::note
 
-Each user can overwrite the sender by customizing it as desired through its settings panel: **WebTop** -\> **Switchboard VOIP and SMS** -\> **SMS Hosting service configured** -\> **Default sender**
+Ogni utente può sovrascrivere il mittente personalizzandolo dal proprio pannello impostazioni: **WebTop** -\> **Switchboard VOIP and SMS** -\> **SMS Hosting service configured** -\> **Default sender**
 
 :::
 
-To send an SMS from the address book, right-click on a contact that has the mobile field filled in -\> **Send SMS**
+Per inviare un SMS dalla rubrica, fai clic con il tasto destro su un contatto che abbia compilato il campo mobile -\> **Send SMS**
 
-## Launcher customization
+## Personalizzazione del launcher
 
-The launcher is the icon-based menu on the left of the page. You can add custom buttons to the launcher.
+Il launcher è il menu a icone sul lato sinistro della pagina. Puoi aggiungere pulsanti personalizzati al launcher.
 
-To configure the buttons, access the WebTop administration panel and select -\> **Domains** -\> **NethServer** -\> **Launcher** :
+Per configurare i pulsanti, accedi al pannello di amministrazione WebTop e seleziona -\> **Domains** -\> **NethServer** -\> **Launcher**:
 
 ![image](/_static/webtop_launchers.png)
 
-For each button, enter these three values
+Per ogni pulsante, inserisci questi tre valori:
 
-- `Name` : tab descriptive text that appears with mouse-over
-- `Link URL` : URL to be opened in a new browser
-- `Icon URL` : icon image URL, it should always be a publicly reachable address. To avoid scaling problems, use vector images
+- `Name`: testo descrittivo della scheda mostrato al passaggio del mouse
+- `Link URL`: URL da aprire in un nuovo browser
+- `Icon URL`: URL dell'immagine dell'icona; deve sempre essere un indirizzo raggiungibile pubblicamente. Per evitare problemi di scalatura, usa immagini vettoriali
 
-If you can't find a public URL for the icon image, you can upload the icon on WebTop public cloud. WebTop public cloud already hosts mailcards images. Access the administrator panel and click on **Cloud** -\> **Public Images**, then insert a URL like `https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>`.
+Se non riesci a trovare un URL pubblico per l'immagine dell'icona, puoi caricarla nel cloud pubblico di WebTop. Il cloud pubblico di WebTop ospita già le immagini delle mailcard. Accedi al pannello di amministrazione e fai clic su **Cloud** -\> **Public Images**, quindi inserisci un URL come `https://<public_name_server>/webtop/resources/156c0407/images/<icon.svg>`.
 
-The configured custom link buttons will be shown to all users at the next login.
+I pulsanti dei link personalizzati configurati verranno mostrati a tutti gli utenti al successivo accesso.
 
-## Browser notifications
+## Notifiche del browser
 
-WebTop can notify new mail messages and upcoming calendar events.
+WebTop può notificare i nuovi messaggi email e gli eventi imminenti del calendario.
 
-To activate it, simply access the general settings of your user:
+Per attivare questa funzione, ti basta accedere alle impostazioni generali del tuo utente:
 
 ![image](/_static/webtop-desktop_notifications.png)
 
-It is possible to enable desktop notifications in two modes:
+È possibile abilitare le notifiche desktop in due modalità:
 
-- **Always**: notifications will always be shown, even with the browser open
-- **Auto (in background only)**: notifications will be shown only when the browser is in the background
+- **Always**: le notifiche verranno sempre mostrate, anche con il browser aperto
+- **Auto (in background only)**: le notifiche verranno mostrate solo quando il browser è in background
 
-Make sure to allow notifications inside your browser.
+Assicurati di consentire le notifiche nel tuo browser.
 
-If you need to enable this consent later on a different browser just click on the appropriate button:
+Se hai bisogno di abilitare questo consenso in seguito su un browser diverso, fai clic sull'apposito pulsante:
 
 ![image](/_static/webtop-button_desktop_notifications.png)
 
-## External IMAP accounts (Beta)
+## Account IMAP esterni (Beta)
 
-External IMAP accounts can be accessed in read-only mode. Each user can have a maximum of 3 external accounts.
+Agli account IMAP esterni è possibile accedere in modalità sola lettura. Ogni utente può avere un massimo di 3 account esterni.
 
-To enable the feature:
+Per abilitare la funzione:
 
-1.  Access the administration panel, then selected **Properties (system)**
-2.  Click on **Add** button and select **com.sonicle.webtop.mail**
-3.  Create a new key named `external-account.enabled` with value `true`
-4.  Give a specific authorization to the user by setting:
+1.  accedi al pannello di amministrazione, quindi seleziona **Properties (system)**
+2.  fai clic sul pulsante **Add** e seleziona **com.sonicle.webtop.mail**
+3.  crea una nuova chiave chiamata `external-account.enabled` con valore `true`
+4.  assegna all'utente un'autorizzazione specifica impostando:
     - Service: `com.sonicle.webtop-mail`
     - Resource: `EXTERNAL_ACCOUNT_SETTINGS`
     - Action: `CHANGE`
 
-Users can now configure personal external accounts by accessing the **Settings** section.
+Gli utenti possono ora configurare account esterni personali accedendo alla sezione **Settings**.
 
-## Subscribing remote resources
+## Sottoscrizione di risorse remote
 
-WebTop supports subscriptions to remote calendars and contacts (directory) using CardDAV, CalDAV and iCal.
+WebTop supporta la sottoscrizione a calendari e contatti remoti (directory) usando CardDAV, CalDAV e iCal.
 
-### Remote calendars
+### Calendari remoti
 
-An Internet Calendar can be added and synchronized. To do so just click the right button on personal calendars, **Add Internet Calendar**. Two types of remote calendars are supported: WebCal (ICS format) and CalDAV.
-
-:::note
-
-Synchronization of Webcal calendars (ICS) is always done by downloading every event on the remote resource every time, while only the differences are synchronized with the CalDAV mode
-
-:::
-
-#### Example of Google Cal remote calendar (Webcal only - ICS)
-
-1)  Take the public access ICS link from your Google calendar: **Calendar options -> Settings and sharing -> Secret address in iCal format**
-2)  On WebTop, add an Internet calendar of type Webcal and paste the copied URL without entering the authentication credentials in step 1 of the wizard.
-3)  The wizard will connect to the calendar, giving the possibility to change the name and color, and then perform the first synchronization.
+Un calendario Internet può essere aggiunto e sincronizzato. Per farlo basta fare clic con il tasto destro sui calendari personali e selezionare **Add Internet Calendar**. Sono supportati due tipi di calendari remoti: WebCal (formato ICS) e CalDAV.
 
 :::note
 
-The first synchronization may fail due to Google's security settings. If you receive a notification that warns you about accessing your resources you need to allow them to be used confirming that it is a legitimate attempt.
+La sincronizzazione dei calendari Webcal (ICS) viene sempre eseguita scaricando ogni volta tutti gli eventi della risorsa remota, mentre con la modalità CalDAV vengono sincronizzate solo le differenze.
 
 :::
 
-### Remote contacts (directory)
+#### Esempio di calendario remoto Google Cal (solo Webcal - ICS)
 
-#### Google CardDAV remote address book
+1)  Prendi il link ICS di accesso pubblico dal tuo calendario Google: **Calendar options -> Settings and sharing -> Secret address in iCal format**
+2)  In WebTop, aggiungi un calendario Internet di tipo Webcal e incolla l'URL copiato senza inserire le credenziali di autenticazione nel passaggio 1 del wizard.
+3)  Il wizard si collegherà al calendario, dandoti la possibilità di cambiarne nome e colore, quindi eseguirà la prima sincronizzazione.
 
-Steps:
+:::note
 
-- on WebTop, configure a new Internet address book, right-click on **Personal Categories -> Add Internet address book** and and enter a URL of this type in step 1 of the wizard: `https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/` Replace the `X` with your GMail account
+La prima sincronizzazione potrebbe fallire a causa delle impostazioni di sicurezza di Google. Se ricevi una notifica che ti avvisa dell'accesso alle tue risorse, devi consentirne l'uso confermando che si tratta di un tentativo legittimo.
 
-- enter the authentication credentials (as user name use the full address of gmail):
+:::
+
+### Contatti remoti (directory)
+
+#### Rubrica remota Google CardDAV
+
+Passaggi:
+
+- in WebTop, configura una nuova rubrica Internet, fai clic con il tasto destro su **Personal Categories -> Add Internet address book** e inserisci nel passaggio 1 del wizard un URL di questo tipo: `https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/` Sostituisci `X` con il tuo account GMail
+
+- inserisci le credenziali di autenticazione (come nome utente usa l'indirizzo Gmail completo):
 
   > ![image](/_static/webtop-remote_phonebook.png)
 
-- the wizard in the following steps will connect to the phonebook, giving the possibility to change the name and color, and then perform the first synchronization
+- il wizard nei passaggi successivi si collegherà alla rubrica, dandoti la possibilità di cambiarne nome e colore, quindi eseguirà la prima sincronizzazione
 
-You must enable the synchronization into your Google account and enable access for [App Password](https://support.google.com/accounts/answer/185833).
+Devi abilitare la sincronizzazione nel tuo account Google e consentire l'accesso tramite [App Password](https://support.google.com/accounts/answer/185833).
 
-Synchronization of remote resources can be performed manually or automatically.
+La sincronizzazione delle risorse remote può essere eseguita manualmente o automaticamente.
 
-#### Automatic synchronization
+#### Sincronizzazione automatica
 
-To synchronize automatically you can choose between three time intervals: 15, 30 and 60 minutes. The choice of the time interval can be made in the creation phase or later by changing the options. To do this, right-click on the phonebook (or on the calendar), **Edit Category**, **Internet Addressbook** (or **Internet Calendar**):
+Per sincronizzare automaticamente puoi scegliere tra tre intervalli di tempo: 15, 30 e 60 minuti. La scelta dell'intervallo può essere fatta in fase di creazione oppure successivamente modificando le opzioni. Per farlo, fai clic con il tasto destro sulla rubrica (o sul calendario), **Edit Category**, **Internet Addressbook** (oppure **Internet Calendar**):
 
 ![image](/_static/webtop-sync_automatic.png)
 
 #### Sincronizzazione manuale
 
-Per aggiornare una rubrica remota, ad esempio, fare clic su di essa con il pulsante destro del mouse e quindi selezionare "Sincronizza":
+Per aggiornare, ad esempio, una rubrica remota, fai clic con il tasto destro su di essa e poi seleziona la voce **Synchronize**:
 
 ![image](/_static/webtop-sync_google.png)
 
-Per le rubriche CardDAV, così come per i calendari di CalDAV remoti, è possibile selezionare se eseguire una sincronizzazione completa o solo per le modifiche. Per fare questo, fare clic con il pulsante destro del mouse sulla rubrica (o sul calendario), **Modifica categoria**:
+Per le rubriche CardDAV, così come per i calendari CalDAV remoti, puoi selezionare se eseguire una sincronizzazione completa oppure solo delle modifiche. Per farlo, fai clic con il tasto destro sulla rubrica (o sul calendario) e seleziona **Edit Category**:
 
 ![image](/_static/webtop-edit_sync_google.png)
 
-Selezionare la modalità desiderata accanto al pulsante di sincronizzazione:
+Seleziona la modalità desiderata accanto al pulsante di sincronizzazione:
 
 ![image](/_static/webtop-edit_sync_google2.png)
 
-## Nuova notifica del dispositivo
+## Notifica di un nuovo dispositivo
 
-È possibile ricevere una e-mail che avvisa quando un nuovo dispositivo accede all'account per la prima volta.
+Puoi ricevere un'email che ti avvisa quando un nuovo dispositivo accede all'account per la prima volta.
 
-Per impostazione predefinita, per evitare troppi falsi positivi non intenzionali sul primo login, questa funzione è disabilitata per tutti gli utenti.
+Per impostazione predefinita, questa funzione è disabilitata per tutti gli utenti, per evitare troppi falsi positivi involontari al primo accesso.
 
-È possibile [personalizzare questa funzione](https://www.sonicle.com/docs/webtop5/core.html#security-settings) accedendo al pannello di amministratore.
+Puoi [personalizzare questa funzione](https://www.sonicle.com/docs/webtop5/core.html#security-settings) accedendo al pannello di amministrazione.
 
 :::note
 
-Per gli accessi effettuati tramite impersonate (`admin!<user>`) non verranno inviate notifiche via email
+Gli accessi effettuati tramite impersonificazione (`admin!<user>`) non invieranno mai una notifica email.
 
 :::
 
-## Importa contatti e calendari
+## Importare contatti e calendari
 
 WebTop supporta l'importazione di contatti e calendari da vari formati di file.
 
 ### Contatti
 
-Formato di contatti supportati:
+Formati di contatto supportati:
 
-- CSV - Comma Valori separati (\*.txt, \*.csv)
-- Excel (.\*xls, \*.xlsx)
-- VCard (\*.vcf, \*.vcard)
-- LDIF (\*.ldif)
+- CSV - valori separati da virgola (`*.txt`, `*.csv`)
+- Excel (`*.xls`, `*.xlsx`)
+- VCard (`*.vcf`, `*.vcard`)
+- LDIF (`*.ldif`)
 
-Per importare contatti:
+Per importare i contatti:
 
-1.  cliccare a destra sulla rubrica, quindi selezionare **Importare contatti**
+1.  fai clic con il tasto destro sulla rubrica di destinazione, quindi seleziona **Import contacts**
 
     ![image](/_static/webtop-import_contacts1.png)
 
-2.  selezionare il formato di importazione e assicurarsi che i campi sul file corrispondono a quelli disponibili su WebTop
+2.  seleziona il formato di importazione e assicurati che i campi del file corrispondano a quelli disponibili in WebTop
 
     ![image](/_static/webtop-import_contacts2.png)
 
-Se si sta importando una rubrica esportata da Outlook, assicurarsi di impostare **Testo qualificante** come `"` valore.
+Se stai importando una rubrica esportata da Outlook, assicurati di impostare **Text qualifier** sul valore `"`.
 
 ![image](/_static/webtop-import_contacts3.png)
 
 ### Calendari
 
-Formati di calendario supportati: iCalendar (\*.ics, \*.ical, \*.icalendar)
+Formato di calendario supportato: iCalendar (`*.ics`, `*.ical`, `*.icalendar`)
 
-Per importare eventi:
+Per importare gli eventi:
 
-1.  cliccare a destra sul calendario di destinazione, quindi selezionare **Importa eventi**
+1.  fai clic con il tasto destro sul calendario di destinazione, quindi seleziona **Import events**
 
     ![image](/_static/webtop-import_calendars1.png)
 
-2.  selezionare il formato di importazione
+2.  seleziona il formato di importazione
 
     ![image](/_static/webtop-import_calendars2.png)
 
-3.  quindi scegliere se si desidera eliminare tutti gli eventi esistenti e importare nuovi, o semplicemente aggiungere i dati importati agli eventi di calendario esistenti
+3.  quindi scegli se vuoi eliminare tutti gli eventi esistenti e importare quelli nuovi, oppure aggiungere semplicemente i dati importati agli eventi di calendario già presenti
 
     ![image](/_static/webtop-import_calendars3.png)
 
-## Personalizzazione della composizione email
+## Personalizzazione del composer della posta
 
-### Nascondere il destinatario auto suggerito
+### Nascondere il destinatario suggerito automaticamente nelle ricerche
 
-È possibile disabilitare il suggerimento degli indirizzi salvati automaticamente. Accedere al pannello di amministrazione web -\> **Proprietà (sistema)** -\> **Aggiungi** -\>, selezionare **com.sonicle.webtop.core (WebTop)** e inserire i dati in **Chiave** e **Valore** secondo la chiave da configurare:
+Puoi disabilitare il suggerimento degli indirizzi salvati automaticamente. Accedi al pannello di amministrazione web -\> **Properties (system)** -\> **Add** -\>, seleziona **com.sonicle.webtop.core (WebTop)** e inserisci i dati nei campi **Key** e **Value** in base alla chiave da configurare:
 
-`recipient.provider.auto.enabled` = false (default is true)
+`recipient.provider.auto.enabled` = false (predefinito: true)
 
-### Modificare oggetto di una mail e salvare
+### Modificare l'oggetto di un'email e salvarlo
 
-Per consentire la modifica dell'oggetto sulle e-mail ricevute o inviate, accedere al pannello di amministrazione web -\> **Proprietà (sistema)** -\> **Aggiungi** -\> selezionare **com.sonicle.webtop.mail (Mail)** e inserire i dati nel **Chiave** e :guilabel: `Valore` campi secondo la chiave da configurare:
+Per abilitare la modifica dell'oggetto per le email ricevute e inviate, accedi al pannello di amministrazione web -\> **Properties (system)** -\> **Add** -\> seleziona **com.sonicle.webtop.mail (Mail)** e inserisci i dati nei campi **Key** e **Value** in base alla chiave da configurare:
 
-`message.edit.subject`= true (default is false)
+`message.edit.subject` = true (predefinito: false)
 
 ### Eliminare gli indirizzi email suggeriti automaticamente
 
-Quando si compila il destinatario di una mail, vengono suggeriti alcuni indirizzi e-mail salvati automaticamente. Se è necessario eliminarne qualcuno errato, passare con i tasti freccia fino a selezionare quello che si desidera eliminare (senza fare clic su di esso), quindi cancellarlo con **Shift + Canc**
-
+Quando compili il destinatario di un'email, vengono suggeriti alcuni indirizzi email salvati automaticamente. Se devi eliminarne uno perché errato, spostati con i tasti freccia fino a selezionare quello che vuoi cancellare (senza farci clic sopra), quindi eliminalo con **Shift + Canc**

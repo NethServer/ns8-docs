@@ -4,116 +4,116 @@ sidebar_position: 11
 ---
 # Imapsync
 
-[Imapsync](https://imapsync.lamiral.info/) is an IMAP transfer tool used for copying and moving emails between IMAP servers.
+[Imapsync](https://imapsync.lamiral.info/) è uno strumento di trasferimento IMAP usato per copiare e spostare email tra server IMAP.
 
-While Imapsync has a wide range of use cases, the NS8 Imapsync application focuses on transferring emails from remote IMAP servers to a [Mail application](mail.md) instance. It serves two main purposes:
+Sebbene Imapsync abbia un'ampia gamma di casi d'uso, l'applicazione Imapsync di NS8 si concentra sul trasferimento di email da server IMAP remoti a un'istanza dell'applicazione [Mail](mail.md). Serve a due scopi principali:
 
-1.  **IMAP account migration**: Messages from a remote IMAP account can be imported to a local Mail account. The import is recursive, incremental, and can be repeated as needed.
-2.  **INBOX retrieval**: Messages received in the INBOX folder of a remote IMAP account can be periodically transferred to the INBOX folder of a local Mail account. See [Understanding "Only INBOX" option](#only-inbox-mode) for details on how this process works.
+1.  **Migrazione di account IMAP**: i messaggi di un account IMAP remoto possono essere importati in un account Mail locale. L'importazione è ricorsiva, incrementale e può essere ripetuta quando necessario.
+2.  **Recupero della INBOX**: i messaggi ricevuti nella cartella INBOX di un account IMAP remoto possono essere trasferiti periodicamente nella cartella INBOX di un account Mail locale. Vedi [Comprendere l'opzione "Only INBOX"](#only-inbox-mode) per i dettagli sul funzionamento di questo processo.
 
 ## Configurazione
 
-Imapsync must be configured to use an existing Mail module in the NethServer 8 cluster. For this purpose, it must be granted master user access to the Mail module. Navigate to the `Settings` page and select a Mail instance from the drop-down menu.
+Imapsync deve essere configurato per usare un modulo Mail esistente nel cluster NethServer 8. A questo scopo, deve ricevere l'accesso master user al modulo Mail. Vai alla pagina `Settings` e seleziona un'istanza Mail dal menu a discesa.
 
-Once configured, proceed to the `Tasks` page and create one or more synchronization tasks. Click **Create task** and complete the form fields as follows:
+Dopo la configurazione, passa alla pagina `Tasks` e crea una o più attività di sincronizzazione. Fai clic su **Create task** e completa i campi del modulo come segue:
 
-- **Local user**: Select the NS8 user account that will receive the synchronized emails.
-- **Remote user**: Enter the username or email address to authenticate with the remote IMAP server.
-- **Remote password**: Provide the password for the remote IMAP account. Click the eye icon to reveal the password if needed.
-- **IMAP server**: Enter the hostname or IP address of the remote IMAP server (e.g., `imap.example.org`).
-- **IMAP TCP Port**: Specify the port number for the IMAP server:
-  - `143` (default) for STARTTLS encryption
-  - `993` for SSL/TLS encryption
-- **Select encryption**: Choose the encryption method required by the remote IMAP server:
-  - `STARTTLS (default 143/tcp)`: Upgrades an unencrypted connection to a secure one.
-  - `SSL/TLS (993/tcp)`: Uses an encrypted connection from the start.
-  - `None`: Connects without encryption (not recommended).
-- **Folder synchronization**: Choose which folders to sync from the remote server:
-  - `Only INBOX`: Synchronizes only the main inbox. This option enables the user's Sieve filter to process messages during each task run. See [Understanding "Only INBOX" option](#only-inbox-mode) for a detailed explanation.
-  - `All folders`: Synchronizes all available folders recursively.
-  - `All except selected`: Synchronizes all folders except those specified. Enter one folder name per line in the text area. The entries are interpreted as Regular Expressions matching remote folder names.
-- **Remote server messages deletion**: Configure how messages should be handled on the remote server after synchronization:
-  - `Do not delete any message` (default)
+- **Local user**: seleziona l'account utente NS8 che riceverà le email sincronizzate.
+- **Remote user**: inserisci il nome utente o l'indirizzo email da usare per autenticarti sul server IMAP remoto.
+- **Remote password**: inserisci la password dell'account IMAP remoto. Se necessario, fai clic sull'icona dell'occhio per mostrarla.
+- **IMAP server**: inserisci il nome host o l'indirizzo IP del server IMAP remoto, ad esempio `imap.example.org`.
+- **IMAP TCP Port**: specifica il numero di porta del server IMAP:
+  - `143` (predefinita) per la cifratura STARTTLS
+  - `993` per la cifratura SSL/TLS
+- **Select encryption**: scegli il metodo di cifratura richiesto dal server IMAP remoto:
+  - `STARTTLS (default 143/tcp)`: aggiorna una connessione non cifrata a una connessione sicura.
+  - `SSL/TLS (993/tcp)`: usa una connessione cifrata fin dall'inizio.
+  - `None`: si connette senza cifratura (non consigliato).
+- **Folder synchronization**: scegli quali cartelle sincronizzare dal server remoto:
+  - `Only INBOX`: sincronizza solo la posta in arrivo principale. Questa opzione consente al filtro Sieve dell'utente di elaborare i messaggi durante ogni esecuzione dell'attività. Vedi [Comprendere l'opzione "Only INBOX"](#only-inbox-mode) per una spiegazione dettagliata.
+  - `All folders`: sincronizza ricorsivamente tutte le cartelle disponibili.
+  - `All except selected`: sincronizza tutte le cartelle tranne quelle specificate. Inserisci un nome di cartella per riga nell'area di testo. Le voci sono interpretate come espressioni regolari che corrispondono ai nomi delle cartelle remote.
+- **Remote server messages deletion**: configura come gestire i messaggi sul server remoto dopo la sincronizzazione:
+  - `Do not delete any message` (predefinito)
   - `Delete messages from the server after each sync`
-  - `Delete messages older than a specified number of days` (a field will appear to specify the retention period)
-- **Task frequency**: Define how often the task runs:
-  - `Not scheduled, manual execution only`: Runs only when manually triggered.
-  - `Run at a fixed interval (in minutes)`: Runs automatically at the specified interval.
+  - `Delete messages older than a specified number of days` (comparirà un campo per specificare il periodo di conservazione)
+- **Task frequency**: definisci la frequenza di esecuzione dell'attività:
+  - `Not scheduled, manual execution only`: viene eseguita solo quando avviata manualmente.
+  - `Run at a fixed interval (in minutes)`: viene eseguita automaticamente all'intervallo specificato.
 
-Once all fields are set, click **Create task** to create the task. To discard the changes, click **Cancel**.
+Dopo aver compilato tutti i campi, fai clic su **Create task** per creare l'attività. Per annullare le modifiche, fai clic su **Cancel**.
 
-### Understanding "Only INBOX" option {#only-inbox-mode}
+### Comprendere l'opzione "Only INBOX" {#only-inbox-mode}
 
 :::note
 
-To avoid unexpected changes to the "Seen" flag required by Imapsync, do not access the remote IMAP account with other IMAP clients.
+Per evitare modifiche impreviste al flag "Seen" richiesto da Imapsync, non accedere all'account IMAP remoto con altri client IMAP.
 
 :::
 
-When a message is transferred by a task using the `Only INBOX` folder synchronization option, it is marked in the remote account with the IMAP "Seen" flag. IMAP clients commonly display messages without the "Seen" flag as "New" or "Unread."
+Quando un messaggio viene trasferito da un'attività che usa l'opzione di sincronizzazione cartelle `Only INBOX`, viene contrassegnato nell'account remoto con il flag IMAP "Seen". I client IMAP mostrano comunemente i messaggi senza il flag "Seen" come "Nuovi" o "Non letti".
 
-Messages with the "Seen" flag are ignored by Imapsync in subsequent transfers. This prevents re-transferring messages that have been moved from the local INBOX to Trash or another folder.
+I messaggi con il flag "Seen" vengono ignorati da Imapsync nei trasferimenti successivi. Questo evita di trasferire di nuovo messaggi che sono stati spostati dalla INBOX locale nel Cestino o in un'altra cartella.
 
-Using the "Seen" flag as a transfer condition also allows the user's Sieve filter to be applied safely to transferred messages.
+Usare il flag "Seen" come condizione di trasferimento consente anche di applicare in sicurezza il filtro Sieve dell'utente ai messaggi trasferiti.
 
-### NethServer as a Remote IMAP Server
+### NethServer come server IMAP remoto
 
-If the remote IMAP server is a NethServer instance, you can configure the synchronization task using either a regular user account or the IMAP master user password. The master user simplifies migration by avoiding the need to know individual account passwords.
+Se il server IMAP remoto è un'istanza NethServer, puoi configurare l'attività di sincronizzazione usando un normale account utente oppure la password del master user IMAP. Il master user semplifica la migrazione, perché evita di dover conoscere la password di ogni singolo account.
 
-In NethServer 7 the `vmail` master user password can be retrieved at `/var/lib/nethserver/secrets/vmail`.
+In NethServer 7 la password del master user `vmail` può essere recuperata da `/var/lib/nethserver/secrets/vmail`.
 
-In NethServer 8 the `vmail` master user password can be obtained from a command like:
+In NethServer 8 la password del master user `vmail` può essere ottenuta con un comando come questo:
 
     runagent -m mail1 grep DOVECOT_VMAIL_PASS dovecot.env
 
-Append the `*vmail` suffix to the task's `Remote user` field value.
+Aggiungi il suffisso `*vmail` al valore del campo `Remote user` dell'attività.
 
-For example:
+Per esempio:
 
-- `ns8user` becomes `ns8user*vmail`
-- `ns7user@example.org` becomes `ns7user@example.org*vmail`
+- `ns8user` diventa `ns8user*vmail`
+- `ns7user@example.org` diventa `ns7user@example.org*vmail`
 
-### Import tasks from CSV
+### Importare attività da CSV
 
-To create multiple synchronization tasks at once, use a CSV file with the `import-csv-tasks` utility script. This is ideal for bulk migrations of multiple email accounts.
+Per creare più attività di sincronizzazione in una sola volta, usa un file CSV con lo script di utilità `import-csv-tasks`. È ideale per migrazioni massive di più account email.
 
-**CSV file format:**
+**Formato del file CSV:**
 
-The CSV file must contain a header row with these 6 required columns:
+Il file CSV deve contenere una riga di intestazione con queste 6 colonne obbligatorie:
 
     localusername,remoteusername,remotepassword,remotehostname,remoteport,security
     user1,user1@example.org,"password123",imap.example.org,993,ssl
     user2,user2@example.org,"password456",imap.example.org,143,tls
 
-Required columns:
+Colonne obbligatorie:
 
-- `localusername` – Local user account name (must exist on the Mail server)
-- `remoteusername` – Remote IMAP account username or email
-- `remotepassword` – Remote IMAP account password (quote if contains special characters)
-- `remotehostname` – Remote IMAP server hostname or IP address
-- `remoteport` – Remote IMAP server port (typically `993` for SSL/TLS, `143` for STARTTLS)
-- `security` – Security protocol: `ssl` Implicit IMAPS encryption (connection starts encrypted on port 993), `tls` STARTTLS encryption (plain connection on port 143 upgraded to TLS), or empty string for no encryption
+- `localusername` – nome dell'account utente locale (deve esistere sul server Mail)
+- `remoteusername` – nome utente o email dell'account IMAP remoto
+- `remotepassword` – password dell'account IMAP remoto (mettila tra virgolette se contiene caratteri speciali)
+- `remotehostname` – nome host o indirizzo IP del server IMAP remoto
+- `remoteport` – porta del server IMAP remoto (in genere `993` per SSL/TLS, `143` per STARTTLS)
+- `security` – protocollo di sicurezza: `ssl` per la cifratura IMAPS implicita (la connessione parte cifrata sulla porta 993), `tls` per la cifratura STARTTLS (connessione in chiaro sulla porta 143 poi aggiornata a TLS), oppure stringa vuota per nessuna cifratura
 
-All fields except `security` are mandatory. Column order does not matter.
+Tutti i campi tranne `security` sono obbligatori. L'ordine delle colonne non è importante.
 
-**Basic usage:**
+**Uso di base:**
 
-Import tasks from a CSV file:
+Importa attività da un file CSV:
 
     runagent -m imapsync1 import-csv-tasks < users.csv
 
-**Validate CSV format without creating tasks:**
+**Convalidare il formato CSV senza creare attività:**
 
     runagent -m imapsync1 import-csv-tasks -c < users.csv
 
-This validates the CSV structure, required columns, mandatory field values, and port numbers without making any API calls.
+Questo convalida la struttura del CSV, le colonne richieste, i valori obbligatori dei campi e i numeri di porta senza effettuare chiamate API.
 
-**Display the help:**
+**Mostrare l'aiuto:**
 
     runagent -m imapsync1 import-csv-tasks -h
 
 ## Limitazioni conosciute
 
-- Messages copied by Imapsync bypass anti-spam and anti-virus checks. To ensure security, enable these protections on the remote IMAP server before synchronization.
-- Imapsync does not integrate with [Piler](piler.md), meaning that messages transferred via Imapsync are not archived.
-- Messages copied by Imapsync do not trigger the Dovecot vacation (out-of-office) auto-reply. If the local account has the vacation plugin enabled, remote senders will not receive an automatic vacation response, because messages delivered via Imapsync lack the envelope attributes required to properly compose and send the automated reply.
+- I messaggi copiati da Imapsync aggirano i controlli antispam e antivirus. Per garantire la sicurezza, abilita queste protezioni sul server IMAP remoto prima della sincronizzazione.
+- Imapsync non si integra con [Piler](piler.md), quindi i messaggi trasferiti tramite Imapsync non vengono archiviati.
+- I messaggi copiati da Imapsync non attivano la risposta automatica di ferie (fuori sede) di Dovecot. Se l'account locale ha il plugin vacation abilitato, i mittenti remoti non riceveranno una risposta automatica di ferie, perché i messaggi consegnati tramite Imapsync non hanno gli attributi di envelope necessari per comporre e inviare correttamente la risposta automatica.

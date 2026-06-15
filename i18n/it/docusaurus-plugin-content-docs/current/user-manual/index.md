@@ -4,9 +4,9 @@ sidebar_position: 0
 slug: /user-manual
 ---
 
-# NethServer 8 user manual
+# Manuale utente di NethServer 8
 
-This manual is dedicated to the end users of NethServer 8 applications.
+Questo manuale è dedicato agli utenti finali delle applicazioni di NethServer 8.
 
-- **[User portal](./user-portal/index.md)** — manage your account, password and personal settings
-- **[WebTop](./webtop/index.md)** — use the WebTop groupware (mail, calendars, contacts and more)
+- **[Portale utente](./user-portal/index.md)** — gestisci il tuo account, la password e le impostazioni personali
+- **[WebTop](./webtop/index.md)** — usa il groupware WebTop (posta, calendari, contatti e altro)

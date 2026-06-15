@@ -4,18 +4,18 @@ sidebar_position: 11
 ---
 # n8n
 
-[n8n](https://n8n.io/) is a flexible AI workflow automation for technical teams. It allows you to build flexible workflows focused on deep data integration.
+[n8n](https://n8n.io/) è una piattaforma flessibile di automazione dei workflow AI per team tecnici. Consente di creare workflow flessibili incentrati su un'integrazione profonda dei dati.
 
 ## Configurazione
 
-n8n needs a dedicated virtual host, an FQDN like `n8n.nethserver.org`.
+n8n richiede un host virtuale dedicato, un FQDN come `n8n.nethserver.org`.
 
-Prima di procedere con la configurazione, assicurarsi di creare il relativo record all'interno del server DNS. Se hai intenzione di utilizzare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
+Prima di procedere con la configurazione, assicurati di creare il record di nome corrispondente nel tuo server DNS. Se prevedi di usare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
 
 Come configurare:
 
-1.  access the application configuration page and enter all required fields
-2.  abilitare `Let's Encrypt` e le opzioni `HTTP a HTTPS` di conseguenza alle vostre esigenze
-3.  cliccare sul pulsante **Save**
-4.  use your browser to go to the selected FQDN, eg: `https://n8n.nethserver.org`
-5.  create the n8n admin account
+1.  accedi alla pagina di configurazione dell'applicazione e compila tutti i campi richiesti
+2.  abilita le opzioni `Let's Encrypt` e `HTTP to HTTPS` in base alle tue esigenze
+3.  fai clic sul pulsante **Save**
+4.  usa il browser per raggiungere l'FQDN selezionato, ad es.: `https://n8n.nethserver.org`
+5.  crea l'account amministratore di n8n

@@ -4,122 +4,118 @@ sidebar_position: 2
 ---
 # Installazione
 
-First, ensure that the [System requirements](system_requirements.md) are met.
+Innanzitutto, assicurati che i [Requisiti di sistema](system_requirements.md) siano soddisfatti.
 
-You can install NethServer 8 on a supported distribution or use a pre-built image. Both methods require an active Internet connection.
+Puoi installare NethServer 8 su una distribuzione supportata oppure utilizzare un'immagine pre-costruita. Entrambi i metodi richiedono una connessione Internet attiva.
+## Procedura standard {#install_linux-section}
 
-## Standard procedure {#install_linux-section}
+Scegli la tua distribuzione Linux preferita tra quelle [supportate](system_requirements.md#supported-distros-section).
 
-Scegliere la distribuzione Linux preferita tra [quelle supportate](system_requirements.md#supported-distros-section).
-
-Avviare la procedura di installazione come `root`:
+Avvia la procedura di installazione come `root`:
 
     curl https://raw.githubusercontent.com/NethServer/ns8-core/ns8-stable/core/install.sh | bash
 
-Se il comando `curl` non fosse disponibile, sarà possibile installarlo con il comando:
+Se il comando `curl` non è disponibile, prova a installarlo con:
 
     apt install curl || dnf install curl
 
-The install script also applies the latest security distribution updates. Reboot the system at the end of the installation.
+Lo script di installazione applica anche gli aggiornamenti di sicurezza più recenti della distribuzione. Riavvia il sistema al termine dell'installazione.
+## Immagine preconfigurata {#install_image-section}
 
-## Immagine pre-built {#install_image-section}
+L'immagine della macchina virtuale preconfigurata si basa su Rocky Linux 9 e viene fornita preconfigurata con i pacchetti e i componenti principali di NS8 installati tramite la procedura di installazione standard. Utilizza Cloud-init per l'inizializzazione della rete. Consulta la documentazione della tua piattaforma di virtualizzazione per ulteriori informazioni sul supporto di Cloud-init.
 
-The pre-built virtual machine image is based on Rocky Linux 9 and comes preconfigured with the packages and NS8 core components installed by the standard installation procedure. It uses Cloud-init for network initialization. Refer to your virtualization platform documentation for more information about Cloud-init support.
-
-| Platform | Format | Size | URL |
+| Piattaforma | Formato | Dimensione | URL |
 |----|----|----|----|
-| [Proxmox](https://www.proxmox.com) (QEMU) | qcow2 | 1.4   GB | <https://tinyurl.com/ns8-rocky-qcow2> |
-| [VMWare](https://www.vmware.com) ESXi 8+ | vmdk | 2.8   GB | <https://tinyurl.com/ns8-rocky-vmdk> |
+| [Proxmox](https://www.proxmox.com) (QEMU) | qcow2 | 1,4   GB | <https://tinyurl.com/ns8-rocky-qcow2> |
+| [VMWare](https://www.vmware.com) ESXi 8+ | vmdk | 2,8   GB | <https://tinyurl.com/ns8-rocky-vmdk> |
 
-NS8 image download links
+Link per il download dell'immagine NS8
 
-If your platform is not in the above list the prebuilt image cannot be used. Please refer to [Standard procedure](#install_linux-section).
+Se la tua piattaforma non è inclusa nell'elenco sopra, l'immagine preconfigurata non può essere utilizzata. Consulta la [Procedura standard](#install_linux-section).
 
-Completato il download dell'immagine, verificare la sua integrità con il file [sha256 checksum](https://distfeed.nethserver.org/ns8-images/CHECKSUM). Scaricare il checksum ed eseguire, per esempio, il seguente comando:
+Dopo aver completato il download dell'immagine, verifica l'integrità del file utilizzando il [file checksum sha256](https://distfeed.nethserver.org/ns8-images/CHECKSUM). Scarica il checksum e poi esegui, ad esempio, il seguente comando:
 
     sha256sum --ignore-missing -c CHECKSUM
 
-Note specifiche per piattaforma di virtualizzazione:
+Note specifiche per le piattaforme di virtualizzazione:
 
-- For VMWare ESXi 8+, add a hard disk with existing image and select *IDE controller 1 (Master)*.
-- On Proxmox, for maximum performance, select `host` as the CPU type. Avoid "kvm64", because Rocky Linux image does not support it. Refer to [Proxmox documentation](https://pve.proxmox.com/pve-docs/chapter-qm.html#qm_cpu) for further details about CPU selection.
+- Per VMWare ESXi 8+, aggiungi un disco rigido con immagine esistente e seleziona *IDE controller 1 (Master)*.
+- Su Proxmox, per ottenere prestazioni massime, seleziona `host` come tipo di CPU. Evita "kvm64", poiché l'immagine Rocky Linux non lo supporta. Consulta la [documentazione di Proxmox](https://pve.proxmox.com/pve-docs/chapter-qm.html#qm_cpu) per ulteriori dettagli sulla selezione della CPU.
 
-Start the NS8 image within your virtualization platform. If Cloud-init does not find a network configuration, it attempts to obtain one via DHCP. After a few seconds, the system console displays a login prompt showing the assigned IP address.
+Avvia l'immagine NS8 all'interno della tua piattaforma di virtualizzazione. Se Cloud-init non trova una configurazione di rete, tenterà di ottenerne una tramite DHCP. Dopo alcuni secondi, la console di sistema mostrerà un prompt di accesso con l'indirizzo IP assegnato.
 
-Le credenziali amministrative predefinite del sistema operativo sono
+Le credenziali amministrative predefinite del sistema operativo sono:
 
 - Nome utente: `root`
 - Password: `Nethesis,1234`
 
-Log in using the default credentials. On the first login, you will be prompted to change the root password.
+Accedi utilizzando le credenziali predefinite. Al primo accesso, ti verrà richiesto di cambiare la password di root.
 
-SSH access is disabled for root. To obtain administrative SSH access, create a personal user account in the `wheel` group and set a password. For example, run the following commands and enter the desired password:
+L'accesso SSH per root è disabilitato. Per ottenere l'accesso amministrativo SSH, crea un account utente personale nel gruppo `wheel` e imposta una password. Ad esempio, esegui i seguenti comandi e inserisci la password desiderata:
 
     useradd -G wheel ethan.smith
     passwd ethan.smith
 
-Dopo l'accesso con l'account utente personale, ottenere l'accesso root eseguendo:
+Dopo aver effettuato l'accesso con l'account utente personale, ottieni l'accesso root eseguendo:
 
     sudo su -
 
-Finally, apply the latest distribution security updates and reboot the system:
+Infine, applica gli ultimi aggiornamenti di sicurezza della distribuzione e riavvia il sistema:
 
     dnf --refresh update -y
     reboot
 
 :::warning
 
-Se fosse stato utilizzato il DHCP per ottenere la configurazione di rete iniziale, modificare le impostazioni di rete Rocky Linux e configurare un indirizzo IP statico. Per ulteriori informazioni si rimanda a [Configurazione nodi della rete](../../tutorial/os_network.md).
+Se DHCP è stato utilizzato per ottenere la configurazione di rete iniziale, modifica le impostazioni di rete di Rocky Linux e configura un indirizzo IP statico. Per ulteriori informazioni, consulta [Configurazione della rete del nodo](../../tutorial/os_network.md).
 
 :::
+## Passaggi post-installazione {#post-install-steps}
 
-## Passi post-installazione {#post-install-steps}
-
-When the installation script completes or the pre-built image has started, access the Web user interface at:
+Quando lo script di installazione si completa o l'immagine preconfigurata è stata avviata, accedi all'interfaccia utente Web all'indirizzo:
 
     https://<server_ip_or_fqdn>/cluster-admin/
 
 :::tip
 
-If the node is unreachable, refer to [Configurazione nodi della rete](../../tutorial/os_network.md).
+Se il nodo non è raggiungibile, consulta [Configurazione della rete del nodo](../../tutorial/os_network.md).
 
 :::
 
-The default credentials for logging in to the cluster-admin interface are:
+Le credenziali predefinite per accedere all'interfaccia cluster-admin sono:
 
 - Nome utente: `admin`
 - Password: `Nethesis,1234`
 
-Scegliere **Create cluster** e seguire la procedura per impostare un nuovo cluster a singolo nodo. In alternativa, è possibile unire il nodo a un cluster esistente come descritto in [Gestione cluster](../configuration/cluster.md), o ripristinare un backup di cluster come dettagliato in [Disaster recovery](../configuration/backup.md#disaster_recovery-section).
+Seleziona **Crea cluster** e segui la procedura per configurare un nuovo cluster a nodo singolo. In alternativa, puoi unire il nodo a un cluster esistente come descritto in [Gestione del cluster](../configuration/cluster.md), oppure ripristinare un backup del cluster come dettagliato in [Recupero di emergenza](../configuration/backup.md#disaster_recovery-section).
 
-For security reasons, change the admin password immediately if it is still set to the default value.
+Per motivi di sicurezza, modifica immediatamente la password dell'admin se è ancora impostata sul valore predefinito.
 
-Ensure the node's Fully Qualified Domain Name (FQDN) is correct and meets the [DNS requirements](system_requirements.md#dns-reqs).
+Assicurati che il Fully Qualified Domain Name (FQDN) del nodo sia corretto e soddisfi i [requisiti DNS](system_requirements.md#dns-reqs).
 
-Even if running on a single node, the system will set up a Virtual Private Network (VPN) for the cluster. This VPN setup will allow you to add more nodes in the future. The proposed default values should be suitable for most environments, as it theoretically accommodates up to 254 cluster nodes. However, ensure that the `VPN network (CIDR)` does not conflict with your existing network environment, as it cannot be changed once set.
+Anche se in esecuzione su un singolo nodo, il sistema configurerà una Virtual Private Network (VPN) per il cluster. Questa configurazione VPN ti consentirà di aggiungere più nodi in futuro. I valori predefiniti proposti dovrebbero essere adatti alla maggior parte degli ambienti, poiché teoricamente supportano fino a 254 nodi del cluster. Tuttavia, assicurati che la `VPN network (CIDR)` non entri in conflitto con il tuo ambiente di rete esistente, poiché non può essere modificata una volta impostata.
 
-Finally, click the **Create cluster** button. Your NS8 is now ready.
+Infine, clicca sul pulsante **Crea cluster**. Il tuo NS8 è ora pronto.
 
-By default, the new cluster is named `NethServer 8`. If you wish to change it:
+Per impostazione predefinita, il nuovo cluster è denominato `NethServer 8`. Se desideri cambiarlo:
 
-- Go to the `Settings` page and click on the `Cluster` card.
-- Enter a new name in the `Cluster label` field.
-- Click the **Save settings** button.
+- Vai alla pagina `Impostazioni` e clicca sulla scheda `Cluster`.
+- Inserisci un nuovo nome nel campo `Etichetta del cluster`.
+- Clicca sul pulsante **Salva impostazioni**.
 
-Non sei sicuro di dove andare da qui? Potete:
+Non sai da dove iniziare? Puoi:
 
 - Installare un dominio utente [LDAP](user_domains.md#openldap-section) o [Active Directory](user_domains.md#active_directory-section).
-- Leggi un'introduzione su [NS8 applications](modules.md).
-- Take a look at [system logs](../configuration/log_server.md).
-- Add [new nodes](../configuration/cluster.md).
-- Impostare un [metric dashboard](../configuration/metrics.md).
-- Read [SSD space reclamation](../../tutorial/disk_usage.md#fstrim-periodic) section to enable periodic `fstrim` runs.
+- Leggere un'introduzione sulle [applicazioni NS8](modules.md).
+- Dare un'occhiata ai [log di sistema](../configuration/log_server.md).
+- Aggiungere [nuovi nodi](../configuration/cluster.md).
+- Configurare un [cruscotto di metriche](../configuration/metrics.md).
+- Leggere la sezione [Recupero spazio SSD](../../tutorial/disk_usage.md#fstrim-periodic) per abilitare esecuzioni periodiche di `fstrim`.
+## Disinstallazione
 
-## Rimozione
+È possibile disinstallare NS8 dalla propria distribuzione Linux.
 
-È possibile disinstallare NS8 dalla distribuzione Linux usata come base.
-
-Il comando di rimozione tenta di fermare e cancellare componenti core e moduli aggiuntivi. L'attività va studiata con cura perché rimuove tutto ciò che si trova nelle directory `/home` e `/var/lib/nethserver`.
+Il comando di disinstallazione tenta di arrestare ed eliminare i componenti principali e i moduli aggiuntivi. Usarlo con cautela, poiché elimina tutto il contenuto delle directory `/home` e `/var/lib/nethserver`.
 
 Per disinstallare NS8, eseguire:
 

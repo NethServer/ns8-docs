@@ -4,14 +4,14 @@ sidebar_position: 0
 slug: /administrator-manual
 ---
 
-# NethServer 8 administrator manual
+# Manuale dell'amministratore di NethServer 8
 
-This manual describes how to install, configure and manage NethServer 8 (NS8) and its applications.
+Questo manuale descrive come installare, configurare e gestire NethServer 8 (NS8) e le sue applicazioni.
 
-- **[About](./about/introduction.md)** — introduction, release notes and subscription
-- **[Installation](./installation/system_requirements.md)** — system requirements, installation and initial setup
-- **[Configuration](./configuration/cluster.md)** — cluster, logs, proxy, certificates, backup and more
-- **[Applications](./applications/nethvoice.md)** — install and configure the core applications
-- **[NethForge applications](./nethforge/dokuwiki.md)** — community applications from NethForge
+- **[Informazioni](./about/introduction.md)** — introduzione, note di rilascio e abbonamento
+- **[Installazione](./installation/system_requirements.md)** — requisiti di sistema, installazione e configurazione iniziale
+- **[Configurazione](./configuration/cluster.md)** — cluster, log, proxy, certificati, backup e altro
+- **[Applicazioni](./applications/nethvoice.md)** — installare e configurare le applicazioni principali
+- **[Applicazioni NethForge](./nethforge/dokuwiki.md)** — applicazioni della community da NethForge
 
-Looking for end-user documentation? See the [User manual](../user-manual/index.md). For step-by-step guides and best practices, see the [Tutorial](../tutorial/index.md).
+Cerchi la documentazione per l'utente finale? Consulta il [Manuale utente](../user-manual/index.md). Per guide passo-passo e best practice, consulta il [Tutorial](../tutorial/index.md).

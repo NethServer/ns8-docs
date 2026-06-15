@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 # Requisiti di sistema
 
-NethServer 8 (NS8) can be deployed on a single node or across multiple nodes. In both cases it is called "cluster". A node can be either a physical or virtual machine. Deployment on container-based virtualization solutions, such as Proxmox LXC, is not supported.
+NethServer 8 (NS8) può essere distribuito su un singolo nodo o su più nodi. In entrambi i casi viene chiamato "cluster". Un nodo può essere una macchina fisica o virtuale. La distribuzione su soluzioni di virtualizzazione basate su container, come Proxmox LXC, non è supportata.
 
 Requisiti hardware minimi per un'installazione su singolo nodo:
 
@@ -12,118 +12,109 @@ Requisiti hardware minimi per un'installazione su singolo nodo:
 - 2GB RAM
 - 40GB Solid-state drive
 
-Ulteriori nodi possono essere aggiunti in seguito, e, quando si aggiunge un nuovo nodo, si consiglia di utilizzare hardware simile e la stessa distribuzione Linux installata sugli altri nodi.
+È possibile aggiungere più nodi successivamente e, quando si aggiunge un nuovo nodo, si raccomanda di utilizzare hardware simile e la stessa distribuzione Linux installata sugli altri nodi.
 
-I requisiti di cui sopra devono essere aumentati per soddisfare le esigenze di carico legate al numero di utenti e applicazioni installati.
-
+I requisiti sopra indicati devono essere aumentati per soddisfare le esigenze di utenti, applicazioni e carico.
 ## Distribuzione Linux {#supported-distros-section}
 
-È necessario installare NS8 su una distribuzione di server Linux pulita, evitando sistemi desktop o server con altri servizi già in esecuzione.
+Installa NS8 su una distribuzione Linux server pulita, evitando l'installazione su sistemi desktop o server che eseguono già altri servizi.
 
-NS8 è compatibile con [Rocky Linux](https://rockylinux.org/) 9 e distribuzioni derivate da RHEL 9, come AlmaLinux o CentOS Stream 9, nonché con [Debian](https://www.debian.org/) 13.
+NS8 è compatibile con [Rocky Linux](https://rockylinux.org/) 9 e distribuzioni derivate da RHEL 9, come AlmaLinux o CentOS Stream 9, così come con [Debian](https://www.debian.org/) 13.
 
-È possibile trovare supporto volontario nel forum della comunità pubblica di NethServer per tutte le distribuzioni compatibili.
+Puoi trovare supporto volontario nel forum pubblico della comunità NethServer per tutte le distribuzioni compatibili.
 
-L'[abbonamento Nethesis](../about/subscription.md) (incluso il piano "Enterprise") è disponibile solo per **Rocky Linux 9**.
+La [Sottoscrizione Nethesis](../about/subscription.md#subscription-section) (incluso il piano "Enterprise") è disponibile solo per **Rocky Linux 9**.
 
 Leggi la sezione [Aggiornamenti del sistema operativo](../../tutorial/os_updates.md#neth-mirror) per mantenere aggiornata la distribuzione Linux e per saperne di più sui repository DNF gestiti da Nethesis, che sono abilitati di default su Rocky Linux.
+## Spazio di swap {#swap-reqs}
 
-## Swap space {#swap-reqs}
-
-Set up a swap partition or swap file. In most environments, [4 GB of swap space](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap) provides a good balance between performance and resource usage. The decision to allocate more space depends on the system's memory workload.
-
+Configura una partizione di swap o un file di swap. Nella maggior parte degli ambienti, [4 GB di spazio di swap](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap) offrono un buon equilibrio tra prestazioni e utilizzo delle risorse. La decisione di allocare più spazio dipende dal carico di lavoro della memoria del sistema.
 ## Indirizzo IP statico {#static-ip-reqs}
 
-A working internet connection is necessary for the installation, configuration, and updating of the node. It is required also if an active [subscription](../about/subscription.md) is in place.
+È necessaria una connessione internet funzionante per l'installazione, la configurazione e l'aggiornamento del nodo. È richiesta anche in presenza di un [abbonamento](../about/subscription.md) attivo.
 
-Assign a static IP address to the node. DHCP and any other dynamic IP discovery protocols are not allowed.
+Assegna un indirizzo IP statico al nodo. DHCP e qualsiasi altro protocollo di rilevamento IP dinamico non sono consentiti.
+## Risoluzione dei nomi {#resolv-conf}
 
-## Name resolution {#resolv-conf}
+Il risolutore dei nomi del nodo deve essere configurato per utilizzare server DNS che non siano forniti direttamente da NS8. Questo è necessario perché il file `/etc/resolv.conf` viene ereditato dai container delle applicazioni, i quali potrebbero utilizzare configurazioni di rete private che possono entrare in conflitto con il servizio DNS del nodo stesso.
 
-The node name resolver must be configured to use DNS servers that are not provided by NS8 itself. This is required because the `/etc/resolv.conf` file is inherited by application containers, which may use private network setups that can conflict with the node’s own DNS service.
+Il file `/etc/resolv.conf` dovrebbe contenere una o più righe `nameserver` che specificano gli indirizzi IP dei server DNS disponibili per il nodo. Questi server possono trovarsi nella stessa LAN o su Internet pubblico. Se il file è gestito da strumenti come `NetworkManager` o `cloud-init`, non modificarlo direttamente. Segui invece le linee guida di configurazione fornite da tali strumenti.
 
-The `/etc/resolv.conf` file should contain one or more `nameserver` lines specifying the IP addresses of DNS servers available to the node. These servers can be in the same LAN or on the public Internet. If the file is managed by tools such as `NetworkManager` or `cloud-init`, do not edit it directly. Instead, follow the configuration guidelines provided by those tools.
+Evitare le seguenti configurazioni:
 
-Avoid the following configurations:
-
-- Do not use `nameserver 127.0.0.1` or any IP address assigned to the node itself. If the Linux distribution has installed a local DNS resolver service, refer to its documentation to disable or remove it.
-- Do not use any NS8 application providing DNS service as the node name resolver, such as Samba Active Directory or DNSMasq. This can cause name resolution loops or prevent node updates.
-- Do not mix DNS servers from different network scopes, for example, `1.1.1.1` (public, Cloudflare) and `192.168.1.1` (private). Doing so can lead to inconsistent DNS query results.
-
+- Non utilizzare `nameserver 127.0.0.1` o qualsiasi indirizzo IP assegnato al nodo stesso. Se la distribuzione Linux ha installato un servizio di risoluzione DNS locale, fare riferimento alla sua documentazione per disabilitarlo o rimuoverlo.
+- Non utilizzare alcuna applicazione NS8 che fornisca un servizio DNS come risolutore dei nomi del nodo, ad esempio Samba Active Directory o DNSMasq. Questo potrebbe causare loop nella risoluzione dei nomi o impedire gli aggiornamenti del nodo.
+- Non mescolare server DNS appartenenti a ambiti di rete diversi, ad esempio, `1.1.1.1` (pubblico, Cloudflare) e `192.168.1.1` (privato). Questo potrebbe portare a risultati incoerenti nelle query DNS.
 ## Configurazione DNS {#dns-reqs}
 
-To ensure network clients can connect to the node, its fully qualified domain name (FQDN) must resolve to a routable IP address via DNS. Register the FQDN with DNS record type A for IPv4 addresses and type AAAA for IPv6 addresses.
+Per garantire che i client di rete possano connettersi al nodo, il suo fully qualified domain name (FQDN) deve risolversi in un indirizzo IP instradabile tramite DNS. Registra l'FQDN con un record DNS di tipo A per gli indirizzi IPv4 e di tipo AAAA per gli indirizzi IPv6.
 
-A correct FQDN and DNS setup is essential for TLS encryption to function properly. Once connected to the node, network clients verify the TLS certificate against the given FQDN.
+Una configurazione corretta di FQDN e DNS è essenziale affinché la crittografia TLS funzioni correttamente. Una volta connessi al nodo, i client di rete verificano il certificato TLS rispetto all'FQDN fornito.
 
-Per soddisfare questi requisiti, seguire questi passaggi:
+Per soddisfare questi requisiti, segui questi passaggi:
 
-1.  **Determine your DNS provider**: Based on your node's purpose, DNS can be provided by a public internet service, a private network appliance, or a combination of both. Review and understand the documentation for your chosen DNS provider.
-2.  **Register the FQDN**: Choose the FQDN for your node and register it in the DNS with its public IP address. An FQDN consists of a hostname prefix (a single word) and a DNS domain suffix. For example, if the hostname is `jupiter` and the domain suffix is `example.org`, the resulting FQDN will be `jupiter.example.org`.
-
+1.  **Determina il tuo provider DNS**: In base allo scopo del tuo nodo, il DNS può essere fornito da un servizio internet pubblico, da un dispositivo di rete privato o da una combinazione di entrambi. Consulta e comprendi la documentazione del provider DNS scelto.
+2.  **Registra l'FQDN**: Scegli l'FQDN per il tuo nodo e registralo nel DNS con il suo indirizzo IP pubblico. Un FQDN è composto da un prefisso hostname (una singola parola) e un suffisso di dominio DNS. Ad esempio, se l'hostname è `jupiter` e il suffisso di dominio è `example.org`, l'FQDN risultante sarà `jupiter.example.org`.
 ## Requisiti del nodo worker {#worker-node-reqs}
 
-A worker node has specific requirements for installation and configuration.
+Un nodo worker ha requisiti specifici per l'installazione e la configurazione.
 
-Durante la procedura di adesione, il nodo del lavoratore si collega al leader al seguente URL:
+Durante la procedura di join, il nodo worker si connette al leader al seguente URL:
 
     https://<leader_fqdn>/cluster-admin/
 
-Stabilisce anche una connessione VPN WireGuard con il leader utilizzando la porta predefinita UDP 55820.
+Stabilisce inoltre una connessione VPN WireGuard con il leader utilizzando la porta UDP predefinita 55820.
 
-Assicurarsi che i seguenti requisiti siano soddisfatti:
+Assicurarsi che siano soddisfatti i seguenti requisiti:
 
-1.  The worker node must resolve the leader's FQDN to the correct routable address.
-2.  The HTTPS server (TCP port 443) at that address must handle the API request.
-3.  La porta UDP VPN (default 55820) non deve essere bloccata da eventuali elettrodomestici di rete.
+1.  Il nodo worker deve risolvere l'FQDN del leader all'indirizzo raggiungibile corretto.
+2.  Il server HTTPS (porta TCP 443) a quell'indirizzo deve gestire la richiesta API.
+3.  La porta UDP della VPN (predefinita 55820) non deve essere bloccata da alcun dispositivo di rete.
+## Requisiti del servizio SSH {#ssh-service-reqs}
 
-## SSH service requirements {#ssh-service-reqs}
+Un servizio SSH in esecuzione non è strettamente richiesto da NS8, a meno che non sia attivo un [abbonamento](../about/subscription.md). In tal caso, `sshd` deve essere in ascolto sulla porta TCP standard 22 per integrarsi correttamente con il servizio di supporto remoto.
 
-A running SSH service is not strictly required by NS8 unless a [subscription](../about/subscription.md) is active. In this case, `sshd` must be listening on the standard TCP port 22 to correctly integrate with the remote support service.
+Se desideri modificare la porta pubblica SSH, configura un reindirizzamento di porta senza alterare la configurazione della porta di ascolto di `sshd`. Consulta [Gestire il reindirizzamento della porta SSH](../configuration/firewall.md#ssh-redirection) per le istruzioni.
+## Connettività di rete esterna {#external-services}
 
-If you want to change the public SSH port, configure a port redirect without altering the `sshd` listening port configuration. See [Manage SSH port redirection](../configuration/firewall.md#ssh-redirection) for instructions.
+Un nodo NethServer 8 (NS8) richiede connettività di rete in uscita verso una serie di servizi esterni per funzionare correttamente. Questi servizi sono utilizzati per aggiornamenti di sistema, distribuzione delle applicazioni, operazioni del cluster, gestione degli abbonamenti, backup, supporto e rilascio di certificati TLS.
 
-## External network connectivity {#external-services}
+Salvo diversa indicazione, le connessioni sono solo in uscita e utilizzano HTTPS sulla porta TCP 443.
 
-A NethServer 8 (NS8) node requires outbound network connectivity to a number of external services to operate correctly. These services are used for system updates, application distribution, cluster operations, subscription management, backup, support, and TLS certificate issuance.
-
-Unless otherwise stated, connections are outbound only and use HTTPS over TCP port 443.
-
-| Purpose | Host name | Port | Protocol | Notes |
+| Scopo | Nome host | Porta | Protocollo | Note |
 |----|----|----|----|----|
-| Name resolution | \<Name server address\> | 53 | UDP/TCP | IP address of primary and, optionally, secondary DNS servers |
-| Cluster VPN and node communication | \<leader node address\> | 55820 | UDP | Inter-node VPN and cluster traffic |
-| Cluster-admin leader API | \<leader node address\> | 443 | HTTPS | Join a new worker to the cluster |
-| OS and NS8 repositories mirror resolution | mirrorlist.nethserver.org | 80 | HTTP | Used to resolve Rocky Linux and NS8 mirrors |
-| Rocky Linux DNF repositories | u4.nethesis.it, u5.nethesis.it | 443 | HTTPS | Mirror gestito da Nethesis di repository BaseOS e AppStream |
-| TLS certificate issuance | acme-v02.api.letsencrypt.org | 443 | HTTPS | Let's Encrypt ACME v2 endpoint |
-| NS8 core and updates repository | distfeed.nethserver.org | 443 | HTTPS | Core updates and patches |
-| Community application repository | forge.nethserver.org | 443 | HTTPS | Optional community modules |
-| Container image registry | ghcr.io | 443 | HTTPS | Official NS8 application and container images |
-| Container image registry | docker.io | 443 | HTTPS | Third-party container images |
-| Container image registry | quay.io | 443 | HTTPS | Third-party container images |
-| Cluster phone-home service | phonehome.nethserver.org | 443 | HTTPS | Cluster registration and metadata |
+| Risoluzione dei nomi | \<Indirizzo del server dei nomi\> | 53 | UDP/TCP | Indirizzo IP del server DNS primario e, opzionalmente, secondario |
+| VPN del cluster e comunicazione tra nodi | \<Indirizzo del nodo leader\> | 55820 | UDP | Traffico VPN tra nodi e del cluster |
+| API del leader amministratore del cluster | \<Indirizzo del nodo leader\> | 443 | HTTPS | Aggiunta di un nuovo worker al cluster |
+| Risoluzione dei mirror dei repository OS e NS8 | mirrorlist.nethserver.org | 80 | HTTP | Utilizzato per risolvere i mirror di Rocky Linux e NS8 |
+| Repository DNF di Rocky Linux | u4.nethesis.it, u5.nethesis.it | 443 | HTTPS | Mirror gestito da Nethesis dei repository BaseOS e AppStream |
+| Rilascio dei certificati TLS | acme-v02.api.letsencrypt.org | 443 | HTTPS | Endpoint ACME v2 di Let's Encrypt |
+| Repository core e aggiornamenti di NS8 | distfeed.nethserver.org | 443 | HTTPS | Aggiornamenti e patch del core |
+| Repository delle applicazioni della community | forge.nethserver.org | 443 | HTTPS | Moduli opzionali della community |
+| Registro delle immagini dei container | ghcr.io | 443 | HTTPS | Immagini ufficiali delle applicazioni e dei container di NS8 |
+| Registro delle immagini dei container | docker.io | 443 | HTTPS | Immagini di container di terze parti |
+| Registro delle immagini dei container | quay.io | 443 | HTTPS | Immagini di container di terze parti |
+| Servizio di phone-home del cluster | phonehome.nethserver.org | 443 | HTTPS | Registrazione del cluster e metadati |
 
-External services and endpoints required by NS8
+Servizi ed endpoint esterni richiesti da NS8
 
-| Purpose | Host name | Port | Protocol | Notes |
+| Scopo | Nome host | Porta | Protocollo | Note |
 |----|----|----|----|----|
-| Subscription validation and feeds | subscription.nethserver.com | 443 | HTTPS | Core updates and patches for Subscription |
-| Subscription portal | my.nethserver.com | 443 | HTTPS | System and subscription management |
-| Subscription portal for resellers | my.nethesis.it | 443 | HTTPS | Inventory, heartbeat, entitlement checks |
-| Support VPN peer | sos.nethesis.it | 1194 | UDP | Remote support VPN (optional) |
-| Support VPN peer | sos.nethesis.it | 443 | TCP | Remote support VPN (optional) |
-| Cloud backup service | backupd.nethesis.it | 443 | HTTPS | Off-site backup and restore for cluster configuration |
-| Cloud Log Manager | nar.nethesis.it | 443 | HTTPS | Cloud storage and management for security logs (optional) |
+| Validazione abbonamenti e feed | subscription.nethserver.com | 443 | HTTPS | Aggiornamenti e patch del core per l'abbonamento |
+| Portale abbonamenti | my.nethserver.com | 443 | HTTPS | Gestione del sistema e degli abbonamenti |
+| Portale abbonamenti per rivenditori | my.nethesis.it | 443 | HTTPS | Inventario, heartbeat, controlli delle autorizzazioni |
+| Peer VPN di supporto | sos.nethesis.it | 1194 | UDP | VPN di supporto remoto (opzionale) |
+| Peer VPN di supporto | sos.nethesis.it | 443 | TCP | VPN di supporto remoto (opzionale) |
+| Servizio di backup cloud | backupd.nethesis.it | 443 | HTTPS | Backup e ripristino off-site per la configurazione del cluster |
+| Cloud Log Manager | nar.nethesis.it | 443 | HTTPS | Archiviazione e gestione cloud per i log di sicurezza (opzionale) |
 
-Endpoints used by cluster leader node with an active Subscription
+Endpoint utilizzati dal nodo leader del cluster con un abbonamento attivo
 
-Rotte
+Note
 
-- All listed connections are initiated by the NS8 node.
-- Blocking access to these services can prevent updates, application installation, backups, cluster formation, or subscription validation.
-- Additional outbound connections may be required by specific features, such as email notifications and HTTP routes, and by installed applications, depending on their configuration and upstream services.
+- Tutte le connessioni elencate sono avviate dal nodo NS8.
+- Bloccare l'accesso a questi servizi può impedire aggiornamenti, installazione di applicazioni, backup, formazione del cluster o validazione degli abbonamenti.
+- Potrebbero essere necessarie connessioni in uscita aggiuntive per funzionalità specifiche, come le notifiche email e i percorsi HTTP, e per le applicazioni installate, a seconda della loro configurazione e dei servizi upstream.
+## Requisiti del browser web
 
-## Requisiti per il browser Web
-
-Per accedere all'interfaccia utente web di amministrazione del cluster, è necessario utilizzare come client web una versione aggiornata di Firefox, Chrome o Chromium.
+Per accedere all'interfaccia web di amministrazione del cluster, è necessario disporre di una versione aggiornata del browser Firefox, Chrome o Chromium come client web.

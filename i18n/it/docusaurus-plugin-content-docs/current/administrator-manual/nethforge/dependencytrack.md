@@ -4,40 +4,40 @@ sidebar_position: 2
 ---
 # Dependency-Track
 
-Dependency-Track is an intelligent Component Analysis platform that allows organizations to identify and reduce risk in the software supply chain
+Dependency-Track è una piattaforma intelligente di analisi dei componenti che consente alle organizzazioni di identificare e ridurre i rischi nella supply chain del software.
 
-This application installs the [Dependency-Track](https://dependencytrack.org/) server with [Trivy](https://docs.dependencytrack.org/datasources/trivy/) as the vulnerability data source. It provides a web interface to manage components, vulnerabilities, and policies.
+Questa applicazione installa il server [Dependency-Track](https://dependencytrack.org/) con [Trivy](https://docs.dependencytrack.org/datasources/trivy/) come origine dei dati sulle vulnerabilità. Fornisce un'interfaccia web per gestire componenti, vulnerabilità e criteri.
 
-You can install multiple dependencytrack instances on the same node from the [Software center](../installation/software_center.md).
+Puoi installare più istanze di Dependency-Track sullo stesso nodo dal [Software center](../installation/software_center.md).
 
 ## Configurazione
 
 Come configurare:
 
-1.  Access the application `Settings` page and enter the FQDN for Dependency-Track, eg. `sub.domain.com`
-2.  Enable `Request LE Certificate` option accordingly to your needs
-3.  Click the **Save** button
+1.  apri la pagina `Settings` dell'applicazione e inserisci l'FQDN per Dependency-Track, ad es. `sub.domain.com`
+2.  abilita l'opzione `Request LE Certificate` in base alle tue esigenze
+3.  fai clic sul pulsante **Save**
 
-Default credentials of Dependency-Track are:
+Le credenziali predefinite di Dependency-Track sono:
 
-- user: `admin`
+- utente: `admin`
 - password: `admin`
 
-You can change them after the first login.
+Puoi cambiarle dopo il primo accesso.
 
-You can access the application at `https://<FQDN>` set in the settings.
+Puoi accedere all'applicazione all'indirizzo `https://<FQDN>` impostato nelle impostazioni.
 
-## Trivy security scanner
+## Scanner di sicurezza Trivy
 
-To enable the Trivy security scanner, follow these steps:
+Per abilitare lo scanner di sicurezza Trivy, segui questi passaggi:
 
-1.  Go to the Dependency-Track web interface.
-2.  Navigate to the **Administration** section.
-3.  Click on **Analysers**.
-4.  Click on **Trivy**.
-5.  Configure the Trivy data source settings as needed. with the following options:
+1.  Vai all'interfaccia web di Dependency-Track.
+2.  Apri la sezione **Administration**.
+3.  Fai clic su **Analysers**.
+4.  Fai clic su **Trivy**.
+5.  Configura le impostazioni della sorgente dati Trivy secondo necessità, con le seguenti opzioni:
 
 - **Base URL**: `http://127.0.0.1:8282`.
-- **API Token**: You can retrieve the Trivy Token under the advanced section of the Settings page.
+- **API Token**: puoi recuperare il token Trivy nella sezione avanzata della pagina Settings.
 
-6.  Click on **Save** to apply the changes.
+6.  Fai clic su **Save** per applicare le modifiche.

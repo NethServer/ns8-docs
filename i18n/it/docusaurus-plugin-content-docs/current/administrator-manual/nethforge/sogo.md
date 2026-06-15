@@ -4,151 +4,151 @@ sidebar_position: 8
 ---
 # SOGo
 
-[SOGo](https://www.sogo.nu/) is a web mail client.
+[SOGo](https://www.sogo.nu/) è un client di webmail.
 
-SOGo's main features are:
+Le principali funzionalità di SOGo sono:
 
-- simple and fast
-- support for HTML messages
-- shared folders support
-- Shared caldav/carddav support
+- semplice e veloce
+- supporto per i messaggi HTML
+- supporto per le cartelle condivise
+- supporto condiviso per caldav/carddav
 
-You can install multiple SOGo instances on the same node from the [Software center](../installation/software_center.md).
+Puoi installare più istanze di SOGo sullo stesso nodo dal [Software center](../installation/software_center.md).
 
 :::note
 
-SOGo provides EAS (Exchange ActiveSync) support, but not EWS (Exchange Web Service). Outlook 2013, 2016 for Windows works well with EAS. Mainstream mobile devices (iOS, Android, BlackBerry 10) work well with EAS, they can sync mails, calendars, contacts, tasks. Apple Mail.app, and Outlook for Mac support EWS. But not EAS. **Clients work very well with POP3/IMAP account, caldav/carddav account**
+SOGo fornisce supporto EAS (Exchange ActiveSync), ma non EWS (Exchange Web Service). Outlook 2013 e 2016 per Windows funzionano bene con EAS. I principali dispositivi mobili (iOS, Android, BlackBerry 10) funzionano bene con EAS e possono sincronizzare email, calendari, contatti e attività. Apple Mail.app e Outlook per Mac supportano EWS, ma non EAS. **I client funzionano molto bene con account POP3/IMAP e account caldav/carddav**
 
 :::
 
-## Official documentation
+## Documentazione ufficiale
 
-Please read [official documentation](https://sogo.nu/files/docs/SOGoInstallationGuide.html) for more informations.
+Leggi la [documentazione ufficiale](https://sogo.nu/files/docs/SOGoInstallationGuide.html) per maggiori informazioni.
 
-## Migration from NethServer 7
+## Migrazione da NethServer 7
 
-The application can be migrated from NethServer 7 to NethServer 8, but it requires some manual steps. Please refer to the section [Migrazione da NethServer 7](../../tutorial/migration.md) for more information.
+L'applicazione può essere migrata da NethServer 7 a NethServer 8, ma richiede alcuni passaggi manuali. Per maggiori informazioni fai riferimento alla sezione [Migrazione da NethServer 7](../../tutorial/migration.md).
 
-The NethForge repository must be enabled in the NS8 cluster before proceeding with the migration.
+Il repository NethForge deve essere abilitato nel cluster NS8 prima di procedere con la migrazione.
 
 ## Configurazione
 
-SOGo needs a dedicated virtual host, a FQDN like `sogo.nethserver.org`.
+SOGo richiede un host virtuale dedicato, un FQDN come `sogo.nethserver.org`.
 
-Prima di procedere con la configurazione, assicurarsi di creare il relativo record all'interno del server DNS. Se hai intenzione di utilizzare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
+Prima di procedere con la configurazione, assicurati di creare il record di nome corrispondente nel tuo server DNS. Se prevedi di usare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
 
 Come configurare:
 
-1.  access the application configuration page and enter a valid FQDN inside `SOGo hostname` field
-2.  enable `Request LE certificate` option accordingly to your needs
-3.  bind the SOGo instance to an existing `Mail server`
-4.  Select the LDAP user Domain to identify users
-5.  cliccare sul pulsante **Save**
+1.  accedi alla pagina di configurazione dell'applicazione e inserisci un FQDN valido nel campo `SOGo hostname`
+2.  abilita l'opzione `Request LE certificate` in base alle tue esigenze
+3.  collega l'istanza SOGo a un `Mail server` esistente
+4.  seleziona il dominio utente LDAP per identificare gli utenti
+5.  fai clic sul pulsante **Save**
 
-## Usage
+## Utilizzo
 
-The URL of the groupware is <https://yourdomain.com/> (same as `SOGo hostname` field). You must use the short format `username` for login.
+L'URL del groupware è <https://yourdomain.com/> (lo stesso del campo `SOGo hostname`). Per l'accesso devi usare il formato breve `username`.
 
-## Advanced settings
+## Impostazioni avanzate
 
-The following settings are available Inside the `Advanced` section:
+Le seguenti impostazioni sono disponibili nella sezione `Advanced`:
 
-- Administrator list of SOGo: When enabled, the SOGo administrator can manage all users' preferences.
-- Auxiliary email accounts : When enabled, users can add other IMAP accounts that will be visible from the SOGo Webmail interface.
-- Enable DAV: When enable the shared calendars and address books are available through DAV.
-- Enable Active Sync: When enabled, users can sync their mail, calendars, contacts, tasks with mobile devices.
-- Workers count: Number of SOGo workers, you need to adjust it according to the number of users.
+- Administrator list of SOGo: quando abilitato, l'amministratore SOGo può gestire le preferenze di tutti gli utenti.
+- Auxiliary email accounts: quando abilitato, gli utenti possono aggiungere altri account IMAP visibili dall'interfaccia di webmail di SOGo.
+- Enable DAV: quando abilitato, i calendari condivisi e le rubriche condivise sono disponibili tramite DAV.
+- Enable Active Sync: quando abilitato, gli utenti possono sincronizzare email, calendari, contatti e attività con i dispositivi mobili.
+- Workers count: numero di worker SOGo; devi regolarlo in base al numero di utenti.
 
 :::warning
 
-The default value is 3, but you need to increase it if you have more than 20 users.
+Il valore predefinito è 3, ma devi aumentarlo se hai più di 20 utenti.
 
 :::
 
-## Manual parameters
+## Parametri manuali
 
-Some parameters cannot be modified from the user interface, please follow the instructions [README](https://github.com/NethServer/ns8-sogo/blob/main/README.md)
+Alcuni parametri non possono essere modificati dall'interfaccia utente, segui le istruzioni nel [README](https://github.com/NethServer/ns8-sogo/blob/main/README.md).
 
-## Clients
+## Client
 
 ### Android
 
-Currently you have 2 ways to integrate your Android device with Sogo.
+Attualmente hai 2 modi per integrare il tuo dispositivo Android con SOGo.
 
-#### Integration via Caldav /Cardav/imap
+#### Integrazione tramite Caldav /Cardav/imap
 
 :::note
 
-The drawback is that you need to set all settings (Url/Username/Password) in each application.
+Lo svantaggio è che devi impostare tutte le impostazioni (Url/Username/Password) in ogni applicazione.
 
 :::
 
 - Email
 
-Imaps(over ssl) is a good choice, you can use the K9-mail software to retrieve your email or the default email application
+Imaps (over ssl) è una buona scelta; puoi usare il software K9-mail per recuperare la tua posta oppure l'applicazione email predefinita.
 
-- Contacts and calendars
+- Contatti e calendari
 
-There are various working clients, including [DAVdroid](https://davdroid.bitfire.at) (open-source) and [CalDAV-Sync/CardDav-Sync](http://dmfs.org/). Advantages Full integration into Android, so that almost all calendar and contacts apps can access synchronized data.
+Esistono vari client funzionanti, tra cui [DAVdroid](https://davdroid.bitfire.at) (open-source) e [CalDAV-Sync/CardDav-Sync](http://dmfs.org/). Vantaggi: integrazione completa in Android, così quasi tutte le app di calendario e contatti possono accedere ai dati sincronizzati.
 
-#### Integration via ExchangeActiveSync
+#### Integrazione tramite ExchangeActiveSync
 
 :::note
 
-The advantage is that you set the Url/Username/Password only in one location
+Il vantaggio è che imposti Url/Username/Password in un solo punto.
 
 :::
 
-##### Step-by-step configuration
+##### Configurazione passo passo
 
-- Open the account menu, choose add an exchange account
-- Fill your full email address and password in Account Setup page:
-- If it asks you to choose Account Type, please choose Exchange:
-- In detailed account setup page, fill up the form with your server address and email account credential
-  - DomainUsername: your username in short format
-  - Password: password of your account
-  - Server: your server name
+- Apri il menu account e scegli di aggiungere un account Exchange
+- Compila il tuo indirizzo email completo e la password nella pagina Account Setup:
+- Se viene chiesto di scegliere Account Type, seleziona Exchange:
+- Nella pagina di configurazione dettagliata dell'account, compila il modulo con l'indirizzo del server e le credenziali dell'account email
+  - DomainUsername: il tuo nome utente in formato breve
+  - Password: la password del tuo account
+  - Server: il nome del tuo server
   - Port: 443
 
 :::note
 
-Please also check Use secure connection (SSL) and Accept all SSL certificates
+Assicurati anche di selezionare Use secure connection (SSL) e Accept all SSL certificates
 
 :::
 
-- In Account Settings page, you can choose Push. it's all up to you.
-- Choose a name for your Exchange account.
-- Click Next to finish account setup. That's all.
+- Nella pagina Account Settings puoi scegliere Push. Dipende tutto da te.
+- Scegli un nome per il tuo account Exchange.
+- Fai clic su Next per completare la configurazione dell'account. È tutto.
 
 ### Mozilla Thunderbird and Lightning
 
-Alternatively, you can access SOGo with a GroupDAV and a CalDAV client. A typical well-integrated setup is to use Mozilla Thunderbird and Mozilla Lightning along with Inverse’s SOGo Connector plug in to synchronize your address books and the Inverse’s SOGo Integrator plug in to provide a complete integration of the features of SOGo into Thunderbird and Lightning. Refer to the documentation of Thunderbird to configure an initial IMAP account pointing to your SOGo server and using the user name and password mentioned above.
+In alternativa, puoi accedere a SOGo con un client GroupDAV e un client CalDAV. Una configurazione tipica e ben integrata consiste nell'usare Mozilla Thunderbird e Mozilla Lightning insieme al plug-in SOGo Connector di Inverse per sincronizzare le rubriche e al plug-in SOGo Integrator di Inverse per fornire un'integrazione completa delle funzionalità di SOGo in Thunderbird e Lightning. Fai riferimento alla documentazione di Thunderbird per configurare inizialmente un account IMAP che punti al tuo server SOGo usando il nome utente e la password indicati sopra.
 
-With the [SOGo Integrator plug in](https://sogo.nu/download.html#/frontends), your calendars and address books will be automatically discovered when you login in Thunderbird. This plug in can also propagate specific extensions and default user settings among your site. However, be aware that in order to use the SOGo Integrator plug in, you will need to repackage it with specific modifications. Please refer to the [documentation published online](http://sogo.nu/downloads/documentation.html).
+Con il [plug-in SOGo Integrator](https://sogo.nu/download.html#/frontends), i tuoi calendari e le tue rubriche verranno rilevati automaticamente quando effettui il login in Thunderbird. Questo plug-in può anche propagare estensioni specifiche e impostazioni utente predefinite nel tuo sito. Tuttavia, tieni presente che per usare il plug-in SOGo Integrator dovrai ripacchettarlo con modifiche specifiche. Fai riferimento alla [documentazione pubblicata online](http://sogo.nu/downloads/documentation.html).
 
-If you only use the SOGo Connector plug in, you can still easily access your data.
+Se usi solo il plug-in SOGo Connector, puoi comunque accedere facilmente ai tuoi dati.
 
-- To access your personal address book:
-- Choose Go \> Address Book.
-- Choose File \> New \> Remote Address Book.
-- Enter a significant name for your calendar in the Name field.
-- Type the following URL in the URL field: <http://localhost/SOGo/dav/jdoe/Contacts/personal/>
-- Click on OK.
+- Per accedere alla tua rubrica personale:
+- Scegli Go \> Address Book.
+- Scegli File \> New \> Remote Address Book.
+- Inserisci un nome significativo per il tuo calendario nel campo Name.
+- Digita il seguente URL nel campo URL: <http://localhost/SOGo/dav/jdoe/Contacts/personal/>
+- Fai clic su OK.
 
-To access your personal calendar:
+Per accedere al tuo calendario personale:
 
-- Choose Go \> Calendar.
-- Choose Calendar \> New Calendar.
-- Select On the Network and click on Continue.
-- Select CalDAV.
-- Type the following URL in the URL field: <http://localhost/SOGo/dav/jdoe/Calendar/personal/>
-- Click on Continue.
+- Scegli Go \> Calendar.
+- Scegli Calendar \> New Calendar.
+- Seleziona On the Network e fai clic su Continue.
+- Seleziona CalDAV.
+- Digita il seguente URL nel campo URL: <http://localhost/SOGo/dav/jdoe/Calendar/personal/>
+- Fai clic su Continue.
 
 ### Outlook
 
-You can use it with
+Puoi usarlo con
 
-- IMAP + commercial plugin as [cfos](https://www.cfos.de/en/cfos-outlook-dav/cfos-outlook-dav.htm?__ntrack_pv=1) or [outlookdav](http://www.outlookdav.com/) for calendars/contacts
-- ActiveSync since Outlook 2013
+- IMAP + plugin commerciali come [cfos](https://www.cfos.de/en/cfos-outlook-dav/cfos-outlook-dav.htm?__ntrack_pv=1) o [outlookdav](http://www.outlookdav.com/) per calendari/contatti
+- ActiveSync da Outlook 2013 in poi
 
-There is no support for Openchange/OutlookMAPI.
+Non esiste supporto per Openchange/OutlookMAPI.

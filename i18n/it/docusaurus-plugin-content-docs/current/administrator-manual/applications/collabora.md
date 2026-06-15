@@ -1,27 +1,27 @@
 ---
-title: Collaborare online
+title: Collabora Online
 sidebar_position: 7
 ---
-# Collaborare online
+# Collabora Online
 
-Collabora Online is a powerful LibreOffice-based online office that supports all major document, spreadsheet and presentation file formats, which you can integrate in your own infrastructure. Please see the [official website](https://www.collaboraoffice.com/collabora-online/).
+Collabora Online è una potente suite per ufficio online basata su LibreOffice che supporta tutti i principali formati di file per documenti, fogli di calcolo e presentazioni e che puoi integrare nella tua infrastruttura. Consulta il [sito ufficiale](https://www.collaboraoffice.com/collabora-online/).
 
-È possibile installare più istanze Collabora Online sullo stesso nodo dal [Software center](../installation/software_center.md).
+Puoi installare più istanze di Collabora Online sullo stesso nodo dal [Software center](../installation/software_center.md).
 
 ## Configurazione
 
 Collabora ha bisogno di un host virtuale dedicato, un FQDN come `collabora.nethserver.org`.
 
-Prima di procedere con la configurazione, assicurarsi di creare il relativo record all'interno del server DNS. Se hai intenzione di utilizzare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
+Prima di procedere con la configurazione, assicurati di creare il record di nome corrispondente nel tuo server DNS. Se prevedi di usare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
 
 Come configurare:
 
-1.  accedere alla pagina `Impostazioni` dell'istanza appena installata
-2.  inserire un FQDN valido all'interno del campo `Collabora FQDN`
-3.  inserire una password forte per l'utente `admin` che può essere utilizzato per accedere alla console di amministrazione
-4.  abilitare `Let's Encrypt` e le opzioni `HTTP a HTTPS` di conseguenza alle vostre esigenze
-5.  cliccare sul pulsante **Save**
+1.  accedi alla pagina `Settings` dell'istanza appena installata
+2.  inserisci un FQDN valido nel campo `Collabora FQDN`
+3.  inserisci una password robusta per l'utente `admin`, che può essere usata per accedere alla console di amministrazione
+4.  abilita le opzioni `Let's Encrypt` e `HTTP to HTTPS` in base alle tue esigenze
+5.  fai clic sul pulsante **Save**
 
-È possibile accedere alla console di amministrazione accedendo alla pagina `Status` e cliccando sul link `Apri console`.
+Puoi accedere alla console di amministrazione aprendo la pagina `Status` e facendo clic sul link `Open console`.
 
-Per integrare Collabora con Nextcloud, vedere [Collaborare online](nextcloud.md#collabora-integration-section).
+Per integrare Collabora con Nextcloud, consulta [Collabora Online](nextcloud.md#collabora-integration-section).

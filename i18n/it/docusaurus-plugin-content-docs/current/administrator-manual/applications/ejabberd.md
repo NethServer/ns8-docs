@@ -4,111 +4,111 @@ sidebar_position: 9
 ---
 # Ejabberd
 
-The Ejabberd module installs the ejabberd Community Server Docker Image (standard protocol Jabber/XMPP) and supports TLS on standard ports (5222 or 5223).
+Il modulo Ejabberd installa l'immagine Docker di ejabberd Community Server (protocollo standard Jabber/XMPP) e supporta TLS sulle porte standard (5222 o 5223).
 
-Only one instance of Ejabberd can run on a node to prevent TCP port conflicts.
+Solo un'istanza di Ejabberd può essere eseguita su un nodo, per evitare conflitti sulle porte TCP.
 
 :::note
 
-Ejabberd does not expose anymore the BOSH protocol (NethCTI and other browser-based applications might not work)
+Ejabberd non espone più il protocollo BOSH (NethCTI e altre applicazioni basate su browser potrebbero non funzionare).
 
 :::
 
-The Ejabberd module installs [ejabberd Community Server](https://hub.docker.com/r/ejabberd/ecs) Docker Image.
+Il modulo Ejabberd installa l'immagine Docker di [ejabberd Community Server](https://hub.docker.com/r/ejabberd/ecs).
 
-Ejabberd is an Open Source chat server directly integrated to Webtop and for networks client. Check out the [official documentation](https://docs.ejabberd.im/) for further details.
+Ejabberd è un server di chat Open Source integrato direttamente con Webtop e con i client di rete. Consulta la [documentazione ufficiale](https://docs.ejabberd.im/) per ulteriori dettagli.
 
 ## Configurazione
 
-Ejabberd needs a dedicated virtual host name, a FQDN like `nethserver.org`, This domain will be used for authentication of users (`foo@nethserver.org`). A self-signed TLS certificate could be used but a trusted Let's Encrypt certificate is recommended.
+Ejabberd richiede un nome host virtuale dedicato, un FQDN come `nethserver.org`. Questo dominio verrà usato per l'autenticazione degli utenti (`foo@nethserver.org`). Puoi usare un certificato TLS autofirmato, ma è consigliato un certificato Let's Encrypt attendibile.
 
-Prima di procedere con la configurazione, assicurarsi di creare il relativo record di nome all'interno del server DNS.
+Prima di procedere con la configurazione, assicurati di creare il corrispondente record di nome nel tuo server DNS.
 
-If you want to use the Ejabberd instance as [Webtop chat engine](../../user-manual/webtop/index.md#webtop-chat), ensure you enter the same domain name used by Webtop in the `Mail domain` field on its Settings page.
+Se vuoi usare l'istanza Ejabberd come [motore chat di Webtop](../../user-manual/webtop/index.md#webtop-chat), assicurati di inserire lo stesso nome di dominio usato da Webtop nel campo `Mail domain` della sua pagina `Settings`.
 
 :::note
 
-Let's Encrypt certificate is a mandatory for file sharing clients. Such clients refuse to connect to the server if the certificate is self-signed
+Un certificato Let's Encrypt è obbligatorio per i client di condivisione file. Questi client rifiutano la connessione al server se il certificato è autofirmato.
 
 :::
 
 Come configurare:
 
-1.  Access the application configuration page and enter a valid FQDN inside `Ejabberd FQDN` field
-2.  Enable `Let's Encrypt` option accordingly to your needs
-3.  Select the LDAP user Domain to identify users
-4.  Click the **Save** button
-5.  Connect a XMMP client with a valid user on the domain to the entered host name, e.g.: `https://ejabberd.nethserver.org`.
+1.  Accedi alla pagina di configurazione dell'applicazione e inserisci un FQDN valido nel campo `Ejabberd FQDN`.
+2.  Abilita l'opzione `Let's Encrypt` in base alle tue esigenze.
+3.  Seleziona il dominio utenti LDAP per identificare gli utenti.
+4.  Fai clic sul pulsante **Save**.
+5.  Collega un client XMPP con un utente valido del dominio al nome host inserito, ad esempio: `https://ejabberd.nethserver.org`.
 
 :::note
 
-Ejabberd authentication is integrated with LDAP user domain that you can configure at [Domini utente](../installation/user_domains.md).
+L'autenticazione di Ejabberd è integrata con il dominio utenti LDAP che puoi configurare in [Domini utente](../installation/user_domains.md).
 
 :::
 
-The Ejabberd administrators are allowed to use the web admin page on port 5280. The ejabberd Web Admin allows to administer some parts of ejabberd using a web browser: accounts, Shared Roster Groups, manage the Mnesia database, create and restore backups, view server statistics, …
+Gli amministratori di Ejabberd possono usare la pagina di amministrazione web sulla porta 5280. ejabberd Web Admin consente di amministrare alcune parti di ejabberd tramite browser web: account, Shared Roster Groups, gestione del database Mnesia, creazione e ripristino di backup, visualizzazione delle statistiche del server, …
 
-The administration page is available at `https://IP_OR_FQDN:5280/admin`.
+La pagina di amministrazione è disponibile all'indirizzo `https://IP_OR_FQDN:5280/admin`.
 
-Under the Advanced options section, the administrator can also configure:
+Nella sezione delle opzioni avanzate, l'amministratore può inoltre configurare:
 
-- enable built-in web administration interface
-- S2S federation
-- message archive management
-- file upload to exchange data among clients using URL
-- file transfer speed
+- abilitazione dell'interfaccia di amministrazione web integrata
+- federazione S2S
+- gestione dell'archivio dei messaggi
+- caricamento di file per scambiare dati tra i client tramite URL
+- velocità di trasferimento dei file
 
-### Server to server (S2S)
+### Da server a server (S2S)
 
-The XMPP system is federated by nature. If S2S is enabled, users with accounts on one server can communicate with users on remote servers. S2S allows for servers communicating seamlessly with each other, forming a global 'federated' IM network.
+Il sistema XMPP è federato per natura. Se S2S è abilitato, gli utenti con account su un server possono comunicare con utenti su server remoti. S2S consente ai server di comunicare senza interruzioni tra loro, formando una rete IM globale "federata".
 
-For this purpose, the SRV DNS record must be configured for your domain (<https://wiki.xmpp.org/web/SRV_Records#XMPP_SRV_records>) and the server must have a valid SSL/TLS certificate.
+A questo scopo, il record DNS SRV deve essere configurato per il tuo dominio (<https://wiki.xmpp.org/web/SRV_Records#XMPP_SRV_records>) e il server deve avere un certificato SSL/TLS valido.
 
-### Message Archive Management
+### Gestione archivio messaggi
 
-Message Archive Management (mod_mam) implements Message Archive Management as described in [XEP-0313](http://xmpp.org/extensions/xep-0313.html). When enabled, all messages will be stored inside the server and compatible XMPP clients can use it to store their chat history on the server.
+Message Archive Management (`mod_mam`) implementa la gestione dell'archivio dei messaggi come descritto in [XEP-0313](http://xmpp.org/extensions/xep-0313.html). Quando è abilitato, tutti i messaggi vengono memorizzati nel server e i client XMPP compatibili possono usarlo per conservare sul server la cronologia delle chat.
 
-The database can store a maximum of 2GB of messages, archived messages can be purged automatically. To configure message retention policy, set **Clean messages older than X days** option.
+Il database può memorizzare un massimo di 2 GB di messaggi; i messaggi archiviati possono essere eliminati automaticamente. Per configurare la policy di conservazione dei messaggi, imposta l'opzione **Clean messages older than X days**.
 
 :::note
 
-If enabled, this module will store every message sent between users. This behavior will affect the privacy of your users.
+Se abilitato, questo modulo memorizzerà ogni messaggio inviato tra gli utenti. Questo comportamento inciderà sulla privacy dei tuoi utenti.
 
 :::
 
 ### Amministratori
 
-All users listed in the text area are considered administrators of the chat server.
+Tutti gli utenti elencati nell'area di testo sono considerati amministratori del server di chat.
 
-Administrators can:
+Gli amministratori possono:
 
-- Send broadcast messages
-- Check the status of connected users
+- inviare messaggi broadcast
+- controllare lo stato degli utenti connessi
 
-## Clients
+## Client
 
-Jabber clients are available for all desktop and mobile platforms.
+I client Jabber sono disponibili per tutte le piattaforme desktop e mobili.
 
-Some widespread clients:
+Alcuni client diffusi:
 
-- Pidgin is available for Windows and Linux
-- Adium for Mac OS X
-- BeejibelIM for Android and iOS, Xabber only for Android
+- Pidgin è disponibile per Windows e Linux
+- Adium per Mac OS X
+- BeejibelIM per Android e iOS, Xabber solo per Android
 
-When you configure the client, make sure TLS (or SSL) is enabled. Enter the user name and the domain of the machine.
+Quando configuri il client, assicurati che TLS (o SSL) sia abilitato. Inserisci il nome utente e il dominio della macchina.
 
 :::note
 
-With TLS capabilities, strictly configured servers or clients (e.g. Gajim) could reject connections with your Ejabberd server if the SSL/TLS certificate doesn't match the domain name.
+Con le funzionalità TLS, server o client configurati in modo restrittivo (ad esempio Gajim) potrebbero rifiutare le connessioni al tuo server Ejabberd se il certificato SSL/TLS non corrisponde al nome di dominio.
 
 :::
 
-This is a common problem with self-signed certificates. The client will refuse to connect to the server because the certificate does not match the Common Name
+Questo è un problema comune con i certificati autofirmati. Il client rifiuterà la connessione al server perché il certificato non corrisponde al Common Name.
 
-Possible solutions:
+Possibili soluzioni:
 
-- Disable the certificate check on the client side.
-- Upload a valid certificate to the server (see [Upload custom TLS certificates](../configuration/certificates.md#custom-certificates-section)).
-- Request a valid certificate from a trusted authority (e.g. Let's Encrypt). This certificate can be obtained for free with Let's Encrypt.
+- disabilitare il controllo del certificato lato client
+- caricare un certificato valido sul server (vedi [Caricare certificati TLS personalizzati](../configuration/certificates.md#custom-certificates-section))
+- richiedere un certificato valido da un'autorità attendibile (ad esempio Let's Encrypt). Questo certificato può essere ottenuto gratuitamente con Let's Encrypt
 
-Also, the certificate should contain two sub-domains `pubsub.*` and `conference.*`.
+Inoltre, il certificato dovrebbe contenere due sottodomini: `pubsub.*` e `conference.*`.

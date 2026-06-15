@@ -1,217 +1,216 @@
 ---
-title: Gestione cluster
+title: Gestione del cluster
 sidebar_position: 1
 ---
-# Gestione cluster
+# Gestione del cluster
 
-A NethServer 8 cluster[^1] is composed of one **leader** node and multiple **worker** nodes.
+Un cluster NethServer 8[^1] è composto da un nodo **leader** e da più nodi **worker**.
 
-All nodes are managed through the Web user interface, which operates on the leader node.
+Tutti i nodi sono gestiti tramite l'interfaccia utente Web, che opera sul nodo leader.
 
-An NS8 cluster consisting solely of the leader node is a fully functional system. Worker nodes can be added or removed at any time.
+Un cluster NS8 composto unicamente dal nodo leader è un sistema completamente funzionale. I nodi worker possono essere aggiunti o rimossi in qualsiasi momento.
 
-The VPN network chosen during the initial leader node setup determines the limit on the number of possible cluster nodes. Note that a node's VPN IP is never released once allocated: removing a node does not free its VPN IP address.
+La rete VPN scelta durante la configurazione iniziale del nodo leader determina il limite sul numero di nodi del cluster. Si noti che l'indirizzo IP VPN di un nodo non viene mai rilasciato una volta assegnato: la rimozione di un nodo non libera il suo indirizzo IP VPN.
 
-La rete VPN predefinita `10.5.4.0/24` supporta fino a 254 nodi di cluster.
+La rete VPN predefinita `10.5.4.0/24` supporta fino a 254 nodi del cluster.
 
-In teoria, il numero massimo di nodi in un cluster NS8 è limitato solo dalla dimensione della rete VPN. Tuttavia, è consigliabile aggiungere nodi gradualmente per evitare di degradare le prestazioni del leader a causa dell'aumento del carico di lavoro.
+In teoria, il numero massimo di nodi in un cluster NS8 è limitato solo dalla dimensione della rete VPN. Tuttavia, è consigliabile aggiungere i nodi gradualmente per evitare un degrado delle prestazioni del leader a causa dell'aumento del carico di lavoro.
+## Panoramica e dettagli dei nodi {#node-views}
 
-## Node overview and details {#node-views}
+La pagina `Nodes` mostra una panoramica dei nodi del cluster configurati. Ogni scheda visualizza gli attributi di base del nodo, il contatore degli avvisi del nodo e le azioni relative al nodo, che sono spiegate in dettaglio nelle sezioni seguenti.
 
-The `Nodes` page displays an overview of the configured cluster nodes. Each card shows basic node attributes, the node alert counter, and node actions, which are explained in detail in the following sections.
+- I nodi del cluster sono identificati univocamente da un numero progressivo. Sono denominati `Node 1`, `Node 2` e così via. Utilizzare l'azione `Edit label` dal menu a tre punti per assegnare un nome personalizzato al nodo. Si noti che questa etichetta è solo per la visualizzazione nell'interfaccia utente; consultare [Modifica FQDN](#set-fqdn) per modificare il nome host.
+- Il `FQDN` è il nome host completamente qualificato (incluso il suffisso del dominio DNS) assegnato al sistema operativo del nodo. Deve soddisfare i [requisiti DNS](../installation/system_requirements.md#dns-reqs) del nodo.
+- L'`IP address` è l'indirizzo principale del sistema. È l'indirizzo sorgente della rotta IP predefinita, selezionato tra gli indirizzi IP di sistema disponibili. Per modificare la configurazione di rete di base, fare riferimento a [Configurazione di rete del nodo](../../tutorial/os_network.md).
+- Le `Applications` rappresentano il numero di applicazioni installate sul nodo. È un collegamento alla [pagina delle Applicazioni](../installation/modules.md), già filtrata per il nodo selezionato.
 
-- Cluster nodes are uniquely identified by an increasing number. They are named `Node 1`, `Node 2` and so on. Use the `Edit label` action from the three-dots menu to assign a custom name to the node. Note that this label is only for UI visualization; see [Cambiamento FQDN](#set-fqdn) to change the host name.
-- `FQDN` is the fully qualified host name (including the DNS domain suffix) assigned to the node's operating system. It must meet the node [DNS requirements](../installation/system_requirements.md#dns-reqs).
-- `IP address` is the main system address. It is the source address of the default IP route, selected among the available system IP addresses. To change basic network configuration refer to [Configurazione nodi della rete](../../tutorial/os_network.md).
-- `Applications` is the number of applications installed on the node. It is a link to the [Applications page](../installation/modules.md), already filtered for the selected node.
+Se è in corso una procedura di migrazione di NethServer 7, viene mostrato un nodo speciale che rappresenta il sistema NethServer 7. Tutte le azioni relative a questo nodo devono essere eseguite dallo strumento di migrazione di NethServer 7 disponibile su quel sistema. Durante la migrazione, alcune azioni relative al cluster e alle applicazioni sono inibite. Fare riferimento a [Migrazione di NethServer 7](../../tutorial/migration.md) per ulteriori informazioni.
 
-If there is an ongoing NethServer 7 migration procedure, a special node representing the NethServer 7 system is shown. All actions related to this node must be executed from the NethServer 7 migration tool available on that system. During migration, some cluster and application actions are inhibited. Refer to [Migrazione da NethServer 7](../../tutorial/migration.md) for more information.
+Il pulsante **See details** apre una vista dettagliata del nodo selezionato.
 
-The **See details** button opens a detailed view of the selected node.
-
-- `Applications` and `Network interfaces` link to pages that provide further details about the applications running on the node and the full list of IP addresses.
-- `VPN` shows a summary of the node’s internal WireGuard network parameters. The `Endpoint` value is important in case of [new leader promotion](#node-promotion-section). To change the WireGuard listening port number, refer to [Configurazione personalizzata VPN](../../tutorial/vpn.md).
-- The `Alerts` panel lists active node alerts, collected every minute. See how to configure email notifications in [Alerts](metrics.md#alerts-section).
-- The following sections summarize CPU, load, memory, and disk usage. Metrics are collected every minute, and averages are calculated over a two-minute interval. For a detailed view of collected system metrics, refer to [Grafana access](metrics.md#grafana_access-section).
+- `Applications` e `Network interfaces` sono collegamenti a pagine che forniscono ulteriori dettagli sulle applicazioni in esecuzione sul nodo e l'elenco completo degli indirizzi IP.
+- `VPN` mostra un riepilogo dei parametri di rete interni di WireGuard del nodo. Il valore `Endpoint` è importante in caso di [promozione di un nuovo leader](#node-promotion-section). Per modificare il numero di porta di ascolto di WireGuard, fare riferimento a [Configurazione personalizzata VPN](../../tutorial/vpn.md).
+- Il pannello `Alerts` elenca gli avvisi attivi del nodo, raccolti ogni minuto. Vedere come configurare le notifiche email in [Alerts](metrics.md#alerts-section).
+- Le sezioni seguenti riassumono l'utilizzo di CPU, carico, memoria e disco. Le metriche vengono raccolte ogni minuto e le medie sono calcolate su un intervallo di due minuti. Per una vista dettagliata delle metriche di sistema raccolte, fare riferimento a [Accesso a Grafana](metrics.md#grafana_access-section).
 
 ### Aggiungere un nodo
 
-You can add (join) a worker node to an existing cluster. The process consists of the following steps:
+È possibile aggiungere (unire) un nodo worker a un cluster esistente. Il processo consiste nei seguenti passaggi:
 
-- ensure the leader node is running the latest Core version
-- install the new node using the same Core version installed on the leader node
-- ottenere il codice di join dal nodo leader
-- inserire il codice di join nel nodo worker
+- assicurarsi che il nodo leader stia eseguendo l'ultima versione di Core
+- installare il nuovo nodo utilizzando la stessa versione di Core installata sul nodo leader
+- ottenere il codice di unione dal nodo leader
+- inserire il codice di unione nel nodo worker
 
-First, prepare a machine with the same Linux distribution and Core version as the leader node. Then follow the [install instruction](../installation/install.md) until the login to the Web user interface.
+Per prima cosa, preparare una macchina con la stessa distribuzione Linux e versione di Core del nodo leader. Quindi seguire le [istruzioni di installazione](../installation/install.md) fino al login nell'interfaccia utente Web.
 
 Dopo il login sul nodo worker, fare clic sul pulsante **Join cluster**.
 
 Assicurarsi che il Fully Qualified Domain Name (FQDN) del nodo sia corretto e rispetti i [requisiti DNS](../installation/system_requirements.md#dns-reqs).
 
-Sul nodo leader, accedere alla pagina `Nodi` e fare clic su **Aggiungi nodo al cluster**. Quindi copiare il codice di join dalla finestra di dialogo.
+Sul nodo leader, accedere alla pagina `Nodes`, fare clic su **Add node to cluster** e copiare il codice di unione dalla finestra di dialogo.
 
-Return to the worker node and paste the code inside the `Join code` field and click the **Join cluster** button. If the leader node does not have a valid TLS certificate, remember to disable the `TLS certification validation` option before clicking the join button.
+Tornare al nodo worker, incollare il codice nel campo `Join code` e fare clic sul pulsante **Join cluster**. Se il nodo leader non dispone di un certificato TLS valido, ricordarsi di disabilitare l'opzione `TLS certification validation` prima di fare clic sul pulsante di unione.
 
-Quando la registrazione del nodo è completa, si può tornare alla interfaccia utente del nodo leader e installare applicazioni sul nuovo nodo worker.
+Quando la registrazione del nodo è completata, è possibile tornare all'interfaccia utente del leader e installare applicazioni in esecuzione sul nuovo nodo worker.
 
 ### Rimuovere un nodo
 
-I nodi worker possono essere rimossi dal cluster. Prima di rimuovere un nodo worker, assicurarsi che nessuna replica di account provider sia su di esso in esecuzione. Nella pagina `Domini e utenti`, per ogni dominio seguire il link `N provider` per vedere in quale nodo è installata la replica, quindi rimuoverla.
+I nodi worker possono essere rimossi dal cluster. Prima di rimuovere un determinato nodo worker, assicurarsi che nessuna replica del provider di account sia in esecuzione su di esso. Nella pagina `Domains and users`, per ogni dominio seguire il collegamento `N providers` per vedere il nodo su cui è installata una replica del provider, quindi rimuoverla.
 
 :::warning
 
-Se il nodo non è raggiungibile, o non risponde, la rimozione della replica del provider deve essere completata manualmente dopo la rimozione del nodo.
+Se il nodo non è raggiungibile o non risponde, la rimozione della replica del provider deve essere completata manualmente dopo la rimozione del nodo.
 
 :::
 
-Accedere alla pagina `Nodi`, andare al menu a tre punti del nodo e cliccare su `Rimuovi dal cluster` per aprire una finestra di conferma. Le applicazioni installate sul nodo sono elencate: rivedere quella lista con attenzione perché la rimozione del nodo non è recuperabile.
+Accedere alla pagina `Nodes`, andare al menu a tre punti del nodo e fare clic su `Remove from cluster` per aprire una finestra di conferma. Le applicazioni installate sul nodo sono elencate: esaminare attentamente tale elenco poiché la rimozione del nodo non è recuperabile.
 
-Se la finestra di rimozione del nodo viene confermata premendo il pulsante **Sono consapevole, rimuovi il nodo**, il nodo e le sue applicazioni sono disconnessi, le loro autorizzazioni vengono revocate e non possono accedere più al cluster.
+Se la finestra di rimozione del nodo viene confermata premendo il pulsante **I understand, remove node**, il nodo e le sue applicazioni vengono disconnessi, le loro autorizzazioni vengono revocate e non possono più accedere al cluster.
 
-Quando un nodo viene rimosso dal cluster le applicazioni in esecuzione su di esso non sono influenzate e sono lasciate in esecuzione. Arrestare e spegnere il nodo per completarne la rimozione.
+Quando un nodo viene rimosso dal cluster, le applicazioni in esecuzione su di esso non vengono influenzate e rimangono in esecuzione. Spegnere e disattivare il nodo per completare la rimozione del nodo.
 
-### Cambiamento FQDN {#set-fqdn}
+### Modifica FQDN {#set-fqdn}
 
-FQDN di un nodo è tipicamente impostato durante le fasi di post-installazione. Se diventa necessario cambiare la FQDN in seguito, seguire questi passaggi:
+Il FQDN di un nodo viene generalmente impostato durante i passaggi post-installazione. Se diventa necessario modificare il FQDN in un secondo momento, seguire questi passaggi:
 
-1.  Accedere alla pagina `Nodes` e passare al menu a tre punti della scheda nodo corrispondente.
-2.  Select the `Set FQDN` action.
+1. Accedere alla pagina `Nodes` e navigare nel menu a tre punti della scheda del nodo corrispondente.
+2. Selezionare l'azione `Set FQDN`.
+---
+id: cluster
+title: Configurazione del Cluster
+---
 
-Se si sta cambiando FQDN del nodo leader, una procedura di convalida aggiuntiva controllerà se il nuovo FQDN è correttamente risolto da tutti i nodi del lavoratore.
+Se si sta modificando l'FQDN del nodo leader, una procedura di validazione aggiuntiva verificherà se il nuovo FQDN è correttamente risolto da tutti i nodi worker.
 
-Se stai cambiando la FQDN di un nodo operaio, questa validazione non viene applicata. Tuttavia, è ancora necessario registrare correttamente il nuovo FQDN nel DNS come descritto in [Configurazione DNS](../installation/system_requirements.md#dns-reqs).
+Se si sta modificando l'FQDN di un nodo worker, questa validazione non viene applicata. Tuttavia, è comunque necessario registrare correttamente il nuovo FQDN nel DNS come descritto in [Configurazione DNS](../installation/system_requirements.md#dns-reqs).
 
 ### Promuovere un nodo a leader {#node-promotion-section}
 
-Adding and removing nodes may necessitate changing the cluster **leader node**.
+L'aggiunta e la rimozione di nodi possono rendere necessario cambiare il **nodo leader** del cluster.
 
-A suitable leader node must be reachable by all other worker nodes.
+Un nodo leader adeguato deve essere raggiungibile da tutti gli altri nodi worker.
 
-Every worker node must correctly resolve the leader's FQDN, which must be consistent across all worker nodes.
+Ogni nodo worker deve risolvere correttamente l'FQDN del leader, che deve essere coerente su tutti i nodi worker.
 
-Depending on the state of the current leader node, there are two procedures to promote a node to the leader role:
+A seconda dello stato del nodo leader attuale, esistono due procedure per promuovere un nodo al ruolo di leader:
 
 - Nodo leader raggiungibile
-- Nodo leader irraggiungibile
+- Nodo leader non raggiungibile
 
-After promoting a leader, it is necessary to perform these additional tasks:
+Dopo aver promosso un leader, è necessario eseguire queste attività aggiuntive:
 
-- Reset the cluster backup password. For more information, see [Cluster backup](backup.md#cluster_backup-section).
+- Resettare la password di backup del cluster. Per maggiori informazioni, vedere [Backup del cluster](backup.md#cluster_backup-section).
 
-Additionally, refer to the note in [Audit log](#audit-trail-section) regarding node promotion.
+Inoltre, fare riferimento alla nota in [Audit trail](#audit-trail-section) riguardante la promozione del nodo.
 
 :::note
 
-Promuovere un nuovo leader comporta modifiche alla configurazione dei registri di sistema. Per ulteriori dettagli, fare riferimento a [Log di persistenza](log_server.md#logs-persistence-section).
+La promozione di un nuovo leader comporta modifiche alla configurazione dei log di sistema. Per maggiori dettagli, consultare [Persistenza dei log](log_server.md#logs-persistence-section).
 
 :::
 
 #### Nodo leader raggiungibile
 
-Se l'attuale nodo leader funziona correttamente, seguire questi passaggi:
+Se il nodo leader attuale funziona correttamente, seguire questi passaggi:
 
-1.  Access the `Nodes` page.
-2.  Open the three-dots menu of the node to promote and click on `Promote to leader`.
+1. Accedere alla pagina `Nodes`.
+2. Aprire il menu a tre punti del nodo da promuovere e fare clic su `Promote to leader`.
 
-The `Check node connectivity` checkbox verifies the connection of the old leader with the designated one. Since the VPN connection cannot be probed, only an HTTPS connection is attempted. This may fail due to intervening network devices (e.g., NAT and port-forwarding setups). If you are certain that the configuration is correct, you can disable the check, but proceed at your own risk!
+La casella di controllo `Check node connectivity` verifica la connessione del vecchio leader con quello designato. Poiché la connessione VPN non può essere verificata, viene tentata solo una connessione HTTPS. Questo potrebbe fallire a causa di dispositivi di rete intermedi (ad esempio, configurazioni NAT e di port forwarding). Se si è certi che la configurazione sia corretta, è possibile disabilitare il controllo, ma procedere a proprio rischio!
 
-When the confirmation string is typed, the **I understand,
-promote the node** button becomes active, allowing you to complete the node promotion.
+Quando viene digitata la stringa di conferma, il pulsante **I understand, promote the node** diventa attivo, consentendo di completare la promozione del nodo.
 
-#### Nodo leader irraggiungibile
+#### Nodo leader non raggiungibile
 
-If the current leader node is not reachable, run a command on any other worker node. Be prepared for this situation by enabling SSH, console, or Cockpit **terminal root access** to the nodes.
+Se il nodo leader attuale non è raggiungibile, eseguire un comando su qualsiasi altro nodo worker. Prepararsi a questa situazione abilitando l'accesso **root terminal** tramite SSH, console o Cockpit sui nodi.
 
-For example, to promote the node with ID `3`, run the following command on every worker node:
+Ad esempio, per promuovere il nodo con ID `3`, eseguire il seguente comando su ogni nodo worker:
 
     switch-leader --node 3
 
-Se il comando fallisce perché il endpoint VPN del nodo 3 non è definito o non è corretto, utilizzare il parametro opzionale `--endpoint`, per esempio:
+Se il comando fallisce perché l'endpoint VPN del nodo 3 non è definito o è errato, utilizzare il parametro opzionale `--endpoint`, ad esempio:
 
-> switch-leader --node 3 --endpoint node3.example.net:55820
+    switch-leader --node 3 --endpoint node3.example.net:55820
 
-Il parametro endpoint VPN consiste in un prefisso indirizzo (nome o IP) e un suffisso del numero di porta UDP, separato da un colon `:`.
+Il parametro endpoint VPN consiste in un indirizzo (nome o IP) come prefisso e un numero di porta UDP come suffisso, separati da due punti `:`.
+## Recuperare un nodo offline
 
-## Recover an offline node
+Se il nodo leader è offline, l'interfaccia di amministrazione del cluster non è accessibile e non è possibile inviare comandi ai nodi worker. Se non è possibile recuperare il leader, fare riferimento a [Promuovere un nodo a leader](#node-promotion-section) per selezionare un nuovo leader.
 
-If the leader node is offline, the cluster-admin interface is not accessible and it is not possible to issue commands to worker nodes. If there is no way to recover the leader, refer to [Promuovere un nodo a leader](#node-promotion-section) to select a new leader.
+Se un nodo worker è offline, il cluster può continuare a funzionare. Operazioni sul cluster come l'aggiunta o la rimozione di nodi worker e applicazioni sono ancora possibili.
 
-If a worker node is offline, the cluster can continue to operate. Cluster operations such as adding or removing worker nodes and applications are still possible.
-
-When an offline node is recovered, in some cases it may be necessary to manually run the following command on the recovered node:
+Quando un nodo offline viene recuperato, in alcuni casi potrebbe essere necessario eseguire manualmente il seguente comando sul nodo recuperato:
 
     apply-vpn-routes
 
-The above command is required if, during the offline period, one or more of the following events occurred:
+Il comando sopra è richiesto se, durante il periodo offline, si è verificato uno o più dei seguenti eventi:
 
-- A node was added to or removed from the cluster.
-- Samba was added to or removed from the cluster.
+- Un nodo è stato aggiunto o rimosso dal cluster.
+- Samba è stato aggiunto o rimosso dal cluster.
 
-The `apply-vpn-routes` command adjusts the current WireGuard runtime settings and the system routing table, and persists the changes to reflect the cluster configuration stored in the Redis database.
-
+Il comando `apply-vpn-routes` regola le impostazioni runtime correnti di WireGuard e la tabella di routing del sistema, e persiste le modifiche per riflettere la configurazione del cluster memorizzata nel database Redis.
 ## Amministratori {#administrators-section}
 
-Gli amministratori del cluster hanno il totale controllo del cluster. Si raccomanda di creare un utente personale per ogni amministratore del cluster. Tutte le azioni eseguite da un amministratore del cluster sono registrate all'interno di [Audit log](#audit-trail-section).
+Gli amministratori del cluster possono gestire completamente il cluster. Si consiglia di creare un utente personale per ciascun amministratore del cluster. Tutte le azioni eseguite da un amministratore del cluster vengono raccolte all'interno di un [Audit trail](#audit-trail-section) di sicurezza.
 
-Per aggiungere un nuovo amministratore del cluster vai alla pagina `Impostazioni` e selezionare la scheda `Amministratori cluster`. Quindi fare clic su **Crea amministratore** e compilare i campi richiesti.
+Per aggiungere un nuovo amministratore del cluster, accedere alla pagina `Impostazioni` e selezionare la scheda `Amministratori del cluster`. Quindi fare clic sul pulsante **Crea admin** e compilare i campi richiesti.
 
-Un amministratore non può eliminare il proprio utente. Per eliminare un amministratore, è necessario accedere come un altro amministratore del cluster già esistente.
+Un amministratore non può eliminare il proprio utente. Per eliminare un amministratore, è necessario accedere con un altro amministratore del cluster esistente.
 
-Gli amministratori possono cambiare la propria password dalla scheda `Account` all'interno della pagina `Impostazioni`.
+Gli amministratori possono modificare la propria password dalla scheda `Account` all'interno della pagina `Impostazioni`.
 
 ### Autenticazione a due fattori (2FA) {#configure-2fa-section}
 
 L'autenticazione a due fattori (2FA) può essere utilizzata per aggiungere un ulteriore livello di sicurezza necessario per accedere all'interfaccia utente di gestione del cluster.
 
-L'amministratore può abilitare 2FA dalla scheda `Account` all'interno della pagina `Impostazioni` facendo clic sul pulsante **Abilita 2FA** .
+L'amministratore può abilitare la 2FA dalla scheda `Account` all'interno della pagina `Impostazioni`, facendo clic sul pulsante **Abilita 2FA**.
 
 L'utente dovrà:
 
-1.  scaricare e installare l'applicazione 2FA preferita sullo smartphone
-2.  eseguire la scansione del codice QR con l'applicazione 2FA
-3.  generare un nuovo codice e copiarlo all'interno del campo di verifica, quindi fare clic su **Verifica codice**
+1. scaricare e installare l'applicazione 2FA preferita sullo smartphone
+2. scansionare il codice QR con l'applicazione 2FA
+3. generare un nuovo codice e copiarlo nel campo di verifica, quindi fare clic su **Verifica codice**
 
-#### Applicazioni smartphone
+#### Applicazioni per smartphone
 
-Ci sono diverse applicazioni commerciali e open source per 2FA:
+Esistono diverse applicazioni 2FA commerciali e open source:
 
-Disponibile sia per Android che per iOS:
+Disponibili sia per Android che per iOS:
 
 - [FreeOTP](https://freeotp.github.io/): disponibile sia per Android che per iOS
-- [Authenticator](https://mattrubin.me/authenticator/): disponibile solo su iOS
+- [Authenticator](https://mattrubin.me/authenticator/): disponibile solo per iOS
 - [2FAS](https://2fas.com/): disponibile sia per Android che per iOS
 
 ### Reimpostare la password dell'amministratore del cluster
 
-If you are locked out of the web user interface but can still access a system command-line shell as `root` (e.g. through the system recovery console or SSH), run the following command **on the leader node** to disable 2FA and reset the password:
+Se si è bloccati fuori dall'interfaccia utente web ma si può ancora accedere a una shell della riga di comando del sistema come `root` (ad esempio tramite la console di ripristino del sistema o SSH), eseguire il seguente comando **sul nodo leader** per disabilitare la 2FA e reimpostare la password:
 
     api-cli run alter-user --data '{"user":"admin","set":{"password":"Nethesis,1234","2fa":false}}'
 
-Replace the `admin` username and `Nethesis,1234` password with the desired credentials.
+Sostituire il nome utente `admin` e la password `Nethesis,1234` con le credenziali desiderate.
 
 :::note
 
-The above command fails with `AuthenticationError` if executed on a **worker node**. Run it only on the leader node.
+Il comando sopra riportato fallisce con `AuthenticationError` se eseguito su un **nodo worker**. Eseguirlo solo sul nodo leader.
 
 :::
+## Traccia di controllo {#audit-trail-section}
 
-## Audit log {#audit-trail-section}
-
-All'interno della pagina del percorso di audit, gli amministratori di cluster possono ispezionare tutte le azioni eseguite da qualsiasi altro amministratore. Ogni evento del percorso di audit contiene almeno:
+Nella pagina della traccia di controllo, gli amministratori del cluster possono ispezionare tutte le azioni eseguite da qualsiasi altro amministratore. Ogni evento della traccia di controllo contiene almeno:
 
 - data e ora dell'azione
 - nome utente dell'amministratore del cluster
 - nome dell'azione
 
-Gli eventi del log di audit possono essere filtrati per utente, data, tipo di azione e corrispondenza di testo personalizzata.
+Gli eventi della traccia di controllo possono essere filtrati per utente, data, tipo di azione e corrispondenza di testo personalizzata.
 
 :::note
 
-Le informazioni del log di audit vengono memorizzate nel disco del nodo leader. In caso di [new leader promotion](#node-promotion-section) le informazioni del log di audit nel vecchio leader non sono più accessibili.
+Le informazioni della traccia di controllo sono memorizzate nel disco del nodo leader. In caso di [promozione di un nuovo leader](#node-promotion-section), le informazioni della traccia di controllo nel vecchio leader non saranno più accessibili.
 
 :::
 
-**Footnotes**
+**Note a piè di pagina**
 
 [^1]: <https://en.wikipedia.org/wiki/Computer_cluster>

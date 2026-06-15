@@ -4,345 +4,336 @@ sidebar_position: 3
 ---
 # Domini utente
 
-Users, passwords, and groups are stored in LDAP databases and constitute a **user domain**.
+Gli utenti, le password e i gruppi sono memorizzati nei database LDAP e costituiscono un **dominio utente**.
 
-An NS8 cluster can host multiple *internal* user domains of different LDAP schemas. It is also possible to configure *external* user domains that connect NS8 with LDAP services running outside the cluster. Supported LDAP schemas are:
+Un cluster NS8 può ospitare più domini utente *interni* con schemi LDAP differenti. È anche possibile configurare domini utente *esterni* che collegano NS8 a servizi LDAP in esecuzione al di fuori del cluster. Gli schemi LDAP supportati sono:
 
 - Active Directory - [Samba](https://www.samba.org/)
-- Unix attributes [RFC2307](https://www.rfc-editor.org/rfc/rfc2307) - [OpenLDAP](https://www.openldap.org/)
+- Attributi Unix [RFC2307](https://www.rfc-editor.org/rfc/rfc2307) - [OpenLDAP](https://www.openldap.org/)
 
-With an *internal* user domain, the same LDAP database can be replicated and provided by multiple cluster nodes to ensure availability for applications running on those nodes (see also [Provider replicas](#provider_replica-section)).
+Con un dominio utente *interno*, lo stesso database LDAP può essere replicato e fornito da più nodi del cluster per garantire la disponibilità delle applicazioni in esecuzione su tali nodi (vedere anche [Repliche del provider](#provider_replica-section)).
 
-With an *external* user domain, it is still possible to configure multiple LDAP replicas, but they must be reachable from every node of the cluster.
+Con un dominio utente *esterno*, è comunque possibile configurare più repliche LDAP, ma devono essere raggiungibili da ogni nodo del cluster.
 
-An LDAP replica is called an **account provider**.
+Una replica LDAP è chiamata **provider di account**.
 
-Besides choosing to bind an external provider or install an internal one, consider that the LDAP schema and its implementation may provide different features. Some important examples:
+Oltre a scegliere se collegare un provider esterno o installarne uno interno, considera che lo schema LDAP e la sua implementazione possono offrire funzionalità differenti. Alcuni esempi importanti:
 
-- The Samba File Server application works only with Active Directory.
-- With OpenLDAP, multiple providers can be hosted on the same node, while Samba can host only one user domain per node.
-- RFC2307 providers may not fully support advanced password policies.
-
+- L'applicazione Samba File Server funziona solo con Active Directory.
+- Con OpenLDAP, più provider possono essere ospitati sullo stesso nodo, mentre Samba può ospitare un solo dominio utente per nodo.
+- I provider RFC2307 potrebbero non supportare completamente politiche avanzate per le password.
 ## Active Directory {#active_directory-section}
 
-To install a new user domain with an internal Samba Active Directory as provider:
+Per installare un nuovo dominio utente con un Samba Active Directory interno come provider:
 
-- Access the `Domains and users` page.
-- Click on **Create domain** button and choose `Internal`.
-- Select `Samba` on the dialog box and follow the procedure. You may be asked which node will install the provider, and -- if the selected node has one -- the additional volume where Shared folders will be stored. This choice is relevant if you will enable the option `Provide Shared folders and authentication to Windows clients` in the post-installation step. If you plan to use Samba as a file server, read now section [Samba file server](../applications/file_server.md) before proceeding.
-- Finally click on **Install provider** button.
+- Accedi alla pagina `Domini e utenti`.
+- Clicca sul pulsante **Crea dominio** e scegli `Interno`.
+- Seleziona `Samba` nella finestra di dialogo e segui la procedura. Potrebbe essere richiesto di scegliere quale nodo installerà il provider e -- se il nodo selezionato ne dispone -- il volume aggiuntivo dove verranno archiviati le Cartelle condivise. Questa scelta è rilevante se abiliterai l'opzione `Fornisci cartelle condivise e autenticazione ai client Windows` nella fase post-installazione. Se prevedi di utilizzare Samba come file server, leggi ora la sezione [File server Samba](../applications/file_server.md) prima di procedere.
+- Infine, clicca sul pulsante **Installa provider**.
 
-Once the domain provider is installed, you will be asked to enter the following Active Directory parameters:
+Una volta installato il provider di dominio, ti verrà chiesto di inserire i seguenti parametri di Active Directory:
 
-- `Domain`: the user domain in FQDN form. It defines the DNS suffix of the new Active Directory domain. If unsure, refer to the next section, or keep the proposed value.
-- `NetBIOS domain`: un dominio [NetBIOS](https://en.wikipedia.org/wiki/NetBIOS) valido (noto anche come "domain short name", "NT domain name"), è l'identificatore di dominio Active Directory alternativo, compatibile con i client più datati. La lunghezza massima è di 15 caratteri ASCII. Se non si è sicuri, mantenere il valore proposto.
-- `Scegli il nome utente dell'amministratore di Samba` e `Scegli una password per l'utente amministratore di Samba`: impostare le credenziali iniziali dell'account amministrativo; è possibile utilizzare `administrator` (default) o qualsiasi altro nome utente. In quest'ultimo caso, il nome utente specificato viene aggiunto al gruppo `Domain Admins`, mentre l'utente `administrator` viene disabilitato e configurato con una password casuale
+- `Dominio`: il dominio utente in forma FQDN. Definisce il suffisso DNS del nuovo dominio Active Directory. Se non sei sicuro, consulta la sezione successiva o mantieni il valore proposto.
+- `Dominio NetBIOS`: un valido dominio [NetBIOS](https://en.wikipedia.org/wiki/NetBIOS) (noto anche come "nome breve del dominio", "nome dominio NT"), è l'identificatore alternativo del dominio Active Directory, compatibile con client più vecchi. La lunghezza massima è di 15 caratteri ASCII. Se non sei sicuro, mantieni il valore proposto.
+- `Nome utente amministratore Samba` e `Password amministratore Samba`: imposta le credenziali dell'account amministrativo iniziale; è possibile utilizzare `administrator` (predefinito) o qualsiasi altro nome utente. In quest'ultimo caso, il nome utente fornito viene aggiunto al gruppo `Domain Admins`, mentre l'utente `administrator` viene disabilitato e gli viene assegnata una password casuale.
 
-In Active Directory jargon, an NS8 domain provider is a *Domain Controller* (DC). It acts as an LDAP server, Kerberos domain controller, and authoritative DNS server for the chosen domain name. Fill in the following DC-related fields:
+Nel gergo di Active Directory, un provider di dominio NS8 è un *Domain Controller* (DC). Funziona come server LDAP, controller di dominio Kerberos e server DNS autorevole per il nome di dominio scelto. Compila i seguenti campi relativi al DC:
 
-- `Hostname`: the DC hostname. If unsure, keep the proposed value.
-- `Provide shared folders and authentication to Windows clients`: if this switch is enabled, the DC will be accessible from the local network (LAN). Note the following limitation: only one DC per domain can offer shared folders, authentication, and DNS services. See [File server](../applications/file_server.md) for more information.
+- `Hostname`: il nome host del DC. Se non sei sicuro, mantieni il valore proposto.
+- `Fornisci cartelle condivise e autenticazione ai client Windows`: se questo interruttore è abilitato, il DC sarà accessibile dalla rete locale (LAN). Nota la seguente limitazione: solo un DC per dominio può offrire cartelle condivise, autenticazione e servizi DNS. Consulta [File server](../applications/file_server.md) per ulteriori informazioni.
 
 :::note
 
-A parte le credenziali amministrative, gli altri parametri di Active Directory non possono essere modificati una volta che il dominio è stato creato
+A parte le credenziali amministrative, gli altri parametri di Active Directory non possono essere modificati una volta creato il dominio.
 
 :::
 
-Al termine, sarà disponibile un nuovo dominio utente con un provider connesso. Sarà ora possibile [gestire utenti e gruppo](#user_groups-section), [aggiungere una replica](#provider_replica-section) o copiare le [le impostazioni di bind](#domain_bind-section)per collegare una applicazione esterna.
+Alla fine, vedrai un nuovo dominio utente con un provider connesso. Ora puoi [gestire utenti e gruppi](#user_groups-section), [aggiungere una replica](#provider_replica-section) o copiare le [impostazioni di bind](#domain_bind-section) per connettere un'applicazione esterna.
 
-### DNS e Dominio AD
+### DNS e dominio AD
 
-Un dominio Active Directory richiede un dominio DNS riservato per il suo funzionamento. Una buona scelta è utilizzare un sottodominio del dominio DNS pubblico principale. Il sottodominio AD è accessibile solo dalle reti locali.
+Un dominio Active Directory richiede un dominio DNS riservato per funzionare. È una buona scelta allocare un sottodominio del dominio DNS pubblico per esso. Il sottodominio AD può essere accessibile solo dalle reti locali.
 
 Esempio:
 
 - dominio pubblico (*esterno*): `nethserver.org`
-- server FQDN: `mail.nethserver.org`
-- Dominio Active Directory (solo LAN *interna*): `ad.nethserver.org`
-- FQDN controller di dominio: `dc1.ad.nethserver.org`
+- FQDN del server: `mail.nethserver.org`
+- dominio Active Directory (*solo LAN interna*): `ad.nethserver.org`
+- FQDN del controller di dominio: `dc1.ad.nethserver.org`
 
 :::tip
 
-Quando si sceglie un dominio per Active Directory utilizzare un dominio *interno* che è un sottodominio del dominio *esterno*[^1]
+Quando scegli un dominio per Active Directory utilizza un dominio *interno* che sia un sottodominio del dominio *esterno*[^1].
 
 :::
 
-AD Windows clients must use a primary DNS server that can resolve the AD domain names. A secondary DNS server is optional, but if configured, it must also be able to resolve AD domain names.
+I client Windows AD devono utilizzare un server DNS primario in grado di risolvere i nomi di dominio AD. Un server DNS secondario è opzionale, ma se configurato, deve essere anch'esso in grado di risolvere i nomi di dominio AD.
 
-- **Small networks**: Use Samba Active Directory as the DNS server by setting the domain controller's IP address in client DNS settings. Non-AD DNS queries are automatically forwarded to the servers in the NS8 node's `/etc/resolv.conf` file.
-- **Larger networks**: Use a dedicated DNS server with *conditional forwarding*. Configure it to forward AD domain requests to the Samba Active Directory DNS server while directing other requests to your preferred DNS service (ISP or public DNS).
+- **Reti piccole**: Utilizza Samba Active Directory come server DNS impostando l'indirizzo IP del controller di dominio nelle impostazioni DNS del client. Le query DNS non relative ad AD vengono automaticamente inoltrate ai server nel file `/etc/resolv.conf` del nodo NS8.
+- **Reti più grandi**: Utilizza un server DNS dedicato con *inoltro condizionale*. Configuralo per inoltrare le richieste di dominio AD al server DNS Samba Active Directory, mentre indirizza altre richieste al tuo servizio DNS preferito (ISP o DNS pubblico).
 
 :::note
 
-Do not configure Samba Active Directory as the NS8 node name resolver in `/etc/resolv.conf`. For more information, see [Name resolution](system_requirements.md#resolv-conf).
+Non configurare Samba Active Directory come risolutore di nomi del nodo NS8 in `/etc/resolv.conf`. Per ulteriori informazioni, consulta [Risoluzione dei nomi](system_requirements.md#resolv-conf).
 
 :::
+## LDAP server RFC2307 {#openldap-section}
 
-## Server LDAP RFC2307 {#openldap-section}
+Per installare un nuovo dominio utente con un OpenLDAP interno come provider:
 
-To install a new user domain with an internal OpenLDAP as provider:
-
-- Access the `Domains and users` page.
-- Click on **Create domain** and choose `Internal`.
-- In the dialog box, select `OpenLDAP` and click **Install
+- Accedi alla pagina `Domini e utenti`.
+- Clicca su **Crea dominio** e scegli `Interno`.
+- Nella finestra di dialogo, seleziona `OpenLDAP` e clicca su **Installa
   provider**.
 
-Una volta installato il provider, verrà chiesto di inserire i seguenti parametri:
+Una volta installato il provider, ti verrà richiesto di inserire i seguenti parametri:
 
-- `Domain`: the user domain, it should be a valid FQDN. If unsure, keep the proposed value.
-- `OpenLDAP admin username` and `OpenLDAP admin password`: admin credentials
+- `Dominio`: il dominio utente, deve essere un FQDN valido. Se non sei sicuro, mantieni il valore proposto.
+- `Nome utente admin OpenLDAP` e `Password admin OpenLDAP`: credenziali amministrative
 
-Finally, you will see a new user domain with one connected provider. You can now [manage users and groups](#user_groups-section) or [add a replica](#provider_replica-section).
-
-:::note
-
-OpenLDAP provider is not currently accessible from outside the cluster.
-
-:::
-
-## Provider replicas {#provider_replica-section}
-
-Provider replicas implement fault tolerance for user domains. To achieve real fault tolerance, replicas should be installed on different nodes.
-
-You can add a replica from the `Domains and users` page by selecting the `Configuration` tab in the domain details. Then click the **Add
-provider** button, select the target node, and proceed with the installation.
-
-Replicas are configured in master-master mode.
+Infine, vedrai un nuovo dominio utente con un provider connesso. Ora puoi [gestire utenti e gruppi](#user_groups-section) o [aggiungere una replica](#provider_replica-section).
 
 :::note
 
-Active Directory provider does not replicate the SysVol volume. Therefore Microsoft's Group Policy Object (GPO) will not be synchronized between replicas.
+Il provider OpenLDAP non è attualmente accessibile dall'esterno del cluster.
 
 :::
+## Repliche del provider {#provider_replica-section}
 
-## LDAP bind settings {#domain_bind-section}
+Le repliche del provider implementano la tolleranza ai guasti per i domini utente. Per ottenere una reale tolleranza ai guasti, le repliche dovrebbero essere installate su nodi diversi.
 
-Binding is the process where the LDAP server authenticates the client and, if the client is successfully authenticated, the server allows client access.
+È possibile aggiungere una replica dalla pagina `Domini e utenti` selezionando la scheda `Configurazione` nei dettagli del dominio. Quindi fare clic sul pulsante **Aggiungi provider**, selezionare il nodo di destinazione e procedere con l'installazione.
 
-Many applications may require to be bound to an existing NethServer 8 user domain. Bind settings can be accessed from the `Configuration` tab of the domain details.
-
-The Samba AD provider exposes standard LDAP and LDAPS ports (389/636) to applications outside the cluster only if it has been created with `Provide shared folders and authentication to Windows clients` (see [Active Directory](#active_directory-section)).
-
-OpenLDAP RFC2307 providers do not expose any port for external applications. They listen on a single clear-text LDAP port accessible to services inside the cluster network. Manual configurations are not needed.
-
-## External LDAP server {#ldap_proxy-section}
-
-You can connect the NethServer 8 cluster to an existing LDAP server.
-
-1.  Access the `Domains and users` page.
-2.  Click on **Create domain** button and choose `External`.
-3.  Fill all required fields. Bear in mind that apart from "Host" and "Port", the domain settings cannot be changed later:
-    - `Domain`: This should be in fully qualified domain name (FQDN) syntax, but it can be any logical name matching the LDAP base DN structure. For example, if your LDAP base DN is `dc=example,dc=org`, a suitable domain name would be "example.org".
-    - `Host`: Enter the IP address or hostname of the LDAP server.
-    - `Port`: Specificare il numero di porta TCP del servizio remoto LDAP. I valori standard sono 389 per LDAP e 636 per LDAPS. Tuttavia, con Active Directory, alcune applicazioni come Mail[^2] possono richiedere l'impostazione della porta LDAP 3268 o della porta LDAPS 3269. Questo perché non supportano i "ferrali subordinati MONAP".
-    - `Bind DN` and `Password`: Credentials required to access the remote LDAP server.
-    - `Base DN`: Define the level of the LDAP hierarchy to use as the base for user and group lookup. Leaving this field empty retrieves the correct value from the LDAP server itself.
-    - `TLS`: Enable this switch to encrypt the connection with TLS. If the server does not support TLS on the specified port, an error will occur.
-    - `TLS verify`: Enable this switch to ensure that the LDAP server provides a valid TLS certificate signed by a trusted authority, with the certificate name matching the hostname specified in the "Host" field. Continue reading to fully understand the implications of this option.
-4.  Once all fields are filled, click on the **Configure domain** button.
-
-### Modify external LDAP settings {#modify-external-ldap}
-
-When a domain is configured for the first time, the LDAP server settings are saved in its first provider entry. Bind credentials and TLS settings can be modified at a later from the `Domain Settings` card.
-
-If you choose not to verify TLS, you can configure additional hosts as backup providers. The first configured provider is considered the primary LDAP backend server. If a cluster node cannot reach it, it switches to another provider. It's crucial that all domain providers are accessible from any cluster node.
-
-Enabling "TLS verify" adds extra security but has limitations: only the first provider is considered. If it becomes unreachable, connection recovery is not possible.
+Le repliche sono configurate in modalità master-master.
 
 :::note
 
-Ensure each provider is accessible from all cluster nodes for seamless operation.
+Il provider Active Directory non replica il volume SysVol. Pertanto, gli oggetti Criteri di gruppo (GPO) di Microsoft non saranno sincronizzati tra le repliche.
 
 :::
+## Impostazioni di binding LDAP {#domain_bind-section}
 
-## Password policy {#password-policy-section}
+Il binding è il processo in cui il server LDAP autentica il client e, se l'autenticazione ha esito positivo, il server consente l'accesso al client.
 
-The password policy is a set of rules that defines the password complexity and the password expiration time. You can configure the password policy from the `Domains and users` page by selecting the interested domain and clicking **Edit password policy** from the three-dots menu of the `Password` card.
+Molte applicazioni potrebbero richiedere di essere collegate a un dominio utente esistente di NethServer 8. Le impostazioni di binding sono accessibili dalla scheda `Configuration` nei dettagli del dominio.
 
-You can configure password age and password strength policy separately.
+Il provider Samba AD espone le porte LDAP e LDAPS standard (389/636) alle applicazioni esterne al cluster solo se è stato creato con l'opzione `Provide shared folders and authentication to Windows clients` (vedi [Active Directory](#active_directory-section)).
 
-### Password age
+I provider OpenLDAP RFC2307 non espongono alcuna porta per le applicazioni esterne. Essi ascoltano su una singola porta LDAP in chiaro accessibile ai servizi all'interno della rete del cluster. Non sono necessarie configurazioni manuali.
+## Server LDAP esterno {#ldap_proxy-section}
 
-You can toggle password age policy by clicking on the `Password age` switch. If enabled, you can configure the following parameters:
+È possibile collegare il cluster NethServer 8 a un server LDAP esistente.
 
-- `Minimum password age` (default 0): the minimum number of days that must pass before a new password change.
-- `Maximum password age` (default 180): password expiration time in days. After this period, the password is no longer valid for logins and must be changed. Users can change their expired password with [User Management portal](#user-management-portal-section).
+1.  Accedere alla pagina `Domains and users`.
+2.  Fare clic sul pulsante **Create domain** e scegliere `External`.
+3.  Compilare tutti i campi obbligatori. Tenere presente che, a parte "Host" e "Port", le impostazioni del dominio non possono essere modificate successivamente:
+    - `Domain`: Questo dovrebbe essere in sintassi fully qualified domain name (FQDN), ma può essere qualsiasi nome logico che corrisponda alla struttura del base DN dell'LDAP. Ad esempio, se il base DN del tuo LDAP è `dc=example,dc=org`, un nome di dominio adatto sarebbe "example.org".
+    - `Host`: Inserire l'indirizzo IP o il nome host del server LDAP.
+    - `Port`: Specificare il numero di porta TCP del servizio LDAP remoto. I valori standard sono 389 per LDAP e 636 per LDAPS. Tuttavia, con Active Directory, alcune applicazioni come Mail[^2] potrebbero richiedere l'impostazione della porta LDAP 3268 o della porta LDAPS 3269. Questo perché non supportano i "LDAP subordinate referrals".
+    - `Bind DN` e `Password`: Credenziali necessarie per accedere al server LDAP remoto.
+    - `Base DN`: Definire il livello della gerarchia LDAP da utilizzare come base per la ricerca di utenti e gruppi. Lasciando vuoto questo campo, il valore corretto verrà recuperato direttamente dal server LDAP.
+    - `TLS`: Abilitare questo interruttore per crittografare la connessione con TLS. Se il server non supporta TLS sulla porta specificata, si verificherà un errore.
+    - `TLS verify`: Abilitare questo interruttore per garantire che il server LDAP fornisca un certificato TLS valido firmato da un'autorità fidata, con il nome del certificato corrispondente al nome host specificato nel campo "Host". Continuare a leggere per comprendere appieno le implicazioni di questa opzione.
+4.  Una volta compilati tutti i campi, fare clic sul pulsante **Configure domain**.
 
-### Password strength
+### Modificare le impostazioni del server LDAP esterno {#modify-external-ldap}
 
-By enabling the `Password strength` switch, you can configure the following parameters:
+Quando un dominio viene configurato per la prima volta, le impostazioni del server LDAP vengono salvate nella sua prima voce del provider. Le credenziali di bind e le impostazioni TLS possono essere modificate successivamente dalla scheda `Domain Settings`.
 
-- `Password history length`: the number of old passwords that cannot be reused.
-- `Minimum password length`: the minimum number of characters that a password must have.
-- `Enforce password complexity`: enforce use of complex password, see note for more details.
+Se si sceglie di non verificare TLS, è possibile configurare host aggiuntivi come provider di backup. Il primo provider configurato è considerato il server backend LDAP primario. Se un nodo del cluster non riesce a raggiungerlo, passa a un altro provider. È fondamentale che tutti i provider di dominio siano accessibili da qualsiasi nodo del cluster.
+
+L'abilitazione di "TLS verify" aggiunge maggiore sicurezza ma presenta limitazioni: solo il primo provider viene considerato. Se diventa irraggiungibile, non è possibile recuperare la connessione.
 
 :::note
 
-A password is considered complex if it is long enough and meets three of the following rules:
-
-- The password must contain at least one uppercase letter.
-- The password must contain at least one lowercase letter.
-- The password must contain at least one digit.
-- The password must contain at least one special character.
+Assicurarsi che ogni provider sia accessibile da tutti i nodi del cluster per un funzionamento senza interruzioni.
 
 :::
+## Politica delle password {#password-policy-section}
 
-After editing the password policy, you can click on **Edit password policy** button to save the changes. Strength setting changes do not affect old passwords: they are valid from now on. Age setting changes are retroactive and are applied to already set passwords, too.
+La politica delle password è un insieme di regole che definisce la complessità delle password e il tempo di scadenza delle stesse. Puoi configurare la politica delle password dalla pagina `Domini e utenti` selezionando il dominio interessato e cliccando su **Modifica politica delle password** dal menu a tre punti della scheda `Password`.
 
-### Password expiration warning {#password-warning}
+Puoi configurare separatamente la durata e la complessità delle password.
 
-The system can send email notifications to users when their password is about to expire.
+### Durata delle password
 
-This feature is available **only for internal user domains** and can be enabled on each user domain.
+Puoi attivare o disattivare la politica di durata delle password cliccando sull'interruttore `Durata password`. Se abilitata, puoi configurare i seguenti parametri:
 
-To enable this feature, ensure the following:
+- `Età minima password` (predefinito 0): il numero minimo di giorni che deve trascorrere prima di poter cambiare nuovamente la password.
+- `Età massima password` (predefinito 180): il tempo di scadenza della password in giorni. Dopo questo periodo, la password non sarà più valida per l'accesso e dovrà essere cambiata. Gli utenti possono cambiare la loro password scaduta tramite il [portale di gestione utenti](#user-management-portal-section).
 
-- password aging must be enabled on the user domain
-- the cluster must be configured to send [mail notifications](../configuration/email_notifications.md)
+### Complessità delle password
 
-The feature can be enabled from the configuration page of the user domain by clicking the **Edit password warning** button on the `Password` card.
+Abilitando l'interruttore `Complessità password`, puoi configurare i seguenti parametri:
 
-After enabling the feature, fill the following fields:
-
-- `Days before expiration`: the number of days before the password expiration when the notification is sent. The notification is sent every day until the password expires
-- `Sender mail address`: the email address of the sender, make sure this is a valid email address to avoid issues with spam filters
-- `Mail template`: select the template to use for the notification email. You can choose between the default templates or a custom one. Default templates are available in English and Italian. To use a custom template, see [Custom template](#password_warning_custom_template-section).
-
-The notification email is sent to the user mail address which can be automatically discovered or manually set by an administrator, depending on the cluster configuration.
-
-#### Internal SMTP server
-
-When a [internal mail server](../applications/mail.md) instance is installed, and the cluster is configured to send mail notifications using it, the user mail address is automatically discovered and used to send the password expiration notification.
-
-The mail address can be overwritten by an administrator setting the `mail` field inside the [User Management portal](#user-management-portal-section).
+- `Lunghezza cronologia password`: il numero di vecchie password che non possono essere riutilizzate.
+- `Lunghezza minima password`: il numero minimo di caratteri che una password deve avere.
+- `Forza complessità password`: obbliga l'uso di password complesse, vedi la nota per maggiori dettagli.
 
 :::note
 
-If the cluster is configured to send mail notifications using an external SMTP server, the automatically discovered mail address is not valid because the user domain is not known to the external server. In this case you must explicitly set the mail address for the user.
+Una password è considerata complessa se è sufficientemente lunga e soddisfa tre delle seguenti regole:
+
+- La password deve contenere almeno una lettera maiuscola.
+- La password deve contenere almeno una lettera minuscola.
+- La password deve contenere almeno una cifra.
+- La password deve contenere almeno un carattere speciale.
 
 :::
 
-#### External SMTP server
+Dopo aver modificato la politica delle password, puoi cliccare sul pulsante **Modifica politica delle password** per salvare le modifiche. Le modifiche alle impostazioni di complessità non influenzano le vecchie password: saranno valide da quel momento in poi. Le modifiche alle impostazioni di durata sono retroattive e si applicano anche alle password già impostate.
 
-When the cluster is configured to send mail notifications using an external SMTP server, the user mail address is not automatically discovered. An administrator must manually set for each user using the [User Management portal](#user-management-portal-section).
+### Avviso di scadenza delle password {#password-warning}
 
-The mail address field is available for both OpenLDAP and Active Directory user domains.
+Il sistema può inviare notifiche email agli utenti quando la loro password sta per scadere.
 
-#### Custom template {#password_warning_custom_template-section}
+Questa funzionalità è disponibile **solo per i domini utente interni** e può essere abilitata per ciascun dominio utente.
 
-After selecting a custom template inside the `Mail template` field, you can specify 2 more fields:
+Per abilitare questa funzionalità, assicurati che:
 
-- `Mail subject`: the subject of the notification email
-- `Mail template`: the body of the notification email in HTML or plain text
+- l'invecchiamento delle password sia abilitato sul dominio utente
+- il cluster sia configurato per inviare [notifiche email](../configuration/email_notifications.md)
 
-Both mail subject and mail body can include the following placeholder:
+La funzionalità può essere abilitata dalla pagina di configurazione del dominio utente cliccando sul pulsante **Modifica avviso password** nella scheda `Password`.
 
-- `$user`: the username
-- `$name`: the full name of the user
-- `$domain`: the user domain name
-- `$days`: the actual number of days before the password expiration
-- `$portal_url`: the URL of the user management portal
+Dopo aver abilitato la funzionalità, compila i seguenti campi:
 
-Example of a plain text custom template:
+- `Giorni prima della scadenza`: il numero di giorni prima della scadenza della password in cui viene inviata la notifica. La notifica viene inviata ogni giorno fino alla scadenza della password.
+- `Indirizzo email del mittente`: l'indirizzo email del mittente, assicurati che sia un indirizzo valido per evitare problemi con i filtri antispam.
+- `Template email`: seleziona il template da utilizzare per l'email di notifica. Puoi scegliere tra i template predefiniti o uno personalizzato. I template predefiniti sono disponibili in inglese e italiano. Per utilizzare un template personalizzato, consulta [Template personalizzato](#password_warning_custom_template-section).
 
-    Dear $user ($name) of domain $domain.
-    Your password is going to expire in $days days.
-    Change it here: $portal_url
+L'email di notifica viene inviata all'indirizzo email dell'utente, che può essere rilevato automaticamente o impostato manualmente da un amministratore, a seconda della configurazione del cluster.
 
-If you want to create an HTML template, you can start by copying a default one like `/etc/nethserver/password_warning/default_en.tmpl`. Copy and paste it inside the `Mail template` field, then modify it as needed.
+#### Server SMTP interno
 
-## User and groups {#user_groups-section}
+Quando è installata un'istanza di [server di posta interno](../applications/mail.md) e il cluster è configurato per inviare notifiche email utilizzandolo, l'indirizzo email dell'utente viene rilevato automaticamente e utilizzato per inviare la notifica di scadenza della password.
 
-You can manage users and groups of a domain by clicking on `User and groups` link from the `Domains and users` page.
+L'indirizzo email può essere sovrascritto da un amministratore impostando il campo `mail` all'interno del [portale di gestione utenti](#user-management-portal-section).
 
-If an external user domain has been configured, the page shows read-only lists. Changes to the user base must be done on the external server.
+:::note
 
-On the other hand, if a local AD or LDAP account provider has been installed, the page allows to create, modify and delete users and groups.
+Se il cluster è configurato per inviare notifiche email utilizzando un server SMTP esterno, l'indirizzo email rilevato automaticamente non è valido perché il dominio utente non è noto al server esterno. In questo caso, è necessario impostare esplicitamente l'indirizzo email per l'utente.
 
-### Create users and groups {#create-users-and-groups-section}
+:::
 
-When creating a user, the following fields are mandatory:
+#### Server SMTP esterno
 
-- User name
-- Full name (name and surname)
+Quando il cluster è configurato per inviare notifiche email utilizzando un server SMTP esterno, l'indirizzo email dell'utente non viene rilevato automaticamente. Un amministratore deve impostarlo manualmente per ciascun utente utilizzando il [portale di gestione utenti](#user-management-portal-section).
+
+Il campo dell'indirizzo email è disponibile sia per i domini utente OpenLDAP che Active Directory.
+
+#### Template personalizzato {#password_warning_custom_template-section}
+
+Dopo aver selezionato un template personalizzato nel campo `Template email`, puoi specificare altri 2 campi:
+
+- `Oggetto email`: l'oggetto dell'email di notifica
+- `Template email`: il corpo dell'email di notifica in HTML o testo semplice
+
+Sia l'oggetto dell'email che il corpo dell'email possono includere i seguenti segnaposto:
+
+- `$user`: il nome utente
+- `$name`: il nome completo dell'utente
+- `$domain`: il nome del dominio utente
+- `$days`: il numero effettivo di giorni prima della scadenza della password
+- `$portal_url`: l'URL del portale di gestione utenti
+
+Esempio di template personalizzato in testo semplice:
+
+    Gentile $user ($name) del dominio $domain.
+    La tua password scadrà tra $days giorni.
+    Cambiala qui: $portal_url
+
+Se desideri creare un template HTML, puoi iniziare copiando uno di quelli predefiniti come `/etc/nethserver/password_warning/default_en.tmpl`. Copialo e incollalo nel campo `Template email`, quindi modificalo secondo le tue esigenze.
+## Utenti e gruppi {#user_groups-section}
+
+Puoi gestire gli utenti e i gruppi di un dominio cliccando sul link `User and groups` dalla pagina `Domains and users`.
+
+Se è stato configurato un dominio utente esterno, la pagina mostra liste in sola lettura. Le modifiche alla base utenti devono essere effettuate sul server esterno.
+
+D'altra parte, se è stato installato un provider di account AD locale o LDAP, la pagina consente di creare, modificare e eliminare utenti e gruppi.
+
+### Creare utenti e gruppi {#create-users-and-groups-section}
+
+Quando si crea un utente, i seguenti campi sono obbligatori:
+
+- Nome utente
+- Nome completo (nome e cognome)
 - Password
 
-Optional attributes are:
+Gli attributi opzionali sono:
 
-- Email address -- Corresponds to the standard LDAP `mail` attribute. It can be set to the user's personal email address, where password expiration warnings are sent. Some applications may also use it as a valid login name.
-- Password never expires (AD only) -- When enabled, the user's password remains valid indefinitely, bypassing the domain password age policy.
-- Required password change / User has to change password at next login (AD only) -- When enabled, the user is prompted to change their password at the next login.
+- Indirizzo email -- Corrisponde all'attributo LDAP standard `mail`. Può essere impostato sull'indirizzo email personale dell'utente, dove vengono inviate le notifiche di scadenza della password. Alcune applicazioni possono anche utilizzarlo come nome utente valido per l'accesso.
+- La password non scade mai (solo AD) -- Quando abilitato, la password dell'utente rimane valida indefinitamente, ignorando la politica di scadenza delle password del dominio.
+- Cambio password obbligatorio / L'utente deve cambiare la password al prossimo accesso (solo AD) -- Quando abilitato, l'utente viene invitato a cambiare la propria password al prossimo accesso.
 
-A user can be added to one or more groups.
+Un utente può essere aggiunto a uno o più gruppi.
 
-Sometimes you need to block user access to services without deleting the account. The safest approach is:
+A volte è necessario bloccare l'accesso ai servizi da parte di un utente senza eliminare l'account. L'approccio più sicuro è:
 
-1.  (optionally) change the user's password with a random one
-2.  disable the user using the `Disable` action from the three-dots menu
+1.  (facoltativamente) cambiare la password dell'utente con una casuale
+2.  disabilitare l'utente utilizzando l'azione `Disable` dal menu con tre punti
 
-When a user is deleted, user data will not be removed. Deleting a user does not remove mailbox contents, home directories, or application-specific data. These must be cleaned up manually depending on the installed applications.
+Quando un utente viene eliminato, i dati dell'utente non saranno rimossi. L'eliminazione di un utente non rimuove il contenuto della casella di posta, le directory personali o i dati specifici delle applicazioni. Questi devono essere puliti manualmente in base alle applicazioni installate.
 
-User names must be unique within the same domain but can be reused across different domains hosted on the cluster.
+I nomi utente devono essere univoci all'interno dello stesso dominio, ma possono essere riutilizzati tra domini diversi ospitati nel cluster.
 
-### Import and export data {#import-export-data-section}
+### Importare ed esportare dati {#import-export-data-section}
 
-Users and groups can be managed in bulk with the *import* and *export data* actions. The supported data format is [CSV](https://www.rfc-editor.org/rfc/rfc4180) (comma-separated values) with the following fields:
+Gli utenti e i gruppi possono essere gestiti in blocco con le azioni *import* e *export data*. Il formato dati supportato è [CSV](https://www.rfc-editor.org/rfc/rfc4180) (valori separati da virgola) con i seguenti campi:
 
 1.  *username*
-2.  *display_name* -- An empty value removes the LDAP `displayName` attribute.
-3.  *password* -- If the password contains a comma (e.g. `Nethesis,1234`), enclose this field in double quotes. An empty value leaves the password unchanged for existing users, and sets a random initial password for newly created users.
-4.  *mail* -- A valid email address. Note that unlike Samba Active Directory, the OpenLDAP RFC2307 schema does not allow special characters. An empty value removes the corresponding `mail` LDAP attribute.
-5.  *groups* -- A list of groups separated by the `|` (pipe) character. If a group does not exist yet, it is created on the fly during the import. If this field is empty, the user is removed from all groups.
-6.  *locked* (boolean)
-7.  *must_change_password* (boolean)
-8.  *no_password_expiration* (boolean)
+2.  *display_name* -- Un valore vuoto rimuove l'attributo LDAP `displayName`.
+3.  *password* -- Se la password contiene una virgola (es. `Nethesis,1234`), racchiudi questo campo tra virgolette doppie. Un valore vuoto lascia la password invariata per gli utenti esistenti e imposta una password iniziale casuale per gli utenti appena creati.
+4.  *mail* -- Un indirizzo email valido. Nota che, a differenza di Samba Active Directory, lo schema OpenLDAP RFC2307 non consente caratteri speciali. Un valore vuoto rimuove il corrispondente attributo LDAP `mail`.
+5.  *groups* -- Un elenco di gruppi separati dal carattere `|` (pipe). Se un gruppo non esiste ancora, viene creato automaticamente durante l'importazione. Se questo campo è vuoto, l'utente viene rimosso da tutti i gruppi.
+6.  *locked* (booleano)
+7.  *must_change_password* (booleano)
+8.  *no_password_expiration* (booleano)
 
-The fields must be present in the above, exact order. They correspond to the attributes described in the previous section; refer to [Create users and groups](#create-users-and-groups-section) for more information.
+I campi devono essere presenti nell'ordine esatto sopra indicato. Corrispondono agli attributi descritti nella sezione precedente; consulta [Creare utenti e gruppi](#create-users-and-groups-section) per maggiori informazioni.
 
-The last three fields are boolean values. Accepted values are limited to the strings `true` and `false`. The empty string, and any value other than `true`, is interpreted as `false`.
+Gli ultimi tre campi sono valori booleani. I valori accettati sono limitati alle stringhe `true` e `false`. La stringa vuota e qualsiasi valore diverso da `true` vengono interpretati come `false`.
 
-For example, this CSV file includes an optional header line with the eight mandatory fields, followed by one record for user `john`, who is a member of the `devs` and `web` groups.
+Ad esempio, questo file CSV include una riga di intestazione opzionale con gli otto campi obbligatori, seguita da un record per l'utente `john`, che è membro dei gruppi `devs` e `web`.
 
     user,display_name,password,mail,groups,locked,must_change_password,no_password_expiration
     john,Johnny Smith,s3Cr3tXX,john@example.org,devs|web,false,true,false
+## Portale di gestione utenti {#user-management-portal-section}
 
-## User Management portal {#user-management-portal-section}
+Il portale di gestione utenti è un'applicazione web che consente a qualsiasi utente non amministratore di cambiare la propria password senza necessità di intervento da parte dell'amministratore, anche se la password è scaduta.
 
-The user management portal is a web application that allows any non-administrator user to change their own password without the need for administrator intervention, even if the password is expired.
+I membri del gruppo Domain Admins possono anche gestire utenti e gruppi nel dominio, indipendentemente dall'interfaccia Cluster Admin.
 
-I membri del gruppo Domain Admins possono anche gestire utenti e gruppi nel dominio, indipendentemente dal Cluster Admin UI.
+Le possibili azioni amministrative sono:
 
-The possible administrative actions are:
+- creazione/modifica di gruppi
+- creazione/modifica di utenti
+- disabilitazione/abilitazione di utenti
+- cambio della password degli utenti
 
-- group creation/modification
-- user creation/modification
-- user disabled/enabled
-- user password change
+Durante la creazione di un utente, sono disponibili i seguenti campi:
 
-When creating a user, the following fields are available:
-
-- User name
-- Full name (name and surname)
+- Nome utente
+- Nome completo (nome e cognome)
 - Password
-- Group (optional field)
-- Email address (optional field)
-- Password never expires (optional field, AD only)
-- Required password change / User has to change password at next login (optional field, AD only)
+- Gruppo (campo opzionale)
+- Indirizzo email (campo opzionale)
+- Password non scade mai (campo opzionale, solo AD)
+- Cambio password richiesto / L'utente deve cambiare la password al prossimo accesso (campo opzionale, solo AD)
 
-The portal is automatically configured on every instance of [Active Directory](#active_directory-section) or [Server LDAP RFC2307](#openldap-section) provider.
+Il portale è configurato automaticamente su ogni istanza di [Active Directory](#active_directory-section) o del provider [LDAP server RFC2307](#openldap-section).
 
-The portal is available at the following URL:
+Il portale è disponibile al seguente URL:
 
     https://<fqdn_node>/users-admin/<domain_name>/
 
-Where `<fqdn_node>` is the FQDN of the node where the provider is and `<domain_name>` is the name of the domain provided while configuring the domain.
+Dove `<fqdn_node>` è il FQDN del nodo in cui si trova il provider e `<domain_name>` è il nome del dominio fornito durante la configurazione del dominio.
 
-Once reached the page, the user is prompted for login and they can authenticate to the domain with user name and password.
+Una volta raggiunta la pagina, all'utente viene richiesto di effettuare il login e può autenticarsi al dominio con nome utente e password.
 
-If the login is successful, the user is directed to the `User Management` page, where they can proceed to change the password. The password must comply with the domain password policy during this process. The list of applications where the new password is effective is displayed next to the password changing form.
+Se il login ha successo, l'utente viene indirizzato alla pagina `Gestione Utenti`, dove può procedere al cambio della password. Durante questo processo, la password deve rispettare le politiche di sicurezza del dominio. L'elenco delle applicazioni in cui la nuova password sarà efficace viene visualizzato accanto al modulo per il cambio della password.
 
-**Footnotes**
+**Note**
 
 [^1]: <https://social.technet.microsoft.com/wiki/contents/articles/34981.active-directory-best-practices-for-internal-domain-and-network-names.aspx#Recommendation>
 

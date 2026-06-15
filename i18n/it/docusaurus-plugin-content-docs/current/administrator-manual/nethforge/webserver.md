@@ -4,32 +4,32 @@ sidebar_position: 7
 ---
 # WebServer
 
-This application installs the [Nginx](https://www.nginx.com/) web server with [PHP](https://www.php.net/) programming language and [SFTPGo](https://github.com/drakkan/sftpgo) to upload files.
+Questa applicazione installa il server web [Nginx](https://www.nginx.com/), il linguaggio di programmazione [PHP](https://www.php.net/) e [SFTPGo](https://github.com/drakkan/sftpgo) per caricare i file.
 
-You can install multiple WebServer instances on the same node from the [Software center](../installation/software_center.md).
+Puoi installare più istanze di WebServer sullo stesso nodo dal [Software center](../installation/software_center.md).
 
 ## Configurazione
 
 Come configurare:
 
-1.  access the application `Settings` page and enter the path for SFTPGo, eg. `/sftpgo`
-2.  choose a public TCP port for the sFTP server
-3.  enable `HTTP to HTTPS` option accordingly to your needs
-4.  Click the **Save** button
+1.  accedi alla pagina `Settings` dell'applicazione e inserisci il percorso per SFTPGo, ad es. `/sftpgo`
+2.  scegli una porta TCP pubblica per il server sFTP
+3.  abilita l'opzione `HTTP to HTTPS` in base alle tue esigenze
+4.  fai clic sul pulsante **Save**
 
-At the end of the configuration the web interface will display the public TCP port to access the MariaDB instance.
+Al termine della configurazione l'interfaccia web mostrerà la porta TCP pubblica per accedere all'istanza MariaDB.
 
-The SFTPGo instance will be available at the `https://<server_fqn>/<path>`. Default credentials for `Web Admin` of SFTPGo are:
+L'istanza SFTPGo sarà disponibile all'indirizzo `https://<server_fqn>/<path>`. Le credenziali predefinite per il `Web Admin` di SFTPGo sono:
 
-- user: `admin`
+- utente: `admin`
 - password: `admin`
 
-Please change them after the first login.
+Cambiale dopo il primo accesso.
 
-### Virtual hosts
+### Host virtuali
 
-You can host multiple sites by creating a virtual host for each site inside the `Virtual hosts` page. To create a virtual host click on **Create a virtual host** button.
+Puoi ospitare più siti creando un host virtuale per ciascun sito nella pagina `Virtual hosts`. Per creare un host virtuale fai clic sul pulsante **Create a virtual host**.
 
-A new SFTP user will be created for each virtual host. Default user credentials will be displayed inside the virtual host card.
+Verrà creato un nuovo utente SFTP per ogni host virtuale. Le credenziali predefinite dell'utente saranno mostrate nella scheda dell'host virtuale.
 
-You can now use the SFTPGo web interface, or a sFTP client, to upload files to your virtual host.
+Ora puoi usare l'interfaccia web di SFTPGo, oppure un client sFTP, per caricare i file nel tuo host virtuale.

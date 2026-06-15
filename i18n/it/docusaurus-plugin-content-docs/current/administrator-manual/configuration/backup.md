@@ -4,55 +4,60 @@ sidebar_position: 5
 ---
 # Backup e ripristino
 
-The `Backup and restore` page manages **backup destinations** and **schedules**, and allows the download of the cluster backup, a small GPG-encrypted file containing cluster-wide configurations, like the backup destination settings, necessary to quickly restore applications. If you have a single-node cluster and want to restore it on a new NS8 node, see [Disaster recovery](#disaster_recovery-section).
+La pagina `Backup e ripristino` gestisce le **destinazioni di backup** e i **piani**, e consente di scaricare il backup del cluster, un piccolo file crittografato con GPG che contiene configurazioni a livello di cluster, come le impostazioni delle destinazioni di backup, necessarie per ripristinare rapidamente le applicazioni. Se hai un cluster a nodo singolo e desideri ripristinarlo su un nuovo nodo NS8, consulta [Recupero di emergenza](#disaster_recovery-section).
 
-The first time you access the `Backup and restore` page, you need to create a secret password to encrypt the cluster backup file.
+La prima volta che accedi alla pagina `Backup e ripristino`, è necessario creare una password segreta per crittografare il file di backup del cluster.
 
-Once the cluster backup password is set, the full `Backup and restore` page is displayed. It is divided into:
+Una volta impostata la password del backup del cluster, viene visualizzata l'intera pagina `Backup e ripristino`. Questa è suddivisa in:
 
-- **Download cluster backup**: Download the small cluster backup file and change its encryption password. See [Cluster backup](#cluster_backup-section) for more information.
-- **Backup destinations**: decide where backup data can be sent, for example a remote S3 hosting service or a local SMB share. The destinations embed access secrets and an end-to-end backup encryption key.
-- **Scheduled backups**: plan the backup runs at specific times, the retention policy, and what applications are included.
+- **Scarica backup del cluster**: Scarica il piccolo file di backup del cluster e modifica la sua password di crittografia. Consulta [Backup del cluster](#cluster_backup-section) per ulteriori informazioni.
+- **Destinazioni di backup**: decidi dove possono essere inviati i dati di backup, ad esempio un servizio di hosting remoto S3 o una condivisione SMB locale. Le destinazioni includono segreti di accesso e una chiave di crittografia end-to-end per il backup.
+- **Backup pianificati**: pianifica l'esecuzione dei backup in orari specifici, la politica di conservazione e quali applicazioni includere.
 
-Finally, under the `Restore` tab, it is possible to start the restore of individual applications. See [Restore applications](#application_restore-section).
+Infine, nella scheda `Ripristino`, è possibile avviare il ripristino di singole applicazioni. Consulta [Ripristino delle applicazioni](#application_restore-section).
 
-The next sections illustrate each function in detail.
+Le sezioni successive illustrano ciascuna funzione in dettaglio.
+## Destinazione del backup {#backup-destination}
 
-## Backup destination {#backup-destination}
+Una destinazione di backup è il luogo in cui vengono salvati i dati di backup delle applicazioni. Definire una destinazione è un prerequisito per pianificare un backup o ripristinare un'applicazione.
 
-Una destinazione di backup è dove vengono salvati i dati di backup delle applicazioni. Definire una destinazione è un prerequisito per pianificare un backup o ripristinare un'applicazione.
-
-Access the `Backup and restore` page, click on the **Add
-destination** button, and choose a provider. Supported providers are:
+Accedi alla pagina `Backup e ripristino`, fai clic sul pulsante **Aggiungi destinazione** e scegli un provider. I provider supportati sono:
 
 - [Backblaze B2](https://www.backblaze.com/b2/cloud-storage.html)
 - [Amazon S3](https://aws.amazon.com/s3/)
 - [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)
-- Generic S3, like [RustFS](../applications/rustfs.md)
-- Condividi file di Windows, tramite protocolli SMB2/3
-- [Local storage](#local-storage), allegato ad un nodo del cluster
+- S3 generico, come [RustFS](../applications/rustfs.md)
+- Condivisione file Windows, tramite i protocolli SMB2/3
+- [Storage locale](#local-storage), collegato a un nodo del cluster
 
-Fill in the required fields for the chosen provider.
+Compila i campi richiesti per il provider scelto.
 
-If adding a previously used destination (i.e., it already has data inside), you must fill the `Data encryption key` field under the `Advanced` section, otherwise existing backups cannot be opened. For new destinations leave the field empty to generate a random key.
+Se aggiungi una destinazione precedentemente utilizzata (cioè che contiene già dati), devi compilare il campo `Chiave di crittografia dei dati` nella sezione `Avanzate`, altrimenti i backup esistenti non possono essere aperti. Per nuove destinazioni, lascia il campo vuoto per generare una chiave casuale.
 
-La procedura di backup genera una struttura a due livelli in cui le istanze delle applicazioni sono raggruppate per tipo al primo livello, e da una cartella denominata UUID al secondo livello. Per esempio:
+La procedura di backup genera una struttura a due livelli in cui le istanze delle applicazioni sono raggruppate per tipo al primo livello e da una cartella denominata UUID al secondo livello. Ad esempio:
 
-> dokuwiki/ ├─ dd5b0b7c-579e-42ee-96a3-282d10958cda/ ├─ b1497438-76d9-4aa1-b6fd-d8a4f827563e/ ├─ fcf7b6e3-2424-442d-b625-ab90438c74db/ mail/ ├─ 92b8ee37-44dd-4f9f-9ee8-658e24556c55/ loki/ └─ 652ea526-b0dc-4bfb-a356-8a841b22bbd2/
+    dokuwiki/
+    ├─ dd5b0b7c-579e-42ee-96a3-282d10958cda/
+    ├─ b1497438-76d9-4aa1-b6fd-d8a4f827563e/
+    ├─ fcf7b6e3-2424-442d-b625-ab90438c74db/
+    mail/
+    ├─ 92b8ee37-44dd-4f9f-9ee8-658e24556c55/
+    loki/
+    └─ 652ea526-b0dc-4bfb-a356-8a841b22bbd2/
 
-Each UUID directory contains a [Restic](https://restic.readthedocs.io) repository. All Restic repositories under the same backup destination share the same data encryption key.
+Ogni directory UUID contiene un repository [Restic](https://restic.readthedocs.io). Tutti i repository Restic sotto la stessa destinazione di backup condividono la stessa chiave di crittografia dei dati.
 
-L'accesso a basso livello ai repository Restic può essere eseguito utilizzando il comando [restic-wrapper](https://nethserver.github.io/ns8-core/core/backup_restore/#the-restic-wrapper-command), come documentato nel Manuale NS8 Sviluppatore.
+L'accesso a basso livello ai repository Restic può essere effettuato utilizzando il comando [restic-wrapper](https://nethserver.github.io/ns8-core/core/backup_restore/#the-restic-wrapper-command), come documentato nel Manuale dello Sviluppatore di NS8.
 
-### Local storage {#local-storage}
+### Storage locale {#local-storage}
 
-The `Local storage` destination allows storing backup data on locally attached storage, like an external USB disk. Follow this procedure:
+La destinazione `Storage locale` consente di memorizzare i dati di backup su uno storage collegato localmente, come un disco USB esterno. Segui questa procedura:
 
-1.  Format the disk with a supported filesystem, e.g., XFS:
+1.  Formatta il disco con un filesystem supportato, ad esempio XFS:
 
         mkfs.xfs /dev/disk/by-id/some-disk-id
 
-2.  Create a Podman volume named `backup00`:
+2.  Crea un volume Podman denominato `backup00`:
 
         podman volume create \
               --label org.nethserver.role=backup \
@@ -60,101 +65,95 @@ The `Local storage` destination allows storing backup data on locally attached s
               --opt=o=noatime \
               backup00
 
-3.  Configura il `rclone-webdav.service` unità per l'uso di tale volume:
+3.  Configura l'unità `rclone-webdav.service` per utilizzare tale volume:
 
         echo BACKUP_VOLUME=backup00 > /var/lib/nethserver/node/state/rclone-webdav.env
 
-4.  Riavviare il servizio. Il disco viene montato automaticamente:
+4.  Riavvia il servizio. Il disco verrà montato automaticamente:
 
         systemctl restart rclone-webdav.service
 
-    > [!NOTE]
-    > The disk is unmounted when the `rclone-webdav` service is stopped.
+    > [!NOTA]
+    > Il disco viene smontato quando il servizio `rclone-webdav` viene arrestato.
 
-5.  Remove the default volume used by the service, as it is no longer needed. Existing content will be lost:
+5.  Rimuovi il volume predefinito utilizzato dal servizio, poiché non è più necessario. Il contenuto esistente verrà perso:
 
         podman volume rm rclone-webdav
+## Pianificare il backup delle applicazioni
 
-## Schedule application backup
+Per pianificare il backup delle applicazioni installate:
 
-To schedule the backup of installed applications:
+- Fare clic sul pulsante **Pianifica backup**.
+- Selezionare le applicazioni da includere.
+- Scegliere una destinazione per il backup.
+- Impostare il giorno, l'orario e la politica di conservazione per il backup.
+- Inserire un nome per la pianificazione del backup.
+- Salvare la configurazione facendo clic sul pulsante **Pianifica backup**.
 
-- Click on the **Schedule backup** button.
-- Select the applications to include.
-- Choose one backup destination.
-- Impostare la politica giorno, tempo e ritenzione per il backup.
-- Enter a name for the backup schedule.
-- Save the configuration by clicking the **Schedule backup** button.
+Per eseguire manualmente un backup, fare clic sull'elemento `Esegui backup ora` dal menu a tre punti del backup pianificato.
 
-To manually execute a backup, click the `Run backup now` item from the three-dots menu of the scheduled backup.
+Per modificare le applicazioni incluse in un backup esistente, fare clic sull'elemento `Modifica` dal menu a tre punti del backup pianificato.
 
-To change which applications are included in an existing backup, click the `Edit` item from the three-dots menu of the scheduled backup.
+Dopo la prima esecuzione del backup, lo stato del backup viene riportato in `Backup > Pianificazioni > Vedi dettagli`.
+## Ripristino delle applicazioni {#application_restore-section}
 
-Dopo la prima esecuzione di un backup, lo stato del backup viene mostrato sotto `Backup > Piani > Vedi i dettagli`.
+Per ripristinare un'applicazione, deve essere disponibile almeno una destinazione di backup.
 
-## Restore applications {#application_restore-section}
+Se non sono presenti destinazioni e si dispone di un file di backup del cluster crittografato, accedere alla pagina `Backup e ripristino` e fare clic su **Importa destinazioni** per ripristinarle rapidamente.
 
-Per ripristinare un'applicazione, almeno una destinazione di backup deve essere disponibile.
+Una volta definite le destinazioni, fare clic sulla scheda `Ripristina` e seguire questa procedura:
 
-If no destinations are present and you have an encrypted cluster backup file, go to the `Backup and restore` page and click **Import
-destinations** to quickly restore them.
+- Fare clic sul pulsante **Ripristina applicazione**.
+- Una finestra di dialogo elenca tutte le applicazioni trovate nelle destinazioni di backup configurate. Selezionare l'applicazione che si desidera ripristinare.
+- Se l'applicazione selezionata è già installata, diventa visibile una casella di controllo `Sostituisci app esistente`. Quando abilitata, l'applicazione esistente verrà rimossa automaticamente al termine della procedura di ripristino.
+- Selezionare lo snapshot di backup dall'elenco.
+- Selezionare il nodo di destinazione per il ripristino. Si noti che, in alcuni casi, il ripristino su determinati nodi del cluster potrebbe essere limitato a causa di politiche applicative o limitazioni delle risorse del nodo.
+- Fare clic sul pulsante **Ripristina**.
 
-Once destinations are defined, click the `Restore` tab and follow this procedure:
+Si noti che i certificati TLS ottenuti da Let's Encrypt non fanno parte del backup e non vengono ripristinati con l'applicazione: devono essere richiesti nuovamente dalla pagina delle impostazioni dell'applicazione dopo il ripristino.
 
-- Click on the **Restore application** button.
-- A dialog box lists all applications found in the configured backup destinations. Select the application you want to restore.
-- If the selected application is already installed, a `Replace existing app` checkbox becomes visible. When enabled, the existing application will be removed automatically at the end of the restore procedure.
-- Select the backup snapshot from the list.
-- Select the restore target node. Note that in some cases, restoring to certain cluster nodes may be restricted due to application policies or node resource limitations.
-- Click on the **Restore** button.
+Alcune applicazioni principali hanno comportamenti speciali durante il ripristino:
 
-Note that TLS certificates obtained from Let's Encrypt are not part of the backup and are not restored with the application: they must be requested again from the application settings page after restore.
+- **Traefik** ripristina solo i certificati caricati e le rotte HTTP definite dall'utente. Fare riferimento a [Caricare certificati TLS personalizzati](certificates.md#custom-certificates-section) e [Creare una rotta HTTP personalizzata](proxy.md#custom-http-route-section).
+- Il ripristino di **Loki** installa un'istanza aggiuntiva di Loki *inattiva*. Può essere utilizzata solo per le ricerche nei log, come spiegato in [Log di sistema](log_server.md).
+- Il comportamento del ripristino di **Samba** dipende dal fatto che il dominio utente AD sia già presente nel cluster. Se presente, vengono ripristinati solo i dati delle cartelle condivise. In caso contrario, viene ripristinato anche il database LDAP del DC. Vedere [Ripristinare il file server da un backup](../applications/file_server.md#file-server-restore) per ulteriori informazioni.
+## Ripristino selettivo dei contenuti {#selective-content-restore}
 
-Some core applications have special behavior during restore:
+Alcune applicazioni consentono di cercare e ripristinare elementi specifici da uno snapshot di backup. Per maggiori informazioni, fare riferimento a:
 
-- **Traefik** restores only uploaded certificates and user-defined HTTP routes. Refer to [Upload custom TLS certificates](certificates.md#custom-certificates-section) and [Create a custom HTTP route](proxy.md#custom-http-route-section).
-- **Loki** restore installs an additional *inactive* Loki instance. It can be used only for log searches, as explained in [System logs](log_server.md).
-- **Samba** restore behavior depends on whether the AD user domain is already present in the cluster. If present, only shared folder data is restored. If not present, the DC LDAP database is restored as well. See [Restore file server from backup](../applications/file_server.md#file-server-restore) for more information.
+- Samba [Ripristinare un singolo file o cartella da un backup di una cartella condivisa](../applications/file_server.md#share-selective-restore), per file e directory all'interno di una condivisione Samba.
+- Mail [Ripristinare una cartella di una casella di posta da un backup](../applications/mail.md#mailbox-selective-restore), per caselle di posta pubbliche e cartelle delle caselle di posta degli utenti.
+## Backup del cluster {#cluster_backup-section}
 
-## Selective content restore {#selective-content-restore}
+Il backup del cluster contiene tutti i dati necessari per il [Ripristino di emergenza](#disaster_recovery-section), incluse le configurazioni delle destinazioni e le relative chiavi di crittografia dei dati, che sono indispensabili anche per ripristinare i backup delle singole applicazioni. Si tratta di un file JSON compresso e crittografato con GPG.
 
-Alcune applicazioni consentono di cercare e ripristinare elementi specifici da una snapshot di backup. Per ulteriori informazioni, consultare:
+La prima volta che si accede alla pagina `Backup e ripristino`, è necessario impostare una password di crittografia e conservarla in un luogo sicuro. Una nuova password di crittografia è richiesta dopo l'elezione di un nuovo nodo leader (vedi [Promuovere un nodo a leader](cluster.md#node-promotion-section)).
 
-- Samba [Restore a single file or folder from a shared folder backup](../applications/file_server.md#share-selective-restore), per file e directory all'interno di una quota Samba.
-- Mail [Restore a mailbox folder from a backup](../applications/mail.md#mailbox-selective-restore), per caselle di posta pubbliche e cartelle della casella di posta utente.
+Il backup del cluster viene copiato automaticamente nelle destinazioni di backup durante le esecuzioni programmate, garantendo backup aggiornati sia dei dati che della configurazione del cluster. Se il cluster dispone di un [abbonamento](../about/subscription.md) attivo che include il backup cloud della configurazione del cluster, il backup del cluster è disponibile anche dal portale dell'abbonamento.
 
-## Cluster backup {#cluster_backup-section}
-
-The cluster backup contains all required data for [Disaster recovery](#disaster_recovery-section), including destination configurations and their data encryption keys, which are also necessary for restoring individual application backups. It is a compressed JSON file encrypted with GPG.
-
-The first time the `Backup and restore` page is accessed, you must set an encryption password and store it in a safe place. A new encryption password is needed after a new leader node is elected (see [Promuovere un nodo a leader](cluster.md#node-promotion-section)).
-
-The cluster backup is automatically copied to backup destinations during scheduled runs, ensuring up-to-date backups of both your data and the cluster setup. If the cluster has an active [subscription](../about/subscription.md) that includes cloud backup of the cluster configuration, the cluster backup is also available from the subscription portal.
-
-Periodically download the cluster backup and keep it in a safe place. Click on the **Download cluster backup** button of the `Backup and restore` page.
+Scaricare periodicamente il backup del cluster e conservarlo in un luogo sicuro. Fare clic sul pulsante **Scarica backup del cluster** nella pagina `Backup e ripristino`.
 
 :::note
 
-If you lose the cluster backup, you can still restore applications to another cluster only if you know the data encryption password of the backup destination.
+Se si perde il backup del cluster, è comunque possibile ripristinare le applicazioni su un altro cluster solo se si conosce la password di crittografia dei dati della destinazione di backup.
 
 :::
 
-To inspect the content of the downloaded file, use the following command, replacing "SECRET" with your encryption password:
+Per ispezionare il contenuto del file scaricato, utilizzare il seguente comando, sostituendo "SECRET" con la propria password di crittografia:
 
     echo 'SECRET' | gpg --batch --passphrase-fd 0 --decrypt backup.json.gz.gpg | gunzip | jq
+## Ripristino di emergenza {#disaster_recovery-section}
 
-## Disaster recovery {#disaster_recovery-section}
+La procedura di ripristino di emergenza è progettata per il ripristino di un **cluster a nodo singolo**. È sufficiente disporre del file [backup del cluster](#cluster_backup-section) originale.
 
-The disaster recovery procedure is designed for the restoration of a **single-node cluster**. You just need the original [cluster backup](#cluster_backup-section) file.
+0.  Assicurarsi che il nuovo sistema abbia spazio libero su disco sufficiente. La procedura di ripristino non verifica lo spazio libero su disco.
+1.  [Installare](../installation/install.md) un nuovo cluster e accedere utilizzando le credenziali predefinite.
+2.  Modificare la password predefinita dell'amministratore.
+3.  Fare clic sul pulsante **Ripristina cluster**.
+4.  Scegliere se ripristinare una configurazione del cluster da un server HTTP remoto o caricare il backup dal browser.
+5.  Inserire il segreto di crittografia nel campo `Backup password`.
+6.  Selezionare le applicazioni da ripristinare.
 
-0.  Make sure the new system has enough free disk space. The restore procedure does not check the free disk space.
-1.  [Install](../installation/install.md) a new cluster and log in using the default credentials.
-2.  Change the default administrator password.
-3.  Click on the **Restore cluster** button.
-4.  Choose whether to restore a cluster configuration from a remote HTTP server or upload the backup from your browser.
-5.  Enter the encryption secret in the `Backup password` field.
-6.  Select the applications to restore.
+Per ulteriori informazioni, fare riferimento alle note di backup e ripristino per ciascuna applicazione. Ad esempio:
 
-Per ulteriori informazioni, fare riferimento al backup e ripristinare le note per ogni applicazione. Per esempio:
-
-- [Restore file server from backup](../applications/file_server.md#file-server-restore)
+- [Ripristinare il file server dal backup](../applications/file_server.md#file-server-restore)

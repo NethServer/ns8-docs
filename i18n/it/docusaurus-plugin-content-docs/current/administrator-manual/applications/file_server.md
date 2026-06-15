@@ -1,162 +1,161 @@
 ---
-title: Samba file server
+title: File server Samba
 sidebar_position: 3
 ---
-# Samba file server
+# File server Samba
 
-The [Samba](http://www.samba.org) file server application provides shared folders and home directories to users and groups within an Active Directory domain.
+L'applicazione file server [Samba](http://www.samba.org) fornisce cartelle condivise e directory home a utenti e gruppi all'interno di un dominio Active Directory.
 
-Before installing Samba file server in a cluster node, evaluate the available disk space and estimate space requirements. Refer to section [Utilizzo del disco](../../tutorial/disk_usage.md) for disk space management strategies. For example, if you mount an additional volume on `/mnt/disk1` or `/srv/disk1` directories, the install procedure will then ask if you want to use it for Samba.
+Prima di installare il file server Samba in un nodo del cluster, valuta lo spazio su disco disponibile e stima i requisiti di spazio. Fai riferimento alla sezione [Utilizzo del disco](../../tutorial/disk_usage.md) per le strategie di gestione dello spazio su disco. Ad esempio, se monti un volume aggiuntivo nelle directory `/mnt/disk1` o `/srv/disk1`, la procedura di installazione ti chiederà poi se vuoi usarlo per Samba.
 
-Only one instance of Samba can be installed per NS8 node. The installation method depends on the role Samba will play in the Active Directory domain.
+Solo un'istanza di Samba può essere installata per ciascun nodo NS8. Il metodo di installazione dipende dal ruolo che Samba svolgerà nel dominio Active Directory.
 
-- **Domain Controller**: To install a Samba instance as an Active Directory Domain Controller, refer to [Active Directory](../installation/user_domains.md#active_directory-section). When configuring it as an account provider, ensure the `Provide shared folders and authentication to Windows clients` switch is enabled.
+- **Domain Controller**: per installare un'istanza di Samba come Active Directory Domain Controller, fai riferimento a [Active Directory](../installation/user_domains.md#active_directory-section). Quando lo configuri come provider di account, assicurati che l'interruttore `Provide shared folders and authentication to Windows clients` sia abilitato.
 
-  Only one AD domain controller can be configured with a LAN IP address to serve Authentication, Shared folders, and DNS to Windows clients. Other DCs are bound to the cluster private VPN and are accessible only to cluster applications.
+  Solo un controller di dominio AD può essere configurato con un indirizzo IP LAN per fornire autenticazione, cartelle condivise e DNS ai client Windows. Gli altri DC sono vincolati alla VPN privata del cluster e sono accessibili solo alle applicazioni del cluster.
 
-- **Domain Member**: To install a Samba instance as an Active Directory Domain Member, start from the Software Center as with any other application. A domain member can connect to both internal and external AD providers. See [Domini utente](../installation/user_domains.md).
+- **Domain Member**: per installare un'istanza di Samba come Active Directory Domain Member, avvia l'installazione dal Software Center come per qualsiasi altra applicazione. Un membro di dominio può collegarsi sia a provider AD interni sia esterni. Vedi [Domini utente](../installation/user_domains.md).
 
 ## Configurazione {#samba-configuration}
 
-When Samba is installed as a **domain member**, a first-time configuration procedure starts to collect essential information.
+Quando Samba è installato come **domain member**, viene avviata una procedura di configurazione iniziale per raccogliere le informazioni essenziali.
 
-- **Domain**: Select an item from the list of available NS8 user domains. Only internal and external Active Directory domains are listed.
-- **Admin credentials**: These are required to join Samba to the domain as a file server member. Enter the username and password of a member from the Active Directory "Domain Admins" group.
-- **File server name and alias**: Assign a unique computer account name to Samba. Choose carefully, as this cannot be changed later. The alias name is optional and can be changed at any time.
-- **File server IP address**: Select the IP address for the file server.
+- **Domain**: seleziona una voce dall'elenco dei domini utente NS8 disponibili. Sono elencati solo i domini Active Directory interni ed esterni.
+- **Admin credentials**: sono necessarie per unire Samba al dominio come membro file server. Inserisci nome utente e password di un membro del gruppo Active Directory "Domain Admins".
+- **File server name and alias**: assegna a Samba un nome univoco per l'account computer. Sceglilo con attenzione, perché non potrà essere modificato in seguito. Il nome alias è facoltativo e può essere cambiato in qualsiasi momento.
+- **File server IP address**: seleziona l'indirizzo IP del file server.
 
-### File server alias {#file-server-alias}
+### Alias del file server {#file-server-alias}
 
-Once the first-time configuration procedure is completed, use the `Settings` page from the left menu to modify the optional `File server alias` value. The server alias name is useful for migrating and consolidating shared folders from another server. The alias name is added to the Active Directory DNS as a CNAME record pointing to the Samba file server name. The alias name is also added as a Service Principal Name (SPN) to the computer account.
+Una volta completata la procedura di configurazione iniziale, usa la pagina `Settings` nel menu a sinistra per modificare il valore facoltativo `File server alias`. Il nome alias del server è utile per migrare e consolidare cartelle condivise da un altro server. Il nome alias viene aggiunto al DNS di Active Directory come record CNAME che punta al nome del file server Samba. Il nome alias viene aggiunto anche come Service Principal Name (SPN) all'account computer.
 
-### File server IP address {#file-server-address}
+### Indirizzo IP del file server {#file-server-address}
 
-In some cases, it is also possible to modify the `File server IP address` and choose a different private IP address from those assigned to the node. Note that a domain controller cannot change its IP address if there are other domain controllers in the same AD domain.
+In alcuni casi è anche possibile modificare `File server IP address` e scegliere un diverso indirizzo IP privato tra quelli assegnati al nodo. Tieni presente che un domain controller non può cambiare il proprio indirizzo IP se esistono altri controller di dominio nello stesso dominio AD.
 
-## Shared folders {#shared-folders-section}
+## Cartelle condivise {#shared-folders-section}
 
-Open the Samba application from the app drawer, select `Shared folders` from the left menu, and click on **Create shared folder**.
+Apri l'applicazione Samba dal cassetto delle applicazioni, seleziona `Shared folders` dal menu a sinistra e fai clic su **Create shared folder**.
 
-The following parameters are required to create a new shared folder:
+Per creare una nuova cartella condivisa sono richiesti i seguenti parametri:
 
-- **Name**: The name of the shared folder. Avoid naming it after a domain user, as that user's home directory will be accessed instead of the shared folder.
-- **Description**: Free text displayed to network clients as the "share comment".
-- **Main group**: Select a domain group to assign initial permissions to the share.
-- **Initial permissions**: Choose one of the three available options. Note that the `Domain Admins` group is initially granted full privileges in all cases.
-  1.  Main group can read and write; everyone else can read.
-  2.  Main group can read and write; everyone else has no access.
-  3.  Everyone can read and write, including the main group.
+- **Name**: il nome della cartella condivisa. Evita di usare il nome di un utente del dominio, perché verrebbe aperta la directory home di quell'utente invece della cartella condivisa.
+- **Description**: testo libero mostrato ai client di rete come "commento condivisione".
+- **Main group**: seleziona un gruppo di dominio a cui assegnare i permessi iniziali della condivisione.
+- **Initial permissions**: scegli una delle tre opzioni disponibili. Nota che al gruppo `Domain Admins` vengono inizialmente concessi privilegi completi in tutti i casi.
+  1.  Il gruppo principale può leggere e scrivere; tutti gli altri possono leggere.
+  2.  Il gruppo principale può leggere e scrivere; tutti gli altri non hanno accesso.
+  3.  Tutti possono leggere e scrivere, incluso il gruppo principale.
 
 :::note
 
-To access the shared folder, you must provide valid domain credentials. Anonymous or guest access is not allowed for security reasons[^1].
+Per accedere alla cartella condivisa, devi fornire credenziali di dominio valide. L'accesso anonimo o come guest non è consentito per motivi di sicurezza[^1].
 
 :::
 
-Once created, the following actions are available on the shared folder from the three-dots menu:
+Una volta creata, dal menu con tre puntini della cartella condivisa sono disponibili le seguenti azioni:
 
-- **Edit**: Change the share description displayed to network clients as the "share comment".
-- **Set permissions**: Remove any existing ACLs and recursively grant new initial ACLs.
-- **Restore file or folder**: Search files and folders from a past backup snapshot and restore them. See [Restore a single file or folder from a shared folder backup](#share-selective-restore).
-- **Delete**: Remove the shared folder and its contents.
+- **Edit**: cambia la descrizione della condivisione mostrata ai client di rete come "commento condivisione".
+- **Set permissions**: rimuove eventuali ACL esistenti e applica ricorsivamente nuove ACL iniziali.
+- **Restore file or folder**: cerca file e cartelle da una precedente istantanea di backup e li ripristina. Vedi [Ripristinare un singolo file o una cartella da un backup di cartella condivisa](#share-selective-restore).
+- **Delete**: rimuove la cartella condivisa e il suo contenuto.
 
-The **Show ACLs** button displays the filesystem ACLs applied to the shared folder root directory. You can edit ACLs with an SMB client, such as the Windows Explorer application installed with Windows Pro editions, or the `smbcacls` command provided by the Samba project.
+Il pulsante **Show ACLs** mostra le ACL del filesystem applicate alla directory radice della cartella condivisa. Puoi modificare le ACL con un client SMB, come l'applicazione Esplora file inclusa nelle edizioni Windows Pro, oppure con il comando `smbcacls` fornito dal progetto Samba.
 
-In both creation and edit workflows, some additional settings are available under the `Advanced` section and are described below.
+Sia nel flusso di creazione sia in quello di modifica, nella sezione `Advanced` sono disponibili alcune impostazioni aggiuntive descritte di seguito.
 
-### Audit logging {#share-audit-logging}
+### Registrazione di audit {#share-audit-logging}
 
-If the `Audit logging` switch is enabled for a shared folder, access operations and permission changes are recorded in a database. For troubleshooting purposes, you can enable the recording of failed operations with the `Log failed events` switch.
+Se l'interruttore `Audit logging` è abilitato per una cartella condivisa, le operazioni di accesso e le modifiche ai permessi vengono registrate in un database. Per scopi di risoluzione dei problemi, puoi abilitare la registrazione delle operazioni non riuscite con l'interruttore `Log failed events`.
 
-Recorded events are accessible from the `Samba Audit search` Grafana dashboard, as explained in [Grafana access](../configuration/metrics.md#grafana_access-section).
+Gli eventi registrati sono accessibili dalla dashboard Grafana `Samba Audit search`, come spiegato in [Accesso a Grafana](../configuration/metrics.md#grafana_access-section).
 
-More information about the audit database is available from the `Samba Audit statistics` Grafana dashboard.
+Ulteriori informazioni sul database di audit sono disponibili nella dashboard Grafana `Samba Audit statistics`.
 
-### Folder visibility {#share-browseable}
+### Visibilità della cartella {#share-browseable}
 
-The `Make folder visible when browsing` switch controls whether the shared folder is listed from the network. If the switch is disabled, accessing the share is possible only by knowing its name and network path.
+L'interruttore `Make folder visible when browsing` controlla se la cartella condivisa viene elencata in rete. Se l'interruttore è disabilitato, è possibile accedere alla condivisione solo conoscendone il nome e il percorso di rete.
 
-This feature is also referred to as a *hidden share* or the *share browseable/browsable* attribute.
+Questa funzionalità è anche detta *hidden share* oppure attributo *share browseable/browsable*.
 
-### Recycle bin {#share-recycle}
+### Cestino {#share-recycle}
 
-The `Keep deleted files in a recycle bin` switch enables a special `.recycle` subfolder where files or directories are moved instead of being permanently deleted when users attempt to remove them from the share.
+L'interruttore `Keep deleted files in a recycle bin` abilita una speciale sottocartella `.recycle` in cui file o directory vengono spostati invece di essere eliminati definitivamente quando gli utenti provano a rimuoverli dalla condivisione.
 
-Deleted content is placed in a private subfolder automatically created under the `.recycle` subfolder. This private subfolder is named after the user and is accessible only to the user who deleted the content and the Administrator.
+Il contenuto eliminato viene collocato in una sottocartella privata creata automaticamente dentro `.recycle`. Questa sottocartella privata prende il nome dell'utente ed è accessibile solo all'utente che ha eliminato il contenuto e all'amministratore.
 
-When the switch is enabled, two additional options become available:
+Quando l'interruttore è abilitato, diventano disponibili anche due opzioni aggiuntive:
 
-- **Retention**: If a limit is set, a daily automated task removes items in the `.recycle` subfolder that are older than the specified number of days (default: 30).
-- **When files with the same name are deleted**: Determines whether to keep only the latest version of a deleted file with the same name, or preserve multiple versions.
+- **Retention**: se è impostato un limite, un'attività automatica giornaliera rimuove gli elementi nella sottocartella `.recycle` più vecchi del numero di giorni specificato (predefinito: 30).
+- **When files with the same name are deleted**: determina se mantenere solo la versione più recente di un file eliminato con lo stesso nome oppure conservarne più versioni.
 
-### Restore a single file or folder from a shared folder backup {#share-selective-restore}
+### Ripristinare un singolo file o una cartella da un backup di cartella condivisa {#share-selective-restore}
 
-Se l'applicazione ha una o più destinazioni di backup configurate e un backup è già stato eseguito, è possibile cercare e ripristinare un file o una cartella da un'istantanea di backup precedente di una specifica cartella condivisa.
+Se l'applicazione ha una o più destinazioni di backup configurate e un backup è già stato eseguito, puoi cercare e ripristinare un file o una cartella da una precedente istantanea di backup di una specifica cartella condivisa.
 
 :::warning
 
-La procedura non calcola l'utilizzo dello spazio su disco necessario per il ripristino. Assicurare sufficiente spazio su disco è disponibile prima di procedere.
+La procedura non calcola lo spazio su disco necessario per il ripristino. Assicurati che sia disponibile spazio su disco sufficiente prima di procedere.
 
 :::
 
-1.  Navigare all'istanza di applicazione Samba e aprire la pagina cartelle condivise. Ogni cartella condivisa viene visualizzata come scheda. Dal menu a tre punti della cartella condivisa desiderata, selezionare `Ripristina file o cartella`.
+1.  Vai all'istanza dell'applicazione Samba e apri la pagina `Shared folders`. Ogni cartella condivisa è visualizzata come una scheda. Dal menu con tre puntini della cartella condivisa desiderata, seleziona `Restore file or folder`.
 
-2.  Scegliere la destinazione di backup da cui ripristinare il contenuto. Caricamento di destinazioni remote può richiedere un po 'di tempo.
+2.  Scegli la destinazione di backup da cui ripristinare il contenuto. Il caricamento delle destinazioni remote può richiedere del tempo.
 
-3.  Selezionare la data dell'istantanea di backup da ripristinare. Le istanze sono elencate da più nuovo a più vecchio.
+3.  Seleziona la data dell'istantanea di backup da ripristinare. Le istantanee sono elencate dalla più recente alla più vecchia.
 
-4.  Inizia a digitare il nome del file o della cartella da ripristinare. La ricerca corrisponde sia al nome che al percorso relativo, partendo dalla radice della cartella condivisa. I risultati sono ordinati con le partite di nome che appaiono prima delle partite del percorso. Selezionare un elemento dai risultati.
+4.  Inizia a digitare il nome del file o della cartella da ripristinare. La ricerca corrisponde sia al nome sia al percorso relativo, a partire dalla radice della cartella condivisa. I risultati sono ordinati in modo che le corrispondenze sul nome compaiano prima di quelle sul percorso. Seleziona un elemento dai risultati.
 
-    Click **Restore** to initiate the restore process.
+    Fai clic su **Restore** per avviare il processo di ripristino.
 
-The selected item will be restored into a subfolder of the shared folder, named "Restored folder". This folder is readable by everyone, while its contents retain the ACLs from the backup.
+L'elemento selezionato verrà ripristinato in una sottocartella della cartella condivisa chiamata "Restored folder". Questa cartella è leggibile da tutti, mentre il suo contenuto mantiene le ACL del backup.
 
-## Clone a file server instance {#file-server-clone}
+## Clonare un'istanza di file server {#file-server-clone}
 
-When Samba has the Domain Member role, it is possible to clone it as described in [Clone and move](../installation/modules.md#move_clone-section).
+Quando Samba ha il ruolo di Domain Member, è possibile clonarlo come descritto in [Clona e sposta](../installation/modules.md#move_clone-section).
 
-After the clone process finishes, navigate to the Samba application `Status` page. The first-configuration procedure will start to acquire the missing information. A new computer account is created in Active Directory. Follow the procedure as described in [Configurazione](#samba-configuration).
+Dopo il completamento del processo di clonazione, vai alla pagina `Status` dell'applicazione Samba. Verrà avviata la procedura di configurazione iniziale per acquisire le informazioni mancanti. In Active Directory viene creato un nuovo account computer. Segui la procedura descritta in [Configurazione](#samba-configuration).
 
-## Restore file server from backup {#file-server-restore}
+## Ripristinare il file server da backup {#file-server-restore}
 
-First, follow the procedure described in [Restore applications](../configuration/backup.md#application_restore-section) by selecting the backup of the **Samba module**.
+Per prima cosa, segui la procedura descritta in [Ripristino applicazioni](../configuration/backup.md#application_restore-section) selezionando il backup del **modulo Samba**.
 
-After the restoration process completes, further actions may be needed to start the file server, depending on the original Samba role: member or controller.
+Dopo il completamento del processo di ripristino, potrebbero essere necessarie ulteriori azioni per avviare il file server, a seconda del ruolo originale di Samba: member o controller.
 
-### Restore a domain member
+### Ripristinare un domain member
 
-To complete the restoration of a **domain member**, navigate to the Samba application `Status` page.
+Per completare il ripristino di un **domain member**, vai alla pagina `Status` dell'applicazione Samba.
 
-- If the original IP address and user domain were found, the restore procedure automatically starts the file server. No manual operations are needed.
+- Se l'indirizzo IP originale e il dominio utenti sono stati trovati, la procedura di ripristino avvia automaticamente il file server. Non sono necessarie operazioni manuali.
 
-- Otherwise, the first-configuration procedure will start to acquire the missing information. In this case, a new computer account is created in Active Directory. Follow the procedure as described in [Configurazione](#samba-configuration).
+- In caso contrario, verrà avviata la procedura di configurazione iniziale per acquisire le informazioni mancanti. In questo caso viene creato un nuovo account computer in Active Directory. Segui la procedura descritta in [Configurazione](#samba-configuration).
 
-  If you manually remove the original computer account, you may set the original name as the `File server alias` to provide seamless access to shared folders from network clients.
+  Se rimuovi manualmente l'account computer originale, puoi impostare il nome originale come `File server alias` per fornire accesso continuo alle cartelle condivise dai client di rete.
 
-  To manage computer accounts of an NS8 internal Active Directory domain, invoke the `samba-tool` command from an NS8 node that hosts a Samba Domain Controller. For example, this command prints an inline help message:
+  Per gestire gli account computer di un dominio Active Directory interno di NS8, invoca il comando `samba-tool` da un nodo NS8 che ospita un Samba Domain Controller. Ad esempio, questo comando stampa un messaggio di aiuto inline:
 
       runagent -m samba0 podman exec -ti samba-dc samba-tool computer
 
-  Replace `samba0` with your correct DC module identifier.
+  Sostituisci `samba0` con l'identificatore corretto del modulo DC.
 
-### Restore a domain controller
+### Ripristinare un domain controller
 
-If the restored **domain controller** is the first in the domain, there are two alternatives:
+Se il **domain controller** ripristinato è il primo nel dominio, ci sono due alternative:
 
-1.  If the system IP address is the same as the one used in the backup set, DC services are started automatically and no further actions are required.
+1.  Se l'indirizzo IP del sistema è lo stesso usato nel set di backup, i servizi DC vengono avviati automaticamente e non sono richieste ulteriori azioni.
 
-2.  If the previous condition does not apply, DC services are started using the system VPN IP address as a fallback. A similar command is required to select another IP address at a later time:
+2.  Se la condizione precedente non si applica, i servizi DC vengono avviati usando come fallback l'indirizzo IP VPN del sistema. Un comando simile è richiesto per selezionare un altro indirizzo IP in un secondo momento:
 
         api-cli run module/samba0/set-ipaddress --data '{"ipaddress": "10.15.21.100"}'
 
-    Replace `samba0` with the correct module identifier. Replace the `ipaddress` value with the correct IP address.
+    Sostituisci `samba0` con l'identificatore corretto del modulo. Sostituisci il valore `ipaddress` con l'indirizzo IP corretto.
 
-Otherwise, if one or more domain controllers already exist:
+Altrimenti, se esistono già uno o più controller di dominio:
 
-- Go to the `Domain and users` page and open the **Unconfigured
-  provider** link.
-- Fill the form to join a new DC to the domain.
+- Vai alla pagina `Domain and users` e apri il collegamento **Unconfigured provider**.
+- Compila il modulo per unire un nuovo DC al dominio.
 
-**Footnotes**
+**Note**
 
-[^1]: The guest access in SMB2 and SMB3 is disabled by default in Windows, see Microsoft [File server](##REF##File server) documentation.
+[^1]: L'accesso guest in SMB2 e SMB3 è disabilitato per impostazione predefinita in Windows; vedi la documentazione Microsoft [File server](##REF##File server).

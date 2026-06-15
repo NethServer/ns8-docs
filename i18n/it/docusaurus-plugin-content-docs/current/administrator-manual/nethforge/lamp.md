@@ -4,185 +4,185 @@ sidebar_position: 3
 ---
 # Lamp
 
-Lamp is a containerized environment that encapsulates a LAMP stack, which includes Linux (Ubuntu), Apache (web server), MariaDB (database), and PHP (scripting language). This container allows for easy deployment and management of web applications, providing consistency, portability, and isolation across different environments.
+Lamp è un ambiente containerizzato che racchiude uno stack LAMP, composto da Linux (Ubuntu), Apache (server web), MariaDB (database) e PHP (linguaggio di scripting). Questo container consente una distribuzione e una gestione semplici delle applicazioni web, offrendo coerenza, portabilità e isolamento tra ambienti diversi.
 
 ## Installazione
 
-The application can be installed from the [Software center](../installation/software_center.md).
+L'applicazione può essere installata dal [Software center](../installation/software_center.md).
 
 ## Configurazione
 
-After installation, access the application settings page to configure your Lamp instance.
+Dopo l'installazione, accedi alla pagina delle impostazioni dell'applicazione per configurare la tua istanza Lamp.
 
-### Main settings
+### Impostazioni principali
 
 :::note
 
-DNS must be configured with your DNS provider to point to your server for both the FQDN and Let's Encrypt certificate to work properly.
+Il DNS deve essere configurato presso il tuo provider DNS in modo che punti al tuo server, affinché sia l'FQDN sia il certificato Let's Encrypt funzionino correttamente.
 
 :::
 
-The following settings are available during configuration:
+Durante la configurazione sono disponibili le seguenti impostazioni:
 
-- **Fully Qualified Domain Name (FQDN)**: set the domain name for your web application, for example, `webapp1.example.org`
-- **Request Let's Encrypt certificate**: automatically obtain and configure a free SSL certificate
-- **HTTP to HTTPS**: enable automatic redirection from HTTP to HTTPS
-- **Enable phpMyAdmin**: enable or disable the phpMyAdmin web interface (enabled by default)
+- **Fully Qualified Domain Name (FQDN)**: imposta il nome di dominio per la tua applicazione web, per esempio `webapp1.example.org`
+- **Request Let's Encrypt certificate**: ottieni e configura automaticamente un certificato SSL gratuito
+- **HTTP to HTTPS**: abilita il reindirizzamento automatico da HTTP a HTTPS
+- **Enable phpMyAdmin**: abilita o disabilita l'interfaccia web di phpMyAdmin (abilitata per impostazione predefinita)
 - **MySQL Configuration**:
-  - **MySQL Admin Password**: password for the MySQL root user to manage all databases
-  - **Create Database and User**: optionally create a database with a dedicated user during setup
-    - **Database Name**: name of the database to create
-    - **Database User**: username for database access
-    - **Database User Password**: password for the database user
+  - **MySQL Admin Password**: password dell'utente root MySQL per gestire tutti i database
+  - **Create Database and User**: crea facoltativamente un database con un utente dedicato durante la configurazione
+    - **Database Name**: nome del database da creare
+    - **Database User**: nome utente per l'accesso al database
+    - **Database User Password**: password dell'utente del database
 - **PHP Configuration**:
-  - **PHP Version**: select the PHP version to use (customizable to match your application requirements)
-  - **PHP Upload Max Filesize**: maximum allowed size for file uploads in megabytes (default: 100)
-  - **PHP Memory Limit**: maximum amount of memory a PHP script can consume in megabytes
-  - **PHP Max Execution Time Limit**: maximum time in seconds a PHP script is allowed to run before being terminated
+  - **PHP Version**: seleziona la versione di PHP da usare (personalizzabile per adattarsi ai requisiti della tua applicazione)
+  - **PHP Upload Max Filesize**: dimensione massima consentita per i caricamenti di file in megabyte (predefinita: 100)
+  - **PHP Memory Limit**: quantità massima di memoria, in megabyte, che uno script PHP può consumare
+  - **PHP Max Execution Time Limit**: tempo massimo, in secondi, per cui uno script PHP può essere eseguito prima di essere terminato
 
-After configuring these settings, click **Save** to apply the changes.
+Dopo aver configurato queste impostazioni, fai clic su **Save** per applicare le modifiche.
 
-## Usage
+## Utilizzo
 
-### Application deployment
+### Distribuzione dell'applicazione
 
-Lamp provides a `/app` directory as the storage location for your web application files.
+Lamp fornisce una directory `/app` come posizione di archiviazione per i file della tua applicazione web.
 
-To access the application directory and deploy your files:
+Per accedere alla directory dell'applicazione e distribuire i tuoi file:
 
-1.  Connect to the server via SSH
+1.  Connettiti al server via SSH
 
-2.  Use the following command to access the Apache container:
+2.  Usa il seguente comando per accedere al container Apache:
 
         runagent -m lamp1 podman exec -ti apache2-app bash
 
-    Replace `lamp1` with your actual module instance name.
+    Sostituisci `lamp1` con il nome reale della tua istanza del modulo.
 
-3.  Place your web application files in the working directory
+3.  Posiziona i file della tua applicazione web nella directory di lavoro
 
-4.  The files will be automatically served through the FQDN configured in the web interface
+4.  I file verranno serviti automaticamente tramite l'FQDN configurato nell'interfaccia web
 
-#### Install your PHP source code
+#### Installare il codice sorgente PHP
 
-You can download your web application files using one of the following methods:
+Puoi scaricare i file della tua applicazione web usando uno dei seguenti metodi:
 
 **Git**
 
-Clone a Git repository to download your application code:
+Clona un repository Git per scaricare il codice della tua applicazione:
 
     git clone http://github.com/url/of/project
 
 **Wget**
 
-Download files using wget, a command-line tool for downloading files from the web:
+Scarica i file usando wget, uno strumento da riga di comando per scaricare file dal web:
 
     wget http://your-url
 
 **Rsync**
 
-Use rsync to synchronize files from a remote server:
+Usa rsync per sincronizzare i file da un server remoto:
 
     rsync -avz user@hostname:/path .
 
 **SFTP**
 
-Open an interactive SFTP session to transfer files securely:
+Apri una sessione SFTP interattiva per trasferire i file in modo sicuro:
 
     sftp user@hostname
 
 **FTP**
 
-Use standard FTP protocol for file transfer:
+Usa il protocollo FTP standard per il trasferimento dei file:
 
     ftp hostname
 
 **FTP-SSL**
 
-Use FTP with SSL/TLS encryption for secure file transfer:
+Usa FTP con cifratura SSL/TLS per un trasferimento sicuro dei file:
 
     ftp-ssl hostname
 
 :::warning
 
-After deploying your web application, delete the default `phpinfo.php` file to avoid exposing sensitive information about your server configuration.
+Dopo aver distribuito la tua applicazione web, elimina il file predefinito `phpinfo.php` per evitare di esporre informazioni sensibili sulla configurazione del server.
 
 :::
 
-### Database management
+### Gestione del database
 
-PhpMyAdmin is included and accessible through your domain at the `/phpmyadmin` path (e.g., `https://webapp1.example.org/phpmyadmin`).
+PhpMyAdmin è incluso ed è accessibile tramite il tuo dominio nel percorso `/phpmyadmin` (ad esempio `https://webapp1.example.org/phpmyadmin`).
 
-Default credentials:
+Credenziali predefinite:
 
-- Nome utente: `admin`
-- Password: the MySQL admin password set during configuration
+- Username: `admin`
+- Password: la password amministrativa MySQL impostata durante la configurazione
 
 :::warning
 
-Change the default PhpMyAdmin access credentials immediately after first login for security purposes.
+Per motivi di sicurezza, cambia immediatamente le credenziali di accesso predefinite di PhpMyAdmin dopo il primo login.
 
 :::
 
-You can also connect directly to the database from the command line:
+Puoi anche collegarti direttamente al database dalla riga di comando:
 
     runagent -m lamp1 podman exec -ti apache2-app mysql
 
-Replace `lamp1` with your actual module instance name.
+Sostituisci `lamp1` con il nome reale della tua istanza del modulo.
 
-## Advanced configuration
+## Configurazione avanzata
 
-### Scheduled tasks
+### Attività pianificate
 
-You can configure cron jobs for your Lamp instance using:
+Puoi configurare cron job per la tua istanza Lamp usando:
 
     runagent -m lamp1 apache2-app crontab -e
 
-Here are some example cronjobs:
+Ecco alcuni esempi di cronjob:
 
-    0 2 * * *  /app/maintenance.php # run maintenance script daily at 2:00 AM
-    30 2 * * * rm -rf /app/temp/* # clear temporary files after backup
-    0 3 * * *  find /app/logs -type f -mtime +30 -delete # delete log files older than 30 days
+    0 2 * * *  /app/maintenance.php # esegue lo script di manutenzione ogni giorno alle 2:00
+    30 2 * * * rm -rf /app/temp/* # svuota i file temporanei dopo il backup
+    0 3 * * *  find /app/logs -type f -mtime +30 -delete # elimina i file di log più vecchi di 30 giorni
 
-To verify configured cron jobs:
+Per verificare i cron job configurati:
 
     podman exec -ti apache2-app crontab -l
 
-### Custom PHP and Apache directives
+### Direttive PHP e Apache personalizzate
 
-A `.htaccess` file is automatically created in the `/app` directory on first start, pre-populated with commented-out examples of common directives. Edit it directly to apply custom PHP or Apache settings — it will be read and applied by Apache accordingly:
+Un file `.htaccess` viene creato automaticamente nella directory `/app` al primo avvio, già popolato con esempi commentati di direttive comuni. Modificalo direttamente per applicare impostazioni PHP o Apache personalizzate: Apache lo leggerà e le applicherà di conseguenza:
 
     runagent -m lamp1 podman exec -ti apache2-app bash
 
-Then edit the file:
+Poi modifica il file:
 
     nano .htaccess
 
-### Custom MySQL directives
+### Direttive MySQL personalizzate
 
-To tune MySQL, edit the configuration files stored in the module folder (they are included in the backup). Enter the module environment first:
+Per ottimizzare MySQL, modifica i file di configurazione memorizzati nella cartella del modulo (sono inclusi nel backup). Entra prima nell'ambiente del modulo:
 
     runagent -m lamp1
 
-Two configuration files are available:
+Sono disponibili due file di configurazione:
 
-- `conf.d/mysql.cnf`: client and server options
-- `conf.d/mysqldump.cnf`: options for `mysqldump` (used during backups)
+- `conf.d/mysql.cnf`: opzioni client e server
+- `conf.d/mysqldump.cnf`: opzioni per `mysqldump` (usato durante i backup)
 
-For example, to increase `max_allowed_packet` in both the client and server:
+Per esempio, per aumentare `max_allowed_packet` sia nel client sia nel server:
 
     nano conf.d/mysql.cnf
 
     [mysql]
     max_allowed_packet=500M
 
-After modifying the configuration, restart the module:
+Dopo aver modificato la configurazione, riavvia il modulo:
 
     systemctl restart --user lamp
 
-### Email sending
+### Invio email
 
-At every start, the module reads the cluster smarthost configuration and writes the corresponding SMTP parameters inside the container as environment variables. These variables are available to the web application, but **the application itself must be configured to use them** — no outgoing mail is set up automatically.
+A ogni avvio, il modulo legge la configurazione smarthost del cluster e scrive nel container i corrispondenti parametri SMTP come variabili d'ambiente. Queste variabili sono disponibili per l'applicazione web, ma **l'applicazione stessa deve essere configurata per usarle** — non viene configurata automaticamente alcuna posta in uscita.
 
-To inspect the SMTP settings available inside the container:
+Per controllare le impostazioni SMTP disponibili nel container:
 
     runagent -m lamp1 podman exec -ti apache2-app env | grep -i smtp

@@ -4,32 +4,32 @@ sidebar_position: 5
 ---
 # Passbolt
 
-[Passbolt](https://www.passbolt.com/) is an open source credential platform for modern teams.
+[Passbolt](https://www.passbolt.com/) è una piattaforma open source per la gestione delle credenziali destinata ai team moderni.
 
 ## Configurazione
 
-Once installed, navigate to the application Settings page and fill in the required fields:
+Una volta installata, apri la pagina Settings dell'applicazione e compila i campi richiesti:
 
-- **Passbolt FQDN**: Enter the fully-qualified domain name where the Passbolt web UI will be accessible. If the FQDN is already registered in the public DNS, you can enable the **Let's Encrypt certificate** switch to obtain a valid encryption certificate.
-- **Admin mail address**: Enter the mail address of the Passbolt Admin. It's used for password recovery. For example, if the FQDN changes and you want to login to Passbolt, a recovery link mail is sent to the user. Follow that link to recover your account.
+- **Passbolt FQDN**: inserisci il nome di dominio completo con cui sarà accessibile l'interfaccia web di Passbolt. Se l'FQDN è già registrato nel DNS pubblico, puoi abilitare l'opzione **Let's Encrypt certificate** per ottenere un certificato di cifratura valido.
+- **Admin mail address**: inserisci l'indirizzo email dell'amministratore di Passbolt. Viene usato per il recupero della password. Per esempio, se l'FQDN cambia e vuoi accedere a Passbolt, all'utente viene inviata un'email con il link di recupero. Segui quel link per recuperare il tuo account.
 
 :::warning
 
-If an incorrect FQDN is configured, there is no way to get the right Admin registration link anymore. The preferred way to recover from this situation is to remove the incorrect Passbolt instance, then install and configure a new one.
+Se viene configurato un FQDN errato, non sarà più possibile ottenere il corretto link di registrazione dell'amministratore. Il modo consigliato per recuperare da questa situazione è rimuovere l'istanza Passbolt errata, quindi installare e configurare una nuova istanza.
 
 :::
 
-After first configuration, the Admin registration link is shown. Please follow the link to create the Admin account, set a password and save the Passbolt keys.
+Dopo la prima configurazione viene mostrato il link di registrazione dell'amministratore. Segui il link per creare l'account admin, impostare una password e salvare le chiavi di Passbolt.
 
 :::note
 
-Consider storing the Passbolt keys in a safe place to be able to restore your account if needed.
+Valuta di conservare le chiavi di Passbolt in un luogo sicuro per poter ripristinare il tuo account se necessario.
 
 :::
 
-For managing Passbolt, please refer to the official [Documentation](https://www.passbolt.com/docs/)
+Per gestire Passbolt, consulta la [Documentazione](https://www.passbolt.com/docs/) ufficiale.
 
-## Limitazioni conosciute
+## Limitazioni note
 
-1.  After changing the app FQDN, the password needs to be recovered.
-2.  The NethServer app ships the Passbolt Community Edition (CE) which does not support LDAP authentication.
+1.  Dopo aver cambiato l'FQDN dell'app, è necessario recuperare la password.
+2.  L'app NethServer include la Passbolt Community Edition (CE), che non supporta l'autenticazione LDAP.

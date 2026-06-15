@@ -4,19 +4,19 @@ sidebar_position: 1
 ---
 # DokuWiki
 
-[DokuWiki](https://www.dokuwiki.org) is a simple and highly versatile open source Wiki.
+[DokuWiki](https://www.dokuwiki.org) è un wiki open source semplice e molto versatile.
 
-You can install multiple DokuWiki instances on the same node from the [Software center](../installation/software_center.md).
+Puoi installare più istanze di DokuWiki sullo stesso nodo dal [Software center](../installation/software_center.md).
 
 ## Configurazione
 
-DokuWiki needs a dedicated virtual host, an FQDN like `wiki.nethserver.org`.
+DokuWiki richiede un host virtuale dedicato, un FQDN come `wiki.nethserver.org`.
 
-Prima di procedere con la configurazione, assicurarsi di creare il relativo record all'interno del server DNS. Se hai intenzione di utilizzare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
+Prima di procedere con la configurazione, assicurati di creare il record di nome corrispondente nel tuo server DNS. Se prevedi di usare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
 
 Come configurare:
 
-1.  access the application configuration page and enter all required fields
-2.  abilitare `Let's Encrypt` e le opzioni `HTTP a HTTPS` di conseguenza alle vostre esigenze
-3.  cliccare sul pulsante **Save**
-4.  use your browser to go to the selected FQDN, eg: `https://wiki.nethserver.org`.
+1.  accedi alla pagina di configurazione dell'applicazione e compila tutti i campi richiesti
+2.  abilita le opzioni `Let's Encrypt` e `HTTP to HTTPS` in base alle tue esigenze
+3.  fai clic sul pulsante **Save**
+4.  usa il browser per raggiungere l'FQDN selezionato, ad es.: `https://wiki.nethserver.org`.

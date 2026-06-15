@@ -4,19 +4,19 @@ sidebar_position: 10
 ---
 # Matrix
 
-Matrix is an open network for secure, decentralised communication. This implementation provides a complete chat solution, including the synapse homeserver and web clients like [Element](https://element.io) or [Cinny](https://cinny.in/). Please see the [official website](https://www.matrix.org).
+Matrix è una rete aperta per comunicazioni sicure e decentralizzate. Questa implementazione fornisce una soluzione completa di chat, inclusi l'homeserver synapse e client web come [Element](https://element.io) o [Cinny](https://cinny.in/). Consulta il [sito ufficiale](https://www.matrix.org).
 
 ## Configurazione
 
-Synapse, Element web and Cinny need a dedicated virtual host, a FQDN like `fqdn.nethserver.org`.
+Synapse, Element web e Cinny richiedono un host virtuale dedicato, un FQDN come `fqdn.nethserver.org`.
 
-Before proceeding with the configuration, make sure to create the corresponding name records inside your DNS server. If you are planning to use a Let's Encrypt certificate as default, make also sure to have a corresponding public DNS record.
+Prima di procedere con la configurazione, assicurati di creare i record di nome corrispondenti nel tuo server DNS. Se prevedi di usare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
 
 Come configurare:
 
-1.  accedere alla pagina `Impostazioni` dell'istanza appena installata
-2.  enter a valid FQDN inside the `Matrix server domain` field
-3.  to start the web clients, you need to enter a valid FQDN inside the `Element web domain` or the `Cinny domain` fields
-4.  enable `Let's Encrypt` accordingly to your needs
-5.  select a `Timezone`
-6.  cliccare sul pulsante **Save**
+1.  accedi alla pagina `Settings` dell'istanza appena installata
+2.  inserisci un FQDN valido nel campo `Matrix server domain`
+3.  per avviare i client web, devi inserire un FQDN valido nei campi `Element web domain` o `Cinny domain`
+4.  abilita `Let's Encrypt` in base alle tue esigenze
+5.  seleziona un `Timezone`
+6.  fai clic sul pulsante **Save**

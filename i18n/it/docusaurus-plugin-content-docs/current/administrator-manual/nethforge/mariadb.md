@@ -4,29 +4,29 @@ sidebar_position: 4
 ---
 # MariaDB
 
-This module installs [MariaDB](https://mariadb.org/), a popular open source relational database, and [phpMyAdmin](https://www.phpmyadmin.net/) a tool to manage the database from a web interface.
+Questo modulo installa [MariaDB](https://mariadb.org/), un popolare database relazionale open source, e [phpMyAdmin](https://www.phpmyadmin.net/), uno strumento per gestire il database da un'interfaccia web.
 
-You can install multiple MariaDB instances on the same node from the [Software center](../installation/software_center.md).
+Puoi installare più istanze di MariaDB sullo stesso nodo dal [Software center](../installation/software_center.md).
 
 ## Configurazione
 
 Come configurare:
 
-1.  access the application configuration page and enter the path for phpMyAdmin, eg. `/phpmyadmin`
-2.  enable `HTTP to HTTPS` option accordingly to your needs
-3.  Click the **Save** button
+1.  accedi alla pagina di configurazione dell'applicazione e inserisci il percorso per phpMyAdmin, ad es. `/phpmyadmin`
+2.  abilita l'opzione `HTTP to HTTPS` in base alle tue esigenze
+3.  fai clic sul pulsante **Save**
 
-At the end of the configuration the web interface will display the public TCP port to access the MariaDB instance.
+Al termine della configurazione l'interfaccia web mostrerà la porta TCP pubblica per accedere all'istanza MariaDB.
 
-The phpMyAdmin instance will be available at the `https://<server_fqn>/<path>`. Default credentials for phpMyAdmin are:
+L'istanza phpMyAdmin sarà disponibile all'indirizzo `https://<server_fqn>/<path>`. Le credenziali predefinite di phpMyAdmin sono:
 
-- user: `admin`
+- utente: `admin`
 - password: `admin`
 
-Please change them after the first login.
+Cambiale dopo il primo accesso.
 
-## Database di accesso
+## Accedere al database
 
-The database uses a TCP port (\> 20000) that is not opened in the firewall of the server for security reason. You can find the TCP port inside the configuration panel of the module To access the database from a web application with a NS8 node you can use the IP of the VPN wg0 interface with the custom port. The communication is encrypted with the wireguard VPN.
+Per motivi di sicurezza, il database usa una porta TCP (\> 20000) che non è aperta nel firewall del server. Puoi trovare la porta TCP nel pannello di configurazione del modulo. Per accedere al database da un'applicazione web su un nodo NS8 puoi usare l'indirizzo IP dell'interfaccia VPN `wg0` con la porta personalizzata. La comunicazione è cifrata tramite la VPN WireGuard.
 
-Per esempio: 10.5.4.1:20001
+Per esempio: `10.5.4.1:20001`

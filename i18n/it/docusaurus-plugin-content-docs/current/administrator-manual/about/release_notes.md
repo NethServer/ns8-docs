@@ -4,37 +4,36 @@ sidebar_position: 2
 ---
 # Note di rilascio
 
-Rilasci NethServer 8
+Rilasci di NethServer 8
 
-- Elenco dei [conosciuti bug](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) su GitHub
-- Discussione su [possibile bug](http://community.nethserver.org/c/bug) sul nostro forum pubblico
-
-## Major changes on 2026-03-27
+- Elenco dei [bug conosciuti](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) su GitHub
+- Discussioni sui [possibili bug](http://community.nethserver.org/c/bug) nel nostro forum pubblico
+## Modifiche principali del 27-03-2026
 
 **Milestone 8.8**
 
-- **Low-contrast UI notification** \[Core 3.18\] -- The cluster-admin UI notification style is now low-contrast, as mandated by the Carbon Design System guidelines.
+- **Notifica UI a basso contrasto** \[Core 3.18\] -- Lo stile di notifica dell'interfaccia cluster-admin è ora a basso contrasto, come richiesto dalle linee guida del Carbon Design System.
 
-- **Cancelable backup runs** \[Core 3.18\] -- It is now possible to cancel a backup run, provided it was started from cluster-admin UI.
+- **Esecuzioni di backup annullabili** \[Core 3.18\] -- È ora possibile annullare un'esecuzione di backup, a condizione che sia stata avviata dall'interfaccia cluster-admin.
 
-- **Import backup destinations and UI adjustments** \[Core 3.18\] -- In the `Backup and restore` page, separate sections and clear text labels improve navigation across the different actions.
+- **Importazione delle destinazioni di backup e regolazioni UI** \[Core 3.18\] -- Nella pagina `Backup e ripristino`, sezioni separate e etichette di testo chiare migliorano la navigazione tra le diverse azioni.
 
-  Configuring a backup destination is a prerequisite for application restoration. A new **Import destinations** action quickly sets up a backup destination starting from a cluster backup file. The backup encryption password is required to complete the action.
+  Configurare una destinazione di backup è un prerequisito per il ripristino delle applicazioni. Una nuova azione **Importa destinazioni** consente di configurare rapidamente una destinazione di backup partendo da un file di backup del cluster. È necessaria la password di crittografia del backup per completare l'azione.
 
-- **Debian 13 (Trixie)** \[Core 3.17\] -- Installation of NethServer 8 is now available on Debian 13 (Trixie). Starting from the next milestone 8.9, Debian 12 will no longer be compatible with the NS8 installer. This is a summary of the commands required to upgrade an NS8 node from Debian 12.
+- **Debian 13 (Trixie)** \[Core 3.17\] -- L'installazione di NethServer 8 è ora disponibile su Debian 13 (Trixie). A partire dal prossimo milestone 8.9, Debian 12 non sarà più compatibile con l'installer di NS8. Ecco un riepilogo dei comandi necessari per aggiornare un nodo NS8 da Debian 12.
 
-  Check the distro name and version:
+  Verificare il nome e la versione della distribuzione:
 
       cat /etc/os-release
 
-  Make sure the node is running on Debian 12, then fix APT references and upgrade the system:
+  Assicurarsi che il nodo stia utilizzando Debian 12, quindi correggere i riferimenti APT e aggiornare il sistema:
 
       sed -i 's/bookworm/trixie/' /etc/apt/sources.list /etc/apt/sources.list.d/*
       apt update && apt full-upgrade -y
 
-  If asked, restart services and keep local config file versions.
+  Se richiesto, riavviare i servizi e mantenere le versioni dei file di configurazione locali.
 
-  Upgrade NS8 Python 3 virtual environment:
+  Aggiornare l'ambiente virtuale Python 3 di NS8:
 
       (
         set -e -x
@@ -45,58 +44,56 @@ Rilasci NethServer 8
         echo "/usr/local/agent/pypkg" >$(${core_dir}/bin/python3 -c "import sys; print(sys.path[-1] + '/pypkg.pth')")
         rm -rf ${core_dir}.bak
       )
-      runagent python3 --version # output should be 3.13.5
+      runagent python3 --version # output dovrebbe essere 3.13.5
 
-  Upgrade APT sources to deb822 (optional):
+  Aggiornare le sorgenti APT a deb822 (opzionale):
 
       apt modernize-sources
 
-  Finally, reboot the node. Repeat the same procedure on every node of the cluster.
+  Infine, riavviare il nodo. Ripetere la stessa procedura su ogni nodo del cluster.
 
-- **Additional volume selection** \[Core 3.17\] -- When an application is restored, cloned, or installed for the first time, the UI may ask to select the volume for the data. The selection is available on nodes with an additional volume and for applications that support it. See [Install applications](../installation/software_center.md#install-applications).
+- **Selezione di volumi aggiuntivi** \[Core 3.17\] -- Quando un'applicazione viene ripristinata, clonata o installata per la prima volta, l'interfaccia potrebbe richiedere di selezionare il volume per i dati. La selezione è disponibile sui nodi con un volume aggiuntivo e per le applicazioni che lo supportano. Vedere [Installare applicazioni](../installation/software_center.md#install-applications).
 
-- **Samba TLS certificates** \[Samba 3.4.2\] -- Samba LDAP is integrated with the `TLS certificates` page. An uploaded or obtained certificate, matching Samba's FQDN, is used for the LDAP service.
+- **Certificati TLS per Samba** \[Samba 3.4.2\] -- Samba LDAP è integrato con la pagina `Certificati TLS`. Un certificato caricato o ottenuto, corrispondente al FQDN di Samba, viene utilizzato per il servizio LDAP.
 
-- **RustFS replaces MinIO** \[RustFS 1.0\] -- A new S3-compatible application replaces MinIO in the Software Center. Existing MinIO installations are advised to migrate to RustFS. See [RustFS](../applications/rustfs.md) for more information.
+- **RustFS sostituisce MinIO** \[RustFS 1.0\] -- Una nuova applicazione compatibile con S3 sostituisce MinIO nel Software Center. Si consiglia di migrare le installazioni esistenti di MinIO a RustFS. Vedere [RustFS](../applications/rustfs.md) per ulteriori informazioni.
 
-- **Application upgrades** -- Mattermost 10.11 ESR, Ejabberd 26.02.
-
-## Major changes on 2025-12-17
+- **Aggiornamenti delle applicazioni** -- Mattermost 10.11 ESR, Ejabberd 26.02.
+## Principali modifiche del 2025-12-17
 
 **Milestone 8.7**
 
-- **Import/export data** \[Core 3.16\] -- Users and groups can be imported/exported with a file in CSV format, containing username, password, groups and other details. The import/export procedure can be executed also from cluster-admin and user portal APIs. Refer to [Import and export data](../installation/user_domains.md#import-export-data-section) for more information.
-- **Firewalld rich rules** \[Core 3.16\] -- Application developers can configure arbitrary Firewalld rich rules to cover complex network routing use cases.
-- **Applications page** \[Core 3.15\] -- A new [Applications page](../installation/modules.md) was added to quickly gather information about applications installed in the cluster, their installation node, type, version and links to act on them.
-- **Nodes page** \[Core 3.14\] -- The [Nodes page](../configuration/cluster.md#node-views) was streamlined to make it easier to identify cluster nodes also by FQDN, while resource usage metrics were moved into the node detailed view, along with node alerts and links to detailed IP addresses and applications. If an NS7 migration is in progress, the NS7 system is displayed as a special node.
-- **Additional disks management** \[Core 3.14\] -- Added support for [assigning Podman named volumes to additional disks](../../tutorial/disk_usage.md#named-volume-disk). Administrators can now preconfigure the base path used when creating named volumes for rootless applications. This allows redirecting application data to alternative disks, improving storage organization and reducing pressure on the system disk. This feature is especially useful for data-intensive applications such as the Samba File Server. A new command, `volumectl`, provides the ability to list available base paths, assign volumes to a selected disk, and remove existing assignments. The configuration is applied when applications are installed, restored, or cloned; relocation of existing volumes is not supported yet. A future update will extend this functionality to the cluster-admin UI, allowing disk selection during application installation, clone, and restore operations.
-- **Boot load shaping** \[Core 3.14\] -- The system load at boot time is dynamically optimized based on the number of available processors. The load is distributed in a sequential way over a longer time span, reducing application concurrency and preventing resource bottlenecks.
-- **Reduced Audit trail size** \[Core 3.14\] -- The event types stored in the [Audit log](../configuration/cluster.md#audit-trail-section) have been reduced to limit the volume of api-server writes. Only `create-tasks` and `login-ok` (successful logins) events are stored. Note that failed login events are still logged.
-- **Limited agent worker processes** \[Core 3.12\] -- The default number of simultaneous processes spawned by agents is now limited to 32. Subsequent tasks are rejected with *Agent is busy* until the number of running processes falls below the limit.
-- **Cloud Log Manager (CLM) login records** \[Core 3.12\] -- Cluster-admin login events are marked with *security* category and sent to [Cloud Log Manager](../configuration/log_server.md#clm-section), if enabled.
-- **Samba \[homes\] customization** \[3.2.0\] -- The Samba core application supports `[homes]` section customization in the `include.conf` file, consistent with other sections.
-- **Piler update** \[1.1.0\] -- Piler has been updated to upstream version 1.4.8, providing new features, performance improvements, and many bug and security fixes.
-- **Nextcloud 32 / HUB 25 Autumn** \[1.6.0\] -- Updated to the latest major Nextcloud release.
-
-## Major changes on 2025-09-30
+- **Importazione/esportazione dati** \[Core 3.16\] -- Utenti e gruppi possono essere importati/esportati con un file in formato CSV, contenente nome utente, password, gruppi e altri dettagli. La procedura di importazione/esportazione può essere eseguita anche tramite le API del cluster-admin e del portale utente. Fare riferimento a [Importazione ed esportazione dati](../installation/user_domains.md#import-export-data-section) per maggiori informazioni.
+- **Regole avanzate di Firewalld** \[Core 3.16\] -- Gli sviluppatori di applicazioni possono configurare regole avanzate di Firewalld per gestire casi d'uso complessi di instradamento di rete.
+- **Pagina Applicazioni** \[Core 3.15\] -- È stata aggiunta una nuova [Pagina Applicazioni](../installation/modules.md) per raccogliere rapidamente informazioni sulle applicazioni installate nel cluster, il loro nodo di installazione, tipo, versione e collegamenti per interagire con esse.
+- **Pagina Nodi** \[Core 3.14\] -- La [Pagina Nodi](../configuration/cluster.md#node-views) è stata semplificata per facilitare l'identificazione dei nodi del cluster anche tramite FQDN, mentre le metriche di utilizzo delle risorse sono state spostate nella vista dettagliata del nodo, insieme agli avvisi del nodo e ai collegamenti agli indirizzi IP dettagliati e alle applicazioni. Se è in corso una migrazione NS7, il sistema NS7 viene visualizzato come un nodo speciale.
+- **Gestione dischi aggiuntivi** \[Core 3.14\] -- Aggiunto il supporto per [assegnare volumi denominati Podman a dischi aggiuntivi](../../tutorial/disk_usage.md#named-volume-disk). Gli amministratori possono ora preconfigurare il percorso base utilizzato durante la creazione di volumi denominati per applicazioni rootless. Questo consente di reindirizzare i dati delle applicazioni verso dischi alternativi, migliorando l'organizzazione dello storage e riducendo la pressione sul disco di sistema. Questa funzionalità è particolarmente utile per applicazioni ad alta intensità di dati come il server file Samba. Un nuovo comando, `volumectl`, consente di elencare i percorsi base disponibili, assegnare volumi a un disco selezionato e rimuovere assegnazioni esistenti. La configurazione viene applicata durante l'installazione, il ripristino o la clonazione delle applicazioni; il trasferimento di volumi esistenti non è ancora supportato. Un futuro aggiornamento estenderà questa funzionalità all'interfaccia utente del cluster-admin, consentendo la selezione del disco durante le operazioni di installazione, clonazione e ripristino delle applicazioni.
+- **Ottimizzazione del carico all'avvio** \[Core 3.14\] -- Il carico di sistema all'avvio viene ottimizzato dinamicamente in base al numero di processori disponibili. Il carico viene distribuito in modo sequenziale su un periodo di tempo più lungo, riducendo la concorrenza delle applicazioni e prevenendo colli di bottiglia delle risorse.
+- **Riduzione delle dimensioni del registro di controllo** \[Core 3.14\] -- I tipi di eventi memorizzati nel [Registro di controllo](../configuration/cluster.md#audit-trail-section) sono stati ridotti per limitare il volume delle scritture dell'api-server. Vengono memorizzati solo gli eventi `create-tasks` e `login-ok` (accessi riusciti). Si noti che gli eventi di accesso non riusciti continuano a essere registrati.
+- **Processi limitati degli agenti** \[Core 3.12\] -- Il numero predefinito di processi simultanei avviati dagli agenti è ora limitato a 32. I compiti successivi vengono rifiutati con il messaggio *Agent is busy* fino a quando il numero di processi in esecuzione non scende al di sotto del limite.
+- **Registri di accesso del Cloud Log Manager (CLM)** \[Core 3.12\] -- Gli eventi di accesso del cluster-admin sono contrassegnati con la categoria *security* e inviati al [Cloud Log Manager](../configuration/log_server.md#clm-section), se abilitato.
+- **Personalizzazione di Samba \[homes\]** \[3.2.0\] -- L'applicazione core Samba supporta la personalizzazione della sezione `[homes]` nel file `include.conf`, in linea con altre sezioni.
+- **Aggiornamento di Piler** \[1.1.0\] -- Piler è stato aggiornato alla versione upstream 1.4.8, fornendo nuove funzionalità, miglioramenti delle prestazioni e numerose correzioni di bug e di sicurezza.
+- **Nextcloud 32 / HUB 25 Autumn** \[1.6.0\] -- Aggiornato all'ultima versione principale di Nextcloud.
+## Modifiche principali del 30-09-2025
 
 **Milestone 8.6**
 
-- **Default password expiration age change** -- Both Samba AD and OpenLDAP user domains are now created with a default password age between 0 and 180 days. These settings can be adjusted after domain creation. See [Password policy](../installation/user_domains.md#password-policy-section) for details. The previous default policy for Samba AD was between 1 and 42 days.
-- **Samba AD password attributes** -- For internal AD domains, two new attributes can be controlled from the cluster-admin and user portal web interfaces: `Required password change` and `Password never expires`. See [User and groups](../installation/user_domains.md#user_groups-section).
-- **New TLS certificates page** -- The [TLS certificates](../configuration/certificates.md) UI page has completed its enhancement cycle started in previous releases, providing full management of Let's Encrypt certificates with clear validation and deletion procedures.
-- **Expiring TLS certificate alert** -- An automated alert message is sent when a TLS certificate is due to expire within 28 days. See [Metrics and alerts](../configuration/metrics.md) to configure alerts.
-- **Application restart action** -- An application instance can now be fully restarted from the [Software Center page](../installation/software_center.md#application-instances). The effect is similar to a node reboot but limited to the application: all its components are completely stopped and then started again.
-- **Disabled application UI during migration** -- The cluster admin UI of an application is disabled while migration is in progress. This is a safety measure to prevent accidental actions that could disrupt the migration process.
-- **Reduced CrowdSec email notifications** -- The notification volume has been reduced to one daily message containing a summary of CrowdSec ban decisions. If the number of decisions exceeds a given threshold (500 by default), the notification is sent immediately. The notification sender can now be customized to improve message quality and better pass anti-spam filters. The message body also features an enhanced layout and style.
-- **Cluster configuration backup on my.nethserver.com** -- The cluster configuration backup of systems with an active *my.nethserver.com* subscription is checked, encrypted, and uploaded every night to the cloud. It can be downloaded with the following procedure.
-  1.  Obtain the cluster **System ID** and **Secret** from my.nethserver.com.
+- **Modifica dell'età di scadenza predefinita delle password** -- I domini utente Samba AD e OpenLDAP vengono ora creati con un'età predefinita delle password compresa tra 0 e 180 giorni. Queste impostazioni possono essere modificate dopo la creazione del dominio. Vedi [Politica delle password](../installation/user_domains.md#password-policy-section) per i dettagli. La politica predefinita precedente per Samba AD era compresa tra 1 e 42 giorni.
+- **Attributi delle password di Samba AD** -- Per i domini AD interni, due nuovi attributi possono essere gestiti dalle interfacce web del cluster-admin e del portale utente: `Required password change` e `Password never expires`. Vedi [Utenti e gruppi](../installation/user_domains.md#user_groups-section).
+- **Nuova pagina dei certificati TLS** -- La pagina UI [Certificati TLS](../configuration/certificates.md) ha completato il ciclo di miglioramento iniziato nelle versioni precedenti, fornendo una gestione completa dei certificati Let's Encrypt con procedure chiare di validazione e cancellazione.
+- **Avviso di scadenza dei certificati TLS** -- Un messaggio di avviso automatico viene inviato quando un certificato TLS è in scadenza entro 28 giorni. Vedi [Metriche e avvisi](../configuration/metrics.md) per configurare gli avvisi.
+- **Azione di riavvio delle applicazioni** -- Ora è possibile riavviare completamente un'istanza applicativa dalla [pagina del Software Center](../installation/software_center.md#application-instances). L'effetto è simile a un riavvio del nodo ma limitato all'applicazione: tutti i suoi componenti vengono completamente arrestati e poi riavviati.
+- **UI delle applicazioni disabilitata durante la migrazione** -- L'interfaccia utente dell'amministratore del cluster di un'applicazione viene disabilitata durante la migrazione. Questa è una misura di sicurezza per prevenire azioni accidentali che potrebbero interrompere il processo di migrazione.
+- **Riduzione delle notifiche email di CrowdSec** -- Il volume delle notifiche è stato ridotto a un messaggio giornaliero contenente un riepilogo delle decisioni di blocco di CrowdSec. Se il numero di decisioni supera una soglia prestabilita (500 di default), la notifica viene inviata immediatamente. Ora è possibile personalizzare il mittente della notifica per migliorare la qualità del messaggio e superare meglio i filtri antispam. Il corpo del messaggio presenta anche un layout e uno stile migliorati.
+- **Backup della configurazione del cluster su my.nethserver.com** -- Il backup della configurazione del cluster dei sistemi con un abbonamento attivo a *my.nethserver.com* viene verificato, crittografato e caricato ogni notte sul cloud. Può essere scaricato seguendo la procedura seguente.
+  1.  Ottieni il **System ID** e il **Secret** del cluster da my.nethserver.com.
 
-  2.  List the available cloud backups:
+  2.  Elenca i backup disponibili nel cloud:
 
           curl -u SYSTEM_ID:SECRET https://backupd.nethesis.it/community/api/v2/backup/ | jq
 
-      Example output:
+      Esempio di output:
 
           {
             "backups": [
@@ -110,337 +107,329 @@ Rilasci NethServer 8
             ]
           }
 
-  3.  Note the backup `id` value and download it:
+  3.  Prendi nota del valore `id` del backup e scaricalo:
 
           curl -f -O -u SYSTEM_ID:SECRET https://backupd.nethesis.it/community/api/v2/backup/7791926e6cee5455e06eb59e645737ae6a4b542a4f6014a213cb00648789b043.gpg
-- **Nextcloud DB optimizer** -- After NS7 migration or other major updates, Nextcloud may require manual database fixes that cannot be automated during the upgrade, as these operations may take a long time with large datasets. In such cases, the `nextcloud-db-optimize` command can be run manually to optimize the Nextcloud database outside production hours. Refer to [Database optimization command](../applications/nextcloud.md#nextcloud-db-optimize-section).
-- **WebTop updates** -- WebTop 5.29.2 (app version 1.4.4) introduces a refreshed user interface with streamlined layouts, new quick-access buttons, and updated icons. Key new features include delayed email sending, with the ability to cancel before delivery, and automatic IMAP/SMTP configuration for easier setup on mobile devices (see [Automatic configuration of email clients](../applications/webtop.md#email_autoconfig)). The update also brings numerous usability improvements, bug fixes, and security enhancements.
-- **NethVoice updates** -- NethVoice 1.4.0 introduces real-time JPG video streaming for intercoms, with previews directly in call notifications and Phone Island. The release also delivers an improved operator panel design, enhanced dashboard accessibility, and better SRTP handling in NethVoice Proxy. Numerous fixes improve reliability and usability across CTI, VoIP trunks, conferencing, voicemail, and call transfers.
-- **Other application updates** -- Several applications were updated to include the latest upstream changes. This is a brief list from the Default repository:
+- **Ottimizzatore DB di Nextcloud** -- Dopo la migrazione da NS7 o altri aggiornamenti principali, Nextcloud potrebbe richiedere correzioni manuali del database che non possono essere automatizzate durante l'aggiornamento, poiché queste operazioni potrebbero richiedere molto tempo con dataset di grandi dimensioni. In tali casi, il comando `nextcloud-db-optimize` può essere eseguito manualmente per ottimizzare il database di Nextcloud al di fuori degli orari di produzione. Consulta [Comando di ottimizzazione del database](../applications/nextcloud.md#nextcloud-db-optimize-section).
+- **Aggiornamenti WebTop** -- WebTop 5.29.2 (versione app 1.4.4) introduce un'interfaccia utente rinnovata con layout semplificati, nuovi pulsanti di accesso rapido e icone aggiornate. Le principali nuove funzionalità includono l'invio ritardato delle email, con la possibilità di annullare prima della consegna, e la configurazione automatica IMAP/SMTP per una configurazione più semplice sui dispositivi mobili (vedi [Configurazione automatica dei client email](../applications/webtop.md#email_autoconfig)). L'aggiornamento porta anche numerosi miglioramenti di usabilità, correzioni di bug e miglioramenti della sicurezza.
+- **Aggiornamenti NethVoice** -- NethVoice 1.4.0 introduce lo streaming video JPG in tempo reale per i videocitofoni, con anteprime direttamente nelle notifiche di chiamata e Phone Island. La versione offre anche un design migliorato del pannello operatore, una maggiore accessibilità della dashboard e una gestione migliorata di SRTP in NethVoice Proxy. Numerose correzioni migliorano l'affidabilità e l'usabilità in CTI, trunk VoIP, conferenze, segreteria telefonica e trasferimenti di chiamata.
+- **Altri aggiornamenti delle applicazioni** -- Diverse applicazioni sono state aggiornate per includere le ultime modifiche upstream. Ecco un breve elenco dal repository predefinito:
   - Mattermost 10.5.11 ESR
   - Ejabberd 25.07
   - Nextcloud 31.0.7
   - CrowdSec 1.16.11
+## Modifiche principali del 2025-07-08
 
-## Major changes on 2025-07-08
+**Milestone 8.5** -- Dedicato alla memoria di [Andy Wismer](https://community.nethserver.org/t/in-memory-of-andy-wismer/25698)
 
-**Milestone 8.5** -- Dedicated to the memory of [Andy Wismer](https://community.nethserver.org/t/in-memory-of-andy-wismer/25698)
+- **Controllo della versione del nodo worker** -- È stato aggiunto un controllo di sicurezza quando un nuovo nodo worker si unisce al cluster: la sua versione core viene ora confrontata con quella del nodo leader per garantire la compatibilità. Prima di unirsi al cluster, aggiornare sempre il core del cluster e assicurarsi che sui nuovi nodi worker sia utilizzata l'ultima versione del core.
 
-- **Worker node version check** -- A safety check has been added when a new worker node joins the cluster: its core version is now compared with that of the leader node to ensure compatibility. Before joining the cluster, always update the cluster core and ensure the latest core version is used on new worker nodes.
+- **Supporto per il backup Hetzner S3** -- Aggiunto il supporto per la configurazione di Hetzner S3 come destinazione di backup personalizzata. Inoltre, è stato corretto un bug che impediva la rinomina delle destinazioni di backup personalizzate S3.
 
-- **Hetzner S3 backup support** -- Added support for configuring Hetzner S3 as a custom backup destination. Also fixed a bug that prevented renaming custom S3 backup destinations.
+- **Ruolo di membro di dominio Samba e nuove funzionalità** -- L'applicazione core Samba può ora essere installata dal Software Center e configurata come membro di dominio Active Directory, fornendo cartelle condivise in un ruolo di File Server di dominio. Vedi [Samba file server](../applications/file_server.md).
 
-- **Samba domain member role and new features** -- The core Samba application can now be installed from the Software Center and configured as an Active Directory domain member, providing shared folders in a domain File Server role. See [Samba file server](../applications/file_server.md).
+  È ora possibile assegnare un nome alias a Samba utilizzando l'interfaccia utente del File Server (vedi [Alias del file server](../applications/file_server.md#file-server-alias)). Questa funzionalità semplifica la migrazione dei server di file SMB esistenti all'applicazione Samba di NS8.
 
-  It is now possible to assign an alias name to Samba using the File Server user interface (see [File server alias](../applications/file_server.md#file-server-alias)). This feature helps simplify the migration of existing SMB file servers to the NS8 Samba application.
+  È stato aggiunto il **servizio WSDD** per rendere il file server Samba individuabile nella rete locale utilizzando un moderno protocollo multicast che sostituisce la risoluzione dei nomi NetBIOS legacy.
 
-  The **WSDD service** has been added to make the Samba file server discoverable in the local network neighborhood using a modern multicast protocol that replaces the legacy NetBIOS name resolution.
+  Le cartelle condivise di Samba ora offrono tre nuove funzionalità avanzate: Cestino, registrazione degli audit con una dashboard centralizzata di Grafana e controllo della visibilità delle cartelle. Per ulteriori informazioni, consulta [Cartelle condivise](../applications/file_server.md#shared-folders-section).
 
-  Samba shared folders now offer three new advanced features: Recycle bin, audit logging with a centralized Grafana dashboard, and folder visibility control. For more information, refer to [Shared folders](../applications/file_server.md#shared-folders-section).
+- **Impostazioni Metriche** -- È stata aggiunta una nuova sezione "Metriche" nella pagina delle impostazioni del cluster, consentendo la configurazione dell'interfaccia web di Grafana e delle notifiche di allerta del cluster via email. Vedi [Metriche e avvisi](../configuration/metrics.md) per i dettagli.
 
-- **Metrics Settings** -- A new "Metrics" section has been added under the cluster settings page, allowing configuration of the Grafana web interface and cluster alert notifications via email. See [Metrics and alerts](../configuration/metrics.md) for details.
+- **Promtail sostituito da Alloy** -- Il servizio nodo Promtail, precedentemente utilizzato per inoltrare i log dei nodi al collettore centrale Loki (ora aggiornato alla versione 3), ha raggiunto l'EOL ed è stato sostituito da **Alloy**, il suo successore upstream.
 
-- **Promtail replaced by Alloy** -- The Promtail node service, previously used to forward node logs to the central Loki log collector (now upgraded to version 3), has reached EOL and is replaced by **Alloy**, its upstream successor.
+- **Catch-all del dominio di posta e altre correzioni** -- Dalla versione 1.7, l'applicazione Mail può consegnare i messaggi inviati a indirizzi di dominio sconosciuti a una destinazione **catch-all** speciale—un singolo utente o un gruppo—indipendentemente dalle altre impostazioni del dominio. Questo risolve una limitazione delle versioni precedenti in cui l'impostazione `Add user addresses from user domain` era incompatibile con la funzionalità catch-all.
 
-- **Mail domain catch-all and other fixes** -- Since version 1.7, the Mail application can deliver messages sent to unknown domain addresses to a special **catch-all** destination—either an individual user or a group— regardless of other domain settings. This resolves a limitation in earlier versions where the `Add user addresses from user domain` setting was incompatible with the catch-all feature.
+  È stato inoltre corretto un bug che interessava le regole di relay basate sul mittente e le credenziali del server SMTP remoto.
 
-  A bug affecting sender-based relay rules and remote SMTP server credentials has also been fixed.
+  Infine, è stata riconosciuta una limitazione di configurazione: nel raro caso in cui un utente e un gruppo condividano lo stesso nome, i messaggi in arrivo inviati a quel nome saranno sempre consegnati ai membri del gruppo. Vedi [Domini](../applications/mail.md#email_domains).
 
-  Lastly, a configuration limitation was acknowledged: in the rare case where a user and a group share the same name, incoming messages sent to that name will always be delivered to the group members. See [Domini](../applications/mail.md#email_domains).
+- **Miglioramenti alla pagina dei certificati TLS** -- La procedura **Richiedi certificato** ora include un controllo di validazione per impedire la richiesta di nomi già configurati come rotte HTTP. Gli errori ACME vengono ora visualizzati come notifiche inline durante la validazione del certificato prima che venga applicata la nuova configurazione.
 
-- **TLS certificates page enhancements** -- The **Request certificate** procedure now includes a validation check to prevent requesting names already configured as HTTP routes. ACME errors are now displayed as inline notifications during certificate validation before the new configuration is applied.
+- **Rotte HTTP e reindirizzamento con slash** -- La tabella delle rotte HTTP nella pagina delle Impostazioni ora mostra l'**host e il percorso** in una nuova colonna **Route** per una migliore identificazione delle rotte.
 
-- **HTTP routes and slash redirect** -- The HTTP routes table under the Settings page now shows the **host and path** under a new **Route** column for better route identification.
+  È stato aggiunto un nuovo **reindirizzamento automatico con slash finale** per le rotte basate su percorso. Questo è utile per le applicazioni con interfacce web che non gestiscono gli slash finali, come il portale utente.
 
-  A new **automatic trailing slash redirect** has been added for path-based routes. This benefits applications with web interfaces that do not handle trailing slashes, such as the User portal.
-
-  New installations already include this feature. To enable it on older User portal instances, run a command like:
+  Le nuove installazioni includono già questa funzionalità. Per abilitarla su istanze più vecchie del portale utente, eseguire un comando come:
 
       api-cli run module/traefik1/set-route --data '{"name":"samba1-amld","slash_redirect":true}'
 
-  Replace `"traefik1"` and `"samba1"` with the actual module identifiers, which can be found in the HTTP routes page. Search for `"amld"` and check the route details.
+  Sostituire `"traefik1"` e `"samba1"` con gli identificatori effettivi dei moduli, che possono essere trovati nella pagina delle rotte HTTP. Cercare `"amld"` e controllare i dettagli della rotta.
 
-- **WebTop updates** -- The WebTop application has been updated to the latest upstream version 5.28.6, along with the new PEC Bridge 5.4.8 that features custom notifications.
+- **Aggiornamenti WebTop** -- L'applicazione WebTop è stata aggiornata all'ultima versione upstream 5.28.6, insieme al nuovo PEC Bridge 5.4.8 che include notifiche personalizzate.
 
-  Integration with the centralized NethVoice address book has been restored, and the *click2call* feature has been updated to use the `tel:` protocol with NethLink.
+  L'integrazione con la rubrica centralizzata di NethVoice è stata ripristinata e la funzionalità *click2call* è stata aggiornata per utilizzare il protocollo `tel:` con NethLink.
 
-  WebTop now supports [Autoconfig and Autodiscovery](../applications/webtop.md#email_autoconfig), simplifying mail account setup on mobile devices.
+  WebTop ora supporta [Autoconfig e Autodiscovery](../applications/webtop.md#email_autoconfig), semplificando la configurazione degli account di posta sui dispositivi mobili.
 
-  Other improvements include:
+  Altri miglioramenti includono:
 
-  - Faster mail search with attachments
-  - Improved grouping by discussion
-  - Ability to load custom JAR files at startup
-  - New login page for OTP and maintenance mode
+  - Ricerca email più veloce con allegati
+  - Miglioramento del raggruppamento per discussione
+  - Possibilità di caricare file JAR personalizzati all'avvio
+  - Nuova pagina di login per OTP e modalità di manutenzione
 
-- **NethVoice 1.3.4** -- New Features and Improvements:
+- **NethVoice 1.3.4** -- Nuove funzionalità e miglioramenti:
 
-  - Advanced Interface Enhancements: Asterisk CLI and log viewer directly in the UI
-  - New Phone Island: Call recording support, Device switching functionality
-  - Collaboration Tools: Audio conferencing, Video calling, Screen sharing
-  - NethVoice Hotel Module: Integration with hotel systems via FIAS protocol
-  - NethVoice CTI Improvements: Updated user interface and graphics, Call pickup functionality, Collapsible side drawer for enhanced usability
-  - Streaming Management: Video stream display within NethVoice CTI (e.g., for intercoms)
-
-- **Debian Bookworm missing package** -- Some Debian installations may lack the `gettext-base` package. Ensure it is installed with:
+  - Miglioramenti dell'interfaccia avanzata: CLI di Asterisk e visualizzatore di log direttamente nell'interfaccia utente
+  - Nuova Phone Island: Supporto alla registrazione delle chiamate, Funzionalità di cambio dispositivo
+  - Strumenti di collaborazione: Conferenze audio, Videochiamate, Condivisione dello schermo
+  - Modulo Hotel NethVoice: Integrazione con sistemi alberghieri tramite protocollo FIAS
+  - Miglioramenti al CTI di NethVoice: Interfaccia utente e grafica aggiornate, Funzionalità di risposta alle chiamate, Cassetto laterale comprimibile per una migliore usabilità
+  - Gestione dello streaming: Visualizzazione dei flussi video all'interno del CTI di NethVoice (ad esempio, per citofoni)
+- **Pacchetto mancante in Debian Bookworm** -- Alcune installazioni di Debian potrebbero non includere il pacchetto `gettext-base`. Assicurarsi che sia installato con:
 
       apt-get update
       apt install gettext-base
 
-- **Other application updates** -- Updated application versions:
+- **Aggiornamenti di altre applicazioni** -- Versioni delle applicazioni aggiornate:
 
   - Nextcloud 31
   - Collabora 25
   - Roundcube 1.6.11
   - SOGo 5.12
-  - Mattermost 10.5.5 with PostgreSQL 17.5
+  - Mattermost 10.5.5 con PostgreSQL 17.5
   - Netdata 2.4
   - CrowdSec 1.6.8
   - Ejabberd 25.4
-
-## Major changes on 2025-04-04
+## Modifiche principali del 2025-04-04
 
 **Milestone 8.4**
 
-- **Notify users of expiring passwords** -- Internal user domains with an enabled expiring password policy can now be configured to send email notifications to users approaching their password expiration date. See [Password expiration warning](../installation/user_domains.md#password-warning).
+- **Notifica agli utenti delle password in scadenza** -- I domini utenti interni con una politica di scadenza delle password abilitata possono ora essere configurati per inviare notifiche email agli utenti che si avvicinano alla data di scadenza della password. Vedi [Avviso di scadenza password](../installation/user_domains.md#password-warning).
 
-- **Modify external LDAP settings** -- Bind credentials and TLS settings of an external user domain can now be changed after domain creation. See [Modify external LDAP settings](../installation/user_domains.md#modify-external-ldap).
+- **Modifica delle impostazioni LDAP esterne** -- Le credenziali di bind e le impostazioni TLS di un dominio utente esterno possono ora essere modificate dopo la creazione del dominio. Vedi [Modifica delle impostazioni LDAP esterne](../installation/user_domains.md#modify-external-ldap).
 
-- **Set up base home directory path for applications** -- The default application home directory base path is `/home` (per-distro default). It is now possible to specify and use a different base path, as documented in [Utilizzo del disco](../../tutorial/disk_usage.md), along with other techniques to expand available disk space.
+- **Configurazione del percorso base della directory home per le applicazioni** -- Il percorso base predefinito della directory home delle applicazioni è `/home` (predefinito per distribuzione). Ora è possibile specificare e utilizzare un percorso base diverso, come documentato in [Utilizzo del disco](../../tutorial/disk_usage.md), insieme ad altre tecniche per espandere lo spazio su disco disponibile.
 
-- **Wildcard TLS certificate support** -- Wildcard certificates can be uploaded and distributed to cluster applications directly from the `TLS certificates` page. Refer to [Certificati TLS](../configuration/certificates.md) for more information. Mail, NethVoice, and NethVoice Proxy have been updated to support wildcard certificates. Support for Ejabberd is coming soon.
+- **Supporto per certificati TLS wildcard** -- I certificati wildcard possono essere caricati e distribuiti alle applicazioni del cluster direttamente dalla pagina `Certificati TLS`. Per ulteriori informazioni, consulta [Certificati TLS](../configuration/certificates.md). Mail, NethVoice e NethVoice Proxy sono stati aggiornati per supportare i certificati wildcard. Il supporto per Ejabberd sarà disponibile a breve.
 
-- **New TLS-ALPN-01 default ACME challenge format** -- Let's Encrypt TLS certificates are now obtained using the TLS-ALPN-01 challenge type through TCP port 443. Port 80 is no longer used by new installations of NethServer 8 core. Existing systems retain the previous HTTP-01 challenge type and still require port 80 to be open. It is possible to upgrade to the new default with the following command:
+- **Nuovo formato di challenge ACME predefinito TLS-ALPN-01** -- I certificati TLS di Let's Encrypt vengono ora ottenuti utilizzando il tipo di challenge TLS-ALPN-01 tramite la porta TCP 443. La porta 80 non è più utilizzata dalle nuove installazioni del core di NethServer 8. I sistemi esistenti mantengono il precedente tipo di challenge HTTP-01 e richiedono ancora che la porta 80 sia aperta. È possibile aggiornare al nuovo predefinito con il seguente comando:
 
       api-cli run module/traefik1/set-acme-server --data '{"challenge":"TLS-ALPN-01","url":"https://acme-v02.api.letsencrypt.org/directory"}'
 
-- **Traefik core module enhancements** -- The core Traefik instance, running on every cluster node, has been upgraded to Traefik version 3. The previous v2-compatible configuration is saved for reference under the Traefik "state/" directory in `*.v2` directories. These can be safely removed if desired.
+- **Miglioramenti al modulo core di Traefik** -- L'istanza core di Traefik, in esecuzione su ogni nodo del cluster, è stata aggiornata alla versione 3 di Traefik. La configurazione compatibile con la versione precedente (v2) è salvata per riferimento nella directory "state/" di Traefik in directory `*.v2`. Queste possono essere rimosse in sicurezza se desiderato.
 
-  The Traefik restoration procedure has been fixed and no longer returns a conflicting Traefik instance. Instead, the backup contents are merged with the active Traefik instance on the node, allowing the restoration of custom HTTP routes and TLS certificates.
+  La procedura di ripristino di Traefik è stata corretta e non restituisce più un'istanza di Traefik in conflitto. Invece, i contenuti del backup vengono uniti con l'istanza attiva di Traefik sul nodo, consentendo il ripristino di rotte HTTP personalizzate e certificati TLS.
 
-  Additionally, this release introduces two new advanced experimental features, accessible through API calls and manual configuration:
+  Inoltre, questa release introduce due nuove funzionalità avanzate sperimentali, accessibili tramite chiamate API e configurazione manuale:
 
-  1.  Support for deploying NS8 behind a network HTTP L7 Proxy.
-  2.  Passing extra parameters to the Traefik container to configure custom CA certificates and DNS-01 challenges.
+  1. Supporto per il deployment di NS8 dietro un proxy HTTP L7 di rete.
+  2. Passaggio di parametri extra al container Traefik per configurare certificati CA personalizzati e challenge DNS-01.
 
-  Refer to available support channels for more information.
+  Consulta i canali di supporto disponibili per ulteriori informazioni.
 
-- **Per-IP access restrictions on HTTP routes** -- The `HTTP routes` page now allows access restrictions for automatic and manually-created routes based on a list of IP addresses. Additionally, a `cluster-admin` HTTP route entry is now displayed and can be used to restrict access to the Cluster Admin UI. Refer to the [HTTP routes](../configuration/proxy.md) for detailed information.
+- **Restrizioni di accesso per IP sulle rotte HTTP** -- La pagina `Rotte HTTP` consente ora di impostare restrizioni di accesso per rotte create automaticamente e manualmente basate su un elenco di indirizzi IP. Inoltre, è ora visibile una voce di rotta HTTP `cluster-admin` che può essere utilizzata per limitare l'accesso all'interfaccia Cluster Admin. Consulta [Rotte HTTP](../configuration/proxy.md) per informazioni dettagliate.
 
-- **New Monitoring/Alarms stack** -- The Metrics core application, including a running Prometheus instance, is now part of the default core applications and is automatically installed on the leader node of existing clusters with a simple core update. Metrics can be easily integrated with other monitoring solutions and configured to send alert and resolution notifications. Read further details in [Metrics and alerts](../configuration/metrics.md).
+- **Nuovo stack di monitoraggio/allarmi** -- L'applicazione core Metrics, inclusa un'istanza di Prometheus in esecuzione, fa ora parte delle applicazioni core predefinite ed è installata automaticamente sul nodo leader dei cluster esistenti con un semplice aggiornamento del core. Metrics può essere facilmente integrato con altre soluzioni di monitoraggio e configurato per inviare notifiche di allarme e risoluzione. Leggi ulteriori dettagli in [Metriche e allarmi](../configuration/metrics.md).
 
-- **Migration tool enhancements** -- In addition to "Application conflict management," previously released, the NS7 migration tool now considers application instance conflicts, providing guidance to avoid misconfigurations during migration.
+- **Miglioramenti allo strumento di migrazione** -- Oltre alla "Gestione dei conflitti delle applicazioni" precedentemente rilasciata, lo strumento di migrazione NS7 ora considera i conflitti delle istanze delle applicazioni, fornendo indicazioni per evitare configurazioni errate durante la migrazione.
 
-  Furthermore, for NethVoice migration, the NethVoice Proxy installation is now handled automatically by the migration tool.
+  Inoltre, per la migrazione di NethVoice, l'installazione di NethVoice Proxy è ora gestita automaticamente dallo strumento di migrazione.
 
-- **Imapsync and Sieve filters** -- The Imapsync application can now be configured to execute the user's Sieve filter during "INBOX-only" synchronization. Additionally, it can be set to remove messages from the remote server after a specified number of days. See [Imapsync](../applications/imapsync.md) for more details. Recursive synchronization has also been optimized to reduce system load when handling multiple concurrent Imapsync tasks.
+- **Imapsync e filtri Sieve** -- L'applicazione Imapsync può ora essere configurata per eseguire il filtro Sieve dell'utente durante la sincronizzazione "solo INBOX". Inoltre, può essere impostata per rimuovere i messaggi dal server remoto dopo un numero specificato di giorni. Vedi [Imapsync](../applications/imapsync.md) per ulteriori dettagli. La sincronizzazione ricorsiva è stata ottimizzata per ridurre il carico di sistema durante la gestione di più attività Imapsync simultanee.
 
-- **DNSMasq gateway option** -- The client gateway can now be set from the [DHCP section](../applications/dnsmasq.md#dnsmasq-dhcp-section) of DNSMasq. Additionally, selectable network interfaces are now limited to those with a private IP address to prevent configuration errors.
+- **Opzione gateway DNSMasq** -- Il gateway client può ora essere impostato dalla [sezione DHCP](../applications/dnsmasq.md#dnsmasq-dhcp-section) di DNSMasq. Inoltre, le interfacce di rete selezionabili sono ora limitate a quelle con un indirizzo IP privato per prevenire errori di configurazione.
 
-- **WebTop updates** -- WebTop has been updated to upstream release 5.27.3 with the new Pecbridge component version 5.4.5. The memory limit has been raised to 4GB for better performance. This release also introduces automated TinyMCE Plugin Integration with an active subscription and enhanced contact sharing with the latest NethVoice application release.
+- **Aggiornamenti WebTop** -- WebTop è stato aggiornato alla release upstream 5.27.3 con la nuova versione del componente Pecbridge 5.4.5. Il limite di memoria è stato aumentato a 4GB per migliorare le prestazioni. Questa release introduce anche l'integrazione automatizzata del Plugin TinyMCE con un abbonamento attivo e una condivisione dei contatti migliorata con l'ultima release dell'applicazione NethVoice.
 
-- **NethVoice enhancements** -- Version 1.2 introduces new CTI features, including audio conferencing, video calls, screen sharing, and voicemail management. A new permission allows viewing all users in the CTI interface. Device settings now include video options, and the provisioning process has been improved with two-phase support for all methods (HTTPS, DHCP). Additional updates:
+- **Miglioramenti NethVoice** -- La versione 1.2 introduce nuove funzionalità CTI, tra cui conferenze audio, videochiamate, condivisione dello schermo e gestione della segreteria telefonica. Una nuova autorizzazione consente di visualizzare tutti gli utenti nell'interfaccia CTI. Le impostazioni dei dispositivi ora includono opzioni video e il processo di provisioning è stato migliorato con il supporto in due fasi per tutti i metodi (HTTPS, DHCP). Ulteriori aggiornamenti:
+- Supporto per il nuovo modello di telefono NP-X5.  
+- Gestione migliorata dei certificati TLS e supporto per certificati wildcard.  
+- Phone-island aggiornato alla versione 0.13.0.  
+- Ridotta la verbosità dei log nel NethVoice Proxy.  
+- Correzioni per SRTP sui telefoni Yealink (firmware \> 86), REINVITE con TLS sui telefoni SNOM, problemi di riconfigurazione dei telefoni, call-back su occupato e problemi dell'interfaccia CTI, inclusi la visualizzazione dei gruppi utente e l'eliminazione delle registrazioni delle chiamate.  
+- Risolto un problema audio in CTI causato da una configurazione iniziale errata del NethVoice Proxy.  
 
-  - Support for the new NP-X5 phone model.
-  - Improved TLS certificate management and wildcard certificates support.
-  - Phone-island updated to version 0.13.0.
-  - Logging verbosity reduced in NethVoice Proxy.
-  - Fixes for SRTP on Yealink phones (firmware \> 86), REINVITE with TLS on SNOM phones, phone reconfiguration issues, call-back on busy, and CTI interface problems, including user group display and call recording deletion.
-  - Resolved an audio issue in CTI caused by an initial misconfiguration of NethVoice Proxy.
+- **Altri aggiornamenti delle applicazioni** -- Versioni delle applicazioni aggiornate:  
 
-- **Other application updates** -- Updated application versions:
-
-  - Nextcloud 29 and Nextcloud 30
-  - Collabora 24.04
-  - Mattermost 10 ESR
-  - Netdata 2
-  - CrowdSec 1.6.4
+  - Nextcloud 29 e Nextcloud 30  
+  - Collabora 24.04  
+  - Mattermost 10 ESR  
+  - Netdata 2  
+  - CrowdSec 1.6.4  
   - Ejabberd 24.12
-
-## Major changes on 2024-12-20
+## Modifiche principali del 2024-12-20
 
 **Milestone 8.3**
 
-- **Selective restoration from backup** -- In the Mail and Samba File Server applications, it is possible to search and select specific content (IMAP folder, file, or directory) from backup snapshots and restore it under a user-accessible folder. See [Selective content restore](../configuration/backup.md#selective-content-restore).
+- **Ripristino selettivo dal backup** -- Nelle applicazioni Mail e Samba File Server, è possibile cercare e selezionare contenuti specifici (cartella IMAP, file o directory) dagli snapshot di backup e ripristinarli in una cartella accessibile all'utente. Vedi [Ripristino selettivo dei contenuti](../configuration/backup.md#selective-content-restore).
 
-- \*\* Gestione dei conflitti di applicazione \*\* -- Il Cluster Admin ora applica il limite di istanza per nodo durante le operazioni di clone, spostare e ripristinare. Questo integra l'applicazione esistente durante l'operazione di installazione e semplifica la gestione delle applicazioni che utilizzano specifiche porte TCP/UDP, come Mail, Ejabberd, NethVoice Proxy, Samba e DNSMasq. Inoltre, DNSMasq disabilita automaticamente il suo servizio DNS se rileva un conflitto con un'istanza Samba sullo stesso nodo.
+- **Gestione dei conflitti delle applicazioni** -- L'Admin del Cluster ora applica il limite di istanze per nodo durante le operazioni di clonazione, spostamento e ripristino. Questo si aggiunge all'applicazione esistente durante l'operazione di installazione e semplifica la gestione delle applicazioni che utilizzano porte TCP/UDP specifiche, come Mail, Ejabberd, NethVoice Proxy, Samba e DNSMasq. Inoltre, DNSMasq disabilita automaticamente il proprio servizio DNS se rileva un conflitto con un'istanza Samba sullo stesso nodo.
 
-- **Filtro in avanti del registro di sistema** -- L'inoltro Syslog può essere configurato per inviare sia l'intero flusso di log che solo i record di registro di sicurezza. Per ragioni di performance, l'esportazione a flusso completo non è più disponibile nell'inoltro Cloud Log Manager, che ora supporta solo i log di sicurezza.
+- **Filtraggio dell'inoltro dei log di sistema** -- Il forwarder Syslog può essere configurato per inviare l'intero flusso di log o solo i record di sicurezza. Per motivi di prestazioni, l'esportazione del flusso completo non è più disponibile nel forwarder del Cloud Log Manager, che ora supporta solo i log di sicurezza.
 
-- **Backup alert** -- Systems with an active [Subscription](subscription.md) send an alert to the monitoring portal if a backup fails. The last backup status indicator has been fixed to correctly reflect failed backup instances on the Backup page.
+- **Avviso di backup** -- I sistemi con un [Abbonamento](subscription.md) attivo inviano un avviso al portale di monitoraggio se un backup fallisce. L'indicatore di stato dell'ultimo backup è stato corretto per riflettere correttamente le istanze di backup fallite nella pagina Backup.
 
-- **Rinominare OpenLDAP "directory.nh" per la migrazione NS7** -- Lo strumento di migrazione NS7 consente di selezionare il nome di dominio di destinazione (e il relativo suffisso LDAP DB), consentendo la migrazione e il consolidamento di più sistemi NS7 sullo stesso cluster NS8. Il nome di dominio LDAP può essere impostato solo con un provider di account OpenLDAP locale, in quanto Active Directory non supporta il rinominazione del dominio. [Account provider](../../tutorial/migration.md#migrate-account-provider).
+- **Rinominare OpenLDAP "directory.nh" per la migrazione di NS7** -- Lo Strumento di Migrazione NS7 consente di selezionare il nome di dominio di destinazione (e il rispettivo suffisso del database LDAP), abilitando la migrazione e la consolidazione di più sistemi NS7 nello stesso cluster NS8. Il nome di dominio LDAP può essere impostato solo con un provider di account OpenLDAP locale, poiché Active Directory non supporta la rinomina dei domini. Vedi [Provider di account](../../tutorial/migration.md#migrate-account-provider).
 
-- **Gli aggiornamenti sono sospesi durante la migrazione NS7** -- Il Software Center inibisce gli aggiornamenti manuali e automatici se un nodo NS7 viene aggiunto al cluster con lo strumento di migrazione. Se gli aggiornamenti sono sospesi, un banner viene visualizzato nel Centro Software.
+- **Gli aggiornamenti sono sospesi durante la migrazione di NS7** -- Il Software Center inibisce sia gli aggiornamenti manuali che quelli automatici se un nodo NS7 viene aggiunto al cluster con lo Strumento di Migrazione. Se gli aggiornamenti sono sospesi, viene visualizzato un banner nel Software Center.
 
-  Se il cluster visualizza questo banner in modo errato (ad esempio, la migrazione è già terminata), eseguire la seguente procedura manuale per pulire il database Redis di eventuali dati stanti dai tentativi di migrazione precedenti.
+  Se il tuo cluster visualizza questo banner in modo errato (ad esempio, la migrazione è già terminata), esegui la seguente procedura manuale per ripulire il database Redis da eventuali dati obsoleti derivanti da tentativi di migrazione precedenti.
 
-  Find the IDs of stale NS7 nodes:
+  Trova gli ID dei nodi NS7 obsoleti:
 
       redis-cli --raw keys 'node/*/flags' | xargs -t -r -l1 -- redis-cli smembers
 
-  Produzione del campione:
+  Esempio di output:
 
-  > redis-cli smembers node/77/flags nomodules
+      redis-cli smembers node/77/flags
+      nomodules
 
-  Per esempio, per rimuovere il nodo fasullo 77:
+  Ad esempio, per rimuovere il nodo errato 77:
 
       api-cli run remove-node --data '{"node_id":77}'
 
-- \*\* Domini utente unlimitati\*\* -- A partire da Core 3.2.1 e Ldapproxy 1.1.0, il limite di otto domini utente simultanei è stato rimosso. Ora è possibile installare più domini utente, a condizione che solo un Samba DC possa essere eseguito su un nodo.
+- **Domini utente illimitati** -- A partire da Core 3.2.1 e Ldapproxy 1.1.0, il limite di otto domini utente simultanei è stato rimosso. È ora possibile installare più domini utente, a condizione che solo un Samba DC possa essere eseguito su un nodo.
 
-- \*\* Gestione degli eventi di dominio utente migliorata in alcune applicazioni\*\* -- Le modifiche alle configurazioni di dominio utente vengono applicate correttamente alle applicazioni Nextcloud, Ejabberd, Mail, SOGo e Roundcube. Le modifiche di configurazione vengono propagate e i servizi vengono riavviati automaticamente.
-
-## Major changes on 2024-10-16
+- **Gestione migliorata degli eventi dei domini utente in alcune applicazioni** -- Le modifiche alle configurazioni dei domini utente sono ora applicate correttamente alle applicazioni Nextcloud, Ejabberd, Mail, SOGo e Roundcube. Le modifiche alla configurazione vengono propagate e i servizi vengono riavviati automaticamente.
+## Modifiche principali del 2024-10-16
 
 **Milestone 8.2**
 
-- **I requisiti minimi aumentati** -- Il [minimum disk requirements](../installation/system_requirements.md) è stato aumentato a un SSD da 40 GB. Lo storage primario, che contiene immagini dei container, deve essere veloce, soprattutto durante l'accesso a lettura, per evitare errori di avvio del servizio.
+- **Requisiti minimi del disco aumentati** -- I [requisiti minimi del disco](../installation/system_requirements.md) sono stati aumentati a un SSD da 40GB. Lo storage primario, che contiene le immagini dei container, deve essere veloce, specialmente durante l'accesso in lettura, per prevenire errori di avvio dei servizi.
 
-- **Cluster node limit rimosso** -- Il limite di cluster a quattro nodi è stato rimosso. Ulteriori nodi possono essere aggiunti, fino alla dimensione della rete VPN. Tuttavia, tenere a mente il carico di sistema aumentato sul nodo leader. Vedi anche [Gestione cluster](../configuration/cluster.md).
+- **Rimosso il limite di nodi del cluster** -- Il limite di quattro nodi per cluster è stato rimosso. Ora è possibile aggiungere più nodi, fino alla dimensione della rete VPN. Tuttavia, tenere presente il carico di sistema aumentato sul nodo leader. Vedi anche [Gestione del cluster](../configuration/cluster.md).
 
-- **Progressive upgrades** -- Starting from Core 3.0.0, application images can be labeled with a new attribute, [min-from](https://nethserver.github.io/ns8-core/modules/images/#image-labels). This ensures that installed applications will ignore any updates with this label if their version is lower than the label value.
+- **Aggiornamenti progressivi** -- A partire da Core 3.0.0, le immagini delle applicazioni possono essere etichettate con un nuovo attributo, [min-from](https://nethserver.github.io/ns8-core/modules/images/#image-labels). Questo garantisce che le applicazioni installate ignorino eventuali aggiornamenti con questa etichetta se la loro versione è inferiore al valore dell'etichetta.
 
-  Allo stesso modo, un'etichetta [min-core](https://nethserver.github.io/ns8-core/modules/images/#image-labels) può essere applicata alle immagini dell'applicazione, richiedendo una versione di base minima per l'installazione o gli aggiornamenti. Se la versione core è sotto il valore dell'etichetta, l'immagine verrà ignorata.
+  Allo stesso modo, un'etichetta [min-core](https://nethserver.github.io/ns8-core/modules/images/#image-labels) può essere applicata alle immagini delle applicazioni, richiedendo una versione minima del core per l'installazione o gli aggiornamenti. Se la versione del core è inferiore al valore dell'etichetta, l'immagine verrà ignorata.
 
-  Queste etichette sono state sviluppate con Nextcloud in mente, in quanto consente solo aggiornamenti al prossimo numero di versione principale. Gli sviluppatori di applicazioni possono utilizzare queste etichette per implementare aggiornamenti progressivi per le loro applicazioni.
+  Queste etichette sono state sviluppate pensando a Nextcloud, poiché consente solo aggiornamenti alla versione principale successiva. Gli sviluppatori di applicazioni possono utilizzare queste etichette per implementare aggiornamenti progressivi per le loro applicazioni.
 
-- **Inoltro di registro del cluster** -- La pagina Impostazioni di registro consente ora di configurare un flusso di log in uscita su un server Syslog esterno o su Nethesis Cloud Log Manager (disponibile solo con un piano di abbonamento Enterprise attivo).
+- **Inoltro dei log del cluster** -- La pagina Impostazioni Log consente ora di configurare un flusso in uscita di log verso un server Syslog esterno o il Nethesis Cloud Log Manager (disponibile solo con un piano di abbonamento Enterprise attivo).
 
-  Questa funzione centralizza l'archiviazione di registro esterno per tutti i nodi di cluster. Poiché i flussi di registro possono essere sostanziali in grandi cluster, le versioni future includono un filtro di flusso per aiutare i registri esportati su misura per gli eventi di sicurezza rilevanti. Vedi [Logs forwarding](../configuration/log_server.md#logs-forwarding-section).
+  Questa funzionalità centralizza l'archiviazione esterna dei log per tutti i nodi del cluster. Poiché i flussi di log possono essere consistenti nei cluster di grandi dimensioni, le versioni future includeranno un filtro per i flussi, per personalizzare i log esportati in base agli eventi di sicurezza rilevanti. Vedi [Inoltro dei log](../configuration/log_server.md#logs-forwarding-section).
 
-- \*\* Livello di certificazione di applicazione\*\* -- Il Software Center ora visualizza un *level badge* per ogni applicazione, indicandone il [certification level](../installation/software_center.md#certification-levels). La sezione dettagli dell'applicazione include anche informazioni sul repository sorgente e link utili. Gli sviluppatori possono ora utilizzare un nuovo attributo `terms_url` nei metadati per fornire un link "Termini e Condizioni", visibile anche dopo l'installazione.
+- **Livello di certificazione delle applicazioni** -- Il Software Center ora mostra un *badge di livello* per ogni applicazione, che indica il suo [livello di certificazione](../installation/software_center.md#certification-levels). La sezione dei dettagli dell'applicazione include anche informazioni sul repository di origine e link utili. Gli sviluppatori possono ora utilizzare un nuovo attributo di metadati [terms_url](https://nethserver.github.io/ns8-core/modules/metadata) per fornire un link ai "Termini e Condizioni", visibile anche dopo l'installazione.
 
-- \*\* Limiti di istanza di applicazione per nodo \*\* -- Il Software Center applica limiti al numero di istanze applicative che possono essere installate per nodo di cluster. Gli sviluppatori possono definire questo limite utilizzando l'etichetta immagine [max-per-node](https://nethserver.github.io/ns8-core/modules/images/#image-labels). Vedi [Install applications](../installation/software_center.md#install-applications).
+- **Limite di istanze per nodo** -- Il Software Center impone limiti sul numero di istanze di applicazioni che possono essere installate per nodo del cluster. Gli sviluppatori possono definire questo limite utilizzando l'etichetta immagine [max-per-node](https://nethserver.github.io/ns8-core/modules/images/#image-labels). Vedi [Installare applicazioni](../installation/software_center.md#install-applications).
 
-- **Visualizzazione dei moduli core** -- Il Software Center ora mostra ulteriori dettagli per i componenti core, inclusa la versione core di ogni nodo cluster. Vedi [Core updates](../installation/software_center.md#core_updates-section).
+- **Visualizzazione dei moduli core** -- Il Software Center ora mostra dettagli aggiuntivi per i componenti core, inclusa la versione del core di ciascun nodo del cluster. Vedi [Aggiornamenti del core](../installation/software_center.md#core_updates-section).
 
-- **Update application to testing version** -- With Core 3.0.0, the `Testing` switch under Settings \> Software Repositories has been removed. This change reduces the risk of using pre-releases for new installations or updates. If the switch was previously enabled, existing NS8 installations will no longer receive pre-release versions as updates.
+- **Aggiornamento delle applicazioni alla versione di testing** -- Con Core 3.0.0, l'opzione `Testing` sotto Impostazioni \> Repositories Software è stata rimossa. Questo cambiamento riduce il rischio di utilizzo di versioni pre-release per nuove installazioni o aggiornamenti. Se l'opzione era precedentemente abilitata, le installazioni esistenti di NS8 non riceveranno più versioni pre-release come aggiornamenti.
 
-  Tuttavia, è ancora possibile aggiornare un'istanza di applicazione a una versione di prova dal suo menu a tre punti, selezionando l'azione `Aggiorna alla versione di prova` sotto il centro software \> Indagini installate. Questa nuova procedura consente l'accesso anticipato a nuove funzionalità e correzioni di bug, ma deve essere utilizzato con cautela per evitare la perdita di dati. Assicurati di leggere attentamente la documentazione pre-rilascio o contattare lo sviluppatore dell'app prima di utilizzarla. Vedi [Installed applications](../installation/software_center.md#application-instances).
+  Tuttavia, è ancora possibile aggiornare un'istanza di applicazione a una versione di testing dal menu a tre punti, selezionando l'azione `Aggiorna alla versione di testing` sotto Software Center \> Installate \> Istanze. Questa nuova procedura consente un accesso anticipato a nuove funzionalità e correzioni di bug, ma deve essere utilizzata con cautela per evitare perdite di dati. Assicurarsi di leggere attentamente la documentazione della pre-release o contattare lo sviluppatore dell'app prima di utilizzarla. Vedi [Applicazioni installate](../installation/software_center.md#application-instances).
 
-- **More "generic S3" cloud backup providers** -- The S3 Generic backup destination now supports additional cloud providers, including OVH, Wasabi, DigitalOcean, and Synology C2. See [Backup destination](../configuration/backup.md#backup-destination).
+- **Più provider di backup "S3 generico"** -- La destinazione di backup S3 Generico ora supporta ulteriori provider cloud, inclusi OVH, Wasabi, DigitalOcean e Synology C2. Vedi [Destinazione di backup](../configuration/backup.md#backup-destination).
 
-- \*\* Selezione di backup e snapshot\*\* -- Durante il processo di ripristino dell'applicazione, gli utenti possono ora selezionare le istantanee di backup passate generate secondo la politica di conservazione di backup. Vedi [Restore applications](../configuration/backup.md#application_restore-section).
+- **Selezione di backup e snapshot** -- Durante il processo di ripristino delle applicazioni, gli utenti possono ora selezionare tra i precedenti snapshot di backup generati secondo la politica di conservazione dei backup. Vedi [Ripristinare applicazioni](../configuration/backup.md#application_restore-section).
 
-- **TCP and UDP port reallocation** -- Since Core 3.1.0, application developers can leverage new core functions that extend the range of TCP and UDP ports assigned to application instances. Similarly, they can obtain new ranges while preserving existing allocations, easing the introduction of new components during application upgrades. For more information, see [Port allocation](https://nethserver.github.io/ns8-core/modules/port_allocation/) in the Developer's manual.
+- **Riassegnazione delle porte TCP e UDP** -- A partire da Core 3.1.0, gli sviluppatori di applicazioni possono sfruttare nuove funzioni del core che estendono l'intervallo di porte TCP e UDP assegnate alle istanze delle applicazioni. Allo stesso modo, possono ottenere nuovi intervalli preservando le allocazioni esistenti, facilitando l'introduzione di nuovi componenti durante gli aggiornamenti delle applicazioni. Per maggiori informazioni, vedi [Allocazione delle porte](https://nethserver.github.io/ns8-core/modules/port_allocation/) nel manuale dello sviluppatore.
 
-- **NethVoice application** -- [NethVoice](../applications/nethvoice.md) is a professional IP telephony solution that offers a host of advanced features and an intuitive user interface.
+- **Applicazione NethVoice** -- [NethVoice](../applications/nethvoice.md) è una soluzione professionale di telefonia IP che offre una vasta gamma di funzionalità avanzate e un'interfaccia utente intuitiva.
 
-- **WebTop application** -- [WebTop](../applications/webtop.md) now features a new default UI theme, exclusively available on the NS8 platform. Administrators can choose to apply the new theme across existing installations or allow end-users to decide. Additionally, for those on the Enterprise Subscription plan, the [PEC bridge](../applications/webtop.md#pec-bridge) is now available.
+- **Applicazione WebTop** -- [WebTop](../applications/webtop.md) presenta ora un nuovo tema UI predefinito, disponibile esclusivamente sulla piattaforma NS8. Gli amministratori possono scegliere di applicare il nuovo tema alle installazioni esistenti o consentire agli utenti finali di decidere. Inoltre, per coloro che dispongono di un piano di abbonamento Enterprise, è ora disponibile il [PEC bridge](../applications/webtop.md#pec-bridge).
+- **Applicazione Nextcloud** -- La versione 27 di Nextcloud (NC 27), che era l'ultima versione disponibile su NethServer 7, ha raggiunto la fine del ciclo di vita (EOL). Sebbene le migrazioni installeranno ancora NC 27, un aggiornamento a NC 28 sarà immediatamente disponibile dopo la migrazione.
 
-- **Nextcloud application** -- Nextcloud version 27 (NC 27), which was the last version available on NethServer 7, has reached End-of-Life (EOL). Although migrations will still install NC 27, an update to NC 28 will be immediately available after migration.
-
-- **Applicazione massima** -- Mattermost è stato aggiornato dalla versione EOL 8 all'ultima versione importante, versione 9.11 (ESR).
-
-## Major changes on 2024-05-31
+- **Applicazione Mattermost** -- Mattermost è stato aggiornato dalla versione EOL 8 all'ultima release principale, la versione 9.11 (ESR).
+## Modifiche principali del 31-05-2024
 
 **Milestone 8.1**
 
-- **Mail improvements** -- Added the [Relay rules](../applications/mail.md#relay-rules-section) feature, which allows configuration and use of a default smarthost for outgoing email messages, and more. A Mail instance can now be selected directly from the [Email notifications](../configuration/email_notifications.md) page to serve as the cluster's default mail gateway for other applications. Since release 1.4 Mail provides also Sender/login correspondence, configurable Queue lifetime, and IP-based relay policy, as described by [Mail settings](../applications/mail.md#mail_settings-section).
+- **Miglioramenti Mail** -- Aggiunta la funzionalità [Relay rules](../applications/mail.md#relay-rules-section), che consente la configurazione e l'utilizzo di uno smarthost predefinito per i messaggi email in uscita, e altro ancora. Ora è possibile selezionare un'istanza di Mail direttamente dalla pagina [Email notifications](../configuration/email_notifications.md) per servire come gateway email predefinito del cluster per altre applicazioni. Dalla versione 1.4, Mail fornisce anche la corrispondenza Mittente/login, la configurazione della durata della coda e la policy di relay basata su IP, come descritto in [Mail settings](../applications/mail.md#mail_settings-section).
 
-- **Applicazione del personale** -- La nuova applicazione Piler migliora le funzionalità Mail con una soluzione di archiviazione e-mail. Vedere [Piler](../applications/piler.md) per ulteriori informazioni.
+- **Applicazione Piler** -- La nuova applicazione Piler migliora le funzionalità di Mail con una soluzione di archiviazione delle email. Consulta [Piler](../applications/piler.md) per maggiori informazioni.
 
-- **Netdata application** -- A new monitoring stack is available alongside Prometheus and Grafana. A Netdata instance can be installed with a click on a cluster node and immediately starts to collect metrics. See [Dati di rete](../applications/netdata.md) for details.
+- **Applicazione Netdata** -- È disponibile un nuovo stack di monitoraggio accanto a Prometheus e Grafana. Un'istanza di Netdata può essere installata con un clic su un nodo del cluster e inizia immediatamente a raccogliere metriche. Consulta [Netdata](../applications/netdata.md) per i dettagli.
 
-- **Applicazione Dnsmasq** -- Questa nuova applicazione fornisce un semplice servizio DNS e DHCP per la rete locale. Vedere [DNSMasq](../applications/dnsmasq.md) per i dettagli.
+- **Applicazione Dnsmasq** -- Questa nuova applicazione fornisce un servizio DNS e DHCP semplice per la rete locale. Consulta [DNSMasq](../applications/dnsmasq.md) per i dettagli.
 
-- **Display firewall open ports** -- La configurazione del nodo firewall è accessibile da una nuova scheda nella pagina Impostazioni. Le stesse informazioni sono ancora disponibili dalla pagina Nodes. Vedere [Firewall](../configuration/firewall.md) per ulteriori informazioni.
+- **Visualizzazione delle porte aperte del firewall** -- La configurazione del firewall del nodo è accessibile da una nuova scheda nella pagina Impostazioni. Le stesse informazioni sono ancora disponibili nella pagina Nodes. Consulta [Firewall](../configuration/firewall.md) per maggiori informazioni.
 
-- **NethSecurity controller** -- This new application allows the remote control of multiple NethSecurity installations, called units. It provides enhanced management and monitoring capabilities for firewall units. Refer to the section [Regolatore di sicurezza](../applications/nethsecurity_controller.md) for more information.
+- **Controller NethSecurity** -- Questa nuova applicazione consente il controllo remoto di più installazioni di NethSecurity, chiamate unità. Fornisce capacità avanzate di gestione e monitoraggio per le unità firewall. Consulta la sezione [NethSecurity Controller](../applications/nethsecurity_controller.md) per maggiori informazioni.
 
-- **Diario di sistema** -- I record di registro generati da qualsiasi nodo di cluster vengono raccolti e memorizzati nel nodo leader per un numero di giorni configurabile. Da Core release 2.7.0, il componente responsabile di questo è automaticamente avviato e configurato quando viene promosso un nuovo nodo leader. Fare riferimento alla sezione [System logs](../configuration/log_server.md) per ulteriori informazioni.
+- **Log di sistema** -- I registri generati da qualsiasi nodo del cluster vengono raccolti e archiviati nel nodo leader per un numero configurabile di giorni. Dalla versione Core 2.7.0, il componente responsabile di questa funzione viene avviato e configurato automaticamente quando un nuovo nodo leader viene promosso. Consulta la sezione [System logs](../configuration/log_server.md) per maggiori informazioni.
 
-- **CrowdSec bouncer container** -- Since CrowdSec release 1.0.7, the bouncer component runs inside a container and uses Netfilter tables to block IPs. Execute the following commands to clean up some files and resources left by previous versions.
+- **Container CrowdSec bouncer** -- Dalla versione CrowdSec 1.0.7, il componente bouncer viene eseguito all'interno di un container e utilizza le tabelle Netfilter per bloccare gli IP. Esegui i seguenti comandi per pulire alcuni file e risorse lasciati dalle versioni precedenti.
 
-  Eseguire questo comando per rimuovere il ipset Firewalld:
+  Esegui questo comando per rimuovere l'ipset di Firewalld:
 
       firewall-cmd --permanent --delete-ipset=crowdsec-blacklists
       firewall-cmd --permanent --delete-ipset=crowdsec6-blacklists
 
-  I pacchetti aggiuntivi e il repository software installato nel sistema host possono anche essere rimossi.
+  È possibile rimuovere anche pacchetti aggiuntivi e il repository software installato nel sistema host.
 
-  Per Rocky Linux, eseguire:
+  Per Rocky Linux, esegui:
 
       dnf remove -y crowdsec-firewall-bouncer-iptables
       rm -rvf /etc/yum.repos.d/crowdsec_crowdsec.repo /etc/crowdsec /usr/local/sbin/cscli
 
-  Per Debian, eseguire:
+  Per Debian, esegui:
 
-  > apt-get -y remove crowdsec-firewall-bouncer-iptables rm -rvf /etc/apt/sources.list.d/crowdsec_crowdsec.list /etc/crowdsec /usr/local/sbin/cscli
+      apt-get -y remove crowdsec-firewall-bouncer-iptables
+      rm -rvf /etc/apt/sources.list.d/crowdsec_crowdsec.list /etc/crowdsec /usr/local/sbin/cscli
 
-- **Rocky Linux 9.4**... Da Core release 2.8.1, le immagini pre-costruite si basano sull'immagine cloud ufficiale Rocky Linux 9.4.
+- **Rocky Linux 9.4** -- Dalla versione Core 2.8.1, le immagini precompilate si basano sull'immagine cloud ufficiale di Rocky Linux 9.4.
+## Modifiche principali del 2024-02-13
 
-## Principali cambiamenti del 2024-02-13
+**Rilascio stabile 8.0**
 
-**Stable release 8.0**
+Le nuove funzionalità introdotte in questa versione sono:
 
-Le nuove funzionalità introdotte in questa release sono:
+- **Subscription** -- I piani di abbonamento Nethesis Enterprise e Community sono ora disponibili per NS8. Vedi i dettagli nella pagina [Subscription](subscription.md).
 
-- **Abbonamento** -- I piani di abbonamento Nethesis Enterprise e Community Subscription sono ora disponibili per NS8. Maggiori dettagli nella pagina [Subscription](subscription.md).
+- **Portale di gestione utenti** -- I membri del gruppo Domain Admins possono ora creare, modificare ed eliminare account utente dal [Portale di gestione utenti](../installation/user_domains.md#user-management-portal-section). La schermata di accesso ora mostra il nome del dominio utente per distinguere a quale dominio un utente sta accedendo.
 
-- **Portale di gestione degli utenti** -- I membri del gruppo Domain Admins possono ora creare, modificare ed eliminare gli account utente dal [Portale di gestione utente](../installation/user_domains.md#user-management-portal-section). La schermata di login ora visualizza il nome del dominio dell'utente per distinguere a quale dominio utente si accede.
+- **Salta la validazione del certificato** nelle rotte HTTP -- Quando una rotta HTTP viene creata o modificata nella pagina [Rotte HTTP](../configuration/proxy.md), l'opzione `Skip certificate validation` può essere abilitata su una rete fidata se il server all'URL di destinazione non dispone di un certificato TLS valido.
 
-- **Salta la verifica del certificato** nelle rotte HTTP -- quando viene creata o modificata una rotta HTTP nella pagina [rotte HTTP](../configuration/proxy.md), l'opzione `Salta la verifica del certificato` può essere abilitata per una rete fidata nel caso in cui il server all'URL di destinazione non abbia un certificato TLS valido.
-
-- **Cockpit rimosso dall'immagine pre-built** -- Cockpit non è necessario per NS8, quindi non è più disponibile nell'immagine pre-built di NS8. Se lo si desidera, può essere installato e abilitato manualmente con i seguenti comandi:
+- **Cockpit rimosso dall'immagine predefinita** -- Cockpit non è richiesto per eseguire NS8, pertanto non è più disponibile nell'immagine predefinita di NS8. Se desiderato, può essere installato e abilitato manualmente con i seguenti comandi:
 
       dnf install -y cockpit
       systemctl enable --now cockpit.socket
 
-  La configurazione predefinita di Cockpit proibisce l'accesso a `root`: accedere con un utente membro del gruppo `wheel`, quindi attivare la modalità "accesso amministrativo".
+  La configurazione predefinita di Cockpit impedisce l'accesso come `root`: accedere come membro del gruppo `wheel`, quindi entrare in modalità "accesso amministrativo".
 
 Problemi noti:
 
-- **Core upgrade congela la pagina Software Center** -- Il [bug 6778](https://github.com/NethServer/dev/issues/6778) è stato fissato nella versione core 2.2.6. Se l'aggiornamento da RC1 inizia dalla versione core 2.2.5 o inferiore, quando la barra di avanzamento dell'attività si blocca, ricaricare la pagina web con `CTRL + SHIFT + R` o una procedura equivalente. La ricarica della pagina non ha alcun impatto sull'aggiornamento in corso. Nota: il download dell'aggiornamento può essere lento; evitare di interrompere o riavviare fino al completamento.
-
-## Cambiamenti principali del 2023-11-21
+- **L'aggiornamento del core blocca la pagina del Software Center** -- Il [bug 6778](https://github.com/NethServer/dev/issues/6778) è stato risolto nella versione core 2.2.6. Se l'aggiornamento dalla RC1 parte dalla versione core 2.2.5 o inferiore, quando la barra di avanzamento del task si blocca, ricaricare la pagina web con `CTRL + SHIFT + R` o una procedura equivalente. Il ricaricamento della pagina non ha alcun impatto sull'aggiornamento in corso. Nota: il download dell'aggiornamento potrebbe essere lento; evitare di interrompere o riavviare fino al completamento.
+## Modifiche principali del 2023-11-21
 
 **Release Candidate 1**
 
-Nuove funzionalità introdotte dalla RC1:
+Le nuove funzionalità introdotte con RC1 sono:
 
-- **Policy delle password** -- Aggiunta una nuova opzione di configurazione nella pagina `Domini e utenti`. È possibile modificare la complessità delle password e le politiche di scadenza dei domini Samba e OpenLDAP. Le installazioni Beta 2 con i domini OpenLDAP richiedono di eseguire una procedura manuale per abilitare le password policy. La procedura di aggiornamento è dettagliata nelle note successive. Vedi anche [Password policy](../installation/user_domains.md#password-policy-section).
-- **Portale di gestione degli utenti** -- Gli utenti di un dominio possono ora accedere a una pagina web per modificare la propria password. Il portale dell'utente è disponibile all'indirizzo `https://IP_OR_FQDN/users-admin/DOMAIN_NAME/`; un link completo viene visualizzato nella pagina `Domini e utenti`, sotto le impostazioni di configurazione del dominio. Le installazioni Beta 2 richiedono di eseguire una procedura manuale per abilitare il portale utente. Vedere la procedura di aggiornamento per Samba e OpenLDAP nelle note successive, e la pagina: `user-management-portal-section` .
-- **Repository backup** -- Oltre ai protocolli cloud esistenti, è ora più facile inviare i backup ad alcuni dispositivi locali. Un repository di backup può ora essere creato in una *share Windows* o in uno *Storage locale*, come un disco attaccato a un nodo di cluster. Vedi [Backup e ripristino](../configuration/backup.md) per maggiori informazioni.
-- **Raccolta mail da altri server** -- [Imapsync](../applications/imapsync.md) è una nuova applicazione avanzata progettata per recuperare i messaggi e-mail da server IMAP remoti a intervalli programmati e sincronizzare interi account IMAP.
-- **Lista mirror per i nodi Rocky Linux** -- Se Rocky Linux è la distribuzione OS usata in un nodo, la configurazione predefinita DNF viene sovrascritta e i mirror vengono gestiti da `mirrorlist.nethserver.org`. Nelle future versioni i pacchetti RPM di Rocky Linux saranno ospitati da mirror specifici di NethServer.
+- **Politica delle password** -- Aggiunta una nuova opzione di configurazione alla pagina `Domini e utenti`. È possibile modificare la complessità e le politiche di scadenza delle password per i domini Samba e OpenLDAP. Le installazioni Beta 2 con domini OpenLDAP richiedono l'esecuzione di una procedura manuale per abilitare la politica delle password. La procedura di aggiornamento è descritta nelle note successive. Vedi anche [Politica delle password](../installation/user_domains.md#password-policy-section).
+- **Portale di gestione utenti** -- Gli utenti di un dominio possono ora accedere a una pagina web per modificare la propria password. Il portale utenti è disponibile all'indirizzo `https://IP_OR_FQDN/users-admin/DOMAIN_NAME/`; un link completo è mostrato nella pagina `Domini e utenti`, sotto le impostazioni di configurazione del dominio. Le installazioni Beta 2 richiedono l'esecuzione di una procedura manuale per abilitare il portale utenti. Consulta la procedura di aggiornamento per Samba e OpenLDAP nelle note successive e la pagina [Portale di gestione utenti](../installation/user_domains.md#user-management-portal-section).
+- **Repository di backup** -- Oltre ai protocolli cloud esistenti, ora è più facile inviare backup a un dispositivo locale. Un repository di backup può essere creato in una *condivisione file Windows* o in una *memoria locale*, come un disco collegato a un nodo cluster. Vedi [Backup e ripristino](../configuration/backup.md) per ulteriori informazioni.
+- **Recupero email da altri server** -- [Imapsync](../applications/imapsync.md) è una nuova applicazione avanzata progettata per recuperare i messaggi email da server IMAP remoti a intervalli programmati e per sincronizzare interi account IMAP.
+- **Lista mirror per i nodi Rocky Linux** -- Se Rocky Linux è la distribuzione del sistema operativo del nodo, la configurazione DNF predefinita viene sovrascritta e i mirror vengono restituiti da `mirrorlist.nethserver.org`. I pacchetti RPM di Rocky Linux saranno ospitati da mirror specifici di NethServer nelle versioni future.
 
-L'aggiornamento delle installazioni Beta 2 esistenti può essere avviato dalla pagina Software center come al solito. Dopo che i componenti principali sono aggiornati, eseguire le seguenti procedure manuali per completare l'aggiornamento.
+L'aggiornamento delle installazioni Beta 2 esistenti può essere avviato dalla pagina del Centro Software come di consueto. Dopo che i componenti principali sono aggiornati, eseguire le seguenti procedure manuali per completare l'aggiornamento.
 
-- **Procedura di aggiornamento del core** -- Per aggiornare le installazioni Beta 2 eseguire il seguente comando sul nodo leader. Definisce il nuovo ruolo di autorizzazione `tunadm`, disponibile su nuove installazioni dalla versione core 2.1.0:
+- **Procedura di aggiornamento del core** -- Per aggiornare le installazioni Beta 2, eseguire il seguente comando sul nodo leader. Questo definisce il nuovo ruolo di autorizzazione `tunadm`, disponibile nelle nuove installazioni dalla versione core 2.1.0:
 
       redis-cli --raw hvals cluster/module_node | sort -n | uniq | xargs -I NODE_ID -- redis-cli SADD node/NODE_ID/roles/tunadm add-tun remove-tun add-public-service remove-public-service add-custom-zone remove-custom-zone
 
-  Per ogni nodo del cluster, abilitare il servizio WebDAV locale per i backup:
+  Per ciascun nodo del cluster, abilitare il servizio locale WebDAV per i backup:
 
       systemctl enable --now rclone-webdav.service
 
-  Infine, solo per i nodi Rocky Linux, abilitare i repository di default NethServer:
+  Infine, solo per i nodi Rocky Linux, abilitare i repository predefiniti di NethServer:
 
       cp -v /etc/nethserver/nethserver.repo /etc/yum.repos.d/nethserver.repo
       dnf config-manager --save --set-disabled appstream baseos extras
 
-- **Procedura aggiornamento Samba** -- Per aggiornare le installazioni Beta 2 eseguire la procedura seguente per ogni istanza dell'account provider Samba. L'elenco delle istanze può essere ottenuto dalla pagina `Domini e utenti`, sotto le impostazioni di configurazione del dominio; **annotare per ogni provider**:
+- **Procedura di aggiornamento Samba** -- Per aggiornare le installazioni Beta 2, eseguire la seguente procedura per ciascuna istanza del provider di account Samba. L'elenco delle istanze può essere ottenuto dalla pagina `Domini e utenti`, sotto le impostazioni di configurazione del dominio; **annotare per ciascun provider**:
 
-  - L'ID del modulo (stringa), per esempio `samba1`
+  - l'ID del modulo (stringa), ad esempio `samba1`
 
-  - L'ID del nodo (numero), per esempio `1`
+  - l'ID del nodo (numero), ad esempio `1`
 
-  - il numero di una porta TCP disponibile, generato eseguendo sul nodo leader questo comando:
+  - un numero di porta TCP libero, generato eseguendo sul nodo leader un comando come il seguente:
 
         node_id=1
         echo $((`redis-cli --raw INCR node/${node_id}/tcp_ports_sequence` - 1))
 
-    Nell'esempio sopra è necessario assegnare a `node_id` il corretto ID del nodo (numero). Supponiamo che il comando stampi il seguente numero di porta:
+    Nell'esempio sopra, impostare `node_id` con il corretto ID del nodo (numero). Supponiamo che il comando sopra riporti il numero di porta seguente:
 
         20013
 
-  Con le annotazioni recuperate precedentemente, eseguire i seguenti passaggi per ogni provider:
+  Con le annotazioni sopra, eseguire i seguenti passaggi per ciascun provider:
 
-  1.  Accedere al nodo del cluster in cui viene eseguita l'istanza del provider.
+  1. Accedere al nodo cluster in cui è in esecuzione l'istanza del provider.
 
-  2.  Applicare la configurazione della porta TCP e avviare il servizio del portale utente:
+  2. Applicare la configurazione della porta TCP e avviare il servizio del portale utenti:
 
           runagent -m samba1 python3 - 20013 <<'EOF'
           import agent, os, sys
@@ -453,26 +442,25 @@ L'aggiornamento delle installazioni Beta 2 esistenti può essere avviato dalla p
           os.execl("../actions/configure-module/80start_amld", "80start_amld")
           EOF
 
-- **Procedura di aggiornamento OpenLDAP** -- Per aggiornare le installazioni Beta 2 eseguire la procedura seguente per ogni istanza dell'account provider OpenLDAP. L'elenco delle istanze può essere ottenuto dalla pagina `Domini e utenti`, sotto le impostazioni di configurazione del dominio; **annotare per ogni provider**:
+- **Procedura di aggiornamento OpenLDAP** -- Per aggiornare le installazioni Beta 2, eseguire la seguente procedura per ciascuna istanza del provider di account OpenLDAP. L'elenco delle istanze può essere ottenuto dalla pagina `Domini e utenti`, sotto le impostazioni di configurazione del dominio; **annotare per ciascun provider**:
 
-  - L'ID del modulo (stringa), per esempio `openldap1`
+  - l'ID del modulo (stringa), ad esempio `openldap1`
 
-  - L'ID del nodo (numero), per esempio `1`
+  - l'ID del nodo (numero), ad esempio `1`
 
-  - il numero di una porta TCP disponibile, generato eseguendo sul nodo leader questo comando:
+  - un numero di porta TCP libero, generato eseguendo sul nodo leader un comando come il seguente:
 
         node_id=1
         echo $((`redis-cli --raw INCR node/${node_id}/tcp_ports_sequence` - 1))
 
-    Nell'esempio sopra è necessario assegnare a `node_id` il corretto ID del nodo (numero). Supponiamo che il comando stampi il seguente numero di porta:
+    Nell'esempio sopra, impostare `node_id` con il corretto ID del nodo (numero). Supponiamo che il comando sopra riporti il numero di porta seguente:
 
         20014
 
-  Con le annotazioni recuperate precedentemente, eseguire i seguenti passaggi per ogni provider:
+  Con le annotazioni sopra, eseguire i seguenti passaggi per ciascun provider:
+1. Accedi al nodo del cluster in cui è in esecuzione l'istanza del provider.
 
-  1.  Accedere al nodo del cluster in cui viene eseguita l'istanza del provider.
-
-  2.  Applicare la configurazione della porta TCP e avviare il servizio del portale utente:
+  2. Applica la configurazione della porta TCP e avvia il servizio del portale utente:
 
           runagent -m openldap1 python3 - 20014 <<'EOF'
           import agent, os, sys
@@ -485,7 +473,7 @@ L'aggiornamento delle installazioni Beta 2 esistenti può essere avviato dalla p
           os.execl("../actions/configure-module/80start_amld", "80start_amld")
           EOF
 
-  Dopo aver ripetuto i passaggi sopra per ogni nodo del cluster, eseguire i seguenti comandi in un'istanza a scelta (l'esempio è per `openldap1`):
+  Dopo aver ripetuto i passaggi sopra descritti su ciascun nodo del cluster, eseguire i seguenti comandi in un'istanza a scelta (l'esempio è per `openldap1`):
 
       runagent -m openldap1 podman exec -i openldap ash -c 'envsubst | ldapmodify -c ' <<'EOF'
       dn: olcDatabase={2}mdb,cn=config
@@ -544,55 +532,54 @@ L'aggiornamento delle installazioni Beta 2 esistenti può essere avviato dalla p
 
       runagent -m openldap1 systemctl --user restart openldap
 
-- **Procedura di aggiornamento Mattermost** -- l'aggiornamento di Mattermost deve essere completato manualmente per assegnare e aprire le porte UDP richieste dal plugin Calls. Dalla pagina `Software center`, assicurarsi che la versione di Mattermost sia la `2.0.0`. Clonare quindi l'istanza in esecuzione e, completato il clone, rimuovere la vecchia istanza.
-
-## Principali cambiamenti del 2023-09-13
+- **Procedura di aggiornamento di Mattermost** -- L'aggiornamento di Mattermost deve essere completato manualmente per allocare e aprire le porte UDP richieste dal plugin Calls. Dalla pagina del `Software center`, assicurarsi che Mattermost sia alla versione `2.0.0`. Quindi clonare l'istanza in esecuzione e, una volta completata la clonazione, rimuovere l'istanza precedente.
+## Modifiche principali del 2023-09-13
 
 **Beta 2**
 
-- **Immagine pre-built** -- Le immagini si basano su Rocky Linux. I formati disponibili sono `.qcow2` per QEMU/Proxmox e `.vmdk` per VMware. Fare riferimento a [Immagine pre-built](../installation/install.md#install_image-section) per i link di download dell e immagini.
+- **Immagine preconfigurata** -- Le immagini sono basate su Rocky Linux. I formati disponibili sono `.qcow2` per QEMU/Proxmox e `.vmdk` per VMware. Consulta [Immagine preconfigurata](../installation/install.md#install_image-section) per i link di download delle immagini.
 
-- **Requisiti FQDN** -- La procedura di creazione del cluster richiede ora di rivedere e impostare il nome host del sistema. Il nome host deve essere fornito in forma breve (una sola parola, senza suffisso di dominio). La procedura richiede anche il suffisso di dominio e manipola il file `/etc/hosts` aggiungendo un record per risolvere correttamente il fully qualified domain name (FQDN). Per esempio:
+- **Requisito FQDN** -- La procedura di creazione del cluster ora richiede di verificare e impostare il nome host attuale del sistema. Il nome host deve essere in forma breve (una sola parola, senza suffisso di dominio). La procedura richiede anche il suffisso di dominio e aggiorna il file `/etc/hosts` aggiungendo un record per risolvere correttamente il nome di dominio completo del sistema (FQDN). Ad esempio:
 
-  > 127.0.1.1 node1.example.org node1
+      127.0.1.1 node1.example.org node1
 
-  Vedi anche [Configurazione DNS](../installation/system_requirements.md#dns-reqs).
+  Consulta anche [Configurazione DNS](../installation/system_requirements.md#dns-reqs).
 
-- **Porta WireGuard 55820** -- La porta UDP utilizzata da WireGuard nella creazione del cluster VPN è ora fissata a `55820`. La configurazione dei cluster già creati con un numero di porta personalizzato dovrà essere corretta manualmente prima di aggiornare il core a Beta 2. Ad esempio, se la porta personalizzata è `55821` eseguire sul nodo leader i seguenti passaggi per risolvere il problema.
+- **Porta WireGuard 55820** -- La porta UDP utilizzata da WireGuard per la creazione della VPN del cluster è ora fissata a `55820`. I cluster già creati con un numero di porta personalizzato devono essere corretti manualmente prima di aggiornare il core alla Beta 2. Ad esempio, se la porta personalizzata è `55821`, eseguire i seguenti passaggi sul nodo leader per correggerla.
 
-  1.  Correggere l'indirizzo di endpoint pubblico VPN in Redis. Ad esempio, se il nodo leader è `1` e il suo FQDN è `node1.example.org`:
+  1. Correggere l'indirizzo endpoint pubblico della VPN in Redis. Ad esempio, se il nodo leader è `1` e il suo FQDN è `node1.example.org`:
 
           redis-cli hset node/1/vpn endpoint node1.example.org:55820
 
-  2.  Correggere la configurazione del firewall :
+  2. Correggere la configurazione del firewall:
 
           firewall-cmd --permanent --service=ns-wireguard --remove-port=55821/udp
           firewall-cmd --permanent --service=ns-wireguard --add-port=55820/udp
           firewall-cmd --reload
 
-  3.  Modificare la porta di ascolto dell'istanza WireGuard in esecuzione :
+  3. Modificare la porta di ascolto di WireGuard in esecuzione:
 
           wg set wg0 listen-port 55820
 
-  4.  Rendere le modifiche permanenti, impostando `ListenPort = 55820` nel file `/etc/wireguard/wg0.conf` :
+  4. Rendere permanente la modifica impostando `ListenPort = 55820` in `/etc/wireguard/wg0.conf`:
 
           sed -ir 's/ListenPort.*/ListenPort = 55820/' /etc/wireguard/wg0.conf
 
-  Ripetere i passi da 2 a 4 anche su ogni nodo worker.
+  Ripetere i passaggi 2-4 anche su ciascun nodo worker.
 
-- **Aggiornamento Debian** -- Dopo aver eseguito l'aggiornamento del core, le installazioni basate su Debian 11 (Bullseye) devono essere aggiornate manualmente alla versione di distribuzione 12 (Bookworm) :
+- **Aggiornamento Debian** -- Dopo aver eseguito l'aggiornamento del core, le installazioni basate su Debian 11 (Bullseye) devono essere aggiornate manualmente alla versione 12 della distribuzione (Bookworm):
 
       rm -f '/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list'
       sed -i 's/bullseye/bookworm/' /etc/apt/sources.list
       apt update && apt full-upgrade -y
 
-  Seguire le istruzioni per aggiornare Python alla versione 3.11, poi **riavviare il sistema**. Applicare la stessa procedura per ogni nodo del cluster.
+  Seguire anche le istruzioni per l'aggiornamento a Python 3.11, quindi **riavviare il sistema**. Applicare la stessa procedura per ciascun nodo del cluster.
 
-- **Python 3.11** -- Dopo aver eseguito l'aggiornamento del core, le installazioni basate su Rocky Linux (e altre distribuzioni EL-like) devono installare manualmente Python 3.11:
+- **Python 3.11** -- Dopo aver eseguito l'aggiornamento del core, le installazioni basate su Rocky Linux (e altre distribuzioni simili a EL) devono installare manualmente Python 3.11:
 
       dnf install python3.11
 
-  Debian necessita anche l'esecuzione del seguente script Bash. Non tralasciare le parentesi tonde! :
+  Anche Debian richiede il seguente script Bash. Non dimenticare le parentesi tonde!:
 
       (
           set -e -x
@@ -604,82 +591,79 @@ L'aggiornamento delle installazioni Beta 2 esistenti può essere avviato dalla p
           rm -rf ${core_dir}.bak
       )
 
-  Controllare se l'aggiornamento Python ha avuto successo:
+  Verificare se l'aggiornamento di Python è stato completato con successo:
 
-      runagent python3 --version # output should be 3.11
+      runagent python3 --version # l'output dovrebbe essere 3.11
 
-  Applicare la stessa procedura per ogni nodo del cluster.
+  Applicare la stessa procedura per ciascun nodo del cluster.
 
-- **Miglioramenti di sicurezza UI** -- Con la versione Beta 1 è stato rilasciato un importante aggiornamento di sicurezza, e altri miglioramenti di sicurezza sono ora disponibili. Dopo aver eseguito l'aggiornamento del core, ricaricare la pagina del browser con `CTRL + Shift + R` o altro metodo equivalente.
+- **Miglioramenti alla sicurezza dell'interfaccia utente** -- Dalla versione Beta 1 è stato rilasciato un importante aggiornamento di sicurezza e sono ora disponibili altri miglioramenti di sicurezza. Dopo aver eseguito l'aggiornamento del core, effettuare un aggiornamento forzato della pagina del browser con `CTRL + Shift + R` o un altro metodo equivalente.
 
-- **Logs backend improved** -- The Logs page backend has been improved to be faster and more accurate in capturing the logs of every cluster component. The core module now runs Promtail as a system service. After running the core update, it is safe to uninstall Promtail core modules by running this command on the leader node:
+- **Miglioramento del backend dei log** -- Il backend della pagina Log è stato migliorato per essere più veloce e accurato nel catturare i log di ogni componente del cluster. Il modulo core ora esegue Promtail come servizio di sistema. Dopo aver eseguito l'aggiornamento del core, è possibile disinstallare in sicurezza i moduli core di Promtail eseguendo questo comando sul nodo leader:
 
       api-cli run list-installed-modules | jq -r '.["ghcr.io/nethserver/promtail"] | .[].id' | xargs -l remove-module --no-preserve
 
-  Attenzione: la nuova pagina dei log non può accedere alle vecchie voci di registro. Per visualizzare le voci di registro precedenti all'aggiornamento Beta 2, utilizzare il comando `logcli`.
+  Si noti che la nuova pagina Log non può accedere alle voci di log precedenti all'aggiornamento a Beta 2. Per visualizzare le voci di log precedenti all'aggiornamento a Beta 2, utilizzare il comando `logcli`.
 
-- **Caricamento certificato TLS** -- Il menu `Certificati TLS` nella pagina `Impostazioni` è stato esteso per consentire il caricamento di un certificato e della chiave privata ad esso associata. Si veda la sezione [Certificati TLS](../configuration/certificates.md).
+- **Caricamento del certificato TLS** -- La scheda `Certificati TLS` nella pagina `Impostazioni` è stata estesa per consentire il caricamento di un certificato e della chiave privata associata. Consulta la sezione [Certificati TLS](../configuration/certificates.md).
 
-- **Repositori di backup aggiuntivi** -- I repository di backup possono essere creati anche su cloud storage provider compatibili con Microsoft Azure e S3.
+- **Provider di backup aggiuntivi** -- I repository di backup possono essere creati anche su Microsoft Azure e provider di storage cloud compatibili con S3.
 
-- **Nuova configurazione backend Traefik** -- Il cluster Redis DB non viene più utilizzato come backend di configurazione dinamica dalle istanze dei moduli Traefik. La configurazione Traefik è ora interamente memorizzata nella home directory del modulo. Per migliorare le prestazioni Redis è possibile disabilitare una funzione specifica per Traefik con i seguenti comandi:
+- **Nuovo backend di configurazione Traefik** -- Il database Redis del cluster non è più utilizzato dalle istanze del modulo Traefik come backend di configurazione dinamica. La configurazione di Traefik è ora interamente memorizzata nella directory home del modulo. Per migliorare le prestazioni di Redis è possibile disabilitare una funzionalità specifica per Traefik con i seguenti comandi:
 
       podman exec redis sed -i.beta1 '/^notify-keyspace-events / d' /data/etc/redis.conf
       systemctl restart redis
 
-  Applicare la stessa procedura per ogni nodo del cluster.
+  Applicare la stessa procedura per ciascun nodo del cluster.
 
-- **Miglioramenti modulo mail**
+- **Miglioramenti al modulo Mail**
 
-  1.  Le nuove installazioni del modulo Mail hanno l'opzione `Shared visto` abilitata per impostazione predefinita. Gli impianti esistenti troveranno l'interruttore disabilitato. Vedi anche la sezione relativa a [impostazioni caselle e-mail](../applications/mail.md#mail-mailboxes-settings).
-
-  2.  Aggiunto a Dovecot il plugin open source *Flatcurve* per abilitare la ricerca full-text (FTS) nei messaggi e-mail. Per ricostruire massicciamente gli indici di ricerca eseguire il seguente comando durante il tempo di inattività del sistema:
+  1. Le nuove installazioni del modulo Mail hanno l'opzione `Shared seen` abilitata per impostazione predefinita. Le installazioni esistenti troveranno l'opzione disabilitata. Consulta anche la sezione relativa alle [impostazioni delle caselle di posta](../applications/mail.md#mail-mailboxes-settings).
+2.  Aggiunto il plugin open source Dovecot *Flatcurve* per abilitare la ricerca full-text (FTS) nei messaggi email. Per ricostruire massivamente gli indici di ricerca, eseguire il seguente comando durante i periodi di inattività del sistema:
 
           podman exec dovecot sh -c "doveadm index -A -q '*' ; pgrep indexer-worker | xargs -- renice"
 
-      Solo gli allegati PDF e l'e-mail stessa vengono aggiunti all'indice. In futuro saranno supportati più formati di allegati.
-
-## Principali cambiamenti del 2023-05-10
+      Solo gli allegati PDF e l'email stessa vengono aggiunti all'indice. In future versioni saranno supportati più formati di allegati.
+## Modifiche principali del 2023-05-10
 
 **Beta 1**
 
-Le caratteristiche principali del core includono:
+Le principali funzionalità del core includono:
 
-- Gestione dei nodi: aggiunta e rimozione di nodi dal sistema
-- Centralizzazione log: raccolta di tutti i log in un unico posto per un monitoraggio semplificato
-- Backup configurazione e dati: salva regolarmente le impostazioni del cluster e i dati delle applicazioni in provider remoti come Amazon S3 e Backblaze B2
-- Autenticazione: supporto per le directory utente Active Directory e LDAP (RFC2307)
-- File server: implementazione di un file server SMB (Server Message Block) che consente l'integrazione senza soluzione di continuità con le reti basate su Windows
-- Auditing: tracciatura delle modifiche apportate all'interno del sistema per garantire sicurezza e responsabilità
-- Relay e-mail: utilizzo di uno smart host per l'invio delle e-mail in uscita tramite un server affidabile
-- Web routing personalizzato: definire URL personalizzati per gestire richieste specifiche
-- Autenticazione multifattore: abilitare la verifica a due fasi per gli account amministratore
-- Firewall integrato: proteggere dall'accesso non autorizzato a livello di rete implementando un firewall locale
-- Migrazione: [Modulo Cockpit](../../tutorial/migration.md) per importare applicazioni da NethServer 7
+- Gestione dei nodi: aggiungere e rimuovere nodi dal sistema
+- Registrazione centralizzata: raccogliere tutti i log in un unico luogo per un monitoraggio semplificato
+- Backup di configurazioni e dati: salvare regolarmente le impostazioni del cluster e i dati delle applicazioni su provider remoti come Amazon S3 e Backblaze B2
+- Autenticazione: supporto per directory utenti Active Directory e LDAP (RFC2307)
+- File server: implementazione di un file server SMB (Server Message Block) che consente un'integrazione senza soluzione di continuità con reti basate su Windows
+- Audit: tracciare le modifiche apportate all'interno del sistema per garantire sicurezza e responsabilità
+- Relay email: utilizzare uno smart host per instradare le email in uscita attraverso un server fidato
+- Routing web personalizzato: definire URL personalizzati per gestire richieste specifiche
+- Autenticazione multi-fattore: abilitare la verifica in due passaggi per gli account amministrativi
+- Firewall integrato: proteggere contro accessi non autorizzati a livello di rete implementando un firewall locale
+- Migrazione: [modulo Cockpit](../../tutorial/migration.md) per importare applicazioni di NethServer 7
 
 Moduli aggiuntivi:
 
-- Strumenti di collaborazione: include mail server con Dovecot/Postfix/Rspamd, WebTop, Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, Mattermost
-- Utility di sviluppo: funzionalità MariaDB e web server NGINX per la creazione di applicazioni e servizi dinamici
-- Monitoraggio e analisi: offre Grafana, Prometheus e node_exporter per il monitoraggio delle metriche delle prestazioni e l'individuazione di potenziali problemi
-- Memorizzazione dati: offre MinIO per la gestione di grandi quantità di dati strutturati e non strutturati
-- Protezione di rete: implementa CrowdSec per proteggere le applicazioni locali da attacchi remoti
+- Strumenti collaborativi: include server di posta Dovecot/Postfix/Rspamd, WebTop, Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, Mattermost
+- Utility di sviluppo: include MariaDB e server web NGINX per creare applicazioni e servizi dinamici
+- Monitoraggio e analisi: offre Grafana, Prometheus e node_exporter per monitorare metriche di performance e identificare potenziali problemi
+- Archiviazione dati: offre MinIO per gestire grandi quantità di dati strutturati e non strutturati
+- Difesa della rete: implementa CrowdSec per proteggere le applicazioni locali da attacchi remoti
 
-Le seguenti limitazioni note saranno risolte negli aggiornamenti futuri:
+Le seguenti limitazioni note saranno risolte in futuri aggiornamenti:
 
-- attualmente, il sistema è in grado di utilizzare solo certificati TLS rilasciati da Let's Encrypt o certificati auto-firmati generati localmente
-- il login utente non è supportato su nodi worker
-- il modulo di posta non offre opzioni di relay dei messaggi basati sul mittente o sulla destinazione
-- solo un numero limitato di cloud storage provider sono disponibili per il backup dei dati
+- attualmente, il sistema utilizza solo certificati TLS emessi da Let's Encrypt o certificati autofirmati generati localmente
+- il login utente non è supportato sui nodi worker
+- il modulo di posta non offre opzioni di relay dei messaggi basate sul mittente o sulla destinazione
+- è disponibile solo un numero limitato di provider di archiviazione cloud per il backup dei dati
+## Glossario delle release {#releases-glossary}
 
-## Glossario rilasci {#releases-glossary}
+Il ciclo di rilascio del software include quattro fasi: Alpha, Beta, Release Candidate (RC) e Stable.
 
-Il ciclo di rilascio del software comprende quattro fasi: Alpha, Beta, Release Candidate (RC), e Stable.
+Durante la fase **Alpha**, il software non è stato testato a fondo e potrebbe non includere tutte le funzionalità pianificate. Questa release non è adatta per ambienti di produzione. Tuttavia, può essere utilizzata per avere un'anteprima delle novità della versione futura. Si noti che gli aggiornamenti da una release Alpha ad altre release non sono supportati.
 
-Durante la fase **Alpha**, il software non è completamente testato e non può includere tutte le funzionalità pianificate. Questa versione non è adatta per ambienti di produzione. Tuttavia, può essere utilizzata per provare in anteprima ciò che sarà rilasciato nella successiva versione. Gli aggiornamenti da un rilascio Alpha ad altre versioni non sono supportati.
+La fase **Beta** indica che il software è per lo più completo in termini di funzionalità, ma potrebbe ancora contenere numerosi bug noti e sconosciuti. Questa release non dovrebbe essere utilizzata in ambienti di produzione. Tuttavia, può essere utilizzata per testare il software prima di implementarlo in produzione. Gli aggiornamenti da una release Beta a una release RC o Stable sono supportati, ma potrebbero richiedere una procedura manuale.
 
-La fase **Beta** indica che il software è per lo più completo, ma può ancora contenere diversi bug noti e sconosciuti. Questa versione non dovrebbe essere utilizzata negli ambienti di produzione. Tuttavia, può essere utilizzata per testare il software prima di distribuirlo in produzione. Gli aggiornamenti da un rilascio Beta a un rilascio RC o stabile sono supportati ma possono richiedere una procedura manuale.
+Durante la fase **Release Candidate (RC)**, il software è completo in termini di funzionalità e non contiene bug noti. Se non emergono problemi significativi, può essere promosso a Stable. Gli aggiornamenti da una release RC a una release Stable sono supportati e dovrebbero essere quasi automatici. Tuttavia, se sei nuovo al software, è consigliabile utilizzarlo in produzione solo se hai già una certa esperienza con esso.
 
-Durante la fase **Release Candidate (RC)**, il software è completo e non contiene bug noti. Se non si presentano grandi problemi, può essere promosso a Stable. Gli aggiornamenti da un rilascio RC a un rilascio stabile sono supportati e dovrebbero essere pressoché automatici. Tuttavia è meglio utilizzarlo in produzione solo se hai già esperienza con il software.
-
-Il rilascio **Stable** è il più affidabile e sicuro da utilizzare in ambienti di produzione. È stato accuratamente testato ed è considerato privo di gravi bug.
+La release **Stable** è la più affidabile e sicura da utilizzare in ambienti di produzione. È stata testata a fondo ed è considerata priva di bug significativi.

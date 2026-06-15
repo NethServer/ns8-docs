@@ -4,62 +4,59 @@ sidebar_position: 6
 ---
 # Firewall
 
-NethServer 8 comes with a simple built-in firewall.
+NethServer 8 include un firewall integrato semplice.
 
-- L'interfaccia di rete VPN cluster `wg0` è parte di una zona di fiducia in cui tutto il traffico è consentito.
-- Tutte le altre interfacce di rete fanno parte di una zona pubblica dove solo porte specifiche sono aperte.
+- L'interfaccia di rete VPN del cluster `wg0` fa parte di una zona fidata in cui tutto il traffico è consentito.
+- Tutte le altre interfacce di rete fanno parte di una zona pubblica in cui sono aperte solo porte specifiche.
 
 Per impostazione predefinita, un nodo NS8 ha le seguenti porte aperte:
 
 - Wireguard VPN, 55820 UDP
-- HTTP and HTTPS, 80 and 443 TCP
-- SSH, 22 TCP (see [Manage SSH port redirection](#ssh-redirection))
-- Cockpit (not installed by default), 9090 TCP
+- HTTP e HTTPS, 80 e 443 TCP
+- SSH, 22 TCP (vedere [Gestire il reindirizzamento della porta SSH](#ssh-redirection))
+- Cockpit (non installato di default), 9090 TCP
 
-Applications that require publicly open ports, such as the Mail server, will automatically configure the firewall.
+Le applicazioni che richiedono porte aperte pubblicamente, come il server di posta, configureranno automaticamente il firewall.
+## Verifica delle impostazioni del firewall
 
-## Review firewall settings
+Nella pagina Impostazioni, cliccare sulla scheda **Firewall** e selezionare un nodo del cluster.
 
-Nella pagina Impostazioni fare clic sulla scheda **Firewall** e selezionare un nodo del cluster.
+- Per il nodo selezionato, una tabella riassume i servizi in esecuzione sul nodo e le relative porte TCP e UDP aperte. Se una porta non è elencata qui, è chiusa per le connessioni dalla zona pubblica.
+- Sotto la tabella dei servizi e delle porte aperte, è presente un elenco delle interfacce di rete del nodo.
 
-- Per il nodo selezionato, una tabella riassume i servizi in esecuzione sul nodo e le porte TCP e UDP aperte. Se un porto non è elencato qui, è chiuso per i collegamenti dalla zona pubblica.
-- Sotto la tabella dei servizi e delle porte aperte, c'è un elenco delle interfacce di rete del nodo.
+La stessa pagina è accessibile dalla pagina Nodi selezionando l'azione `Firewall` dal menu a tre punti della scheda di ciascun nodo.
+## Gestire le porte manualmente
 
-The same page is accessible from the Nodes page by selecting the `Firewall` action from the three-dots menu of each node card.
-
-## Manage ports manually
-
-To allow connections to the listening port of a third-party service, use `firewall-cmd`. For instance, the following command opens TCP port 9000:
+Per consentire le connessioni alla porta in ascolto di un servizio di terze parti, utilizzare `firewall-cmd`. Ad esempio, il seguente comando apre la porta TCP 9000:
 
     firewall-cmd --add-port=9000/tcp
 
-To close the same port, use:
+Per chiudere la stessa porta, utilizzare:
 
     firewall-cmd --remove-port=9000/tcp
 
-Changes to the firewall configuration are lost after a firewall restart or system reboot unless the same command is invoked a second time with the `--permanent` flag. Refer to the `firewall-cmd` manual page for more information.
+Le modifiche alla configurazione del firewall vengono perse dopo un riavvio del firewall o del sistema, a meno che lo stesso comando non venga eseguito una seconda volta con l'opzione `--permanent`. Fare riferimento alla pagina del manuale di `firewall-cmd` per ulteriori informazioni.
 
-To see the list of allowed services and ports, run:
+Per visualizzare l'elenco dei servizi e delle porte consentiti, eseguire:
 
     firewall-cmd --list-all
+## Gestire il reindirizzamento della porta SSH {#ssh-redirection}
 
-## Manage SSH port redirection {#ssh-redirection}
+Quando un nodo è accessibile pubblicamente, come un VPS cloud, è consigliabile modificare la porta SSH predefinita 22 con una porta personalizzata. Tuttavia, cambiare la porta a livello di configurazione di `sshd` presenta due svantaggi:
 
-When a node is publicly accessible, such as a cloud VPS, it is desirable to change the default SSH port 22 to a custom port. However, changing the port at the `sshd` configuration level has two drawbacks:
+1.  È necessario modificare la policy predefinita di SELinux.
+2.  Il requisito di supporto remoto della [Subscription](../about/subscription.md) non funziona, poiché `sshd` deve continuare ad accettare connessioni locali sulla porta 22.
 
-1.  The default SELinux policy must be adjusted.
-2.  The [Subscription](../about/subscription.md) remote support requirement does not work, because `sshd` must continue to accept local connections on port 22.
+Poiché in ogni caso è necessario modificare la configurazione di Firewalld, l'approccio preferito è configurare solo Firewalld con un *port forward* (o *reindirizzamento di porta*) e lasciare `sshd` invariato.
 
-Since the Firewalld configuration must be changed in any case, the preferred approach is to configure only Firewalld with a *port forward* (or *port redirection*) and leave `sshd` unchanged.
-
-The following commands open port 2222 and restrict access to port 22 to trusted interfaces:
+I seguenti comandi aprono la porta 2222 e limitano l'accesso alla porta 22 alle interfacce fidate:
 
     firewall-cmd --permanent --add-forward-port=port=2222:proto=tcp:toport=22
     firewall-cmd --permanent --service=ssh --add-port=2222/tcp
     firewall-cmd --permanent --service=ssh --remove-port=22/tcp
     firewall-cmd --reload
 
-If you later decide to change the port (for example, from 2222 to 2019), the old port forward must be removed first. The procedure is as follows:
+Se successivamente si decide di cambiare porta (ad esempio, da 2222 a 2019), è necessario prima rimuovere il vecchio reindirizzamento di porta. La procedura è la seguente:
 
     firewall-cmd --permanent --add-forward-port=port=2019:proto=tcp:toport=22
     firewall-cmd --permanent --service=ssh --add-port=2019/tcp

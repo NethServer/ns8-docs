@@ -4,9 +4,9 @@ sidebar_position: 1
 ---
 # NethVoice
 
-NethVoice is a comprehensive communication system that integrates voice, video, and mobile capabilities. The NethVoice suite is divided into two main applications:
+NethVoice è un sistema di comunicazione completo che integra voce, video e funzionalità mobili. La suite NethVoice è suddivisa in due applicazioni principali:
 
-- NethVoice Proxy : Manages SIP and RTP connections.
-- NethVoice : Provides VoIP telephony services
+- NethVoice Proxy : gestisce le connessioni SIP e RTP.
+- NethVoice : fornisce servizi di telefonia VoIP
 
-All documentation is available at: [NethVoice Documentation](https://docs.nethvoice.com/)
+Tutta la documentazione è disponibile all'indirizzo: [Documentazione NethVoice](https://docs.nethvoice.com/)

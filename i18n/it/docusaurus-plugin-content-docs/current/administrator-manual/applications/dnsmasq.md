@@ -4,74 +4,74 @@ sidebar_position: 13
 ---
 # DNSMasq
 
-Il modulo DNSMasq è un server DNS e DHCP leggero progettato per fornire i propri servizi all'interno di una rete privata. Non è raccomandato per l'uso come server DNS pubblico.
+Il modulo DNSMasq è un server DNS e DHCP leggero progettato per fornire i propri servizi all'interno di una rete privata. Non è consigliato usarlo come server DNS pubblico.
 
 :::note
 
-Do not configure Dnsmasq as the NS8 node name resolver in `/etc/resolv.conf`. For more information, see [Name resolution](../installation/system_requirements.md#resolv-conf).
+Non configurare Dnsmasq come resolver dei nomi del nodo NS8 in `/etc/resolv.conf`. Per ulteriori informazioni, vedi [Risoluzione dei nomi](../installation/system_requirements.md#resolv-conf).
 
 :::
 
 ## Prerequisiti
 
-L'unico prerequisito è una interfaccia di rete configurata. Ciò significa che la rete dovrebbe avere un indirizzo IPv4 valido e una maschera subnet valida. Si prega di fare riferimento alla documentazione distro su come configurare correttamente un'interfaccia di rete.
+L'unico prerequisito è un'interfaccia di rete configurata. Questo significa che la rete deve avere un indirizzo IPv4 valido e una maschera di sottorete valida. Fai riferimento alla documentazione della tua distribuzione per configurare correttamente un'interfaccia di rete.
 
 ## Configurazione
 
-Dopo aver installato il modulo, è possibile configurare sia il server DNS che il server DHCP attraverso l'interfaccia web.
+Dopo aver installato il modulo, puoi configurare sia il server DNS sia il server DHCP tramite l'interfaccia web.
 
-Select in the `Interface` field the interface that you want to use for DNS and DHCP server, then press **Save**.
+Seleziona nel campo `Interface` l'interfaccia che vuoi usare per il server DNS e DHCP, quindi premi **Save**.
 
-Una volta salvata la configurazione, ci saranno due switch per attivare/disattivare il server DNS e DHCP.
+Una volta salvata la configurazione, saranno disponibili due interruttori per abilitare o disabilitare il server DNS e DHCP.
 
 ## DHCP {#dnsmasq-dhcp-section}
 
 Il server DHCP può essere configurato con le seguenti opzioni:
 
-- `IP range start`: The first IP address that will be assigned to clients.
-- `IP range end`: L'ultimo indirizzo IP che verrà assegnato ai client.
-- `Lease time`: The time that the IP address will be assigned to the client, expressed in hours.
-- `Gateway`: The gateway IP address for client configuration (DHCP router option 3). If left empty, the gateway address configured for the local node is assigned to clients.
+- `IP range start`: il primo indirizzo IP che verrà assegnato ai client.
+- `IP range end`: l'ultimo indirizzo IP che verrà assegnato ai client.
+- `Lease time`: il tempo per cui l'indirizzo IP verrà assegnato al client, espresso in ore.
+- `Gateway`: l'indirizzo IP del gateway per la configurazione dei client (opzione router DHCP 3). Se lasciato vuoto, ai client viene assegnato l'indirizzo gateway configurato per il nodo locale.
 
-I campi vengono automaticamente riempiti con valori predefiniti alla prima configurazione, ma puoi cambiarli in base alle tue esigenze. Ulteriori opzioni possono essere configurate manualmente, fare riferimento alla sezione [Advanced Configuration](#advanced-configuration) .
+I campi vengono compilati automaticamente con valori predefiniti alla prima configurazione, ma puoi modificarli in base alle tue esigenze. Ulteriori opzioni possono essere configurate manualmente; fai riferimento alla sezione [Configurazione avanzata](#advanced-configuration).
 
 ## DNS
 
-The DNS server can be configured with the following options:
+Il server DNS può essere configurato con le seguenti opzioni:
 
-- `Primary forwarding server`: Il server DNS primario che verrà utilizzato per risolvere le query.
-- `Secondary forwarding server`: Il server DNS secondario che verrà utilizzato per risolvere le query.
+- `Primary forwarding server`: il server DNS primario che verrà utilizzato per risolvere le query.
+- `Secondary forwarding server`: il server DNS secondario che verrà utilizzato per risolvere le query.
 
-Quando il server DNS è abilitato, tutti i nomi di dominio pienamente qualificati (FQDN) configurati all'interno del nodo saranno risolti utilizzando un record 'CNAME' che indica il nome host del nodo.
+Quando il server DNS è abilitato, tutti i nomi di dominio pienamente qualificati (FQDN) configurati nel nodo verranno risolti usando un record `CNAME` che punta al nome host del nodo.
 
 :::note
 
-The DNS server will not automatically resolve the entries in the `/etc/hosts` file. To resolve the entries in the `/etc/hosts` file, you need to add them manually in the [DNS Records](#dns-records) section.
+Il server DNS non risolverà automaticamente le voci presenti nel file `/etc/hosts`. Per risolvere le voci del file `/etc/hosts`, devi aggiungerle manualmente nella sezione [Record DNS](#dns-records).
 
 :::
 
-## DNS Records
+## Record DNS
 
-Additional DNS entries can be added in the `DNS Records` section. Simply press the **Add DNS Record** button and fill the fields with the desired values:
+Puoi aggiungere ulteriori voci DNS nella sezione `DNS Records`. Premi semplicemente il pulsante **Add DNS Record** e compila i campi con i valori desiderati:
 
-- `Hostname`: The hostname that will be resolved.
-- `IP Indirizzo`: L'indirizzo IP che verrà risolto al nome host.
+- `Hostname`: il nome host che verrà risolto.
+- `IP Address`: l'indirizzo IP a cui verrà risolto il nome host.
 
-Gli indirizzi IP possono essere IPv4 o IPv6.
+Gli indirizzi IP possono essere sia IPv4 sia IPv6.
 
-## Advanced Configuration
+## Configurazione avanzata
 
-Il modulo fornisce ulteriori opzioni di configurazione che possono essere accessibili manualmente tramite i file di configurazione.
+Il modulo fornisce ulteriori opzioni di configurazione accessibili manualmente tramite i file di configurazione.
 
-Le directory che accettano i file personalizzati si trovano nella directory root del modulo, sotto la directory `state`.
+Le directory che accettano file personalizzati si trovano nella directory radice del modulo, sotto la directory `state`.
 
-Le seguenti directory possono essere utilizzate per aggiungere file di configurazione personalizzati:
+Le seguenti directory possono essere usate per aggiungere file di configurazione personalizzati:
 
-- `dnsmasq.d`: This directory is used to add custom configuration files for the DNSMasq service. The files must have the `.conf` extension. Please refer to the [DNSMasq documentation](https://dnsmasq.org/docs/dnsmasq-man.html) for more information on how to configure the service.
-- `dnsmasq_hosts.d`: This directory is used to add custom hosts files that will be used by the DNSMasq service. The format of the file is the same as the `/etc/hosts` file. Refer to the [manual](https://man7.org/linux/man-pages/man5/hosts.5.html) for more information on how to write the file.
+- `dnsmasq.d`: questa directory viene usata per aggiungere file di configurazione personalizzati per il servizio DNSMasq. I file devono avere estensione `.conf`. Fai riferimento alla [documentazione di DNSMasq](https://dnsmasq.org/docs/dnsmasq-man.html) per maggiori informazioni su come configurare il servizio.
+- `dnsmasq_hosts.d`: questa directory viene usata per aggiungere file hosts personalizzati che saranno usati dal servizio DNSMasq. Il formato del file è lo stesso del file `/etc/hosts`. Consulta il [manuale](https://man7.org/linux/man-pages/man5/hosts.5.html) per maggiori informazioni su come scrivere il file.
 
-Dopo aver aggiunto i file personalizzati, è necessario riavviare il servizio per applicare le modifiche.
+Dopo aver aggiunto i file personalizzati, devi riavviare il servizio per applicare le modifiche.
 
-The custom files enrich the existing configuration. You can customize the provided DHCP instance without creating a custom one using the tag `default`, more info can be found in the [DNSMasq documentation](https://dnsmasq.org/docs/dnsmasq-man.html).
+I file personalizzati arricchiscono la configurazione esistente. Puoi personalizzare l'istanza DHCP fornita senza crearne una personalizzata usando il tag `default`; maggiori informazioni sono disponibili nella [documentazione di DNSMasq](https://dnsmasq.org/docs/dnsmasq-man.html).
 
 I file personalizzati sono inclusi nel backup del modulo.

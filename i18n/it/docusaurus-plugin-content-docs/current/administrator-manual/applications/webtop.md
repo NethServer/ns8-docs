@@ -1,10 +1,10 @@
 ---
-title: WebTop groupware
+title: Groupware WebTop
 sidebar_position: 5
 ---
-# WebTop groupware
+# Groupware WebTop
 
-WebTop è un groupware completo che implementa Protocolli ActiveSync, CalDAV e CardDAV.
+WebTop è un groupware completo che implementa i protocolli ActiveSync, CalDAV e CardDAV.
 
 È possibile installare più istanze WebTop sullo stesso nodo dal [Software center](../installation/software_center.md).
 
@@ -20,14 +20,14 @@ Come configurare:
 2.  abilitare `Richiedi certificato Let's Encrypt`
 3.  collegare l'istanza WebTop ad un `Mail server` esistente
 4.  selezionare la `Localizzazione predefinita` e il `Fuso orario predefinito`
-5.  cliccare sul pulsante **Save**
+5.  cliccare sul pulsante **Salva**
 
 All'interno della sezione `Avanzate`, è inoltre possibile configurare:
 
 - la modalità debug
 - livelli di log
 - memoria minima e massima
-- [PEC Bridge](#pec-bridge) avvisare l'indirizzo (solo per le imprese)
+- [PEC Bridge](#pec-bridge) indirizzo di notifica (solo Nethesis Enterprise)
 
 ## Utente amministratore {#webtop5_admin-section}
 
@@ -42,11 +42,11 @@ La password dell'utente dell'amministratore deve essere modificata dall'interfac
 
 :::warning
 
-Remember to change the admin password after installation!
+Ricordare di cambiare la password di admin dopo l'installazione!
 
 :::
 
-Per controllare la posta dell'account admin di sistema, utilizzare il seguente login: admin@\<dominio\> dove `<dominio>` è il TLD dell'FQDN.
+Per controllare la posta dell'account admin di sistema, utilizzare il seguente login: admin@\<dominio\> dove `<dominio>` è la parte di dominio dell'FQDN del server.
 
 **Esempio**
 
@@ -74,15 +74,15 @@ Procedere come segue:
 
 3.  caricare l'immagine (tramite il pulsante Carica in basso a sinistra o semplicemente trascinando con un drag & drop)
 
-4.  rename the loaded image so that its name is **"login.svg"** (use right click -\> Rename):
+4.  rinominare l'immagine caricata in modo che si chiami **"login.svg"** (usare il tasto destro -\> Rinomina):
 
 5.  il prossimo accesso mostrerà il nuovo logo nella pagina di login
 
-### Custom logos for light and dark color schemes
+### Loghi personalizzati per schemi di colori chiaro e scuro
 
-It is possible to provide **custom logos for both light and dark modes** by uploading two different image files to the public cloud.
+È possibile fornire **logo personalizzati sia per la modalità chiara sia per quella scura** caricando due file immagine diversi nel cloud pubblico.
 
-During the login process, the system looks for a custom login image using the following filename priority order:
+Durante il processo di login, il sistema cerca un'immagine di login personalizzata seguendo il seguente ordine di priorità per i nomi dei file:
 
 1.  `login@{color-scheme}.svg`
 2.  `login@{color-scheme}.png`
@@ -91,59 +91,59 @@ During the login process, the system looks for a custom login image using the fo
 5.  `login.jpg`
 6.  `login.png`
 
-Where `{color-scheme}` can be either `light` or `dark`.
+Dove `{color-scheme}` può essere `light` o `dark`.
 
-Examples:
+Esempi:
 
     login@dark.svg
     login@light.svg
 
-If a color-scheme–specific image is not found, the system falls back to the generic `login.*` filenames.
+Se non viene trovata un'immagine specifica per la combinazione di colori, il sistema torna ai nomi di file generici `login.*`.
 
-## Automatic configuration of email clients {#email_autoconfig}
+## Configurazione automatica dei client di posta {#email_autoconfig}
 
-The [Autodiscover](https://learn.microsoft.com/en-us/previous-versions/office/office-2010/cc511507(v=office.14)#The%20Autodiscover%20XML%20schema) and [Autoconfig](https://wiki.mozilla.org/Thunderbird:Autoconfiguration) protocols allow email clients to automatically discover mail server settings, such as incoming and outgoing mail server addresses, ports, and authentication methods. This simplifies the configuration process for end users, as they do not need to manually enter server settings.
+I protocolli [Autodiscover](https://learn.microsoft.com/en-us/previous-versions/office/office-2010/cc511507(v=office.14)#The%20Autodiscover%20XML%20schema) e [Autoconfig](https://wiki.mozilla.org/Thunderbird:Autoconfiguration) consentono ai client di posta di rilevare automaticamente le impostazioni del server di posta, come gli indirizzi dei server di posta in entrata e in uscita, le porte e i metodi di autenticazione. Questo semplifica il processo di configurazione per gli utenti finali, che non devono inserire manualmente le impostazioni del server.
 
-The Autodiscover and Autoconfig protocols are not supported by all email clients. For example, iOS devices do not support them, while clients like Thunderbird and Microsoft Outlook on Windows and Linux desktops, as well as Android devices, do support them. Some clients may still require manual configuration of server settings.
+I protocolli Autodiscover e Autoconfig non sono supportati da tutti i client di posta. Ad esempio, i dispositivi iOS non li supportano, mentre client come Thunderbird e Microsoft Outlook su desktop Windows e Linux, così come i dispositivi Android, li supportano. Alcuni client potrebbero comunque richiedere la configurazione manuale delle impostazioni del server.
 
-To enable automatic email client configuration, some DNS records and HTTP routes must be configured for the WebTop mail domain (e.g. `example.org`).
+Per abilitare la configurazione automatica dei client di posta, è necessario configurare alcuni record DNS e rotte HTTP per il dominio di posta di WebTop (ad es. `example.org`).
 
-### A records
+### Record A
 
-The A-type records are used by email clients to establish TLS connections, therefore their names must be associated with a valid TLS certificate.
+I record di tipo A vengono utilizzati dai client di posta per stabilire connessioni TLS, pertanto i loro nomi devono essere associati a un certificato TLS valido.
 
-- `mail.example.org`, `imap.example.org`, `smtp.example.org` must point to the public static IP of the **mail server**
-- `autodiscover.example.org`, `autoconfig.example.org` must point to the public static IP of the **server hosting WebTop**.
+- `mail.example.org`, `imap.example.org`, `smtp.example.org` devono puntare all'IP statico pubblico del **server di posta**
+- `autodiscover.example.org`, `autoconfig.example.org` devono puntare all'IP statico pubblico del **server che ospita WebTop**.
 
-### HTTP routes
+### Route HTTP
 
-To ensure that Autodiscover and Autoconfig requests are directed to the correct WebTop instance, you need to set up an HTTP route to the WebTop server. Navigate to **Settings** → **HTTP routes** from the [proxy page](../configuration/proxy.md). This configuration is necessary for A-type DNS records like `autodiscover.example.org` and `autoconfig.example.org` to be properly managed by the WebTop application.
+Per garantire che le richieste Autodiscover e Autoconfig vengano indirizzate alla corretta istanza di WebTop, è necessario configurare una route HTTP verso il server WebTop. Navigare in **Impostazioni** → **Route HTTP** dalla [pagina proxy](../configuration/proxy.md). Questa configurazione è necessaria affinché i record DNS di tipo A come `autodiscover.example.org` e `autoconfig.example.org` siano correttamente gestiti dall'applicazione WebTop.
 
-Configure the HTTP route with the following parameters for both Autodiscover and Autoconfig:
+Configurare la route HTTP con i seguenti parametri sia per Autodiscover che per Autoconfig:
 
-- Name: `autodiscover_webtop` and `autoconfig_webtop`
-- Node: Select the node where your WebTop instance is running
-- URL: Copy the URL, including its specific port number, from the automatically generated WebTop HTTP route details (e.g. <http://127.0.0.1:20001>)
-- Host: `autodiscover.example.org` and `autoconfig.example.org`
-- Request Let's Encrypt certificate: Enable this option if you wish to use a Let's Encrypt certificate (optional)
+- Nome: `autodiscover_webtop` e `autoconfig_webtop`
+- Nodo: selezionare il nodo su cui è in esecuzione l'istanza WebTop
+- URL: copiare l'URL, incluso il numero di porta specifico, dai dettagli della route HTTP di WebTop generata automaticamente (ad es. <http://127.0.0.1:20001>)
+- Host: `autodiscover.example.org` e `autoconfig.example.org`
+- Richiedi certificato Let's Encrypt: abilitare questa opzione se si desidera utilizzare un certificato Let's Encrypt (facoltativo)
 
-### MX record
+### Record MX
 
-An MX-type record is also a Mail application requirement, as explained in [Impostazioni generali](mail.md#mail-general-settings). For the MX record of `example.org` Autodiscover prefers a name like `mail.example.org`.
+Un record di tipo MX è anche un requisito dell'applicazione Mail, come spiegato in [Impostazioni generali](mail.md#mail-general-settings). Per il record MX di `example.org` Autodiscover preferisce un nome come `mail.example.org`.
 
-### SRV record
+### Record SRV
 
-This enables clients to locate the Autodiscover service using a SRV-type record.
+Questo consente ai client di individuare il servizio Autodiscover tramite un record di tipo SRV.
 
-- Name: `_autodiscover._tcp.example.org`
-- Type: `SRV`
-- Service: `_autodiscover`
-- Protocol: `_tcp`
+- Nome: `_autodiscover._tcp.example.org`
+- Tipo: `SRV`
+- Servizio: `_autodiscover`
+- Protocollo: `_tcp`
 - TTL: `3600`
-- Priority: `10`
-- Weight: `10`
-- Port: `443`
-- Target: `autodiscover.example.org` -- the DNS A record pointing to the WebTop server.
+- Priorità: `10`
+- Peso: `10`
+- Porta: `443`
+- Target: `autodiscover.example.org` -- il record DNS A che punta al server WebTop.
 
 ## Etichette personalizzate
 
@@ -156,13 +156,13 @@ Ci sono due tipi di etichette:
 
 L'utente può normalmente gestire solo etichette private. Per gestire le etichette condivise è necessario abilitare una specifica autorizzazione tramite il pannello di amministrazione:
 
-- andare nel menù Amministrazione, quindi selezionare **Domini** - \> **NethServer** -\> **Gruppi** - \> **Utenti** - \> **Authorizzazioni**
-- aggiungere (+) -\> **Servizio** -\> **com.sonicle.webtop.core (WebTop)** -\> **Contesto** -\> **TAGS** -\> **Azione** -\> **MANAGE**
-- cliccare **OK** poi **Salve e chiudi**
+- andare nel menù Amministrazione, quindi selezionare **Domini** -\> **NethServer** -\> **Gruppi** -\> **Utenti** -\> **Autorizzazioni**
+- aggiungere (+) -\> **Servizi** -\> **com.sonicle.webtop.core (WebTop)** -\> **Risorsa** -\> **TAGS** -\> **Azione** -\> **MANAGE**
+- cliccare **OK** poi **Salva e chiudi**
 
 È possibile gestire le etichette tramite il pulsante ![tools](/_static/webtop-tools.png) nell'angolo in alto a destra.
 
-La stessa funzionalità può essere raggiunta anche dai singoli moduli facendo clic con il tasto destro -\> :guilabel: `Etichette` -\> **Gestisci etichette**.
+La stessa funzionalità può essere raggiunta anche dai singoli moduli facendo clic con il tasto destro -\> **Etichette** -\> **Gestisci etichette**.
 
 La visibilità può essere impostata solo durante la creazione di etichette. Per modificare la visibilità dell'etichetta è necessario eliminare l'etichetta e crearla di nuovo.
 
@@ -172,175 +172,175 @@ Le etichette create possono essere utilizzate in qualsiasi altro modulo come Pos
 
 Con i campi personalizzati, è possibile fornire informazioni e dati aggiuntivi per ogni contatto, evento o attività.
 
-Custom fields are only available for the Address Book, Calendar, and Tasks modules and are specific to each different module.
+I campi personalizzati sono disponibili solo per i moduli Rubrica, Calendario e Attività e sono specifici per ciascun modulo diverso.
 
-In order to manage custom fields and their panels, the user must have a specific authorization, obtained through the administration panel:
+Per gestire i campi personalizzati e i relativi pannelli, l'utente deve avere un'autorizzazione specifica, ottenuta tramite il pannello di amministrazione:
 
-- andare nel menù Amministrazione, quindi selezionare **Domini** - \> **NethServer** -\> **Gruppi** - \> **Utenti** - \> **Authorizzazioni**
-- add (+) -\> **Services** -\> **com.sonicle.webtop.core (WebTop)** -\> **Resource** -\> **CUSTOM_FIELDS** -\> **Action** -\> **MANAGE**
-- click **OK** then save and exit
+- andare nel menù Amministrazione, quindi selezionare **Domini** -\> **NethServer** -\> **Gruppi** -\> **Utenti** -\> **Autorizzazioni**
+- aggiungere (+) -\> **Servizi** -\> **com.sonicle.webtop.core (WebTop)** -\> **Risorsa** -\> **CUSTOM_FIELDS** -\> **Azione** -\> **MANAGE**
+- cliccare **OK** poi salva e chiudi
 
-Users who have this authorization will find the specific button available at the top right:
+Gli utenti che dispongono di questa autorizzazione troveranno il pulsante specifico disponibile in alto a destra:
 
 ![image](/_static/webtop-cf1.png)
 
-To create a new custom field it is necessary to fill in at least the **Name** field and select the **Type**:
+Per creare un nuovo campo personalizzato è necessario compilare almeno il campo **Nome** e selezionare il **Tipo**:
 
 ![image](/_static/webtop-cf2.png)
 
-For the **Name** field only alphanumeric characters (including `-` and `_`) are allowed. **Spaces are not allowed**. The **Description** field is used to add details to the field and the **Label** field represents the label that will be shown along with the field.
+Per il campo **Nome** sono consentiti solo caratteri alfanumerici (inclusi `-` e `_`). **Gli spazi non sono consentiti**. Il campo **Descrizione** viene utilizzato per aggiungere dettagli al campo e il campo **Etichetta** rappresenta l'etichetta che verrà mostrata insieme al campo.
 
-For each field it is possible to enable two options:
+Per ogni campo è possibile abilitare due opzioni:
 
-- **Show in search bar**: the field is added in the multiple search window (a new access will be required)
-- **Show in preview**: the field is shown in the preview window of a contact
+- **Mostra nella barra di ricerca**: il campo viene aggiunto nella finestra di ricerca multipla (sarà necessario un nuovo accesso)
+- **Mostra in anteprima**: il campo viene mostrato nella finestra di anteprima di un contatto
 
-Additional specific properties, that are also customizable, are available for each type.
+Per ogni tipo sono disponibili ulteriori proprietà specifiche, anch'esse personalizzabili.
 
-For the **List box** type it is necessary to fill in the values to be selected:
+Per il tipo **Casella di riepilogo** è necessario compilare i valori da selezionare:
 
 ![image](/_static/webtop-cf4.png)
 
-Using the **Clone** button you can copy the custom field to create similar ones:
+Tramite il pulsante **Clona** è possibile copiare il campo personalizzato per crearne di simili:
 
 ![image](/_static/webtop-cf5.png)
 
 :::note
 
-With the **FREE version**, installed by default, it is possible to create up to a **maximum of 3 custom fields** for each different module (3 in Address Book + 3 in Calendar + 3 in Activities). To remove this limit it is necessary to upgrade to the **PREMIUM version** by purchasing a dedicated license on [Nethesis shop](https://nethshop.nethesis.it/product/campi-custom-webtop/)
+Con la **versione FREE**, installata per impostazione predefinita, è possibile creare fino a un **massimo di 3 campi personalizzati** per ogni modulo diverso (3 in Rubrica + 3 in Calendario + 3 in Attività). Per rimuovere questo limite è necessario passare alla **versione PREMIUM** acquistando una licenza dedicata sul [negozio Nethesis](https://nethshop.nethesis.it/product/campi-custom-webtop/)
 
 :::
 
-### Searches on custom fields
+### Ricerche nei campi personalizzati
 
-One of the best functionalities of custom fields is the possibility to perform multiple searches on all modules and fields for which the option **Show in search bar** has been activated.
+Una delle migliori funzionalità dei campi personalizzati è la possibilità di eseguire ricerche multiple su tutti i moduli e i campi per cui è stata attivata l'opzione **Mostra nella barra di ricerca**.
 
-## Custom panels
+## Pannelli personalizzati
 
-Custom panels display the [Campi personalizzati](#custom_fields-section) and associated them with resources.
+I pannelli personalizzati visualizzano i [Campi personalizzati](#custom_fields-section) e li associano alle risorse.
 
-Users with the authorization to manage custom fields can access the configuration panel using the button at the top right:
+Gli utenti con l'autorizzazione per gestire i campi personalizzati possono accedere al pannello di configurazione tramite il pulsante in alto a destra:
 
 ![image](/_static/webtop-panels.png)
 
-When creating a new panel it is mandatory to indicate the **Name** that will appear in the resource. You can also insert a **Description** and a **Title**.
+Quando si crea un nuovo pannello è obbligatorio indicare il **Nome** che apparirà nella risorsa. È anche possibile inserire una **Descrizione** e un **Titolo**.
 
-Using shared labels, you can easily assign panels to specific resource categories. A panel without an associated label will be visible for every available resource: all contacts, all events or all activities.
+Utilizzando le etichette condivise, è possibile assegnare facilmente i pannelli a specifiche categorie di risorse. Un pannello senza un'etichetta associata sarà visibile per ogni risorsa disponibile: tutti i contatti, tutti gli eventi o tutte le attività.
 
-Use the **Add** button to add a custom field inside the panel.
+Utilizzare il pulsante **Aggiungi** per aggiungere un campo personalizzato all'interno del pannello.
 
-## Mailcards
+## Mailcard
 
-One of the main features of managing signatures on WebTop is the opportunity to integrate images or custom fields profiled per user.
+Una delle principali funzionalità di gestione delle firme su WebTop è la possibilità di integrare immagini o campi personalizzati profilati per utente.
 
-To use the images you need to upload them to the public cloud through the WebTop admin user like this:
+Per utilizzare le immagini è necessario caricarle nel cloud pubblico tramite l'utente admin di WebTop nel seguente modo:
 
 ![image](/_static/webtop-public_images.png)
 
-You can use the **Upload** button to load an image which is at the bottom or simply via drag & drop.
+È possibile utilizzare il pulsante **Carica** per caricare un'immagine che si trova in basso, oppure semplicemente tramite drag & drop.
 
 :::note
 
-Remember that the public images inserted in the signature are actually connected with a public link. To be visible to email recipients, the server must be reachable remotely on port 80 (http) and its FQDN name must be publicly resolvable.
+Ricordare che le immagini pubbliche inserite nella firma sono in realtà collegate con un link pubblico. Per essere visibili ai destinatari delle e-mail, il server deve essere raggiungibile da remoto sulla porta 80 (http) e il suo nome FQDN deve essere risolvibile pubblicamente.
 
 :::
 
-Alternatively, you can configure a global setting to turn images automatically into inline attachments instead of public internet links.
+In alternativa, è possibile configurare un'impostazione globale per trasformare automaticamente le immagini in allegati inline anziché in link pubblici su Internet.
 
-It is possible to do this from web interface by accessing the administration panel -\> **Properties (system)** -\> **Add** -\> select **com.sonicle.webtop.mail (Mail)** and enter the data in the **Key** and **Value** fields according to the key to be configured:
+È possibile farlo dall'interfaccia web accedendo al pannello di amministrazione -\> **Proprietà (sistema)** -\> **Aggiungi** -\> selezionare **com.sonicle.webtop.mail (Mail)** e inserire i dati nei campi **Chiave** e **Valore** in base alla chiave da configurare:
 
 `public.resource.links.as.inline.attachments` = true (default = false)
 
-To change the signature, each user can access the `Settings --> Mail --> Editing --> Edit`:
+Per modificare la firma, ogni utente può accedere a `Impostazioni --> Posta --> Modifica --> Modifica`:
 
 ![image](/_static/webtop-edit_mailcard.png)
 
-You can use the uploaded image inside the mailcard with this button:
+È possibile utilizzare l'immagine caricata all'interno della mailcard con questo pulsante:
 
 ![image](/_static/webtop-public_signature.png)
 
 :::note
 
-The personal mailcard can be associated with the user or the mail address. Users with access to the mail address will also be able to use the mailcard.
+La mailcard personale può essere associata all'utente o all'indirizzo e-mail. Gli utenti con accesso all'indirizzo e-mail potranno anche utilizzare la mailcard.
 
 :::
 
-By accessing the user settings from the WebTop administration panel ( `Domains --> NethServer --> Users --> Right click on user` ) it is also possible to set up a general domain mailcard that will be automatically set for all users who have not configured their personal mailcard:
+Accedendo alle impostazioni utente dal pannello di amministrazione di WebTop ( `Domini --> NethServer --> Utenti --> Clic destro sull'utente` ) è anche possibile configurare una mailcard di dominio generale che verrà impostata automaticamente per tutti gli utenti che non hanno configurato la propria mailcard personale:
 
 ![image](/_static/webtop-domain_mailcard.png)
 
-Furthermore, it will also be possible to modify personal details:
+Inoltre, sarà anche possibile modificare i dati personali:
 
 ![image](/_static/webtop-personal_information.png)
 
-that can be used within the template-based fields within the domain mailcard editor:
+che possono essere utilizzati all'interno dei campi basati su template nell'editor della mailcard di dominio:
 
 ![image](/_static/webtop-mailcard_editor.png)
 
-In this way it is possible to create a single mailcard that will be automatically customized for every user who does not use his own mailcard.
+In questo modo è possibile creare una singola mailcard che verrà personalizzata automaticamente per ogni utente che non utilizza la propria mailcard.
 
-### Multiple mailcards
+### Mailcard multiple
 
-It is possible to configure multiple mailcards (HTML signatures) for each user.
+È possibile configurare più mailcard (firme HTML) per ogni utente.
 
-Access the `Settings --> Mail --> Identities` and create multiple identities:
+Accedere a `Impostazioni --> Posta --> Identità` e creare più identità:
 
 ![image](/_static/webtop-sig_sig1.png)
 
-To edit every single signature select `Settings --> Mail --> Identities` then select each individual signature and click on the **edit mailcard** button
+Per modificare ogni singola firma selezionare `Impostazioni --> Posta --> Identità`, quindi selezionare ogni singola firma e fare clic sul pulsante **modifica mailcard**
 
 ![image](/_static/webtop-sig_sig2.png)
 
 ![image](/_static/webtop-sig_sig3.png)
 
-to use multiple mailcards, create a new email, and choose the signature:
+per utilizzare più mailcard, creare una nuova e-mail e scegliere la firma:
 
 ![image](/_static/webtop-sig_sig5.png)
 
-## Customize proactive security on emails
+## Personalizzare la sicurezza proattiva sulle e-mail
 
-The Proactive Security module (PAS) warns the end user of possible security risks and suspicious senders inside the emails. The user will also be warned when trying to open potentially dangerous attachments or links contained in emails.
+Il modulo di Sicurezza Proattiva (PAS) avvisa l'utente finale di possibili rischi per la sicurezza e mittenti sospetti nelle e-mail. L'utente verrà avvisato anche quando tenta di aprire allegati o link potenzialmente pericolosi contenuti nelle e-mail.
 
-The PAS function allows some customization both for the **end user** and the WebTop **admin**.
+La funzione PAS consente alcune personalizzazioni sia per l'**utente finale** che per l'**admin** di WebTop.
 
-For the **end user** it is possible to mark a sender as trusted when it is recognized as such by the yellow shield. To do so, it is possible to click directly on the shield or right click on the sender and select the **Mark as trusted** entry.
+Per l'**utente finale** è possibile contrassegnare un mittente come attendibile quando viene riconosciuto come tale dallo scudo giallo. Per farlo, è possibile fare clic direttamente sullo scudo oppure fare clic con il tasto destro sul mittente e selezionare la voce **Contrassegna come attendibile**.
 
 :::note
 
-This type of customization is only valid for the user that performed the action. It is possible to mark a sender as trusted only if the shield is yellow.
+Questo tipo di personalizzazione è valido solo per l'utente che ha eseguito l'azione. È possibile contrassegnare un mittente come attendibile solo se lo scudo è giallo.
 
 :::
 
-The **admin user** can disable all or some of the rules that are part of the PAS (ProActive Security), both for single users and groups. To do so, it is necessary to add a specific authorization (to the single user or the group of users) for the Service `com.sonicle.webtop.mail (Mail)` and for the `PRO_ACTIVE_SECURITY` resource:
+L'**utente admin** può disabilitare tutte o alcune delle regole che fanno parte del PAS (ProActive Security), sia per singoli utenti che per gruppi. Per farlo, è necessario aggiungere una specifica autorizzazione (al singolo utente o al gruppo di utenti) per il Servizio `com.sonicle.webtop.mail (Mail)` e per la risorsa `PRO_ACTIVE_SECURITY`:
 
 ![image](/_static/webtop-pas1.png)
 
-Below is an explanation of every single entry available as `Action` :
+Di seguito è riportata la spiegazione di ogni singola voce disponibile come `Azione`:
 
-- `DISABLED`: completely disables PAS
-- `NO_LINK_DOMAIN_CHECK`: do not check domains different from the sender’s domain
-- `NO_MY_DOMAIN_CHECK`: do not verify if the sender’s domain is in my domain
-- `NO_FREQUENT_CONTACT_CHECK`: do not check if the sender is in my contacts which are saved automatically
-- `NO_ANY_CONTACTS_CHECK`: do not check if the sender is among one of my contacts
-- `NO_FAKE_PATTERNS_CHECK`: do not verify the presence of false patterns in the sender (e.g. email address of the name shown is different from the sender’s email address)
-- `NO_UNSUBSCRIBE_DIRECTIVES_CHECK`: do not check the entry for the unsubscribe directives to the mailing list (only if the spam status is green)
-- `NO_DISPLAYNAME_CHECK`: do not compare the contact’s display name with the contact in my address book with the same email
-- `NO_SPAM_SCORE_VISUALIZATION`: do not show/check the spam score displayed in the message header
-- `NO_LINK_CLICK_PROMPT`: do not check the click action on links
-- `NO_ZIP_CHECK`: do not give warning about zip attachments
+- `DISABLED`: disabilita completamente il PAS
+- `NO_LINK_DOMAIN_CHECK`: non controllare i domini diversi dal dominio del mittente
+- `NO_MY_DOMAIN_CHECK`: non verificare se il dominio del mittente è nel mio dominio
+- `NO_FREQUENT_CONTACT_CHECK`: non controllare se il mittente è tra i miei contatti salvati automaticamente
+- `NO_ANY_CONTACTS_CHECK`: non controllare se il mittente è tra uno dei miei contatti
+- `NO_FAKE_PATTERNS_CHECK`: non verificare la presenza di falsi pattern nel mittente (es. l'indirizzo e-mail del nome mostrato è diverso dall'indirizzo e-mail del mittente)
+- `NO_UNSUBSCRIBE_DIRECTIVES_CHECK`: non controllare la voce per le direttive di annullamento iscrizione alla mailing list (solo se lo stato spam è verde)
+- `NO_DISPLAYNAME_CHECK`: non confrontare il nome visualizzato del contatto con il contatto nella mia rubrica con la stessa e-mail
+- `NO_SPAM_SCORE_VISUALIZATION`: non mostrare/controllare il punteggio spam visualizzato nell'intestazione del messaggio
+- `NO_LINK_CLICK_PROMPT`: non controllare l'azione di clic sui link
+- `NO_ZIP_CHECK`: non dare avviso sugli allegati zip
 
-This way it is possible to customize and create special profiles for some users who might not want all the actions to be active.
+In questo modo è possibile personalizzare e creare profili speciali per alcuni utenti che potrebbero non voler avere tutte le azioni attive.
 
-The administrator can also choose the list of **file extensions for attachments** which are considered a threat. As default, these are the extensions that are considered dangerous: `exe,bat,dll,com,cmd,bin,cab,js,jar`
+L'amministratore può anche scegliere l'elenco delle **estensioni di file per gli allegati** considerati una minaccia. Per impostazione predefinita, queste sono le estensioni considerate pericolose: `exe,bat,dll,com,cmd,bin,cab,js,jar`
 
-To modify this list it is necessary to add this global setting:
+Per modificare questo elenco è necessario aggiungere questa impostazione globale:
 
-- **Service** = `com.sonicle.webtop.mail`
-- **Key** = `pas.dangerous.extensions`
+- **Servizio** = `com.sonicle.webtop.mail`
+- **Chiave** = `pas.dangerous.extensions`
 
-For example, if you wanted to add the HTML extension among those that are considered dangerous, the value field should contain the following:
+Ad esempio, se si volesse aggiungere l'estensione HTML tra quelle considerate pericolose, il campo valore dovrebbe contenere quanto segue:
 
-- **Value** = `exe,bat,dll,com,cmd,bin,cab,js,jar,html` (Values always need to be separated by a comma)
+- **Valore** = `exe,bat,dll,com,cmd,bin,cab,js,jar,html` (i valori devono essere sempre separati da una virgola)
 
 ## Accesso utente e log di sessione utenti
 
@@ -350,7 +350,7 @@ Per ogni accesso, la tabella riporta i seguenti dati nelle colonne: ID sessione,
 
 È possibile abilitare la geolocalizzazione IP pubblica. In primo luogo, è necessario registrare un account su [ipstack](https://ipstack.com/) e ottenere la `API KEY` da inserire nel db di configurazione.
 
-Login to the administration panel -\> **Properties (system)** -\> **add** -\> **com.sonicle.webtop.core (WebTop)** -\> enter the following data in the fields **Key** e **Value** :
+Accedere al pannello di amministrazione -\> **Proprietà (sistema)** -\> **aggiungi** -\> **com.sonicle.webtop.core (WebTop)** -\> inserire i seguenti dati nei campi **Chiave** e **Valore**:
 
 - `geolocation.provider` = `ipstack`
 - `geolocation.ipstack.apikey` = `<API KEY FROM PROVIDER>`
@@ -375,7 +375,7 @@ Ci sono limiti predefiniti relativi alla dimensione massima del file:
 - Dimensione massima del file per caricamenti interni nel cloud (impostazione predefinita interna = 500 MB)
 - Dimensione massima del file per gli upload pubblici nel cloud (impostazione predefinita interna = 100 MB)
 
-To change these default values for all users, the following keys can be added via the admin interface: **Properties (system) -> Add**. The value must be expressed in `bytes`. Example: `10MB = 10485760 bytes`.
+Per modificare questi valori predefiniti per tutti gli utenti, è possibile aggiungere le seguenti chiavi tramite l'interfaccia admin: **Proprietà (sistema) -> Aggiungi**. Il valore deve essere espresso in `bytes`. Esempio: `10MB = 10485760 bytes`.
 
 **Dimensione massima del file per gli upload delle chat**
 
@@ -397,7 +397,7 @@ To change these default values for all users, the following keys can be added vi
 - Servizio: `com.sonicle.webtop.vfs`
 - Chiave: `upload.public.maxfilesize`
 
-## PECO Ponte {#pec-bridge}
+## PEC Bridge {#pec-bridge}
 
 :::note
 
@@ -407,103 +407,103 @@ Disponibile solo per Nethesis Enterprise
 
 PEC (Posta Elettronica Certificata) è ampiamente utilizzato in Italia come sostituto virtuale per posta raccomandata, in quanto detiene la stessa validità legale.
 
-PECO Bridge è una funzione WebTop che integra caselle di posta PEC esterne con WebTop.
+PEC Bridge è una funzione WebTop che integra caselle di posta PEC esterne con WebTop.
 
-Se il sistema ha un attivo [Subscription](../about/subscription.md) sotto il piano Nethesis Enterprise, è possibile acquistare una licenza PEC Bridge attraverso la categoria **NethService** nel negozio online Nethesis.
+Se il sistema ha una [Sottoscrizione](../about/subscription.md) attiva con il piano Nethesis Enterprise, è possibile acquistare una licenza PEC Bridge attraverso la [categoria NethService](https://nethshop.nethesis.it/product-category/nethservice/) nel negozio online Nethesis.
 
-Una volta completato l'acquisto, Nethesis fornirà istruzioni per attivare la licenza e configurare il ponte PEC.
+Una volta completato l'acquisto, Nethesis fornirà le istruzioni per attivare la licenza e configurare il PEC Bridge.
 
-Inside the Advanced settings of the WebTop administration panel, you can set the `PEC Bridge notify address` to receive notifications when a new PEC event is received.
+Nelle impostazioni Avanzate del pannello di amministrazione di WebTop, è possibile impostare l'`Indirizzo di notifica PEC Bridge` per ricevere notifiche quando viene ricevuto un nuovo evento PEC.
 
-### Customization
+### Personalizzazione
 
-It's possible to customize the PEC Bridge behavior by setting the following environment variables:
+È possibile personalizzare il comportamento del PEC Bridge impostando le seguenti variabili d'ambiente:
 
-- `PECBRIDGE_NOTIFY_OWNER`: indicates which notifications to send to the PEC account owner.  
-  Possible values are:
+- `PECBRIDGE_NOTIFY_OWNER`: indica quali notifiche inviare al proprietario dell'account PEC.
+  I valori possibili sono:
 
-  - `all`: all notifications sent to the PEC owner (this is the default if the variable is not set)
-  - `auth`: only authentication failure notifications are sent to the PEC owner
-  - `none`: no notifications are sent to the PEC owner
+  - `all`: tutte le notifiche vengono inviate al proprietario PEC (questo è il valore predefinito se la variabile non è impostata)
+  - `auth`: vengono inviate al proprietario PEC solo le notifiche di errore di autenticazione
+  - `none`: nessuna notifica viene inviata al proprietario PEC
 
-  All notifications will always be sent to the address configured in "PEC Bridge notify address", if configured.
+  Tutte le notifiche verranno sempre inviate all'indirizzo configurato in "Indirizzo di notifica PEC Bridge", se configurato.
 
-- `PECBRIDGE_FROM_ADDRESS`: the email address used as the sender of the PEC Bridge notifications
+- `PECBRIDGE_FROM_ADDRESS`: l'indirizzo e-mail utilizzato come mittente delle notifiche PEC Bridge
 
-To configure these variables, access the WebTop server via SSH and execute the following commands:
+Per configurare queste variabili, accedere al server WebTop tramite SSH ed eseguire i seguenti comandi:
 
     runagent -m webtop1
     echo PECBRIDGE_FROM_ADDRESS=no-reply@test.org >> environment
     echo PECBRIDGE_NOTIFY_OWNER=auth >> environment
     systemctl --user restart pecbridge
 
-Replace `webtop1` with the actual WebTop instance name.
+Sostituire `webtop1` con il nome effettivo dell'istanza WebTop.
 
-Please note that the command above appends the variables to the `environment` file, use it only when customizing the environment variables for the first time. On next changes, edit the file directly using a text editor like `nano` or `vi`.
+Notare che il comando precedente aggiunge le variabili al file `environment`; utilizzarlo solo quando si personalizzano le variabili d'ambiente per la prima volta. Per le modifiche successive, modificare direttamente il file utilizzando un editor di testo come `nano` o `vi`.
 
-## NethVoice phonebook integration
+## Integrazione rubrica NethVoice
 
-Inside the WebTop application there is an automated workflow that allows to:
+All'interno dell'applicazione WebTop è presente un flusso di lavoro automatizzato che consente di:
 
-- export WebTop contacts to the NethVoice centralized phonebook
-- import the NethVoice centralized phonebook to the WebTop contacts
+- esportare i contatti WebTop nella rubrica centralizzata di NethVoice
+- importare la rubrica centralizzata di NethVoice nei contatti WebTop
 
-The workflow is disabled by default, to enable it:
+Il flusso di lavoro è disabilitato per impostazione predefinita; per abilitarlo:
 
-- make sure at least one NethVoice instance is installed inside the cluster
-- in the `Settings` page, select the NethVoice instance from the `Synchronize Phonebook with NethVoice instance` field inside the `Advanced` section
-- save the settings
+- assicurarsi che almeno un'istanza di NethVoice sia installata nel cluster
+- nella pagina `Impostazioni`, selezionare l'istanza NethVoice nel campo `Sincronizza rubrica con istanza NethVoice` all'interno della sezione `Avanzate`
+- salvare le impostazioni
 
-The synchronization occurs every night, ensuring that the NethVoice centralized phonebook is regularly updated in WebTop. This automated process helps maintain consistency and accuracy between the two systems, allowing users to access the most current contact information without manual intervention.
+La sincronizzazione avviene ogni notte, garantendo che la rubrica centralizzata di NethVoice venga aggiornata regolarmente in WebTop. Questo processo automatizzato aiuta a mantenere coerenza e precisione tra i due sistemi, consentendo agli utenti di accedere alle informazioni di contatto più aggiornate senza intervento manuale.
 
-### From WebTop to NethVoice
+### Da WebTop a NethVoice
 
-To add contacts from any WebTop 5 user address book to the NethVoice centralized phonebook, simply share it with the system **admin** user named *Admin (NethServer)*.
+Per aggiungere contatti da qualsiasi rubrica utente di WebTop 5 alla rubrica centralizzata di NethVoice, è sufficiente condividerla con l'utente **admin** di sistema denominato *Admin (NethServer)*.
 
-Users can voluntarily choose to share their contacts for import into the NethVoice phonebook. This operation must be performed individually by each user who wishes to share their contacts.
+Gli utenti possono scegliere volontariamente di condividere i propri contatti per l'importazione nella rubrica NethVoice. Questa operazione deve essere eseguita individualmente da ogni utente che desidera condividere i propri contatti.
 
-The user must follow these steps:
+L'utente deve seguire questi passaggi:
 
-- open the `Contacts` section
-- under the `My Categories` section, choose an address book to share, then click on the kebab menu (three dots) and select the `Sharing and Permissions` menu item
-- a drawer will open on the right side of the screen, click the **Add** button
-- in the search field, type `admin` and select the user from the list
+- aprire la sezione `Contatti`
+- nella sezione `Le mie categorie`, scegliere una rubrica da condividere, quindi fare clic sul menu kebab (tre punti) e selezionare la voce `Condivisione e autorizzazioni`
+- si aprirà un pannello laterale sul lato destro della schermata; fare clic sul pulsante **Aggiungi**
+- nel campo di ricerca, digitare `admin` e selezionare l'utente dall'elenco
 
 :::note
 
-The address book must be shared directly with the **admin** user. Sharing it with a group containing the **admin** user is not sufficient.
+La rubrica deve essere condivisa direttamente con l'utente **admin**. Condividerla con un gruppo contenente l'utente **admin** non è sufficiente.
 
-Ensure that only individual address books are shared and not the entire category, to prevent synchronization errors.
+Assicurarsi di condividere solo le singole rubriche e non l'intera categoria, per evitare errori di sincronizzazione.
 
 :::
 
-### From NethVoice to WebTop
+### Da NethVoice a WebTop
 
-When the synchronization is active, the NethVoice centralized phonebook is imported into WebTop 5 every night.
+Quando la sincronizzazione è attiva, la rubrica centralizzata di NethVoice viene importata in WebTop 5 ogni notte.
 
-Contacts are imported into a newly created address book named *Rubrica Centralizzata*, within the administrator user account, named *Builtin Administrator user*. The username corresponds to the one used to provision the user domain associated with the mail server connected to WebTop 5.
+I contatti vengono importati in una rubrica di nuova creazione denominata *Rubrica Centralizzata*, nell'account dell'utente amministratore, denominato *Builtin Administrator user*. Il nome utente corrisponde a quello utilizzato per il provisioning del dominio utente associato al server di posta connesso a WebTop 5.
 
-To allow other groupware users to access the address book, access with the administrator user and share it with the desired users or groups as *READ-ONLY*. To share it with all users, select the *Users* group.
+Per consentire ad altri utenti del groupware di accedere alla rubrica, accedere con l'utente amministratore e condividerla con gli utenti o i gruppi desiderati come *SOLA LETTURA*. Per condividerla con tutti gli utenti, selezionare il gruppo *Users*.
 
-It's possibile to override both the address book name and the user name by setting the following environment variables inside the `phonebook.env` file:
+È possibile sovrascrivere sia il nome della rubrica che il nome utente impostando le seguenti variabili d'ambiente all'interno del file `phonebook.env`:
 
 - `PHONEBOOK_WEBTOP_ADMIN`
 - `PHONEBOOK_WEBTOP_FOLDER`
 
-To do so, access the shell and enter the WebTop instance environment, replace *webtop1* with the actual WebTop instance name:
+Per farlo, accedere alla shell ed entrare nell'ambiente dell'istanza WebTop, sostituendo *webtop1* con il nome effettivo dell'istanza WebTop:
 
     runagent -m webtop1
     echo "PHONEBOOK_WEBTOP_ADMIN=myuser" >> phonebook.env
     echo "PHONEBOOK_WEBTOP_FOLDER=MyPhonebook" >> phonebook.env
 
-On next synchronization, the address book will be created with the specified name and shared with the specified user.
+Alla successiva sincronizzazione, la rubrica verrà creata con il nome specificato e condivisa con l'utente specificato.
 
-Please note that the command above appends the variables to the `phonebook.env` file, use it only when customizing the environment variables for the first time. On next changes, edit the file directly using a text editor like `nano` or `vi`.
+Notare che il comando precedente aggiunge le variabili al file `phonebook.env`; utilizzarlo solo quando si personalizzano le variabili d'ambiente per la prima volta. Per le modifiche successive, modificare direttamente il file utilizzando un editor di testo come `nano` o `vi`.
 
 ### Sincronizzazione manuale
 
-To manually force synchronization and verify correct configuration, run the following command from the shell:
+Per forzare manualmente la sincronizzazione e verificare la configurazione corretta, eseguire il seguente comando dalla shell:
 
     runagent -m webtop1 systemctl --user start phonebook
 
-Replace *webtop1* with the actual WebTop instance name.
+Sostituire *webtop1* con il nome effettivo dell'istanza WebTop.

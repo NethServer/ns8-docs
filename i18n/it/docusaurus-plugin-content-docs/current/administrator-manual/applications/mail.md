@@ -4,402 +4,402 @@ sidebar_position: 2
 ---
 # Mail
 
-The Mail application is split into four main parts:
+L'applicazione Mail è suddivisa in quattro parti principali:
 
-- [Postfix](https://www.postfix.org), un server SMTP per l'invio e la ricezione di messaggi di posta.
-- [Dovecot](https://www.dovecot.org), un server IMAP e POP3 per leggere e-mail, con lingua Sieve per organizzarlo.
-- [Rspamd](https://rspamd.com), an antispam filter, antivirus and attachments blocker.
+- [Postfix](https://www.postfix.org), un server SMTP per inviare e ricevere messaggi di posta.
+- [Dovecot](https://www.dovecot.org), un server IMAP e POP3 per leggere la posta elettronica, con il linguaggio Sieve per organizzarla.
+- [Rspamd](https://rspamd.com), un filtro antispam, antivirus e blocco degli allegati.
 - [ClamAV](http://www.clamav.net), un motore antivirus.
 
 I vantaggi sono:
 
-- completa autonomia nella gestione elettronica della posta
-- evitare problemi a causa del Servizio Provider internet
-- capacità di tracciare il percorso dei messaggi al fine di rilevare errori
-- antivirus ottimizzato e scansione antispam
+- completa autonomia nella gestione della posta elettronica
+- evitare problemi dovuti al provider di connettività Internet
+- possibilità di tracciare il percorso dei messaggi per individuare gli errori
+- scansione antivirus e antispam ottimizzata
 
 :::warning
 
-Anche se Software Center permette di installare più istanze di Mail sullo stesso nodo, è possibile configurare e avviare solo un'istanza di server di posta per nodo, altrimenti si verifica un errore di conflitto della porta TCP.
+Anche se Software Center permette di installare più istanze di Mail sullo stesso nodo, puoi configurare e avviare una sola istanza di server di posta per nodo, altrimenti si verifica un errore di conflitto sulle porte TCP.
 
 :::
 
 Un'istanza Mail può essere integrata con altre applicazioni. Per esempio:
 
 - [WebTop](webtop.md) groupware.
-- [Roundcube](roundcube.md) web mail client.
-- [Imapsync](imapsync.md) schedules periodical fetch jobs or migrates emails from external IMAP servers to local user mailboxes.
-- [Piler](piler.md) archivia qualsiasi messaggio inviato o ricevuto da Mail con il protocollo SMTP.
+- [Roundcube](roundcube.md) client webmail.
+- [Imapsync](imapsync.md) pianifica recuperi periodici o migra email da server IMAP esterni alle caselle di posta locali degli utenti.
+- [Piler](piler.md) archivia qualsiasi messaggio inviato o ricevuto da Mail tramite il protocollo SMTP.
 
 ## Configurazione
 
-Mail requires at least one [user domain](../installation/user_domains.md) already configured.
+Mail richiede almeno un [dominio utenti](../installation/user_domains.md) già configurato.
 
 La prima procedura guidata di configurazione richiederà le seguenti informazioni:
 
-- `Mail server hostname`: insert the mail server name, this should be the same name configured inside your [MX DNS record](https://en.wikipedia.org/wiki/MX_record).
-- `Primary mail domain`: insert the mail domain, like `nethserver.org`; you will be able to add more domains later.
+- `Mail server hostname`: inserisci il nome del server di posta; deve essere lo stesso nome configurato nel tuo [record DNS MX](https://en.wikipedia.org/wiki/MX_record).
+- `Primary mail domain`: inserisci il dominio di posta, come `nethserver.org`; potrai aggiungere altri domini in seguito.
 
-Quindi, selezionare il dominio utente da collegare al server di posta. Un indirizzo email verrà creato per ogni utente del dominio selezionato.
+Quindi seleziona il dominio utenti da collegare al server di posta. Verrà creato un indirizzo email per ogni utente del dominio selezionato.
 
 ## Domini {#email_domains}
 
-Mail can handle an unlimited number of mail domains, which are configurable from the `Domains` page.
+Mail può gestire un numero illimitato di domini di posta, configurabili dalla pagina `Domains`.
 
 :::note
 
-Deleting a domain does not delete any existing emails; all previously received messages are preserved.
+L'eliminazione di un dominio non cancella alcuna email esistente; tutti i messaggi ricevuti in precedenza vengono conservati.
 
 :::
 
-To add a new domain, click the **Create domain** button and enter the domain name, such as `mymail.org`, in the `Name` field.
+Per aggiungere un nuovo dominio, fai clic sul pulsante **Create domain** e inserisci il nome del dominio, ad esempio `mymail.org`, nel campo `Name`.
 
-You can define the domain’s email addresses by inheriting user and group names from the LDAP user domain using the following options:
+Puoi definire gli indirizzi email del dominio ereditando nomi utenti e gruppi dal dominio utenti LDAP usando le seguenti opzioni:
 
 - `Add user addresses from user domain`
 - `Add group addresses from user domain`
 
-If the corresponding option is enabled, user and group names are treated as valid email addresses. In the rare case where a user and a group share the same name, incoming messages addressed to that name are always delivered to the group members.
+Se l'opzione corrispondente è abilitata, i nomi di utenti e gruppi vengono trattati come indirizzi email validi. Nel raro caso in cui un utente e un gruppo abbiano lo stesso nome, i messaggi in ingresso indirizzati a quel nome vengono sempre consegnati ai membri del gruppo.
 
-Additional email addresses for the domain can also be configured, as explained in section [Addresses](#email_addresses).
+Gli indirizzi email aggiuntivi per il dominio possono essere configurati come spiegato nella sezione [Indirizzi](#email_addresses).
 
-Under the `Advanced` section, the `Accept unknown recipients` switch controls how to handle messages addressed to undefined recipients within the domain. By default, such messages are rejected. However, in some scenarios—such as during a mail domain migration—it may be useful to accept these messages and deliver them silently to a catch-all mailbox. This behavior can be enabled by turning on the `Accept unknown recipients` option.
+Nella sezione `Advanced`, l'opzione `Accept unknown recipients` controlla come gestire i messaggi indirizzati a destinatari non definiti all'interno del dominio. Per impostazione predefinita, questi messaggi vengono rifiutati. In alcuni scenari, però, ad esempio durante la migrazione di un dominio di posta, può essere utile accettarli e recapitarli in modo silenzioso a una casella catch-all. Questo comportamento può essere abilitato attivando l'opzione `Accept unknown recipients`.
 
-### DKIM signature
+### Firma DKIM
 
-DomainKeys Identified Mail ([DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail)) validates the identity of the sending MTA by adding a cryptographic signature to the message's MIME headers.
+DomainKeys Identified Mail ([DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail)) convalida l'identità dell'MTA mittente aggiungendo una firma crittografica alle intestazioni MIME del messaggio.
 
-In the `Domains` page, click the three-dots menu on the domain card and select `Configure DKIM` to enable or disable the DKIM signature for messages. By default, DKIM signing is enabled for every domain, and the key value is displayed in both raw and Bind-compatible "zone file" formats.
+Nella pagina `Domains`, fai clic sul menu a tre punti della scheda del dominio e seleziona `Configure DKIM` per abilitare o disabilitare la firma DKIM dei messaggi. Per impostazione predefinita, la firma DKIM è abilitata per ogni dominio e il valore della chiave viene mostrato sia in formato grezzo sia nel formato "zone file" compatibile con Bind.
 
-DKIM signature headers are added only to messages sent through TCP ports 587 (submission) and 465 (smtps) when the "From" header matches one of the configured domains.
+Le intestazioni della firma DKIM vengono aggiunte solo ai messaggi inviati tramite le porte TCP 587 (submission) e 465 (smtps) quando l'intestazione "From" corrisponde a uno dei domini configurati.
 
-Per DKIM funzionare correttamente, assicurarsi che il DNS pubblico sia configurato come segue, utilizzando le istruzioni fornite dal provider DNS:
+Perché DKIM funzioni correttamente, assicurati che il DNS pubblico sia configurato come segue, usando le istruzioni fornite dal tuo provider DNS:
 
-1.  Add a TXT record with the key `default._domainKey` to your public DNS service.
-2.  Copy the key text provided and paste it into the DNS record data (RDATA) field.
+1.  Aggiungi un record TXT con la chiave `default._domainKey` al tuo servizio DNS pubblico.
+2.  Copia il testo della chiave fornito e incollalo nel campo dati (RDATA) del record DNS.
 
-Per proteggere ulteriormente dallo spoofing del dominio della posta, considerare l'aggiunta di record DNS per [DMARC](https://en.wikipedia.org/wiki/DMARC) (Autenticazione dei messaggi, Reporting e Conformance) e [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) (Sender Policy Framework).
+Per proteggerti ulteriormente dalla falsificazione del dominio di posta, valuta l'aggiunta di record DNS per [DMARC](https://en.wikipedia.org/wiki/DMARC) (Domain-based Message Authentication, Reporting, and Conformance) e [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) (Sender Policy Framework).
 
-## Mailboxes {#mail-mailboxes-settings}
+## Caselle di posta {#mail-mailboxes-settings}
 
-Each user has a personal mailbox and any user name in the form *\<username\>@\<domain\>* is also a valid email address to deliver messages into it.
+Ogni utente ha una casella di posta personale e qualsiasi nome utente nel formato *\<username\>@\<domain\>* è anch'esso un indirizzo email valido al quale recapitare messaggi.
 
-The list of mailboxes is shown on the `Mailboxes` page. There are two types of mailboxes: users and public mailboxes.
+L'elenco delle caselle di posta è mostrato nella pagina `Mailboxes`. Esistono due tipi di caselle di posta: utenti e pubbliche.
 
-### Users mailboxes
+### Caselle di posta degli utenti
 
-You can disable each mailbox by selecting the `Disable` item from the three-dots menu on the mailbox line.
+Puoi disabilitare ogni casella di posta selezionando la voce `Disable` dal menu a tre punti della riga corrispondente.
 
-By clicking the `Edit` item from the three-dots menu it's possible to setup the following options:
+Facendo clic sulla voce `Edit` del menu a tre punti, puoi configurare le seguenti opzioni:
 
-- `Forward messages`: forward all messages to another email address
-- `Custom mailbox quota`: override the quota configured from the [Settings](#mail_settings-section)
-- `Custom spam retention`: override the retention configured from the [Settings](#mail_settings-section)
+- `Forward messages`: inoltra tutti i messaggi a un altro indirizzo email
+- `Custom mailbox quota`: sostituisce la quota configurata nelle [Impostazioni](#mail_settings-section)
+- `Custom spam retention`: sostituisce la retention configurata nelle [Impostazioni](#mail_settings-section)
 
-### Public mailboxes
+### Caselle di posta pubbliche
 
-Public mailboxes can be shared among groups of users. The **Create public mailbox** button allows creating a new public mailbox and defining one or more owning groups and users. Public mailboxes can also be created by any IMAP client supporting IMAP ACL protocol extension (RFC 4314).
+Le caselle di posta pubbliche possono essere condivise tra gruppi di utenti. Il pulsante **Create public mailbox** consente di creare una nuova casella di posta pubblica e definire uno o più gruppi e utenti proprietari. Le caselle di posta pubbliche possono essere create anche da qualsiasi client IMAP che supporti l'estensione del protocollo IMAP ACL (RFC 4314).
 
-When a new public mailbox is created, the mail server will automatically add a new address for all existing mail domains.
+Quando viene creata una nuova casella di posta pubblica, il server di posta aggiunge automaticamente un nuovo indirizzo per tutti i domini di posta esistenti.
 
-### Restore a mailbox folder from a backup {#mailbox-selective-restore}
+### Ripristinare una cartella della casella di posta da un backup {#mailbox-selective-restore}
 
-Se l'applicazione ha una o più destinazioni di backup configurate e un backup è già stato eseguito, è possibile cercare e ripristinare una cartella casella di posta da un'istantanea di backup passata di un utente specifico o una casella di posta pubblica.
+Se l'applicazione ha una o più destinazioni di backup configurate e almeno un backup è già stato eseguito, puoi cercare e ripristinare una cartella della casella di posta da una precedente istantanea di backup di una specifica casella utente o pubblica.
 
 :::warning
 
-La procedura non calcola l'utilizzo dello spazio su disco necessario per il ripristino. Assicurare sufficiente spazio su disco è disponibile prima di procedere.
+La procedura non calcola lo spazio su disco richiesto per il ripristino. Assicurati che ci sia spazio su disco sufficiente prima di procedere.
 
 :::
 
-1.  Navigare all'istanza di applicazione Mail e aprire la pagina Mailboxes. Scegliere il `User mailboxes` o `Public mailboxes` scheda per visualizzare un elenco di caselle di posta. Dal menu a tre punti della casella di posta desiderata, selezionare `Restore folder`.
+1.  Vai all'istanza dell'applicazione Mail e apri la pagina Mailboxes. Scegli la scheda `User mailboxes` oppure `Public mailboxes` per visualizzare l'elenco delle caselle di posta. Dal menu a tre punti della casella desiderata, seleziona `Restore folder`.
 
-2.  Selezionare la destinazione di backup da cui ripristinare la cartella. Caricamento di destinazioni remote può richiedere un po 'di tempo.
+2.  Seleziona la destinazione di backup da cui ripristinare la cartella. Il caricamento delle destinazioni remote può richiedere un po' di tempo.
 
-3.  Scegliere la data dell'istantanea di backup da ripristinare. Le istanze sono elencate da più nuovo a più vecchio.
+3.  Scegli la data dell'istantanea di backup da ripristinare. Le istantanee sono elencate dalla più recente alla più vecchia.
 
-4.  Selezionare una cartella dall'elenco o iniziare a digitare il suo nome per filtrare l'elenco.
+4.  Seleziona una cartella dall'elenco oppure inizia a digitare il nome per filtrare la lista.
 
-    Premere **Restore** per avviare il processo di ripristino.
+    Premi **Restore** per avviare il processo di ripristino.
 
-La cartella selezionata verrà ripristinata in una sottocartella della casella di posta denominata "cartella ripristinata". Se la sottocartella già esiste, verrà rimossa prima del ripristino.
+La cartella selezionata verrà ripristinata in una sottocartella della casella di posta chiamata "Restored folder". Se la sottocartella esiste già, verrà rimossa prima del ripristino.
 
-Se la quota della casella di posta viene superata durante il processo di ripristino, sarà impostata al illimitato.
+Se la quota della casella di posta viene superata durante il processo di ripristino, verrà impostata su illimitata.
 
-## Addresses {#email_addresses}
+## Indirizzi {#email_addresses}
 
-In addition to the users, groups and public mailboxes addresses, described in the previous section, the system enables the creation of an unlimited number of email addresses, from the `Addresses` page. Each mail address is associated with one or more destinations. A destination can be of the following types:
+Oltre agli indirizzi di utenti, gruppi e caselle di posta pubbliche descritti nella sezione precedente, il sistema consente di creare un numero illimitato di indirizzi email dalla pagina `Addresses`. Ogni indirizzo email è associato a una o più destinazioni. Una destinazione può essere di uno dei seguenti tipi:
 
-- user mailbox
-- public mailbox
-- external email address
+- casella di posta utente
+- casella di posta pubblica
+- indirizzo email esterno
 
-A mail address can be specific to one mail domain, or generic to all configured mail domains. In the latter case, we call it a "wildcard address". For example:
+Un indirizzo email può essere specifico per un dominio di posta oppure generico per tutti i domini di posta configurati. In quest'ultimo caso, lo chiamiamo "indirizzo wildcard". Per esempio:
 
-- Due domini sono configurati, *mydomain.net* e *example.com*
-- A specific email address *goofy* for domain *example.com* corresponds to *goofy@example.com*.
-- A wildcard email address *info* is bound to all domains: it is equivalent to both *info@mydomain.net* and *info@example.com*.
+- Sono configurati due domini, *mydomain.net* e *example.com*
+- Un indirizzo email specifico *goofy* per il dominio *example.com* corrisponde a *goofy@example.com*.
+- Un indirizzo email wildcard *info* è associato a tutti i domini: equivale sia a *info@mydomain.net* sia a *info@example.com*.
 
-Sometimes a company forbids communications from outside the organization using personal email addresses. To change the *visibility* of an address, click on the three-dots menu and select the `Set as internal` action shortcut, or select `Edit` and enable the `Internal` check box under the `Advanced` section.
+A volte un'azienda vieta le comunicazioni dall'esterno dell'organizzazione usando indirizzi email personali. Per cambiare la *visibilità* di un indirizzo, fai clic sul menu a tre punti e seleziona l'azione rapida `Set as internal`, oppure seleziona `Edit` e abilita la casella `Internal` nella sezione `Advanced`.
 
-When an address is *internal* it cannot receive messages from the outside. Still an *internal* address can be used to exchange messages with other accounts of the system.
+Quando un indirizzo è *internal*, non può ricevere messaggi dall'esterno. Un indirizzo *internal* può comunque essere usato per scambiare messaggi con altri account del sistema.
 
-## Filter {#email_filter}
+## Filtro {#email_filter}
 
-All transiting email messages are subjected to a list of checks that fall into two main categories, described in the following sections:
+Tutti i messaggi email in transito sono sottoposti a un elenco di controlli che rientrano in due categorie principali, descritte nelle sezioni seguenti:
 
 - Antivirus
 - Antispam
 
-Navigate to the `Filter` page to adjust their settings.
+Vai alla pagina `Filter` per modificarne le impostazioni.
 
 ### Antivirus {#anti-virus}
 
-The ClamAV antivirus component finds email messages containing viruses. Infected messages are discarded. The virus signature database is checked for updates every hour.
+Il componente antivirus ClamAV individua i messaggi email che contengono virus. I messaggi infetti vengono scartati. Il database delle firme dei virus viene controllato ogni ora per gli aggiornamenti.
 
-Il database delle firme ClamAV predefinito è normalmente disabilitato perché consuma una grande quantità di memoria. Selezionare la casella di controllo `Enable ClamAV firma ufficiale` se desiderato.
+Il database predefinito delle firme ufficiali di ClamAV è normalmente disabilitato perché consuma molta memoria. Se vuoi usarlo, seleziona la casella `Enable ClamAV official signatures`.
 
-Le firme non ufficiali ClamAV sono sempre attive. È possibile scegliere il livello di punteggio di firma desiderato tra *Low*, *Medium*, *High*. Tenete a mente che le valutazioni superiori possono portare a false partite positive indesiderate, quindi i buoni messaggi possono essere bloccati.
+Le firme non ufficiali di ClamAV sono invece sempre attive. Puoi scegliere il livello di valutazione delle firme tra *Low*, *Medium* e *High*. Tieni presente che livelli più alti possono portare a falsi positivi indesiderati e quindi bloccare anche messaggi legittimi.
 
-Signature updates are fetched from third-party ClamAV signature sites; see [Mail outbound connections](#mail-outbound-connections).
+Gli aggiornamenti delle firme vengono scaricati da siti di terze parti che distribuiscono firme per ClamAV; vedi [Connessioni in uscita di Mail](#mail-outbound-connections).
 
 ### Antispam {#antispam-section}
 
-The antispam component Rspamd analyzes emails by detecting and classifying [spam messages](https://en.wikipedia.org/wiki/Spamming) using heuristic criteria, predetermined rules and statistical evaluations of the content of messages.
+Il componente antispam Rspamd analizza le email rilevando e classificando i [messaggi spam](https://en.wikipedia.org/wiki/Spamming) usando criteri euristici, regole predefinite e valutazioni statistiche del contenuto dei messaggi.
 
-The filter can also check if the sending server is listed in one or more DNS-based block lists (or [DNSBL](https://en.wikipedia.org/wiki/Domain_Name_System_blocklist)). A score is associated with each rule. The check generates outbound DNS queries to third-party DNS servers; see [Mail outbound connections](#mail-outbound-connections).
+Il filtro può anche controllare se il server mittente è elencato in una o più block list basate su DNS (o [DNSBL](https://en.wikipedia.org/wiki/Domain_Name_System_blocklist)). A ogni regola è associato un punteggio. Il controllo genera query DNS in uscita verso server DNS di terze parti; vedi [Connessioni in uscita di Mail](#mail-outbound-connections).
 
-Statistical (or [Bayesian](https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering)) filters, are special rules that evolve and quickly adapt analyzing messages marked as **spam** or **ham**.
+I filtri statistici (o [bayesiani](https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering)) sono regole speciali che evolvono e si adattano rapidamente analizzando i messaggi contrassegnati come **spam** o **ham**.
 
-Total spam score collected at the end of the analysis allows the server to decide what to do with a message.
+Il punteggio spam totale raccolto al termine dell'analisi consente al server di decidere cosa fare con un messaggio.
 
 Le soglie del punteggio spam possono essere configurate nella sezione `Antispam` della pagina `Filter`.
 
-- `Spam soglia di bandiera` determina il valore del punteggio in cui un messaggio è contrassegnato come spam. Quando un messaggio ha la bandiera spam impostare la conseguente azione di consegna dipende dalle impostazioni generali di [mailboxes](#mail-mailboxes-settings).
-- `Deny message spam threshold` instead regulates the score that is considered too high to accept a message. If the score exceeds this value, the filter rejects the message completely.
-- Sotto la sezione `Advanced` è possibile abilitare la `Greylist soglia`. Quando il punteggio del messaggio supera questo limite il filtro chiede al mittente di riprovare la consegna del messaggio in un secondo momento. Il metodo di lotta antispam *Greylist* presuppone che gli spammer non gradiscano i retries di consegna. È disabilitato per impostazione predefinita perché introduce ritardi di consegna anche per i mittenti legittimi.
+- `Spam flag threshold` determina il valore di punteggio oltre il quale un messaggio viene contrassegnato come spam. Quando un messaggio ha il flag spam attivo, l'azione di consegna conseguente dipende dalle impostazioni generali delle [caselle di posta](#mail-mailboxes-settings).
+- `Deny message spam threshold` regola invece il punteggio considerato troppo alto per accettare un messaggio. Se il punteggio supera questo valore, il filtro rifiuta completamente il messaggio.
+- Nella sezione `Advanced` è possibile abilitare `Greylist threshold`. Quando il punteggio del messaggio supera questo limite, il filtro chiede al mittente di ritentare la consegna più tardi. Il metodo antispam *Greylist* presuppone che gli spammer non gradiscano i nuovi tentativi di consegna. È disabilitato per impostazione predefinita perché introduce ritardi di consegna anche per i mittenti legittimi.
 
-In alcuni casi, un client di posta elettronica, un destinatario o un mittente deve bypassare i controlli del filtro: la sezione `Bypass Rules` consente di definire un insieme di regole in base ai criteri di follwing:
+In alcuni casi un client email, un destinatario o un mittente devono bypassare i controlli del filtro: la sezione `Bypass rules` consente di definire un insieme di regole basate sui seguenti criteri:
 
-- Invia indirizzo IP o rete (formato CIDR).
-- Complete sender email address.
-- Sender email domain (exact match).
-- Complete recipient email address.
-- Recipiente dominio e-mail (incontro esatto).
+- indirizzo IP o rete del mittente (formato CIDR)
+- indirizzo email completo del mittente
+- dominio email del mittente (corrispondenza esatta)
+- indirizzo email completo del destinatario
+- dominio email del destinatario (corrispondenza esatta)
 
-Note that address and domain-based rules match the *envelope sender address*, which may differ from the message's "From" address in some cases (e.g. mailing lists).
+Tieni presente che le regole basate su indirizzo e dominio corrispondono all'*envelope sender address*, che in alcuni casi può differire dall'indirizzo "From" del messaggio, ad esempio nelle mailing list.
 
-To view message details such as the envelope sender address, access advanced settings, or review recent Rspamd activity, see [Rspamd web interface](#rspamd-web-interface).
+Per visualizzare dettagli del messaggio come l'envelope sender address, per accedere alle impostazioni avanzate o per controllare l'attività recente di Rspamd, consulta [Interfaccia web di Rspamd](#rspamd-web-interface).
 
-The Bayesian statistical filters can then be trained with any IMAP client by simply moving a message in and out of the Junk folder. As a prerequisite, the Junk folder must be enabled, as explained in [Mailboxes](#mail-mailboxes-settings).
+I filtri statistici bayesiani possono poi essere addestrati con qualsiasi client IMAP semplicemente spostando un messaggio dentro e fuori dalla cartella Junk. Come prerequisito, la cartella Junk deve essere abilitata, come spiegato in [Caselle di posta](#mail-mailboxes-settings).
 
-- Con *putando un messaggio nella cartella Junk*, i filtri imparano che è spam e assegnerà un punteggio più alto a messaggi simili.
-- Al contrario, con *getting un messaggio da Junk*, i filtri imparano che è prosciutto: la prossima volta verrà assegnato un punteggio più basso.
+- Spostando un messaggio nella cartella Junk, i filtri imparano che è spam e assegneranno un punteggio più alto a messaggi simili.
+- Al contrario, togliendo un messaggio da Junk, i filtri imparano che è ham: la volta successiva verrà assegnato un punteggio più basso.
 
-Tutti gli utenti possono formare i filtri utilizzando questa tecnica.
+Tutti gli utenti possono addestrare i filtri usando questa tecnica.
 
 :::note
 
-È una buona abitudine controllare frequentemente la cartella Junk al fine di non perdere email erroneamente riconosciuto come spam.
+È buona abitudine controllare spesso la cartella Junk per non perdere email riconosciute erroneamente come spam.
 
 :::
 
-La formazione del filtro baiese si applica a tutti gli utenti del sistema, non solo l'utente che ha segnato un'email come spam o prosciutto.
+L'addestramento del filtro bayesiano si applica a tutti gli utenti del sistema, non solo all'utente che ha contrassegnato un'email come spam o ham.
 
-È importante capire come funzionano veramente i test Bayesian:
+È importante capire come funzionano davvero i test bayesiani:
 
-- Non contrassegna i messaggi come spam se contengono un soggetto specifico o un indirizzo del mittente. È solo la raccolta di caratteristiche specifiche del messaggio.
+- Non contrassegnano automaticamente i messaggi come spam se contengono un determinato oggetto o indirizzo del mittente. Raccolgono solo caratteristiche specifiche del messaggio.
 
-- Un messaggio può essere contrassegnato solo una volta. Se lo stesso messaggio è contrassegnato più volte, non influenzerà nulla come i test dinamici sono già stati addestrati da quel messaggio.
+- Un messaggio può essere contrassegnato una sola volta. Se lo stesso messaggio viene contrassegnato più volte, non cambia nulla perché i test dinamici sono già stati addestrati da quel messaggio.
 
-- The Bayesian filter **is not active until it has received enough information. This includes a minimum of 200 spams AND 200 hams (false positives).**
+- Il filtro bayesiano **non è attivo finché non ha ricevuto informazioni sufficienti. Questo include un minimo di 200 spam E 200 ham (falsi positivi).**
 
-  Poiché il sistema riceve tali informazioni, il progresso della formazione del filtro bayesian può essere monitorato dall'interfaccia web Rspamd.
+  Man mano che il sistema riceve queste informazioni, l'avanzamento dell'addestramento del filtro bayesiano può essere monitorato dall'interfaccia web di Rspamd.
 
-### Rspamd web interface {#rspamd-web-interface}
+### Interfaccia web di Rspamd {#rspamd-web-interface}
 
-The Rspamd web interface can be opened by clicking the **Open Rspamd** button in the top-right corner of the Filter page or by browsing to `https://<yourIP>/rspamd` or `https://<yourFQDN>/rspamd`. You will need your cluster-admin credentials to log in.
+L'interfaccia web di Rspamd può essere aperta facendo clic sul pulsante **Open Rspamd** nell'angolo in alto a destra della pagina Filter oppure visitando `https://<yourIP>/rspamd` o `https://<yourFQDN>/rspamd`. Per accedere ti serviranno le credenziali di cluster-admin.
 
-It provides access to the advanced configurations and overviews of Rspamd, for example the **Scan/Learn** tab to train Rspamd or the **History** tab to view and analyze incoming emails.
+Fornisce accesso alle configurazioni avanzate e a una panoramica di Rspamd, per esempio alla scheda **Scan/Learn** per addestrare Rspamd oppure alla scheda **History** per visualizzare e analizzare le email in ingresso.
 
-The **Configuration** tab contains lists at the bottom. Rejecting emails can be configured here.
+La scheda **Configuration** contiene degli elenchi nella parte inferiore. Qui puoi configurare il rifiuto delle email.
 
-To reject emails by specific sender email addresses, the `/var/lib/rspamd/block_sender.map` list needs to be configured, for example to add `user@domain.tld`.
+Per rifiutare email da specifici indirizzi email mittenti, devi configurare l'elenco `/var/lib/rspamd/block_sender.map`, per esempio aggiungendo `user@domain.tld`.
 
-To reject emails by domain, add for example `domain.tld` to the `/var/lib/rspamd/block_sender_domain.map` list.
+Per rifiutare email in base al dominio, aggiungi per esempio `domain.tld` all'elenco `/var/lib/rspamd/block_sender_domain.map`.
 
-To reject emails by top-level domain or domain suffix, `.tld` or `.domain.tld` may be added to the `/var/lib/rspamd/block_sender_domain_suffix.map` list.
+Per rifiutare email in base al dominio di primo livello o al suffisso del dominio, puoi aggiungere `.tld` oppure `.domain.tld` all'elenco `/var/lib/rspamd/block_sender_domain_suffix.map`.
 
-Do not modify the other lists, as they are preconfigured.
+Non modificare gli altri elenchi, perché sono preconfigurati.
 
 ## Coda
 
-The `Queue` page shows the status of the Postfix mail queue. Under normal conditions the queue should be empty because messages are immediately exchanged between mail servers.
+La pagina `Queue` mostra lo stato della coda di posta di Postfix. In condizioni normali la coda dovrebbe essere vuota, perché i messaggi vengono scambiati immediatamente tra i server di posta.
 
-Se la coda di posta contiene alcuni messaggi, cercare di fare clic sul pulsante **Refresh** per controllare rapidamente se la condizione è temporanea.
+Se la coda di posta contiene alcuni messaggi, prova a fare clic sul pulsante **Refresh** per controllare rapidamente se la condizione è temporanea.
 
-In alternativa, avviare un nuovo tentativo di consegna immediato con il pulsante **Resend all**, o rimuovere tutti i messaggi dalla coda con **Delete all**.
+In alternativa, avvia subito un nuovo tentativo di consegna con il pulsante **Resend all**, oppure rimuovi tutti i messaggi dalla coda con **Delete all**.
 
-The same actions can be selectively executed for each message in the queue, from its three-dots menu. The message delay reason, queue ID, arrival time, size, sender, and recipients can be inspected with the `See details` action.
+Le stesse azioni possono essere eseguite selettivamente per ogni messaggio in coda, dal relativo menu a tre punti. Puoi ispezionare il motivo del ritardo del messaggio, l'ID della coda, l'orario di arrivo, la dimensione, il mittente e i destinatari con l'azione `See details`.
 
 :::tip
 
-The `Message ID` value can be used to search the message in both [Rspamd web interface](#antispam-section) and [System logs](../configuration/log_server.md).
+Il valore `Message ID` può essere usato per cercare il messaggio sia nell'[interfaccia web di Rspamd](#antispam-section) sia nei [log di sistema](../configuration/log_server.md).
 
 :::
 
-If the delay reason is not resolved, and the message is not deleted, the message is returned to the sender after a configurable amount of time. Click the **Settings** button to modify it. See [Queue settings](#queue-settings-section) for details.
+Se il motivo del ritardo non viene risolto e il messaggio non viene eliminato, il messaggio viene restituito al mittente dopo un intervallo di tempo configurabile. Fai clic sul pulsante **Settings** per modificarlo. Vedi [Impostazioni della coda](#queue-settings-section) per i dettagli.
 
 ## Relay {#relay-rules-section}
 
-When a message is received from another mail server (MTA), or from a mail user agent (MUA), Postfix determines if and how to relay it towards its final destination. This decision is typically based on relay authorization and the domain suffix of the recipient address.
+Quando un messaggio viene ricevuto da un altro server di posta (MTA) o da un client di posta (MUA), Postfix determina se e come inoltrarlo verso la destinazione finale. Questa decisione si basa tipicamente sull'autorizzazione al relay e sul suffisso di dominio dell'indirizzo del destinatario.
 
-- Se il dominio è gestito da Postfix (cioè è elencato in [Domini](#email_domains)) il messaggio viene consegnato localmente.
-- In caso contrario, se il dominio è esterno e l'autorizzazione a relè è valida, il server di destinazione (noto anche come server "next-hop") viene risolto utilizzando una query DNS MX.
+- Se il dominio è gestito da Postfix, cioè è elencato in [Domini](#email_domains), il messaggio viene consegnato localmente.
+- In caso contrario, se il dominio è esterno e l'autorizzazione al relay è valida, il server di destinazione, detto anche server "next-hop", viene risolto tramite una query DNS MX.
 
-La pagina `Relay` consente di configurare un insieme di regole che sovrascrive la risoluzione di dominio esterno basata su DNS.
+La pagina `Relay` consente di configurare un insieme di regole che sostituisce la risoluzione del dominio esterno basata su DNS.
 
-Per configurare l'autorizzazione a relè basata su IP, vedere [Relay settings](#mail-relay-settings).
+Per configurare l'autorizzazione al relay basata su IP, vedi [Impostazioni del relay](#mail-relay-settings).
 
-### Regole prioritarie
+### Priorità delle regole
 
-Le regole di relè possono essere di tre tipi:
+Le regole di relay possono essere di tre tipi:
 
-1.  Regola sensibile.
-2.  Regola del mittente.
-3.  Regola di default. È consentita solo una regola predefinita.
+1.  Regola destinatario.
+2.  Regola mittente.
+3.  Regola predefinita. È consentita una sola regola predefinita.
 
-L'ordine di valutazione delle regole è Recipiente, Sender, Default: viene applicata la prima regola corrispondente. Una corrispondenza si verifica in base al mittente o al destinatario del messaggio, o se viene definita una regola predefinita (che corrisponde a qualsiasi mittente e destinatario).
+L'ordine di valutazione delle regole è Destinatario, Mittente, Predefinita: viene applicata la prima regola corrispondente. Una corrispondenza si verifica in base al mittente o al destinatario del messaggio, oppure se è definita una regola predefinita, che corrisponde a qualsiasi mittente e destinatario.
 
-Le corrispondenze del mittente e del destinatario possono essere una corrispondenza esatta dell'indirizzo e-mail completo, o corrispondono solo al suffisso del dominio. Nell'ordine di valutazione delle regole, la corrispondenza esatta viene valutata prima della corrispondenza del suffisso di dominio.
+Le corrispondenze di mittente e destinatario possono essere un match esatto dell'indirizzo email completo oppure solo del suffisso di dominio. Nell'ordine di valutazione delle regole, la corrispondenza esatta viene valutata prima di quella sul suffisso di dominio.
 
 ### Gestione delle regole
 
-Fare clic sul pulsante **Add relay rule** per definire un Sender o una regola Recipiente. Specificare il tipo di regola e il valore soggetto (sender o destinatario), quindi riempire i campi rimanenti:
+Fai clic sul pulsante **Add relay rule** per definire una regola Mittente o Destinatario. Specifica il tipo di regola e il valore oggetto, mittente o destinatario, quindi compila i campi rimanenti:
 
-- **Hostname**, il nome o l'indirizzo IP del server in cui il messaggio viene relè se la regola corrisponde.
-- **Port**, the TCP port number used by the server.
-- **Authentication**. If the server requires SMTP authentication provide the necessary credentials here.
-- **TLS**. Enable this switch if the server expects TLS or STARTTLS encryption. It is recommended to enable it to encrypt both credentials and data during SMTP connections.
+- **Hostname**, il nome o l'indirizzo IP del server verso cui il messaggio viene inoltrato se la regola corrisponde.
+- **Port**, il numero di porta TCP usato dal server.
+- **Authentication**. Se il server richiede autenticazione SMTP, inserisci qui le credenziali necessarie.
+- **TLS**. Abilita questa opzione se il server richiede la cifratura TLS o STARTTLS. È consigliato abilitarla per cifrare sia le credenziali sia i dati durante le connessioni SMTP.
 
-Il **Set default rule** definisce una regola che corrisponde se nessuna delle regole rimanenti fa, o se nessuna regola è definita affatto. Questo tipo di regola viene utilizzato per configurare un [smarthost](https://en.wikipedia.org/wiki/Smart_host), un server di posta in cui vengono trasmessi messaggi di posta per domini esterni.
+**Set default rule** definisce una regola che corrisponde se nessuna delle altre regole corrisponde, oppure se non è definita alcuna regola. Questo tipo di regola viene usato per configurare uno [smarthost](https://en.wikipedia.org/wiki/Smart_host), cioè un server di posta al quale vengono inoltrati i messaggi destinati a domini esterni.
 
-Quando viene creata o modificata una regola Predefinita o Recipiente, vengono aggiornate automaticamente le regole esistenti dello stesso tipo con la stessa combinazione Hostname e Port. Le nuove impostazioni TLS e Authentication vengono applicate collettivamente a queste regole. Ciò garantisce che i messaggi inviati tramite un dato Hostname e Port utilizzino credenziali coerenti e preferenze TLS, indipendentemente dall'indirizzo di destinazione.
+Quando viene creata o modificata una regola Predefinita o Destinatario, le regole esistenti dello stesso tipo con la stessa combinazione Hostname e Port vengono aggiornate automaticamente. Le nuove impostazioni TLS e Authentication vengono applicate in modo collettivo a queste regole. Questo garantisce che i messaggi inviati tramite un determinato Hostname e Port usino credenziali coerenti e preferenze TLS uniformi, indipendentemente dall'indirizzo di destinazione.
 
-Once created, a rule can be edited, disabled or deleted from the three-dots menu. When a rule is edited, the rule type and subject cannot be changed: delete it instead.
+Una volta creata, una regola può essere modificata, disabilitata o eliminata dal menu a tre punti. Quando una regola viene modificata, il tipo di regola e il soggetto non possono essere cambiati: in quel caso eliminala e ricreala.
 
-Vedi anche [Relay settings](#mail-relay-settings) per altre configurazioni sul relè dei messaggi verso altri server di posta. Nella pagina `Relay`, il pulsante **Settings** porta a loro.
+Vedi anche [Impostazioni del relay](#mail-relay-settings) per altre configurazioni sull'inoltro dei messaggi verso altri server di posta. Nella pagina `Relay`, il pulsante **Settings** porta a quelle impostazioni.
 
-## Settings {#mail_settings-section}
+## Impostazioni {#mail_settings-section}
 
-Application settings are split up and accessible under the cards described by the following sections.
+Le impostazioni dell'applicazione sono suddivise e accessibili nelle schede descritte dalle sezioni seguenti.
 
 ### Impostazioni generali {#mail-general-settings}
 
-The following values are set at application first configuration time. They should not be changed in production:
+I seguenti valori vengono impostati al momento della prima configurazione dell'applicazione. Non dovrebbero essere cambiati in produzione:
 
-- `Mail server hostname` configures how the MTA identifies itself with other MTAs. To successfully receive email messages, use this host name to configure the following DNS records:
-  - `A` record, resolving the Mail server hostname to the public and static IP address of the server.
-  - `PTR` record, resolving back the IP address to the Mail server hostname.
-  - `MX` records, one for each mail domain handled by the Mail application instance.
-  - `TXT` records, as specified by DKIM, SPF and DMARC.
-- `User domain` selects a LDAP database with user, groups and passwords. If the DB is changed existing mailboxes are not removed! A mailbox is still accessible if the same user name is present in both the old and the new database.
+- `Mail server hostname` configura il modo in cui l'MTA si identifica verso gli altri MTA. Per ricevere correttamente i messaggi email, usa questo nome host per configurare i seguenti record DNS:
+  - record `A`, che risolve il nome host del server Mail nell'indirizzo IP pubblico e statico del server.
+  - record `PTR`, che risolve l'indirizzo IP nel nome host del server Mail.
+  - record `MX`, uno per ogni dominio di posta gestito dall'istanza dell'applicazione Mail.
+  - record `TXT`, come specificato da DKIM, SPF e DMARC.
+- `User domain` seleziona un database LDAP con utenti, gruppi e password. Se il DB viene cambiato, le caselle di posta esistenti non vengono rimosse. Una casella di posta è ancora accessibile se lo stesso nome utente è presente sia nel vecchio sia nel nuovo database.
 
-### Mailboxes
+### Caselle di posta
 
-Under the `Mailboxes` card you can configure the `Default mail quota`.
+Nella scheda `Mailboxes` puoi configurare la `Default mail quota`.
 
-If the general mailbox quota is enabled, the `Mailboxes` page summarizes the quota usage for each user. This summary is updated when a user logs in or a message is delivered.
+Se la quota generale delle caselle di posta è abilitata, la pagina `Mailboxes` riepiloga l'utilizzo della quota per ogni utente. Questo riepilogo viene aggiornato quando un utente accede o quando un messaggio viene consegnato.
 
-Under the `Shared mailboxes` section, `Shared seen` selects if the IMAP *seen* flag is shared or not with other users. In general, the *seen* flag is used to mark if a message has been read or not. In a shared mailbox, each user can access the same message.
+Nella sezione `Shared mailboxes`, `Shared seen` seleziona se il flag IMAP *seen* è condiviso o meno con gli altri utenti. In generale, il flag *seen* viene usato per indicare se un messaggio è stato letto oppure no. In una casella condivisa, ogni utente può accedere allo stesso messaggio.
 
-- If users accessing the shared mailbox prefer to know if a mail has already been read by someone else, set `Shared seen` to `enabled` (default).
-- If users accessing the shared mailbox are not interested if a message has been already read by someone else, set `Shared seen` to `disabled`.
+- Se gli utenti che accedono alla casella condivisa preferiscono sapere se un'email è già stata letta da qualcun altro, imposta `Shared seen` su `enabled` (predefinito).
+- Se gli utenti che accedono alla casella condivisa non sono interessati a sapere se un messaggio è già stato letto da qualcun altro, imposta `Shared seen` su `disabled`.
 
-Messages marked as **spam** (see [Filter](#email_filter)) can be automatically moved into the `Junk` folder by enabling the option `Move spam to junk folder`. Spam messages can be expunged automatically after a period of time. You can configure it from the `Default spam retention` option.
+I messaggi contrassegnati come **spam** (vedi [Filtro](#email_filter)) possono essere spostati automaticamente nella cartella `Junk` abilitando l'opzione `Move spam to junk folder`. I messaggi spam possono essere rimossi automaticamente dopo un certo periodo di tempo. Puoi configurarlo con l'opzione `Default spam retention`.
 
-### Master users {#mail-master-users-settings}
+### Utenti master {#mail-master-users-settings}
 
-Under the `Master users` card, you can setup a user that can impersonate another user, gaining full rights to any mailbox contents and folder permissions.
+Nella scheda `Master users`, puoi configurare un utente che può impersonare un altro utente, ottenendo pieni diritti sul contenuto di qualsiasi casella di posta e sui permessi delle cartelle.
 
-Credentials are accepted by the IMAP server:
+Le credenziali accettate dal server IMAP sono:
 
-- user name of the master user, e.g. `master`
-- master user password
+- nome utente del master user, per esempio `master`
+- password del master user
 
-For instance, to access as `john` with root password `secr3t`, use the following credentials:
+Per esempio, per accedere come `john` con password del master user `secr3t`, usa le seguenti credenziali:
 
-- user name: `john*master`
+- nome utente: `john*master`
 - password: `secr3t`
 
-### Queue settings {#queue-settings-section}
+### Impostazioni della coda {#queue-settings-section}
 
-The `Maximal queue lifetime` parameter defines how many hours a message can remain in the mail queue before it is returned to the sender.
+Il parametro `Maximal queue lifetime` definisce per quante ore un messaggio può rimanere nella coda di posta prima di essere restituito al mittente.
 
-Il valore predefinito, 120 ore (5 giorni), è il tempo di riprovazione suggerito da RFC5321. I valori più bassi potrebbero essere impostati per avvertire il mittente prima se si verifica un errore. Ad esempio, se il server di posta remota rifiuta un messaggio perché il nostro indirizzo IP è in un elenco di blocco pubblico, il mittente del messaggio verrà notificato dopo 5 giorni: potrebbe essere considerato troppo tardi.
+Il valore predefinito, 120 ore (5 giorni), è il tempo di ritentativo suggerito da RFC5321. Potresti impostare valori più bassi per avvisare prima il mittente se si verifica un errore. Per esempio, se il server di posta remoto rifiuta un messaggio perché il nostro indirizzo IP è presente in una block list pubblica, il mittente verrà avvisato dopo 5 giorni: potrebbe essere considerato troppo tardi.
 
-### Relay settings {#mail-relay-settings}
+### Impostazioni del relay {#mail-relay-settings}
 
 Questa sezione controlla la configurazione dell'applicazione Mail per scenari speciali, descritti nelle sezioni seguenti.
 
-#### Relè basato su IP
+#### Relay basato su IP
 
-Alcuni vecchi client di posta, come gli scanner, che forniscono funzionalità software limitate, potrebbero non supportare l'autenticazione o la crittografia SMTP: in questo caso è possibile autorizzare il relè di messaggi a domini esterni guardando il loro indirizzo IP anziché il controllo delle solite credenziali.
+Alcuni vecchi client di posta, come gli scanner, che offrono funzionalità software limitate, potrebbero non supportare l'autenticazione SMTP o la cifratura. In questo caso è possibile autorizzare il relay dei messaggi verso domini esterni in base al loro indirizzo IP invece del consueto controllo delle credenziali.
 
-Elenca l'indirizzo IP di tali dispositivi nel `Allow relay da questi indirizzi IP` campo. L'indirizzo può essere in formato IPv4 o IPv6. La politica basata su IP può essere diffusa in un'intera rete, specificandola in formato CIDR.
+Elenca gli indirizzi IP di tali dispositivi nel campo `Allow relay from these IP addresses`. L'indirizzo può essere in formato IPv4 o IPv6. La policy basata su IP può essere estesa a un'intera rete specificandola in formato CIDR.
 
-Ad esempio, un valore per il campo può essere
+Per esempio, un valore del campo può essere:
 
     192.168.12.42
     10.77.4.0/24
 
-The IP address *192.168.12.42* (e.g. a document scanner) and the clients in the network subnet *10.77.4.0/24* can send mail messages without providing SMTP authentication.
+L'indirizzo IP *192.168.12.42* (per esempio uno scanner documentale) e i client della sottorete *10.77.4.0/24* possono inviare messaggi email senza fornire autenticazione SMTP.
 
-#### Sender/login corrispondenza
+#### Corrispondenza mittente/login
 
-To avoid the unauthorized use of email addresses and the sender address spoofing within the organization, enable the `Enforce sender/login match` switch.
+Per evitare l'uso non autorizzato degli indirizzi email e la falsificazione dell'indirizzo del mittente all'interno dell'organizzazione, abilita l'opzione `Enforce sender/login match`.
 
-Se l'interruttore è abilitato l'indirizzo del mittente di un messaggio deve corrispondere al nome di login utilizzato dal client di posta per connettersi con il server di posta. Cerca il nome di login nella pagina [Addresses](#email_addresses) per vedere quali sono gli indirizzi che può utilizzare.
+Se l'opzione è abilitata, l'indirizzo del mittente di un messaggio deve corrispondere al nome di login usato dal client di posta per connettersi al server di posta. Cerca il nome di login nella pagina [Indirizzi](#email_addresses) per vedere quali indirizzi può usare.
 
-For example, with that switch enabled, if user `john` has email address `john.doe@example.org` he cannot write an email message with a different sender address, like `sarah.smith@example.org`.
+Per esempio, con questa opzione abilitata, se l'utente `john` ha l'indirizzo email `john.doe@example.org`, non può scrivere un messaggio con un indirizzo mittente diverso, come `sarah.smith@example.org`.
 
-If the switch is disabled, as per default Mail configuration, an authenticated mail client is allowed to send messages using any sender address, so back to our example `john` could write the message also as `sarah.smith@example.org`.
+Se l'opzione è disabilitata, come nella configurazione predefinita di Mail, un client di posta autenticato può inviare messaggi usando qualsiasi indirizzo mittente; quindi, tornando all'esempio, `john` potrebbe scrivere il messaggio anche come `sarah.smith@example.org`.
 
 :::warning
 
-Se si decide di abilitare l'interruttore considerare che le caselle di posta pubbliche e gli indirizzi di gruppo LDAP non sono valutati per la corrispondenza login/indirizzo.
+Se decidi di abilitare questa opzione, considera che le caselle di posta pubbliche e gli indirizzi di gruppo LDAP non vengono valutati per la corrispondenza login/indirizzo.
 
 :::
 
-#### Mail archive {#mail-archive-section}
+#### Archivio mail {#mail-archive-section}
 
-The `Always BCC` switch controls a feature often required by mail archiving solutions.
+L'opzione `Always BCC` controlla una funzionalità spesso richiesta dalle soluzioni di archiviazione della posta.
 
-The acronym BCC stands for Blind Carbon Copy. When the switch is enabled, enter a value in the `Always BCC address` field: this address will receive a hidden copy of any email message sent or received by the Mail server.
+L'acronimo BCC significa Blind Carbon Copy. Quando l'opzione è abilitata, inserisci un valore nel campo `Always BCC address`: questo indirizzo riceverà una copia nascosta di qualsiasi messaggio email inviato o ricevuto dal server Mail.
 
 :::tip
 
-Fare una copia nascosta di messaggi di posta elettronica privata è una funzione sensibile alla privacy. Assicurarsi che il suo utilizzo sia conforme alle leggi sulla privacy del vostro paese, alle normative e alle politiche aziendali.
+Creare una copia nascosta di messaggi email privati è una funzionalità sensibile dal punto di vista della privacy. Assicurati che il suo uso sia conforme alle leggi sulla privacy, ai regolamenti e alle policy aziendali del tuo paese.
 
 :::
 
-The [Piler application](piler.md) can automatically configure this field with the appropriate value, such as `archive@piler1` or similar. In this case, changing the address might prevent Piler from archiving new messages.
+L'applicazione [Piler](piler.md) può configurare automaticamente questo campo con il valore appropriato, come `archive@piler1` o simile. In questo caso, cambiare l'indirizzo potrebbe impedire a Piler di archiviare i nuovi messaggi.
 
-## Client configuration {#email_clients}
+## Configurazione dei client {#email_clients}
 
-The server supports standard-compliant email clients using the following IANA ports:
+Il server supporta client email conformi agli standard usando le seguenti porte IANA:
 
 - imap/143
 - pop3/110
 - smtp/587
 - sieve/4190
 
-Authentication requires the STARTTLS command and supports the following variants:
+L'autenticazione richiede il comando STARTTLS e supporta le seguenti varianti:
 
 - LOGIN
 - PLAIN
 
-Also the following TLS-enabled ports are available for legacy software that still does not support STARTTLS:
+Sono disponibili anche le seguenti porte con TLS abilitato per software legacy che non supportano ancora STARTTLS:
 
 - imaps/993
 - pop3s/995
@@ -407,32 +407,32 @@ Also the following TLS-enabled ports are available for legacy software that stil
 
 :::note
 
-The standard SMTP port 25 is reserved for mail transfers between MTA servers. Mail user agents (MUA) must use the submission port.
+La porta SMTP standard 25 è riservata ai trasferimenti di posta tra server MTA. I mail user agent (MUA) devono usare la porta submission.
 
 :::
 
-Refer to the [Webtop application](webtop.md#email_autoconfig) for the implementation of automatic configuration protocols like Autodiscover and Autoconfig.
+Fai riferimento all'applicazione [Webtop](webtop.md#email_autoconfig) per l'implementazione dei protocolli di configurazione automatica come Autodiscover e Autoconfig.
 
-## Mail outbound connections {#mail-outbound-connections}
+## Connessioni in uscita di Mail {#mail-outbound-connections}
 
-The Mail application generates outbound SMTP traffic towards other mail servers, as well as DNS, HTTPS, and RSYNC traffic for antispam and antivirus checks.
+L'applicazione Mail genera traffico SMTP in uscita verso altri server di posta, oltre a traffico DNS, HTTPS e RSYNC per i controlli antispam e antivirus.
 
-| Purpose | Host name | Port | Protocol | Notes |
+| Scopo | Nome host | Porta | Protocollo | Note |
 |----|----|----|----|----|
-| SMTP session | \<any\> | 25 | SMTP | Outbound connection to remote MTA |
-| DNSBL queries | \<any\> | 53 | DNS | Rspamd DNS queries and resolver recursive DNS queries |
-| DQS queries | \<any\> | 53 | DNS | Spamhaus Data Query Service DNS queries |
-| ClamAV DB updates | database.clamav.net, sigs.interserver.net, cdn.rfxn.com, signatures.malware.expert, lists.malwarepatrol.net, www.sanesecurity.com, www.securiteinfo.com, urlhaus.abuse.ch, raw.githubusercontent.com | 443 | HTTPS | Fetch official and unofficial ClamAV signatures |
-| ClamAV DB updates | rsync.sanesecurity.net | 873 | RSYNC | Fetch official and unofficial ClamAV signatures |
+| Sessione SMTP | \<any\> | 25 | SMTP | Connessione in uscita verso l'MTA remoto |
+| Query DNSBL | \<any\> | 53 | DNS | Query DNS di Rspamd e query DNS ricorsive del resolver |
+| Query DQS | \<any\> | 53 | DNS | Query DNS del servizio Spamhaus Data Query Service |
+| Aggiornamenti DB di ClamAV | database.clamav.net, sigs.interserver.net, cdn.rfxn.com, signatures.malware.expert, lists.malwarepatrol.net, www.sanesecurity.com, www.securiteinfo.com, urlhaus.abuse.ch, raw.githubusercontent.com | 443 | HTTPS | Scarica firme ufficiali e non ufficiali di ClamAV |
+| Aggiornamenti DB di ClamAV | rsync.sanesecurity.net | 873 | RSYNC | Scarica firme ufficiali e non ufficiali di ClamAV |
 
-Summary of Mail outbound connections
+Riepilogo delle connessioni in uscita di Mail
 
-Rotte
+Note
 
-- The complete list of host names has been extracted from the [clamav-unofficial-sigs](https://github.com/extremeshok/clamav-unofficial-sigs) source code.
+- L'elenco completo dei nomi host è stato estratto dal codice sorgente di [clamav-unofficial-sigs](https://github.com/extremeshok/clamav-unofficial-sigs).
 
-- Obtain a complete list of DNSBL/DQS servers with this command on the node where Mail is installed:
+- Ottieni l'elenco completo dei server DNSBL/DQS con questo comando sul nodo in cui è installata Mail:
 
       runagent -m mail1 podman exec rspamd rspamadm configdump rbl | grep "rbl = "
 
-  To resolve their IP addresses, the Rspamd DNS recursive resolver (Unbound) queries authoritative DNS servers directly.
+  Per risolvere i loro indirizzi IP, il resolver DNS ricorsivo di Rspamd (Unbound) interroga direttamente i server DNS autorevoli.

@@ -4,35 +4,35 @@ sidebar_position: 8
 ---
 # Mattermost
 
-The Mattemost module installs [Mattermost Team Edition](https://mattermost.com) platform.
+Il modulo Mattermost installa la piattaforma [Mattermost Team Edition](https://mattermost.com).
 
-Mattermost is an Open Source, private cloud Slack-alternative. Check out the [official documentation](https://docs.mattermost.com/) for further details.
+Mattermost è un'alternativa Open Source e in cloud privato a Slack. Consulta la [documentazione ufficiale](https://docs.mattermost.com/) per maggiori dettagli.
 
-You can install multiple Mattermost instances on the same node from the [Software center](../installation/software_center.md).
+Puoi installare più istanze Mattermost sullo stesso nodo dal [Software center](../installation/software_center.md).
 
 ## Configurazione
 
-Mattermost needs a dedicated virtual host, a FQDN like `chat.nethserver.org`.
+Mattermost richiede un host virtuale dedicato, un FQDN come `chat.nethserver.org`.
 
-Prima di procedere con la configurazione, assicurarsi di creare il relativo record all'interno del server DNS. Se hai intenzione di utilizzare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
+Prima di procedere con la configurazione, assicurati di creare il record corrispondente nel tuo server DNS. Se intendi usare un certificato Let's Encrypt come predefinito, assicurati anche di avere un record DNS pubblico corrispondente.
 
 :::warning
 
-Please note that the mobile app **cannot connect to servers with self-signed certificates**!
+Tieni presente che l'app mobile **non può connettersi a server con certificati autofirmati**!
 
 :::
 
-Come configurare:
+Come configurarlo:
 
-1.  access the application configuration page and enter a valid FQDN inside `Mattermost FQDN` field
-2.  abilitare `Let's Encrypt` e le opzioni `HTTP a HTTPS` di conseguenza alle vostre esigenze
-3.  Click the **Save** button
-4.  open the entered host name inside the browser, eg: `https://chat.nethserver.org`. At first access, a wizard will create the administrator user
+1.  accedi alla pagina di configurazione dell'applicazione e inserisci un FQDN valido nel campo `Mattermost FQDN`
+2.  abilita le opzioni `Let's Encrypt` e `HTTP to HTTPS` in base alle tue esigenze
+3.  fai clic sul pulsante **Save**
+4.  apri nel browser il nome host inserito, per esempio `https://chat.nethserver.org`. Al primo accesso, una procedura guidata creerà l'utente amministratore
 
-Mattermost authentication is *not* integrated with any user domain. The Mattermost administrator should take care of users and teams creation.
+L'autenticazione di Mattermost *non* è integrata con alcun dominio utenti. L'amministratore di Mattermost deve occuparsi della creazione di utenti e team.
 
 :::note
 
-The administrator should always use Mattermost wizard to create the admin user, then send team invitation link to each user.
+L'amministratore dovrebbe sempre usare la procedura guidata di Mattermost per creare l'utente admin, quindi inviare il link di invito al team a ogni utente.
 
 :::

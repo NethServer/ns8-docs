@@ -1,128 +1,123 @@
 ---
-title: Subscription
+title: Abbonamento
 sidebar_position: 3
 ---
-# Subscription
+# Abbonamento
 
 :::note
 
-Disponibile solo per sistemi basati su Rocky Linux
+Disponibile solo su sistemi basati su Rocky Linux
 
 :::
 
 Un cluster NethServer 8 può essere registrato su un portale web per abilitare servizi aggiuntivi.
 
-[Nethesis](https://www.nethesis.it) offers two types of subscription services for NethServer, which provide additional benefits and features:
+[Nethesis](https://www.nethesis.it) offre due tipi di servizi di abbonamento per NethServer, che forniscono vantaggi e funzionalità aggiuntive:
 
-- **Community subscription**: self-service registration mostly suited for IT consultants. For more information, see the [subscription plans](https://www.nethserver.org/subscription) page.
+- **Abbonamento Community**: registrazione self-service principalmente adatta ai consulenti IT. Per ulteriori informazioni, consultare la pagina dei [piani di abbonamento](https://www.nethserver.org/subscription).
 
-  Community subscription portal is available at [my.nethserver.com](https://my.nethserver.com).
+  Il portale per l'abbonamento Community è disponibile su [my.nethserver.com](https://my.nethserver.com).
 
-- **Enterprise subscription**: service reserved to Nethesis resellers, please contact the Sales Department at <info@nethesis.it>.
+- **Abbonamento Enterprise**: servizio riservato ai rivenditori Nethesis, si prega di contattare il Dipartimento Vendite all'indirizzo <info@nethesis.it>.
 
-  Enterprise subscription portal is available at [my.nethesis.it](https://my.nethesis.it).
+  Il portale per l'abbonamento Enterprise è disponibile su [my.nethesis.it](https://my.nethesis.it).
 
-Quando un cluster ha una subscription attiva, i seguenti servizi vengono abilitati:
+Quando un cluster ha un abbonamento attivo, i seguenti servizi sono abilitati:
 
-- Supporto remoto di Nethesis
-- Resources [monitoring and alerting](../configuration/metrics.md)
-- Upload inventario del nodo leader
-- [Aggiornamenti programmati](../about/subscription.md#scheduled-updates) per il sistema operativo dei nodi, i componenti core e le applicazioni
-- Upload of cluster backup
+- Supporto remoto da parte di Nethesis
+- [Monitoraggio e avvisi](../configuration/metrics.md) delle risorse
+- Caricamento dell'inventario del nodo leader
+- [Aggiornamenti programmati](../about/subscription.md#scheduled-updates) per i sistemi operativi dei nodi, i componenti core e le applicazioni
+- Caricamento del backup del cluster
 
-Per quanto riguarda i repository software, resta attivo solo il repository `subscription`.
+Per quanto riguarda i repository software, rimane abilitato solo il repository `subscription`.
 
 :::tip
 
-È sconsigliato attivare repository di terze parti e installare software non coperti dal piano subscription attivo
+Si prega di evitare di abilitare repository di terze parti e di non installare software non coperto dal piano di abbonamento
 
 :::
 
-Refer to [External network connectivity](../installation/system_requirements.md#external-services) for a complete list of Nethesis service endpoints required by a cluster to activate and manage a subscription.
+Fare riferimento a [Connettività di rete esterna](../installation/system_requirements.md#external-services) per un elenco completo degli endpoint di servizio Nethesis richiesti da un cluster per attivare e gestire un abbonamento.
+## Registra il cluster
 
-## Registrazione del cluster
-
-A seconda del tipo di subscription, accedere al portale [my.nethserver.com](https://my.nethserver.com) o al portale [my.nethesis.it](https://my.nethesis.it) e generare un token univoco per il cluster seguendo la procedura specifica per il portale utilizzato.
+A seconda del tipo di abbonamento, accedi a [my.nethserver.com](https://my.nethserver.com) o [my.nethesis.it](https://my.nethesis.it) e ottieni un token di abbonamento unico per il cluster. Segui le procedure documentate nel portale per ottenerlo.
 
 :::warning
 
-Il token di subscription è un segreto: non comunicarlo o condividerlo con qualcun altro
+Il token di abbonamento è un segreto: non comunicarlo o condividerlo con nessun altro
 
 :::
 
-Una volta copiato il token nella clipboard, spostarsi nella pagina `Impostazioni` e fare clic sulla scheda `Subscription`. Incollare il token nel campo `Token di autenticazione`, quindi fare clic sul pulsante **Registra**.
+Una volta copiato il token negli appunti, vai alla pagina `Settings` e clicca sulla scheda `Subscription`. Incolla il token nel campo `Authentication token`, quindi clicca sul pulsante **Register**.
 
-Se la procedura termina con successo, la pagina Subscription visualizza l'`ID Sistema`, il tipo di `Piano` e la data di `Scadenza`.
-
+Se la procedura ha successo, la pagina Subscription mostrerà il `System ID`, il tipo di `Plan` e la data di `Expiration`.
 ## Termini e Condizioni {#terms-and-conditions}
 
-Si prega di leggere attentamente i Termini e Condizioni. Mantenendo un abbonamento attivo NethServer 8, si conferma di accettare i Termini e Condizioni e si accetta di rispettare da loro. Se non accetti i presenti Termini e Condizioni, non puoi attivare o continuare l'abbonamento.
+Si prega di leggere attentamente i Termini e Condizioni. Mantenendo un abbonamento attivo a NethServer 8, confermate di accettare i Termini e Condizioni e di rispettarli. Se non accettate questi Termini e Condizioni, non potrete attivare o continuare il vostro abbonamento.
 
-Dettagli dei piani di abbonamento si possono trovare sul sito web [NethServer](https://www.nethserver.org).
+I dettagli sui piani di abbonamento sono disponibili sul [sito web di NethServer](https://www.nethserver.org/subscription).
 
-Le informazioni di identificazione personale vengono memorizzate e trattate quando necessario per adempiere a un contratto a cui l'interessato è parte, o per prendere misure su richiesta dell'interessato prima di entrare in un contratto. Queste informazioni possono anche essere utilizzate per condividere aggiornamenti e notizie relative al servizio sottoscritto.
+Le informazioni personali identificative vengono archiviate e trattate quando necessario per adempiere a un contratto di cui l'interessato è parte, o per intraprendere azioni su richiesta dell'interessato prima di stipulare un contratto. Queste informazioni possono anche essere utilizzate per condividere aggiornamenti e notizie relative al servizio sottoscritto.
 
-Il titolare del trattamento è Nethesis S.r.l unipersonale CF/PI/RI IT 02734760412, situato alla Strada degli Olmi 8 -- 61122 Pesaro (PU) -- Italia.
+Il titolare del trattamento dei dati è Nethesis S.r.l unipersonale CF/PI/RI IT 02734760412, con sede in Strada degli Olmi 8 -- 61122 Pesaro (PU) -- Italia.
 
-Eventuali richieste relative al trattamento delle informazioni di identificazione personale (PII) possono essere indirizzate a <privacy@nethesis.it>.
+Qualsiasi richiesta relativa al trattamento delle informazioni personali identificative (PII) può essere indirizzata a <privacy@nethesis.it>.
+## Aggiornamenti pianificati {#scheduled-updates}
 
-## Aggiornamenti programmati {#scheduled-updates}
+Un'attività pianificata notturna installa automaticamente gli aggiornamenti software disponibili dai repository gestiti da Nethesis. Questa attività viene eseguita quotidianamente dal martedì al venerdì, in una fascia oraria selezionata casualmente tra mezzanotte e le 6 del mattino. La randomizzazione aiuta a distribuire il carico sulle risorse di rete e server. Gli aggiornamenti includono:
 
-Un'attività programmata notturna installa automaticamente gli aggiornamenti software disponibili dai repository gestiti da Nethesis. Questa attività viene eseguita giornalmente da martedì a venerdì, all'interno di una fascia oraria casuale tra la mezzanotte e le 6 del mattino. La randomizzazione aiuta a distribuire il carico sulle risorse di rete e server. Gli aggiornamenti includono:
-
-- **Sistema operativo**: Gli aggiornamenti provengono dai repository DNF etichettati `ns-baseos` e `ns-appstream`. Questi repository forniscono snapshot ritardate di repository Rocky Linux per evitare di distribuire aggiornamenti che potrebbero causare problemi inaspettati (vedere [Mirror gestito da Nethesis per Rocky Linux](../../tutorial/os_updates.md#neth-mirror)).
-- **Componenti core**: Gli aggiornamenti vengono prelevati dal repository `subscription`.
-- **Applicazioni**: Gli aggiornamenti provengono anche dal repository `subscription`.
+- **Sistema operativo**: Gli aggiornamenti provengono dai repository DNF denominati `ns-baseos` e `ns-appstream`. Questi repository forniscono snapshot ritardati dei repository di Rocky Linux per evitare la distribuzione di aggiornamenti che potrebbero causare problemi imprevisti (vedi [Mirror Rocky Linux gestito da Nethesis](../../tutorial/os_updates.md#neth-mirror)).
+- **Componenti principali**: Gli aggiornamenti vengono recuperati dal repository `subscription`.
+- **Applicazioni**: Gli aggiornamenti provengono anch'essi dal repository `subscription`.
 
 :::note
 
-Con una subscription attiva, non utilizzare procedure personalizzate per aggiornare il sistema operativo, i componenti core o le applicazioni. Questo include la funzione di aggiornamento software di Cockpit e `dnf-automatic`, che possono eseguire aggiornamenti incontrollati in background. Tali procedure creano una configurazione non supportata e possono causare instabilità del sistema. Lasciare che l'attività programmata gestisca tutti gli aggiornamenti.
+Con un abbonamento attivo, non utilizzare procedure personalizzate per aggiornare il sistema operativo, i componenti principali o le applicazioni. Questo include la funzione di aggiornamento software di Cockpit e `dnf-automatic`, che potrebbe eseguire aggiornamenti non controllati in background. Tali procedure creano una configurazione non supportata e possono causare instabilità del sistema. Lascia che sia l'attività pianificata a gestire tutti gli aggiornamenti.
 
 :::
 
-I repository gestiti seguono una politica di aggiornamento conservatrice per garantire stabilità e test approfonditi degli aggiornamenti, rendendoli adatti agli aggiornamenti automatizzati.
+I repository gestiti seguono una politica di aggiornamento conservativa per garantire stabilità e un accurato testing degli aggiornamenti, rendendoli adatti per aggiornamenti automatizzati.
 
-È possibile sovrascrivere la politica di aggiornamento gestita installando o aggiornando manualmente i componenti o le applicazioni core tramite la pagina Centro software. I metadati per applicazioni e componenti fondamentali del repository `subscription` sono aggiornati orariamente nel Software Center.
+È possibile ignorare la politica di aggiornamento gestita installando o aggiornando manualmente i componenti principali o le applicazioni tramite la pagina del Software Center. I metadati per le applicazioni e i componenti principali provenienti dal repository `subscription` vengono aggiornati ogni ora nel Software Center.
 
-Gli aggiornamenti programmati vengono inibiti quando un nodo NS7 si unisce al cluster per migrare le applicazioni. Questo è necessario perché la procedura di migrazione richiede specifiche versioni di applicazione per funzionare correttamente. Gli aggiornamenti programmati saranno riattivati una volta terminata la migrazione NS7 e il nodo NS7 viene rimosso automaticamente dal cluster.
+Gli aggiornamenti pianificati vengono inibiti quando un nodo NS7 si unisce al cluster per migrare le applicazioni. Questo è necessario poiché la procedura di migrazione richiede versioni specifiche delle applicazioni per funzionare correttamente. Gli aggiornamenti pianificati saranno riattivati una volta completata la migrazione di NS7 e il nodo NS7 sarà automaticamente rimosso dal cluster.
+## Rimuovere l'abbonamento
 
-## Rimozione subscription
+Accedi alla pagina `Settings` e clicca sulla scheda `Subscription`. In alternativa, vai alla pagina del dashboard del cluster e clicca sul link `Go to Subscription`.
 
-Spostarsi nella pagina `Impostazioni` e fare clic sulla scheda `Subscription`. In alternativa, dalla dashboard del cluster fare clic sul link `Vai a Subscription`.
-
-Nella pagina `Subscription`, fare clic sul pulsante **Rimuovi subscription**. Verrà richiesta conferma dell'azione.
-
+Nella pagina `Subscription`, clicca sul pulsante **Remove subscription**. L'azione deve essere confermata.
 ## Supporto remoto
 
 :::note
 
-Disponibile solo per Nethesis Enterprise
+Disponibile solo in Nethesis Enterprise
 
 :::
 
-Remote support is a service that allows Nethesis support team to access the cluster remotely to troubleshoot and resolve issues. Remote support sessions can be activated on demand by the user, and they expire after 24 hours.
+Il supporto remoto è un servizio che consente al team di supporto Nethesis di accedere al cluster da remoto per diagnosticare e risolvere problemi. Le sessioni di supporto remoto possono essere attivate su richiesta dall'utente e scadono dopo 24 ore.
 
-Depending on the subscription type and plan, the `Subscription` page allows starting and controlling a remote support session, provided the [SSH service requirements](../installation/system_requirements.md#ssh-service-reqs) are met.
+A seconda del tipo e del piano di sottoscrizione, la pagina `Subscription` consente di avviare e controllare una sessione di supporto remoto, a condizione che siano soddisfatti i [requisiti del servizio SSH](../installation/system_requirements.md#ssh-service-reqs).
 
-- Fare clic su **Avvia sessione** per attivare un accesso speciale per il team di supporto Nethesis. Al team di supporto sarà consentito l'accesso amministrativo sia SSH che al cluster-admin. Le connessioni di supporto sono veicolate attraverso un tunnel VPN privato.
+- Fare clic su **Start session** per attivare un accesso speciale per il team di supporto Nethesis. Sia l'accesso SSH che l'accesso amministrativo cluster-admin vengono concessi al team di supporto. Le connessioni di supporto sono instradate in un tunnel VPN privato.
 
-  Quando l'accesso è consentito, viene visualizzato nella pagina un segreto denominato `ID sessione`: il segreto va copiato e incollato nella richiesta di supporto.
+  Quando l'accesso è concesso, viene visualizzato un segreto univoco `Session ID`: copialo e incollalo nella tua richiesta di supporto.
 
-- Per terminare la sessione di supporto, chiudere il tunnel VPN e revocare qualsiasi accesso consentito, fare clic sul pulsante **Termina sessione**.
+- Per terminare la sessione di supporto, chiudere il tunnel VPN e revocare qualsiasi accesso concesso, fare clic su **End session**.
 
-La sessione di supporto è valida solo per raggiungere il nodo leader. Il team di supporto può accedere agli altri nodi del cluster avviando sessioni di supporto individuali nei nodi worker. Per esempio, se il nodo 2 è un nodo worker, il comando per avviare una sessione di supporto per esso è il seguente:
+La sessione di supporto è valida solo per accedere al nodo leader. Il team di supporto può accedere ai nodi worker avviando sessioni di supporto individuali sui nodi worker. Ad esempio, se il nodo 2 è un nodo worker, questo è un comando per avviare una sessione di supporto per esso:
 
     api-cli run node/2/start-support-session
 
-L'ID sessione viene stampato sullo standard output. Per interrompere la sessione:
+L'ID della sessione viene stampato sull'output standard. Per interrompere la sessione:
 
     api-cli run node/2/stop-support-session
 
-È possibile verificare lo stato della sessione di supporto su un qualsiasi nodo con il comando:
+Controllare lo stato della sessione di supporto per qualsiasi nodo con:
 
     api-cli run node/2/get-support-session
 
-Output example:
+Esempio di output:
 
     {
       "session_id": "08e91254-4269-5c38-3120-a11e92f7699b",
@@ -130,26 +125,26 @@ Output example:
       "expires_at": "2026-04-03T06:41:32+00:00"
     }
 
-Se un nodo worker (ad esempio, nodo 2) diventa irraggiungibile dal nodo leader, è possibile avviare manualmente una sessione di supporto per esso con la seguente procedura:
+Se un nodo worker (ad esempio, il nodo 2) diventa irraggiungibile dal nodo leader, è possibile avviare manualmente una sessione di supporto per esso seguendo questa procedura:
 
-1.  Accedere al nodo worker, utilizzando la console o l'accesso SSH.
+1.  Accedere al nodo worker utilizzando la console o l'accesso SSH.
 
 2.  Eseguire il seguente comando per avviare la sessione di supporto:
 
         systemctl start support
 
-3.  Ottenere l'ID sessione con:
+3.  Ottenere l'ID della sessione con:
 
         runagent -m node grep VPN_PASSWORD support.env
 
-4.  Per terminare una sessione di supporto:
+4.  Per terminare la sessione di supporto:
 
         systemctl stop support
 
-### Session expiration
+### Scadenza della sessione
 
-The support session is automatically terminated after 24 hours. To avoid automatic termination and allow it to run up to the maximum allowed duration of 7 days, execute this command on the relevant node:
+La sessione di supporto viene automaticamente terminata dopo 24 ore. Per evitare la terminazione automatica e consentire che rimanga attiva fino alla durata massima consentita di 7 giorni, eseguire questo comando sul nodo interessato:
 
     systemctl stop support-expire.timer
 
-After 7 days the session is terminated unconditionally.
+Dopo 7 giorni la sessione viene terminata incondizionatamente.

@@ -4,14 +4,14 @@ sidebar_position: 0
 slug: /tutorial
 ---
 
-# Tutorials and best practices
+# Tutorial e buone pratiche
 
-Practical guides and best practices for running NethServer 8.
+Guide pratiche e buone pratiche per usare NethServer 8.
 
-- [Network configuration](./os_network.md)
-- [Operating system updates](./os_updates.md)
-- [Disk usage](./disk_usage.md)
-- [Migration from NethServer 7](./migration.md)
-- [Docker Hub rate limits](./dockerhub.md)
+- [Configurazione di rete](./os_network.md)
+- [Aggiornamenti del sistema operativo](./os_updates.md)
+- [Utilizzo del disco](./disk_usage.md)
+- [Migrazione da NethServer 7](./migration.md)
+- [Limiti di pull di Docker Hub](./dockerhub.md)
 - [VPN](./vpn.md)
 - [FAQ](./faq.md)

@@ -1,168 +1,160 @@
 ---
-title: Software center
+title: Centro software
 sidebar_position: 4
 ---
-# Software center
+# Centro software
 
-The Software Center page displays and manages applications available from all configured repositories.
+La pagina Centro Software visualizza e gestisce le applicazioni disponibili da tutti i repository configurati.
+## Informazioni sull'applicazione
 
-## Application information
+Ogni applicazione è rappresentata da una scheda che mostra il suo nome, il livello di certificazione e la categoria. Fare clic sul nome dell'applicazione per visualizzare informazioni dettagliate come screenshot, autore, ultima versione, immagini del container e link alla documentazione, al codice sorgente e al bug tracker.
 
-Ogni applicazione è rappresentata da una carta che mostra il suo nome, il livello di certificazione e la categoria. Clicca sul nome dell'applicazione per visualizzare informazioni dettagliate come screenshot, autore, ultima versione, immagini dei container e link alla documentazione, codice sorgente e tracciatore di bug.
-
-Alcune applicazioni possono includere ulteriori Termini e Condizioni; se presenti, leggerle con attenzione.
+Alcune applicazioni potrebbero includere Termini e Condizioni aggiuntivi; se presenti, leggerli attentamente.
 
 :::tip
 
-For detailed information about the installed core components refer to [Core updates](#core_updates-section).
+Per informazioni dettagliate sui componenti core installati, fare riferimento a [Aggiornamenti core](#core_updates-section).
 
 :::
-
-## Levels of certification {#certification-levels}
+## Livelli di certificazione {#certification-levels}
 
 Le applicazioni sono certificate ai seguenti livelli:
 
-- **Level 1/5**: L'applicazione è ospitata da un repository personalizzato (o non fa parte di alcun repository) e non è certificata.
-- **Level 2/5**: The application is hosted by the `nethforge` repository and certified by the NethServer community.
-- **Level 3/5**: The application is hosted by the `default` or `subscription` repositories and is certified by Nethesis.
-- **Level 4/5**: L'applicazione è sviluppata e mantenuta dagli sviluppatori di Nethesis.
-- **Level 5/5**: The application is developed and maintained by Nethesis developers and is covered by Nethesis support.
+- **Livello 1/5**: L'applicazione è ospitata da un repository personalizzato (o non fa parte di alcun repository) e non è certificata.
+- **Livello 2/5**: L'applicazione è ospitata dal repository `nethforge` ed è certificata dalla comunità NethServer.
+- **Livello 3/5**: L'applicazione è ospitata dai repository `default` o `subscription` ed è certificata da Nethesis.
+- **Livello 4/5**: L'applicazione è sviluppata e mantenuta dagli sviluppatori di Nethesis.
+- **Livello 5/5**: L'applicazione è sviluppata e mantenuta dagli sviluppatori di Nethesis ed è coperta dal supporto Nethesis.
 
 I livelli di certificazione sono determinati in base ai seguenti fattori:
 
-1.  **Repository**: To be listed in a public repository, an application must undergo a review process. Being listed in a public repository establishes the base certification level of the application.
-2.  **Origin**: The container image registry hosting the application identifies the person or organization distributing it. Currently, the recognized registries are `ghcr.io/nethserver` and `ghcr.io/nethesis`.
-3.  **Support**: Se il cluster ha un abbonamento attivo e il supporto a pagamento è disponibile per l'applicazione (se incluso nel piano di abbonamento corrente o no). Vedere [Subscription](../about/subscription.md) per ulteriori informazioni.
+1.  **Repository**: Per essere elencata in un repository pubblico, un'applicazione deve superare un processo di revisione. L'inclusione in un repository pubblico stabilisce il livello base di certificazione dell'applicazione.
+2.  **Origine**: Il registro delle immagini del container che ospita l'applicazione identifica la persona o l'organizzazione che la distribuisce. Attualmente, i registri riconosciuti sono `ghcr.io/nethserver` e `ghcr.io/nethesis`.
+3.  **Supporto**: Se il cluster ha un abbonamento attivo e il supporto a pagamento è disponibile per l'applicazione (sia che sia incluso nel piano di abbonamento attuale o meno). Vedi [Abbonamento](../about/subscription.md) per ulteriori informazioni.
+## Installare applicazioni {#install-applications}
 
-## Install applications {#install-applications}
+Per installare una nuova applicazione, fare clic sul pulsante **Installa** della scheda dell'applicazione.
 
-To install a new application, click the **Install** button of the application card.
+- Se il cluster ha più nodi, sarà necessario selezionare anche il nodo di destinazione.
 
-- If your cluster has multiple nodes, you will also need to select the target node.
+- Alcune applicazioni -- come Samba, Nextcloud e Mail -- potrebbero richiedere un ampio spazio su disco e supportare la selezione di volumi aggiuntivi, se il nodo di destinazione ne fornisce uno, come spiegato nella sezione [Configurare volumi aggiuntivi](#additional-volumes-section).
 
-- Some applications -- like Samba, Nextcloud, and Mail -- may require large disk space and support additional volume selection, if the target node provides one, as explained in section [Configure additional volumes](#additional-volumes-section).
+  Il selettore di volumi mostra la directory di montaggio del volume, l'etichetta del filesystem e l'utilizzo dello spazio.
 
-  The volume selector displays the volume mount directory, the filesystem label and space usage.
+Per installare più applicazioni dello stesso tipo, fare clic sul link `Instances` all'interno della scheda dell'applicazione. Quindi, selezionare **Installa nuova istanza**. Si noti che in alcuni casi l'installazione su determinati nodi del cluster potrebbe essere limitata a causa di politiche dell'applicazione o limitazioni delle risorse del nodo.
 
-To install more applications of the same type, click on the `Instances` link within the application's card. Then, select **Install new instance**. Note that in some cases, installation on certain cluster nodes may be restricted due to application policies or node resource limitations.
+### Configurare volumi aggiuntivi {#additional-volumes-section}
 
-### Configure additional volumes {#additional-volumes-section}
+Le applicazioni che ospitano una grande quantità di dati potrebbero non essere compatibili con il *volume predefinito* dove solitamente risiede il filesystem root del nodo.
 
-Applications that host a large amount of data may not fit the *default volume* where the node's root filesystem usually resides.
+Quando NS8 installa un'applicazione che ha tali requisiti speciali di dati su un nodo che fornisce uno o più volumi aggiuntivi, l'amministratore di sistema può decidere quale utilizzare o scegliere il volume predefinito.
 
-When NS8 is installing an application that has such special data requirements on a node that provides one or more additional volumes the system administrator can decide which one to use, or choose the default volume.
-
-The additional volume must be configured before the application is installed.
+Il volume aggiuntivo deve essere configurato prima che l'applicazione venga installata.
 
 :::warning
 
-The additional volume setup procedure may lead to data-loss. It requires some Linux command line experience, hence it is highly recommended to test this procedure on a non-production system.
+La procedura di configurazione di un volume aggiuntivo potrebbe causare la perdita di dati. Richiede una certa esperienza con la riga di comando di Linux, pertanto si consiglia vivamente di testare questa procedura su un sistema non di produzione.
 
 :::
 
-When configuring an additional volume on a NS8 node, observe the following check list:
+Quando si configura un volume aggiuntivo su un nodo NS8, seguire la seguente lista di controllo:
 
-- Make sure the volume is not already mounted elsewhere. Multiple mount points for the same disk may lead to SELinux relabeling issues. The following command briefly lists existing mountpoints:
+- Assicurarsi che il volume non sia già montato altrove. Più punti di montaggio per lo stesso disco potrebbero causare problemi di rilabeling SELinux. Il seguente comando elenca brevemente i punti di montaggio esistenti:
 
       findmnt --real
 
-- If the volume does not exist yet, format it with `xfs` or `ext4` filesystems. Their features and defaults match NS8 expectations.
+- Se il volume non esiste ancora, formattarlo con i filesystem `xfs` o `ext4`. Le loro caratteristiche e impostazioni predefinite corrispondono alle aspettative di NS8.
 
-  Use `lsblk` to list the block devices (disks or partitions) available on the node, and the `mkfs` command to create a new file system on one of them. Be careful, formatting the wrong device will destroy your data.
+  Utilizzare `lsblk` per elencare i dispositivi a blocchi (dischi o partizioni) disponibili sul nodo e il comando `mkfs` per creare un nuovo filesystem su uno di essi. Prestare attenzione, formattare il dispositivo sbagliato distruggerà i dati.
 
-- Set a filesystem label (e.g. `LABDISK0`) to easily recognize the volume. It may also simplify the `/etc/fstab` or Systemd `.mount` unit configuration. Related commands are `xfs_admin`, `e2label`, `tune2fs`.
+- Impostare un'etichetta per il filesystem (ad esempio `LABDISK0`) per riconoscere facilmente il volume. Questo potrebbe anche semplificare la configurazione di `/etc/fstab` o dell'unità `.mount` di Systemd. I comandi correlati sono `xfs_admin`, `e2label`, `tune2fs`.
 
-- Mount the volume under `/mnt` or `/srv` base paths. They are commonly used for this purpose. For example, create a mountpoint directory and mount the volume on it :
+- Montare il volume sotto i percorsi base `/mnt` o `/srv`. Sono comunemente utilizzati per questo scopo. Ad esempio, creare una directory di punto di montaggio e montare il volume su di essa:
 
       mkdir /srv/disk0
       mount /dev/disk/by-label/LABDISK0 /srv/disk0
 
-- Make sure the volume is mounted automatically at boot time. Append a `/etc/fstab` entry for the mounted volume :
+- Assicurarsi che il volume venga montato automaticamente all'avvio. Aggiungere una voce a `/etc/fstab` per il volume montato:
 
       findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS /srv/disk0 >> /etc/fstab
 
-  A reboot test is then highly recommended.
+  Si consiglia vivamente di eseguire un test di riavvio.
 
-The NS8 cluster leader node, where Software center runs, needs a few minutes to record the configuration change and present the additional volume selection next time an application that supports it is installed.
+Il nodo leader del cluster NS8, dove è in esecuzione il Software Center, richiede alcuni minuti per registrare la modifica della configurazione e presentare la selezione del volume aggiuntivo la prossima volta che viene installata un'applicazione che lo supporta.
 
-For advanced use cases, where an application does not enable the automatic volume selection, it is still possible to assign an arbitrary volume following [Redirect Podman named volume mount points](../../tutorial/disk_usage.md#named-volume-disk).
+Per casi d'uso avanzati, in cui un'applicazione non abilita la selezione automatica del volume, è comunque possibile assegnare un volume arbitrario seguendo [Reindirizzare i punti di montaggio dei volumi denominati di Podman](../../tutorial/disk_usage.md#named-volume-disk).
+## Applicazioni installate {#application-instances}
 
-## Installed applications {#application-instances}
+Una volta installata un'applicazione, fai clic sul link `Instances` all'interno della scheda dell'applicazione. È possibile eseguire varie azioni su ciascuna istanza facendo clic sul menu a tre punti:
 
-Once an application has been installed, click on the `Instances` link within the application's card. You can perform various actions on each instance by clicking on its three-dots menu:
+- `Update to testing version`: Questa azione è visibile solo quando è disponibile una versione di testing. Esamina attentamente la documentazione pre-release o consulta lo sviluppatore dell'app prima di procedere.
+- `Add to favorites`: Fissa l'applicazione in cima al **cassetto delle applicazioni**.
+- `Edit instance label`: Aggiungi un nome personalizzato all'istanza.
+- `Clone`: Clona l'applicazione. Vedi [Clone and move](modules.md#move_clone-section).
+- `Move`: Sposta l'applicazione su un altro nodo. Vedi [Clone and move](modules.md#move_clone-section).
+- `Restart instance`: arresta tutti i componenti dell'applicazione e riavviali, simile a un riavvio del sistema ma limitato all'applicazione.
+- `Uninstall`: Rimuovi l'applicazione e tutti i dati correlati.
 
-- `Update to testing version`: This action is visible only when a testing version is available. Carefully review the pre-release documentation or consult the app developer before proceeding.
-- `Add to favorites`: Pin the application at the top of the **application drawer**.
-- `Edit instance label`: Add a custom name to the instance.
-- `Clone`: Clone the application. See [Clone and move](modules.md#move_clone-section).
-- `Move`: Move the application to another node. See [Clone and move](modules.md#move_clone-section).
-- `Restart instance`: stop all application components and start them again, similar to a system reboot but limited to the application.
-- `Uninstall`: Remove the application and all related data.
+La [pagina delle applicazioni](modules.md) è un'alternativa completa per gestire le applicazioni installate nel cluster.
 
-The [Applications page](modules.md) is an alternative and comprehensive place where the applications installed in the cluster can be managed.
+Le applicazioni installate sono elencate anche nel **cassetto delle applicazioni**, facendo clic sul menu ![application drawer](/_static/bento.png) nell'angolo in alto a destra dello schermo.
+## Repository software {#software_repositories-section}
 
-Installed applications are also listed in the **application drawer**, by clicking on the ![application drawer](/_static/bento.png) menu in the top-right corner of the screen.
+Un repository software di NS8 è un indice di applicazioni e una raccolta dei loro metadati.
 
-## Software repositories {#software_repositories-section}
+Puoi accedere alla lista dei repository configurati in diversi modi:
 
-An NS8 software repository is an index of applications and a collection of their metadata.
+- Nella pagina `Impostazioni`: clicca sulla scheda `Repository software`.
+- Nella pagina `Centro software`: clicca sull'elemento `Repository software` nel menu a tre punti nell'angolo in alto a destra.
 
-You can access the list of configured repositories in several ways:
+NS8 include un set predefinito di repository software, alcuni abilitati e altri disabilitati:
 
-- In the `Settings` page: click the `Software repositories` card.
-- In the `Software Center` page: click the `Software repositories` item in the three-dots menu at the top-right corner.
+- `default`: Contiene applicazioni sviluppate e mantenute principalmente dagli sviluppatori di NethServer. Traccia anche gli aggiornamenti per i moduli core di NS8 e per il core stesso.
+- `nethforge`: Un repository di applicazioni costruite e mantenute dalla comunità di NethServer. È inizialmente disabilitato.
+- `subscription`: Aggiunto e abilitato quando il cluster ha un abbonamento attivo. Sovrascrive i contenuti del repository `default` con un programma di aggiornamenti gestito da Nethesis. Vedi [Abbonamento](../about/subscription.md) per dettagli.
 
-NS8 includes a default set of software repositories, some enabled and others disabled:
+Per aggiungere un repository personalizzato, clicca sul pulsante **Aggiungi repository** e compila i campi richiesti:
 
-- `default`: Contiene applicazioni sviluppate e mantenute principalmente dagli sviluppatori NethServer. Traccia anche aggiornamenti per moduli NS8 core e il nucleo stesso.
-- `nethforge`: A repository of applications built and maintained by the NethServer community. It is initially disabled.
-- `subscription`: Added and enabled when the cluster has an active subscription. It overrides the contents of the `default` repository with an update schedule managed by Nethesis. See [Subscription](../about/subscription.md) for details.
+- `Nome`: Un nome univoco per il repository.
+- `URL`: L'URL pubblico del repository. Deve essere un valido [repository NS8](https://nethserver.github.io/ns8-core/modules/metadata/).
+- `Stato`: Seleziona questa opzione per abilitare il repository.
 
-To add a custom repository, click on the **Add repository** button and fill in the required fields:
+Nota che se la stessa applicazione è elencata in più repository, verrà considerata quella proveniente dal repository con la priorità più alta. La priorità del repository è determinata dall'ordine alfabetico dei nomi dei repository, con quelli più avanti nell'alfabeto (es. "Z") che hanno una priorità più alta rispetto a quelli più indietro (es. "A").
 
-- `Name`: A unique name for the repository.
-- `URL`: The public URL of the repository. It must be a valid [NS8 repository](https://nethserver.github.io/ns8-core/modules/metadata/).
-- `Status`: Check this option to enable the repository.
+Puoi aggiornare i metadati cliccando sul pulsante **Ricarica repository**.
+## Aggiornamenti {#updates-section}
 
-Si noti che se la stessa applicazione è elencata in più repository, quella dal repository con la priorità più alta sarà considerata. La priorità dei repository è determinata dall'ordine alfabetico dei nomi dei repository, con quelli successivi nell'alfabeto (ad esempio, "Z") che hanno una maggiore priorità rispetto a quelli precedenti (ad esempio, "A").
+Se i repository abilitati contengono un aggiornamento per un'istanza di applicazione installata o per qualsiasi componente principale, un messaggio di avviso viene visualizzato nella parte superiore della pagina del Software Center. È possibile verificare se ci sono aggiornamenti disponibili anche accedendo alla pagina `Cluster status`.
 
-You can refresh the metadata by clicking on the **Reload
-repositories** button.
+NethServer 8 può gestire due diversi tipi di aggiornamenti:
 
-## Updates {#updates-section}
+- [Aggiornamenti del core](#core_updates-section)
+- [Aggiornamenti delle applicazioni](#module_updates-section)
 
-If the enabled repositories contain an update for an installed application instance or any core component, a warning message is displayed at the top of the Software center page. You can see if there are any available updates also by accessing the `Cluster status` page.
+Gli [aggiornamenti del sistema operativo](../../tutorial/os_updates.md) sono delegati alla distribuzione Linux sottostante.
 
-NethServer 8 can handle two different types of updates:
+Se si dispone di un abbonamento attivo, gli aggiornamenti disponibili (inclusi gli aggiornamenti del sistema operativo) vengono applicati automaticamente come descritto in [Aggiornamenti pianificati](../about/subscription.md#scheduled-updates).
 
-- [Core updates](#core_updates-section)
-- [Application updates](#module_updates-section)
+### Aggiornamenti del core {#core_updates-section}
 
-[Operating system updates](../../tutorial/os_updates.md) are demanded to the underlying Linux distribution.
+NS8 è composto dal core e da diversi moduli. Ogni componente del core ha il proprio numero di versione, e il Software Center mostrerà un avviso quando è disponibile un aggiornamento.
 
-If you have an active subscription, available updates (including operating system updates) are applied automatically as described in [Aggiornamenti programmati](../about/subscription.md#scheduled-updates).
+- *Core* contiene l'interfaccia utente web, il server API, gli agenti che gestiscono i container e i motori di backup.
+- *LDAP proxy* è un server proxy per connessioni TCP LDAP che gestisce tutte le connessioni dalle applicazioni ai [provider di dominio utente](user_domains.md) (ogni nodo)
+- [Traefik proxy](../configuration/proxy.md) (ogni nodo)
+- [Loki log server](../configuration/log_server.md) (solo nodo leader)
+- [Metrics](../configuration/metrics.md) (solo nodo leader)
+- [Samba Active Directory](user_domains.md#active_directory-section) (opzionale)
+- [OpenLDAP](user_domains.md#openldap-section) (opzionale)
 
-### Core updates {#core_updates-section}
+È possibile esaminare in qualsiasi momento i componenti attualmente installati su ciascun nodo del cluster. Per farlo, cliccare sul menu a tre punti nell'angolo in alto a destra della pagina `Software Center`, quindi selezionare `Core apps`. Cliccare su **Update core** per applicare gli aggiornamenti.
 
-NS8 consists of the core and several modules. Each core component has its own version number, and the Software Center will display a warning when an update is available.
+Gli aggiornamenti dei moduli core vengono sempre applicati tutti insieme per evitare incongruenze di versione.
 
-- *Core* contains the web user interface, the API server, the agents that manage the containers and backup engines.
-- *LDAP proxy* is a proxy server for LDAP TCP connections that handles all connections from applications to [User domain providers](user_domains.md) (every node)
-- [Traefik proxy](../configuration/proxy.md) (every node)
-- [Loki log server](../configuration/log_server.md) (leader node only)
-- [Metrics](../configuration/metrics.md) (leader node only)
-- [Samba Active Directory](user_domains.md#active_directory-section) (optional)
-- [OpenLDAP](user_domains.md#openldap-section) (optional)
+### Aggiornamenti delle applicazioni {#module_updates-section}
 
-You can review the components currently installed on each node of the cluster at any time. To do this, click on the three-dots menu in the top-right corner of the `Software Center` page, then select `Core apps`. Click on **Update core** to apply the updates.
+L'elenco degli aggiornamenti disponibili è visualizzato nella scheda `Updates` del [Software center](#). Il Software Center mostra una scheda per ogni applicazione con aggiornamenti disponibili.
 
-Core module updates are always applied altogether to avoid version mismatches.
+È possibile applicare tutti gli aggiornamenti delle applicazioni cliccando sul pulsante **Update all apps**.
 
-### Application updates {#module_updates-section}
-
-The list of available updates is listed inside the `Updates` tab of [Software center](#). The software center displays a card for each application with available updates.
-
-You can apply all application updates by clicking the **Update all
-apps** button.
-
-By clicking the **Review and update** button on the application card, you will see all module instances that require an update. You can update each instance separately by clicking on the **Update** button. If you prefer to update all instances of the same module, just click **Update all instances** button.
+Cliccando sul pulsante **Review and update** nella scheda dell'applicazione, si vedranno tutte le istanze del modulo che richiedono un aggiornamento. È possibile aggiornare ogni istanza separatamente cliccando sul pulsante **Update**. Se si preferisce aggiornare tutte le istanze dello stesso modulo, basta cliccare sul pulsante **Update all instances**.

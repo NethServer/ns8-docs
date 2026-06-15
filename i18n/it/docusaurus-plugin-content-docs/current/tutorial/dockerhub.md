@@ -1,38 +1,38 @@
 ---
-title: Docker Hub pull limit
+title: Limite di pull di Docker Hub
 sidebar_position: 5
 ---
-# Docker Hub pull limit
+# Limite di pull di Docker Hub
 
-The Docker Hub pull limit is a restriction on the number of container image pulls you can perform from Docker Hub's repository within a specific time period. This limit is in place to manage server load and ensure fair usage of Docker Hub's resources. The limits vary based on the type of account you have:
+Il limite di pull di Docker Hub è una restrizione sul numero di pull delle immagini container che puoi eseguire dal repository di Docker Hub entro un determinato intervallo di tempo. Questo limite serve a gestire il carico dei server e a garantire un uso equo delle risorse di Docker Hub. I limiti variano in base al tipo di account:
 
-1.  Anonymous users: those without a Docker Hub account have the lowest pull rate limit. Once this limit is exceeded, you'll encounter errors when attempting to pull images.
-2.  Utenti autenticati: gli utenti registrati con account gratuiti hanno un certo numero di estrazioni gratuite consentite in una data finestra temporale. Dopo aver raggiunto questo limite, potrebbe essere necessario attendere o per ulteriori tirature.
+1.  Utenti anonimi: chi non ha un account Docker Hub ha il limite di pull più basso. Una volta superato questo limite, incontrerai errori quando proverai a scaricare immagini.
+2.  Utenti autenticati: gli utenti registrati con account gratuiti hanno a disposizione un certo numero di pull gratuiti in una determinata finestra temporale. Dopo aver raggiunto questo limite, potresti dover attendere prima di poterne effettuare altri.
 
-Se NethServer condivide il suo IP pubblico con altri sistemi, potrebbe incontrare tale limite di velocità.
+Se NethServer condivide il proprio IP pubblico con altri sistemi, potrebbe incorrere in questo limite.
 
-To increase your pull limit and avoid errors, log in to your Docker Hub account when pulling images. This authentication can grant you access to a higher pull rate limit based on your account type.
+Per aumentare il tuo limite di pull ed evitare errori, esegui l'accesso al tuo account Docker Hub quando scarichi le immagini. Questa autenticazione può consentirti di accedere a un limite di pull più alto in base al tipo di account.
 
-In a root shell prompt, execute the following command:
+In una shell root, esegui il comando seguente:
 
 ``` shell
 podman login --authfile=/etc/nethserver/registry.json docker.io
 ```
 
-This command prompts for Docker Hub credentials. It's advisable to generate a read-only access token specifically for the NS8 system. Refer to the Docker Hub documentation for guidance on generating tokens.
+Questo comando richiede le credenziali di Docker Hub. È consigliabile generare un token di accesso in sola lettura specifico per il sistema NS8. Consulta la documentazione di Docker Hub per sapere come generare i token.
 
-The access token returned by docker.io is stored in the `/etc/nethserver/registry.json` file. Make sure the file remains world-readable, as it's required by NS8 modules.
+Il token di accesso restituito da docker.io viene memorizzato nel file `/etc/nethserver/registry.json`. Assicurati che il file resti leggibile da tutti, perché è richiesto dai moduli NS8.
 
-To adjust the permissions accordingly, run the commands:
+Per regolare di conseguenza i permessi, esegui i comandi:
 
 ``` shell
 chmod -c a+rx /etc/nethserver
 chmod -c a+r /etc/nethserver/registry.json
 ```
 
-Repeat this process for every node within the cluster.
+Ripeti questa procedura per ogni nodo del cluster.
 
-For more information, consult the following references:
+Per ulteriori informazioni, consulta i riferimenti seguenti:
 
 - [Download rate limit \| Docker Documentation](https://docs.docker.com/docker-hub/download-rate-limit/)
 - [podman-login — Podman documentation](https://docs.podman.io/commands/login)

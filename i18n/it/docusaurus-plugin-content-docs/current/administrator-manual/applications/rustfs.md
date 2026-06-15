@@ -4,29 +4,29 @@ sidebar_position: 16
 ---
 # RustFS
 
-[RustFS](https://rustfs.com/) offers high-performance, S3 compatible object storage.
+[RustFS](https://rustfs.com/) offre uno storage a oggetti compatibile con S3 ad alte prestazioni.
 
-This NS8 application provides a basic single-node/single-disk RustFS installation that may fit small environments.
+Questa applicazione NS8 fornisce un'installazione RustFS di base su singolo nodo e singolo disco, adatta ai piccoli ambienti.
 
-You can install multiple RustFS instances on the same node from the [Software center](../installation/software_center.md).
+Puoi installare più istanze di RustFS sullo stesso nodo dal [Software center](../installation/software_center.md).
 
-## Hardware requirements
+## Requisiti hardware
 
-Disk performance must match the workload, otherwise RustFS automated healthcheck marks the disk as failed. This means, for a single disk installation, that the service is offline until the application is restarted from NS8 Applications page.
+Le prestazioni del disco devono essere adeguate al carico di lavoro, altrimenti l'healthcheck automatico di RustFS contrassegna il disco come guasto. In una installazione a disco singolo questo significa che il servizio resta offline finché l'applicazione non viene riavviata dalla pagina Applicazioni di NS8.
 
-Refer to RustFS official documentation for a [basic hardware checklist](https://docs.rustfs.com/installation/checklists/hardware-checklists.html).
+Consulta la documentazione ufficiale di RustFS per una [checklist hardware di base](https://docs.rustfs.com/installation/checklists/hardware-checklists.html).
 
 ## Configurazione
 
-Some S3 clients do not correctly support API endpoints exposed under a path prefix. For better compatibility, two distinct server names need to be assigned: one dedicated to the S3 protocol endpoint and another dedicated to the administrative console.
+Alcuni client S3 non supportano correttamente gli endpoint API esposti sotto un prefisso di percorso. Per una migliore compatibilità, è necessario assegnare due nomi server distinti: uno dedicato all'endpoint del protocollo S3 e un altro dedicato alla console amministrativa.
 
-Before proceeding with the configuration, make sure to create the corresponding name records inside your DNS server. If you are planning to use a Let's Encrypt certificate as default, make also sure to have corresponding public DNS records.
+Prima di procedere con la configurazione, assicurati di creare i record di nome corrispondenti nel tuo server DNS. Se prevedi di usare un certificato Let's Encrypt come predefinito, assicurati anche di avere i corrispondenti record DNS pubblici.
 
 Come configurare:
 
-1.  access the application configuration page and enter the `API server host name`: this will be the FQDN used by hosts to connect to S3 services, e.g. `s3.example.org`, `storage.example.org`
-2.  fill the `Web interface host name`: you will be able to configure your RustFS instance from this FQDN, e.g. `rustfs.example.org`
-3.  enable `Let's Encrypt` option accordingly to your needs
-4.  fill the `rustfs root user name` and the `rustfs root password`: those are the login credentials
-5.  cliccare sul pulsante **Save**
-6.  open the entered host name inside the browser, e.g. `https://rustfs.example.org`.
+1.  accedi alla pagina di configurazione dell'applicazione e inserisci il `API server host name`: sarà l'FQDN usato dagli host per connettersi ai servizi S3, ad esempio `s3.example.org`, `storage.example.org`
+2.  compila il campo `Web interface host name`: potrai configurare la tua istanza RustFS da questo FQDN, ad esempio `rustfs.example.org`
+3.  abilita l'opzione `Let's Encrypt` in base alle tue esigenze
+4.  compila `rustfs root user name` e `rustfs root password`: sono le credenziali di accesso
+5.  fai clic sul pulsante **Save**
+6.  apri nel browser il nome host inserito, ad esempio `https://rustfs.example.org`.

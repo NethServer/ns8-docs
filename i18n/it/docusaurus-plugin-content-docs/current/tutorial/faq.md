@@ -1,67 +1,67 @@
 ---
-title: "FAQ: Frequently Asked Questions"
+title: "FAQ: Domande frequenti"
 sidebar_position: 7
 ---
-# FAQ: Frequently Asked Questions
+# FAQ: Domande frequenti
 
-## What is NethServer 8 (NS8)?
+## Che cos'è NethServer 8 (NS8)?
 
-NethServer 8, aka NS8, is a simple-to-use container orchestrator. It's aimed for Linux sysadmins who need the flexibility of containers, but do not want to mess around with a complex tools like Kubernetes.
+NethServer 8, noto anche come NS8, è un orchestratore di container semplice da usare. È pensato per gli amministratori Linux che hanno bisogno della flessibilità dei container, ma non vogliono avere a che fare con strumenti complessi come Kubernetes.
 
-Like NethServer 7, NS8 hides the system complexity behind a ready-to-use beautiful Web User Interface.
+Come NethServer 7, NS8 nasconde la complessità del sistema dietro un'interfaccia web pronta all'uso e gradevole da utilizzare.
 
-Do you want to easily manage applications without worrying about installation details? NS8 is for you.
+Vuoi gestire facilmente le applicazioni senza preoccuparti dei dettagli di installazione? NS8 fa per te.
 
-## What is the status of NS8?
+## Qual è lo stato di NS8?
 
-NethServer 8 has reached the [stable](../administrator-manual/about/release_notes.md#releases-glossary) status: read the [release notes](../administrator-manual/about/release_notes.md).
+NethServer 8 ha raggiunto lo stato [stable](../administrator-manual/about/release_notes.md#releases-glossary): leggi le [note di rilascio](../administrator-manual/about/release_notes.md).
 
-## What is the difference between NethServer 7 (NS7) and NethServer 8?
+## Qual è la differenza tra NethServer 7 (NS7) e NethServer 8?
 
-NethServer 7 is an operating system built on top of CentOS 7. It is heavily-coupled with the underlying OS. It installs applications using RPMs package and configure them with a configuration management system called e-smith.
+NethServer 7 è un sistema operativo costruito sopra CentOS 7. È fortemente accoppiato al sistema operativo sottostante. Installa le applicazioni tramite pacchetti RPM e le configura con un sistema di gestione della configurazione chiamato e-smith.
 
-NethServer 8 can run on different [Linux distributions](../administrator-manual/installation/system_requirements.md#supported-distros-section). It installs applications using containers and configures them using a multi-node architecture.
+NethServer 8 può essere eseguito su diverse [distribuzioni Linux](../administrator-manual/installation/system_requirements.md#supported-distros-section). Installa le applicazioni tramite container e le configura usando un'architettura multi-nodo.
 
-As NS7, NS8 is perfectly suited for small offices and medium enterprises.
+Come NS7, anche NS8 è perfettamente adatto a piccoli uffici e medie imprese.
 
-## What can I do with NethServer 8?
+## Cosa posso fare con NethServer 8?
 
-You can serve an Active Directory domain with Samba 4, or just a simple OpenLDAP server. You can host multiple instances of the same application connected to different local or remote user domains.
+Puoi fornire un dominio Active Directory con Samba 4 oppure un semplice server OpenLDAP. Puoi ospitare più istanze della stessa applicazione collegate a diversi domini utenti locali o remoti.
 
-If you need a new user domain, just create a new node and join it to the existing cluster: you can spread the workload across multiple machines. Of course, everything is under your control just from the UI of the main node. No matter if nodes are local or remotes, they are securely connected with an encrypted VPN.
+Se hai bisogno di un nuovo dominio utenti, ti basta creare un nuovo nodo e unirlo al cluster esistente: puoi distribuire il carico su più macchine. Naturalmente, hai tutto sotto controllo dall'interfaccia del nodo principale. Che i nodi siano locali o remoti, sono collegati in modo sicuro tramite una VPN cifrata.
 
-If you like an all-in-one server. you can do it too.
+Se preferisci un server all-in-one, puoi fare anche questo.
 
-## Can I migrate from NethServer 7 to NethServer 8?
+## Posso migrare da NethServer 7 a NethServer 8?
 
-Migrating to the next major release is a primary goal, as always has been. The migration procedure is documented [here](migration.md). We are working hard to make it *safe* and *painless*.
+La migrazione alla release principale successiva è un obiettivo primario, come è sempre stato. La procedura di migrazione è documentata [qui](migration.md). Stiamo lavorando duramente per renderla *sicura* e *indolore*.
 
-## How can I install NethServer 8?
+## Come posso installare NethServer 8?
 
-See the [install chapter](../administrator-manual/installation/install.md).
+Vedi il [capitolo sull'installazione](../administrator-manual/installation/install.md).
 
-## Where can I download it?
+## Dove posso scaricarlo?
 
-You can download a [pre-built image](../administrator-manual/installation/install.md#install_image-section) or just [install](../administrator-manual/installation/install.md#install_linux-section) on a supported distribution.
+Puoi scaricare un'[immagine precompilata](../administrator-manual/installation/install.md#install_image-section) oppure semplicemente [installarlo](../administrator-manual/installation/install.md#install_linux-section) su una distribuzione supportata.
 
-## Can I install NethServer on a virtual machine?
+## Posso installare NethServer su una macchina virtuale?
 
-Yes. You can choose any hypervisor or cloud provider supporting [these distributions](../administrator-manual/installation/system_requirements.md#supported-distros-section) or [pre-built images](../administrator-manual/installation/install.md#install_image-section).
+Sì. Puoi scegliere qualsiasi hypervisor o cloud provider che supporti [queste distribuzioni](../administrator-manual/installation/system_requirements.md#supported-distros-section) oppure le [immagini precompilate](../administrator-manual/installation/install.md#install_image-section).
 
-## Can I install it on bare metal?
+## Posso installarlo su hardware fisico?
 
-Sure. See the question below.
+Certo. Vedi la domanda seguente.
 
-## What hardware is supported?
+## Quale hardware è supportato?
 
-Anything supported by your chosen distribution. Make sure to take a look to the [Requisiti di sistema](../administrator-manual/installation/system_requirements.md).
+Qualsiasi hardware supportato dalla distribuzione che hai scelto. Assicurati di consultare i [requisiti di sistema](../administrator-manual/installation/system_requirements.md).
 
-## Does NethServer 8 have Cockpit?
+## NethServer 8 include Cockpit?
 
-No, NethServer 8 has a brand new User Interface. You can still [install Cockpit](https://cockpit-project.org/running.html) to manage the underlying system, like changing the network configuration.
+No, NethServer 8 ha una User Interface completamente nuova. Puoi comunque [installare Cockpit](https://cockpit-project.org/running.html) per gestire il sistema sottostante, ad esempio cambiando la configurazione di rete.
 
-## Can I use NethServer 8 as UTM firewall?
+## Posso usare NethServer 8 come firewall UTM?
 
-No. NethServer 8 has a limited built-in firewall used to protect only local running services.
+No. NethServer 8 ha un firewall integrato limitato, usato solo per proteggere i servizi in esecuzione localmente.
 
-If you are looking for a nice firewall project, [NethSecurity](https://docs.nethsecurity.org) is the successor of NethServer 7 firewall capabilities.
+Se stai cercando un buon progetto firewall, [NethSecurity](https://docs.nethsecurity.org) è il successore delle funzionalità firewall di NethServer 7.
