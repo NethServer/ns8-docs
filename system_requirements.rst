@@ -54,7 +54,7 @@ Disk and partitions
 
 Disk performance depends on the system workload, but NS8 architecture
 generates high I/O load due to its container-based design. The main disk
-must be fast enough to sustain it: use a solid-state drive (SSD). A
+must be fast enough to sustain it: use an enterprise class solid-state drive (SSD). A
 typical symptom of an underestimated disk is service startup timeout.
 
 NS8 has no special partitioning requirements. The :ref:`pre-built image
