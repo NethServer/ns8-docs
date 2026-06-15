@@ -14,7 +14,7 @@ You can access the user portal through the web browser at:
 https://<your-server-address>/user-portal
 ```
 
-![User portal login](/_static/user-portal_login.png)
+![User portal login](/_static/user-manual/user-portal/screenshots/user-portal_login.png)
 
 ## Managing your password
 
@@ -32,7 +32,7 @@ To change your password:
 4. Enter your new password twice to confirm
 5. Click **Save password** button
 
-![Change password form](/_static/user-portal_change_password.png)
+![Change password form](/_static/user-manual/user-portal/screenshots/user-portal_change_password.png)
 
 :::tip
 If you forgot your password or cannot access the portal, contact your system administrator for assistance.
@@ -45,7 +45,7 @@ The following sections are only available to user domain administrators who have
 After logging in as an administrator, you will see a list of all user accounts in the system under the
 `Users & Groups` section of the portal.
 
-![User list](/_static/user-portal-user_list.png)
+![User list](/_static/user-manual/user-portal/screenshots/user-portal-user_list.png)
 
 
 ### Creating a new user
@@ -70,7 +70,7 @@ Select the desired options for the user:
 - **Users has to change password at next login**: If enabled, the user will be required to change their password the first time they log in after account creation.
 - **Password never expires**: If enabled, the user's password will not expire, and they will not be prompted to change it periodically. This option should be used with caution for security reasons.
 
-![Create user form](/_static/user-portal-create_user.png)
+![Create user form](/_static/user-manual/user-portal/screenshots/user-portal-create_user.png)
 
 ### Editing an existing user
 
@@ -97,7 +97,7 @@ To change another user's password:
 4. Optionally, check **Force password change at next login** to require the user to change it themselves
 5. Click **Save**
 
-![Admin change password form](/_static/user-portal-change_password.png)
+![Admin change password form](/_static/user-manual/user-portal/screenshots/user-portal-change_password.png)
 
 ### Deleting a user
 

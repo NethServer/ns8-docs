@@ -51,7 +51,7 @@ Per abilitare la 2FA:
 - fai clic sul pulsante del menu nell'angolo in alto a destra e seleziona l'icona **Settings**
 - quindi seleziona **Security** e fai clic sul pulsante **Activate**
 
-![image](/_static/webtop-2fa.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-2fa.png)
 
 ## Sincronizzazione ActiveSync (EAS)
 
@@ -110,7 +110,7 @@ Sui dispositivi Android, i contatti provenienti da rubriche condivise vengono un
 
 Per ricevere dati via EAS sui dispositivi mobili, le risorse condivise (Calendari e Contatti) devono avere la sincronizzazione abilitata (`Active` o `Read-only`):
 
-![Multiple synchronization](/_static/webtop-multiple_sync.png)
+![Multiple synchronization](/_static/user-manual/webtop/screenshots/webtop-multiple_sync.png)
 
 :::
 
@@ -118,7 +118,7 @@ Per ricevere dati via EAS sui dispositivi mobili, le risorse condivise (Calendar
 
 Per farlo, basta fare clic con il tasto destro sulla risorsa condivisa `Customize → Devices sync.`:
 
-> ![Sync shared EAS](/_static/webtop-sync_shared_eas.png)
+> ![Sync shared EAS](/_static/user-manual/webtop/screenshots/webtop-sync_shared_eas.png)
 
 L'impostazione predefinita è `Not active`.
 
@@ -183,7 +183,7 @@ L'uso di CalDAV/CardDAV tramite client di terze parti **non può essere consider
 
 È possibile condividere una singola cartella o l'intero account con tutte le sottocartelle. Seleziona la cartella da condividere -\> clic destro -\> **Manage sharing**:
 
-![image](/_static/webtop-sharing_mail_folder_1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sharing_mail_folder_1.png)
 
 - seleziona l'utente con cui condividere la risorsa (1)
 - seleziona se vuoi condividere la tua identità con l'utente e perfino forzare la tua firma (2)
@@ -191,7 +191,7 @@ L'uso di CalDAV/CardDAV tramite client di terze parti **non può essere consider
 - se devi modificare ulteriormente i permessi, seleziona `Advanced` (4)
 - infine, scegli se applicare la condivisione solo alla cartella da cui sei partito, solo al ramo di sottocartelle oppure all'intero account (5)
 
-![image](/_static/webtop-sharing_mail_folder_2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sharing_mail_folder_2.png)
 
 :::note
 
@@ -205,11 +205,11 @@ L'opzione **Force mailcard** può essere usata solo se la mailcard è stata asso
 
 Puoi condividere ogni calendario personale singolarmente. Seleziona il calendario da condividere -\> clic destro -\> **Sharing and permissions**:
 
-![image](/_static/webtop-sharing_cal_1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sharing_cal_1.png)
 
 Seleziona l'utente destinatario della condivisione (o il gruppo) e abilita i permessi sia per la cartella sia per i singoli elementi:
 
-![image](/_static/webtop-sharing_cal_2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sharing_cal_2.png)
 
 ### Condivisione dei contatti
 
@@ -233,7 +233,7 @@ L'archiviazione della posta non è un backup.
 
 Il sistema crea automaticamente una nuova cartella speciale **Archives**.
 
-![image](/_static/webtop-archive_archive1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-archive_archive1.png)
 
 Se la cartella **Archives** non appare subito dopo l'accesso, comparirà al primo utilizzo dell'archiviazione.
 
@@ -243,15 +243,15 @@ Esistono tre criteri di archiviazione:
 - **Per year:** una radice per ogni anno
 - **By year / month:** una radice per ogni anno e mese
 
-![image](/_static/webtop-archive_archive2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-archive_archive2.png)
 
 Per mantenere la struttura originale delle cartelle è possibile attivare **Keep folders structure**.
 
-![image](/_static/webtop-archive_archive3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-archive_archive3.png)
 
 L'operazione di archiviazione è accessibile dal menu contestuale (clic destro). Fai clic su **Archive**.
 
-![image](/_static/webtop-archive_archive4.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-archive_archive4.png)
 
 Il sistema elaborerà l'archiviazione in base alle ultime impostazioni scelte.
 
@@ -263,19 +263,19 @@ Se vuoi nascondere alcune cartelle dalla vista, operazione equivalente alla rimo
 
 Per esempio, se vuoi nascondere la sottocartella `folder1` da questo elenco, fai clic con il tasto destro su di essa e seleziona **Hide from list**:
 
-![image](/_static/webtop-sub_imap_folder1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sub_imap_folder1.png)
 
 È possibile gestire la visibilità delle cartelle nascoste selezionando la funzione **Manage visibility**:
 
-![image](/_static/webtop-sub_imap_folder2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sub_imap_folder2.png)
 
 Per esempio, se vuoi ripristinare la sottoscrizione della cartella **folder1** appena nascosta, selezionala dall'elenco delle cartelle nascoste e fai clic sull'icona a sinistra:
 
-![image](/_static/webtop-sub_imap_folder3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sub_imap_folder3.png)
 
 ## Esportare eventi (CSV)
 
-Per esportare gli eventi dei calendari in formato CSV (Comma Separated Value), fai clic sul pulsante ![tools](/_static/webtop-tools.png) in alto a destra e seleziona **ERP export (CSV)**.
+Per esportare gli eventi dei calendari in formato CSV (Comma Separated Value), fai clic sul pulsante ![tools](/_static/user-manual/webtop/screenshots/webtop-tools.png) in alto a destra e seleziona **ERP export (CSV)**.
 
 Infine, seleziona un intervallo di tempo e fai clic su **Next** per esportare il file CSV.
 
@@ -285,14 +285,14 @@ Infine, seleziona un intervallo di tempo e fai clic su **Next** per esportare il
 
 Nella barra degli strumenti sopra la griglia ci sono 7 pulsanti che ti permettono di selezionare la visualizzazione rapida più adatta. I primi due pulsanti si riferiscono alle attività di oggi o a quelle pianificate nei prossimi 7 giorni:
 
-![image](/_static/webtop-task1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task1.png)
 
 - **Today**: mostra le attività non concluse senza data di inizio o con data di inizio fino a oggi (incluso) e quelle completate con data di fine fino a oggi (incluso)
 - **Next 7 days**: mostra le attività non completate senza data di inizio o con inizio entro i prossimi 7 giorni e quelle completate con data di completamento fino a ora (incluso)
 
 I restanti 5 pulsanti ti permettono di ottenere questi altri tipi di visualizzazione rapida:
 
-![image](/_static/webtop-task2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task2.png)
 
 - **Not started**: mostra solo attività con stato "To be started" e con inizio oggi (incluso)
 - **Late**: mostra solo attività non completate con data di inizio fino a oggi (incluso) e data di completamento precedente a quella corrente
@@ -304,23 +304,23 @@ I restanti 5 pulsanti ti permettono di ottenere questi altri tipi di visualizzaz
 
 È possibile configurare qualsiasi tipo di ricorrenza:
 
-![image](/_static/webtop-task3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task3.png)
 
 La modifica di un'attività ricorrente può essere fatta in due modi diversi:
 
 1.  sulla singola attività aprendola con un doppio clic da una vista diversa da **All**. In questo caso l'attività verrà **rimossa** dalla ricorrenza e la sua icona diventerà questa:
 
-![image](/_static/webtop-task4.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task4.png)
 
 2.  sull'intera serie con un doppio clic dalla vista **All** oppure usando il pulsante seguente sulla singola attività già aperta:
 
-![image](/_static/webtop-task5.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task5.png)
 
 ### Sotto-attività
 
 Su qualsiasi attività è sempre possibile aggiungere sotto-attività correlate (un solo livello Master/Slave) semplicemente usando il tasto destro e selezionando **Add sub-task**. Nelle attività collegate, sia nella master sia nella slave, è disponibile in basso a destra un link per aprire le attività correlate:
 
-![image](/_static/webtop-task6.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task6.png)
 
 È possibile **Move** o **Copy** questo tipo di attività (clic destro -\> **Move/Copy**) scegliendo se copiare o spostare le sotto-attività tramite un'opzione attiva per impostazione predefinita.
 
@@ -328,7 +328,7 @@ Su qualsiasi attività è sempre possibile aggiungere sotto-attività correlate 
 
 Nella barra in alto c'è una ricerca rapida eseguita su tutti i campi. Puoi anche restringere la ricerca compilando più campi di ricerca.
 
-![image](/_static/webtop-task7.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task7.png)
 
 ## Integrazione con Nextcloud
 
@@ -340,21 +340,21 @@ Se vuoi abilitare il servizio per tutti gli utenti, procedi come segue:
 
 1.  accedi al pannello di amministrazione e seleziona **Groups**:
 
-![image](/_static/webtop-admin_panel_groups.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-admin_panel_groups.png)
 
 2.  modifica le proprietà del gruppo "users" facendo doppio clic e selezionando il pulsante relativo alle autorizzazioni:
 
-![image](/_static/webtop-admin_panel_permission.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-admin_panel_permission.png)
 
 3.  aggiungi alle autorizzazioni esistenti quelle relative alle risorse `STORE_CLOUD` e `STORE_OTHER`, selezionando le voci come mostrato di seguito:
 
-![image](/_static/webtop-admin_panel_nextcloud_auth_1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-admin_panel_nextcloud_auth_1.png)
 
-![image](/_static/webtop-admin_panel_nextcloud_auth_2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-admin_panel_nextcloud_auth_2.png)
 
 per ottenere questo risultato:
 
-![image](/_static/webtop-admin_panel_nextcloud_auth_3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-admin_panel_nextcloud_auth_3.png)
 
 4.  salva e chiudi.
 
@@ -362,11 +362,11 @@ Da questo momento ogni utente potrà inserire la risorsa Nextcloud (locale o rem
 
 Per farlo, basta selezionare il pulsante Cloud e aggiungere una nuova risorsa Nextcloud facendo clic con il tasto destro su **My resources** e poi su **Add resource** in questo modo:
 
-![image](/_static/webtop-nextcloud_1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-nextcloud_1.png)
 
 Si aprirà una procedura guidata precompilata:
 
-![image](/_static/webtop-nextcloud_2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-nextcloud_2.png)
 
 :::note
 
@@ -390,47 +390,47 @@ Il modulo Cloud personale ti permette di inviare e ricevere documenti tramite li
 
 Per creare il link, seleziona il pulsante in alto a destra:
 
-![image](/_static/webtop-doc_cloud1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud1.png)
 
 Segui il wizard per generare il link e usa il campo **date** per impostare la scadenza.
 
-![image](/_static/webtop-doc_cloud2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud2.png)
 
 puoi creare una **password** per proteggerlo:
 
-![image](/_static/webtop-doc_cloud3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud3.png)
 
 Il link verrà generato e inserito nella nuova email:
 
-![image](/_static/webtop-doc_cloud4.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud4.png)
 
-![image](/_static/webtop-doc_cloud5.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud5.png)
 
 Il download del file genera una notifica al mittente:
 
-![image](/_static/webtop-doc_cloud6.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud6.png)
 
 ### Richiesta di un documento
 
 Per creare la richiesta, inserisci l'oggetto dell'email e poi seleziona il pulsante in alto a destra:
 
-![image](/_static/webtop-doc_cloud7.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud7.png)
 
 Segui il wizard. Puoi impostare sia una data di scadenza sia una password. Il link verrà inserito automaticamente nel messaggio:
 
-![image](/_static/webtop-doc_cloud8.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud8.png)
 
 Verrà inviata un'email di richiesta per caricare il documento nel Cloud:
 
-![image](/_static/webtop-doc_cloud9.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud9.png)
 
 Il mittente riceverà una notifica per ogni file caricato:
 
-![image](/_static/webtop-doc_cloud10.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud10.png)
 
 Per scaricare i file ti basta accedere al tuo `Cloud --> Uploads --> Folder` personale con data e nome:
 
-![image](/_static/webtop-doc_cloud11.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud11.png)
 
 ## Integrazione chat {#webtop-chat}
 
@@ -461,11 +461,11 @@ Per creare una nuova videoconferenza puoi partire da questi due pulsanti:
 
 (in alto a sinistra)
 
-![image](/_static/webtop_jitsi1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_jitsi1.png)
 
 (in alto a destra)
 
-![image](/_static/webtop_jitsi2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_jitsi2.png)
 
 È possibile farlo anche da una nuova finestra email o da un nuovo evento del calendario.
 
@@ -473,19 +473,19 @@ Per ogni nuova riunione devi decidere se deve iniziare subito (riunione istantan
 
 Ci sono diversi modi per condividere il link della nuova riunione:
 
-![image](/_static/webtop_jitsi3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_jitsi3.png)
 
 - **Start now** ti consente di accedere immediatamente alla stanza appena creata e copiare il link tramite il pulsante disponibile accanto all'URL
 - **Send invitation** -\> **Copy meeting invite**: in questo caso verrà copiato un messaggio di invito che include anche il link della riunione (ad esempio: To join the meeting on Jitsi Meet, click this link: …)
 - **Send invitation** -\> **Share by email**: ti verrà chiesto se vuoi cambiare l'oggetto e la data della riunione, che verranno poi inseriti nella nuova email generata:
 
-![image](/_static/webtop_jitsi4.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_jitsi4.png)
 
 - **Send invitation** -\> **Plan event**: anche in questo caso ti verrà chiesto se vuoi cambiare l'oggetto e la data/ora della riunione prima di creare l'evento del calendario che ti permetterà di invitare altri partecipanti.
 
 Se un evento contiene un link a una videoconferenza di terze parti, compariranno i pulsanti che ti permetteranno di accedere direttamente alla riunione:
 
-![image](/_static/webtop_jitsi5.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_jitsi5.png)
 
 ### Videochiamate di terze parti
 
@@ -523,7 +523,7 @@ Il launcher è il menu a icone sul lato sinistro della pagina. Puoi aggiungere p
 
 Per configurare i pulsanti, accedi al pannello di amministrazione WebTop e seleziona -\> **Domains** -\> **NethServer** -\> **Launcher**:
 
-![image](/_static/webtop_launchers.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_launchers.png)
 
 Per ogni pulsante, inserisci questi tre valori:
 
@@ -541,7 +541,7 @@ WebTop può notificare i nuovi messaggi email e gli eventi imminenti del calenda
 
 Per attivare questa funzione, ti basta accedere alle impostazioni generali del tuo utente:
 
-![image](/_static/webtop-desktop_notifications.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-desktop_notifications.png)
 
 È possibile abilitare le notifiche desktop in due modalità:
 
@@ -552,7 +552,7 @@ Assicurati di consentire le notifiche nel tuo browser.
 
 Se hai bisogno di abilitare questo consenso in seguito su un browser diverso, fai clic sull'apposito pulsante:
 
-![image](/_static/webtop-button_desktop_notifications.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-button_desktop_notifications.png)
 
 ## Account IMAP esterni (Beta)
 
@@ -606,7 +606,7 @@ Passaggi:
 
 - inserisci le credenziali di autenticazione (come nome utente usa l'indirizzo Gmail completo):
 
-  > ![image](/_static/webtop-remote_phonebook.png)
+  > ![image](/_static/user-manual/webtop/screenshots/webtop-remote_phonebook.png)
 
 - il wizard nei passaggi successivi si collegherà alla rubrica, dandoti la possibilità di cambiarne nome e colore, quindi eseguirà la prima sincronizzazione
 
@@ -618,21 +618,21 @@ La sincronizzazione delle risorse remote può essere eseguita manualmente o auto
 
 Per sincronizzare automaticamente puoi scegliere tra tre intervalli di tempo: 15, 30 e 60 minuti. La scelta dell'intervallo può essere fatta in fase di creazione oppure successivamente modificando le opzioni. Per farlo, fai clic con il tasto destro sulla rubrica (o sul calendario), **Edit Category**, **Internet Addressbook** (oppure **Internet Calendar**):
 
-![image](/_static/webtop-sync_automatic.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sync_automatic.png)
 
 #### Sincronizzazione manuale
 
 Per aggiornare, ad esempio, una rubrica remota, fai clic con il tasto destro su di essa e poi seleziona la voce **Synchronize**:
 
-![image](/_static/webtop-sync_google.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sync_google.png)
 
 Per le rubriche CardDAV, così come per i calendari CalDAV remoti, puoi selezionare se eseguire una sincronizzazione completa oppure solo delle modifiche. Per farlo, fai clic con il tasto destro sulla rubrica (o sul calendario) e seleziona **Edit Category**:
 
-![image](/_static/webtop-edit_sync_google.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-edit_sync_google.png)
 
 Seleziona la modalità desiderata accanto al pulsante di sincronizzazione:
 
-![image](/_static/webtop-edit_sync_google2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-edit_sync_google2.png)
 
 ## Notifica di un nuovo dispositivo
 
@@ -665,15 +665,15 @@ Per importare i contatti:
 
 1.  fai clic con il tasto destro sulla rubrica di destinazione, quindi seleziona **Import contacts**
 
-    ![image](/_static/webtop-import_contacts1.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-import_contacts1.png)
 
 2.  seleziona il formato di importazione e assicurati che i campi del file corrispondano a quelli disponibili in WebTop
 
-    ![image](/_static/webtop-import_contacts2.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-import_contacts2.png)
 
 Se stai importando una rubrica esportata da Outlook, assicurati di impostare **Text qualifier** sul valore `"`.
 
-![image](/_static/webtop-import_contacts3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-import_contacts3.png)
 
 ### Calendari
 
@@ -683,15 +683,15 @@ Per importare gli eventi:
 
 1.  fai clic con il tasto destro sul calendario di destinazione, quindi seleziona **Import events**
 
-    ![image](/_static/webtop-import_calendars1.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-import_calendars1.png)
 
 2.  seleziona il formato di importazione
 
-    ![image](/_static/webtop-import_calendars2.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-import_calendars2.png)
 
 3.  quindi scegli se vuoi eliminare tutti gli eventi esistenti e importare quelli nuovi, oppure aggiungere semplicemente i dati importati agli eventi di calendario già presenti
 
-    ![image](/_static/webtop-import_calendars3.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-import_calendars3.png)
 
 ## Personalizzazione del composer della posta
 

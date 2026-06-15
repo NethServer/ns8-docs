@@ -56,7 +56,7 @@ Per controllare la posta dell'account admin di sistema, utilizzare il seguente l
 
 ### Cambiare password di admin
 
-Accedere a WebTop utilizzando l'utente `admin`, quindi aprire le impostazioni dell'utente facendo clic sul menu ![hamburger](/_static/webtop-hamburger.png) nell'angolo in alto a destra.
+Accedere a WebTop utilizzando l'utente `admin`, quindi aprire le impostazioni dell'utente facendo clic sul menu ![hamburger](/_static/user-manual/webtop/screenshots/webtop-hamburger.png) nell'angolo in alto a destra.
 
 Andare in **Impostazioni** quindi fare clic su **Cambia password**.
 
@@ -70,7 +70,7 @@ Procedere come segue:
 
 2.  selezionare il servizio cloud e le immagini pubbliche:
 
-    ![image](/_static/webtop-public_images.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-public_images.png)
 
 3.  caricare l'immagine (tramite il pulsante Carica in basso a sinistra o semplicemente trascinando con un drag & drop)
 
@@ -160,7 +160,7 @@ L'utente può normalmente gestire solo etichette private. Per gestire le etichet
 - aggiungere (+) -\> **Servizi** -\> **com.sonicle.webtop.core (WebTop)** -\> **Risorsa** -\> **TAGS** -\> **Azione** -\> **MANAGE**
 - cliccare **OK** poi **Salva e chiudi**
 
-È possibile gestire le etichette tramite il pulsante ![tools](/_static/webtop-tools.png) nell'angolo in alto a destra.
+È possibile gestire le etichette tramite il pulsante ![tools](/_static/user-manual/webtop/screenshots/webtop-tools.png) nell'angolo in alto a destra.
 
 La stessa funzionalità può essere raggiunta anche dai singoli moduli facendo clic con il tasto destro -\> **Etichette** -\> **Gestisci etichette**.
 
@@ -182,11 +182,11 @@ Per gestire i campi personalizzati e i relativi pannelli, l'utente deve avere un
 
 Gli utenti che dispongono di questa autorizzazione troveranno il pulsante specifico disponibile in alto a destra:
 
-![image](/_static/webtop-cf1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-cf1.png)
 
 Per creare un nuovo campo personalizzato è necessario compilare almeno il campo **Nome** e selezionare il **Tipo**:
 
-![image](/_static/webtop-cf2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-cf2.png)
 
 Per il campo **Nome** sono consentiti solo caratteri alfanumerici (inclusi `-` e `_`). **Gli spazi non sono consentiti**. Il campo **Descrizione** viene utilizzato per aggiungere dettagli al campo e il campo **Etichetta** rappresenta l'etichetta che verrà mostrata insieme al campo.
 
@@ -199,11 +199,11 @@ Per ogni tipo sono disponibili ulteriori proprietà specifiche, anch'esse person
 
 Per il tipo **Casella di riepilogo** è necessario compilare i valori da selezionare:
 
-![image](/_static/webtop-cf4.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-cf4.png)
 
 Tramite il pulsante **Clona** è possibile copiare il campo personalizzato per crearne di simili:
 
-![image](/_static/webtop-cf5.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-cf5.png)
 
 :::note
 
@@ -221,7 +221,7 @@ I pannelli personalizzati visualizzano i [Campi personalizzati](#custom_fields-s
 
 Gli utenti con l'autorizzazione per gestire i campi personalizzati possono accedere al pannello di configurazione tramite il pulsante in alto a destra:
 
-![image](/_static/webtop-panels.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-panels.png)
 
 Quando si crea un nuovo pannello è obbligatorio indicare il **Nome** che apparirà nella risorsa. È anche possibile inserire una **Descrizione** e un **Titolo**.
 
@@ -235,7 +235,7 @@ Una delle principali funzionalità di gestione delle firme su WebTop è la possi
 
 Per utilizzare le immagini è necessario caricarle nel cloud pubblico tramite l'utente admin di WebTop nel seguente modo:
 
-![image](/_static/webtop-public_images.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-public_images.png)
 
 È possibile utilizzare il pulsante **Carica** per caricare un'immagine che si trova in basso, oppure semplicemente tramite drag & drop.
 
@@ -253,11 +253,11 @@ In alternativa, è possibile configurare un'impostazione globale per trasformare
 
 Per modificare la firma, ogni utente può accedere a `Impostazioni --> Posta --> Modifica --> Modifica`:
 
-![image](/_static/webtop-edit_mailcard.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-edit_mailcard.png)
 
 È possibile utilizzare l'immagine caricata all'interno della mailcard con questo pulsante:
 
-![image](/_static/webtop-public_signature.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-public_signature.png)
 
 :::note
 
@@ -267,15 +267,15 @@ La mailcard personale può essere associata all'utente o all'indirizzo e-mail. G
 
 Accedendo alle impostazioni utente dal pannello di amministrazione di WebTop ( `Domini --> NethServer --> Utenti --> Clic destro sull'utente` ) è anche possibile configurare una mailcard di dominio generale che verrà impostata automaticamente per tutti gli utenti che non hanno configurato la propria mailcard personale:
 
-![image](/_static/webtop-domain_mailcard.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-domain_mailcard.png)
 
 Inoltre, sarà anche possibile modificare i dati personali:
 
-![image](/_static/webtop-personal_information.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-personal_information.png)
 
 che possono essere utilizzati all'interno dei campi basati su template nell'editor della mailcard di dominio:
 
-![image](/_static/webtop-mailcard_editor.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-mailcard_editor.png)
 
 In questo modo è possibile creare una singola mailcard che verrà personalizzata automaticamente per ogni utente che non utilizza la propria mailcard.
 
@@ -285,17 +285,17 @@ In questo modo è possibile creare una singola mailcard che verrà personalizzat
 
 Accedere a `Impostazioni --> Posta --> Identità` e creare più identità:
 
-![image](/_static/webtop-sig_sig1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sig_sig1.png)
 
 Per modificare ogni singola firma selezionare `Impostazioni --> Posta --> Identità`, quindi selezionare ogni singola firma e fare clic sul pulsante **modifica mailcard**
 
-![image](/_static/webtop-sig_sig2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sig_sig2.png)
 
-![image](/_static/webtop-sig_sig3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sig_sig3.png)
 
 per utilizzare più mailcard, creare una nuova e-mail e scegliere la firma:
 
-![image](/_static/webtop-sig_sig5.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sig_sig5.png)
 
 ## Personalizzare la sicurezza proattiva sulle e-mail
 
@@ -313,7 +313,7 @@ Questo tipo di personalizzazione è valido solo per l'utente che ha eseguito l'a
 
 L'**utente admin** può disabilitare tutte o alcune delle regole che fanno parte del PAS (ProActive Security), sia per singoli utenti che per gruppi. Per farlo, è necessario aggiungere una specifica autorizzazione (al singolo utente o al gruppo di utenti) per il Servizio `com.sonicle.webtop.mail (Mail)` e per la risorsa `PRO_ACTIVE_SECURITY`:
 
-![image](/_static/webtop-pas1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-pas1.png)
 
 Di seguito è riportata la spiegazione di ogni singola voce disponibile come `Azione`:
 
@@ -357,7 +357,7 @@ Accedere al pannello di amministrazione -\> **Proprietà (sistema)** -\> **aggiu
 
 Poi, logout e un nuovo login. Per mostrare la geolocalizzazione IP cliccare sull'icona all'estrema destra della riga:
 
-![image](/_static/webtop_geologip.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_geologip.png)
 
 **Impersonate login**
 

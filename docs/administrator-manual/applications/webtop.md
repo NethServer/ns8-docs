@@ -56,7 +56,7 @@ To check the mail of the system's user admin account use the following login: ad
 
 ### Change admin password
 
-Access WebTop using the `admin` user, then open user settings by clicking on the ![hamburger](/_static/webtop-hamburger.png) menu in the top-right corner.
+Access WebTop using the `admin` user, then open user settings by clicking on the ![hamburger](/_static/user-manual/webtop/screenshots/webtop-hamburger.png) menu in the top-right corner.
 
 Go to **Settings** then click on **Change password**.
 
@@ -70,7 +70,7 @@ Proceed as follows:
 
 2.  select the cloud service and public images:
 
-    ![image](/_static/webtop-public_images.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-public_images.png)
 
 3.  upload the image (via the Upload button at the bottom left or simply dragging with a drag & drop)
 
@@ -160,7 +160,7 @@ The user can normally only manage Private labels. In order to manage the Shared 
 - add (+) -\> **Services** -\> **com.sonicle.webtop.core (WebTop)** -\> **Resource** -\> **TAGS** -\> **Action** -\> **MANAGE**
 - click **OK** then **Save and exit**
 
-You can manage the labels from the tools ![tools](/_static/webtop-tools.png) button icon at the top right corner.
+You can manage the labels from the tools ![tools](/_static/user-manual/webtop/screenshots/webtop-tools.png) button icon at the top right corner.
 
 The same functionality can also be reached from the individual modules by right-clicking -\> **Labels** -\> **Manage labels**.
 
@@ -182,11 +182,11 @@ In order to manage custom fields and their panels, the user must have a specific
 
 Users who have this authorization will find the specific button available at the top right:
 
-![image](/_static/webtop-cf1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-cf1.png)
 
 To create a new custom field it is necessary to fill in at least the **Name** field and select the **Type**:
 
-![image](/_static/webtop-cf2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-cf2.png)
 
 For the **Name** field only alphanumeric characters (including `-` and `_`) are allowed. **Spaces are not allowed**. The **Description** field is used to add details to the field and the **Label** field represents the label that will be shown along with the field.
 
@@ -199,11 +199,11 @@ Additional specific properties, that are also customizable, are available for ea
 
 For the **List box** type it is necessary to fill in the values to be selected:
 
-![image](/_static/webtop-cf4.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-cf4.png)
 
 Using the **Clone** button you can copy the custom field to create similar ones:
 
-![image](/_static/webtop-cf5.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-cf5.png)
 
 :::note
 
@@ -221,7 +221,7 @@ Custom panels display the [Custom fields](#custom_fields-section) and associated
 
 Users with the authorization to manage custom fields can access the configuration panel using the button at the top right:
 
-![image](/_static/webtop-panels.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-panels.png)
 
 When creating a new panel it is mandatory to indicate the **Name** that will appear in the resource. You can also insert a **Description** and a **Title**.
 
@@ -235,7 +235,7 @@ One of the main features of managing signatures on WebTop is the opportunity to 
 
 To use the images you need to upload them to the public cloud through the WebTop admin user like this:
 
-![image](/_static/webtop-public_images.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-public_images.png)
 
 You can use the **Upload** button to load an image which is at the bottom or simply via drag & drop.
 
@@ -253,11 +253,11 @@ It is possible to do this from web interface by accessing the administration pan
 
 To change the signature, each user can access the `Settings --> Mail --> Editing --> Edit`:
 
-![image](/_static/webtop-edit_mailcard.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-edit_mailcard.png)
 
 You can use the uploaded image inside the mailcard with this button:
 
-![image](/_static/webtop-public_signature.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-public_signature.png)
 
 :::note
 
@@ -267,15 +267,15 @@ The personal mailcard can be associated with the user or the mail address. Users
 
 By accessing the user settings from the WebTop administration panel ( `Domains --> NethServer --> Users --> Right click on user` ) it is also possible to set up a general domain mailcard that will be automatically set for all users who have not configured their personal mailcard:
 
-![image](/_static/webtop-domain_mailcard.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-domain_mailcard.png)
 
 Furthermore, it will also be possible to modify personal details:
 
-![image](/_static/webtop-personal_information.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-personal_information.png)
 
 that can be used within the template-based fields within the domain mailcard editor:
 
-![image](/_static/webtop-mailcard_editor.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-mailcard_editor.png)
 
 In this way it is possible to create a single mailcard that will be automatically customized for every user who does not use his own mailcard.
 
@@ -285,17 +285,17 @@ It is possible to configure multiple mailcards (HTML signatures) for each user.
 
 Access the `Settings --> Mail --> Identities` and create multiple identities:
 
-![image](/_static/webtop-sig_sig1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sig_sig1.png)
 
 To edit every single signature select `Settings --> Mail --> Identities` then select each individual signature and click on the **edit mailcard** button
 
-![image](/_static/webtop-sig_sig2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sig_sig2.png)
 
-![image](/_static/webtop-sig_sig3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sig_sig3.png)
 
 to use multiple mailcards, create a new email, and choose the signature:
 
-![image](/_static/webtop-sig_sig5.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sig_sig5.png)
 
 ## Customize proactive security on emails
 
@@ -313,7 +313,7 @@ This type of customization is only valid for the user that performed the action.
 
 The **admin user** can disable all or some of the rules that are part of the PAS (ProActive Security), both for single users and groups. To do so, it is necessary to add a specific authorization (to the single user or the group of users) for the Service `com.sonicle.webtop.mail (Mail)` and for the `PRO_ACTIVE_SECURITY` resource:
 
-![image](/_static/webtop-pas1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-pas1.png)
 
 Below is an explanation of every single entry available as `Action` :
 
@@ -357,7 +357,7 @@ Login to the administration panel -\> **Properties (system)** -\> **add** -\> **
 
 Then, logout and a login again. To show the IP geolocation please click on the icon at the far right of the row:
 
-![image](/_static/webtop_geologip.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_geologip.png)
 
 **Impersonate login**
 

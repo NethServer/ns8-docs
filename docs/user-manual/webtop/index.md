@@ -51,7 +51,7 @@ To enable 2FA:
 - click on the menu button on the top-right corner and select the **Settings** icon
 - then select **Security** and click on the **Activate button**
 
-![image](/_static/webtop-2fa.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-2fa.png)
 
 ## ActiveSync (EAS) synchronization
 
@@ -110,7 +110,7 @@ On Android devices, contacts from shared phone books are merged with the persona
 
 In order to receive data via EAS on mobile devices, shared resources (Calendars and Contacts) should have synchronization enabled (Active or Read-only):
 
-![Multiple synchronization](/_static/webtop-multiple_sync.png)
+![Multiple synchronization](/_static/user-manual/webtop/screenshots/webtop-multiple_sync.png)
 
 :::
 
@@ -118,7 +118,7 @@ It is possible to enable or disable the synchronization for each shared resource
 
 To do so, just right-click on the shared resource `Customize → Devices sync.`:
 
-> ![Sync shared EAS](/_static/webtop-sync_shared_eas.png)
+> ![Sync shared EAS](/_static/user-manual/webtop/screenshots/webtop-sync_shared_eas.png)
 
 The default setting is `Not active`.
 
@@ -183,7 +183,7 @@ The use of CalDAV/CardDAV through third-party clients **cannot be considered a w
 
 It is possible to share a single folder or the entire account with all subfolders. Select the folder to share -\> right click -\> **Manage sharing**:
 
-![image](/_static/webtop-sharing_mail_folder_1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sharing_mail_folder_1.png)
 
 - select the user to share the resource (1)
 - select if you want to share your identity with the user and even to force your signature (2)
@@ -191,7 +191,7 @@ It is possible to share a single folder or the entire account with all subfolder
 - if you need to further change permissions, select `Advanced` (4)
 - finally, choose whether to apply sharing only to the folder from which you started, or only to the branch of subfolders or to the entire account (5)
 
-![image](/_static/webtop-sharing_mail_folder_2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sharing_mail_folder_2.png)
 
 :::note
 
@@ -205,11 +205,11 @@ The **Force mailcard** option can be used only if the mailcard has been associat
 
 You can share each personal calendar individually. Select the calendar to share -\> right click -\> **Sharing and permissions**:
 
-![image](/_static/webtop-sharing_cal_1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sharing_cal_1.png)
 
 Select the recipient user of the share (or Group) and enable permissions for both the folder and the individual items:
 
-![image](/_static/webtop-sharing_cal_2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sharing_cal_2.png)
 
 ### Sharing Contacts
 
@@ -233,7 +233,7 @@ Mail archiving is not a backup.
 
 The system automatically creates a new special Archives folder
 
-![image](/_static/webtop-archive_archive1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-archive_archive1.png)
 
 If the **Archives** folder does not appear immediately upon login, it will appear at the first archiving.
 
@@ -243,15 +243,15 @@ There are three archiving criteria:
 - **Per year:** a root for each year
 - **By year / month:** a root for each year and month
 
-![image](/_static/webtop-archive_archive2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-archive_archive2.png)
 
 To maintain the original structure of the folders it is possible to activate **Keep folders structure**
 
-![image](/_static/webtop-archive_archive3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-archive_archive3.png)
 
 The archiving operation is accessible from the contextual menu (right-click). Click on **Archive**
 
-![image](/_static/webtop-archive_archive4.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-archive_archive4.png)
 
 The system will process archiving according to the last settings chosen.
 
@@ -263,19 +263,19 @@ If you want to hide some folders from the view, which is equivalent to removing 
 
 For example, if you want to hide the subfolder `folder1` from this list, just right-click on it and select **Hide from list**:
 
-![image](/_static/webtop-sub_imap_folder1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sub_imap_folder1.png)
 
 It is possible to manage the visibility of hidden folders by selecting the **Manage visibility** function:
 
-![image](/_static/webtop-sub_imap_folder2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sub_imap_folder2.png)
 
 For example, if you want to restore the subscription of the **folder1** just hidden, just select it from the list of hidden folders and click on the icon on the left:
 
-![image](/_static/webtop-sub_imap_folder3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sub_imap_folder3.png)
 
 ## Export events (CSV)
 
-To export calendars events in CSV (Comma Separated Value) format, click on the ![tools](/_static/webtop-tools.png) button in the top right corner and select **ERP export (CSV)**
+To export calendars events in CSV (Comma Separated Value) format, click on the ![tools](/_static/user-manual/webtop/screenshots/webtop-tools.png) button in the top right corner and select **ERP export (CSV)**
 
 Finally, select a time interval and click on **Next** to export into a CSV file.
 
@@ -285,14 +285,14 @@ Finally, select a time interval and click on **Next** to export into a CSV file.
 
 In the toolbar above the grid there are 7 buttons that allow you to select the most suitable quick view. The first two buttons refer to today's activities or to those planned within the next 7 days:
 
-![image](/_static/webtop-task1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task1.png)
 
 - **Today**: shows unfinished tasks without a start date or with a start date up to today (inclusive) and those completed with an end date up to today (inclusive)
 - **Next 7 days**: shows uncompleted tasks with no start date or starting up to 7 days from today and completed tasks with completion date up to now (inclusive)
 
 The remaining 5 buttons allow you to obtain these other types of quick views:
 
-![image](/_static/webtop-task2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task2.png)
 
 - **Not started**: shows only activities with status "To be started" and starting today (inclusive)
 - **Late**: shows only uncompleted tasks with start date up to today (inclusive) and completion date previous to the current one
@@ -304,23 +304,23 @@ The remaining 5 buttons allow you to obtain these other types of quick views:
 
 It is possible to configure any type of recurrence:
 
-![image](/_static/webtop-task3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task3.png)
 
 Editing a recurring activity can be done in two different ways:
 
 1.  on the individual task by opening it with a double click from a view other than **All** In this case the task will be **removed** from the recurrence and its icon will become this one:
 
-![image](/_static/webtop-task4.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task4.png)
 
 2.  on the entire series with a double click from the **All** view or by using the following button on the single task already open:
 
-![image](/_static/webtop-task5.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task5.png)
 
 ### Sub-tasks
 
 On any task it is always possible to add related sub-tasks (one Master/Slave level only) simply by using the right button and selecting **Add sub-task** Within the connected tasks, both in the master and in the slave, a link is available at the bottom right to open the related tasks:
 
-![image](/_static/webtop-task6.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task6.png)
 
 It is possible to **Move** or **Copy** this type of activity (right click -\> **Move/Copy**) by choosing to copy or move the sub-activities through an option active by default.
 
@@ -328,7 +328,7 @@ It is possible to **Move** or **Copy** this type of activity (right click -\> **
 
 In the bar at the top there is a quick search that is executed on all fields. You can also narrow the search by filling multiple search fields.
 
-![image](/_static/webtop-task7.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-task7.png)
 
 ## Nextcloud integration
 
@@ -340,21 +340,21 @@ If you want to enable the service for all users, proceed as follows:
 
 1.  access the administrative panel and select **Groups**:
 
-![image](/_static/webtop-admin_panel_groups.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-admin_panel_groups.png)
 
 2.  modify the properties of the "users" group by double-clicking and selecting the button related to the Authorizations:
 
-![image](/_static/webtop-admin_panel_permission.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-admin_panel_permission.png)
 
 3.  add to existing authorizations those related to both the `STORE_CLOUD` and `STORE_OTHER` resources by selecting the items as shown below:
 
-![image](/_static/webtop-admin_panel_nextcloud_auth_1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-admin_panel_nextcloud_auth_1.png)
 
-![image](/_static/webtop-admin_panel_nextcloud_auth_2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-admin_panel_nextcloud_auth_2.png)
 
 to get this:
 
-![image](/_static/webtop-admin_panel_nextcloud_auth_3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-admin_panel_nextcloud_auth_3.png)
 
 4.  save and close.
 
@@ -362,11 +362,11 @@ Fron now on, any user it will be able to insert the Nextcloud resource (local or
 
 To do this, simply select the Cloud button and add a new Nextcloud resource by right-clicking on **My resources** and then **Add resource** in this way:
 
-![image](/_static/webtop-nextcloud_1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-nextcloud_1.png)
 
 A pre-filled wizard will open:
 
-![image](/_static/webtop-nextcloud_2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-nextcloud_2.png)
 
 :::note
 
@@ -390,47 +390,47 @@ The personal Cloud module allows you to send and receive documents via web links
 
 To create the link, select the button at the top right:
 
-![image](/_static/webtop-doc_cloud1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud1.png)
 
 Follow the wizard to generate the link, use the field **date** to set the deadline.
 
-![image](/_static/webtop-doc_cloud2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud2.png)
 
 you can create a **password** to protect it:
 
-![image](/_static/webtop-doc_cloud3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud3.png)
 
 The link will be generated and will be inserted in the new mail:
 
-![image](/_static/webtop-doc_cloud4.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud4.png)
 
-![image](/_static/webtop-doc_cloud5.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud5.png)
 
 Downloading the file generates a notification to the sender:
 
-![image](/_static/webtop-doc_cloud6.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud6.png)
 
 ### Request for a document
 
 To create the request, insert the subject of the email then select the button at the top right:
 
-![image](/_static/webtop-doc_cloud7.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud7.png)
 
 Follow the wizard. You can set both an expiration date and a password. The link will be automatically inserted into the message:
 
-![image](/_static/webtop-doc_cloud8.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud8.png)
 
 A request email will be sent to upload the document to the Cloud:
 
-![image](/_static/webtop-doc_cloud9.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud9.png)
 
 The sender will receive a notification for each file that will be uploaded:
 
-![image](/_static/webtop-doc_cloud10.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud10.png)
 
 To download the files just access your personal `Cloud --> Uploads --> Folder` with date and name:
 
-![image](/_static/webtop-doc_cloud11.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud11.png)
 
 ## Chat integration {#webtop-chat}
 
@@ -461,11 +461,11 @@ To create a new video conference meeting, you can start from these two buttons:
 
 (top left)
 
-![image](/_static/webtop_jitsi1.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_jitsi1.png)
 
 (top right)
 
-![image](/_static/webtop_jitsi2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_jitsi2.png)
 
 It is also possible to do this from a new email window or a new calendar event.
 
@@ -473,19 +473,19 @@ For each new meeting you have to decide whether it should start immediately (ins
 
 There are several ways to share the new meeting link:
 
-![image](/_static/webtop_jitsi3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_jitsi3.png)
 
 - **Start now** allows you to immediately access the newly created meeting room and copy the link via the button available next to the URL
 - **Send invitation** -\> **Copy meeting invite**: in this case an invitation message, which also includes the meeting link, will be copied (e.g: To join the meeting on Jitsi Meet, click this link: …)
 - **Send invitation** -\> **Share by email**: you will be asked if you would like to change the subject and date of the meeting, which will then be inserted in the newly generated email:
 
-![image](/_static/webtop_jitsi4.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_jitsi4.png)
 
 - **Send invitation** -\> **Plan event**: also in this case you will be asked if you would like to change the subject and date/time of the meeting before creating the calendar event that will allow you to invite other participants.
 
 If an event contains a link to a third-party video conference, the buttons that will allow you to access the meeting directly:
 
-![image](/_static/webtop_jitsi5.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_jitsi5.png)
 
 ### Third-party video calls
 
@@ -523,7 +523,7 @@ The launcher is the icon-based menu on the left of the page. You can add custom 
 
 To configure the buttons, access the WebTop administration panel and select -\> **Domains** -\> **NethServer** -\> **Launcher** :
 
-![image](/_static/webtop_launchers.png)
+![image](/_static/user-manual/webtop/screenshots/webtop_launchers.png)
 
 For each button, enter these three values
 
@@ -541,7 +541,7 @@ WebTop can notify new mail messages and upcoming calendar events.
 
 To activate it, simply access the general settings of your user:
 
-![image](/_static/webtop-desktop_notifications.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-desktop_notifications.png)
 
 It is possible to enable desktop notifications in two modes:
 
@@ -552,7 +552,7 @@ Make sure to allow notifications inside your browser.
 
 If you need to enable this consent later on a different browser just click on the appropriate button:
 
-![image](/_static/webtop-button_desktop_notifications.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-button_desktop_notifications.png)
 
 ## External IMAP accounts (Beta)
 
@@ -606,7 +606,7 @@ Steps:
 
 - enter the authentication credentials (as user name use the full address of gmail):
 
-  > ![image](/_static/webtop-remote_phonebook.png)
+  > ![image](/_static/user-manual/webtop/screenshots/webtop-remote_phonebook.png)
 
 - the wizard in the following steps will connect to the phonebook, giving the possibility to change the name and color, and then perform the first synchronization
 
@@ -618,21 +618,21 @@ Synchronization of remote resources can be performed manually or automatically.
 
 To synchronize automatically you can choose between three time intervals: 15, 30 and 60 minutes. The choice of the time interval can be made in the creation phase or later by changing the options. To do this, right-click on the phonebook (or on the calendar), **Edit Category**, **Internet Addressbook** (or **Internet Calendar**):
 
-![image](/_static/webtop-sync_automatic.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sync_automatic.png)
 
 #### Manual synchronization
 
 To update a remote address book, for example, click on it with the right mouse button and then select the item "Synchronize":
 
-![image](/_static/webtop-sync_google.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-sync_google.png)
 
 For CardDAV address books, as well as for remote CalDAV calendars, you can select whether to perform a full synchronization or only for changes. To do this, right-click on the phonebook (or on the calendar), **Edit Category**:
 
-![image](/_static/webtop-edit_sync_google.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-edit_sync_google.png)
 
 Select the desired mode next to the synchronization button:
 
-![image](/_static/webtop-edit_sync_google2.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-edit_sync_google2.png)
 
 ## New device notification
 
@@ -665,15 +665,15 @@ To import contacts:
 
 1.  right click on the target phone book, then select **Import contacts**
 
-    ![image](/_static/webtop-import_contacts1.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-import_contacts1.png)
 
 2.  select the import format and make sure that the fields on the file match the ones available on WebTop
 
-    ![image](/_static/webtop-import_contacts2.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-import_contacts2.png)
 
 If you are importing a phone book exported from Outlook, make sure to set **Text qualifier** to `"` value.
 
-![image](/_static/webtop-import_contacts3.png)
+![image](/_static/user-manual/webtop/screenshots/webtop-import_contacts3.png)
 
 ### Calendars
 
@@ -683,15 +683,15 @@ To import events:
 
 1.  right click on the target calendar, then select **Import events**
 
-    ![image](/_static/webtop-import_calendars1.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-import_calendars1.png)
 
 2.  select the import format
 
-    ![image](/_static/webtop-import_calendars2.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-import_calendars2.png)
 
 3.  then choose if you want to delete all existing events and import new ones, or just append imported data to existing calendar events
 
-    ![image](/_static/webtop-import_calendars3.png)
+    ![image](/_static/user-manual/webtop/screenshots/webtop-import_calendars3.png)
 
 ## Mail composer customization
 
