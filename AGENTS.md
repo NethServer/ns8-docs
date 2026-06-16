@@ -1,118 +1,84 @@
 # NS8 Documentation — Copilot Instructions
 
-This repository contains the Sphinx-based administrator manual for NethServer 8,
-published at https://docs.nethserver.org/en/latest/.
+This repository contains the [Docusaurus](https://docusaurus.io/)-based
+documentation for NethServer 8, published at
+https://docs.nethserver.org.
 
 ## Build commands
 
 ```bash
-# Install dependencies (Fedora)
-sudo dnf install python3-sphinx python3-pip make
-pip install -r requirements.txt
+# Install dependencies (Node.js >= 18)
+yarn install
 
-# Build HTML output
-make html
+# Start a local dev server with hot reload
+yarn start
 
-# Spell-check a file before submitting
-hunspell -d en_US <filename>.rst
+# Build the static site (also validates links/anchors and MDX)
+yarn build
+
+# Serve the production build locally
+yarn serve
+
+# Regenerate the theme/UI translation placeholders for Italian
+yarn write-translations -l it
 ```
 
-Localization (Italian translation files are maintained by CI):
-
-```bash
-make gettext
-sphinx-intl update -p _build/gettext -l it
-```
+Always run `yarn build` before submitting changes: it fails on broken MDX and
+reports broken links and anchors.
 
 ## Architecture
 
-- Every `.rst` file is one chapter. `index.rst` defines the document tree and
-  reading order via `toctree` directives.
-- `conf.py` configures Sphinx (theme: `sphinx_book_theme`, extension:
-  `sphinx_copybutton`).
-- `locale/` holds `.po` translation files, auto-updated by the CI workflow
-  (`.github/workflows/`) on every push to `main`.
-- ReadTheDocs builds and publishes the `main` branch automatically
-  (`.readthedocs.yaml`).
-- `README.rst` is excluded from the Sphinx build (`exclude_patterns` in
-  `conf.py`) and serves only as contributor guidance.
+- The site is split into three manuals, each rendered as its own sidebar
+  (see `sidebars.ts` and `docusaurus.config.ts` navbar):
+  - `docs/administrator-manual/` — install, configure and manage NS8 and apps
+    (`about/`, `installation/`, `configuration/`, `applications/`,
+    `nethforge/`).
+  - `docs/user-manual/` — end-user docs (`user-portal/`, `webtop/`).
+  - `docs/tutorial/` — tutorials and best practices.
+- Each subfolder has a `_category_.json` (sidebar label + position); each
+  manual root has an `index.md` with a `slug:` so the navbar links resolve.
+- `docusaurus.config.ts` sets `markdown.format: 'detect'`, so `.md` files are
+  parsed as CommonMark (tolerant of bare `<...>`/`{...}`) and `.mdx` as MDX.
+- Internationalization: English is the default locale; Italian lives under
+  `i18n/it/`. Translated docs mirror the `docs/` tree under
+  `i18n/it/docusaurus-plugin-content-docs/current/`.
+- Images are served from `static/` and referenced with absolute paths such as
+  `/_static/image.png`.
 
-## RST conventions
+## CI
 
-**Document structure** — one top-level title per file, underlined with `=`.
-Subsequent heading levels in order:
+- `.github/workflows/deploy.yml` — builds and deploys to GitHub Pages on push
+  to `main`.
+- `.github/workflows/test-deploy.yml` — test build on pull requests.
+- `.github/workflows/sync-translations.yml` — AI agent that keeps the English
+  and Italian docs in sync when one side changes
+  (`.github/scripts/translation-agent/`).
 
-```rst
-First level
-===========
+## Markdown conventions
 
-Second level
-------------
+- One top-level `#` heading per file; the page `title` is set in frontmatter.
+- Use explicit heading ids where other pages link to them:
+  `## My section {#my-section}`. Reference them with relative links such as
+  `[text](../configuration/cluster.md#cluster-section)`.
+- UI elements (buttons, fields) use bold: `**Save**`.
+- File paths, commands, config keys and volume names use inline code:
+  `` `postgres-data` ``.
+- Admonitions use the Docusaurus syntax:
 
-Third level
-^^^^^^^^^^^
+  ```markdown
+  :::note
+  Note text.
+  :::
 
-Fourth level
-~~~~~~~~~~~~
-```
-
-**Cross-references** — label targets use a `-section` suffix and are placed
-immediately before the heading they describe:
-
-```rst
-.. _mytitle-section:
-
-My title
---------
-```
-
-Reference them with `:ref:\`mytitle-section\`` in any file.
-
-**Anonymous hyperlinks** — used for external URLs inside a section:
-
-```rst
-`Link text <https://example.com>`__
-```
-
-**UI elements** — use `:guilabel:` for buttons and clickable labels:
-
-```rst
-Click the :guilabel:`Save` button
-```
-
-**Inline code** — double backticks for file paths, commands, config keys,
-volume names, and UI field values: ` ``postgres-data`` `.
-
-**Index entries** — use `:index:` for terms that should appear in the
-generated index: ` :index:\`Slack\` `.
-
-**Notes and warnings**:
-
-```rst
-.. note::
-
-   Note text (indented 3 spaces).
-
-.. warning::
-
-   Warning text (indented 3 spaces).
-```
-
-**Code blocks** — use the `::` paragraph form, with the block indented two
-spaces:
-
-```rst
-Run this command: ::
-
-  some-command --option value
-```
+  :::warning
+  Warning text.
+  :::
+  ```
 
 ## Style guidelines
 
 - Write in second person ("you"), present tense, imperative mood for
-  procedures.
-- Keep sentences short and direct (see links in `README.rst` under
-  *Documentation style guidelines*).
+  procedures. Keep sentences short and direct.
 - Each application chapter follows the same pattern: brief description,
   configuration steps, then advanced topics. Follow the existing chapter
   structure when adding a new application.
