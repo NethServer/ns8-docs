@@ -273,12 +273,6 @@ For example, if you want to restore the subscription of the **folder1** just hid
 
 ![image](/_static/user-manual/webtop/screenshots/webtop-sub_imap_folder3.png)
 
-## Export events (CSV)
-
-To export calendars events in CSV (Comma Separated Value) format, click on the ![tools](/_static/user-manual/webtop/screenshots/webtop-tools.png) button in the top right corner and select **ERP export (CSV)**
-
-Finally, select a time interval and click on **Next** to export into a CSV file.
-
 ## Tasks
 
 ### Quick view filters
@@ -553,22 +547,6 @@ Make sure to allow notifications inside your browser.
 If you need to enable this consent later on a different browser just click on the appropriate button:
 
 ![image](/_static/user-manual/webtop/screenshots/webtop-button_desktop_notifications.png)
-
-## External IMAP accounts (Beta)
-
-External IMAP accounts can be accessed in read-only mode. Each user can have a maximum of 3 external accounts.
-
-To enable the feature:
-
-1.  Access the administration panel, then selected **Properties (system)**
-2.  Click on **Add** button and select **com.sonicle.webtop.mail**
-3.  Create a new key named `external-account.enabled` with value `true`
-4.  Give a specific authorization to the user by setting:
-    - Service: `com.sonicle.webtop-mail`
-    - Resource: `EXTERNAL_ACCOUNT_SETTINGS`
-    - Action: `CHANGE`
-
-Users can now configure personal external accounts by accessing the **Settings** section.
 
 ## Subscribing remote resources
 

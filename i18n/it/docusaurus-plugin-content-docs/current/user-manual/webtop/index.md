@@ -273,12 +273,6 @@ Per esempio, se vuoi ripristinare la sottoscrizione della cartella **folder1** a
 
 ![image](/_static/user-manual/webtop/screenshots/webtop-sub_imap_folder3.png)
 
-## Esportare eventi (CSV)
-
-Per esportare gli eventi dei calendari in formato CSV (Comma Separated Value), fai clic sul pulsante ![tools](/_static/user-manual/webtop/screenshots/webtop-tools.png) in alto a destra e seleziona **ERP export (CSV)**.
-
-Infine, seleziona un intervallo di tempo e fai clic su **Next** per esportare il file CSV.
-
 ## Attività
 
 ### Filtri di visualizzazione rapida
@@ -553,22 +547,6 @@ Assicurati di consentire le notifiche nel tuo browser.
 Se hai bisogno di abilitare questo consenso in seguito su un browser diverso, fai clic sull'apposito pulsante:
 
 ![image](/_static/user-manual/webtop/screenshots/webtop-button_desktop_notifications.png)
-
-## Account IMAP esterni (Beta)
-
-Agli account IMAP esterni è possibile accedere in modalità sola lettura. Ogni utente può avere un massimo di 3 account esterni.
-
-Per abilitare la funzione:
-
-1.  accedi al pannello di amministrazione, quindi seleziona **Properties (system)**
-2.  fai clic sul pulsante **Add** e seleziona **com.sonicle.webtop.mail**
-3.  crea una nuova chiave chiamata `external-account.enabled` con valore `true`
-4.  assegna all'utente un'autorizzazione specifica impostando:
-    - Service: `com.sonicle.webtop-mail`
-    - Resource: `EXTERNAL_ACCOUNT_SETTINGS`
-    - Action: `CHANGE`
-
-Gli utenti possono ora configurare account esterni personali accedendo alla sezione **Settings**.
 
 ## Sottoscrizione di risorse remote
 
