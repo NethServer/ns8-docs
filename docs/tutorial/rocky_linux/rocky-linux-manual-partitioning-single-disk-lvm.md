@@ -126,7 +126,7 @@ Then click **Done**.
 ## Next step
 
 When the Rocky Linux installation is complete, continue with the NethServer 8 setup by
-following [Install NS8 on a supported distribution](../administrator-manual/installation/install.md#install_linux-section).
+following [Install NS8 on a supported distribution](../../administrator-manual/installation/install.md#install_linux-section).
 
 For more details about Rocky Linux installation, see the [official Rocky Linux installation
 guide](https://docs.rockylinux.org/guides/installation/).

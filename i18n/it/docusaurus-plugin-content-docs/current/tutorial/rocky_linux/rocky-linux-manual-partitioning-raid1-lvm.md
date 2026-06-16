@@ -145,7 +145,7 @@ Poi fai clic su **Done**.
 ## Passo successivo
 
 Quando l'installazione di Rocky Linux e` completata, continua con la configurazione di
-NethServer 8 seguendo [Install NS8 on a supported distribution](../administrator-manual/installation/install.md#install_linux-section).
+NethServer 8 seguendo [Install NS8 on a supported distribution](../../administrator-manual/installation/install.md#install_linux-section).
 
 Per maggiori dettagli sull'installazione di Rocky Linux, consulta la [guida ufficiale di
 installazione di Rocky Linux](https://docs.rockylinux.org/guides/installation/).
