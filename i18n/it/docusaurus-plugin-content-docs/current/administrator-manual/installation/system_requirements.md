@@ -10,25 +10,42 @@ Requisiti hardware minimi per un'installazione su singolo nodo:
 
 - 2 vCPU/core, architettura x86-64
 - 2GB RAM
-- 40GB Solid-state drive
-
-È possibile aggiungere più nodi successivamente e, quando si aggiunge un nuovo nodo, si raccomanda di utilizzare hardware simile e la stessa distribuzione Linux installata sugli altri nodi.
+- 40GB unità a stato solido (SSD)
 
 I requisiti sopra indicati devono essere aumentati per soddisfare le esigenze di utenti, applicazioni e carico.
+
+È possibile aggiungere più nodi successivamente e, quando si aggiunge un nuovo nodo, si raccomanda di utilizzare hardware simile e la stessa distribuzione Linux installata sugli altri nodi, come spiegato nella sezione seguente.
+
 ## Distribuzione Linux {#supported-distros-section}
 
 Installa NS8 su una distribuzione Linux server pulita, evitando l'installazione su sistemi desktop o server che eseguono già altri servizi.
 
 NS8 è compatibile con [Rocky Linux](https://rockylinux.org/) 9 e distribuzioni derivate da RHEL 9, come AlmaLinux o CentOS Stream 9, così come con [Debian](https://www.debian.org/) 13.
 
-Puoi trovare supporto volontario nel forum pubblico della comunità NethServer per tutte le distribuzioni compatibili.
+Mescolare distribuzioni o versioni di distribuzioni diverse tra i nodi del cluster è consentito temporaneamente — ad esempio durante la migrazione a una nuova distribuzione o l'aggiornamento a una nuova major release — ma le discrepanze a lungo termine possono causare problemi di aggiornamento imprevedibili a causa dei diversi cicli di rilascio e devono essere evitate.
 
-La [Sottoscrizione Nethesis](../about/subscription.md#subscription-section) (incluso il piano "Enterprise") è disponibile solo per **Rocky Linux 9**.
+* Puoi trovare supporto volontario nel forum pubblico della comunità NethServer per tutte le distribuzioni compatibili.
+
+* La [Sottoscrizione Nethesis](../about/subscription.md#subscription-section) (incluso il piano "Enterprise") è disponibile solo per **Rocky Linux 9**.
 
 Leggi la sezione [Aggiornamenti del sistema operativo](../../tutorial/os_updates.md#neth-mirror) per mantenere aggiornata la distribuzione Linux e per saperne di più sui repository DNF gestiti da Nethesis, che sono abilitati di default su Rocky Linux.
+
 ## Spazio di swap {#swap-reqs}
 
 Configura una partizione di swap o un file di swap. Nella maggior parte degli ambienti, [4 GB di spazio di swap](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap) offrono un buon equilibrio tra prestazioni e utilizzo delle risorse. La decisione di allocare più spazio dipende dal carico di lavoro della memoria del sistema.
+
+L'[immagine preconfigurata di Rocky Linux](../installation/install.md#install_image-section) fornisce già un file di swap da 4 GB configurato come predefinito.
+
+## Disco e partizioni {#disk-partitions}
+
+Le prestazioni del disco dipendono dal carico del sistema, ma l'architettura di NS8 genera un elevato carico I/O grazie al suo design basato su container. Il disco principale deve essere abbastanza veloce da sostenerlo: usa un'unità a stato solido (SSD) di classe enterprise. Un sintomo tipico di un disco sottovalutato è il timeout nell'avvio dei servizi.
+
+NS8 non ha requisiti speciali di partizionamento. L'[immagine preconfigurata](../installation/install.md#install_image-section) viene fornita con una singola partizione root che copre tutti i dati. Se lo desideri, `/home` può essere montata su un disco separato con gli stessi requisiti di velocità: per impostazione predefinita i dati delle applicazioni vengono salvati lì, quindi una partizione `/home` dedicata separa i dati dell'applicazione dal sistema operativo. È anche possibile aggiungere in un secondo momento un percorso home alternativo, come descritto in [Collegare un disco per le nuove applicazioni](../../tutorial/disk_usage.md#alt-home-section).
+
+Le applicazioni che archiviano grandi quantità di dati possono essere configurate per usare un volume aggiuntivo come descritto in [Configurare volumi aggiuntivi](software_center.md#additional-volumes-section). Per i volumi aggiuntivi, i dischi meccanici e i dispositivi iSCSI sono scelte appropriate.
+
+I filesystem locali supportati sono XFS ed EXT4. Anche iSCSI e i dispositivi di rete a blocchi equivalenti sono adatti, perché si presentano come dispositivi a blocchi che possono essere formattati localmente. NFS non è supportato: gestisce il filesystem in remoto e non gestisce il mapping degli ID utente richiesto dalle applicazioni containerizzate.
+
 ## Indirizzo IP statico {#static-ip-reqs}
 
 È necessaria una connessione internet funzionante per l'installazione, la configurazione e l'aggiornamento del nodo. È richiesta anche in presenza di un [abbonamento](../about/subscription.md) attivo.

@@ -57,6 +57,8 @@ La procedura di configurazione di un volume aggiuntivo potrebbe causare la perdi
 
 :::
 
+NFS non è supportato come volume aggiuntivo. A differenza di iSCSI o dei protocolli equivalenti di dischi di rete a blocchi, che si presentano come dispositivi a blocchi che puoi formattare localmente, NFS gestisce il filesystem in remoto e non gestisce il mapping degli ID utente richiesto dalle applicazioni containerizzate.
+
 Quando si configura un volume aggiuntivo su un nodo NS8, seguire la seguente lista di controllo:
 
 - Assicurarsi che il volume non sia già montato altrove. Più punti di montaggio per lo stesso disco potrebbero causare problemi di rilabeling SELinux. Il seguente comando elenca brevemente i punti di montaggio esistenti:

@@ -59,7 +59,7 @@ If NS8 was installed as a virtual machine starting from the [pre-built image](..
 
         xfs_growfs /
 
-## Attach a disk for new applications
+## Attach a disk for new applications {#alt-home-section}
 
 At any time in the NS8 node's life, you can mount a new disk on an alternative path, like `/home1`, and start to install applications on it. Existing rootless applications will continue to use their home directory on the old disk, whilst new apps will be created under `/home1` and consume the new disk space.
 

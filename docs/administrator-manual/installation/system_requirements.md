@@ -12,9 +12,9 @@ Minimum hardware requirements for a single node installation:
 - 2GB RAM
 - 40GB Solid-state drive
 
-More nodes can be added later, and when adding a new node, it is recommended to use similar hardware and the same Linux distribution installed on the other nodes.
-
 The above requirements must be increased to match users, applications, and load needs.
+
+More nodes can be added later, and when adding a new node, it is recommended to use similar hardware and the same Linux distribution installed on the other nodes, as explained in the next section.
 
 ## Linux distribution {#supported-distros-section}
 
@@ -22,15 +22,29 @@ Install NS8 on a clean Linux server distribution, avoiding installation on deskt
 
 NS8 is compatible with [Rocky Linux](https://rockylinux.org/) 9 and RHEL 9 derivative distributions, such as AlmaLinux or CentOS Stream 9, as well as [Debian](https://www.debian.org/) 13.
 
-You may find volunteer support in the NethServer community public forum for all compatible distributions.
+Mixing different distributions or distribution versions across cluster nodes is allowed temporarily — for example, while migrating to a new distribution or upgrading to a new major release — but long-term mismatches can cause unpredictable update issues due to different release cycles, and must be avoided.
 
-The [Nethesis Subscription](../about/subscription.md#subscription-section) (including the "Enterprise" plan) is available only for **Rocky Linux 9**.
+* You may find volunteer support in the NethServer community public forum for all compatible distributions.
+
+* The [Nethesis Subscription](../about/subscription.md#subscription-section) (including the "Enterprise" plan) is available only for **Rocky Linux 9**.
 
 Read the section [Operating system updates](../../tutorial/os_updates.md#neth-mirror) to keep the Linux distribution up to date and to learn more about the DNF repositories managed by Nethesis, which are enabled by default on Rocky Linux.
 
 ## Swap space {#swap-reqs}
 
 Set up a swap partition or swap file. In most environments, [4 GB of swap space](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap) provides a good balance between performance and resource usage. The decision to allocate more space depends on the system's memory workload.
+
+The [Rocky Linux pre-built image](../installation/install.md#install_image-section) already provides a 4 GB swap file configured as default.
+
+## Disk and partitions {#disk-partitions}
+
+Disk performance depends on the system workload, but NS8 architecture generates high I/O load due to its container-based design. The main disk must be fast enough to sustain it: use an enterprise class solid-state drive (SSD). A typical symptom of an underestimated disk is service startup timeout.
+
+NS8 has no special partitioning requirements. The [pre-built image](../installation/install.md#install_image-section) comes with a single root partition covering all data. If desired, `/home` can be mounted on a separate disk with the same speed requirements: application data is stored there by default, so a dedicated `/home` partition separates application data from the operating system. It is also possible to add an alternative home path at a later time, as described in [Attach a disk for new applications](../../tutorial/disk_usage.md#alt-home-section).
+
+Applications that store large amounts of data can be configured to use an additional volume as described in [Configure additional volumes](software_center.md#additional-volumes-section). For additional volumes, spinning disks and iSCSI devices are suitable choices.
+
+The supported local filesystems are XFS and EXT4. iSCSI and equivalent network block devices are also suitable, as they present as block devices that can be formatted locally. NFS is not supported: it manages the filesystem remotely and does not handle the user ID mapping that container applications require.
 
 ## Static IP address {#static-ip-reqs}
 

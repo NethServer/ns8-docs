@@ -60,6 +60,8 @@ The additional volume setup procedure may lead to data-loss. It requires some Li
 
 :::
 
+NFS is not supported as an additional volume. Unlike iSCSI or equivalent network block device protocols, which present as a block device that you can format locally, NFS manages the filesystem remotely and does not handle the user ID mapping that container applications require.
+
 When configuring an additional volume on a NS8 node, observe the following check list:
 
 - Make sure the volume is not already mounted elsewhere. Multiple mount points for the same disk may lead to SELinux relabeling issues. The following command briefly lists existing mountpoints:

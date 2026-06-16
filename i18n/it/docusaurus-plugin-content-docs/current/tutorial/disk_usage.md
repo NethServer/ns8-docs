@@ -59,7 +59,7 @@ Se NS8 è stato installato come macchina virtuale a partire dall'[immagine preco
 
         xfs_growfs /
 
-## Collegare un disco per le nuove applicazioni
+## Collegare un disco per le nuove applicazioni {#alt-home-section}
 
 In qualsiasi momento della vita del nodo NS8, puoi montare un nuovo disco su un percorso alternativo, come `/home1`, e iniziare a installarvi applicazioni. Le applicazioni rootless esistenti continueranno a usare la loro home directory sul vecchio disco, mentre le nuove app verranno create sotto `/home1` e consumeranno il nuovo spazio disco.
 
