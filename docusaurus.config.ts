@@ -217,6 +217,14 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    algolia: {
+      appId: 'SVYGK2UNEY',
+      // Public API key: it is safe to commit it
+      apiKey: '03f457a74cc185e3dab522ba833123ad',
+      indexName: 'NethServer documentation',
+      searchPagePath: 'search',
+      insights: true,
+    },
   } satisfies Preset.ThemeConfig,
 };
 
