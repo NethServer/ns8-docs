@@ -1,6 +1,5 @@
 ---
 title: Roundcube
-sidebar_position: 4
 ---
 # Roundcube
 

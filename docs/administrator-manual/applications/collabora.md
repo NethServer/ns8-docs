@@ -1,6 +1,5 @@
 ---
 title: Collabora Online
-sidebar_position: 7
 ---
 # Collabora Online
 

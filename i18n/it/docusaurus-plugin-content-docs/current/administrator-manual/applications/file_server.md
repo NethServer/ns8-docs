@@ -1,6 +1,5 @@
 ---
 title: File server Samba
-sidebar_position: 3
 ---
 # File server Samba
 

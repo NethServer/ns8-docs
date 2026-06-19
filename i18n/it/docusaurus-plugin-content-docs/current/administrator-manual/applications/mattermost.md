@@ -1,6 +1,5 @@
 ---
 title: Mattermost
-sidebar_position: 8
 ---
 # Mattermost
 

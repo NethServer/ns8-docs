@@ -1,6 +1,5 @@
 ---
 title: Imapsync
-sidebar_position: 11
 ---
 # Imapsync
 

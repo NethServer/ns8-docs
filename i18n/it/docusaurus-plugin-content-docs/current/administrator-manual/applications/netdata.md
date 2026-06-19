@@ -1,6 +1,5 @@
 ---
 title: Netdata
-sidebar_position: 14
 ---
 # Netdata
 

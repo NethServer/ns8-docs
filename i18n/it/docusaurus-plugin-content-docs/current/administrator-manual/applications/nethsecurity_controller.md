@@ -1,6 +1,5 @@
 ---
 title: Controller NethSecurity
-sidebar_position: 12
 ---
 # Controller NethSecurity
 

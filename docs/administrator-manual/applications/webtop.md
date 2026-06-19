@@ -1,6 +1,5 @@
 ---
 title: WebTop groupware
-sidebar_position: 5
 ---
 # WebTop groupware
 

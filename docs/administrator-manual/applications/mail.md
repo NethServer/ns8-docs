@@ -1,6 +1,5 @@
 ---
 title: Mail
-sidebar_position: 2
 ---
 # Mail
 

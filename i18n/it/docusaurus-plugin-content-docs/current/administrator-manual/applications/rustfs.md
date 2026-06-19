@@ -1,6 +1,5 @@
 ---
 title: RustFS
-sidebar_position: 16
 ---
 # RustFS
 

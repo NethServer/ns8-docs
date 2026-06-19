@@ -1,6 +1,5 @@
 ---
 title: Ejabberd
-sidebar_position: 9
 ---
 # Ejabberd
 

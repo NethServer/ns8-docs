@@ -1,6 +1,5 @@
 ---
 title: NethVoice
-sidebar_position: 1
 ---
 # NethVoice
 

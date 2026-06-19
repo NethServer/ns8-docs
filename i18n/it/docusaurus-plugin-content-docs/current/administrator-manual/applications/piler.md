@@ -1,6 +1,5 @@
 ---
 title: Piler
-sidebar_position: 15
 ---
 # Piler
 

@@ -1,6 +1,5 @@
 ---
 title: Nextcloud
-sidebar_position: 6
 ---
 # Nextcloud
 

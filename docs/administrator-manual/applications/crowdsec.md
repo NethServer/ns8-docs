@@ -1,6 +1,5 @@
 ---
 title: CrowdSec
-sidebar_position: 10
 ---
 # CrowdSec
 
