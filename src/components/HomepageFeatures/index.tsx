@@ -1,4 +1,5 @@
 import type {ReactNode} from 'react';
+import {translate} from '@docusaurus/Translate';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
@@ -11,31 +12,45 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Modular applications',
+    title: translate({
+      id: 'homepage.features.modular.title',
+      message: 'Modular applications',
+      description: 'Title of the first homepage feature card',
+    }),
     Svg: require('@site/static/img/easy.svg').default,
-    description: (
-      <>
-        Nethserver is a container orchestrator that lets you install and manage applications through a friendly web interface.
-      </>
-    ),
+    description: translate({
+      id: 'homepage.features.modular.description',
+      message:
+        'NethServer is a container orchestrator that lets you install and manage applications through a friendly web interface.',
+      description: 'Description of the first homepage feature card',
+    }),
   },
   {
-    title: 'Multi-node clusters',
+    title: translate({
+      id: 'homepage.features.cluster.title',
+      message: 'Multi-node clusters',
+      description: 'Title of the second homepage feature card',
+    }),
     Svg: require('@site/static/img/cluster.svg').default,
-    description: (
-      <>
-        Host applications on a single machine or distribute the workload across multiple nodes, ready for the hybrid cloud.
-      </>
-    ),
+    description: translate({
+      id: 'homepage.features.cluster.description',
+      message:
+        'Host applications on a single machine or distribute the workload across multiple nodes, ready for the hybrid cloud.',
+      description: 'Description of the second homepage feature card',
+    }),
   },
   {
-    title: 'Open Source',
+    title: translate({
+      id: 'homepage.features.opensource.title',
+      message: 'Open Source',
+      description: 'Title of the third homepage feature card',
+    }),
     Svg: require('@site/static/img/open_source.svg').default,
-    description: (
-      <>
-        NethServer is Open Source with a vibrant community.
-      </>
-    ),
+    description: translate({
+      id: 'homepage.features.opensource.description',
+      message: 'NethServer is Open Source with a vibrant community.',
+      description: 'Description of the third homepage feature card',
+    }),
   },
 ];
 
