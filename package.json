@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build && node ./scripts/stage-legacy-docs.mjs",
+    "build": "docusaurus build && node ./scripts/stage-legacy-docs.mjs && node ./scripts/generate-ns8-redirects.mjs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
