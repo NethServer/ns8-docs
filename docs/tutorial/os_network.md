@@ -36,3 +36,6 @@ This is a summary of keyboard functions:
 To apply the changes restart NetworkManager:
 
     systemctl restart NetworkManager
+
+If possible, reboot the node to be sure the new network settings persist across
+reboots.
