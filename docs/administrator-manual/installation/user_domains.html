@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">User domains | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/docs/administrator-manual/installation/user_domains"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="User domains | NethServer 8 documentation"><meta data-rh="true" name="description" content="Users, passwords, and groups are stored in LDAP databases and constitute a user domain."><meta data-rh="true" property="og:description" content="Users, passwords, and groups are stored in LDAP databases and constitute a user domain."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/docs/administrator-manual/installation/user_domains"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/installation/user_domains" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/it/docs/administrator-manual/installation/user_domains" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/installation/user_domains" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"User domains","item":"https://docs.nethserver.org/docs/administrator-manual/installation/user_domains"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.d64e4b30.css">
-<script src="/assets/js/runtime~main.9f3e80c4.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.27d03fb8.js" defer="defer"></script>
 <script src="/assets/js/main.6d7b1cd9.js" defer="defer"></script>
 </head>
 <body>
@@ -190,7 +190,7 @@ provider</strong> button, select the target node, and proceed with the installat
 <p>Optional attributes are:</p>
 <ul>
 <li class="">Email address -- Corresponds to the standard LDAP <code>mail</code> attribute. It can be set to the user&#x27;s personal email address, where password expiration warnings are sent. Some applications may also use it as a valid login name.</li>
-<li class="">Password never expires (AD only) -- When enabled, the user&#x27;s password remains valid indefinitely, bypassing the domain password age policy.</li>
+<li class="">Password never expires -- When enabled, the user&#x27;s password remains valid indefinitely, bypassing the domain password age policy.</li>
 <li class="">Required password change / User has to change password at next login (AD only) -- When enabled, the user is prompted to change their password at the next login.</li>
 </ul>
 <p>A user can be added to one or more groups.</p>
@@ -234,7 +234,7 @@ provider</strong> button, select the target node, and proceed with the installat
 <li class="">Password</li>
 <li class="">Group (optional field)</li>
 <li class="">Email address (optional field)</li>
-<li class="">Password never expires (optional field, AD only)</li>
+<li class="">Password never expires (optional field)</li>
 <li class="">Required password change / User has to change password at next login (optional field, AD only)</li>
 </ul>
 <p>The portal is automatically configured on every instance of <a href="#active_directory-section" class="">Active Directory</a> or <a href="#openldap-section" class="">LDAP server RFC2307</a> provider.</p>
