@@ -103,6 +103,19 @@ If you need to enable this consent later on a different browser just click on th
 
 ![image](/_static/user-manual/webtop/screenshots/webtop-button_desktop_notifications.png)
 
+## Chat integration {#webtop-chat}
+
+Web chat integration installation is disabled by default for all users.
+
+To enable chat integration:
+
+1.  Install the "Ejabberd" application from the `Software center` page See [Install applications](../../administrator-manual/installation/software_center.md#install-applications) and [Ejabberd](../../administrator-manual/applications/ejabberd.md).
+2.  In Ejabberd `Settings` page, the field `Ejabberd domain (FQDN)` must match the value of `Mail domain` in WebTop's settings.
+3.  Access WebTop as admin user then enable the web chat authorization:
+    - Access the **Administration** menu, then `Domains --> NethServer --> Groups --> Users --> Authorizations`
+    - `Add (+) --> Services --> com.sonicle.webtop.core (WebTop) --> Resource --> WEBCHAT --> Action --> ACCESS`
+    - Click **OK** then save and close
+
 ## Mail composer customization
 
 ### Hide auto-suggested recipient in lookups

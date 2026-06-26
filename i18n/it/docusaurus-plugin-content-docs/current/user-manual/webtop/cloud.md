@@ -108,19 +108,6 @@ Per scaricare i file ti basta accedere al tuo `Cloud --> Uploads --> Folder` per
 
 ![image](/_static/user-manual/webtop/screenshots/webtop-doc_cloud11.png)
 
-## Integrazione chat {#webtop-chat}
-
-L'installazione dell'integrazione web chat è disabilitata per impostazione predefinita per tutti gli utenti.
-
-Per abilitare l'integrazione chat:
-
-1.  Installa l'applicazione "Ejabberd" dalla pagina `Software center`. Vedi [Installare applicazioni](../../administrator-manual/installation/software_center.md#install-applications) ed [Ejabberd](../../administrator-manual/applications/ejabberd.md).
-2.  Nella pagina `Settings` di Ejabberd, il campo `Ejabberd domain (FQDN)` deve corrispondere al valore di `Mail domain` nelle impostazioni di WebTop.
-3.  Accedi a WebTop come utente admin e abilita l'autorizzazione alla web chat:
-    - accedi al menu **Administration**, quindi `Domains --> NethServer --> Groups --> Users --> Authorizations`
-    - `Add (+) --> Services --> com.sonicle.webtop.core (WebTop) --> Resource --> WEBCHAT --> Action --> ACCESS`
-    - fai clic su **OK**, quindi salva e chiudi
-
 ## Personalizzazione del launcher
 
 Il launcher è il menu a icone sul lato sinistro della pagina. Puoi aggiungere pulsanti personalizzati al launcher.
