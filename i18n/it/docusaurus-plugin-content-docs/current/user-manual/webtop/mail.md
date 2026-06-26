@@ -116,6 +116,126 @@ Per abilitare l'integrazione chat:
     - `Add (+) --> Services --> com.sonicle.webtop.core (WebTop) --> Resource --> WEBCHAT --> Action --> ACCESS`
     - fai clic su **OK**, quindi salva e chiudi
 
+## Funzioni di I.A.
+
+WebTop Mail include funzioni di I.A. che dipendono da un provider LLM.
+
+## Attivazione servizio provider LLM
+
+Per attivare le funzioni integrate di I.A. sono necessari questi passi preliminari:
+
+- accedere al pannello admin
+- accedere alla pagina **Licenze**: `Domini --> NethServer --> Licenze`
+- caricare una licenza valida o attivare la licenza di prova, valida 3 mesi, cliccando sul pulsante lucchetto e seguendo il wizard
+- accedere alla pagina **I.A.**
+- se viene mostrato l'avviso di licenza non valida, forzare un refresh della pagina
+- selezionare il provider LLM
+- inserire il modello che si vuole utilizzare per il provider scelto
+- inserire la chiave API ricavata dal pannello di gestione del provider LLM selezionato
+- indicare una quota massima di utilizzo token se necessario e salvare
+
+## Autorizzazione all'uso del servizio
+
+Dopo aver attivato il provider LLM è necessario abilitare i singoli utenti a poter utilizzare le funzioni di I.A. integrate nel modulo Mail.
+
+È possibile concedere l'autorizzazione sia a singoli utenti sia a gruppi.
+
+Accedi alla pagina di gestione utenti o gruppi, seleziona il singolo utente o gruppo e fai clic su **Modifica** oppure fai doppio clic. Accedi a **Autorizzazioni**, poi **Aggiungi**, e seleziona:
+
+- **Servizio**: `WebTop (com.sonicle.webtop.core)`
+- **Contesto**: `AI_ACTIONS`
+- **Azione**: `ACCESS`
+
+Con questa autorizzazione verranno attivate le funzioni di I.A. e saranno utilizzabili dagli utenti al successivo login.
+
+È disponibile una ulteriore autorizzazione per consentire la configurazione del proprio provider LLM personale.
+
+Seleziona il singolo utente o gruppo e fai clic su **Modifica** oppure fai doppio clic. Accedi a **Autorizzazioni**, poi **Aggiungi**, e seleziona:
+
+- **Servizio**: `WebTop (com.sonicle.webtop.core)`
+- **Contesto**: `AI_PERSONAL`
+- **Azione**: `MANAGE`
+
+Con questa autorizzazione l'utente potrà accedere alla pagina **Impostazioni --> Sistema --> I.A.** e configurare i dati del proprio provider LLM a uso personale.
+
+## Funzioni di I.A. disponibili
+
+Le funzioni di I.A. integrate sono utilizzabili in due modalità:
+
+- su un messaggio ricevuto o inviato già presente sul server, cliccando sul tasto che appare nella toolbar in alto a sinistra
+- in fase di editing di un messaggio, cliccando sul pulsante presente nella toolbar dell'editor HTML
+
+Le funzioni disponibili per i messaggi già presenti sono le seguenti:
+
+### Analizza
+
+- riassumi il contenuto
+- stato della discussione
+- verifica la mia disponibilità
+- analizza il tono
+- classifica l'urgenza
+- suggerisci un'azione
+
+### Spiega o semplifica
+
+- spiega in linguaggio semplice
+- definisci gergo o acronimi
+- cosa sta davvero chiedendo?
+
+### Rispondi
+
+- aiutami a rispondere
+- rifiuta o rinvia con alternative
+- conferma ricezione
+- accetta
+- rifiuta
+- serve tempo
+
+### Estrai
+
+- estrai date
+- elenca i partecipanti e i possibili ruoli
+
+### Verifica affidabilità
+
+- semplice
+- tecnica
+
+### Altre funzioni
+
+- traduci in un'altra lingua
+- rispondi a una mia domanda
+
+Le funzioni disponibili in fase di editor di un messaggio sono le seguenti:
+
+- aiutami a scrivere
+- raffina selezione
+- riscrivi
+- accorcia
+- allunga
+- semplifica
+- migliora
+- correggi ortografia
+- cambia tono
+- formale
+- informale
+- amichevole
+- assertivo
+- coaching su selezione
+- traduci selezione
+
+## Report di utilizzo token per amministratore
+
+Sul pannello admin di WebTop è possibile ottenere un report dei token utilizzati dai singoli utenti relativi al provider LLM aziendale configurato.
+
+Accedi a `Domini --> NethServer --> I.A. --> Report`.
+
+Seleziona il tipo di vista del periodo temporale che vuoi visualizzare.
+
+Facendo clic sul tasto **Condividi** puoi inviare a un indirizzo email un report HTML della vista selezionata.
+
+Facendo clic sulla destra sul tasto **Genera** è invece possibile programmare l'invio di questo report via email a intervalli stabiliti: giornaliero, settimanale o mensile.
+
 ## Personalizzazione del composer della posta
 
 ### Nascondere il destinatario suggerito automaticamente nelle ricerche

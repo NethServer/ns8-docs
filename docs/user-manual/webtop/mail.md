@@ -116,6 +116,126 @@ To enable chat integration:
     - `Add (+) --> Services --> com.sonicle.webtop.core (WebTop) --> Resource --> WEBCHAT --> Action --> ACCESS`
     - Click **OK** then save and close
 
+## AI features
+
+WebTop Mail includes AI features that depend on an LLM provider.
+
+## Activate the LLM provider service
+
+To activate the integrated AI features, complete these preliminary steps:
+
+- access the admin panel
+- open the **Licenses** page: `Domains --> NethServer --> Licenses`
+- upload a valid license or activate the trial license, valid for 3 months, by clicking the lock button and following the wizard
+- open the **AI** page
+- if an invalid license warning is displayed, refresh the page
+- select the LLM provider
+- enter the model you want to use for the selected provider
+- enter the API key from the selected LLM provider management panel
+- optionally set a maximum token usage quota, then save
+
+## Authorize users to use the service
+
+After activating the LLM provider, you must enable the individual users who can use the integrated AI features in the Mail module.
+
+You can grant the authorization to individual users or groups.
+
+Open the user or group management page, select the user or group, then click **Edit** or double-click. Open **Authorizations**, then **Add**, and select:
+
+- **Service**: `WebTop (com.sonicle.webtop.core)`
+- **Context**: `AI_ACTIONS`
+- **Action**: `ACCESS`
+
+With this authorization, AI functions are enabled and available to users at the next login.
+
+You can also grant an additional authorization to let users configure a personal LLM provider.
+
+Select the user or group, then click **Edit** or double-click. Open **Authorizations**, then **Add**, and select:
+
+- **Service**: `WebTop (com.sonicle.webtop.core)`
+- **Context**: `AI_PERSONAL`
+- **Action**: `MANAGE`
+
+With this authorization, the user can access **Settings --> System --> AI** and configure a personal LLM provider.
+
+## Available AI functions
+
+The integrated AI functions are available in two ways:
+
+- on an existing received or sent message by clicking the button in the top-left toolbar
+- while editing a message by clicking the button in the HTML editor toolbar
+
+Available functions for existing messages:
+
+### Analyze
+
+- summarize the content
+- discussion status
+- check my availability
+- analyze the tone
+- classify urgency
+- suggest an action
+
+### Explain or simplify
+
+- explain in simple language
+- define jargon or acronyms
+- what is the sender really asking?
+
+### Reply
+
+- help me reply
+- decline or postpone with alternatives
+- confirm receipt
+- accept
+- reject
+- need more time
+
+### Extract
+
+- extract dates
+- list participants and possible roles
+
+### Check reliability
+
+- simple
+- technical
+
+### Other functions
+
+- translate into another language
+- answer my question
+
+Available functions while editing a message:
+
+- help me write
+- refine selection
+- rewrite
+- shorten
+- expand
+- simplify
+- improve
+- correct spelling
+- change tone
+- formal
+- informal
+- friendly
+- assertive
+- coaching on selection
+- translate selection
+
+## Token usage report for administrators
+
+In the WebTop admin panel you can view a report of the tokens used by individual users with the configured company LLM provider.
+
+Open `Domains --> NethServer --> AI --> Report`.
+
+Select the time period view you want to display.
+
+Click **Share** to send an HTML report of the selected view to an email address.
+
+Click **Generate** on the right to schedule the report delivery by email at fixed intervals: daily, weekly, or monthly.
+
 ## Mail composer customization
 
 ### Hide auto-suggested recipient in lookups
