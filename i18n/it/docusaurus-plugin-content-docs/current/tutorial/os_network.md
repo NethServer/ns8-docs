@@ -36,3 +36,5 @@ Questo è un riepilogo delle funzioni da tastiera:
 Per applicare le modifiche, riavvia NetworkManager:
 
     systemctl restart NetworkManager
+
+Se possibile, riavviare il nodo per assicurarsi che le nuove impostazioni di rete persistano dopo i riavvii.

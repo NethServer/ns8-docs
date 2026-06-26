@@ -42,14 +42,15 @@ Note specifiche per le piattaforme di virtualizzazione:
 - Per VMWare ESXi 8+, aggiungi un disco rigido con immagine esistente e seleziona *IDE controller 1 (Master)*.
 - Su Proxmox, per ottenere prestazioni massime, seleziona `host` come tipo di CPU. Evita "kvm64", poiché l'immagine Rocky Linux non lo supporta. Consulta la [documentazione di Proxmox](https://pve.proxmox.com/pve-docs/chapter-qm.html#qm_cpu) per ulteriori dettagli sulla selezione della CPU.
 
-Avvia l'immagine NS8 all'interno della tua piattaforma di virtualizzazione. Se Cloud-init non trova una configurazione di rete, tenterà di ottenerne una tramite DHCP. Dopo alcuni secondi, la console di sistema mostrerà un prompt di accesso con l'indirizzo IP assegnato.
+Avviare l'immagine NS8 all'interno della piattaforma di virtualizzazione. Se Cloud-init
+non trova una configurazione di rete, tenterà di ottenerne una tramite DHCP.
+In questo caso, ricordarsi di disabilitare il DHCP e assegnare un indirizzo IP statico come
+spiegato nell'avviso riportato di seguito.
 
-Le credenziali amministrative predefinite del sistema operativo sono:
-
-- Nome utente: `root`
-- Password: `Nethesis,1234`
-
-Accedi utilizzando le credenziali predefinite. Al primo accesso, ti verrà richiesto di cambiare la password di root.
+Dopo alcuni secondi, la console di sistema visualizzerà un prompt di login che mostra
+l'indirizzo IP assegnato e la password iniziale casuale per l'utente root. Accedere come
+`root` utilizzando la password iniziale visualizzata. Verrà richiesto di
+modificarla immediatamente.
 
 L'accesso SSH per root è disabilitato. Per ottenere l'accesso amministrativo SSH, crea un account utente personale nel gruppo `wheel` e imposta una password. Ad esempio, esegui i seguenti comandi e inserisci la password desiderata:
 
