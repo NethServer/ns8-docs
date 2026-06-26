@@ -23,7 +23,7 @@ Ejabberd needs a dedicated virtual host name, a FQDN like `nethserver.org`, This
 
 Before proceeding with the configuration, make sure to create the corresponding name record inside your DNS server.
 
-If you want to use the Ejabberd instance as [Webtop chat engine](../../user-manual/webtop/index.md#webtop-chat), ensure you enter the same domain name used by Webtop in the `Mail domain` field on its Settings page.
+If you want to use the Ejabberd instance as [Webtop chat engine](../../user-manual/webtop/cloud.md#webtop-chat), ensure you enter the same domain name used by Webtop in the `Mail domain` field on its Settings page.
 
 :::note
 
