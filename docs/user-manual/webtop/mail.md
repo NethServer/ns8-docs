@@ -210,17 +210,17 @@ Available functions while editing a message:
 
 - help me write
 - refine selection
-- rewrite
-- shorten
-- expand
-- simplify
-- improve
-- correct spelling
-- change tone
-- formal
-- informal
-- friendly
-- assertive
+  - rewrite
+  - shorten
+  - expand
+  - simplify
+  - improve
+  - correct spelling
+  - change tone
+    - formal
+    - informal
+    - friendly
+    - assertive
 - coaching on selection
 - translate selection
 

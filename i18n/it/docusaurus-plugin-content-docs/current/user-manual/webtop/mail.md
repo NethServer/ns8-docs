@@ -210,17 +210,17 @@ Le funzioni disponibili in fase di editor di un messaggio sono le seguenti:
 
 - aiutami a scrivere
 - raffina selezione
-- riscrivi
-- accorcia
-- allunga
-- semplifica
-- migliora
-- correggi ortografia
-- cambia tono
-- formale
-- informale
-- amichevole
-- assertivo
+  - riscrivi
+  - accorcia
+  - allunga
+  - semplifica
+  - migliora
+  - correggi ortografia
+  - cambia tono
+    - formale
+    - informale
+    - amichevole
+    - assertivo
 - coaching su selezione
 - traduci selezione
 
