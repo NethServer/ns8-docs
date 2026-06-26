@@ -271,7 +271,7 @@ When creating a user, the following fields are mandatory:
 Optional attributes are:
 
 - Email address -- Corresponds to the standard LDAP `mail` attribute. It can be set to the user's personal email address, where password expiration warnings are sent. Some applications may also use it as a valid login name.
-- Password never expires (AD only) -- When enabled, the user's password remains valid indefinitely, bypassing the domain password age policy.
+- Password never expires -- When enabled, the user's password remains valid indefinitely, bypassing the domain password age policy.
 - Required password change / User has to change password at next login (AD only) -- When enabled, the user is prompted to change their password at the next login.
 
 A user can be added to one or more groups.
@@ -327,7 +327,7 @@ When creating a user, the following fields are available:
 - Password
 - Group (optional field)
 - Email address (optional field)
-- Password never expires (optional field, AD only)
+- Password never expires (optional field)
 - Required password change / User has to change password at next login (optional field, AD only)
 
 The portal is automatically configured on every instance of [Active Directory](#active_directory-section) or [LDAP server RFC2307](#openldap-section) provider.
