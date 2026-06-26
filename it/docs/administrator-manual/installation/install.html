@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Installazione | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/it/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/it/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/it/docs/administrator-manual/installation/install"><meta data-rh="true" property="og:locale" content="it_IT"><meta data-rh="true" property="og:locale:alternate" content="en_US"><meta data-rh="true" name="docusaurus_locale" content="it"><meta data-rh="true" name="docsearch:language" content="it"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Installazione | NethServer 8 documentation"><meta data-rh="true" name="description" content="Innanzitutto, assicurati che i Requisiti di sistema siano soddisfatti."><meta data-rh="true" property="og:description" content="Innanzitutto, assicurati che i Requisiti di sistema siano soddisfatti."><link data-rh="true" rel="icon" href="/it/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/it/docs/administrator-manual/installation/install"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/installation/install" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/it/docs/administrator-manual/installation/install" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/installation/install" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Installazione","item":"https://docs.nethserver.org/it/docs/administrator-manual/installation/install"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/it/opensearch.xml"><link rel="stylesheet" href="/it/assets/css/styles.d64e4b30.css">
-<script src="/it/assets/js/runtime~main.58111118.js" defer="defer"></script>
+<script src="/it/assets/js/runtime~main.2a71851d.js" defer="defer"></script>
 <script src="/it/assets/js/main.2364f923.js" defer="defer"></script>
 </head>
 <body>
@@ -56,13 +56,14 @@
 <li class="">Per VMWare ESXi 8+, aggiungi un disco rigido con immagine esistente e seleziona <em>IDE controller 1 (Master)</em>.</li>
 <li class="">Su Proxmox, per ottenere prestazioni massime, seleziona <code>host</code> come tipo di CPU. Evita &quot;kvm64&quot;, poiché l&#x27;immagine Rocky Linux non lo supporta. Consulta la <a href="https://pve.proxmox.com/pve-docs/chapter-qm.html#qm_cpu" target="_blank" rel="noopener noreferrer" class="">documentazione di Proxmox</a> per ulteriori dettagli sulla selezione della CPU.</li>
 </ul>
-<p>Avvia l&#x27;immagine NS8 all&#x27;interno della tua piattaforma di virtualizzazione. Se Cloud-init non trova una configurazione di rete, tenterà di ottenerne una tramite DHCP. Dopo alcuni secondi, la console di sistema mostrerà un prompt di accesso con l&#x27;indirizzo IP assegnato.</p>
-<p>Le credenziali amministrative predefinite del sistema operativo sono:</p>
-<ul>
-<li class="">Nome utente: <code>root</code></li>
-<li class="">Password: <code>Nethesis,1234</code></li>
-</ul>
-<p>Accedi utilizzando le credenziali predefinite. Al primo accesso, ti verrà richiesto di cambiare la password di root.</p>
+<p>Avviare l&#x27;immagine NS8 all&#x27;interno della piattaforma di virtualizzazione. Se Cloud-init
+non trova una configurazione di rete, tenterà di ottenerne una tramite DHCP.
+In questo caso, ricordarsi di disabilitare il DHCP e assegnare un indirizzo IP statico come
+spiegato nell&#x27;avviso riportato di seguito.</p>
+<p>Dopo alcuni secondi, la console di sistema visualizzerà un prompt di login che mostra
+l&#x27;indirizzo IP assegnato e la password iniziale casuale per l&#x27;utente root. Accedere come
+<code>root</code> utilizzando la password iniziale visualizzata. Verrà richiesto di
+modificarla immediatamente.</p>
 <p>L&#x27;accesso SSH per root è disabilitato. Per ottenere l&#x27;accesso amministrativo SSH, crea un account utente personale nel gruppo <code>wheel</code> e imposta una password. Ad esempio, esegui i seguenti comandi e inserisci la password desiderata:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">useradd -G wheel ethan.smith</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">passwd ethan.smith</span><br></div></code></pre></div></div>
 <p>Dopo aver effettuato l&#x27;accesso con l&#x27;account utente personale, ottieni l&#x27;accesso root eseguendo:</p>
