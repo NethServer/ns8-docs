@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personalizzazione backup &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Ricerca" href="search.html" />
+    <link rel="next" title="Macchine virtuali" href="virtual_machines.html" />
+    <link rel="prev" title="Disaster recovery" href="disaster_recovery.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "it", "page": "backup_customization", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/backup_customization.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accesso al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applicazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Autenticazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applicazioni</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Altri moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practice</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Personalizzazione backup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-backup">Backup dati</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#storage-backends">Backend di archiviazione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#engines">Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#duplicity">Duplicity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restic">Restic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rsync">Rsync</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-execution">Esecuzione da riga di comando</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-backup-customization">Personalizzazione backup dati</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inclusion">Inclusione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exclusion">Esclusione</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#override-inclusions-and-exclusions">Personalizzazione inclusioni ed esclusioni</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-backup">Backup configurazione</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Inclusione</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Esclusione</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#restore-from-command-line">Ripristino da linea di comando</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formatting-a-local-disk">Formattazione di un disco locale</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Macchine virtuali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Moduli NethForge</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Aggiornamento da NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Aggiornamento Email a Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vecchio Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Il vecchio Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">Groupware SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Personalizzazione backup</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/backup_customization.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="backup-customization">
+<span id="backup-customization-section"></span><h1>Personalizzazione backup<a class="headerlink" href="#backup-customization" title="Link a questa intestazione">¶</a></h1>
+<p>La personalizzazione di base può essere effettuata direttamente dal nuovo Server Manager. Vedi <a class="reference internal" href="backup.html#backup-basic-customization-section"><span class="std std-ref">Personalizzazione backup dati</span></a>.</p>
+<section id="data-backup">
+<span id="backup-data-section"></span><h2>Backup dati<a class="headerlink" href="#data-backup" title="Link a questa intestazione">¶</a></h2>
+<p>Il backup dei dati può essere eseguito utilizzando diversi engine:</p>
+<ul class="simple">
+<li><p>duplicity (default) - <a class="reference external" href="http://duplicity.nongnu.org/">http://duplicity.nongnu.org/</a></p></li>
+<li><p>restic - <a class="reference external" href="https://restic.net/">https://restic.net/</a></p></li>
+<li><p>rsync - <a class="reference external" href="https://rsync.samba.org/">https://rsync.samba.org/</a></p></li>
+</ul>
+<p>Quando si seleziona un engine, l’amministratore di sistema deve valutare attentamente molteplici aspetti:</p>
+<ul class="simple">
+<li><p>Compressione: i dati vengono compressi sulla destinazione, l’utilizzo del disco può variare in funzione dell’efficienza della compressione, che dipende anche dal set di dati</p></li>
+<li><p>Deduplicazione: invece di comprimere i file, i dati vengono suddivisi in blocchi e viene conservata solo una copia di ciascun blocco. L’efficienza dipende molto dal set di dati</p></li>
+<li><p>Crittografia: i dati salvati nella memoria di destinazione sono crittografati. Di norma i dati vengono crittografati prima del trasferimento</p></li>
+<li><p>Dimensione: lo spazio utilizzato nella destinazione per ciascun backup, può essere inferiore o uguale al set di dati originale. Quando si utilizzano engine senza supporto per la compressione, lo spazio sulla destinazione dovrebbe sempre essere più grande rispetto a quello occupato nella sorgente</p></li>
+<li><p>Conservazione: la politica che fissa la quantità di tempo in cui un set di dati rimarrà disponibile per il ripristino</p></li>
+<li><p>Integrità: è la capacità dell’engine di verificare se il backup eseguito è valido in caso di ripristino</p></li>
+<li><p>Tipo: un backup può essere completo, incrementale o basato su snapshot (sempre incrementale):</p>
+<ul>
+<li><p>completo: tutti i file vengono copiati nella destinazione ogni volta</p></li>
+<li><p>incrementale: confronta i dati con l’ultimo backup completo e copia solo gli elementi modificati o aggiunti. Il backup completo e tutti gli incrementali intermedi sono necessari per il processo di ripristino. È richiesto che venga eseguito regolarmente un backup completo.</p></li>
+<li><p>snapshot: crea un backup completo solo la prima volta, successivamente crea solo backup differenziali. Le istantanee possono essere eliminate e consolidate ed è necessario un solo backup completo</p></li>
+</ul>
+</li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 14%" />
+<col style="width: 12%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Engine</p></th>
+<th class="head"><p>Compressione</p></th>
+<th class="head"><p>Deduplicazione</p></th>
+<th class="head"><p>Crittografia</p></th>
+<th class="head"><p>Integrità</p></th>
+<th class="head"><p>Tipo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>duplicity</strong></p></td>
+<td><p>Sì</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Sì</p></td>
+<td><p>completo / incrementale</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>restic</strong></p></td>
+<td><p>No</p></td>
+<td><p>Sì</p></td>
+<td><p>Sì</p></td>
+<td><p>Sì</p></td>
+<td><p>snapshot</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>rsync</strong></p></td>
+<td><p>No</p></td>
+<td><p>Parziale</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>snapshot</p></td>
+</tr>
+</tbody>
+</table>
+<section id="storage-backends">
+<h3>Backend di archiviazione<a class="headerlink" href="#storage-backends" title="Link a questa intestazione">¶</a></h3>
+<p>Supportati da tutti gli engine:</p>
+<ul class="simple">
+<li><p>CIFS: cartella condivisa Windows, disponibile su tutti i NAS (Network Attached Storage). Utilizza credenziali di accesso come: MioUtente,domain=miodominio.com</p></li>
+<li><p>NFS: cartella condivisa Linux, disponibile su tutti i NAS, solitamente più veloce di CIFS</p></li>
+<li><p>WebDAV: disponibile su molti server NAS e remoti (utilizzare come destinazione WebDAV un server con un certificato SSL valido, altrimenti il sistema non riuscirà a montare il filesystem)</p></li>
+<li><p>USB: disco collegato ad una porta USB/SATA locale</p></li>
+</ul>
+<p>Supportati da restic ed rsync</p>
+<ul class="simple">
+<li><p>SFTP: SSH File Transfer Protocol</p></li>
+</ul>
+<p>Supportati solo da restic</p>
+<ul class="simple">
+<li><p>Amazon S3 (o altro server compatibile come <a class="reference external" href="https://www.minio.io/">Minio</a>)</p></li>
+<li><p>Backblaze <a class="reference external" href="https://www.backblaze.com/b2/cloud-storage.html">B2</a></p></li>
+</ul>
+</section>
+<section id="engines">
+<h3>Engine<a class="headerlink" href="#engines" title="Link a questa intestazione">¶</a></h3>
+<section id="duplicity">
+<h4>Duplicity<a class="headerlink" href="#duplicity" title="Link a questa intestazione">¶</a></h4>
+<p><span class="target" id="index-8"></span>Duplicity è l’engine di backup predefinito per NethServer. Ha un buon algoritmo di compressione che riduce in modo apprezzabile l’utilizzo della spazio sulla destinazione. Duplicity richiede un backup completo una volta alla settimana, quando il set di dati è molto grande il processo potrebbe richiedere più di 24 ore per essere completato. NethServer non implementa la crittografia per il backup se l’engine è Duplicity.</p>
+<p>Backend di archiviazione supportati:</p>
+<ul class="simple">
+<li><p>CIFS</p></li>
+<li><p>NFS</p></li>
+<li><p>USB</p></li>
+<li><p>WebDAV (solo quando usato come <em>backup singolo</em>)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Il nome della directory di destinazione è basato sul nome host del server: in caso di modifica dell’FQDN, l’amministratore dovrà occuparsi di copiare/spostare i dati di backup dalla vecchia directory a quella nuova.</p>
+</div>
+</section>
+<section id="restic">
+<h4>Restic<a class="headerlink" href="#restic" title="Link a questa intestazione">¶</a></h4>
+<p><span class="target" id="index-9"></span>Restic implementa un backup basato su snapshot e sempre crittografato. Supporta la deduplicazione e può eseguire il backup sui servizi cloud. Poiché Restic richiede solo un backup completo, tutte le esecuzioni successive alla prima dovrebbero essere veloci e potrebbero essere programmate più volte al giorno.</p>
+<p>Backend di archiviazione supportati:</p>
+<ul class="simple">
+<li><p>CIFS</p></li>
+<li><p>NFS</p></li>
+<li><p>USB</p></li>
+<li><p>WebDAV (solo quando usato come <em>backup singolo</em>)</p></li>
+<li><p>SFTP (SSH File Transfer Protocol)</p></li>
+<li><p>Amazon S3 (o altro server compatibile come <a class="reference external" href="https://www.minio.io/">Minio</a>)</p></li>
+<li><p>Backblaze <a class="reference external" href="https://www.backblaze.com/b2/cloud-storage.html">B2</a></p></li>
+<li><p>restic <a class="reference external" href="https://github.com/restic/rest-server">REST server</a></p></li>
+</ul>
+<p>Quando si configura un backup utilizzando l’engine restic e un back-end di archiviazione remoto, assicurarsi di disporre di una larghezza di banda sufficiente per completare il primo backup entro 24 ore. In caso contrario, restic creerà molteplici istantanee diverse. Se si dispone di una connessione lenta e si desidera ancora utilizzare un back-end di archiviazione remoto, attenersi alla seguente procedura:</p>
+<ul class="simple">
+<li><p>configurare il backup con restic</p></li>
+<li><p>eseguire manualmente il backup cliccando su <span class="guilabel">Esegui ora</span></p></li>
+<li><p>disabilitare il backup configurato, in modo che non venga avviato alla successiva esecuzione pianificata</p></li>
+<li><p>terminato il backup manuale, riabilitare il backup per consentirne l’esecuzione pianificata</p></li>
+</ul>
+</section>
+<section id="rsync">
+<h4>Rsync<a class="headerlink" href="#rsync" title="Link a questa intestazione">¶</a></h4>
+<p>L’engine di backup stile <span class="target" id="index-10"></span>Time machine utilizza <span class="target" id="index-11"></span>rsync. Dopo il primo backup completo, copia solo i file modificati o nuovi utilizzando un  effiecente sistema di trasferimento incrementale. Sulla destinazione, la deduplicazione parziale viene ottenuta attraverso l’uso di link fisici. Se la directory di destinazione del backup è piena, i backup più vecchi vengono automaticamente eliminati per liberare spazio.</p>
+<p>Backend di archiviazione supportati:</p>
+<ul class="simple">
+<li><p>NFS</p></li>
+<li><p>USB</p></li>
+<li><p>WebDAV (solo quando usato come <em>backup singolo</em>)</p></li>
+<li><p>SFTP (SSH File Transfer Protocol)</p></li>
+</ul>
+<p>Rsync non supporta la crittografia né la compressione sulla destinazione. Durante il trasferimento dei dati, SFTP assicura la crittografia e i dati vengono compressi per ridurre al minimo l’utilizzo della banda utilizzata.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Quando si utilizza l’engine rsync, assicurarsi che il backend di destinazione supporti link simbolici e fisici. Si rammenta che NethServer non supporta collegamenti su condivisioni Samba per implicazioni di sicurezza. Inoltre i link simbolici non sono supportati su WebDAV.</p>
+<p>È necessario accedere alla destinazione con l’utente <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="command-line-execution">
+<h3>Esecuzione da riga di comando<a class="headerlink" href="#command-line-execution" title="Link a questa intestazione">¶</a></h3>
+<p>Per lanciare un backup da riga di comando, utilizzare:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>backup-data -b &lt;name&gt;
+</pre></div>
+</div>
+<p>in cui <code class="docutils literal notranslate"><span class="pre">name</span></code> è il nome del backup che si desidera lanciare.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Di default il nome del <em>primo</em> backup configurato su NethServer è <code class="docutils literal notranslate"><span class="pre">backup-data</span></code></p>
+</div>
+</section>
+<section id="data-backup-customization">
+<span id="backup-advanced-customization-section"></span><h3>Personalizzazione backup dati<a class="headerlink" href="#data-backup-customization" title="Link a questa intestazione">¶</a></h3>
+<p>In caso di installazione di software aggiuntivi, potrebbe esser necessario modificare la lista delle directory e dei file inclusi (o esclusi) dal backup.</p>
+<section id="inclusion">
+<h4>Inclusione<a class="headerlink" href="#inclusion" title="Link a questa intestazione">¶</a></h4>
+<p>Se si desidera includere una directory o un file nel backup dei dati, è sufficiente aggiungere una riga al file <code class="file docutils literal notranslate"><span class="pre">/etc/backup-data.d/custom.include</span></code>.</p>
+<p>Ad esempio, per includere nel backup un software installato nella directory <code class="file docutils literal notranslate"><span class="pre">/opt</span></code>, aggiungere questa riga:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/mysoftware
+</pre></div>
+</div>
+<p>La stessa sintassi si applica al backup della configurazione. Le modifiche dovranno essere incluse all’interno del file <code class="file docutils literal notranslate"><span class="pre">/etc/backup-config.d/custom.include</span></code>.</p>
+</section>
+<section id="exclusion">
+<h4>Esclusione<a class="headerlink" href="#exclusion" title="Link a questa intestazione">¶</a></h4>
+<p>Se si desidera escludere una directory o un file dal backup dei dati, aggiungere una riga al file  <code class="file docutils literal notranslate"><span class="pre">/etc/backup-data.d/custom.exclude</span></code>.</p>
+<p>Ad esempio, per escludere dal backup tutte le directory chiamate <em>Download</em>, aggiungere la riga:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**Download**
+</pre></div>
+</div>
+<p>Per escludere la casella di posta <em>test</em>, aggiungere la riga:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/var/lib/nethserver/vmail/test/
+</pre></div>
+</div>
+<p>La stessa sintassi si applica al backup della configurazione. Le modifiche dovrebbero essere fatte all’interno del file <code class="file docutils literal notranslate"><span class="pre">/etc/backup-config.d/custom.exclude</span></code>.</p>
+</section>
+<section id="override-inclusions-and-exclusions">
+<h4>Personalizzazione inclusioni ed esclusioni<a class="headerlink" href="#override-inclusions-and-exclusions" title="Link a questa intestazione">¶</a></h4>
+<p>Tutti i backup utilizzano la stessa configurazione, ma l’elenco dei file salvati ed esclusi può essere personalizzato per ciascun backup utilizzando due file speciali:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/backup-data/&lt;name&gt;.include</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/backup-data/&lt;name&gt;.exclude</span></code></p></li>
+</ul>
+<p>In cui <code class="docutils literal notranslate"><span class="pre">name</span></code> è il nome del backup.</p>
+<p>Entrambi i file sostituiranno il set di dati inclusi ed esclusi dal backup. La sintassi accettata è la stessa indicata nel paragrafo precedente.</p>
+<p>Ad esempio, dato un backup chiamato <code class="docutils literal notranslate"><span class="pre">mybackup1</span></code>, andranno creati i seguenti file:</p>
+<ul class="simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">/etc/backup-data/mybackup1.include</span></code></p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">/etc/backup-data/mybackup1.exclude</span></code></p></li>
+</ul>
+<section id="example">
+<h5>Esempio<a class="headerlink" href="#example" title="Link a questa intestazione">¶</a></h5>
+<p>È possibile configurare un backup programmato ogni ora che includa solo i file della posta.</p>
+<ol class="arabic">
+<li><p>Configurare il nuovo backup <code class="docutils literal notranslate"><span class="pre">mymailbackup</span></code> utilizzando l’interfaccia utente</p></li>
+<li><p>Creare un file include custom contenente solo la directory delle email:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &quot;/var/lib/nethserver/vmail&quot; &gt; /etc/backup-data/mymailbackup.include
+</pre></div>
+</div>
+</li>
+<li><p>Creare un file exclude custom vuoto:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>touch /etc/backup-data/mymailbackup.exclude
+</pre></div>
+</div>
+</li>
+<li><p>Applicare la configurazione:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event nethserver-backup-data-save mymailbackup
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Assicurarsi di non lasciare righe vuote all’interno file modificati.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Questo tipo di backup non può essere utilizzato in caso di disaster recovery.</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="configuration-backup">
+<span id="configuration-backup-section"></span><h2>Backup configurazione<a class="headerlink" href="#configuration-backup" title="Link a questa intestazione">¶</a></h2>
+<p>Il backup della configurazione è un’attività automatizzata che viene eseguita ogni notte alle 00.15 e che crea un nuovo archivio, <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/backup/backup-config.tar.xz</span></code>, se la configurazione è cambiata nelle 24 ore precedenti.</p>
+<p>L’elenco dei moduli installati è incluso nell’archivio di backup. La procedura di ripristino consente di scaricare e installare automaticamente i moduli riportati nell’elenco.</p>
+<p>Nella maggior parte dei casi non è necessario modificare il backup della configurazione. Ma può essere utile, ad esempio, se si è aggiunta una configurazione custom per httpd. In questo caso è possibile aggiungere al backup della configurazione il percorso del file che contiene la personalizzazione.</p>
+<section id="id3">
+<h3>Inclusione<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h3>
+<p>Se si desidera includere una directory o un file nel backup della configurazione, aggiungere una riga al file <code class="file docutils literal notranslate"><span class="pre">/etc/backup-config.d/custom.include</span></code>.</p>
+<p>Ad esempio, per eseguire il backup del file <code class="file docutils literal notranslate"><span class="pre">/etc/httpd/conf.d/mycustom.conf</span></code>, aggiungere la riga:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/etc/httpd/conf.d/mycustom.conf
+</pre></div>
+</div>
+<p>Non aggiungere mai directory e file voluminosi al backup della configurazione.</p>
+</section>
+<section id="id4">
+<h3>Esclusione<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
+<p>Se si desidera escludere una directory o un file dal backup della configurazione, aggiungere una riga al file <code class="file docutils literal notranslate"><span class="pre">/etc/backup-config.d/custom.exclude</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Assicurarsi di non lasciare righe vuote nei file modificati. La sintassi del backup della configurazione supporta solo semplici percorsi di file e directory.</p>
+</div>
+</section>
+</section>
+<section id="restore-from-command-line">
+<span id="data-restore"></span><h2>Ripristino da linea di comando<a class="headerlink" href="#restore-from-command-line" title="Link a questa intestazione">¶</a></h2>
+<p>Nel caso in cui l’interfaccia web <span class="xref std std-ref">select_restore-section</span> non fosse sufficiente, il ripristino può essere eseguito dalla riga di comando.</p>
+<p>Tutti i file rilevanti sono conservati nella directory <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/</span></code> :</p>
+<ul class="simple">
+<li><p>Cartelle di posta: <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/vmail/&lt;user&gt;</span></code></p></li>
+<li><p>Cartelle condivise: <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/ibay/&lt;name&gt;</span></code></p></li>
+<li><p>Home utenti: <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/home/&lt;user&gt;</span></code></p></li>
+</ul>
+<p>Per ottenere un elenco dei dati contenuti in un backup, utilizzare:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>backup-data-list -b &lt;name&gt;
+</pre></div>
+</div>
+<p>Per ripristinare tutti i dati nella loro posizione originale, utilizzare:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>restore-data -b &lt;name&gt;
+</pre></div>
+</div>
+<p>Per ripristinare un file o una directory, utilizzare:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>restore-file -b &lt;name&gt; &lt;position&gt; &lt;path&gt;
+</pre></div>
+</div>
+<p>Esempio, ripristinare un file alla versione di 15 giorni fa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>restore-file -b &lt;name&gt; -t 15D /tmp &quot;/var/lib/nethserver/ibay/test/myfile&quot;
+</pre></div>
+</div>
+<p>L’opzione <code class="docutils literal notranslate"><span class="pre">-t</span></code> consente di specificare il numero di giorni (15 in questo scenario). Quando viene utilizzato con engine basati su snapshot, l’opzione <code class="docutils literal notranslate"><span class="pre">-t</span></code> richiede il nome dello snapshot da ripristinare.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Nel caso si utilizzi <em>CIFS</em> per accedere alla condivisione e il comando di restore non funzioni nel modo atteso, verificare che utente e password della condivisione di rete siano corretti. Se la coppia utente/password è sbagliata nel file <code class="file docutils literal notranslate"><span class="pre">/var/log/messages</span></code> si troveranno degli errori di NT_STATUS_LOGON_FAILURE. Allo stesso tempo il comando backup-data-list non andrà a buon fine e uscirà immediatamente riportando degli errori.</p>
+</div>
+</section>
+<section id="formatting-a-local-disk">
+<h2>Formattazione di un disco locale<a class="headerlink" href="#formatting-a-local-disk" title="Link a questa intestazione">¶</a></h2>
+<p>I dischi locali possono essere formattati direttamente dalla <a class="reference internal" href="backup.html#backup-data-settings-section"><span class="std std-ref">interfaccia web</span></a>. Se qualcosa andasse storto o fosse necessario un partizionamento personalizzato, seguire i seguenti passaggi.</p>
+<p>I migliori filesystem per dischi di backup SATA/USB sono EXT3 o EXT4. Il filesystem FAT è supportato ma <em>non raccomandato</em>, mentre NTFS <strong>non è supportato</strong>. EXT3 o EXT4 sono obbligatori in caso di utilizzo dell’engine rsync.</p>
+<p>Per eseguire la formattazione, è necessario collegare il disco e identificarlo correttamente:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># dmesg | tail -20
+
+Apr 15 16:20:43 mynethserver kernel: usb-storage: device found at 4
+Apr 15 16:20:43 mynethserver kernel: usb-storage: waiting for device to settle before scanning
+Apr 15 16:20:48 mynethserver kernel:   Vendor: WDC WD32  Model: 00BEVT-00ZCT0     Rev:
+Apr 15 16:20:48 mynethserver kernel:   Type:   Direct-Access           ANSI SCSI revision: 02
+Apr 15 16:20:49 mynethserver kernel: SCSI device sdc: 625142448 512-byte hdwr sectors (320073 MB)
+Apr 15 16:20:49 mynethserver kernel: sdc: Write Protect is off
+Apr 15 16:20:49 mynethserver kernel: sdc: Mode Sense: 34 00 00 00
+Apr 15 16:20:49 mynethserver kernel: sdc: assuming drive cache: write through
+Apr 15 16:20:49 mynethserver kernel: SCSI device sdc: 625142448 512-byte hdwr sectors (320073 MB)
+Apr 15 16:20:49 mynethserver kernel: sdc: Write Protect is off
+Apr 15 16:20:49 mynethserver kernel: sdc: Mode Sense: 34 00 00 00
+Apr 15 16:20:49 mynethserver kernel: sdc: assuming drive cache: write through
+Apr 15 16:20:49 mynethserver kernel:  sdc: sdc1
+Apr 15 16:20:49 mynethserver kernel: sd 7:0:0:0: Attached scsi disk sdc
+Apr 15 16:20:49 mynethserver kernel: sd 7:0:0:0: Attached scsi generic sg3 type 0
+Apr 15 16:20:49 mynethserver kernel: usb-storage: device scan complete
+</pre></div>
+</div>
+<p>Un altro buon comando da utilizzare è essere:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lsblk -io KNAME,TYPE,SIZE,MODEL
+</pre></div>
+</div>
+<p>In questo esempio, il disco è stato riconosciuto come device <em>sdc</em>.</p>
+<ul>
+<li><p>Creare una unica partizione Linux sull’intero disco:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sgdisk --zap-all /dev/sdc
+sgdisk --largest-new=1 /dev/sdc
+</pre></div>
+</div>
+</li>
+<li><p>Creare il filesystem sulla partizione <em>sdc1</em> assegnando una label, ad esempio <em>backup</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkfs.ext4 -v /dev/sdc1 -L backup -E lazy_itable_init
+</pre></div>
+</div>
+</li>
+<li><p>Scollegare e ricollegare il disco USB:</p>
+<p>E’ possibile utilizzare il comando seguente per simulare il collegamento del disco:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>blockdev --rereadpt /dev/sdc
+</pre></div>
+</div>
+</li>
+<li><p>A questo punto l’etichetta <em>backup</em> sarà visualizzata nella pagina <span class="guilabel">Backup</span>.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="disaster_recovery.html" class="btn btn-neutral float-left" title="Disaster recovery" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="virtual_machines.html" class="btn btn-neutral float-right" title="Macchine virtuali" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
