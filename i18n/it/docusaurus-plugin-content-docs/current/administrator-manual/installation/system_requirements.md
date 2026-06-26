@@ -18,7 +18,7 @@ I requisiti sopra indicati devono essere aumentati per soddisfare le esigenze di
 
 ## Distribuzione Linux {#supported-distros-section}
 
-Installa NS8 su una distribuzione Linux server pulita, evitando l'installazione su sistemi desktop o server che eseguono già altri servizi.
+Installare NS8 su una distribuzione Linux server pulita, evitando l'installazione su sistemi desktop o server che eseguono già altri servizi. Se è necessario installare software non fornito da NS8 o dalle sue applicazioni, come uno strumento di monitoraggio o un agente di log o backup, preparare prima un'installazione di test con le applicazioni NS8 richieste e verificare che non vi siano conflitti di porte o risorse. NS8 riserva le porte nell'intervallo `20000-45000` per le applicazioni e le assegna dinamicamente. È possibile utilizzare porte al di sotto di `20000` per software aggiuntivo solo dopo aver verificato che le applicazioni installate non le richiedano già.
 
 NS8 è compatibile con [Rocky Linux](https://rockylinux.org/) 9 e distribuzioni derivate da RHEL 9, come AlmaLinux o CentOS Stream 9, così come con [Debian](https://www.debian.org/) 13.
 
@@ -51,6 +51,7 @@ I filesystem locali supportati sono XFS ed EXT4. Anche iSCSI e i dispositivi di 
 È necessaria una connessione internet funzionante per l'installazione, la configurazione e l'aggiornamento del nodo. È richiesta anche in presenza di un [abbonamento](../about/subscription.md) attivo.
 
 Assegna un indirizzo IP statico al nodo. DHCP e qualsiasi altro protocollo di rilevamento IP dinamico non sono consentiti.
+
 ## Risoluzione dei nomi {#resolv-conf}
 
 Il risolutore dei nomi del nodo deve essere configurato per utilizzare server DNS che non siano forniti direttamente da NS8. Questo è necessario perché il file `/etc/resolv.conf` viene ereditato dai container delle applicazioni, i quali potrebbero utilizzare configurazioni di rete private che possono entrare in conflitto con il servizio DNS del nodo stesso.
@@ -62,6 +63,7 @@ Evitare le seguenti configurazioni:
 - Non utilizzare `nameserver 127.0.0.1` o qualsiasi indirizzo IP assegnato al nodo stesso. Se la distribuzione Linux ha installato un servizio di risoluzione DNS locale, fare riferimento alla sua documentazione per disabilitarlo o rimuoverlo.
 - Non utilizzare alcuna applicazione NS8 che fornisca un servizio DNS come risolutore dei nomi del nodo, ad esempio Samba Active Directory o DNSMasq. Questo potrebbe causare loop nella risoluzione dei nomi o impedire gli aggiornamenti del nodo.
 - Non mescolare server DNS appartenenti a ambiti di rete diversi, ad esempio, `1.1.1.1` (pubblico, Cloudflare) e `192.168.1.1` (privato). Questo potrebbe portare a risultati incoerenti nelle query DNS.
+
 ## Configurazione DNS {#dns-reqs}
 
 Per garantire che i client di rete possano connettersi al nodo, il suo fully qualified domain name (FQDN) deve risolversi in un indirizzo IP instradabile tramite DNS. Registra l'FQDN con un record DNS di tipo A per gli indirizzi IPv4 e di tipo AAAA per gli indirizzi IPv6.
@@ -72,6 +74,7 @@ Per soddisfare questi requisiti, segui questi passaggi:
 
 1.  **Determina il tuo provider DNS**: In base allo scopo del tuo nodo, il DNS può essere fornito da un servizio internet pubblico, da un dispositivo di rete privato o da una combinazione di entrambi. Consulta e comprendi la documentazione del provider DNS scelto.
 2.  **Registra l'FQDN**: Scegli l'FQDN per il tuo nodo e registralo nel DNS con il suo indirizzo IP pubblico. Un FQDN è composto da un prefisso hostname (una singola parola) e un suffisso di dominio DNS. Ad esempio, se l'hostname è `jupiter` e il suffisso di dominio è `example.org`, l'FQDN risultante sarà `jupiter.example.org`.
+
 ## Requisiti del nodo worker {#worker-node-reqs}
 
 Un nodo worker ha requisiti specifici per l'installazione e la configurazione.
@@ -87,11 +90,13 @@ Assicurarsi che siano soddisfatti i seguenti requisiti:
 1.  Il nodo worker deve risolvere l'FQDN del leader all'indirizzo raggiungibile corretto.
 2.  Il server HTTPS (porta TCP 443) a quell'indirizzo deve gestire la richiesta API.
 3.  La porta UDP della VPN (predefinita 55820) non deve essere bloccata da alcun dispositivo di rete.
+
 ## Requisiti del servizio SSH {#ssh-service-reqs}
 
 Un servizio SSH in esecuzione non è strettamente richiesto da NS8, a meno che non sia attivo un [abbonamento](../about/subscription.md). In tal caso, `sshd` deve essere in ascolto sulla porta TCP standard 22 per integrarsi correttamente con il servizio di supporto remoto.
 
 Se desideri modificare la porta pubblica SSH, configura un reindirizzamento di porta senza alterare la configurazione della porta di ascolto di `sshd`. Consulta [Gestire il reindirizzamento della porta SSH](../configuration/firewall.md#ssh-redirection) per le istruzioni.
+
 ## Connettività di rete esterna {#external-services}
 
 Un nodo NethServer 8 (NS8) richiede connettività di rete in uscita verso una serie di servizi esterni per funzionare correttamente. Questi servizi sono utilizzati per aggiornamenti di sistema, distribuzione delle applicazioni, operazioni del cluster, gestione degli abbonamenti, backup, supporto e rilascio di certificati TLS.
@@ -132,6 +137,7 @@ Note
 - Tutte le connessioni elencate sono avviate dal nodo NS8.
 - Bloccare l'accesso a questi servizi può impedire aggiornamenti, installazione di applicazioni, backup, formazione del cluster o validazione degli abbonamenti.
 - Potrebbero essere necessarie connessioni in uscita aggiuntive per funzionalità specifiche, come le notifiche email e i percorsi HTTP, e per le applicazioni installate, a seconda della loro configurazione e dei servizi upstream.
+
 ## Requisiti del browser web
 
 Per accedere all'interfaccia web di amministrazione del cluster, è necessario disporre di una versione aggiornata del browser Firefox, Chrome o Chromium come client web.

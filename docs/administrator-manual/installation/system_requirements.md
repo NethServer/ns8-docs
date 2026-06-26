@@ -18,7 +18,14 @@ More nodes can be added later, and when adding a new node, it is recommended to 
 
 ## Linux distribution {#supported-distros-section}
 
-Install NS8 on a clean Linux server distribution, avoiding installation on desktop systems or servers already running other services.
+Install NS8 on a clean Linux server distribution, avoiding installation on
+desktop systems or servers already running other services. If you must install
+software not provided by NS8 or its applications, such as a monitoring tool or
+a log or backup agent, first prepare a test installation with the required NS8
+applications and verify that no port or resource conflicts exist. NS8 reserves
+ports in the `20000-45000` range for applications and allocates them
+dynamically. You can use ports below `20000` for additional software only
+after checking that the installed applications do not already require them.
 
 NS8 is compatible with [Rocky Linux](https://rockylinux.org/) 9 and RHEL 9 derivative distributions, such as AlmaLinux or CentOS Stream 9, as well as [Debian](https://www.debian.org/) 13.
 

@@ -26,8 +26,8 @@ L'immagine della macchina virtuale preconfigurata si basa su Rocky Linux 9 e vie
 
 | Piattaforma | Formato | Dimensione | URL |
 |----|----|----|----|
-| [Proxmox](https://www.proxmox.com) (QEMU) | qcow2 | 1,4   GB | <https://tinyurl.com/ns8-rocky-qcow2> |
-| [VMWare](https://www.vmware.com) ESXi 8+ | vmdk | 2,8   GB | <https://tinyurl.com/ns8-rocky-vmdk> |
+| [Proxmox](https://www.proxmox.com) (QEMU) | qcow2 | 1,7   GB | <https://tinyurl.com/ns8-rocky-qcow2> |
+| [VMWare](https://www.vmware.com) ESXi 8+ | vmdk | 3,5   GB | <https://tinyurl.com/ns8-rocky-vmdk> |
 
 Link per il download dell'immagine NS8
 
