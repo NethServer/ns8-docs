@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOGo &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Ricerca" href="search.html" />
+    <link rel="next" title="PhpVirtualBox" href="phpVirtualBox.html" />
+    <link rel="prev" title="Docker" href="docker.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "it", "page": "sogo", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/sogo.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accesso al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applicazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Autenticazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applicazioni</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Altri moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Personalizzazione backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Macchine virtuali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Moduli NethForge</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SOGo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#official-documentation">Official documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#esmith-database">Esmith database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-sogo-on-an-exclusive-hostname">Access SOGo on an exclusive hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maximum-imap-command">Maximum IMAP command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#activesync">ActiveSync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backup">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fine-tuning">Fine tuning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adjust-setting">Adjust Setting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#increase-sogod-log-verbosity">Increase sogod log verbosity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sogo-floods-var-log-messages">SOGo floods /var/log/messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#clients">Clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#android">Android</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#integration-via-caldav-cardav-imap">Integration via Caldav /Cardav/imap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integration-via-exchangeactivesync">Integration via ExchangeActiveSync</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mozilla-thunderbird-and-lightning">Mozilla Thunderbird and Lightning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windows-mobile">Windows Mobile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outlook">Outlook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nightly-build">Nightly build</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#product-7-sogo-3">NethServer 7 - SOGo 3</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#issues">Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sources">Sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Aggiornamento da NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Aggiornamento Email a Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vecchio Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Il vecchio Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">Groupware SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>SOGo</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/sogo.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sogo">
+<span id="sogo-section"></span><h1>SOGo<a class="headerlink" href="#sogo" title="Link a questa intestazione">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>This package is not supported in NethServer Enterprise</p>
+</div>
+<p>SOGo is a fully supported and trusted groupware server with a focus on scalability and open standards. SOGo is released under the GNU GPL/LGPL v2 and above.
+SOGo provides a rich AJAX-based Web interface and supports multiple native clients through the use of standard protocols such as CalDAV, CardDAV and GroupDAV, as well as Microsoft ActiveSync.
+SOGo is the missing component of your infrastructure; it sits in the middle of your servers to offer your users a uniform and complete interface to access their information. It has been deployed in production environments where thousands of users are involved.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>SOGo provides EAS (Exchange ActiveSync) support, but not EWS (Exchange Web Service).
+Outlook 2013, 2016 for Windows works well with EAS.
+Mainstream mobile devices (iOS, Android, BlackBerry 10) work well with EAS, they can sync mails, calendars, contacts, tasks.
+Apple Mail.app, and Outlook for Mac support EWS. But not EAS.
+<strong>Clients work very well with POP3/IMAP account, caldav/carddav account</strong></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p><code class="docutils literal notranslate"><span class="pre">nethserver-sogo</span></code> doesn’t integrate OpenChange and Samba4 for native MAPI support, so SOGo groupware doesn’t provide full support for Microsoft Outlook clients, Mac OS X Mail.app and all iOS devices, don’t try to add your mail account as an Exchange account in these mail clients. You have to add account as POP3/IMAP account, caldav/carddav account instead.</p>
+</div>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link a questa intestazione">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>You need first to set an account provider which can be local (nethserver-directory for openldap or nethserver-dc for Samba AD) or remote (whatever openldap or samba AD choice). You cannot mix your choice by openldap and Samba AD, preferably if you plan to host samba shares with user authentication, you need samba AD (nethserver-dc)</p>
+</div>
+<p>Then install from the Software Center or use the command line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install nethserver-sogo
+</pre></div>
+</div>
+</section>
+<section id="official-documentation">
+<h2>Official documentation<a class="headerlink" href="#official-documentation" title="Link a questa intestazione">¶</a></h2>
+<p>Please read <a class="reference external" href="https://sogo.nu/files/docs/SOGoInstallationGuide.html">official documentation</a>: your solution is in this book.</p>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link a questa intestazione">¶</a></h2>
+<p>The URL of the groupware is <a class="reference external" href="https://yourdomain.com/SOGo">https://yourdomain.com/SOGo</a>. You can use the “<code class="docutils literal notranslate"><span class="pre">username</span></code> or <code class="docutils literal notranslate"><span class="pre">username&#64;domain.com</span></code> for login.</p>
+</section>
+<section id="esmith-database">
+<h2>Esmith database<a class="headerlink" href="#esmith-database" title="Link a questa intestazione">¶</a></h2>
+<p>You can modify the available properties of SOGo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sogod=service
+  ActiveSync=enabled
+  AdminUsers=admin
+  BackupTime=30 0
+  Certificate=
+  Dav=enabled
+  DraftsFolder=Drafts
+  IMAPLoginFieldName=userPrincipalName
+  MailAuxiliaryUserAccountsEnabled=YES
+  Notifications=Appointment,EMail              #&#39;Folder&#39;/&#39;ACLs&#39;/&#39;Appointment&#39;
+  SOGoInternalSyncInterval=10
+  SOGoMaximumPingInterval=10
+  SOGoMaximumSyncInterval=30
+  SOGoMaximumSyncResponseSize=2048
+  SOGoMaximumSyncWindowSize=100
+  SentFolder=Sent
+  SxVMemLimit=512
+  TrashFolder=Trash
+  VirtualHost=
+  WOWatchDogRequestTimeout=10
+  WOWorkersCount=10
+  status=enabled
+</pre></div>
+</div>
+<p>Properties:</p>
+<ul class="simple">
+<li><p>AdminUsers: Parameter used to set which usernames require administrative privileges over all the users tables.</p></li>
+<li><p>BackupTime: Time to launch the backup, by default (“30 0”)each day at 00h30, you can change it if you set a cron compatible value <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">*</span></code></p></li>
+<li><p>DraftsFolder: name of draft folder, default is ‘Drafts’</p></li>
+<li><p>IMAPLoginFieldName: adjust the imap login field to your good trusted value in your ldap (see <a class="reference external" href="https://community.nethserver.org/t/sogo-and-ad-brainstorming/8024/31">https://community.nethserver.org/t/sogo-and-ad-brainstorming/8024/31</a>)</p></li>
+<li><p>SentFolder: name of the sent folder, default is ‘Sent’</p></li>
+<li><p>TrashFolder: name of the trash folder, default is ‘Trash’</p></li>
+<li><p>WOWorkersCount: The amount of instances of SOGo that will be spawned to handle multiple requests simultaneously</p></li>
+<li><p>MailAuxiliaryUserAccountsEnabled: Parameter used to activate the auxiliary IMAP accounts in SOGo. When set to YES, users can add other IMAP accounts that will be visible from the SOGo Webmail interface.</p></li>
+<li><p>Notifications: enabled notifications. The value is a comma separated list. Default value is “Appointment, EMail”</p></li>
+</ul>
+<p><strong>Notes</strong></p>
+<p>Terms highlighted in <strong>bold</strong> are documented in SOGo <a class="reference external" href="https://sogo.nu/files/docs/SOGoInstallationGuide.html#_preferences_hierarchy#_preferences_hierarchy">installation and configuration guide</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AdminUsers</span></code> comma separated list of accounts allowed to bypass SOGo ACLs. See <strong>SOGoSuperUsernames</strong> key</p></li>
+<li><p>Notifications comma separated list of values (no spaces between commas). Known item names are <code class="docutils literal notranslate"><span class="pre">ACLs</span></code>, <code class="docutils literal notranslate"><span class="pre">Folders</span></code>, <code class="docutils literal notranslate"><span class="pre">Appointments</span></code>. See <strong>SOGoSendEMailNotifications</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{Drafts,Sent,Trash}Folder</span></code> See respective <strong>SOGoFolderName</strong> parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VirtualHosts</span></code> SOGo is reachable from the default host name plus the host (FQDN) listed here. The host key is generated/removed in <code class="docutils literal notranslate"><span class="pre">hosts</span></code> DB, with <code class="docutils literal notranslate"><span class="pre">type=self</span></code> automatically.</p></li>
+</ul>
+</section>
+<section id="access-sogo-on-an-exclusive-hostname">
+<h2>Access SOGo on an exclusive hostname<a class="headerlink" href="#access-sogo-on-an-exclusive-hostname" title="Link a questa intestazione">¶</a></h2>
+<p>To make SOGo accessible with an exclusive DNS hostname:</p>
+<ul>
+<li><p>In “DNS and DHCP” UI module (Hosts), create the DNS host name as a server alias (i.e. webmail.example.com)</p></li>
+<li><p>Add the host name to sogod/VirtualHost prop list:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod VirtualHost webmail.example.com
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Same rule applies if SOGo must be accessible using server IP address. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod VirtualHost 192.168.1.1
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+<p>If the VirtualHost prop is set, requests to the root (i.e. webmail.example.com) are redirected to the (mandatory) /SOGo subfolder (webmail.example.com/SOGo).</p>
+<p>It is also possible to use a custom certificate for this virtualhost:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod Certificate example.crt
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+</section>
+<section id="maximum-imap-command">
+<h2>Maximum IMAP command<a class="headerlink" href="#maximum-imap-command" title="Link a questa intestazione">¶</a></h2>
+<p>Maximum IMAP command line length in kilo bytes. Some clients generate very long command lines with huge mailboxes, so you may need to raise this if you get «Too long argument» or «IMAP command line too large» errors often.</p>
+<p>Set by default to 2048KB:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop dovecot ImapMaxLineLenght 2048
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+</section>
+<section id="activesync">
+<h2>ActiveSync<a class="headerlink" href="#activesync" title="Link a questa intestazione">¶</a></h2>
+<p>According to this <a class="reference internal" href="webtop5.html#webtop-vs-sogo"><span class="std std-ref">WebTop vs SOGo</span></a>, WebTop and SOGo can be installed on the same machine, although it is discouraged to keep such setup on the long run.</p>
+<p>ActiveSync is enabled by default on SOGo and WebTop. At installation of SOGo, Webtop-ActiveSync is disabled and SOGo will take precedence.</p>
+<p>SOGo-ActiveSync can be disabled in the server-manager at the SOGo-panel or with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod ActiveSync disabled
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+<p>To enable ActiveSync on SOGo again:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod ActiveSync enabled
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+</section>
+<section id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Link a questa intestazione">¶</a></h2>
+<p>Each night (by default) a cron run to backup user data (filter rules, specific settings, events, contacts) and save it to <code class="docutils literal notranslate"><span class="pre">/var/lib/sogo/backups</span></code>
+you can restore the data with a tool <code class="docutils literal notranslate"><span class="pre">sogo-restore-user</span></code>, for example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sogo-restore-user /var/lib/sogo/backups/sogo-2017-12-10_0030/ stephane
+</pre></div>
+</div>
+<p>or for all users</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sogo-restore-user /var/lib/sogo/backups/sogo-2017-12-10_0030/ -A
+</pre></div>
+</div>
+<p>if you want to change the time of your backup for example (in this example, run at 4h01 AM):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod BackupTime &#39;1 4&#39;
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+</section>
+<section id="fine-tuning">
+<h2>Fine tuning<a class="headerlink" href="#fine-tuning" title="Link a questa intestazione">¶</a></h2>
+<section id="adjust-setting">
+<h3>Adjust Setting<a class="headerlink" href="#adjust-setting" title="Link a questa intestazione">¶</a></h3>
+<p>SOGo <a class="reference external" href="https://sogo.nu/files/docs/SOGoInstallationGuide.html#_microsoft_enterprise_activesync_tuning#_microsoft_enterprise_activesync_tuning">must be tuned</a> following the number of users, some settings can be tested.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Keep in mind to set one worker per active user for the activesync connection. The <a class="reference external" href="https://sogo.nu/files/docs/SOGoInstallationGuide.html#_general_preferences#_general_preferences">SxVMemLimit</a> could be be adjusted also, between 25MB to 45 MB per active user with the activesync service.</p>
+</div>
+<p>100 users, 10 EAS devices:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod WOWorkersCount 15
+config setprop sogod SOGoMaximumPingInterval 3540
+config setprop sogod SOGoMaximumSyncInterval 3540
+config setprop sogod SOGoInternalSyncInterval 30
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+<p>100 users, 20 EAS devices:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod WOWorkersCount 25
+config setprop sogod SOGoMaximumPingInterval 3540
+config setprop sogod SOGoMaximumSyncInterval 3540
+config setprop sogod SOGoInternalSyncInterval 40
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+<p>1000 users, 100 EAS devices:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod WOWorkersCount 120
+config setprop sogod SOGoMaximumPingInterval 3540
+config setprop sogod SOGoMaximumSyncInterval 3540
+config setprop sogod SOGoInternalSyncInterval 60
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+<p>SxVMemLimit (default 512MB):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod SxVMemLimit 1024
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+</section>
+<section id="increase-sogod-log-verbosity">
+<h3>Increase sogod log verbosity<a class="headerlink" href="#increase-sogod-log-verbosity" title="Link a questa intestazione">¶</a></h3>
+<p>Read the <a class="reference external" href="http://www.sogo.nu/nc/support/faq/article/how-to-enable-more-verbose-logging-in-sogo.html">SOGo FAQ</a> for other debugging features.</p>
+</section>
+<section id="sogo-floods-var-log-messages">
+<h3>SOGo floods /var/log/messages<a class="headerlink" href="#sogo-floods-var-log-messages" title="Link a questa intestazione">¶</a></h3>
+<p>You can see this log noise in <code class="docutils literal notranslate"><span class="pre">/var/log/message</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Dec  4 12:36:01 ns7ad1 systemd: Created slice User Slice of sogo.
+Dec  4 12:36:01 ns7ad1 systemd: Starting User Slice of sogo.
+Dec  4 12:36:01 ns7ad1 systemd: Started Session 163 of user sogo.
+Dec  4 12:36:01 ns7ad1 systemd: Starting Session 163 of user sogo.
+Dec  4 12:36:01 ns7ad1 systemd: Removed slice User Slice of sogo.
+Dec  4 12:36:01 ns7ad1 systemd: Stopping User Slice of sogo.
+</pre></div>
+</div>
+<p>These messages are normal and expected – they will be seen any time a user logs in.
+To suppress these log entries in <code class="docutils literal notranslate"><span class="pre">/var/log/messages</span></code>, create a discard filter with rsyslog, e.g., run the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &#39;if $programname == &quot;systemd&quot; and ($msg contains &quot;Starting Session&quot; or $msg contains &quot;Started Session&quot; or $msg contains &quot;Created slice&quot; or $msg contains &quot;Starting User&quot; or $msg contains &quot;Removed slice User&quot; or $msg contains &quot;Stopping User&quot;) then stop&#39; &gt; /etc/rsyslog.d/ignore-systemd-session-slice-sogo.conf
+</pre></div>
+</div>
+<p>and restart rsyslog</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>systemctl restart rsyslog
+</pre></div>
+</div>
+<p>this solution comes from <a class="reference external" href="https://access.redhat.com/solutions/1564823">RedHat solution</a></p>
+</section>
+</section>
+<section id="clients">
+<h2>Clients<a class="headerlink" href="#clients" title="Link a questa intestazione">¶</a></h2>
+<section id="android">
+<h3>Android<a class="headerlink" href="#android" title="Link a questa intestazione">¶</a></h3>
+<p>Currently you have 2 ways to integrate your Android device with Sogo.</p>
+<section id="integration-via-caldav-cardav-imap">
+<h4>Integration via Caldav /Cardav/imap<a class="headerlink" href="#integration-via-caldav-cardav-imap" title="Link a questa intestazione">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The drawback is that you need to set all settings (Url/Username/Password) in each application.</p>
+</div>
+<ul class="simple">
+<li><p>Email</p></li>
+</ul>
+<p>Imaps(over ssl) is a good choice, you can use the K9-mail software to retrieve your email or the default email application</p>
+<ul class="simple">
+<li><p>Contacts and calendars</p></li>
+</ul>
+<p>There are various working clients, including <a class="reference external" href="https://davdroid.bitfire.at">DAVdroid</a> (open-source) and <a class="reference external" href="http://dmfs.org/">CalDAV-Sync/CardDav-Sync</a>.
+Advantages Full integration into Android, so that almost all calendar and contacts apps can access synchronized data.</p>
+</section>
+<section id="integration-via-exchangeactivesync">
+<h4>Integration via ExchangeActiveSync<a class="headerlink" href="#integration-via-exchangeactivesync" title="Link a questa intestazione">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The advantage is that you set the Url/Username/Password only in one location</p>
+</div>
+<section id="step-by-step-configuration">
+<h5>Step-by-step configuration<a class="headerlink" href="#step-by-step-configuration" title="Link a questa intestazione">¶</a></h5>
+<ul class="simple">
+<li><p>Open the account menu, choose add an exchange account</p></li>
+<li><p>Fill your full email address and password in Account Setup page:</p></li>
+<li><p>If it asks you to choose Account Type, please choose Exchange:</p></li>
+<li><p>In detailed account setup page, fill up the form with your server address and email account credential</p>
+<ul>
+<li><p>DomainUsername: your full email address</p></li>
+<li><p>Password: password of your email account</p></li>
+<li><p>Server: your server name or IP address</p></li>
+<li><p>Port: 443</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Please also check Use secure connection (SSL) and Accept all SSL certificates</p>
+</div>
+<ul class="simple">
+<li><p>In Account Settings page, you can choose Push. it’s all up to you.</p></li>
+<li><p>Choose a name for your Exchange account.</p></li>
+<li><p>Click Next to finish account setup. That’s all.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="mozilla-thunderbird-and-lightning">
+<h3>Mozilla Thunderbird and Lightning<a class="headerlink" href="#mozilla-thunderbird-and-lightning" title="Link a questa intestazione">¶</a></h3>
+<p>Alternatively, you can access SOGo with a GroupDAV and a CalDAV client. A typical well-integrated setup is to use Mozilla Thunderbird and Mozilla Lightning along with Inverse’s SOGo Connector plug in to synchronize your address books and the Inverse’s SOGo Integrator plug in to provide a complete integration of the features of SOGo into Thunderbird and Lightning. Refer to the documentation of Thunderbird to configure an initial IMAP account pointing to your SOGo server and using the user name and password mentioned above.</p>
+<p>With the <a class="reference external" href="https://sogo.nu/download.html#/frontends#/frontends">SOGo Integrator plug in</a>, your calendars and address books will be automatically discovered when you login in Thunderbird. This plug in can also propagate specific extensions and default user settings among your site. However, be aware that in order to use the SOGo Integrator plug in, you will need to repackage it with specific modifications. Please refer to the <a class="reference external" href="http://sogo.nu/downloads/documentation.html">documentation published online</a>.</p>
+<p>If you only use the SOGo Connector plug in, you can still easily access your data.</p>
+<ul class="simple">
+<li><p>To access your personal address book:</p></li>
+<li><p>Choose Go &gt; Address Book.</p></li>
+<li><p>Choose File &gt; New &gt; Remote Address Book.</p></li>
+<li><p>Enter a significant name for your calendar in the Name field.</p></li>
+<li><p>Type the following URL in the URL field: <a class="reference external" href="http://localhost/SOGo/dav/jdoe/Contacts/personal/">http://localhost/SOGo/dav/jdoe/Contacts/personal/</a></p></li>
+<li><p>Click on OK.</p></li>
+</ul>
+<p>To access your personal calendar:</p>
+<ul class="simple">
+<li><p>Choose Go &gt; Calendar.</p></li>
+<li><p>Choose Calendar &gt; New Calendar.</p></li>
+<li><p>Select On the Network and click on Continue.</p></li>
+<li><p>Select CalDAV.</p></li>
+<li><p>Type the following URL in the URL field: <a class="reference external" href="http://localhost/SOGo/dav/jdoe/Calendar/personal/">http://localhost/SOGo/dav/jdoe/Calendar/personal/</a></p></li>
+<li><p>Click on Continue.</p></li>
+</ul>
+</section>
+<section id="windows-mobile">
+<h3>Windows Mobile<a class="headerlink" href="#windows-mobile" title="Link a questa intestazione">¶</a></h3>
+<p>The following steps are required to configure Microsoft Exchange ActiveSync on a Windows Phone:</p>
+<p>Locate the Settings options from within your application menu.</p>
+<ul class="simple">
+<li><p>Select Email + Accounts.</p></li>
+<li><p>Select Add an Account.</p></li>
+<li><p>Select the option for Advanced Setup.</p></li>
+<li><p>Enter your full email address and password for your account. Then press the sign in button.</p></li>
+<li><p>Select Exchange ActiveSync.</p></li>
+<li><p>Ensure your email address remains correct.</p></li>
+<li><p>Leave the Domain field blank.</p></li>
+<li><p>Enter the  address for Server (domain name or IP)</p></li>
+<li><p>Select the sign in button.</p></li>
+<li><p>You might need to accept all certificats, if you are not able to sync</p></li>
+</ul>
+<p>Once connected, you will see a new icon within your settings menu with the name of your new email account.</p>
+</section>
+<section id="outlook">
+<h3>Outlook<a class="headerlink" href="#outlook" title="Link a questa intestazione">¶</a></h3>
+<p>You can use it with</p>
+<ul class="simple">
+<li><p>IMAP + commercial plugin as <a class="reference external" href="https://www.cfos.de/en/cfos-outlook-dav/cfos-outlook-dav.htm?__ntrack_pv=1">cfos</a> or <a class="reference external" href="http://www.outlookdav.com/">outlookdav</a> for calendars/contacts</p></li>
+<li><p>ActiveSync since Outlook 2013</p></li>
+</ul>
+<p>There is no support for Openchange/OutlookMAPI.</p>
+</section>
+</section>
+<section id="nightly-build">
+<h2>Nightly build<a class="headerlink" href="#nightly-build" title="Link a questa intestazione">¶</a></h2>
+<p>SOGo is built by the community, if you look to the last version, then you must use the nightly built.
+This version is not considered as stable, but bugs are fixed quicker than in stable version. You are the QA testers :)</p>
+<section id="product-7-sogo-3">
+<h3>NethServer 7 - SOGo 3<a class="headerlink" href="#product-7-sogo-3" title="Link a questa intestazione">¶</a></h3>
+<p>Execute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo rpm --import &#39;http://pgp.mit.edu/pks/lookup?op=get&amp;search=0xCB2D3A2AA0030E2C&#39;
+sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo cat &gt;/etc/yum.repos.d/SOGo.repo &lt;&lt;EOF
+[sogo3]
+name=SOGo Repository
+baseurl=https://packages.inverse.ca/SOGo/nightly/3/rhel/7/\$basearch
+gpgcheck=1
+EOF
+</pre></div>
+</div>
+<p>Then to install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install nethserver-sogo --enablerepo=sogo3
+</pre></div>
+</div>
+</section>
+</section>
+<section id="issues">
+<h2>Issues<a class="headerlink" href="#issues" title="Link a questa intestazione">¶</a></h2>
+<p>Please raise issues on <a class="reference external" href="http://community.nethserver.org/">community.nethserver.org</a>.</p>
+</section>
+<section id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Link a questa intestazione">¶</a></h2>
+<p>Source are available <a class="reference external" href="https://github.com/NethServer/nethserver-sogo">https://github.com/NethServer/nethserver-sogo</a></p>
+<p>Developer manual on <a class="reference external" href="https://github.com/NethServer/nethserver-sogo/blob/master/README.rst">github</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="docker.html" class="btn btn-neutral float-left" title="Docker" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="phpVirtualBox.html" class="btn btn-neutral float-right" title="PhpVirtualBox" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
