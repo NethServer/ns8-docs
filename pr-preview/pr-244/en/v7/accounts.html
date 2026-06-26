@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Users and groups &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DNS" href="dns.html" />
+    <link rel="prev" title="Software center" href="packages.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "accounts", "programming_language": "words", "project": "nethserver", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"nethserver-devel": "https://docs.nethserver.org/projects/nethserver-devel/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/accounts.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accessing the Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Users and groups</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#account-providers">Account providers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#choosing-the-right-account-provider">Choosing the right account provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openldap-local-provider-installation">OpenLDAP local provider installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#samba-active-directory-local-provider-installation">Samba Active Directory local provider installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dns-and-ad-domain">DNS and AD domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-on-a-virtual-machine">Installing on a virtual machine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#join-an-existing-active-directory-domain">Join an existing Active Directory domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bind-to-a-remote-ldap-server">Bind to a remote LDAP server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ldap-account-for-additional-applications">LDAP account for additional applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-account-provider">Changing account provider</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#users">Users</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#changing-the-password">Changing the password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#credentials-for-services">Credentials for services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-home-directories">User home directories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#groups">Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-account">Admin account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#password-management">Password management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#complexity">Complexity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expiration">Expiration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-of-expired-passwords">Effects of expired passwords</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#import-and-delete-accounts-from-plain-text-files">Import and delete accounts from plain-text files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-users">Import users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-emails">Import emails</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-groups">Import groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-users">Delete users</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">DHCP and PXE server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Shared folders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Web proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Bandwidth monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Backup customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Virtual machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">NethForge modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade from NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Email module transition to Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Documentation license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Old Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">The old Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">POP3 proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Fax server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">SOGo Groupware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Users and groups</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/accounts.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="users-and-groups">
+<span id="users-and-groups-section"></span><h1>Users and groups<a class="headerlink" href="#users-and-groups" title="Permalink to this headline">¶</a></h1>
+<section id="account-providers">
+<span id="id1"></span><h2>Account providers<a class="headerlink" href="#account-providers" title="Permalink to this headline">¶</a></h2>
+<p>NethServer supports authentication and authorization against either a <strong>local</strong>
+or <strong>remote</strong> account provider.</p>
+<p>Supported provider types are:</p>
+<ul class="simple">
+<li><p>Local OpenLDAP running on NethServer itself</p></li>
+<li><p>Remote LDAP server with RFC2307 schema</p></li>
+<li><p>Local Samba 4 Active Directory Domain Controller</p></li>
+<li><p>Remote Active Directory (both Microsoft and Samba)</p></li>
+</ul>
+<p>Only the root user can configure an account provider from the
+<span class="guilabel">Users &amp; Groups</span> page. Configuration of the account provider
+cannot be delegated.</p>
+<p>Be aware of the following rule about account providers:</p>
+<blockquote>
+<div><p>Once NethServer has been bound to an account provider the FQDN cannot be
+changed any more</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Remote providers</dt><dd><p>After NethServer has been bound to a remote account provider the
+<span class="guilabel">User &amp; groups</span> page shows a <em>read-only</em> list of domain accounts.</p>
+</dd>
+<dt>Local providers</dt><dd><p>After installing a local provider (either Samba 4 or OpenLDAP), the administrator
+can create, modify and delete the users and groups.</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please choose wisely your account provider because <strong>the choice could not be
+reversible</strong>. Also the system will forbid any change to the FQDN after the
+account provider has been configured.</p>
+</div>
+<section id="choosing-the-right-account-provider">
+<h3>Choosing the right account provider<a class="headerlink" href="#choosing-the-right-account-provider" title="Permalink to this headline">¶</a></h3>
+<p>Besides choosing to bind a remote provider or install a local one, the
+administrator has to decide which backend type suits his needs.</p>
+<p>The <em>File server</em> application of NethServer, which enables the <span class="guilabel">File server &gt; Shared
+folders</span> page, can authenticate SMB/CIFS clients only if NethServer is bound to an
+Active Directory domain.  The LDAP providers allow access to shared
+folders only in <em>guest mode</em>.  See <a class="reference internal" href="shared_folder.html#shared-folders-section"><span class="std std-ref">Shared folders</span></a>.</p>
+<p>On the other hand, the local OpenLDAP provider is more easy to install and
+configure.</p>
+<p>In the end, if the SMB file sharing protocol support is not required, an
+LDAP provider is the best choice.</p>
+</section>
+<section id="openldap-local-provider-installation">
+<span id="ldap-local-accounts-provider-section"></span><h3>OpenLDAP local provider installation<a class="headerlink" href="#openldap-local-provider-installation" title="Permalink to this headline">¶</a></h3>
+<p>To install and configure an OpenLDAP local accounts provider, go to page
+<span class="guilabel">Users &amp; Groups &gt; [Configure the account provider] &gt; LDAP &gt; Install local LDAP</span>.
+The system needs a working internet connection to download additional packages.</p>
+<p>At the end of the installation the package is automatically configured and the
+administrator will be able to manage users and groups from the <span class="guilabel">User
+and groups</span> page.</p>
+<p>See <a class="reference internal" href="#admin-account-section"><span class="std std-ref">Admin account</span></a> section for more details about default
+administrative user and group.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The NethServer OpenLDAP account provider does not fully support the
+user password expiration. Refer to <a class="reference internal" href="#effects-of-expired-password"><span class="std std-ref">Effects of expired passwords</span></a>
+for more information</p>
+</div>
+</section>
+<section id="samba-active-directory-local-provider-installation">
+<span id="ad-local-accounts-provider-section"></span><h3>Samba Active Directory local provider installation<a class="headerlink" href="#samba-active-directory-local-provider-installation" title="Permalink to this headline">¶</a></h3>
+<p>When installing Samba Active Directory as local account provider, the system
+needs an <strong>additional IP address</strong> and a <strong>working internet connection</strong>.</p>
+<p>The additional IP is assigned to a Linux Container that runs the Active
+Directory Domain Controller roles and must be accessible from the LAN (green
+network).</p>
+<p>Therefore the additional IP address must satisfy three conditions:</p>
+<ol class="arabic simple">
+<li><p>the IP address has to be <strong>free</strong>; it must not be used by any other machine</p></li>
+<li><p>the IP address has to be in the same subnet range of a green network</p></li>
+<li><p>the green network has to be bound to a bridge interface where the Linux
+Container can attach its virtual interface; the installation procedure can create the
+bridge interface automatically, if it is missing</p></li>
+</ol>
+<p>To install a local Active Directory accounts provider, go to page
+<span class="guilabel">Users &amp; Groups &gt; [Configure the account provider] &gt; Active Directory &gt; Create domain and become DC</span>.</p>
+<p>The <span class="guilabel">Domain name</span> defines the DNS suffix of the new domain.
+NethServer acts as an authoritative DNS server for that domain. See also
+<a class="reference internal" href="#dns-and-ad-domain"><span class="std std-ref">DNS and AD domain</span></a>.</p>
+<p>The <span class="guilabel">NetBIOS domain name</span> (also known as “domain short name”, “NT
+domain name”) is the alternative Active Directory domain identifier, compatible
+with older clients. See also <a class="reference internal" href="shared_folder.html#smb-access-section"><span class="std std-ref">Network access</span></a>.</p>
+<p>The <span class="guilabel">DC IP address</span> field must be filled with the
+<strong>additional IP address</strong> explained above.</p>
+<p>When all fields are filled, press the <span class="guilabel">Create domain</span> button.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Active Directory <span class="guilabel">Domain name</span> and  <span class="guilabel">NetBIOS
+domain name</span> values cannot be changed once that the domain has been created</p>
+</div>
+<p>The Active Directory configuration procedure might require some time to run.
+It creates the Linux Container chroot, by downloading additional packages.</p>
+<p>The Linux Container root directory is <code class="file docutils literal notranslate"><span class="pre">/var/lib/machines/nsdc/</span></code> and
+requires the filesystem support to Posix ACLs. The default XFS filesystem has a
+builtin support for Posix ACLs and no special configuration is required. For
+other filesystems (i.e. EXT4) enable the ACLs as explained in <a class="reference internal" href="shared_folder.html#shared-folders-requirements-section"><span class="std std-ref">Shared
+folders requirements</span></a>.</p>
+<p>At the end of the procedure, the NethServer host machine automatically joins
+the new Active Directory domain.</p>
+<p id="nsdc-change-ip"><span id="index-0"></span>The previously assigned IP address can be changed from
+<span class="guilabel">Users &amp; Groups &gt; Account provider &gt; [Details] &gt; Active Directory IP</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Changing the Domain Controller IP address can cause problems to Active
+Directory clients. If they use an external DNS server, update it to use the
+new IP address.</p>
+</div>
+<p id="index-1">After installing Samba Active Directory, the <span class="guilabel">Users &amp; groups</span> page
+has two default entries; both are disabled: <em class="dfn">administrator</em> and
+<em class="dfn">admin</em>. “Administrator” is the default Active Directory privileged account
+and is not required by NethServer; it is safe to keep it disabled. “admin” is
+defined by NethServer as the default system administrative account. It is member
+of the AD “domain admins” group. See <a class="reference internal" href="#admin-account-section"><span class="std std-ref">Admin account</span></a>
+section for more details.</p>
+<section id="dns-and-ad-domain">
+<span id="id2"></span><h4>DNS and AD domain<a class="headerlink" href="#dns-and-ad-domain" title="Permalink to this headline">¶</a></h4>
+<p>An Active Directory domain requires a reserved DNS domain to work. It is a good
+choice to allocate a subdomain of the public DNS domain for it. The AD subdomain
+can be accessible only from LAN (green) networks.</p>
+<p>Example:</p>
+<ul class="simple">
+<li><p>public (<em>external</em>) domain: <code class="docutils literal notranslate"><span class="pre">nethserver.org</span></code></p></li>
+<li><p>server FQDN: <code class="docutils literal notranslate"><span class="pre">mail.nethserver.org</span></code></p></li>
+<li><p>Active Directory (<em>internal</em> LAN only) domain: <code class="docutils literal notranslate"><span class="pre">ad.nethserver.org</span></code></p></li>
+<li><p>domain controller FQDN (assigned by default): <code class="docutils literal notranslate"><span class="pre">nsdc-mail.ad.nethserver.org</span></code></p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When choosing a domain for Active Directory use an <em>internal</em> domain which
+is a subdomain of the <em>external</em> domain <a class="footnote-reference brackets" href="#msdnsbestpratices" id="id3">1</a></p>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="msdnsbestpratices"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dd><p><a class="reference external" href="https://social.technet.microsoft.com/wiki/contents/articles/34981.active-directory-best-practices-for-internal-domain-and-network-names.aspx#Recommendation#Recommendation">https://social.technet.microsoft.com/wiki/contents/articles/34981.active-directory-best-practices-for-internal-domain-and-network-names.aspx#Recommendation</a></p>
+</dd>
+</dl>
+</section>
+<section id="installing-on-a-virtual-machine">
+<h4>Installing on a virtual machine<a class="headerlink" href="#installing-on-a-virtual-machine" title="Permalink to this headline">¶</a></h4>
+<p>Samba Active Directory runs inside a Linux Container which uses a virtual
+network interface bridged to the network interface of the system. The virtual
+network interface has to be visible inside the physical network, but often
+virtualization solutions block ARP traffic. As a result, the Samba Active
+Directory container is not visible from LAN hosts.</p>
+<p>When installing on virtual environment, make sure the virtualization solution
+allows traffic in <em>promiscuous mode</em>.</p>
+<section id="virtualbox">
+<h5>VirtualBox<a class="headerlink" href="#virtualbox" title="Permalink to this headline">¶</a></h5>
+<p>To setup the promiscuous mode policy, select “Allow all” from the drop down list
+located in the network settings section.</p>
+</section>
+<section id="vmware">
+<h5>VMWare<a class="headerlink" href="#vmware" title="Permalink to this headline">¶</a></h5>
+<p>Enter the networking configuration section of the virtualization mode and set
+the virtual switch in promiscuous mode.</p>
+</section>
+<section id="kvm">
+<h5>KVM<a class="headerlink" href="#kvm" title="Permalink to this headline">¶</a></h5>
+<p>Make sure the virtual machine is bridged to a real bridge (like br0) and the
+bridge is put in promiscuous mode.</p>
+<p>It is possible to force a bridge (i.e. <code class="docutils literal notranslate"><span class="pre">br0</span></code>) in promiscuous mode using this
+command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ifconfig br0 promisc
+</pre></div>
+</div>
+</section>
+<section id="hyper-v">
+<h5>Hyper-V<a class="headerlink" href="#hyper-v" title="Permalink to this headline">¶</a></h5>
+<p>Configure MAC Address Spoofing for Virtual Network Adapters <a class="footnote-reference brackets" href="#msmacspoofing" id="id4">2</a></p>
+<dl class="footnote brackets">
+<dt class="label" id="msmacspoofing"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dd><p><a class="reference external" href="https://technet.microsoft.com/en-us/library/ff458341.aspx">https://technet.microsoft.com/en-us/library/ff458341.aspx</a></p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<section id="join-an-existing-active-directory-domain">
+<span id="join-existing-ad-section"></span><h3>Join an existing Active Directory domain<a class="headerlink" href="#join-an-existing-active-directory-domain" title="Permalink to this headline">¶</a></h3>
+<p>Here NethServer is bound to a remote Active Directory account provider. It can be
+provided by either Samba or Microsoft implementations.  In this scenario
+NethServer becomes a trusted server of an existing Active Directory domain. When
+accessing a NethServer resource from a domain workstation, user credentials are
+checked against one of the domain controllers, and the access to the resource is
+granted.</p>
+<p>Joining an Active Directory domain has the following pre-requisite:</p>
+<blockquote>
+<div><p>The Kerberos protocol requires the difference between systems clocks in the
+network is less than 5 minutes. Configure the network clients to align their
+clocks to a common time source.  For NethServer go to <span class="guilabel">Date and time</span>
+page.</p>
+</div></blockquote>
+<p>After the prerequisite is fulfilled, proceed to the page
+<span class="guilabel">Users &amp; Groups &gt; [Configure the account provider] &gt; Active Directory &gt; Join existing Domain Controller</span>.</p>
+<ul class="simple">
+<li><p>Enter the <span class="guilabel">Domain name</span> of the AD domain.
+Press the <span class="guilabel">Check</span> button</p></li>
+<li><p>If required, fill the <span class="guilabel">AD DNS server</span> field. Usually it is the
+IP address of an AD domain controller. Press <span class="guilabel">Check</span> again.</p></li>
+<li><p>Provide the <span class="guilabel">Username</span> and <span class="guilabel">Password</span> of an AD account
+with the privilege of joining a computer to the domain. Remember that the
+default <em>administrator</em> account could be disabled! Press <span class="guilabel">Check</span> again.</p></li>
+<li><p>If the credentials are valid complete the procedure by pressing <span class="guilabel">Next</span>.</p></li>
+</ul>
+<p>Some applications require an additional configuration step. See also <a class="reference internal" href="#dedicated-service-account"><span class="std std-ref">LDAP account for additional applications</span></a>.</p>
+</section>
+<section id="bind-to-a-remote-ldap-server">
+<span id="bind-remote-ldap-section"></span><h3>Bind to a remote LDAP server<a class="headerlink" href="#bind-to-a-remote-ldap-server" title="Permalink to this headline">¶</a></h3>
+<p>To configure a remote LDAP accounts provider, go to page <span class="guilabel">Users &amp; Groups
+&gt; Configure the account provider &gt; LDAP &gt; Bind remote LDAP</span>.</p>
+<p>Type the LDAP server IP address in the field <span class="guilabel">Hostname or IP</span>. If
+the LDAP service runs on a non-standard TCP port, specify it in <span class="guilabel">TCP
+port</span>. Press the <span class="guilabel">Check</span> button to proceed.</p>
+<p>Then an LDAP <em>rootDSE</em> query is sent to the specified host and a form is filled
+with returned data.  Check the values are correct then press the
+<span class="guilabel">Check</span> button again.</p>
+<p>If the LDAP server requires authentication, set <span class="guilabel">Bind Type</span> to <span class="guilabel">Authenticated</span>.
+Set either <code class="docutils literal notranslate"><span class="pre">ldaps://</span></code> in <span class="guilabel">Service URI</span> or enable <span class="guilabel">StartTLS</span> to encrypt the connection.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the remote LDAP server is also a NethServer installation and
+it is in the LAN (green) network, select <span class="guilabel">Anonymous bind</span></p>
+</div>
+<p>Some applications require an additional configuration step. See also <a class="reference internal" href="#dedicated-service-account"><span class="std std-ref">LDAP account for additional applications</span></a>.</p>
+</section>
+<section id="ldap-account-for-additional-applications">
+<span id="ad-dedicated-service-account"></span><span id="dedicated-service-account"></span><span id="index-2"></span><h3>LDAP account for additional applications<a class="headerlink" href="#ldap-account-for-additional-applications" title="Permalink to this headline">¶</a></h3>
+<p>Some additional applications, like <em>Nextcloud</em>, <em>WebTop</em>, <em>Roundcube</em>, <em>Ejabberd</em>,
+require a read-only and dedicated user account to perform simple LDAP binds.</p>
+<p>For this purpose, the builtin <code class="docutils literal notranslate"><span class="pre">ldapservice</span></code> account is automatically created
+in local account providers with limited privileges. Its <span class="guilabel">Bind password</span> and full
+<span class="guilabel">Bind DN</span> are shown under <span class="guilabel">Users &amp; Groups &gt; Account provider &gt; [Details]</span>.
+It is recommended to use those credentials to connect external systems to the account provider.</p>
+<p>On the other hand, if NethServer is bound to a remote account provider follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Create a dedicated user account in the remote AD or LDAP provider, then
+set a complex and <em>non-expiring</em> password for it. As said above, if the remote provider
+is a NethServer too, it already provides <code class="docutils literal notranslate"><span class="pre">ldapservice</span></code> for this purpose.</p></li>
+<li><p>Once NethServer is successfully bound to a remote AD or LDAP account provider, specify the dedicated user account
+credentials in <span class="guilabel">Users &amp; Groups &gt; Account provider &gt; Edit provider &gt; Authentication credentials for LDAP applications</span>.</p></li>
+<li><p>If the remote account provider supports TLS, it is recommended to enable the <span class="guilabel">StartTLS</span> option or use the <code class="docutils literal notranslate"><span class="pre">ldaps://</span></code>
+URI scheme in the <span class="guilabel">Service URI</span> input field to avoid sending clear-text passwords over the network.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The NethServer AD accounts provider supports TLS. MS-Windows AD might require additional setup to enable TLS.</p>
+</div>
+</section>
+<section id="changing-account-provider">
+<span id="changing-account-provider-section"></span><h3>Changing account provider<a class="headerlink" href="#changing-account-provider" title="Permalink to this headline">¶</a></h3>
+<p>The configured account provider can be removed by root from
+<span class="guilabel">Users &amp; Groups &gt; Account provider &gt; Change provider</span>.</p>
+<p>When the account provider has been removed, existing files owned
+by users and groups must be removed manually. This is
+the list of system directories containing users and groups data:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/var/lib/nethserver/home
+/var/lib/nethserver/vmail
+/var/lib/nethserver/ibay
+/var/lib/nethserver/nextcloud
+</pre></div>
+</div>
+<p>Furthermore, if the account provider is local any user, group and computer
+account is erased.  A list of users and groups in TSV (Tab Separated Values) format
+is dumped to <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/backup/users.tsv</span></code> and <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/backup/groups.tsv</span></code>.
+See also <a class="reference internal" href="#import-users-section"><span class="std std-ref">Import and delete accounts from plain-text files</span></a>.</p>
+</section>
+</section>
+<section id="users">
+<h2>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h2>
+<p>If a remote AD or LDAP account provider was configured, the <span class="guilabel">Users &amp; Groups</span> page
+shows read-only lists. It is not possible to modify or delete users and groups from the Server Manager.</p>
+<p>On the other hand, if a local AD or LDAP account provider was installed, the <span class="guilabel">Users &amp; Groups</span> page
+allows to create, modify and delete users and groups.</p>
+<p>A newly created user remains locked until it has set a password.
+Disabled users are denied to access system services.</p>
+<p>When creating a user, the following fields are mandatory:</p>
+<ul class="simple">
+<li><p>User name</p></li>
+<li><p>Full name (name and surname)</p></li>
+</ul>
+<p>A user can be added to one or more groups.</p>
+<p>Sometimes you need to block user access to services without deleting the
+account. The safest approach is:</p>
+<ol class="arabic simple">
+<li><p>(optionally) change the user’s password with a random one</p></li>
+<li><p>lock the user using the <span class="guilabel">Lock</span> action</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When a user is deleted with a local account provider, the home directory and personal mail box are deleted too.</p>
+</div>
+<section id="changing-the-password">
+<span id="index-3"></span><h3>Changing the password<a class="headerlink" href="#changing-the-password" title="Permalink to this headline">¶</a></h3>
+<p>Users can change their password from the <code class="docutils literal notranslate"><span class="pre">/user-settings</span></code> web page.
+To enable it see <a class="reference internal" href="base_system2.html#user-settings-section"><span class="std std-ref">User settings page</span></a>.</p>
+<p>If the system is bound to an Active Directory account provider, users can change
+their password also using the Windows tools.  In this case you can not set passwords
+shorter than 6 <em>characters</em> regardless of the server policies. Windows performs
+preliminary checks and sends the password to the server where it is evaluated
+according to the <a class="reference internal" href="#password-management-section"><span class="std std-ref">configured policies</span></a>.</p>
+</section>
+<section id="credentials-for-services">
+<h3>Credentials for services<a class="headerlink" href="#credentials-for-services" title="Permalink to this headline">¶</a></h3>
+<p>The user’s credentials are the <strong>user name</strong> and their <strong>password</strong>.  Credentials
+are required to access the services installed on the system.</p>
+<p>The user name can be issued in two forms: <em>long</em> (default) and <em>short</em>.  The
+<em>long</em> form is always accepted by services. It depends on the service to accept
+also the <em>short</em> form.</p>
+<p>For instance if the domain is <em>example.com</em> and the user is <em>goofy</em>:</p>
+<dl class="simple">
+<dt>User long name form</dt><dd><p><em>goofy&#64;example.com</em></p>
+</dd>
+<dt>User short name form</dt><dd><p><em>goofy</em></p>
+</dd>
+</dl>
+<p>To access a shared folder, see also <a class="reference internal" href="shared_folder.html#smb-access-section"><span class="std std-ref">Network access</span></a>.</p>
+</section>
+<section id="user-home-directories">
+<span id="home-bind-section"></span><h3>User home directories<a class="headerlink" href="#user-home-directories" title="Permalink to this headline">¶</a></h3>
+<p>User home directories are stored inside the <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/home</span></code> directory,
+in order to simplify the deployment of a single-growing partition system.</p>
+<p>The administrator can still restore the well-known <code class="file docutils literal notranslate"><span class="pre">/home</span></code> path using the bind mount:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &quot;/var/lib/nethserver/home       /home   none    defaults,bind   0 0&quot; &gt;&gt; /etc/fstab
+mount -a
+</pre></div>
+</div>
+</section>
+</section>
+<section id="groups">
+<span id="groups-section"></span><h2>Groups<a class="headerlink" href="#groups" title="Permalink to this headline">¶</a></h2>
+<p>A group of users can be granted some permission, such as authorize
+<a class="reference internal" href="base_system2.html#ssh-section"><span class="std std-ref">access to SSH</span></a> or over a <a class="reference internal" href="shared_folder.html#shared-folders-section"><span class="std std-ref">shared folder</span></a>. The granted
+permission is propagated to all group members.</p>
+<p>The root user can delegate some Server Manager pages to a group,
+with the <span class="guilabel">Delegations</span> action of <span class="guilabel">Users &amp; Groups &gt; List &gt; [Groups]</span>.</p>
+<p>See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#admin-account-section"><span class="std std-ref">Admin account</span></a>, for permissions of the <code class="docutils literal notranslate"><span class="pre">domain</span> <span class="pre">admins</span></code> group.</p></li>
+<li><p><a class="reference internal" href="base_system2.html#delegation-section"><span class="std std-ref">Role delegation</span></a></p></li>
+</ul>
+</section>
+<section id="admin-account">
+<span id="admin-account-section"></span><h2>Admin account<a class="headerlink" href="#admin-account" title="Permalink to this headline">¶</a></h2>
+<p>If a <strong>local AD or LDAP provider</strong> is installed, an <em>admin</em> user, member of the
+<em>domain admins</em> group is created automatically. This account allows
+access to all configuration pages within the Server Manager.  It is initially
+<em>disabled</em> and has no access from the console.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To enable the <em>admin</em> account, just set its password</p>
+</div>
+<p>Where applicable, the <em>admin</em> account is granted special privileges on some
+specific services, such as joining a workstation to an Active Directory domain.</p>
+<p>If NethServer is bound to a <strong>remote account provider</strong>, the <em>admin</em> user and
+<em>domain admins</em> group could be created manually, if they do not already exist.</p>
+<p>If a user or group with a similar purpose is already present in the remote
+account provider database, but it is named differently, NethServer can be
+configured to rely on it with the following commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop admins user customadmin group customadmins
+/etc/e-smith/events/actions/system-adjust custom
+</pre></div>
+</div>
+</section>
+<section id="password-management">
+<span id="password-management-section"></span><h2>Password management<a class="headerlink" href="#password-management" title="Permalink to this headline">¶</a></h2>
+<p>The system provides the ability to set constraints on password <em class="dfn">complexity</em> and <em class="dfn">expiration</em> for local account providers.</p>
+<p>Password policies can be changed from the <span class="guilabel">Users &amp; Groups</span> page of the Server Manager.</p>
+<section id="complexity">
+<h3>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="target" id="index-4"></span>password complexity is a set of minimum conditions for password to be accepted by the system:
+You can choose between two different management policies about password complexity:</p>
+<ul class="simple">
+<li><p><em class="dfn">none</em>: there is no specific control over the password entered, but minimum length is 7 characters</p></li>
+<li><p><em class="dfn">strong</em></p></li>
+</ul>
+<p>The <span class="target" id="index-5"></span>strong policy requires that the password must comply with the following rules:</p>
+<ul class="simple">
+<li><p>Minimum length of 7 characters</p></li>
+<li><p>Contain at least 1 number</p></li>
+<li><p>Contain at least 1 uppercase character</p></li>
+<li><p>Contain at least 1 lowercase character</p></li>
+<li><p>Contain at least 1 special character</p></li>
+<li><p>At least 5 different characters</p></li>
+<li><p>Must be not present in the dictionaries of common words</p></li>
+<li><p>Must be different from the username</p></li>
+<li><p>Can not have repetitions of patterns formed by 3 or more characters (for example the password As1.$ AS1. $ is invalid)</p></li>
+<li><p>If Samba Active Directory is installed, also the system will enable password history</p></li>
+</ul>
+<p>The default policy is <em class="dfn">strong</em>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Changing the default policies is highly discouraged. The use of weak passwords often lead
+to compromised servers by external attackers.</p>
+</div>
+</section>
+<section id="expiration">
+<h3>Expiration<a class="headerlink" href="#expiration" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="target" id="index-6"></span>password expiration is <strong>NOT</strong> enabled by default.</p>
+<p>Each time a user changes his password, the date of the password change is
+recorded and, if the <span class="guilabel">Force periodic password change</span> option is enabled,
+the password is considered expired when the <span class="guilabel">Maximum password age</span>
+has elapsed.</p>
+<p>For example, given that</p>
+<ul class="simple">
+<li><p>last password was set in January,</p></li>
+<li><p>in October the <span class="guilabel">Maximum password age</span> is set to <code class="docutils literal notranslate"><span class="pre">180</span> <span class="pre">days</span></code>
+and <span class="guilabel">Force periodic password change</span> is enabled</p></li>
+</ul>
+<p>thus the password is <strong>immediately considered expired</strong> (January + 180 days = June!).</p>
+</section>
+<section id="effects-of-expired-passwords">
+<span id="effects-of-expired-password"></span><h3>Effects of expired passwords<a class="headerlink" href="#effects-of-expired-passwords" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>no email notification related to password expiration</strong> is sent by the server!</p>
+</div>
+<p>The effects of an expired password depend on the configured accounts provider.</p>
+<p>When a password is expired</p>
+<ul class="simple">
+<li><p>with <code class="docutils literal notranslate"><span class="pre">Active</span> <span class="pre">Directory</span></code> (both local and remote) a user <strong>cannot authenticate</strong> himself
+<strong>with any service</strong>;</p></li>
+<li><p>with a NethServer <code class="docutils literal notranslate"><span class="pre">LDAP</span></code> accounts provider (both local and remote) <strong>some services ignore
+the password expiration</strong> and grant access in any case.</p></li>
+</ul>
+<p>Examples of services that do not fully support the password expiration with NethServer LDAP
+accounts provider:</p>
+<ul class="simple">
+<li><p>NextCloud</p></li>
+<li><p>WebTop (contacts and calendars are available)</p></li>
+<li><p>SOGo</p></li>
+</ul>
+<p>…and other services that authenticate directly with LDAP</p>
+</section>
+</section>
+<section id="import-and-delete-accounts-from-plain-text-files">
+<span id="import-users-section"></span><h2>Import and delete accounts from plain-text files<a class="headerlink" href="#import-and-delete-accounts-from-plain-text-files" title="Permalink to this headline">¶</a></h2>
+<section id="import-users">
+<h3>Import users<a class="headerlink" href="#import-users" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to create user accounts from a TSV (Tab Separated Values) file with the following format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>username &lt;TAB&gt; fullName &lt;TAB&gt; password &lt;NEWLINE&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mario &lt;TAB&gt; Mario Rossi &lt;TAB&gt; 112233 &lt;NEWLINE&gt;
+</pre></div>
+</div>
+<p>then execute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/doc/nethserver-sssd-&lt;ver&gt;/scripts/import_users &lt;youfilename&gt;
+</pre></div>
+</div>
+<p>For example, if the user’s file is /root/users.tsv, execute following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/doc/nethserver-sssd-`rpm --query --qf &quot;%{VERSION}&quot; nethserver-sssd`/scripts/import_users /root/users.tsv
+</pre></div>
+</div>
+<p>Alternative separator character:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import_users users.tsv &#39;,&#39;
+</pre></div>
+</div>
+</section>
+<section id="import-emails">
+<h3>Import emails<a class="headerlink" href="#import-emails" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to create mail aliases from a TSV (Tab Separated Values) file with the following format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>username &lt;TAB&gt; emailaddress &lt;NEWLINE&gt;
+</pre></div>
+</div>
+<p>Then you can use the <code class="docutils literal notranslate"><span class="pre">import_emails</span></code> script. See <a class="reference internal" href="#import-users-section"><span class="std std-ref">Import and delete accounts from plain-text files</span></a> for a sample script invocation.</p>
+</section>
+<section id="import-groups">
+<h3>Import groups<a class="headerlink" href="#import-groups" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to create groups from a TSV (Tab Separated Values) file with the following format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>group1 &lt;TAB&gt; user1 &lt;TAB&gt; user2 &lt;NEWLINE&gt;
+group2 &lt;TAB&gt; user1 &lt;TAB&gt; user2 &lt;TAB&gt; user3 &lt;NEWLINE&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>faxmaster &lt;TAB&gt; matteo &lt;TAB&gt; luca &lt;NEWLINE&gt;
+managers &lt;TAB&gt; marco &lt;TAB&gt; francesco &lt;TAB&gt; luca &lt;NEWLINE&gt;
+</pre></div>
+</div>
+<p>then execute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/doc/nethserver-sssd-&lt;ver&gt;/scripts/import_groups &lt;youfilename&gt;
+</pre></div>
+</div>
+<p>For example, if the group file is <code class="docutils literal notranslate"><span class="pre">/root/groups.tsv</span></code>, execute following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/doc/nethserver-sssd-`rpm --query --qf &quot;%{VERSION}&quot; nethserver-sssd`/scripts/import_groups /root/groups.tsv
+</pre></div>
+</div>
+<p>Group management is also available from the command line through <code class="docutils literal notranslate"><span class="pre">group-create</span></code> and <code class="docutils literal notranslate"><span class="pre">group-modify</span></code> events</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event group-create group1 user1 user2 user3
+signal-event group-modify group1 user1 user3 user4
+</pre></div>
+</div>
+</section>
+<section id="delete-users">
+<h3>Delete users<a class="headerlink" href="#delete-users" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to delete user accounts from a file with the following format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user1
+user2
+...
+userN
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mario &lt;NEWLINE&gt;
+</pre></div>
+</div>
+<p>then execute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/doc/nethserver-sssd-&lt;ver&gt;/scripts/delete_users &lt;youfilename&gt;
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also use the same import users file to delete the users.</p>
+</div>
+<p>For example, if the user’s file is /root/users.tsv, execute following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/doc/nethserver-sssd-`rpm --query --qf &quot;%{VERSION}&quot; nethserver-sssd`/scripts/delete_users /root/users.tsv
+</pre></div>
+</div>
+<p>Alternative separator character:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>delete_users users.tsv &#39;,&#39;
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="packages.html" class="btn btn-neutral float-left" title="Software center" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="dns.html" class="btn btn-neutral float-right" title="DNS" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

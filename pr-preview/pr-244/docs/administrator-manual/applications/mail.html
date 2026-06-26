@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en-US" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-administrator-manual/applications/mail" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Mail | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/pr-preview/pr-244/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/pr-preview/pr-244/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/pr-preview/pr-244/docs/administrator-manual/applications/mail"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Mail | NethServer 8 documentation"><meta data-rh="true" name="description" content="The Mail application is split into four main parts:"><meta data-rh="true" property="og:description" content="The Mail application is split into four main parts:"><link data-rh="true" rel="icon" href="/pr-preview/pr-244/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/pr-preview/pr-244/docs/administrator-manual/applications/mail"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-244/docs/administrator-manual/applications/mail" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-244/it/docs/administrator-manual/applications/mail" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-244/docs/administrator-manual/applications/mail" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mail","item":"https://docs.nethserver.org/pr-preview/pr-244/docs/administrator-manual/applications/mail"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/pr-preview/pr-244/opensearch.xml"><link rel="stylesheet" href="/pr-preview/pr-244/assets/css/styles.d64e4b30.css">
+<script src="/pr-preview/pr-244/assets/js/runtime~main.43f27bf8.js" defer="defer"></script>
+<script src="/pr-preview/pr-244/assets/js/main.0abf06cb.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/pr-preview/pr-244/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/pr-preview/pr-244/"><div class="navbar__logo"><img src="/pr-preview/pr-244/img/logo.svg" alt="NethServer 8" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/pr-preview/pr-244/img/logo.svg" alt="NethServer 8" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate"></b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/pr-preview/pr-244/docs/administrator-manual">Administrator manual</a><a class="navbar__item navbar__link" href="/pr-preview/pr-244/docs/user-manual">User manual</a><a class="navbar__item navbar__link" href="/pr-preview/pr-244/docs/tutorial">Tutorial</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/pr-preview/pr-244/docs/administrator-manual/applications/mail" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en-US">English</a></li><li><a href="/pr-preview/pr-244/it/docs/administrator-manual/applications/mail" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="it-IT">Italian</a></li></ul></div><a href="https://github.com/NethServer/ns8-docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/pr-preview/pr-244/docs/administrator-manual"><span title="Administrator manual" class="linkLabel_WmDU">Administrator manual</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-244/docs/administrator-manual/about/introduction"><span title="About" class="categoryLinkLabel_W154">About</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-244/docs/administrator-manual/installation/system_requirements"><span title="Installation" class="categoryLinkLabel_W154">Installation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-244/docs/administrator-manual/configuration/cluster"><span title="Configuration" class="categoryLinkLabel_W154">Configuration</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/pr-preview/pr-244/docs/administrator-manual/applications/collabora"><span title="Applications" class="categoryLinkLabel_W154">Applications</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/collabora"><span title="Collabora Online" class="linkLabel_WmDU">Collabora Online</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/crowdsec"><span title="CrowdSec" class="linkLabel_WmDU">CrowdSec</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/dnsmasq"><span title="DNSMasq" class="linkLabel_WmDU">DNSMasq</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/ejabberd"><span title="Ejabberd" class="linkLabel_WmDU">Ejabberd</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/file_server"><span title="Samba file server" class="linkLabel_WmDU">Samba file server</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/imapsync"><span title="Imapsync" class="linkLabel_WmDU">Imapsync</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/mail"><span title="Mail" class="linkLabel_WmDU">Mail</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/mattermost"><span title="Mattermost" class="linkLabel_WmDU">Mattermost</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/netdata"><span title="Netdata" class="linkLabel_WmDU">Netdata</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/nethsecurity_controller"><span title="NethSecurity Controller" class="linkLabel_WmDU">NethSecurity Controller</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/nethvoice"><span title="NethVoice" class="linkLabel_WmDU">NethVoice</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/nextcloud"><span title="Nextcloud" class="linkLabel_WmDU">Nextcloud</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/piler"><span title="Piler" class="linkLabel_WmDU">Piler</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/roundcube"><span title="Roundcube" class="linkLabel_WmDU">Roundcube</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/rustfs"><span title="RustFS" class="linkLabel_WmDU">RustFS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-244/docs/administrator-manual/applications/webtop"><span title="WebTop groupware" class="linkLabel_WmDU">WebTop groupware</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-244/docs/administrator-manual/nethforge/dokuwiki"><span title="NethForge applications" class="categoryLinkLabel_W154">NethForge applications</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/pr-preview/pr-244/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Applications</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Mail</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Mail</h1></header>
+<p>The Mail application is split into four main parts:</p>
+<ul>
+<li class=""><a href="https://www.postfix.org" target="_blank" rel="noopener noreferrer" class="">Postfix</a>, an SMTP server for sending and receiving mail messages.</li>
+<li class=""><a href="https://www.dovecot.org" target="_blank" rel="noopener noreferrer" class="">Dovecot</a>, an IMAP and POP3 server to read email, with Sieve language to organize it.</li>
+<li class=""><a href="https://rspamd.com" target="_blank" rel="noopener noreferrer" class="">Rspamd</a>, an antispam filter, antivirus and attachments blocker.</li>
+<li class=""><a href="http://www.clamav.net" target="_blank" rel="noopener noreferrer" class="">ClamAV</a>, an antivirus engine.</li>
+</ul>
+<p>Benefits are:</p>
+<ul>
+<li class="">complete autonomy in electronic mail management</li>
+<li class="">avoid problems due to the Internet Service Provider</li>
+<li class="">ability to track the route of messages in order to detect errors</li>
+<li class="">optimized antivirus and antispam scan</li>
+</ul>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Even if Software Center allows to install multiple instances of Mail on the same node, you can configure and start only one mail server instance per node, otherwise a TCP port conflict error occurs.</p></div></div>
+<p>A Mail instance can be integrated with other applications. For example:</p>
+<ul>
+<li class=""><a class="" href="/pr-preview/pr-244/docs/administrator-manual/applications/webtop">WebTop</a> groupware.</li>
+<li class=""><a class="" href="/pr-preview/pr-244/docs/administrator-manual/applications/roundcube">Roundcube</a> web mail client.</li>
+<li class=""><a class="" href="/pr-preview/pr-244/docs/administrator-manual/applications/imapsync">Imapsync</a> schedules periodical fetch jobs or migrates emails from external IMAP servers to local user mailboxes.</li>
+<li class=""><a class="" href="/pr-preview/pr-244/docs/administrator-manual/applications/piler">Piler</a> archives any message sent or received by Mail with the SMTP protocol.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="configuration">Configuration<a href="#configuration" class="hash-link" aria-label="Direct link to Configuration" title="Direct link to Configuration" translate="no">​</a></h2>
+<p>Mail requires at least one <a class="" href="/pr-preview/pr-244/docs/administrator-manual/installation/user_domains">user domain</a> already configured.</p>
+<p>The first configuration wizard will require the following information:</p>
+<ul>
+<li class=""><code>Mail server hostname</code>: insert the mail server name, this should be the same name configured inside your <a href="https://en.wikipedia.org/wiki/MX_record" target="_blank" rel="noopener noreferrer" class="">MX DNS record</a>.</li>
+<li class=""><code>Primary mail domain</code>: insert the mail domain, like <code>nethserver.org</code>; you will be able to add more domains later.</li>
+</ul>
+<p>Then, select the user domain to be connected to the mail server. An email address will be created for every user in the selected domain.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="email_domains">Domains<a href="#email_domains" class="hash-link" aria-label="Direct link to Domains" title="Direct link to Domains" translate="no">​</a></h2>
+<p>Mail can handle an unlimited number of mail domains, which are configurable from the <code>Domains</code> page.</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Deleting a domain does not delete any existing emails; all previously received messages are preserved.</p></div></div>
+<p>To add a new domain, click the <strong>Create domain</strong> button and enter the domain name, such as <code>mymail.org</code>, in the <code>Name</code> field.</p>
+<p>You can define the domain’s email addresses by inheriting user and group names from the LDAP user domain using the following options:</p>
+<ul>
+<li class=""><code>Add user addresses from user domain</code></li>
+<li class=""><code>Add group addresses from user domain</code></li>
+</ul>
+<p>If the corresponding option is enabled, user and group names are treated as valid email addresses. In the rare case where a user and a group share the same name, incoming messages addressed to that name are always delivered to the group members.</p>
+<p>Additional email addresses for the domain can also be configured, as explained in section <a href="#email_addresses" class="">Addresses</a>.</p>
+<p>Under the <code>Advanced</code> section, the <code>Accept unknown recipients</code> switch controls how to handle messages addressed to undefined recipients within the domain. By default, such messages are rejected. However, in some scenarios—such as during a mail domain migration—it may be useful to accept these messages and deliver them silently to a catch-all mailbox. This behavior can be enabled by turning on the <code>Accept unknown recipients</code> option.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dkim-signature">DKIM signature<a href="#dkim-signature" class="hash-link" aria-label="Direct link to DKIM signature" title="Direct link to DKIM signature" translate="no">​</a></h3>
+<p>DomainKeys Identified Mail (<a href="https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail" target="_blank" rel="noopener noreferrer" class="">DKIM</a>) validates the identity of the sending MTA by adding a cryptographic signature to the message&#x27;s MIME headers.</p>
+<p>In the <code>Domains</code> page, click the three-dots menu on the domain card and select <code>Configure DKIM</code> to enable or disable the DKIM signature for messages. By default, DKIM signing is enabled for every domain, and the key value is displayed in both raw and Bind-compatible &quot;zone file&quot; formats.</p>
+<p>DKIM signature headers are added only to messages sent through TCP ports 587 (submission) and 465 (smtps) when the &quot;From&quot; header matches one of the configured domains.</p>
+<p>For DKIM to function correctly, ensure your public DNS is configured as follows, using the instructions provided by your DNS provider:</p>
+<ol>
+<li class="">Add a TXT record with the key <code>default._domainKey</code> to your public DNS service.</li>
+<li class="">Copy the key text provided and paste it into the DNS record data (RDATA) field.</li>
+</ol>
+<p>To further protect against mail domain spoofing, consider adding DNS records for <a href="https://en.wikipedia.org/wiki/DMARC" target="_blank" rel="noopener noreferrer" class="">DMARC</a> (Domain-based Message Authentication, Reporting, and Conformance) and <a href="https://en.wikipedia.org/wiki/Sender_Policy_Framework" target="_blank" rel="noopener noreferrer" class="">SPF</a> (Sender Policy Framework).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-mailboxes-settings">Mailboxes<a href="#mail-mailboxes-settings" class="hash-link" aria-label="Direct link to Mailboxes" title="Direct link to Mailboxes" translate="no">​</a></h2>
+<p>Each user has a personal mailbox and any user name in the form <em>&lt;username&gt;@&lt;domain&gt;</em> is also a valid email address to deliver messages into it.</p>
+<p>The list of mailboxes is shown on the <code>Mailboxes</code> page. There are two types of mailboxes: users and public mailboxes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="users-mailboxes">Users mailboxes<a href="#users-mailboxes" class="hash-link" aria-label="Direct link to Users mailboxes" title="Direct link to Users mailboxes" translate="no">​</a></h3>
+<p>You can disable each mailbox by selecting the <code>Disable</code> item from the three-dots menu on the mailbox line.</p>
+<p>By clicking the <code>Edit</code> item from the three-dots menu it&#x27;s possible to setup the following options:</p>
+<ul>
+<li class=""><code>Forward messages</code>: forward all messages to another email address</li>
+<li class=""><code>Custom mailbox quota</code>: override the quota configured from the <a href="#mail_settings-section" class="">Settings</a></li>
+<li class=""><code>Custom spam retention</code>: override the retention configured from the <a href="#mail_settings-section" class="">Settings</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="public-mailboxes">Public mailboxes<a href="#public-mailboxes" class="hash-link" aria-label="Direct link to Public mailboxes" title="Direct link to Public mailboxes" translate="no">​</a></h3>
+<p>Public mailboxes can be shared among groups of users. The <strong>Create public mailbox</strong> button allows creating a new public mailbox and defining one or more owning groups and users. Public mailboxes can also be created by any IMAP client supporting IMAP ACL protocol extension (RFC 4314).</p>
+<p>When a new public mailbox is created, the mail server will automatically add a new address for all existing mail domains.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mailbox-selective-restore">Restore a mailbox folder from a backup<a href="#mailbox-selective-restore" class="hash-link" aria-label="Direct link to Restore a mailbox folder from a backup" title="Direct link to Restore a mailbox folder from a backup" translate="no">​</a></h3>
+<p>If the application has one or more backup destinations configured and a backup has already been executed, you can search for and restore a mailbox folder from a past backup snapshot of a specific user or public mailbox.</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>The procedure does not calculate the disk space usage required for the restore. Ensure sufficient disk space is available before proceeding.</p></div></div>
+<ol>
+<li class="">
+<p>Navigate to the Mail application instance and open the Mailboxes page. Choose the <code>User mailboxes</code> or <code>Public mailboxes</code> tab to view a list of mailboxes. From the three-dots menu of the desired mailbox, select <code>Restore folder</code>.</p>
+</li>
+<li class="">
+<p>Select the backup destination from which to restore the folder. Loading remote destinations may take some time.</p>
+</li>
+<li class="">
+<p>Choose the date of the backup snapshot to restore. Snapshots are listed from newest to oldest.</p>
+</li>
+<li class="">
+<p>Select a folder from the list or start typing its name to filter the list.</p>
+<p>Press <strong>Restore</strong> to begin the restore process.</p>
+</li>
+</ol>
+<p>The selected folder will be restored into a subfolder of the mailbox named &quot;Restored folder&quot;. If the subfolder already exists, it will be removed before restoring.</p>
+<p>If the mailbox quota is exceeded during the restore process, it will be set to unlimited.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="email_addresses">Addresses<a href="#email_addresses" class="hash-link" aria-label="Direct link to Addresses" title="Direct link to Addresses" translate="no">​</a></h2>
+<p>In addition to the users, groups and public mailboxes addresses, described in the previous section, the system enables the creation of an unlimited number of email addresses, from the <code>Addresses</code> page. Each mail address is associated with one or more destinations. A destination can be of the following types:</p>
+<ul>
+<li class="">user mailbox</li>
+<li class="">public mailbox</li>
+<li class="">external email address</li>
+</ul>
+<p>A mail address can be specific to one mail domain, or generic to all configured mail domains. In the latter case, we call it a &quot;wildcard address&quot;. For example:</p>
+<ul>
+<li class="">Two domains are configured, <em>mydomain.net</em> and <em>example.com</em></li>
+<li class="">A specific email address <em>goofy</em> for domain <em>example.com</em> corresponds to <em><a href="mailto:goofy@example.com" target="_blank" rel="noopener noreferrer" class="">goofy@example.com</a></em>.</li>
+<li class="">A wildcard email address <em>info</em> is bound to all domains: it is equivalent to both <em><a href="mailto:info@mydomain.net" target="_blank" rel="noopener noreferrer" class="">info@mydomain.net</a></em> and <em><a href="mailto:info@example.com" target="_blank" rel="noopener noreferrer" class="">info@example.com</a></em>.</li>
+</ul>
+<p>Sometimes a company forbids communications from outside the organization using personal email addresses. To change the <em>visibility</em> of an address, click on the three-dots menu and select the <code>Set as internal</code> action shortcut, or select <code>Edit</code> and enable the <code>Internal</code> check box under the <code>Advanced</code> section.</p>
+<p>When an address is <em>internal</em> it cannot receive messages from the outside. Still an <em>internal</em> address can be used to exchange messages with other accounts of the system.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="email_filter">Filter<a href="#email_filter" class="hash-link" aria-label="Direct link to Filter" title="Direct link to Filter" translate="no">​</a></h2>
+<p>All transiting email messages are subjected to a list of checks that fall into two main categories, described in the following sections:</p>
+<ul>
+<li class="">Antivirus</li>
+<li class="">Antispam</li>
+</ul>
+<p>Navigate to the <code>Filter</code> page to adjust their settings.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="anti-virus">Antivirus<a href="#anti-virus" class="hash-link" aria-label="Direct link to Antivirus" title="Direct link to Antivirus" translate="no">​</a></h3>
+<p>The ClamAV antivirus component finds email messages containing viruses. Infected messages are discarded. The virus signature database is checked for updates every hour.</p>
+<p>The default ClamAV signatures database is normally disabled because it consumes a large amount of memory. Select the <code>Enable ClamAV official signatures</code> checkbox if desired.</p>
+<p>ClamAV unofficial signatures are always active instead. It is possible to choose the desired signature rating level among <em>Low</em>, <em>Medium</em>, <em>High</em>. Bear in mind that higher ratings may lead to unwanted false positive matches, therefore good messages can be blocked.</p>
+<p>Signature updates are fetched from third-party ClamAV signature sites; see <a href="#mail-outbound-connections" class="">Mail outbound connections</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="antispam-section">Antispam<a href="#antispam-section" class="hash-link" aria-label="Direct link to Antispam" title="Direct link to Antispam" translate="no">​</a></h3>
+<p>The antispam component Rspamd analyzes emails by detecting and classifying <a href="https://en.wikipedia.org/wiki/Spamming" target="_blank" rel="noopener noreferrer" class="">spam messages</a> using heuristic criteria, predetermined rules and statistical evaluations of the content of messages.</p>
+<p>The filter can also check if the sending server is listed in one or more DNS-based block lists (or <a href="https://en.wikipedia.org/wiki/Domain_Name_System_blocklist" target="_blank" rel="noopener noreferrer" class="">DNSBL</a>). A score is associated with each rule. The check generates outbound DNS queries to third-party DNS servers; see <a href="#mail-outbound-connections" class="">Mail outbound connections</a>.</p>
+<p>Statistical (or <a href="https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering" target="_blank" rel="noopener noreferrer" class="">Bayesian</a>) filters, are special rules that evolve and quickly adapt analyzing messages marked as <strong>spam</strong> or <strong>ham</strong>.</p>
+<p>Total spam score collected at the end of the analysis allows the server to decide what to do with a message.</p>
+<p>The spam score thresholds can be configured under the <code>Antispam</code> section of the <code>Filter</code> page.</p>
+<ul>
+<li class=""><code>Spam flag threshold</code> determines the score value where a message is marked as spam. When a message has the spam flag set the consequent delivery action depends on the general settings of <a href="#mail-mailboxes-settings" class="">mailboxes</a>.</li>
+<li class=""><code>Deny message spam threshold</code> instead regulates the score that is considered too high to accept a message. If the score exceeds this value, the filter rejects the message completely.</li>
+<li class="">Under the <code>Advanced</code> section it is possible to enable the <code>Greylist threshold</code>. When the message score exceeds this limit the filter asks the sender to try again the message delivery at later time. The <em>Greylist</em> spam-fighting method assumes that spammers dislike delivery retries. It is disabled by default because it introduces delivery delays also for legitimate senders.</li>
+</ul>
+<p>In some cases an email client, recipient, or sender must bypass the filter checks: the <code>Bypass rules</code> section allows to define a set of rules based on the follwing criteria:</p>
+<ul>
+<li class="">Sender IP address or network (CIDR format).</li>
+<li class="">Complete sender email address.</li>
+<li class="">Sender email domain (exact match).</li>
+<li class="">Complete recipient email address.</li>
+<li class="">Recipient email domain (exact match).</li>
+</ul>
+<p>Note that address and domain-based rules match the <em>envelope sender address</em>, which may differ from the message&#x27;s &quot;From&quot; address in some cases (e.g. mailing lists).</p>
+<p>To view message details such as the envelope sender address, access advanced settings, or review recent Rspamd activity, see <a href="#rspamd-web-interface" class="">Rspamd web interface</a>.</p>
+<p>The Bayesian statistical filters can then be trained with any IMAP client by simply moving a message in and out of the Junk folder. As a prerequisite, the Junk folder must be enabled, as explained in <a href="#mail-mailboxes-settings" class="">Mailboxes</a>.</p>
+<ul>
+<li class="">By <em>putting a message into the Junk folder</em>, the filters learn it is spam and will assign an higher score to similar messages.</li>
+<li class="">On the contrary, by <em>getting a message out of Junk</em>, the filters learn it is ham: next time a lower score will be assigned.</li>
+</ul>
+<p>All users can train the filters using this technique.</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>It is a good habit to frequently check the Junk folder in order not to lose email wrongly recognized as spam.</p></div></div>
+<p>The bayesian filter training applies to all users on the system, not only the user that marked an email as spam or ham.</p>
+<p>It is important to understand how the Bayesian tests really work:</p>
+<ul>
+<li class="">
+<p>It does not outright flag messages as spam if they contain a specific subject, or sender address. It is only collecting specific characteristics of the message.</p>
+</li>
+<li class="">
+<p>A message can only be flagged one time. If the same message is flagged multiple times, it will not affect anything as the dynamic tests have already been trained by that message.</p>
+</li>
+<li class="">
+<p>The Bayesian filter <strong>is not active until it has received enough information. This includes a minimum of 200 spams AND 200 hams (false positives).</strong></p>
+<p>As the system receives that information, the progress of bayesian filter training can be monitored from the Rspamd web UI.</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rspamd-web-interface">Rspamd web interface<a href="#rspamd-web-interface" class="hash-link" aria-label="Direct link to Rspamd web interface" title="Direct link to Rspamd web interface" translate="no">​</a></h3>
+<p>The Rspamd web interface can be opened by clicking the <strong>Open Rspamd</strong> button in the top-right corner of the Filter page or by browsing to <code>https://&lt;yourIP&gt;/rspamd</code> or <code>https://&lt;yourFQDN&gt;/rspamd</code>. You will need your cluster-admin credentials to log in.</p>
+<p>It provides access to the advanced configurations and overviews of Rspamd, for example the <strong>Scan/Learn</strong> tab to train Rspamd or the <strong>History</strong> tab to view and analyze incoming emails.</p>
+<p>The <strong>Configuration</strong> tab contains lists at the bottom. Rejecting emails can be configured here.</p>
+<p>To reject emails by specific sender email addresses, the <code>/var/lib/rspamd/block_sender.map</code> list needs to be configured, for example to add <code>user@domain.tld</code>.</p>
+<p>To reject emails by domain, add for example <code>domain.tld</code> to the <code>/var/lib/rspamd/block_sender_domain.map</code> list.</p>
+<p>To reject emails by top-level domain or domain suffix, <code>.tld</code> or <code>.domain.tld</code> may be added to the <code>/var/lib/rspamd/block_sender_domain_suffix.map</code> list.</p>
+<p>Do not modify the other lists, as they are preconfigured.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="queue">Queue<a href="#queue" class="hash-link" aria-label="Direct link to Queue" title="Direct link to Queue" translate="no">​</a></h2>
+<p>The <code>Queue</code> page shows the status of the Postfix mail queue. Under normal conditions the queue should be empty because messages are immediately exchanged between mail servers.</p>
+<p>If the mail queue contains some messages, try to click the <strong>Refresh</strong> button to quickly check if the condition is temporary.</p>
+<p>As alternative, trigger an immediate new delivery attempt with the button <strong>Resend all</strong>, or remove all messages from the queue with <strong>Delete all</strong>.</p>
+<p>The same actions can be selectively executed for each message in the queue, from its three-dots menu. The message delay reason, queue ID, arrival time, size, sender, and recipients can be inspected with the <code>See details</code> action.</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>The <code>Message ID</code> value can be used to search the message in both <a href="#antispam-section" class="">Rspamd web interface</a> and <a class="" href="/pr-preview/pr-244/docs/administrator-manual/configuration/log_server">System logs</a>.</p></div></div>
+<p>If the delay reason is not resolved, and the message is not deleted, the message is returned to the sender after a configurable amount of time. Click the <strong>Settings</strong> button to modify it. See <a href="#queue-settings-section" class="">Queue settings</a> for details.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="relay-rules-section">Relay<a href="#relay-rules-section" class="hash-link" aria-label="Direct link to Relay" title="Direct link to Relay" translate="no">​</a></h2>
+<p>When a message is received from another mail server (MTA), or from a mail user agent (MUA), Postfix determines if and how to relay it towards its final destination. This decision is typically based on relay authorization and the domain suffix of the recipient address.</p>
+<ul>
+<li class="">If the domain is handled by Postfix (i.e. it is listed in <a href="#email_domains" class="">Domains</a>) the message is delivered locally.</li>
+<li class="">Otherwise, if the domain is external and relay authorization is valid, the destination server (also known as the &quot;next-hop&quot; server) is resolved using an MX DNS query.</li>
+</ul>
+<p>The <code>Relay</code> page allows to configure a set of rules that overrides the external domain resolution based on DNS.</p>
+<p>To configure IP-based relay authorization, see <a href="#mail-relay-settings" class="">Relay settings</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rules-priority">Rules priority<a href="#rules-priority" class="hash-link" aria-label="Direct link to Rules priority" title="Direct link to Rules priority" translate="no">​</a></h3>
+<p>Relay rules can be of three types:</p>
+<ol>
+<li class="">Recipient rule.</li>
+<li class="">Sender rule.</li>
+<li class="">Default rule. Only one default rule is allowed.</li>
+</ol>
+<p>The rules evaluation order is Recipient, Sender, Default: the first matching rule is applied. A match occurs based on the message sender or recipient, or if a default rule (that one matching any sender and recipient) is defined.</p>
+<p>Sender and Recipient matches can be an exact correspondence of the full email address, or match only the domain suffix. In the rules evaluation order, exact match is evaluated before the domain suffix match.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="managing-rules">Managing rules<a href="#managing-rules" class="hash-link" aria-label="Direct link to Managing rules" title="Direct link to Managing rules" translate="no">​</a></h3>
+<p>Click on button <strong>Add relay rule</strong> to define a Sender or a Recipient rule. Specify the rule type and subject value (sender or recipient), then fill the remaining fields:</p>
+<ul>
+<li class=""><strong>Hostname</strong>, the name or IP address of the server where the message is relayed if the rule match.</li>
+<li class=""><strong>Port</strong>, the TCP port number used by the server.</li>
+<li class=""><strong>Authentication</strong>. If the server requires SMTP authentication provide the necessary credentials here.</li>
+<li class=""><strong>TLS</strong>. Enable this switch if the server expects TLS or STARTTLS encryption. It is recommended to enable it to encrypt both credentials and data during SMTP connections.</li>
+</ul>
+<p>The <strong>Set default rule</strong> defines a rule that matches if none of the remaining rules do, or if no rule is defined at all. This type of rule is used to configure a <a href="https://en.wikipedia.org/wiki/Smart_host" target="_blank" rel="noopener noreferrer" class="">smarthost</a>, a mail server where mail messages for external domains is relayed.</p>
+<p>When a Default or Recipient rule is created or modified, existing rules of the same type with the same Hostname and Port combination are updated automatically. The new TLS and Authentication settings are applied collectively to these rules. This ensures that messages sent through a given Hostname and Port use consistent credentials and TLS preferences, regardless of the destination address.</p>
+<p>Once created, a rule can be edited, disabled or deleted from the three-dots menu. When a rule is edited, the rule type and subject cannot be changed: delete it instead.</p>
+<p>See also <a href="#mail-relay-settings" class="">Relay settings</a> for other configurations about the relay of messages towards other mail servers. In the <code>Relay</code> page, the <strong>Settings</strong> button leads to them.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail_settings-section">Settings<a href="#mail_settings-section" class="hash-link" aria-label="Direct link to Settings" title="Direct link to Settings" translate="no">​</a></h2>
+<p>Application settings are split up and accessible under the cards described by the following sections.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-general-settings">General settings<a href="#mail-general-settings" class="hash-link" aria-label="Direct link to General settings" title="Direct link to General settings" translate="no">​</a></h3>
+<p>The following values are set at application first configuration time. They should not be changed in production:</p>
+<ul>
+<li class=""><code>Mail server hostname</code> configures how the MTA identifies itself with other MTAs. To successfully receive email messages, use this host name to configure the following DNS records:
+<ul>
+<li class=""><code>A</code> record, resolving the Mail server hostname to the public and static IP address of the server.</li>
+<li class=""><code>PTR</code> record, resolving back the IP address to the Mail server hostname.</li>
+<li class=""><code>MX</code> records, one for each mail domain handled by the Mail application instance.</li>
+<li class=""><code>TXT</code> records, as specified by DKIM, SPF and DMARC.</li>
+</ul>
+</li>
+<li class=""><code>User domain</code> selects a LDAP database with user, groups and passwords. If the DB is changed existing mailboxes are not removed! A mailbox is still accessible if the same user name is present in both the old and the new database.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mailboxes">Mailboxes<a href="#mailboxes" class="hash-link" aria-label="Direct link to Mailboxes" title="Direct link to Mailboxes" translate="no">​</a></h3>
+<p>Under the <code>Mailboxes</code> card you can configure the <code>Default mail quota</code>.</p>
+<p>If the general mailbox quota is enabled, the <code>Mailboxes</code> page summarizes the quota usage for each user. This summary is updated when a user logs in or a message is delivered.</p>
+<p>Under the <code>Shared mailboxes</code> section, <code>Shared seen</code> selects if the IMAP <em>seen</em> flag is shared or not with other users. In general, the <em>seen</em> flag is used to mark if a message has been read or not. In a shared mailbox, each user can access the same message.</p>
+<ul>
+<li class="">If users accessing the shared mailbox prefer to know if a mail has already been read by someone else, set <code>Shared seen</code> to <code>enabled</code> (default).</li>
+<li class="">If users accessing the shared mailbox are not interested if a message has been already read by someone else, set <code>Shared seen</code> to <code>disabled</code>.</li>
+</ul>
+<p>Messages marked as <strong>spam</strong> (see <a href="#email_filter" class="">Filter</a>) can be automatically moved into the <code>Junk</code> folder by enabling the option <code>Move spam to junk folder</code>. Spam messages can be expunged automatically after a period of time. You can configure it from the <code>Default spam retention</code> option.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-master-users-settings">Master users<a href="#mail-master-users-settings" class="hash-link" aria-label="Direct link to Master users" title="Direct link to Master users" translate="no">​</a></h3>
+<p>Under the <code>Master users</code> card, you can setup a user that can impersonate another user, gaining full rights to any mailbox contents and folder permissions.</p>
+<p>Credentials are accepted by the IMAP server:</p>
+<ul>
+<li class="">user name of the master user, e.g. <code>master</code></li>
+<li class="">master user password</li>
+</ul>
+<p>For instance, to access as <code>john</code> with root password <code>secr3t</code>, use the following credentials:</p>
+<ul>
+<li class="">user name: <code>john*master</code></li>
+<li class="">password: <code>secr3t</code></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="queue-settings-section">Queue settings<a href="#queue-settings-section" class="hash-link" aria-label="Direct link to Queue settings" title="Direct link to Queue settings" translate="no">​</a></h3>
+<p>The <code>Maximal queue lifetime</code> parameter defines how many hours a message can remain in the mail queue before it is returned to the sender.</p>
+<p>The default value, 120 hours (5 days), is the retry time suggested by RFC5321. Lower values might be set to warn the sender early if some error occurs. For example, if the remote mail server refuses a message because our IP address is in a public block list, the message sender will be notified after 5 days: it might be considered too late.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-relay-settings">Relay settings<a href="#mail-relay-settings" class="hash-link" aria-label="Direct link to Relay settings" title="Direct link to Relay settings" translate="no">​</a></h3>
+<p>This section controls the Mail application configuration for special scenarios, described in the following sections.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="ip-based-relay">IP-based relay<a href="#ip-based-relay" class="hash-link" aria-label="Direct link to IP-based relay" title="Direct link to IP-based relay" translate="no">​</a></h4>
+<p>Some old mail clients, like scanners, which provide limited software capabilities, might not support SMTP authentication or encryption: in this case it is possible to authorize the relay of messages to external domains by looking at their IP address instead of the usual credentials check.</p>
+<p>List the IP address of such devices in the <code>Allow relay from these IP addresses</code> field. The address can be in IPv4 or IPv6 format. The IP based policy can be spread to a whole network, specifying it in CIDR format.</p>
+<p>For example, a value for the field can be</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">192.168.12.42</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">10.77.4.0/24</span><br></div></code></pre></div></div>
+<p>The IP address <em>192.168.12.42</em> (e.g. a document scanner) and the clients in the network subnet <em>10.77.4.0/24</em> can send mail messages without providing SMTP authentication.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="senderlogin-correspondence">Sender/login correspondence<a href="#senderlogin-correspondence" class="hash-link" aria-label="Direct link to Sender/login correspondence" title="Direct link to Sender/login correspondence" translate="no">​</a></h4>
+<p>To avoid the unauthorized use of email addresses and the sender address spoofing within the organization, enable the <code>Enforce sender/login match</code> switch.</p>
+<p>If the switch is enabled the sender address of a message must correspond to the login name used by the mail client to connect with the mail server. Search the login name in the <a href="#email_addresses" class="">Addresses</a> page to see what are the addresses it can use.</p>
+<p>For example, with that switch enabled, if user <code>john</code> has email address <code>john.doe@example.org</code> he cannot write an email message with a different sender address, like <code>sarah.smith@example.org</code>.</p>
+<p>If the switch is disabled, as per default Mail configuration, an authenticated mail client is allowed to send messages using any sender address, so back to our example <code>john</code> could write the message also as <code>sarah.smith@example.org</code>.</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>If you decide to enable the switch consider that public mailboxes and LDAP group addresses are not evaluated for the login/address correspondence.</p></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-archive-section">Mail archive<a href="#mail-archive-section" class="hash-link" aria-label="Direct link to Mail archive" title="Direct link to Mail archive" translate="no">​</a></h4>
+<p>The <code>Always BCC</code> switch controls a feature often required by mail archiving solutions.</p>
+<p>The acronym BCC stands for Blind Carbon Copy. When the switch is enabled, enter a value in the <code>Always BCC address</code> field: this address will receive a hidden copy of any email message sent or received by the Mail server.</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Making a hidden copy of private email messages is a privacy-sensitive feature. Ensure its use complies with your country&#x27;s privacy laws, regulations, and company policies.</p></div></div>
+<p>The <a class="" href="/pr-preview/pr-244/docs/administrator-manual/applications/piler">Piler application</a> can automatically configure this field with the appropriate value, such as <code>archive@piler1</code> or similar. In this case, changing the address might prevent Piler from archiving new messages.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="email_clients">Client configuration<a href="#email_clients" class="hash-link" aria-label="Direct link to Client configuration" title="Direct link to Client configuration" translate="no">​</a></h2>
+<p>The server supports standard-compliant email clients using the following IANA ports:</p>
+<ul>
+<li class="">imap/143</li>
+<li class="">pop3/110</li>
+<li class="">smtp/587</li>
+<li class="">sieve/4190</li>
+</ul>
+<p>Authentication requires the STARTTLS command and supports the following variants:</p>
+<ul>
+<li class="">LOGIN</li>
+<li class="">PLAIN</li>
+</ul>
+<p>Also the following TLS-enabled ports are available for legacy software that still does not support STARTTLS:</p>
+<ul>
+<li class="">imaps/993</li>
+<li class="">pop3s/995</li>
+<li class="">smtps/465</li>
+</ul>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>The standard SMTP port 25 is reserved for mail transfers between MTA servers. Mail user agents (MUA) must use the submission port.</p></div></div>
+<p>Refer to the <a class="" href="/pr-preview/pr-244/docs/administrator-manual/applications/webtop#email_autoconfig">Webtop application</a> for the implementation of automatic configuration protocols like Autodiscover and Autoconfig.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-outbound-connections">Mail outbound connections<a href="#mail-outbound-connections" class="hash-link" aria-label="Direct link to Mail outbound connections" title="Direct link to Mail outbound connections" translate="no">​</a></h2>
+<p>The Mail application generates outbound SMTP traffic towards other mail servers, as well as DNS, HTTPS, and RSYNC traffic for antispam and antivirus checks.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Purpose</th><th>Host name</th><th>Port</th><th>Protocol</th><th>Notes</th></tr></thead><tbody><tr><td>SMTP session</td><td>&lt;any&gt;</td><td>25</td><td>SMTP</td><td>Outbound connection to remote MTA</td></tr><tr><td>DNSBL queries</td><td>&lt;any&gt;</td><td>53</td><td>DNS</td><td>Rspamd DNS queries and resolver recursive DNS queries</td></tr><tr><td>DQS queries</td><td>&lt;any&gt;</td><td>53</td><td>DNS</td><td>Spamhaus Data Query Service DNS queries</td></tr><tr><td>ClamAV DB updates</td><td>database.clamav.net, sigs.interserver.net, cdn.rfxn.com, signatures.malware.expert, lists.malwarepatrol.net, <a href="http://www.sanesecurity.com" target="_blank" rel="noopener noreferrer" class="">www.sanesecurity.com</a>, <a href="http://www.securiteinfo.com" target="_blank" rel="noopener noreferrer" class="">www.securiteinfo.com</a>, urlhaus.abuse.ch, raw.githubusercontent.com</td><td>443</td><td>HTTPS</td><td>Fetch official and unofficial ClamAV signatures</td></tr><tr><td>ClamAV DB updates</td><td>rsync.sanesecurity.net</td><td>873</td><td>RSYNC</td><td>Fetch official and unofficial ClamAV signatures</td></tr></tbody></table>
+<p>Summary of Mail outbound connections</p>
+<p>Notes</p>
+<ul>
+<li class="">
+<p>The complete list of host names has been extracted from the <a href="https://github.com/extremeshok/clamav-unofficial-sigs" target="_blank" rel="noopener noreferrer" class="">clamav-unofficial-sigs</a> source code.</p>
+</li>
+<li class="">
+<p>Obtain a complete list of DNSBL/DQS servers with this command on the node where Mail is installed:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">runagent -m mail1 podman exec rspamd rspamadm configdump rbl | grep &quot;rbl = &quot;</span><br></div></code></pre></div></div>
+<p>To resolve their IP addresses, the Rspamd DNS recursive resolver (Unbound) queries authoritative DNS servers directly.</p>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/NethServer/ns8-docs/blob/main/docs/administrator-manual/applications/mail.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer><div class="versionFooter_GEsS"><span class="versionText_BSdA">NethServer <span class="versionNumber_jKi7">8</span></span></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/pr-preview/pr-244/docs/administrator-manual/applications/imapsync"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Imapsync</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/pr-preview/pr-244/docs/administrator-manual/applications/mattermost"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Mattermost</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#configuration" class="table-of-contents__link toc-highlight">Configuration</a></li><li><a href="#email_domains" class="table-of-contents__link toc-highlight">Domains</a><ul><li><a href="#dkim-signature" class="table-of-contents__link toc-highlight">DKIM signature</a></li></ul></li><li><a href="#mail-mailboxes-settings" class="table-of-contents__link toc-highlight">Mailboxes</a><ul><li><a href="#users-mailboxes" class="table-of-contents__link toc-highlight">Users mailboxes</a></li><li><a href="#public-mailboxes" class="table-of-contents__link toc-highlight">Public mailboxes</a></li><li><a href="#mailbox-selective-restore" class="table-of-contents__link toc-highlight">Restore a mailbox folder from a backup</a></li></ul></li><li><a href="#email_addresses" class="table-of-contents__link toc-highlight">Addresses</a></li><li><a href="#email_filter" class="table-of-contents__link toc-highlight">Filter</a><ul><li><a href="#anti-virus" class="table-of-contents__link toc-highlight">Antivirus</a></li><li><a href="#antispam-section" class="table-of-contents__link toc-highlight">Antispam</a></li><li><a href="#rspamd-web-interface" class="table-of-contents__link toc-highlight">Rspamd web interface</a></li></ul></li><li><a href="#queue" class="table-of-contents__link toc-highlight">Queue</a></li><li><a href="#relay-rules-section" class="table-of-contents__link toc-highlight">Relay</a><ul><li><a href="#rules-priority" class="table-of-contents__link toc-highlight">Rules priority</a></li><li><a href="#managing-rules" class="table-of-contents__link toc-highlight">Managing rules</a></li></ul></li><li><a href="#mail_settings-section" class="table-of-contents__link toc-highlight">Settings</a><ul><li><a href="#mail-general-settings" class="table-of-contents__link toc-highlight">General settings</a></li><li><a href="#mailboxes" class="table-of-contents__link toc-highlight">Mailboxes</a></li><li><a href="#mail-master-users-settings" class="table-of-contents__link toc-highlight">Master users</a></li><li><a href="#queue-settings-section" class="table-of-contents__link toc-highlight">Queue settings</a></li><li><a href="#mail-relay-settings" class="table-of-contents__link toc-highlight">Relay settings</a></li></ul></li><li><a href="#email_clients" class="table-of-contents__link toc-highlight">Client configuration</a></li><li><a href="#mail-outbound-connections" class="table-of-contents__link toc-highlight">Mail outbound connections</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-244/docs/administrator-manual">Administrator manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-244/docs/user-manual">User manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-244/docs/tutorial">Tutorial</a></li><li class="footer__item"><a href="https://nethserver.github.io/ns8-core/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Developer manual<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legacy docs</div><ul class="footer__items clean-list"><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                NethServer 7
+                  <a class="footer__link-item" href="/en/v7/" target="_blank">en</a>
+                  <a class="footer__link-item" href="/it/v7/" target="_blank"> it</a>
+                </div>
+              </li><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                NethServer 6
+                  <a class="footer__link-item" href="/en/v6/" target="_blank">en</a>
+                  <a class="footer__link-item" href="/it/v6/" target="_blank"> it</a>
+                </div>
+              </li><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                  <a class="footer__link-item" href="/projects/nethserver-devel/en/latest/" target="_blank">Developer manual 7</a>
+                </div>
+              </li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/NethServer/ns8-docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.nethserver.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">NethServer website<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://community.nethserver.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">NethServer Community<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Nethesis</div></div></div></footer></div>
+</body>
+</html>
