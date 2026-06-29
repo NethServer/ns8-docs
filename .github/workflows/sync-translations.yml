@@ -82,8 +82,13 @@ jobs:
           
           if [ -n "$LAST_WORKFLOW_COMMIT" ]; then
             echo "✅ Found last workflow execution at commit: $LAST_WORKFLOW_COMMIT"
-            # Use the commit after the last processed one as the range start for processing
-            COMMITS_TO_PROCESS_RANGE="$LAST_WORKFLOW_COMMIT..HEAD"
+            # Verify the commit still exists locally (may be gone after force-push/rebase/squash)
+            if git cat-file -e "$LAST_WORKFLOW_COMMIT" 2>/dev/null; then
+              COMMITS_TO_PROCESS_RANGE="$LAST_WORKFLOW_COMMIT..HEAD"
+            else
+              echo "⚠️  Commit not found in local history (history rewritten?), falling back to full PR range"
+              COMMITS_TO_PROCESS_RANGE="$MERGE_BASE..HEAD"
+            fi
           else
             echo "⚠️  No previous workflow execution found, processing all commits"
             COMMITS_TO_PROCESS_RANGE="$MERGE_BASE..HEAD"
