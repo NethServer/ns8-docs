@@ -39,6 +39,8 @@ Fill in the required fields for the chosen provider.
 
 If adding a previously used destination (i.e., it already has data inside), you must fill the `Data encryption key` field under the `Advanced` section, otherwise existing backups cannot be opened. For new destinations leave the field empty to generate a random key.
 
+When a backup destination is added or edited, its settings are validated by all cluster nodes. At least one node must successfully reach the destination for the settings to be accepted. During backup runs, if a node cannot reach a destination directly, it will attempt to relay backup data through the leader node, then through other worker nodes, until a working route is found.
+
 The backup procedure generates a two-level structure where application instances are grouped by type at the first level, and by a UUID-named folder at the second level. For example:
 
     dokuwiki/
