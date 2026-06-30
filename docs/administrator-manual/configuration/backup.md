@@ -25,16 +25,21 @@ A backup destination is where the backup data of applications is saved. Defining
 Access the `Backup and restore` page, click on the **Add
 destination** button, and choose a provider. Supported providers are:
 
-- [Backblaze B2](https://www.backblaze.com/b2/cloud-storage.html)
-- [Amazon S3](https://aws.amazon.com/s3/)
-- [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)
-- Generic S3, like [RustFS](../applications/rustfs.md)
-- Windows file share, through SMB2/3 protocols
 - [Local storage](#local-storage), attached to a node of the cluster
+- Windows file share, through SMB2 or SMB3 protocols
+- Amazon S3[^a]
+- Backblaze B2[^b]
+- S3-compatible provider, like the [RustFS NS8 application](../applications/rustfs.md)
+- [Rclone-compatible provider](#rclone-provider), for other widely supported cloud storage services
+
+[^a]: https://aws.amazon.com/s3/
+[^b]: https://www.backblaze.com/b2/cloud-storage.html
 
 Fill in the required fields for the chosen provider.
 
 If adding a previously used destination (i.e., it already has data inside), you must fill the `Data encryption key` field under the `Advanced` section, otherwise existing backups cannot be opened. For new destinations leave the field empty to generate a random key.
+
+When a backup destination is added or edited, its settings are validated by all cluster nodes. At least one node must successfully reach the destination for the settings to be accepted. During backup runs, if a node cannot reach a destination directly, it will attempt to relay backup data through the leader node, then through other worker nodes, until a working route is found.
 
 The backup procedure generates a two-level structure where application instances are grouped by type at the first level, and by a UUID-named folder at the second level. For example:
 
@@ -67,6 +72,12 @@ The `Local storage` destination allows storing backup data on locally attached s
               --opt=o=noatime \
               backup00
 
+    :::warning
+    Always mount the disk by its `by-id` path. If the disk fails or I/O
+    errors occur, the mount will fail rather than silently writing data
+    to the root filesystem. Avoid bind mounts.
+    :::
+
 3.  Configure the `rclone-webdav.service` unit to use that volume:
 
         echo BACKUP_VOLUME=backup00 > /var/lib/nethserver/node/state/rclone-webdav.env
@@ -75,12 +86,64 @@ The `Local storage` destination allows storing backup data on locally attached s
 
         systemctl restart rclone-webdav.service
 
-    > [!NOTE]
-    > The disk is unmounted when the `rclone-webdav` service is stopped.
+    :::note
+    The disk is unmounted when the `rclone-webdav` service is stopped.
+    :::
 
 5.  Remove the default volume used by the service, as it is no longer needed. Existing content will be lost:
 
         podman volume rm rclone-webdav
+
+### Rclone-compatible provider {#rclone-provider}
+
+Any Rclone-compatible provider can be used as a backup destination by
+supplying a short INI configuration[^wini]. The full list of [supported
+cloud storage providers][rco] is maintained on the official Rclone
+website.
+
+[^wini]: https://en.wikipedia.org/wiki/INI_file
+
+[rco]: https://rclone.org/overview/
+
+Some cloud providers include Rclone configuration examples in their
+documentation or offer a downloadable pre-configured file from their
+management portal. Before writing the configuration yourself, check
+your provider's documentation or community forums.
+
+The following example configures a Unix SFTP server[^sftp] backup destination with password authentication:
+
+```ini
+type = sftp
+host = 192.168.122.254
+user = ubackup
+pass = 5U-JvLFx8NKphaUD5e0HvjF6RzUYcG7YgMfNWbQ
+shell_type = unix
+```
+
+[^sftp]: https://rclone.org/sftp/
+
+Rclone requires the `pass` field to contain an *obscured* password
+string. Generate one on NS8 with:
+
+```sh
+echo 'MySuperSecret' | podman exec -i rclone-gateway rclone obscure -
+```
+
+To convert an obscured password back to plain text, run:
+
+```sh
+podman exec rclone-gateway rclone reveal 5U-JvLFx8NKphaUD5e0HvjF6RzUYcG7YgMfNWbQ
+```
+
+To add a Rclone-compatible backup destination, upload the INI
+configuration file or paste it into the `Add destination` form.
+
+Use the optional `Path` field to specify where the backup's two-level
+directory structure is stored, using `/` as the directory separator.
+If left empty, the root of the remote destination is used — this is
+not recommended when the destination is shared across multiple NS8
+clusters.
+
 
 ## Schedule application backup
 
@@ -97,7 +160,12 @@ To manually execute a backup, click the `Run backup now` item from the three-dot
 
 To change which applications are included in an existing backup, click the `Edit` item from the three-dots menu of the scheduled backup.
 
-After the first backup run, the backup status is reported under `Backup > Schedules > See details`.
+After the first backup run, the backup status is reported under `Backup > Scheduled backups > See details`.
+
+If an application is included in two or more scheduled backups that
+overlap in time, conflicting runs are delayed until the first completes.
+If the first run does not complete within one hour, the remaining runs are
+marked as failed.
 
 ## Restore applications {#application_restore-section}
 

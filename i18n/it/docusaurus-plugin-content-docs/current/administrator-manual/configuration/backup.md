@@ -17,6 +17,7 @@ Una volta impostata la password del backup del cluster, viene visualizzata l'int
 Infine, nella scheda `Ripristino`, è possibile avviare il ripristino di singole applicazioni. Consulta [Ripristino delle applicazioni](#application_restore-section).
 
 Le sezioni successive illustrano ciascuna funzione in dettaglio.
+
 ## Destinazione del backup {#backup-destination}
 
 Una destinazione di backup è il luogo in cui vengono salvati i dati di backup delle applicazioni. Definire una destinazione è un prerequisito per pianificare un backup o ripristinare un'applicazione.
@@ -33,6 +34,8 @@ Accedi alla pagina `Backup e ripristino`, fai clic sul pulsante **Aggiungi desti
 Compila i campi richiesti per il provider scelto.
 
 Se aggiungi una destinazione precedentemente utilizzata (cioè che contiene già dati), devi compilare il campo `Chiave di crittografia dei dati` nella sezione `Avanzate`, altrimenti i backup esistenti non possono essere aperti. Per nuove destinazioni, lascia il campo vuoto per generare una chiave casuale.
+
+Quando una destinazione di backup viene aggiunta o modificata, le sue impostazioni vengono validate da tutti i nodi del cluster. Almeno un nodo deve riuscire a raggiungere la destinazione affinché le impostazioni vengano accettate. Durante l'esecuzione del backup, se un nodo non riesce a raggiungere direttamente una destinazione, tenterà di inoltrare i dati del backup attraverso il nodo leader, quindi attraverso altri nodi worker, fino a trovare un percorso funzionante.
 
 La procedura di backup genera una struttura a due livelli in cui le istanze delle applicazioni sono raggruppate per tipo al primo livello e da una cartella denominata UUID al secondo livello. Ad esempio:
 
@@ -79,6 +82,7 @@ La destinazione `Storage locale` consente di memorizzare i dati di backup su uno
 5.  Rimuovi il volume predefinito utilizzato dal servizio, poiché non è più necessario. Il contenuto esistente verrà perso:
 
         podman volume rm rclone-webdav
+
 ## Pianificare il backup delle applicazioni
 
 Per pianificare il backup delle applicazioni installate:
@@ -95,6 +99,7 @@ Per eseguire manualmente un backup, fare clic sull'elemento `Esegui backup ora` 
 Per modificare le applicazioni incluse in un backup esistente, fare clic sull'elemento `Modifica` dal menu a tre punti del backup pianificato.
 
 Dopo la prima esecuzione del backup, lo stato del backup viene riportato in `Backup > Pianificazioni > Vedi dettagli`.
+
 ## Ripristino delle applicazioni {#application_restore-section}
 
 Per ripristinare un'applicazione, deve essere disponibile almeno una destinazione di backup.
@@ -117,12 +122,14 @@ Alcune applicazioni principali hanno comportamenti speciali durante il ripristin
 - **Traefik** ripristina solo i certificati caricati e le rotte HTTP definite dall'utente. Fare riferimento a [Caricare certificati TLS personalizzati](certificates.md#custom-certificates-section) e [Creare una rotta HTTP personalizzata](proxy.md#custom-http-route-section).
 - Il ripristino di **Loki** installa un'istanza aggiuntiva di Loki *inattiva*. Può essere utilizzata solo per le ricerche nei log, come spiegato in [Log di sistema](log_server.md).
 - Il comportamento del ripristino di **Samba** dipende dal fatto che il dominio utente AD sia già presente nel cluster. Se presente, vengono ripristinati solo i dati delle cartelle condivise. In caso contrario, viene ripristinato anche il database LDAP del DC. Vedere [Ripristinare il file server da un backup](../applications/file_server.md#file-server-restore) per ulteriori informazioni.
+
 ## Ripristino selettivo dei contenuti {#selective-content-restore}
 
 Alcune applicazioni consentono di cercare e ripristinare elementi specifici da uno snapshot di backup. Per maggiori informazioni, fare riferimento a:
 
 - Samba [Ripristinare un singolo file o cartella da un backup di una cartella condivisa](../applications/file_server.md#share-selective-restore), per file e directory all'interno di una condivisione Samba.
 - Mail [Ripristinare una cartella di una casella di posta da un backup](../applications/mail.md#mailbox-selective-restore), per caselle di posta pubbliche e cartelle delle caselle di posta degli utenti.
+
 ## Backup del cluster {#cluster_backup-section}
 
 Il backup del cluster contiene tutti i dati necessari per il [Ripristino di emergenza](#disaster_recovery-section), incluse le configurazioni delle destinazioni e le relative chiavi di crittografia dei dati, che sono indispensabili anche per ripristinare i backup delle singole applicazioni. Si tratta di un file JSON compresso e crittografato con GPG.
@@ -142,6 +149,7 @@ Se si perde il backup del cluster, è comunque possibile ripristinare le applica
 Per ispezionare il contenuto del file scaricato, utilizzare il seguente comando, sostituendo "SECRET" con la propria password di crittografia:
 
     echo 'SECRET' | gpg --batch --passphrase-fd 0 --decrypt backup.json.gz.gpg | gunzip | jq
+
 ## Ripristino di emergenza {#disaster_recovery-section}
 
 La procedura di ripristino di emergenza è progettata per il ripristino di un **cluster a nodo singolo**. È sufficiente disporre del file [backup del cluster](#cluster_backup-section) originale.
