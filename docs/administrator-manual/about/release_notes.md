@@ -13,7 +13,12 @@ NethServer 8 releases
 
 **Milestone 8.9**
 
-- **New centralized backup architecture** \[Core 3.20.0\] -- Backup scheduling and execution have moved from individual applications to the node level: a node agent now runs application backups sequentially according to node-level schedules, instead of many per-app timers firing in parallel, reducing peak CPU/memory usage during backup runs. All backup destinations are now accessed through Rclone via a node-level gateway, replacing the previous mix of direct Restic and Rclone-behind-Restic logic. This enables a new **Rclone-compatible provider** destination type, accepting a raw `rclone.conf` for any provider supported by Rclone; the Azure Blob Storage provider has been removed in favor of this generic option. Adding or editing a destination now validates that at least one cluster node can reach it; during a backup run, a node that cannot reach the destination directly relays data through the leader node, then other worker nodes, until a working route is found. Applications restored via disaster recovery keep their original backup schedules. See [Backup destination](../configuration/backup.md#backup-destination).
+- **New centralized backup architecture** \[Core 3.20.0\] -- Backup handling has been redesigned around the cluster node rather than individual applications. See [Backup destination](../configuration/backup.md#backup-destination).
+  - More secure: destination passwords are isolated from applications and only accessible with special privileges.
+  - Schedule conflicts are detected and retried automatically within a one-hour window.
+  - On multi-node clusters, nodes can route backup traffic through other nodes, making on-premise destinations reachable from cloud nodes.
+  - Every node validates its own connectivity and permissions to a destination, not just the leader.
+  - Destinations can be fine-tuned with a custom Rclone configuration, enabling advanced options (e.g. skipping TLS certificate validation) and new types such as SFTP and WebDAV.
 
 - **Abort running tasks with a safer confirmation** \[Core 3.20.0\] -- Long-running tasks, including application restore, can be aborted from the UI. The confirmation step was redesigned to prevent accidental clicks that could interrupt an important operation, such as a restore or clone in progress.
 
