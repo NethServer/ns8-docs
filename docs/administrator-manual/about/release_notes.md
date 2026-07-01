@@ -9,6 +9,48 @@ NethServer 8 releases
 - List of [known bugs](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) on GitHub
 - Discussions around [possible bugs](http://community.nethserver.org/c/bug) on our public forum
 
+## Major changes on 2026-06-30
+
+**Milestone 8.9**
+
+- **New centralized backup architecture** \[Core 3.20.0\] -- Backup scheduling and execution have moved from individual applications to the node level: a node agent now runs application backups sequentially according to node-level schedules, instead of many per-app timers firing in parallel, reducing peak CPU/memory usage during backup runs. All backup destinations are now accessed through Rclone via a node-level gateway, replacing the previous mix of direct Restic and Rclone-behind-Restic logic. This enables a new **Rclone-compatible provider** destination type, accepting a raw `rclone.conf` for any provider supported by Rclone; the Azure Blob Storage provider has been removed in favor of this generic option. Adding or editing a destination now validates that at least one cluster node can reach it; during a backup run, a node that cannot reach the destination directly relays data through the leader node, then other worker nodes, until a working route is found. Applications restored via disaster recovery keep their original backup schedules. See [Backup destination](../configuration/backup.md#backup-destination).
+
+- **Abort running tasks with a safer confirmation** \[Core 3.20.0\] -- Long-running tasks, including application restore, can be aborted from the UI. The confirmation step was redesigned to prevent accidental clicks that could interrupt an important operation, such as a restore or clone in progress.
+
+- **Free disk space shown during node selection** \[Core 3.20.0\] -- When installing, cloning, or restoring an application, the node selection step now shows the free disk space of the root filesystem for every node, not only for nodes with an additional volume.
+
+- **Restricted shell for module service users** \[Core 3.20.0\] -- Newly installed application modules now assign `/sbin/nologin` as the default shell for their service user, reducing the attack surface of interactive logins while `runagent` continues to work as before.
+
+- **Random initial root password on pre-built images** \[Core 3.20.0\] -- Pre-built NS8 images (.qcow2/.vmdk) no longer ship with the well-known default root password. A random password is generated at first boot and displayed on the console/MOTD until it is changed. See [Install](../installation/install.md).
+
+- **More resilient pre-built image bootstrap** \[Core 3.20.0\] -- Pre-built images now finish the local Traefik setup (secrets and certificate generation) at first boot even if the network is temporarily unavailable, and the `Create cluster` action handles network/DNS validation failures more gracefully.
+
+- **Logging of outgoing system notification emails** \[Core 3.19.0\] -- The `ns8-sendmail` command, used to deliver password-expiration and other system notifications, now logs a structured record (subject, sender, first recipient, remote server, SMTP status) for each message it submits.
+
+- **IPv6 support in HTTP routes allow list** \[Core 3.18.4\] -- The `Allow access from` restriction on HTTP routes now accepts IPv6 addresses and networks in addition to IPv4.
+
+- **Password never expires for OpenLDAP users** \[OpenLDAP 2.7.0\] -- The "Password never expires" option, previously available only for Active Directory, can now be enabled for individual OpenLDAP users too, both from cluster-admin and the user portal. See [User and groups](../installation/user_domains.md#user_groups-section).
+
+- **Password expiration API for the user portal** \[OpenLDAP 2.7.0, Samba 3.4.6\] -- OpenLDAP and Samba account providers expose a new `get-password-expiration` user-portal API endpoint, letting client applications query a logged-in user's own password expiration status.
+
+- **Spamhaus DQS support in Rspamd** \[Mail 1.7.9\] -- The Mail application can now use Spamhaus's Data Query Service (DQS), an alternative to the public DNSBL protocol that requires a registered token and offers better performance and fewer fair-use restrictions.
+
+- **Sender blocklist for Rspamd** \[Mail 1.7.10\] -- The Mail application's Rspamd configuration adds new maps to block incoming mail by sender TLD, exact domain, domain suffix, or full email address, configurable from the Rspamd UI configuration page.
+
+- **WebTop updates** \[WebTop 1.5.6\] -- WebTop was updated to upstream release 5.32.0, adding a "Remember me" option on the login page. The one-time-password login field no longer uses a password-type input, avoiding unwanted "save password" browser prompts.
+
+- **Nextcloud 33** \[Nextcloud 1.7.0\] -- The Nextcloud application was upgraded to major version 33.
+
+- **Piler volume management and persistent custom configuration** \[Piler 1.2.1, 1.2.2\] -- The Piler email archiving application now supports NS8 volume management, allowing its storage to be placed on an additional disk during install, clone, or restore. A `config-site.php.local` override template can also be used to persist custom `config-site.php` changes across module updates and UI saves.
+
+- **CrowdSec notification wording fix** \[CrowdSec 1.1.4\] -- Email notifications about CrowdSec ban decisions now use correct singular/plural wording instead of always using the plural form.
+
+- **Grafana dashboard for CrowdSec** \[CrowdSec 1.1.6\] -- A Grafana dashboard with a Prometheus exporter for CrowdSec metrics is now available through the Metrics application.
+
+- **Enterprise alerts forwarded to my.nethesis.it** \[Metrics 1.3.0\] -- Clusters with an active Enterprise subscription now automatically forward Metrics/Alertmanager alerts to `my.nethesis.it`, where they appear in the subscription's Alerts page.
+
+- **Other application updates** -- Dnsmasq 1.3.3, Mattermost 2.4.5, Loki 1.4.5, Matrix 0.0.5.
+
 ## Major changes on 2026-03-27
 
 **Milestone 8.8**
