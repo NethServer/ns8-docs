@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en-US" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-administrator-manual/installation/system_requirements" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">System requirements | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/pr-preview/pr-246/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/pr-preview/pr-246/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="System requirements | NethServer 8 documentation"><meta data-rh="true" name="description" content="NethServer 8 (NS8) can be deployed on a single node or across multiple nodes. In both cases it is called &quot;cluster&quot;. A node can be either a physical or virtual machine. Deployment on container-based virtualization solutions, such as Proxmox LXC, is not supported."><meta data-rh="true" property="og:description" content="NethServer 8 (NS8) can be deployed on a single node or across multiple nodes. In both cases it is called &quot;cluster&quot;. A node can be either a physical or virtual machine. Deployment on container-based virtualization solutions, such as Proxmox LXC, is not supported."><link data-rh="true" rel="icon" href="/pr-preview/pr-246/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-246/it/docs/administrator-manual/installation/system_requirements" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"System requirements","item":"https://docs.nethserver.org/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/pr-preview/pr-246/opensearch.xml"><link rel="stylesheet" href="/pr-preview/pr-246/assets/css/styles.d64e4b30.css">
+<script src="/pr-preview/pr-246/assets/js/runtime~main.70952edf.js" defer="defer"></script>
+<script src="/pr-preview/pr-246/assets/js/main.c58a404e.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/pr-preview/pr-246/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/pr-preview/pr-246/"><div class="navbar__logo"><img src="/pr-preview/pr-246/img/logo.svg" alt="NethServer 8" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/pr-preview/pr-246/img/logo.svg" alt="NethServer 8" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate"></b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/pr-preview/pr-246/docs/administrator-manual">Administrator manual</a><a class="navbar__item navbar__link" href="/pr-preview/pr-246/docs/user-manual">User manual</a><a class="navbar__item navbar__link" href="/pr-preview/pr-246/docs/tutorial">Tutorial</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en-US">English</a></li><li><a href="/pr-preview/pr-246/it/docs/administrator-manual/installation/system_requirements" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="it-IT">Italian</a></li></ul></div><a href="https://github.com/NethServer/ns8-docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/pr-preview/pr-246/docs/administrator-manual"><span title="Administrator manual" class="linkLabel_WmDU">Administrator manual</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-246/docs/administrator-manual/about/introduction"><span title="About" class="categoryLinkLabel_W154">About</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements"><span title="Installation" class="categoryLinkLabel_W154">Installation</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements"><span title="System requirements" class="linkLabel_WmDU">System requirements</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-246/docs/administrator-manual/installation/install"><span title="Installation" class="linkLabel_WmDU">Installation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-246/docs/administrator-manual/installation/user_domains"><span title="User domains" class="linkLabel_WmDU">User domains</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-246/docs/administrator-manual/installation/software_center"><span title="Software center" class="linkLabel_WmDU">Software center</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-246/docs/administrator-manual/installation/modules"><span title="Applications" class="linkLabel_WmDU">Applications</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-246/docs/administrator-manual/configuration/cluster"><span title="Configuration" class="categoryLinkLabel_W154">Configuration</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-246/docs/administrator-manual/applications/collabora"><span title="Applications" class="categoryLinkLabel_W154">Applications</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-246/docs/administrator-manual/nethforge/dokuwiki"><span title="NethForge applications" class="categoryLinkLabel_W154">NethForge applications</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/pr-preview/pr-246/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Installation</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">System requirements</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>System requirements</h1></header>
+<p>NethServer 8 (NS8) can be deployed on a single node or across multiple nodes. In both cases it is called &quot;cluster&quot;. A node can be either a physical or virtual machine. Deployment on container-based virtualization solutions, such as Proxmox LXC, is not supported.</p>
+<p>Minimum hardware requirements for a single node installation:</p>
+<ul>
+<li class="">2 vCPU/cores, x86-64 architecture</li>
+<li class="">2GB RAM</li>
+<li class="">40GB Solid-state drive</li>
+</ul>
+<p>The above requirements must be increased to match users, applications, and load needs.</p>
+<p>More nodes can be added later, and when adding a new node, it is recommended to use similar hardware and the same Linux distribution installed on the other nodes, as explained in the next section.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="supported-distros-section">Linux distribution<a href="#supported-distros-section" class="hash-link" aria-label="Direct link to Linux distribution" title="Direct link to Linux distribution" translate="no">​</a></h2>
+<p>Install NS8 on a clean Linux server distribution, avoiding installation on
+desktop systems or servers already running other services. If you must install
+software not provided by NS8 or its applications, such as a monitoring tool or
+a log or backup agent, first prepare a test installation with the required NS8
+applications and verify that no port or resource conflicts exist. NS8 reserves
+ports in the <code>20000-45000</code> range for applications and allocates them
+dynamically. You can use ports below <code>20000</code> for additional software only
+after checking that the installed applications do not already require them.</p>
+<p>NS8 is compatible with <a href="https://rockylinux.org/" target="_blank" rel="noopener noreferrer" class="">Rocky Linux</a> 9 and RHEL 9 derivative distributions, such as AlmaLinux or CentOS Stream 9, as well as <a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer" class="">Debian</a> 13.</p>
+<p>Mixing different distributions or distribution versions across cluster nodes is allowed temporarily — for example, while migrating to a new distribution or upgrading to a new major release — but long-term mismatches can cause unpredictable update issues due to different release cycles, and must be avoided.</p>
+<ul>
+<li class="">
+<p>You may find volunteer support in the NethServer community public forum for all compatible distributions.</p>
+</li>
+<li class="">
+<p>The <a class="" href="/pr-preview/pr-246/docs/administrator-manual/about/subscription#subscription-section">Nethesis Subscription</a> (including the &quot;Enterprise&quot; plan) is available only for <strong>Rocky Linux 9</strong>.</p>
+</li>
+</ul>
+<p>Read the section <a class="" href="/pr-preview/pr-246/docs/tutorial/os_updates#neth-mirror">Operating system updates</a> to keep the Linux distribution up to date and to learn more about the DNF repositories managed by Nethesis, which are enabled by default on Rocky Linux.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="swap-reqs">Swap space<a href="#swap-reqs" class="hash-link" aria-label="Direct link to Swap space" title="Direct link to Swap space" translate="no">​</a></h2>
+<p>Set up a swap partition or swap file. In most environments, <a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap" target="_blank" rel="noopener noreferrer" class="">4 GB of swap space</a> provides a good balance between performance and resource usage. The decision to allocate more space depends on the system&#x27;s memory workload.</p>
+<p>The <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/install#install_image-section">Rocky Linux pre-built image</a> already provides a 4 GB swap file configured as default.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="disk-partitions">Disk and partitions<a href="#disk-partitions" class="hash-link" aria-label="Direct link to Disk and partitions" title="Direct link to Disk and partitions" translate="no">​</a></h2>
+<p>Disk performance depends on the system workload, but NS8 architecture generates high I/O load due to its container-based design. The main disk must be fast enough to sustain it: use an enterprise class solid-state drive (SSD). A typical symptom of an underestimated disk is service startup timeout.</p>
+<p>NS8 has no special partitioning requirements. The <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/install#install_image-section">pre-built image</a> comes with a single root partition covering all data. If desired, <code>/home</code> can be mounted on a separate disk with the same speed requirements: application data is stored there by default, so a dedicated <code>/home</code> partition separates application data from the operating system. It is also possible to add an alternative home path at a later time, as described in <a class="" href="/pr-preview/pr-246/docs/tutorial/disk_usage#alt-home-section">Attach a disk for new applications</a>.</p>
+<p>Applications that store large amounts of data can be configured to use an additional volume as described in <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/software_center#additional-volumes-section">Configure additional volumes</a>. For additional volumes, spinning disks and iSCSI devices are suitable choices.</p>
+<p>The supported local filesystems are XFS and EXT4. iSCSI and equivalent network block devices are also suitable, as they present as block devices that can be formatted locally. NFS is not supported: it manages the filesystem remotely and does not handle the user ID mapping that container applications require.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="static-ip-reqs">Static IP address<a href="#static-ip-reqs" class="hash-link" aria-label="Direct link to Static IP address" title="Direct link to Static IP address" translate="no">​</a></h2>
+<p>A working internet connection is necessary for the installation, configuration, and updating of the node. It is required also if an active <a class="" href="/pr-preview/pr-246/docs/administrator-manual/about/subscription">subscription</a> is in place.</p>
+<p>Assign a static IP address to the node. DHCP and any other dynamic IP discovery protocols are not allowed.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="resolv-conf">Name resolution<a href="#resolv-conf" class="hash-link" aria-label="Direct link to Name resolution" title="Direct link to Name resolution" translate="no">​</a></h2>
+<p>The node name resolver must be configured to use DNS servers that are not provided by NS8 itself. This is required because the <code>/etc/resolv.conf</code> file is inherited by application containers, which may use private network setups that can conflict with the node’s own DNS service.</p>
+<p>The <code>/etc/resolv.conf</code> file should contain one or more <code>nameserver</code> lines specifying the IP addresses of DNS servers available to the node. These servers can be in the same LAN or on the public Internet. If the file is managed by tools such as <code>NetworkManager</code> or <code>cloud-init</code>, do not edit it directly. Instead, follow the configuration guidelines provided by those tools.</p>
+<p>Avoid the following configurations:</p>
+<ul>
+<li class="">Do not use <code>nameserver 127.0.0.1</code> or any IP address assigned to the node itself. If the Linux distribution has installed a local DNS resolver service, refer to its documentation to disable or remove it.</li>
+<li class="">Do not use any NS8 application providing DNS service as the node name resolver, such as Samba Active Directory or DNSMasq. This can cause name resolution loops or prevent node updates.</li>
+<li class="">Do not mix DNS servers from different network scopes, for example, <code>1.1.1.1</code> (public, Cloudflare) and <code>192.168.1.1</code> (private). Doing so can lead to inconsistent DNS query results.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dns-reqs">DNS configuration<a href="#dns-reqs" class="hash-link" aria-label="Direct link to DNS configuration" title="Direct link to DNS configuration" translate="no">​</a></h2>
+<p>To ensure network clients can connect to the node, its fully qualified domain name (FQDN) must resolve to a routable IP address via DNS. Register the FQDN with DNS record type A for IPv4 addresses and type AAAA for IPv6 addresses.</p>
+<p>A correct FQDN and DNS setup is essential for TLS encryption to function properly. Once connected to the node, network clients verify the TLS certificate against the given FQDN.</p>
+<p>To meet these requirements, follow these steps:</p>
+<ol>
+<li class=""><strong>Determine your DNS provider</strong>: Based on your node&#x27;s purpose, DNS can be provided by a public internet service, a private network appliance, or a combination of both. Review and understand the documentation for your chosen DNS provider.</li>
+<li class=""><strong>Register the FQDN</strong>: Choose the FQDN for your node and register it in the DNS with its public IP address. An FQDN consists of a hostname prefix (a single word) and a DNS domain suffix. For example, if the hostname is <code>jupiter</code> and the domain suffix is <code>example.org</code>, the resulting FQDN will be <code>jupiter.example.org</code>.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="worker-node-reqs">Worker node requirements<a href="#worker-node-reqs" class="hash-link" aria-label="Direct link to Worker node requirements" title="Direct link to Worker node requirements" translate="no">​</a></h2>
+<p>A worker node has specific requirements for installation and configuration.</p>
+<p>During the join procedure, the worker node connects to the leader at the following URL:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">https://&lt;leader_fqdn&gt;/cluster-admin/</span><br></div></code></pre></div></div>
+<p>It also establishes a WireGuard VPN connection with the leader using the default UDP port 55820.</p>
+<p>Ensure the following requirements are met:</p>
+<ol>
+<li class="">The worker node must resolve the leader&#x27;s FQDN to the correct routable address.</li>
+<li class="">The HTTPS server (TCP port 443) at that address must handle the API request.</li>
+<li class="">The VPN UDP port (default 55820) must not be blocked by any network appliances.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ssh-service-reqs">SSH service requirements<a href="#ssh-service-reqs" class="hash-link" aria-label="Direct link to SSH service requirements" title="Direct link to SSH service requirements" translate="no">​</a></h2>
+<p>A running SSH service is not strictly required by NS8 unless a <a class="" href="/pr-preview/pr-246/docs/administrator-manual/about/subscription">subscription</a> is active. In this case, <code>sshd</code> must be listening on the standard TCP port 22 to correctly integrate with the remote support service.</p>
+<p>If you want to change the public SSH port, configure a port redirect without altering the <code>sshd</code> listening port configuration. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/firewall#ssh-redirection">Manage SSH port redirection</a> for instructions.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="external-services">External network connectivity<a href="#external-services" class="hash-link" aria-label="Direct link to External network connectivity" title="Direct link to External network connectivity" translate="no">​</a></h2>
+<p>A NethServer 8 (NS8) node requires outbound network connectivity to a number of external services to operate correctly. These services are used for system updates, application distribution, cluster operations, subscription management, backup, support, and TLS certificate issuance.</p>
+<p>Unless otherwise stated, connections are outbound only and use HTTPS over TCP port 443.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Purpose</th><th>Host name</th><th>Port</th><th>Protocol</th><th>Notes</th></tr></thead><tbody><tr><td>Name resolution</td><td>&lt;Name server address&gt;</td><td>53</td><td>UDP/TCP</td><td>IP address of primary and, optionally, secondary DNS servers</td></tr><tr><td>Cluster VPN and node communication</td><td>&lt;leader node address&gt;</td><td>55820</td><td>UDP</td><td>Inter-node VPN and cluster traffic</td></tr><tr><td>Cluster-admin leader API</td><td>&lt;leader node address&gt;</td><td>443</td><td>HTTPS</td><td>Join a new worker to the cluster</td></tr><tr><td>OS and NS8 repositories mirror resolution</td><td>mirrorlist.nethserver.org</td><td>80</td><td>HTTP</td><td>Used to resolve Rocky Linux and NS8 mirrors</td></tr><tr><td>Rocky Linux DNF repositories</td><td>u4.nethesis.it, u5.nethesis.it</td><td>443</td><td>HTTPS</td><td>Nethesis-managed mirror of BaseOS and AppStream repositories</td></tr><tr><td>TLS certificate issuance</td><td>acme-v02.api.letsencrypt.org</td><td>443</td><td>HTTPS</td><td>Let&#x27;s Encrypt ACME v2 endpoint</td></tr><tr><td>NS8 core and updates repository</td><td>distfeed.nethserver.org</td><td>443</td><td>HTTPS</td><td>Core updates and patches</td></tr><tr><td>Community application repository</td><td>forge.nethserver.org</td><td>443</td><td>HTTPS</td><td>Optional community modules</td></tr><tr><td>Container image registry</td><td>ghcr.io</td><td>443</td><td>HTTPS</td><td>Official NS8 application and container images</td></tr><tr><td>Container image registry</td><td>docker.io</td><td>443</td><td>HTTPS</td><td>Third-party container images</td></tr><tr><td>Container image registry</td><td>quay.io</td><td>443</td><td>HTTPS</td><td>Third-party container images</td></tr><tr><td>Cluster phone-home service</td><td>phonehome.nethserver.org</td><td>443</td><td>HTTPS</td><td>Cluster registration and metadata</td></tr></tbody></table>
+<p>External services and endpoints required by NS8</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Purpose</th><th>Host name</th><th>Port</th><th>Protocol</th><th>Notes</th></tr></thead><tbody><tr><td>Subscription validation and feeds</td><td>subscription.nethserver.com</td><td>443</td><td>HTTPS</td><td>Core updates and patches for Subscription</td></tr><tr><td>Subscription portal</td><td>my.nethserver.com</td><td>443</td><td>HTTPS</td><td>System and subscription management</td></tr><tr><td>Subscription portal for resellers</td><td>my.nethesis.it</td><td>443</td><td>HTTPS</td><td>Inventory, heartbeat, entitlement checks</td></tr><tr><td>Support VPN peer</td><td>sos.nethesis.it</td><td>1194</td><td>UDP</td><td>Remote support VPN (optional)</td></tr><tr><td>Support VPN peer</td><td>sos.nethesis.it</td><td>443</td><td>TCP</td><td>Remote support VPN (optional)</td></tr><tr><td>Cloud backup service</td><td>backupd.nethesis.it</td><td>443</td><td>HTTPS</td><td>Off-site backup and restore for cluster configuration</td></tr><tr><td>Cloud Log Manager</td><td>nar.nethesis.it</td><td>443</td><td>HTTPS</td><td>Cloud storage and management for security logs (optional)</td></tr></tbody></table>
+<p>Endpoints used by cluster leader node with an active Subscription</p>
+<p>Notes</p>
+<ul>
+<li class="">All listed connections are initiated by the NS8 node.</li>
+<li class="">Blocking access to these services can prevent updates, application installation, backups, cluster formation, or subscription validation.</li>
+<li class="">Additional outbound connections may be required by specific features, such as email notifications and HTTP routes, and by installed applications, depending on their configuration and upstream services.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="web-browser-requirements">Web browser requirements<a href="#web-browser-requirements" class="hash-link" aria-label="Direct link to Web browser requirements" title="Direct link to Web browser requirements" translate="no">​</a></h2>
+<p>To access the cluster administration web user interface, you need an up-to-date release of Firefox, Chrome, or Chromium browser as the web client.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/NethServer/ns8-docs/blob/main/docs/administrator-manual/installation/system_requirements.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer><div class="versionFooter_GEsS"><span class="versionText_BSdA">NethServer <span class="versionNumber_jKi7">8</span></span></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/pr-preview/pr-246/docs/administrator-manual/about/subscription"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Subscription</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/pr-preview/pr-246/docs/administrator-manual/installation/install"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Installation</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#supported-distros-section" class="table-of-contents__link toc-highlight">Linux distribution</a></li><li><a href="#swap-reqs" class="table-of-contents__link toc-highlight">Swap space</a></li><li><a href="#disk-partitions" class="table-of-contents__link toc-highlight">Disk and partitions</a></li><li><a href="#static-ip-reqs" class="table-of-contents__link toc-highlight">Static IP address</a></li><li><a href="#resolv-conf" class="table-of-contents__link toc-highlight">Name resolution</a></li><li><a href="#dns-reqs" class="table-of-contents__link toc-highlight">DNS configuration</a></li><li><a href="#worker-node-reqs" class="table-of-contents__link toc-highlight">Worker node requirements</a></li><li><a href="#ssh-service-reqs" class="table-of-contents__link toc-highlight">SSH service requirements</a></li><li><a href="#external-services" class="table-of-contents__link toc-highlight">External network connectivity</a></li><li><a href="#web-browser-requirements" class="table-of-contents__link toc-highlight">Web browser requirements</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-246/docs/administrator-manual">Administrator manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-246/docs/user-manual">User manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-246/docs/tutorial">Tutorial</a></li><li class="footer__item"><a href="https://nethserver.github.io/ns8-core/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Developer manual<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legacy docs</div><ul class="footer__items clean-list"><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                NethServer 7
+                  <a class="footer__link-item" href="/en/v7/" target="_blank">en</a>
+                  <a class="footer__link-item" href="/it/v7/" target="_blank"> it</a>
+                </div>
+              </li><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                NethServer 6
+                  <a class="footer__link-item" href="/en/v6/" target="_blank">en</a>
+                  <a class="footer__link-item" href="/it/v6/" target="_blank"> it</a>
+                </div>
+              </li><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                  <a class="footer__link-item" href="/projects/nethserver-devel/en/latest/" target="_blank">Developer manual 7</a>
+                </div>
+              </li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/NethServer/ns8-docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.nethserver.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">NethServer website<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://community.nethserver.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">NethServer Community<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Nethesis</div></div></div></footer></div>
+</body>
+</html>

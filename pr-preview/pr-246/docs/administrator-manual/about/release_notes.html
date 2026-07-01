@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en-US" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-administrator-manual/about/release_notes" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Release notes | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/pr-preview/pr-246/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/pr-preview/pr-246/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/pr-preview/pr-246/docs/administrator-manual/about/release_notes"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Release notes | NethServer 8 documentation"><meta data-rh="true" name="description" content="NethServer 8 releases"><meta data-rh="true" property="og:description" content="NethServer 8 releases"><link data-rh="true" rel="icon" href="/pr-preview/pr-246/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/pr-preview/pr-246/docs/administrator-manual/about/release_notes"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-246/docs/administrator-manual/about/release_notes" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-246/it/docs/administrator-manual/about/release_notes" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-246/docs/administrator-manual/about/release_notes" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Release notes","item":"https://docs.nethserver.org/pr-preview/pr-246/docs/administrator-manual/about/release_notes"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/pr-preview/pr-246/opensearch.xml"><link rel="stylesheet" href="/pr-preview/pr-246/assets/css/styles.d64e4b30.css">
+<script src="/pr-preview/pr-246/assets/js/runtime~main.70952edf.js" defer="defer"></script>
+<script src="/pr-preview/pr-246/assets/js/main.c58a404e.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/pr-preview/pr-246/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/pr-preview/pr-246/"><div class="navbar__logo"><img src="/pr-preview/pr-246/img/logo.svg" alt="NethServer 8" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/pr-preview/pr-246/img/logo.svg" alt="NethServer 8" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate"></b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/pr-preview/pr-246/docs/administrator-manual">Administrator manual</a><a class="navbar__item navbar__link" href="/pr-preview/pr-246/docs/user-manual">User manual</a><a class="navbar__item navbar__link" href="/pr-preview/pr-246/docs/tutorial">Tutorial</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/pr-preview/pr-246/docs/administrator-manual/about/release_notes" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en-US">English</a></li><li><a href="/pr-preview/pr-246/it/docs/administrator-manual/about/release_notes" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="it-IT">Italian</a></li></ul></div><a href="https://github.com/NethServer/ns8-docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/pr-preview/pr-246/docs/administrator-manual"><span title="Administrator manual" class="linkLabel_WmDU">Administrator manual</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/pr-preview/pr-246/docs/administrator-manual/about/introduction"><span title="About" class="categoryLinkLabel_W154">About</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-246/docs/administrator-manual/about/introduction"><span title="Introduction" class="linkLabel_WmDU">Introduction</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/pr-preview/pr-246/docs/administrator-manual/about/release_notes"><span title="Release notes" class="linkLabel_WmDU">Release notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-246/docs/administrator-manual/about/subscription"><span title="Subscription" class="linkLabel_WmDU">Subscription</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements"><span title="Installation" class="categoryLinkLabel_W154">Installation</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-246/docs/administrator-manual/configuration/cluster"><span title="Configuration" class="categoryLinkLabel_W154">Configuration</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-246/docs/administrator-manual/applications/collabora"><span title="Applications" class="categoryLinkLabel_W154">Applications</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/pr-preview/pr-246/docs/administrator-manual/nethforge/dokuwiki"><span title="NethForge applications" class="categoryLinkLabel_W154">NethForge applications</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/pr-preview/pr-246/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">About</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Release notes</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Release notes</h1></header>
+<p>NethServer 8 releases</p>
+<ul>
+<li class="">List of <a href="https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8" target="_blank" rel="noopener noreferrer" class="">known bugs</a> on GitHub</li>
+<li class="">Discussions around <a href="http://community.nethserver.org/c/bug" target="_blank" rel="noopener noreferrer" class="">possible bugs</a> on our public forum</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2026-06-30">Major changes on 2026-06-30<a href="#major-changes-on-2026-06-30" class="hash-link" aria-label="Direct link to Major changes on 2026-06-30" title="Direct link to Major changes on 2026-06-30" translate="no">​</a></h2>
+<p><strong>Milestone 8.9</strong></p>
+<ul>
+<li class="">
+<p><strong>New centralized backup architecture</strong> [Core 3.20.0] -- Backup scheduling and execution have moved from individual applications to the node level: a node agent now runs application backups sequentially according to node-level schedules, instead of many per-app timers firing in parallel, reducing peak CPU/memory usage during backup runs. All backup destinations are now accessed through Rclone via a node-level gateway, replacing the previous mix of direct Restic and Rclone-behind-Restic logic. This enables a new <strong>Rclone-compatible provider</strong> destination type, accepting a raw <code>rclone.conf</code> for any provider supported by Rclone; the Azure Blob Storage provider has been removed in favor of this generic option. Adding or editing a destination now validates that at least one cluster node can reach it; during a backup run, a node that cannot reach the destination directly relays data through the leader node, then other worker nodes, until a working route is found. Applications restored via disaster recovery keep their original backup schedules. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/backup#backup-destination">Backup destination</a>.</p>
+</li>
+<li class="">
+<p><strong>Abort running tasks with a safer confirmation</strong> [Core 3.20.0] -- Long-running tasks, including application restore, can be aborted from the UI. The confirmation step was redesigned to prevent accidental clicks that could interrupt an important operation, such as a restore or clone in progress.</p>
+</li>
+<li class="">
+<p><strong>Free disk space shown during node selection</strong> [Core 3.20.0] -- When installing, cloning, or restoring an application, the node selection step now shows the free disk space of the root filesystem for every node, not only for nodes with an additional volume.</p>
+</li>
+<li class="">
+<p><strong>Restricted shell for module service users</strong> [Core 3.20.0] -- Newly installed application modules now assign <code>/sbin/nologin</code> as the default shell for their service user, reducing the attack surface of interactive logins while <code>runagent</code> continues to work as before.</p>
+</li>
+<li class="">
+<p><strong>Random initial root password on pre-built images</strong> [Core 3.20.0] -- Pre-built NS8 images (.qcow2/.vmdk) no longer ship with the well-known default root password. A random password is generated at first boot and displayed on the console/MOTD until it is changed. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/install">Install</a>.</p>
+</li>
+<li class="">
+<p><strong>More resilient pre-built image bootstrap</strong> [Core 3.20.0] -- Pre-built images now finish the local Traefik setup (secrets and certificate generation) at first boot even if the network is temporarily unavailable, and the <code>Create cluster</code> action handles network/DNS validation failures more gracefully.</p>
+</li>
+<li class="">
+<p><strong>Logging of outgoing system notification emails</strong> [Core 3.19.0] -- The <code>ns8-sendmail</code> command, used to deliver password-expiration and other system notifications, now logs a structured record (subject, sender, first recipient, remote server, SMTP status) for each message it submits.</p>
+</li>
+<li class="">
+<p><strong>IPv6 support in HTTP routes allow list</strong> [Core 3.18.4] -- The <code>Allow access from</code> restriction on HTTP routes now accepts IPv6 addresses and networks in addition to IPv4.</p>
+</li>
+<li class="">
+<p><strong>Password never expires for OpenLDAP users</strong> [OpenLDAP 2.7.0] -- The &quot;Password never expires&quot; option, previously available only for Active Directory, can now be enabled for individual OpenLDAP users too, both from cluster-admin and the user portal. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/user_domains#user_groups-section">User and groups</a>.</p>
+</li>
+<li class="">
+<p><strong>Password expiration API for the user portal</strong> [OpenLDAP 2.7.0, Samba 3.4.6] -- OpenLDAP and Samba account providers expose a new <code>get-password-expiration</code> user-portal API endpoint, letting client applications query a logged-in user&#x27;s own password expiration status.</p>
+</li>
+<li class="">
+<p><strong>Spamhaus DQS support in Rspamd</strong> [Mail 1.7.9] -- The Mail application can now use Spamhaus&#x27;s Data Query Service (DQS), an alternative to the public DNSBL protocol that requires a registered token and offers better performance and fewer fair-use restrictions.</p>
+</li>
+<li class="">
+<p><strong>Sender blocklist for Rspamd</strong> [Mail 1.7.10] -- The Mail application&#x27;s Rspamd configuration adds new maps to block incoming mail by sender TLD, exact domain, domain suffix, or full email address, configurable from the Rspamd UI configuration page.</p>
+</li>
+<li class="">
+<p><strong>WebTop updates</strong> [WebTop 1.5.6] -- WebTop was updated to upstream release 5.32.0, adding a &quot;Remember me&quot; option on the login page. The one-time-password login field no longer uses a password-type input, avoiding unwanted &quot;save password&quot; browser prompts.</p>
+</li>
+<li class="">
+<p><strong>Nextcloud 33</strong> [Nextcloud 1.7.0] -- The Nextcloud application was upgraded to major version 33.</p>
+</li>
+<li class="">
+<p><strong>Piler volume management and persistent custom configuration</strong> [Piler 1.2.1, 1.2.2] -- The Piler email archiving application now supports NS8 volume management, allowing its storage to be placed on an additional disk during install, clone, or restore. A <code>config-site.php.local</code> override template can also be used to persist custom <code>config-site.php</code> changes across module updates and UI saves.</p>
+</li>
+<li class="">
+<p><strong>CrowdSec notification wording fix</strong> [CrowdSec 1.1.4] -- Email notifications about CrowdSec ban decisions now use correct singular/plural wording instead of always using the plural form.</p>
+</li>
+<li class="">
+<p><strong>Grafana dashboard for CrowdSec</strong> [CrowdSec 1.1.6] -- A Grafana dashboard with a Prometheus exporter for CrowdSec metrics is now available through the Metrics application.</p>
+</li>
+<li class="">
+<p><strong>Enterprise alerts forwarded to my.nethesis.it</strong> [Metrics 1.3.0] -- Clusters with an active Enterprise subscription now automatically forward Metrics/Alertmanager alerts to <code>my.nethesis.it</code>, where they appear in the subscription&#x27;s Alerts page.</p>
+</li>
+<li class="">
+<p><strong>Other application updates</strong> -- Dnsmasq 1.3.3, Mattermost 2.4.5, Loki 1.4.5, Matrix 0.0.5.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2026-03-27">Major changes on 2026-03-27<a href="#major-changes-on-2026-03-27" class="hash-link" aria-label="Direct link to Major changes on 2026-03-27" title="Direct link to Major changes on 2026-03-27" translate="no">​</a></h2>
+<p><strong>Milestone 8.8</strong></p>
+<ul>
+<li class="">
+<p><strong>Low-contrast UI notification</strong> [Core 3.18] -- The cluster-admin UI notification style is now low-contrast, as mandated by the Carbon Design System guidelines.</p>
+</li>
+<li class="">
+<p><strong>Cancelable backup runs</strong> [Core 3.18] -- It is now possible to cancel a backup run, provided it was started from cluster-admin UI.</p>
+</li>
+<li class="">
+<p><strong>Import backup destinations and UI adjustments</strong> [Core 3.18] -- In the <code>Backup and restore</code> page, separate sections and clear text labels improve navigation across the different actions.</p>
+<p>Configuring a backup destination is a prerequisite for application restoration. A new <strong>Import destinations</strong> action quickly sets up a backup destination starting from a cluster backup file. The backup encryption password is required to complete the action.</p>
+</li>
+<li class="">
+<p><strong>Debian 13 (Trixie)</strong> [Core 3.17] -- Installation of NethServer 8 is now available on Debian 13 (Trixie). Starting from the next milestone 8.9, Debian 12 will no longer be compatible with the NS8 installer. This is a summary of the commands required to upgrade an NS8 node from Debian 12.</p>
+<p>Check the distro name and version:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cat /etc/os-release</span><br></div></code></pre></div></div>
+<p>Make sure the node is running on Debian 12, then fix APT references and upgrade the system:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sed -i &#x27;s/bookworm/trixie/&#x27; /etc/apt/sources.list /etc/apt/sources.list.d/*</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">apt update &amp;&amp; apt full-upgrade -y</span><br></div></code></pre></div></div>
+<p>If asked, restart services and keep local config file versions.</p>
+<p>Upgrade NS8 Python 3 virtual environment:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">(</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  set -e -x</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  core_dir=/usr/local/agent/pyenv</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  mv -v ${core_dir} ${core_dir}.bak</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  python3.13 -mvenv ${core_dir} --upgrade-deps --system-site-packages</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  ${core_dir}/bin/pip3 install -r /etc/nethserver/pyreq3_13.txt</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  echo &quot;/usr/local/agent/pypkg&quot; &gt;$(${core_dir}/bin/python3 -c &quot;import sys; print(sys.path[-1] + &#x27;/pypkg.pth&#x27;)&quot;)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  rm -rf ${core_dir}.bak</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">runagent python3 --version # output should be 3.13.5</span><br></div></code></pre></div></div>
+<p>Upgrade APT sources to deb822 (optional):</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">apt modernize-sources</span><br></div></code></pre></div></div>
+<p>Finally, reboot the node. Repeat the same procedure on every node of the cluster.</p>
+</li>
+<li class="">
+<p><strong>Additional volume selection</strong> [Core 3.17] -- When an application is restored, cloned, or installed for the first time, the UI may ask to select the volume for the data. The selection is available on nodes with an additional volume and for applications that support it. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/software_center#install-applications">Install applications</a>.</p>
+</li>
+<li class="">
+<p><strong>Samba TLS certificates</strong> [Samba 3.4.2] -- Samba LDAP is integrated with the <code>TLS certificates</code> page. An uploaded or obtained certificate, matching Samba&#x27;s FQDN, is used for the LDAP service.</p>
+</li>
+<li class="">
+<p><strong>RustFS replaces MinIO</strong> [RustFS 1.0] -- A new S3-compatible application replaces MinIO in the Software Center. Existing MinIO installations are advised to migrate to RustFS. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/rustfs">RustFS</a> for more information.</p>
+</li>
+<li class="">
+<p><strong>Application upgrades</strong> -- Mattermost 10.11 ESR, Ejabberd 26.02.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2025-12-17">Major changes on 2025-12-17<a href="#major-changes-on-2025-12-17" class="hash-link" aria-label="Direct link to Major changes on 2025-12-17" title="Direct link to Major changes on 2025-12-17" translate="no">​</a></h2>
+<p><strong>Milestone 8.7</strong></p>
+<ul>
+<li class=""><strong>Import/export data</strong> [Core 3.16] -- Users and groups can be imported/exported with a file in CSV format, containing username, password, groups and other details. The import/export procedure can be executed also from cluster-admin and user portal APIs. Refer to <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/user_domains#import-export-data-section">Import and export data</a> for more information.</li>
+<li class=""><strong>Firewalld rich rules</strong> [Core 3.16] -- Application developers can configure arbitrary Firewalld rich rules to cover complex network routing use cases.</li>
+<li class=""><strong>Applications page</strong> [Core 3.15] -- A new <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/modules">Applications page</a> was added to quickly gather information about applications installed in the cluster, their installation node, type, version and links to act on them.</li>
+<li class=""><strong>Nodes page</strong> [Core 3.14] -- The <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/cluster#node-views">Nodes page</a> was streamlined to make it easier to identify cluster nodes also by FQDN, while resource usage metrics were moved into the node detailed view, along with node alerts and links to detailed IP addresses and applications. If an NS7 migration is in progress, the NS7 system is displayed as a special node.</li>
+<li class=""><strong>Additional disks management</strong> [Core 3.14] -- Added support for <a class="" href="/pr-preview/pr-246/docs/tutorial/disk_usage#named-volume-disk">assigning Podman named volumes to additional disks</a>. Administrators can now preconfigure the base path used when creating named volumes for rootless applications. This allows redirecting application data to alternative disks, improving storage organization and reducing pressure on the system disk. This feature is especially useful for data-intensive applications such as the Samba File Server. A new command, <code>volumectl</code>, provides the ability to list available base paths, assign volumes to a selected disk, and remove existing assignments. The configuration is applied when applications are installed, restored, or cloned; relocation of existing volumes is not supported yet. A future update will extend this functionality to the cluster-admin UI, allowing disk selection during application installation, clone, and restore operations.</li>
+<li class=""><strong>Boot load shaping</strong> [Core 3.14] -- The system load at boot time is dynamically optimized based on the number of available processors. The load is distributed in a sequential way over a longer time span, reducing application concurrency and preventing resource bottlenecks.</li>
+<li class=""><strong>Reduced Audit trail size</strong> [Core 3.14] -- The event types stored in the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/cluster#audit-trail-section">Audit trail</a> have been reduced to limit the volume of api-server writes. Only <code>create-tasks</code> and <code>login-ok</code> (successful logins) events are stored. Note that failed login events are still logged.</li>
+<li class=""><strong>Limited agent worker processes</strong> [Core 3.12] -- The default number of simultaneous processes spawned by agents is now limited to 32. Subsequent tasks are rejected with <em>Agent is busy</em> until the number of running processes falls below the limit.</li>
+<li class=""><strong>Cloud Log Manager (CLM) login records</strong> [Core 3.12] -- Cluster-admin login events are marked with <em>security</em> category and sent to <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/log_server#clm-section">Cloud Log Manager</a>, if enabled.</li>
+<li class=""><strong>Samba [homes] customization</strong> [3.2.0] -- The Samba core application supports <code>[homes]</code> section customization in the <code>include.conf</code> file, consistent with other sections.</li>
+<li class=""><strong>Piler update</strong> [1.1.0] -- Piler has been updated to upstream version 1.4.8, providing new features, performance improvements, and many bug and security fixes.</li>
+<li class=""><strong>Nextcloud 32 / HUB 25 Autumn</strong> [1.6.0] -- Updated to the latest major Nextcloud release.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2025-09-30">Major changes on 2025-09-30<a href="#major-changes-on-2025-09-30" class="hash-link" aria-label="Direct link to Major changes on 2025-09-30" title="Direct link to Major changes on 2025-09-30" translate="no">​</a></h2>
+<p><strong>Milestone 8.6</strong></p>
+<ul>
+<li class=""><strong>Default password expiration age change</strong> -- Both Samba AD and OpenLDAP user domains are now created with a default password age between 0 and 180 days. These settings can be adjusted after domain creation. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/user_domains#password-policy-section">Password policy</a> for details. The previous default policy for Samba AD was between 1 and 42 days.</li>
+<li class=""><strong>Samba AD password attributes</strong> -- For internal AD domains, two new attributes can be controlled from the cluster-admin and user portal web interfaces: <code>Required password change</code> and <code>Password never expires</code>. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/user_domains#user_groups-section">User and groups</a>.</li>
+<li class=""><strong>New TLS certificates page</strong> -- The <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/certificates">TLS certificates</a> UI page has completed its enhancement cycle started in previous releases, providing full management of Let&#x27;s Encrypt certificates with clear validation and deletion procedures.</li>
+<li class=""><strong>Expiring TLS certificate alert</strong> -- An automated alert message is sent when a TLS certificate is due to expire within 28 days. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/metrics">Metrics and alerts</a> to configure alerts.</li>
+<li class=""><strong>Application restart action</strong> -- An application instance can now be fully restarted from the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/software_center#application-instances">Software Center page</a>. The effect is similar to a node reboot but limited to the application: all its components are completely stopped and then started again.</li>
+<li class=""><strong>Disabled application UI during migration</strong> -- The cluster admin UI of an application is disabled while migration is in progress. This is a safety measure to prevent accidental actions that could disrupt the migration process.</li>
+<li class=""><strong>Reduced CrowdSec email notifications</strong> -- The notification volume has been reduced to one daily message containing a summary of CrowdSec ban decisions. If the number of decisions exceeds a given threshold (500 by default), the notification is sent immediately. The notification sender can now be customized to improve message quality and better pass anti-spam filters. The message body also features an enhanced layout and style.</li>
+<li class=""><strong>Cluster configuration backup on my.nethserver.com</strong> -- The cluster configuration backup of systems with an active <em>my.nethserver.com</em> subscription is checked, encrypted, and uploaded every night to the cloud. It can be downloaded with the following procedure.
+<ol>
+<li class="">
+<p>Obtain the cluster <strong>System ID</strong> and <strong>Secret</strong> from my.nethserver.com.</p>
+</li>
+<li class="">
+<p>List the available cloud backups:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">curl -u SYSTEM_ID:SECRET https://backupd.nethesis.it/community/api/v2/backup/ | jq</span><br></div></code></pre></div></div>
+<p>Example output:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">{</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  &quot;backups&quot;: [</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    {</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      &quot;id&quot;: &quot;7791926e6cee5455e06eb59e645737ae6a4b542a4f6014a213cb00648789b043.gpg&quot;,</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      &quot;name&quot;: &quot;7791926e6cee5455e06eb59e645737ae6a4b542a4f6014a213cb00648789b043.gpg&quot;,</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      &quot;created&quot;: 1756213506,</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      &quot;size&quot;: 755,</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      &quot;mimetype&quot;: &quot;application/pgp-encrypted&quot;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  ]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">}</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p>Note the backup <code>id</code> value and download it:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">curl -f -O -u SYSTEM_ID:SECRET https://backupd.nethesis.it/community/api/v2/backup/7791926e6cee5455e06eb59e645737ae6a4b542a4f6014a213cb00648789b043.gpg</span><br></div></code></pre></div></div>
+</li>
+</ol>
+</li>
+<li class=""><strong>Nextcloud DB optimizer</strong> -- After NS7 migration or other major updates, Nextcloud may require manual database fixes that cannot be automated during the upgrade, as these operations may take a long time with large datasets. In such cases, the <code>nextcloud-db-optimize</code> command can be run manually to optimize the Nextcloud database outside production hours. Refer to <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/nextcloud#nextcloud-db-optimize-section">Database optimization command</a>.</li>
+<li class=""><strong>WebTop updates</strong> -- WebTop 5.29.2 (app version 1.4.4) introduces a refreshed user interface with streamlined layouts, new quick-access buttons, and updated icons. Key new features include delayed email sending, with the ability to cancel before delivery, and automatic IMAP/SMTP configuration for easier setup on mobile devices (see <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/webtop#email_autoconfig">Automatic configuration of email clients</a>). The update also brings numerous usability improvements, bug fixes, and security enhancements.</li>
+<li class=""><strong>NethVoice updates</strong> -- NethVoice 1.4.0 introduces real-time JPG video streaming for intercoms, with previews directly in call notifications and Phone Island. The release also delivers an improved operator panel design, enhanced dashboard accessibility, and better SRTP handling in NethVoice Proxy. Numerous fixes improve reliability and usability across CTI, VoIP trunks, conferencing, voicemail, and call transfers.</li>
+<li class=""><strong>Other application updates</strong> -- Several applications were updated to include the latest upstream changes. This is a brief list from the Default repository:
+<ul>
+<li class="">Mattermost 10.5.11 ESR</li>
+<li class="">Ejabberd 25.07</li>
+<li class="">Nextcloud 31.0.7</li>
+<li class="">CrowdSec 1.16.11</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2025-07-08">Major changes on 2025-07-08<a href="#major-changes-on-2025-07-08" class="hash-link" aria-label="Direct link to Major changes on 2025-07-08" title="Direct link to Major changes on 2025-07-08" translate="no">​</a></h2>
+<p><strong>Milestone 8.5</strong> -- Dedicated to the memory of <a href="https://community.nethserver.org/t/in-memory-of-andy-wismer/25698" target="_blank" rel="noopener noreferrer" class="">Andy Wismer</a></p>
+<ul>
+<li class="">
+<p><strong>Worker node version check</strong> -- A safety check has been added when a new worker node joins the cluster: its core version is now compared with that of the leader node to ensure compatibility. Before joining the cluster, always update the cluster core and ensure the latest core version is used on new worker nodes.</p>
+</li>
+<li class="">
+<p><strong>Hetzner S3 backup support</strong> -- Added support for configuring Hetzner S3 as a custom backup destination. Also fixed a bug that prevented renaming custom S3 backup destinations.</p>
+</li>
+<li class="">
+<p><strong>Samba domain member role and new features</strong> -- The core Samba application can now be installed from the Software Center and configured as an Active Directory domain member, providing shared folders in a domain File Server role. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/file_server">Samba file server</a>.</p>
+<p>It is now possible to assign an alias name to Samba using the File Server user interface (see <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/file_server#file-server-alias">File server alias</a>). This feature helps simplify the migration of existing SMB file servers to the NS8 Samba application.</p>
+<p>The <strong>WSDD service</strong> has been added to make the Samba file server discoverable in the local network neighborhood using a modern multicast protocol that replaces the legacy NetBIOS name resolution.</p>
+<p>Samba shared folders now offer three new advanced features: Recycle bin, audit logging with a centralized Grafana dashboard, and folder visibility control. For more information, refer to <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/file_server#shared-folders-section">Shared folders</a>.</p>
+</li>
+<li class="">
+<p><strong>Metrics Settings</strong> -- A new &quot;Metrics&quot; section has been added under the cluster settings page, allowing configuration of the Grafana web interface and cluster alert notifications via email. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/metrics">Metrics and alerts</a> for details.</p>
+</li>
+<li class="">
+<p><strong>Promtail replaced by Alloy</strong> -- The Promtail node service, previously used to forward node logs to the central Loki log collector (now upgraded to version 3), has reached EOL and is replaced by <strong>Alloy</strong>, its upstream successor.</p>
+</li>
+<li class="">
+<p><strong>Mail domain catch-all and other fixes</strong> -- Since version 1.7, the Mail application can deliver messages sent to unknown domain addresses to a special <strong>catch-all</strong> destination—either an individual user or a group— regardless of other domain settings. This resolves a limitation in earlier versions where the <code>Add user addresses from user domain</code> setting was incompatible with the catch-all feature.</p>
+<p>A bug affecting sender-based relay rules and remote SMTP server credentials has also been fixed.</p>
+<p>Lastly, a configuration limitation was acknowledged: in the rare case where a user and a group share the same name, incoming messages sent to that name will always be delivered to the group members. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/mail#email_domains">Domains</a>.</p>
+</li>
+<li class="">
+<p><strong>TLS certificates page enhancements</strong> -- The <strong>Request certificate</strong> procedure now includes a validation check to prevent requesting names already configured as HTTP routes. ACME errors are now displayed as inline notifications during certificate validation before the new configuration is applied.</p>
+</li>
+<li class="">
+<p><strong>HTTP routes and slash redirect</strong> -- The HTTP routes table under the Settings page now shows the <strong>host and path</strong> under a new <strong>Route</strong> column for better route identification.</p>
+<p>A new <strong>automatic trailing slash redirect</strong> has been added for path-based routes. This benefits applications with web interfaces that do not handle trailing slashes, such as the User portal.</p>
+<p>New installations already include this feature. To enable it on older User portal instances, run a command like:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run module/traefik1/set-route --data &#x27;{&quot;name&quot;:&quot;samba1-amld&quot;,&quot;slash_redirect&quot;:true}&#x27;</span><br></div></code></pre></div></div>
+<p>Replace <code>&quot;traefik1&quot;</code> and <code>&quot;samba1&quot;</code> with the actual module identifiers, which can be found in the HTTP routes page. Search for <code>&quot;amld&quot;</code> and check the route details.</p>
+</li>
+<li class="">
+<p><strong>WebTop updates</strong> -- The WebTop application has been updated to the latest upstream version 5.28.6, along with the new PEC Bridge 5.4.8 that features custom notifications.</p>
+<p>Integration with the centralized NethVoice address book has been restored, and the <em>click2call</em> feature has been updated to use the <code>tel:</code> protocol with NethLink.</p>
+<p>WebTop now supports <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/webtop#email_autoconfig">Autoconfig and Autodiscovery</a>, simplifying mail account setup on mobile devices.</p>
+<p>Other improvements include:</p>
+<ul>
+<li class="">Faster mail search with attachments</li>
+<li class="">Improved grouping by discussion</li>
+<li class="">Ability to load custom JAR files at startup</li>
+<li class="">New login page for OTP and maintenance mode</li>
+</ul>
+</li>
+<li class="">
+<p><strong>NethVoice 1.3.4</strong> -- New Features and Improvements:</p>
+<ul>
+<li class="">Advanced Interface Enhancements: Asterisk CLI and log viewer directly in the UI</li>
+<li class="">New Phone Island: Call recording support, Device switching functionality</li>
+<li class="">Collaboration Tools: Audio conferencing, Video calling, Screen sharing</li>
+<li class="">NethVoice Hotel Module: Integration with hotel systems via FIAS protocol</li>
+<li class="">NethVoice CTI Improvements: Updated user interface and graphics, Call pickup functionality, Collapsible side drawer for enhanced usability</li>
+<li class="">Streaming Management: Video stream display within NethVoice CTI (e.g., for intercoms)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Debian Bookworm missing package</strong> -- Some Debian installations may lack the <code>gettext-base</code> package. Ensure it is installed with:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">apt-get update</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">apt install gettext-base</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Other application updates</strong> -- Updated application versions:</p>
+<ul>
+<li class="">Nextcloud 31</li>
+<li class="">Collabora 25</li>
+<li class="">Roundcube 1.6.11</li>
+<li class="">SOGo 5.12</li>
+<li class="">Mattermost 10.5.5 with PostgreSQL 17.5</li>
+<li class="">Netdata 2.4</li>
+<li class="">CrowdSec 1.6.8</li>
+<li class="">Ejabberd 25.4</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2025-04-04">Major changes on 2025-04-04<a href="#major-changes-on-2025-04-04" class="hash-link" aria-label="Direct link to Major changes on 2025-04-04" title="Direct link to Major changes on 2025-04-04" translate="no">​</a></h2>
+<p><strong>Milestone 8.4</strong></p>
+<ul>
+<li class="">
+<p><strong>Notify users of expiring passwords</strong> -- Internal user domains with an enabled expiring password policy can now be configured to send email notifications to users approaching their password expiration date. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/user_domains#password-warning">Password expiration warning</a>.</p>
+</li>
+<li class="">
+<p><strong>Modify external LDAP settings</strong> -- Bind credentials and TLS settings of an external user domain can now be changed after domain creation. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/user_domains#modify-external-ldap">Modify external LDAP settings</a>.</p>
+</li>
+<li class="">
+<p><strong>Set up base home directory path for applications</strong> -- The default application home directory base path is <code>/home</code> (per-distro default). It is now possible to specify and use a different base path, as documented in <a class="" href="/pr-preview/pr-246/docs/tutorial/disk_usage">Disk usage</a>, along with other techniques to expand available disk space.</p>
+</li>
+<li class="">
+<p><strong>Wildcard TLS certificate support</strong> -- Wildcard certificates can be uploaded and distributed to cluster applications directly from the <code>TLS certificates</code> page. Refer to <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/certificates">TLS certificates</a> for more information. Mail, NethVoice, and NethVoice Proxy have been updated to support wildcard certificates. Support for Ejabberd is coming soon.</p>
+</li>
+<li class="">
+<p><strong>New TLS-ALPN-01 default ACME challenge format</strong> -- Let&#x27;s Encrypt TLS certificates are now obtained using the TLS-ALPN-01 challenge type through TCP port 443. Port 80 is no longer used by new installations of NethServer 8 core. Existing systems retain the previous HTTP-01 challenge type and still require port 80 to be open. It is possible to upgrade to the new default with the following command:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run module/traefik1/set-acme-server --data &#x27;{&quot;challenge&quot;:&quot;TLS-ALPN-01&quot;,&quot;url&quot;:&quot;https://acme-v02.api.letsencrypt.org/directory&quot;}&#x27;</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Traefik core module enhancements</strong> -- The core Traefik instance, running on every cluster node, has been upgraded to Traefik version 3. The previous v2-compatible configuration is saved for reference under the Traefik &quot;state/&quot; directory in <code>*.v2</code> directories. These can be safely removed if desired.</p>
+<p>The Traefik restoration procedure has been fixed and no longer returns a conflicting Traefik instance. Instead, the backup contents are merged with the active Traefik instance on the node, allowing the restoration of custom HTTP routes and TLS certificates.</p>
+<p>Additionally, this release introduces two new advanced experimental features, accessible through API calls and manual configuration:</p>
+<ol>
+<li class="">Support for deploying NS8 behind a network HTTP L7 Proxy.</li>
+<li class="">Passing extra parameters to the Traefik container to configure custom CA certificates and DNS-01 challenges.</li>
+</ol>
+<p>Refer to available support channels for more information.</p>
+</li>
+<li class="">
+<p><strong>Per-IP access restrictions on HTTP routes</strong> -- The <code>HTTP routes</code> page now allows access restrictions for automatic and manually-created routes based on a list of IP addresses. Additionally, a <code>cluster-admin</code> HTTP route entry is now displayed and can be used to restrict access to the Cluster Admin UI. Refer to the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/proxy">HTTP routes</a> for detailed information.</p>
+</li>
+<li class="">
+<p><strong>New Monitoring/Alarms stack</strong> -- The Metrics core application, including a running Prometheus instance, is now part of the default core applications and is automatically installed on the leader node of existing clusters with a simple core update. Metrics can be easily integrated with other monitoring solutions and configured to send alert and resolution notifications. Read further details in <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/metrics">Metrics and alerts</a>.</p>
+</li>
+<li class="">
+<p><strong>Migration tool enhancements</strong> -- In addition to &quot;Application conflict management,&quot; previously released, the NS7 migration tool now considers application instance conflicts, providing guidance to avoid misconfigurations during migration.</p>
+<p>Furthermore, for NethVoice migration, the NethVoice Proxy installation is now handled automatically by the migration tool.</p>
+</li>
+<li class="">
+<p><strong>Imapsync and Sieve filters</strong> -- The Imapsync application can now be configured to execute the user&#x27;s Sieve filter during &quot;INBOX-only&quot; synchronization. Additionally, it can be set to remove messages from the remote server after a specified number of days. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/imapsync">Imapsync</a> for more details. Recursive synchronization has also been optimized to reduce system load when handling multiple concurrent Imapsync tasks.</p>
+</li>
+<li class="">
+<p><strong>DNSMasq gateway option</strong> -- The client gateway can now be set from the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/dnsmasq#dnsmasq-dhcp-section">DHCP section</a> of DNSMasq. Additionally, selectable network interfaces are now limited to those with a private IP address to prevent configuration errors.</p>
+</li>
+<li class="">
+<p><strong>WebTop updates</strong> -- WebTop has been updated to upstream release 5.27.3 with the new Pecbridge component version 5.4.5. The memory limit has been raised to 4GB for better performance. This release also introduces automated TinyMCE Plugin Integration with an active subscription and enhanced contact sharing with the latest NethVoice application release.</p>
+</li>
+<li class="">
+<p><strong>NethVoice enhancements</strong> -- Version 1.2 introduces new CTI features, including audio conferencing, video calls, screen sharing, and voicemail management. A new permission allows viewing all users in the CTI interface. Device settings now include video options, and the provisioning process has been improved with two-phase support for all methods (HTTPS, DHCP). Additional updates:</p>
+<ul>
+<li class="">Support for the new NP-X5 phone model.</li>
+<li class="">Improved TLS certificate management and wildcard certificates support.</li>
+<li class="">Phone-island updated to version 0.13.0.</li>
+<li class="">Logging verbosity reduced in NethVoice Proxy.</li>
+<li class="">Fixes for SRTP on Yealink phones (firmware &gt; 86), REINVITE with TLS on SNOM phones, phone reconfiguration issues, call-back on busy, and CTI interface problems, including user group display and call recording deletion.</li>
+<li class="">Resolved an audio issue in CTI caused by an initial misconfiguration of NethVoice Proxy.</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Other application updates</strong> -- Updated application versions:</p>
+<ul>
+<li class="">Nextcloud 29 and Nextcloud 30</li>
+<li class="">Collabora 24.04</li>
+<li class="">Mattermost 10 ESR</li>
+<li class="">Netdata 2</li>
+<li class="">CrowdSec 1.6.4</li>
+<li class="">Ejabberd 24.12</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2024-12-20">Major changes on 2024-12-20<a href="#major-changes-on-2024-12-20" class="hash-link" aria-label="Direct link to Major changes on 2024-12-20" title="Direct link to Major changes on 2024-12-20" translate="no">​</a></h2>
+<p><strong>Milestone 8.3</strong></p>
+<ul>
+<li class="">
+<p><strong>Selective restoration from backup</strong> -- In the Mail and Samba File Server applications, it is possible to search and select specific content (IMAP folder, file, or directory) from backup snapshots and restore it under a user-accessible folder. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/backup#selective-content-restore">Selective content restore</a>.</p>
+</li>
+<li class="">
+<p><strong>Application conflict management</strong> -- The Cluster Admin now enforces the instance limit per node during clone, move, and restore operations. This complements the existing enforcement during the install operation and simplifies the management of applications that use specific TCP/UDP ports, such as Mail, Ejabberd, NethVoice Proxy, Samba, and DNSMasq. Additionally, DNSMasq automatically disables its DNS service if it detects a conflict with a Samba instance on the same node.</p>
+</li>
+<li class="">
+<p><strong>System log forward filtering</strong> -- The Syslog forwarder can be configured to send either the full stream of logs or only security log records. For performance reasons, the full stream export is no longer available in the Cloud Log Manager forwarder, which now supports security logs only.</p>
+</li>
+<li class="">
+<p><strong>Backup alert</strong> -- Systems with an active <a class="" href="/pr-preview/pr-246/docs/administrator-manual/about/subscription">Subscription</a> send an alert to the monitoring portal if a backup fails. The last backup status indicator has been fixed to correctly reflect failed backup instances on the Backup page.</p>
+</li>
+<li class="">
+<p><strong>Rename OpenLDAP &quot;directory.nh&quot; for NS7 migration</strong> -- The NS7 Migration Tool allows selecting the destination domain name (and the respective LDAP DB suffix), enabling the migration and consolidation of multiple NS7 systems on the same NS8 cluster. The LDAP domain name can only be set with a local OpenLDAP account provider, as Active Directory does not support domain renaming. See <a class="" href="/pr-preview/pr-246/docs/tutorial/migration#migrate-account-provider">Account provider</a>.</p>
+</li>
+<li class="">
+<p><strong>Updates are suspended during NS7 migration</strong> -- The Software Center inhibits both manual and automatic updates if an NS7 node is added to the cluster with the Migration Tool. If updates are suspended, a banner is displayed in the Software Center.</p>
+<p>If your cluster displays this banner incorrectly (e.g., the migration has already finished), run the following manual procedure to clean up the Redis database of possible stale data from past migration attempts.</p>
+<p>Find the IDs of stale NS7 nodes:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">redis-cli --raw keys &#x27;node/*/flags&#x27; | xargs -t -r -l1 -- redis-cli smembers</span><br></div></code></pre></div></div>
+<p>Sample output:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">redis-cli smembers node/77/flags</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">nomodules</span><br></div></code></pre></div></div>
+<p>For example, to remove the bogus node 77:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run remove-node --data &#x27;{&quot;node_id&quot;:77}&#x27;</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Unlimited user domains</strong> -- Starting with Core 3.2.1 and Ldapproxy 1.1.0, the limit of eight simultaneous user domains has been removed. It is now possible to install more user domains, provided that only one Samba DC can run on a node.</p>
+</li>
+<li class="">
+<p><strong>Improved user domain event handling in some applications</strong> -- Changes to user domain configurations are now correctly applied to Nextcloud, Ejabberd, Mail, SOGo, and Roundcube applications. Configuration changes are propagated, and services are restarted automatically.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2024-10-16">Major changes on 2024-10-16<a href="#major-changes-on-2024-10-16" class="hash-link" aria-label="Direct link to Major changes on 2024-10-16" title="Direct link to Major changes on 2024-10-16" translate="no">​</a></h2>
+<p><strong>Milestone 8.2</strong></p>
+<ul>
+<li class="">
+<p><strong>Disk minimum requirements increased</strong> -- The <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements">minimum disk requirements</a> have been increased to a 40GB SSD. The primary storage, which holds container images, must be fast, especially during read access, to prevent service startup errors.</p>
+</li>
+<li class="">
+<p><strong>Cluster node limit removed</strong> -- The four-node cluster limit has been removed. More nodes can now be added, up to the VPN network size. However, keep in mind the increased system load on the leader node. See also <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/cluster">Cluster management</a>.</p>
+</li>
+<li class="">
+<p><strong>Progressive upgrades</strong> -- Starting from Core 3.0.0, application images can be labeled with a new attribute, <a href="https://nethserver.github.io/ns8-core/modules/images/#image-labels" target="_blank" rel="noopener noreferrer" class="">min-from</a>. This ensures that installed applications will ignore any updates with this label if their version is lower than the label value.</p>
+<p>Similarly, a <a href="https://nethserver.github.io/ns8-core/modules/images/#image-labels" target="_blank" rel="noopener noreferrer" class="">min-core</a> label can be applied to application images, requiring a minimum core version for installation or updates. If the core version is below the label value, the image will be ignored.</p>
+<p>These labels were developed with Nextcloud in mind, as it only allows upgrades to the next major version number. Application developers can use these labels to implement progressive upgrades for their applications.</p>
+</li>
+<li class="">
+<p><strong>Cluster log forwarding</strong> -- The Log Settings page now allows configuring an outgoing stream of logs to an external Syslog server or the Nethesis Cloud Log Manager (available only with an active Enterprise Subscription plan).</p>
+<p>This feature centralizes external log archiving for all cluster nodes. Since log streams can be substantial in large clusters, future releases will include a stream filter to help tailor exported logs to relevant security events. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/log_server#logs-forwarding-section">Logs forwarding</a>.</p>
+</li>
+<li class="">
+<p><strong>Application certification level</strong> -- The Software Center now displays a <em>level badge</em> for each application, indicating its <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/software_center#certification-levels">certification level</a>. The application details section also includes information on the source repository and useful links. Developers can now use a new <a href="https://nethserver.github.io/ns8-core/modules/metadata" target="_blank" rel="noopener noreferrer" class="">terms_url</a> metadata attribute to provide a &quot;Terms and Conditions&quot; link, visible even after installation.</p>
+</li>
+<li class="">
+<p><strong>Application instance limit per node</strong> -- The Software Center enforces limits on the number of application instances that can be installed per cluster node. Developers can define this limit using the <a href="https://nethserver.github.io/ns8-core/modules/images/#image-labels" target="_blank" rel="noopener noreferrer" class="">max-per-node</a> image label. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/software_center#install-applications">Install applications</a>.</p>
+</li>
+<li class="">
+<p><strong>Display of core modules</strong> -- The Software Center now shows additional details for core components, including the core version of each cluster node. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/software_center#core_updates-section">Core updates</a>.</p>
+</li>
+<li class="">
+<p><strong>Update application to testing version</strong> -- With Core 3.0.0, the <code>Testing</code> switch under Settings &gt; Software Repositories has been removed. This change reduces the risk of using pre-releases for new installations or updates. If the switch was previously enabled, existing NS8 installations will no longer receive pre-release versions as updates.</p>
+<p>However, it is still possible to upgrade an application instance to a testing version from its three-dots menu, by selecting the <code>Update to testing version</code> action under Software center &gt; Installed &gt; Instances. This new procedure allows early access to new features and bug fixes, but it must be used with caution to avoid data loss. Be sure to carefully read the pre-release documentation or contact the app developer before using it. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/software_center#application-instances">Installed applications</a>.</p>
+</li>
+<li class="">
+<p><strong>More &quot;generic S3&quot; cloud backup providers</strong> -- The S3 Generic backup destination now supports additional cloud providers, including OVH, Wasabi, DigitalOcean, and Synology C2. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/backup#backup-destination">Backup destination</a>.</p>
+</li>
+<li class="">
+<p><strong>Backup and snapshot selection</strong> -- During the application restore process, users can now select from past backup snapshots generated according to the backup retention policy. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/backup#application_restore-section">Restore applications</a>.</p>
+</li>
+<li class="">
+<p><strong>TCP and UDP port reallocation</strong> -- Since Core 3.1.0, application developers can leverage new core functions that extend the range of TCP and UDP ports assigned to application instances. Similarly, they can obtain new ranges while preserving existing allocations, easing the introduction of new components during application upgrades. For more information, see <a href="https://nethserver.github.io/ns8-core/modules/port_allocation/" target="_blank" rel="noopener noreferrer" class="">Port allocation</a> in the Developer&#x27;s manual.</p>
+</li>
+<li class="">
+<p><strong>NethVoice application</strong> -- <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/nethvoice">NethVoice</a> is a professional IP telephony solution that offers a host of advanced features and an intuitive user interface.</p>
+</li>
+<li class="">
+<p><strong>WebTop application</strong> -- <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/webtop">WebTop</a> now features a new default UI theme, exclusively available on the NS8 platform. Administrators can choose to apply the new theme across existing installations or allow end-users to decide. Additionally, for those on the Enterprise Subscription plan, the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/webtop#pec-bridge">PEC bridge</a> is now available.</p>
+</li>
+<li class="">
+<p><strong>Nextcloud application</strong> -- Nextcloud version 27 (NC 27), which was the last version available on NethServer 7, has reached End-of-Life (EOL). Although migrations will still install NC 27, an update to NC 28 will be immediately available after migration.</p>
+</li>
+<li class="">
+<p><strong>Mattermost application</strong> -- Mattermost has been upgraded from the EOL version 8 to the latest major release, version 9.11 (ESR).</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2024-05-31">Major changes on 2024-05-31<a href="#major-changes-on-2024-05-31" class="hash-link" aria-label="Direct link to Major changes on 2024-05-31" title="Direct link to Major changes on 2024-05-31" translate="no">​</a></h2>
+<p><strong>Milestone 8.1</strong></p>
+<ul>
+<li class="">
+<p><strong>Mail improvements</strong> -- Added the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/mail#relay-rules-section">Relay rules</a> feature, which allows configuration and use of a default smarthost for outgoing email messages, and more. A Mail instance can now be selected directly from the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/email_notifications">Email notifications</a> page to serve as the cluster&#x27;s default mail gateway for other applications. Since release 1.4 Mail provides also Sender/login correspondence, configurable Queue lifetime, and IP-based relay policy, as described by <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/mail#mail_settings-section">Mail settings</a>.</p>
+</li>
+<li class="">
+<p><strong>Piler application</strong> -- The new Piler application enhances Mail features with an email archiving solution. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/piler">Piler</a> for more information.</p>
+</li>
+<li class="">
+<p><strong>Netdata application</strong> -- A new monitoring stack is available alongside Prometheus and Grafana. A Netdata instance can be installed with a click on a cluster node and immediately starts to collect metrics. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/netdata">Netdata</a> for details.</p>
+</li>
+<li class="">
+<p><strong>Dnsmasq application</strong> -- This new application provides a simple DNS and DHCP service for the local area network. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/dnsmasq">DNSMasq</a> for details.</p>
+</li>
+<li class="">
+<p><strong>Display firewall open ports</strong> -- The node firewall configuration is accessible from a new card under the Settings page. The same information is still available from the Nodes page. See the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/firewall">Firewall</a> for more information.</p>
+</li>
+<li class="">
+<p><strong>NethSecurity controller</strong> -- This new application allows the remote control of multiple NethSecurity installations, called units. It provides enhanced management and monitoring capabilities for firewall units. Refer to the section <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/nethsecurity_controller">NethSecurity Controller</a> for more information.</p>
+</li>
+<li class="">
+<p><strong>System logs</strong> -- Log records generated by any cluster node are collected and stored in the leader node for a configurable number of days. Since Core release 2.7.0, the component responsible for this is automatically started and configured when a new leader node is promoted. Refer to the section <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/log_server">System logs</a> for more information.</p>
+</li>
+<li class="">
+<p><strong>CrowdSec bouncer container</strong> -- Since CrowdSec release 1.0.7, the bouncer component runs inside a container and uses Netfilter tables to block IPs. Execute the following commands to clean up some files and resources left by previous versions.</p>
+<p>Run this command to remove the Firewalld ipset:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">firewall-cmd --permanent --delete-ipset=crowdsec-blacklists</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">firewall-cmd --permanent --delete-ipset=crowdsec6-blacklists</span><br></div></code></pre></div></div>
+<p>Additional packages and the software repository installed in the host system can also be removed.</p>
+<p>For Rocky Linux, run:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">dnf remove -y crowdsec-firewall-bouncer-iptables</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">rm -rvf /etc/yum.repos.d/crowdsec_crowdsec.repo /etc/crowdsec /usr/local/sbin/cscli</span><br></div></code></pre></div></div>
+<p>For Debian, run:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">apt-get -y remove crowdsec-firewall-bouncer-iptables</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">rm -rvf /etc/apt/sources.list.d/crowdsec_crowdsec.list /etc/crowdsec /usr/local/sbin/cscli</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Rocky Linux 9.4</strong> -- Since Core release 2.8.1, the pre-built images are based on the official Rocky Linux 9.4 cloud image.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2024-02-13">Major changes on 2024-02-13<a href="#major-changes-on-2024-02-13" class="hash-link" aria-label="Direct link to Major changes on 2024-02-13" title="Direct link to Major changes on 2024-02-13" translate="no">​</a></h2>
+<p><strong>Stable release 8.0</strong></p>
+<p>New features introduced by this release are:</p>
+<ul>
+<li class="">
+<p><strong>Subscription</strong> -- Nethesis Enterprise and Community Subscription plans are now available for NS8. See the details in <a class="" href="/pr-preview/pr-246/docs/administrator-manual/about/subscription">Subscription</a> page.</p>
+</li>
+<li class="">
+<p><strong>User management portal</strong> -- Members of the Domain Admins group can now create, edit and delete user accounts from the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/user_domains#user-management-portal-section">User management portal</a>. The login screen now displays the user domain name to distinguish which domain a user is logging in to.</p>
+</li>
+<li class="">
+<p><strong>Skip certificate validation</strong> in HTTP routes -- When an HTTP route is created or edited in the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/proxy">HTTP routes</a> page, the <code>Skip certificate validation</code> option can be enabled over a trusted network if the server at the destination URL has no valid TLS certificate.</p>
+</li>
+<li class="">
+<p><strong>Cockpit removed from pre-built image</strong> -- Cockpit is not required to run NS8, therefore it is no more available in the NS8 pre-built image. If desired, it can be manually installed and enabled with the following commands:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">dnf install -y cockpit</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">systemctl enable --now cockpit.socket</span><br></div></code></pre></div></div>
+<p>The default Cockpit configuration forbids <code>root</code> access: log in as a member of the <code>wheel</code> group, then enter the &quot;administrative access&quot; mode.</p>
+</li>
+</ul>
+<p>Known issues:</p>
+<ul>
+<li class=""><strong>Core upgrade freezes Software Center page</strong> -- The <a href="https://github.com/NethServer/dev/issues/6778" target="_blank" rel="noopener noreferrer" class="">bug 6778</a> has been fixed in core version 2.2.6. If the upgrade from RC1 starts from core version 2.2.5 or lower, when the task progress bar freezes reload the web page with <code>CTRL + SHIFT + R</code> or an equivalent procedure. The page reload has no impact with the underlying upgrade. Note: the upgrade download may be slow; avoid interrupting or rebooting until completion.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2023-11-21">Major changes on 2023-11-21<a href="#major-changes-on-2023-11-21" class="hash-link" aria-label="Direct link to Major changes on 2023-11-21" title="Direct link to Major changes on 2023-11-21" translate="no">​</a></h2>
+<p><strong>Release Candidate 1</strong></p>
+<p>New features introduced by RC1 are:</p>
+<ul>
+<li class=""><strong>Password policy</strong> -- Added a new configuration option to the <code>Domains and users</code> page. It is possible to modify the password complexity and expiration policies of Samba and OpenLDAP domains. Beta 2 installations with OpenLDAP domains require to run a manual procedure to enable the password policy. The upgrade procedure is detailed in the next notes. See also <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/user_domains#password-policy-section">Password policy</a>.</li>
+<li class=""><strong>User management portal</strong> -- Users of a domain can now access a web page to change their own password. The user portal is available at <code>https://IP_OR_FQDN/users-admin/DOMAIN_NAME/</code>; a full link is shown in the <code>Domains and users</code> page, under the domain configuration settings. Beta 2 installations require to run a manual procedure to enable the user portal. See the upgrade procedure for Samba and OpenLDAP in the next notes, and the <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/user_domains#user-management-portal-section">User Management portal</a> page.</li>
+<li class=""><strong>Backup repositories</strong> -- Beside existing cloud protocols, it is now easier to send backups to some local device. A backup repository can now be created in a <em>Windows file share</em> or in a <em>Local storage</em>, like a disk attached to a cluster node. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/backup">Backup and restore</a> for more information.</li>
+<li class=""><strong>Fetch mail from other servers</strong> -- <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/imapsync">Imapsync</a> is a new advanced application designed to retrieve email messages from remote IMAP servers at scheduled intervals and to synchronize entire IMAP accounts.</li>
+<li class=""><strong>Mirror list for Rocky Linux nodes</strong> -- If Rocky Linux is the node OS distribution, the default DNF configuration is overridden and mirrors are returned by <code>mirrorlist.nethserver.org</code>. RPM packages from Rocky Linux will be hosted by NethServer specific mirrors in future releases.</li>
+</ul>
+<p>Upgrade of existing Beta 2 installations can be started from the Software center page as usual. After the core components are up-to-date, run the following manual procedures to complete the upgrade.</p>
+<ul>
+<li class="">
+<p><strong>Core upgrade procedure</strong> -- To upgrade Beta 2 installations run the following command on the leader node. It defines the new <code>tunadm</code> authorization role, available on new installations since core version 2.1.0:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">redis-cli --raw hvals cluster/module_node | sort -n | uniq | xargs -I NODE_ID -- redis-cli SADD node/NODE_ID/roles/tunadm add-tun remove-tun add-public-service remove-public-service add-custom-zone remove-custom-zone</span><br></div></code></pre></div></div>
+<p>For each cluster node, enable the local WebDAV service for backups:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">systemctl enable --now rclone-webdav.service</span><br></div></code></pre></div></div>
+<p>Finally, only for Rocky Linux nodes, enable the NethServer default repositories:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cp -v /etc/nethserver/nethserver.repo /etc/yum.repos.d/nethserver.repo</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">dnf config-manager --save --set-disabled appstream baseos extras</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Samba upgrade procedure</strong> -- To upgrade Beta 2 installations run the following procedure for each Samba account provider instance. The list of instances can be obtained from the <code>Domains and users</code> page, under the domain configuration settings; <strong>annotate for each provider</strong>:</p>
+<ul>
+<li class="">
+<p>the module ID (string), for example <code>samba1</code></p>
+</li>
+<li class="">
+<p>the node ID (number), for example <code>1</code></p>
+</li>
+<li class="">
+<p>a free TCP port number, generated by executing on the leader node a command like this:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">node_id=1</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">echo $((`redis-cli --raw INCR node/${node_id}/tcp_ports_sequence` - 1))</span><br></div></code></pre></div></div>
+<p>In the above example set <code>node_id</code> with the correct node ID (number). Let&#x27;s assume the above command prints the port number below:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">20013</span><br></div></code></pre></div></div>
+</li>
+</ul>
+<p>With the above annotations, run the following steps for each provider:</p>
+<ol>
+<li class="">
+<p>Log on the cluster node where the provider instance runs.</p>
+</li>
+<li class="">
+<p>Apply the TCP port configuration and start the user portal service:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">runagent -m samba1 python3 - 20013 &lt;&lt;&#x27;EOF&#x27;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">import agent, os, sys</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">user_portal_port = sys.argv[1]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">agent.assert_exp(int(user_portal_port) &gt; 0, &quot;ERROR: Bad TCP port argument&quot;)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">agent.assert_exp(&quot;IPADDRESS&quot; in os.environ, &quot;ERROR: Samba is not configured&quot;)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">agent.assert_exp(not &quot;TCP_PORT&quot; in os.environ, &quot;ERROR: TCP_PORT is already set&quot;)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">os.environ[&quot;TCP_PORT&quot;] = user_portal_port</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">agent.set_env(&quot;TCP_PORT&quot;, user_portal_port)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">os.execl(&quot;../actions/configure-module/80start_amld&quot;, &quot;80start_amld&quot;)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></div></code></pre></div></div>
+</li>
+</ol>
+</li>
+<li class="">
+<p><strong>OpenLDAP upgrade procedure</strong> -- To upgrade Beta 2 installations run the following procedure for each OpenLDAP account provider instance. The list of instances can be obtained from the <code>Domains and users</code> page, under the domain configuration settings; <strong>annotate for each provider</strong>:</p>
+<ul>
+<li class="">
+<p>the module ID (string), for example <code>openldap1</code></p>
+</li>
+<li class="">
+<p>the node ID (number), for example <code>1</code></p>
+</li>
+<li class="">
+<p>a free TCP port number, generated by executing on the leader node a command like this:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">node_id=1</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">echo $((`redis-cli --raw INCR node/${node_id}/tcp_ports_sequence` - 1))</span><br></div></code></pre></div></div>
+<p>In the above example set <code>node_id</code> with the correct node ID (number). Let&#x27;s assume the above command prints the port number below:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">20014</span><br></div></code></pre></div></div>
+</li>
+</ul>
+<p>With the above annotations, run the following steps for each provider:</p>
+<ol>
+<li class="">
+<p>Log on the cluster node where the provider instance runs.</p>
+</li>
+<li class="">
+<p>Apply the TCP port configuration and start the user portal service:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">runagent -m openldap1 python3 - 20014 &lt;&lt;&#x27;EOF&#x27;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">import agent, os, sys</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">user_portal_port = sys.argv[1]</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">agent.assert_exp(int(user_portal_port) &gt; 0, &quot;ERROR: Bad TCP port argument&quot;)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">agent.assert_exp(&quot;LDAP_IPADDR&quot; in os.environ, &quot;ERROR: OpenLDAP is not configured&quot;)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">agent.assert_exp(not &quot;,&quot; in os.environ[&quot;TCP_PORTS&quot;], &quot;ERROR: unexpected TCP_PORTS value&quot;)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">os.environ[&quot;TCP_PORTS&quot;] = f&#x27;{os.environ[&quot;TCP_PORT&quot;]},{user_portal_port}&#x27;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">agent.set_env(&quot;TCP_PORTS&quot;, os.environ[&quot;TCP_PORTS&quot;])</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">os.execl(&quot;../actions/configure-module/80start_amld&quot;, &quot;80start_amld&quot;)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></div></code></pre></div></div>
+</li>
+</ol>
+<p>After repeating the above steps on each cluster node, run the following commands in one instance of your choice (the example is for <code>openldap1</code>):</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">runagent -m openldap1 podman exec -i openldap ash -c &#x27;envsubst | ldapmodify -c &#x27; &lt;&lt;&#x27;EOF&#x27;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">dn: olcDatabase={2}mdb,cn=config</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">changetype: modify</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">delete: olcAccess</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">-</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">add: olcAccess</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">olcAccess: to attrs=userPassword by dn.base=&quot;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"> gidNumber=101+uidNumber=100,cn=peercred,cn=external,cn=aut</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"> h&quot; write by set=&quot;[cn=domain admins,ou=Groups,${LDAP_SUFFIX}</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"> ]/memberUid &amp; user/uid&quot; write by self write by * auth</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">olcAccess: to * by dn.base=&quot;gidNumber=101+uidNumber=100,</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"> cn=peercred,cn=external,cn=auth&quot; manage by set=&quot;[cn=do</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"> main admins,ou=Groups,${LDAP_SUFFIX}</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"> ]/memberUid &amp; user/uid&quot; write by * read</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">dn: olcOverlay={1}ppolicy,olcDatabase={2}mdb,cn=config</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">changetype: modify</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">replace: olcPPolicyCheckModule</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">olcPPolicyCheckModule: ppcheck.so</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">dn: cn=default,ou=PPolicy,${LDAP_SUFFIX}</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">changetype: modify</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">add: objectClass</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">objectClass: pwdPolicyChecker</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">dn: cn=default,ou=PPolicy,${LDAP_SUFFIX}</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">changetype: modify</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">replace: pwdCheckQuality</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pwdCheckQuality: 2</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">-</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">replace: pwdMinAge</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pwdMinAge: 0</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">-</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">replace: pwdMaxAge</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pwdMaxAge: 15552000</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">-</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">replace: pwdMinLength</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pwdMinLength: 8</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">-</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">replace: pwdInHistory</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pwdInHistory: 12</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">-</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">replace: pwdLockout</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pwdLockout: FALSE</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">-</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">replace: pwdUseCheckModule</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pwdUseCheckModule: TRUE</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">-</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">replace: pwdCheckModuleArg</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pwdCheckModuleArg: default</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">-</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">replace: pwdExpireWarning</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pwdExpireWarning: 0</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">runagent -m openldap1 systemctl --user restart openldap</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Mattermost upgrade procedure</strong> -- Mattermost upgrade must be completed manually to allocate and open UDP ports required by the Calls plugin. From the <code>Software center</code> page, ensure Mattermost is at version <code>2.0.0</code>. Then clone the running instance and after clone is complete, remove the old instance.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2023-09-13">Major changes on 2023-09-13<a href="#major-changes-on-2023-09-13" class="hash-link" aria-label="Direct link to Major changes on 2023-09-13" title="Direct link to Major changes on 2023-09-13" translate="no">​</a></h2>
+<p><strong>Beta 2</strong></p>
+<ul>
+<li class="">
+<p><strong>Pre-built image</strong> -- Images are based on Rocky Linux. Available formats are <code>.qcow2</code> for QEMU/Proxmox and <code>.vmdk</code> for VMware. See <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/install#install_image-section">Pre-built image</a> for image download links.</p>
+</li>
+<li class="">
+<p><strong>FQDN requirement</strong> -- The cluster creation procedure now asks to review and set the current system host name. The host name is expected in short form (a single word, with no domain suffix). The procedure also asks for the domain suffix and fixes the <code>/etc/hosts</code> file by adding a record to properly resolve the fully qualified domain name of the system (FQDN). For example :</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">127.0.1.1 node1.example.org node1</span><br></div></code></pre></div></div>
+<p>See also <a class="" href="/pr-preview/pr-246/docs/administrator-manual/installation/system_requirements#dns-reqs">DNS configuration</a>.</p>
+</li>
+<li class="">
+<p><strong>WireGuard port 55820</strong> -- The UDP port used by WireGuard in the creation of the cluster VPN is now fixed to <code>55820</code>. Clusters already created with a custom port number must be fixed manually before updating the core to Beta 2. For example if the custom port is <code>55821</code> run on the leader node the following steps to fix it.</p>
+<ol>
+<li class="">
+<p>Fix the VPN public endpoint address in Redis. For example, if the leader node is <code>1</code> and its FQDN is <code>node1.example.org</code> :</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">redis-cli hset node/1/vpn endpoint node1.example.org:55820</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p>Fix the firewall configuration :</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">firewall-cmd --permanent --service=ns-wireguard --remove-port=55821/udp</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">firewall-cmd --permanent --service=ns-wireguard --add-port=55820/udp</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">firewall-cmd --reload</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p>Change the running WireGuard listen port :</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">wg set wg0 listen-port 55820</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p>Make the change permanent, by setting <code>ListenPort = 55820</code> in <code>/etc/wireguard/wg0.conf</code> :</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sed -ir &#x27;s/ListenPort.*/ListenPort = 55820/&#x27; /etc/wireguard/wg0.conf</span><br></div></code></pre></div></div>
+</li>
+</ol>
+<p>Repeat steps 2-4 on each worker node, too.</p>
+</li>
+<li class="">
+<p><strong>Debian upgrade</strong> -- After running the core update, installations based on Debian 11 (Bullseye) must be manually upgraded to distribution version 12 (Bookworm). :</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">rm -f &#x27;/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list&#x27;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">sed -i &#x27;s/bullseye/bookworm/&#x27; /etc/apt/sources.list</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">apt update &amp;&amp; apt full-upgrade -y</span><br></div></code></pre></div></div>
+<p>Follow also the instructions for Python 3.11 upgrade, then <strong>reboot the system</strong>. Apply the same procedure for each cluster node.</p>
+</li>
+<li class="">
+<p><strong>Python 3.11</strong> -- After running the core update, installations based on Rocky Linux (and other EL-like distributions) must manually install Python 3.11:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">dnf install python3.11</span><br></div></code></pre></div></div>
+<p>The following Bash script is required by Debian, too. Do not forget the round brackets! :</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">(</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    set -e -x</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    core_dir=/usr/local/agent/pyenv</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    mv -v ${core_dir} ${core_dir}.bak</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    python3.11 -mvenv ${core_dir} --upgrade-deps --system-site-packages</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    ${core_dir}/bin/pip3 install -r /etc/nethserver/pyreq3_11.txt</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    echo &quot;/usr/local/agent/pypkg&quot; &gt;$(${core_dir}/bin/python3 -c &quot;import sys; print(sys.path[-1] + &#x27;/pypkg.pth&#x27;)&quot;)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    rm -rf ${core_dir}.bak</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">)</span><br></div></code></pre></div></div>
+<p>Check if the Python upgrade was successfull:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">runagent python3 --version # output should be 3.11</span><br></div></code></pre></div></div>
+<p>Apply the same procedure for each cluster node.</p>
+</li>
+<li class="">
+<p><strong>UI security enhancements</strong> -- Since the Beta 1 release an important security update has been released, and other security improvements are now available. After running the core update, do an hard browser page reload with <code>CTRL + Shift + R</code> or any other equivalent method.</p>
+</li>
+<li class="">
+<p><strong>Logs backend improved</strong> -- The Logs page backend has been improved to be faster and more accurate in capturing the logs of every cluster component. The core module now runs Promtail as a system service. After running the core update, it is safe to uninstall Promtail core modules by running this command on the leader node:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run list-installed-modules | jq -r &#x27;.[&quot;ghcr.io/nethserver/promtail&quot;] | .[].id&#x27; | xargs -l remove-module --no-preserve</span><br></div></code></pre></div></div>
+<p>Note that the new Logs page cannot access old log entries. To see log entries before the Beta 2 upgrade, use the <code>logcli</code> command.</p>
+</li>
+<li class="">
+<p><strong>TLS certificate upload</strong> -- The <code>TLS certificates</code> card under the <code>Settings</code> page was extended to allow the upload of a certificate and the private key associated to it. See the section <a class="" href="/pr-preview/pr-246/docs/administrator-manual/configuration/certificates">TLS certificates</a>.</p>
+</li>
+<li class="">
+<p><strong>Additional backup providers</strong> -- Backup repositories can be created also on Microsoft Azure and S3-compatible cloud storage providers.</p>
+</li>
+<li class="">
+<p><strong>New Traefik configuration backend</strong> -- The cluster Redis DB is not used any more by Traefik module instances as their dynamic configuration backend. Traefik configuration is now entirely stored under the module home directory. To improve Redis performance it is possible to disable a feature specific for Traefik with the following commands:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">podman exec redis sed -i.beta1 &#x27;/^notify-keyspace-events / d&#x27; /data/etc/redis.conf</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">systemctl restart redis</span><br></div></code></pre></div></div>
+<p>Apply the same procedure for each cluster node.</p>
+</li>
+<li class="">
+<p><strong>Mail module improvements</strong></p>
+<ol>
+<li class="">
+<p>New installations of the Mail module have the <code>Shared seen</code> option enabled by default. Existing installations will find the switch disabled. See also the section about <a class="" href="/pr-preview/pr-246/docs/administrator-manual/applications/mail#mail-mailboxes-settings">settings for mailboxes</a>.</p>
+</li>
+<li class="">
+<p>Added the open source Dovecot plugin <em>Flatcurve</em> to enable full text search (FTS) of email messages. To massively rebuild the search indexes run the following command during system idle time:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">podman exec dovecot sh -c &quot;doveadm index -A -q &#x27;*&#x27; ; pgrep indexer-worker | xargs -- renice&quot;</span><br></div></code></pre></div></div>
+<p>Only PDF attachments and the email itself are added to the index. In future releases more attachment formats will be supported.</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2023-05-10">Major changes on 2023-05-10<a href="#major-changes-on-2023-05-10" class="hash-link" aria-label="Direct link to Major changes on 2023-05-10" title="Direct link to Major changes on 2023-05-10" translate="no">​</a></h2>
+<p><strong>Beta 1</strong></p>
+<p>Main core features include:</p>
+<ul>
+<li class="">Node management: add and remove nodes from the system</li>
+<li class="">Centralized logging: collect all logs in one place for easy monitoring</li>
+<li class="">Configuration and data backups: regularly save cluster settings and application data to remote providers like Amazon S3 and Backblaze B2</li>
+<li class="">Authentication: support for both Active Directory and LDAP (RFC2307) user directories</li>
+<li class="">File server: implement an SMB (Server Message Block) file server that enables seamless integration with Windows-based networks</li>
+<li class="">Auditing: track changes made within the system to ensure security and accountability</li>
+<li class="">Email relay: use a smart host to route outgoing emails through a trusted server</li>
+<li class="">Custom web routing: define custom URLs to handle specific requests</li>
+<li class="">Multi-factor authentication: enable two-step verification for administrator accounts</li>
+<li class="">Built-in firewall: protect against unauthorized access at the network level by implementing a local firewall</li>
+<li class="">Migration: <a class="" href="/pr-preview/pr-246/docs/tutorial/migration">Cockpit module</a> to import NethServer 7 applications</li>
+</ul>
+<p>Additional modules:</p>
+<ul>
+<li class="">Collaborative tools: includes Dovecot/Postfix/Rspamd mail server, WebTop, Roundcubemail, Nextcloud, Collabora Online, Dokuwiki, ejabberd, Mattermost</li>
+<li class="">Development utilities: features MariaDB and NGINX web server for creating dynamic applications and services</li>
+<li class="">Monitoring and analysis: offers Grafana, Prometheus, and node_exporter for tracking performance metrics and identifying potential issues</li>
+<li class="">Data storage: offers MinIO for managing large amounts of structured and unstructured data</li>
+<li class="">Network defense: implements CrowdSec for protecting local applications against remote attacks</li>
+</ul>
+<p>The following known limitations will be resolved in future updates:</p>
+<ul>
+<li class="">currently, the system only uses TLS certificates issued by Let&#x27;s Encrypt or self-signed certificates generated locally</li>
+<li class="">user login is not supported on worker nodes</li>
+<li class="">the mail module does not offer sender-based or destination-based message relay options</li>
+<li class="">only a limited number of cloud storage providers are available for backing up data</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="releases-glossary">Releases glossary<a href="#releases-glossary" class="hash-link" aria-label="Direct link to Releases glossary" title="Direct link to Releases glossary" translate="no">​</a></h2>
+<p>The software release cycle includes four stages: Alpha, Beta, Release Candidate (RC), and Stable.</p>
+<p>During the <strong>Alpha</strong> stage, the software is not thoroughly tested and may not include all planned features. This release is not suitable for production environments. However, it can be used to preview what&#x27;s coming in the upcoming version. Please note that updates from an Alpha release to other releases are not supported.</p>
+<p>The <strong>Beta</strong> stage indicates that the software is mostly feature complete, but it may still contain many known and unknown bugs. This release should not be used on production environments. However, it can be used to test the software before deploying it to production. Updates from a Beta release to an RC or Stable release are supported but may require a manual procedure.</p>
+<p>During the <strong>Release Candidate (RC)</strong> stage, the software is feature complete, and it contains no known bugs. If no major issues arise, it can be promoted to Stable. Updates from an RC release to a Stable release are supported and should be almost automatic. However, if you&#x27;re new to the software, it&#x27;s best to use it in production only if you already have some experience with it.</p>
+<p>The <strong>Stable</strong> release is the most reliable and safe to use in production environments. It has been thoroughly tested and is considered to be free of major bugs.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/NethServer/ns8-docs/blob/main/docs/administrator-manual/about/release_notes.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer><div class="versionFooter_GEsS"><span class="versionText_BSdA">NethServer <span class="versionNumber_jKi7">8</span></span></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/pr-preview/pr-246/docs/administrator-manual/about/introduction"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Introduction</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/pr-preview/pr-246/docs/administrator-manual/about/subscription"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Subscription</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#major-changes-on-2026-06-30" class="table-of-contents__link toc-highlight">Major changes on 2026-06-30</a></li><li><a href="#major-changes-on-2026-03-27" class="table-of-contents__link toc-highlight">Major changes on 2026-03-27</a></li><li><a href="#major-changes-on-2025-12-17" class="table-of-contents__link toc-highlight">Major changes on 2025-12-17</a></li><li><a href="#major-changes-on-2025-09-30" class="table-of-contents__link toc-highlight">Major changes on 2025-09-30</a></li><li><a href="#major-changes-on-2025-07-08" class="table-of-contents__link toc-highlight">Major changes on 2025-07-08</a></li><li><a href="#major-changes-on-2025-04-04" class="table-of-contents__link toc-highlight">Major changes on 2025-04-04</a></li><li><a href="#major-changes-on-2024-12-20" class="table-of-contents__link toc-highlight">Major changes on 2024-12-20</a></li><li><a href="#major-changes-on-2024-10-16" class="table-of-contents__link toc-highlight">Major changes on 2024-10-16</a></li><li><a href="#major-changes-on-2024-05-31" class="table-of-contents__link toc-highlight">Major changes on 2024-05-31</a></li><li><a href="#major-changes-on-2024-02-13" class="table-of-contents__link toc-highlight">Major changes on 2024-02-13</a></li><li><a href="#major-changes-on-2023-11-21" class="table-of-contents__link toc-highlight">Major changes on 2023-11-21</a></li><li><a href="#major-changes-on-2023-09-13" class="table-of-contents__link toc-highlight">Major changes on 2023-09-13</a></li><li><a href="#major-changes-on-2023-05-10" class="table-of-contents__link toc-highlight">Major changes on 2023-05-10</a></li><li><a href="#releases-glossary" class="table-of-contents__link toc-highlight">Releases glossary</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-246/docs/administrator-manual">Administrator manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-246/docs/user-manual">User manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-246/docs/tutorial">Tutorial</a></li><li class="footer__item"><a href="https://nethserver.github.io/ns8-core/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Developer manual<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legacy docs</div><ul class="footer__items clean-list"><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                NethServer 7
+                  <a class="footer__link-item" href="/en/v7/" target="_blank">en</a>
+                  <a class="footer__link-item" href="/it/v7/" target="_blank"> it</a>
+                </div>
+              </li><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                NethServer 6
+                  <a class="footer__link-item" href="/en/v6/" target="_blank">en</a>
+                  <a class="footer__link-item" href="/it/v6/" target="_blank"> it</a>
+                </div>
+              </li><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                  <a class="footer__link-item" href="/projects/nethserver-devel/en/latest/" target="_blank">Developer manual 7</a>
+                </div>
+              </li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/NethServer/ns8-docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.nethserver.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">NethServer website<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://community.nethserver.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">NethServer Community<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Nethesis</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DHCP and PXE server &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="TLS policy" href="tlspolicy.html" />
+    <link rel="prev" title="DNS" href="dns.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "dhcp", "programming_language": "words", "project": "nethserver", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"nethserver-devel": "https://docs.nethserver.org/projects/nethserver-devel/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/dhcp.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accessing the Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Users and groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DHCP and PXE server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dhcp-configuration">DHCP configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-options">Advanced options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#host-ip-reservation">Host IP reservation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boot-from-network-configuration">Boot from network configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Shared folders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Web proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Bandwidth monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Backup customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Virtual machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">NethForge modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade from NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Email module transition to Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Documentation license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Old Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">The old Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">POP3 proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Fax server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">SOGo Groupware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>DHCP and PXE server</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/dhcp.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dhcp-and-pxe-server">
+<span id="dhcp-section"></span><span id="index-0"></span><h1>DHCP and PXE server<a class="headerlink" href="#dhcp-and-pxe-server" title="Permalink to this headline">¶</a></h1>
+<p>The <em class="dfn">Dynamic Host Configuration Protocol</em> (DHCP) <a class="footnote-reference brackets" href="#dhcp" id="id1">1</a> server
+centralizes the management of the local network configuration for any
+device connected to it.  When a computer (or a device such as a
+printer, smartphone, etc.) connects to the local network, it can ask
+the network configuration parameters by means of the DHCP protocol.
+The DHCP server replies, providing the IP, DNS, and other relevant
+network parameters.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In most cases, the devices are already configured to use DHCP
+protocol on start up.</p>
+</div>
+<p>The <em class="dfn">Preboot eXecution Environment</em> (PXE) <a class="footnote-reference brackets" href="#pxe" id="id2">3</a> specification
+allows a network device to retrieve the operating system from a
+centralized network location while starting up, through the DHCP and
+TFTP protocols. See <a class="reference internal" href="#dhcp-pxe"><span class="std std-ref">Boot from network configuration</span></a> for an example about configuring a
+such case.</p>
+<section id="dhcp-configuration">
+<span id="id3"></span><h2>DHCP configuration<a class="headerlink" href="#dhcp-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The DHCP server can be enabled on all <em>green</em> and <em>blue</em> interfaces
+(see <a class="reference internal" href="base_system2.html#network-section"><span class="std std-ref">Network</span></a>).  NethServer will assign a free IP address
+within the configured <em class="dfn">DHCP range</em> in <span class="guilabel">DHCP &gt; DHCP
+server</span> page.</p>
+<p>The DHCP range must be defined within the network of the associated
+interface. For instance, if the green interface has IP/netmask
+<code class="docutils literal notranslate"><span class="pre">192.168.1.1/255.255.255.0</span></code> the range must be <code class="docutils literal notranslate"><span class="pre">192.168.1.2</span> <span class="pre">-</span>
+<span class="pre">192.168.1.254</span></code>.</p>
+<section id="advanced-options">
+<span id="id4"></span><h3>Advanced options<a class="headerlink" href="#advanced-options" title="Permalink to this headline">¶</a></h3>
+<p>There are seven advanced options for DHCP.  You can assign zero options, one option or all seven options.</p>
+<p>For the servers – DNS, NTP, WINS and TFTP – you can assign zero, one or more for each server; if you place more than one, use a comma between each server with no space.</p>
+</section>
+</section>
+<section id="host-ip-reservation">
+<span id="dhcp-reservation"></span><h2>Host IP reservation<a class="headerlink" href="#host-ip-reservation" title="Permalink to this headline">¶</a></h2>
+<p>The DHCP server leases an IP address to a device for a limited period
+of time.  If a device requires to always have the same IP address, it
+can be granted an <em>IP reservation</em> associated to its MAC address.</p>
+<p>The page <span class="guilabel">DHCP &gt; IP reservation</span> lists the currently
+assigned IP addresses:</p>
+<ul class="simple">
+<li><p>a line with <span class="guilabel">IP reservation</span> button identifies an host
+with a temporary lease (gray color);</p></li>
+<li><p>a line with <span class="guilabel">Edit</span> button identifies an host with a
+reserved IP (black color).  A small two arrows icon near the host
+name says the DHCP lease is expired: this is a normal condition for
+hosts with static IP configuration, as they never contact the DHCP
+server.</p></li>
+</ul>
+</section>
+<section id="boot-from-network-configuration">
+<span id="dhcp-pxe"></span><h2>Boot from network configuration<a class="headerlink" href="#boot-from-network-configuration" title="Permalink to this headline">¶</a></h2>
+<p>To allow clients to boot from network, the following components are
+required:</p>
+<ul class="simple">
+<li><p>the <a class="reference internal" href="#dhcp-configuration"><span class="std std-ref">DHCP</span></a> server, as we have seen in the
+previous sections</p></li>
+<li><p>the <em class="dfn">TFTP</em> server <a class="footnote-reference brackets" href="#tftp" id="id5">2</a></p></li>
+<li><p>the software for the client, served through TFTP</p></li>
+</ul>
+<p id="dhcp-tftp"><span id="index-1"></span>TFTP is a very simple file transfer protocol and usually it is used
+for automated transfer of configuration and boot files.</p>
+<p>In NethServer the TFTP implementation comes with the DHCP module and is
+enabled by default.  To allow accessing a file through TFTP, simply
+put it in <code class="file docutils literal notranslate"><span class="pre">/var/lib/tftpboot</span></code> directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To disable TFTP type the following commands in a root’s
+console:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop dnsmasq tftp-status disabled
+signal-event nethserver-dnsmasq-save
+</pre></div>
+</div>
+</div>
+<p>For instance, we now configure a client to boot CentOS from the
+network. In NethServer, type at root’s console:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install syslinux
+cp /usr/share/syslinux/{pxelinux.0,menu.c32,memdisk,mboot.c32,chain.c32} /var/lib/tftpboot/
+config setprop dnsmasq dhcp-boot pxelinux.0
+signal-event nethserver-dnsmasq-save
+mkdir /var/lib/tftpboot/pxelinux.cfg
+</pre></div>
+</div>
+<p>Then create the file <code class="file docutils literal notranslate"><span class="pre">/var/lib/tftpboot/pxelinux.cfg/default</span></code> with
+the following content:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>default menu.c32
+prompt 0
+timeout 300
+
+MENU TITLE PXE Menu
+
+LABEL CentOS
+  kernel CentOS/vmlinuz
+  append initrd=CentOS/initrd.img
+</pre></div>
+</div>
+<p>Create a CentOS directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir /var/lib/tftpboot/CentOS
+</pre></div>
+</div>
+<p>Copy inside the directory <code class="file docutils literal notranslate"><span class="pre">vmlinuz</span></code> and <code class="file docutils literal notranslate"><span class="pre">initrd.img</span></code>
+files. These files are public, and can be found in the ISO image, in
+<code class="file docutils literal notranslate"><span class="pre">/images/pxeboot</span></code> directory or downloaded from a CentOS mirror.</p>
+<p>Finally, power on the client host, selecting PXE boot (or boot from
+network) from the start up screen.</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="dhcp"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Dynamic Host Configuration Protocol (DHCP)
+<a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol</a></p>
+</dd>
+<dt class="label" id="tftp"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
+<dd><p>Trivial File Transfer Protocol
+<a class="reference external" href="https://en.wikipedia.org/wiki/Tftp">https://en.wikipedia.org/wiki/Tftp</a></p>
+</dd>
+<dt class="label" id="pxe"><span class="brackets"><a class="fn-backref" href="#id2">3</a></span></dt>
+<dd><p>Preboot eXecution Environment
+<a class="reference external" href="https://en.wikipedia.org/wiki/Preboot_Execution_Environment">https://en.wikipedia.org/wiki/Preboot_Execution_Environment</a></p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dns.html" class="btn btn-neutral float-left" title="DNS" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="tlspolicy.html" class="btn btn-neutral float-right" title="TLS policy" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
