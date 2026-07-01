@@ -18,15 +18,20 @@ NethServer 8 releases
   - Schedule conflicts are detected and retried automatically within a one-hour window.
   - On multi-node clusters, nodes can route backup traffic through other nodes, making on-premise destinations reachable from cloud nodes.
   - Every node validates its own connectivity and permissions to a destination, not just the leader.
-  - Destinations can be fine-tuned with a custom Rclone configuration, enabling advanced options (e.g. skipping TLS certificate validation) and new types such as SFTP and WebDAV.
+  - Destinations can be fine-tuned with a custom Rclone configuration, enabling advanced options (e.g. skipping TLS certificate validation) and new types such as SFTP and WebDAV; the Azure Blob Storage destination type has been removed in favor of this.
+  - Applications restored via disaster recovery keep their original backup schedules.
 
-- **Abort running tasks with a safer confirmation** \[Core 3.20.0\] -- Long-running tasks, including application restore, can be aborted from the UI. The confirmation step was redesigned to prevent accidental clicks that could interrupt an important operation, such as a restore or clone in progress.
+- **Abort running tasks with a safer confirmation** \[Core 3.20.0\] -- Some long-running tasks, including application restore, can be aborted from the UI. The confirmation step was redesigned to prevent accidental clicks that could interrupt an important operation, such as a restore or clone in progress.
 
 - **Free disk space shown during node selection** \[Core 3.20.0\] -- When installing, cloning, or restoring an application, the node selection step now shows the free disk space of the root filesystem for every node, not only for nodes with an additional volume.
 
-- **Restricted shell for module service users** \[Core 3.20.0\] -- Newly installed application modules now assign `/sbin/nologin` as the default shell for their service user, reducing the attack surface of interactive logins while `runagent` continues to work as before.
+- **Restricted shell for module service users** \[Core 3.20.0\] -- Newly installed application modules now assign `/sbin/nologin` as the default shell for their service user, reducing the attack surface of interactive logins while `runagent` continues to work as before. Existing installations can be manually hardened with this command[^nologin]:
 
-- **Random initial root password on pre-built images** \[Core 3.20.0\] -- Pre-built NS8 images (.qcow2/.vmdk) no longer ship with the well-known default root password. A random password is generated at first boot and displayed on the console/MOTD until it is changed. See [Install](../installation/install.md).
+      runagent -l | xargs -l -t -r -- usermod -s /sbin/nologin
+
+[^nologin]: [Change shell to nologin | NS8 dev manual](https://nethserver.github.io/ns8-core/modules/rootless_rootfull/#unix-user)
+
+- **Random initial root password on pre-built images** \[Core 3.20.0\] -- Pre-built NS8 images (.qcow2/.vmdk) no longer ship with the well-known default root password. A random password is generated at first boot and displayed on the console/MOTD until it is changed. See [Install](../installation/install.md#install_image-section).
 
 - **More resilient pre-built image bootstrap** \[Core 3.20.0\] -- Pre-built images now finish the local Traefik setup (secrets and certificate generation) at first boot even if the network is temporarily unavailable, and the `Create cluster` action handles network/DNS validation failures more gracefully.
 
@@ -36,11 +41,9 @@ NethServer 8 releases
 
 - **Password never expires for OpenLDAP users** \[OpenLDAP 2.7.0\] -- The "Password never expires" option, previously available only for Active Directory, can now be enabled for individual OpenLDAP users too, both from cluster-admin and the user portal. See [User and groups](../installation/user_domains.md#user_groups-section).
 
-- **Password expiration API for the user portal** \[OpenLDAP 2.7.0, Samba 3.4.6\] -- OpenLDAP and Samba account providers expose a new `get-password-expiration` user-portal API endpoint, letting client applications query a logged-in user's own password expiration status.
+- **Experimental Spamhaus DQS support in Rspamd** \[Mail 1.7.9\] -- The Mail application can now use Spamhaus's Data Query Service (DQS), an alternative to the public DNSBL protocol that requires a registered token and offers better performance and fewer fair-use restrictions. See [Mail README notes](https://github.com/NethServer/ns8-mail#rspamd-plugin-for-spamhaus-dqs).
 
-- **Spamhaus DQS support in Rspamd** \[Mail 1.7.9\] -- The Mail application can now use Spamhaus's Data Query Service (DQS), an alternative to the public DNSBL protocol that requires a registered token and offers better performance and fewer fair-use restrictions.
-
-- **Sender blocklist for Rspamd** \[Mail 1.7.10\] -- The Mail application's Rspamd configuration adds new maps to block incoming mail by sender TLD, exact domain, domain suffix, or full email address, configurable from the Rspamd UI configuration page.
+- **Sender blocklist for Rspamd** \[Mail 1.7.10\] -- The Mail application's Rspamd configuration adds new maps to block incoming mail by sender TLD, exact domain, domain suffix, or full email address, configurable from the [Rspamd web interface](../applications/mail.md#rspamd-web-interface).
 
 - **WebTop updates** \[WebTop 1.5.6\] -- WebTop was updated to upstream release 5.32.0, adding a "Remember me" option on the login page. The one-time-password login field no longer uses a password-type input, avoiding unwanted "save password" browser prompts.
 
@@ -51,8 +54,6 @@ NethServer 8 releases
 - **CrowdSec notification wording fix** \[CrowdSec 1.1.4\] -- Email notifications about CrowdSec ban decisions now use correct singular/plural wording instead of always using the plural form.
 
 - **Grafana dashboard for CrowdSec** \[CrowdSec 1.1.6\] -- A Grafana dashboard with a Prometheus exporter for CrowdSec metrics is now available through the Metrics application.
-
-- **Enterprise alerts forwarded to my.nethesis.it** \[Metrics 1.3.0\] -- Clusters with an active Enterprise subscription now automatically forward Metrics/Alertmanager alerts to `my.nethesis.it`, where they appear in the subscription's Alerts page.
 
 - **Other application updates** -- Dnsmasq 1.3.3, Mattermost 2.4.5, Loki 1.4.5, Matrix 0.0.5.
 
