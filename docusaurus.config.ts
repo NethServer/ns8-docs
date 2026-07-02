@@ -100,6 +100,19 @@ const config: Config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: "https://widget.kapa.ai/kapa-widget.bundle.js",
+      "data-website-id": "a3fcede4-cdb3-46f3-84b2-e4464a416e83",
+      "data-project-name": "NethServer",
+      "data-project-color": "#000000",
+      "data-project-logo": "https://docs.nethserver.org/img/favicon.ico",
+      "data-source-group-ids-include": "eae9b182-9aad-45f7-a616-30c91dd2e019",
+      "data-modal-disclaimer": "This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported",
+      async: true,
+    },
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
