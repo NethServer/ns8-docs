@@ -11,28 +11,34 @@ La prima volta che accedi alla pagina `Backup e ripristino`, è necessario crear
 Una volta impostata la password del backup del cluster, viene visualizzata l'intera pagina `Backup e ripristino`. Questa è suddivisa in:
 
 - **Scarica backup del cluster**: Scarica il piccolo file di backup del cluster e modifica la sua password di crittografia. Consulta [Backup del cluster](#cluster_backup-section) per ulteriori informazioni.
-- **Destinazioni di backup**: decidi dove possono essere inviati i dati di backup, ad esempio un servizio di hosting remoto S3 o una condivisione SMB locale. Le destinazioni includono segreti di accesso e una chiave di crittografia end-to-end per il backup.
-- **Backup pianificati**: pianifica l'esecuzione dei backup in orari specifici, la politica di conservazione e quali applicazioni includere.
+- **Destinazioni backup**: decidi dove possono essere inviati i dati di backup, ad esempio un servizio di hosting remoto S3 o una condivisione SMB locale. Le destinazioni includono segreti di accesso e una chiave di crittografia end-to-end per il backup.
+- **Pianificazione backup**: pianifica l'esecuzione dei backup in orari specifici, la politica di conservazione e quali applicazioni includere.
 
 Infine, nella scheda `Ripristino`, è possibile avviare il ripristino di singole applicazioni. Consulta [Ripristino delle applicazioni](#application_restore-section).
 
 Le sezioni successive illustrano ciascuna funzione in dettaglio.
+
 ## Destinazione del backup {#backup-destination}
 
 Una destinazione di backup è il luogo in cui vengono salvati i dati di backup delle applicazioni. Definire una destinazione è un prerequisito per pianificare un backup o ripristinare un'applicazione.
 
 Accedi alla pagina `Backup e ripristino`, fai clic sul pulsante **Aggiungi destinazione** e scegli un provider. I provider supportati sono:
 
-- [Backblaze B2](https://www.backblaze.com/b2/cloud-storage.html)
-- [Amazon S3](https://aws.amazon.com/s3/)
-- [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)
-- S3 generico, come [RustFS](../applications/rustfs.md)
-- Condivisione file Windows, tramite i protocolli SMB2/3
 - [Storage locale](#local-storage), collegato a un nodo del cluster
+- Condivisione file Windows, tramite i protocolli SMB2 o SMB3
+- Amazon S3[^a]
+- Backblaze B2[^b]
+- Provider compatibile con S3, come l'[applicazione NS8 RustFS](../applications/rustfs.md)
+- [Provider compatibile con Rclone](#rclone-provider), per altri servizi di storage cloud ampiamente supportati
+
+[^a]: https://aws.amazon.com/s3/
+[^b]: https://www.backblaze.com/b2/cloud-storage.html
 
 Compila i campi richiesti per il provider scelto.
 
 Se aggiungi una destinazione precedentemente utilizzata (cioè che contiene già dati), devi compilare il campo `Chiave di crittografia dei dati` nella sezione `Avanzate`, altrimenti i backup esistenti non possono essere aperti. Per nuove destinazioni, lascia il campo vuoto per generare una chiave casuale.
+
+Quando una destinazione di backup viene aggiunta o modificata, le sue impostazioni vengono validate da tutti i nodi del cluster. Almeno un nodo deve riuscire a raggiungere la destinazione affinché le impostazioni vengano accettate. Durante l'esecuzione del backup, se un nodo non riesce a raggiungere direttamente una destinazione, tenterà di inoltrare i dati del backup attraverso il nodo leader, quindi attraverso altri nodi worker, fino a trovare un percorso funzionante.
 
 La procedura di backup genera una struttura a due livelli in cui le istanze delle applicazioni sono raggruppate per tipo al primo livello e da una cartella denominata UUID al secondo livello. Ad esempio:
 
@@ -65,6 +71,13 @@ La destinazione `Storage locale` consente di memorizzare i dati di backup su uno
               --opt=o=noatime \
               backup00
 
+    :::warning
+    Monta sempre il disco tramite il suo percorso `by-id`. Se il disco si
+    guasta o si verificano errori di I/O, il montaggio fallirà invece di
+    scrivere silenziosamente i dati sul filesystem di root. Evita i bind
+    mount.
+    :::
+
 3.  Configura l'unità `rclone-webdav.service` per utilizzare tale volume:
 
         echo BACKUP_VOLUME=backup00 > /var/lib/nethserver/node/state/rclone-webdav.env
@@ -73,12 +86,66 @@ La destinazione `Storage locale` consente di memorizzare i dati di backup su uno
 
         systemctl restart rclone-webdav.service
 
-    > [!NOTA]
-    > Il disco viene smontato quando il servizio `rclone-webdav` viene arrestato.
+    :::note
+    Il disco viene smontato quando il servizio `rclone-webdav` viene arrestato.
+    :::
 
 5.  Rimuovi il volume predefinito utilizzato dal servizio, poiché non è più necessario. Il contenuto esistente verrà perso:
 
         podman volume rm rclone-webdav
+
+### Provider compatibile con Rclone {#rclone-provider}
+
+Qualsiasi provider compatibile con Rclone può essere utilizzato come
+destinazione di backup fornendo una breve configurazione INI[^wini].
+L'elenco completo dei [provider di storage cloud supportati][rco] è
+mantenuto sul sito ufficiale di Rclone.
+
+[^wini]: https://en.wikipedia.org/wiki/INI_file
+
+[rco]: https://rclone.org/overview/
+
+Alcuni provider cloud includono esempi di configurazione Rclone nella
+propria documentazione oppure offrono un file preconfigurato scaricabile
+dal proprio portale di gestione. Prima di scrivere la configurazione
+manualmente, consulta la documentazione del tuo provider o i forum della
+community.
+
+L'esempio seguente configura una destinazione di backup su un server SFTP Unix[^sftp] con autenticazione tramite password:
+
+```ini
+type = sftp
+host = 192.168.122.254
+user = ubackup
+pass = 5U-JvLFx8NKphaUD5e0HvjF6RzUYcG7YgMfNWbQ
+shell_type = unix
+```
+
+[^sftp]: https://rclone.org/sftp/
+
+Rclone richiede che il campo `pass` contenga una password
+*offuscata*. Generane una su NS8 con:
+
+```sh
+echo 'MySuperSecret' | podman exec -i rclone-gateway rclone obscure -
+```
+
+Per convertire una password offuscata nuovamente in chiaro, esegui:
+
+```sh
+podman exec rclone-gateway rclone reveal 5U-JvLFx8NKphaUD5e0HvjF6RzUYcG7YgMfNWbQ
+```
+
+Per aggiungere una destinazione di backup compatibile con Rclone, carica
+il file di configurazione INI oppure incollalo nel modulo `Aggiungi
+destinazione`.
+
+Utilizza il campo opzionale `Path` per specificare dove viene memorizzata
+la struttura a due livelli del backup, usando `/` come separatore di
+directory. Se lasciato vuoto, viene utilizzata la radice della
+destinazione remota: questo non è consigliato quando la destinazione è
+condivisa tra più cluster NS8.
+
 ## Pianificare il backup delle applicazioni
 
 Per pianificare il backup delle applicazioni installate:
@@ -94,7 +161,14 @@ Per eseguire manualmente un backup, fare clic sull'elemento `Esegui backup ora` 
 
 Per modificare le applicazioni incluse in un backup esistente, fare clic sull'elemento `Modifica` dal menu a tre punti del backup pianificato.
 
-Dopo la prima esecuzione del backup, lo stato del backup viene riportato in `Backup > Pianificazioni > Vedi dettagli`.
+Dopo la prima esecuzione del backup, lo stato del backup viene riportato in `Backup > Pianificazione backup > Vedi dettagli`.
+
+Se un'applicazione è inclusa in due o più backup pianificati che si
+sovrappongono nel tempo, le esecuzioni in conflitto vengono ritardate
+finché la prima non si completa. Se la prima esecuzione non si completa
+entro un'ora, le esecuzioni rimanenti vengono contrassegnate come non
+riuscite.
+
 ## Ripristino delle applicazioni {#application_restore-section}
 
 Per ripristinare un'applicazione, deve essere disponibile almeno una destinazione di backup.
@@ -117,12 +191,14 @@ Alcune applicazioni principali hanno comportamenti speciali durante il ripristin
 - **Traefik** ripristina solo i certificati caricati e le rotte HTTP definite dall'utente. Fare riferimento a [Caricare certificati TLS personalizzati](certificates.md#custom-certificates-section) e [Creare una rotta HTTP personalizzata](proxy.md#custom-http-route-section).
 - Il ripristino di **Loki** installa un'istanza aggiuntiva di Loki *inattiva*. Può essere utilizzata solo per le ricerche nei log, come spiegato in [Log di sistema](log_server.md).
 - Il comportamento del ripristino di **Samba** dipende dal fatto che il dominio utente AD sia già presente nel cluster. Se presente, vengono ripristinati solo i dati delle cartelle condivise. In caso contrario, viene ripristinato anche il database LDAP del DC. Vedere [Ripristinare il file server da un backup](../applications/file_server.md#file-server-restore) per ulteriori informazioni.
+
 ## Ripristino selettivo dei contenuti {#selective-content-restore}
 
 Alcune applicazioni consentono di cercare e ripristinare elementi specifici da uno snapshot di backup. Per maggiori informazioni, fare riferimento a:
 
 - Samba [Ripristinare un singolo file o cartella da un backup di una cartella condivisa](../applications/file_server.md#share-selective-restore), per file e directory all'interno di una condivisione Samba.
 - Mail [Ripristinare una cartella di una casella di posta da un backup](../applications/mail.md#mailbox-selective-restore), per caselle di posta pubbliche e cartelle delle caselle di posta degli utenti.
+
 ## Backup del cluster {#cluster_backup-section}
 
 Il backup del cluster contiene tutti i dati necessari per il [Ripristino di emergenza](#disaster_recovery-section), incluse le configurazioni delle destinazioni e le relative chiavi di crittografia dei dati, che sono indispensabili anche per ripristinare i backup delle singole applicazioni. Si tratta di un file JSON compresso e crittografato con GPG.
@@ -142,6 +218,7 @@ Se si perde il backup del cluster, è comunque possibile ripristinare le applica
 Per ispezionare il contenuto del file scaricato, utilizzare il seguente comando, sostituendo "SECRET" con la propria password di crittografia:
 
     echo 'SECRET' | gpg --batch --passphrase-fd 0 --decrypt backup.json.gz.gpg | gunzip | jq
+
 ## Ripristino di emergenza {#disaster_recovery-section}
 
 La procedura di ripristino di emergenza è progettata per il ripristino di un **cluster a nodo singolo**. È sufficiente disporre del file [backup del cluster](#cluster_backup-section) originale.
