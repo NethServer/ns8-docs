@@ -8,6 +8,55 @@ Rilasci di NethServer 8
 
 - Elenco dei [bug conosciuti](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) su GitHub
 - Discussioni sui [possibili bug](http://community.nethserver.org/c/bug) nel nostro forum pubblico
+
+## Modifiche principali del 30-06-2026
+
+**Milestone 8.9**
+
+- **Nuova architettura di backup centralizzata** \[Core 3.20.0\] -- La gestione dei backup è stata riprogettata attorno al nodo del cluster piuttosto che alle singole applicazioni. Vedere [Destinazione di backup](../configuration/backup.md#backup-destination).
+  - Più sicura: le password delle destinazioni sono isolate dalle applicazioni e accessibili solo con privilegi speciali.
+  - I conflitti di pianificazione vengono rilevati e ritentati automaticamente entro una finestra di un'ora.
+  - Nei cluster multi-nodo, i nodi possono instradare il traffico di backup attraverso altri nodi, rendendo raggiungibili le destinazioni on-premise anche dai nodi cloud.
+  - Ogni nodo verifica autonomamente la propria connettività e i propri permessi verso una destinazione, non solo il leader.
+  - Le destinazioni possono essere personalizzate con una configurazione Rclone personalizzata, abilitando opzioni avanzate (ad es. saltare la validazione dei certificati TLS) e nuovi tipi come SFTP e WebDAV; il tipo di destinazione Azure Blob Storage è stato rimosso a favore di questa funzionalità.
+  - Le applicazioni ripristinate tramite disaster recovery mantengono le pianificazioni di backup originali.
+
+- **Interruzione delle attività in corso con una conferma più sicura** \[Core 3.20.0\] -- Alcune attività di lunga durata, incluso il ripristino delle applicazioni, possono essere interrotte dall'interfaccia. Il passaggio di conferma è stato riprogettato per prevenire clic accidentali che potrebbero interrompere un'operazione importante, come un ripristino o una clonazione in corso.
+
+- **Spazio libero su disco mostrato durante la selezione del nodo** \[Core 3.20.0\] -- Durante l'installazione, la clonazione o il ripristino di un'applicazione, il passaggio di selezione del nodo mostra ora lo spazio libero del filesystem radice per ogni nodo, non solo per i nodi con un volume aggiuntivo.
+
+- **Shell limitata per gli utenti di servizio dei moduli** \[Core 3.20.0\] -- I moduli applicativi installati di recente assegnano ora `/sbin/nologin` come shell predefinita per il proprio utente di servizio, riducendo la superficie di attacco dei login interattivi mentre `runagent` continua a funzionare come prima. Le installazioni esistenti possono essere protette manualmente con questo comando[^nologin]:
+
+      runagent -l | xargs -l -t -r -- usermod -s /sbin/nologin
+
+[^nologin]: [Change shell to nologin | NS8 dev manual](https://nethserver.github.io/ns8-core/modules/rootless_rootfull/#unix-user)
+
+- **Password iniziale di root casuale sulle immagini precompilate** \[Core 3.20.0\] -- Le immagini precompilate di NS8 (.qcow2/.vmdk) non includono più la nota password di root predefinita. Una password casuale viene generata al primo avvio e mostrata sulla console/MOTD finché non viene modificata. Vedere [Installazione](../installation/install.md#install_image-section).
+
+- **Bootstrap più resiliente delle immagini precompilate** \[Core 3.20.0\] -- Le immagini precompilate ora completano la configurazione locale di Traefik (segreti e generazione dei certificati) al primo avvio anche se la rete è temporaneamente non disponibile, e l'azione `Crea cluster` gestisce in modo più robusto gli errori di validazione di rete/DNS.
+
+- **Registrazione delle email di notifica di sistema in uscita** \[Core 3.19.0\] -- Il comando `ns8-sendmail`, usato per inviare le notifiche di scadenza password e altre notifiche di sistema, registra ora un record strutturato (oggetto, mittente, primo destinatario, server remoto, stato SMTP) per ogni messaggio inviato.
+
+- **Supporto IPv6 nella lista di accesso consentito delle rotte HTTP** \[Core 3.18.4\] -- La restrizione `Consenti accesso da` sulle rotte HTTP accetta ora indirizzi e reti IPv6 oltre a IPv4.
+
+- **La password non scade mai per gli utenti OpenLDAP** \[OpenLDAP 2.7.0\] -- L'opzione "La password non scade mai", precedentemente disponibile solo per Active Directory, può ora essere abilitata anche per i singoli utenti OpenLDAP, sia dal cluster-admin che dal portale utente. Vedere [Utenti e gruppi](../installation/user_domains.md#user_groups-section).
+
+- **Supporto sperimentale per Spamhaus DQS in Rspamd** \[Mail 1.7.9\] -- L'applicazione Mail può ora utilizzare il Data Query Service (DQS) di Spamhaus, un'alternativa al protocollo DNSBL pubblico che richiede un token registrato e offre migliori prestazioni e minori restrizioni di fair-use. Vedere le [note del README di Mail](https://github.com/NethServer/ns8-mail#rspamd-plugin-for-spamhaus-dqs).
+
+- **Blocklist dei mittenti per Rspamd** \[Mail 1.7.10\] -- La configurazione Rspamd dell'applicazione Mail aggiunge nuove mappe per bloccare la posta in arrivo in base al TLD del mittente, al dominio esatto, al suffisso di dominio o all'indirizzo email completo, configurabili dall'[interfaccia web di Rspamd](../applications/mail.md#rspamd-web-interface).
+
+- **Aggiornamenti di WebTop** \[WebTop 1.5.6\] -- WebTop è stato aggiornato alla release upstream 5.32.0, aggiungendo l'opzione "Ricordami" nella pagina di login. Il campo della password one-time non utilizza più un input di tipo password, evitando indesiderati suggerimenti del browser per il salvataggio della password.
+
+- **Nextcloud 33** \[Nextcloud 1.7.0\] -- L'applicazione Nextcloud è stata aggiornata alla versione principale 33.
+
+- **Gestione dei volumi di Piler e configurazione personalizzata persistente** \[Piler 1.2.1, 1.2.2\] -- L'applicazione di archiviazione email Piler supporta ora la gestione dei volumi NS8, consentendo di posizionare il proprio storage su un disco aggiuntivo durante l'installazione, la clonazione o il ripristino. Un modello `config-site.php.local` può inoltre essere usato per mantenere le modifiche personalizzate a `config-site.php` tra un aggiornamento del modulo e l'altro e i salvataggi dall'interfaccia.
+
+- **Correzione del testo delle notifiche di CrowdSec** \[CrowdSec 1.1.4\] -- Le notifiche email relative alle decisioni di ban di CrowdSec usano ora la corretta forma singolare/plurale invece di utilizzare sempre la forma plurale.
+
+- **Dashboard Grafana per CrowdSec** \[CrowdSec 1.1.6\] -- È ora disponibile una dashboard Grafana con un exporter Prometheus per le metriche di CrowdSec tramite l'applicazione Metrics.
+
+- **Altri aggiornamenti applicativi** -- Dnsmasq 1.3.3, Mattermost 2.4.5, Loki 1.4.5, Matrix 0.0.5.
+
 ## Modifiche principali del 27-03-2026
 
 **Milestone 8.8**
