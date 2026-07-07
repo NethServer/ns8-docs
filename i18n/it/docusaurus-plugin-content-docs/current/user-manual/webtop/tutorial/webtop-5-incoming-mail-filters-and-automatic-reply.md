@@ -10,13 +10,13 @@ Usa i filtri della posta in arrivo per elaborare automaticamente i nuovi messagg
 
 Per attivare o modificare le regole di filtraggio della posta in arrivo, usa il pulsante nella barra superiore in alto a sinistra.
 
-![Menu regole in arrivo](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/EcixzwVrngJPiLzjl49XR88knnTI0eS05g.png)
+![Menu regole in arrivo](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/incoming-rules-menu.png)
 
 Seleziona **Regole in arrivo** per aprire la finestra in cui puoi creare nuove regole o modificare quelle esistenti.
 
 Per ogni regola, puoi abilitarla o disabilitarla rapidamente facendo clic sull'indicatore di stato.
 
-![Elenco regole in arrivo](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/DYj405OPjq1S6CxHktkVxgYUWHdHnqUgDw.png)
+![Elenco regole in arrivo](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/incoming-rules-list.png)
 
 Quando la configurazione è completa, fai clic su **Salva** in alto a destra per inviarla al server IMAP.
 
@@ -24,7 +24,7 @@ Quando la configurazione è completa, fai clic su **Salva** in alto a destra per
 
 Seleziona **Risponditore automatico** per aprire la finestra in cui puoi abilitare, disabilitare e configurare la risposta automatica usata in caso di assenza.
 
-![Impostazioni risponditore automatico](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/9QVyXZ_YQDvY6DhxR8v2JLG72nwLq7YDKA.png)
+![Impostazioni risponditore automatico](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/automatic-responder-settings.png)
 
 Nel campo dedicato agli indirizzi aggiuntivi, inserisci tutti gli indirizzi email per cui deve essere inviata la risposta automatica, separati da virgole.
 

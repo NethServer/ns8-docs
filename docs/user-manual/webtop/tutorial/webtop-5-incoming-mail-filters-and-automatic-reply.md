@@ -10,13 +10,13 @@ Use incoming mail filters to process new messages automatically, and configure a
 
 To activate or change incoming mail filter rules, use the button in the top-left toolbar.
 
-![Incoming rules menu](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/EcixzwVrngJPiLzjl49XR88knnTI0eS05g.png)
+![Incoming rules menu](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/incoming-rules-menu.png)
 
 Select **Incoming rules** to open the window where you can create new rules or change existing ones.
 
 For each rule, you can quickly enable or disable it by clicking its status indicator.
 
-![Incoming rules list](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/DYj405OPjq1S6CxHktkVxgYUWHdHnqUgDw.png)
+![Incoming rules list](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/incoming-rules-list.png)
 
 When the configuration is complete, click **Save** in the top-right corner to send it to the IMAP server.
 
@@ -24,7 +24,7 @@ When the configuration is complete, click **Save** in the top-right corner to se
 
 Select **Automatic responder** to open the window where you can enable, disable, and configure the automatic reply used when you are absent.
 
-![Automatic responder settings](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/9QVyXZ_YQDvY6DhxR8v2JLG72nwLq7YDKA.png)
+![Automatic responder settings](/_static/tutorial/webtop-5-uso-dei-filtri-della-posta-in-arrivo-e-risposta-automatica-per-assente/automatic-responder-settings.png)
 
 In the additional addresses field, enter all email addresses that must send the automatic reply, separated by commas.
 
