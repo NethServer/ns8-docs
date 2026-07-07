@@ -7,9 +7,19 @@ title: CrowdSec
 
 You can install only one CrowdSec instance for each node.
 
-## Configuration
+## Default protections
 
-Once installed, CrowdSec is already fully functional and protect many NS8 applications.
+Once installed, CrowdSec is already fully functional and starts protecting NS8 applications automatically, before any manual configuration:
+
+- **Web applications (always on)**: every app served through the platform's reverse proxy gets generic HTTP protection regardless of which app it is — brute-force login detection (e.g. 5 `401`/`403` responses to `POST` requests in 10 seconds bans the IP), scan/probing detection, bad user-agents, sensitive-file probing (`.env`, `.git`, ...), path traversal, SQL injection, XSS probing, open-proxy abuse, admin-interface probing, and known-CVE exploitation probing (dozens of product CVEs, e.g. Log4j2, Spring4Shell, VMware vCenter, Fortinet, Pulse Secure).
+- **Specific applications**: Nextcloud and WordPress get extra app-aware scenarios (brute force, user enumeration, `wp-config` scanning) on top of the generic ones above.
+- **SSH**: brute force (including slow/time-based variants) and the CVE-2024-6387 (regreSSHion) check.
+- **Mail**: Postfix (relay abuse, spam, invalid HELO/commands) and Dovecot (spam) brute-force/abuse detection.
+- **Database**: MariaDB and PostgreSQL brute-force login detection.
+- **FTP**: ProFTPD and vsftpd brute force and user enumeration.
+- **Good-actor whitelist**: known legitimate crawlers/bots are automatically excluded from bans.
+
+## Configuration
 
 From the web interface you can configure:
 
@@ -43,3 +53,19 @@ The `cscli` command is a powerful command-line interface to access advanced Crow
 Then the `cscli` command becomes available. For instance, print the help message with
 
     cscli --help
+
+You can also run a single command directly, without opening a shell, by prefixing it with `runagent -m crowdsec1`:
+
+    runagent -m crowdsec1 cscli decisions list
+
+Some useful commands:
+
+- `runagent -m crowdsec1 cscli decisions list` — list current bans (IP, reason, duration, decision id)
+- `runagent -m crowdsec1 cscli decisions delete --id <id>` — remove a ban by its decision id, e.g. `runagent -m crowdsec1 cscli decisions delete --id 630190`
+- `runagent -m crowdsec1 cscli decisions delete --ip <ip>` — remove a ban by IP address
+- `runagent -m crowdsec1 cscli decisions add --ip <ip> --duration 4h --reason "manual ban"` — manually ban an IP
+- `runagent -m crowdsec1 cscli alerts list` — list triggered alerts (detected attacks), including ones that did not result in a ban
+- `runagent -m crowdsec1 cscli bouncers list` — list registered bouncers (e.g. the firewall bouncer) and their status
+- `runagent -m crowdsec1 cscli collections list` / `runagent -m crowdsec1 cscli scenarios list` — show which collections/scenarios are installed and enabled, useful to check what is being protected
+- `runagent -m crowdsec1 cscli metrics` — show parser/bucket/bouncer metrics, useful to check CrowdSec is actually processing logs
+- `runagent -m crowdsec1 cscli explain --file <logfile> --type <log-type>` — test a log line against parsers and scenarios, useful to debug why an attack was or wasn't detected
