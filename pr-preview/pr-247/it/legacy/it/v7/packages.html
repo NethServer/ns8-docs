@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software center &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Ricerca" href="search.html" />
+    <link rel="next" title="Utenti e gruppi" href="accounts.html" />
+    <link rel="prev" title="Sistema base" href="base_system2.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "it", "page": "packages", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/packages.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accesso al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurazione</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applicazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Autenticazione</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software center</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#applications-installation">Installazione applicazioni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-updates">Aggiornamenti software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-and-community-subscriptions">Subscription enterprise e community</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#community-without-subscription">Community senza subscription</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manual-update-procedure">Procedura di aggiornamento manuale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-update-procedure">Procedura di aggiornamento automatico</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applicazioni</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Altri moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Personalizzazione backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Macchine virtuali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Moduli NethForge</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Aggiornamento da NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Aggiornamento Email a Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vecchio Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Il vecchio Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">Groupware SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Software center</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/packages.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="software-center">
+<span id="software-center-section"></span><span id="package-manager-section"></span><h1>Software center<a class="headerlink" href="#software-center" title="Link a questa intestazione">¶</a></h1>
+<p>NethServer è altamente modulare: al termine dell’installazione è disponibile solo un set minimo di funzionalità come la <em>configurazione di rete</em> e il <em>backup</em>. La pagina <span class="guilabel">Software Center</span> consente all’amministratore di selezionare e <strong>installare</strong> <em class="dfn">applicazioni</em> aggiuntive, e anche di elencare e <strong>aggiornare</strong> i <em class="dfn">pacchetti</em> già installati.</p>
+<p>Un”<em>applicazione</em> è generalmente costituita da più <em>pacchetti</em>. Estende le funzionalità del sistema. Ad esempio un modulo può trasformare NethServer in un server di posta elettronica o un proxy Web.</p>
+<p>Un <em>pacchetto</em> software è un’unità indivisibile. Viene reso pubblico da un repository software. NethServer i pacchetti sono sotto forma di file RPM <a class="footnote-reference brackets" href="#rpm" id="id1">1</a> . Dunque in questo preciso contesto, i termini <em>pacchetto</em> e <em>RPM</em> possono essere usati come sinonimi.</p>
+<section id="applications-installation">
+<h2>Installazione applicazioni<a class="headerlink" href="#applications-installation" title="Link a questa intestazione">¶</a></h2>
+<p>La sezione <span class="guilabel">Applicazioni</span> elenca tutti i moduli che possono essere installati. Questo elenco può essere filtrato per categoria. Per <strong>installare un’applicazione</strong>, selezionare la casella corrispondente e fare clic su <span class="guilabel">Installa applicazioni</span>.</p>
+<p>Una volta che un modulo è stato installato, è elencato nella sezione <a class="reference internal" href="base_system2.html#applications-section"><span class="std std-ref">Applicazioni</span></a>.</p>
+</section>
+<section id="software-updates">
+<span id="software-updates-section"></span><h2>Aggiornamenti software<a class="headerlink" href="#software-updates" title="Link a questa intestazione">¶</a></h2>
+<section id="enterprise-and-community-subscriptions">
+<h3>Subscription enterprise e community<a class="headerlink" href="#enterprise-and-community-subscriptions" title="Link a questa intestazione">¶</a></h3>
+<p>NethServer riceve gli aggiornamenti controllati da una serie di repository software. Vedi  <a class="reference internal" href="#automatic-updates"><span class="std std-ref">Procedura di aggiornamento automatico</span></a> per ricevere nuove funzionalità e correggere bug e problemi di sicurezza.</p>
+</section>
+<section id="community-without-subscription">
+<h3>Community senza subscription<a class="headerlink" href="#community-without-subscription" title="Link a questa intestazione">¶</a></h3>
+<p>Un sistema NethServer 7 riceve aggiornamenti da diversi progetti software:</p>
+<ul class="simple">
+<li><p>il progetto NethServer stesso <a class="footnote-reference brackets" href="#nethserver" id="id2">2</a></p></li>
+<li><p>il progetto CentOS <a class="footnote-reference brackets" href="#centos" id="id3">3</a></p></li>
+<li><p>repository EPEL  <a class="footnote-reference brackets" href="#epel" id="id4">4</a></p></li>
+</ul>
+<p>Ogni progetto software rilascia aggiornamenti  in base alle sue regole specifiche e al ciclo di sviluppo, ma tutti preferiscono la stabilità del software rispetto a nuove funzionalità.</p>
+<p>Fare riferimento al forum della community <a class="footnote-reference brackets" href="#nscom" id="id5">5</a> e <a class="reference internal" href="release_notes.html#release-notes-section"><span class="std std-ref">Note di rilascio 7</span></a> per ulteriori informazioni sugli aggiornamenti di NethServer.</p>
+<p>Gli aggiornamenti rilasciati dal progetto CentOS sono immediatamente resi disponibili per NethServer, attingendo direttamente dai mirror CentOS. Vengono presi in considerazione solo gli aggiornamenti per la versione corrente del sistema (ad esempio «7.6.1804»), fino aggiornamento alla successiva versione di sistema, procedura che va avviata manualmente.</p>
+<p>Maggiori informazioni sugli aggiornamenti CentOS:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.centos.org/FAQ/General">https://wiki.centos.org/FAQ/General</a></p></li>
+<li><p><a class="reference external" href="https://access.redhat.com/support/policy/updates/errata/">https://access.redhat.com/support/policy/updates/errata/</a></p></li>
+<li><p><a class="reference external" href="https://access.redhat.com/security/updates/backporting">https://access.redhat.com/security/updates/backporting</a></p></li>
+<li><p><a class="reference external" href="https://access.redhat.com/security/">https://access.redhat.com/security/</a></p></li>
+</ul>
+<p>Gli aggiornamenti rilasciati da EPEL sono resi immediatamente disponibili dai mirror EPEL ufficiali. Poiché EPEL non è legato al numero di versione del sistema corrente, il <span class="guilabel">Software center</span> installa sempre le versioni software più recenti disponibili su EPEL.</p>
+<p>Maggiori informazioni sugli aggiornamenti EPEL:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fedoraproject.org/wiki/EPEL">https://fedoraproject.org/wiki/EPEL</a></p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Suggerimento</p>
+<p>Anche se i progetti in questione  mirano alla stabilità del software, è necessario prestare attenzione per verificare se gli aggiornamenti si adattano bene. Ogni volta che il sistema verrà aggiornato, <strong>create a backup of the data and review the updates changelog</strong> per capire cosa sta per succedere. Se possibile, prova gli aggiornamenti in un macchina non in produzione. Per qualsiasi dubbio chiedi al forum della community di NethServer! <a class="footnote-reference brackets" href="#nscom" id="id6">5</a></p>
+</div>
+<section id="manual-update-procedure">
+<span id="manual-updates"></span><h4>Procedura di aggiornamento manuale<a class="headerlink" href="#manual-update-procedure" title="Link a questa intestazione">¶</a></h4>
+<p>Quando sono disponibili aggiornamenti, l’elenco dei nuovi pacchetti è disponibile nella sezione <span class="guilabel">Aggiornamenti</span>.</p>
+<p>Maggiori dettagli sono disponibili cliccando il pulsante <span class="guilabel">Changelog</span>.</p>
+<p>Per espandere l’elenco degli aggiornamenti, cliccare sul pulsante <span class="guilabel">Dettagli</span>, è quindi possibile aggiornare un singolo pacchetto di NethServer facendo clic sul pulsante <span class="guilabel">Aggiorna</span>. Per avviare un aggiornamento completo del sistema, fare clic sul pulsante <span class="guilabel">Aggiorna tutto</span>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Suggerimento</p>
+<p>Sulle macchine community senza alcun tipo di subscirption, è indispensabile ricordare di aggiornare regolarmente il software installato per correggere bug, problemi di sicurezza e ricevere nuove funzionalità</p>
+</div>
+</section>
+<section id="automatic-update-procedure">
+<span id="automatic-updates"></span><h4>Procedura di aggiornamento automatico<a class="headerlink" href="#automatic-update-procedure" title="Link a questa intestazione">¶</a></h4>
+<p>È possibile eseguire alcune azioni automatiche quando sono disponibili nuovi aggiornamenti software.</p>
+<ul class="simple">
+<li><p>Scarica e (facoltativamente) installa gli aggiornamenti</p></li>
+<li><p>Invia una e-mail all’amministratore di sistema (root) e ad un ulteriore elenco di destinatari</p></li>
+</ul>
+<p>La disponibilità degli aggiornamenti viene verificata da un’attività che viene eseguita in un momento casuale durante la notte. Per modificare la politica di aggiornamento fare clic sul pulsante <span class="guilabel">Configura</span>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Suggerimento</p>
+<p>Se l’e-mail di notifica non viene consegnata o è contrassegnata come spam, è possibile configurare un  <a class="reference internal" href="mail.html#smarthost-configuration"><span class="std std-ref">smarthost</span></a></p>
+</div>
+<p class="rubric">Riferimenti</p>
+<dl class="footnote brackets">
+<dt class="label" id="rpm"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>RPM Package Manager – <a class="reference external" href="http://rpm.org">http://rpm.org</a></p>
+</dd>
+<dt class="label" id="nethserver"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>NethServer – <a class="reference external" href="http://www.nethserver.org">http://www.nethserver.org</a></p>
+</dd>
+<dt class="label" id="centos"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>CentOS – Community ENTerprise Operating System <a class="reference external" href="https://www.centos.org/">https://www.centos.org/</a></p>
+</dd>
+<dt class="label" id="epel"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>EPEL – Extra Packages for Enterprise Linux <a class="reference external" href="https://fedoraproject.org/wiki/EPEL">https://fedoraproject.org/wiki/EPEL</a></p>
+</dd>
+<dt class="label" id="nscom"><span class="brackets">5</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id6">2</a>)</span></dt>
+<dd><p>NethServer community forum – <a class="reference external" href="http://community.nethserver.org">http://community.nethserver.org</a></p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="base_system2.html" class="btn btn-neutral float-left" title="Sistema base" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="accounts.html" class="btn btn-neutral float-right" title="Utenti e gruppi" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
