@@ -7,9 +7,19 @@ title: CrowdSec
 
 Puoi installare una sola istanza di CrowdSec per ogni nodo.
 
-## Configurazione
+## Protezioni predefinite {#default-protections}
 
-Una volta installato, CrowdSec è già completamente funzionale e protegge molte applicazioni NS8.
+Una volta installato, CrowdSec è già completamente funzionante e inizia a proteggere automaticamente le applicazioni NS8, prima di qualsiasi configurazione manuale:
+
+- **Applicazioni web (sempre attive)**: ogni applicazione servita tramite il reverse proxy della piattaforma riceve una protezione HTTP generica indipendentemente dall'applicazione — rilevamento di tentativi di accesso forzato (ad esempio, 5 risposte `401`/`403` a richieste `POST` in 10 secondi bloccano l'IP), rilevamento di scansioni/probing, user-agent malevoli, probing di file sensibili (`.env`, `.git`, ...), traversal di percorsi, SQL injection, probing XSS, abuso di proxy aperti, probing di interfacce amministrative e probing di sfruttamento di CVE conosciuti (decine di CVE di prodotti, ad esempio Log4j2, Spring4Shell, VMware vCenter, Fortinet, Pulse Secure).
+- **Applicazioni specifiche**: Nextcloud e WordPress ricevono scenari aggiuntivi specifici per l'applicazione (accesso forzato, enumerazione utenti, scansione di `wp-config`) oltre a quelli generici sopra menzionati.
+- **SSH**: tentativi di accesso forzato (inclusi varianti lente/basate sul tempo) e controllo del CVE-2024-6387 (regreSSHion).
+- **Mail**: rilevamento di abuso/tentativi di accesso forzato per Postfix (abuso di relay, spam, HELO/comandi non validi) e Dovecot (spam).
+- **Database**: rilevamento di tentativi di accesso forzato per MariaDB e PostgreSQL.
+- **FTP**: rilevamento di tentativi di accesso forzato e enumerazione utenti per ProFTPD e vsftpd.
+- **Whitelist di attori legittimi**: crawler/bot legittimi conosciuti sono automaticamente esclusi dai blocchi.
+
+## Configurazione {#configuration}
 
 Dall'interfaccia web puoi configurare:
 
@@ -43,3 +53,19 @@ Il comando `cscli` è una potente interfaccia a riga di comando per accedere all
 A questo punto il comando `cscli` diventa disponibile. Per esempio, puoi stampare il messaggio di aiuto con
 
     cscli --help
+
+Puoi anche eseguire un singolo comando direttamente, senza aprire una shell, anteponendolo con `runagent -m crowdsec1`:
+
+    runagent -m crowdsec1 cscli decisions list
+
+Alcuni comandi utili:
+
+- `runagent -m crowdsec1 cscli decisions list` — elenca i blocchi correnti (IP, motivo, durata, ID decisione)
+- `runagent -m crowdsec1 cscli decisions delete --id <id>` — rimuove un blocco tramite il suo ID decisione, ad esempio `runagent -m crowdsec1 cscli decisions delete --id 630190`
+- `runagent -m crowdsec1 cscli decisions delete --ip <ip>` — rimuove un blocco tramite indirizzo IP
+- `runagent -m crowdsec1 cscli decisions add --ip <ip> --duration 4h --reason "manual ban"` — blocca manualmente un indirizzo IP
+- `runagent -m crowdsec1 cscli alerts list` — elenca gli avvisi attivati (attacchi rilevati), inclusi quelli che non hanno portato a un blocco
+- `runagent -m crowdsec1 cscli bouncers list` — elenca i bouncers registrati (ad esempio il firewall bouncer) e il loro stato
+- `runagent -m crowdsec1 cscli collections list` / `runagent -m crowdsec1 cscli scenarios list` — mostra quali collezioni/scenari sono installati e abilitati, utile per verificare cosa viene protetto
+- `runagent -m crowdsec1 cscli metrics` — mostra le metriche di parser/bucket/bouncer, utile per verificare che CrowdSec stia effettivamente elaborando i log
+- `runagent -m crowdsec1 cscli explain --file <logfile> --type <log-type>` — testa una riga di log contro parser e scenari, utile per diagnosticare perché un attacco è stato o non è stato rilevato
