@@ -11,7 +11,7 @@ You can install only one CrowdSec instance for each node.
 
 Once installed, CrowdSec is already fully functional and starts protecting NS8 applications automatically, before any manual configuration:
 
-- **Web applications (always on)**: every app served through the platform's reverse proxy gets generic HTTP protection regardless of which app it is — brute-force login detection (e.g. 5 `401`/`403` responses to `POST` requests in 10 seconds bans the IP), scan/probing detection, bad user-agents, sensitive-file probing (`.env`, `.git`, ...), path traversal, SQL injection, XSS probing, open-proxy abuse, admin-interface probing, and known-CVE exploitation probing (dozens of product CVEs, e.g. Log4j2, Spring4Shell, VMware vCenter, Fortinet, Pulse Secure).
+- **Web applications (always on)**: every app served through the platform's reverse proxy gets generic HTTP protection regardless of which app it is — including NethVoice's HTTP endpoints — brute-force login detection (e.g. 5 `401`/`403` responses to `POST` requests in 10 seconds bans the IP), scan/probing detection, bad user-agents, sensitive-file probing (`.env`, `.git`, ...), path traversal, SQL injection, XSS probing, open-proxy abuse, admin-interface probing, and known-CVE exploitation probing (dozens of product CVEs, e.g. Log4j2, Spring4Shell, VMware vCenter, Fortinet, Pulse Secure).
 - **Specific applications**: Nextcloud and WordPress get extra app-aware scenarios (brute force, user enumeration, `wp-config` scanning) on top of the generic ones above.
 - **SSH**: brute force (including slow/time-based variants) and the CVE-2024-6387 (regreSSHion) check.
 - **Mail**: Postfix (relay abuse, spam, invalid HELO/commands) and Dovecot (spam) brute-force/abuse detection.
