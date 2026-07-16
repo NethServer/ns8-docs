@@ -249,6 +249,35 @@ Il valore `Message ID` può essere usato per cercare il messaggio sia nell'[inte
 
 Se il motivo del ritardo non viene risolto e il messaggio non viene eliminato, il messaggio viene restituito al mittente dopo un intervallo di tempo configurabile. Fai clic sul pulsante **Settings** per modificarlo. Vedi [Impostazioni della coda](#queue-settings-section) per i dettagli.
 
+## Log delle azioni IMAP {#imap-actions-logging}
+
+Ogni azione IMAP eseguita su una casella di posta (copia, spostamento, eliminazione di un messaggio, modifica dei flag, ecc.) viene registrata automaticamente da Dovecot, senza bisogno di alcuna configurazione.
+
+:::note
+
+In NethServer 7, questo comportamento doveva essere abilitato manualmente e i log venivano scritti in `/var/log/maillog`. In NethServer 8, il log delle azioni IMAP è attivo per impostazione predefinita e i record vengono inviati al journal di systemd, insieme a tutti gli altri log delle applicazioni.
+
+:::
+
+Una tipica riga di log ha questo aspetto:
+
+    Jul 16 13:14:55 ns8n5 dovecot[800053]: imap(giacomo)<292043><M5jYwLNWqL0FWtKZ>: copy from junkmail: box=Trash, uid=150402, msgid=<fMTVu1SvzxtvoELljucuFKu5Wt2ETy7SPfkwWtWlQ@localhost>, from=Su <9srwu0x@top.hulsingcrm.com>, subject=Re: Vsol PON/Wireless CPE Manufacturer & FTTX Solution Provider, flags=(\Seen)
+
+I campi hanno il seguente significato:
+
+- `imap(<user>)`: il proprietario della casella di posta che esegue l'azione.
+- `<pid>`: l'ID del processo della sessione IMAP.
+- `<session-id>`: un identificativo univoco della sessione IMAP.
+- `<action>`: l'azione eseguita, per esempio `copy`, `move`, `expunge`, `mailbox_delete`, `save`, oppure una modifica dei flag.
+- `box`: la cartella della casella di posta coinvolta (cartella di origine per le azioni `copy`/`move`).
+- `uid`: l'UID del messaggio all'interno della casella di posta.
+- `msgid`: l'intestazione message-id dell'email.
+- `from`: l'indirizzo del mittente del messaggio.
+- `subject`: l'oggetto del messaggio.
+- `flags`: i flag IMAP attualmente impostati sul messaggio (per esempio `\Seen`, `\Answered`, `\Deleted`).
+
+Questi record possono essere cercati e visualizzati come qualsiasi altro log delle applicazioni, vedi [log di sistema](../configuration/log_server.md).
+
 ## Relay {#relay-rules-section}
 
 Quando un messaggio viene ricevuto da un altro server di posta (MTA) o da un client di posta (MUA), Postfix determina se e come inoltrarlo verso la destinazione finale. Questa decisione si basa tipicamente sull'autorizzazione al relay e sul suffisso di dominio dell'indirizzo del destinatario.

@@ -249,6 +249,35 @@ The `Message ID` value can be used to search the message in both [Rspamd web int
 
 If the delay reason is not resolved, and the message is not deleted, the message is returned to the sender after a configurable amount of time. Click the **Settings** button to modify it. See [Queue settings](#queue-settings-section) for details.
 
+## IMAP actions logging {#imap-actions-logging}
+
+Every IMAP action performed by a mailbox (message copy, move, delete, flag change, etc.) is automatically logged by Dovecot, with no configuration required.
+
+:::note
+
+In NethServer 7, this behavior had to be enabled manually and log records were written to `/var/log/maillog`. In NethServer 8, IMAP action logging is active by default and records are sent to the systemd journal, alongside all other application logs.
+
+:::
+
+A typical log line looks like this:
+
+    Jul 16 13:14:55 ns8n5 dovecot[800053]: imap(giacomo)<292043><M5jYwLNWqL0FWtKZ>: copy from junkmail: box=Trash, uid=150402, msgid=<fMTVu1SvzxtvoELljucuFKu5Wt2ETy7SPfkwWtWlQ@localhost>, from=Su <9srwu0x@top.hulsingcrm.com>, subject=Re: Vsol PON/Wireless CPE Manufacturer & FTTX Solution Provider, flags=(\Seen)
+
+The fields have the following meaning:
+
+- `imap(<user>)`: the mailbox owner performing the action.
+- `<pid>`: the process ID of the IMAP session.
+- `<session-id>`: a unique identifier of the IMAP session.
+- `<action>`: the action performed, e.g. `copy`, `move`, `expunge`, `mailbox_delete`, `save`, or a flag change.
+- `box`: the mailbox folder involved (source folder for `copy`/`move` actions).
+- `uid`: the message UID within the mailbox.
+- `msgid`: the message-id header of the email.
+- `from`: the sender address of the message.
+- `subject`: the message subject.
+- `flags`: the IMAP flags currently set on the message (e.g. `\Seen`, `\Answered`, `\Deleted`).
+
+These records can be searched and viewed like any other application log, see [System logs](../configuration/log_server.md).
+
 ## Relay {#relay-rules-section}
 
 When a message is received from another mail server (MTA), or from a mail user agent (MUA), Postfix determines if and how to relay it towards its final destination. This decision is typically based on relay authorization and the domain suffix of the recipient address.
