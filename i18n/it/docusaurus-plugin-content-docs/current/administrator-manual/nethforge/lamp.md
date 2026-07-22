@@ -133,9 +133,9 @@ Sostituisci `lamp1` con il nome reale della tua istanza del modulo.
 
 ### Attività pianificate
 
-Puoi configurare cron job per la tua istanza Lamp usando:
+Puoi configurare i cron job per la tua istanza Lamp utilizzando:
 
-    runagent -m lamp1 apache2-app crontab -e
+    runagent -m lamp1 podman exec -ti apache2-app crontab -e
 
 Ecco alcuni esempi di cronjob:
 
@@ -145,7 +145,7 @@ Ecco alcuni esempi di cronjob:
 
 Per verificare i cron job configurati:
 
-    podman exec -ti apache2-app crontab -l
+    runagent -m lamp1 podman exec -ti apache2-app crontab -l
 
 ### Direttive PHP e Apache personalizzate
 
