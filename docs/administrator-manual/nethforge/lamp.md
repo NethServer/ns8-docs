@@ -135,7 +135,7 @@ Replace `lamp1` with your actual module instance name.
 
 You can configure cron jobs for your Lamp instance using:
 
-    runagent -m lamp1 apache2-app crontab -e
+    runagent -m lamp1 podman exec -ti apache2-app crontab -e
 
 Here are some example cronjobs:
 
@@ -145,7 +145,7 @@ Here are some example cronjobs:
 
 To verify configured cron jobs:
 
-    podman exec -ti apache2-app crontab -l
+    runagent -m lamp1 podman exec -ti apache2-app crontab -l
 
 ### Custom PHP and Apache directives
 
