@@ -60,7 +60,8 @@ reports broken links and anchors.
 - Use explicit heading ids where other pages link to them:
   `## My section {#my-section}`. Reference them with relative links such as
   `[text](../configuration/cluster.md#cluster-section)`.
-- UI elements (buttons, fields) use bold: `**Save**`.
+- Page titles, page names, and UI labels (buttons, fields, menu entries) use
+  inline code: `` `Save` ``, `` `Settings` ``.
 - File paths, commands, config keys and volume names use inline code:
   `` `postgres-data` ``.
 - Admonitions use the Docusaurus syntax:
