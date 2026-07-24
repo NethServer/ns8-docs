@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">CrowdSec | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/pr-preview/pr-251/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/pr-preview/pr-251/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/pr-preview/pr-251/docs/administrator-manual/applications/crowdsec"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="CrowdSec | NethServer 8 documentation"><meta data-rh="true" name="description" content="CrowdSec is a malicious activity detection tool. It looks for known patterns, like malicious login attempts, inside the applications logs and blocks the attacker IP address."><meta data-rh="true" property="og:description" content="CrowdSec is a malicious activity detection tool. It looks for known patterns, like malicious login attempts, inside the applications logs and blocks the attacker IP address."><link data-rh="true" rel="icon" href="/pr-preview/pr-251/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/pr-preview/pr-251/docs/administrator-manual/applications/crowdsec"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-251/docs/administrator-manual/applications/crowdsec" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-251/it/docs/administrator-manual/applications/crowdsec" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-251/docs/administrator-manual/applications/crowdsec" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CrowdSec","item":"https://docs.nethserver.org/pr-preview/pr-251/docs/administrator-manual/applications/crowdsec"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/pr-preview/pr-251/opensearch.xml">
 <script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/pr-preview/pr-251/assets/css/styles.d64e4b30.css">
-<script src="/pr-preview/pr-251/assets/js/runtime~main.2de98607.js" defer="defer"></script>
+<script src="/pr-preview/pr-251/assets/js/runtime~main.f7017b9a.js" defer="defer"></script>
 <script src="/pr-preview/pr-251/assets/js/main.e5cf888b.js" defer="defer"></script>
 </head>
 <body>
@@ -24,12 +24,12 @@
 <li class=""><strong>Mail</strong>: Postfix (relay abuse, spam, invalid HELO/commands) and Dovecot (spam) brute-force/abuse detection.</li>
 <li class=""><strong>Database</strong>: MariaDB and PostgreSQL brute-force login detection.</li>
 <li class=""><strong>FTP</strong>: ProFTPD and vsftpd brute force and user enumeration.</li>
-<li class=""><strong>NethVoice</strong>: HTTP brute force against the middleware API, reports API, and admin login, plus exploit-path scanning; SIP brute force against Kamailio. Enabled by default on a fresh install of NethVoice alongside CrowdSec; on an upgrade it stays off until you enable it from the <strong>Collections</strong> page (see below).</li>
+<li class=""><strong>NethVoice</strong>: HTTP brute force against the middleware API, reports API, and admin login, plus exploit-path scanning; SIP brute force against Kamailio. Enabled by default on a fresh install of NethVoice alongside CrowdSec; on an upgrade it stays off until you enable it from the <code>Collections</code> page (see below).</li>
 <li class=""><strong>Good-actor whitelist</strong>: known legitimate crawlers/bots are automatically excluded from bans.</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="web-interface">Web interface<a href="#web-interface" class="hash-link" aria-label="Direct link to Web interface" title="Direct link to Web interface" translate="no">​</a></h2>
-<p>The module&#x27;s side menu gives access to the following pages: <strong>Status</strong>,
-<strong>Detections</strong>, <strong>Collections</strong>, <strong>Blocklists</strong>, <strong>Settings</strong>, and <strong>About</strong>.</p>
+<p>The module&#x27;s side menu gives access to the following pages: <code>Status</code>,
+<code>Detections</code>, <code>Collections</code>, <code>Blocklists</code>, <code>Settings</code>, and <code>About</code>.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="status">Status<a href="#status" class="hash-link" aria-label="Direct link to Status" title="Direct link to Status" translate="no">​</a></h3>
 <p>Shows an overview of the application (restart action), the installation node,
 backup status, and a link to the logs.</p>
@@ -37,56 +37,56 @@ backup status, and a link to the logs.</p>
 <p>Detections are suspicious activities found by CrowdSec, such as repeated login
 failures or known attack patterns. A detection does not always result in a
 blocked IP.</p>
-<p>The table lists <strong>Detected at</strong>, <strong>Scenario</strong>, <strong>Source IP</strong>, <strong>Country</strong>,
-<strong>Action</strong> (<code>Blocked</code>, <code>Block expired</code>, or <code>-</code> when no decision was taken), and
-<strong>Events</strong> count. Use the search box to filter by IP or scenario, and the
-<strong>Events to show</strong> selector to limit how many recent events are loaded. Each
-row has a <strong>Details</strong> link that opens the full event log for that detection.
-A <strong>Delete all detections</strong> button clears the whole list. This page exposes
+<p>The table lists <code>Detected at</code>, <code>Scenario</code>, <code>Source IP</code>, <code>Country</code>,
+<code>Action</code> (<code>Blocked</code>, <code>Block expired</code>, or <code>-</code> when no decision was taken), and
+<code>Events</code> count. Use the search box to filter by IP or scenario, and the
+<code>Events to show</code> selector to limit how many recent events are loaded. Each
+row has a <code>Details</code> link that opens the full event log for that detection.
+A <code>Delete all detections</code> button clears the whole list. This page exposes
 what was previously only visible with <code>cscli alerts list</code>.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="collections">Collections<a href="#collections" class="hash-link" aria-label="Direct link to Collections" title="Direct link to Collections" translate="no">​</a></h3>
 <p>Collections add detection support for specific services, such as SSH, Nginx,
 or WordPress. Enable only the collections that match the services installed
 on this server; a link to the <a href="https://app.crowdsec.net/hub" target="_blank" rel="noopener noreferrer" class="">CrowdSec Hub</a>
 lets you check what each collection detects before enabling it.</p>
-<p>The table lists <strong>Name</strong>, <strong>Status</strong>, <strong>Version</strong>, and <strong>Description</strong>, with
-an <strong>Enable</strong>/<strong>Disable</strong> action per row. For example, the <code>nethesis/nethvoice</code>
+<p>The table lists <code>Name</code>, <code>Status</code>, <code>Version</code>, and <code>Description</code>, with
+an <code>Enable</code>/<code>Disable</code> action per row. For example, the <code>nethesis/nethvoice</code>
 collection detects brute-force and exploit-scan attacks against the NethVoice
 application (SIP and HTTP); it ships disabled after an upgrade and must be
 enabled from this page.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="blocklists">Blocklists<a href="#blocklists" class="hash-link" aria-label="Direct link to Blocklists" title="Direct link to Blocklists" translate="no">​</a></h3>
-<p>This page replaces the former &quot;Banned IP&quot; page and is organized in three tabs.</p>
+<p>This page replaces the former <code>Banned IP</code> page and is organized in three tabs.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="local-blocklist">Local blocklist<a href="#local-blocklist" class="hash-link" aria-label="Direct link to Local blocklist" title="Direct link to Local blocklist" translate="no">​</a></h4>
 <p>IP addresses currently blocked by this server based on local CrowdSec
-decisions. The table lists <strong>Blocked at</strong>, <strong>IP address</strong>, <strong>Time remaining</strong>,
-and <strong>Reason</strong>, with a search box and per-row <strong>Unblock</strong>, plus an
-<strong>Unblock all</strong> action.</p>
+decisions. The table lists <code>Blocked at</code>, <code>IP address</code>, <code>Time remaining</code>,
+and <code>Reason</code>, with a search box and per-row <code>Unblock</code>, plus an
+<code>Unblock all</code> action.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-blocklist">Community blocklist<a href="#community-blocklist" class="hash-link" aria-label="Direct link to Community blocklist" title="Direct link to Community blocklist" translate="no">​</a></h4>
 <p>IP addresses shared by the CrowdSec community and received through the
 Central API (CAPI). As default, CrowdSec will send some telemetry to remote
 CrowdSec-owned servers; the servers use such data to compose a community
 blocklist which is sent back to your installation. If you do not want to
-share such data, disable the <strong>Central API and signal sharing</strong> toggle — this
-also disables the <strong>Community blocklist</strong> toggle below it.</p>
+share such data, disable the <code>Central API and signal sharing</code> toggle — this
+also disables the <code>Community blocklist</code> toggle below it.</p>
 <p>You can connect your instance to the <a href="https://app.crowdsec.net" target="_blank" rel="noopener noreferrer" class="">CrowdSec console</a>
-by filling the <strong>Enroll key</strong> optional field. The <strong>Central API status</strong> tag
+by filling the <code>Enroll key</code> optional field. The <code>Central API status</code> tag
 shows whether the instance is connected. The number of IPs currently listed in
 the community blocklist is shown next to a search box that lets you check
 whether a given IP is included.</p>
 <p>Disabling the Central API or the community blocklist purges the CAPI-sourced
 decisions from this server automatically.</p>
-<p>CrowdSec provides a <a href="https://docs.crowdsec.net/docs/next/central_api/community_blocklist" target="_blank" rel="noopener noreferrer" class="">community blocklist</a> that is shared among all users; enabling <strong>Central API and signal sharing</strong> plus enrolling your instance in the console activates it. To access the full community blocklist (beyond the Lite version), you must share at least some ban decisions with the Central API every 24 hours. If your server has few or no bans, it will be considered as a blocking state, preventing access to the complete blocklist.</p>
+<p>CrowdSec provides a <a href="https://docs.crowdsec.net/docs/next/central_api/community_blocklist" target="_blank" rel="noopener noreferrer" class="">community blocklist</a> that is shared among all users; enabling <code>Central API and signal sharing</code> plus enrolling your instance in the console activates it. To access the full community blocklist (beyond the Lite version), you must share at least some ban decisions with the Central API every 24 hours. If your server has few or no bans, it will be considered as a blocking state, preventing access to the complete blocklist.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="allowlist">Allowlist<a href="#allowlist" class="hash-link" aria-label="Direct link to Allowlist" title="Direct link to Allowlist" translate="no">​</a></h4>
 <p>Trusted IP addresses, CIDR ranges, and domain names that should never be
 blocked. Enter one entry per line, for example:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">192.168.1.10</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">192.168.1.0/24</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">trusted.example.com</span><br></div></code></pre></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="settings">Settings<a href="#settings" class="hash-link" aria-label="Direct link to Settings" title="Direct link to Settings" translate="no">​</a></h3>
 <ul>
-<li class=""><strong>Local network blocking</strong>: disabled as default, private/LAN traffic is
+<li class=""><code>Local network blocking</code>: disabled as default, private/LAN traffic is
 never banned. Enable this toggle if you also want CrowdSec to block
 offending IPs on your local networks.</li>
-<li class=""><strong>Block duration</strong>: choose <strong>Incremental</strong> to increase the duration for
-repeated detections from the same IP, or <strong>Fixed</strong> to always use the same
+<li class=""><code>Block duration</code>: choose <code>Incremental</code> to increase the duration for
+repeated detections from the same IP, or <code>Fixed</code> to always use the same
 duration. Either way, enter the duration in minutes as free text.</li>
 <li class="">mail notification by adding one address per line inside the <code>Email recipients for notifications</code> field: notifications will work only if <a class="" href="/pr-preview/pr-251/docs/administrator-manual/configuration/email_notifications">Email notifications</a> has been configured — a link to the cluster email settings is shown when none is configured yet.</li>
 <li class=""><code>Notification threshold</code>: CrowdSec sends a daily notification email listing newly blocked IPs to the configured recipients. If this threshold of new blocked IPs is reached before the daily report, the notification is sent immediately. Can be set between 1 and 10000 (100 as default).</li>
