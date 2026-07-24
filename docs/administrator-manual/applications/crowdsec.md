@@ -17,34 +17,104 @@ Once installed, CrowdSec is already fully functional and starts protecting NS8 a
 - **Mail**: Postfix (relay abuse, spam, invalid HELO/commands) and Dovecot (spam) brute-force/abuse detection.
 - **Database**: MariaDB and PostgreSQL brute-force login detection.
 - **FTP**: ProFTPD and vsftpd brute force and user enumeration.
+- **NethVoice**: HTTP brute force against the middleware API, reports API, and admin login, plus exploit-path scanning; SIP brute force against Kamailio. Enabled by default on a fresh install of NethVoice alongside CrowdSec; on an upgrade it stays off until you enable it from the `Collections` page (see below).
 - **Good-actor whitelist**: known legitimate crawlers/bots are automatically excluded from bans.
 
-## Configuration
+## Web interface
 
-From the web interface you can configure:
+The module's side menu gives access to the following pages: `Status`,
+`Detections`, `Collections`, `Blocklists`, `Settings`, and `About`.
 
-- mail notification by adding one address per line inside `Email notifications` field: notifications will work only if [Email notifications](../configuration/email_notifications.md) has been configured
-- IP and network which will never be blocked
-- dynamic and static ban time
+### Status
 
-As default, CrowdSec will send some telemetry to remote CrowdSec-owned servers. The servers use such data to compose a community blocklist which is sent back to your installation. If you do not want to share such data and disable the community blocklist, you can do it by disabling the `Enable central API` option under the `Advanced` section.
+Shows an overview of the application (restart action), the installation node,
+backup status, and a link to the logs.
 
-You can also connect your instance to [CrowdSec console](https://app.crowdsec.net) by filling the `Enroll key` optional field.
+### Detections
 
-CrowdSec sends a daily notification email listing newly blocked IPs to the configured recipients. If the default threshold of 100 new blocked IPs is reached before the daily report, the notification is sent immediately. The `Notification threshold` field, under the `Advanced` section, controls this value and can be set between 1 and 10000.
+Detections are suspicious activities found by CrowdSec, such as repeated login
+failures or known attack patterns. A detection does not always result in a
+blocked IP.
+
+The table lists `Detected at`, `Scenario`, `Source IP`, `Country`,
+`Action` (`Blocked`, `Block expired`, or `-` when no decision was taken), and
+`Events` count. Use the search box to filter by IP or scenario, and the
+`Events to show` selector to limit how many recent events are loaded. Each
+row has a `Details` link that opens the full event log for that detection.
+A `Delete all detections` button clears the whole list. This page exposes
+what was previously only visible with `cscli alerts list`.
+
+### Collections
+
+Collections add detection support for specific services, such as SSH, Nginx,
+or WordPress. Enable only the collections that match the services installed
+on this server; a link to the [CrowdSec Hub](https://app.crowdsec.net/hub)
+lets you check what each collection detects before enabling it.
+
+The table lists `Name`, `Status`, `Version`, and `Description`, with
+an `Enable`/`Disable` action per row. For example, the `nethesis/nethvoice`
+collection detects brute-force and exploit-scan attacks against the NethVoice
+application (SIP and HTTP); it ships disabled after an upgrade and must be
+enabled from this page.
+
+### Blocklists
+
+This page replaces the former `Banned IP` page and is organized in three tabs.
+
+#### Local blocklist
+
+IP addresses currently blocked by this server based on local CrowdSec
+decisions. The table lists `Blocked at`, `IP address`, `Time remaining`,
+and `Reason`, with a search box and per-row `Unblock`, plus an
+`Unblock all` action.
+
+#### Community blocklist
+
+IP addresses shared by the CrowdSec community and received through the
+Central API (CAPI). As default, CrowdSec will send some telemetry to remote
+CrowdSec-owned servers; the servers use such data to compose a community
+blocklist which is sent back to your installation. If you do not want to
+share such data, disable the `Central API and signal sharing` toggle — this
+also disables the `Community blocklist` toggle below it.
+
+You can connect your instance to the [CrowdSec console](https://app.crowdsec.net)
+by filling the `Enroll key` optional field. The `Central API status` tag
+shows whether the instance is connected. The number of IPs currently listed in
+the community blocklist is shown next to a search box that lets you check
+whether a given IP is included.
+
+Disabling the Central API or the community blocklist purges the CAPI-sourced
+decisions from this server automatically.
+
+CrowdSec provides a [community blocklist](https://docs.crowdsec.net/docs/next/central_api/community_blocklist) that is shared among all users; enabling `Central API and signal sharing` plus enrolling your instance in the console activates it. To access the full community blocklist (beyond the Lite version), you must share at least some ban decisions with the Central API every 24 hours. If your server has few or no bans, it will be considered as a blocking state, preventing access to the complete blocklist.
+
+#### Allowlist
+
+Trusted IP addresses, CIDR ranges, and domain names that should never be
+blocked. Enter one entry per line, for example:
+
+```
+192.168.1.10
+192.168.1.0/24
+trusted.example.com
+```
+
+### Settings
+
+- `Local network blocking`: disabled as default, private/LAN traffic is
+  never banned. Enable this toggle if you also want CrowdSec to block
+  offending IPs on your local networks.
+- `Block duration`: choose `Incremental` to increase the duration for
+  repeated detections from the same IP, or `Fixed` to always use the same
+  duration. Either way, enter the duration in minutes as free text.
+- mail notification by adding one address per line inside the `Email recipients for notifications` field: notifications will work only if [Email notifications](../configuration/email_notifications.md) has been configured — a link to the cluster email settings is shown when none is configured yet.
+- `Notification threshold`: CrowdSec sends a daily notification email listing newly blocked IPs to the configured recipients. If this threshold of new blocked IPs is reached before the daily report, the notification is sent immediately. Can be set between 1 and 10000 (100 as default).
 
 CrowdSec data is accessible from the `CrowdSec Overview` and `CrowdSec Metrics` Grafana dashboards, as explained in [Grafana access](../configuration/metrics.md#grafana_access-section).
 
-### Community blocklist vs Community blocklist (Lite)
-
-CrowdSec provides a [community blocklist](https://docs.crowdsec.net/docs/next/central_api/community_blocklist) that is shared among all users. To activate this feature, you need to:
-
-- Enable the Central API option.
-- Enroll your CrowdSec instance in the console.
-
-To access the full community blocklist (beyond the Lite version), you must share at least some ban decisions with the Central API every 24 hours. If your server has few or no bans, it will be considered as a blocking state, preventing access to the complete blocklist.
-
 ## Command-line interface
+
+Most of the actions above are also available from the command line.
 
 The `cscli` command is a powerful command-line interface to access advanced Crowdsec functions. To run `cscli`, you have to enter the application environment first. Type in a root shell the following command
 
