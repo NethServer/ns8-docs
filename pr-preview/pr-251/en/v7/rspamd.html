@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rspamd &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Disaster recovery" href="disaster_recovery.html" />
+    <link rel="prev" title="Phone Home" href="phone_home.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "rspamd", "programming_language": "words", "project": "nethserver", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"nethserver-devel": "https://docs.nethserver.org/projects/nethserver-devel/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/rspamd.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accessing the Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Users and groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">DHCP and PXE server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Shared folders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Web proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Bandwidth monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rspamd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rspamd-web-interface">Rspamd Web Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#status">Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troughput">Troughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#symbols">Symbols</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#find-the-matching-symbols">Find the matching symbols</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modify-a-symbol-weight">Modify a symbol weight</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#learning">Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scan">Scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#history">History</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#disable-a-module">Disable a module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modify-the-settings-of-a-module">Modify the settings of a module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#frequently-asked-questions">Frequently asked questions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Backup customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Virtual machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">NethForge modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade from NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Email module transition to Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Documentation license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Old Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">The old Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">POP3 proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Fax server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">SOGo Groupware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Rspamd</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/rspamd.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rspamd">
+<span id="rspamd-section"></span><h1>Rspamd<a class="headerlink" href="#rspamd" title="Permalink to this headline">¶</a></h1>
+<p>Rspamd is the new antispam engine of NethServer, it replaces SpamAssassin and
+Amavisd-new.</p>
+<p>The official documentation of Rspamd is available at <a class="reference external" href="https://rspamd.com">https://rspamd.com</a></p>
+<p>You need to install the <span class="guilabel">Email</span> module from the <span class="guilabel">Software
+center</span> page. The menu where to activate it and modify its settings is on the
+<span class="guilabel">Email &gt; Filter</span> page. You can read more in the <a class="reference internal" href="mail.html#email-filter"><span class="std std-ref">Email filter</span></a> section.</p>
+<section id="rspamd-web-interface">
+<h2>Rspamd Web Interface<a class="headerlink" href="#rspamd-web-interface" title="Permalink to this headline">¶</a></h2>
+<p>The antispam component is implemented by Rspamd which provides its
+administrative web interface at</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://&lt;HOST_IP&gt;:980/rspamd
+</pre></div>
+</div>
+<p>The actual URL is listed under the <span class="guilabel">Applications</span> page. By default
+access is granted to members of the <code class="docutils literal notranslate"><span class="pre">domain</span> <span class="pre">admins</span></code> group and to the <code class="docutils literal notranslate"><span class="pre">admin</span></code>
+user (see also <a class="reference internal" href="accounts.html#admin-account-section"><span class="std std-ref">Admin account</span></a>). An additional special login
+<code class="docutils literal notranslate"><span class="pre">rspamd</span></code> can be used to access it. Its credentials are available from
+<span class="guilabel">Email &gt; Filter &gt; Rspamd user interface (Web URL)</span>: just follow the
+given link.</p>
+<p>The Rspamd web UI:</p>
+<ul class="simple">
+<li><p>displays messages and actions counters,</p></li>
+<li><p>shows the server configuration,</p></li>
+<li><p>tracks the history of recent messages,</p></li>
+<li><p>allows training the Bayes filter by submitting a message from the web form.</p></li>
+</ul>
+<section id="status">
+<h3>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h3>
+<p>It is the landing menu, the global statistics are available on the Rspamd service.</p>
+</section>
+<section id="troughput">
+<h3>Troughput<a class="headerlink" href="#troughput" title="Permalink to this headline">¶</a></h3>
+<p>The graphics are displayed in this menu to explain the activity of the antispam
+software. You can adjust the time scale (hourly, daily, weekly, montly) and modify
+some other settings to refine the graphics</p>
+</section>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">Configuration &gt; Lists</span> menu is useful to edit lists of allowed IP/Domain/mime for the modules, you will find:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>SURBL</p></li>
+<li><p>mime list types</p></li>
+<li><p>SPF_DKIM</p></li>
+<li><p>DMARC</p></li>
+<li><p>DKIM</p></li>
+<li><p>SPF</p></li>
+</ul>
+</div></blockquote>
+<p>When you want to create an exception list in a module, you could give the path
+<code class="file docutils literal notranslate"><span class="pre">/var/lib/rspamd/</span></code>, the list will be editable by the Rspamd web interface.</p>
+</section>
+<section id="symbols">
+<h3>Symbols<a class="headerlink" href="#symbols" title="Permalink to this headline">¶</a></h3>
+<p>Rspamd use a concept of symbols which will increase or decrease the spam score
+when the rule has matched. The symbol weight is modifiable, negative score are
+for good email, positive are for spam.</p>
+<section id="find-the-matching-symbols">
+<h4>Find the matching symbols<a class="headerlink" href="#find-the-matching-symbols" title="Permalink to this headline">¶</a></h4>
+<p>The convenient way is to use the <span class="guilabel">History &gt; History</span> menu.</p>
+</section>
+<section id="modify-a-symbol-weight">
+<h4>Modify a symbol weight<a class="headerlink" href="#modify-a-symbol-weight" title="Permalink to this headline">¶</a></h4>
+<p>An easier way to change the symbol weight is to use the Rspamd WebUI: <span class="guilabel">Symbols &gt; Symbols and rules</span>.
+A search box is available, you could use it to display the symbol and modify its weight.</p>
+<ul class="simple">
+<li><p>Symbol score for spam is in red (positive score)</p></li>
+<li><p>Symbol score for ham is in green (negative score)</p></li>
+</ul>
+<p>If you want to remove the custom settings, you could edit the file
+<code class="file docutils literal notranslate"><span class="pre">/var/lib/rspamd/rspamd_dynamic</span></code> or remove them in the Rspamd Web Interface:
+<span class="guilabel">Configuration &gt; Lists &gt; rspamd_dynamic</span></p>
+<p>You could redefine manually the scores defined in <code class="file docutils literal notranslate"><span class="pre">/etc/rspamd/scores.d/*_group.conf</span></code>
+where they are placed by a symbol’s group. Like for the modules, you could overwrite
+the setting in <code class="file docutils literal notranslate"><span class="pre">/etc/rspamd/local.d/*_group.conf</span></code> or <code class="file docutils literal notranslate"><span class="pre">/etc/rspamd/override.d/*_group.conf</span></code>.</p>
+<p>Priority order</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>scores.d/*_group.conf &lt; local.d/*_group.conf &lt; override.d/*_group.conf
+</pre></div>
+</div>
+</section>
+</section>
+<section id="learning">
+<h3>Learning<a class="headerlink" href="#learning" title="Permalink to this headline">¶</a></h3>
+<p>The purpose of the <span class="guilabel">Learning</span> Menu is to train the Bayes filter, you could use
+directly the source of the email in the relevant text area to make learn to rspamd if the email
+is a spam or a ham.</p>
+</section>
+<section id="scan">
+<h3>Scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">Scan</span> menu can be used to scan directly an email and check its score and the matching symbols.</p>
+</section>
+<section id="history">
+<h3>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h3>
+<p>The Rspamd web Interface could be used to display the action done and the spam score against an email,
+see <span class="guilabel">History &gt; History</span></p>
+<p>You could display a list of symbols by clicking on the email field, it will help you to understand the action done
+(reject, add_header, no_action, rewrite_subject, greylist) and gather useful informations like:</p>
+<ul class="simple">
+<li><p>the sender</p></li>
+<li><p>the recipient</p></li>
+<li><p>the subject</p></li>
+<li><p>the full score</p></li>
+</ul>
+</section>
+</section>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<p>Rspamd comes with a modular approach, all modules are not enabled by default and are
+customisable by the system administrator. The default settings are in the file
+<code class="file docutils literal notranslate"><span class="pre">/etc/rspamd/modules.d/MODULE_NAME.conf</span></code>, relevant to the module name.</p>
+<p>For a particular need, you can look the documentation with the
+<a class="reference external" href="https://rspamd.com/doc/modules/">list of modules</a>.</p>
+<section id="disable-a-module">
+<h3>Disable a module<a class="headerlink" href="#disable-a-module" title="Permalink to this headline">¶</a></h3>
+<p>You must disable a module only with a good reason. For example the ip_score module
+could give a high spam score due to the IP of the email sender, if it is blacklisted.</p>
+<p>In that example we could disable the module but many modules (like ip_score) implement
+a white list to do not check an ip or a domain against the spam filter.</p>
+<p>Create a file (relevant to the module name) <code class="file docutils literal notranslate"><span class="pre">/etc/rspamd/override.d/MODULE_NAME.conf</span></code> with</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>enabled = false;
+</pre></div>
+</div>
+<p>Restart Rspamd</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>systemctl restart rspamd
+</pre></div>
+</div>
+</section>
+<section id="modify-the-settings-of-a-module">
+<h3>Modify the settings of a module<a class="headerlink" href="#modify-the-settings-of-a-module" title="Permalink to this headline">¶</a></h3>
+<p>All the default settings of a module are in <code class="file docutils literal notranslate"><span class="pre">/etc/rspamd/modules.d/MODULE_NAME.conf</span></code>,
+NethServer uses <code class="file docutils literal notranslate"><span class="pre">/etc/rspamd/local.d/MODULE_NAME.conf</span></code> to modify these parameters.
+Therefore the prefered way is to use <code class="file docutils literal notranslate"><span class="pre">/etc/rspamd/override.d/MODULE_NAME.conf</span></code>
+to either change the Rspamd and NethServer default settings. The override file uses the
+new parameter with a high preference, all former settings are kept.</p>
+<p>Priority order:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>modules.d/MODULE_NAME.conf &lt; local.d/MODULE_NAME.conf &lt; override.d/MODULE_NAME.conf
+</pre></div>
+</div>
+<p>In that example we want to implement a list of IP to allow them in the ip_score module.</p>
+<p>Create a file <code class="file docutils literal notranslate"><span class="pre">/etc/rspamd/override.d/ip_score.conf</span></code> with</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>whitelist = &quot;file:///var/lib/rspamd/ip_score_whitelist&quot;;
+</pre></div>
+</div>
+<p>Restart rspamd</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>systemctl restart rspamd
+</pre></div>
+</div>
+<p>The whitelist is editable in the rspamd UI at <span class="guilabel">Configuration &gt; Lists &gt; ip_score_whitelist</span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The folder <code class="file docutils literal notranslate"><span class="pre">/var/lib/rspamd</span></code> is owned by Rspamd, all files here are modifiable by the software</p>
+</div>
+</section>
+</section>
+<section id="frequently-asked-questions">
+<h2>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
+<p>The official Rspamd FAQ could have the answer to your questions. Please see
+<a class="reference external" href="https://rspamd.com/doc/faq.html">https://rspamd.com/doc/faq.html</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="phone_home.html" class="btn btn-neutral float-left" title="Phone Home" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="disaster_recovery.html" class="btn btn-neutral float-right" title="Disaster recovery" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
