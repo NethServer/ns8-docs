@@ -1,0 +1,586 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-blacklist &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-cgp" href="nethserver-cgp.html" />
+    <link rel="prev" title="nethserver-base" href="nethserver-base.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-blacklist", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-blacklist.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-blacklist</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ip-blacklist">IP blacklist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blacklists">Blacklists</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#git-repository">GIT repository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-a-blacklist-server">Setup a blacklist server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dns-blacklist">DNS blacklist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Blacklists</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">GIT repository</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#geoip-blacklist">GEOIP blacklist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blacklist">blacklist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-blacklist</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-blacklist.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-blacklist">
+<h1>nethserver-blacklist<a class="headerlink" href="#nethserver-blacklist" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">nethserver-blacklist</span></code> provides two kinds of blacklists: <a class="reference internal" href="#ip-blacklist">IP blacklist</a> and <a class="reference internal" href="#dns-blacklist">DNS blacklist</a>.
+The former blocks connections from/towards a set if IP addresses, while the latter blocks DNS requests to a set of domains.</p>
+<div class="section" id="ip-blacklist">
+<h2>IP blacklist<a class="headerlink" href="#ip-blacklist" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>IP blacklist is managed by properties of <code class="docutils literal notranslate"><span class="pre">blacklist</span></code> key inside <code class="docutils literal notranslate"><span class="pre">configuration</span></code> database:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>, if <code class="docutils literal notranslate"><span class="pre">enabled</span></code> selected <code class="docutils literal notranslate"><span class="pre">Categories</span></code> will be blocked using ipsets</li>
+<li><code class="docutils literal notranslate"><span class="pre">Categories</span></code>: a comma-separeted list of blacklist categories, a valid category must have a corresponding file inside <code class="docutils literal notranslate"><span class="pre">/usr/share/nethserver-blacklist/ipsets</span></code>.
+Example: given the category <code class="docutils literal notranslate"><span class="pre">test</span></code>, a file named <code class="docutils literal notranslate"><span class="pre">/usr/share/nethserver-blacklist/ipsets/test.netset</span></code> or <code class="docutils literal notranslate"><span class="pre">/usr/share/nethserver-blacklist/ipsets/test.ipset</span></code> must exist</li>
+<li><code class="docutils literal notranslate"><span class="pre">Url</span></code>: the GIT URL from where blacklists will be downloaded</li>
+<li><code class="docutils literal notranslate"><span class="pre">Whitelist</span></code>: a comma-separated list of hosts excluded from the blacklists. The host can be an IP, a CIDR, an host object or a CIDR object</li>
+<li><code class="docutils literal notranslate"><span class="pre">MaxElem</span></code> : It does define the maximal number of elements which can be stored in the set, default 131072. You have to stop shorewall before to destroy the set, the shorewall service start will created it again with the new value.</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop blacklist MaxElem 262144
+systemctl stop shorewall
+for S in $(ipset -L -name | grep &#39;^bl-&#39;); do : ; ipset destroy  $S; done
+systemctl start shorewall
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>blacklist=configuration
+   Categories=category1
+   Url=https://my.nethserver.org/git/myrepo
+   Whitelist=
+   status=disabled
+</pre></div>
+</div>
+</div>
+<div class="section" id="blacklists">
+<h3>Blacklists<a class="headerlink" href="#blacklists" title="Permalink to this headline">¶</a></h3>
+<p>Blacklist implementation is based on ipset:</p>
+<ul class="simple">
+<li>download ipset-based blacklist from a remote GIT repository</li>
+<li>block access from/to black listed IPs</li>
+<li>support whitelisting</li>
+<li>lists are updated every 20 minute, ipsets are reloaded on change</li>
+<li>all blocked IPs are logged inside <code class="docutils literal notranslate"><span class="pre">/var/log/firewall.log</span></code></li>
+</ul>
+<div class="section" id="git-repository">
+<h4>GIT repository<a class="headerlink" href="#git-repository" title="Permalink to this headline">¶</a></h4>
+<p>The remote GIT repository may contain one or more files with <code class="docutils literal notranslate"><span class="pre">.netset</span></code> or <code class="docutils literal notranslate"><span class="pre">.ipset</span></code> using <a class="reference external" href="http://iplists.firehol.org/">Firehol iplists format</a>,
+each file represent a category.</p>
+<p>In addition to Firhol file format, the files can contain a <code class="docutils literal notranslate"><span class="pre">Confidence</span></code> tag inside the header. Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># ...
+# Category        : attacks
+# Version         : 18
+# Confidence      : 8
+# ...
+</pre></div>
+</div>
+<p>The confidence is a number between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">10</span></code>, a higher number means less false positives.
+Lists with a confidence greater than 8, should be safe for production.</p>
+<p>The repository can also contain a special file named <code class="docutils literal notranslate"><span class="pre">whitelist.global</span></code> which is a special netset that
+can be used to quickly remove false positive from a blacklist.</p>
+</div>
+<div class="section" id="setup-a-blacklist-server">
+<h4>Setup a blacklist server<a class="headerlink" href="#setup-a-blacklist-server" title="Permalink to this headline">¶</a></h4>
+<p>You can build your own server to distribute blacklists based on Firehol iplists.
+First install a clean NethServer, then follow the below steps.</p>
+<p>Install required packages:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install https://github.com/firehol/packages/releases/download/2021-01-01-1948/firehol-3.1.7-11.el7.noarch.rpm https://github.com/firehol/packages/releases/download/2021-01-01-1948/iprange-1.0.4-2.el7.x86_64.rpm
+
+yum install https://repo.ius.io/ius-release-el7.rpm
+
+yum install -y git224-core --enablerepo=ius
+</pre></div>
+</div>
+<p>Create the git repository and serve it using Apache:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat &lt;&lt; EOF &gt;&gt; /etc/httpd/conf.d/git.conf
+SetEnv GIT_PROJECT_ROOT /var/www/html/git/
+SetEnv GIT_HTTP_EXPORT_ALL
+ScriptAlias /git/ /usr/libexec/git-core/git-http-backend/
+
+&lt;Directory &quot;/usr/libexec/git-core/&quot;&gt;
+    &lt;Files &quot;git-http-backend&quot;&gt;
+        Options +ExecCGI
+        Require all granted
+    &lt;/Files&gt;
+&lt;/Directory&gt;
+EOF
+
+systemctl restart httpd
+</pre></div>
+</div>
+<p>Configure and enable <code class="docutils literal notranslate"><span class="pre">update-ipsets</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat &lt;&lt; EOF &gt; /etc/firehol/update-ipsets.conf
+BASE_DIR=/var/www/html/git/ipsets
+HISTORY_DIR=/var/www/html/git/ipsets/history
+ERRORS_DIR=/var/www/html/git/ipsets/errors
+GIT_CMD=/usr/bin/git
+EOF
+
+mkdir -p /var/www/html/git/ipsets
+git -C /var/www/html/git/ipsets init
+/usr/sbin/update-ipsets enable dshield feodo fullbogons spamhaus_drop spamhaus_edrop sslbl zeus_badips ransomware_rw firehol_level1
+/usr/sbin/update-ipsets run dshield feodo fullbogons spamhaus_drop spamhaus_edrop sslbl zeus_badips ransomware_rw firehol_level1
+</pre></div>
+</div>
+<p>Set up a cron to regularly update the ipsets:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat &lt;&lt; EOF &gt;&gt; /etc/cron.d/update-ipsets
+*/19 * * * * root /usr/sbin/update-ipsets
+EOF
+</pre></div>
+</div>
+<p>See also <a class="reference external" href="https://github.com/firehol/blocklist-ipsets/wiki/downloading-ip-lists">https://github.com/firehol/blocklist-ipsets/wiki/downloading-ip-lists</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="dns-blacklist">
+<h2>DNS blacklist<a class="headerlink" href="#dns-blacklist" title="Permalink to this headline">¶</a></h2>
+<p>DNS blacklist uses <a class="reference external" href="https://docs.pi-hole.net/ftldns/">Pi-Hole FTLDNS</a> under the hood.</p>
+<div class="section" id="id1">
+<h3>Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>DNS blacklist is managed by properties of <code class="docutils literal notranslate"><span class="pre">ftl</span></code> key inside <code class="docutils literal notranslate"><span class="pre">configuration</span></code> database:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>, if <code class="docutils literal notranslate"><span class="pre">enabled</span></code> selected <code class="docutils literal notranslate"><span class="pre">Categories</span></code> will be blocked using FTLDNS</li>
+<li><code class="docutils literal notranslate"><span class="pre">Categories</span></code>: a comma-separeted list of blacklist categories. Valid categories have a corresponding file inside <code class="docutils literal notranslate"><span class="pre">/usr/share/nethserver-blacklist/dnss</span></code>
+Example: given the category <code class="docutils literal notranslate"><span class="pre">test</span></code>, a file named <code class="docutils literal notranslate"><span class="pre">/usr/share/nethserver-blacklist/dnss/test.dns</span></code> must exist</li>
+<li><code class="docutils literal notranslate"><span class="pre">Url</span></code>: the GIT URL from where blacklists will be downloaded</li>
+<li><code class="docutils literal notranslate"><span class="pre">Bypass</span></code>: a comma-separated list of hosts whose DNS requests are always allowed. A host can be an IP, a CIDR, an host object or a CIDR object</li>
+<li><code class="docutils literal notranslate"><span class="pre">Roles</span></code>: a comma-separated list of firewall zones where DNS blacklist is enabled</li>
+<li><code class="docutils literal notranslate"><span class="pre">UDPPorts</span></code>, <code class="docutils literal notranslate"><span class="pre">TCPPorts</span></code>: the ports FTLDNS is listening to</li>
+<li><code class="docutils literal notranslate"><span class="pre">access</span></code>: the zones <code class="docutils literal notranslate"><span class="pre">ftl</span></code> systemd service has access to</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ftl=service
+    Bypass=
+    Categories=category1,category2
+    Roles=green
+    TCPPorts=1153
+    UDPPorts=1153
+    Url=https://my.nethserver.org/git/myrepo
+    access=green
+    status=disabled
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Blacklists<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Blacklist implementation is based on Pi-Hole gravity database:</p>
+<ul class="simple">
+<li>download DNS blacklists from a remote GIT repository and insert them into gravity database</li>
+<li>block DNS requests for listed domains</li>
+<li>support bypass</li>
+<li>lists are updated every 20 minute, ipsets are reloaded on change</li>
+<li>configuration process is logged inside <code class="docutils literal notranslate"><span class="pre">/var/log/pihole-FTL.log</span></code></li>
+<li>blocked requests and other statistics are available through <a class="reference external" href="https://docs.pi-hole.net/ftldns/telnet-api/">FTLDNS telnet API</a></li>
+</ul>
+<div class="section" id="id3">
+<h4>GIT repository<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>The remote GIT repository may contain one or more files with <code class="docutils literal notranslate"><span class="pre">.dns</span></code> extension listing domains to block. Each file represents a category. Category files can contain <code class="docutils literal notranslate"><span class="pre">Maintainer</span></code>, <code class="docutils literal notranslate"><span class="pre">Category</span></code> and <code class="docutils literal notranslate"><span class="pre">Confidence</span></code> tag inside the header. <code class="docutils literal notranslate"><span class="pre">Confidence</span></code> is a number between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">10</span></code>, a higher number means less false positives.
+Lists with a confidence greater than <code class="docutils literal notranslate"><span class="pre">8</span></code> should be safe for production.</p>
+<p>Example content:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#
+# Maintainer      : John Doe
+# Category        : Malware
+# Confidence      : 6
+#
+
+unwanted.domain.com
+dangerousdomain.net
+malwaresite.net
+...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="geoip-blacklist">
+<h2>GEOIP blacklist<a class="headerlink" href="#geoip-blacklist" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Configuration<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>GEOIP blacklist is managed by properties of <code class="docutils literal notranslate"><span class="pre">geoip</span></code> key inside <code class="docutils literal notranslate"><span class="pre">configuration</span></code> database:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>, if <code class="docutils literal notranslate"><span class="pre">enabled</span></code> selected <code class="docutils literal notranslate"><span class="pre">Categories</span></code> will be blocked using ipsets</li>
+<li><code class="docutils literal notranslate"><span class="pre">Categories</span></code>: a comma-separeted list of geoip blacklist categories, a valid category must have a corresponding file inside <code class="docutils literal notranslate"><span class="pre">/usr/share/nethserver-blacklist/geoips</span></code> without the extensions <code class="docutils literal notranslate"><span class="pre">netset</span></code>.
+Example: given the category <code class="docutils literal notranslate"><span class="pre">fr.netset</span></code>, a file named <a href="#id5"><span class="problematic" id="id6">``</span></a>/usr/share/nethserver-blacklist/geoips/fr.netset``must exist</li>
+<li><code class="docutils literal notranslate"><span class="pre">Url</span></code>: the GIT URL from where blacklists will be downloaded (default ipdeny.com)</li>
+<li><code class="docutils literal notranslate"><span class="pre">Whitelist</span></code>: a comma-separated list of hosts excluded from the blacklists. The host can be an IP, a CIDR, an host object or a CIDR object</li>
+<li><code class="docutils literal notranslate"><span class="pre">MaxElem</span></code> : It does define the maximal number of elements which can be stored in the set, default 131072. You have to stop shorewall before to destroy the set, the shorewall service start will created it again with the new value.</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop geoip MaxElem 262144
+systemctl stop shorewall
+for S in $(ipset -L -name | grep &#39;^geo-&#39;); do : ; ipset destroy  $S; done
+systemctl start shorewall
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>geoip=configuration
+   Categories=fr,es
+   Url=https://www.ipdeny.com/ipblocks/data/countries/all-zones.tar.gz
+   Whitelist=
+   status=disabled
+</pre></div>
+</div>
+</div>
+<div class="section" id="blacklist">
+<h3>blacklist<a class="headerlink" href="#blacklist" title="Permalink to this headline">¶</a></h3>
+<p>Geoip blacklist implementation is based on ipset:</p>
+<ul class="simple">
+<li>download geoip blacklist from the website ipdeny.com</li>
+<li>block access from/to black listed IPs</li>
+<li>support whitelisting</li>
+<li>lists are updated each night, ipsets are reloaded on change</li>
+<li>all blocked IPs are logged inside <code class="docutils literal notranslate"><span class="pre">/var/log/firewall.log</span></code></li>
+</ul>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>The geoip list must be enabled manually:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop geoip status enabled
+signal-event nethserver-blacklist-save geoips
+</pre></div>
+</div>
+<p>Once downloaded you can enable the geo banning by the command line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop geoip status enabled Categories es,fr Whitelist &#39;195.234.41.0/24,195.234.42.3&#39;
+signal-event nethserver-blacklist-save geoips
+</pre></div>
+</div>
+<p>The command above takes care to whitelist a CIDR network or a specific IP</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-cgp.html" class="btn btn-neutral float-right" title="nethserver-cgp" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-base.html" class="btn btn-neutral float-left" title="nethserver-base" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
