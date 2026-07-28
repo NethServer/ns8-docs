@@ -18,6 +18,7 @@ Guide pratiche e buone pratiche per usare NethServer 8.
 - [Samba: wide links e cartelle condivise](./samba-wide-links.md)
 - [Gestire gli allegati firmati .p7m bloccati da Rspamd](./rspamd-p7m-attachments.md)
 - [Problemi di bind LDAP con versioni recenti di Microsoft Active Directory](./active-directory-ldap-bind-issues.md)
+- [Migrare da Windows AD a Samba AD](./samba-ad-windows-dc-migration.md)
 
 ## Rocky Linux
 
