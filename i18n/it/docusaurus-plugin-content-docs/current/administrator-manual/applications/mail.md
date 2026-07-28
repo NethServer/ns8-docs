@@ -443,9 +443,7 @@ La porta SMTP standard 25 è riservata ai trasferimenti di posta tra server MTA.
 
 Quando una casella di posta viene creata, esistono solo le cartelle `Inbox`, `Trash` e `Junk`. Le cartelle `Drafts` e `Sent` vengono create automaticamente solo al primo login da Roundcube o WebTop.
 
-Se un client IMAP di terze parti viene configurato prima del primo login da Roundcube o WebTop, potrebbe creare le proprie cartelle `Drafts`/`Sent` utilizzando nomi localizzati (es. `Bozze`/`Elementi inviati` in italiano). Queste non vengono riconosciute come equivalenti alle cartelle standard, quindi un successivo login da webmail può creare cartelle `Drafts`/`Sent` duplicate.
-
-Per evitare ciò, accedere a Roundcube o WebTop almeno una volta prima di configurare qualsiasi altro client IMAP.
+Se un client IMAP di terze parti viene configurato prima del primo login da Roundcube o WebTop, potrebbe creare le proprie cartelle `Drafts`/`Sent` utilizzando nomi localizzati (es. `Bozze`/`Elementi inviati` in italiano). Queste non vengono riconosciute come equivalenti alle cartelle standard, quindi un successivo login da webmail può creare cartelle `Drafts`/`Sent` duplicate. Per evitare ciò, accedere a Roundcube o WebTop almeno una volta prima di configurare qualsiasi altro client IMAP.
 
 :::
 
