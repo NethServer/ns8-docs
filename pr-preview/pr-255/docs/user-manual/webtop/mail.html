@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en-US" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-user-manual/webtop/mail" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Mail | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/pr-preview/pr-255/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/pr-preview/pr-255/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/pr-preview/pr-255/docs/user-manual/webtop/mail"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Mail | NethServer 8 documentation"><meta data-rh="true" name="description" content="Use this section to manage messages, folders, and mail composition in WebTop."><meta data-rh="true" property="og:description" content="Use this section to manage messages, folders, and mail composition in WebTop."><link data-rh="true" rel="icon" href="/pr-preview/pr-255/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/pr-preview/pr-255/docs/user-manual/webtop/mail"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-255/docs/user-manual/webtop/mail" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-255/it/docs/user-manual/webtop/mail" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-255/docs/user-manual/webtop/mail" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"WebTop","item":"https://docs.nethserver.org/pr-preview/pr-255/docs/user-manual/webtop/"},{"@type":"ListItem","position":2,"name":"Mail","item":"https://docs.nethserver.org/pr-preview/pr-255/docs/user-manual/webtop/mail"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/pr-preview/pr-255/opensearch.xml">
+<script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/pr-preview/pr-255/assets/css/styles.d64e4b30.css">
+<script src="/pr-preview/pr-255/assets/js/runtime~main.ddbb420e.js" defer="defer"></script>
+<script src="/pr-preview/pr-255/assets/js/main.a25ee741.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/pr-preview/pr-255/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/pr-preview/pr-255/"><div class="navbar__logo"><img src="/pr-preview/pr-255/img/logo.svg" alt="NethServer 8" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/pr-preview/pr-255/img/logo.svg" alt="NethServer 8" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate"></b></a><a class="navbar__item navbar__link" href="/pr-preview/pr-255/docs/administrator-manual">Administrator manual</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/pr-preview/pr-255/docs/user-manual">User manual</a><a class="navbar__item navbar__link" href="/pr-preview/pr-255/docs/tutorial">Tutorial</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/pr-preview/pr-255/docs/user-manual/webtop/mail" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en-US">English</a></li><li><a href="/pr-preview/pr-255/it/docs/user-manual/webtop/mail" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="it-IT">Italian</a></li></ul></div><a href="https://github.com/NethServer/ns8-docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/pr-preview/pr-255/docs/user-manual"><span title="User manual" class="linkLabel_WmDU">User manual</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/pr-preview/pr-255/docs/user-manual/user-portal"><span title="User portal" class="linkLabel_WmDU">User portal</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/pr-preview/pr-255/docs/user-manual/webtop"><span title="WebTop" class="categoryLinkLabel_W154">WebTop</span></a><button aria-label="Collapse sidebar category &#x27;WebTop&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/pr-preview/pr-255/docs/user-manual/webtop/mail"><span title="Mail" class="linkLabel_WmDU">Mail</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-255/docs/user-manual/webtop/calendar"><span title="Calendar" class="linkLabel_WmDU">Calendar</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-255/docs/user-manual/webtop/contacts"><span title="Contacts" class="linkLabel_WmDU">Contacts</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-255/docs/user-manual/webtop/tasks"><span title="Tasks" class="linkLabel_WmDU">Tasks</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/pr-preview/pr-255/docs/user-manual/webtop/cloud"><span title="Cloud" class="linkLabel_WmDU">Cloud</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/pr-preview/pr-255/docs/user-manual/webtop/tutorial/webtop-5-activity-module-tips"><span title="Tutorial" class="categoryLinkLabel_W154">Tutorial</span></a></div></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/pr-preview/pr-255/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/pr-preview/pr-255/docs/user-manual/webtop"><span>WebTop</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Mail</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Mail</h1></header>
+<p>Use this section to manage messages, folders, and mail composition in WebTop.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sharing-email">Sharing email<a href="#sharing-email" class="hash-link" aria-label="Direct link to Sharing email" title="Direct link to Sharing email" translate="no">​</a></h2>
+<p>It is possible to share a single folder or the entire account with all subfolders. Select the folder to share -&gt; right click -&gt; <strong>Manage sharing</strong>:</p>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-sharing_mail_folder_1-23ea10001af0667aea5a7466ce746ad0.png" width="539" height="631" class="img_ev3q"></p>
+<ul>
+<li class="">select the user to share the resource (1)</li>
+<li class="">select if you want to share your identity with the user and even to force your signature (2)</li>
+<li class="">choose the level of permissions associated with this share (3)</li>
+<li class="">if you need to further change permissions, select <code>Advanced</code> (4)</li>
+<li class="">finally, choose whether to apply sharing only to the folder from which you started, or only to the branch of subfolders or to the entire account (5)</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-sharing_mail_folder_2-a4873da2e9f6d3d8b528d3c0ad2fa2de.png" width="906" height="811" class="img_ev3q"></p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>The <strong>Force mailcard</strong> option can be used only if the mailcard has been associated to the mail address.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-inline-preview">Mail inline preview<a href="#mail-inline-preview" class="hash-link" aria-label="Direct link to Mail inline preview" title="Direct link to Mail inline preview" translate="no">​</a></h2>
+<p>By default, the mail page will display a preview of the content of the latest received messages.</p>
+<p>This feature can be enabled or disabled from the <strong>Settings</strong> menu, under the <strong>Mail</strong> tab, the check box is named <strong>Show quick preview on message row</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-archiving">Mail archiving<a href="#mail-archiving" class="hash-link" aria-label="Direct link to Mail archiving" title="Direct link to Mail archiving" translate="no">​</a></h2>
+<p>Archiving is useful for keeping your inbox folder organized by manually moving messages.</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Mail archiving is not a backup.</p></div></div>
+<p>The system automatically creates a new special Archives folder</p>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-archive_archive1-2634625baa5adb17c61b5a90450d9378.png" width="317" height="397" class="img_ev3q"></p>
+<p>If the <strong>Archives</strong> folder does not appear immediately upon login, it will appear at the first archiving.</p>
+<p>There are three archiving criteria:</p>
+<ul>
+<li class=""><strong>Single folder:</strong> a single root for all archived emails</li>
+<li class=""><strong>Per year:</strong> a root for each year</li>
+<li class=""><strong>By year / month:</strong> a root for each year and month</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-archive_archive2-a6f614f23f9f7e5c21ae42a23f8552a3.png" width="845" height="467" class="img_ev3q"></p>
+<p>To maintain the original structure of the folders it is possible to activate <strong>Keep folders structure</strong></p>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-archive_archive3-70f0d019988fc893ec7709f49c4c36e2.png" width="846" height="457" class="img_ev3q"></p>
+<p>The archiving operation is accessible from the contextual menu (right-click). Click on <strong>Archive</strong></p>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-archive_archive4-3ddb9b3a2f4dcc0dcb044dafb834aee6.png" width="351" height="629" class="img_ev3q"></p>
+<p>The system will process archiving according to the last settings chosen.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="imap-folders-subscription">IMAP folders subscription<a href="#imap-folders-subscription" class="hash-link" aria-label="Direct link to IMAP folders subscription" title="Direct link to IMAP folders subscription" translate="no">​</a></h2>
+<p>By default, all IMAP folders on the server are automatically subscribed and therefore visible since the first login.</p>
+<p>If you want to hide some folders from the view, which is equivalent to removing the subscription, you can simply right-click on the folder to hide and select from the interactive menu the item <strong>Hide from list</strong>.</p>
+<p>For example, if you want to hide the subfolder <code>folder1</code> from this list, just right-click on it and select <strong>Hide from list</strong>:</p>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-sub_imap_folder1-66158ab6f0bd27df138ed0f254c961f7.png" width="525" height="687" class="img_ev3q"></p>
+<p>It is possible to manage the visibility of hidden folders by selecting the <strong>Manage visibility</strong> function:</p>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-sub_imap_folder2-7d05ebf75fb39070ec132943c6ccb2e1.png" width="239" height="618" class="img_ev3q"></p>
+<p>For example, if you want to restore the subscription of the <strong>folder1</strong> just hidden, just select it from the list of hidden folders and click on the icon on the left:</p>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-sub_imap_folder3-dbaa9dcd3b1934d26223a141eeec9797.png" width="487" height="391" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="browser-notifications">Browser notifications<a href="#browser-notifications" class="hash-link" aria-label="Direct link to Browser notifications" title="Direct link to Browser notifications" translate="no">​</a></h2>
+<p>WebTop can notify new mail messages and upcoming calendar events.</p>
+<p>To activate it, simply access the general settings of your user:</p>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-desktop_notifications-d2773d83fcd878ceb227c75dd8a8c4c3.png" width="845" height="820" class="img_ev3q"></p>
+<p>It is possible to enable desktop notifications in two modes:</p>
+<ul>
+<li class=""><strong>Always</strong>: notifications will always be shown, even with the browser open</li>
+<li class=""><strong>Auto (in background only)</strong>: notifications will be shown only when the browser is in the background</li>
+</ul>
+<p>Make sure to allow notifications inside your browser.</p>
+<p>If you need to enable this consent later on a different browser just click on the appropriate button:</p>
+<p><img decoding="async" loading="lazy" alt="image" src="/pr-preview/pr-255/assets/images/webtop-button_desktop_notifications-b91f831b506aa59eb1d50e73f46ab260.png" width="844" height="829" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="webtop-chat">Chat integration<a href="#webtop-chat" class="hash-link" aria-label="Direct link to Chat integration" title="Direct link to Chat integration" translate="no">​</a></h2>
+<p>Web chat integration installation is disabled by default for all users.</p>
+<p>To enable chat integration:</p>
+<ol>
+<li class="">Install the &quot;Ejabberd&quot; application from the <code>Software center</code> page See <a class="" href="/pr-preview/pr-255/docs/administrator-manual/installation/software_center#install-applications">Install applications</a> and <a class="" href="/pr-preview/pr-255/docs/administrator-manual/applications/ejabberd">Ejabberd</a>.</li>
+<li class="">In Ejabberd <code>Settings</code> page, the field <code>Ejabberd domain (FQDN)</code> must match the value of <code>Mail domain</code> in WebTop&#x27;s settings.</li>
+<li class="">Access WebTop as admin user then enable the web chat authorization:
+<ul>
+<li class="">Access the <strong>Administration</strong> menu, then <code>Domains --&gt; NethServer --&gt; Groups --&gt; Users --&gt; Authorizations</code></li>
+<li class=""><code>Add (+) --&gt; Services --&gt; com.sonicle.webtop.core (WebTop) --&gt; Resource --&gt; WEBCHAT --&gt; Action --&gt; ACCESS</code></li>
+<li class="">Click <strong>OK</strong> then save and close</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ai-features">AI features<a href="#ai-features" class="hash-link" aria-label="Direct link to AI features" title="Direct link to AI features" translate="no">​</a></h2>
+<p>WebTop Mail includes AI features that depend on an LLM provider.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="activate-the-llm-provider-service">Activate the LLM provider service<a href="#activate-the-llm-provider-service" class="hash-link" aria-label="Direct link to Activate the LLM provider service" title="Direct link to Activate the LLM provider service" translate="no">​</a></h2>
+<p>To activate the integrated AI features, complete these preliminary steps:</p>
+<ul>
+<li class="">access the admin panel</li>
+<li class="">open the <strong>Licenses</strong> page: <code>Domains --&gt; NethServer --&gt; Licenses</code></li>
+<li class="">upload a valid license or activate the trial license, valid for 3 months, by clicking the lock button and following the wizard</li>
+<li class="">open the <strong>AI</strong> page</li>
+<li class="">if an invalid license warning is displayed, refresh the page</li>
+<li class="">select the LLM provider</li>
+<li class="">enter the model you want to use for the selected provider</li>
+<li class="">enter the API key from the selected LLM provider management panel</li>
+<li class="">optionally set a maximum token usage quota, then save</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="authorize-users-to-use-the-service">Authorize users to use the service<a href="#authorize-users-to-use-the-service" class="hash-link" aria-label="Direct link to Authorize users to use the service" title="Direct link to Authorize users to use the service" translate="no">​</a></h2>
+<p>After activating the LLM provider, you must enable the individual users who can use the integrated AI features in the Mail module.</p>
+<p>You can grant the authorization to individual users or groups.</p>
+<p>Open the user or group management page, select the user or group, then click <strong>Edit</strong> or double-click. Open <strong>Authorizations</strong>, then <strong>Add</strong>, and select:</p>
+<ul>
+<li class=""><strong>Service</strong>: <code>WebTop (com.sonicle.webtop.core)</code></li>
+<li class=""><strong>Context</strong>: <code>AI_ACTIONS</code></li>
+<li class=""><strong>Action</strong>: <code>ACCESS</code></li>
+</ul>
+<p>With this authorization, AI functions are enabled and available to users at the next login.</p>
+<p>You can also grant an additional authorization to let users configure a personal LLM provider.</p>
+<p>Select the user or group, then click <strong>Edit</strong> or double-click. Open <strong>Authorizations</strong>, then <strong>Add</strong>, and select:</p>
+<ul>
+<li class=""><strong>Service</strong>: <code>WebTop (com.sonicle.webtop.core)</code></li>
+<li class=""><strong>Context</strong>: <code>AI_PERSONAL</code></li>
+<li class=""><strong>Action</strong>: <code>MANAGE</code></li>
+</ul>
+<p>With this authorization, the user can access <strong>Settings --&gt; System --&gt; AI</strong> and configure a personal LLM provider.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-ai-functions">Available AI functions<a href="#available-ai-functions" class="hash-link" aria-label="Direct link to Available AI functions" title="Direct link to Available AI functions" translate="no">​</a></h2>
+<p>The integrated AI functions are available in two ways:</p>
+<ul>
+<li class="">on an existing received or sent message by clicking the button in the top-left toolbar</li>
+<li class="">while editing a message by clicking the button in the HTML editor toolbar</li>
+</ul>
+<p>Available functions for existing messages:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="analyze">Analyze<a href="#analyze" class="hash-link" aria-label="Direct link to Analyze" title="Direct link to Analyze" translate="no">​</a></h3>
+<ul>
+<li class="">summarize the content</li>
+<li class="">discussion status</li>
+<li class="">check my availability</li>
+<li class="">analyze the tone</li>
+<li class="">classify urgency</li>
+<li class="">suggest an action</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="explain-or-simplify">Explain or simplify<a href="#explain-or-simplify" class="hash-link" aria-label="Direct link to Explain or simplify" title="Direct link to Explain or simplify" translate="no">​</a></h3>
+<ul>
+<li class="">explain in simple language</li>
+<li class="">define jargon or acronyms</li>
+<li class="">what is the sender really asking?</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reply">Reply<a href="#reply" class="hash-link" aria-label="Direct link to Reply" title="Direct link to Reply" translate="no">​</a></h3>
+<ul>
+<li class="">help me reply</li>
+<li class="">decline or postpone with alternatives</li>
+<li class="">confirm receipt</li>
+<li class="">accept</li>
+<li class="">reject</li>
+<li class="">need more time</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="extract">Extract<a href="#extract" class="hash-link" aria-label="Direct link to Extract" title="Direct link to Extract" translate="no">​</a></h3>
+<ul>
+<li class="">extract dates</li>
+<li class="">list participants and possible roles</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="check-reliability">Check reliability<a href="#check-reliability" class="hash-link" aria-label="Direct link to Check reliability" title="Direct link to Check reliability" translate="no">​</a></h3>
+<ul>
+<li class="">simple</li>
+<li class="">technical</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="other-functions">Other functions<a href="#other-functions" class="hash-link" aria-label="Direct link to Other functions" title="Direct link to Other functions" translate="no">​</a></h3>
+<ul>
+<li class="">translate into another language</li>
+<li class="">answer my question</li>
+</ul>
+<p>Available functions while editing a message:</p>
+<ul>
+<li class="">help me write</li>
+<li class="">refine selection
+<ul>
+<li class="">rewrite</li>
+<li class="">shorten</li>
+<li class="">expand</li>
+<li class="">simplify</li>
+<li class="">improve</li>
+<li class="">correct spelling</li>
+<li class="">change tone
+<ul>
+<li class="">formal</li>
+<li class="">informal</li>
+<li class="">friendly</li>
+<li class="">assertive</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="">coaching on selection</li>
+<li class="">translate selection</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="token-usage-report-for-administrators">Token usage report for administrators<a href="#token-usage-report-for-administrators" class="hash-link" aria-label="Direct link to Token usage report for administrators" title="Direct link to Token usage report for administrators" translate="no">​</a></h2>
+<p>In the WebTop admin panel you can view a report of the tokens used by individual users with the configured company LLM provider.</p>
+<p>Open <code>Domains --&gt; NethServer --&gt; AI --&gt; Report</code>.</p>
+<p>Select the time period view you want to display.</p>
+<p>Click <strong>Share</strong> to send an HTML report of the selected view to an email address.</p>
+<p>Click <strong>Generate</strong> on the right to schedule the report delivery by email at fixed intervals: daily, weekly, or monthly.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-composer-customization">Mail composer customization<a href="#mail-composer-customization" class="hash-link" aria-label="Direct link to Mail composer customization" title="Direct link to Mail composer customization" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hide-auto-suggested-recipient-in-lookups">Hide auto-suggested recipient in lookups<a href="#hide-auto-suggested-recipient-in-lookups" class="hash-link" aria-label="Direct link to Hide auto-suggested recipient in lookups" title="Direct link to Hide auto-suggested recipient in lookups" translate="no">​</a></h3>
+<p>You can disable the suggestion of automatically saved addresses. Access the web administration panel -&gt; <strong>Properties (system)</strong> -&gt; <strong>Add</strong> -&gt;, select <strong>com.sonicle.webtop.core (WebTop)</strong> and enter the data in the <strong>Key</strong> and <strong>Value</strong> fields according to the key to be configured:</p>
+<p><code>recipient.provider.auto.enabled</code> = false (default is true)</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="edit-subject-of-a-mail-and-save-it">Edit subject of a mail and save it<a href="#edit-subject-of-a-mail-and-save-it" class="hash-link" aria-label="Direct link to Edit subject of a mail and save it" title="Direct link to Edit subject of a mail and save it" translate="no">​</a></h3>
+<p>To enable the modification of the subject for received and sent emails, access the web administration panel -&gt; <strong>Properties (system)</strong> -&gt; <strong>Add</strong> -&gt; select <strong>com.sonicle.webtop.mail (Mail)</strong> and enter the data in the <strong>Key</strong> and <strong>Value</strong> fields according to the key to be configured:</p>
+<p><code>message.edit.subject</code> = true (default is false)</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="delete-automatically-suggested-email-addresses">Delete automatically suggested email addresses<a href="#delete-automatically-suggested-email-addresses" class="hash-link" aria-label="Direct link to Delete automatically suggested email addresses" title="Direct link to Delete automatically suggested email addresses" translate="no">​</a></h3>
+<p>When compiling the recipient of a mail, some automatically saved email addresses are suggested. If you need to delete someone because it is wrong, move with the arrow keys until you select the one you want to delete (without clicking on it), then delete it with <strong>Shift + Canc</strong></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/NethServer/ns8-docs/blob/main/docs/user-manual/webtop/mail.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer><div class="versionFooter_GEsS"><span class="versionText_BSdA">NethServer <span class="versionNumber_jKi7">8</span></span></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/pr-preview/pr-255/docs/user-manual/webtop"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">WebTop</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/pr-preview/pr-255/docs/user-manual/webtop/calendar"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Calendar</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#sharing-email" class="table-of-contents__link toc-highlight">Sharing email</a></li><li><a href="#mail-inline-preview" class="table-of-contents__link toc-highlight">Mail inline preview</a></li><li><a href="#mail-archiving" class="table-of-contents__link toc-highlight">Mail archiving</a></li><li><a href="#imap-folders-subscription" class="table-of-contents__link toc-highlight">IMAP folders subscription</a></li><li><a href="#browser-notifications" class="table-of-contents__link toc-highlight">Browser notifications</a></li><li><a href="#webtop-chat" class="table-of-contents__link toc-highlight">Chat integration</a></li><li><a href="#ai-features" class="table-of-contents__link toc-highlight">AI features</a></li><li><a href="#activate-the-llm-provider-service" class="table-of-contents__link toc-highlight">Activate the LLM provider service</a></li><li><a href="#authorize-users-to-use-the-service" class="table-of-contents__link toc-highlight">Authorize users to use the service</a></li><li><a href="#available-ai-functions" class="table-of-contents__link toc-highlight">Available AI functions</a><ul><li><a href="#analyze" class="table-of-contents__link toc-highlight">Analyze</a></li><li><a href="#explain-or-simplify" class="table-of-contents__link toc-highlight">Explain or simplify</a></li><li><a href="#reply" class="table-of-contents__link toc-highlight">Reply</a></li><li><a href="#extract" class="table-of-contents__link toc-highlight">Extract</a></li><li><a href="#check-reliability" class="table-of-contents__link toc-highlight">Check reliability</a></li><li><a href="#other-functions" class="table-of-contents__link toc-highlight">Other functions</a></li></ul></li><li><a href="#token-usage-report-for-administrators" class="table-of-contents__link toc-highlight">Token usage report for administrators</a></li><li><a href="#mail-composer-customization" class="table-of-contents__link toc-highlight">Mail composer customization</a><ul><li><a href="#hide-auto-suggested-recipient-in-lookups" class="table-of-contents__link toc-highlight">Hide auto-suggested recipient in lookups</a></li><li><a href="#edit-subject-of-a-mail-and-save-it" class="table-of-contents__link toc-highlight">Edit subject of a mail and save it</a></li><li><a href="#delete-automatically-suggested-email-addresses" class="table-of-contents__link toc-highlight">Delete automatically suggested email addresses</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-255/docs/administrator-manual">Administrator manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-255/docs/user-manual">User manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-255/docs/tutorial">Tutorial</a></li><li class="footer__item"><a href="https://nethserver.github.io/ns8-core/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Developer manual<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legacy docs</div><ul class="footer__items clean-list"><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                NethServer 7
+                  <a class="footer__link-item" href="/en/v7/" target="_blank">en</a>
+                  <a class="footer__link-item" href="/it/v7/" target="_blank"> it</a>
+                </div>
+              </li><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                NethServer 6
+                  <a class="footer__link-item" href="/en/v6/" target="_blank">en</a>
+                  <a class="footer__link-item" href="/it/v6/" target="_blank"> it</a>
+                </div>
+              </li><li class="footer__item">
+                <div class="legacy-docs-link-container">
+                  <a class="footer__link-item" href="/projects/nethserver-devel/en/latest/" target="_blank">Developer manual 7</a>
+                </div>
+              </li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/NethServer/ns8-docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.nethserver.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">NethServer website<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://community.nethserver.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">NethServer Community<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Nethesis</div></div></div></footer></div>
+</body>
+</html>

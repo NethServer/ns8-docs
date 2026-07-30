@@ -1,0 +1,587 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-dc &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-directory" href="nethserver-directory.html" />
+    <link rel="prev" title="nethserver-cups" href="nethserver-cups.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-dc", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-dc.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-dc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nethserver-dc-save-event">nethserver-dc-save event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-commands-in-nsdc">Running commands in <code class="docutils literal notranslate"><span class="pre">nsdc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-join">Manual Join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#factory-reset">Factory reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uninstall-nethserver-dc">Uninstall nethserver-dc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-the-container">Upgrade the container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changing-the-ip-address-of-dc">Changing the IP address of DC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alternate-upn-suffix">Alternate UPN suffix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enable-check-password-script">Enable check password script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ns-samba-binary-build">ns-samba binary build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-dc</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-dc.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-dc">
+<h1>nethserver-dc<a class="headerlink" href="#nethserver-dc" title="Permalink to this headline">¶</a></h1>
+<p>The nethserver-dc package runs a systemd-nspawn container (<code class="docutils literal notranslate"><span class="pre">nsdc</span></code>) with a vanilla
+Samba 4 inside of it. It downloads, installs, configures and provision an Active
+Directory domain controller based on Samba.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">nsdc</span></code> container needs an IP address in a green network, different from the
+host machine one. It enslaves its network interface to a host bridge, with green
+role. If needed, this bridge is created automatically.</p>
+<p>This is a typical configuration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># config show nsdc
+nsdc=service
+   ProvisionType=newdomain
+   IpAddress=192.168.122.50
+   bridge=br0
+   status=enabled
+</pre></div>
+</div>
+<div class="section" id="nethserver-dc-save-event">
+<h2>nethserver-dc-save event<a class="headerlink" href="#nethserver-dc-save-event" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>it creates and configures systemd-nspawn machine (nethserver-dc-install
+action). The Samba domain is provisioned by the <code class="docutils literal notranslate"><span class="pre">samba-provision.service</span></code> unit, according
+to the <code class="docutils literal notranslate"><span class="pre">ProvisionType</span></code> prop value. Supported values are:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">newdomain</span></code> (default): domain and realm are taken from local system and
+won’t be possible to change them anymore. For instance if system domain is
+<cite>nethserver.org</cite> domain will be <cite>NETHSERVER</cite> and realm <cite>nethserver.org</cite>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ns6upgrade</span></code>: connect the LDAP service running on the host machine and
+migrate the WS/PDC domain from ns6 backup to an Active Directory domain.
+The realm and domain name are set as described in the <code class="docutils literal notranslate"><span class="pre">newdomain</span></code> provision
+type.</li>
+<li><code class="docutils literal notranslate"><span class="pre">sme8migration</span></code>: this provision procedure is driven by
+<code class="docutils literal notranslate"><span class="pre">nethserver-dc-migrate</span></code> action. It requires a running NSDC, provisioned as
+<code class="docutils literal notranslate"><span class="pre">newdomain</span></code>. It copies Samba 3 files from the migration source directory
+to the NSDC chroot, then restarts the <code class="docutils literal notranslate"><span class="pre">samba-provision</span></code> and <code class="docutils literal notranslate"><span class="pre">samba</span></code>
+services in the running NSDC container.</li>
+</ul>
+</li>
+<li>it creates a network bridge if needed, or select an existing one and save it in nsdc bridge db prop (<cite>nethserver-dc-create-bridge</cite> action)</li>
+<li>it waits for the machine to come up (<cite>nethserver-dc-waitstart</cite>)</li>
+<li>it joins the domain of new machine using default credentials (<cite>nethserver-dc-join</cite>).</li>
+<li>it sets the password policy (<cite>nethserver-dc-password-policy</cite>)</li>
+</ul>
+<p>Realmd writes a lot of information on the system journal. See <cite>journalctl</cite> command.</p>
+</div>
+<div class="section" id="running-commands-in-nsdc">
+<h2>Running commands in <code class="docutils literal notranslate"><span class="pre">nsdc</span></code><a class="headerlink" href="#running-commands-in-nsdc" title="Permalink to this headline">¶</a></h2>
+<p>To get a shell inside the <code class="docutils literal notranslate"><span class="pre">nsdc</span></code> container, you can run</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># systemd-run -M nsdc -t /bin/bash
+</pre></div>
+</div>
+<p>As alternative, run a specific command in the container with the <code class="docutils literal notranslate"><span class="pre">nsdc-run</span></code>
+helper:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># nsdc-run cat /etc/hostname
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--</span></code> string helps to separate the argument list:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># nsdc-run -- ls --help
+</pre></div>
+</div>
+<p>For more information:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># nsdc-run --help
+</pre></div>
+</div>
+<p>Always make sure to close interactive sessions to avoid errors like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Failed to get machine PTY: No such file or directory
+</pre></div>
+</div>
+<p>To get a list of sessions run</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>loginctl
+</pre></div>
+</div>
+</div>
+<div class="section" id="manual-join">
+<h2>Manual Join<a class="headerlink" href="#manual-join" title="Permalink to this headline">¶</a></h2>
+<p>nethserver-dc-join action joins automatically to domain. If for any reason the
+join is invalid you can attempt a manual join following this procedure</p>
+<p>Check nsdc is running:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>systemctl status nsdc
+</pre></div>
+</div>
+<p>Check the DNS is responding:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># host -t SRV _ldap._tcp.$(config getprop sssd Realm)
+_ldap._tcp.nethsever.org has SRV record 0 100 389 nsdc-vm8.nethsever.org.
+</pre></div>
+</div>
+<p>Clean up any previous join state:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sssd Provider none
+signal-event nethserver-sssd-leave
+</pre></div>
+</div>
+<p>Join the domain:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>realm join -v -U admin $(config getprop sssd Realm)
+</pre></div>
+</div>
+<p>You can replace <code class="docutils literal notranslate"><span class="pre">admin</span></code> with any other administrative account name. The
+command above prompts for a password. When join is successful:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sssd Provider ad
+signal-event nethserver-sssd-save
+</pre></div>
+</div>
+<p>If everything goes well</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>getent passwd administrator@$(hostname -d)
+# output: administrator@nethserver.org:*:261600500:261600513:Administrator:/home/administrator@nethserver.org:/bin/bash
+
+/usr/libexec/nethserver/list-users -s administrator
+# output: {&quot;administrator&quot;: ...
+</pre></div>
+</div>
+<p>Once domain is joined, you can manage users from interface. From command line, you can use <cite>net</cite> command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># net ads info
+</pre></div>
+</div>
+</div>
+<div class="section" id="factory-reset">
+<h2>Factory reset<a class="headerlink" href="#factory-reset" title="Permalink to this headline">¶</a></h2>
+<p>The “Start DC” procedure from the “Accounts provider” page is designed for a
+single run.  If it fails, re-installing the whole server can be avoided by
+running the following command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event nethserver-dc-factory-reset
+</pre></div>
+</div>
+<p>The command cleans up the DC state and prepare it for new provisioning run.
+<strong>Any existing user and group account is erased</strong>.</p>
+<p>If a full DC re-install is desired, after factory reset event, run also</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rm -rf /var/lib/machines/nsdc
+</pre></div>
+</div>
+</div>
+<div class="section" id="uninstall-nethserver-dc">
+<h2>Uninstall nethserver-dc<a class="headerlink" href="#uninstall-nethserver-dc" title="Permalink to this headline">¶</a></h2>
+<p>Execute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event nethserver-sssd-remove-provider
+</pre></div>
+</div>
+</div>
+<div class="section" id="upgrade-the-container">
+<h2>Upgrade the container<a class="headerlink" href="#upgrade-the-container" title="Permalink to this headline">¶</a></h2>
+<p>The upgrade procedure will:</p>
+<ul class="simple">
+<li>stop the container</li>
+<li>upgrade the chroot base system</li>
+<li>upgrade samba</li>
+<li>restart the container</li>
+</ul>
+<p>To upgrade, execute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event nethserver-dc-upgrade
+</pre></div>
+</div>
+</div>
+<div class="section" id="changing-the-ip-address-of-dc">
+<h2>Changing the IP address of DC<a class="headerlink" href="#changing-the-ip-address-of-dc" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Before applying this procedure, read carefully the <a class="reference external" href="https://wiki.samba.org/index.php/Changing_the_IP_Address_of_a_Samba_AD_DC">official Samba wiki page</a>.</p>
+</div>
+<p>The IP address of nsdc container must be in the same network of the bridged green interface.
+If needed, first change the address of the green interface, then proceed with the following.</p>
+<p>Example, change the network address:</p>
+<ul class="simple">
+<li>current host IP: 192.168.101.7</li>
+<li>current nsdc container IP: 192.168.122.77</li>
+<li>new nsdc container IP: 192.168.101.77</li>
+</ul>
+<p>Execute the <code class="docutils literal notranslate"><span class="pre">nethserver-dc-change-ip</span></code> with the new ip address:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event nethserver-dc-change-ip &lt;new_ip_address&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event nethserver-dc-change-ip 192.168.101.77
+</pre></div>
+</div>
+<p>Note that the event will fail if the new nsdc ip address is not in the same network
+of the green interface.</p>
+</div>
+<div class="section" id="alternate-upn-suffix">
+<h2>Alternate UPN suffix<a class="headerlink" href="#alternate-upn-suffix" title="Permalink to this headline">¶</a></h2>
+<p>The default UPN (User Principal Name) suffix for a user account is the SSSD realm, but
+the nsdc container is configured to use also an extra UPN suffix set
+to the FQDN of the host machine.</p>
+<p>Example:</p>
+<ul class="simple">
+<li>Host FQDN: nethserver.org</li>
+<li>SSSD realm: ad.nethserver.org</li>
+<li>Default UPN: ad.nethserver.org</li>
+<li>Extra UPN: nethserver.org</li>
+</ul>
+<p>If required, the administrator can use RSAT tools to select the extra UPN for a specific user.</p>
+<p>References:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://technet.microsoft.com/en-us/library/cc772007(v=ws.11).aspx">https://technet.microsoft.com/en-us/library/cc772007%28v=ws.11%29.aspx</a></li>
+<li><a class="reference external" href="https://msdn.microsoft.com/en-us/library/ms680537(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/ms680537%28v=vs.85%29.aspx</a></li>
+</ul>
+</div>
+<div class="section" id="enable-check-password-script">
+<h2>Enable check password script<a class="headerlink" href="#enable-check-password-script" title="Permalink to this headline">¶</a></h2>
+<p>This manual fix is only needed for old installations.</p>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">/var/lib/machines/nsdc/etc/samba/smb.conf</span></code> and add</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>check password script = /usr/local/sbin/checkpassword.pl
+</pre></div>
+</div>
+<p>to the global section. Restart samba on the NSDC container:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>systemctl -M nsdc restart samba
+</pre></div>
+</div>
+<p>Apply the current system password policy to the Samba DC:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event password-policy-update
+</pre></div>
+</div>
+</div>
+<div class="section" id="ns-samba-binary-build">
+<h2>ns-samba binary build<a class="headerlink" href="#ns-samba-binary-build" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic" start="0">
+<li><p class="first">Clone the git repo at <a class="reference external" href="https://github.com/NethServer/ns-samba">https://github.com/NethServer/ns-samba</a>, enter its directory</p>
+</li>
+<li><p class="first">Download pristine sources from the Samba project</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wget https://download.samba.org/pub/samba/stable/samba-4.8.6.tar.gz https://download.samba.org/pub/samba/stable/samba-4.8.6.tar.asc
+</pre></div>
+</div>
+</li>
+<li><p class="first">Check the sources signature</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gunzip -c samba-4.8.6.tar.gz | gpg --verify samba-4.8.6.tar.asc -
+</pre></div>
+</div>
+</li>
+<li><p class="first">Bump the source hash sum</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sha1sum samba-4.8.6.tar.gz &gt; SHA1SUM
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit <code class="docutils literal notranslate"><span class="pre">ns-samba.spec</span></code> to fix version references and <code class="docutils literal notranslate"><span class="pre">%changelog</span></code> section</p>
+</li>
+</ol>
+<ol class="arabic simple" start="6">
+<li>Commit changes and add (signed) tag (i.e. <code class="docutils literal notranslate"><span class="pre">4.8.6</span></code>)</li>
+<li>Push commit and tag to remote git repository to start the automated x86_64 build</li>
+<li>Once the automated build has finished successfully, fill the new relase page here: <a class="reference external" href="https://github.com/NethServer/ns-samba/releases">https://github.com/NethServer/ns-samba/releases</a></li>
+<li>Copy the RPM URL to the local <code class="docutils literal notranslate"><span class="pre">nethserver-dc.spec</span></code> file</li>
+<li>Update SHA1SUM with the new RPM hash sum</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-directory.html" class="btn btn-neutral float-right" title="nethserver-directory" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-cups.html" class="btn btn-neutral float-left" title="nethserver-cups" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
