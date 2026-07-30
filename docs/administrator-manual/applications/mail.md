@@ -439,6 +439,14 @@ The standard SMTP port 25 is reserved for mail transfers between MTA servers. Ma
 
 :::
 
+:::note
+
+When a mailbox is created, only the `Inbox`, `Trash`, and `Junk` folders exist. The `Drafts` and `Sent` folders are created automatically only at the first login into Roundcube or WebTop.
+
+If a third-party IMAP client is configured before the first Roundcube or WebTop login, it may create its own `Drafts`/`Sent` folders using localized names (e.g. `Brouillons`/`Éléments envoyés` in French). These are not recognized as equivalent to the standard folders, so a later webmail login can create duplicate `Drafts`/`Sent` folders alongside them. To avoid this, log into Roundcube or WebTop at least once before configuring any other IMAP client.
+
+:::
+
 Refer to the [Webtop application](webtop.md#email_autoconfig) for the implementation of automatic configuration protocols like Autodiscover and Autoconfig.
 
 ## Mail outbound connections {#mail-outbound-connections}
