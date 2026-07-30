@@ -39,9 +39,11 @@ Read the section [Operating system updates](../../tutorial/os_updates.md#neth-mi
 
 ## Swap space {#swap-reqs}
 
-Set up a swap partition or swap file. In most environments, [4 GB of swap space](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap) provides a good balance between performance and resource usage. The decision to allocate more space depends on the system's memory workload.
+Set up a swap partition or swap file. In most environments, **4 GB of swap space** provides a good balance between performance and resource usage. The decision to allocate more space depends on the system's memory workload.
 
-The [Rocky Linux pre-built image](../installation/install.md#install_image-section) already provides a 4 GB swap file configured as default.
+The [Rocky Linux pre-built image](../installation/install.md#install_image-section) already provides a 4 GB swap file, `/swapfile`, configured as default.
+
+To expand the available swap space, refer to chapter 15 of the official RHEL 9 documentation, [Getting started with swap](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap). That chapter recommends the correct swap size and illustrates step-by-step procedures for swap files, partitions, and LVM volumes. It also applies to Debian systems. Its swap file examples use the same `/swapfile` name as the NS8 default: when adding another swap file, choose a different name to avoid overwriting it.
 
 ## Disk and partitions {#disk-partitions}
 
