@@ -22,9 +22,10 @@ I principali **tipi** di certificati sono:
 Altri tipi di certificati:
 
 - `Automatico`: un certificato Let's Encrypt richiesto e attualmente utilizzato dalle applicazioni o dalle [rotte HTTP personalizzate](proxy.md#custom-http-route-section) per il loro nome host.
-- `Obsoleto`: un certificato Let's Encrypt ottenuto da un'applicazione, una rotta HTTP o una richiesta utente, che non è più in uso. Vedi anche [Elimina un certificato TLS](#delete-certificates-section).
+- `Obsoleto`: un certificato Let's Encrypt ottenuto da un'applicazione, una route HTTP o una richiesta utente, ma che ora non è più referenziato da nessuna di esse. Vedi anche [Eliminare un certificato TLS](#delete-certificates-section).
 
 Sia i certificati Automatici che quelli Obsoleti vengono rinnovati automaticamente.
+
 ## Requisiti per i certificati Let's Encrypt {#lets-encrypt-requirements}
 
 [Let's Encrypt](https://letsencrypt.org) è un'autorità di certificazione senza scopo di lucro che emette certificati TLS gratuitamente. NethServer 8 utilizza le sfide ACME basate su HTTP per ottenerli, che richiedono:
@@ -47,6 +48,7 @@ I certificati wildcard (ad esempio `*.nethserver.org`) **non sono supportati** c
 I certificati ottenuti da Let's Encrypt vengono rinnovati automaticamente prima della scadenza. I tentativi di rinnovo vengono eseguiti quotidianamente, a partire da 30 giorni prima della scadenza del certificato.
 
 Se un certificato è contrassegnato come `Expiring` o `Expired`, verificare che i requisiti sopra indicati siano ancora soddisfatti e attendere il prossimo tentativo di rinnovo. In alternativa, rimuovere il certificato come spiegato in [Eliminare un certificato TLS](#delete-certificates-section).
+
 ## Richiedere un certificato Let's Encrypt {#lets-encrypt-request-section}
 
 Se i requisiti sono soddisfatti, richiedere un certificato come segue:
@@ -60,6 +62,7 @@ Se i requisiti sono soddisfatti, richiedere un certificato come segue:
 La validazione può richiedere fino a 60 secondi prima di un timeout.
 
 I certificati vengono rinnovati automaticamente da un processo giornaliero che inizia 30 giorni prima della scadenza. Se il rinnovo fallisce, viene generato un avviso di scadenza (vedere [Ricevere avvisi di scadenza dei certificati](#certificate-alerts-section)). Consultare i [requisiti di Let's Encrypt](#lets-encrypt-requirements) per identificare la causa.
+
 ## Caricare certificati TLS personalizzati {#custom-certificates-section}
 
 Se si dispone già di un certificato e di una chiave privata, è possibile caricarli su un nodo:
@@ -82,6 +85,7 @@ Se il certificato è firmato da un'autorità di certificazione (CA) privata/pers
 
 - [Distribuzioni RHEL (Rocky)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/securing_networks/using-shared-system-certificates_securing-networks)
 - [Debian](https://manpages.debian.org/stable/ca-certificates/update-ca-certificates.8.en.html)
+
 ## Ricevere avvisi di scadenza dei certificati {#certificate-alerts-section}
 
 Se le notifiche di avviso sono configurate (vedere [Notifiche di avviso](metrics.md#alerts_notifications-section)), il cluster invia un avviso quando un certificato sta per scadere o è già scaduto. Gli avvisi iniziano 28 giorni prima della data di scadenza.
@@ -94,9 +98,14 @@ Se le notifiche di avviso sono configurate (vedere [Notifiche di avviso](metrics
 
   - I record DNS per un nome di certificato sono stati modificati o rimossi.
   - Un firewall blocca le sfide HTTP, sia per indirizzo di rete che per regole IP geografiche.
+
 ## Eliminare un certificato TLS {#delete-certificates-section}
 
-È possibile eliminare un certificato se non è più necessario. Eseguire questa operazione con cautela, poiché la rimozione di un certificato può compromettere il funzionamento delle applicazioni. Quando si elimina un certificato:
+Puoi eliminare un certificato se non è più necessario. Procedi con cautela, poiché la rimozione di un certificato può compromettere le applicazioni.
+
+Un certificato è considerato "obsoleto" quando nessuna route HTTP, applicazione o richiesta utente passata fa riferimento a uno qualsiasi dei suoi nomi. Questo riflette solo la configurazione attuale, non l'uso effettivo: un certificato obsoleto potrebbe essere ancora utilizzato dai client di rete per raggiungere il nodo, specialmente se il suo nome è anche registrato come record DNS che punta al nodo.
+
+Quando elimini un certificato:
 
 - Traefik viene riavviato e le connessioni HTTP vengono chiuse. Per alcune applicazioni, ciò potrebbe comportare la perdita di dati dei client.
 - Se non esiste una corrispondenza alternativa per il nome host, i client non riusciranno a riconnettersi.
