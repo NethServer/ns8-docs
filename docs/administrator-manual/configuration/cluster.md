@@ -10,6 +10,8 @@ All nodes are managed through the Web user interface, which operates on the lead
 
 An NS8 cluster consisting solely of the leader node is a fully functional system. Worker nodes can be added or removed at any time.
 
+Distinct NS8 clusters cannot be merged together. However, individual applications can be migrated between clusters with the [backup/restore procedure](backup.md). Since each application instance has a universally unique identifier (UUID), never run two restored copies of the same application on different clusters at the same time.
+
 The VPN network chosen during the initial leader node setup determines the limit on the number of possible cluster nodes. Note that a node's VPN IP is never released once allocated: removing a node does not free its VPN IP address.
 
 The default VPN network `10.5.4.0/24` supports up to 254 cluster nodes.
@@ -36,14 +38,16 @@ The **See details** button opens a detailed view of the selected node.
 
 ### Add a node
 
-You can add (join) a worker node to an existing cluster. The process consists of the following steps:
+You can add (join) a new node to an existing cluster as a **worker node**. The process consists of the following steps:
 
 - ensure the leader node is running the latest Core version
 - install the new node using the same Core version installed on the leader node
 - obtain the join code from the leader node
 - enter the join code into the worker node
 
-First, prepare a machine with the same Linux distribution and Core version as the leader node. Then follow the [install instruction](../installation/install.md) until the login to the Web user interface.
+First, prepare a machine with the same Linux distribution as the leader node. A removed NS8 node can be reused, provided it has first been cleaned up by running the [uninstall script](../installation/install.md#uninstall).
+
+Then follow the [install instructions](../installation/install.md) until the login to the Web user interface.
 
 After the login on the worker node, click the **Join cluster** button.
 
@@ -67,10 +71,17 @@ If the node is not reachable, or is not responding, the provider replica removal
 
 Access the `Nodes` page, go to the three-dots menu of the node and click on `Remove from cluster` to open a confirmation window. Applications installed on the node are listed: review that list carefully because node removal is not recoverable.
 
-If the node removal window is confirmed by pushing the **I
-understand, remove node** button, the node and its applications are disconnected, their authorizations are revoked and they cannot access the cluster any more.
+Back up application data before proceeding. To reuse those applications elsewhere — for example, on the leader of a new, independent cluster — restore their backups once the new cluster is set up. See [Restore applications](backup.md#application_restore-section).
 
-When a node is removed from the cluster the applications running on it are not affected and they are left in a running state. Shutdown and switch off the node to finalize the node removal.
+If the node removal window is confirmed by pushing the **I
+understand, remove node** button, the node and its applications are disconnected from the cluster, their authorizations are revoked, and they can no longer access the cluster or its backup destinations.
+
+When a node is removed from the cluster, the applications running on it, along with their scheduled backups, are not affected and are left in a running state. Hence, to finalize the node removal:
+
+- Shut down and switch off the node.
+- Or run the [uninstall script](../installation/install.md#uninstall).
+
+This finalization step is mandatory and should be performed immediately, to avoid running duplicate copies of the same application once its backup is restored elsewhere. Until finalized, a removed NS8 node cannot join the old cluster or another one, nor can it be elected leader.
 
 ### Change FQDN {#set-fqdn}
 

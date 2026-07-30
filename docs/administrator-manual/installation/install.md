@@ -116,12 +116,14 @@ Not sure where to go from here? You can:
 - Set up a [metric dashboard](../configuration/metrics.md).
 - Read [SSD space reclamation](../../tutorial/disk_usage.md#fstrim-periodic) section to enable periodic `fstrim` runs.
 
-## Uninstall
+## Uninstall {#uninstall}
 
 You can uninstall NS8 from your Linux distribution.
 
-The uninstall command attempts to stop and erase core components and additional modules. Handle it with care because it erases everything under `/home` and `/var/lib/nethserver` directories.
+The bundled uninstall script stops and erases the core components and additional applications, and cleans Wireguard and Firewalld configuration. Handle it with care because it erases all application data and directories like `/var/lib/nethserver`.
 
 To uninstall NS8, execute:
 
     bash /var/lib/nethserver/node/uninstall.sh
+
+After the script run, it is possible to start a new NS8 installation.
