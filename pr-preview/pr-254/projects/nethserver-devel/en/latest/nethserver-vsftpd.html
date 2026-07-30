@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-vsftpd &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-webtop4" href="nethserver-webtop4.html" />
+    <link rel="prev" title="nethserver-unixODBC" href="nethserver-unixODBC.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-vsftpd", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-vsftpd.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-vsftpd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-users">Virtual users</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-new-user">Add a new user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chroot-a-user-inside-a-shared-folder">Chroot a user inside a shared folder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#system-users">System users</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#custom-chroot">Custom chroot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-vsftpd</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-vsftpd.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-vsftpd">
+<h1>nethserver-vsftpd<a class="headerlink" href="#nethserver-vsftpd" title="Permalink to this headline">¶</a></h1>
+<p>The FTP module uses the vsftpd daemon. It is accessible only from local network and it is disabled by default.
+It supports both virtual and system users, but not at the same time.
+All virtual home directories are created inside <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/ftp</span></code>.</p>
+<p>The daemon will run as <code class="docutils literal notranslate"><span class="pre">ftp</span></code> user with passive mode enabled.</p>
+<div class="section" id="virtual-users">
+<h2>Virtual users<a class="headerlink" href="#virtual-users" title="Permalink to this headline">¶</a></h2>
+<p>Virtual users are enabled by default.</p>
+<div class="section" id="add-a-new-user">
+<h3>Add a new user<a class="headerlink" href="#add-a-new-user" title="Permalink to this headline">¶</a></h3>
+<p>Create a record inside the accounts db and activate changes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db accounts set &lt;user&gt; ftp status enabled Password &lt;pass&gt; Chroot enabled
+signal-event nethserver-vsftpd-save
+</pre></div>
+</div>
+<p>The event will generate <code class="file docutils literal notranslate"><span class="pre">/etc/vsftpd/ftpusers.db</span></code> (Berkeley db) containing all user credentials.
+The db is used for pam authentication (see: <code class="file docutils literal notranslate"><span class="pre">/etc/pam.d/vsftpd-virtual</span></code>).</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. If <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, the user can access the ftp server</li>
+<li><code class="docutils literal notranslate"><span class="pre">Password</span></code>: the user password in clear text, can not be blank</li>
+<li><code class="docutils literal notranslate"><span class="pre">Chroot</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. If <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, the user will be chrooted to <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/ftp/&lt;user&gt;</span></code> directory.
+If <code class="docutils literal notranslate"><span class="pre">disabled</span></code> the user is not chrooted. <strong>ATTENTION</strong>: non-chrooted users can explore the entire file system</li>
+<li><code class="docutils literal notranslate"><span class="pre">ChrootDir</span></code>: set a custom ChrootDir, it may be used to chroot a user inside a shared folder</li>
+</ul>
+</div>
+<div class="section" id="chroot-a-user-inside-a-shared-folder">
+<h3>Chroot a user inside a shared folder<a class="headerlink" href="#chroot-a-user-inside-a-shared-folder" title="Permalink to this headline">¶</a></h3>
+<p>Use these commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db accounts set &lt;user&gt; ftp status enabled Password &lt;pass&gt; Chroot enabled ChrootDir /var/lib/nethserver/ibay/&lt;share_name&gt;
+signal-event nethserver-vsftpd-save
+</pre></div>
+</div>
+<p>Where <em>share_name</em> is the name of the share, <em>user</em> the username and <em>pass</em> the password of the user.</p>
+</div>
+</div>
+<div class="section" id="system-users">
+<h2>System users<a class="headerlink" href="#system-users" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This configuration is highly discouraged, because user’s password is transmitted in <em>clear text</em></p>
+</div>
+<p>After enabling system users, all virtual users will be disabled.</p>
+<p>Enable system users:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop vsftpd UserType system
+signal-event nethserver-vsftpd-save
+</pre></div>
+</div>
+<p>Enable an existing system user to access FTP server:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db accounts setprop myuser FTPAccess enabled
+db accounts setprop myuser Shell /bin/bash
+signal-event user-modify myuser
+</pre></div>
+</div>
+<p>Apply configuration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event nethserver-vsftpd-save
+</pre></div>
+</div>
+<p>To disable an already enabled user:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db accounts setprop myuser FTPAccess disabled
+signal-event nethserver-vsftpd-save
+</pre></div>
+</div>
+<p>If not explicitly disabled, all system users are chrooted inside their home directories. To disable a chroot for a system user:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db accounts setprop myuser FTPChroot disabled
+signal-event nethserver-vsftpd-save
+</pre></div>
+</div>
+<div class="section" id="custom-chroot">
+<h3>Custom chroot<a class="headerlink" href="#custom-chroot" title="Permalink to this headline">¶</a></h3>
+<p>When the FTP server uses system users, custom chroot is <em>not</em> supported: all users are chrooted inside their own home directory.
+Although it’s possible to change a system user home directory. Use the command below if the system user will used only for FTP access:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lusermod -d &lt;your_custom_home&gt; &lt;user&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-webtop4.html" class="btn btn-neutral float-right" title="nethserver-webtop4" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-unixODBC.html" class="btn btn-neutral float-left" title="nethserver-unixODBC" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
