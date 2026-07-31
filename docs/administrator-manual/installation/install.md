@@ -49,6 +49,8 @@ does not find a network configuration, it attempts to obtain one via DHCP.
 In this case, remember to disable DHCP and assign a static IP address as
 explained by the warning below.
 
+During the first boot, the pre-built image generates fresh, unique secrets and identifiers, such as the random root password, SSH host keys, machine ID, WireGuard key pairs, and Redis passwords. Therefore, once the VM has booted for the first time, its disk must not be reused as a template for other VMs.
+
 After a few seconds, the system console displays a login prompt showing
 the assigned IP address and the initial random root password. Log in as
 `root` using the displayed initial password. You will be prompted to
