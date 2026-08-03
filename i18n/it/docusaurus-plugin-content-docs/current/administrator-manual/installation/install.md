@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Innanzitutto, assicurati che i [Requisiti di sistema](system_requirements.md) siano soddisfatti.
 
-Puoi installare NethServer 8 su una distribuzione supportata oppure utilizzare un'immagine pre-costruita. Entrambi i metodi richiedono una connessione Internet attiva.
+Puoi installare NethServer 8 su una distribuzione supportata oppure utilizzare un'immagine preconfigurata. Entrambi i metodi richiedono una connessione Internet attiva.
 ## Procedura standard {#install_linux-section}
 
 Scegli la tua distribuzione Linux preferita tra quelle [supportate](system_requirements.md#supported-distros-section).
