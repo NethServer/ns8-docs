@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-directory &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-dnsmasq" href="nethserver-dnsmasq.html" />
+    <link rel="prev" title="nethserver-dc" href="nethserver-dc.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-directory", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-directory.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-directory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#schema-and-base-dn">Schema and base DN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#user-account-states">User account states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service-accounts">Service accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-accounts">User accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anonymous-access">Anonymous access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#administrative-access">Administrative access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inspect-openldap-acls">Inspect OpenLDAP ACLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-to-active-directory">Upgrade to Active Directory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-directory</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-directory.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-directory">
+<h1>nethserver-directory<a class="headerlink" href="#nethserver-directory" title="Permalink to this headline">¶</a></h1>
+<p>The <cite>nethserver-directory</cite> implements user authentication and authorization.
+All accounts are saved inside OpenLDAP.</p>
+<p>Features:</p>
+<ul class="simple">
+<li>RFC2307 schema, user and group account management</li>
+<li>PAM LDAP password storage</li>
+<li>Password strength control</li>
+<li>Service accounts</li>
+</ul>
+<div class="section" id="schema-and-base-dn">
+<h2>Schema and base DN<a class="headerlink" href="#schema-and-base-dn" title="Permalink to this headline">¶</a></h2>
+<p>Following schema are always loaded by OpenLDAP: core, cosine, nis, inetorgperson.</p>
+<p>The LDAP tree is always accessible with the following base DN: <strong>dc=directory,dc=nh</strong>.
+But there is also an <span class="target" id="index-0"></span>overlay which maps the domain name to the base DN.
+For example, given the domain <em>mydomain.com</em>, the corresponding DN will be <strong>dc=mydomain,dc=com</strong>.</p>
+<p>Accounts are saved inside following branches:</p>
+<ul class="simple">
+<li>Users: ou=People,dc=directory,dc=nh</li>
+<li>Groups: ou=Groups,dc=directory,dc=nh</li>
+</ul>
+<p>All users are in the primary group named <em>locals</em>.</p>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>List all entries, with root access and automatic bind (unix domain socket):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ldapsearch -Y EXTERNAL
+</pre></div>
+</div>
+<p>List all entries with libuser bind:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ldapsearch  -D cn=libuser,dc=directory,dc=nh -w `cat /var/lib/nethserver/secrets/libuser` -h 127.0.0.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="user-account-states">
+<h2>User account states<a class="headerlink" href="#user-account-states" title="Permalink to this headline">¶</a></h2>
+<p>Account management is done via <span class="target" id="index-1"></span>libuser which exports some tools (luseradd, luserdel, etc) to create/modify/delete users, groups and set passwords.</p>
+<p>The process of user/group creations is:</p>
+<ul class="simple">
+<li>invoke the create event which uses libuser to add the record inside LDAP</li>
+<li>invoke the group event if the user must be member of additional groups</li>
+<li>invoke the password policy event to change user password expiration</li>
+<li>invoke the password change event to set a password</li>
+</ul>
+</div>
+<div class="section" id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
+<p>OpenLDAP doesn’t output any log with standard configuration.
+When logging is enabled, all logs are saved inside <code class="file docutils literal notranslate"><span class="pre">/var/log/slapd</span></code>.
+But its verbosity can be changed at run time by issuing this command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># ldapmodify -Y EXTERNAL &lt;&lt;EOF
+dn: cn=config
+changetype: modify
+replace: olcLogLevel
+olcLogLevel: 256
+EOF
+</pre></div>
+</div>
+<p>The command above changes the OpenLDAP <cite>config</cite> DB and sets the log verbosity to trace “connections/operations/results” (256).
+Check the debugging levels table from OpenLDAP site for more details: <a class="reference external" href="http://www.openldap.org/doc/admin24/slapdconf2.html#olcLogLevel%3A <level>#olcLogLevel: <level>">http://www.openldap.org/doc/admin24/slapdconf2.html#olcLogLevel%3A%20%3Clevel%3E</a>.</p>
+</div>
+<div class="section" id="service-accounts">
+<h2>Service accounts<a class="headerlink" href="#service-accounts" title="Permalink to this headline">¶</a></h2>
+<p>The following service accounts are configured by the <code class="docutils literal notranslate"><span class="pre">nethserver-directory-dit-setup</span></code> action:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">cn=libuser,dc=directory,dc=nh</span></code>. Granted read and write access from 127.0.0.1.</li>
+<li><code class="docutils literal notranslate"><span class="pre">cn=ldapservice,dc=directory,dc=nh</span></code>. Granted read only access to
+non-sensitive attributes, from localhost, or from any other IP address with TLS.</li>
+</ul>
+<p>The developer can use the <code class="docutils literal notranslate"><span class="pre">NethServe::Directory</span></code> Perl module to handle
+additional service accounts with ad-hoc permissions, if the existing <code class="docutils literal notranslate"><span class="pre">ldapservice</span></code>,
+<code class="docutils literal notranslate"><span class="pre">libuser</span></code> accounts and anonymous binds do not fit his requirements.</p>
+<p>A service account is composed by three parts:</p>
+<ul class="simple">
+<li>a LDAP user</li>
+<li>a password</li>
+<li>an ACL to access LDAP fields</li>
+</ul>
+<p>Perl code snippet to create a service account with read access:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>use NethServer::Directory;
+...
+NethServer::Directory-&gt;new()-&gt;configServiceAccount(&#39;myservice&#39;, NethServer::Directory::FIELDS_READ) || die(&quot;Failed to register myservice account&quot;)
+</pre></div>
+</div>
+<p>Perl code snippet to use created password:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>use NethServer::Password;
+my $pwd = NethServer::Password::store(&#39;myservice&#39;);
+</pre></div>
+</div>
+</div>
+<div class="section" id="user-accounts">
+<h2>User accounts<a class="headerlink" href="#user-accounts" title="Permalink to this headline">¶</a></h2>
+<p>Authenticated binds are granted to TLS protected connections, or connections
+from 127.0.0.1. User DN are in the form:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>uid=&lt;username&gt;,ou=People,dc=directory,dc=nh
+</pre></div>
+</div>
+</div>
+<div class="section" id="anonymous-access">
+<h2>Anonymous access<a class="headerlink" href="#anonymous-access" title="Permalink to this headline">¶</a></h2>
+<p>Some LDAP clients and/or legacy environments may require anonymous bind to the LDAP accounts database.
+Currently anonymous access is granted to non-sensitive fields.</p>
+<p>Configuration for client:</p>
+<ul class="simple">
+<li>Host: ip address of the server</li>
+<li>Port: 389</li>
+<li>Base DN: <code class="docutils literal notranslate"><span class="pre">dc=directory,dc=nh</span></code></li>
+</ul>
+</div>
+<div class="section" id="administrative-access">
+<h2>Administrative access<a class="headerlink" href="#administrative-access" title="Permalink to this headline">¶</a></h2>
+<p>An existing DN (i.e. <code class="docutils literal notranslate"><span class="pre">administrator</span></code>) can be granted full administrative
+privileges on the whole <code class="docutils literal notranslate"><span class="pre">dc=directory,dc=nh</span></code> tree. By default, the designated
+user is defined in config DB, under the <code class="docutils literal notranslate"><span class="pre">admins</span></code> key.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">ldapmodify</span> <span class="pre">-Y</span> <span class="pre">EXTERNAL</span> <span class="pre">&lt;&lt;EOF</span>
+<span class="pre">dn:</span> <span class="pre">olcDatabase={2}hdb,cn=config</span>
+<span class="pre">changetype:</span> <span class="pre">modify</span>
+<span class="pre">replace:</span> <span class="pre">olcRootDN</span>
+<span class="pre">olcRootDN:</span> <span class="pre">uid=administrator,ou=People,dc=directory,dc=nh</span>
+<span class="pre">EOF</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="inspect-openldap-acls">
+<h2>Inspect OpenLDAP ACLs<a class="headerlink" href="#inspect-openldap-acls" title="Permalink to this headline">¶</a></h2>
+<p>Service accounts require OpenLDAP ACLs tuning. To inspect the current ACLs type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ldapsearch -LLL -Y EXTERNAL -b cn=config -s one &#39;objectClass=olcDatabaseConfig&#39; olcAccess 2&gt;/dev/null
+</pre></div>
+</div>
+<p>If output appears to be base64-encoded type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ldapsearch -LLL -Y EXTERNAL -b cn=config -s one &#39;objectClass=olcDatabaseConfig&#39; olcAccess 2&gt;/dev/null | perl -MMIME::Base64 -MEncode=decode -n -00 -e &#39;s/\n +//g;s/(?&lt;=:: )(\S+)/decode(&quot;UTF-8&quot;,decode_base64($1))/eg;print&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="upgrade-to-active-directory">
+<h2>Upgrade to Active Directory<a class="headerlink" href="#upgrade-to-active-directory" title="Permalink to this headline">¶</a></h2>
+<p>If the LDAP database has been restored from a ns6 backup set, it is possible
+to upgrade it to a local Active Directory accounts provider.</p>
+<p>A ns7 LDAP database cannot be upgraded to Active Directory. It lacks the Samba
+LDAP schema extensions required by the Samba <em>classic upgrade</em> procedure.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">nethserver-directory-ns6upgrade</span></code> event</p>
+<ul class="simple">
+<li>removes the <code class="docutils literal notranslate"><span class="pre">nethserver-directory</span></code> RPM</li>
+<li>installs and configures <code class="docutils literal notranslate"><span class="pre">nethserver-dc</span></code></li>
+</ul>
+<p>Before running the event, assign a free IP address to the <code class="docutils literal notranslate"><span class="pre">nsdc</span></code> Linux
+container, installed by <code class="docutils literal notranslate"><span class="pre">nethserver-dc</span></code> RPM. Ensure it is <strong>a free IP
+address</strong> of a <strong>green network</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config set nsdc service IpAddress A.B.C.D
+signal-event nethserver-directory-ns6upgrade
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-dnsmasq.html" class="btn btn-neutral float-right" title="nethserver-dnsmasq" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-dc.html" class="btn btn-neutral float-left" title="nethserver-dc" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
