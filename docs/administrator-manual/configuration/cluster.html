@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Cluster management | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/docs/administrator-manual/configuration/cluster"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Cluster management | NethServer 8 documentation"><meta data-rh="true" name="description" content="A NethServer 8 cluster is composed of one leader node and multiple worker nodes."><meta data-rh="true" property="og:description" content="A NethServer 8 cluster is composed of one leader node and multiple worker nodes."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/docs/administrator-manual/configuration/cluster"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/configuration/cluster" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/it/docs/administrator-manual/configuration/cluster" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/configuration/cluster" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cluster management","item":"https://docs.nethserver.org/docs/administrator-manual/configuration/cluster"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/opensearch.xml">
 <script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/assets/css/styles.d64e4b30.css">
-<script src="/assets/js/runtime~main.ef43183b.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.1e90df9b.js" defer="defer"></script>
 <script src="/assets/js/main.75cad824.js" defer="defer"></script>
 </head>
 <body>
@@ -16,6 +16,7 @@
 <p>A NethServer 8 cluster<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label" class="anchorTargetStickyNavbar_Vzrq">1</a></sup> is composed of one <strong>leader</strong> node and multiple <strong>worker</strong> nodes.</p>
 <p>All nodes are managed through the Web user interface, which operates on the leader node.</p>
 <p>An NS8 cluster consisting solely of the leader node is a fully functional system. Worker nodes can be added or removed at any time.</p>
+<p>Distinct NS8 clusters cannot be merged together. However, individual applications can be migrated between clusters with the <a class="" href="/docs/administrator-manual/configuration/backup">backup/restore procedure</a>. Since each application instance has a universally unique identifier (UUID), never run two restored copies of the same application on different clusters at the same time.</p>
 <p>The VPN network chosen during the initial leader node setup determines the limit on the number of possible cluster nodes. Note that a node&#x27;s VPN IP is never released once allocated: removing a node does not free its VPN IP address.</p>
 <p>The default VPN network <code>10.5.4.0/24</code> supports up to 254 cluster nodes.</p>
 <p>In theory, the maximum number of nodes in an NS8 cluster is limited only by the VPN network size. However, it is advisable to add nodes gradually to avoid degrading the leader&#x27;s performance due to increasing workload.</p>
@@ -36,14 +37,15 @@
 <li class="">The following sections summarize CPU, load, memory, and disk usage. Metrics are collected every minute, and averages are calculated over a two-minute interval. For a detailed view of collected system metrics, refer to <a class="" href="/docs/administrator-manual/configuration/metrics#grafana_access-section">Grafana access</a>.</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="add-a-node">Add a node<a href="#add-a-node" class="hash-link" aria-label="Direct link to Add a node" title="Direct link to Add a node" translate="no">​</a></h3>
-<p>You can add (join) a worker node to an existing cluster. The process consists of the following steps:</p>
+<p>You can add (join) a new node to an existing cluster as a <strong>worker node</strong>. The process consists of the following steps:</p>
 <ul>
 <li class="">ensure the leader node is running the latest Core version</li>
 <li class="">install the new node using the same Core version installed on the leader node</li>
 <li class="">obtain the join code from the leader node</li>
 <li class="">enter the join code into the worker node</li>
 </ul>
-<p>First, prepare a machine with the same Linux distribution and Core version as the leader node. Then follow the <a class="" href="/docs/administrator-manual/installation/install">install instruction</a> until the login to the Web user interface.</p>
+<p>First, prepare a machine with the same Linux distribution as the leader node. A removed NS8 node can be reused, provided it has first been cleaned up by running the <a class="" href="/docs/administrator-manual/installation/install#uninstall">uninstall script</a>.</p>
+<p>Then follow the <a class="" href="/docs/administrator-manual/installation/install">install instructions</a> until the login to the Web user interface.</p>
 <p>After the login on the worker node, click the <strong>Join cluster</strong> button.</p>
 <p>Ensure the node Fully Qualified Domain Name (FQDN) is correct, and respects the <a class="" href="/docs/administrator-manual/installation/system_requirements#dns-reqs">DNS requirements</a>.</p>
 <p>On the leader node, access the <code>Nodes</code> page and click on <strong>Add node to cluster</strong> and copy the join code from the dialog box.</p>
@@ -53,9 +55,15 @@
 <p>Worker nodes can be removed from the cluster. Before removing a given worker node, ensure no account provider replica is running on it. In the <code>Domains and users</code> page, for each domain follow the <code>N providers</code> link to see the node where a provider replica is installed on, then remove it.</p>
 <div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>If the node is not reachable, or is not responding, the provider replica removal must be completed manually after the node removal.</p></div></div>
 <p>Access the <code>Nodes</code> page, go to the three-dots menu of the node and click on <code>Remove from cluster</code> to open a confirmation window. Applications installed on the node are listed: review that list carefully because node removal is not recoverable.</p>
+<p>Back up application data before proceeding. To reuse those applications elsewhere — for example, on the leader of a new, independent cluster — restore their backups once the new cluster is set up. See <a class="" href="/docs/administrator-manual/configuration/backup#application_restore-section">Restore applications</a>.</p>
 <p>If the node removal window is confirmed by pushing the <strong>I
-understand, remove node</strong> button, the node and its applications are disconnected, their authorizations are revoked and they cannot access the cluster any more.</p>
-<p>When a node is removed from the cluster the applications running on it are not affected and they are left in a running state. Shutdown and switch off the node to finalize the node removal.</p>
+understand, remove node</strong> button, the node and its applications are disconnected from the cluster, their authorizations are revoked, and they can no longer access the cluster or its backup destinations.</p>
+<p>When a node is removed from the cluster, the applications running on it, along with their scheduled backups, are not affected and are left in a running state. Hence, to finalize the node removal:</p>
+<ul>
+<li class="">Shut down and switch off the node.</li>
+<li class="">Or run the <a class="" href="/docs/administrator-manual/installation/install#uninstall">uninstall script</a>.</li>
+</ul>
+<p>This finalization step is mandatory and should be performed immediately, to avoid running duplicate copies of the same application once its backup is restored elsewhere. Until finalized, a removed NS8 node cannot join the old cluster or another one, nor can it be elected leader.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="set-fqdn">Change FQDN<a href="#set-fqdn" class="hash-link" aria-label="Direct link to Change FQDN" title="Direct link to Change FQDN" translate="no">​</a></h3>
 <p>A node&#x27;s FQDN is typically set during the post-installation steps. If it becomes necessary to change the FQDN later, follow these steps:</p>
 <ol>
