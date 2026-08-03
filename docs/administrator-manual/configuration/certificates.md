@@ -22,7 +22,7 @@ The main **types** of certificates are:
 Other certificate types:
 
 - `Automatic`: a Let's Encrypt certificate requested and currently used by applications or [custom HTTP routes](proxy.md#custom-http-route-section) for their host name.
-- `Obsolete`: a Let's Encrypt certificate that was obtained by an application, an HTTP route, or a user request, and is no longer in use. See also [Delete a TLS certificate](#delete-certificates-section).
+- `Obsolete`: a Let's Encrypt certificate that was obtained by an application, an HTTP route, or a user request, but now is not referenced by any of them. See also [Delete a TLS certificate](#delete-certificates-section).
 
 Both Automatic and Obsolete certificates are renewed automatically.
 
@@ -101,7 +101,11 @@ If alert notifications are configured (see [Alerts notifications](metrics.md#ale
 
 ## Delete a TLS certificate {#delete-certificates-section}
 
-You can delete a certificate if it is no longer needed. Do this with caution, because removing a certificate can break applications. When you delete a certificate:
+You can delete a certificate if it is no longer needed. Do this with caution, because removing a certificate can break applications.
+
+A certificate is considered "obsolete" when no HTTP route, application, or past user request references any of its names. This only reflects the current configuration, not actual usage: an obsolete certificate may still be used by network clients to reach the node, especially if its name is also registered as a DNS record pointing to the node.
+
+When you delete a certificate:
 
 - Traefik is restarted and HTTP connections are closed. For some applications this may lead to client data loss.
 - If no alternative matches the host name, clients will fail to reconnect.
