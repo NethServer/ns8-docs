@@ -35,3 +35,15 @@ L'autenticazione di Mattermost *non* è integrata con alcun dominio utenti. L'am
 L'amministratore dovrebbe sempre usare la procedura guidata di Mattermost per creare l'utente admin, quindi inviare il link di invito al team a ogni utente.
 
 :::
+
+## Ripristinare la password di un utente
+
+Poiché l'autenticazione di Mattermost non è integrata con un dominio utenti, non esiste un recupero password self-service. Se la password dell'amministratore impostata durante la procedura guidata iniziale viene persa, o se è necessario reimpostare la password di un altro utente, usa lo strumento a riga di comando `mmctl`.
+
+Mattermost offre anche un ripristino basato su email (`mmctl user reset-password`), ma richiede che l'SMTP sia già configurato sull'istanza, quindi non è utile in questo caso.
+
+Esegui il seguente comando come `root` sul nodo NS8 che ospita l'istanza Mattermost:
+
+    runagent -m mattermost0 podman exec -ti mattermost-app mmctl --local user change-password MY_USER --password NEW_PASSWORD
+
+Sostituisci `mattermost0` con il nome effettivo dell'istanza Mattermost, `MY_USER` con il nome utente o l'indirizzo email di destinazione, e `NEW_PASSWORD` con la nuova password.

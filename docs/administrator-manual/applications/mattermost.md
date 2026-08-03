@@ -35,3 +35,15 @@ Mattermost authentication is *not* integrated with any user domain. The Mattermo
 The administrator should always use Mattermost wizard to create the admin user, then send team invitation link to each user.
 
 :::
+
+## Reset a user password
+
+Since Mattermost authentication is not integrated with a user domain, there is no self-service password recovery. If the administrator password set during the initial wizard is lost, or any other user's password needs to be reset, use the `mmctl` command-line tool.
+
+Mattermost also provides an email-based reset (`mmctl user reset-password`), but it requires SMTP to be already configured on the instance, so it does not help in this case.
+
+Run the following command as `root` on the NS8 node that hosts the Mattermost instance:
+
+    runagent -m mattermost0 podman exec -ti mattermost-app mmctl --local user change-password MY_USER --password NEW_PASSWORD
+
+Replace `mattermost0` with the actual Mattermost instance name, `MY_USER` with the target user name or email address, and `NEW_PASSWORD` with the new password.

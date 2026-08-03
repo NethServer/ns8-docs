@@ -32,9 +32,11 @@ Leggi la sezione [Aggiornamenti del sistema operativo](../../tutorial/os_updates
 
 ## Spazio di swap {#swap-reqs}
 
-Configura una partizione di swap o un file di swap. Nella maggior parte degli ambienti, [4 GB di spazio di swap](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap) offrono un buon equilibrio tra prestazioni e utilizzo delle risorse. La decisione di allocare più spazio dipende dal carico di lavoro della memoria del sistema.
+Configura una partizione di swap o un file di swap. Nella maggior parte degli ambienti, **4 GB di spazio di swap** offrono un buon equilibrio tra prestazioni e utilizzo delle risorse. La decisione di allocare più spazio dipende dal carico di lavoro della memoria del sistema.
 
-L'[immagine preconfigurata di Rocky Linux](../installation/install.md#install_image-section) fornisce già un file di swap da 4 GB configurato come predefinito.
+L'[immagine preconfigurata di Rocky Linux](../installation/install.md#install_image-section) fornisce già un file di swap da 4 GB, `/swapfile`, configurato come predefinito.
+
+Per espandere lo spazio di swap disponibile, consulta il capitolo 15 della documentazione ufficiale di RHEL 9, [Getting started with swap](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap). Quel capitolo indica la dimensione di swap corretta e illustra procedure passo passo per file di swap, partizioni e volumi LVM. Si applica anche ai sistemi Debian. I suoi esempi di file di swap usano lo stesso nome `/swapfile` predefinito di NS8: quando aggiungi un altro file di swap, scegli un nome diverso per evitare di sovrascriverlo.
 
 ## Disco e partizioni {#disk-partitions}
 
