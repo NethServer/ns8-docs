@@ -10,11 +10,14 @@ Tutti i nodi sono gestiti tramite l'interfaccia utente Web, che opera sul nodo l
 
 Un cluster NS8 composto unicamente dal nodo leader è un sistema completamente funzionale. I nodi worker possono essere aggiunti o rimossi in qualsiasi momento.
 
+Cluster NS8 distinti non possono essere uniti tra loro. Tuttavia, è possibile migrare singole applicazioni tra cluster diversi con la [procedura di backup/restore](backup.md). Poiché ogni istanza di applicazione possiede un identificatore univoco universale (UUID), non eseguire mai contemporaneamente due copie ripristinate della stessa applicazione su cluster diversi.
+
 La rete VPN scelta durante la configurazione iniziale del nodo leader determina il limite sul numero di nodi del cluster. Si noti che l'indirizzo IP VPN di un nodo non viene mai rilasciato una volta assegnato: la rimozione di un nodo non libera il suo indirizzo IP VPN.
 
 La rete VPN predefinita `10.5.4.0/24` supporta fino a 254 nodi del cluster.
 
 In teoria, il numero massimo di nodi in un cluster NS8 è limitato solo dalla dimensione della rete VPN. Tuttavia, è consigliabile aggiungere i nodi gradualmente per evitare un degrado delle prestazioni del leader a causa dell'aumento del carico di lavoro.
+
 ## Panoramica e dettagli dei nodi {#node-views}
 
 La pagina `Nodes` mostra una panoramica dei nodi del cluster configurati. Ogni scheda visualizza gli attributi di base del nodo, il contatore degli avvisi del nodo e le azioni relative al nodo, che sono spiegate in dettaglio nelle sezioni seguenti.
@@ -35,14 +38,16 @@ Il pulsante **See details** apre una vista dettagliata del nodo selezionato.
 
 ### Aggiungere un nodo
 
-È possibile aggiungere (unire) un nodo worker a un cluster esistente. Il processo consiste nei seguenti passaggi:
+È possibile aggiungere (unire) un nuovo nodo a un cluster esistente come nodo **worker**. Il processo consiste nei seguenti passaggi:
 
 - assicurarsi che il nodo leader stia eseguendo l'ultima versione di Core
 - installare il nuovo nodo utilizzando la stessa versione di Core installata sul nodo leader
 - ottenere il codice di unione dal nodo leader
 - inserire il codice di unione nel nodo worker
 
-Per prima cosa, preparare una macchina con la stessa distribuzione Linux e versione di Core del nodo leader. Quindi seguire le [istruzioni di installazione](../installation/install.md) fino al login nell'interfaccia utente Web.
+Per prima cosa, preparare una macchina con la stessa distribuzione Linux del nodo leader. Un nodo NS8 rimosso può essere riutilizzato, a condizione che sia stato prima pulito eseguendo lo [script di disinstallazione](../installation/install.md#uninstall).
+
+Quindi seguire le [istruzioni di installazione](../installation/install.md) fino al login nell'interfaccia utente Web.
 
 Dopo il login sul nodo worker, fare clic sul pulsante **Join cluster**.
 
@@ -66,9 +71,16 @@ Se il nodo non è raggiungibile o non risponde, la rimozione della replica del p
 
 Accedere alla pagina `Nodes`, andare al menu a tre punti del nodo e fare clic su `Remove from cluster` per aprire una finestra di conferma. Le applicazioni installate sul nodo sono elencate: esaminare attentamente tale elenco poiché la rimozione del nodo non è recuperabile.
 
-Se la finestra di rimozione del nodo viene confermata premendo il pulsante **I understand, remove node**, il nodo e le sue applicazioni vengono disconnessi, le loro autorizzazioni vengono revocate e non possono più accedere al cluster.
+Eseguire il backup dei dati delle applicazioni prima di procedere. Per riutilizzare tali applicazioni altrove — per esempio, sul leader di un nuovo cluster indipendente — ripristinare i relativi backup una volta configurato il nuovo cluster. Consultare [Ripristino delle applicazioni](backup.md#application_restore-section).
 
-Quando un nodo viene rimosso dal cluster, le applicazioni in esecuzione su di esso non vengono influenzate e rimangono in esecuzione. Spegnere e disattivare il nodo per completare la rimozione del nodo.
+Se la finestra di rimozione del nodo viene confermata premendo il pulsante **I understand, remove node**, il nodo e le sue applicazioni vengono disconnessi dal cluster, le loro autorizzazioni vengono revocate e non possono più accedere al cluster o alle sue destinazioni di backup.
+
+Quando un nodo viene rimosso dal cluster, le applicazioni in esecuzione su di esso, insieme ai relativi backup pianificati, non vengono influenzate e rimangono in esecuzione. Per completare la rimozione del nodo, occorre quindi:
+
+- Spegnere e disattivare il nodo.
+- Oppure eseguire lo [script di disinstallazione](../installation/install.md#uninstall).
+
+Questo passaggio di finalizzazione è obbligatorio e deve essere eseguito immediatamente, per evitare di eseguire copie duplicate della stessa applicazione una volta ripristinato il suo backup altrove. Finché non viene completato, un nodo NS8 rimosso non può unirsi nuovamente al vecchio cluster né a un altro, né può essere eletto leader.
 
 ### Modifica FQDN {#set-fqdn}
 

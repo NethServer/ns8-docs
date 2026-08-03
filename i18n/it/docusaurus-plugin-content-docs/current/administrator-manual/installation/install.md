@@ -112,12 +112,14 @@ Non sai da dove iniziare? Puoi:
 - Aggiungere [nuovi nodi](../configuration/cluster.md).
 - Configurare un [cruscotto di metriche](../configuration/metrics.md).
 - Leggere la sezione [Recupero spazio SSD](../../tutorial/disk_usage.md#fstrim-periodic) per abilitare esecuzioni periodiche di `fstrim`.
-## Disinstallazione
+## Disinstallazione {#uninstall}
 
 È possibile disinstallare NS8 dalla propria distribuzione Linux.
 
-Il comando di disinstallazione tenta di arrestare ed eliminare i componenti principali e i moduli aggiuntivi. Usarlo con cautela, poiché elimina tutto il contenuto delle directory `/home` e `/var/lib/nethserver`.
+Lo script di disinstallazione incluso arresta ed elimina i componenti principali e le applicazioni aggiuntive, e ripulisce la configurazione di Wireguard e Firewalld. Usarlo con cautela, poiché elimina tutti i dati delle applicazioni e directory come `/var/lib/nethserver`.
 
 Per disinstallare NS8, eseguire:
 
     bash /var/lib/nethserver/node/uninstall.sh
+
+Dopo l'esecuzione dello script, è possibile avviare una nuova installazione di NS8.
