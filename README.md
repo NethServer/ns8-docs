@@ -108,9 +108,9 @@ See [`AGENTS.md`](AGENTS.md) for the Markdown conventions and project layout.
 ## Translations
 
 English is the default language. The Italian translation lives under `i18n/it/`
-and mirrors the `docs/` tree. Translations are kept in sync automatically by the
-translation workflow (`.github/workflows/sync-translations.yml`); you can also
-edit the Italian Markdown files directly.
+and mirrors the `docs/` tree. Translations are maintained manually: when you
+change a page under `docs/`, update the matching Italian Markdown file under
+`i18n/it/docusaurus-plugin-content-docs/current/`.
 
 ## License
 
