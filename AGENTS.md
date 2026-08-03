@@ -41,7 +41,7 @@ reports broken links and anchors.
   parsed as CommonMark (tolerant of bare `<...>`/`{...}`) and `.mdx` as MDX.
 - Internationalization: English is the default locale; Italian lives under
   `i18n/it/`. Translated docs mirror the `docs/` tree under
-  `i18n/it/docusaurus-plugin-content-docs/current/`.
+  `i18n/it/docusaurus-plugin-content-docs/current/`. Keep the two sides in sync: when you change an English page, update its Italian mirror too.
 - Images are served from `static/` and referenced with absolute paths such as
   `/_static/image.png`.
 
@@ -50,9 +50,9 @@ reports broken links and anchors.
 - `.github/workflows/deploy.yml` — builds and deploys to GitHub Pages on push
   to `main`.
 - `.github/workflows/test-deploy.yml` — test build on pull requests.
-- `.github/workflows/sync-translations.yml` — AI agent that keeps the English
-  and Italian docs in sync when one side changes
-  (`.github/scripts/translation-agent/`).
+- `.github/workflows/preview.yml` — publishes a per-pull-request preview to
+  `pr-preview/pr-<number>/` on the `gh-pages` branch and removes it when the PR
+  closes. Skipped for pull requests from forks.
 
 ## Markdown conventions
 
