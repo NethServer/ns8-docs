@@ -47,6 +47,8 @@ non trova una configurazione di rete, tenterà di ottenerne una tramite DHCP.
 In questo caso, ricordarsi di disabilitare il DHCP e assegnare un indirizzo IP statico come
 spiegato nell'avviso riportato di seguito.
 
+Durante il primo avvio, l'immagine preconfigurata genera segreti e identificatori nuovi e unici, come la password root casuale, le chiavi host SSH, il machine ID, le coppie di chiavi WireGuard e le password Redis. Pertanto, una volta avviata per la prima volta, il disco della VM non deve essere riutilizzato come modello per altre VM.
+
 Dopo alcuni secondi, la console di sistema visualizzerà un prompt di login che mostra
 l'indirizzo IP assegnato e la password iniziale casuale per l'utente root. Accedere come
 `root` utilizzando la password iniziale visualizzata. Verrà richiesto di
