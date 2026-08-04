@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Innanzitutto, assicurati che i [Requisiti di sistema](system_requirements.md) siano soddisfatti.
 
-Puoi installare NethServer 8 su una distribuzione supportata oppure utilizzare un'immagine pre-costruita. Entrambi i metodi richiedono una connessione Internet attiva.
+Puoi installare NethServer 8 su una distribuzione supportata oppure utilizzare un'immagine preconfigurata. Entrambi i metodi richiedono una connessione Internet attiva.
 ## Procedura standard {#install_linux-section}
 
 Scegli la tua distribuzione Linux preferita tra quelle [supportate](system_requirements.md#supported-distros-section).
@@ -46,6 +46,8 @@ Avviare l'immagine NS8 all'interno della piattaforma di virtualizzazione. Se Clo
 non trova una configurazione di rete, tenterà di ottenerne una tramite DHCP.
 In questo caso, ricordarsi di disabilitare il DHCP e assegnare un indirizzo IP statico come
 spiegato nell'avviso riportato di seguito.
+
+Durante il primo avvio, l'immagine preconfigurata genera segreti e identificatori nuovi e unici, come la password root casuale, le chiavi host SSH, il machine ID, le coppie di chiavi WireGuard e le password Redis. Pertanto, una volta avviata per la prima volta, il disco della VM non deve essere riutilizzato come modello per altre VM.
 
 Dopo alcuni secondi, la console di sistema visualizzerà un prompt di login che mostra
 l'indirizzo IP assegnato e la password iniziale casuale per l'utente root. Accedere come
