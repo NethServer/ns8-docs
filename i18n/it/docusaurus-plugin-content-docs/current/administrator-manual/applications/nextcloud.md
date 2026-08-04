@@ -52,20 +52,20 @@ Aggiungendo `LDAP_MAIL_ATTRIBUTE`, i tuoi utenti potranno accedere con:
 - `userPrincipalName`: ad es. `john@ad.domain.com`
 - `mail`: ad es. `john@domain.com`
 
-:::note
-
-Il comando `runagent` è disponibile solo sul nodo NethServer 8 dove è installata l'applicazione.
-
-:::
-
-Digita in una shell root il seguente comando:
+Accedi come root sul nodo dove è installata l'applicazione Nextcloud. Esegui i seguenti comandi:
 
     runagent -m nextcloud1 python3 -c 'import agent ; agent.set_env("LDAP_MAIL_ATTRIBUTE", "mail")'
     runagent -m nextcloud1 systemctl --user restart nextcloud
 
 ### Collabora Online {#collabora-integration-section}
 
-Per prima cosa, installa e configura un'istanza di [Collabora Online](collabora.md).
+:::note
+
+Collabora Online è fornito dal repository NethForge e non è incluso nei [Piani di abbonamento](../about/subscription.md).
+
+:::
+
+Per prima cosa, installa e configura un'istanza di [Collabora Online](../nethforge/collabora.md).
 
 Poi accedi alla pagina `Settings` del modulo Nextcloud.
 
