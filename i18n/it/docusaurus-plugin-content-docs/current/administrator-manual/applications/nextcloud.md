@@ -52,7 +52,7 @@ Aggiungendo `LDAP_MAIL_ATTRIBUTE`, i tuoi utenti potranno accedere con:
 - `userPrincipalName`: ad es. `john@ad.domain.com`
 - `mail`: ad es. `john@domain.com`
 
-Accedi come root sul nodo dove è installata l'applicazione Nextcloud. Esegui i seguenti comandi:
+Accedi come root sul nodo dove è installata l'applicazione Nextcloud. Esegui i seguenti comandi, sostituendo `nextcloud1` con l'identificatore della tua applicazione:
 
     runagent -m nextcloud1 python3 -c 'import agent ; agent.set_env("LDAP_MAIL_ATTRIBUTE", "mail")'
     runagent -m nextcloud1 systemctl --user restart nextcloud
