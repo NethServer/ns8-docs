@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-ns8-migration &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-ntopng" href="nethserver-ntopng.html" />
+    <link rel="prev" title="nethserver-nextcloud" href="nethserver-nextcloud.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-ns8-migration", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-ns8-migration.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-ns8-migration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nextcloud-migration">Nextcloud migration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejabberd-migration">Ejabberd migration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mattermost-migration">Mattermost migration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#email-webtop-roundcube-migration">Email, Webtop, Roundcube migration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#account-provider">Account provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-server">File server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#migration-apis">Migration APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-uninstallation">Package uninstallation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#post-migration-step-back">Post-migration step back</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#migration-notes">Migration notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#webtop">Webtop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">File server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Account provider</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-ns8-migration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-ns8-migration.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-ns8-migration">
+<h1>nethserver-ns8-migration<a class="headerlink" href="#nethserver-ns8-migration" title="Permalink to this headline">¶</a></h1>
+<p>This package will migrate services from NethServer 7 to NethServer 8 (NS8).</p>
+<p>On install, the <code class="docutils literal notranslate"><span class="pre">nethserver-ns8-migration-update</span></code> event creates a
+WireGuard private key. This key is later used to join the NS8 cluster VPN.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ns8-join</span></code> command adds NS7 to the cluster VPN and retrieves the its
+configuration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ns8-join [--no-tlsverify] &lt;ns8_host&gt; &lt;admin_user&gt; &lt;admin_pass&gt;
+</pre></div>
+</div>
+<p>During <code class="docutils literal notranslate"><span class="pre">ns8-join</span></code> execution, the <code class="docutils literal notranslate"><span class="pre">nethserver-ns8-migration-save</span></code> event
+establishes the VPN connection.</p>
+<p>Once the VPN is established:</p>
+<ul class="simple">
+<li>subsequent NS8 API calls are routed through it</li>
+<li>a temporary NS8 external user domain is created</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The NS8 cluster must be new, with no user domains and installed modules</p>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ns8-join ns8.nethserver.org admin Nethesis,1234
+</pre></div>
+</div>
+<p>After the join, it is possible to execute actions:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ns8-action &lt;agent&gt; &lt;action&gt; &lt;json_data&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ns8-action cluster get-cluster-status &#39;{}&#39;
+</pre></div>
+</div>
+<p>When NS7 modules are successfully migrated to NS8, run the <code class="docutils literal notranslate"><span class="pre">ns8-leave</span></code>
+command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ns8-leave
+</pre></div>
+</div>
+<p>That command:</p>
+<ul class="simple">
+<li>ensures the temporary external user domain is removed</li>
+<li>removes the NS7 node from the VPN</li>
+<li>stops the Wireguard VPN and cleans up its settings</li>
+</ul>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<p>This is the full list of commands provided by the tool. They are used by
+applications and APIs:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ns8-join</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ns8-leave</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ns8-action</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ns8-bind-app</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ns8-abort</span></code></li>
+</ul>
+</div>
+<div class="section" id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<p>The migration tool can migrate a pre-defined set of NS7 applications (apps):</p>
+<ul class="simple">
+<li>nethserver-mail (with nethserver-webtop5, nethserver-roundcubemail)</li>
+<li>nethserver-nextcloud</li>
+<li>nethserver-mattermost</li>
+<li>nethserver-ejabberd</li>
+<li>account-provider (both local AD and LDAP)</li>
+</ul>
+<p>Each application has two directories</p>
+<ol class="arabic simple">
+<li>sources (or install) directory with the migration implementation, under
+<code class="docutils literal notranslate"><span class="pre">/usr/share/nethesis/nethserver-ns8-migration/apps/</span></code>.</li>
+<li>state directory, with current migration state information, under
+<code class="docutils literal notranslate"><span class="pre">/var/lib/nethserver/nethserver-ns8-migration/</span></code></li>
+</ol>
+<p>The app sources directory must provide the following files, and implement
+the described behavior:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">bind.env</span></code>, basic environment variables for the <code class="docutils literal notranslate"><span class="pre">bind</span></code> command.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">MODULE_IMAGE_URL</span></code> the Podman image URL to install and start on
+the remote module</li>
+<li><code class="docutils literal notranslate"><span class="pre">MODULE_VOLUMES</span></code> a list of name of Podman volumes that are created
+by the bind command on the remote side. These volumes can be filled
+by rsync uploads, together with the remote module <code class="docutils literal notranslate"><span class="pre">state/</span></code>
+directory.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">bind</span></code> command. This command creates a remote NS8 module instance and
+saves the Rsync configuration in the app state directory.</li>
+<li><code class="docutils literal notranslate"><span class="pre">migrate</span></code> command. This command synchronizes the local application
+configuration and data with the remote Rsync endpoint. If it is passed
+the <code class="docutils literal notranslate"><span class="pre">MIGRATE_ACTION=finish</span></code> environment variable, it also finalizes
+the migration: it stops the local services and starts the remote ones.</li>
+</ol>
+<p>Optionally the app can provide <cite>jq</cite> input translation filters for the
+migration APIs:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">input-start.jq</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">input-finish.jq</span></code></li>
+</ul>
+<p>The filter output is Bash-eval’ed and must define additional environment
+variables for the app <code class="docutils literal notranslate"><span class="pre">migrate</span></code> command.</p>
+<p>Applications can read additional environment files, provided by the RPM
+package or created at runtime by the tool commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/etc/nethserver/agent.env
+/var/lib/nethserver/nethserver-ns8-migration/agent.env
+/var/lib/nethserver/nethserver-ns8-migration/environment
+</pre></div>
+</div>
+<div class="section" id="nextcloud-migration">
+<h3>Nextcloud migration<a class="headerlink" href="#nextcloud-migration" title="Permalink to this headline">¶</a></h3>
+<p>Bind command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MODULE_NODE_ID=1 ./bind
+</pre></div>
+</div>
+<p>Sync command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./migrate
+</pre></div>
+</div>
+<p>Finish command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MIGRATE_ACTION=finish NEXTCLOUD_VHOST=nc.example.com ./migrate
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejabberd-migration">
+<h3>Ejabberd migration<a class="headerlink" href="#ejabberd-migration" title="Permalink to this headline">¶</a></h3>
+<p>Bind command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MODULE_NODE_ID=1 ./bind
+</pre></div>
+</div>
+<p>Sync command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./migrate
+</pre></div>
+</div>
+<p>Finish command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MIGRATE_ACTION=finish ./migrate
+</pre></div>
+</div>
+</div>
+<div class="section" id="mattermost-migration">
+<h3>Mattermost migration<a class="headerlink" href="#mattermost-migration" title="Permalink to this headline">¶</a></h3>
+<p>Bind command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MODULE_NODE_ID=1 ./bind
+</pre></div>
+</div>
+<p>Sync command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./migrate
+</pre></div>
+</div>
+<p>Finish command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MIGRATE_ACTION=finish MATTERMOST_VHOST=mattermost.example.com ./migrate
+</pre></div>
+</div>
+</div>
+<div class="section" id="email-webtop-roundcube-migration">
+<h3>Email, Webtop, Roundcube migration<a class="headerlink" href="#email-webtop-roundcube-migration" title="Permalink to this headline">¶</a></h3>
+<p>As both Webtop and Roundcube depends on the Email application, the
+migration of the three modules must occur at the same time and is
+controlled by the nethserver-mail app.</p>
+<p>Bind command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MODULE_NODE_ID=1 WEBTOP_NODE_ID=1 ROUNDCUBE_NODE_ID=2 ./bind
+</pre></div>
+</div>
+<p>Sync command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./migrate
+</pre></div>
+</div>
+<p>Finish command example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MIGRATE_ACTION=finish WEBTOP_VHOST=webtop.example.com ROUNDCUBE_VHOST=rc.example.com ./migrate
+</pre></div>
+</div>
+<p>Just for environment var reference, to finalize nethserver-webtop5 alone</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MIGRATE_ACTION=finish MAIL_INSTANCE_ID=mail1 WEBTOP_VHOST=webtop.example.com ./migrate
+</pre></div>
+</div>
+<p>Finally, to finalize nethserver-roundcubemail alone</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MIGRATE_ACTION=finish MAIL_INSTANCE_ID=mail1 ROUNDCUBE_VHOST=rc.example.com ./migrate
+</pre></div>
+</div>
+</div>
+<div class="section" id="account-provider">
+<h3>Account provider<a class="headerlink" href="#account-provider" title="Permalink to this headline">¶</a></h3>
+<p>This application migrates the local account provider. Both AD and LDAP are
+handled. External account provider is not migrated: it must be manually
+configured in NS8 to reach the same LDAP server used by NS7.</p>
+</div>
+<div class="section" id="file-server">
+<h3>File server<a class="headerlink" href="#file-server" title="Permalink to this headline">¶</a></h3>
+<p>The Samba file server migration is part of Samba Account provider
+migration. It occurs unless the <code class="docutils literal notranslate"><span class="pre">skip</span></code> flag is set for the
+<code class="docutils literal notranslate"><span class="pre">nethserver-samba</span></code> application.</p>
+</div>
+</div>
+<div class="section" id="migration-apis">
+<h2>Migration APIs<a class="headerlink" href="#migration-apis" title="Permalink to this headline">¶</a></h2>
+<p>The API responsible for apps migration is <code class="docutils literal notranslate"><span class="pre">api/migration/update</span></code>. Its
+basic input payload format is</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+  &quot;app&quot;: &quot;nethserver-testapp&quot;,
+  &quot;action&quot;: &quot;start&quot;,
+  &quot;migrationConfig&quot;: {
+    &quot;appNode&quot;: 3
+  }
+}
+</pre></div>
+</div>
+<p>It accepts the following <code class="docutils literal notranslate"><span class="pre">action</span></code> values for each NS7 module: <code class="docutils literal notranslate"><span class="pre">start</span></code>,
+<code class="docutils literal notranslate"><span class="pre">sync</span></code>, <code class="docutils literal notranslate"><span class="pre">finish</span></code>, <code class="docutils literal notranslate"><span class="pre">abort</span></code>.</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">start</span></code>. Creates one module instance in the NS8 cluster. The local
+NS7 app <code class="docutils literal notranslate"><span class="pre">bind</span></code> script is called. Multiple destination modules are
+allowed too: for instance the nethserver-mail app controls the
+migration of nethserver-webtop5 and nethserver-roundcubemail, if they
+are installed.</li>
+<li><code class="docutils literal notranslate"><span class="pre">sync</span></code>. Synchronizes local app configuration and data with the remote
+module instance, by calling its <code class="docutils literal notranslate"><span class="pre">migrate</span></code> script.</li>
+<li><code class="docutils literal notranslate"><span class="pre">finish</span></code>. Completes the migration by calling the app <code class="docutils literal notranslate"><span class="pre">migrate</span></code>
+script with the special environment variable <code class="docutils literal notranslate"><span class="pre">MIGRATE_ACTION=finish</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">abort</span></code>. Abort module migration. Remove module from NS8 cluster
+and cleanup local stace.</li>
+</ol>
+<p>After the execution of the <code class="docutils literal notranslate"><span class="pre">finish</span></code> action the app is stopped and
+disabled in NS7.</p>
+<p>The API <code class="docutils literal notranslate"><span class="pre">api/migration/read</span></code> returns the current migration status, for
+each known app:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &#39;{&quot;action&quot;:&quot;listApps&quot;}&#39; | /usr/libexec/nethserver/api/nethserver-ns8-migration/migration/read
+</pre></div>
+</div>
+</div>
+<div class="section" id="package-uninstallation">
+<h2>Package uninstallation<a class="headerlink" href="#package-uninstallation" title="Permalink to this headline">¶</a></h2>
+<p>To remove the tool and its dependencies (if they are not required by other packages):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum remove nethserver-ns8-migration kmod-wireguard wireguard-tools
+</pre></div>
+</div>
+<p>Clean up configuration database:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config delete wg-quick@wg0
+config delete agent
+config delete ns8
+</pre></div>
+</div>
+</div>
+<div class="section" id="post-migration-step-back">
+<h2>Post-migration step back<a class="headerlink" href="#post-migration-step-back" title="Permalink to this headline">¶</a></h2>
+<p>Once a service has been migrated to the remote NS8 host it should not run
+any more on NS7. When the <code class="docutils literal notranslate"><span class="pre">migrate</span></code> command completes the application
+services are stopped and disabled.</p>
+<p>Please note that some migrated applications may also add some custom templates.
+To list such template fragments use:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep -lR ns8migration /etc/e-smith/templates-custom/
+</pre></div>
+</div>
+<p>It is possible to manually re-enable the services with the following commands.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Mail
+config setprop dovecot status enabled
+config setprop postfix status enabled
+config setprop rspamd status enabled
+config setprop opendkim status enabled
+config setprop olefy status enabled
+
+# Webtop
+config setprop tomcat8@webtop status enabled
+
+# Roundcube
+config delprop roundcubemail migration
+
+# Mattermost
+config setprop mattermost status enabled
+rm -rf /etc/e-smith/templates-custom/etc/httpd/conf.d/zz_mattermost.conf
+signal-event nethserver-mattermost-update
+
+# Nextcloud
+rm -rf /etc/e-smith/templates-custom/etc/httpd/conf.d/zz_nextcloud.conf
+rm -f /etc/e-smith/templates-custom/etc/httpd/conf.d/default-virtualhost.inc/40nextcloud
+signal-event nethserver-nextcloud-update
+
+# Account provider
+config setprop slapd status enabled
+config setprop nsdc status enabled
+config setprop sssd status enabled
+
+# File server
+config setprop smb status enabled
+config setprop smb nmb enabled
+config setprop smb winbind enabled
+
+# All modules
+signal-event nethserver-ns8-migration-update
+signal-event runlevel-adjust
+signal-event firewall-adjust
+</pre></div>
+</div>
+</div>
+<div class="section" id="migration-notes">
+<h2>Migration notes<a class="headerlink" href="#migration-notes" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Read carefully the sections below before finishing the migration of any application.</p>
+</div>
+<div class="section" id="webtop">
+<h3>Webtop<a class="headerlink" href="#webtop" title="Permalink to this headline">¶</a></h3>
+<p>If you purchased a Webtop license for additional custom fields or other
+components/integrations the following additional and manual steps are needed:</p>
+<ol class="arabic simple">
+<li>Before finishing the Mail app migration, access the Webtop
+administrative page and disable any subscribed license.</li>
+<li>Finish the Mail app migration.</li>
+<li>In the NS8 module, access the administrative page and enable the
+licenses again.</li>
+</ol>
+</div>
+<div class="section" id="id1">
+<h3>File server<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>File server migration (shared folders) is an optional step of the Samba
+account provider migration. It can be performed if the NS8-based DC IP
+address is in a private network and is routable from the NS7-based DC.</p>
+<p>The NS8 DC cannot be assigned the cluster VPN IP address.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Exposing SMB and other AD services to public networks is dangerous.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Account provider<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>When the migration finishes, the local account provider (both AD and LDAP)
+is stopped and disabled. In this state, SSSD allows logging on the system
+with its local cache. If some services are left on the system it is
+necessary to remove the local account provider and configure NS8 as the
+remote account provider.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-ntopng.html" class="btn btn-neutral float-right" title="nethserver-ntopng" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-nextcloud.html" class="btn btn-neutral float-left" title="nethserver-nextcloud" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

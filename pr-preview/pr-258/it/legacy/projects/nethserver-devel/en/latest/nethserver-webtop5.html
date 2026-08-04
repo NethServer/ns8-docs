@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-webtop5 &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License Headers" href="license_headers.html" />
+    <link rel="prev" title="nethserver-webtop4" href="nethserver-webtop4.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-webtop5", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-webtop5.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-webtop5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#database">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reset-admin-password">Reset admin password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#web-application">Web application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomcat">Tomcat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#active-sync">Active Sync</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#legacy-ids">Legacy ids</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#carddav-and-caldav">CardDAV and CalDAV</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tomcat-instance">Tomcat instance</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-webtop5</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-webtop5.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-webtop5">
+<h1>nethserver-webtop5<a class="headerlink" href="#nethserver-webtop5" title="Permalink to this headline">¶</a></h1>
+<p>WebTop 5 is a full-featured groupware written in Java.</p>
+<p>It’s composed by three parts:</p>
+<ul class="simple">
+<li>Java web application running on Tomcat 8</li>
+<li>PHP implementation of Active Sync protocol</li>
+<li>PHP implementation of CardDAV and CalDAV protocol</li>
+<li>PostgreSQL database</li>
+</ul>
+<p>Access to web application is forced in SSL mode.</p>
+<p>WebTop 5 has been split in 4 different RPMs:</p>
+<ul class="simple">
+<li>webtop5: Tomcat webapp and all third-party jars, derived from a WAR. It contains all jars developed by Sonicle. This package will be updated at each
+WebTop release</li>
+<li>webtop5-zpush: ActiveSync implementation for WebTop, it contains PHP code from z-push project (<a class="reference external" href="http://z-push.org/">http://z-push.org/</a>)</li>
+<li>webtop5-webdav: CardDAV and CalDAV implementation for WebTop, it contains PHP code from sabre/dav project (<a class="reference external" href="http://sabre.io/dav/">http://sabre.io/dav/</a>)</li>
+<li>nethserver-webtop5: NethServer auto-configuration for WebTop</li>
+</ul>
+<div class="section" id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
+<p>Configuration is saved in <code class="docutils literal notranslate"><span class="pre">webtop</span></code> key inside <code class="docutils literal notranslate"><span class="pre">configuration</span></code> database.</p>
+<p>Available properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ActiveSyncLog</span></code>: log level of z-push implementation. As default z-push will log only relevant errors.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ActiveSyncLegactIds</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. If set to <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, use backward compatibile z-push ids to avoid device full rsync on update.
+See “Active Sync” section for more info</li>
+<li><code class="docutils literal notranslate"><span class="pre">Debug</span></code>: if set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, enable debug for the web application. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">DefaultLocale</span></code>: default locale for WebTop users. To list available locales execute: <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/events/actions/nethserver-webtop5-locale-tz</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">DefaultTimezone</span></code>: default timezone for WebTop users. To list available timezones: <code class="docutils literal notranslate"><span class="pre">JAVA_HOME=/usr/share/webtop/</span> <span class="pre">java</span> <span class="pre">ListTimeZones</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">MinMemory</span></code> and <code class="docutils literal notranslate"><span class="pre">MaxMemory</span></code>: minimun and maximum memory of Tomcat instance. Values are expressed in MB.</li>
+<li><code class="docutils literal notranslate"><span class="pre">PublicUrl</span></code>: public URL used to publish resources for the cloud. If not set, default is <code class="docutils literal notranslate"><span class="pre">http://&lt;FQDN&gt;/webtop</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">DavServerUrl</span></code>: Dav server URL for CalDAV and CardDAV clients configuration. If not set, default is <code class="docutils literal notranslate"><span class="pre">https://&lt;FQDN&gt;/webtop-dav/server.php</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">DavServerLog</span></code>: log level of webtop-dav implementation. As default webtop-dav will log only relevant errors.</li>
+<li><code class="docutils literal notranslate"><span class="pre">PbxProvider</span></code>: PBX provider name</li>
+<li><code class="docutils literal notranslate"><span class="pre">PbxProviderNethvoiceWebrestUrl</span></code>: NethVoice base url for API calls, used when <code class="docutils literal notranslate"><span class="pre">PbxProvider</span></code> is set to <code class="docutils literal notranslate"><span class="pre">nethvoice</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">DefaultToolBarIconsSize</span></code>: Default dimension of the toolbar icons, available values: <code class="docutils literal notranslate"><span class="pre">small</span></code>, <code class="docutils literal notranslate"><span class="pre">medium</span></code>, <code class="docutils literal notranslate"><span class="pre">large</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">medium</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">RemoteCalendarAutosync</span></code>: if set to <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, it enables remote calendars auto-sync functionality. The sincronization interval can be set by user on remote calendar creation. Default is <code class="docutils literal notranslate"><span class="pre">enabled</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">RemoteCalendarAutosyncOnlywhenonline</span></code>: if set to <code class="docutils literal notranslate"><span class="pre">enabled</span></code> the remote calendars is auto-sync only when calendar’s owner is online during the sincronization time. Default is <code class="docutils literal notranslate"><span class="pre">disabled</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">RemoteCategoryAutosync</span></code>: if set to <code class="docutils literal notranslate"><span class="pre">enabled</span></code> , it enables remote categories auto-sync functionality. The sincronization interval can be set by user on remote category creation. Default is <code class="docutils literal notranslate"><span class="pre">enabled</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">RemoteCategoryAutosyncOnlywhenonline</span></code>: if set to <code class="docutils literal notranslate"><span class="pre">enabled</span></code> the remote categoties is auto-sync only when category’s owner is online during the sincronization time. Default is <code class="docutils literal notranslate"><span class="pre">disabled</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">VirtualHost</span></code>: set custom virtual host, e.g. <cite>mygroupware.mydomain.it</cite>. Virtual host can be used to access WebTop and configure ActiveSync/CalDAV/CardDAV clients</li>
+<li><code class="docutils literal notranslate"><span class="pre">KnownDeviceVerification</span></code>: if set to <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, a notification will be sent for any new authentication attempt from an unknown-device, default <code class="docutils literal notranslate"><span class="pre">disabled</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">KnownDeviceVerificationRecipients</span></code>: a comma-separated list of email addresses to use as CCN recipients that will receive a copy of the unknown-device notice</li>
+<li><code class="docutils literal notranslate"><span class="pre">KnownDeviceVerificationNetWhitelist</span></code>: a comma-separated list of networks, specified in CIDR format, from where all devices will be considered trusted, and no notifications will be sent</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>webtop=configuration
+    ActiveSyncLog=ERROR
+    Debug=false
+    DefaultLocale=en_US
+    DefaultTimezone=Etc/UTC
+    MaxMemory=1024
+    MinMemory=512
+    PublicUrl=
+</pre></div>
+</div>
+<p>Configuration can be applied using the <code class="docutils literal notranslate"><span class="pre">nethserver-webtop5-update</span></code> event.</p>
+</div>
+<div class="section" id="reset-admin-password">
+<h2>Reset admin password<a class="headerlink" href="#reset-admin-password" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Access the database</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>su - postgres -c &#39;psql webtop5&#39;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy &amp; paste the following query:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>UPDATE &quot;core&quot;.&quot;local_vault&quot; SET &quot;password_type&quot;=&#39;PLAIN&#39;, &quot;password&quot;=&#39;admin&#39; WHERE (&quot;domain_id&quot;=&#39;*&#39;) AND (&quot;user_id&quot;=&#39;admin&#39;);
+</pre></div>
+</div>
+</li>
+<li><p class="first">Access the web interface using <code class="docutils literal notranslate"><span class="pre">admin</span></code> user with password <code class="docutils literal notranslate"><span class="pre">admin</span></code>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>Please note that nethserver-webtop5 is composed by many parts.
+Each part has its own logs and troubleshooting best practices.</p>
+<div class="section" id="web-application">
+<h3>Web application<a class="headerlink" href="#web-application" title="Permalink to this headline">¶</a></h3>
+<p>The web application logs are inside <code class="docutils literal notranslate"><span class="pre">/var/log/webtop/webtop.log</span></code>.</p>
+</div>
+<div class="section" id="tomcat">
+<h3>Tomcat<a class="headerlink" href="#tomcat" title="Permalink to this headline">¶</a></h3>
+<p>Tomcat instance is managed by systemd unit called <code class="docutils literal notranslate"><span class="pre">tomcat8&#64;webtop</span></code>.
+All logs are saved inside <code class="docutils literal notranslate"><span class="pre">/var/lib/tomcats/webtop/logs/</span></code> directory.
+The logs are rotated daily and deletes after 2 days.</p>
+</div>
+<div class="section" id="active-sync">
+<h3>Active Sync<a class="headerlink" href="#active-sync" title="Permalink to this headline">¶</a></h3>
+<p>Active Sync is implemented using a PHP application called z-push.
+All logs are inside <code class="docutils literal notranslate"><span class="pre">/var/log/z-push/</span></code> directory.</p>
+<p>To inspect z-push status use:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo -u apache scl enable rh-php73 &#39;php /usr/share/webtop/z-push/z-push-admin.php&#39;
+</pre></div>
+</div>
+<p>It is also possibile to enable z-push debug using these commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop webtop ActiveSyncLog DEBUG
+signal-event nethserver-webtop5-update
+</pre></div>
+</div>
+<p>Instead of <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> you can use any constant supported by z-push implementation,
+but remove the <code class="docutils literal notranslate"><span class="pre">LOGLEVEL_</span></code> prefi.
+See <code class="docutils literal notranslate"><span class="pre">/usr/share/webtop/z-push/inc/zpush.config.php</span></code>.</p>
+<p>You can test Active Sync using this command (please set user, password and server_name):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>curl -k -u goofy@local.neth.eu:password https://server_name/Microsoft-Server-ActiveSync
+</pre></div>
+</div>
+<p>You should see an HTML output containing the string:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>GET not supported
+</pre></div>
+</div>
+<div class="section" id="legacy-ids">
+<h4>Legacy ids<a class="headerlink" href="#legacy-ids" title="Permalink to this headline">¶</a></h4>
+<p>When the <code class="docutils literal notranslate"><span class="pre">ActiveSyncLegacyIds</span></code> is set to <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, the z-push implementation is affected by the following limitations:</p>
+<ul class="simple">
+<li>a user can’t have more than one calendar with the same name</li>
+<li>resources with very long names (eg. calendars) can cause synchronization problems</li>
+</ul>
+<p>If such problems occur, please switch to new id implementation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop webtop ActiveSyncLegacyIds disabled
+rm -rf /var/log/z-push/state/*
+signal-event nethserver-webtop5-update
+</pre></div>
+</div>
+<p>Please note that after switching to new implementation, <strong>all devices will require a full synchronization</strong>.</p>
+</div>
+</div>
+<div class="section" id="carddav-and-caldav">
+<h3>CardDAV and CalDAV<a class="headerlink" href="#carddav-and-caldav" title="Permalink to this headline">¶</a></h3>
+<p>CardDAV and CalDAV are implemented using a PHP application called webtop-dav.
+All logs are inside <code class="docutils literal notranslate"><span class="pre">/var/log/webtop-dav/</span></code> directory.</p>
+<p>It is also possibile to enable webtop-dav debug using these commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop webtop DavServerLog DEBUG
+signal-event nethserver-webtop5-update
+</pre></div>
+</div>
+<p>Instead of <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> you can use any constant supported by <code class="docutils literal notranslate"><span class="pre">webtop-dav</span></code> implementation.
+See <code class="docutils literal notranslate"><span class="pre">/usr/share/webtop/webtop-dav/lib/webtop/Log.php</span></code>.</p>
+<p>To enable <code class="docutils literal notranslate"><span class="pre">browser-plugin</span></code> for directory indexes of the Dav server:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop webtop Debug true
+signal-event nethserver-webtop5-update
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tomcat-instance">
+<h2>Tomcat instance<a class="headerlink" href="#tomcat-instance" title="Permalink to this headline">¶</a></h2>
+<p>WebTop uses its own Tomcat instance running on port <code class="docutils literal notranslate"><span class="pre">58080</span></code>.</p>
+<p>The instance is launched with some special Java options,
+see content of <code class="docutils literal notranslate"><span class="pre">/etc/sysconfig/tomcat8&#64;webtop</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="license_headers.html" class="btn btn-neutral float-right" title="License Headers" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-webtop4.html" class="btn btn-neutral float-left" title="nethserver-webtop4" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

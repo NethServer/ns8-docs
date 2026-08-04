@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-hylafax &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-iaxmodem" href="nethserver-iaxmodem.html" />
+    <link rel="prev" title="nethserver-httpd-admin" href="nethserver-httpd-admin.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-hylafax", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-hylafax.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-hylafax</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modem-configuration">Modem configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accounting-faxaccounting">Accounting (FaxAccounting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#incoming-fax-faxdispatch">Incoming fax (FaxDispatch)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outgoing-fax-faxnotify">Outgoing fax (FaxNotify)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-scripts">Custom scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#internationalization">Internationalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-configuration">Client configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-db">Configuration DB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-hylafax</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-hylafax.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-hylafax">
+<h1>nethserver-hylafax<a class="headerlink" href="#nethserver-hylafax" title="Permalink to this headline">¶</a></h1>
+<p>Hylafax is a fax server for receiving and sending faxes.</p>
+<p>Key features:</p>
+<ul class="simple">
+<li>Modem automatic configuration</li>
+<li>Virtual modem</li>
+<li>Ingoing/outgoing fax configuration</li>
+<li>Extensible accounting system</li>
+<li>Mail2Fax</li>
+<li>Mail server integration</li>
+</ul>
+<div class="section" id="modem-configuration">
+<h2>Modem configuration<a class="headerlink" href="#modem-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Hylafax+ uses a tool called <code class="docutils literal notranslate"><span class="pre">faxaddmodem</span></code> which guides the user throw modem configuration. We developed a simple non-interactive wrapper called <code class="docutils literal notranslate"><span class="pre">neth-addmodem</span></code>.</p>
+<p>The script reads basic information, like the fax device name, from the SME db and use these data to setup the modem.</p>
+</div>
+<div class="section" id="accounting-faxaccounting">
+<h2>Accounting (FaxAccounting)<a class="headerlink" href="#accounting-faxaccounting" title="Permalink to this headline">¶</a></h2>
+<p>Every time a fax is received or sent, Hylafax will execute the <code class="docutils literal notranslate"><span class="pre">/var/spool/hylafax/etc/FaxAccounting</span></code> script. FaxAccounting runs all executable scripts inside the directory <code class="docutils literal notranslate"><span class="pre">/var/spool/hylafax/etc/accounting</span></code> in alphabetical order.</p>
+<p>The default configuration will execute the script <code class="docutils literal notranslate"><span class="pre">00savefiles</span></code> which saves all submitted and received faxes to <code class="docutils literal notranslate"><span class="pre">/var/lib/nethserver/fax/docs</span></code></p>
+</div>
+<div class="section" id="incoming-fax-faxdispatch">
+<h2>Incoming fax (FaxDispatch)<a class="headerlink" href="#incoming-fax-faxdispatch" title="Permalink to this headline">¶</a></h2>
+<p>Hylafax requires a mail address where incoming faxes will be sent.
+If <code class="docutils literal notranslate"><span class="pre">SendTo</span></code> prop is not set, all faxes will be forwarded to root mailbox.</p>
+<p>When a fax is received, Hylafax will execute the <code class="docutils literal notranslate"><span class="pre">/var/spool/hylafax/etc/FaxDispatch</span></code> script. FaxDispatch runs all executable scripts inside the directory <code class="docutils literal notranslate"><span class="pre">/var/spool/hylafax/etc/dispatch</span></code> in alphabetical order.</p>
+<p>The default configuration will execute the script <code class="docutils literal notranslate"><span class="pre">90print</span></code>. If <code class="docutils literal notranslate"><span class="pre">hylafax</span></code> prop <code class="docutils literal notranslate"><span class="pre">PrintReceived</span></code> is enabled, all faxes are printed into the <code class="docutils literal notranslate"><span class="pre">PrinterName</span></code> printer.</p>
+</div>
+<div class="section" id="outgoing-fax-faxnotify">
+<h2>Outgoing fax (FaxNotify)<a class="headerlink" href="#outgoing-fax-faxnotify" title="Permalink to this headline">¶</a></h2>
+<p>When a fax is sent, Hylafax will execute the <code class="docutils literal notranslate"><span class="pre">/var/spool/hylafax/etc/FaxNotify</span></code> script. FaxNotify runs all executable scripts inside the directory <code class="docutils literal notranslate"><span class="pre">/var/spool/hylafax/etc/notify</span></code> in alphabetical order.</p>
+</div>
+<div class="section" id="custom-scripts">
+<h2>Custom scripts<a class="headerlink" href="#custom-scripts" title="Permalink to this headline">¶</a></h2>
+<p>When adding a custom script not handled by an RPM, please add the script in a directory inside <code class="docutils literal notranslate"><span class="pre">/var/lib/nethserver/fax/</span></code> and link it to the final destination. In fact the <code class="docutils literal notranslate"><span class="pre">/var/spool/hylafax/etc/</span></code> directory is not (actually) in the backup.</p>
+<p>So, for example, if you wish to add a <code class="docutils literal notranslate"><span class="pre">90test</span></code> script to accounting, save the files in the <code class="docutils literal notranslate"><span class="pre">/var/spool/hylafax/etc/accounting</span></code> directory and link to the Hylafax configuration directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ln -s /var/lib/nethserver/fax/accounting/90test /var/spool/hylafax/etc/accounting/90test
+</pre></div>
+</div>
+</div>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>Clients are authenticated using reverse dns queries: all ip resolved with the same domain as server itself are automatically authenticated. If reverse dns query, client can authenticate using user name and password of a user inside <code class="docutils literal notranslate"><span class="pre">faxmaster</span></code> group.</p>
+<p>Clients should always use username, despite of authentication method used.</p>
+</div>
+<div class="section" id="internationalization">
+<h2>Internationalization<a class="headerlink" href="#internationalization" title="Permalink to this headline">¶</a></h2>
+<p>Notification on incoming and outgoing faxes can be localized using the <code class="docutils literal notranslate"><span class="pre">Lang</span></code> property. Default value is <code class="docutils literal notranslate"><span class="pre">en_US</span></code>.</p>
+</div>
+<div class="section" id="client-configuration">
+<h2>Client configuration<a class="headerlink" href="#client-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The only tested client is YajHFC (see <a class="reference external" href="http://www.yajhfc.de/">http://www.yajhfc.de/</a>). Current configuration works only with LAN clients.</p>
+<p>Configuration:</p>
+<ul class="simple">
+<li>Insert server ip (or hostname) and username</li>
+<li>Leave blank the password field</li>
+<li>Disable passive mode</li>
+</ul>
+</div>
+<div class="section" id="configuration-db">
+<h2>Configuration DB<a class="headerlink" href="#configuration-db" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>hylafax=configuration
+   AreaNumber=
+   ClientShowReceived=disabled
+   CountryCode=39
+   DateFormat=DMY
+   Debug=disabled
+   DispatchFileType=ps
+   FaxDevice=ttyS0
+   FaxName=fax
+   FaxNumber=
+   InternationalPrefix=00
+   Lang=it_IT
+   LongDistance=0
+   Mail2Fax=disabled
+   Mode=both
+   NotifyFileType=tif
+   NotifyMaster=always
+   PBXPrefix=
+   PaperSize=A4
+   PrintReceived=disabled
+   PrinterDriver=ljet4
+   PrinterName=
+   Resolution=196
+   RingsBeforeAnswer=1
+   SambaFax=disabled
+   SambaFaxName=SambaFax
+   SendReport=disabled
+   SendTo=aa``test.tld
+   SummaryReport=disabled
+   WaitDialTone=enabled
+
+hylafax-hfaxd=service
+   TCPPort=4559
+   status=enabled
+   access=private
+
+hylafax-faxq=service
+   status=enabled
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-iaxmodem.html" class="btn btn-neutral float-right" title="nethserver-iaxmodem" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-httpd-admin.html" class="btn btn-neutral float-left" title="nethserver-httpd-admin" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
