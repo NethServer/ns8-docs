@@ -23,4 +23,6 @@ Come configurare:
 
 Puoi accedere alla console di amministrazione aprendo la pagina `Status` e facendo clic sul link `Open console`.
 
-Per integrare Collabora con Nextcloud, consulta [Collabora Online](nextcloud.md#collabora-integration-section).
+## Integrazione con Nextcloud
+
+Per integrare Collabora con Nextcloud, consulta la sezione dedicata nella [pagina di documentazione di Nextcloud](../applications/nextcloud.md#collabora-integration-section).

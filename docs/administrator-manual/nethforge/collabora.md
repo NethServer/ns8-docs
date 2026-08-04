@@ -23,4 +23,6 @@ How to configure:
 
 You can access the admin console by accessing the `Status` page and clicking the `Open console` link.
 
-To integrate Collabora with Nextcloud, see [Collabora Online](nextcloud.md#collabora-integration-section).
+## Nextcloud integration
+
+To integrate Collabora with Nextcloud, see the relevant section in the [Nextcloud documentation page](../applications/nextcloud.md#collabora-integration-section).
