@@ -16,4 +16,8 @@ Le funzionalità principali del controller NethSecurity includono:
 - **Visualizzazione delle metriche**: visualizza le metriche dei firewall con la dashboard Grafana integrata. Le metriche vengono raccolte usando Prometheus e TimescaleDB.
 - **SSH via web**: accedi all'interfaccia a riga di comando dei firewall usando un client SSH via web.
 
+:::warning
+Lo stato della sottoscrizione deve corrispondere su entrambi i lati: se il firewall ha una sottoscrizione valida, anche la macchina NethServer 8 che esegue il controller deve avere una sottoscrizione valida, e viceversa. Se lo stato della sottoscrizione non corrisponde tra il firewall e l'host NS8 del controller, l'unità non riesce a connettersi al controller.
+:::
+
 Consulta la [documentazione del controller NethSecurity](https://docs.nethsecurity.org/docs/administrator-manual/system/controller) per saperne di più sulle funzionalità del controller e su come configurarlo.

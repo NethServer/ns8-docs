@@ -16,4 +16,8 @@ Key features of the NethSecurity controller include:
 - **Metrics Visualization**: Visualize metrics from the firewalls using the built-in Grafana dashboard. Metrics are collected using Prometheus and TimescaleDB.
 - **Web-based SSH**: Access the firewalls' command-line interface using a web-based SSH client.
 
+:::warning
+The subscription status must match on both sides: if the firewall has a valid subscription, the NethServer 8 machine running the controller must also have a valid subscription, and vice versa. If the subscription status does not match between the firewall and the controller's NS8 host, the unit fails to connect to the controller.
+:::
+
 See the [NethSecurity controller documentation](https://docs.nethsecurity.org/docs/administrator-manual/system/controller) to learn more about the controller's features and how to set it up.
