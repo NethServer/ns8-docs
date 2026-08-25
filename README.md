@@ -90,6 +90,57 @@ Then open:
 - `http://localhost:3000/it/v6/`
 - `http://localhost:3000/projects/nethserver-devel/en/latest/`
 
+## Syncing app READMEs to Kapa
+
+The "Ask AI" widget answers from two knowledge sources: this manual, and the
+`README.md` of every published NS8 app. The second source is a bucket of
+markdown files that Kapa indexes as a separate, developer-oriented source
+group, so that answers drawn from it are flagged as such.
+
+`.github/workflows/sync-app-readmes.yml` refreshes that bucket daily. To run
+the collection step locally, without uploading anything:
+
+```bash
+yarn sync:app-readmes --dry-run          # list the apps and their repositories
+yarn sync:app-readmes --out /tmp/readmes # collect the READMEs into /tmp/readmes
+```
+
+The app list comes from the `repodata.json` feeds of the core and NethForge
+repositories, and each app's repository is taken from its `docs.code_url`
+field, so apps maintained outside the NethServer organization are included too.
+Apps whose `code_url` is a placeholder, or whose repository has no README, are
+skipped and listed at the end of the run.
+
+Every collected file gets a provenance banner prepended, warning that it is
+developer documentation rather than the official manual. The banner is part of
+the indexed content on purpose: it reaches the model through retrieval, and
+does not depend on the Kapa system instructions alone. An `index.json` maps
+each object key to its GitHub URL, which is what Kapa shows in citations.
+
+The collection step reads the GitHub API, which limits anonymous callers to 60
+requests per hour: not enough for two runs in a row. If you are logged in with
+`gh auth login` its token is picked up automatically; otherwise set `GH_TOKEN`
+to a token with no scopes. Every repository read here is public.
+
+Uploading requires write credentials for the Kapa bucket, so it is normally left
+to the workflow. To do it by hand, pass the destination to the upload wrapper:
+
+```bash
+export AWS_ACCESS_KEY_ID=... AWS_SECRET_ACCESS_KEY=... AWS_DEFAULT_REGION=...
+yarn upload:app-readmes s3://BUCKET/app-readmes --dry-run  # collect, print the sync command
+yarn upload:app-readmes s3://BUCKET/app-readmes            # collect and upload
+```
+
+The wrapper collects the READMEs and runs `aws s3 sync --delete` for you. Pass
+the destination and nothing else: it derives the `index.json` object keys from
+that single URL, so they cannot disagree with the keys the objects actually get.
+Doing the two steps by hand instead is what makes them drift, and the failure is
+silent — the files upload and index correctly, only the citation URLs are wrong.
+
+For an S3-compatible provider other than AWS, add `--endpoint-url URL` or set
+`KAPA_S3_ENDPOINT_URL`. The credentials used here need write access; the ones
+configured in Kapa are a separate, read-only pair.
+
 ## How to contribute
 
 The easiest way to contribute is by forking and editing the repository on

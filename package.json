@@ -11,6 +11,8 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "stage:legacy": "node ./scripts/stage-legacy-docs.mjs",
+    "sync:app-readmes": "node ./scripts/sync-app-readmes.mjs",
+    "upload:app-readmes": "node ./scripts/upload-app-readmes.mjs",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc"
