@@ -93,7 +93,7 @@ Then open:
 ## Syncing app READMEs to Kapa
 
 The "Ask AI" widget answers from two knowledge sources: this manual, and the
-`README.md` of every published NS8 app. The second source is a bucket of
+READMEs of every published NS8 app. The second source is a bucket of
 markdown files that Kapa indexes as a separate, developer-oriented source
 group, so that answers drawn from it are flagged as such.
 
@@ -101,7 +101,7 @@ group, so that answers drawn from it are flagged as such.
 the collection step locally, without uploading anything:
 
 ```bash
-yarn sync:app-readmes --dry-run          # list the apps and their repositories
+yarn sync:app-readmes --dry-run          # list the files that would be collected
 yarn sync:app-readmes --out /tmp/readmes # collect the READMEs into /tmp/readmes
 ```
 
@@ -111,16 +111,25 @@ field, so apps maintained outside the NethServer organization are included too.
 Apps whose `code_url` is a placeholder, or whose repository has no README, are
 skipped and listed at the end of the run.
 
+Both the root README and the README of each component subdirectory are
+collected, so an app like `ns8-mail` contributes its own README plus those of
+`postfix/`, `dovecot/`, `rspamd/` and `clamav/`. READMEs under `ui/`, `test/`,
+`tests/`, `lib/`, `var/`, `vendor/` and `node_modules/` are left out, as are
+component READMEs below 300 bytes: those are scaffold, vendored or stub files,
+and near-identical copies of them across 40 repositories would only crowd out
+real content at retrieval time.
+
 Every collected file gets a provenance banner prepended, warning that it is
 developer documentation rather than the official manual. The banner is part of
 the indexed content on purpose: it reaches the model through retrieval, and
 does not depend on the Kapa system instructions alone. An `index.json` maps
 each object key to its GitHub URL, which is what Kapa shows in citations.
 
-The collection step reads the GitHub API, which limits anonymous callers to 60
-requests per hour: not enough for two runs in a row. If you are logged in with
-`gh auth login` its token is picked up automatically; otherwise set `GH_TOKEN`
-to a token with no scopes. Every repository read here is public.
+The collection step needs a GitHub token: it makes one call per app to list its
+files and one per collected README, around 110 in total, against an anonymous
+allowance of 60 per hour. If you are logged in with `gh auth login` its token is
+picked up automatically; otherwise set `GH_TOKEN` to a token with no scopes.
+Every repository read here is public.
 
 Uploading requires write credentials for the Kapa bucket, so it is normally left
 to the workflow. To do it by hand, pass the destination to the upload wrapper:

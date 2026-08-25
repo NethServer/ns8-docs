@@ -1,6 +1,9 @@
 /**
- * Collects the README.md of every published NS8 app and writes them as a flat
- * markdown tree ready to be synced to the Kapa S3 bucket.
+ * Collects the READMEs of every published NS8 app and writes them as a markdown
+ * tree ready to be synced to the Kapa S3 bucket.
+ *
+ * Both the root README and the README of each component subdirectory are
+ * collected. Scaffold and vendored ones are not: see excludedSegments.
  *
  * The list of apps comes from the two repodata.json feeds, not from a repository
  * name glob: NethForge apps are maintained outside the NethServer organization.
@@ -27,6 +30,23 @@ const feeds = [
 ];
 
 const concurrency = 8;
+
+// A README under any of these directories is scaffold, vendored, or a fixture:
+// `ui/README.md` alone accounts for 34 near-identical copies of the vue-cli
+// boilerplate, which would only clutter retrieval.
+const excludedSegments = new Set([
+  'ui',
+  'test',
+  'tests',
+  'lib',
+  'var',
+  'vendor',
+  'node_modules',
+]);
+
+// Component READMEs below this size carry no usable content. The root README is
+// exempt: it is the app's primary document even when it is thin.
+const minimumComponentSize = 300;
 
 function parseArgs(argv) {
   const options = {out: 'app-readmes-sync', prefix: 'app-readmes', dryRun: false};
@@ -84,8 +104,10 @@ function parseGithubRepo(codeUrl) {
 
 /**
  * The token only lifts the anonymous rate limit: every repository read here is
- * public. In CI the environment provides it; locally we borrow the one the gh
- * CLI already holds, so nobody has to mint a second token by hand.
+ * public. It is required in practice, since a run needs one tree call per app
+ * plus one call per collected file, well past the 60/hour anonymous allowance.
+ * In CI the environment provides it; locally we borrow the one the gh CLI
+ * already holds, so nobody has to mint a second token by hand.
  */
 function resolveGithubToken() {
   const fromEnv = process.env.GH_TOKEN ?? process.env.GITHUB_TOKEN;
@@ -103,16 +125,16 @@ function resolveGithubToken() {
 
 const githubToken = resolveGithubToken();
 
-async function fetchReadme({owner, repo}) {
-  const headers = {accept: 'application/vnd.github.raw'};
+function githubHeaders(accept) {
+  const headers = {accept};
   if (githubToken) {
     headers.authorization = `Bearer ${githubToken}`;
   }
+  return headers;
+}
 
-  const response = await fetch(
-    `https://api.github.com/repos/${owner}/${repo}/readme`,
-    {headers}
-  );
+async function githubFetch(url, accept) {
+  const response = await fetch(url, {headers: githubHeaders(accept)});
 
   if (response.status === 404) {
     return null;
@@ -126,17 +148,82 @@ async function fetchReadme({owner, repo}) {
         : 'unknown';
       throw new Error(
         'GitHub API rate limit exhausted' +
-          `${githubToken ? '' : ' (anonymous requests are limited to 60 per' +
-            ' hour: run `gh auth login`, or set GH_TOKEN to a token with no' +
-            ' scopes)'}` +
+          `${githubToken ? '' : ' (a run needs about 110 requests and anonymous' +
+            ' callers get 60 per hour: run `gh auth login`, or set GH_TOKEN to a' +
+            ' token with no scopes)'}` +
           `. Limit resets at ${resetAt}`
       );
     }
   }
   if (!response.ok) {
-    throw new Error(
-      `GitHub API returned HTTP ${response.status} for ${owner}/${repo}`
+    throw new Error(`GitHub API returned HTTP ${response.status} for ${url}`);
+  }
+
+  return response;
+}
+
+/**
+ * Lists the READMEs worth collecting in a repository. One recursive tree call
+ * returns every path with its size, so both filters apply without fetching
+ * anything.
+ */
+async function listReadmes(app) {
+  const response = await githubFetch(
+    `https://api.github.com/repos/${app.owner}/${app.repo}/git/trees/HEAD?recursive=1`,
+    'application/json'
+  );
+
+  if (!response) {
+    return {files: [], reason: `no repository at ${app.owner}/${app.repo}`};
+  }
+
+  const tree = await response.json();
+
+  if (tree.truncated) {
+    console.log(
+      `Warning: the tree of ${app.owner}/${app.repo} is truncated, some READMEs may be missing`
     );
+  }
+
+  const readmes = (tree.tree ?? []).filter(
+    (entry) => entry.type === 'blob' && /(^|\/)README\.md$/i.test(entry.path)
+  );
+
+  const files = [];
+
+  for (const entry of readmes) {
+    const segments = entry.path.split('/');
+    const directories = segments.slice(0, -1);
+
+    if (directories.length === 0) {
+      files.push({path: entry.path, directory: null});
+      continue;
+    }
+    if (directories.some((segment) => excludedSegments.has(segment.toLowerCase()))) {
+      continue;
+    }
+    if (entry.size < minimumComponentSize) {
+      continue;
+    }
+
+    files.push({path: entry.path, directory: directories.join('/')});
+  }
+
+  if (!files.some((file) => !file.directory)) {
+    return {files, reason: `no root README.md in ${app.owner}/${app.repo}`};
+  }
+
+  return {files, reason: null};
+}
+
+async function fetchFile(app, filePath) {
+  const response = await githubFetch(
+    `https://api.github.com/repos/${app.owner}/${app.repo}/contents/${filePath}`,
+    'application/vnd.github.raw'
+  );
+
+  if (!response) {
+    return null;
   }
 
   const body = await response.text();
@@ -155,9 +242,9 @@ function latestStableTag(versions) {
  * The banner is one contiguous blockquote on purpose: it has to survive Kapa's
  * chunking so that every retrieved chunk of the file carries the warning.
  */
-function buildBanner(app) {
+function buildBanner(app, file) {
   const lines = [
-    `> **Source type: developer documentation.** This page is the \`README.md\` of the`,
+    `> **Source type: developer documentation.** This page is \`${file.path}\` in the`,
     `> repository \`${app.owner}/${app.repo}\`, which packages the NS8 app \`${app.id}\`.`,
     `> It is written for developers and packagers, is not part of the official`,
     `> NethServer 8 manual, and may be incomplete, out of date, or describe unreleased`,
@@ -176,8 +263,10 @@ function buildBanner(app) {
   return lines.join('\n');
 }
 
-function buildDocument(app, readme) {
-  const title = `# ${app.name} (${app.id}) — NS8 app README`;
+function buildDocument(app, file, readme) {
+  const title = file.directory
+    ? `# ${app.name} (${app.id}) — ${file.directory} component README`
+    : `# ${app.name} (${app.id}) — NS8 app README`;
 
   const facts = [
     app.description ? `Description: ${app.description}.` : null,
@@ -193,7 +282,18 @@ function buildDocument(app, readme) {
     .replace(/^#(?=\s)/m, '##')
     .trim();
 
-  return `${title}\n\n${buildBanner(app)}\n\n${facts.join(' ')}\n\n${body}\n`;
+  return `${title}\n\n${buildBanner(app, file)}\n\n${facts.join(' ')}\n\n${body}\n`;
+}
+
+/**
+ * Bucket key for a collected file: the root README becomes index.md, a component
+ * README takes its directory path with slashes flattened to dashes.
+ */
+function objectPath(app, file) {
+  const name = file.directory
+    ? `${file.directory.replace(/\//g, '-')}.md`
+    : 'index.md';
+  return path.posix.join(app.origin, app.id, name);
 }
 
 async function mapWithConcurrency(items, limit, mapper) {
@@ -274,28 +374,43 @@ async function main() {
 
   console.log(`Resolved ${selected.length} apps from ${feeds.length} feeds`);
 
+  // Discovery is one tree call per app, so it runs for a dry run too: the point
+  // of a dry run is to show which files would be collected.
+  const listings = await mapWithConcurrency(selected, concurrency, async (app) => {
+    const {files, reason} = await listReadmes(app);
+    if (reason) {
+      skipped.push({id: app.id, origin: app.origin, reason});
+    }
+    return files.map((file) => ({app, file}));
+  });
+
+  const candidates = listings.flat();
+
   if (options.dryRun) {
-    for (const app of selected) {
-      console.log(`  ${app.origin}/${app.id} → ${app.owner}/${app.repo}`);
+    for (const {app, file} of candidates) {
+      console.log(`  ${objectPath(app, file)} ← ${app.owner}/${app.repo}/${file.path}`);
     }
     for (const {id, origin, reason} of skipped) {
       console.log(`  skipped ${origin}/${id}: ${reason}`);
     }
-    console.log('Dry run: no README fetched, nothing written');
-    process.exit(0);
+    console.log(
+      `Dry run: ${candidates.length} files would be collected, nothing written`
+    );
+    return;
   }
 
-  const documents = await mapWithConcurrency(selected, concurrency, async (app) => {
-    const readme = await fetchReadme(app);
+  const documents = await mapWithConcurrency(candidates, concurrency, async (candidate) => {
+    const {app, file} = candidate;
+    const readme = await fetchFile(app, file.path);
     if (!readme) {
       skipped.push({
         id: app.id,
         origin: app.origin,
-        reason: `no README in ${app.owner}/${app.repo}`,
+        reason: `${file.path} disappeared from ${app.owner}/${app.repo}`,
       });
       return null;
     }
-    return {app, content: buildDocument(app, readme)};
+    return {app, file, content: buildDocument(app, file, readme)};
   });
 
   const written = documents.filter(Boolean);
@@ -309,16 +424,18 @@ async function main() {
 
   const index = [];
 
-  for (const {app, content} of written) {
-    const relativePath = path.join(app.origin, `${app.id}.md`);
+  for (const {app, file, content} of written) {
+    const relativePath = objectPath(app, file);
     const target = path.join(outDir, relativePath);
     fs.mkdirSync(path.dirname(target), {recursive: true});
     fs.writeFileSync(target, content, 'utf8');
 
     index.push({
       // object_key must be the full key in the bucket, prefix included.
-      object_key: path.posix.join(options.prefix, app.origin, `${app.id}.md`),
-      source_url: `${app.codeUrl.replace(/\/$/, '')}#readme`,
+      object_key: path.posix.join(options.prefix, relativePath),
+      // blob/HEAD resolves to the default branch, so the branch name never has
+      // to be looked up.
+      source_url: `https://github.com/${app.owner}/${app.repo}/blob/HEAD/${file.path}`,
     });
   }
 
