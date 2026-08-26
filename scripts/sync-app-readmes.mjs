@@ -5,6 +5,9 @@
  * Both the root README and the README of each component subdirectory are
  * collected. Scaffold and vendored ones are not: see excludedSegments.
  *
+ * Every file is read at the app's latest stable release tag rather than at the
+ * branch head, so the collected text matches the version users are running.
+ *
  * The list of apps comes from the two repodata.json feeds, not from a repository
  * name glob: NethForge apps are maintained outside the NethServer organization.
  *
@@ -168,13 +171,31 @@ async function githubFetch(url, accept) {
  * anything.
  */
 async function listReadmes(app) {
-  const response = await githubFetch(
-    `https://api.github.com/repos/${app.owner}/${app.repo}/git/trees/HEAD?recursive=1`,
-    'application/json'
-  );
+  // Read the app as it was released, not as it is being developed: the manual
+  // describes released behaviour, and a README from main can document options
+  // that no published version has yet.
+  const refs = app.version ? [app.version, 'HEAD'] : ['HEAD'];
+  let response = null;
+  let ref = null;
+
+  for (const candidate of refs) {
+    response = await githubFetch(
+      `https://api.github.com/repos/${app.owner}/${app.repo}/git/trees/${candidate}?recursive=1`,
+      'application/json'
+    );
+    if (response) {
+      ref = candidate;
+      break;
+    }
+  }
 
   if (!response) {
-    return {files: [], reason: `no repository at ${app.owner}/${app.repo}`};
+    return {files: [], ref: null, reason: `no repository at ${app.owner}/${app.repo}`};
+  }
+  if (app.version && ref !== app.version) {
+    console.log(
+      `Warning: ${app.owner}/${app.repo} has no tag ${app.version}, reading its default branch instead`
+    );
   }
 
   const tree = await response.json();
@@ -210,15 +231,15 @@ async function listReadmes(app) {
   }
 
   if (!files.some((file) => !file.directory)) {
-    return {files, reason: `no root README.md in ${app.owner}/${app.repo}`};
+    return {files, ref, reason: `no root README.md in ${app.owner}/${app.repo}@${ref}`};
   }
 
-  return {files, reason: null};
+  return {files, ref, reason: null};
 }
 
-async function fetchFile(app, filePath) {
+async function fetchFile(app, filePath, ref) {
   const response = await githubFetch(
-    `https://api.github.com/repos/${app.owner}/${app.repo}/contents/${filePath}`,
+    `https://api.github.com/repos/${app.owner}/${app.repo}/contents/${filePath}?ref=${ref}`,
     'application/vnd.github.raw'
   );
 
@@ -230,26 +251,70 @@ async function fetchFile(app, filePath) {
   return body.trim() ? body : null;
 }
 
+function compareVersions(a, b) {
+  const left = a.split('.');
+  const right = b.split('.');
+
+  for (let index = 0; index < Math.max(left.length, right.length); index += 1) {
+    const numericLeft = Number(left[index] ?? 0);
+    const numericRight = Number(right[index] ?? 0);
+
+    if (Number.isNaN(numericLeft) || Number.isNaN(numericRight)) {
+      const compared = (left[index] ?? '').localeCompare(right[index] ?? '');
+      if (compared !== 0) {
+        return compared;
+      }
+      continue;
+    }
+    if (numericLeft !== numericRight) {
+      return numericLeft - numericRight;
+    }
+  }
+
+  return 0;
+}
+
+/**
+ * Highest stable tag in a repodata versions array. The array is not ordered:
+ * ns8-core lists 2.9.6 before 3.21.0 because it still supports both majors, so
+ * the entries have to be compared rather than picked positionally.
+ */
 function latestStableTag(versions) {
   if (!Array.isArray(versions)) {
     return null;
   }
-  const stable = versions.find((version) => version && version.testing === false);
-  return (stable ?? versions[0])?.tag ?? null;
+
+  const stable = versions
+    .filter((version) => version?.testing === false && typeof version.tag === 'string')
+    .map((version) => version.tag)
+    .sort(compareVersions);
+
+  return stable.at(-1) ?? null;
 }
 
 /**
  * The banner is one contiguous blockquote on purpose: it has to survive Kapa's
  * chunking so that every retrieved chunk of the file carries the warning.
  */
-function buildBanner(app, file) {
+function buildBanner(app, file, ref) {
+  // Pinned to a release tag the page cannot describe unreleased behaviour, so
+  // that caveat is dropped rather than left standing as a false warning.
+  const pinned = ref === app.version;
+  const source = pinned
+    ? `\`${file.path}\` at release \`${ref}\` of the`
+    : `\`${file.path}\` on the development branch of the`;
+
   const lines = [
-    `> **Source type: developer documentation.** This page is \`${file.path}\` in the`,
+    `> **Source type: developer documentation.** This page is ${source}`,
     `> repository \`${app.owner}/${app.repo}\`, which packages the NS8 app \`${app.id}\`.`,
     `> It is written for developers and packagers, is not part of the official`,
-    `> NethServer 8 manual, and may be incomplete, out of date, or describe unreleased`,
-    `> behaviour. Prefer the official manual at https://docs.nethserver.org when it`,
-    `> covers the topic.`,
+    pinned
+      ? `> NethServer 8 manual, and may be incomplete or out of date. Prefer the`
+      : `> NethServer 8 manual, and may be incomplete, out of date, or describe`,
+    pinned
+      ? `> official manual at https://docs.nethserver.org when it covers the topic.`
+      : `> unreleased behaviour. Prefer the official manual at`,
+    ...(pinned ? [] : [`> https://docs.nethserver.org when it covers the topic.`]),
   ];
 
   if (app.origin === 'nethforge') {
@@ -263,7 +328,7 @@ function buildBanner(app, file) {
   return lines.join('\n');
 }
 
-function buildDocument(app, file, readme) {
+function buildDocument(app, file, ref, readme) {
   const title = file.directory
     ? `# ${app.name} (${app.id}) — ${file.directory} component README`
     : `# ${app.name} (${app.id}) — NS8 app README`;
@@ -271,7 +336,12 @@ function buildDocument(app, file, readme) {
   const facts = [
     app.description ? `Description: ${app.description}.` : null,
     app.categories.length ? `Categories: ${app.categories.join(', ')}.` : null,
-    app.version ? `Latest published version: ${app.version}.` : null,
+    ref === app.version
+      ? `Taken from release ${ref}, the latest published version.`
+      : 'Taken from the development branch, ahead of any published release.',
+    app.version && ref !== app.version
+      ? `Latest published version: ${app.version}.`
+      : null,
     `Distribution: ${app.origin === 'core' ? 'NethServer core repository' : 'NethForge'}.`,
     `Repository: ${app.codeUrl}`,
   ].filter(Boolean);
@@ -282,7 +352,7 @@ function buildDocument(app, file, readme) {
     .replace(/^#(?=\s)/m, '##')
     .trim();
 
-  return `${title}\n\n${buildBanner(app, file)}\n\n${facts.join(' ')}\n\n${body}\n`;
+  return `${title}\n\n${buildBanner(app, file, ref)}\n\n${facts.join(' ')}\n\n${body}\n`;
 }
 
 /**
@@ -377,18 +447,20 @@ async function main() {
   // Discovery is one tree call per app, so it runs for a dry run too: the point
   // of a dry run is to show which files would be collected.
   const listings = await mapWithConcurrency(selected, concurrency, async (app) => {
-    const {files, reason} = await listReadmes(app);
+    const {files, ref, reason} = await listReadmes(app);
     if (reason) {
       skipped.push({id: app.id, origin: app.origin, reason});
     }
-    return files.map((file) => ({app, file}));
+    return files.map((file) => ({app, file, ref}));
   });
 
   const candidates = listings.flat();
 
   if (options.dryRun) {
-    for (const {app, file} of candidates) {
-      console.log(`  ${objectPath(app, file)} ← ${app.owner}/${app.repo}/${file.path}`);
+    for (const {app, file, ref} of candidates) {
+      console.log(
+        `  ${objectPath(app, file)} ← ${app.owner}/${app.repo}@${ref}/${file.path}`
+      );
     }
     for (const {id, origin, reason} of skipped) {
       console.log(`  skipped ${origin}/${id}: ${reason}`);
@@ -400,17 +472,17 @@ async function main() {
   }
 
   const documents = await mapWithConcurrency(candidates, concurrency, async (candidate) => {
-    const {app, file} = candidate;
-    const readme = await fetchFile(app, file.path);
+    const {app, file, ref} = candidate;
+    const readme = await fetchFile(app, file.path, ref);
     if (!readme) {
       skipped.push({
         id: app.id,
         origin: app.origin,
-        reason: `${file.path} disappeared from ${app.owner}/${app.repo}`,
+        reason: `${file.path} disappeared from ${app.owner}/${app.repo}@${ref}`,
       });
       return null;
     }
-    return {app, file, content: buildDocument(app, file, readme)};
+    return {app, file, ref, content: buildDocument(app, file, ref, readme)};
   });
 
   const written = documents.filter(Boolean);
@@ -424,7 +496,7 @@ async function main() {
 
   const index = [];
 
-  for (const {app, file, content} of written) {
+  for (const {app, file, ref, content} of written) {
     const relativePath = objectPath(app, file);
     const target = path.join(outDir, relativePath);
     fs.mkdirSync(path.dirname(target), {recursive: true});
@@ -433,9 +505,9 @@ async function main() {
     index.push({
       // object_key must be the full key in the bucket, prefix included.
       object_key: path.posix.join(options.prefix, relativePath),
-      // blob/HEAD resolves to the default branch, so the branch name never has
-      // to be looked up.
-      source_url: `https://github.com/${app.owner}/${app.repo}/blob/HEAD/${file.path}`,
+      // Pointing at the tag makes the citation permanent: the page Kapa quotes
+      // stays the page a reader opens, whatever lands on the branch later.
+      source_url: `https://github.com/${app.owner}/${app.repo}/blob/${ref}/${file.path}`,
     });
   }
 
