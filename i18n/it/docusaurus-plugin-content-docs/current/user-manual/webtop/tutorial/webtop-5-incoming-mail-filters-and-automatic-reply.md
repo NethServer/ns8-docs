@@ -33,3 +33,7 @@ Inserisci sempre almeno l'indirizzo usato nell'identità principale.
 :::
 
 Puoi anche personalizzare l'oggetto della mail di risposta automatica, modificare i giorni tra le risposte da inviare agli stessi mittenti e impostare le date di attivazione e disattivazione automatica.
+
+:::note
+Al momento non è possibile impostare la risposta automatica in modo massivo per tutti gli utenti. Devi accedere ai singoli profili, eventualmente usando il login impersonale (`admin!<user>`).
+:::
