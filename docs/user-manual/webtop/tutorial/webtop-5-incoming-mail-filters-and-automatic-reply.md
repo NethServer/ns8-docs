@@ -33,3 +33,7 @@ Always add at least the address used by your main identity.
 :::
 
 You can also customize the subject of the automatic reply, change the number of days between replies sent to the same sender, and set automatic activation and deactivation dates.
+
+:::note
+At the moment, you cannot configure automatic replies for all users in bulk. You must access each profile, optionally using the impersonation login (`admin!<user>`).
+:::
