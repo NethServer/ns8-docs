@@ -19,7 +19,10 @@ Se il comando `curl` non è disponibile, prova a installarlo con:
 
     apt install curl || dnf install curl
 
-Lo script di installazione applica anche gli aggiornamenti di sicurezza più recenti della distribuzione. Riavvia il sistema al termine dell'installazione.
+Lo script di installazione applica anche gli aggiornamenti di sicurezza più recenti della distribuzione. Riavvia il sistema al termine dell'installazione:
+
+    reboot
+
 ## Immagine preconfigurata {#install_image-section}
 
 L'immagine della macchina virtuale preconfigurata si basa su Rocky Linux 9 e viene fornita preconfigurata con i pacchetti e i componenti principali di NS8 installati tramite la procedura di installazione standard. Utilizza Cloud-init per l'inizializzazione della rete. Consulta la documentazione della tua piattaforma di virtualizzazione per ulteriori informazioni sul supporto di Cloud-init.

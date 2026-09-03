@@ -20,7 +20,9 @@ If the `curl` command is not available try to install it with:
 
     apt install curl || dnf install curl
 
-The install script also applies the latest security distribution updates. Reboot the system at the end of the installation.
+The install script also applies the latest security distribution updates. Reboot the system at the end of the installation:
+
+    reboot
 
 ## Pre-built image {#install_image-section}
 
