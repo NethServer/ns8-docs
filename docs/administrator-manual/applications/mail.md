@@ -83,11 +83,11 @@ To further protect against mail domain spoofing, consider adding DNS records for
 
 ## Mailboxes {#mail-mailboxes-settings}
 
-Each user has a personal mailbox and any user name in the form *\<username\>@\<domain\>* is also a valid email address to deliver messages into it.
-
 The list of mailboxes is shown on the `Mailboxes` page. There are two types of mailboxes: users and public mailboxes.
 
-### Users mailboxes
+### User mailbox
+
+Each user has a personal mailbox. By enabling the `Add user addresses from user domain` option under [Domains](#email_domains) any user name in the form *\<username\>@\<domain\>* is also a valid email address to deliver messages into it.
 
 You can disable each mailbox by selecting the `Disable` item from the three-dots menu on the mailbox line.
 
@@ -97,11 +97,11 @@ By clicking the `Edit` item from the three-dots menu it's possible to setup the 
 - `Custom mailbox quota`: override the quota configured from the [Settings](#mail_settings-section)
 - `Custom spam retention`: override the retention configured from the [Settings](#mail_settings-section)
 
-### Public mailboxes
+### Public mailbox
 
 Public mailboxes can be shared among groups of users. The **Create public mailbox** button allows creating a new public mailbox and defining one or more owning groups and users. Public mailboxes can also be created by any IMAP client supporting IMAP ACL protocol extension (RFC 4314).
 
-When a new public mailbox is created, the mail server will automatically add a new address for all existing mail domains.
+When a new public mailbox is created, the mail server will automatically add a new wildcard address valid for all existing mail domains.
 
 ### Restore a mailbox folder from a backup {#mailbox-selective-restore}
 
