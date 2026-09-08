@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Shared folders &mdash; NethServer 6.10 Final</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Windows network" href="samba.html" />
+    <link rel="prev" title="POP3 proxy" href="pop3_proxy.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../v7/shared_folder.html" />
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2020-12-01T11:43:47Z", "builder": "sphinx", "canonical_url": "https://docs.nethserver.org/en/v7/", "commit": "edf78e88", "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "shared_folder", "programming_language": "words", "project": "nethserver", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"nethserver-devel": "https://docs.nethserver.org/projects/nethserver-devel/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-3", "version": "v6"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver" /><meta name="readthedocs-version-slug" content="v6" /><meta name="readthedocs-resolver-filename" content="/shared_folder.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                v6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access.html">Accessing the Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Users and groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_connector.html">POP3 connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">POP3 proxy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Shared folders</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#access-privileges">Access privileges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-access">Web access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-a-web-application">Configuring a web application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#samba">Samba</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="samba.html">Windows network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Fax server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Web proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content_filter.html">Web content filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall and gateway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flashstart.html">Cloud content filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proxy_pass.html">Proxy pass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snort.html">IPS (Snort)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Bandwidth monitor (ntopng)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">DHCP and PXE server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp.html">FTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="owncloud.html">ownCloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webvirtmgr.html">WebVirtMgr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webtop4.html">WebTop 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adagios.html">Adagios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocs.html">OCS Inventory NG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ha.html">HA (High Availability)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_tool.html">Upgrade tool</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Documentation license</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Shared folders</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/docs/blob/v6/administrator-manual/en/shared_folder.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="shared-folders-section"></span><div class="section" id="shared-folders">
+<span id="index-0"></span><h1>Shared folders<a class="headerlink" href="#shared-folders" title="Permalink to this headline">¶</a></h1>
+<p>A <em>shared folder</em> is a place where files can be accessed by a group of
+people using different methods, or <em>protocols</em>.  Since NethServer is a
+modular system, the actual methods depends on what modules have been
+installed.</p>
+<p>The available methods/protocols are:</p>
+<ul class="simple">
+<li>Web access (HTTP)</li>
+<li>Samba (SMB/CIFS)</li>
+</ul>
+<div class="section" id="access-privileges">
+<h2>Access privileges<a class="headerlink" href="#access-privileges" title="Permalink to this headline">¶</a></h2>
+<p>A shared folder is always owned by a group of users (<span class="guilabel">Owning
+group</span>). Each member of the group is allowed to read the folder
+contents. Optionally the group can be entitled to modify the folder
+contents and the read permission can be extended to everyone accessing the
+system.  This simple permission model is based on the traditional UNIX
+file system permissions.</p>
+<p>Access privileges can be refined further with the <span class="guilabel">ACL</span> tab,
+allowing individual users and other groups to gain read and write
+permissions.  This extended permission model is based on the POSIX ACL
+specification.</p>
+</div>
+<div class="section" id="web-access">
+<h2>Web access<a class="headerlink" href="#web-access" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Web access</span> method allows the connection of a web
+browser to a shared folder using the HTTP protocol.  Web resources
+are identified by a string, the Uniform Resource Locator, or URL.</p>
+<p>For instance, if <code class="docutils literal notranslate"><span class="pre">docs</span></code> is the name of the shared folder, the URLs
+that allow the access to it could be:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://192.168.1.1/docs
+https://192.168.1.1/docs
+http://myserver/docs
+http://www.domain.com/docs
+http://docs.domain.com/
+</pre></div>
+</div>
+<p>Each URL has three components:</p>
+<ul class="simple">
+<li>protocol (<code class="docutils literal notranslate"><span class="pre">http://</span></code> or <code class="docutils literal notranslate"><span class="pre">https://</span></code>),</li>
+<li>host name (<code class="docutils literal notranslate"><span class="pre">192.168.1.1</span></code>, <code class="docutils literal notranslate"><span class="pre">myserver</span></code>, <code class="docutils literal notranslate"><span class="pre">www.domain.com</span></code>),</li>
+<li>path (<code class="docutils literal notranslate"><span class="pre">docs</span></code>).</li>
+</ul>
+<p>The <span class="guilabel">Web address</span> radio group defines the “path”
+component.</p>
+<ul class="simple">
+<li><span class="guilabel">Folder name</span> is the default, the same as the shared
+folder name, as <code class="docutils literal notranslate"><span class="pre">docs</span></code> in the example above.</li>
+<li><span class="guilabel">Web site root</span> means no path at all. For instance
+<code class="docutils literal notranslate"><span class="pre">http://docs.domain.com</span></code>.</li>
+<li><span class="guilabel">Custom</span> means an alternative name, to be detailed.</li>
+</ul>
+<p>The <span class="guilabel">Virtual host</span> selector lists all <span class="guilabel">Server
+alias</span> defined under the <span class="guilabel">DNS</span> page. “Any” means the host
+part is not considered to map the URL to the shared folder.</p>
+<p>The web access is anonymous and read-only. There are some options that
+can be tweaked to restrict the access.</p>
+<ul class="simple">
+<li><span class="guilabel">Allow access from trusted networks only</span>, restricts the
+access by looking at the IP address of the client,</li>
+<li><span class="guilabel">Protect by password</span>, requires an unique password to gain read access (to be specified here),</li>
+<li><span class="guilabel">Require SSL encrypted connection</span>.</li>
+</ul>
+</div>
+<div class="section" id="configuring-a-web-application">
+<h2>Configuring a web application<a class="headerlink" href="#configuring-a-web-application" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Allow .htaccess and write permissions overrides</span>
+check box activates a special Apache configuration designed to host a
+simple web application on a shared folder.  It allows overriding the
+default Apache configuration and grants Apache the write permissions
+on specific sub-directories.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If a shared folder contains executable code, such as PHP
+scripts, user permissions and security implications must
+be evaluated carefully.</p>
+</div>
+<p>If the check box is enabled</p>
+<ul class="simple">
+<li>any file named <code class="file docutils literal notranslate"><span class="pre">.htaccess</span></code> is loaded as <a class="reference external" href="http://httpd.apache.org/docs/2.2/howto/htaccess.html">configuration for
+Apache</a>.</li>
+<li>a text file named <code class="file docutils literal notranslate"><span class="pre">.htwritable</span></code> positioned in the root level of the
+shared folder may contain a list of sub-directories where Apache is
+granted write permission.  The syntax of the file is one
+sub-directory for each line.  Lines beginning with <code class="docutils literal notranslate"><span class="pre">#</span></code> are
+comments.  When the content of <code class="file docutils literal notranslate"><span class="pre">.htwritable</span></code> changes, the
+<span class="guilabel">Reset permission</span> button must be pressed again to
+propagate the file system permissions.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Shared folders are a powerful tool but are not meant to be a
+complete web hosting solution! For advanced Apache and
+virtual host setups drop a <code class="docutils literal notranslate"><span class="pre">.conf</span></code> file under the
+<code class="file docutils literal notranslate"><span class="pre">/etc/httpd/conf.d/</span></code> directory. Refer to the official
+Apache documentation for this.</p>
+</div>
+</div>
+<div class="section" id="samba">
+<h2>Samba<a class="headerlink" href="#samba" title="Permalink to this headline">¶</a></h2>
+<p>SMB/CIFS is a widley adopted protocol that allows to share files
+across a computer network.  In a way similar to Web URLs above, the
+shared folder name becomes the SMB “share name”.</p>
+<p>For instance, the SMB network addresses of the <code class="docutils literal notranslate"><span class="pre">docs</span></code> share could be</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\\192.168.1.1\docs
+\\MYSERVER\docs
+</pre></div>
+</div>
+<p>Compatible SMB clients can be used to set special ACLs on a specific
+file or sub-directory. At any time, the <span class="guilabel">Reset permissions</span>
+button restores UNIX and POSIX permissions according to what is defined
+in the <span class="guilabel">General</span> and <span class="guilabel">ACL</span> pages.</p>
+<p>If the option <span class="guilabel">Network recycle bin</span> is enabled, removed
+files are actually moved into a special “wastebasket” directory. The
+<span class="guilabel">Keep omonym files</span> keeps distinct file names inside
+the wastebasket directory, preventing overwrites.</p>
+<p>If <span class="guilabel">Guest access</span> is enabled, any provided authentication
+credentials are considered valid.</p>
+<p>If <span class="guilabel">Browseable</span> is enabled, the shared folder is listed publicly.
+This does not affect the permission to use this resource.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="samba.html" class="btn btn-neutral float-right" title="Windows network" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="pop3_proxy.html" class="btn btn-neutral float-left" title="POP3 proxy" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Nethesis Srl and the NethServer project contributors
+      
+        <span class="commit">
+          Revision <code>edf78e88</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

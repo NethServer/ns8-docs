@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Utenti e gruppi &mdash; NethServer 6.10 Final</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="Email" href="mail.html" />
+    <link rel="prev" title="Backup" href="backup.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../v7/accounts.html" />
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2020-12-02T08:39:31Z", "builder": "sphinx", "canonical_url": "https://docs.nethserver.org/it/v7/", "commit": "edf78e88", "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "it", "page": "accounts", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-3", "version": "v6"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v6" /><meta name="readthedocs-resolver-filename" content="/accounts.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                v6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access.html">Accedere al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utenti e gruppi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#users">Utenti</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access-to-services">Accesso ai servizi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#groups">Gruppi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-account">Account admin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#password-management">Gestione password</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#complexity">Complessità</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expiration">Scadenza</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#effects-of-expired-password">Effetti password scaduta</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#domain-password">Password di dominio</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notification-language">Lingua di notifica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-users">Importazione utenti</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_connector.html">Connettore POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samba.html">Windows network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content_filter.html">Filtro contenuti web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall e gateway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flashstart.html">Cloud content filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proxy_pass.html">Proxy pass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snort.html">IPS (Snort)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda (ntopng)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp.html">FTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="owncloud.html">ownCloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webvirtmgr.html">WebVirtMgr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webtop4.html">WebTop 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adagios.html">Adagios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocs.html">OCS Inventory NG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ha.html">HA (High Availability)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_tool.html">Upgrade tool</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Utenti e gruppi</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/docs/blob/v6/administrator-manual/en/accounts.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="users-and-groups">
+<span id="users-and-groups-section"></span><h1>Utenti e gruppi<a class="headerlink" href="#users-and-groups" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="users">
+<h2>Utenti<a class="headerlink" href="#users" title="Link a questa intestazione">¶</a></h2>
+<p>L’utente di sistema è necessario per accedere a molti servizi erogati da NethServer (email, cartelle condivise etc.).</p>
+<p>Ogni utente è caratterizzato da una coppia di credenziali (utente e password). Un nuovo account utente rimane bloccato finché non viene impostata una password. Un utente bloccato non può utilizzare i servizi di server che richiedono l’autenticazione.</p>
+<p>I seguenti campi sono obbligatori per la creazione di un utente:</p>
+<ul class="simple">
+<li>Nome utente</li>
+<li>Nome</li>
+<li>Cognome</li>
+</ul>
+<p>Campi opzionali:</p>
+<ul class="simple">
+<li>Società</li>
+<li>Ufficio</li>
+<li>Indirizzo</li>
+<li>Città</li>
+<li>Telefono</li>
+</ul>
+<p>Al termine della creazione, l’utente risulta disabilitato fino a quando non viene settata una password usando il pulsante <span class="guilabel">Cambia password</span>. Quando un utente è abilitato, l’utente può accedere al Server Manager e cambiare la propria password: <a class="reference internal" href="base_system.html#user-profile-section"><span class="std std-ref">Cambio password utente</span></a>.</p>
+<p>Un utente può essere aggiunto ad uno o più gruppi usando la pagina <span class="guilabel">Utenti</span> o <span class="guilabel">Gruppi</span>.</p>
+<p>A volte può essere necessario bloccare l’accesso ai servizi di un utente senza eliminare l’account. E” possibile farlo usando i pulsanti <span class="guilabel">Blocca</span> e <span class="guilabel">Sblocca</span>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Quando l’utente viene eliminato, verranno eliminati anche tutti i dati dell’utente.</p>
+</div>
+<div class="section" id="access-to-services">
+<span id="users-services-section"></span><h3>Accesso ai servizi<a class="headerlink" href="#access-to-services" title="Link a questa intestazione">¶</a></h3>
+<p>Dopo la creazione, un utente può essere abilito ad alcuni (o tutti) i servizi. La configurazione può essere fatta dalla sezione <span class="guilabel">Servizi</span>.</p>
+</div>
+</div>
+<div class="section" id="groups">
+<span id="groups-section"></span><h2>Gruppi<a class="headerlink" href="#groups" title="Link a questa intestazione">¶</a></h2>
+<p>Un gruppo di utenti può essere usato per assegnare permessi speciali o per creare liste di distribuzione email.</p>
+<p>Come gli utenti, un gruppo può essere abilitato ad alcuni (o tutti) i servizi.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Suggerimento</p>
+<p class="last">Per delegare l’accesso al Server Manager è possibile utilizzare i gruppi <code class="docutils literal notranslate"><span class="pre">managers</span></code> o <code class="docutils literal notranslate"><span class="pre">administrators</span></code>.</p>
+</div>
+<p>Si possono creare due gruppi speciali, gli utenti che appartengono a questi gruppi ottengono dei permessi aggiuntivi alle pagine del Server Manager.</p>
+<ul class="simple">
+<li><em class="dfn">administrators</em>: Gli utenti di questo gruppo hanno gli stessi permessi di root e admin.</li>
+<li><em class="dfn">managers</em>: Gli utenti di questo gruppo hanno l’accesso alle pagine della sezione Gestione.</li>
+</ul>
+</div>
+<div class="section" id="admin-account">
+<span id="admin-user-section"></span><h2>Account admin<a class="headerlink" href="#admin-account" title="Link a questa intestazione">¶</a></h2>
+<p>La pagina <span class="guilabel">Utenti</span> ha un elemento di default: <em class="dfn">admin</em>. Questo account consente di accedere al Server Manager con gli stessi permessi dell’utente <em class="dfn">root</em>. Inizialmente è <em>disabilitato</em> e non ha accesso dalla console.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Suggerimento</p>
+<p class="last">Per abilitare l’account <code class="docutils literal notranslate"><span class="pre">admin</span></code> impostare la sua password.</p>
+</div>
+<p>Dove possibile, l’utente <code class="docutils literal notranslate"><span class="pre">admin</span></code> ha dei privilegi speciali su alcuni servizi specifici, come <a class="reference internal" href="samba.html#samba-pdc"><span class="std std-ref">aggiungere una workstation al dominio Samba</span></a>.</p>
+</div>
+<div class="section" id="password-management">
+<h2>Gestione password<a class="headerlink" href="#password-management" title="Link a questa intestazione">¶</a></h2>
+<p>Il sistema prevede la possibilità di impostare dei vincoli sulla <em class="dfn">complessità</em> e la <em class="dfn">scadenza</em> delle password.</p>
+<p>Le politiche di gestione password possono essere cambiate usando l’interfaccia web dopo aver installato il modulo <code class="docutils literal notranslate"><span class="pre">nethserver-password</span></code>.</p>
+<div class="section" id="complexity">
+<h3>Complessità<a class="headerlink" href="#complexity" title="Link a questa intestazione">¶</a></h3>
+<p>La <span class="target" id="index-6"></span>complessità password è un insieme di condizioni minime che devono essere soddisfatte affinché la password venga accettata dal sistema: è possibile scegliere tra due differenti policy di gestione complessità delle password:</p>
+<ul class="simple">
+<li><em class="dfn">none</em>: non viene fatto alcun controllo sulla password immessa se non sulla lunghezza di almeno 7 caratteri</li>
+<li><em class="dfn">strong</em></li>
+</ul>
+<p>La policy <span class="target" id="index-7"></span>strong impone che la password debba rispettare le seguenti regole:</p>
+<ul class="simple">
+<li>lunghezza minima 7 caratteri</li>
+<li>contenere almeno 1 numero</li>
+<li>contenere almeno 1 carattere maiuscolo</li>
+<li>contenere almeno 1 carattere minuscolo</li>
+<li>contenere almeno 1 carattere speciale</li>
+<li>contenere almeno 5 caratteri diversi</li>
+<li>non deve essere presente nei dizionari di parole comuni</li>
+<li>deve essere diversa dallo username</li>
+<li>non può avere ripetizioni di pattern formati da più 3 caratteri (ad esempio la password As1.$As1.$ non è valida)</li>
+</ul>
+<p>La policy di default è <em class="dfn">strong</em>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avvertimento</p>
+<p class="last">Cambiare le politiche predefinite è altamente sconsigliato. L’utilizzo di password deboli è la prima causa di compromissione dei server da parte di attaccanti esterni.</p>
+</div>
+<p>Per cambiare l’impostazione a none:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop passwordstrength Users none
+</pre></div>
+</div>
+<p>Per cambiare l’impostazione a strong:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop passwordstrength Users strong
+</pre></div>
+</div>
+<p>Verificare la policy attualmente in uso sul server:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config getprop passwordstrength Users
+</pre></div>
+</div>
+</div>
+<div class="section" id="expiration">
+<h3>Scadenza<a class="headerlink" href="#expiration" title="Link a questa intestazione">¶</a></h3>
+<p>La <span class="target" id="index-8"></span>scadenza delle password viene attivata di default a 6 mesi a partire dal momento in cui la password viene impostata. Il sistema invierà una mail informativa all’utente quando la sua password è in scadenza.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Al momento dell’attivazione il sistema farà riferimento alla data dell’ultimo cambio password, se tale data è precedente più di 6 mesi, il server invierà una mail per segnalare che la password è scaduta. In tal caso è necessario cambiare la password dell’utente. Ad esempio: se l’ultimo cambio password è stato fatto in gennaio, e l’attivazione della scadenza in ottobre, il sistema riterrà la password cambiata in gennaio come scaduta, e lo segnalerà all’utente.</p>
+</div>
+<p>Per ignorare la scadenza password globalmente (consentire l’accesso anche ad utenti con password scaduta):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop passwordstrength PassExpires no
+signal-event password-policy-update
+</pre></div>
+</div>
+<p>Per disabilitare la scadenza password su un utente (sostituire username con l’utente):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db accounts setprop &lt;username&gt; PassExpires no
+signal event password-policy-update
+</pre></div>
+</div>
+<p>Di seguito sono riportati i comandi per visualizzare le policy in uso.</p>
+<p>Numero massimo di giorni per cui è possibile tenere la stessa password (default:180):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config getprop passwordstrength MaxPassAge
+</pre></div>
+</div>
+<p>Numero minimo di giorni per cui si è costretti a tenere la stessa password (default 0):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config getprop passwordstrength MinPassAge
+</pre></div>
+</div>
+<p>Numero di giorni in cui viene inviato il warning per email (default:7):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config getprop passwordstrength PassWarning
+</pre></div>
+</div>
+<p>Per modificare i parametri sostituire al comando <strong class="command">getprop</strong> il comando <strong class="command">setprop</strong> e specificare in fondo alla riga il valore desiderato del parametro, infine dare il comando:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event password-policy-update
+</pre></div>
+</div>
+<p>Ad esempio per modificare a 5 il «Numero di giorni in cui viene inviato il warning per email»:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop passwordstrength PassWarning 5
+signal-event password-policy-update
+</pre></div>
+</div>
+<div class="section" id="effects-of-expired-password">
+<h4>Effetti password scaduta<a class="headerlink" href="#effects-of-expired-password" title="Link a questa intestazione">¶</a></h4>
+<p>Allo scadere della password l’utente sarà in grado di scaricare ed inviare regolarmente la posta ma non potrà più accedere alle cartelle e stampanti condivise sul server (Samba) o da altri pc in caso il pc faccia parte del dominio.</p>
+</div>
+</div>
+<div class="section" id="domain-password">
+<h3>Password di dominio<a class="headerlink" href="#domain-password" title="Link a questa intestazione">¶</a></h3>
+<p>In caso il sistema sia configurato come controller di dominio, l’utente potrà cambiare la propria password usando gli strumenti di Windows.</p>
+<p>In quest’ultimo caso non è possibile impostare password più corte di 6 <em>caratteri</em> indipendentemente dalla configurazione delle policy sul server. Infatti Windows esegue dei controlli preliminari e invia le password al server dove vengono poi valutate con le policy in uso.</p>
+</div>
+</div>
+<div class="section" id="notification-language">
+<h2>Lingua di notifica<a class="headerlink" href="#notification-language" title="Link a questa intestazione">¶</a></h2>
+<p>La lingua di default per le notifiche è l’inglese. Se si desidera cambiarla, usare il seguente comando:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sysconfig DefaultLanguage &lt;lang&gt;
+</pre></div>
+</div>
+<p>Esempio per l’italiano:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sysconfig DefaultLanguage it_IT.utf8
+</pre></div>
+</div>
+</div>
+<div class="section" id="import-users">
+<h2>Importazione utenti<a class="headerlink" href="#import-users" title="Link a questa intestazione">¶</a></h2>
+<p>E” possibile importare una lista di utenti a partire da un file CSV. Il file deve contenere una linea per utente, ogni linea deve avere i campi separati da TAB, rispettando il seguente formato:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>username    firstName    lastName    email    password
+</pre></div>
+</div>
+<p>Esempio:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mario   Mario   Rossi   mario@example.org       112233
+</pre></div>
+</div>
+<p>Assicurarsi che il modulo server di posta sia installato, quindi eseguire il comando:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/doc/nethserver-directory-&lt;ver&gt;/import_users &lt;youfilename&gt;
+</pre></div>
+</div>
+<p>Per esempio, se il file che contiene gli utenti si chiama <code class="file docutils literal notranslate"><span class="pre">/root/users.csv</span></code>, eseguire:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/doc/nethserver-directory-`rpm --query --qf &quot;%{VERSION}&quot; nethserver-directory`/import_users /root/users.csv
+</pre></div>
+</div>
+<p>Il comando può essere eseguito più volte: gli utenti esistenti saranno saltati.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Il comando fallisce se il modulo del server di posta non è installato.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mail.html" class="btn btn-neutral float-right" title="Email" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="backup.html" class="btn btn-neutral float-left" title="Backup" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Nethesis Srl and the NethServer project contributors
+      
+        <span class="commit">
+          Revision <code>edf78e88</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

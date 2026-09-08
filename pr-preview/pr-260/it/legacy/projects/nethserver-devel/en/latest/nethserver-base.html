@@ -1,0 +1,813 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-base &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-blacklist" href="nethserver-blacklist.html" />
+    <link rel="prev" title="nethserver-backup-data" href="nethserver-backup-data.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-base", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-base.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#network">Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bond-options">Bond options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#templates">Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#events">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-initialization">Database initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dhcp-on-red-interfaces">DHCP on red interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bridge">Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reset-network-configuration">Reset network configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zeroconf-network">Zeroconf network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#log-retention-and-rotation">Log retention and rotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transport-layer-security">Transport Layer Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#repositories">Repositories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#yum-repositories-configuration">YUM repositories configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#third-party-repositories">Third party repositories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yum-cron">yum-cron</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#database">Database</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notifications">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#let-s-encrypt-certificates">Let’s Encrypt certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dns-challenge">DNS challenge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#digitial-ocean-example">Digitial Ocean example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-base</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-base.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-base">
+<h1>nethserver-base<a class="headerlink" href="#nethserver-base" title="Permalink to this headline">¶</a></h1>
+<p>This package implements all core configuration.</p>
+<div class="section" id="network">
+<h2>Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h2>
+<p>Network configuration is saved inside the NetworksDB (<code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/db/networks</span></code>).</p>
+<p>Example of a database containing an interface:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>eth0=ethernet
+   bootproto=none
+   device=eth0
+   gateway=192.168.1.254
+   ipaddr=192.168.1.1
+   netmask=255.255.255.0
+   onboot=yes
+   role=green
+</pre></div>
+</div>
+<p>Each entry describes a network interface according to CentOS/RHEL specification for network-scripts files:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;device_name&gt; = type
+       role = &lt;role&gt;
+       &lt;param&gt; = &lt;value&gt;
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> variable is the type of interface. Valid values are:</p>
+<ul class="simple">
+<li>ethernet</li>
+<li>bond</li>
+<li>bridge</li>
+<li>alias</li>
+<li>ipsec</li>
+<li>xdsl</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;device_name&gt;</span></code> variable is the name for the device.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">role</span></code> property is a mandatory parameter which describes the interface role. Valid values are:</p>
+<ul class="simple">
+<li>green</li>
+<li>orange</li>
+<li>blue</li>
+<li>red</li>
+</ul>
+<p>If the role property is empty, the interface is not used by the system.</p>
+<p>There are also 3 special roles:</p>
+<ul class="simple">
+<li><em>bridged</em>: interface is part of a bridge</li>
+<li><em>slave</em>: interface is part of a bond</li>
+<li><em>alias</em>: interface is an alias of another interface</li>
+<li><em>xdsl-disabled</em>: xdsl disabled interface</li>
+</ul>
+<p>See also <a class="reference internal" href="nethserver-firewall-base.html#section-roles-and-zones"><span class="std std-ref">Roles and zones</span></a> for the meaning of each color.</p>
+<p>All <code class="docutils literal notranslate"><span class="pre">&lt;param&gt;/&lt;value&gt;</span></code> are all valid CentOS network parameter for the specified interface. All parameters must be lowercase. Example:</p>
+<ul class="simple">
+<li>ippaddr</li>
+<li>dhcp_hostname</li>
+<li>netmask</li>
+<li>slave</li>
+<li>…</li>
+</ul>
+<p>All parameters will be mapped 1-to-1  to the configuration file</p>
+<p><strong>Example</strong></p>
+<p>One green ethernet:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db networks set eth0 ethernet role green ipaddr 192.168.1.4 netmask 255.255.255.0 network 192.168.1.0 onboot yes bootproto static
+</pre></div>
+</div>
+<p>File content:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>green=ethernet|bootproto|static|device|green|ipaddr|192.168.1.4|netmask|255.255.255.0|network|192.168.1.0|onboot|yes|role|green
+</pre></div>
+</div>
+<div class="section" id="bond-options">
+<h3>Bond options<a class="headerlink" href="#bond-options" title="Permalink to this headline">¶</a></h3>
+<p>Any property starting with <code class="docutils literal notranslate"><span class="pre">BondOpt</span></code> prefix is used as bonding options.</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bond0=bond
+   BondOptMode=0
+   BondOptMiimon=80
+   bootproto=none
+   gateway=192.168.1.100
+   ipaddr=192.168.1.2
+   netmask=255.255.255.0
+   role=green
+</pre></div>
+</div>
+</div>
+<div class="section" id="templates">
+<h3>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h3>
+<p>The network database can be manipulated using the <em class="dfn">esmith::NetworksDB</em> perl module.
+For more information use:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>perldoc esmith::NetworksDB
+</pre></div>
+</div>
+<p>If you need to access the local IP address within a template, use this code snippet:</p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="nn">esmith::NetworksDB</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$ndb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">esmith::NetworksDB</span><span class="o">-&gt;</span><span class="n">open_ro</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="p">;;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$LocalIP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$ndb</span><span class="o">-&gt;</span><span class="n">green</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">prop</span><span class="p">(</span><span class="s">&#39;ipaddr&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Old templates used a variable called <em>LocalIP</em> to access the green
+IP address. <em>This variable is no more available.</em></p>
+</div>
+</div>
+<div class="section" id="events">
+<h3>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h3>
+<p>All network configurations are applied by <code class="docutils literal notranslate"><span class="pre">interface-update</span></code> event.</p>
+</div>
+<div class="section" id="database-initialization">
+<h3>Database initialization<a class="headerlink" href="#database-initialization" title="Permalink to this headline">¶</a></h3>
+<p>All interfaces are imported from configuration files to database using
+the script: <code class="docutils literal notranslate"><span class="pre">/usr/libexec/nethserver/update-networks-db</span></code> .</p>
+<p>The <em>networks</em> database is updated Whenever an interface is plugged into the system.</p>
+</div>
+<div class="section" id="dhcp-on-red-interfaces">
+<h3>DHCP on red interfaces<a class="headerlink" href="#dhcp-on-red-interfaces" title="Permalink to this headline">¶</a></h3>
+<p>When configuring a red interface in DHCP mode, enable also the above options:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">peer_dns</span></code> to avoid resolv.conf overwriting from dhclient</li>
+<li><code class="docutils literal notranslate"><span class="pre">persistent_dhclient</span></code> to enforce dhclient to retry in case of lease request errors</li>
+</ul>
+<p>Remember also to remove all gateway IP address from green devices.
+This configuration will create the correct routes and correctly set DHCP options on dnsmasq.</p>
+</div>
+<div class="section" id="bridge">
+<h3>Bridge<a class="headerlink" href="#bridge" title="Permalink to this headline">¶</a></h3>
+<p>Create a bridge interface from command line.
+The new interface will have green role (eth0 was the previous green interface):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db networks delprop eth0 ipaddr netmask bootproto
+db networks setprop eth0 role bridged bridge br0
+db networks set br0 bridge bootproto static device br0 ipaddr 192.168.1.254 netmask 255.255.255.0 onboot yes role green
+signal-event interface-update
+</pre></div>
+</div>
+</div>
+<div class="section" id="reset-network-configuration">
+<span id="reset-network-section"></span><h3>Reset network configuration<a class="headerlink" href="#reset-network-configuration" title="Permalink to this headline">¶</a></h3>
+<p>In case of misconfiguration, it’s possible to reset network
+configuration by following these steps.</p>
+<ol class="arabic">
+<li><p class="first">Delete all logical and physical interfaces from the db</p>
+<p>Display current configuration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db networks show
+</pre></div>
+</div>
+<p>Delete all interfaces:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db networks delete eth0
+</pre></div>
+</div>
+<p>Repeat the operation for all interfaces including bridges, bonds
+and vlans.</p>
+</li>
+<li><p class="first">Disable interfaces</p>
+<p>Physical interfaces:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ifconfig eth0 down
+</pre></div>
+</div>
+<p>In case of a bridge:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ifconfig br0 down
+brctl delbr br0
+</pre></div>
+</div>
+<p>In case of a bond (eth0 is enslaved to bond0):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ifenslave -d bond0 eth0
+rmmod bonding
+</pre></div>
+</div>
+</li>
+<li><p class="first">Remove configuration files</p>
+<p>Network configuration files are inside the
+<code class="file docutils literal notranslate"><span class="pre">/etc/sysconfig/network-scripts/</span></code> directory in the form:
+<code class="file docutils literal notranslate"><span class="pre">/etc/sysconfig/network-scripts/ifcfg-&lt;devicename&gt;</span></code>. Where
+<cite>devicename</cite> is the name of the interface like <cite>eth0</cite>, <cite>br0</cite>,
+<cite>bond0</cite>.</p>
+<p>Delete the files:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rm -f /etc/sysconfig/network-scripts/ifcfg-eth0
+</pre></div>
+</div>
+<p>Repeat the operation for all interfaces including bridges, bonds and vlans.</p>
+</li>
+<li><p class="first">Restart the network</p>
+<p>After restarting the network you should see only the loopback interface:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>service network restart
+</pre></div>
+</div>
+<p>Use <strong class="command">ifconfig</strong> command to check the network status.</p>
+</li>
+<li><p class="first">Manually reconfigure the network</p>
+<p>Choose an IP to assign to an interface, for example <cite>192.168.1.100</cite>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ifconfig eth0 192.168.1.100
+</pre></div>
+</div>
+<p>Then reconfigure the system:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event system-init
+</pre></div>
+</div>
+<p>The interface will have the chosen IP address.</p>
+</li>
+<li><p class="first">Open the web interface and reconfigure accordingly to your needs</p>
+</li>
+</ol>
+</div>
+<div class="section" id="zeroconf-network">
+<h3>Zeroconf network<a class="headerlink" href="#zeroconf-network" title="Permalink to this headline">¶</a></h3>
+<p>Zeroconf network (<a class="reference external" href="http://www.zeroconf.org/">http://www.zeroconf.org/</a>) shouldn’t be usefull on a server.
+It can be safely disabled using these commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sysconfig ZeroConf disabled
+signal-event interface-update
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="log-retention-and-rotation">
+<h2>Log retention and rotation<a class="headerlink" href="#log-retention-and-rotation" title="Permalink to this headline">¶</a></h2>
+<p>By default logs are rotated weekly and kept for 4 weeks.
+Some packages come with different defaults, but the majority do not specify a custom rotate value.</p>
+<p>Logrotate db property:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Rotate</span></code>: rotation frequency, can be  <code class="docutils literal notranslate"><span class="pre">daily</span></code>, <code class="docutils literal notranslate"><span class="pre">weekly</span></code>, <code class="docutils literal notranslate"><span class="pre">monthly</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">weekly</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Times</span></code>: rotate log files <code class="docutils literal notranslate"><span class="pre">Times</span></code> number of times (days, weeks or months) before being removes, default is 4</li>
+<li><code class="docutils literal notranslate"><span class="pre">Compression</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. Defaults is <code class="docutils literal notranslate"><span class="pre">disabled</span></code></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>logrotate=configuration
+  Compression=disabled
+  Rotate=weekly
+  Times=4
+</pre></div>
+</div>
+<p>Keep logs for 6 months, rotate once a week:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop logrotate Rotate weekly
+config setprop logrotate Times 24
+signal-event nethserver-base-update
+</pre></div>
+</div>
+</div>
+<div class="section" id="transport-layer-security">
+<h2>Transport Layer Security<a class="headerlink" href="#transport-layer-security" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">TLS</span> <span class="pre">policy</span></code> page controls how individual services configure the
+Transport Layer Security (TLS) protocol, by selecting a <em>policy identifier</em>.</p>
+<p>Each module implementation decides how to implement a specific policy
+identifier, providing a trade off between security and client compatibility.
+Newer policies are biased towards security, whilst older ones provide better
+compatibility with old clients.</p>
+<p>You can enforce the TLS policy (20180330), or choose the legacy one (empty policy property) if your
+clients are not supported/maintained anymore (Windows XP for example).</p>
+<dl class="docutils">
+<dt>TLS db property in configuration database: ::</dt>
+<dd><dl class="first last docutils">
+<dt>tls=configuration</dt>
+<dd>policy=</dd>
+</dl>
+</dd>
+</dl>
+<p>The event to expand the templates of all rpm which use TLS is <code class="docutils literal notranslate"><span class="pre">tls-policy-save</span></code></p>
+</div>
+<div class="section" id="repositories">
+<h2>Repositories<a class="headerlink" href="#repositories" title="Permalink to this headline">¶</a></h2>
+<p>The default YUM repository set of NethServer is composed of</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">nethserver-base</span></code>: it contains packages and dependencies from core modules. It is updated when a new milestone is released. Enabled by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">nethserver-updates</span></code>: it contains updated packages. If needed, these updates can be applied without requiring manual intervention. Enabled by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">nethforge</span></code>: communty provided modules for NethServer. Enabled by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">nethserver-testing</span></code>: contains packages under QA process. Disabled by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ce-base</span></code>: (<code class="docutils literal notranslate"><span class="pre">ce-</span></code> stands for CentOS) base packages from CentOS. Enabled by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ce-updates</span></code>: updated packages from CentOS. Enabled by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ce-sclo-rh</span></code> and <code class="docutils literal notranslate"><span class="pre">ce-sclo-sclo</span></code>: SCL repositories. Both enabled by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ce-extras</span></code>: extra RPMs. Enabled by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">epel</span></code>: Extra Packages for Enterprise Linux. Enabled by default.</li>
+</ul>
+<p>Packages published in above repositories should always allow a non-disruptive automatic update.</p>
+<div class="section" id="yum-repositories-configuration">
+<h3>YUM repositories configuration<a class="headerlink" href="#yum-repositories-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Two special <code class="docutils literal notranslate"><span class="pre">.conf</span></code> files control how NethServer configures and invokes YUM:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="file docutils literal notranslate"><span class="pre">/etc/nethserver/pkginfo.conf</span></code>: list of YUM repositories that have their groups listed</dt>
+<dd>on the Software Center</dd>
+</dl>
+</li>
+<li><code class="file docutils literal notranslate"><span class="pre">/etc/nethserver/eorepo.conf</span></code>: list of YUM repositories enabled by <code class="docutils literal notranslate"><span class="pre">software-repos-save</span></code>
+event, every non-listed repository will be disabled</li>
+</ul>
+<p>This is the list of <code class="docutils literal notranslate"><span class="pre">.repo</span></code> files providing the default repositories
+configuration:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="file docutils literal notranslate"><span class="pre">/etc/yum.repos.d/NethServer.repo</span></code></dt>
+<dd><ul class="first last">
+<li><code class="docutils literal notranslate"><span class="pre">ce-base</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ce-updates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ce-extras</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ce-sclo-sclo</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ce-sclo-rh</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">nethserver-base</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">nethserver-updates</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="file docutils literal notranslate"><span class="pre">/etc/yum.repos.d/epel.repo</span></code></dt>
+<dd><ul class="first last">
+<li><code class="docutils literal notranslate"><span class="pre">epel</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="file docutils literal notranslate"><span class="pre">/etc/yum.repos.d/NethForge.repo</span></code></dt>
+<dd><ul class="first last">
+<li><code class="docutils literal notranslate"><span class="pre">nethforge</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">ce-*</span></code>, <code class="docutils literal notranslate"><span class="pre">nethserver-*</span></code> and <code class="docutils literal notranslate"><span class="pre">nethforge</span></code> repositories are accessed with a
+full release number (e.g. 7.6.1810), preventing unwanted upgrades to the next
+minor release version. See the <code class="docutils literal notranslate"><span class="pre">software-repos-upgrade</span></code> event for details.</p>
+<p>The EPEL repository does not support accessing RPMs using a minor release like
+<code class="docutils literal notranslate"><span class="pre">7.5.1804</span></code> but only using a major release like <code class="docutils literal notranslate"><span class="pre">7</span></code>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">When a subscription is enabled the default repositories are disabled. See
+<code class="file docutils literal notranslate"><span class="pre">/etc/yum.repos.d/subscription.repo</span></code></p>
+</div>
+</div>
+<div class="section" id="third-party-repositories">
+<h3>Third party repositories<a class="headerlink" href="#third-party-repositories" title="Permalink to this headline">¶</a></h3>
+<p>It’s possible to install third party repositories, using standard CentOS methods.</p>
+<p>If such repositories support access using minor release, they can be safely added
+to <code class="file docutils literal notranslate"><span class="pre">eorepo.conf</span></code> and <code class="file docutils literal notranslate"><span class="pre">pkginfo.conf</span></code> using a template-custom.</p>
+</div>
+<div class="section" id="yum-cron">
+<h3>yum-cron<a class="headerlink" href="#yum-cron" title="Permalink to this headline">¶</a></h3>
+<p>Since NethServer <code class="docutils literal notranslate"><span class="pre">7.5.1804</span></code>, <code class="docutils literal notranslate"><span class="pre">nethserver-yum-cron</span></code> has been merged into <code class="docutils literal notranslate"><span class="pre">nethserver-base</span></code>.
+The cron job runs each night with a random time before to start of 6 hours..
+You can decide who receive the notifications (default is root), which updates to do, if you just check, download, or install automatically the updates.</p>
+<p>Original author: Stephane de Labrusse (&#64;stephdl)</p>
+<div class="section" id="database">
+<h4>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h4>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">applyUpdate</span></code>: can be <code class="docutils literal notranslate"><span class="pre">yes</span></code> or <code class="docutils literal notranslate"><span class="pre">no</span></code>. If set to <code class="docutils literal notranslate"><span class="pre">yes</span></code>, downloaded updates will be installed</li>
+<li><code class="docutils literal notranslate"><span class="pre">customMail</span></code>: comma-separated list of extra mail recipients, as default a mail will be sent to root</li>
+<li><code class="docutils literal notranslate"><span class="pre">download</span></code>: can be <code class="docutils literal notranslate"><span class="pre">yes</span></code> or <code class="docutils literal notranslate"><span class="pre">no</span></code>. If set to <code class="docutils literal notranslate"><span class="pre">yes</span></code>, download new package updates</li>
+<li><code class="docutils literal notranslate"><span class="pre">messages</span></code>: can be <code class="docutils literal notranslate"><span class="pre">yes</span></code> or <code class="docutils literal notranslate"><span class="pre">no</span></code>. Whether a message should be emitted when updates are available</li>
+<li><code class="docutils literal notranslate"><span class="pre">randomWait</span></code>: random number of minutes to wait before executing the download procedure
+- NS6: 1 to 60 minutes
+- NS7: 1 to 360 minutes, negative and the job start immediately</li>
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. When enabled, a cron script will search for package updates</li>
+</ul>
+<p>Database example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum-cron=service
+   applyUpdate=yes
+   customMail=
+   download=no
+   messages=no
+   randomWait=360
+   status=enabled
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="notifications">
+<h2>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h2>
+<p>Mail for root user can be forwarded to external addresses.</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><cite>EmailAddress</cite>: comma-separated list of mail addresses; messages sent to root user will be forwarded to listed addresses</li>
+<li><cite>KeepMessageCopy</cite>: can be <cite>yes</cite> or <cite>no</cite>; if set to <cite>yes</cite>, messages will be always delivered also to local root mail folder</li>
+<li><cite>SenderAddress</cite>: a valid mail address; if not empty, messages sent by root (like cron notifications) will be sent using
+the specified address. A good value could be: <cite>no-reply&#64;&lt;domain&gt;</cite> (where <cite>&lt;domain&gt;</cite> is the domain of the server).
+If not set, messages will be sent using <cite>root&#64;&lt;fqdn&gt;</cite> as sender address.</li>
+</ul>
+<p>Database example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root=configuration
+   EmailAddress=myuser@nethserver.org
+   KeepMessageCopy=yes
+   SenderAddress=no-reply@nethserver.org
+</pre></div>
+</div>
+<p>Usage:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop root EmailAddress myuser@nethserver.org SenderAddress no-reply@nethserver.org
+signal-event notifications-save
+</pre></div>
+</div>
+</div>
+<div class="section" id="let-s-encrypt-certificates">
+<h2>Let’s Encrypt certificates<a class="headerlink" href="#let-s-encrypt-certificates" title="Permalink to this headline">¶</a></h2>
+<p>This package also requests and automatically renews Let’s Encrypt (LE) certificates.
+It adds httpd ACME-related configuration for all defined virtual hosts.</p>
+<p>The main helper <code class="docutils literal notranslate"><span class="pre">/usr/libexec/nethserver/letsencrypt-certs</span></code> can be executed also from command line.</p>
+<p>For more info, see:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/libexec/nethserver/letsencrypt-certs -h
+</pre></div>
+</div>
+<p>Database properties under <code class="docutils literal notranslate"><span class="pre">pki</span></code> key inside <code class="docutils literal notranslate"><span class="pre">configuration</span></code> database:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">LetsEncryptRenewDays</span></code>: days to the expiration, the certificate will be renewd when the condition is met</li>
+<li><code class="docutils literal notranslate"><span class="pre">LetsEncryptMail</span></code>: (optional) registration mail for LE notifications</li>
+<li><code class="docutils literal notranslate"><span class="pre">LetsEncryptDomains</span></code>: comma-separated list of domains added to certificate SAN field</li>
+<li><code class="docutils literal notranslate"><span class="pre">LetsEncryptChallenge</span></code>: challenge to use for validating the certificate, default is <code class="docutils literal notranslate"><span class="pre">http</span></code>.
+It accepts also values like <code class="docutils literal notranslate"><span class="pre">dns-&lt;provider&gt;</span></code>. Where <code class="docutils literal notranslate"><span class="pre">&lt;provider&gt;</span></code> is the name of the DNS provider.
+See the full list of available DNS provider plugins by executing <code class="docutils literal notranslate"><span class="pre">certbot</span> <span class="pre">-h</span> <span class="pre">certonly</span></code>.
+More info at <a class="reference external" href="https://certbot.eff.org/docs/using.html?highlight=dns#dns-plugins#dns-plugins">https://certbot.eff.org/docs/using.html?highlight=dns#dns-plugins</a>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">LetsEncryptShortChain</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. If <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, the certificate chain will <em>not</em>
+contain the expired DST Root CA X3</li>
+</ul>
+</div>
+<div class="section" id="dns-challenge">
+<h2>DNS challenge<a class="headerlink" href="#dns-challenge" title="Permalink to this headline">¶</a></h2>
+<p>To use the DNS challenge, follow these steps:</p>
+<ul class="simple">
+<li>install the required certbot plugin plugin using yum; to see the list of available package use <code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">search</span> <span class="pre">certbot-dns</span></code></li>
+<li>set <code class="docutils literal notranslate"><span class="pre">LetsEncryptChallenge</span></code> property to correct DNS plugin</li>
+<li>configure all required properties accordingly to plugin documentation</li>
+</ul>
+<p>When using the dns challenge, make sure to set extra properties accordingly to certbot configuration.
+All properties for the dns challenge should be in the form <code class="docutils literal notranslate"><span class="pre">LetsEncrypt_&lt;certbot_option&gt;</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">&lt;certbot_option&gt;</span></code> is the option specific to certbot DNS plugin.</p>
+<div class="section" id="digitial-ocean-example">
+<h3>Digitial Ocean example<a class="headerlink" href="#digitial-ocean-example" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Install the plugin:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install python2-certbot-dns-digitalocean
+</pre></div>
+</div>
+</li>
+<li><p class="first">Configure the challenge type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop pki LetsEncryptChallenge dns-digitalocean
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p class="first">Configure required props accordingly to <a class="reference external" href="https://certbot-dns-digitalocean.readthedocs.io/en/stable/">https://certbot-dns-digitalocean.readthedocs.io/en/stable/</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop pki LetsEncrypt_dns_digitalocean_token &#39;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#39;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Request certificate for domain <code class="docutils literal notranslate"><span class="pre">myserver.nethserver.org</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/libexec/nethserver/letsencrypt-certs -v -d myserver.nethserver.org
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-blacklist.html" class="btn btn-neutral float-right" title="nethserver-blacklist" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-backup-data.html" class="btn btn-neutral float-left" title="nethserver-backup-data" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

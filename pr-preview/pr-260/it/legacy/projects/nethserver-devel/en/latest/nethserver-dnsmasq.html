@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-dnsmasq &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-duc" href="nethserver-duc.html" />
+    <link rel="prev" title="nethserver-directory" href="nethserver-directory.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-dnsmasq", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-dnsmasq.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-dnsmasq</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dns">DNS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hosts">Hosts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dns-server">DNS server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dhcp">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ip-reservation">IP reservation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tftp-server">TFTP server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-tftp">Test TFTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-a-pxe-server">Configure a PXE server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-dnsmasq</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-dnsmasq.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-dnsmasq">
+<h1>nethserver-dnsmasq<a class="headerlink" href="#nethserver-dnsmasq" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dns">
+<h2>DNS<a class="headerlink" href="#dns" title="Permalink to this headline">¶</a></h2>
+<p>The system will resolve host and domain names using DNS queries
+to external DNS servers.
+The configuration is saved inside the <code class="docutils literal notranslate"><span class="pre">dns</span></code> key from <em>nethserver-base</em> package.</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">NameServers</span></code>: comma separated IP list of external DNS</li>
+<li><code class="docutils literal notranslate"><span class="pre">role</span></code>: can be set to <code class="docutils literal notranslate"><span class="pre">none</span></code> or <code class="docutils literal notranslate"><span class="pre">resolver</span></code>.
+If role is set to <code class="docutils literal notranslate"><span class="pre">none</span></code> the server will always use external DNS.
+For <code class="docutils literal notranslate"><span class="pre">resolver</span></code> role see <a class="reference internal" href="#dns-server-section"><span class="std std-ref">DNS server</span></a>.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dns=configuration
+   NameServers=8.8.8.8,208.67.222.222
+   role=none
+</pre></div>
+</div>
+<div class="section" id="hosts">
+<h3>Hosts<a class="headerlink" href="#hosts" title="Permalink to this headline">¶</a></h3>
+<p>The system can handle local DNS records.
+When the server performs a DNS lookup, first it will search inside local DNS records.
+If no local record is found, an external DNS query will be done.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Local DNS record will always override records from external DNS servers.</p>
+</div>
+<p>DNS records are called <em class="dfn">hosts</em> and are saved inside the <code class="docutils literal notranslate"><span class="pre">hosts</span></code> database.
+Each entry is saved inside the <code class="file docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file.</p>
+<p>There are three types of records:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">local</span></code>: hosts inside the internal network</li>
+<li><code class="docutils literal notranslate"><span class="pre">remote</span></code>: hosts outside the internal network</li>
+<li><code class="docutils literal notranslate"><span class="pre">self</span></code>: alias for the server itself</li>
+</ul>
+<p>Records of type <code class="docutils literal notranslate"><span class="pre">local</span></code> and <code class="docutils literal notranslate"><span class="pre">remote</span></code> can have following properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">IpAddress</span></code>: address of the host</li>
+<li><code class="docutils literal notranslate"><span class="pre">Description</span></code>: optional description</li>
+<li><code class="docutils literal notranslate"><span class="pre">MacAddress</span></code>: mac address of the host. Used only for DHCP reservation. See <a class="reference internal" href="#ip-reservation-section"><span class="std std-ref">IP reservation</span></a>.</li>
+</ul>
+<p>For hosts inside local network, the record key doesn’t have the domain part. Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host1=local
+    Description=Internal network host #1
+    IpAddress=192.168.1.23
+</pre></div>
+</div>
+<p>For hosts outside local network, the record key must have the domain part. Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>external.otherdomain.tld=remote
+    Description=Other domain host
+    IpAddress=8.9.10.11
+</pre></div>
+</div>
+<p>Records of type <code class="docutils literal notranslate"><span class="pre">self</span></code> can have following properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Description</span></code>: optional description</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>vhost1.domain.tld=self
+    Description=Virtual Host #1
+</pre></div>
+</div>
+</div>
+<div class="section" id="dns-server">
+<span id="dns-server-section"></span><h3>DNS server<a class="headerlink" href="#dns-server" title="Permalink to this headline">¶</a></h3>
+<p>The system uses <em>dnsmasq</em> as DNS and DHCP server and it directly resolves all hosts inside its domain.
+All other names will be queried to external DNS servers.</p>
+<p>The server will forward reverse lookups to upstream DNS servers, only if upstream DNS servers are inside a
+private network (eg. network address is 192.168.x.x).</p>
+<p>The option <code class="docutils literal notranslate"><span class="pre">bind-interfaces</span></code> is always enabled, as consequence (from dnsmasq man):</p>
+<blockquote>
+<div>This option has been patched to always use SO_BINDTODEVICE socket option when binding to  interfaces.  As  consequence,  dnsmasq
+WILL  NOT ANSWER to any DNS Queries that come to the socket with the correct destination IP address, but originally on different
+interface. This behavior differs from the original dnsmasq upstream version and is used for security reasons.</div></blockquote>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">CacheSize</span></code>: entry to be cached by server, default is <code class="docutils literal notranslate"><span class="pre">4000</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">dhcp-boot</span></code>: directly pass parameters to dhcp-boot option</li>
+<li><code class="docutils literal notranslate"><span class="pre">except-interface</span></code>: comma-separated list of interfaces. Do not listen to listed interfaces, useful to avoid conflicts with libvirt</li>
+<li><code class="docutils literal notranslate"><span class="pre">tftp-status</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. If enabled, enable the TFTP server for BOOTP (port 67)</li>
+<li><code class="docutils literal notranslate"><span class="pre">access</span></code>: default is <code class="docutils literal notranslate"><span class="pre">private</span></code>, do NOT set to <code class="docutils literal notranslate"><span class="pre">public</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">DomainRedirection</span></code>: specify a dns server for a particular domain (comma separated). The <code class="docutils literal notranslate"><span class="pre">domain.org:192.168.1.1</span></code> will send all queries <code class="docutils literal notranslate"><span class="pre">*.domain.org</span></code> for internal machines to <code class="docutils literal notranslate"><span class="pre">192.168.1.1</span></code>. The special server address <code class="docutils literal notranslate"><span class="pre">#</span></code> means, “use the standard servers”, so <code class="docutils literal notranslate"><span class="pre">sub.domain.org:#</span></code> will send all queries for <code class="docutils literal notranslate"><span class="pre">*sub.domain.org</span></code> to the default DNS server of the domain name.</li>
+</ul>
+<p>Database example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dnsmasq=service
+  AllowHosts=
+  CacheSize=4000
+  DenyHosts=
+  DomainRedirection=domain.org:192.168.1.1,sub.domain.org:#
+  TCPPort=53
+  UDPPorts=53,67
+  access=private
+  dhcp-boot=pxelinux.0,myserver.mydomain.com,192.168.1.1
+  except-interface=virbr0,tunspot
+  status=enabled
+  tftp-status
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dhcp">
+<h2>DHCP<a class="headerlink" href="#dhcp" title="Permalink to this headline">¶</a></h2>
+<p>The system can act as DHCP server for the local network.
+Machines which are configured by DHCP have their names automatically included in the DNS server.</p>
+<p>The DHCP can be enabled only on <em>green</em> and <em>blue</em> interfaces (see <a class="reference internal" href="nethserver-firewall-base.html#section-roles-and-zones"><span class="std std-ref">Roles and zones</span></a>).
+Configuration is saved inside the <code class="docutils literal notranslate"><span class="pre">dhcp</span></code> database.</p>
+<p>Each record of <code class="docutils literal notranslate"><span class="pre">range</span></code> type is associated to an ethernet interface and can have following properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">DhcpRangeStart</span></code>: first IP address of DHCP range</li>
+<li><code class="docutils literal notranslate"><span class="pre">DhcpRangeEnd</span></code>: last IP address of DHCP range</li>
+<li><code class="docutils literal notranslate"><span class="pre">DhcpLeaseTime</span></code>: seconds of lease time. Default is 86400</li>
+<li><code class="docutils literal notranslate"><span class="pre">DhcpGatewayIp</span></code>: (optional) set a custom gateway ip. If not set, the gateway is the ip address of associated interface (record key)</li>
+</ul>
+<p>The key of the record is the name of the associated interface. Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>eth0=range
+  DhcpGatewayIp=
+  DhcpLeaseTime=86400
+  DhcpRangeEnd=192.168.1.100
+  DhcpRangeStart=192.168.5.200
+  status=enabled
+</pre></div>
+</div>
+<p>Hosts inside the blue network can always access the local DNS server.</p>
+<p>The gateway for clients will be:</p>
+<ul class="simple">
+<li>if set, the value of property <code class="docutils literal notranslate"><span class="pre">DhcpGatewayIp</span></code></li>
+<li>otherwise if the server has a red interface, the gateway is the IP address of the interface where the DHCP is enabled
+(eg. IP of the blue interface for clients in the guest’s network)</li>
+<li>otherwise if the server has only a green interface, the gateway of the green interface will be used</li>
+</ul>
+</div>
+<div class="section" id="ip-reservation">
+<span id="ip-reservation-section"></span><h2>IP reservation<a class="headerlink" href="#ip-reservation" title="Permalink to this headline">¶</a></h2>
+<p>It’s possible to reserve IPs for specific devices associating the MAC address of the device with the reserved IP.
+The reservation is saved inside the <code class="docutils literal notranslate"><span class="pre">hosts</span></code> database.</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host1=local
+    Description=Internal network host #1
+    IpAddress=192.168.1.23
+    MacAddress=08:00:27:48:BF:F3
+</pre></div>
+</div>
+</div>
+<div class="section" id="tftp-server">
+<h2>TFTP server<a class="headerlink" href="#tftp-server" title="Permalink to this headline">¶</a></h2>
+<p>TFTP module contains configuration fragments that enables dnsmasq built-in TFTP server.</p>
+<p>TFTP server has no authentication or encryption support.</p>
+<p>When installed tftp is disabled by default and need to be enabled with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop dnsmasq tftp-status enabled
+signal-event nethserver-dnsmasq-save
+</pre></div>
+</div>
+<p>The package also add directory <code class="file docutils literal notranslate"><span class="pre">/var/lib/tftpboot</span></code> that is the root of tftp server.</p>
+<p>Enabling TFTP adds 5 new configuration options to <code class="file docutils literal notranslate"><span class="pre">/etc/dnsmasq.conf</span></code>. Here variables explanation according with dnsmasq documentation</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">enable-tftp</span></code>: enable tftp server</li>
+<li><code class="docutils literal notranslate"><span class="pre">tftp-secure</span></code>: allow only files owned by the user dnsmasq is running as will be send over the net</li>
+<li><code class="docutils literal notranslate"><span class="pre">dhcp-boot=</span> <span class="pre">...</span></code>: Set the boot filename for netboot/PXE. You will only need this is you want to boot machines over the network and you will need a TFTP server; driven by db prop</li>
+<li><code class="docutils literal notranslate"><span class="pre">tftp-root=/var/lib/tftpboot</span></code>: Set the root directory for files available via FTP.</li>
+<li><code class="docutils literal notranslate"><span class="pre">dhcp-option=66,</span> <span class="pre">LOCAL_IP</span></code>: set local ip as default tftp server for machines that receive dhcp from this server</li>
+</ul>
+<div class="section" id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. If <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, TFTP server is configured and port 69 UDP is opened.</li>
+<li><code class="docutils literal notranslate"><span class="pre">UDPPort</span></code>: UDP port used. Only <code class="docutils literal notranslate"><span class="pre">69</span></code> is allowed.</li>
+<li><code class="docutils literal notranslate"><span class="pre">access</span></code>: define if access is <code class="docutils literal notranslate"><span class="pre">public</span></code>, <code class="docutils literal notranslate"><span class="pre">private</span></code> or <code class="docutils literal notranslate"><span class="pre">none</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">dhcp-boot</span></code>:  Set the boot filename for PXE. Ths is needed for booting machines over the network. Empty by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">type</span></code>: only <code class="docutils literal notranslate"><span class="pre">service</span></code> is allowed.</li>
+</ul>
+</div>
+<div class="section" id="test-tftp">
+<h3>Test TFTP<a class="headerlink" href="#test-tftp" title="Permalink to this headline">¶</a></h3>
+<p>Testing is very simple:</p>
+<p>Enable TFTP server:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop dnsmasq tftp-status enabled
+signal-event nethserver-dnsmasq-save
+</pre></div>
+</div>
+<p>Create a file to share, owned by <code class="docutils literal notranslate"><span class="pre">nobody</span></code> user:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &quot;test&quot;  &gt; /var/lib/tftpboot/foobar
+chown nobody:nobody /var/lib/tftpboot/foobar
+</pre></div>
+</div>
+<p>From another machine, install tftp and get file
+(on Fedora):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install tftp
+</pre></div>
+</div>
+<p>Always from the other machine, allow incoming UDP connection from our TFTP server. Loading TFTP conntrack module should be enough:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>modprobe nf_conntrack_tftp
+</pre></div>
+</div>
+<p>Connect to TFTP server:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tftp TFTP_SERVER_HOST
+</pre></div>
+</div>
+<p>…and get the file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tftp&gt; get foobar
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-a-pxe-server">
+<h3>Configure a PXE server<a class="headerlink" href="#configure-a-pxe-server" title="Permalink to this headline">¶</a></h3>
+<p>Those instructions set up a PXE server for CentOS
+Install and configure syslinux and nethserver-tftp:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install syslinux
+cp /usr/share/syslinux/{pxelinux.0,menu.c32,memdisk,mboot.c32,chain.c32} /var/lib/tftpboot/
+config setprop tftp dhcp-boot pxelinux.0
+signal-event nethserver-tftp-save
+mkdir /var/lib/tftpboot/pxelinux.cfg
+</pre></div>
+</div>
+<p>Create the file <code class="file docutils literal notranslate"><span class="pre">/var/lib/tftpboot/pxelinux.cfg/default</span></code> with the following content:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>default menu.c32
+prompt 0
+timeout 300
+
+MENU TITLE PXE Menu
+
+LABEL CentOS
+kernel CentOS/vmlinuz
+append initrd=CentOS/initrd.img
+
+Create a CentOS directory:
+</pre></div>
+</div>
+<p>Create a CentOS directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir -p /var/lib/tftpboot/CentOS
+</pre></div>
+</div>
+<p>Copy inside the directory <code class="file docutils literal notranslate"><span class="pre">vmlinuz</span></code> and <code class="file docutils literal notranslate"><span class="pre">initrd.img</span></code> files. These files can be found inside the ISO or browsing the yum <code class="docutils literal notranslate"><span class="pre">os</span></code> mirror.</p>
+<p>Change files owner to nobody:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>chown -R nobody /var/lib/tftpboot/*
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-duc.html" class="btn btn-neutral float-right" title="nethserver-duc" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-directory.html" class="btn btn-neutral float-left" title="nethserver-directory" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
