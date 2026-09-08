@@ -157,7 +157,9 @@ An email address may be defined in more than one way at the same time: as an exp
 4.  A user address, derived from the `Add user addresses from user domain` flag.
 5.  An address derived from a user's LDAP `mail` attribute, via the `Add alias addresses from user domain` flag.
 
-Only the destinations of the highest-priority entry actually receive the message, and its *internal* setting, if any, is the one enforced; entries with the same address but lower priority are ignored for delivery, even though they remain visible on this page.
+Only the destinations of the highest-priority entry actually receive the message; entries with the same address but lower priority are ignored for delivery, even though they remain visible on this page.
+
+The *internal* check is evaluated independently of this priority order: it is checked directly against the incoming recipient address before any of it is resolved to actual destinations, so it does not necessarily follow the entry that ends up delivering the message. An address derived from a user's LDAP `mail` attribute has no *internal* check at all, as mentioned above.
 
 ## Filter {#email_filter}
 
