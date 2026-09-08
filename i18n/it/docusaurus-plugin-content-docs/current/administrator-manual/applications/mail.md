@@ -60,7 +60,9 @@ Puoi definire gli indirizzi email del dominio ereditando nomi utenti e gruppi da
 
 Se l'opzione corrispondente è abilitata, i nomi di utenti e gruppi vengono trattati come indirizzi email validi. Nel raro caso in cui un utente e un gruppo abbiano lo stesso nome, i messaggi in ingresso indirizzati a quel nome vengono sempre consegnati ai membri del gruppo.
 
-Gli indirizzi email aggiuntivi per il dominio possono essere configurati come spiegato nella sezione [Indirizzi](#email_addresses).
+Analogamente, l'opzione `Add alias addresses from user domain` tratta l'attributo LDAP `mail` di ogni utente del dominio utenti come un indirizzo email valido per il dominio. A differenza delle due opzioni precedenti, questo flag non è legato a un singolo nome di utente o gruppo: se lo stesso valore di indirizzo è impostato nell'attributo `mail` di più utenti, i messaggi inviati a quell'indirizzo vengono recapitati a tutti loro.
+
+Gli indirizzi email aggiuntivi per il dominio possono essere configurati anche come spiegato nella sezione [Indirizzi](#email_addresses). Quando un indirizzo corrisponde sia a una voce nella pagina `Addresses` sia a uno derivato da un nome di utente o gruppo, oppure dall'attributo LDAP `mail` di un utente, la voce esplicita nella pagina `Addresses` ha sempre la priorità — per i dettagli vedi [Regole di priorità](#email_addresses-priority).
 
 Nella sezione `Advanced`, l'opzione `Accept unknown recipients` controlla come gestire i messaggi indirizzati a destinatari non definiti all'interno del dominio. Per impostazione predefinita, questi messaggi vengono rifiutati. In alcuni scenari, però, ad esempio durante la migrazione di un dominio di posta, può essere utile accettarli e recapitarli in modo silenzioso a una casella catch-all. Questo comportamento può essere abilitato attivando l'opzione `Accept unknown recipients`.
 
@@ -127,7 +129,9 @@ Se la quota della casella di posta viene superata durante il processo di riprist
 
 ## Indirizzi {#email_addresses}
 
-Oltre agli indirizzi di utenti, gruppi e caselle di posta pubbliche descritti nella sezione precedente, il sistema consente di creare un numero illimitato di indirizzi email dalla pagina `Addresses`. Ogni indirizzo email è associato a una o più destinazioni. Una destinazione può essere di uno dei seguenti tipi:
+Puoi creare un numero illimitato di indirizzi email dalla pagina `Addresses`, con una priorità più alta rispetto agli indirizzi email ereditati implicitamente dalla configurazione dei [Domini](#email_domains).
+
+Ogni indirizzo email è associato a una o più destinazioni. Una destinazione può essere di uno dei seguenti tipi:
 
 - casella di posta utente
 - casella di posta pubblica
@@ -142,6 +146,18 @@ Un indirizzo email può essere specifico per un dominio di posta oppure generico
 A volte un'azienda vieta le comunicazioni dall'esterno dell'organizzazione usando indirizzi email personali. Per cambiare la *visibilità* di un indirizzo, fai clic sul menu a tre punti e seleziona l'azione rapida `Set as internal`, oppure seleziona `Edit` e abilita la casella `Internal` nella sezione `Advanced`.
 
 Quando un indirizzo è *internal*, non può ricevere messaggi dall'esterno. Un indirizzo *internal* può comunque essere usato per scambiare messaggi con altri account del sistema.
+
+### Regole di priorità {#email_addresses-priority}
+
+Un indirizzo email può essere definito in più modi contemporaneamente: come voce esplicita in questa pagina (specifica per un dominio, oppure wildcard valida per tutti i domini), oppure derivato implicitamente da una delle opzioni di [Domini](#email_domains) che ereditano i nomi dal dominio utenti — `Add user addresses from user domain`, `Add group addresses from user domain` e `Add alias addresses from user domain` (che trasforma l'attributo LDAP `mail` di un utente in un indirizzo). Quando lo stesso valore di indirizzo proviene da più di una di queste fonti, tutte le voci corrispondenti vengono elencate in questa pagina come righe separate, ma solo una di esse viene effettivamente usata per recapitare un messaggio, secondo il seguente ordine di priorità, dal più alto al più basso:
+
+1.  Un indirizzo specifico per dominio, come configurato in questa pagina.
+2.  Un indirizzo wildcard, come configurato in questa pagina.
+3.  Un indirizzo di gruppo, derivato dal flag `Add group addresses from user domain`.
+4.  Un indirizzo utente, derivato dal flag `Add user addresses from user domain`.
+5.  Un indirizzo derivato dall'attributo LDAP `mail` di un utente, tramite il flag `Add alias addresses from user domain`.
+
+Solo le destinazioni della voce con priorità più alta ricevono effettivamente il messaggio, e la relativa impostazione *internal*, se presente, è quella applicata; le voci con lo stesso indirizzo ma priorità inferiore vengono ignorate ai fini della consegna, anche se restano visibili in questa pagina.
 
 ## Filtro {#email_filter}
 
