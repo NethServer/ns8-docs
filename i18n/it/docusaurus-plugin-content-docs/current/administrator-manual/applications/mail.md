@@ -157,7 +157,9 @@ Un indirizzo email può essere definito in più modi contemporaneamente: come vo
 4.  Un indirizzo utente, derivato dal flag `Add user addresses from user domain`.
 5.  Un indirizzo derivato dall'attributo LDAP `mail` di un utente, tramite il flag `Add alias addresses from user domain`.
 
-Solo le destinazioni della voce con priorità più alta ricevono effettivamente il messaggio, e la relativa impostazione *internal*, se presente, è quella applicata; le voci con lo stesso indirizzo ma priorità inferiore vengono ignorate ai fini della consegna, anche se restano visibili in questa pagina.
+Solo le destinazioni della voce con priorità più alta ricevono effettivamente il messaggio; le voci con lo stesso indirizzo ma priorità inferiore vengono ignorate ai fini della consegna, anche se restano visibili in questa pagina.
+
+Il controllo *internal* viene valutato indipendentemente da questo ordine di priorità: viene verificato direttamente sull'indirizzo del destinatario in arrivo, prima che venga risolto nelle destinazioni effettive, quindi non segue necessariamente la voce che alla fine consegna il messaggio. Un indirizzo derivato dall'attributo LDAP `mail` di un utente non ha alcun controllo *internal*, come indicato sopra.
 
 ## Filtro {#email_filter}
 
