@@ -83,11 +83,11 @@ Per proteggerti ulteriormente dalla falsificazione del dominio di posta, valuta 
 
 ## Caselle di posta {#mail-mailboxes-settings}
 
-Ogni utente ha una casella di posta personale e qualsiasi nome utente nel formato *\<username\>@\<domain\>* è anch'esso un indirizzo email valido al quale recapitare messaggi.
-
 L'elenco delle caselle di posta è mostrato nella pagina `Mailboxes`. Esistono due tipi di caselle di posta: utenti e pubbliche.
 
-### Caselle di posta degli utenti
+### Casella di posta utente
+
+Ogni utente ha una casella di posta personale. Abilitando l'opzione `Add user addresses from user domain` in [Domini](#email_domains), qualsiasi nome utente nel formato *\<username\>@\<domain\>* diventa anch'esso un indirizzo email valido al quale recapitare messaggi.
 
 Puoi disabilitare ogni casella di posta selezionando la voce `Disable` dal menu a tre punti della riga corrispondente.
 
@@ -97,11 +97,11 @@ Facendo clic sulla voce `Edit` del menu a tre punti, puoi configurare le seguent
 - `Custom mailbox quota`: sostituisce la quota configurata nelle [Impostazioni](#mail_settings-section)
 - `Custom spam retention`: sostituisce la retention configurata nelle [Impostazioni](#mail_settings-section)
 
-### Caselle di posta pubbliche
+### Casella di posta pubblica
 
 Le caselle di posta pubbliche possono essere condivise tra gruppi di utenti. Il pulsante **Create public mailbox** consente di creare una nuova casella di posta pubblica e definire uno o più gruppi e utenti proprietari. Le caselle di posta pubbliche possono essere create anche da qualsiasi client IMAP che supporti l'estensione del protocollo IMAP ACL (RFC 4314).
 
-Quando viene creata una nuova casella di posta pubblica, il server di posta aggiunge automaticamente un nuovo indirizzo per tutti i domini di posta esistenti.
+Quando viene creata una nuova casella di posta pubblica, il server di posta aggiunge automaticamente un nuovo indirizzo wildcard valido per tutti i domini di posta esistenti.
 
 ### Ripristinare una cartella della casella di posta da un backup {#mailbox-selective-restore}
 
