@@ -4,7 +4,24 @@ sidebar_position: 4
 ---
 # Calendario
 
-Usa questa sezione per sincronizzare, condividere, importare ed estendere i calendari in WebTop.
+## Modifica impostazioni calendario
+
+Per ogni calendario personale puoi modificare le impostazioni predefinite. Seleziona il calendario e fai clic sul kebab menu a destra, oppure fai clic con il tasto destro sul calendario, quindi seleziona `Modifica calendario`.
+
+Puoi modificare queste proprietà del calendario:
+
+- nome e colore
+- descrizione
+- sincronizzazione EAS (`Attiva`, `Disattiva` o `Sola lettura`)
+
+Puoi modificare queste proprietà predefinite per gli eventi creati in questo calendario:
+
+- `Visibilità`: scegli tra `Normale` e `Privato`. Gli eventi creati con visibilità `Privato` nei calendari condivisi non mostrano titolo e descrizione, ma solo l'occupazione oraria.
+- `Imposta stato`: scegli tra `Disponibile` e `Occupato`
+- promemoria predefinito
+- abilita `Mandami una notifica quando qualcuno modifica il mio calendario`. Nei calendari condivisi, ricevi una notifica quando un altro utente crea un nuovo evento.
+
+Puoi sempre modificare queste proprietà durante la creazione di ogni singolo evento se devono essere diverse da quelle predefinite.
 
 ## Sincronizzazione ActiveSync (EAS)
 

@@ -4,7 +4,24 @@ sidebar_position: 4
 ---
 # Calendar
 
-Use this section to synchronize, share, import, and extend calendars in WebTop.
+## Edit calendar settings
+
+For each personal calendar, you can change the default settings. Select the calendar and click the kebab menu on the right, or right-click the calendar, then select `Edit calendar`.
+
+You can change these calendar properties:
+
+- name and color
+- description
+- EAS synchronization (`Active`, `Disabled`, or `Read-only`)
+
+You can change these default properties for events created in this calendar:
+
+- `Visibility`: choose between `Normal` and `Private`. Events created with `Private` visibility in shared calendars do not show the title and description, but only the busy time.
+- `Set status`: choose between `Available` and `Busy`
+- default reminder
+- enable `Send me a notification when someone modifies my calendar`. In shared calendars, you receive a notification when another user creates a new event.
+
+You can always change these properties while creating each single event if they need to differ from the defaults.
 
 ## ActiveSync (EAS) synchronization
 
