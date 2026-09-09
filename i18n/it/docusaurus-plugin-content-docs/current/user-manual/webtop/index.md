@@ -16,20 +16,9 @@ Moduli WebTop in questo manuale:
 
 ## Autenticazione
 
-Usa sempre il formato completo del nome utente `<user>@<domain>` per accedere all'applicazione web e ad ActiveSync.
+Per autenticarti sull'interfaccia web puoi usare sia la forma breve, solo `<username>` (senza `@<dominio>`), sia quella completa di dominio.
 
-**Esempio**
-
-- Nome del server: mymail.mightydomain.com
-- Dominio di posta alternativo: baddomain.net
-- Utente: goofy
-- Login: <goofy@mightydomain.com>
-
-:::note
-
-Il protocollo ActiveSync è supportato solo sui dispositivi Android e iOS. Outlook non è supportato.
-
-:::
+Il dominio associato all'utente è sempre quello che è stato scelto nelle impostazioni dell'istanza e relativo al Server di posta collegato.
 
 ## Gestione delle impostazioni utente
 
