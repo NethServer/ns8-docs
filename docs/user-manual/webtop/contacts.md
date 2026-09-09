@@ -10,6 +10,14 @@ Use this section to synchronize, share, import, and extend address books in WebT
 
 Mobile devices can be synchronized using ActiveSync. ActiveSync can be used only for **contacts** and **calendars**.
 
+Always use the full user name format `<user>@<domain>` to access ActiveSync.
+
+:::note
+
+The ActiveSync protocol is supported only on Android and iOS devices. Outlook is not supported.
+
+:::
+
 Shared contacts can also be synchronized. For the full mobile setup procedure, see [Calendar](./calendar.md#activesync-eas-synchronization).
 
 ## CardDAV synchronization

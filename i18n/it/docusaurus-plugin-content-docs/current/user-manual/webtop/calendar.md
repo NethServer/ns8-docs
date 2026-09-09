@@ -10,6 +10,14 @@ Usa questa sezione per sincronizzare, condividere, importare ed estendere i cale
 
 I dispositivi mobili possono essere sincronizzati usando ActiveSync. ActiveSync può essere usato solo per **contatti** e **calendari**.
 
+Usa sempre il formato completo del nome utente `<user>@<domain>` per accedere ad ActiveSync.
+
+:::note
+
+Il protocollo ActiveSync è supportato solo sui dispositivi Android e iOS. Outlook non è supportato.
+
+:::
+
 ### Apple iOS
 
 Accedi al tuo dispositivo iOS, apri Settings e aggiungi un account Exchange seguendo la [guida ufficiale](https://support.apple.com/en-us/HT201729).

@@ -10,6 +10,14 @@ Usa questa sezione per sincronizzare, condividere, importare ed estendere le rub
 
 I dispositivi mobili possono essere sincronizzati usando ActiveSync. ActiveSync può essere usato solo per **contatti** e **calendari**.
 
+Usa sempre il formato completo del nome utente `<user>@<domain>` per accedere ad ActiveSync.
+
+:::note
+
+Il protocollo ActiveSync è supportato solo sui dispositivi Android e iOS. Outlook non è supportato.
+
+:::
+
 Anche i contatti condivisi possono essere sincronizzati. Per la procedura completa di configurazione mobile, vedi [Calendario](./calendar.md#sincronizzazione-activesync-eas).
 
 ## Sincronizzazione CardDAV

@@ -10,6 +10,14 @@ Use this section to synchronize, share, import, and extend calendars in WebTop.
 
 Mobile devices can be synchronized using ActiveSync. ActiveSync can be used only for **contacts** and **calendars**.
 
+Always use the full user name format `<user>@<domain>` to access ActiveSync.
+
+:::note
+
+The ActiveSync protocol is supported only on Android and iOS devices. Outlook is not supported.
+
+:::
+
 ### Apple iOS
 
 Access your iOS device, navigate to Settings and add an Exchange account following the [official guide](https://support.apple.com/en-us/HT201729).
