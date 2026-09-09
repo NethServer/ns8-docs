@@ -60,7 +60,9 @@ You can define the domain’s email addresses by inheriting user and group names
 
 If the corresponding option is enabled, user and group names are treated as valid email addresses. In the rare case where a user and a group share the same name, incoming messages addressed to that name are always delivered to the group members.
 
-Additional email addresses for the domain can also be configured, as explained in section [Addresses](#email_addresses).
+Similarly, the `Add alias addresses from user domain` option treats the LDAP `mail` attribute of every user in the user domain as a valid email address for the domain. Unlike the two options above, this flag is not tied to a single user or group name: if the same address value is set on the `mail` attribute of several users, messages sent to it are delivered to all of them.
+
+Additional email addresses for the domain can also be configured, as explained in section [Addresses](#email_addresses). When an address matches both an entry on the `Addresses` page and one derived from a user or group name, or from a user's LDAP `mail` attribute, the explicit entry on the `Addresses` page always takes priority — see [Priority rules](#email_addresses-priority) for details.
 
 Under the `Advanced` section, the `Accept unknown recipients` switch controls how to handle messages addressed to undefined recipients within the domain. By default, such messages are rejected. However, in some scenarios—such as during a mail domain migration—it may be useful to accept these messages and deliver them silently to a catch-all mailbox. This behavior can be enabled by turning on the `Accept unknown recipients` option.
 
@@ -81,11 +83,11 @@ To further protect against mail domain spoofing, consider adding DNS records for
 
 ## Mailboxes {#mail-mailboxes-settings}
 
-Each user has a personal mailbox and any user name in the form *\<username\>@\<domain\>* is also a valid email address to deliver messages into it.
-
 The list of mailboxes is shown on the `Mailboxes` page. There are two types of mailboxes: users and public mailboxes.
 
-### Users mailboxes
+### User mailbox
+
+Each user has a personal mailbox. By enabling the `Add user addresses from user domain` option under [Domains](#email_domains) any user name in the form *\<username\>@\<domain\>* is also a valid email address to deliver messages into it.
 
 You can disable each mailbox by selecting the `Disable` item from the three-dots menu on the mailbox line.
 
@@ -95,11 +97,11 @@ By clicking the `Edit` item from the three-dots menu it's possible to setup the 
 - `Custom mailbox quota`: override the quota configured from the [Settings](#mail_settings-section)
 - `Custom spam retention`: override the retention configured from the [Settings](#mail_settings-section)
 
-### Public mailboxes
+### Public mailbox
 
 Public mailboxes can be shared among groups of users. The **Create public mailbox** button allows creating a new public mailbox and defining one or more owning groups and users. Public mailboxes can also be created by any IMAP client supporting IMAP ACL protocol extension (RFC 4314).
 
-When a new public mailbox is created, the mail server will automatically add a new address for all existing mail domains.
+When a new public mailbox is created, the mail server will automatically add a new wildcard address valid for all existing mail domains.
 
 ### Restore a mailbox folder from a backup {#mailbox-selective-restore}
 
@@ -127,7 +129,9 @@ If the mailbox quota is exceeded during the restore process, it will be set to u
 
 ## Addresses {#email_addresses}
 
-In addition to the users, groups and public mailboxes addresses, described in the previous section, the system enables the creation of an unlimited number of email addresses, from the `Addresses` page. Each mail address is associated with one or more destinations. A destination can be of the following types:
+You can create an unlimited number of email addresses from the `Addresses` page, with a higher priority over email addresses implicitly inherited from the [Domains](#email_domains) configuration.
+
+Each mail address is associated with one or more destinations. A destination can be of the following types:
 
 - user mailbox
 - public mailbox
@@ -142,6 +146,20 @@ A mail address can be specific to one mail domain, or generic to all configured 
 Sometimes a company forbids communications from outside the organization using personal email addresses. To change the *visibility* of an address, click on the three-dots menu and select the `Set as internal` action shortcut, or select `Edit` and enable the `Internal` check box under the `Advanced` section.
 
 When an address is *internal* it cannot receive messages from the outside. Still an *internal* address can be used to exchange messages with other accounts of the system.
+
+### Priority rules {#email_addresses-priority}
+
+An email address may be defined in more than one way at the same time: as an explicit entry on this page (specific to a domain, or a wildcard valid for all domains), or implicitly derived from one of the [Domains](#email_domains) options that inherit names from the user domain — `Add user addresses from user domain`, `Add group addresses from user domain`, and `Add alias addresses from user domain` (which turns a user's LDAP `mail` attribute into an address). When the same address value comes from more than one of these sources, all matching entries are listed on this page as separate rows, but only one of them is actually used to deliver a message, following this priority order, from highest to lowest:
+
+1.  A domain-specific address, as configured on this page.
+2.  A wildcard address, as configured on this page.
+3.  A group address, derived from the `Add group addresses from user domain` flag.
+4.  A user address, derived from the `Add user addresses from user domain` flag.
+5.  An address derived from a user's LDAP `mail` attribute, via the `Add alias addresses from user domain` flag.
+
+Only the destinations of the highest-priority entry actually receive the message; entries with the same address but lower priority are ignored for delivery, even though they remain visible on this page.
+
+The *internal* check is evaluated independently of this priority order: it is checked directly against the incoming recipient address before any of it is resolved to actual destinations, so it does not necessarily follow the entry that ends up delivering the message. An address derived from a user's LDAP `mail` attribute has no *internal* check at all, as mentioned above.
 
 ## Filter {#email_filter}
 
