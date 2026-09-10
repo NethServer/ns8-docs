@@ -23,6 +23,17 @@ You can change these default properties for events created in this calendar:
 
 You can always change these properties while creating each single event if they need to differ from the defaults.
 
+Other default configurations are available from the `Settings` menu in the upper-right corner: click the circle with the user's initials, then select `Settings` > `Calendar`.
+
+You can configure:
+
+- `Default view`: choose between `Day`, `Week (5d)`, `Week`, `Bi-week`, and `Month`
+- `Time resolution`: choose between `15` and `30` minutes
+- `Working hours`: set the start and end time. The grid shows a white background for this interval.
+- `Reminder notification`: choose between `In WebTop` and `Email`
+- `New event` > `Hide description on opening`: enable or disable this option. When you open a new event, the description field is open or closed according to this setting.
+- `CalDAV` > `Enable invitees notification`: enable or disable this option. For some CalDAV clients, you may need to disable this option.
+
 ## ActiveSync (EAS) synchronization
 
 Mobile devices can be synchronized using ActiveSync. ActiveSync can be used only for **contacts** and **calendars**.
