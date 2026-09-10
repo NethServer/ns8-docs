@@ -4,11 +4,47 @@ sidebar_position: 4
 ---
 # Calendario
 
-Usa questa sezione per sincronizzare, condividere, importare ed estendere i calendari in WebTop.
+## Modifica impostazioni calendario
+
+Per ogni calendario personale puoi modificare le impostazioni predefinite. Seleziona il calendario e fai clic sul kebab menu a destra, oppure fai clic con il tasto destro sul calendario, quindi seleziona `Modifica calendario`.
+
+Puoi modificare queste proprietà del calendario:
+
+- nome e colore
+- descrizione
+- sincronizzazione EAS (`Attiva`, `Disattiva` o `Sola lettura`)
+
+Puoi modificare queste proprietà predefinite per gli eventi creati in questo calendario:
+
+- `Visibilità`: scegli tra `Normale` e `Privato`. Gli eventi creati con visibilità `Privato` nei calendari condivisi non mostrano titolo e descrizione, ma solo l'occupazione oraria.
+- `Imposta stato`: scegli tra `Disponibile` e `Occupato`
+- promemoria predefinito
+- abilita `Mandami una notifica quando qualcuno modifica il mio calendario`. Nei calendari condivisi, ricevi una notifica quando un altro utente crea un nuovo evento.
+
+Puoi sempre modificare queste proprietà durante la creazione di ogni singolo evento se devono essere diverse da quelle predefinite.
+
+Altre configurazioni predefinite sono disponibili dal menu `Impostazioni` in alto a destra: fai clic sul cerchio con le iniziali dell'utente, quindi seleziona `Impostazioni` > `Calendario`.
+
+Puoi configurare:
+
+- `Vista predefinita`: scegli tra `Giorno`, `Settimana (5g)`, `Settimana`, `Bi-Settimana` e `Mese`
+- `Risoluzione oraria`: scegli tra `15` e `30` minuti
+- `Ore lavorative`: imposta l'ora di inizio e di fine. La griglia mostra uno sfondo bianco per questo intervallo.
+- `Notifica promemoria`: scegli tra `In WebTop` ed `Email`
+- `Nuovo evento` > `Nascondi descrizione all'apertura`: abilita o disabilita questa opzione. Quando apri un nuovo evento, il campo descrizione è aperto o chiuso in base a questa scelta.
+- `CalDAV` > `Abilita notifica invitati`: abilita o disabilita questa opzione. Per alcuni client CalDAV può essere necessario disabilitare questa opzione.
 
 ## Sincronizzazione ActiveSync (EAS)
 
 I dispositivi mobili possono essere sincronizzati usando ActiveSync. ActiveSync può essere usato solo per **contatti** e **calendari**.
+
+Usa sempre il formato completo del nome utente `<user>@<domain>` per accedere ad ActiveSync.
+
+:::note
+
+Il protocollo ActiveSync è supportato solo sui dispositivi Android e iOS. Outlook non è supportato.
+
+:::
 
 ### Apple iOS
 

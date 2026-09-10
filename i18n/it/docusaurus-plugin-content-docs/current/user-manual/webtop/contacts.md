@@ -4,11 +4,37 @@ sidebar_position: 5
 ---
 # Contatti
 
-Usa questa sezione per sincronizzare, condividere, importare ed estendere le rubriche in WebTop.
+## Modifica impostazioni rubrica
+
+Per ogni rubrica personale puoi modificare le impostazioni. Seleziona la rubrica e fai clic sul kebab menu a destra, oppure fai clic con il tasto destro sulla rubrica, quindi seleziona `Modifica categoria`.
+
+Puoi modificare queste proprietà della rubrica:
+
+- nome e colore
+- descrizione
+- sincronizzazione EAS (`Attiva`, `Disattiva` o `Sola lettura`)
+
+Altre configurazioni predefinite sono disponibili dal menu `Impostazioni` in alto a destra: fai clic sul cerchio con le iniziali dell'utente, quindi seleziona `Impostazioni` > `Contatti`.
+
+Puoi configurare:
+
+- `Vista predefinita`: scegli tra `Ufficio` e `Casa`
+- `Mostra nomi come`: scegli tra `Nome Cognome`, `Cognome, Nome` e `Nome visualizzato`
+- `Raggruppamento`: scegli tra `Alfabetico` e `Azienda`
+- `Notifica anniversari`: scegli tra `Disattiva`, `In WebTop` e `Tramite email`
+- `Orario notifica anniversari`: scegli l'orario in cui ricevere questo tipo di notifiche
 
 ## Sincronizzazione ActiveSync (EAS)
 
 I dispositivi mobili possono essere sincronizzati usando ActiveSync. ActiveSync può essere usato solo per **contatti** e **calendari**.
+
+Usa sempre il formato completo del nome utente `<user>@<domain>` per accedere ad ActiveSync.
+
+:::note
+
+Il protocollo ActiveSync è supportato solo sui dispositivi Android e iOS. Outlook non è supportato.
+
+:::
 
 Anche i contatti condivisi possono essere sincronizzati. Per la procedura completa di configurazione mobile, vedi [Calendario](./calendar.md#sincronizzazione-activesync-eas).
 

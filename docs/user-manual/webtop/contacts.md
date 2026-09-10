@@ -4,11 +4,37 @@ sidebar_position: 5
 ---
 # Contacts
 
-Use this section to synchronize, share, import, and extend address books in WebTop.
+## Edit address book settings
+
+For each personal address book, you can change the settings. Select the address book and click the kebab menu on the right, or right-click the address book, then select `Edit Category`.
+
+You can change these address book properties:
+
+- name and color
+- description
+- EAS synchronization (`Active`, `Disabled`, or `Read-only`)
+
+Other default configurations are available from the `Settings` menu in the upper-right corner: click the circle with the user's initials, then select `Settings` > `Contacts`.
+
+You can configure:
+
+- `Default view`: choose between `Office` and `Home`
+- `Display names as`: choose between `First name Last name`, `Last name, First name`, and `Display name`
+- `Grouping`: choose between `Alphabetical` and `Company`
+- `Anniversary notification`: choose between `Disabled`, `In WebTop`, and `By email`
+- `Anniversary notification time`: choose the time when you receive anniversary notifications
 
 ## ActiveSync (EAS) synchronization
 
 Mobile devices can be synchronized using ActiveSync. ActiveSync can be used only for **contacts** and **calendars**.
+
+Always use the full user name format `<user>@<domain>` to access ActiveSync.
+
+:::note
+
+The ActiveSync protocol is supported only on Android and iOS devices. Outlook is not supported.
+
+:::
 
 Shared contacts can also be synchronized. For the full mobile setup procedure, see [Calendar](./calendar.md#activesync-eas-synchronization).
 
