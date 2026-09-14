@@ -145,7 +145,9 @@ Un indirizzo email può essere specifico per un dominio di posta oppure generico
 
 A volte un'azienda vieta le comunicazioni dall'esterno dell'organizzazione usando indirizzi email personali. Per cambiare la *visibilità* di un indirizzo, fai clic sul menu a tre punti e seleziona l'azione rapida `Set as internal`, oppure seleziona `Edit` e abilita la casella `Internal` nella sezione `Advanced`.
 
-Quando un indirizzo è *internal*, non può ricevere messaggi dall'esterno. Un indirizzo *internal* può comunque essere usato per scambiare messaggi con altri account del sistema.
+Quando un indirizzo è *internal*, non può ricevere messaggi dall'esterno, ma può comunque essere usato come indirizzo del mittente per i messaggi in uscita, anche verso destinatari esterni. Un indirizzo *internal* può comunque ricevere messaggi da altri utenti autenticati del sistema, e da [indirizzi IP fidati](#mail-relay-settings).
+
+Un indirizzo derivato dall'attributo LDAP `mail` di un utente non ha alcun controllo *internal*. Per esempio, supponi che il dominio `example.com` abbia abilitato `Add alias addresses from user domain`, e che l'attributo `mail` dell'utente `mrossi` sia impostato su `sales@example.com`: questo indirizzo accetta sempre messaggi dall'esterno, senza alcun modo per limitarlo. Per renderlo internal, crea in questa pagina un indirizzo esplicito `sales` per il dominio `example.com`, con `mrossi` come destinazione, e abilita su di esso la casella `Internal`: questa voce esplicita ha la priorità su quella derivata da LDAP sia per la consegna sia per il controllo *internal*.
 
 ### Priorità di risoluzione degli indirizzi {#email_addresses-priority}
 
@@ -160,8 +162,6 @@ Un indirizzo email può essere definito in più modi contemporaneamente: come vo
 Solo le destinazioni della voce con priorità più alta ricevono effettivamente il messaggio; le voci con lo stesso indirizzo ma priorità inferiore vengono ignorate ai fini della consegna, anche se restano visibili in questa pagina.
 
 Il controllo *internal* viene valutato indipendentemente da questo ordine di priorità: viene verificato direttamente sull'indirizzo del destinatario in arrivo, prima che venga risolto nelle destinazioni effettive, quindi non segue necessariamente la voce che alla fine consegna il messaggio.
-
-Un indirizzo derivato dall'attributo LDAP `mail` di un utente non ha alcun controllo *internal*. Per esempio, supponi che il dominio `example.com` abbia abilitato `Add alias addresses from user domain`, e che l'attributo `mail` dell'utente `mrossi` sia impostato su `sales@example.com`: questo indirizzo accetta sempre messaggi dall'esterno, senza alcun modo per limitarlo. Per renderlo internal, crea in questa pagina un indirizzo esplicito `sales` per il dominio `example.com`, con `mrossi` come destinazione, e abilita su di esso la casella `Internal`: questa voce esplicita ha la priorità su quella derivata da LDAP sia per la consegna sia per il controllo *internal*.
 
 ## Filtro {#email_filter}
 
