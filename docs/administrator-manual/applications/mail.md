@@ -62,7 +62,7 @@ If the corresponding option is enabled, user and group names are treated as vali
 
 Similarly, the `Add alias addresses from user domain` option treats the LDAP `mail` attribute of every user in the user domain as a valid email address for the domain. Unlike the two options above, this flag is not tied to a single user or group name: if the same address value is set on the `mail` attribute of several users, messages sent to it are delivered to all of them.
 
-Additional email addresses for the domain can also be configured, as explained in section [Addresses](#email_addresses). When an address matches both an entry on the `Addresses` page and one derived from a user or group name, or from a user's LDAP `mail` attribute, the explicit entry on the `Addresses` page always takes priority — see [Priority rules](#email_addresses-priority) for details.
+Additional email addresses for the domain can also be configured, as explained in section [Addresses](#email_addresses). When an address matches both an entry on the `Addresses` page and one derived from a user or group name, or from a user's LDAP `mail` attribute, the explicit entry on the `Addresses` page always takes priority — see [Address resolution priority](#email_addresses-priority) for details.
 
 Under the `Advanced` section, the `Accept unknown recipients` switch controls how to handle messages addressed to undefined recipients within the domain. By default, such messages are rejected. However, in some scenarios—such as during a mail domain migration—it may be useful to accept these messages and deliver them silently to a catch-all mailbox. This behavior can be enabled by turning on the `Accept unknown recipients` option.
 
@@ -145,9 +145,11 @@ A mail address can be specific to one mail domain, or generic to all configured 
 
 Sometimes a company forbids communications from outside the organization using personal email addresses. To change the *visibility* of an address, click on the three-dots menu and select the `Set as internal` action shortcut, or select `Edit` and enable the `Internal` check box under the `Advanced` section.
 
-When an address is *internal* it cannot receive messages from the outside. Still an *internal* address can be used to exchange messages with other accounts of the system.
+When an address is *internal* it cannot receive messages from the outside, but it can still be used as the sender address of outgoing messages, including messages sent to external recipients. An *internal* address can still receive messages from other authenticated users of the system, and from [trusted IP addresses](#mail-relay-settings).
 
-### Priority rules {#email_addresses-priority}
+An address derived from a user's LDAP `mail` attribute has no *internal* check at all. For example, suppose domain `example.com` has `Add alias addresses from user domain` enabled, and user `mrossi`'s `mail` attribute is set to `sales@example.com`: this address always accepts messages from outside, with no way to restrict it. To make it internal, create an explicit address `sales` for domain `example.com` on this page, with `mrossi` as destination, and enable the `Internal` check box on it: this explicit entry takes priority over the LDAP-derived one for both delivery and the *internal* check.
+
+### Address resolution priority {#email_addresses-priority}
 
 An email address may be defined in more than one way at the same time: as an explicit entry on this page (specific to a domain, or a wildcard valid for all domains), or implicitly derived from one of the [Domains](#email_domains) options that inherit names from the user domain — `Add user addresses from user domain`, `Add group addresses from user domain`, and `Add alias addresses from user domain` (which turns a user's LDAP `mail` attribute into an address). When the same address value comes from more than one of these sources, all matching entries are listed on this page as separate rows, but only one of them is actually used to deliver a message, following this priority order, from highest to lowest:
 
@@ -159,7 +161,7 @@ An email address may be defined in more than one way at the same time: as an exp
 
 Only the destinations of the highest-priority entry actually receive the message; entries with the same address but lower priority are ignored for delivery, even though they remain visible on this page.
 
-The *internal* check is evaluated independently of this priority order: it is checked directly against the incoming recipient address before any of it is resolved to actual destinations, so it does not necessarily follow the entry that ends up delivering the message. An address derived from a user's LDAP `mail` attribute has no *internal* check at all, as mentioned above.
+The *internal* check is evaluated independently of this priority order: it is checked directly against the incoming recipient address before any of it is resolved to actual destinations, so it does not necessarily follow the entry that ends up delivering the message.
 
 ## Filter {#email_filter}
 
