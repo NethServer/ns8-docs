@@ -90,7 +90,7 @@ function parseDestination(destination) {
   return {bucket, prefix};
 }
 
-function run(command, args, {dryRun = false} = {}) {
+function run(command, args, {dryRun = false, missingHint = ''} = {}) {
   const printable = [command, ...args].join(' ');
 
   if (dryRun) {
@@ -101,6 +101,9 @@ function run(command, args, {dryRun = false} = {}) {
   console.log(`+ ${printable}`);
   const result = spawnSync(command, args, {stdio: 'inherit'});
 
+  if (result.error?.code === 'ENOENT') {
+    throw new Error(`${command} is not installed or not on PATH.${missingHint}`);
+  }
   if (result.error) {
     throw result.error;
   }
@@ -127,7 +130,14 @@ try {
       '--no-progress',
       ...(options.endpointUrl ? ['--endpoint-url', options.endpointUrl] : []),
     ],
-    {dryRun: options.dryRun}
+    {
+      dryRun: options.dryRun,
+      missingHint:
+        ' The AWS CLI performs the upload: install it (dnf install awscli2,' +
+        ' apt install awscli, or the installer from https://aws.amazon.com/cli/)' +
+        ` and run this again. The collected files are already in ${options.out},` +
+        ' so nothing has to be fetched twice.',
+    }
   );
 
   console.log(
