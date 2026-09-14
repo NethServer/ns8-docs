@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developer Manual &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="introduction.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "index", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Developer Manual</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             <div style="margin: 0 0 1rem; padding: 0.75rem 1rem; border: 1px solid #d39e00; background: #fff3cd; color: #664d03; border-radius: 4px;">
+               <strong>Legacy documentation:</strong> this developer manual is kept for reference only.
+             </div>
+            
+  <div class="section" id="developer-manual">
+<h1>Developer Manual<a class="headerlink" href="#developer-manual" title="Permalink to this headline">¶</a></h1>
+<img alt="NethServer" src="_images/logo.png" />
+<div class="sidebar">
+<p class="first sidebar-title">See also</p>
+<ul class="last simple">
+<li><a class="reference external" href="http://www.nethserver.org">Web site</a></li>
+<li><a class="reference external" href="http://community.nethserver.org">Community</a></li>
+<li><a class="reference external" href="https://wiki.nethserver.org">Wiki</a></li>
+<li><a class="reference external" href="http://docs.nethserver.org">Administrator manual</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#target-audience">Target audience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#get-involved">Get involved</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development_process.html#issues">Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_process.html#pull-requests">Pull requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_process.html#rpm-version-numbering-rules">RPM Version numbering rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_process.html#commit-message-style-guide">Commit message style guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_process.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_process.html#new-packages">New packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_process.html#package-updates">Package updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_process.html#iso-releases">ISO releases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rpm_rules.html#naming-and-events-conventions">Naming and events conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpm_rules.html#install-update-process">Install/Update process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpm_rules.html#uninstall-process">Uninstall process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpm_rules.html#service-packages">Service packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#server-manager-cockpit">Server Manager (Cockpit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#server-manager-nethgui">Server Manager (Nethgui)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#simple-entries">Simple entries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#complex-entries">Complex entries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#access-from-the-command-line">Access from the command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#access-via-the-perl-api">Access via the Perl API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#database-initialization">Database initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#evaluation-order">Evaluation order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#best-practices">Best practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#list-of-available-database">List of available database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#design-of-the-template-system">Design of the template system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#the-text-template-module">The Text::Template module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#template-expansion">Template expansion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#template-permissions-and-ownership-templates-metadata">Template permissions and ownership: templates.metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#template-deletion-templates-metadata">Template deletion: templates.metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#perl-api-processtemplate">Perl API: processTemplate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#actions">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#events">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#control-a-service">Control a service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#access-network-service">Access network service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#add-a-new-service">Add a new service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#add-a-new-network-service">Add a new network service</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#coding-conventions">Coding conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#packages">Packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="certificate_management.html#default-behavior">Default behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="certificate_management.html#let-s-encrypt">Let’s Encrypt</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yum_plugin.html#caching">Caching</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="web_interface.html#nethgui-framework">Nethgui framework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="create_interface_module.html#web-ui-structure">Web UI structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_interface_module.html#writing-the-code">Writing the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_interface_module.html#more-examples">More examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#systemstatus-tab">SystemStatus tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#services-tab">Services tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#applications-tab">Applications tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboard.html#extending-the-dashboard">Extending the dashboard</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inline_help.html#editing-rules">Editing rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inline_help.html#creating-help-for-plugin-modules">Creating help for plugin modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inline_help.html#building-docs-inside-rpms">Building docs inside RPMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inline_help.html#rst-editors">RST editors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="todos_api.html#translations">Translations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building_rpms.html#development-vs-release-builds">Development vs Release builds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_rpms.html#publishing-rpms">Publishing RPMs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package_groups.html#submit-a-change-proposal">Submit a change proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package_groups.html#how-to-edit-xml-in-files">How to edit <code class="docutils literal notranslate"><span class="pre">.xml.in</span></code> files</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-antivirus.html#disable-official-signatures">Disable official signatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-antivirus.html#select-signature-rating">Select signature rating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-antivirus.html#cockpit-api">Cockpit API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-config.html#configuration-backup">Configuration backup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#backward-compatibility">Backward compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#backup">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#disk-usage">Disk usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#indexing">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#customization">Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#retention-policy">Retention policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#restore">Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#list-backup-contents">List backup contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#duplicity">Duplicity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#restic">Restic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-backup-data.html#rsync">rsync</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-base.html#network">Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-base.html#log-retention-and-rotation">Log retention and rotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-base.html#transport-layer-security">Transport Layer Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-base.html#repositories">Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-base.html#notifications">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-base.html#let-s-encrypt-certificates">Let’s Encrypt certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-base.html#dns-challenge">DNS challenge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-blacklist.html#ip-blacklist">IP blacklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-blacklist.html#dns-blacklist">DNS blacklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-blacklist.html#geoip-blacklist">GEOIP blacklist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-collectd.html#ping-plugin">Ping plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-collectd.html#web-interface">Web interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-collectd.html#cleanup">Cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-collectd.html#interesting-plugins">Interesting plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-collectd.html#database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-cups.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-cups.html#printer-discovery">Printer discovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-cups.html#configuration-db">Configuration DB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dc.html#nethserver-dc-save-event">nethserver-dc-save event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dc.html#running-commands-in-nsdc">Running commands in <code class="docutils literal notranslate"><span class="pre">nsdc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dc.html#manual-join">Manual Join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dc.html#factory-reset">Factory reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dc.html#uninstall-nethserver-dc">Uninstall nethserver-dc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dc.html#upgrade-the-container">Upgrade the container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dc.html#changing-the-ip-address-of-dc">Changing the IP address of DC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dc.html#alternate-upn-suffix">Alternate UPN suffix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dc.html#enable-check-password-script">Enable check password script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dc.html#ns-samba-binary-build">ns-samba binary build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-directory.html#schema-and-base-dn">Schema and base DN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-directory.html#user-account-states">User account states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-directory.html#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-directory.html#service-accounts">Service accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-directory.html#user-accounts">User accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-directory.html#anonymous-access">Anonymous access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-directory.html#administrative-access">Administrative access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-directory.html#inspect-openldap-acls">Inspect OpenLDAP ACLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-directory.html#upgrade-to-active-directory">Upgrade to Active Directory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dnsmasq.html#dns">DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dnsmasq.html#dhcp">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dnsmasq.html#ip-reservation">IP reservation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-dnsmasq.html#tftp-server">TFTP server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-duc.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-duc.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ejabberd.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-evebox.html#links">Links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#roles-and-zones">Roles and zones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#general-configuration">General configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#events">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#policy">Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#ip-mac-binding">IP/MAC binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#rules">Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#firewall-objects">Firewall objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#port-forwarding">Port forwarding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#source-nat-snat">Source NAT (sNAT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#traffic-shaping">Traffic shaping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#multi-wan">Multi WAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-base.html#static-routes">Static routes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-migration.html#migrate-to-another-machine">Migrate to another machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-migration.html#in-place-migration">In-place migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-firewall-migration.html#not-migrated">Not migrated</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-freepbx.html#freepbx-web-ui-access">FreePBX Web UI Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-freepbx.html#backup">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-freepbx.html#open-services-from-external-networks">Open services from external networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-freepbx.html#users">Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-freepbx.html#webrtc">WebRTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-freepbx.html#cockpit-api">Cockpit API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#what-is-it">What is it ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#how-it-works">How it works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#how-to-restore">How to restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#how-to-restore-original-server">How to restore original server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#how-to-synchronize-custom-paths">How to synchronize custom paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#how-to-force-synchronization-from-master-to-slave">How to force synchronization from MASTER to SLAVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#how-to-force-packages-installation-on-slave">How to force packages installation on SLAVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#components">Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hotsync.html#supported-packages">Supported packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd.html#web-applications">Web applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd.html#configuration-database">configuration database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd.html#vhost-database">vhost database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd.html#proxypass-database">proxypass database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd.html#rh-php-software-collection">rh PHP software collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd.html#events">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd.html#nethserver-6-upgrade">NethServer 6 upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd.html#ui-plugins">UI plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd.html#welcome-page">Welcome page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd-admin.html#smwingsd-daemon">smwingsd daemon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd-admin.html#customization">Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd-admin.html#database-example">Database example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-httpd-admin.html#session-timeouts">Session timeouts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hylafax.html#modem-configuration">Modem configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hylafax.html#accounting-faxaccounting">Accounting (FaxAccounting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hylafax.html#incoming-fax-faxdispatch">Incoming fax (FaxDispatch)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hylafax.html#outgoing-fax-faxnotify">Outgoing fax (FaxNotify)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hylafax.html#custom-scripts">Custom scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hylafax.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hylafax.html#internationalization">Internationalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hylafax.html#client-configuration">Client configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-hylafax.html#configuration-db">Configuration DB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-iaxmodem.html#multiple-iax-modems">Multiple IAX modems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ipsec-tunnels.html#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-janus.html#start-janus-gateway-at-boot">Start Janus Gateway at boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-janus.html#nat-modes">NAT modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-janus.html#stun-and-ice-enforced-interfaces">STUN and ICE enforced interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-janus.html#disable-plugins">Disable plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-janus.html#debug-problems-with-admin-api">Debug problems with Admin Api</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-lang.html#building-a-release-rpm">Building a release RPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-lang.html#building-rpms-for-testing">Building RPMs for testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-lang.html#adding-new-resources">Adding new resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-lightsquid.html#database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#nethserver-mail-common">nethserver-mail-common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#nethserver-mail-smarthost">nethserver-mail-smarthost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#nethserver-mail-disclaimer">nethserver-mail-disclaimer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#nethserver-mail-filter">nethserver-mail-filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#nethserver-mail-server">nethserver-mail-server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#nethserver-mail-ipaccess">nethserver-mail-ipaccess</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#nethserver-mail-getmail">nethserver-mail-getmail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#nethserver-mail-p3scan">nethserver-mail-p3scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#mail-quarantine">mail-quarantine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#database-format">Database format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#mail-quota">Mail quota</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#disabled-users">Disabled users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#testing-dovecot-with-mutt">Testing Dovecot with Mutt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#set-special-acl-on-mailboxes">Set special ACL on mailboxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#ip-based-imap-access-restriction">IP-based IMAP access restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#enable-dovecot-imap-rawlog">Enable dovecot IMAP rawlog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#access-the-rspamd-ui">Access the rspamd UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#bayesian-rules-upgrade-to-rspamd">Bayesian rules upgrade to rspamd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#sender-address-validation">Sender address validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#postfix-smtp-listening-ports">Postfix SMTP listening ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mail.html#dynamic-group-aliases">Dynamic group aliases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-makerpms.html#installation-upgrade">Installation/upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-makerpms.html#build-requirements">Build requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-makerpms.html#building-rpms-locally">Building RPMs locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-makerpms.html#other-commands">Other commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-makerpms.html#building-rpms-on-github-com">Building RPMs on github.com</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mattermost.html#first-configuration">First configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mattermost.html#database">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mattermost.html#account-synchronization">Account synchronization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mattermost.html#log-files">Log files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mattermost.html#cockpit-api">Cockpit API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mock.html#configuring-the-environment">Configuring the environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mock.html#running-the-scripts">Running the scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mock.html#development-and-release-builds">Development and Release builds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mock.html#signing-rpms">Signing RPMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mock.html#running-on-el8">Running on EL8</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-mysql.html#loading-data">Loading data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-net-snmp.html#database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-netdata.html#configuration-db">Configuration DB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-netdata.html#access-from-lan">Access from LAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-netdata.html#links">Links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nextcloud.html#admin-user">Admin user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nextcloud.html#customize-virtual-host">Customize virtual host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nextcloud.html#backup">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nextcloud.html#occ">OCC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nextcloud.html#log-of-php80-fpm">Log of php80-fpm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nextcloud.html#cockpit-api">Cockpit API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nextcloud.html#full-reinstall">Full reinstall</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ns8-migration.html#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ns8-migration.html#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ns8-migration.html#migration-apis">Migration APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ns8-migration.html#package-uninstallation">Package uninstallation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ns8-migration.html#post-migration-step-back">Post-migration step back</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ns8-migration.html#migration-notes">Migration notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ntopng.html#database-reference">Database Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ntopng.html#download-lates-upstream-release">Download lates upstream release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ntopng.html#links">Links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-ntp.html#how-it-works">How it works</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nut.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nut.html#master-node">Master node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nut.html#slave-node">Slave node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-nut.html#collectd-nut">Collectd-nut</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openssh.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openssh.html#events">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openssh.html#one-time-password-2fa">One time password (2FA)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openvpn.html#events">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openvpn.html#roadwarrior-accounts">Roadwarrior accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openvpn.html#roadwarrior-server">Roadwarrior server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openvpn.html#tunnel-topology">Tunnel topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openvpn.html#tunnel-clients">Tunnel clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openvpn.html#tunnel-servers">Tunnel servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openvpn.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-openvpn.html#log-files-and-systemd-instances">Log files and systemd instances</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-phonehome.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-phonehome.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-postgresql.html#access-policy">Access policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-postgresql.html#backup">Backup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-release.html#building-a-release-rpm">Building a release RPM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html#adding-new-configuration">Adding new configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html#adding-new-configuration">Adding new configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-roundcubemail.html#database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-samba.html#configuration-database">Configuration database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-samba.html#accounts-database">Accounts database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-samba.html#shared-folder-profile">Shared folder profile</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-samba-audit.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squid.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squid.html#transparent-mode">Transparent mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squid.html#authenticated-mode">Authenticated mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squid.html#bypasses">Bypasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squid.html#cache">Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squid.html#priority-and-divert-rules">Priority and divert rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squid.html#wpad">WPAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squid.html#miscellaneous-options">Miscellaneous options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squidguard.html#inner-workings">Inner workings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squidguard.html#known-limitations">Known limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squidguard.html#blacklists">Blacklists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squidguard.html#databases">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squidguard.html#block-page">Block page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-squidguard.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#configuration-db-format">Configuration DB format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#realm-and-workgroup">Realm and workgroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#events">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#system-users-and-groups">System users and groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#ad-ldap-search">AD LDAP search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#id1">NethServer::SSSD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#join-active-directory">Join Active Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#leave-and-re-join-active-directory">Leave and Re-Join Active Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#change-the-fqdn">Change the FQDN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#account-import-scripts">Account import scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-sssd.html#password-policy">Password policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-subscription.html#database">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-subscription.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-subscription.html#yum-repositories">YUM repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-subscription.html#events">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-subscription.html#alerts">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-subscription.html#inventory">Inventory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-suricata.html#manually-enable-disable-suricata">Manually enable/disable Suricata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-suricata.html#bypass">Bypass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-suricata.html#custom-rules">Custom rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-suricata.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-unbound.html#database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-unixODBC.html#etc-odbc-ini">/etc/odbc.ini</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-unixODBC.html#etc-odbcinst-ini">/etc/odbcinst.ini</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-unixODBC.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-vsftpd.html#virtual-users">Virtual users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-vsftpd.html#system-users">System users</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-webtop4.html#database">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-webtop4.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-webtop4.html#known-problems">Known problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-webtop5.html#database">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-webtop5.html#reset-admin-password">Reset admin password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-webtop5.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nethserver-webtop5.html#tomcat-instance">Tomcat instance</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="license_headers.html#php-javascript-css">PHP, Javascript, CSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license_headers.html#perl-python-and-bash">Perl, Python and BASH</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rebranding_manual.html#environment">Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rebranding_manual.html#contents">Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rebranding_manual.html#product-name-and-version">Product name and version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rebranding_manual.html#theme">Theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rebranding_manual.html#artworks">Artworks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+<a class="reference external image-reference" href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"><img alt="CC by-nc-sa" class="align-right" src="_images/by-nc-sa_small.png" /></a>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

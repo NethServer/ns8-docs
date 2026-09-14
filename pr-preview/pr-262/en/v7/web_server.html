@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web server &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Email" href="mail.html" />
+    <link rel="prev" title="Backup" href="backup.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "web_server", "programming_language": "words", "project": "nethserver", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"nethserver-devel": "https://docs.nethserver.org/projects/nethserver-devel/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/web_server.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accessing the Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Users and groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">DHCP and PXE server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Web server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-server-dashboard">Web server dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-hosts">Virtual hosts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#web-site-access-restrictions">Web site access restrictions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssl-tls-certificate">SSL/TLS certificate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-a-web-application">Configuring a web application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#php-versions-and-configuration">PHP versions and configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disabling-a-virtual-host">Disabling a virtual host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleting-a-virtual-host">Deleting a virtual host</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reverse-proxy">Reverse proxy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#web-site-name-proxy-pass">Web site name proxy pass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resource-path-proxy-pass">Resource path proxy pass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extra-options">Extra options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-reverse-proxy-settings">Advanced reverse proxy settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ftp-server">FTP server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#system-users">System users</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Shared folders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Web proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Bandwidth monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Backup customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Virtual machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">NethForge modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade from NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Email module transition to Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Documentation license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Old Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">The old Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">POP3 proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Fax server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">SOGo Groupware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Web server</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/web_server.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="web-server-section"></span><section id="web-server">
+<span id="index-0"></span><h1>Web server<a class="headerlink" href="#web-server" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This chapter describes the features of the <em>Web server</em> application,
+available in the new Server Manager.</p>
+</div>
+<p>After NethServer has been installed the <span class="guilabel">Web server</span> application is
+already available. It configures and starts the Apache HTTP web server.</p>
+<p>The <span class="guilabel">Web server</span> application provides the following features:</p>
+<ul class="simple">
+<li><p>Apache HTTP web server</p></li>
+<li><p>Integration with system certificates for HTTPS</p></li>
+<li><p>Hosting of multiple web sites</p></li>
+<li><p>HTTP <span class="target" id="index-1"></span>reverse proxy</p></li>
+<li><p><span class="target" id="index-2"></span>PHP scripting language to run web applications</p></li>
+<li><p><span class="target" id="index-3"></span>FTP server</p></li>
+</ul>
+<p>The following sections describe the pages of the <span class="guilabel">Web server</span>
+application. Some of them require additional software components that are
+automatically downloaded, installed and configured when they are required for
+the first time.</p>
+<section id="web-server-dashboard">
+<h2>Web server dashboard<a class="headerlink" href="#web-server-dashboard" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Web server dashboard</span> page shows the current web server status
+and statistics. It also lists the additional components installed on the system.</p>
+<p>The default Apache configuration serves the contents of <code class="file docutils literal notranslate"><span class="pre">/var/www/html</span></code>
+and is capable of executing PHP scripts by running them on the
+<span class="guilabel">Default web stack</span>.</p>
+</section>
+<section id="settings">
+<span id="webserver-settings-section"></span><h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Settings</span> page allows to change the PHP configuration parameters
+for resources allocation (e.g. script maximum memory and execution time).</p>
+<p>Changes affect the global PHP configuration: as such they are valid for both web
+applications and command line scripts, unless they are overridden by some means.</p>
+<p>PHP settings can also be adjusted for a specific web site from the
+<span class="guilabel">Virtual hosts</span> page (see also <a class="reference internal" href="#webserver-phpversions-section"><span class="std std-ref">PHP versions and configuration</span></a>),
+or overridden with a custom configuration file. To this end,</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>for PHP 7.2, look at current PHP-FPM settings in
+<code class="file docutils literal notranslate"><span class="pre">/etc/opt/rh/rh-php72/php-fpm.d/000-virtualhost.conf</span></code>;</p></li>
+<li><p>create a file under the same directory (e.g.
+<code class="file docutils literal notranslate"><span class="pre">/etc/opt/rh/rh-php72/php-fpm.d/001-custom.conf</span></code>) and refer to the
+official <a class="reference external" href="https://www.php.net/manual/en/install.fpm.configuration.php">PHP-FPM documentation</a> to adjust the pool directives;</p></li>
+<li><p>add the created file to your <a class="reference internal" href="backup_customization.html#configuration-backup-section"><span class="std std-ref">configuration backup</span></a>.</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="virtual-hosts">
+<span id="virtual-hosts-section"></span><h2>Virtual hosts<a class="headerlink" href="#virtual-hosts" title="Permalink to this headline">¶</a></h2>
+<p>Multiple web sites can be hosted on NethServer. It is possible to configure the
+web site hosting space in the <span class="guilabel">Virtual hosts</span> page.</p>
+<p>When a new virtual host is created with one or more <em>server names</em> the new
+Server Manager contextually creates a server alias name in the local DNS service
+for each of them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A server alias name is accessible from web clients if they use the NethServer
+itself as their DNS server.  For public web sites, refer to your DNS
+provider documentation and ensure the server alias name is correctly set in
+the public DNS.</p>
+</div>
+<p>Server alias names are listed and can be changed from the new Server Manager
+<a class="reference internal" href="base_system2.html#system-section"><span class="std std-ref">dashboard</span></a>.</p>
+<section id="web-site-access-restrictions">
+<h3>Web site access restrictions<a class="headerlink" href="#web-site-access-restrictions" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to limit how the web clients access the web site with the
+following options, available under the <span class="guilabel">Advanced settings</span> section.</p>
+<ol class="arabic simple">
+<li><p>Enable the option <span class="guilabel">Allow access from trusted networks only</span>. Refer to
+<a class="reference internal" href="base_system2.html#trusted-networks-section"><span class="std std-ref">Trusted networks</span></a> for more information.</p></li>
+<li><p>Enable the switch <span class="guilabel">Require HTTP authentication</span> to grant access
+only if the specified password is provided by the client. Web applications
+usually provide an authentication method by themselves: this option could be
+useful to protect the contents of static web sites.</p></li>
+<li><p>If the web site must be always accessed through an encrypted channel it is
+possible to enable the <span class="guilabel">Require SSL encrypted connection</span> option. Any
+resource request received over the HTTP protocol is redirected over HTTPS.</p></li>
+</ol>
+</section>
+<section id="ssl-tls-certificate">
+<h3>SSL/TLS certificate<a class="headerlink" href="#ssl-tls-certificate" title="Permalink to this headline">¶</a></h3>
+<p>Each virtual host can be assigned a reserved <span class="guilabel">SSL/TLS certificate</span> or
+rely on the default system one. In any case, the virtual host names must be
+present among the certificate alternative names, otherwise the web clients can
+refuse to connect.</p>
+</section>
+<section id="configuring-a-web-application">
+<span id="configuring-web-app"></span><h3>Configuring a web application<a class="headerlink" href="#configuring-a-web-application" title="Permalink to this headline">¶</a></h3>
+<p>When a new virtual host is created a web root directory is created as well. The
+full web root path is displayed under <span class="guilabel">Virtual hosts &gt; List &gt; Web root
+path</span>.</p>
+<p>If the switch <span class="guilabel">Enable FTP access</span> is enabled, it is possible to upload
+data, configuration and script files to the web root path using a FTP client.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>HTTP authentication password should be different from the FTP one, because
+FTP is used to upload the virtual host contents whilst HTTP is used to see
+them from the web.</p>
+</div>
+<p>The web site displays a “Welcome” page until a file named <code class="file docutils literal notranslate"><span class="pre">index.html</span></code>
+or <code class="file docutils literal notranslate"><span class="pre">index.php</span></code> is uploaded under the web root directory. If this is not
+desired, it is possible to enable the option <span class="guilabel">Root directory file
+listings</span>, as alternative to the “Welcome” page.</p>
+<p>FTP uploaded files are owned by the <cite>apache</cite> group with read-only permissions.
+If write or execution permissions are needed, a FTP client can be used to grant
+them.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If a web site contains executable code, such as PHP scripts, the security
+implications of file permissions must be evaluated carefully. Grant write
+access to a limited set of special files and directories, as required by the
+web application documentation.</p>
+</div>
+<p>The Apache configuration can be overridden by uploading a file named
+<code class="file docutils literal notranslate"><span class="pre">.htaccess</span></code>. Refer to the official Apache documentation for more
+information about this feature <a class="footnote-reference brackets" href="#htaccess" id="id1">1</a>.</p>
+</section>
+<section id="php-versions-and-configuration">
+<span id="webserver-phpversions-section"></span><h3>PHP versions and configuration<a class="headerlink" href="#php-versions-and-configuration" title="Permalink to this headline">¶</a></h3>
+<p>If the PHP version provided by the <span class="guilabel">Default web stack</span> does not fit a
+web application it is possible to select and install an alternative one and
+override the global PHP default settings, as explained by the
+<a class="reference internal" href="#webserver-settings-section"><span class="std std-ref">Settings</span></a> section.</p>
+</section>
+<section id="disabling-a-virtual-host">
+<h3>Disabling a virtual host<a class="headerlink" href="#disabling-a-virtual-host" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">Disable</span> action hides the virtual host, making it not accessible
+from web clients. This operation is reversible, by selecting the
+<span class="guilabel">Enable</span> action.</p>
+</section>
+<section id="deleting-a-virtual-host">
+<h3>Deleting a virtual host<a class="headerlink" href="#deleting-a-virtual-host" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">Delete</span> action removes the virtual host configuration and erases
+the web root directory. This operation is not reversible.</p>
+</section>
+</section>
+<section id="reverse-proxy">
+<span id="proxy-pass-section"></span><h2>Reverse proxy<a class="headerlink" href="#reverse-proxy" title="Permalink to this headline">¶</a></h2>
+<p>As alternative to a virtual host, which stores static files or a PHP web
+application under a local web root directory, it is possible to forward web
+requests to another HTTP server and serve responses in behalf of it. This
+behavior can be configured from the <span class="guilabel">Reverse proxy</span> page.</p>
+<p>Each reverse proxy item is actually a rule that can match an incoming web
+request. Depending on the rule <span class="guilabel">Name</span> field value, the match can occur
+in either:</p>
+<blockquote>
+<div><ol class="upperalpha simple">
+<li><p>the requested <strong>web site name</strong>, if <span class="guilabel">Name</span> starts with any character,
+but the slash <code class="docutils literal notranslate"><span class="pre">/</span></code>, or</p></li>
+<li><p>the requested <strong>resource path</strong>, if <span class="guilabel">Name</span> starts with a slash <code class="docutils literal notranslate"><span class="pre">/</span></code>
+character.</p></li>
+</ol>
+</div></blockquote>
+<p>If the rule matches, the request is forwarded to another web server, defined by
+the <span class="guilabel">Destination URL</span> field.</p>
+<section id="web-site-name-proxy-pass">
+<h3>Web site name proxy pass<a class="headerlink" href="#web-site-name-proxy-pass" title="Permalink to this headline">¶</a></h3>
+<p>Scenario for a named proxy pass:</p>
+<ul class="simple">
+<li><p>NethServer is the firewall of your LAN with public name <code class="docutils literal notranslate"><span class="pre">http://fw.myfirstdomain.org</span></code></p></li>
+<li><p>You have a domain <code class="docutils literal notranslate"><span class="pre">http://mydomain.com</span></code> pointing to the public IP for NethServer</p></li>
+<li><p>You would like <code class="docutils literal notranslate"><span class="pre">http://mydomain.com</span></code> to forward to the internal server
+(internal IP: 192.168.2.100)</p></li>
+</ul>
+<p>In this scenario, create a new record by clicking <span class="guilabel">Create a reverse proxy</span> button.
+Fill the <span class="guilabel">Name</span> field with <code class="docutils literal notranslate"><span class="pre">mydomain.com</span></code> and the <span class="guilabel">Destination URL</span> with
+<code class="docutils literal notranslate"><span class="pre">http://192.168.2.100</span></code>.</p>
+</section>
+<section id="resource-path-proxy-pass">
+<h3>Resource path proxy pass<a class="headerlink" href="#resource-path-proxy-pass" title="Permalink to this headline">¶</a></h3>
+<p>Scenario for path-based proxy pass:</p>
+<ul class="simple">
+<li><p>NethServer is the firewall of your LAN</p></li>
+<li><p>You have a domain <code class="docutils literal notranslate"><span class="pre">http://mydomain.com</span></code></p></li>
+<li><p>You would like <code class="docutils literal notranslate"><span class="pre">http://mydomain.com/mysite</span></code> to forward to the internal server
+(internal IP: 192.168.2.100)</p></li>
+</ul>
+<p>In this scenario, create a new record by clicking <span class="guilabel">Create a reverse proxy</span> button.
+Fill the <span class="guilabel">Name</span> field with <code class="docutils literal notranslate"><span class="pre">/mysite</span></code> and the <span class="guilabel">Destination URL</span> with
+<code class="docutils literal notranslate"><span class="pre">http://192.168.2.100</span></code>.</p>
+</section>
+<section id="extra-options">
+<h3>Extra options<a class="headerlink" href="#extra-options" title="Permalink to this headline">¶</a></h3>
+<p>If only encrypted connections are allowed, enable the <span class="guilabel">Require SSL
+encrypted connection</span>.</p>
+<p>Only clients from certain networks can be allowed to connect, by specifying  a
+comma-separated list of CIDR networks under the <span class="guilabel">Access from CIDR
+networks</span>  field.</p>
+<p>Options available only for named proxy pass:</p>
+<ul class="simple">
+<li><p>Enable or disable forwarding of <code class="docutils literal notranslate"><span class="pre">Host</span></code> header</p></li>
+<li><p>Enable or disable WebSocket forwarding</p></li>
+<li><p>Accept invalid target SSL certificate: use this option only if
+the target has a self-signed certificate</p></li>
+</ul>
+<section id="advanced-reverse-proxy-settings">
+<h4>Advanced reverse proxy settings<a class="headerlink" href="#advanced-reverse-proxy-settings" title="Permalink to this headline">¶</a></h4>
+<p>When the reverse proxy rule matches a <strong>web site name</strong> it is possible to assign
+it a dedicated certificate, choosing one from the <span class="guilabel">SSL/TLS
+certificate</span> list.</p>
+<p>It is not possible to select the certificate if the rule matches a <strong>resource
+path</strong>. In this case only the default certificate can be used.</p>
+<p>Regardless the rule type, the following settings are also available:</p>
+<ul class="simple">
+<li><p><span class="guilabel">Access from CIDR networks</span>: restricts the access from the given
+list of CIDR networks. Only web clients connecting from those networks
+are allowed to open the web site.</p></li>
+<li><p><span class="guilabel">Require SSL encrypted connection</span>: if enabled, any <cite>http://</cite>
+request is redirected to <cite>https://</cite>.</p></li>
+<li><p><span class="guilabel">Accept invalid SSL certificate from target</span>: if the destination
+URL starts with <cite>https://</cite> and an invalid certificate is returned,
+enabling this option ignores the certificate validation error.</p></li>
+<li><p><span class="guilabel">Forward HTTP “Host” header to target</span>: if enabled, a HTTP
+<cite>Host</cite> header containing the original request host name is forwarded to
+the destination URL. This could be required by the destination server
+application to work properly.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="ftp-server">
+<span id="ftp-section"></span><h2>FTP server<a class="headerlink" href="#ftp-server" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The FTP protocol is insecure. Passwords and file data are sent in clear text
+over the network.</p>
+</div>
+<p>The File Transfer Protocol is a standard network protocol used for the transfer
+of computer files between a client and server <a class="footnote-reference brackets" href="#ftpwiki" id="id2">2</a>. The <span class="guilabel">FTP</span>
+page enables the FTP service and configures additional user accounts limited to
+the FTP service only.</p>
+<p id="index-4">Users of the FTP service can be restricted to access their own home directory by
+enabling <span class="guilabel">Chroot user on home directory</span>. When this option is enabled
+the user cannot see the other system directories. This configuration is also
+known as <em>jailing</em>.</p>
+<p>When a virtual host is created, a random FTP user name is assigned to it. It is
+possible to upload the virtual host file contents with FTP. Refer to
+<a class="reference internal" href="#configuring-web-app"><span class="std std-ref">Configuring a web application</span></a> for more information.</p>
+<section id="system-users">
+<h3>System users<a class="headerlink" href="#system-users" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This configuration is highly discouraged.
+Also note that when enabled, the integration with the web server will break.</p>
+</div>
+<p>After enabling system users, all virtual users will be disabled.
+All configuration must be done using the command line.</p>
+<p>Enable system users:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop vsftpd UserType system
+signal-event nethserver-vsftpd-save
+</pre></div>
+</div>
+<p>Given a user name <em>goofy</em>, first make sure the user has Remote shell access.
+Then, enable the FTP access:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db accounts setprop goofy FTPAccess enabled
+signal-event user-modify goofy
+signal-event nethserver-vsftpd-save
+</pre></div>
+</div>
+<p>To disable an already enabled user:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db accounts setprop goofy FTPAccess disabled
+signal-event nethserver-vsftpd-save
+</pre></div>
+</div>
+<p>If not explicitly disabled, all system users are chrooted. To disable a chroot for a system user:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db accounts setprop goofy FTPChroot disabled
+signal-event nethserver-vsftpd-save
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="htaccess"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Apache documentation for <code class="file docutils literal notranslate"><span class="pre">.htaccess</span></code> files
+<a class="reference external" href="https://httpd.apache.org/docs/2.4/howto/htaccess.html">https://httpd.apache.org/docs/2.4/howto/htaccess.html</a></p>
+</dd>
+<dt class="label" id="ftpwiki"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>File Transfer Protocol
+<a class="reference external" href="https://en.wikipedia.org/wiki/File_Transfer_Protocol">https://en.wikipedia.org/wiki/File_Transfer_Protocol</a></p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="backup.html" class="btn btn-neutral float-left" title="Backup" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="mail.html" class="btn btn-neutral float-right" title="Email" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

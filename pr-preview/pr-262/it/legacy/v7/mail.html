@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Webmail" href="webmail.html" />
+    <link rel="prev" title="Web server" href="web_server.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "mail", "programming_language": "words", "project": "nethserver", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"nethserver-devel": "https://docs.nethserver.org/projects/nethserver-devel/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/mail.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accessing the Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Users and groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">DHCP and PXE server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Email</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#domains">Domains</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#append-a-legal-notice">Append a legal notice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dkim-signature">DKIM signature</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#filter">Filter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#attachments">Attachments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antivirus">Antivirus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antispam">Antispam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rules-for-white-and-black-lists">Rules for white and black lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rspamd-web-interface">Rspamd web interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quarantine-beta">Quarantine (beta)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mailboxes">Mailboxes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#users-mailboxes">Users mailboxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#groups-mailboxes">Groups mailboxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#public-mailboxes">Public mailboxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-settings">General settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shared-seen-configuration"><em>Shared seen</em> configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#addresses">Addresses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connectors">Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#synchronization">Synchronization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#queue">Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relay">Relay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#special-smtp-access-policies">Special SMTP access policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-helo">Custom HELO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#relay-hosts">Relay hosts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-relay-host-settings">Default relay host settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logs">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-configuration">Client configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kerberos-based-authentication">Kerberos-based authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Shared folders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Web proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Bandwidth monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Backup customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Virtual machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">NethForge modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade from NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Email module transition to Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Documentation license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Old Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">The old Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">POP3 proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Fax server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">SOGo Groupware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Email</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/mail.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="email">
+<span id="email-section"></span><h1>Email<a class="headerlink" href="#email" title="Permalink to this headline">¶</a></h1>
+<p>The Email module is split into three main parts:</p>
+<ul class="simple">
+<li><p>SMTP server for sending and receiving <a class="footnote-reference brackets" href="#postfix" id="id1">1</a></p></li>
+<li><p>IMAP and POP3 server to read email <a class="footnote-reference brackets" href="#dovecot" id="id2">2</a>, and Sieve language to organize it <a class="footnote-reference brackets" href="#sieve" id="id3">3</a></p></li>
+<li><p>Antispam filter, antivirus and attachments blocker <a class="footnote-reference brackets" href="#rspamd" id="id4">4</a></p></li>
+</ul>
+<p>Benefits are</p>
+<ul class="simple">
+<li><p>complete autonomy in electronic mail management</p></li>
+<li><p>avoid problems due to the Internet Service Provider</p></li>
+<li><p>ability to track the route of messages in order to detect errors</p></li>
+<li><p>optimized antivirus and antispam scan</p></li>
+</ul>
+<p>See also the following related topics:</p>
+<ul class="simple">
+<li><p>How electronic mail works <a class="footnote-reference brackets" href="#id24" id="id5">5</a></p></li>
+<li><p>MX DNS record <a class="footnote-reference brackets" href="#mxrecord" id="id6">6</a></p></li>
+<li><p>Simple Mail Transfer Protocol (SMTP) <a class="footnote-reference brackets" href="#smtp" id="id7">7</a></p></li>
+<li><p>DKIM signature <a class="footnote-reference brackets" href="#dkim" id="id8">8</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since NethServer 7.5.1804 new <a class="reference internal" href="#email-section"><span class="std std-ref">Email</span></a>,
+<a class="reference internal" href="#pop3-connector-section"><span class="std std-ref">Connectors</span></a> and <a class="reference internal" href="pop3_proxy.html#pop3-proxy-section"><span class="std std-ref">POP3 proxy</span></a> installations
+are based on the Rspamd filter engine. Previous NethServer installations are
+automatically upgraded to Rspamd as described in <a class="reference internal" href="mail2.html#email2-section"><span class="std std-ref">Email module transition to Rspamd</span></a></p>
+</div>
+<section id="domains">
+<span id="email-domains"></span><span id="index-0"></span><h2>Domains<a class="headerlink" href="#domains" title="Permalink to this headline">¶</a></h2>
+<p>NethServer can handle an unlimited number of mail domains, configurable
+from the <span class="guilabel">Email &gt; Domains</span> page. For each domain there are
+two alternatives:</p>
+<ul class="simple">
+<li><p><em>Deliver</em> messages to local mailboxes, according to the Maildir
+<a class="footnote-reference brackets" href="#maildirformat" id="id9">9</a> format</p></li>
+<li><p><em>Relay</em> messages to another mail server</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a domain is deleted, email will not be deleted;
+any message already received is preserved.</p>
+</div>
+<p id="index-1">NethServer allows storing an <em class="dfn">hidden copy</em> of all messages
+directed to a particular domain: they will be delivered to the final
+recipient <em>and also</em> to a custom email address. The hidden copy is
+enabled by the <span class="guilabel">Copy inbound messages</span> switch
+(formerly <span class="guilabel">Always send a copy (Bcc)</span> check box).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>On some countries, enabling the <em>Copy inbound messages</em>
+switch can be against privacy laws.</p>
+</div>
+<p>If the final recipient cannot be established (i.e. the recipient address does
+not exist), the message is normally rejected. Sometimes (i.e. when a mail domain
+is migrated) it could be useful to accept it and silently deliver the message to
+a catch-all mailbox. This behavior can be obtained by enabling the
+<span class="guilabel">Accept unknown recipients</span> option.</p>
+<section id="append-a-legal-notice">
+<span id="index-2"></span><h3>Append a legal notice<a class="headerlink" href="#append-a-legal-notice" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Since NethServer 7.5.1804 this feature is shipped in a separate, optional
+package: <code class="docutils literal notranslate"><span class="pre">nethserver-mail-disclaimer</span></code>. It is considered <em>deprecated</em>
+because the alterMIME <a class="footnote-reference brackets" href="#altermime" id="id10">10</a> project which provides the actual
+implementation is no longer developed and can stop working at any time.</p>
+</div>
+<p>If the optional <code class="docutils literal notranslate"><span class="pre">nethserver-mail-disclaimer</span></code> RPM was installed from the terminal,
+NethServer can automatically append a
+legal notice to sent messages. This text is also known as “disclaimer” and
+it can be used to meet some legal requirements.</p>
+<p>To configure and enable the <em>disclaimer attachment</em>, turn on the option switch
+<span class="guilabel">Email &gt; Domains [List item] &gt; Edit &gt; Append a legal note to sent messages</span>.</p>
+<p>The disclaimer text can contain Markdown <a class="footnote-reference brackets" href="#markdown" id="id11">11</a> code to format the text.</p>
+<p>Please note <em class="dfn">signature</em> and <em class="dfn">disclaimer</em> are very different concepts.</p>
+<p>In general, the <strong>disclaimer</strong> is a fixed text and should be <em>attached</em> (not
+added) to messages by the mail server. This technique helps in maintaining the
+integrity of the message in case of digital signature.</p>
+<p>Disclaimer example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>This email and any files transmitted with it are confidential and
+intended solely for the use of the individual or entity to whom they
+are addressed. If you have received this email in error please
+notify the system manager. This message contains confidential
+information and is intended only for the individual named.
+</pre></div>
+</div>
+<p>The <strong>signature</strong> should be inserted inside the message text only by the
+mail client (MUA): Outlook, Thunderbird, etc. Usually it is a
+user-defined text containing information such as sender addresses and
+phone numbers.</p>
+<p>Signature example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>John Smith
+President | My Mighty Company | Middle Earth
+555-555-5555 | john@mydomain.com | http://www.mydomain.com
+</pre></div>
+</div>
+</section>
+<section id="dkim-signature">
+<h3>DKIM signature<a class="headerlink" href="#dkim-signature" title="Permalink to this headline">¶</a></h3>
+<p>DomainKeys Identified Mail (DKIM) <a class="footnote-reference brackets" href="#dkim" id="id12">8</a> provides a way to validate the
+sending MTA, which adds a cryptographic signature to the outbound message MIME
+headers.</p>
+<p>To enable the DKIM signature for a mail domain, enable the <span class="guilabel">Signature</span> switch
+under <span class="guilabel">Email &gt; Domains &gt; [list item] &gt; Configure DKIM</span>.</p>
+<p>The DKIM signature headers are added only to messages sent through TCP ports 587
+(submission) and 465 (smtps).</p>
+<p>To work effectively, the public DNS must be configured properly. Refer to the
+instructions of your DNS provider to run the following steps:</p>
+<ol class="arabic simple">
+<li><p>Add a TXT record to your public DNS service provider with key “default._domainKey”</p></li>
+<li><p>Copy and paste the given key text in the DNS record data (RDATA) section</p></li>
+</ol>
+</section>
+</section>
+<section id="filter">
+<span id="email-filter"></span><span id="index-3"></span><h2>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h2>
+<p>All transiting email messages are subjected to a list of checks that
+can be selectively enabled in <span class="guilabel">Email &gt; Filter</span> page:</p>
+<ul class="simple">
+<li><p>Attachments</p></li>
+<li><p>Antivirus</p></li>
+<li><p>Antispam</p></li>
+</ul>
+<section id="attachments">
+<span id="index-4"></span><h3>Attachments<a class="headerlink" href="#attachments" title="Permalink to this headline">¶</a></h3>
+<p>The system can inspect mail attachments, denying access to messages
+carrying forbidden file formats. The server can check the following
+attachment classes:</p>
+<ul class="simple">
+<li><p><span class="target" id="index-5"></span>executables (eg. exe, msi)</p></li>
+<li><p><span class="target" id="index-6"></span>archives (eg. zip, tar.gz, docx)</p></li>
+<li><p>custom file format list</p></li>
+</ul>
+<p>The system recognizes file types by looking at their contents,
+regardless of the file attachment name. Therefore it is possible that
+MS Word file (docx) and OpenOffice (odt) are blocked because they
+actually are also zip archives.</p>
+</section>
+<section id="antivirus">
+<span id="anti-virus"></span><span id="index-7"></span><h3>Antivirus<a class="headerlink" href="#antivirus" title="Permalink to this headline">¶</a></h3>
+<p>The antivirus component finds email messages containing
+viruses. Infected messages are discarded. The virus signature database
+is updated periodically.</p>
+</section>
+<section id="antispam">
+<span id="anti-spam"></span><span id="index-8"></span><h3>Antispam<a class="headerlink" href="#antispam" title="Permalink to this headline">¶</a></h3>
+<p>The antispam component <a class="footnote-reference brackets" href="#rspamd" id="id13">4</a> analyzes emails by detecting
+and classifying <em class="dfn">spam</em> <a class="footnote-reference brackets" href="#spam" id="id14">15</a> messages using heuristic
+criteria, predetermined rules and statistical evaluations on the
+content of messages.</p>
+<p>The filter can also check if sender server is listed in one or more blacklists
+(<span class="target" id="index-9"></span>DNSBL <a class="footnote-reference brackets" href="#dnsbl" id="id15">14</a>). A score is associated to each rule.</p>
+<p>Total spam score collected at the end of the analysis allows the server to
+decide what to do with a message, according to three <strong>thresholds</strong> that can be
+adjusted under <span class="guilabel">Email &gt; Filter &gt; Anti spam</span>.</p>
+<ol class="arabic simple">
+<li><p>If the spam score is above <span class="guilabel">Greylist threshold</span> the message is
+<strong>temporarily rejected</strong>. The <em class="dfn">greylisting</em> <a class="footnote-reference brackets" href="#grey" id="id16">16</a> technique assumes
+that a spammer is in hurry and is likely to give up, whilst a
+SMTP-compliant MTA will attempt to deliver the deferred message again.</p></li>
+<li><p>If the spam score is above <span class="guilabel">Spam flag threshold</span> the message is <strong>marked
+as spam</strong> by adding the special header <code class="docutils literal notranslate"><span class="pre">X-Spam:</span> <span class="pre">Yes</span></code> for specific
+treatments, then it is delivered like other messages. As an alternative, the
+<span class="guilabel">Add a prefix to spam messages subject</span> option makes the spam flag
+visible on the subject of the message, by prefixing the given string to the
+<code class="docutils literal notranslate"><span class="pre">Subject</span></code> header.</p></li>
+<li><p>If the spam score is above <span class="guilabel">Deny message spam threshold</span> the
+message is <strong>rejected</strong>.</p></li>
+</ol>
+<p id="index-10">Statistical filters, called Bayesian <a class="footnote-reference brackets" href="#bayes" id="id17">17</a>, are special rules that
+evolve and quickly adapt analyzing messages marked as <strong>spam</strong> or
+<strong>ham</strong>.</p>
+<p>The statistical filters can then be trained with any IMAP client by
+simply moving a message in and out of the <em class="dfn">Junk folder</em>. As a
+prerequisite, the Junk folder must be enabled from the
+<span class="guilabel">Email &gt; Mailboxes [General settings] &gt; Configure
+[Advanced options] &gt; Move spam to “Junk” folder</span> check box
+(formerly <span class="guilabel">Email &gt; Mailboxes &gt; Move to
+“Junk” folder”</span> check box).</p>
+<ul class="simple">
+<li><p>By <em>putting a message into the Junk folder</em>, the filters learn
+it is spam and will assign an higher score to similar messages.</p></li>
+<li><p>On the contrary, by <em>getting a message out of Junk</em>, the filters
+learn it is ham: next time a lower score will be assigned.</p></li>
+</ul>
+<p>By default, all users can train the filters using this technique. If
+a group called <code class="docutils literal notranslate"><span class="pre">spamtrainers</span></code> exists, only users in this group
+will be allowed to train the filters.</p>
+<p>The bayesian filter training applies to all users on the system, not only the user that marked an email as spam or ham.</p>
+<p>It is important to understand how the Bayesian tests really work:</p>
+<ul>
+<li><p>It does not outright flag messages as spam if they contain a specific subject, or sender address. It is only collecting specific characteristics of the message.</p></li>
+<li><p>A message can only be flagged one time. If the same message is flagged multiple times, it will not affect anything as the dynamic tests have already been trained by that message.</p></li>
+<li><p>The Bayesian filter <strong>is not active until it has received enough information. This includes a minimum of 200 spams AND 200 hams (false positives).</strong></p>
+<p>As the system receives that information, the progress of bayesian filter training
+can be monitored from the <span class="guilabel">Email &gt; Filter [Statistics] &gt; Bayes training</span> progress bar.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is a good habit to frequently check the Junk folder
+in order not to lose email wrongly recognized as spam.</p>
+</div>
+</section>
+<section id="rules-for-white-and-black-lists">
+<span id="index-11"></span><h3>Rules for white and black lists<a class="headerlink" href="#rules-for-white-and-black-lists" title="Permalink to this headline">¶</a></h3>
+<p>If the system fails to recognize spam properly even after training,
+the <em>whitelists</em> and <em>blacklists</em> can help. Those are lists of email
+addresses or domains respectively always allowed and always blocked to
+send or receive messages.</p>
+<p>The section <span class="guilabel">Email &gt; Filter [Rules] &gt; Details</span> (formerly
+<span class="guilabel">Rules by mail address</span>) allows creating three types of rules:</p>
+<ul class="simple">
+<li><p><span class="guilabel">Allow From</span>: any message from specified sender is
+accepted</p></li>
+<li><p><span class="guilabel">Allow To</span>: any message to the specified recipient is
+accepted</p></li>
+<li><p><span class="guilabel">Block From</span>: any message from specified sender is blocked</p></li>
+</ul>
+<p>The <em>Allow</em> rules have higher precedence over the <em>Block</em> ones. As soon as an <em>Allow</em> rule
+matches, the antispam and antivirus checks are skipped, the <em>Block</em> rule is not
+evaluated and the message is accepted.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Antivirus and antispam checks are skipped</strong> if an <em>Allow</em> rule matches</p>
+</div>
+<p>It is possible to create an <em>Allow</em> or <em>Block</em> rule even for an entire
+domain, not just for a single email address: you just need to specify the
+domain name (e.g. <code class="docutils literal notranslate"><span class="pre">dev.nethserver.org</span></code>).</p>
+<p>When a second level domain domain name is specified it matches also its
+subdomains. For instance <code class="docutils literal notranslate"><span class="pre">nethserver.org</span></code> matches <code class="docutils literal notranslate"><span class="pre">nethserver.org</span></code> itself,
+<code class="docutils literal notranslate"><span class="pre">dev.nethserver.org</span></code>, <code class="docutils literal notranslate"><span class="pre">demo.nethserver.org</span></code> and so on.</p>
+</section>
+<section id="rspamd-web-interface">
+<span id="rspamd-web-interface-section"></span><h3>Rspamd web interface<a class="headerlink" href="#rspamd-web-interface" title="Permalink to this headline">¶</a></h3>
+<p>The antispam component is implemented by Rspamd <a class="footnote-reference brackets" href="#rspamd" id="id18">4</a> which provides its
+administrative web interface at</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://&lt;HOST_IP&gt;:980/rspamd
+</pre></div>
+</div>
+<p>For more information on Rspamd, please read the <a class="reference internal" href="rspamd.html#rspamd-section"><span class="std std-ref">Rspamd</span></a> page.</p>
+</section>
+<section id="quarantine-beta">
+<span id="quarantine"></span><h3>Quarantine (beta)<a class="headerlink" href="#quarantine-beta" title="Permalink to this headline">¶</a></h3>
+<p>NethServer scans all incomaing email messages before they are delivered to the user mailbox.
+The messages that are identified as spam will be sent to a specific user mailbox.
+The purpose of this feature is to verify the email before deleting it.
+If enabled, a mail notification is also sent to the postmaster (root alias) for each
+quarantined email.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The quarantined messages can be accessed using a web mail or an IMAP account</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The mailbox used for quarantine, must be able to accept spam.
+It should be a local shared mailbox or a user mailbox.
+If an external account is used, make sure the account exists on the remote server.
+Please make sure the quarantine mailbox has been created only for this specific purpose,
+otherwise the mailbox will be overloaded with unwanted spam.</p>
+</div>
+<p>Quarantine is provided by an optional RPM named
+<code class="docutils literal notranslate"><span class="pre">nethserver-mail-quarantine</span></code>. Once it has been installed from the
+terminal you must manually set its database properties.</p>
+<p>The properties are under the <code class="docutils literal notranslate"><span class="pre">rspamd</span></code> key (configuration database):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rspamd=service
+...
+QuarantineAccount=spam@domain.org
+QuarantineStatus=enabled
+SpamNotificationStatus=disabled
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QuarantineAccount</span></code>: The user or the shared mailbox where to send all spam messages (spam
+check is automatically disabled on this account). You must create it
+manually. You could send it to an external mailbox but then make sure to
+disable the spam check on the remote server</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QuarantineStatus</span></code>: Enable the quarantine, spam are no more rejected:
+enabled/disabled. Disabled by default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SpamNotificationStatus</span></code>: Enable the email notification when email are
+quarantined: enabled/disabled. Disabled by default</p></li>
+</ul>
+<p>For example, the following commands enable the quarantine and the mail
+notification to root:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop rspamd QuarantineAccount spam@domain.org QuarantineStatus enabled SpamNotificationStatus enabled
+signal-event nethserver-mail-quarantine-save
+</pre></div>
+</div>
+</section>
+</section>
+<section id="mailboxes">
+<h2>Mailboxes<a class="headerlink" href="#mailboxes" title="Permalink to this headline">¶</a></h2>
+<p id="index-12">Each user has a personal mailbox and any user name in the form
+<em>&lt;username&gt;&#64;&lt;domain&gt;</em> is also a valid email address to deliver messages into it.</p>
+<p>The list of mailboxes is shown by the <span class="guilabel">Email &gt; Mailboxes</span> page. There
+are three types of mailboxes: Users, Groups and Public mailboxes.</p>
+<section id="users-mailboxes">
+<h3>Users mailboxes<a class="headerlink" href="#users-mailboxes" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">Edit</span> button allows disabling the <span class="guilabel">Access to
+email services</span> (IMAP, POP3, SMTP/AUTH) for a specific user. Messages delivered
+to that user’s mailbox can be forwarded to multiple external email addresses.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the system is bound to a <a class="reference internal" href="accounts.html#account-providers"><span class="std std-ref">remote account provider</span></a> and a user account is remotely deleted, the associated
+mailbox must be erased manually. The file system path prefix is
+<code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/vmail/</span></code>.</p>
+</div>
+</section>
+<section id="groups-mailboxes">
+<h3>Groups mailboxes<a class="headerlink" href="#groups-mailboxes" title="Permalink to this headline">¶</a></h3>
+<p>The <em>automatic aliases for groups mailboxes</em> are initially disabled. If enabled,
+addresses like <em>&lt;groupname&gt;&#64;&lt;domain&gt;</em> become valid email addresses. A specific group address
+can be disabled and enabled again in a later stage, once Groups mailboxes are enabled.
+To disable the automatic aliases globally, refer to <a class="reference internal" href="#email-mailboxes-settings"><span class="std std-ref">General settings</span></a>.</p>
+<p>A group mailbox has no disk space for it. When a message is sent to a group mailbox,
+a copy of it is delivered to the group members, according to their delivery and forward
+preferences.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the system is bound to an <a class="reference internal" href="accounts.html#account-providers"><span class="std std-ref">Active Directory account provider</span></a>
+the group mailbox works only if the group type is <em>Security group</em>.  If the group type is
+<em>Distribution group</em> it does not work.</p>
+</div>
+</section>
+<section id="public-mailboxes">
+<h3>Public mailboxes<a class="headerlink" href="#public-mailboxes" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note" id="index-13">
+<p class="admonition-title">Note</p>
+<p>In the old Server Manager the <span class="guilabel">Shared mailboxes</span> label was used
+in place of <span class="guilabel">Public mailboxes</span>.</p>
+</div>
+<p id="index-14">Public mailboxes can be shared among groups of users. The <span class="guilabel">Email &gt;
+Mailboxes &gt; Public mailboxes</span> section allows creating a new public mailbox
+and defining one or more owning groups. Public mailboxes can also be created by
+any IMAP client supporting IMAP ACL protocol extension (RFC 4314).</p>
+</section>
+<section id="general-settings">
+<span id="email-mailboxes-settings"></span><h3>General settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">Email &gt; Mailboxes [General settings] &gt; Configure</span> page controls what protocols are
+available to access the user’s mailbox:</p>
+<ul class="simple">
+<li><p>IMAP <a class="footnote-reference brackets" href="#imap" id="id19">12</a> (recommended)</p></li>
+<li><p>POP3 <a class="footnote-reference brackets" href="#pop3" id="id20">13</a> (obsolete)</p></li>
+</ul>
+<p>For security reasons, all protocols require STARTTLS encryption by
+default.  The <span class="guilabel">Allow unencrypted connections</span> check box,
+disables this important requirement, and allows passing clear-text passwords and
+mail contents over the network.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not allow unencrypted connections on production
+environments!</p>
+</div>
+<p id="index-15">From the same page, the <span class="guilabel">Quota limit</span> for each mailbox can be
+limited to a default quota. If the general mailbox quota is enabled, the
+<span class="guilabel">Email &gt; Mailboxes</span> list summarizes the quota usage for
+each user. This summary is updated when a user logs in or a message is
+delivered. The quota can be customized for a specific user in <span class="guilabel">Email
+&gt; Mailboxes [users item] &gt; Edit &gt; Custom mailbox quota</span>.</p>
+<p id="index-16">Messages marked as <strong>spam</strong> (see <a class="reference internal" href="#email-filter"><span class="std std-ref">Filter</span></a>) can be automatically
+moved into the <em class="dfn">Junk</em> folder by enabling the option
+<span class="guilabel">Move spam to “Junk” folder</span>. Spam messages are expunged
+automatically after the <span class="guilabel">Keep spam for</span> period has elapsed. The
+spam retention period can be customized for a specific user in
+<span class="guilabel">Email &gt; Mailboxes [users item] &gt; Edit &gt; Custom spam retention</span>.</p>
+<p id="index-17">The <code class="docutils literal notranslate"><span class="pre">root</span></code> user can impersonate another user, gaining full rights
+to any mailbox contents and folder permissions. The
+<span class="guilabel">Root can log in as another user</span> option controls this
+empowerment, known also as <em>master user</em> in Dovecot <a class="footnote-reference brackets" href="#dovecot" id="id21">2</a>.</p>
+<p>When <span class="guilabel">Root can log in as another user</span> is enabled, the following
+credentials are accepted by the IMAP server:</p>
+<ul class="simple">
+<li><p>user name with <code class="docutils literal notranslate"><span class="pre">*root</span></code> suffix appended</p></li>
+<li><p>root’s password</p></li>
+</ul>
+<p>For instance, to access as <code class="docutils literal notranslate"><span class="pre">john</span></code> with root password <code class="docutils literal notranslate"><span class="pre">secr3t</span></code>,
+use the following credentials:</p>
+<ul class="simple">
+<li><p>user name: <code class="docutils literal notranslate"><span class="pre">john*root</span></code></p></li>
+<li><p>password: <code class="docutils literal notranslate"><span class="pre">secr3t</span></code></p></li>
+</ul>
+<p>Additional options:</p>
+<ul class="simple">
+<li><p>If <em>Groups mailboxes</em> were enabled in <span class="guilabel">Email &gt; Mailboxes &gt; Groups</span>,
+unselect the <span class="guilabel">Automatic alias for groups</span> check box to disable them again.</p></li>
+<li><p>It is possible to record the IMAP actions by enabling <span class="guilabel">Log IMAP actions</span>.
+See also <a class="reference internal" href="#email-log"><span class="std std-ref">Logs</span></a>.</p></li>
+</ul>
+<ul id="email-outlook-deleted">
+<li><p>Unlike almost any IMAP client, Outlook does not move deleted messages
+to the trash folder, but simply marks them as “deleted”.</p>
+<p>It is possibile to automatically move messages inside the trash folder,
+by enabling <span class="guilabel">Move deleted email to trash (Outlook)</span>.</p>
+<p>You should also change Outlook configuration to hide deleted messages from the inbox folder.
+This configuration is available in the Outlook options menu.</p>
+</li>
+<li><p><span class="guilabel">Max user connections per IP</span> changes the limit of connections for a user coming from
+the same IP address. This limit could be increased if messages like
+<em>Maximum number of connections</em> appear in the log files (see <a class="reference internal" href="#email-log"><span class="std std-ref">Logs</span></a>).</p></li>
+</ul>
+</section>
+<section id="shared-seen-configuration">
+<h3><em>Shared seen</em> configuration<a class="headerlink" href="#shared-seen-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Users could share their mailbox (or some parts of it, folders) with selected accounts on the system.
+Everyone who is given access to a shared mailbox can read or delete messages according to permissions
+granted by the mailbox owner.</p>
+<p>An IMAP flag named <code class="docutils literal notranslate"><span class="pre">/Seen</span></code> is used to mark if a message has been read or not. In a shared mailbox,
+each user has their copy of the messages they have read, but sometimes a team sharing a mailbox
+could prefer to know if a mail has already been read by someone else.
+To enable sharing of the <code class="docutils literal notranslate"><span class="pre">/Seen</span></code> flag for all shared mailboxes use the following commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop dovecot SharedSeen enabled
+signal-event nethserver-mail-server-save
+</pre></div>
+</div>
+<p>Please note that changing the <code class="docutils literal notranslate"><span class="pre">SharedSeen</span></code> status resets the <code class="docutils literal notranslate"><span class="pre">/Seen</span></code> flag for all users on all mailboxes.</p>
+<p>Public folders are created by the administrator and are usually visible to all users (or large groups).
+The <code class="docutils literal notranslate"><span class="pre">/Seen</span></code> flag is kept for each user and it cannot be shared.</p>
+</section>
+</section>
+<section id="addresses">
+<span id="email-addresses"></span><span id="index-18"></span><h2>Addresses<a class="headerlink" href="#addresses" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the Users, Groups and Public mailboxes addresses, described in the
+previous section, the system enables the creation of an unlimited number of email
+addresses, from the <span class="guilabel">Email &gt; Addresses</span> page. Each
+<em class="dfn">mail address</em> is associated with one or more destinations. A
+<em class="dfn">destination</em> can be of the following types:</p>
+<ul class="simple">
+<li><p>user mailbox</p></li>
+<li><p>groups mailbox</p></li>
+<li><p>public mailbox</p></li>
+<li><p>external email address</p></li>
+</ul>
+<p>A mail address can be bound to any mail domain or be specific to one mail domain.
+For example:</p>
+<ul class="simple">
+<li><p>First domain: <code class="docutils literal notranslate"><span class="pre">mydomain.net</span></code></p></li>
+<li><p>Second domain: <code class="docutils literal notranslate"><span class="pre">example.com</span></code></p></li>
+<li><p>Email address <em>info</em> bound to any domain: <code class="docutils literal notranslate"><span class="pre">info&#64;mydomain.net</span></code>,
+<code class="docutils literal notranslate"><span class="pre">info&#64;example.com</span></code></p></li>
+<li><p>Email address <em>goofy</em> specific to one domain: <code class="docutils literal notranslate"><span class="pre">goofy&#64;example.com</span></code></p></li>
+</ul>
+<p id="index-19">Sometimes a company forbids communications from outside the organization
+using personal email addresses. The <span class="guilabel">Internal</span> check box
+(formerly <span class="guilabel">Local network only</span>) and the <span class="guilabel">Make internal</span>
+and <span class="guilabel">Make public</span> action buttons block the possibility of an address
+to receive messages from the outside. Still an <em>internal</em> address can be used to
+exchange messages with other accounts of the system.</p>
+</section>
+<section id="connectors">
+<span id="pop3-connector-section"></span><h2>Connectors<a class="headerlink" href="#connectors" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="target" id="index-20"></span>POP3/IMAP connector is accessible under the <span class="guilabel">Email &gt; Connectors</span> page.</p>
+<p>Configured external accounts will be checked regularly and retrieved
+messages will be delivered to local users.</p>
+<p>It is not recommended to use the POP3 connector as the primary method
+for managing email.  Mail delivery can be affected by disk space and
+connectivity problems of the provider’s server. Also, the spam filter will
+be less effective due to the original email envelope information becoming lost.</p>
+<p>POP3/IMAP accounts are configured from <span class="guilabel">POP3 connector &gt;
+Accounts</span> page. Each account can be specified:</p>
+<ul class="simple">
+<li><p>the email address (as unique account identifier)</p></li>
+<li><p>the protocol (IMAP/POP3/IMAP with SSL/POP3 with SSL)</p></li>
+<li><p>the remote server address</p></li>
+<li><p>the account credentials</p></li>
+<li><p>the local user account where to deliver messages</p></li>
+<li><p>if a message has to be deleted from the remote server after delivery</p></li>
+<li><p>antispam and antivirus checks</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is allowed to associate more than one external accounts to a local
+one.  Deleting an account will <em>not</em> delete already
+delivered messages.</p>
+</div>
+<p>After the account configuration has been completed, the account is automatically
+checked for new mail.</p>
+<p id="index-21">The underneath implementation is based on <a class="reference external" href="http://pyropus.ca/software/getmail/">Getmail</a>.
+After fetching mail messages from the POP3/IMAP provider Getmail applies all required filters (SPAM and virus) prior
+to delivering the mail locally.
+All messages are filtered according to the <a class="reference internal" href="#email-filter"><span class="std std-ref">configured rules</span></a>.</p>
+<p>All operations are logged in <code class="file docutils literal notranslate"><span class="pre">/var/log/maillog</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If an account was selected for delivery and has been subsequently deleted
+the configuration becomes inconsistent. If this should happen
+then existing account configuration in <span class="guilabel">POP3 connector</span> page
+must be disabled or deleted.</p>
+</div>
+</section>
+<section id="synchronization">
+<span id="email-imap-synchronization"></span><h2>Synchronization<a class="headerlink" href="#synchronization" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Email &gt; Synchronization</span> page is based on an IMAP transfer tool called Imapsync.
+The purpose is to migrate email messages from a remote IMAP account to a
+local one.</p>
+<p>The migration is recursive and incremental and
+can be repeated as many times as needed. The emails will be copied locally
+if they do not exist on the local server.</p>
+<p>The system administrator of the local NethServer does not need to know the
+password of the local user. However, the administrator
+has to know the password of the remote IMAP account, unless the IMAP admin
+authentication is implemented also for the remote email server.</p>
+<p>If the remote IMAP server is also a NethServer,
+the IMAP admin user is <code class="docutils literal notranslate"><span class="pre">vmail</span></code> and its password can be read from
+<code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/secrets/vmail</span></code>.
+The username with a <code class="docutils literal notranslate"><span class="pre">*vmail</span></code> suffix (e.g. <code class="docutils literal notranslate"><span class="pre">username&#64;domain.com*vmail</span></code>) and the <code class="docutils literal notranslate"><span class="pre">vmail</span></code> password has to be set in the IMAP synchronization panel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>List of <a class="reference external" href="https://imapsync.lamiral.info/FAQ.d/FAQ.Admin_Authentication.txt">IMAP servers with admin authentication</a> in Imapsync documentation</p>
+</div>
+</section>
+<section id="queue">
+<span id="email-queue"></span><span id="index-22"></span><h2>Queue<a class="headerlink" href="#queue" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Email &gt; Queue</span> page lists the messages that are waiting to
+be relayed in the SMTP mail queue. In normal conditions, this queue
+should be empty or contain just a few messages.</p>
+<p>The <span class="guilabel">Email &gt; Queue [Charts] &gt; Show charts</span> link shows a real-time
+chart of the mail queue status in the last minutes, updated as the page is left opened.
+The chart shows the number of message in the queue and the total queue size in kilobytes.</p>
+<p>While messages are in the queue, the administrator can request an
+immediate message relay attempt, by pressing the button
+<span class="guilabel">Resend all</span> (formerly <span class="guilabel">Attempt to send</span>),
+or empty the queue with the <span class="guilabel">Delete all</span> button.</p>
+<p>It is also possible to selectively <span class="guilabel">Resend</span> or <span class="guilabel">Delete</span> a queued message,
+from the action buttons of <span class="guilabel">Email &gt; Queue [List]</span> items.</p>
+</section>
+<section id="relay">
+<span id="email-relay"></span><span id="index-23"></span><h2>Relay<a class="headerlink" href="#relay" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Email &gt; Relay</span> page configures how messages are accepted
+and routed from the NethServer SMTP server to other SMTP servers.</p>
+<section id="special-smtp-access-policies">
+<span id="email-policies"></span><h3>Special SMTP access policies<a class="headerlink" href="#special-smtp-access-policies" title="Permalink to this headline">¶</a></h3>
+<p>The default NethServer configuration requires that all clients use the
+submission port (587) with encryption and authentication enabled to
+send mail through the SMTP server. See also <a class="reference internal" href="#email-clients"><span class="std std-ref">Client configuration</span></a>.</p>
+<p>To ease the configuration of legacy environments, the
+<span class="guilabel">Email &gt; Relay [Configuration] &gt; Details</span> section (formerly the <span class="guilabel">Email
+&gt; SMTP access</span> page) allows making some exceptions on the default SMTP
+access policy.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not change the default policy on new environments!</p>
+</div>
+<p>For instance, there are some devices (printers, scanners, …) that do
+not support SMTP authentication, encryption or port settings. Those
+can be enabled to send email messages by listing their IP address in
+<span class="guilabel">Allow relay from IP addresses</span> text area.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The listed IP addresses are excluded from all mail filtering checks: use
+this feature only as a last resort</p>
+</div>
+<p>Moreover, in the same section there are further options:</p>
+<ul>
+<li><p>The <span class="guilabel">Allow relay from trusted networks</span> option allows any
+client in the trusted networks to send email messages without any
+restriction.</p></li>
+<li><p>The <span class="guilabel">Enable authentication on port 25</span> option allows
+authenticated SMTP clients to send email messages also on port 25.</p></li>
+<li><p>By default an authenticated SMTP client has no particular restrictions on
+setting the SMTP sender address.</p>
+<p>To avoid the unauthorized use of email addresses and the sender address
+spoofing, enable the <span class="guilabel">Enforce sender/login match</span> option.</p>
+<p>If enabled, only addresses associated to the current SMTP login are allowed.</p>
+</li>
+</ul>
+</section>
+<section id="custom-helo">
+<span id="email-helo"></span><span id="index-24"></span><h3>Custom HELO<a class="headerlink" href="#custom-helo" title="Permalink to this headline">¶</a></h3>
+<p>The first step of an SMTP session is the exchange of <em class="dfn">HELO</em>
+command (or <em class="dfn">EHLO</em>). This command takes a valid server name as
+required parameter (RFC 1123).</p>
+<p>NethServer and other mail servers try to reduce spam by not accepting
+HELO domains that are not registered on a public DNS.</p>
+<p>When talking to another mail server, NethServer uses its full host name
+(FQDN) as the value for the HELO command. If the FQDN is not
+registered in the public DNS, the HELO can be changed in the
+<span class="guilabel">Custom HELO</span> text field.</p>
+<p>This configuration is also valuable if the mail server is using a free
+dynamic DNS service.</p>
+</section>
+<section id="relay-hosts">
+<span id="email-multi-relay"></span><h3>Relay hosts<a class="headerlink" href="#relay-hosts" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">Email &gt; Relay</span> page allows to describe the route of an email message, by
+sending it through an external relay host with specific port, authentication,
+and TLS settings.</p>
+<p>Create a relay host description under <span class="guilabel">Email &gt; Relay &gt; Create relay
+host</span>.</p>
+<p>The relay host is identified by <strong>the SMTP sender address</strong>. It is possible to match
+the full sender address or only the domain part of it.</p>
+</section>
+<section id="default-relay-host-settings">
+<span id="smarthost-configuration"></span><h3>Default relay host settings<a class="headerlink" href="#default-relay-host-settings" title="Permalink to this headline">¶</a></h3>
+<p>If the sender address does not match the relay rules described in the above section it
+is possible (though not recommended) to configure a default relay host instead of
+relying on the standard SMTP relay rules.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sending through a <em>smarthost</em> is generally not recommended.
+It might be used only if the server is temporarily
+blacklisted <a class="footnote-reference brackets" href="#dnsbl" id="id22">14</a>, or normal SMTP access is restricted
+by the ISP.</p>
+</div>
+<p>The <span class="guilabel">System &gt; Settings &gt; Smart host</span> section, configures the outgoing
+messages to be directed through a special SMTP server, technically
+named <em class="dfn">smarthost</em>. A smarthost accepts to relay messages under
+some restrictions. It could check:</p>
+<ul class="simple">
+<li><p>the client IP address</p></li>
+<li><p>the client SMTP AUTH credentials</p></li>
+</ul>
+<p>Refer also to <a class="reference internal" href="base_system2.html#smart-host"><span class="std std-ref">Smart host</span></a> for more information.</p>
+</section>
+</section>
+<section id="settings">
+<span id="email-settings"></span><span id="email-messages"></span><h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<p id="index-25">From the <span class="guilabel">Email &gt; Settings</span> page, the <span class="guilabel">Maximum message size</span>
+(formerly <span class="guilabel">Queue message max size</span>) slider sets the maximum size of
+messages traversing the system. If this limit is exceeded, a message cannot enter the
+system at all and is rejected.</p>
+<p>Once a message enters NethServer, it is persisted to a <em class="dfn">queue</em>,
+waiting for final delivery or relay. When NethServer relays a message
+to a remote server, errors may occur. For instance,</p>
+<ul class="simple">
+<li><p>the network connection fails, or</p></li>
+<li><p>the other server is down or is overloaded</p></li>
+</ul>
+<p>Those and other errors are <em>temporary</em>: in such cases, NethServer
+attempts to reconnect the remote host at regular intervals until a
+limit is reached. The <span class="guilabel">Message queue lifetime</span> (formerly
+<span class="guilabel">Queue message lifetime</span>) slider
+changes this limit. By default it is set to <em>4 days</em>.</p>
+<p id="index-26">To keep an hidden copy of any message traversing the mail server,
+enable the <span class="guilabel">Forward a copy of all messages</span> (formerly
+<span class="guilabel">Always send a copy (Bcc)</span> check box). This feature
+is different from the same check box under <span class="guilabel">Email &gt; Domains</span> as
+it does not differentiate between mail domains and catches also any
+outgoing message.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>On some countries, enabling the <em>Forward a copy of
+all messages</em> can be against privacy laws.</p>
+</div>
+</section>
+<section id="logs">
+<span id="email-log"></span><h2>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
+<p>Every mail server operation is saved in the following log files:</p>
+<ul class="simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">/var/log/maillog</span></code> registers all mail transactions</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">/var/log/imap</span></code> contains users login and logout operations,
+plus the IMAP actions, if enabled in <a class="reference internal" href="#email-mailboxes-settings"><span class="std std-ref">General settings</span></a></p></li>
+</ul>
+<p>A transaction recorded in the <code class="file docutils literal notranslate"><span class="pre">maillog</span></code> file usually involves
+different components of the mail server. Each line contains
+respectively</p>
+<ul class="simple">
+<li><p>the timestamp</p></li>
+<li><p>the host name</p></li>
+<li><p>the component name, and the process-id of the component instance</p></li>
+<li><p>a text message detailing the operation</p></li>
+</ul>
+<p>NethServer configuration uses Rspamd as milter. It runs an Rspamd proxy worker in
+“self-scan” mode <a class="footnote-reference brackets" href="#selfscan" id="id23">19</a>.</p>
+<p>The key to track the whole SMTP transaction, including Rspamd decisions is the
+message ID header, or the Postfix Queue ID (QID). Both are available from the
+message source. The <code class="docutils literal notranslate"><span class="pre">Message-ID</span></code> header is generated by the sender, whilst the
+QID is assigned by the receiving MTA. For instance</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Received: from my.example.com (my.example.com [10.154.200.17])
+      by mail.mynethserver.org (Postfix) with ESMTP id A785B308622AB
+      for &lt;jsmith@example.com&gt;; Tue, 15 May 2018 02:05:02 +0200 (CEST)
+...
+Message-ID: &lt;5afa242e.hP5p/mry+fTNNjms%no-reply@example.com&gt;
+User-Agent: Heirloom mailx 12.5 7/5/10
+</pre></div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">A785B308622AB</span></code> is the QID, whilst
+<code class="docutils literal notranslate"><span class="pre">5afa242e.hP5p/mry+fTNNjms%no-reply&#64;example.com</span></code> is the Message ID.</p>
+<p>Both strings can be used with the <code class="docutils literal notranslate"><span class="pre">grep</span></code> command to find relevant log lines in
+<code class="docutils literal notranslate"><span class="pre">/var/log/maillog*</span></code> (note the ending “*” to search also in archived log
+files). For instance</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep -F &#39;A785B308622AB&#39; /var/log/maillog*
+</pre></div>
+</div>
+<p>Yields</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/var/log/maillog:May 15 02:05:02 mail postfix/smtpd[25846]: A785B308622AB: client=my.example.com[10.154.200.17]
+/var/log/maillog:May 15 02:05:02 mail postfix/cleanup[25849]: A785B308622AB: message-id=&lt;5afa242e.hP5p/mry+fTNNjms%no-reply@example.com&gt;
+/var/log/maillog:May 15 02:05:02 mail rspamd[27538]: &lt;8ae27d&gt;; proxy; rspamd_message_parse: loaded message; id: &lt;5afa242e.hP5p/mry+fTNNjms%no-reply@example.com&gt;; queue-id: &lt;A785B308622AB&gt;; size: 2348; checksum: &lt;b1035f4fb07162ba88053d9e38df9c93&gt;
+/var/log/maillog:May 15 02:05:03 mail rspamd[27538]: &lt;8ae27d&gt;; proxy; rspamd_task_write_log: id: &lt;5afa242e.hP5p/mry+fTNNjms%no-reply@example.com&gt;, qid: &lt;A785B308622AB&gt;, ip: 10.154.200.17, from: &lt;no-reply@example.com&gt;, (default: F (no action): [-0.64/20.00] [BAYES_HAM(-3.00){100.00%;},AUTH_NA(1.00){},MID_CONTAINS_FROM(1.00){},MX_INVALID(0.50){},MIME_GOOD(-0.10){text/plain;},IP_SCORE(-0.04){ip: (0.22), ipnet: 10.154.192.0/20(0.18), asn: 14061(0.23), country: US(-0.81);},ASN(0.00){asn:14061, ipnet:10.154.192.0/20, country:US;},DMARC_NA(0.00){example.com;},FROM_EQ_ENVFROM(0.00){},FROM_NO_DN(0.00){},NEURAL_HAM(-0.00){-0.656;0;},RCPT_COUNT_ONE(0.00){1;},RCVD_COUNT_TWO(0.00){2;},RCVD_NO_TLS_LAST(0.00){},R_DKIM_NA(0.00){},R_SPF_NA(0.00){},TO_DN_NONE(0.00){},TO_DOM_EQ_FROM_DOM(0.00){},TO_MATCH_ENVRCPT_ALL(0.00){}]), len: 2348, time: 750.636ms real, 5.680ms virtual, dns req: 47, digest: &lt;b1035f4fb07162ba88053d9e38df9c93&gt;, rcpts: &lt;jsmith@example.com&gt;, mime_rcpts: &lt;jsmith@example.com&gt;
+/var/log/maillog:May 15 02:05:03 mail postfix/qmgr[27757]: A785B308622AB: from=&lt;no-reply@example.com&gt;, size=2597, nrcpt=1 (queue active)
+/var/log/maillog:May 15 02:05:03 mail postfix/lmtp[25854]: A785B308622AB: to=&lt;vmail+jsmith@mail.mynethserver.org&gt;, orig_to=&lt;jsmith@example.com&gt;, relay=mail.mynethserver.org[/var/run/dovecot/lmtp], delay=0.82, delays=0.8/0.01/0.01/0.01, dsn=2.0.0, status=sent (250 2.0.0 &lt;vmail+jsmith@mail.mynethserver.org&gt; gK8pHS8k+lr/ZAAAJc5BcA Saved)
+/var/log/maillog:May 15 02:05:03 mail postfix/qmgr[27757]: A785B308622AB: removed
+</pre></div>
+</div>
+</section>
+<section id="client-configuration">
+<span id="email-clients"></span><h2>Client configuration<a class="headerlink" href="#client-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The server supports standard-compliant email clients using the
+following IANA ports:</p>
+<ul class="simple">
+<li><p>imap/143</p></li>
+<li><p>pop3/110</p></li>
+<li><p>smtp/587</p></li>
+<li><p>sieve/4190</p></li>
+</ul>
+<p>Authentication requires the STARTTLS command and supports the
+following variants:</p>
+<ul class="simple">
+<li><p>LOGIN</p></li>
+<li><p>PLAIN</p></li>
+<li><p><a class="reference internal" href="#kerberos-auth"><span class="std std-ref">GSSAPI</span></a> (only if NethServer is bound to Samba/Microsoft Active Directory)</p></li>
+</ul>
+<p>Also the following SSL-enabled ports are available for legacy software
+that still does not support STARTTLS:</p>
+<ul class="simple">
+<li><p>imaps/993</p></li>
+<li><p>pop3s/995</p></li>
+<li><p>smtps/465</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The standard SMTP port 25 is reserved for mail transfers between MTA
+servers. Mail user agents (MUA) must use the submission port.</p>
+</div>
+</section>
+<section id="kerberos-based-authentication">
+<span id="kerberos-auth"></span><h2>Kerberos-based authentication<a class="headerlink" href="#kerberos-based-authentication" title="Permalink to this headline">¶</a></h2>
+<p>Mail services can authenticate users of Active Directory with the Kerberos
+single-sign-on protocol.</p>
+<p>Both local and remote Active Directory accounts provider need an additional and manual
+step to complete the GSSAPI/Kerberos setup of IMAP, POP and SMTP services.</p>
+<ol class="arabic">
+<li><p>In NethServer shell authenticate as an AD domain administrator</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>kinit some_domain_admin
+</pre></div>
+</div>
+</li>
+<li><p>Add the service principals for the mail services to the machine account</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>net ads setspn add $(hostname -s) imap/$(hostname -f)
+net ads setspn add $(hostname -s) pop/$(hostname -f)
+net ads setspn add $(hostname -s) smtp/$(hostname -f)
+</pre></div>
+</div>
+</li>
+<li><p>Terminate the session</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>kdestroy
+</pre></div>
+</div>
+</li>
+</ol>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="postfix"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Postfix mail server <a class="reference external" href="http://www.postfix.org/">http://www.postfix.org/</a></p>
+</dd>
+<dt class="label" id="dovecot"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id21">2</a>)</span></dt>
+<dd><p>Dovecot Secure IMAP server <a class="reference external" href="http://www.dovecot.org/">http://www.dovecot.org/</a></p>
+</dd>
+<dt class="label" id="sieve"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Sieve mail filtering language <a class="reference external" href="https://en.wikipedia.org/wiki/Sieve_(mail_filtering_language">https://en.wikipedia.org/wiki/Sieve_(mail_filtering_language</a>)</p>
+</dd>
+<dt class="label" id="rspamd"><span class="brackets">4</span><span class="fn-backref">(<a href="#id4">1</a>,<a href="#id13">2</a>,<a href="#id18">3</a>)</span></dt>
+<dd><p>Rspamd – Fast, free and open-source spam filtering system.
+<a class="reference external" href="https://rspamd.com/">https://rspamd.com/</a></p>
+</dd>
+<dt class="label" id="id24"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>Email, <a class="reference external" href="https://en.wikipedia.org/wiki/Email">https://en.wikipedia.org/wiki/Email</a></p>
+</dd>
+<dt class="label" id="mxrecord"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>The MX DNS record, <a class="reference external" href="https://en.wikipedia.org/wiki/MX_record">https://en.wikipedia.org/wiki/MX_record</a></p>
+</dd>
+<dt class="label" id="smtp"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p>SMTP, <a class="reference external" href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol</a></p>
+</dd>
+<dt class="label" id="dkim"><span class="brackets">8</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id12">2</a>)</span></dt>
+<dd><p>Domain Keys Identified Mail (DKIM) is an email authentication method
+designed to detect email spoofing – <a class="reference external" href="https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail">Wikipedia</a></p>
+</dd>
+<dt class="label" id="maildirformat"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
+<dd><p>The Maildir format, <a class="reference external" href="https://en.wikipedia.org/wiki/Maildir">https://en.wikipedia.org/wiki/Maildir</a></p>
+</dd>
+<dt class="label" id="altermime"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
+<dd><p>alterMIME is a small program which is used to alter your mime-encoded mailpack –
+<a class="reference external" href="https://pldaniels.com/altermime/">https://pldaniels.com/altermime/</a></p>
+</dd>
+<dt class="label" id="markdown"><span class="brackets"><a class="fn-backref" href="#id11">11</a></span></dt>
+<dd><p>The Markdown plain text formatting syntax, <a class="reference external" href="https://en.wikipedia.org/wiki/Markdown">https://en.wikipedia.org/wiki/Markdown</a></p>
+</dd>
+<dt class="label" id="imap"><span class="brackets"><a class="fn-backref" href="#id19">12</a></span></dt>
+<dd><p>IMAP <a class="reference external" href="https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol">https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol</a></p>
+</dd>
+<dt class="label" id="pop3"><span class="brackets"><a class="fn-backref" href="#id20">13</a></span></dt>
+<dd><p>POP3 <a class="reference external" href="https://en.wikipedia.org/wiki/Post_Office_Protocol">https://en.wikipedia.org/wiki/Post_Office_Protocol</a></p>
+</dd>
+<dt class="label" id="dnsbl"><span class="brackets">14</span><span class="fn-backref">(<a href="#id15">1</a>,<a href="#id22">2</a>)</span></dt>
+<dd><p>DNSBL <a class="reference external" href="https://en.wikipedia.org/wiki/DNSBL">https://en.wikipedia.org/wiki/DNSBL</a></p>
+</dd>
+<dt class="label" id="spam"><span class="brackets"><a class="fn-backref" href="#id14">15</a></span></dt>
+<dd><p>SPAM <a class="reference external" href="https://en.wikipedia.org/wiki/Spamming">https://en.wikipedia.org/wiki/Spamming</a></p>
+</dd>
+<dt class="label" id="grey"><span class="brackets"><a class="fn-backref" href="#id16">16</a></span></dt>
+<dd><p>Greylisting is a method of defending e-mail users against spam. A mail
+transfer agent (MTA) using greylisting will “temporarily reject” any email from
+a sender it does not recognize – <a class="reference external" href="https://en.wikipedia.org/wiki/Greylisting">Wikipedia</a></p>
+</dd>
+<dt class="label" id="bayes"><span class="brackets"><a class="fn-backref" href="#id17">17</a></span></dt>
+<dd><p>Bayesian filtering <a class="reference external" href="https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering">https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering</a></p>
+</dd>
+<dt class="label" id="mailcomponents"><span class="brackets">18</span></dt>
+<dd><p>The wondrous Ways of an Email <a class="reference external" href="https://workaround.org/ispmail/wheezybig-picture/">https://workaround.org/ispmail/wheezybig-picture/</a></p>
+</dd>
+<dt class="label" id="selfscan"><span class="brackets"><a class="fn-backref" href="#id23">19</a></span></dt>
+<dd><p><a class="reference external" href="https://rspamd.com/doc/workers/rspamd_proxy.html">https://rspamd.com/doc/workers/rspamd_proxy.html</a></p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="web_server.html" class="btn btn-neutral float-left" title="Web server" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="webmail.html" class="btn btn-neutral float-right" title="Webmail" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

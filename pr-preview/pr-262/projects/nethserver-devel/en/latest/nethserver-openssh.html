@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-openssh &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-openvpn" href="nethserver-openvpn.html" />
+    <link rel="prev" title="nethserver-nut" href="nethserver-nut.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-openssh", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-openssh.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-openssh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#events">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#one-time-password-2fa">One time password (2FA)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-openssh</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-openssh.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-openssh">
+<h1>nethserver-openssh<a class="headerlink" href="#nethserver-openssh" title="Permalink to this headline">¶</a></h1>
+<p>OpenSSH is the premier connectivity tool for remote login with the SSH protocol.
+It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks.
+In addition, OpenSSH provides a large suite of secure tunneling capabilities,
+several authentication methods, and sophisticated configuration options.</p>
+<p>The OpenSSH suite consists of the following tools:</p>
+<ul class="simple">
+<li>Remote operations are done using ssh, scp, and sftp.</li>
+<li>Key management with ssh-add, ssh-keysign, ssh-keyscan, and ssh-keygen.</li>
+<li>The service side consists of sshd, sftp-server, and ssh-agent.</li>
+</ul>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p>the props of the service to configure openssh:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sshd=service
+   AllowGroups=group1,group2:sftp,group3
+   AllowLocalGroups=wheel,adm
+   LoginGraceTime=2m
+   MaxAuthTries=6
+   PasswordAuthentication=yes
+   PermitRootLogin=yes
+   Protocol=2
+   SubsystemSftp=yes
+   TCPPort=22
+   UsePAM=yes
+   access=green,red
+   status=enabled
+   StrongEncryption=enabled
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">AllowGroups</span></code>: a comma separated list of groups from the accounts provider, allowed to connect with SSH.
+If the option <code class="docutils literal notranslate"><span class="pre">:sftp</span></code> is specified then the group is restricted to SFTP.
+This prop is considered if the property <code class="docutils literal notranslate"><span class="pre">$sssd{'ShellOverrideStatus'}</span></code> is enabled.</li>
+<li><code class="docutils literal notranslate"><span class="pre">AllowLocalGroups</span></code>: a comma separated list of group names in <code class="docutils literal notranslate"><span class="pre">/etc/groups</span></code> that are granted full SSH and SFTP access.</li>
+<li><code class="docutils literal notranslate"><span class="pre">SubsystemSftp</span></code>: (yes|no) enable the sftp service</li>
+<li><code class="docutils literal notranslate"><span class="pre">LoginGraceTime</span></code>: The time after which the server disconnects if the user has not successfully logged in.</li>
+<li><code class="docutils literal notranslate"><span class="pre">MaxAuthTries</span></code>: Specifies the maximum number of authentication attempts permitted per connection.
+Once the number of failures reaches half this value, additional failures are logged.</li>
+<li><code class="docutils literal notranslate"><span class="pre">PasswordAuthentication</span></code>: (yes,no) Specifies whether password authentication is allowed.</li>
+<li><code class="docutils literal notranslate"><span class="pre">PermitRootLogin</span></code>: (yes,no) Specifies whether root can log in using ssh.</li>
+<li><code class="docutils literal notranslate"><span class="pre">TCPPort</span></code>: Use this TCP port to use sshd</li>
+<li><code class="docutils literal notranslate"><span class="pre">UsePAM</span></code>: (yes,no) Pam can be used to authentify user</li>
+<li><code class="docutils literal notranslate"><span class="pre">access</span></code>: Allow ssh connection to your firewall following different zones.</li>
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: (enabled,disabled) Enable or disable the sshd service</li>
+<li><code class="docutils literal notranslate"><span class="pre">StrongEncryption</span></code>: (enabled,disabled) Enable or disable the strong encryption by requiring strong ciphers, HostKeyAlgorithms, KexAlgorithms, MACs. Old clients might not be able to connect to the server once enabled.</li>
+</ul>
+</div>
+<div class="section" id="events">
+<h2>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h2>
+<p>Two events takes care to expand and restart the service</p>
+<p><code class="docutils literal notranslate"><span class="pre">nethserver-openssh-update</span></code> (sshd is restarted)
+<code class="docutils literal notranslate"><span class="pre">nethserver-openssh-save</span></code> (sshd is reloaded)</p>
+</div>
+<div class="section" id="one-time-password-2fa">
+<h2>One time password (2FA)<a class="headerlink" href="#one-time-password-2fa" title="Permalink to this headline">¶</a></h2>
+<p>2FA is available only for password authentication. Authentication with public keys will not be affected by 2FA.</p>
+<p>The Openssh server can be protected by a Two-factor authentication (2FA). It adds an extra layer of security required to access the new Server Manager. First, users will enter user name and password, then they will be required to provide a temporary verification code generated by an application running on their smartphone.</p>
+<p>2FA is disabled by default. Each user can enable it by accessing the Two-factor authentication section under Settings page.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-openvpn.html" class="btn btn-neutral float-right" title="nethserver-openvpn" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-nut.html" class="btn btn-neutral float-left" title="nethserver-nut" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

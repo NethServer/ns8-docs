@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firewall &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Web proxy" href="web_proxy.html" />
+    <link rel="prev" title="Antivirus" href="antivirus.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "firewall", "programming_language": "words", "project": "nethserver", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"nethserver-devel": "https://docs.nethserver.org/projects/nethserver-devel/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/firewall.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accessing the Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Users and groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">DHCP and PXE server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Shared folders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Firewall</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#apply-and-revert">Apply and revert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#policy">Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#traffic-to-internet">Traffic to Internet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traffic-between-vpns">Traffic between VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ping-from-internet">Ping from Internet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hairpin-nat">Hairpin NAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#application-layer-gateway-alg">Application Layer Gateway (ALG)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ip-mac-binding">IP/MAC binding</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rules">Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reject-vs-drop">REJECT vs DROP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#log">Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deep-packet-inspection-dpi">Deep Packet Inspection (DPI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rules-on-existing-connections">Rules on existing connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#wan">WAN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#port-forward">Port forward</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limiting-access">Limiting access</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#snat-1-1">SNAT 1:1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#traffic-shaping">Traffic shaping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#firewall-objects">Firewall objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connections">Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Web proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Bandwidth monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Backup customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Virtual machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">NethForge modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade from NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Email module transition to Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Documentation license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Old Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">The old Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">POP3 proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Fax server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">SOGo Groupware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Firewall</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/firewall.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="firewall">
+<span id="firewall-section"></span><h1>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">¶</a></h1>
+<p>NethServer can act as <span class="target" id="index-0"></span>firewall and <span class="target" id="index-1"></span>gateway inside the network where it is installed.
+All traffic between computers on the local network and the Internet passes through the server that decides how to
+route packets and what rules to apply.
+Firewall mode is enabled only if the system has at least one network interface configured with red role.</p>
+<p>The Firewall application can be installed from <a class="reference internal" href="packages.html#software-center-section"><span class="std std-ref">Software center</span></a> and includes:</p>
+<ul class="simple">
+<li><p>Multi WAN support up to 15 connections</p></li>
+<li><p>Firewall rules management</p></li>
+<li><p>Traffic shaping (QoS)</p></li>
+<li><p>Port forwarding</p></li>
+<li><p>Routing rules to divert traffic on a specific WAN</p></li>
+<li><p>Deep packet inspection (DPI)</p></li>
+<li><p>Smart search to quickly find existing rules or objects</p></li>
+<li><p>Real time charts</p></li>
+</ul>
+<p>Real time charts display traffic and service statistics collected by <a class="reference external" href="https://www.netdata.cloud/">Netdata</a>.
+To avoid performance penalty on slow hardware, Netdata is not part of the firewall application and can be installed from <a class="reference internal" href="packages.html#software-center-section"><span class="std std-ref">Software center</span></a>.</p>
+<section id="apply-and-revert">
+<span id="apply-revert-section"></span><h2>Apply and revert<a class="headerlink" href="#apply-and-revert" title="Permalink to this headline">¶</a></h2>
+<p>Every time the firewall configuration has been changed, modifications are not applied immediately but saved in a temporary store.
+For the changes to take effect, click on the <span class="guilabel">Apply</span> button at the top right corner of the page.</p>
+<p>As long as the new rules created have not been applied, you can revert all changes by clicking the <span class="guilabel">Revert</span> button at the top right corner of the page.</p>
+</section>
+<section id="policy">
+<span id="policy-section"></span><h2>Policy<a class="headerlink" href="#policy" title="Permalink to this headline">¶</a></h2>
+<p>Each interface is identified with a color indicating its role within the system.
+See <a class="reference internal" href="base_system2.html#network-section"><span class="std std-ref">Network</span></a>.</p>
+<p>When a network packet passes through a firewall zone, the system evaluates a list of rules to decide whether
+traffic should be blocked or allowed.
+<em class="dfn">Policies</em> are the default rules to be applied when the network traffic does not match any existing criteria.</p>
+<p>Firewall <span class="target" id="index-2"></span>policies allow inter-zone traffic accordingly to this schema:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>GREEN -&gt; BLUE -&gt; ORANGE -&gt; RED
+</pre></div>
+</div>
+<p>Traffic is allowed from left to right, blocked from right to left.</p>
+<p>To display the list of active policies click on the <span class="guilabel">Policies</span> button inside the <span class="guilabel">Rules</span> page.</p>
+<p>Policies can be changed by creating specific rules between zones from the <span class="guilabel">Rules</span> page or by accessing
+the <a class="reference internal" href="#traffic-to-internet-section"><span class="std std-ref">Traffic to Internet</span></a> section inside the <span class="guilabel">Settings</span> page.</p>
+</section>
+<section id="settings">
+<span id="firewall-settings-section"></span><h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<p>In this section you can change standard firewall behavior.</p>
+<section id="traffic-to-internet">
+<span id="traffic-to-internet-section"></span><h3>Traffic to Internet<a class="headerlink" href="#traffic-to-internet" title="Permalink to this headline">¶</a></h3>
+<p>The default firewall policy allows all traffic from green to red interfaces (Internet).
+To change the default policy for Internet access, enable or disable the <span class="guilabel">Traffic to Internet (red interface)</span> option.
+If disabled all traffic from green to red network is blocked. Specific traffic can be allowed creating rules from <span class="guilabel">Rules</span> page.</p>
+</section>
+<section id="traffic-between-vpns">
+<h3>Traffic between VPNs<a class="headerlink" href="#traffic-between-vpns" title="Permalink to this headline">¶</a></h3>
+<p>By default traffic between different VPN tunnels is not allowed, but sometimes you would need to allow it like when a OpenVPN roadwarrior client should
+reach a remote resource behind an IPsec tunnel.
+To permit traffic between VPNs, just enable the <span class="guilabel">Traffic between OpenVPN roadwarrior, OpenVPN tunnels and IPSec tunnels</span> option.
+Extra block rules can be created from <span class="guilabel">Rules</span> page to customize the network access between VPN zones.</p>
+</section>
+<section id="ping-from-internet">
+<h3>Ping from Internet<a class="headerlink" href="#ping-from-internet" title="Permalink to this headline">¶</a></h3>
+<p>Allows NethServer to answer ICMP requests from red interfaces (Internet).</p>
+</section>
+<section id="hairpin-nat">
+<span id="hairpin-section"></span><h3>Hairpin NAT<a class="headerlink" href="#hairpin-nat" title="Permalink to this headline">¶</a></h3>
+<p>By default, all port forwards are available only for hosts inside the WAN.
+When Hairpin NAT is active, hosts on the local zones will be able to reach forwarded ports using both public and private firewall IP addresses.</p>
+<p>Whenever possible it is recommended to avoid enabling this option and correctly configure split DNS to resolve service names inside the LAN.</p>
+<p>If hair-pinning is still required, check the <span class="guilabel">Enable hairpin NAT</span> option.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This functionality requires NethServer to have a public IP address on the red interface.</p>
+</div>
+</section>
+<section id="application-layer-gateway-alg">
+<h3>Application Layer Gateway (ALG)<a class="headerlink" href="#application-layer-gateway-alg" title="Permalink to this headline">¶</a></h3>
+<p>Application layer gateways handle dynamic firewall rules for certain protocols.
+Many ALGs are enabled by default on NethServer, to allow some protocols (such as FTP, SIP, etc) to operate through NAT.
+ALGs inspect and rewrite specific network packets and automatically open required ports.</p>
+<p><strong>Enable SIP-ALG and H.323-ALG</strong></p>
+<p>Some PBXs may not work properly with SIP-ALG and H.323-ALG. In case of audio and call problems with your PBX or your VoIP client try to disable them.</p>
+</section>
+<section id="ip-mac-binding">
+<span id="firewall-mac-binding-section"></span><h3>IP/MAC binding<a class="headerlink" href="#ip-mac-binding" title="Permalink to this headline">¶</a></h3>
+<p>The firewall can use the list of DHCP reservations to strictly check all traffic generated from hosts inside local networks.
+DHCP server should could be disabled but the administrator must still create reservations to associate the IP with a MAC address.
+See <a class="reference internal" href="dhcp.html#dhcp-section"><span class="std std-ref">DHCP and PXE server</span></a> for more details.</p>
+<p>When <span class="target" id="index-3"></span>IP/MAC binding is enabled, the administrator will choose what policy will be applied to hosts without a DHCP reservation.
+The common use is to allow traffic only from known hosts and block all other traffic.
+In this case, hosts without a reservation will not be able to access the firewall nor the external network.</p>
+<p>To enable traffic only from well-known hosts, follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Create a DHCP reservation for a host</p></li>
+<li><p>Go to <span class="menuselection">Firewall rules</span> page and select from <span class="guilabel">Configure</span> from the button menu</p></li>
+<li><p>Select <span class="guilabel">MAC validation (IP/MAC binding)</span></p></li>
+<li><p>Choose <span class="guilabel">Block traffic</span> as the policy to apply to unregistered hosts</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember to create at least one DHCP reservation before enabling the IP/MAC binding mode,
+otherwise, no hosts will be able to manage the server using the web interface or SSH.</p>
+</div>
+</section>
+</section>
+<section id="rules">
+<span id="firewall-rules-section"></span><h2>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h2>
+<p><span class="target" id="index-4"></span>Rules apply to all traffic passing through the firewall.
+When a network packet moves from one zone to another, the system looks among configured rules.
+If the packet matches a rule, the rule is applied.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Rule’s order is very important. The system always applies the first rule that matches.</p>
+</div>
+<p>A rule consists of five main parts:</p>
+<ul class="simple">
+<li><p>Action</p></li>
+<li><p>Source</p></li>
+<li><p>Destination</p></li>
+<li><p>Service (optional)</p></li>
+<li><p>Time condition (optional)</p></li>
+</ul>
+<p>Available actions are:</p>
+<ul class="simple">
+<li><p><em class="dfn">ACCEPT</em>: accept the network traffic</p></li>
+<li><p><em class="dfn">REJECT</em>: block the traffic and notify the sender host</p></li>
+<li><p><em class="dfn">DROP</em>: block the traffic, packets are dropped and no notification is sent to the sender host</p></li>
+</ul>
+<p>Source and destination fields accept built-in roles, <a class="reference internal" href="#firewall-objects-section"><span class="std std-ref">Firewall objects</span></a> and raw IPv4 addresses or CIDR.
+Such raw addresses can be later converted to firewall objects using the <span class="guilabel">Create Host</span> and
+<span class="guilabel">Create CIDR subnet</span> actions which will appear next to the address itself.</p>
+<p>If <a class="reference internal" href="vpn.html#vpn-section"><span class="std std-ref">VPN</span></a> application is installed, there are also two extra zones available:</p>
+<ul class="simple">
+<li><p><em>ivpn</em>: all traffic from IPSec VPNs</p></li>
+<li><p><em>ovpn</em>: all traffic from OpenVPN VPNs</p></li>
+</ul>
+<p>The configuration of firewall rules is split into two different pages:</p>
+<ul class="simple">
+<li><p><strong>Rules</strong>: manage rules applied only to the network traffic traversing the firewall.</p></li>
+<li><p><strong>Local rules</strong>: manage rules applied only to the network traffic generated from the firewall,
+or directed to the firewall itself.</p></li>
+</ul>
+<p>When creating new rules, only the most common fields are shown. To show other less common parameters click the <span class="guilabel">Advanced</span> label.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If no red interface has been configured, the firewall will not generate rules for blue and orange zones.</p>
+</div>
+<section id="reject-vs-drop">
+<h3>REJECT vs DROP<a class="headerlink" href="#reject-vs-drop" title="Permalink to this headline">¶</a></h3>
+<p>As a general rule, you should use <span class="target" id="index-5"></span>REJECT when you want to inform the source host that the port which it
+is trying to access is closed.
+Usually, the rules on the LAN side can use REJECT.</p>
+<p>For connections from the Internet, it is recommended to use <span class="target" id="index-6"></span>DROP, in order to minimize the information disclosed to any
+attacker.</p>
+</section>
+<section id="log">
+<h3>Log<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h3>
+<p>When a rule matches the ongoing traffic, it’s possible to register the event on a log file by checking the option from the web interface.
+<span class="target" id="index-7"></span>Firewall log is saved in <code class="file docutils literal notranslate"><span class="pre">/var/log/firewall.log</span></code> file.
+The log can be inspected from the command line or using the <span class="guilabel">Logs</span> page.</p>
+</section>
+<section id="deep-packet-inspection-dpi">
+<h3>Deep Packet Inspection (DPI)<a class="headerlink" href="#deep-packet-inspection-dpi" title="Permalink to this headline">¶</a></h3>
+<p>Deep Packet Inspection (<a class="reference external" href="https://en.wikipedia.org/wiki/Deep_packet_inspection">DPI</a>) is an advanced packet filtering technique.</p>
+<p>When the <span class="target" id="index-8"></span>DPI module is active, new items for the <span class="guilabel">Service</span>
+field are available in the <span class="guilabel">Edit rule</span> form. Those items are
+labeled <em>DPI protocol</em>, among the usual <em>network service</em> and <em>service object</em>
+items.</p>
+<p>The DPI module uses the <a class="reference external" href="https://www.ntop.org/products/deep-packet-inspection/ndpi/">nDPI library</a>
+which can identify around 250 types of network traffic split in network protocols
+(eg. OpenVPN, DNS) and web applications (eg. Netflix, Spotify).</p>
+<p>Firewall rules using DPI services are generated inside the mangle table, for this reason
+such rules have some limitations:</p>
+<ul class="simple">
+<li><p><cite>reject</cite> action is not supported, use <cite>drop</cite> to block traffic</p></li>
+<li><p><cite>any</cite> and <cite>firewall</cite> can’t be used as source or destination</p></li>
+<li><p><cite>route to provider X</cite> action is not supported: the identification of the protocol
+often begins after the connection has been already established, so the routing decision can’t be changed</p></li>
+</ul>
+<p>Even if DPI can identify traffic to/from specific web sites such as Facebook,
+it is better suited to block or shape protocols like VPN, FTP, etc.
+Web site access should be regulated using <a class="reference internal" href="web_proxy.html#proxy-section"><span class="std std-ref">Web proxy</span></a>.</p>
+<p>Note that some DPI protocols (such as Amazon) can match large <a class="reference external" href="https://it.wikipedia.org/wiki/Content_Delivery_Network">CDNs</a>,
+so please do not block such protocols using DPI rules unless you want to prevent access to thousands of sites.</p>
+<p>DPI markers are automatically applied also to the traffic
+which originates from the firewall itself, like HTTP traffic from the web proxy.</p>
+<p>The complete list of DPI protocols, along with counters for matched traffic, is available inside the <span class="guilabel">DPI</span> page
+under the <span class="menuselection">Status</span> category on the left menu.</p>
+</section>
+<section id="rules-on-existing-connections">
+<h3>Rules on existing connections<a class="headerlink" href="#rules-on-existing-connections" title="Permalink to this headline">¶</a></h3>
+<p>When a new rule is created, as default, it is applied only to new connections.
+But in some scenarios, the administrator may need to apply the rule also on established connections.</p>
+<p>If the option <span class="guilabel">Apply to existing connections</span> is enabled, the rule will be applied to all connections including already established ones.</p>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Below there are some examples of rules.</p>
+<p>Block all DNS traffic from the LAN to the Internet:</p>
+<ul class="simple">
+<li><p>Action: REJECT</p></li>
+<li><p>Source: green</p></li>
+<li><p>Destination: red</p></li>
+<li><p>Service: DNS (UDP port 53)</p></li>
+</ul>
+<p>Allow guest’s network to access all the services listening on Server1:</p>
+<ul class="simple">
+<li><p>Action: ACCEPT</p></li>
+<li><p>Source: blue</p></li>
+<li><p>Destination: Server1</p></li>
+<li><p>Service: -</p></li>
+</ul>
+</section>
+</section>
+<section id="wan">
+<span id="wan-section"></span><h2>WAN<a class="headerlink" href="#wan" title="Permalink to this headline">¶</a></h2>
+<p>The term <em class="dfn">WAN</em> (Wide Area Network) refers to a public network outside the server, usually connected to the Internet.
+A <em class="dfn">provider</em> is the company that actually manages the <span class="target" id="index-9"></span>WAN link.</p>
+<p>All WAN network interfaces are labeled with the red role and are listed on the top of the page, just below bandwidth usage charts.
+Rules can be created under the <span class="guilabel">Rules</span> section on the same page.</p>
+<p>If the server has two or more configured red interfaces, it is required to correctly fill,
+<span class="guilabel">Download bandwidth</span> and <span class="guilabel">Upload bandwidth</span> fields from the <span class="guilabel">Network</span> page.
+Download and upload bandwidth can be automatically calculated using the <span class="guilabel">Speedtest</span> button.</p>
+<p>Each provider represents a WAN connection and is associated with a network adapter.
+Each provider defines a <em class="dfn">weight</em>: the higher the weight, the higher the priority of the network card associated with the provider.</p>
+<p>The system can use WAN connections in two modes:</p>
+<ul class="simple">
+<li><p><em class="dfn">Balance</em>: all providers are used simultaneously according to their weight</p></li>
+<li><p><em class="dfn">Active backup</em>: providers are used one at a fly from the one with the highest weight. If the provider you are using loses its connection, all traffic will be diverted to the next provider.</p></li>
+</ul>
+<p>To determine the status of a provider, the system sends an ICMP packet (ping) at regular intervals.
+If the number of dropped packets exceeds a certain threshold, the provider is disabled.</p>
+<p>The administrator can configure the sensitivity of the monitoring through the following parameters:</p>
+<ul class="simple">
+<li><p>Percentage of lost packets</p></li>
+<li><p>Number of consecutive lost packets</p></li>
+<li><p>Interval in seconds between sent packets</p></li>
+</ul>
+<p>To change WAN mode and link monitoring options click on <span class="guilabel">Configure</span> button.</p>
+<p>The network traffic can be routed to specific WANs by creating rules inside the <span class="guilabel">Rules</span> section on this page.
+After creating or editing rules, make sure to apply the changes. See <a class="reference internal" href="#apply-revert-section"><span class="std std-ref">Apply and revert</span></a> for details.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Given two configured providers:</p>
+<ul class="simple">
+<li><p>Provider1: network interface eth1, weight 100</p></li>
+<li><p>Provider2: network interface eth0, weight 50</p></li>
+</ul>
+<p>If balanced mode is selected, the server will route a double number of connections on Provider1 over Provider2.</p>
+<p>If active backup mode is selected, the server will route all connections on Provider1; only if Provider1 becomes
+unavailable the connections will be redirected to Provider2.</p>
+</section>
+</section>
+<section id="port-forward">
+<span id="port-forward-section"></span><h2>Port forward<a class="headerlink" href="#port-forward" title="Permalink to this headline">¶</a></h2>
+<p>The firewall blocks requests from public networks to private ones.
+For example, if a web server is running inside the LAN, only computers on the local network can access the service in the green zone.
+Any request made by a user outside the local network is blocked.</p>
+<p>To allow any external user access to the web server you must create a <em class="dfn">port forward</em>.
+A <span class="target" id="index-10"></span>port forward is a rule that allows limited access to resources from outside of the LAN.</p>
+<p>When you configure the server, you must choose the listening ports. The traffic from red interfaces will be redirected to selected ports.
+In the case of a web server, listening ports are usually port 80 (HTTP) and 443 (HTTPS).</p>
+<p>When you create a port forward, you must specify at least the following parameters:</p>
+<ul class="simple">
+<li><p>The source port</p></li>
+<li><p>The destination port, which can be different from the origin port</p></li>
+<li><p>The network protocol like TCP, UDP, TCP &amp; UDP, AH, ESP or GRE</p></li>
+<li><p>The address of the internal host to which the traffic should be redirected</p></li>
+<li><p>It’s possible to specify a port range using a colon as the separator in the source port field (eg: 1000:2000), in this case, the destination port field must be left empty</p></li>
+</ul>
+<p>Port forwards are grouped by destination host and support raw IP addresses along with firewall objects.</p>
+<p>By default, all port forwards are available only for hosts inside the WAN, see <a class="reference internal" href="#hairpin-section"><span class="std std-ref">Hairpin NAT</span></a> to change such behavior.</p>
+<section id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Given the following scenario:</p>
+<ul class="simple">
+<li><p>Internal server with IP 192.168.1.10, named Server1</p></li>
+<li><p>Web server listening on port 80 on Server1</p></li>
+<li><p>SSH server listening on port 22 on Server1</p></li>
+<li><p>Other services in the port range between 5000 and 6000  on Server1</p></li>
+</ul>
+<p>If you want to make the web server available directly from public networks, you must create a rule like this:</p>
+<ul class="simple">
+<li><p>origin port: 80</p></li>
+<li><p>destination port: 80</p></li>
+<li><p>host address: 192.168.1.10</p></li>
+</ul>
+<p>All incoming traffic on the firewall’s red interfaces on port 80, will be redirected to port 80 on Server1.</p>
+<p>In case you want to make accessible from outside the SSH server on port 2222, you will have to create a port forward like this:</p>
+<ul class="simple">
+<li><p>origin port: 2222</p></li>
+<li><p>destination port: 22</p></li>
+<li><p>host address: 192.168.1.10</p></li>
+</ul>
+<p>All incoming traffic on the firewall’s red interfaces on port 2222, will be redirected to port 22 on Server1.</p>
+<p>In case you want to make accessible from outside the server on the whole port range between 5000 and 6000, you will have to create a port forward like this:</p>
+<ul class="simple">
+<li><p>origin port: 5000:6000</p></li>
+<li><p>destination port:</p></li>
+<li><p>host address: 192.168.1.10</p></li>
+</ul>
+<p>All incoming traffic on the firewall’s red interfaces on the port range between 5000 and 6000 will be redirected to the same ports on Server1.</p>
+</section>
+<section id="limiting-access">
+<h3>Limiting access<a class="headerlink" href="#limiting-access" title="Permalink to this headline">¶</a></h3>
+<p>By default, the field access to port forward is granted to anyone.
+You can restrict access to port forward only from some IP addresses or networks by adding entries to <span class="guilabel">Restrict access to</span> field.
+This configuration is useful when services should be available only from trusted IPs or networks.</p>
+<p>Example of valid entries:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">10.2.10.4</span></code>: enable port forward for traffic coming from 10.2.10.4 IP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">10.2.10.0/24</span></code>: enable port forward only for traffic coming from 10.2.10.0/24 network</p></li>
+</ul>
+</section>
+</section>
+<section id="snat-1-1">
+<span id="snat-section"></span><h2>SNAT 1:1<a class="headerlink" href="#snat-1-1" title="Permalink to this headline">¶</a></h2>
+<p>One-to-one <span class="target" id="index-11"></span>source NAT (<span class="target" id="index-12"></span>SNAT) is a way to make systems behind a firewall and configured with private IP addresses appear to have public IP addresses.
+If you have a bunch of public IP addresses and if you want to associate one of these to a specific network host, <span class="target" id="index-13"></span>NAT 1:1 is the way.
+SNAT is available only if there is at least one IP alias configured on red network interfaces.</p>
+<p>This feature only applies to network traffic from a host inside the local network to the public Internet.
+It does not affect in any way the traffic from the Internet toward the alias IP. If you need to route some specific traffic to the internal host use the port forward as usual.</p>
+<p>If you need to route all traffic to the internal host (not recommended!) use a port forward with protocol TCP &amp; UDP and source port 1:65535.</p>
+<section id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>In our network we have a host called <code class="docutils literal notranslate"><span class="pre">example_host</span></code> with IP <code class="docutils literal notranslate"><span class="pre">192.168.5.122</span></code>. We have also associated a public IP address <code class="docutils literal notranslate"><span class="pre">89.95.145.226</span></code> as an alias of <code class="docutils literal notranslate"><span class="pre">eth0</span></code> interface (<code class="docutils literal notranslate"><span class="pre">RED</span></code>).</p>
+<p>We want to map our internal host (<code class="docutils literal notranslate"><span class="pre">example_host</span></code> - <code class="docutils literal notranslate"><span class="pre">192.168.5.122</span></code>) with public IP <code class="docutils literal notranslate"><span class="pre">89.95.145.226</span></code>.</p>
+<p>In the <span class="guilabel">NAT 1:1</span> panel, we choose for the IP <code class="docutils literal notranslate"><span class="pre">89.95.145.226</span></code> (read-only field) the specific host (<code class="docutils literal notranslate"><span class="pre">example_host</span></code>) from the combo-box. We have configured correctly the one-to-one NAT for our host.</p>
+</section>
+</section>
+<section id="traffic-shaping">
+<span id="traffic-shaping-section"></span><h2>Traffic shaping<a class="headerlink" href="#traffic-shaping" title="Permalink to this headline">¶</a></h2>
+<p><span class="target" id="index-14"></span>Traffic shaping allows applying priority rules on network traffic through the firewall.
+In this way, it is possible to optimize the transmission, control the latency and tune
+the available bandwidth.</p>
+<p>To enable traffic shaping it is necessary to know the exact amount of available download and upload bandwidth.
+Access the <span class="guilabel">Network</span> page and carefully set bandwidth values.</p>
+<p>If download and upload bandwidth are not set for a red interface, traffic shaping rules will not be
+enabled for that interface.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure to specify an accurate estimate of the bandwidth on network interfaces.
+To pick an appropriate setting, please do not trust the nominal value,
+but use the <span class="guilabel">Speedtest</span> button or online tools to test the real provider speed.</p>
+<p>In case of congestion by the provider, there is nothing to do in order to improve performance.</p>
+</div>
+<p>Traffic shaping classes are used to commit bandwidth for specific network traffic.
+Configuration of traffic shaping is composed of 2 steps:</p>
+<ul class="simple">
+<li><p>creation of traffic shaping classes</p></li>
+<li><p>assignment of network traffic to a specific class</p></li>
+</ul>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<p>Traffic shaping is achieved by controlling how bandwidth is allocated to classes.</p>
+<p>Each class can have a reserved rate. A reserved rate is the bandwidth a class will get only when it needs it.
+The spare bandwidth is the sum of not committed bandwidth, plus the committed bandwidth of a class but
+not currently used by the class itself.</p>
+<p>Each class can have also a maximum rate. If set, the class can exceed its committed rate, up to the maximum rate.
+A class will exceed its committed rate only if there is spare bandwidth available.</p>
+<p>Traffic shaping classes can be defined under <span class="guilabel">Traffic shaping</span> page.
+When creating a new class, fill the following fields.</p>
+<ul class="simple">
+<li><p><span class="guilabel">Class name</span>: a representative name</p></li>
+<li><p><span class="guilabel">Description</span>: optional description for the class</p></li>
+</ul>
+<p>Limits under <span class="guilabel">Download bandwidth limits</span> section:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="guilabel">Min</span>: minimum reserved download bandwidth, if empty no download reservation will be created</p></li>
+<li><p><span class="guilabel">Max</span>: maximum allowed download bandwidth, if empty no upper limit will be set</p></li>
+</ul>
+</div></blockquote>
+<p>Limits under <span class="guilabel">Upload bandwidth limits</span> section:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="guilabel">Min</span>:  minimum reserved upload bandwidth, if empty no upload reservation will be created</p></li>
+<li><p><span class="guilabel">Max</span>: maximum allowed download bandwidth, if empty no upper limit will be created</p></li>
+</ul>
+</div></blockquote>
+<p>For each class the bandwidth can be specified using the percentage of available network bandwidth or
+with absolutes values expressed in kbps.
+As default, a traffic shaping class is applied to all red network interfaces.
+Such behavior can be changed by selecting an existing red interfaces under the <span class="guilabel">Bind to</span> menu
+inside the <span class="guilabel">Advanced</span> section.</p>
+<p>The system provides two pre-configured classes:</p>
+<ul class="simple">
+<li><p><span class="guilabel">high</span>: generic high priority traffic, can be assigned to something like SSH</p></li>
+<li><p><span class="guilabel">low</span>: low priority traffic, can be assigned to something like peer to peer file exchange</p></li>
+</ul>
+<p>The system always tries to prevent traffic starvation under high network load.</p>
+<p>Classes will get spare bandwidth proportionally to their committed rate.
+So if class A has 1Mbit committed rate and class B has 2Mbit committed rate, class B will get twice the spare bandwidth of class A.
+In all cases, all spare bandwidth will be given to them.</p>
+<p>Network traffic can be shaped by creating rules under the <span class="guilabel">Rules</span> section in this page.
+After creating or editing rules, make sure to <a class="reference internal" href="#apply-revert-section"><span class="std std-ref">apply</span></a> the changes.</p>
+<p>For more info, see <a class="reference external" href="https://github.com/firehol/firehol/wiki/FireQOS-Tutorial">FireQOS tutorial</a>.</p>
+</section>
+</section>
+<section id="firewall-objects">
+<span id="firewall-objects-section"></span><h2>Firewall objects<a class="headerlink" href="#firewall-objects" title="Permalink to this headline">¶</a></h2>
+<p><span class="target" id="index-15"></span>Firewall objects are representations of network components and are useful to simplify the creation
+of rules.</p>
+<p>There are 6 types of objects, 5 of them represent sources and destinations:</p>
+<ul>
+<li><p><strong>Host</strong>: representing local and remote computers. Example: <code class="docutils literal notranslate"><span class="pre">web_server</span></code>, <code class="docutils literal notranslate"><span class="pre">goofy_pc</span></code></p></li>
+<li><p><strong>Groups of hosts</strong>: representing homogeneous groups of computers. Hosts in a host group should always be reachable using the same interface.
+Example: <code class="docutils literal notranslate"><span class="pre">servers</span></code>, <code class="docutils literal notranslate"><span class="pre">router</span></code></p></li>
+<li><p><strong>IP ranges</strong>: a list of IP addresses expressed as a range. Example: <code class="docutils literal notranslate"><span class="pre">myrange</span></code>, composed by IPs from <code class="docutils literal notranslate"><span class="pre">192.168.1.100</span></code> to <code class="docutils literal notranslate"><span class="pre">192.168.1.120</span></code></p></li>
+<li><p><strong>CIDR Networks</strong>: you can express a CIDR network in order to simplify firewall rules.</p>
+<p>Example 1 : last 14 IP addresses of the network are assigned to servers (<code class="docutils literal notranslate"><span class="pre">192.168.0.240/28</span></code>).
+Example 2 : you have multiple green interfaces but you want to create firewall rules only for one green (<code class="docutils literal notranslate"><span class="pre">192.168.2.0/24</span></code>).</p>
+</li>
+</ul>
+<ul id="index-16">
+<li><p><strong>Zone</strong>: representing networks of hosts, they must be expressed in CIDR notation. Their intended usage is for defining a part of a network with different firewall rules from those of the nominal interface. They are used for very specific needs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, all hosts belonging to a zone are not allowed to do any type of traffic. It’s necessary to create all the rules on the firewall in order to obtain the desired behavior.</p>
+</div>
+</li>
+</ul>
+<ul id="index-17">
+<li><p><strong>Time conditions</strong>: can be associated to firewall rules to limit their effectiveness to a given period of time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Rules which have time conditions are enforced only for new connections.
+Example: if you are blocking HTTP connections from 09:00 to 18:00, connections established
+before 09:00 will be allowed until closed. Any new connection after 09:00 will be dropped.</p>
+</div>
+</li>
+<li><p><strong>Services</strong>: a service listening on a host with at least one port and protocol. Example: <code class="docutils literal notranslate"><span class="pre">ssh</span></code>, <code class="docutils literal notranslate"><span class="pre">https</span></code></p></li>
+</ul>
+<ul class="simple" id="index-18">
+<li><p><strong>MAC addresses</strong>: a host identified by a MAC address. The MAC address must be bound to an existing zone.</p></li>
+</ul>
+<p>When creating rules, you can use the records defined in <a class="reference internal" href="dns.html#dns-section"><span class="std std-ref">DNS</span></a> and <a class="reference internal" href="dhcp.html#dhcp-section"><span class="std std-ref">DHCP and PXE server</span></a> like host objects.
+In addition, each network interface with an associated role is automatically listed among the available zones.</p>
+</section>
+<section id="connections">
+<span id="firewall-connections-section"></span><h2>Connections<a class="headerlink" href="#connections" title="Permalink to this headline">¶</a></h2>
+<p>This page keeps track of all active connections.
+Connections can be filter by <span class="guilabel">Protocol</span> and <span class="guilabel">State</span>.
+The list of connections is not refreshed in real time. To list new connections click the <span class="guilabel">Refresh</span> button.</p>
+<p>The administrator can delete a single connection or flush the whole connection tracking table using <span class="guilabel">Delete all connections</span> button.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="antivirus.html" class="btn btn-neutral float-left" title="Antivirus" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="web_proxy.html" class="btn btn-neutral float-right" title="Web proxy" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
