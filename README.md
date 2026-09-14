@@ -122,9 +122,11 @@ real content at retrieval time.
 Files are read at the app's latest stable release tag, the highest non-testing
 version in its `repodata.json` entry, not at the branch head. The collected text
 then matches the version users are actually running, and the citation URL points
-at that tag, so the page Kapa quotes stays the page a reader opens. An app whose
-repository lacks the expected tag falls back to the default branch with a warning
-on the run output.
+at that tag, so the page Kapa quotes stays the page a reader opens. An app that
+cannot be read at its release — no stable version published, or no such tag in
+its repository — is skipped and listed at the end of the run, rather than
+collected from its development branch: everything indexed is a released README,
+without exception.
 
 Every collected file gets a provenance banner prepended, warning that it is
 developer documentation rather than the official manual. The banner is part of

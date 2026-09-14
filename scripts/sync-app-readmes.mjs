@@ -173,29 +173,33 @@ async function githubFetch(url, accept) {
 async function listReadmes(app) {
   // Read the app as it was released, not as it is being developed: the manual
   // describes released behaviour, and a README from main can document options
-  // that no published version has yet.
-  const refs = app.version ? [app.version, 'HEAD'] : ['HEAD'];
-  let response = null;
-  let ref = null;
-
-  for (const candidate of refs) {
-    response = await githubFetch(
-      `https://api.github.com/repos/${app.owner}/${app.repo}/git/trees/${candidate}?recursive=1`,
-      'application/json'
-    );
-    if (response) {
-      ref = candidate;
-      break;
-    }
+  // that no published version has yet. An app that cannot be read at its
+  // release is skipped rather than read from the branch, so that everything
+  // collected is a released README without exception.
+  if (!app.version) {
+    return {files: [], ref: null, reason: `no stable release published for ${app.id}`};
   }
+
+  const ref = app.version;
+  const response = await githubFetch(
+    `https://api.github.com/repos/${app.owner}/${app.repo}/git/trees/${ref}?recursive=1`,
+    'application/json'
+  );
 
   if (!response) {
-    return {files: [], ref: null, reason: `no repository at ${app.owner}/${app.repo}`};
-  }
-  if (app.version && ref !== app.version) {
-    console.log(
-      `Warning: ${app.owner}/${app.repo} has no tag ${app.version}, reading its default branch instead`
+    // One extra call, on this failure path only, to tell a missing repository
+    // apart from a repository that simply never got tagged.
+    const head = await githubFetch(
+      `https://api.github.com/repos/${app.owner}/${app.repo}/git/trees/HEAD?recursive=1`,
+      'application/json'
     );
+    return {
+      files: [],
+      ref: null,
+      reason: head
+        ? `no tag ${ref} in ${app.owner}/${app.repo}`
+        : `no repository at ${app.owner}/${app.repo}`,
+    };
   }
 
   const tree = await response.json();
@@ -297,31 +301,23 @@ function latestStableTag(versions) {
  * chunking so that every retrieved chunk of the file carries the warning.
  */
 function buildBanner(app, file, ref) {
-  // Pinned to a release tag the page cannot describe unreleased behaviour, so
-  // that caveat is dropped rather than left standing as a false warning.
-  const pinned = ref === app.version;
-  const source = pinned
-    ? `\`${file.path}\` at release \`${ref}\` of the`
-    : `\`${file.path}\` on the development branch of the`;
-
+  // Every collected file comes from a release tag, so the banner never has to
+  // hedge about unreleased behaviour.
   const lines = [
-    `> **Source type: developer documentation.** This page is ${source}`,
-    `> repository \`${app.owner}/${app.repo}\`, which packages the NS8 app \`${app.id}\`.`,
-    `> It is written for developers and packagers, is not part of the official`,
-    pinned
-      ? `> NethServer 8 manual, and may be incomplete or out of date. Prefer the`
-      : `> NethServer 8 manual, and may be incomplete, out of date, or describe`,
-    pinned
-      ? `> official manual at https://docs.nethserver.org when it covers the topic.`
-      : `> unreleased behaviour. Prefer the official manual at`,
-    ...(pinned ? [] : [`> https://docs.nethserver.org when it covers the topic.`]),
+    `> **Source type: developer documentation.** This page is \`${file.path}\` at`,
+    `> release \`${ref}\` of the repository \`${app.owner}/${app.repo}\`, which packages`,
+    `> the NS8 app \`${app.id}\`. It is written for developers and packagers, is not`,
+    `> part of the official NethServer 8 manual, and may be incomplete or out of`,
+    `> date. Prefer the official manual at https://docs.nethserver.org when it`,
+    `> covers the topic.`,
   ];
 
   if (app.origin === 'nethforge') {
     const maintainer = app.author ?? 'a third party';
     lines.push(
       `> This app is distributed through NethForge and is maintained by a third party`,
-      `> (${maintainer}), not by the NethServer team.`
+      `> (${maintainer}), not by the NethServer team.`,
+      `> The following commands may disrupt your system, review them carefully.`,
     );
   }
 
@@ -336,12 +332,7 @@ function buildDocument(app, file, ref, readme) {
   const facts = [
     app.description ? `Description: ${app.description}.` : null,
     app.categories.length ? `Categories: ${app.categories.join(', ')}.` : null,
-    ref === app.version
-      ? `Taken from release ${ref}, the latest published version.`
-      : 'Taken from the development branch, ahead of any published release.',
-    app.version && ref !== app.version
-      ? `Latest published version: ${app.version}.`
-      : null,
+    `Taken from release ${ref}, the latest published version.`,
     `Distribution: ${app.origin === 'core' ? 'NethServer core repository' : 'NethForge'}.`,
     `Repository: ${app.codeUrl}`,
   ].filter(Boolean);
