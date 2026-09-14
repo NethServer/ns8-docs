@@ -159,7 +159,9 @@ An email address may be defined in more than one way at the same time: as an exp
 
 Only the destinations of the highest-priority entry actually receive the message; entries with the same address but lower priority are ignored for delivery, even though they remain visible on this page.
 
-The *internal* check is evaluated independently of this priority order: it is checked directly against the incoming recipient address before any of it is resolved to actual destinations, so it does not necessarily follow the entry that ends up delivering the message. An address derived from a user's LDAP `mail` attribute has no *internal* check at all, as mentioned above.
+The *internal* check is evaluated independently of this priority order: it is checked directly against the incoming recipient address before any of it is resolved to actual destinations, so it does not necessarily follow the entry that ends up delivering the message.
+
+An address derived from a user's LDAP `mail` attribute has no *internal* check at all. To make such an address internal, create an explicit entry with the same local part and domain (or a wildcard entry) on this page, pointing to the same destination, and enable the `Internal` check box on it: it takes priority over the LDAP-derived address for both delivery and the *internal* check.
 
 ## Filter {#email_filter}
 
