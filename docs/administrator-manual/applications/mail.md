@@ -145,7 +145,9 @@ A mail address can be specific to one mail domain, or generic to all configured 
 
 Sometimes a company forbids communications from outside the organization using personal email addresses. To change the *visibility* of an address, click on the three-dots menu and select the `Set as internal` action shortcut, or select `Edit` and enable the `Internal` check box under the `Advanced` section.
 
-When an address is *internal* it cannot receive messages from the outside. Still an *internal* address can be used to exchange messages with other accounts of the system.
+When an address is *internal* it cannot receive messages from the outside, but it can still be used as the sender address of outgoing messages, including messages sent to external recipients. An *internal* address can still receive messages from other authenticated users of the system, and from [trusted IP addresses](#mail-relay-settings).
+
+An address derived from a user's LDAP `mail` attribute has no *internal* check at all. For example, suppose domain `example.com` has `Add alias addresses from user domain` enabled, and user `mrossi`'s `mail` attribute is set to `sales@example.com`: this address always accepts messages from outside, with no way to restrict it. To make it internal, create an explicit address `sales` for domain `example.com` on this page, with `mrossi` as destination, and enable the `Internal` check box on it: this explicit entry takes priority over the LDAP-derived one for both delivery and the *internal* check.
 
 ### Address resolution priority {#email_addresses-priority}
 
@@ -160,8 +162,6 @@ An email address may be defined in more than one way at the same time: as an exp
 Only the destinations of the highest-priority entry actually receive the message; entries with the same address but lower priority are ignored for delivery, even though they remain visible on this page.
 
 The *internal* check is evaluated independently of this priority order: it is checked directly against the incoming recipient address before any of it is resolved to actual destinations, so it does not necessarily follow the entry that ends up delivering the message.
-
-An address derived from a user's LDAP `mail` attribute has no *internal* check at all. For example, suppose domain `example.com` has `Add alias addresses from user domain` enabled, and user `mrossi`'s `mail` attribute is set to `sales@example.com`: this address always accepts messages from outside, with no way to restrict it. To make it internal, create an explicit address `sales` for domain `example.com` on this page, with `mrossi` as destination, and enable the `Internal` check box on it: this explicit entry takes priority over the LDAP-derived one for both delivery and the *internal* check.
 
 ## Filter {#email_filter}
 
