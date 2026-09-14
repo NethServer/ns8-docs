@@ -62,7 +62,7 @@ Se l'opzione corrispondente è abilitata, i nomi di utenti e gruppi vengono trat
 
 Analogamente, l'opzione `Add alias addresses from user domain` tratta l'attributo LDAP `mail` di ogni utente del dominio utenti come un indirizzo email valido per il dominio. A differenza delle due opzioni precedenti, questo flag non è legato a un singolo nome di utente o gruppo: se lo stesso valore di indirizzo è impostato nell'attributo `mail` di più utenti, i messaggi inviati a quell'indirizzo vengono recapitati a tutti loro.
 
-Gli indirizzi email aggiuntivi per il dominio possono essere configurati anche come spiegato nella sezione [Indirizzi](#email_addresses). Quando un indirizzo corrisponde sia a una voce nella pagina `Addresses` sia a uno derivato da un nome di utente o gruppo, oppure dall'attributo LDAP `mail` di un utente, la voce esplicita nella pagina `Addresses` ha sempre la priorità — per i dettagli vedi [Regole di priorità](#email_addresses-priority).
+Gli indirizzi email aggiuntivi per il dominio possono essere configurati anche come spiegato nella sezione [Indirizzi](#email_addresses). Quando un indirizzo corrisponde sia a una voce nella pagina `Addresses` sia a uno derivato da un nome di utente o gruppo, oppure dall'attributo LDAP `mail` di un utente, la voce esplicita nella pagina `Addresses` ha sempre la priorità — per i dettagli vedi [Priorità di risoluzione degli indirizzi](#email_addresses-priority).
 
 Nella sezione `Advanced`, l'opzione `Accept unknown recipients` controlla come gestire i messaggi indirizzati a destinatari non definiti all'interno del dominio. Per impostazione predefinita, questi messaggi vengono rifiutati. In alcuni scenari, però, ad esempio durante la migrazione di un dominio di posta, può essere utile accettarli e recapitarli in modo silenzioso a una casella catch-all. Questo comportamento può essere abilitato attivando l'opzione `Accept unknown recipients`.
 
@@ -147,7 +147,7 @@ A volte un'azienda vieta le comunicazioni dall'esterno dell'organizzazione usand
 
 Quando un indirizzo è *internal*, non può ricevere messaggi dall'esterno. Un indirizzo *internal* può comunque essere usato per scambiare messaggi con altri account del sistema.
 
-### Regole di priorità {#email_addresses-priority}
+### Priorità di risoluzione degli indirizzi {#email_addresses-priority}
 
 Un indirizzo email può essere definito in più modi contemporaneamente: come voce esplicita in questa pagina (specifica per un dominio, oppure wildcard valida per tutti i domini), oppure derivato implicitamente da una delle opzioni di [Domini](#email_domains) che ereditano i nomi dal dominio utenti — `Add user addresses from user domain`, `Add group addresses from user domain` e `Add alias addresses from user domain` (che trasforma l'attributo LDAP `mail` di un utente in un indirizzo). Quando lo stesso valore di indirizzo proviene da più di una di queste fonti, tutte le voci corrispondenti vengono elencate in questa pagina come righe separate, ma solo una di esse viene effettivamente usata per recapitare un messaggio, secondo il seguente ordine di priorità, dal più alto al più basso:
 
