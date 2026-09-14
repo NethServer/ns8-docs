@@ -161,7 +161,7 @@ Only the destinations of the highest-priority entry actually receive the message
 
 The *internal* check is evaluated independently of this priority order: it is checked directly against the incoming recipient address before any of it is resolved to actual destinations, so it does not necessarily follow the entry that ends up delivering the message.
 
-An address derived from a user's LDAP `mail` attribute has no *internal* check at all. To make such an address internal, create an explicit entry with the same local part and domain (or a wildcard entry) on this page, pointing to the same destination, and enable the `Internal` check box on it: it takes priority over the LDAP-derived address for both delivery and the *internal* check.
+An address derived from a user's LDAP `mail` attribute has no *internal* check at all. For example, suppose domain `example.com` has `Add alias addresses from user domain` enabled, and user `mrossi`'s `mail` attribute is set to `sales@example.com`: this address always accepts messages from outside, with no way to restrict it. To make it internal, create an explicit address `sales` for domain `example.com` on this page, with `mrossi` as destination, and enable the `Internal` check box on it: this explicit entry takes priority over the LDAP-derived one for both delivery and the *internal* check.
 
 ## Filter {#email_filter}
 
