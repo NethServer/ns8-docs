@@ -159,7 +159,9 @@ Un indirizzo email può essere definito in più modi contemporaneamente: come vo
 
 Solo le destinazioni della voce con priorità più alta ricevono effettivamente il messaggio; le voci con lo stesso indirizzo ma priorità inferiore vengono ignorate ai fini della consegna, anche se restano visibili in questa pagina.
 
-Il controllo *internal* viene valutato indipendentemente da questo ordine di priorità: viene verificato direttamente sull'indirizzo del destinatario in arrivo, prima che venga risolto nelle destinazioni effettive, quindi non segue necessariamente la voce che alla fine consegna il messaggio. Un indirizzo derivato dall'attributo LDAP `mail` di un utente non ha alcun controllo *internal*, come indicato sopra.
+Il controllo *internal* viene valutato indipendentemente da questo ordine di priorità: viene verificato direttamente sull'indirizzo del destinatario in arrivo, prima che venga risolto nelle destinazioni effettive, quindi non segue necessariamente la voce che alla fine consegna il messaggio.
+
+Un indirizzo derivato dall'attributo LDAP `mail` di un utente non ha alcun controllo *internal*. Per rendere internal un indirizzo di questo tipo, crea in questa pagina una voce esplicita con lo stesso local part e dominio (oppure una voce wildcard), che punti alla stessa destinazione, e abilita su di essa la casella `Internal`: questa voce ha la priorità sull'indirizzo derivato da LDAP sia per la consegna sia per il controllo *internal*.
 
 ## Filtro {#email_filter}
 
