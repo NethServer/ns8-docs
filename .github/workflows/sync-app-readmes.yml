@@ -9,9 +9,6 @@ on:
     - cron: "40 3 * * *"
   workflow_dispatch:
 
-env:
-  KAPA_BUCKET_PREFIX: app-readmes
-
 concurrency:
   group: sync-app-readmes
   cancel-in-progress: false
@@ -34,6 +31,8 @@ jobs:
         #
         # The wrapper derives the index.json object keys from the destination
         # URL, so they cannot drift from the keys the objects actually get.
+        # The files go to the bucket root, so the bucket must hold nothing else:
+        # the sync runs with --delete.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AWS_ACCESS_KEY_ID: ${{ secrets.KAPA_S3_ACCESS_KEY_ID }}
@@ -43,4 +42,4 @@ jobs:
           KAPA_S3_ENDPOINT_URL: ${{ secrets.KAPA_S3_ENDPOINT_URL }}
         run: >
           node scripts/upload-app-readmes.mjs
-          "s3://${{ secrets.KAPA_S3_BUCKET }}/$KAPA_BUCKET_PREFIX"
+          "s3://${{ secrets.KAPA_S3_BUCKET }}"

@@ -19,7 +19,7 @@
  *   node scripts/sync-app-readmes.mjs [--out DIR] [--prefix KEY] [--dry-run]
  *
  *   --out DIR     Output directory, synced as-is to s3://BUCKET/PREFIX (default: app-readmes-sync)
- *   --prefix KEY   Bucket prefix, used to build index.json object keys (default: app-readmes)
+ *   --prefix KEY   Bucket prefix, prepended to index.json object keys (default: none)
  *   --dry-run      Resolve the app list only: no README is fetched, nothing is written
  */
 
@@ -52,7 +52,7 @@ const excludedSegments = new Set([
 const minimumComponentSize = 300;
 
 function parseArgs(argv) {
-  const options = {out: 'app-readmes-sync', prefix: 'app-readmes', dryRun: false};
+  const options = {out: 'app-readmes-sync', prefix: '', dryRun: false};
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -60,7 +60,9 @@ function parseArgs(argv) {
       options.dryRun = true;
     } else if (arg === '--out' || arg === '--prefix') {
       const value = argv[index + 1];
-      if (!value || value.startsWith('--')) {
+      // An empty prefix is meaningful, it puts the files at the bucket root.
+      const missing = arg === '--prefix' ? value === undefined : !value;
+      if (missing || value.startsWith('--')) {
         throw new Error(`Missing value for ${arg}`);
       }
       options[arg === '--out' ? 'out' : 'prefix'] = value;

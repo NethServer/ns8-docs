@@ -8,7 +8,7 @@
  * URLs are wrong — which is why this wrapper exists.
  *
  * Usage:
- *   node scripts/upload-app-readmes.mjs s3://BUCKET/PREFIX [options]
+ *   node scripts/upload-app-readmes.mjs s3://BUCKET[/PREFIX] [options]
  *
  *   --out DIR           Staging directory (default: app-readmes-sync)
  *   --endpoint-url URL  For S3-compatible providers other than AWS
@@ -51,7 +51,7 @@ function parseArgs(argv) {
 
   if (!options.destination) {
     throw new Error(
-      'Missing bucket destination. Usage: node scripts/upload-app-readmes.mjs s3://BUCKET/PREFIX'
+      'Missing bucket destination. Usage: node scripts/upload-app-readmes.mjs s3://BUCKET[/PREFIX]'
     );
   }
 
@@ -59,9 +59,9 @@ function parseArgs(argv) {
 }
 
 /**
- * Splits s3://bucket/prefix into its two halves. The prefix is mandatory: Kapa
- * reads a prefix of the bucket, and syncing to the bucket root with --delete
- * would wipe anything else stored there.
+ * Splits s3://bucket/prefix into its two halves. The prefix may be empty, which
+ * puts the files at the bucket root; see the warning in main() for what --delete
+ * then covers.
  */
 function parseDestination(destination) {
   let url;
@@ -80,11 +80,6 @@ function parseDestination(destination) {
 
   if (!bucket) {
     throw new Error(`Missing bucket name in ${destination}`);
-  }
-  if (!prefix) {
-    throw new Error(
-      `Missing bucket prefix in ${destination}: refusing to sync to the bucket root`
-    );
   }
 
   return {bucket, prefix};
@@ -117,6 +112,13 @@ try {
   const {bucket, prefix} = parseDestination(options.destination);
   const generator = path.join('scripts', 'sync-app-readmes.mjs');
 
+  if (!prefix) {
+    console.log(
+      `Warning: syncing to the root of s3://${bucket}. Every object in that` +
+        ' bucket which this run does not produce will be deleted.'
+    );
+  }
+
   run(process.execPath, [generator, '--out', options.out, '--prefix', prefix]);
 
   run(
@@ -125,7 +127,7 @@ try {
       's3',
       'sync',
       options.out,
-      `s3://${bucket}/${prefix}`,
+      prefix ? `s3://${bucket}/${prefix}` : `s3://${bucket}`,
       '--delete',
       '--no-progress',
       ...(options.endpointUrl ? ['--endpoint-url', options.endpointUrl] : []),
@@ -143,7 +145,7 @@ try {
   console.log(
     options.dryRun
       ? `Dry run: ${options.out} is ready, nothing uploaded`
-      : `Uploaded ${options.out} to s3://${bucket}/${prefix}`
+      : `Uploaded ${options.out} to s3://${bucket}/${prefix}`.replace(/\/$/, '')
   );
 } catch (error) {
   console.error(`upload-app-readmes: ${error.message}`);

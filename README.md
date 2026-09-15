@@ -149,8 +149,8 @@ to the workflow. To do it by hand, pass the destination to the upload wrapper:
 
 ```bash
 export AWS_ACCESS_KEY_ID=... AWS_SECRET_ACCESS_KEY=... AWS_DEFAULT_REGION=...
-yarn upload:app-readmes s3://BUCKET/app-readmes --dry-run  # collect, print the sync command
-yarn upload:app-readmes s3://BUCKET/app-readmes            # collect and upload
+yarn upload:app-readmes s3://BUCKET --dry-run  # collect, print the sync command
+yarn upload:app-readmes s3://BUCKET            # collect and upload
 ```
 
 The wrapper collects the READMEs and runs `aws s3 sync --delete` for you. Pass
@@ -158,6 +158,11 @@ the destination and nothing else: it derives the `index.json` object keys from
 that single URL, so they cannot disagree with the keys the objects actually get.
 Doing the two steps by hand instead is what makes them drift, and the failure is
 silent — the files upload and index correctly, only the citation URLs are wrong.
+
+The files go to the bucket root, so the bucket must be dedicated to them: the
+sync deletes whatever else it finds there. A destination with a path, such as
+`s3://BUCKET/app-readmes`, confines both the upload and the deletion to that
+prefix instead, and Kapa's S3 source then needs the same prefix configured.
 
 For an S3-compatible provider other than AWS, add `--endpoint-url URL` or set
 `KAPA_S3_ENDPOINT_URL`. The credentials used here need write access; the ones
