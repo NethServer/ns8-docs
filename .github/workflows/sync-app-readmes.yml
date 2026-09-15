@@ -15,10 +15,20 @@ concurrency:
 
 jobs:
   sync:
+    environment: sync-app-readmes
     name: Collect and upload READMEs
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    # Only the credentials are secret; the bucket, its endpoint and its region
+    # name a resource rather than grant access to it, so they are repository or
+    # environment variables. This block sits on the job, not on the workflow:
+    # variables scoped to the sync-app-readmes environment do not resolve until
+    # the job declaring that environment starts.
+    env:
+      KAPA_S3_BUCKET: ${{ vars.KAPA_S3_BUCKET }}
+      KAPA_S3_ENDPOINT_URL: ${{ vars.KAPA_S3_ENDPOINT_URL }}
+      AWS_DEFAULT_REGION: ${{ vars.KAPA_S3_REGION }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
@@ -37,9 +47,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AWS_ACCESS_KEY_ID: ${{ secrets.KAPA_S3_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.KAPA_S3_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.KAPA_S3_REGION }}
-          # Set only for non-AWS S3-compatible providers.
-          KAPA_S3_ENDPOINT_URL: ${{ secrets.KAPA_S3_ENDPOINT_URL }}
         run: >
           node scripts/upload-app-readmes.mjs
-          "s3://${{ secrets.KAPA_S3_BUCKET }}"
+          "s3://$KAPA_S3_BUCKET"

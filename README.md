@@ -175,6 +175,12 @@ For an S3-compatible provider other than AWS, add `--endpoint-url URL` or set
 `KAPA_S3_ENDPOINT_URL`. The credentials used here need write access; the ones
 configured in Kapa are a separate, read-only pair.
 
+The scheduled workflow keeps only the credentials in repository secrets,
+`KAPA_S3_ACCESS_KEY_ID` and `KAPA_S3_SECRET_ACCESS_KEY`. The bucket, endpoint
+and region are repository variables instead — `KAPA_S3_BUCKET`,
+`KAPA_S3_ENDPOINT_URL` and `KAPA_S3_REGION` — since they name a resource rather
+than grant access to it, and their values are readable in the run log.
+
 ## How to contribute
 
 The easiest way to contribute is by forking and editing the repository on
