@@ -326,6 +326,46 @@ function buildBanner(app, file, ref) {
   return lines.join('\n');
 }
 
+/**
+ * Repeats the provenance before every section of the body.
+ *
+ * The banner at the top of the file only reaches the model when retrieval hits
+ * the chunk that contains it. Most collected READMEs are large enough to be
+ * split, so a marker per section keeps the warning next to the text it applies
+ * to wherever a chunk boundary falls. Second and third level headings both
+ * count: several READMEs put all their substance under one ## with ###
+ * subsections, and marking only ## left multi-kilobyte stretches unmarked.
+ */
+function markSections(app, file, ref, body) {
+  const marker =
+    `> Developer documentation from \`${app.owner}/${app.repo}\` at release` +
+    ` \`${ref}\`, not the official NethServer 8 manual.`;
+
+  const lines = body.split('\n');
+  const marked = [];
+  let fenced = false;
+  let seenFirstSection = false;
+
+  for (const line of lines) {
+    if (/^\s{0,3}(```|~~~)/.test(line)) {
+      fenced = !fenced;
+    }
+
+    // The first section already sits under the banner, so marking it would only
+    // repeat what the reader has just been told.
+    if (!fenced && /^###?\s/.test(line)) {
+      if (seenFirstSection) {
+        marked.push(marker, '');
+      }
+      seenFirstSection = true;
+    }
+
+    marked.push(line);
+  }
+
+  return marked.join('\n');
+}
+
 function buildDocument(app, file, ref, readme) {
   const title = file.directory
     ? `# ${app.name} (${app.id}) — ${file.directory} component README`
@@ -345,7 +385,9 @@ function buildDocument(app, file, ref, readme) {
     .replace(/^#(?=\s)/m, '##')
     .trim();
 
-  return `${title}\n\n${buildBanner(app, file, ref)}\n\n${facts.join(' ')}\n\n${body}\n`;
+  const marked = markSections(app, file, ref, body);
+
+  return `${title}\n\n${buildBanner(app, file, ref)}\n\n${facts.join(' ')}\n\n${marked}\n`;
 }
 
 /**

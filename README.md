@@ -133,10 +133,13 @@ collected from its development branch: everything indexed is a released README,
 without exception.
 
 Every collected file gets a provenance banner prepended, warning that it is
-developer documentation rather than the official manual. The banner is part of
-the indexed content on purpose: it reaches the model through retrieval, and
-does not depend on the Kapa system instructions alone. An `index.json` maps
-each object key to its GitHub URL, which is what Kapa shows in citations.
+developer documentation rather than the official manual, and a one-line repeat
+of that warning before every section of the body. Both are part of the indexed
+content on purpose: they reach the model through retrieval, and do not depend
+on the Kapa system instructions alone. The repeat matters because retrieval
+works on chunks and most of these files are large enough to be split, so a
+banner at the top only covers the chunk it sits in. An `index.json` maps each
+object key to its GitHub URL, which is what Kapa shows in citations.
 
 The collection step needs a GitHub token: it makes one call per app to list its
 files and one per collected README, around 110 in total, against an anonymous
