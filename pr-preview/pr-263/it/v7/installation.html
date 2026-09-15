@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installazione &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Ricerca" href="search.html" />
+    <link rel="next" title="Accesso al Server Manager" href="access2.html" />
+    <link rel="prev" title="Note di rilascio 7" href="release_notes.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "it", "page": "installation", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/installation.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installazione</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installazione</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#minimum-requirements">Requisiti minimi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-compatibility">Compatibilità hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-types">Tipi di installazione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-from-iso">Installazione da ISO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#media-creation">Creazione sorgente d’installazione</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usb-stick">Chiavetta USB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dvd">DVD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#install-modes">Modalità di installazione</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#optional-boot-parameters">Parametri di avvio opzionali</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fallback-ip-configuration">Indirizzo IP di default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-administrator-password">Password amministratore di sistema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-language">Lingua</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interactive-and-manual-modes">Modalità interattiva e Manuale</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Problemi noti</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unattended-mode">Modalità unattended</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#install-on-centos">Installazione su CentOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Passi successivi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accesso al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applicazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Autenticazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applicazioni</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Altri moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Personalizzazione backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Macchine virtuali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Moduli NethForge</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Aggiornamento da NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Aggiornamento Email a Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vecchio Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Il vecchio Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">Groupware SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Installazione</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/installation.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="installation-section"></span><section id="installation">
+<span id="index-0"></span><h1>Installazione<a class="headerlink" href="#installation" title="Link a questa intestazione">¶</a></h1>
+<section id="minimum-requirements">
+<span id="index-1"></span><h2>Requisiti minimi<a class="headerlink" href="#minimum-requirements" title="Link a questa intestazione">¶</a></h2>
+<p>I requisiti minimi sono:</p>
+<ul class="simple">
+<li><p>CPU a 64 bit (x86_64)</p></li>
+<li><p>1 GB di RAM</p></li>
+<li><p>10 GB di spazio disco</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Suggerimento</p>
+<p>Si consiglia l’uso di almeno 2 hard disk in modo che venga garantita l’integrità dei dati attraverso il supporto automatico RAID 1.</p>
+</div>
+<section id="hardware-compatibility">
+<span id="index-2"></span><h3>Compatibilità hardware<a class="headerlink" href="#hardware-compatibility" title="Link a questa intestazione">¶</a></h3>
+<p>NethServer è compatibile con tutto l’hardware certificato per Red Hat® Enterprise Linux® (RHEL®), elencato sul sito Web del fornitore di hardware o nel <a class="reference external" href="https://access.redhat.com/ecosystem/search/#/category/Server/#/category/Server/">Red Hat Customer Portal</a>.</p>
+</section>
+</section>
+<section id="installation-types">
+<h2>Tipi di installazione<a class="headerlink" href="#installation-types" title="Link a questa intestazione">¶</a></h2>
+<p>Sono supportati due modi per <span class="target" id="index-7"></span>installare NethServer. In breve:</p>
+<p><strong>Installazione da ISO</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Scaricare l’immagine ISO</p></li>
+<li><p>Preparare un DVD o una chiavetta USB</p></li>
+<li><p>Seguire la procedura guidata</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Installazione da YUM</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Installare CentOS Minimal</p></li>
+<li><p>Configurare la rete</p></li>
+<li><p>Eseguire l’installazione da rete</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="installing-from-iso">
+<span id="index-3"></span><h2>Installazione da ISO<a class="headerlink" href="#installing-from-iso" title="Link a questa intestazione">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>L’installazione eliminerà tutti i dati esistenti sui dischi rigidi!</p>
+</div>
+<section id="media-creation">
+<h3>Creazione sorgente d’installazione<a class="headerlink" href="#media-creation" title="Link a questa intestazione">¶</a></h3>
+<p>Scaricare <strong>il file ISO più recente disponibile</strong> dal sito ufficiale <a class="reference external" href="http://www.nethserver.org/getting-started-with-nethserver/">www.nethserver.org</a>. Il file ISO scaricato può essere utilizzato per <strong>creare un supporto avviabile</strong>, come un DVD o una chiavetta USB.</p>
+<section id="usb-stick">
+<h4>Chiavetta USB<a class="headerlink" href="#usb-stick" title="Link a questa intestazione">¶</a></h4>
+<p>Su una macchina Linux, aprire il terminale ed eseguire:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dd if=NethServer.iso of=/dev/sdc
+</pre></div>
+</div>
+<p>Dove <cite>NethServer.iso</cite> è il nome del file della ISO scaricata, e <cite>/dev/sdc</cite> è la destinazione che corrisponde all’intera chiavetta USB, non una partizione (come /dev/sdc1).</p>
+<p>Su una macchina Windows, formattare la chiavetta USB e smontarla. Quindi usare uno dei seguenti tool per scrivere i dati:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://etcher.io/">Etcher</a></p></li>
+<li><p><a class="reference external" href="http://sourceforge.net/projects/win32diskimager/">Win32 Disk Imager</a></p></li>
+<li><p><a class="reference external" href="http://www.netbsd.org/~martin/rawrite32/">Rawrite32</a></p></li>
+<li><p><a class="reference external" href="http://www.chrysocome.net/dd">dd for Windows</a></p></li>
+</ul>
+</section>
+<section id="dvd">
+<h4>DVD<a class="headerlink" href="#dvd" title="Link a questa intestazione">¶</a></h4>
+<p>La creazione di un disco avviabile è diversa dalla semplice scrittura di un file su DVD e richiede l’uso di una funzione dedicata, di solito presente nei programmi per la creazione di DVD (es. <em>scrivi</em> immagine oppure <em>masterizza ISO</em>). Le istruzioni su come creare un DVD avviabile a partire dall’immagine ISO sono facilmente reperibili su Internet o nella documentazione del proprio sistema operativo.</p>
+</section>
+</section>
+<section id="install-modes">
+<h3>Modalità di installazione<a class="headerlink" href="#install-modes" title="Link a questa intestazione">¶</a></h3>
+<p>Avviare la macchina utilizzando il supporto appena creato. Se non viene riconosciuto, fare riferimento alla documentazione del BIOS della scheda madre. Una problematica tipica è impostare la priorità dei dispositivi all’avvio. Il primo dispositivo di avvio dovrebbe essere il lettore DVD o la chiavetta USB.</p>
+<p>All’avvio verrà mostrato un menù con i diversi tipi di installazione:</p>
+<p>NethServer <a class="reference internal" href="#installation-interactive"><span class="std std-ref">interactive installation</span></a></p>
+<blockquote>
+<div><p>Verrà richiesto di selezionare soltanto il layout della tastiera e la time zone. Le schede di rete verranno automaticamente configurate in DHCP e i primi due hard disk saranno utilizzati in RAID-1.</p>
+</div></blockquote>
+<p>Altre modalità di installazione di NethServer</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#installation-unattended"><span class="std std-ref">Unattended installation</span></a> – Verranno automaticamente selezionati tutti i parametri di configurazione senza intervento dell’utente.</p></li>
+<li><p><a class="reference internal" href="#installation-manual"><span class="std std-ref">Manual installation</span></a> – L’opposto di <em>unattended</em>: non verranno utilizzati default, è necessario selezionare tutte le opzioni di configurazione (rete, dischi, time zone, tastiera, etc).</p></li>
+</ul>
+</div></blockquote>
+<p>Installazione standard di CentOS</p>
+<blockquote>
+<div><p>Utilizza la procedura d’installazione standard di CentOS.
+Si configurerà NethServer in seguito seguendo le istruzioni nella sezione  <a class="reference internal" href="#installation-centos"><span class="std std-ref">Installazione su CentOS</span></a></p>
+</div></blockquote>
+<p>Tools</p>
+<blockquote>
+<div><p>Avvia in modalità <em class="dfn">rescue</em> (recupero), esecuzione del memory test e strumenti di rilevazione dell’hardware.</p>
+</div></blockquote>
+<p>Avvio da disco locale</p>
+<blockquote>
+<div><p>Tenta l’avvio di un sistema già installato sul disco rigido.</p>
+</div></blockquote>
+<p>Alla fine della procedura di installazione verrà chiesto di effettuare
+il riavvio della macchina. <strong>Rimuovere il media di
+installazione</strong>, prima di riavviare.</p>
+<section id="optional-boot-parameters">
+<h4>Parametri di avvio opzionali<a class="headerlink" href="#optional-boot-parameters" title="Link a questa intestazione">¶</a></h4>
+<p>E” possibile aggiungere parametri all’installazione automatica, premendo <kbd class="kbd docutils literal notranslate">TAB</kbd> e modificando la linea di comando. Utile per la modalità <em>unattended</em>.</p>
+<p>Per disabilitare la creazione di un set RAID, aggiungere questa opzione:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>raid=none
+</pre></div>
+</div>
+<p>Se si desidera selezionare i dischi su cui installare, usare:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>disks=sdx,sdy
+</pre></div>
+</div>
+<p id="index-4">Per abilitare la <em>cifratura del filesystem</em>, usare:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fspassword=s3cr3t
+</pre></div>
+</div>
+<p>Abilitando il file system cifrato, tutti i dati scritti sul disco verranno cifrati usando la crittografia simmetrica. In caso di furto, un malintenzionato non sarà in grado di leggere i dati a meno di non possedere la chiave crittografica.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Sarà necessario inserire la password scelta ad ogni avvio del sistema.</p>
+</div>
+<p>Altre opzioni disponibili (solo modalità <em>unattended</em>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Tastiera</span></code>, layout della tastiera, di default è <code class="docutils literal notranslate"><span class="pre">keyboard=us</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Fuso</span> <span class="pre">orario</span></code>, di default è <code class="docutils literal notranslate"><span class="pre">timezone=UTC</span></code></p></li>
+</ul>
+</section>
+<section id="fallback-ip-configuration">
+<span id="id1"></span><h4>Indirizzo IP di default<a class="headerlink" href="#fallback-ip-configuration" title="Link a questa intestazione">¶</a></h4>
+<p>Nel caso in cui non sia possibile ottenere un indirizzo IP via DHCP, al primo avvio la <strong>prima</strong> interfaccia di rete verrà configurata come segue:</p>
+<ul class="simple">
+<li><p>IP 192.168.1.1</p></li>
+<li><p>netmask 255.255.255.0</p></li>
+</ul>
+</section>
+<section id="system-administrator-password">
+<h4>Password amministratore di sistema<a class="headerlink" href="#system-administrator-password" title="Link a questa intestazione">¶</a></h4>
+<p>È altamente consigliato scegliere una password sicura per l’utente <code class="docutils literal notranslate"><span class="pre">root</span></code> durante la prima configurazione. Una buona password deve:</p>
+<ul class="simple">
+<li><p>essere lunga almeno 8 caratteri</p></li>
+<li><p>contenere lettere maiuscole e minuscole</p></li>
+<li><p>contenere simboli e numeri</p></li>
+</ul>
+<p>La password di default nella modalità <em>unattended</em> è <code class="docutils literal notranslate"><span class="pre">Nethesis,1234</span></code>.</p>
+</section>
+<section id="system-language">
+<h4>Lingua<a class="headerlink" href="#system-language" title="Link a questa intestazione">¶</a></h4>
+<p>La lingua di installazione di NethServer è <em>Inglese (Stati Uniti)</em>. Ulteriori lingue possono essere installate in seguito. Vedi <a class="reference internal" href="#installation-next-steps"><span class="std std-ref">Prossimi passi</span></a>.</p>
+</section>
+</section>
+<section id="interactive-and-manual-modes">
+<span id="installation-interactive"></span><span id="installation-manual"></span><h3>Modalità interattiva e Manuale<a class="headerlink" href="#interactive-and-manual-modes" title="Link a questa intestazione">¶</a></h3>
+<p>La modalità <strong>interattiva</strong> consente di effettuare poche e semplici scelte sulla configurazione del sistema.</p>
+<p>Le scelte richieste sono:</p>
+<ul class="simple">
+<li><p>Lingua</p></li>
+<li><p>Layout della tastiera</p></li>
+<li><p>Password dell’utente root</p></li>
+</ul>
+<p>Tutte le altre opzioni vengono configurate in base all’hardware utilizzato (vedi la sezione <a class="reference internal" href="#installation-unattended"><span class="std std-ref">Modalità unattended</span></a> per i dettagli), ma rimane comunque possibile modificare manualmente ogni configurazione disponibile.</p>
+<p>Al contrario, la modalità <strong>manuale</strong> avvia l’installazione senza alcun default. Dovranno essere configurati anche la rete e i dischi.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Nella sezione <span class="guilabel">Network &gt; General</span>, soltanto le interfacce marcate come <span class="guilabel">Automatically connect to this network when it is available</span>  saranno abilitate all’avvio del sistema appena installato. Per maggiori informazioni, fare riferimento alla <a class="reference external" href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-network-hostname-configuration-x86.html">Guida di installazione di RHEL 7</a>.</p>
+</div>
+<section id="known-issues">
+<h4>Problemi noti<a class="headerlink" href="#known-issues" title="Link a questa intestazione">¶</a></h4>
+<ul class="simple">
+<li><p>Quando si installa su macchine con firmware UEFI, Anaconda potrebbe fallire nel partizionamento automatico. Per aggirare il problema, passare a <span class="guilabel">Manual installation</span>, o <span class="guilabel">Standard CentOS installation</span>  quindi seguire <a class="reference internal" href="#installation-centos"><span class="std std-ref">Installazione su CentOS</span></a>. In caso di installazione con software RAID, assicurarsi di creare manualmente partizioni UEFI su tutti i dischi di avvio.</p></li>
+</ul>
+</section>
+</section>
+<section id="unattended-mode">
+<span id="installation-unattended"></span><h3>Modalità unattended<a class="headerlink" href="#unattended-mode" title="Link a questa intestazione">¶</a></h3>
+<p>La modalità <em>unattended</em> non richiede nulla durante l’installazione. Il sistema verrà installato automaticamente e riavviato con la seguente configurazione:</p>
+<ul class="simple">
+<li><p>Layout tastiera: <code class="docutils literal notranslate"><span class="pre">us</span></code></p></li>
+<li><p>Time zone: <code class="docutils literal notranslate"><span class="pre">UTC</span></code></p></li>
+<li><p>Password di <code class="docutils literal notranslate"><span class="pre">root</span></code>: <code class="docutils literal notranslate"><span class="pre">Nethesis,1234</span></code></p></li>
+<li><p>DHCP abilitato su tutte le interfacce; se non vengono ricevuti indirizzi IP verrà applicata la <a class="reference internal" href="#fallback-ip-configuration"><span class="std std-ref">configurazione di default</span></a></p></li>
+<li><p>Se sono presenti due o più dischi, verrà creato un set RAID 1 sui primi due dischi e dei volumi LVM sul set RAID 1</p></li>
+<li><p>Le partizioni <em>swap</em> e <em>root</em>  sono allocate automaticamente; la dimensione di <em>boot</em> è di 1GB</p></li>
+</ul>
+</section>
+</section>
+<section id="install-on-centos">
+<span id="installation-centos"></span><span id="index-5"></span><h2>Installazione su CentOS<a class="headerlink" href="#install-on-centos" title="Link a questa intestazione">¶</a></h2>
+<p>È possibile installare NethServer su una nuova installazione di CentOS minimal utilizzando un paio di comandi. Questo metodo di installazione è progettato per i server virtuali virtuali (VPS) in cui CentOS viene già installato dal provider VPS.</p>
+<p>Abilitare i repository NethServer specifici con il comando:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install -y http://mirror.nethserver.org/nethserver/nethserver-release-7.rpm
+</pre></div>
+</div>
+<p>Per installare il sistema di base eseguire:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nethserver-install
+</pre></div>
+</div>
+<p>Oppure, per installare contestualmente del software addizionale, passare il nome dei moduli desiderati come parametro allo script di installazione. Esempio:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nethserver-install nethserver-mail nethserver-nextcloud
+</pre></div>
+</div>
+</section>
+<section id="next-steps">
+<span id="installation-next-steps"></span><h2>Passi successivi<a class="headerlink" href="#next-steps" title="Link a questa intestazione">¶</a></h2>
+<p>Al termine dell’installazione, <a class="reference internal" href="access2.html#access-section"><span class="std std-ref">accedere al Server Manager</span></a> per <a class="reference internal" href="packages.html#package-manager-section"><span class="std std-ref">installare il software addizionale</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="release_notes.html" class="btn btn-neutral float-left" title="Note di rilascio 7" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="access2.html" class="btn btn-neutral float-right" title="Accesso al Server Manager" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
