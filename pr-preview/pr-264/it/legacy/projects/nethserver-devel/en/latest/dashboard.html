@@ -1,0 +1,514 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dashboard &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Creating inline help pages" href="inline_help.html" />
+    <link rel="prev" title="Creating web UI module" href="create_interface_module.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "dashboard", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/dashboard.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#systemstatus-tab">SystemStatus tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#services-tab">Services tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applications-tab">Applications tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extending-the-dashboard">Extending the dashboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#application-custom-widget">Application custom widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-status-custom-widget">System status custom widget</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controller">Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view">View</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-tab">Custom Tab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Dashboard</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/dashboard.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dashboard">
+<h1>Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h1>
+<p>The dashboard module is the landing page of NethServer Web UI. It aims to give an overview of system status.
+Dashboard is fully pluggable and extensible: each NethServer module can add it’s own tab or even a widget inside the System status or Applications tab.</p>
+<p>There are three default tabs:</p>
+<ul class="simple">
+<li>System status</li>
+<li>Services</li>
+<li>Applications</li>
+</ul>
+<p>The dashboard module heavily uses Javascript but works correctly even on smartphones.</p>
+<div class="section" id="systemstatus-tab">
+<h2>SystemStatus tab<a class="headerlink" href="#systemstatus-tab" title="Permalink to this headline">¶</a></h2>
+<p>It’s the main tab composed by three main submodules:</p>
+<ul class="simple">
+<li>System release: show the system release</li>
+<li>Resource usage:<ul>
+<li>system load</li>
+<li>cpu number</li>
+<li>uptime</li>
+<li>physical memory usage statistics</li>
+<li>virtual memory (swap) usage statistics</li>
+<li>root partition usage statistics</li>
+</ul>
+</li>
+<li>Network<ul>
+<li>configuration of each assigned netwok interface (IP address, netmask, etc.)</li>
+<li>real-time statistics of received and transmitted data</li>
+<li>host name, domain name, default gateway</li>
+</ul>
+</li>
+</ul>
+<p>This tab can be extended using plugins.</p>
+</div>
+<div class="section" id="services-tab">
+<h2>Services tab<a class="headerlink" href="#services-tab" title="Permalink to this headline">¶</a></h2>
+<p>Service tab lists all system services, including current status (running or stopped), configured status (enabled or disabled) and associated TCP and UDP ports.
+This tab cannot be customized.</p>
+</div>
+<div class="section" id="applications-tab">
+<h2>Applications tab<a class="headerlink" href="#applications-tab" title="Permalink to this headline">¶</a></h2>
+<p>Applications tab lists all installed application with extra information. Each package can create a special PHP class which describes the installed application.</p>
+</div>
+<div class="section" id="extending-the-dashboard">
+<h2>Extending the dashboard<a class="headerlink" href="#extending-the-dashboard" title="Permalink to this headline">¶</a></h2>
+<p>The dashboard heavily uses Nethgui framework to render all information, so you need a little bit of understanding on how project:Nethgui PHP framework actually works.
+Don’t panic!</p>
+<p>Nethgui is a MVC framework specially designed for NethServer web UI tasks.
+All files are inside <code class="docutils literal notranslate"><span class="pre">/usr/share/nethesis/NethServer</span></code> path, with the following sub-paths:</p>
+<ul class="simple">
+<li>Module: controller files</li>
+<li>Template: template files</li>
+<li>Language: language files</li>
+</ul>
+<div class="section" id="application-custom-widget">
+<h3>Application custom widget<a class="headerlink" href="#application-custom-widget" title="Permalink to this headline">¶</a></h3>
+<p>This is the simplest widget inside the Applications tab. This kind of widget should be used by all web applications.
+Let see the nethserver-collectd-web example.
+The package must include a PHP file inside <code class="docutils literal notranslate"><span class="pre">Module/Dashboard/Applications/</span></code> directory. The script will describe a new class which extends the <em>AbstractModule</em> class and implements the <em>ApplicationInterface</em> interface. A little scary, eh? There is the full example:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">Collectd</span> <span class="k">extends</span> <span class="nx">\Nethgui\Module\AbstractModule</span> <span class="k">implements</span> <span class="nx">\NethServer\Module\Dashboard\Interfaces\ApplicationInterface</span>
+<span class="p">{</span>
+   <span class="k">public</span> <span class="k">function</span> <span class="nf">getName</span><span class="p">()</span>
+   <span class="p">{</span>
+       <span class="k">return</span> <span class="s2">&quot;Collectd Web&quot;</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="k">function</span> <span class="nf">getInfo</span><span class="p">()</span>
+   <span class="p">{</span>
+        <span class="nv">$cweb</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getPlatform</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDatabase</span><span class="p">(</span><span class="s1">&#39;configuration&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getKey</span><span class="p">(</span><span class="s1">&#39;collectd-web&#39;</span><span class="p">);</span>
+        <span class="nv">$hostname</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getPlatform</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDatabase</span><span class="p">(</span><span class="s1">&#39;configuration&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getType</span><span class="p">(</span><span class="s1">&#39;SystemName&#39;</span><span class="p">);</span>
+        <span class="nv">$domain</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getPlatform</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getDatabase</span><span class="p">(</span><span class="s1">&#39;configuration&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getType</span><span class="p">(</span><span class="s1">&#39;DomainName&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+           <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;http://</span><span class="si">$hostname</span><span class="s2">.</span><span class="si">$domain</span><span class="s2">/&quot;</span><span class="o">.</span><span class="nv">$cweb</span><span class="p">[</span><span class="s1">&#39;alias&#39;</span><span class="p">]</span>
+        <span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Not so scary :)</p>
+<p>Basically, the <em>ApplicationInterface</em> requires to implement two simple methods:</p>
+<ul class="simple">
+<li><em>getName()</em>: return the name of the application. The name is used to alphabetically sort all the applications inside the Application tab.</li>
+<li><em>getInfo()</em>: return an arbitrary associative array. All &lt;key,value&gt; pairs will be printed inside a little auto-generated widget. If the array contains a key starting with ‘url’ string, the value of the key will be wrapped inside an <code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=''&gt;</span></code> HTML tag.</li>
+</ul>
+<p>We can now analyze the above <code class="docutils literal notranslate"><span class="pre">getInfo</span></code> function implementation. First we read the <code class="docutils literal notranslate"><span class="pre">collectd-web</span></code> key from the <code class="docutils literal notranslate"><span class="pre">configuration</span></code> db. All properties are then accessible as an associative array. Then we read the value of the special keys <code class="docutils literal notranslate"><span class="pre">SystemName</span></code> and <code class="docutils literal notranslate"><span class="pre">DomainName</span></code>. Finally we fill the return array with the url where the web application will be accessible.</p>
+</div>
+<div class="section" id="system-status-custom-widget">
+<h3>System status custom widget<a class="headerlink" href="#system-status-custom-widget" title="Permalink to this headline">¶</a></h3>
+<p>Let’s take a <em>SystemRelease</em> class which add a widget inside the <em>SystemStatus</em> tab:</p>
+<ul class="simple">
+<li>Controller: <code class="docutils literal notranslate"><span class="pre">Module/Dashboard/SystemStatus/SystemRelease.php</span></code></li>
+<li>Template: <code class="docutils literal notranslate"><span class="pre">Template/Dashboard/SystemStatus/SystemRelease.php</span></code></li>
+<li>English translation: <code class="docutils literal notranslate"><span class="pre">Language/en/NethServer_Module_Dashboard_SystemStatus_SystemRelease.php</span></code></li>
+<li>Italian translation: <code class="docutils literal notranslate"><span class="pre">Language/it/NethServer_Module_Dashboard_SystemStatus_SystemRelease.php</span></code></li>
+</ul>
+<p>Translation files are simple PHP associative arrays. The language files in the examples are self-explanatory.</p>
+<p>You can find all examples inside the nethserver-ui-examples repository.</p>
+<div class="section" id="controller">
+<h4>Controller<a class="headerlink" href="#controller" title="Permalink to this headline">¶</a></h4>
+<p>First of all, let’s introduce few keys concepts about HTTP request handling in Nethgui.
+When the browser open an URL, for example <code class="docutils literal notranslate"><span class="pre">/SystemRelease</span></code>, the system will search for a module named <em>SystemRelease</em>. If the request contains some query parameters, the server side module will invoke two functions <em>process()</em> and <em>prepareView()</em>, if no query is specified only the function <em>prepareView</em> will be invoked.</p>
+<p>The <em>process</em> will handle the query and prepare all data for the <em>prepareView</em> function.
+For example, here is the <em>process</em> implementation of a simple <em>SystemRelease</em> module:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="o">...</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">process</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">release</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">readRelease</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Simple. The <em>process</em> will invoke a private method <em>readRelease</em> which reads a file, and save the result on a private attribute. All data are now available and we have to send them back using the <em>prepareView</em> function:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="o">...</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">prepareView</span><span class="p">(</span><span class="nx">\Nethgui\View\ViewInterface</span> <span class="nv">$view</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="c1">//if no query is specified, make sure to initialize the data</span>
+   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">release</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">release</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">readRelease</span><span class="p">();</span>
+   <span class="p">}</span>
+   <span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;release&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">release</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <em>release</em> attribute is mapped inside the <em>$view</em> array, ready to be sent to the client. When the client requests the page for the first time with no query, we need to fill the <em>release</em> attribute because the <em>process</em> is not previously called. Then all the <em>$view</em> data will be used to fill the HTML template.
+If the client send a JSON request with a timestamp as a parameter (which is the standard behavior for ajax calls) the module will invoke <em>process</em> and <em>prepareView</em>, then all data will be formatted in JSON format.</p>
+<p>Request examples:</p>
+<ul class="simple">
+<li>HTML rendering: <code class="docutils literal notranslate"><span class="pre">/Dashboard/SystemStatus/SystemRelease</span></code></li>
+<li>JSON response: <code class="docutils literal notranslate"><span class="pre">/Dashboard/SystemStatus/SystemRelease.json</span></code></li>
+</ul>
+<p>Finally, if you want to order the widget inside the System Status tab, you should define a variable <em>$sortId</em>, like:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">public $sortId = 40;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="view">
+<h4>View<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h4>
+<p>It’s time to create a simple template to show the data from the controller. Below there’s an example using a built-in CSS class.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;div class=&#39;dashboard-item&#39;&gt;&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;dl&gt;&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="s1">&#39;template&#39;</span><span class="p">,</span><span class="nv">$T</span><span class="p">(</span><span class="s1">&#39;release_title&#39;</span><span class="p">));</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;dt&gt;&quot;</span><span class="o">.</span><span class="nv">$T</span><span class="p">(</span><span class="s1">&#39;release_label&#39;</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;/dt&gt;&lt;dd&gt;&quot;</span><span class="p">;</span> <span class="k">echo</span> <span class="nv">$view</span><span class="o">-&gt;</span><span class="na">textLabel</span><span class="p">(</span><span class="s1">&#39;release&#39;</span><span class="p">);</span> <span class="k">echo</span> <span class="s2">&quot;&lt;/dd&gt;&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;/dl&gt;&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;/div&gt;&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This is a static template without any use of Javascript.
+Inside the template file, you always have access to the <em>$view</em> variable where all data are stored by the previous explained <em>prepareView</em> function.
+There also a very useful function called <em>$T(…)</em> used for translations.
+The most important part of this examples is the call <em>$view-&gt;textLabel(‘release’)</em>. This line is an helper which extract the <em>release</em> variable from the view an wrap it a span HTML tag identified by an auto-generated class (useful for Javascript processing).</p>
+<p>A full example can be found in the nethserver-ui-examples repository under the dashboard directory.</p>
+</div>
+</div>
+<div class="section" id="custom-tab">
+<h3>Custom Tab<a class="headerlink" href="#custom-tab" title="Permalink to this headline">¶</a></h3>
+<p>Any NethServer package can add a custom tab inside the dashboard. To create a new tab you have to write a class extending an existing controller inside the <code class="docutils literal notranslate"><span class="pre">/usr/share/nethesis/NethServer/Module/Dashboard</span></code> directory.
+See “API”:<a class="reference external" href="http://dev.nethserver.org/nethgui/Documentation/Api/">http://dev.nethserver.org/nethgui/Documentation/Api/</a> for a list of available controllers.</p>
+<p>See <em>mytab</em> example in nethserver-ui-examples repository for more information.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="inline_help.html" class="btn btn-neutral float-right" title="Creating inline help pages" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="create_interface_module.html" class="btn btn-neutral float-left" title="Creating web UI module" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
