@@ -123,6 +123,10 @@ component READMEs below 300 bytes: those are scaffold, vendored or stub files,
 and near-identical copies of them across 40 repositories would only crowd out
 real content at retrieval time.
 
+The NethVoice repositories are excluded: NethVoice runs its own documentation
+site, and collecting its READMEs here would answer NethVoice questions from
+developer notes rather than from the documentation written for the purpose.
+
 Files are read at the app's latest stable release tag, the highest non-testing
 version in its `repodata.json` entry, not at the branch head. The collected text
 then matches the version users are actually running, and the citation URL points

@@ -51,6 +51,15 @@ const excludedSegments = new Set([
 // exempt: it is the app's primary document even when it is thin.
 const minimumComponentSize = 300;
 
+// Repositories, keyed as lowercase owner/repo, whose documentation reaches its
+// readers elsewhere. NethVoice runs its own documentation site, so collecting
+// its READMEs here would answer NethVoice questions from developer notes
+// instead of from the documentation written for the purpose.
+const excludedRepos = new Set([
+  'nethesis/ns8-nethvoice',
+  'nethesis/ns8-nethvoice-proxy',
+]);
+
 function parseArgs(argv) {
   const options = {out: 'app-readmes-sync', prefix: '', dryRun: false};
 
@@ -445,6 +454,14 @@ async function main() {
       const repo = parseGithubRepo(codeUrl);
       if (!repo) {
         skipped.push({id, origin, reason: `code_url is not a GitHub repository: ${codeUrl}`});
+        continue;
+      }
+      if (excludedRepos.has(`${repo.owner}/${repo.repo}`.toLowerCase())) {
+        skipped.push({
+          id,
+          origin,
+          reason: `${repo.owner}/${repo.repo} is documented on its own site`,
+        });
         continue;
       }
 
