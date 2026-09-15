@@ -16,20 +16,9 @@ WebTop modules in this manual:
 
 ## Authentication
 
-Always use the full user name format `<user>@<domain>` for login to the web application and Active Sync.
+To log in to the web interface, you can use either the short form, only `<username>` (without `@<domain>`), or the full form including the domain.
 
-**Example**
-
-- Server name: mymail.mightydomain.com
-- Alternative mail domain: baddomain.net
-- User: goofy
-- Login: <goofy@mightydomain.com>
-
-:::note
-
-Active Sync protocol is supported only on Android and iOS devices. Outlook is not supported.
-
-:::
+The domain associated with the user is always the one selected in the instance settings and related to the connected Mail server.
 
 ## User settings management
 
