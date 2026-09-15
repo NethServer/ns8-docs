@@ -90,6 +90,91 @@ Then open:
 - `http://localhost:3000/it/v6/`
 - `http://localhost:3000/projects/nethserver-devel/en/latest/`
 
+## Syncing app READMEs to Kapa
+
+The "Ask AI" widget answers from two knowledge sources: this manual, and the
+READMEs of every published NS8 app. The second source is a bucket of
+markdown files that Kapa indexes as a separate, developer-oriented source
+group, so that answers drawn from it are flagged as such.
+
+`.github/workflows/sync-app-readmes.yml` refreshes that bucket daily. To run
+the collection step locally, without uploading anything:
+
+```bash
+yarn sync:app-readmes --dry-run          # list the files that would be collected
+yarn sync:app-readmes --out /tmp/readmes # collect the READMEs into /tmp/readmes
+```
+
+The app list comes from the `repodata.json` feeds of the `default` and
+`nethforge` software repositories, and each app's source repository is taken
+from its `docs.code_url` field, so apps maintained outside the NethServer
+organization are included too.
+Apps whose `code_url` is a placeholder, or whose repository has no README, are
+skipped and listed at the end of the run.
+
+Both the root README and the README of each component subdirectory are
+collected, so an app like `ns8-mail` contributes its own README plus those of
+`postfix/`, `dovecot/`, `rspamd/` and `clamav/`. The output is a flat
+directory: a root README is named `<software repository>_<app>.md`, as in
+`default_mail.md`, and a component README appends its directory, as in
+`default_mail_postfix.md`. READMEs under `ui/`, `test/`,
+`tests/`, `lib/`, `var/`, `vendor/` and `node_modules/` are left out, as are
+component READMEs below 300 bytes: those are scaffold, vendored or stub files,
+and near-identical copies of them across 40 repositories would only crowd out
+real content at retrieval time.
+
+The NethVoice repositories are excluded: NethVoice runs its own documentation
+site, and collecting its READMEs here would answer NethVoice questions from
+developer notes rather than from the documentation written for the purpose.
+
+Files are read at the app's latest stable release tag, the highest non-testing
+version in its `repodata.json` entry, not at the branch head. The collected text
+then matches the version users are actually running, and the citation URL points
+at that tag, so the page Kapa quotes stays the page a reader opens. An app that
+cannot be read at its release — no stable version published, or no such tag in
+its repository — is skipped and listed at the end of the run, rather than
+collected from its development branch: everything indexed is a released README,
+without exception.
+
+Every collected file gets a provenance banner prepended, warning that it is
+developer documentation rather than the official manual, and a one-line repeat
+of that warning before every section of the body. Both are part of the indexed
+content on purpose: they reach the model through retrieval, and do not depend
+on the Kapa system instructions alone. The repeat matters because retrieval
+works on chunks and most of these files are large enough to be split, so a
+banner at the top only covers the chunk it sits in. An `index.json` maps each
+object key to its GitHub URL, which is what Kapa shows in citations.
+
+The collection step needs a GitHub token: it makes one call per app to list its
+files and one per collected README, around 110 in total, against an anonymous
+allowance of 60 per hour. If you are logged in with `gh auth login` its token is
+picked up automatically; otherwise set `GH_TOKEN` to a token with no scopes.
+Every repository read here is public.
+
+Uploading requires write credentials for the Kapa bucket, so it is normally left
+to the workflow. To do it by hand, pass the destination to the upload wrapper:
+
+```bash
+export AWS_ACCESS_KEY_ID=... AWS_SECRET_ACCESS_KEY=... AWS_DEFAULT_REGION=...
+yarn upload:app-readmes s3://BUCKET --dry-run  # collect, print the sync command
+yarn upload:app-readmes s3://BUCKET            # collect and upload
+```
+
+The wrapper collects the READMEs and runs `aws s3 sync --delete` for you. Pass
+the destination and nothing else: it derives the `index.json` object keys from
+that single URL, so they cannot disagree with the keys the objects actually get.
+Doing the two steps by hand instead is what makes them drift, and the failure is
+silent — the files upload and index correctly, only the citation URLs are wrong.
+
+The files go to the bucket root, so the bucket must be dedicated to them: the
+sync deletes whatever else it finds there. A destination with a path, such as
+`s3://BUCKET/app-readmes`, confines both the upload and the deletion to that
+prefix instead, and Kapa's S3 source then needs the same prefix configured.
+
+For an S3-compatible provider other than AWS, add `--endpoint-url URL` or set
+`KAPA_S3_ENDPOINT_URL`. The credentials used here need write access; the ones
+configured in Kapa are a separate, read-only pair.
+
 ## How to contribute
 
 The easiest way to contribute is by forking and editing the repository on

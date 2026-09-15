@@ -1,0 +1,45 @@
+name: Sync app READMEs to Kapa bucket
+
+# Collects the README of every published NS8 app and uploads it to the S3 bucket
+# that Kapa indexes as a developer-oriented knowledge source. Kapa refetches the
+# bucket on its own schedule, so a daily sync is enough.
+
+on:
+  schedule:
+    - cron: "40 3 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: sync-app-readmes
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Collect and upload READMEs
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Collect and upload READMEs
+        # GITHUB_TOKEN only lifts the anonymous API rate limit: every repository
+        # read here is public, including the ones outside this organization.
+        #
+        # The wrapper derives the index.json object keys from the destination
+        # URL, so they cannot drift from the keys the objects actually get.
+        # The files go to the bucket root, so the bucket must hold nothing else:
+        # the sync runs with --delete.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.KAPA_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.KAPA_S3_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.KAPA_S3_REGION }}
+          # Set only for non-AWS S3-compatible providers.
+          KAPA_S3_ENDPOINT_URL: ${{ secrets.KAPA_S3_ENDPOINT_URL }}
+        run: >
+          node scripts/upload-app-readmes.mjs
+          "s3://${{ secrets.KAPA_S3_BUCKET }}"
