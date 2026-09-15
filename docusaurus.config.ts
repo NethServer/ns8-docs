@@ -108,7 +108,7 @@ const config: Config = {
       "data-project-color": "#000000",
       "data-project-logo": "https://docs.nethserver.org/img/favicon.ico",
       "data-source-group-ids-include": "eae9b182-9aad-45f7-a616-30c91dd2e019",
-      "data-modal-disclaimer": "This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported. Answers may also cite **developer documentation** taken from application repositories: it is written for developers and packagers, is not part of this manual, and its commands are not supported administration procedures.",
+      "data-modal-disclaimer": "This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported",
       async: true,
     },
   ],
