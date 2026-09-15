@@ -28,7 +28,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const feeds = [
-  {origin: 'core', url: 'https://distfeed.nethserver.org/ns8/updates/repodata.json'},
+  {origin: 'default', url: 'https://distfeed.nethserver.org/ns8/updates/repodata.json'},
   {origin: 'nethforge', url: 'https://forge.nethserver.org/ns8/updates/repodata.json'},
 ];
 
@@ -333,8 +333,8 @@ function buildDocument(app, file, ref, readme) {
     app.description ? `Description: ${app.description}.` : null,
     app.categories.length ? `Categories: ${app.categories.join(', ')}.` : null,
     `Taken from release ${ref}, the latest published version.`,
-    `Distribution: ${app.origin === 'core' ? 'NethServer core repository' : 'NethForge'}.`,
-    `Repository: ${app.codeUrl}`,
+    `Software repository: ${app.origin}.`,
+    `Source code: ${app.codeUrl}`,
   ].filter(Boolean);
 
   // The README's own top-level heading would compete with ours: demote it.
@@ -347,14 +347,16 @@ function buildDocument(app, file, ref, readme) {
 }
 
 /**
- * Bucket key for a collected file: the root README becomes index.md, a component
- * README takes its directory path with slashes flattened to dashes.
+ * Bucket key for a collected file. The tree is flat: <repository>_<app>.md for a
+ * root README, with the component directory appended for the others, its
+ * slashes flattened to dashes.
  */
 function objectPath(app, file) {
-  const name = file.directory
-    ? `${file.directory.replace(/\//g, '-')}.md`
-    : 'index.md';
-  return path.posix.join(app.origin, app.id, name);
+  const parts = [app.origin, app.id];
+  if (file.directory) {
+    parts.push(file.directory.replace(/\//g, '-'));
+  }
+  return `${parts.join('_')}.md`;
 }
 
 async function mapWithConcurrency(items, limit, mapper) {
@@ -417,15 +419,15 @@ async function main() {
     }
   }
 
-  // A module id can appear in both feeds; the core feed is authoritative.
+  // A module id can appear in both feeds; the default one is authoritative.
   const byId = new Map();
   for (const app of apps) {
     const existing = byId.get(app.id);
-    if (existing && existing.origin === 'core') {
+    if (existing && existing.origin === 'default') {
       skipped.push({
         id: app.id,
         origin: app.origin,
-        reason: 'already provided by the core feed',
+        reason: 'already provided by the default repository',
       });
       continue;
     }

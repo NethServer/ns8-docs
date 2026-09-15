@@ -105,15 +105,19 @@ yarn sync:app-readmes --dry-run          # list the files that would be collecte
 yarn sync:app-readmes --out /tmp/readmes # collect the READMEs into /tmp/readmes
 ```
 
-The app list comes from the `repodata.json` feeds of the core and NethForge
-repositories, and each app's repository is taken from its `docs.code_url`
-field, so apps maintained outside the NethServer organization are included too.
+The app list comes from the `repodata.json` feeds of the `default` and
+`nethforge` software repositories, and each app's source repository is taken
+from its `docs.code_url` field, so apps maintained outside the NethServer
+organization are included too.
 Apps whose `code_url` is a placeholder, or whose repository has no README, are
 skipped and listed at the end of the run.
 
 Both the root README and the README of each component subdirectory are
 collected, so an app like `ns8-mail` contributes its own README plus those of
-`postfix/`, `dovecot/`, `rspamd/` and `clamav/`. READMEs under `ui/`, `test/`,
+`postfix/`, `dovecot/`, `rspamd/` and `clamav/`. The output is a flat
+directory: a root README is named `<software repository>_<app>.md`, as in
+`default_mail.md`, and a component README appends its directory, as in
+`default_mail_postfix.md`. READMEs under `ui/`, `test/`,
 `tests/`, `lib/`, `var/`, `vendor/` and `node_modules/` are left out, as are
 component READMEs below 300 bytes: those are scaffold, vendored or stub files,
 and near-identical copies of them across 40 repositories would only crowd out
