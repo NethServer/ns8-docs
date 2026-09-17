@@ -185,42 +185,26 @@ Dopo aver modificato la politica delle password, puoi cliccare sul pulsante **Mo
 
 ### Avviso di scadenza delle password {#password-warning}
 
-Il sistema può inviare notifiche email agli utenti quando la loro password sta per scadere.
+Il sistema può inviare notifiche email agli utenti quando la loro password sta per scadere. Questa funzionalità è disponibile **solo per i domini utente interni** ed è configurata separatamente per ciascun dominio.
 
-Questa funzionalità è disponibile **solo per i domini utente interni** e può essere abilitata per ciascun dominio utente.
+Prima di attivarla, assicurati che:
 
-Per abilitare questa funzionalità, assicurati che:
+- l'invecchiamento delle password sia attivo sul dominio utente
+- il cluster sia in grado di inviare [notifiche email](../configuration/email_notifications.md), tramite un'applicazione Mail interna oppure un server SMTP esterno
 
-- l'invecchiamento delle password sia abilitato sul dominio utente
-- il cluster sia configurato per inviare [notifiche email](../configuration/email_notifications.md)
-
-La funzionalità può essere abilitata dalla pagina di configurazione del dominio utente cliccando sul pulsante **Modifica avviso password** nella scheda `Password`.
-
-Dopo aver abilitato la funzionalità, compila i seguenti campi:
+Per attivarla, apri la pagina di configurazione del dominio utente e clicca sul pulsante **Modifica avviso password** nella scheda `Password`, quindi compila i seguenti campi:
 
 - `Giorni prima della scadenza`: il numero di giorni prima della scadenza della password in cui viene inviata la notifica. La notifica viene inviata ogni giorno fino alla scadenza della password.
 - `Indirizzo email del mittente`: l'indirizzo email del mittente, assicurati che sia un indirizzo valido per evitare problemi con i filtri antispam.
 - `Template email`: seleziona il template da utilizzare per l'email di notifica. Puoi scegliere tra i template predefiniti o uno personalizzato. I template predefiniti sono disponibili in inglese e italiano. Per utilizzare un template personalizzato, consulta [Template personalizzato](#password_warning_custom_template-section).
 
-L'email di notifica viene inviata all'indirizzo email dell'utente, che può essere rilevato automaticamente o impostato manualmente da un amministratore, a seconda della configurazione del cluster.
+#### Indirizzo del destinatario {#password-warning-recipient}
 
-#### Server SMTP interno
+L'indirizzo del destinatario dell'email di notifica viene ricavato dal campo Indirizzo email dell'utente (attributo LDAP `mail`), che un amministratore di dominio può modificare anche dal [portale di gestione utenti](#user-management-portal-section).
 
-Quando è installata un'istanza di [server di posta interno](../applications/mail.md) e il cluster è configurato per inviare notifiche email utilizzandolo, l'indirizzo email dell'utente viene rilevato automaticamente e utilizzato per inviare la notifica di scadenza della password.
+Se l'attributo LDAP è vuoto o assente, l'indirizzo del destinatario viene ricavato da un'applicazione Mail associata al dominio utente. Si assume che l'indirizzo abbia la forma `<user_name>@<user_domain_name>`. Poiché l'invio della notifica è interno, tale dominio non richiede necessariamente un record DNS MX pubblico.
 
-L'indirizzo email può essere sovrascritto da un amministratore impostando il campo `mail` all'interno del [portale di gestione utenti](#user-management-portal-section).
-
-:::note
-
-Se il cluster è configurato per inviare notifiche email utilizzando un server SMTP esterno, l'indirizzo email rilevato automaticamente non è valido perché il dominio utente non è noto al server esterno. In questo caso, è necessario impostare esplicitamente l'indirizzo email per l'utente.
-
-:::
-
-#### Server SMTP esterno
-
-Quando il cluster è configurato per inviare notifiche email utilizzando un server SMTP esterno, l'indirizzo email dell'utente non viene rilevato automaticamente. Un amministratore deve impostarlo manualmente per ciascun utente utilizzando il [portale di gestione utenti](#user-management-portal-section).
-
-Il campo dell'indirizzo email è disponibile sia per i domini utente OpenLDAP che Active Directory.
+Se non è impostato il campo Indirizzo email né è associata un'applicazione Mail al dominio utente, la notifica non viene inviata.
 
 #### Template personalizzato {#password_warning_custom_template-section}
 
