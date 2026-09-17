@@ -202,7 +202,10 @@ Per attivarla, apri la pagina di configurazione del dominio utente e clicca sul 
 
 L'indirizzo del destinatario dell'email di notifica viene ricavato dal campo Indirizzo email dell'utente (attributo LDAP `mail`), che un amministratore di dominio può modificare anche dal [portale di gestione utenti](#user-management-portal-section).
 
-Se l'attributo LDAP è vuoto o assente, l'indirizzo del destinatario viene ricavato da un'applicazione Mail associata al dominio utente. Si assume che l'indirizzo abbia la forma `<user_name>@<user_domain_name>`. Poiché l'invio della notifica è interno, tale dominio non richiede necessariamente un record DNS MX pubblico.
+Se l'attributo LDAP è vuoto o assente, l'indirizzo del destinatario viene ricavato da un'applicazione Mail associata al dominio utente. Si assume che l'indirizzo abbia la forma `<user_name>@<user_domain_name>`.
+
+- Se tale applicazione Mail è la stessa configurata per le [notifiche email](../configuration/email_notifications.md), l'invio è interno e non è richiesto alcun record DNS MX pubblico.
+- In caso contrario, la consegna a `user_domain_name` segue le normali regole SMTP e richiede un record DNS MX pubblico.
 
 Se non è impostato il campo Indirizzo email né è associata un'applicazione Mail al dominio utente, la notifica non viene inviata.
 
