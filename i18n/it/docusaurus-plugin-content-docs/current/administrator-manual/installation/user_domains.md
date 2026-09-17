@@ -246,9 +246,10 @@ Quando si crea un utente, i seguenti campi sono obbligatori:
 
 Gli attributi opzionali sono:
 
-- Indirizzo email -- Corrisponde all'attributo LDAP standard `mail`. Può essere impostato sull'indirizzo email personale dell'utente, dove vengono inviate le notifiche di scadenza della password. Alcune applicazioni possono anche utilizzarlo come nome utente valido per l'accesso.
-- La password non scade mai (solo AD) -- Quando abilitato, la password dell'utente rimane valida indefinitamente, ignorando la politica di scadenza delle password del dominio.
-- Cambio password obbligatorio / L'utente deve cambiare la password al prossimo accesso (solo AD) -- Quando abilitato, l'utente viene invitato a cambiare la propria password al prossimo accesso.
+- `Indirizzo email` — Corrisponde all'attributo LDAP standard `mail`. Il modo in cui questo attributo viene utilizzato dipende dalle applicazioni che lo consultano. Ad esempio, può essere impostato sull'indirizzo email personale dell'utente, dove vengono inviate le notifiche di scadenza della password, come descritto nella sezione [Avviso di scadenza delle password](#password-warning-recipient); per far corrispondere i [domini di posta](../applications/mail.md#email_domains), può definire un indirizzo email alternativo dell'utente; altre applicazioni possono anche utilizzarlo come nome utente valido per l'accesso.
+- `Interno telefonico` — L'interno telefonico dell'utente. È memorizzato nell'attributo LDAP `telephoneNumber`. Come per il campo `Indirizzo email`, consulta la documentazione dell'applicazione specifica.
+- `La password non scade mai` — Quando abilitato, la password dell'utente rimane valida indefinitamente, ignorando la politica di scadenza delle password del dominio.
+- `Cambio password obbligatorio` / `L'utente deve cambiare la password al prossimo accesso` (solo AD) — Quando abilitato, l'utente viene invitato a cambiare la propria password al prossimo accesso.
 
 Un utente può essere aggiunto a uno o più gruppi.
 
@@ -302,8 +303,11 @@ Durante la creazione di un utente, sono disponibili i seguenti campi:
 - Password
 - Gruppo (campo opzionale)
 - Indirizzo email (campo opzionale)
-- Password non scade mai (campo opzionale, solo AD)
+- Interno telefonico (campo opzionale)
+- Password non scade mai (campo opzionale)
 - Cambio password richiesto / L'utente deve cambiare la password al prossimo accesso (campo opzionale, solo AD)
+
+Per maggiori informazioni sui campi, consulta la sezione [Creare utenti e gruppi](#create-users-and-groups-section).
 
 Il portale è configurato automaticamente su ogni istanza di [Active Directory](#active_directory-section) o del provider [LDAP server RFC2307](#openldap-section).
 
