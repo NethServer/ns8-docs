@@ -267,15 +267,21 @@ I nomi utente devono essere univoci all'interno dello stesso dominio, ma possono
 Gli utenti e i gruppi possono essere gestiti in blocco con le azioni *import* e *export data*. Il formato dati supportato è [CSV](https://www.rfc-editor.org/rfc/rfc4180) (valori separati da virgola) con i seguenti campi:
 
 1.  *username*
-2.  *display_name* -- Un valore vuoto rimuove l'attributo LDAP `displayName`.
-3.  *password* -- Se la password contiene una virgola (es. `Nethesis,1234`), racchiudi questo campo tra virgolette doppie. Un valore vuoto lascia la password invariata per gli utenti esistenti e imposta una password iniziale casuale per gli utenti appena creati.
-4.  *mail* -- Un indirizzo email valido. Nota che, a differenza di Samba Active Directory, lo schema OpenLDAP RFC2307 non consente caratteri speciali. Un valore vuoto rimuove il corrispondente attributo LDAP `mail`.
-5.  *groups* -- Un elenco di gruppi separati dal carattere `|` (pipe). Se un gruppo non esiste ancora, viene creato automaticamente durante l'importazione. Se questo campo è vuoto, l'utente viene rimosso da tutti i gruppi.
+2.  *display_name* — Un valore vuoto rimuove l'attributo LDAP `displayName`.
+3.  *password* — Se la password contiene una virgola (es. `Nethesis,1234`), racchiudi questo campo tra virgolette doppie. Un valore vuoto lascia la password invariata per gli utenti esistenti e imposta una password iniziale casuale per gli utenti appena creati.
+4.  *mail* — Un indirizzo email valido. Nota che, a differenza di Samba Active Directory, lo schema OpenLDAP RFC2307 non consente caratteri speciali. Un valore vuoto rimuove il corrispondente attributo LDAP `mail`.
+5.  *groups* — Un elenco di gruppi separati dal carattere `|` (pipe). Se un gruppo non esiste ancora, viene creato automaticamente durante l'importazione. Se questo campo è vuoto, l'utente viene rimosso da tutti i gruppi.
 6.  *locked* (booleano)
 7.  *must_change_password* (booleano)
 8.  *no_password_expiration* (booleano)
 
 I campi devono essere presenti nell'ordine esatto sopra indicato. Corrispondono agli attributi descritti nella sezione precedente; consulta [Creare utenti e gruppi](#create-users-and-groups-section) per maggiori informazioni.
+
+:::note
+
+Per compatibilità con il formato CSV delle versioni precedenti, il campo `Interno telefonico` non è disponibile nel file CSV.
+
+:::
 
 Gli ultimi tre campi sono valori booleani. I valori accettati sono limitati alle stringhe `true` e `false`. La stringa vuota e qualsiasi valore diverso da `true` vengono interpretati come `false`.
 
