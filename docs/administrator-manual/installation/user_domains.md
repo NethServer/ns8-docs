@@ -275,15 +275,21 @@ User names must be unique within the same domain but can be reused across differ
 Users and groups can be managed in bulk with the *import* and *export data* actions. The supported data format is [CSV](https://www.rfc-editor.org/rfc/rfc4180) (comma-separated values) with the following fields:
 
 1.  *username*
-2.  *display_name* -- An empty value removes the LDAP `displayName` attribute.
-3.  *password* -- If the password contains a comma (e.g. `Nethesis,1234`), enclose this field in double quotes. An empty value leaves the password unchanged for existing users, and sets a random initial password for newly created users.
-4.  *mail* -- A valid email address. Note that unlike Samba Active Directory, the OpenLDAP RFC2307 schema does not allow special characters. An empty value removes the corresponding `mail` LDAP attribute.
-5.  *groups* -- A list of groups separated by the `|` (pipe) character. If a group does not exist yet, it is created on the fly during the import. If this field is empty, the user is removed from all groups.
+2.  *display_name* — An empty value removes the LDAP `displayName` attribute.
+3.  *password* — If the password contains a comma (e.g. `Nethesis,1234`), enclose this field in double quotes. An empty value leaves the password unchanged for existing users, and sets a random initial password for newly created users.
+4.  *mail* — A valid email address. Note that unlike Samba Active Directory, the OpenLDAP RFC2307 schema does not allow special characters. An empty value removes the corresponding `mail` LDAP attribute.
+5.  *groups* — A list of groups separated by the `|` (pipe) character. If a group does not exist yet, it is created on the fly during the import. If this field is empty, the user is removed from all groups.
 6.  *locked* (boolean)
 7.  *must_change_password* (boolean)
 8.  *no_password_expiration* (boolean)
 
 The fields must be present in the above, exact order. They correspond to the attributes described in the previous section; refer to [Create users and groups](#create-users-and-groups-section) for more information.
+
+:::note
+
+For backward compatibility with the CSV format of earlier versions, the `Phone extension` field is not available in the CSV file.
+
+:::
 
 The last three fields are boolean values. Accepted values are limited to the strings `true` and `false`. The empty string, and any value other than `true`, is interpreted as `false`.
 
