@@ -192,7 +192,7 @@ After editing the password policy, you can click on **Edit password policy** but
 
 ### Password expiration warning {#password-warning}
 
-The system can send email notifications to users when their password is about to expire. This feature is available **only for internal user domains** and is configured separately for each one.
+The system can send email notifications to users when their password is about to expire. This feature is available **only for internal user domains** and is configured separately for user domain.
 
 Before turning it on, make sure that:
 

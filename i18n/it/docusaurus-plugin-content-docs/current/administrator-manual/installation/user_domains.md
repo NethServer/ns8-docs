@@ -185,7 +185,7 @@ Dopo aver modificato la politica delle password, puoi cliccare sul pulsante **Mo
 
 ### Avviso di scadenza delle password {#password-warning}
 
-Il sistema può inviare notifiche email agli utenti quando la loro password sta per scadere. Questa funzionalità è disponibile **solo per i domini utente interni** ed è configurata separatamente per ciascun dominio.
+Il sistema può inviare notifiche email agli utenti quando la loro password sta per scadere. Questa funzionalità è disponibile **solo per i domini utente interni** ed è configurata separatamente per ciascun dominio utente.
 
 Prima di attivarla, assicurati che:
 
