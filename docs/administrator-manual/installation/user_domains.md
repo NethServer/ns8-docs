@@ -192,42 +192,26 @@ After editing the password policy, you can click on **Edit password policy** but
 
 ### Password expiration warning {#password-warning}
 
-The system can send email notifications to users when their password is about to expire.
+The system can send email notifications to users when their password is about to expire. This feature is available **only for internal user domains** and is configured separately for each one.
 
-This feature is available **only for internal user domains** and can be enabled on each user domain.
+Before turning it on, make sure that:
 
-To enable this feature, ensure the following:
+- password aging is active on the user domain
+- the cluster can send [email notifications](../configuration/email_notifications.md), either through an internal Mail application or through an external SMTP server
 
-- password aging must be enabled on the user domain
-- the cluster must be configured to send [mail notifications](../configuration/email_notifications.md)
-
-The feature can be enabled from the configuration page of the user domain by clicking the **Edit password warning** button on the `Password` card.
-
-After enabling the feature, fill the following fields:
+To activate it, open the user domain's configuration page and click the **Edit password warning** button on the `Password` card, then fill in the following fields:
 
 - `Days before expiration`: the number of days before the password expiration when the notification is sent. The notification is sent every day until the password expires
 - `Sender mail address`: the email address of the sender, make sure this is a valid email address to avoid issues with spam filters
 - `Mail template`: select the template to use for the notification email. You can choose between the default templates or a custom one. Default templates are available in English and Italian. To use a custom template, see [Custom template](#password_warning_custom_template-section).
 
-The notification email is sent to the user mail address which can be automatically discovered or manually set by an administrator, depending on the cluster configuration.
+#### Recipient address {#password-warning-recipient}
 
-#### Internal SMTP server
+The notification email recipient address is obtained from the user's Email address field (LDAP `mail` attribute), which can also be modified by a domain administrator in the [User Management portal](#user-management-portal-section).
 
-When a [internal mail server](../applications/mail.md) instance is installed, and the cluster is configured to send mail notifications using it, the user mail address is automatically discovered and used to send the password expiration notification.
+If the LDAP attribute is empty or missing, the recipient address is obtained from a Mail application bound to the user domain. The address is assumed to be in the form `<user_name>@<user_domain_name>`. Since the notification submission is internal, that domain does not strictly require a public DNS MX record.
 
-The mail address can be overwritten by an administrator setting the `mail` field inside the [User Management portal](#user-management-portal-section).
-
-:::note
-
-If the cluster is configured to send mail notifications using an external SMTP server, the automatically discovered mail address is not valid because the user domain is not known to the external server. In this case you must explicitly set the mail address for the user.
-
-:::
-
-#### External SMTP server
-
-When the cluster is configured to send mail notifications using an external SMTP server, the user mail address is not automatically discovered. An administrator must manually set for each user using the [User Management portal](#user-management-portal-section).
-
-The mail address field is available for both OpenLDAP and Active Directory user domains.
+If neither the Email address field is set nor a Mail application is associated with the user domain, no notification is sent.
 
 #### Custom template {#password_warning_custom_template-section}
 
