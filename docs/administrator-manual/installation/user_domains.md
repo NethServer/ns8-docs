@@ -209,7 +209,10 @@ To activate it, open the user domain's configuration page and click the **Edit p
 
 The notification email recipient address is obtained from the user's `Email` field (LDAP `mail` attribute), which can also be modified by a domain administrator in the [User Management portal](#user-management-portal-section).
 
-If the LDAP attribute is empty or missing, the recipient address is obtained from a Mail application bound to the user domain. The address is assumed to be in the form `<user_name>@<user_domain_name>`. Since the notification submission is internal, that domain does not strictly require a public DNS MX record.
+If the LDAP attribute is empty or missing, the recipient address is obtained from a Mail application bound to the user domain. The address is assumed to be in the form `<user_name>@<user_domain_name>`.
+
+- If that Mail application is the same one configured for [email notifications](../configuration/email_notifications.md), the submission is internal and no public DNS MX record is required.
+- Otherwise, delivery to `user_domain_name` follows conventional SMTP rules and does require a public DNS MX record.
 
 If neither the `Email` field is set nor a Mail application is associated with the user domain, no notification is sent.
 
