@@ -207,11 +207,11 @@ To activate it, open the user domain's configuration page and click the **Edit p
 
 #### Recipient address {#password-warning-recipient}
 
-The notification email recipient address is obtained from the user's Email address field (LDAP `mail` attribute), which can also be modified by a domain administrator in the [User Management portal](#user-management-portal-section).
+The notification email recipient address is obtained from the user's `Email` field (LDAP `mail` attribute), which can also be modified by a domain administrator in the [User Management portal](#user-management-portal-section).
 
 If the LDAP attribute is empty or missing, the recipient address is obtained from a Mail application bound to the user domain. The address is assumed to be in the form `<user_name>@<user_domain_name>`. Since the notification submission is internal, that domain does not strictly require a public DNS MX record.
 
-If neither the Email address field is set nor a Mail application is associated with the user domain, no notification is sent.
+If neither the `Email` field is set nor a Mail application is associated with the user domain, no notification is sent.
 
 #### Custom template {#password_warning_custom_template-section}
 
@@ -254,9 +254,10 @@ When creating a user, the following fields are mandatory:
 
 Optional attributes are:
 
-- Email address -- Corresponds to the standard LDAP `mail` attribute. It can be set to the user's personal email address, where password expiration warnings are sent. Some applications may also use it as a valid login name.
-- Password never expires -- When enabled, the user's password remains valid indefinitely, bypassing the domain password age policy.
-- Required password change / User has to change password at next login (AD only) -- When enabled, the user is prompted to change their password at the next login.
+- `Email` — Corresponds to the standard LDAP `mail` attribute. How this attribute is used depends on the applications that consume it. For example, it can be set to the user's personal email address, where password expiration warnings are sent, as described in the [Password expiration warning](#password-warning-recipient) section; for matching [mail domains](../applications/mail.md#email_domains), it may define a user's alternative email address; other applications may also use it as a valid login name.
+- `Phone extension` — The user's internal phone extension. It is stored in the LDAP `telephoneNumber` attribute. As with the `Email` field, refer to the relevant application's documentation.
+- `Password never expires` — When enabled, the user's password remains valid indefinitely, bypassing the domain password age policy.
+- `Required password change` / `User has to change password at next login` (AD only) — When enabled, the user is prompted to change their password at the next login.
 
 A user can be added to one or more groups.
 
@@ -310,9 +311,12 @@ When creating a user, the following fields are available:
 - Full name (name and surname)
 - Password
 - Group (optional field)
-- Email address (optional field)
+- Email (optional field)
+- Phone extension (optional field)
 - Password never expires (optional field)
 - Required password change / User has to change password at next login (optional field, AD only)
+
+Refer to the [Create users and groups](#create-users-and-groups-section) section for additional field information.
 
 The portal is automatically configured on every instance of [Active Directory](#active_directory-section) or [LDAP server RFC2307](#openldap-section) provider.
 
