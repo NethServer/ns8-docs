@@ -192,42 +192,29 @@ After editing the password policy, you can click on **Edit password policy** but
 
 ### Password expiration warning {#password-warning}
 
-The system can send email notifications to users when their password is about to expire.
+The system can send email notifications to users when their password is about to expire. This feature is available **only for internal user domains** and is configured separately for user domain.
 
-This feature is available **only for internal user domains** and can be enabled on each user domain.
+Before turning it on, make sure that:
 
-To enable this feature, ensure the following:
+- password aging is active on the user domain
+- the cluster can send [email notifications](../configuration/email_notifications.md), either through an internal Mail application or through an external SMTP server
 
-- password aging must be enabled on the user domain
-- the cluster must be configured to send [mail notifications](../configuration/email_notifications.md)
-
-The feature can be enabled from the configuration page of the user domain by clicking the **Edit password warning** button on the `Password` card.
-
-After enabling the feature, fill the following fields:
+To activate it, open the user domain's configuration page and click the **Edit password warning** button on the `Password` card, then fill in the following fields:
 
 - `Days before expiration`: the number of days before the password expiration when the notification is sent. The notification is sent every day until the password expires
 - `Sender mail address`: the email address of the sender, make sure this is a valid email address to avoid issues with spam filters
 - `Mail template`: select the template to use for the notification email. You can choose between the default templates or a custom one. Default templates are available in English and Italian. To use a custom template, see [Custom template](#password_warning_custom_template-section).
 
-The notification email is sent to the user mail address which can be automatically discovered or manually set by an administrator, depending on the cluster configuration.
+#### Recipient address {#password-warning-recipient}
 
-#### Internal SMTP server
+The notification email recipient address is obtained from the user's `Email` field (LDAP `mail` attribute), which can also be modified by a domain administrator in the [User Management portal](#user-management-portal-section).
 
-When a [internal mail server](../applications/mail.md) instance is installed, and the cluster is configured to send mail notifications using it, the user mail address is automatically discovered and used to send the password expiration notification.
+If the LDAP attribute is empty or missing, the recipient address is obtained from a Mail application bound to the user domain. The address is assumed to be in the form `<user_name>@<user_domain_name>`.
 
-The mail address can be overwritten by an administrator setting the `mail` field inside the [User Management portal](#user-management-portal-section).
+- If that Mail application is the same one configured for [email notifications](../configuration/email_notifications.md), the submission is internal and no public DNS MX record is required.
+- Otherwise, delivery to `user_domain_name` follows conventional SMTP rules and does require a public DNS MX record.
 
-:::note
-
-If the cluster is configured to send mail notifications using an external SMTP server, the automatically discovered mail address is not valid because the user domain is not known to the external server. In this case you must explicitly set the mail address for the user.
-
-:::
-
-#### External SMTP server
-
-When the cluster is configured to send mail notifications using an external SMTP server, the user mail address is not automatically discovered. An administrator must manually set for each user using the [User Management portal](#user-management-portal-section).
-
-The mail address field is available for both OpenLDAP and Active Directory user domains.
+If neither the `Email` field is set nor a Mail application is associated with the user domain, no notification is sent.
 
 #### Custom template {#password_warning_custom_template-section}
 
@@ -270,9 +257,10 @@ When creating a user, the following fields are mandatory:
 
 Optional attributes are:
 
-- Email address -- Corresponds to the standard LDAP `mail` attribute. It can be set to the user's personal email address, where password expiration warnings are sent. Some applications may also use it as a valid login name.
-- Password never expires -- When enabled, the user's password remains valid indefinitely, bypassing the domain password age policy.
-- Required password change / User has to change password at next login (AD only) -- When enabled, the user is prompted to change their password at the next login.
+- `Email` — Corresponds to the standard LDAP `mail` attribute. How this attribute is used depends on the applications that consume it. For example, it can be set to the user's personal email address, where password expiration warnings are sent, as described in the [Password expiration warning](#password-warning-recipient) section; for matching [mail domains](../applications/mail.md#email_domains), it may define a user's alternative email address; other applications may also use it as a valid login name.
+- `Phone extension` — The user's internal phone extension. It is stored in the LDAP `telephoneNumber` attribute. As with the `Email` field, refer to the relevant application's documentation.
+- `Password never expires` — When enabled, the user's password remains valid indefinitely, bypassing the domain password age policy.
+- `Required password change` / `User has to change password at next login` (AD only) — When enabled, the user is prompted to change their password at the next login.
 
 A user can be added to one or more groups.
 
@@ -290,15 +278,21 @@ User names must be unique within the same domain but can be reused across differ
 Users and groups can be managed in bulk with the *import* and *export data* actions. The supported data format is [CSV](https://www.rfc-editor.org/rfc/rfc4180) (comma-separated values) with the following fields:
 
 1.  *username*
-2.  *display_name* -- An empty value removes the LDAP `displayName` attribute.
-3.  *password* -- If the password contains a comma (e.g. `Nethesis,1234`), enclose this field in double quotes. An empty value leaves the password unchanged for existing users, and sets a random initial password for newly created users.
-4.  *mail* -- A valid email address. Note that unlike Samba Active Directory, the OpenLDAP RFC2307 schema does not allow special characters. An empty value removes the corresponding `mail` LDAP attribute.
-5.  *groups* -- A list of groups separated by the `|` (pipe) character. If a group does not exist yet, it is created on the fly during the import. If this field is empty, the user is removed from all groups.
+2.  *display_name* — An empty value removes the LDAP `displayName` attribute.
+3.  *password* — If the password contains a comma (e.g. `Nethesis,1234`), enclose this field in double quotes. An empty value leaves the password unchanged for existing users, and sets a random initial password for newly created users.
+4.  *mail* — A valid email address. Note that unlike Samba Active Directory, the OpenLDAP RFC2307 schema does not allow special characters. An empty value removes the corresponding `mail` LDAP attribute.
+5.  *groups* — A list of groups separated by the `|` (pipe) character. If a group does not exist yet, it is created on the fly during the import. If this field is empty, the user is removed from all groups.
 6.  *locked* (boolean)
 7.  *must_change_password* (boolean)
 8.  *no_password_expiration* (boolean)
 
 The fields must be present in the above, exact order. They correspond to the attributes described in the previous section; refer to [Create users and groups](#create-users-and-groups-section) for more information.
+
+:::note
+
+For backward compatibility with the CSV format of earlier versions, the `Phone extension` field is not available in the CSV file.
+
+:::
 
 The last three fields are boolean values. Accepted values are limited to the strings `true` and `false`. The empty string, and any value other than `true`, is interpreted as `false`.
 
@@ -326,9 +320,12 @@ When creating a user, the following fields are available:
 - Full name (name and surname)
 - Password
 - Group (optional field)
-- Email address (optional field)
+- Email (optional field)
+- Phone extension (optional field)
 - Password never expires (optional field)
 - Required password change / User has to change password at next login (optional field, AD only)
+
+Refer to the [Create users and groups](#create-users-and-groups-section) section for additional field information.
 
 The portal is automatically configured on every instance of [Active Directory](#active_directory-section) or [LDAP server RFC2307](#openldap-section) provider.
 

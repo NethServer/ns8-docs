@@ -185,42 +185,29 @@ Dopo aver modificato la politica delle password, puoi cliccare sul pulsante **Mo
 
 ### Avviso di scadenza delle password {#password-warning}
 
-Il sistema può inviare notifiche email agli utenti quando la loro password sta per scadere.
+Il sistema può inviare notifiche email agli utenti quando la loro password sta per scadere. Questa funzionalità è disponibile **solo per i domini utente interni** ed è configurata separatamente per ciascun dominio utente.
 
-Questa funzionalità è disponibile **solo per i domini utente interni** e può essere abilitata per ciascun dominio utente.
+Prima di attivarla, assicurati che:
 
-Per abilitare questa funzionalità, assicurati che:
+- l'invecchiamento delle password sia attivo sul dominio utente
+- il cluster sia in grado di inviare [notifiche email](../configuration/email_notifications.md), tramite un'applicazione Mail interna oppure un server SMTP esterno
 
-- l'invecchiamento delle password sia abilitato sul dominio utente
-- il cluster sia configurato per inviare [notifiche email](../configuration/email_notifications.md)
-
-La funzionalità può essere abilitata dalla pagina di configurazione del dominio utente cliccando sul pulsante **Modifica avviso password** nella scheda `Password`.
-
-Dopo aver abilitato la funzionalità, compila i seguenti campi:
+Per attivarla, apri la pagina di configurazione del dominio utente e clicca sul pulsante **Modifica avviso password** nella scheda `Password`, quindi compila i seguenti campi:
 
 - `Giorni prima della scadenza`: il numero di giorni prima della scadenza della password in cui viene inviata la notifica. La notifica viene inviata ogni giorno fino alla scadenza della password.
 - `Indirizzo email del mittente`: l'indirizzo email del mittente, assicurati che sia un indirizzo valido per evitare problemi con i filtri antispam.
 - `Template email`: seleziona il template da utilizzare per l'email di notifica. Puoi scegliere tra i template predefiniti o uno personalizzato. I template predefiniti sono disponibili in inglese e italiano. Per utilizzare un template personalizzato, consulta [Template personalizzato](#password_warning_custom_template-section).
 
-L'email di notifica viene inviata all'indirizzo email dell'utente, che può essere rilevato automaticamente o impostato manualmente da un amministratore, a seconda della configurazione del cluster.
+#### Indirizzo del destinatario {#password-warning-recipient}
 
-#### Server SMTP interno
+L'indirizzo del destinatario dell'email di notifica viene ricavato dal campo Indirizzo email dell'utente (attributo LDAP `mail`), che un amministratore di dominio può modificare anche dal [portale di gestione utenti](#user-management-portal-section).
 
-Quando è installata un'istanza di [server di posta interno](../applications/mail.md) e il cluster è configurato per inviare notifiche email utilizzandolo, l'indirizzo email dell'utente viene rilevato automaticamente e utilizzato per inviare la notifica di scadenza della password.
+Se l'attributo LDAP è vuoto o assente, l'indirizzo del destinatario viene ricavato da un'applicazione Mail associata al dominio utente. Si assume che l'indirizzo abbia la forma `<user_name>@<user_domain_name>`.
 
-L'indirizzo email può essere sovrascritto da un amministratore impostando il campo `mail` all'interno del [portale di gestione utenti](#user-management-portal-section).
+- Se tale applicazione Mail è la stessa configurata per le [notifiche email](../configuration/email_notifications.md), l'invio è interno e non è richiesto alcun record DNS MX pubblico.
+- In caso contrario, la consegna a `user_domain_name` segue le normali regole SMTP e richiede un record DNS MX pubblico.
 
-:::note
-
-Se il cluster è configurato per inviare notifiche email utilizzando un server SMTP esterno, l'indirizzo email rilevato automaticamente non è valido perché il dominio utente non è noto al server esterno. In questo caso, è necessario impostare esplicitamente l'indirizzo email per l'utente.
-
-:::
-
-#### Server SMTP esterno
-
-Quando il cluster è configurato per inviare notifiche email utilizzando un server SMTP esterno, l'indirizzo email dell'utente non viene rilevato automaticamente. Un amministratore deve impostarlo manualmente per ciascun utente utilizzando il [portale di gestione utenti](#user-management-portal-section).
-
-Il campo dell'indirizzo email è disponibile sia per i domini utente OpenLDAP che Active Directory.
+Se non è impostato il campo Indirizzo email né è associata un'applicazione Mail al dominio utente, la notifica non viene inviata.
 
 #### Template personalizzato {#password_warning_custom_template-section}
 
@@ -262,9 +249,10 @@ Quando si crea un utente, i seguenti campi sono obbligatori:
 
 Gli attributi opzionali sono:
 
-- Indirizzo email -- Corrisponde all'attributo LDAP standard `mail`. Può essere impostato sull'indirizzo email personale dell'utente, dove vengono inviate le notifiche di scadenza della password. Alcune applicazioni possono anche utilizzarlo come nome utente valido per l'accesso.
-- La password non scade mai (solo AD) -- Quando abilitato, la password dell'utente rimane valida indefinitamente, ignorando la politica di scadenza delle password del dominio.
-- Cambio password obbligatorio / L'utente deve cambiare la password al prossimo accesso (solo AD) -- Quando abilitato, l'utente viene invitato a cambiare la propria password al prossimo accesso.
+- `Indirizzo email` — Corrisponde all'attributo LDAP standard `mail`. Il modo in cui questo attributo viene utilizzato dipende dalle applicazioni che lo consultano. Ad esempio, può essere impostato sull'indirizzo email personale dell'utente, dove vengono inviate le notifiche di scadenza della password, come descritto nella sezione [Avviso di scadenza delle password](#password-warning-recipient); per far corrispondere i [domini di posta](../applications/mail.md#email_domains), può definire un indirizzo email alternativo dell'utente; altre applicazioni possono anche utilizzarlo come nome utente valido per l'accesso.
+- `Interno telefonico` — L'interno telefonico dell'utente. È memorizzato nell'attributo LDAP `telephoneNumber`. Come per il campo `Indirizzo email`, consulta la documentazione dell'applicazione specifica.
+- `La password non scade mai` — Quando abilitato, la password dell'utente rimane valida indefinitamente, ignorando la politica di scadenza delle password del dominio.
+- `Cambio password obbligatorio` / `L'utente deve cambiare la password al prossimo accesso` (solo AD) — Quando abilitato, l'utente viene invitato a cambiare la propria password al prossimo accesso.
 
 Un utente può essere aggiunto a uno o più gruppi.
 
@@ -282,15 +270,21 @@ I nomi utente devono essere univoci all'interno dello stesso dominio, ma possono
 Gli utenti e i gruppi possono essere gestiti in blocco con le azioni *import* e *export data*. Il formato dati supportato è [CSV](https://www.rfc-editor.org/rfc/rfc4180) (valori separati da virgola) con i seguenti campi:
 
 1.  *username*
-2.  *display_name* -- Un valore vuoto rimuove l'attributo LDAP `displayName`.
-3.  *password* -- Se la password contiene una virgola (es. `Nethesis,1234`), racchiudi questo campo tra virgolette doppie. Un valore vuoto lascia la password invariata per gli utenti esistenti e imposta una password iniziale casuale per gli utenti appena creati.
-4.  *mail* -- Un indirizzo email valido. Nota che, a differenza di Samba Active Directory, lo schema OpenLDAP RFC2307 non consente caratteri speciali. Un valore vuoto rimuove il corrispondente attributo LDAP `mail`.
-5.  *groups* -- Un elenco di gruppi separati dal carattere `|` (pipe). Se un gruppo non esiste ancora, viene creato automaticamente durante l'importazione. Se questo campo è vuoto, l'utente viene rimosso da tutti i gruppi.
+2.  *display_name* — Un valore vuoto rimuove l'attributo LDAP `displayName`.
+3.  *password* — Se la password contiene una virgola (es. `Nethesis,1234`), racchiudi questo campo tra virgolette doppie. Un valore vuoto lascia la password invariata per gli utenti esistenti e imposta una password iniziale casuale per gli utenti appena creati.
+4.  *mail* — Un indirizzo email valido. Nota che, a differenza di Samba Active Directory, lo schema OpenLDAP RFC2307 non consente caratteri speciali. Un valore vuoto rimuove il corrispondente attributo LDAP `mail`.
+5.  *groups* — Un elenco di gruppi separati dal carattere `|` (pipe). Se un gruppo non esiste ancora, viene creato automaticamente durante l'importazione. Se questo campo è vuoto, l'utente viene rimosso da tutti i gruppi.
 6.  *locked* (booleano)
 7.  *must_change_password* (booleano)
 8.  *no_password_expiration* (booleano)
 
 I campi devono essere presenti nell'ordine esatto sopra indicato. Corrispondono agli attributi descritti nella sezione precedente; consulta [Creare utenti e gruppi](#create-users-and-groups-section) per maggiori informazioni.
+
+:::note
+
+Per compatibilità con il formato CSV delle versioni precedenti, il campo `Interno telefonico` non è disponibile nel file CSV.
+
+:::
 
 Gli ultimi tre campi sono valori booleani. I valori accettati sono limitati alle stringhe `true` e `false`. La stringa vuota e qualsiasi valore diverso da `true` vengono interpretati come `false`.
 
@@ -318,8 +312,11 @@ Durante la creazione di un utente, sono disponibili i seguenti campi:
 - Password
 - Gruppo (campo opzionale)
 - Indirizzo email (campo opzionale)
-- Password non scade mai (campo opzionale, solo AD)
+- Interno telefonico (campo opzionale)
+- Password non scade mai (campo opzionale)
 - Cambio password richiesto / L'utente deve cambiare la password al prossimo accesso (campo opzionale, solo AD)
+
+Per maggiori informazioni sui campi, consulta la sezione [Creare utenti e gruppi](#create-users-and-groups-section).
 
 Il portale è configurato automaticamente su ogni istanza di [Active Directory](#active_directory-section) o del provider [LDAP server RFC2307](#openldap-section).
 
