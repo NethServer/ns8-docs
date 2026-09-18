@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">User domains | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/docs/administrator-manual/installation/user_domains"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="User domains | NethServer 8 documentation"><meta data-rh="true" name="description" content="Users, passwords, and groups are stored in LDAP databases and constitute a user domain."><meta data-rh="true" property="og:description" content="Users, passwords, and groups are stored in LDAP databases and constitute a user domain."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/docs/administrator-manual/installation/user_domains"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/installation/user_domains" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/it/docs/administrator-manual/installation/user_domains" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/installation/user_domains" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"User domains","item":"https://docs.nethserver.org/docs/administrator-manual/installation/user_domains"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/opensearch.xml">
 <script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/assets/css/styles.d64e4b30.css">
-<script src="/assets/js/runtime~main.b8239100.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.dae662d2.js" defer="defer"></script>
 <script src="/assets/js/main.5aa93ee0.js" defer="defer"></script>
 </head>
 <body>
@@ -138,28 +138,26 @@ provider</strong> button, select the target node, and proceed with the installat
 </ul></div></div>
 <p>After editing the password policy, you can click on <strong>Edit password policy</strong> button to save the changes. Strength setting changes do not affect old passwords: they are valid from now on. Age setting changes are retroactive and are applied to already set passwords, too.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="password-warning">Password expiration warning<a href="#password-warning" class="hash-link" aria-label="Direct link to Password expiration warning" title="Direct link to Password expiration warning" translate="no">​</a></h3>
-<p>The system can send email notifications to users when their password is about to expire.</p>
-<p>This feature is available <strong>only for internal user domains</strong> and can be enabled on each user domain.</p>
-<p>To enable this feature, ensure the following:</p>
+<p>The system can send email notifications to users when their password is about to expire. This feature is available <strong>only for internal user domains</strong> and is configured separately for user domain.</p>
+<p>Before turning it on, make sure that:</p>
 <ul>
-<li class="">password aging must be enabled on the user domain</li>
-<li class="">the cluster must be configured to send <a class="" href="/docs/administrator-manual/configuration/email_notifications">mail notifications</a></li>
+<li class="">password aging is active on the user domain</li>
+<li class="">the cluster can send <a class="" href="/docs/administrator-manual/configuration/email_notifications">email notifications</a>, either through an internal Mail application or through an external SMTP server</li>
 </ul>
-<p>The feature can be enabled from the configuration page of the user domain by clicking the <strong>Edit password warning</strong> button on the <code>Password</code> card.</p>
-<p>After enabling the feature, fill the following fields:</p>
+<p>To activate it, open the user domain&#x27;s configuration page and click the <strong>Edit password warning</strong> button on the <code>Password</code> card, then fill in the following fields:</p>
 <ul>
 <li class=""><code>Days before expiration</code>: the number of days before the password expiration when the notification is sent. The notification is sent every day until the password expires</li>
 <li class=""><code>Sender mail address</code>: the email address of the sender, make sure this is a valid email address to avoid issues with spam filters</li>
 <li class=""><code>Mail template</code>: select the template to use for the notification email. You can choose between the default templates or a custom one. Default templates are available in English and Italian. To use a custom template, see <a href="#password_warning_custom_template-section" class="">Custom template</a>.</li>
 </ul>
-<p>The notification email is sent to the user mail address which can be automatically discovered or manually set by an administrator, depending on the cluster configuration.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="internal-smtp-server">Internal SMTP server<a href="#internal-smtp-server" class="hash-link" aria-label="Direct link to Internal SMTP server" title="Direct link to Internal SMTP server" translate="no">​</a></h4>
-<p>When a <a class="" href="/docs/administrator-manual/applications/mail">internal mail server</a> instance is installed, and the cluster is configured to send mail notifications using it, the user mail address is automatically discovered and used to send the password expiration notification.</p>
-<p>The mail address can be overwritten by an administrator setting the <code>mail</code> field inside the <a href="#user-management-portal-section" class="">User Management portal</a>.</p>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>If the cluster is configured to send mail notifications using an external SMTP server, the automatically discovered mail address is not valid because the user domain is not known to the external server. In this case you must explicitly set the mail address for the user.</p></div></div>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="external-smtp-server">External SMTP server<a href="#external-smtp-server" class="hash-link" aria-label="Direct link to External SMTP server" title="Direct link to External SMTP server" translate="no">​</a></h4>
-<p>When the cluster is configured to send mail notifications using an external SMTP server, the user mail address is not automatically discovered. An administrator must manually set for each user using the <a href="#user-management-portal-section" class="">User Management portal</a>.</p>
-<p>The mail address field is available for both OpenLDAP and Active Directory user domains.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="password-warning-recipient">Recipient address<a href="#password-warning-recipient" class="hash-link" aria-label="Direct link to Recipient address" title="Direct link to Recipient address" translate="no">​</a></h4>
+<p>The notification email recipient address is obtained from the user&#x27;s <code>Email</code> field (LDAP <code>mail</code> attribute), which can also be modified by a domain administrator in the <a href="#user-management-portal-section" class="">User Management portal</a>.</p>
+<p>If the LDAP attribute is empty or missing, the recipient address is obtained from a Mail application bound to the user domain. The address is assumed to be in the form <code>&lt;user_name&gt;@&lt;user_domain_name&gt;</code>.</p>
+<ul>
+<li class="">If that Mail application is the same one configured for <a class="" href="/docs/administrator-manual/configuration/email_notifications">email notifications</a>, the submission is internal and no public DNS MX record is required.</li>
+<li class="">Otherwise, delivery to <code>user_domain_name</code> follows conventional SMTP rules and does require a public DNS MX record.</li>
+</ul>
+<p>If neither the <code>Email</code> field is set nor a Mail application is associated with the user domain, no notification is sent.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="password_warning_custom_template-section">Custom template<a href="#password_warning_custom_template-section" class="hash-link" aria-label="Direct link to Custom template" title="Direct link to Custom template" translate="no">​</a></h4>
 <p>After selecting a custom template inside the <code>Mail template</code> field, you can specify 2 more fields:</p>
 <ul>
@@ -190,9 +188,10 @@ provider</strong> button, select the target node, and proceed with the installat
 </ul>
 <p>Optional attributes are:</p>
 <ul>
-<li class="">Email address -- Corresponds to the standard LDAP <code>mail</code> attribute. It can be set to the user&#x27;s personal email address, where password expiration warnings are sent. Some applications may also use it as a valid login name.</li>
-<li class="">Password never expires -- When enabled, the user&#x27;s password remains valid indefinitely, bypassing the domain password age policy.</li>
-<li class="">Required password change / User has to change password at next login (AD only) -- When enabled, the user is prompted to change their password at the next login.</li>
+<li class=""><code>Email</code> — Corresponds to the standard LDAP <code>mail</code> attribute. How this attribute is used depends on the applications that consume it. For example, it can be set to the user&#x27;s personal email address, where password expiration warnings are sent, as described in the <a href="#password-warning-recipient" class="">Password expiration warning</a> section; for matching <a class="" href="/docs/administrator-manual/applications/mail#email_domains">mail domains</a>, it may define a user&#x27;s alternative email address; other applications may also use it as a valid login name.</li>
+<li class=""><code>Phone extension</code> — The user&#x27;s internal phone extension. It is stored in the LDAP <code>telephoneNumber</code> attribute. As with the <code>Email</code> field, refer to the relevant application&#x27;s documentation.</li>
+<li class=""><code>Password never expires</code> — When enabled, the user&#x27;s password remains valid indefinitely, bypassing the domain password age policy.</li>
+<li class=""><code>Required password change</code> / <code>User has to change password at next login</code> (AD only) — When enabled, the user is prompted to change their password at the next login.</li>
 </ul>
 <p>A user can be added to one or more groups.</p>
 <p>Sometimes you need to block user access to services without deleting the account. The safest approach is:</p>
@@ -206,15 +205,16 @@ provider</strong> button, select the target node, and proceed with the installat
 <p>Users and groups can be managed in bulk with the <em>import</em> and <em>export data</em> actions. The supported data format is <a href="https://www.rfc-editor.org/rfc/rfc4180" target="_blank" rel="noopener noreferrer" class="">CSV</a> (comma-separated values) with the following fields:</p>
 <ol>
 <li class=""><em>username</em></li>
-<li class=""><em>display_name</em> -- An empty value removes the LDAP <code>displayName</code> attribute.</li>
-<li class=""><em>password</em> -- If the password contains a comma (e.g. <code>Nethesis,1234</code>), enclose this field in double quotes. An empty value leaves the password unchanged for existing users, and sets a random initial password for newly created users.</li>
-<li class=""><em>mail</em> -- A valid email address. Note that unlike Samba Active Directory, the OpenLDAP RFC2307 schema does not allow special characters. An empty value removes the corresponding <code>mail</code> LDAP attribute.</li>
-<li class=""><em>groups</em> -- A list of groups separated by the <code>|</code> (pipe) character. If a group does not exist yet, it is created on the fly during the import. If this field is empty, the user is removed from all groups.</li>
+<li class=""><em>display_name</em> — An empty value removes the LDAP <code>displayName</code> attribute.</li>
+<li class=""><em>password</em> — If the password contains a comma (e.g. <code>Nethesis,1234</code>), enclose this field in double quotes. An empty value leaves the password unchanged for existing users, and sets a random initial password for newly created users.</li>
+<li class=""><em>mail</em> — A valid email address. Note that unlike Samba Active Directory, the OpenLDAP RFC2307 schema does not allow special characters. An empty value removes the corresponding <code>mail</code> LDAP attribute.</li>
+<li class=""><em>groups</em> — A list of groups separated by the <code>|</code> (pipe) character. If a group does not exist yet, it is created on the fly during the import. If this field is empty, the user is removed from all groups.</li>
 <li class=""><em>locked</em> (boolean)</li>
 <li class=""><em>must_change_password</em> (boolean)</li>
 <li class=""><em>no_password_expiration</em> (boolean)</li>
 </ol>
 <p>The fields must be present in the above, exact order. They correspond to the attributes described in the previous section; refer to <a href="#create-users-and-groups-section" class="">Create users and groups</a> for more information.</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>For backward compatibility with the CSV format of earlier versions, the <code>Phone extension</code> field is not available in the CSV file.</p></div></div>
 <p>The last three fields are boolean values. Accepted values are limited to the strings <code>true</code> and <code>false</code>. The empty string, and any value other than <code>true</code>, is interpreted as <code>false</code>.</p>
 <p>For example, this CSV file includes an optional header line with the eight mandatory fields, followed by one record for user <code>john</code>, who is a member of the <code>devs</code> and <code>web</code> groups.</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">user,display_name,password,mail,groups,locked,must_change_password,no_password_expiration</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">john,Johnny Smith,s3Cr3tXX,john@example.org,devs|web,false,true,false</span><br></div></code></pre></div></div>
@@ -234,10 +234,12 @@ provider</strong> button, select the target node, and proceed with the installat
 <li class="">Full name (name and surname)</li>
 <li class="">Password</li>
 <li class="">Group (optional field)</li>
-<li class="">Email address (optional field)</li>
+<li class="">Email (optional field)</li>
+<li class="">Phone extension (optional field)</li>
 <li class="">Password never expires (optional field)</li>
 <li class="">Required password change / User has to change password at next login (optional field, AD only)</li>
 </ul>
+<p>Refer to the <a href="#create-users-and-groups-section" class="">Create users and groups</a> section for additional field information.</p>
 <p>The portal is automatically configured on every instance of <a href="#active_directory-section" class="">Active Directory</a> or <a href="#openldap-section" class="">LDAP server RFC2307</a> provider.</p>
 <p>The portal is available at the following URL:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">https://&lt;fqdn_node&gt;/users-admin/&lt;domain_name&gt;/</span><br></div></code></pre></div></div>
