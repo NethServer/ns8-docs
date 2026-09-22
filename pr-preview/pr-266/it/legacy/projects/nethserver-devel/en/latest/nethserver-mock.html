@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-mock &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-mysql" href="nethserver-mysql.html" />
+    <link rel="prev" title="nethserver-mattermost" href="nethserver-mattermost.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-mock", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-mock.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-mock</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-the-environment">Configuring the environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-scripts">Running the scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-and-release-builds">Development and Release builds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#signing-rpms">Signing RPMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-on-el8">Running on EL8</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-mock</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-mock.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-mock">
+<span id="nethserver-mock-module"></span><h1>nethserver-mock<a class="headerlink" href="#nethserver-mock" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">nethserver-mock</span></code> package provides some scripts to ease the process of
+building and releasing RPMs.</p>
+<div class="section" id="configuring-the-environment">
+<h2>Configuring the environment<a class="headerlink" href="#configuring-the-environment" title="Permalink to this headline">¶</a></h2>
+<p>On <strong>NethServer</strong>, install <code class="docutils literal notranslate"><span class="pre">nethserver-mock</span></code> package, by typing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install nethserver-mock
+</pre></div>
+</div>
+<p>On <strong>Fedora</strong>, and other RPM-based distros run the command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install &lt;URL&gt;
+</pre></div>
+</div>
+<p>Or</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dnf install &lt;URL&gt;
+</pre></div>
+</div>
+<p>where &lt;URL&gt; is <a class="reference external" href="http://packages.nethserver.org/nethserver/7.3.1611/base/x86_64/Packages/nethserver-mock-1.3.2-1.ns7.noarch.rpm">http://packages.nethserver.org/nethserver/7.3.1611/base/x86_64/Packages/nethserver-mock-1.3.2-1.ns7.noarch.rpm</a> at the time of writing.
+The build process uses Mock and must be run as a non privileged user,
+member of the <code class="docutils literal notranslate"><span class="pre">mock</span></code> system group.  Add your user to the <code class="docutils literal notranslate"><span class="pre">mock</span></code>
+group:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>usermod -a -G mock &lt;username&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-the-scripts">
+<h2>Running the scripts<a class="headerlink" href="#running-the-scripts" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">make-rpms</span></code> command eases building of the NethServer RPMs by
+hiding the complexity of other commands.  It is designed to work
+inside the git repository directory of NethServer packages, but should
+fit other environments, too.</p>
+<p>Start by cloning the git repository and move inside it. For instance</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/nethesis/nethserver-mail-server.git
+cd nethserver-mail-server
+</pre></div>
+</div>
+<p>To build the RPM just type</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>make-rpms nethserver-mail-server.spec
+</pre></div>
+</div>
+<p>The command writes the results into the current directory, assuming
+every change to the source code has been commited. If everything goes
+well they consist of:</p>
+<ul class="simple">
+<li>source RPM</li>
+<li>binary/noarch RPMs</li>
+<li>mock log files</li>
+</ul>
+<p>To clean up the git repository directory, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clean</span></code> may help:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clean -x -n
+</pre></div>
+</div>
+<p>Substitute <code class="docutils literal notranslate"><span class="pre">-n</span></code> with <code class="docutils literal notranslate"><span class="pre">-f</span></code> to actually remove the files!</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">make-rpms</span></code> command is sensible to <code class="docutils literal notranslate"><span class="pre">dist</span></code> and <code class="docutils literal notranslate"><span class="pre">mockcfg</span></code>
+environment variables.  If they are missing the default values are
+shown by invoking it without arguments.</p>
+</div>
+<p>For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dist=ns7 mockcfg=nethserver-7-x86_64 make-rpms *.spec
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">make-rpms</span></code> command in turn relies on other scripts</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">make-srpm</span></code></dt>
+<dd>Builds the <code class="file docutils literal notranslate"><span class="pre">.src.rpm</span></code> file.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">prep-sources</span></code></dt>
+<dd>Extracts and/or fetches the source tarballs.</dd>
+</dl>
+<p>The first <code class="docutils literal notranslate"><span class="pre">Source</span></code> tag in the <code class="file docutils literal notranslate"><span class="pre">.spec</span></code> file is assumed refer to
+the local git repository.  If an absolute URL is specified, only the
+last part is considered. Other <code class="docutils literal notranslate"><span class="pre">SourceN</span></code> tags must conform to the
+Fedora RPM guidelines <a class="footnote-reference" href="#fedorapg" id="id1">[1]</a>. The external sources are actually
+fetched by the <code class="docutils literal notranslate"><span class="pre">spectool</span></code> command.</p>
+<p>If the file <code class="file docutils literal notranslate"><span class="pre">SHA1SUM</span></code> exists in the same directory of the
+<code class="file docutils literal notranslate"><span class="pre">.spec</span></code> file the tarballs are checked against it.</p>
+</div>
+<div class="section" id="development-and-release-builds">
+<h2>Development and Release builds<a class="headerlink" href="#development-and-release-builds" title="Permalink to this headline">¶</a></h2>
+<p>During the development, a package can be rebuilt frequently: increasing build
+numbers and unique release identifiers are useful during this stage to help the
+whole process.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">make-rpms</span></code> is invoked, it checks the git log history and tags
+to decide what kind of build is required: <em>development</em> or <em>release</em>.</p>
+<p>Release builds produce a traditional RPM file name, i.e.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nethserver-mail-server-1.8.4-1.ns6.noarch.rpm
+</pre></div>
+</div>
+<p>Development builds produces a <em>marked</em> RPM, i.e:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nethserver-mail-server-1.8.3-1.6gite86697e.ns6.noarch.rpm
+</pre></div>
+</div>
+<p>Other differences in <em>development</em> from <em>release</em> are</p>
+<ul class="simple">
+<li>the <code class="docutils literal notranslate"><span class="pre">%changelog</span></code> section in <code class="file docutils literal notranslate"><span class="pre">.spec</span></code> is replaced by the git
+log history since the last tag</li>
+<li>the number of commits since the last tag, and the latest git commit
+hash are extracted from <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">describe</span></code> and prepended to the
+<code class="docutils literal notranslate"><span class="pre">%dist</span></code> macro.</li>
+</ul>
+</div>
+<div class="section" id="signing-rpms">
+<h2>Signing RPMs<a class="headerlink" href="#signing-rpms" title="Permalink to this headline">¶</a></h2>
+<p>The command <code class="docutils literal notranslate"><span class="pre">sign-rpms</span></code> is a wrapper around <code class="docutils literal notranslate"><span class="pre">rpm</span> <span class="pre">--resign</span></code>
+command.  Its advantage is it can read a password for the GPG
+signature from the filesystem. Sample invocation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sign-rpms -f ~/.secret -k ABCDABCD
+</pre></div>
+</div>
+<p>The signature is added automatically by <code class="docutils literal notranslate"><span class="pre">packages.nethserver.org</span></code>.</p>
+</div>
+<div class="section" id="running-on-el8">
+<h2>Running on EL8<a class="headerlink" href="#running-on-el8" title="Permalink to this headline">¶</a></h2>
+<p>It’s possible to use <code class="docutils literal notranslate"><span class="pre">nethserver-mock</span></code> also on EL8 (CentOS 8).
+If the build fails, please remove <code class="docutils literal notranslate"><span class="pre">dnf-plugin-spacewalk</span></code> RPM from the system.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="fedorapg" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Referencing Source <a class="reference external" href="http://fedoraproject.org/wiki/Packaging:SourceURL">http://fedoraproject.org/wiki/Packaging:SourceURL</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-mysql.html" class="btn btn-neutral float-right" title="nethserver-mysql" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-mattermost.html" class="btn btn-neutral float-left" title="nethserver-mattermost" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
