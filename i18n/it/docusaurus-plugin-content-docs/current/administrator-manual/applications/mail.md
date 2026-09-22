@@ -17,13 +17,13 @@ I vantaggi sono:
 - possibilità di tracciare il percorso dei messaggi per individuare gli errori
 - scansione antivirus e antispam ottimizzata
 
-:::warning
+:::note
 
-Anche se Software Center permette di installare più istanze di Mail sullo stesso nodo, puoi configurare e avviare una sola istanza di server di posta per nodo, altrimenti si verifica un errore di conflitto sulle porte TCP.
+Software Center impedisce di installare più di un'applicazione Mail sullo stesso nodo. Tuttavia, altri pacchetti o applicazioni che occupano le stesse porte TCP — come Exim o Postfix installati dalla distribuzione Linux — possono comunque impedire l'avvio di Mail. Assicurati che nessun altro servizio stia usando le sue porte prima di installarla.
 
 :::
 
-Un'istanza Mail può essere integrata con altre applicazioni. Per esempio:
+Altre applicazioni possono integrarsi con Mail. Per esempio:
 
 - [WebTop](webtop.md) groupware.
 - [Roundcube](roundcube.md) client webmail.
@@ -121,7 +121,7 @@ La procedura non calcola lo spazio su disco richiesto per il ripristino. Assicur
 
 :::
 
-1.  Vai all'istanza dell'applicazione Mail e apri la pagina Mailboxes. Scegli la scheda `User mailboxes` oppure `Public mailboxes` per visualizzare l'elenco delle caselle di posta. Dal menu a tre punti della casella desiderata, seleziona `Restore folder`.
+1.  Vai all'applicazione Mail e apri la pagina Mailboxes. Scegli la scheda `User mailboxes` oppure `Public mailboxes` per visualizzare l'elenco delle caselle di posta. Dal menu a tre punti della casella desiderata, seleziona `Restore folder`.
 
 2.  Seleziona la destinazione di backup da cui ripristinare la cartella. Il caricamento delle destinazioni remote può richiedere un po' di tempo.
 
@@ -357,7 +357,7 @@ I seguenti valori vengono impostati al momento della prima configurazione dell'a
 - `Mail server hostname` configura il modo in cui l'MTA si identifica verso gli altri MTA. Per ricevere correttamente i messaggi email, usa questo nome host per configurare i seguenti record DNS:
   - record `A`, che risolve il nome host del server Mail nell'indirizzo IP pubblico e statico del server.
   - record `PTR`, che risolve l'indirizzo IP nel nome host del server Mail.
-  - record `MX`, uno per ogni dominio di posta gestito dall'istanza dell'applicazione Mail.
+  - record `MX`, uno per ogni dominio di posta gestito dall'applicazione Mail.
   - record `TXT`, come specificato da DKIM, SPF e DMARC.
 - `User domain` seleziona un database LDAP con utenti, gruppi e password. Se il DB viene cambiato, le caselle di posta esistenti non vengono rimosse. Una casella di posta è ancora accessibile se lo stesso nome utente è presente sia nel vecchio sia nel nuovo database.
 

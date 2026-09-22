@@ -17,13 +17,13 @@ Benefits are:
 - ability to track the route of messages in order to detect errors
 - optimized antivirus and antispam scan
 
-:::warning
+:::note
 
-Even if Software Center allows to install multiple instances of Mail on the same node, you can configure and start only one mail server instance per node, otherwise a TCP port conflict error occurs.
+The Software Center prevents you from installing more than one Mail application on the same node. However, other packages or applications binding the same TCP ports — such as Exim or Postfix installed by the Linux distribution — can still make Mail fail to start. Make sure no other service is using its ports before installing it.
 
 :::
 
-A Mail instance can be integrated with other applications. For example:
+Other applications can integrate with Mail. For example:
 
 - [WebTop](webtop.md) groupware.
 - [Roundcube](roundcube.md) web mail client.
@@ -121,7 +121,7 @@ The procedure does not calculate the disk space usage required for the restore. 
 
 :::
 
-1.  Navigate to the Mail application instance and open the Mailboxes page. Choose the `User mailboxes` or `Public mailboxes` tab to view a list of mailboxes. From the three-dots menu of the desired mailbox, select `Restore folder`.
+1.  Navigate to the Mail application and open the Mailboxes page. Choose the `User mailboxes` or `Public mailboxes` tab to view a list of mailboxes. From the three-dots menu of the desired mailbox, select `Restore folder`.
 
 2.  Select the backup destination from which to restore the folder. Loading remote destinations may take some time.
 
@@ -357,7 +357,7 @@ The following values are set at application first configuration time. They shoul
 - `Mail server hostname` configures how the MTA identifies itself with other MTAs. To successfully receive email messages, use this host name to configure the following DNS records:
   - `A` record, resolving the Mail server hostname to the public and static IP address of the server.
   - `PTR` record, resolving back the IP address to the Mail server hostname.
-  - `MX` records, one for each mail domain handled by the Mail application instance.
+  - `MX` records, one for each mail domain handled by the Mail application.
   - `TXT` records, as specified by DKIM, SPF and DMARC.
 - `User domain` selects a LDAP database with user, groups and passwords. If the DB is changed existing mailboxes are not removed! A mailbox is still accessible if the same user name is present in both the old and the new database.
 
