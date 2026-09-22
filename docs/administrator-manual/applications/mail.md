@@ -384,7 +384,7 @@ For instance, to access as `john` with root password `secr3t`, use the following
 
 The `Maximal queue lifetime` parameter defines how many hours a message can remain in the mail queue before it is returned to the sender.
 
-The default value, 120 hours (5 days), is the retry time suggested by RFC5321. Lower values might be set to warn the sender early if some error occurs. For example, if the remote mail server refuses a message because our IP address is in a public block list, the message sender will be notified after 5 days: it might be considered too late.
+The default value, 120 hours (5 days), is the retry time suggested by RFC 5321. Lower values might be set to warn the sender early if some error occurs. For example, if the remote mail server refuses a message because our IP address is in a public block list, the message sender will be notified after 5 days: it might be considered too late.
 
 ### Relay settings {#mail-relay-settings}
 
@@ -435,29 +435,24 @@ The [Piler application](piler.md) can automatically configure this field with th
 
 ## Client configuration {#email_clients}
 
-The server supports standard-compliant email clients using the following IANA ports:
+The following TCP ports, using implicit TLS as recommended by RFC 8314, should be used:
 
-- imap/143
-- pop3/110
-- smtp/587
-- sieve/4190
+- 993 imaps
+- 995 pop3s
+- 465 submissions
 
-Authentication requires the STARTTLS command and supports the following variants:
+TCP port 25 is reserved for mail transfers between MTA servers; clients must not use it.
+
+Authentication supports the following variants:
 
 - LOGIN
 - PLAIN
 
-Also the following TLS-enabled ports are available for legacy software that still does not support STARTTLS:
+The following TCP ports are still available for legacy environments relying on STARTTLS:
 
-- imaps/993
-- pop3s/995
-- smtps/465
-
-:::note
-
-The standard SMTP port 25 is reserved for mail transfers between MTA servers. Mail user agents (MUA) must use the submission port.
-
-:::
+- 143 imap
+- 110 pop3
+- 587 submission
 
 :::note
 
