@@ -87,15 +87,23 @@ L'elenco delle caselle di posta è mostrato nella pagina `Mailboxes`. Esistono d
 
 ### Casella di posta utente
 
-Ogni utente ha una casella di posta personale. Abilitando l'opzione `Add user addresses from user domain` in [Domini](#email_domains), qualsiasi nome utente nel formato *\<username\>@\<domain\>* diventa anch'esso un indirizzo email valido al quale recapitare messaggi.
+Ogni utente ha una casella di posta personale. Abilita l'opzione `Add user addresses from user domain` in [Domini](#email_domains) per rendere valido come indirizzo email, per il recapito dei messaggi, qualsiasi nome utente nel formato *\<username\>@\<domain\>*.
 
 Puoi disabilitare ogni casella di posta selezionando la voce `Disable` dal menu a tre punti della riga corrispondente.
 
 Facendo clic sulla voce `Edit` del menu a tre punti, puoi configurare le seguenti opzioni:
 
-- `Forward messages`: inoltra tutti i messaggi a un altro indirizzo email
+- `Forward messages`: inoltra i messaggi ad altri indirizzi email (vedi sotto)
 - `Custom mailbox quota`: sostituisce la quota configurata nelle [Impostazioni](#mail_settings-section)
 - `Custom spam retention`: sostituisce la retention configurata nelle [Impostazioni](#mail_settings-section)
+
+Dopo aver abilitato l'interruttore `Forward messages`, i messaggi non vengono recapitati nella casella di posta dell'utente. Vengono invece inviati agli indirizzi elencati in `Forward addresses`. Questo elenco può includere utenti e gruppi locali, oltre a indirizzi esterni. Se vuoi comunque mantenere una copia locale, abilita `Keep a copy of messages on this server`.
+
+Per evitare che i messaggi inoltrati vengano respinti dai controlli sulla sender policy (SPF) del destinatario, Mail applica una trasformazione Sender Rewriting Scheme (SRS) all'indirizzo del mittente nella busta SMTP di qualsiasi messaggio in arrivo il cui dominio del mittente non sia uno dei domini locali di Mail. L'indirizzo riscritto ha una forma simile a `SRS0=...@<local-domain>`, dove il suffisso di dominio è uno dei domini locali di Mail. Questa riscrittura avviene per ogni messaggio di questo tipo, non solo per quelli che verranno effettivamente inoltrati, perché Mail non può sapere in anticipo se un messaggio sarà inoltrato.
+
+Cambia solo il mittente nascosto della busta: gli intestatari visibili `From`, `Subject` e il corpo del messaggio non vengono mai alterati, quindi la firma DKIM resta valida. Questo comportamento può comunque risultare visibile in alcuni casi particolari, per esempio se il messaggio viene anche archiviato tramite [Piler](piler.md), oppure se una regola Sieve filtra in base al mittente della busta anziché all'intestazione `From`.
+
+Se in seguito arriva un messaggio di bounce o una notifica di stato di consegna (DSN) indirizzata all'indirizzo riscritto, Mail la verifica e la traduce nuovamente nel mittente originale, in modo che risposte ed errori di consegna raggiungano la casella di posta corretta.
 
 ### Casella di posta pubblica
 

@@ -87,15 +87,23 @@ The list of mailboxes is shown on the `Mailboxes` page. There are two types of m
 
 ### User mailbox
 
-Each user has a personal mailbox. By enabling the `Add user addresses from user domain` option under [Domains](#email_domains) any user name in the form *\<username\>@\<domain\>* is also a valid email address to deliver messages into it.
+Each user has a personal mailbox. Enable the `Add user addresses from user domain` option under [Domains](#email_domains) to make any user name in the form *\<username\>@\<domain\>* a valid email address for delivering messages into it.
 
-You can disable each mailbox by selecting the `Disable` item from the three-dots menu on the mailbox line.
+To disable a mailbox, select the `Disable` item from the three-dots menu on the mailbox line.
 
-By clicking the `Edit` item from the three-dots menu it's possible to setup the following options:
+Click the `Edit` item from the three-dots menu to set up the following options:
 
-- `Forward messages`: forward all messages to another email address
+- `Forward messages`: forward messages to other email addresses (see below)
 - `Custom mailbox quota`: override the quota configured from the [Settings](#mail_settings-section)
 - `Custom spam retention`: override the retention configured from the [Settings](#mail_settings-section)
+
+After enabling the `Forward messages` switch, messages are not delivered to the user's mailbox. They are sent to the `Forward addresses` list. This list can include both local users and groups, and external addresses. If you still want a local mailbox copy, enable `Keep a copy of messages on this server`.
+
+To keep forwarded messages from being rejected by the destination's sender policy (SPF) checks, Mail applies a Sender Rewriting Scheme (SRS) transformation to the SMTP envelope sender address of any incoming message whose sender domain is not one of the Mail local domains. The rewritten address looks like `SRS0=...@<local-domain>`, where the domain suffix is one of the Mail local domains. This rewrite happens for every such message, not only for the ones that end up being forwarded, since Mail cannot know in advance whether a message will be forwarded.
+
+Only the hidden envelope sender changes: the visible `From`, `Subject`, and body of the message are never altered, so DKIM signing is preserved. This can still be visible in some corner cases, for example if the message is also archived through [Piler](piler.md), or if a Sieve rule filters on the envelope sender rather than on the `From` header.
+
+If a bounce or delivery status notification is later sent back to the rewritten address, Mail verifies it and translates it back to the original sender, so replies and delivery failures reach the right mailbox.
 
 ### Public mailbox
 
