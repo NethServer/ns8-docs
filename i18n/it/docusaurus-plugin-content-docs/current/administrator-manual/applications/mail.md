@@ -384,7 +384,7 @@ Per esempio, per accedere come `john` con password del master user `secr3t`, usa
 
 Il parametro `Maximal queue lifetime` definisce per quante ore un messaggio può rimanere nella coda di posta prima di essere restituito al mittente.
 
-Il valore predefinito, 120 ore (5 giorni), è il tempo di ritentativo suggerito da RFC5321. Potresti impostare valori più bassi per avvisare prima il mittente se si verifica un errore. Per esempio, se il server di posta remoto rifiuta un messaggio perché il nostro indirizzo IP è presente in una block list pubblica, il mittente verrà avvisato dopo 5 giorni: potrebbe essere considerato troppo tardi.
+Il valore predefinito, 120 ore (5 giorni), è il tempo di ritentativo suggerito da RFC 5321. Potresti impostare valori più bassi per avvisare prima il mittente se si verifica un errore. Per esempio, se il server di posta remoto rifiuta un messaggio perché il nostro indirizzo IP è presente in una block list pubblica, il mittente verrà avvisato dopo 5 giorni: potrebbe essere considerato troppo tardi.
 
 ### Impostazioni del relay {#mail-relay-settings}
 
@@ -435,29 +435,24 @@ L'applicazione [Piler](piler.md) può configurare automaticamente questo campo c
 
 ## Configurazione dei client {#email_clients}
 
-Il server supporta client email conformi agli standard usando le seguenti porte IANA:
+Le seguenti porte TCP, che usano TLS implicito come raccomandato da RFC 8314, dovrebbero essere usate:
 
-- imap/143
-- pop3/110
-- smtp/587
-- sieve/4190
+- 993 imaps
+- 995 pop3s
+- 465 submissions
 
-L'autenticazione richiede il comando STARTTLS e supporta le seguenti varianti:
+La porta TCP 25 è riservata ai trasferimenti di posta tra server MTA; i client non devono usarla.
+
+L'autenticazione supporta le seguenti varianti:
 
 - LOGIN
 - PLAIN
 
-Sono disponibili anche le seguenti porte con TLS abilitato per software legacy che non supportano ancora STARTTLS:
+Le seguenti porte TCP sono ancora disponibili per ambienti legacy che si affidano a STARTTLS:
 
-- imaps/993
-- pop3s/995
-- smtps/465
-
-:::note
-
-La porta SMTP standard 25 è riservata ai trasferimenti di posta tra server MTA. I mail user agent (MUA) devono usare la porta submission.
-
-:::
+- 143 imap
+- 110 pop3
+- 587 submission
 
 :::note
 
