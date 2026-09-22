@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Mail | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/docs/administrator-manual/applications/mail"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Mail | NethServer 8 documentation"><meta data-rh="true" name="description" content="The Mail application is split into four main parts:"><meta data-rh="true" property="og:description" content="The Mail application is split into four main parts:"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/docs/administrator-manual/applications/mail"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/applications/mail" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/it/docs/administrator-manual/applications/mail" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/applications/mail" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mail","item":"https://docs.nethserver.org/docs/administrator-manual/applications/mail"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/opensearch.xml">
 <script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/assets/css/styles.d64e4b30.css">
-<script src="/assets/js/runtime~main.dae662d2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.fb25744a.js" defer="defer"></script>
 <script src="/assets/js/main.5aa93ee0.js" defer="defer"></script>
 </head>
 <body>
@@ -283,7 +283,7 @@
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="queue-settings-section">Queue settings<a href="#queue-settings-section" class="hash-link" aria-label="Direct link to Queue settings" title="Direct link to Queue settings" translate="no">​</a></h3>
 <p>The <code>Maximal queue lifetime</code> parameter defines how many hours a message can remain in the mail queue before it is returned to the sender.</p>
-<p>The default value, 120 hours (5 days), is the retry time suggested by RFC5321. Lower values might be set to warn the sender early if some error occurs. For example, if the remote mail server refuses a message because our IP address is in a public block list, the message sender will be notified after 5 days: it might be considered too late.</p>
+<p>The default value, 120 hours (5 days), is the retry time suggested by RFC 5321. Lower values might be set to warn the sender early if some error occurs. For example, if the remote mail server refuses a message because our IP address is in a public block list, the message sender will be notified after 5 days: it might be considered too late.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-relay-settings">Relay settings<a href="#mail-relay-settings" class="hash-link" aria-label="Direct link to Relay settings" title="Direct link to Relay settings" translate="no">​</a></h3>
 <p>This section controls the Mail application configuration for special scenarios, described in the following sections.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="ip-based-relay">IP-based relay<a href="#ip-based-relay" class="hash-link" aria-label="Direct link to IP-based relay" title="Direct link to IP-based relay" translate="no">​</a></h4>
@@ -304,25 +304,24 @@
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Making a hidden copy of private email messages is a privacy-sensitive feature. Ensure its use complies with your country&#x27;s privacy laws, regulations, and company policies.</p></div></div>
 <p>The <a class="" href="/docs/administrator-manual/applications/piler">Piler application</a> can automatically configure this field with the appropriate value, such as <code>archive@piler1</code> or similar. In this case, changing the address might prevent Piler from archiving new messages.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="email_clients">Client configuration<a href="#email_clients" class="hash-link" aria-label="Direct link to Client configuration" title="Direct link to Client configuration" translate="no">​</a></h2>
-<p>The server supports standard-compliant email clients using the following IANA ports:</p>
+<p>The following TCP ports, using implicit TLS as recommended by RFC 8314, should be used:</p>
 <ul>
-<li class="">imap/143</li>
-<li class="">pop3/110</li>
-<li class="">smtp/587</li>
-<li class="">sieve/4190</li>
+<li class="">993 imaps</li>
+<li class="">995 pop3s</li>
+<li class="">465 submissions</li>
 </ul>
-<p>Authentication requires the STARTTLS command and supports the following variants:</p>
+<p>TCP port 25 is reserved for mail transfers between MTA servers; clients must not use it.</p>
+<p>Authentication supports the following variants:</p>
 <ul>
 <li class="">LOGIN</li>
 <li class="">PLAIN</li>
 </ul>
-<p>Also the following TLS-enabled ports are available for legacy software that still does not support STARTTLS:</p>
+<p>The following TCP ports are still available for legacy environments relying on STARTTLS:</p>
 <ul>
-<li class="">imaps/993</li>
-<li class="">pop3s/995</li>
-<li class="">smtps/465</li>
+<li class="">143 imap</li>
+<li class="">110 pop3</li>
+<li class="">587 submission</li>
 </ul>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>The standard SMTP port 25 is reserved for mail transfers between MTA servers. Mail user agents (MUA) must use the submission port.</p></div></div>
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>When a mailbox is created, only the <code>Inbox</code>, <code>Trash</code>, and <code>Junk</code> folders exist. The <code>Drafts</code> and <code>Sent</code> folders are created automatically only at the first login into Roundcube or WebTop.</p><p>If a third-party IMAP client is configured before the first Roundcube or WebTop login, it may create its own <code>Drafts</code>/<code>Sent</code> folders using localized names (e.g. <code>Brouillons</code>/<code>Éléments envoyés</code> in French). These are not recognized as equivalent to the standard folders, so a later webmail login can create duplicate <code>Drafts</code>/<code>Sent</code> folders alongside them. To avoid this, log into Roundcube or WebTop at least once before configuring any other IMAP client.</p></div></div>
 <p>Refer to the <a class="" href="/docs/administrator-manual/applications/webtop#email_autoconfig">Webtop application</a> for the implementation of automatic configuration protocols like Autodiscover and Autoconfig.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-outbound-connections">Mail outbound connections<a href="#mail-outbound-connections" class="hash-link" aria-label="Direct link to Mail outbound connections" title="Direct link to Mail outbound connections" translate="no">​</a></h2>
