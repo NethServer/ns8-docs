@@ -99,9 +99,9 @@ Click the `Edit` item from the three-dots menu to set up the following options:
 
 After enabling the `Forward messages` switch, messages are not delivered to the user's mailbox. They are sent to the `Forward addresses` list. This list can include both local users and groups, and external addresses. If you still want a local mailbox copy, enable `Keep a copy of messages on this server`.
 
-To keep forwarded messages from being rejected by the destination's sender policy (SPF) checks, Mail applies a Sender Rewriting Scheme (SRS) transformation to the SMTP envelope sender address of any incoming message whose sender domain is not one of the Mail local domains. The rewritten address looks like `SRS0=...@<local-domain>`, where the domain suffix is one of the Mail local domains. This rewrite happens for every such message, not only for the ones that end up being forwarded, since Mail cannot know in advance whether a message will be forwarded.
+Mail rewrites the SMTP envelope sender address of any message whose sender domain is not one of the Mail local domains, applying a Sender Rewriting Scheme (SRS) transformation in the form `SRS0=...@<local-domain>`. This happens whether or not the message ends up being forwarded, and keeps forwarded messages from being rejected by the destination's sender policy (SPF) checks.
 
-Only the hidden envelope sender changes: the visible `From`, `Subject`, and body of the message are never altered, so DKIM signing is preserved. This can still be visible in some corner cases, for example if the message is also archived through [Piler](piler.md), or if a Sieve rule filters on the envelope sender rather than on the `From` header.
+This rewrite changes only the hidden envelope sender, never the visible `From`, `Subject`, or body of the message, so it is generally invisible to users and DKIM signing is preserved. It is still worth knowing about in corner cases, for example if the message is also archived through [Piler](piler.md), or if a Sieve rule filters on the envelope sender rather than on the `From` header.
 
 If a bounce or delivery status notification is later sent back to the rewritten address, Mail verifies it and translates it back to the original sender, so replies and delivery failures reach the right mailbox.
 
