@@ -89,9 +89,9 @@ L'elenco delle caselle di posta è mostrato nella pagina `Mailboxes`. Esistono d
 
 Ogni utente ha una casella di posta personale. Abilita l'opzione `Add user addresses from user domain` in [Domini](#email_domains) per rendere valido come indirizzo email, per il recapito dei messaggi, qualsiasi nome utente nel formato *\<username\>@\<domain\>*.
 
-Puoi disabilitare ogni casella di posta selezionando la voce `Disable` dal menu a tre punti della riga corrispondente.
+Per disabilitare una casella di posta, seleziona la voce `Disable` dal menu a tre punti della riga corrispondente.
 
-Facendo clic sulla voce `Edit` del menu a tre punti, puoi configurare le seguenti opzioni:
+Fai clic sulla voce `Edit` del menu a tre punti per configurare le seguenti opzioni:
 
 - `Forward messages`: inoltra i messaggi ad altri indirizzi email (vedi sotto)
 - `Custom mailbox quota`: sostituisce la quota configurata nelle [Impostazioni](#mail_settings-section)
@@ -103,7 +103,7 @@ Mail riscrive l'indirizzo del mittente nella busta SMTP di qualsiasi messaggio i
 
 Questa riscrittura cambia solo il mittente nascosto della busta, mai gli intestatari visibili `From`, `Subject` o il corpo del messaggio, quindi in genere è invisibile agli utenti e la firma DKIM resta valida. Vale comunque la pena conoscerlo in alcuni casi particolari, per esempio se il messaggio viene anche archiviato tramite [Piler](piler.md), oppure se una regola Sieve filtra in base al mittente della busta anziché all'intestazione `From`.
 
-Se in seguito arriva un messaggio di bounce o una notifica di stato di consegna (DSN) indirizzata all'indirizzo riscritto, Mail la verifica e la traduce nuovamente nel mittente originale, in modo che risposte ed errori di consegna raggiungano la casella di posta corretta.
+Se in seguito arriva un messaggio di bounce o una notifica di stato di consegna (DSN) indirizzata all'indirizzo riscritto, Mail la verifica e la traduce nuovamente nel mittente originale, in modo che gli errori di consegna raggiungano il mittente originale.
 
 ### Casella di posta pubblica
 

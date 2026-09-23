@@ -103,7 +103,7 @@ Mail rewrites the SMTP envelope sender address of any message whose sender domai
 
 This rewrite changes only the hidden envelope sender, never the visible `From`, `Subject`, or body of the message, so it is generally invisible to users and DKIM signing is preserved. It is still worth knowing about in corner cases, for example if the message is also archived through [Piler](piler.md), or if a Sieve rule filters on the envelope sender rather than on the `From` header.
 
-If a bounce or delivery status notification is later sent back to the rewritten address, Mail verifies it and translates it back to the original sender, so replies and delivery failures reach the right mailbox.
+If a bounce or delivery status notification is later sent back to the rewritten address, Mail verifies it and translates it back to the original sender, so delivery failures reach the original sender.
 
 ### Public mailbox
 
