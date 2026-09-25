@@ -17,13 +17,13 @@ Benefits are:
 - ability to track the route of messages in order to detect errors
 - optimized antivirus and antispam scan
 
-:::warning
+:::note
 
-Even if Software Center allows to install multiple instances of Mail on the same node, you can configure and start only one mail server instance per node, otherwise a TCP port conflict error occurs.
+The Software Center prevents you from installing more than one Mail application on the same node. However, other packages or applications binding the same TCP ports — such as Exim or Postfix installed by the Linux distribution — can still make Mail fail to start. Make sure no other service is using its ports before installing it.
 
 :::
 
-A Mail instance can be integrated with other applications. For example:
+Other applications can integrate with Mail. For example:
 
 - [WebTop](webtop.md) groupware.
 - [Roundcube](roundcube.md) web mail client.
@@ -87,15 +87,23 @@ The list of mailboxes is shown on the `Mailboxes` page. There are two types of m
 
 ### User mailbox
 
-Each user has a personal mailbox. By enabling the `Add user addresses from user domain` option under [Domains](#email_domains) any user name in the form *\<username\>@\<domain\>* is also a valid email address to deliver messages into it.
+Each user has a personal mailbox. Enable the `Add user addresses from user domain` option under [Domains](#email_domains) to make any user name in the form *\<username\>@\<domain\>* a valid email address for delivering messages into it.
 
-You can disable each mailbox by selecting the `Disable` item from the three-dots menu on the mailbox line.
+To disable a mailbox, select the `Disable` item from the three-dots menu on the mailbox line.
 
-By clicking the `Edit` item from the three-dots menu it's possible to setup the following options:
+Click the `Edit` item from the three-dots menu to set up the following options:
 
-- `Forward messages`: forward all messages to another email address
+- `Forward messages`: forward messages to other email addresses (see below)
 - `Custom mailbox quota`: override the quota configured from the [Settings](#mail_settings-section)
 - `Custom spam retention`: override the retention configured from the [Settings](#mail_settings-section)
+
+After enabling the `Forward messages` switch, messages are not delivered to the user's mailbox. They are sent to the `Forward addresses` list. This list can include both local users and groups, and external addresses. If you still want a local mailbox copy, enable `Keep a copy of messages on this server`.
+
+Mail rewrites the SMTP envelope sender address of any message whose sender domain is not one of the Mail local domains, applying a Sender Rewriting Scheme (SRS) transformation in the form `SRS0=...@<local-domain>`. This happens whether or not the message ends up being forwarded, and keeps forwarded messages from being rejected by the destination's sender policy (SPF) checks.
+
+This rewrite changes only the hidden envelope sender, never the visible `From`, `Subject`, or body of the message, so it is generally invisible to users and DKIM signing is preserved. It is still worth knowing about in corner cases, for example if the message is also archived through [Piler](piler.md), or if a Sieve rule filters on the envelope sender rather than on the `From` header.
+
+If a bounce or delivery status notification is later sent back to the rewritten address, Mail verifies it and translates it back to the original sender, so delivery failures reach the original sender.
 
 ### Public mailbox
 
@@ -113,7 +121,7 @@ The procedure does not calculate the disk space usage required for the restore. 
 
 :::
 
-1.  Navigate to the Mail application instance and open the Mailboxes page. Choose the `User mailboxes` or `Public mailboxes` tab to view a list of mailboxes. From the three-dots menu of the desired mailbox, select `Restore folder`.
+1.  Navigate to the Mail application and open the Mailboxes page. Choose the `User mailboxes` or `Public mailboxes` tab to view a list of mailboxes. From the three-dots menu of the desired mailbox, select `Restore folder`.
 
 2.  Select the backup destination from which to restore the folder. Loading remote destinations may take some time.
 
@@ -349,7 +357,7 @@ The following values are set at application first configuration time. They shoul
 - `Mail server hostname` configures how the MTA identifies itself with other MTAs. To successfully receive email messages, use this host name to configure the following DNS records:
   - `A` record, resolving the Mail server hostname to the public and static IP address of the server.
   - `PTR` record, resolving back the IP address to the Mail server hostname.
-  - `MX` records, one for each mail domain handled by the Mail application instance.
+  - `MX` records, one for each mail domain handled by the Mail application.
   - `TXT` records, as specified by DKIM, SPF and DMARC.
 - `User domain` selects a LDAP database with user, groups and passwords. If the DB is changed existing mailboxes are not removed! A mailbox is still accessible if the same user name is present in both the old and the new database.
 

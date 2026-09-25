@@ -17,13 +17,13 @@ I vantaggi sono:
 - possibilità di tracciare il percorso dei messaggi per individuare gli errori
 - scansione antivirus e antispam ottimizzata
 
-:::warning
+:::note
 
-Anche se Software Center permette di installare più istanze di Mail sullo stesso nodo, puoi configurare e avviare una sola istanza di server di posta per nodo, altrimenti si verifica un errore di conflitto sulle porte TCP.
+Software Center impedisce di installare più di un'applicazione Mail sullo stesso nodo. Tuttavia, altri pacchetti o applicazioni che occupano le stesse porte TCP — come Exim o Postfix installati dalla distribuzione Linux — possono comunque impedire l'avvio di Mail. Assicurati che nessun altro servizio stia usando le sue porte prima di installarla.
 
 :::
 
-Un'istanza Mail può essere integrata con altre applicazioni. Per esempio:
+Altre applicazioni possono integrarsi con Mail. Per esempio:
 
 - [WebTop](webtop.md) groupware.
 - [Roundcube](roundcube.md) client webmail.
@@ -87,15 +87,23 @@ L'elenco delle caselle di posta è mostrato nella pagina `Mailboxes`. Esistono d
 
 ### Casella di posta utente
 
-Ogni utente ha una casella di posta personale. Abilitando l'opzione `Add user addresses from user domain` in [Domini](#email_domains), qualsiasi nome utente nel formato *\<username\>@\<domain\>* diventa anch'esso un indirizzo email valido al quale recapitare messaggi.
+Ogni utente ha una casella di posta personale. Abilita l'opzione `Add user addresses from user domain` in [Domini](#email_domains) per rendere valido come indirizzo email, per il recapito dei messaggi, qualsiasi nome utente nel formato *\<username\>@\<domain\>*.
 
-Puoi disabilitare ogni casella di posta selezionando la voce `Disable` dal menu a tre punti della riga corrispondente.
+Per disabilitare una casella di posta, seleziona la voce `Disable` dal menu a tre punti della riga corrispondente.
 
-Facendo clic sulla voce `Edit` del menu a tre punti, puoi configurare le seguenti opzioni:
+Fai clic sulla voce `Edit` del menu a tre punti per configurare le seguenti opzioni:
 
-- `Forward messages`: inoltra tutti i messaggi a un altro indirizzo email
+- `Forward messages`: inoltra i messaggi ad altri indirizzi email (vedi sotto)
 - `Custom mailbox quota`: sostituisce la quota configurata nelle [Impostazioni](#mail_settings-section)
 - `Custom spam retention`: sostituisce la retention configurata nelle [Impostazioni](#mail_settings-section)
+
+Dopo aver abilitato l'interruttore `Forward messages`, i messaggi non vengono recapitati nella casella di posta dell'utente. Vengono invece inviati agli indirizzi elencati in `Forward addresses`. Questo elenco può includere utenti e gruppi locali, oltre a indirizzi esterni. Se vuoi comunque mantenere una copia locale, abilita `Keep a copy of messages on this server`.
+
+Mail riscrive l'indirizzo del mittente nella busta SMTP di qualsiasi messaggio il cui dominio del mittente non sia uno dei domini locali di Mail, applicando una trasformazione Sender Rewriting Scheme (SRS) nella forma `SRS0=...@<local-domain>`. Questo avviene indipendentemente dal fatto che il messaggio venga poi effettivamente inoltrato, ed evita che i messaggi inoltrati vengano respinti dai controlli sulla sender policy (SPF) del destinatario.
+
+Questa riscrittura cambia solo il mittente nascosto della busta, mai gli intestatari visibili `From`, `Subject` o il corpo del messaggio, quindi in genere è invisibile agli utenti e la firma DKIM resta valida. Vale comunque la pena conoscerlo in alcuni casi particolari, per esempio se il messaggio viene anche archiviato tramite [Piler](piler.md), oppure se una regola Sieve filtra in base al mittente della busta anziché all'intestazione `From`.
+
+Se in seguito arriva un messaggio di bounce o una notifica di stato di consegna (DSN) indirizzata all'indirizzo riscritto, Mail la verifica e la traduce nuovamente nel mittente originale, in modo che gli errori di consegna raggiungano il mittente originale.
 
 ### Casella di posta pubblica
 
@@ -113,7 +121,7 @@ La procedura non calcola lo spazio su disco richiesto per il ripristino. Assicur
 
 :::
 
-1.  Vai all'istanza dell'applicazione Mail e apri la pagina Mailboxes. Scegli la scheda `User mailboxes` oppure `Public mailboxes` per visualizzare l'elenco delle caselle di posta. Dal menu a tre punti della casella desiderata, seleziona `Restore folder`.
+1.  Vai all'applicazione Mail e apri la pagina Mailboxes. Scegli la scheda `User mailboxes` oppure `Public mailboxes` per visualizzare l'elenco delle caselle di posta. Dal menu a tre punti della casella desiderata, seleziona `Restore folder`.
 
 2.  Seleziona la destinazione di backup da cui ripristinare la cartella. Il caricamento delle destinazioni remote può richiedere un po' di tempo.
 
@@ -349,7 +357,7 @@ I seguenti valori vengono impostati al momento della prima configurazione dell'a
 - `Mail server hostname` configura il modo in cui l'MTA si identifica verso gli altri MTA. Per ricevere correttamente i messaggi email, usa questo nome host per configurare i seguenti record DNS:
   - record `A`, che risolve il nome host del server Mail nell'indirizzo IP pubblico e statico del server.
   - record `PTR`, che risolve l'indirizzo IP nel nome host del server Mail.
-  - record `MX`, uno per ogni dominio di posta gestito dall'istanza dell'applicazione Mail.
+  - record `MX`, uno per ogni dominio di posta gestito dall'applicazione Mail.
   - record `TXT`, come specificato da DKIM, SPF e DMARC.
 - `User domain` seleziona un database LDAP con utenti, gruppi e password. Se il DB viene cambiato, le caselle di posta esistenti non vengono rimosse. Una casella di posta è ancora accessibile se lo stesso nome utente è presente sia nel vecchio sia nel nuovo database.
 
