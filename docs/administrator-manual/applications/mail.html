@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Mail | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/docs/administrator-manual/applications/mail"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Mail | NethServer 8 documentation"><meta data-rh="true" name="description" content="The Mail application is split into four main parts:"><meta data-rh="true" property="og:description" content="The Mail application is split into four main parts:"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/docs/administrator-manual/applications/mail"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/applications/mail" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/it/docs/administrator-manual/applications/mail" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/applications/mail" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mail","item":"https://docs.nethserver.org/docs/administrator-manual/applications/mail"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/opensearch.xml">
 <script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/assets/css/styles.d64e4b30.css">
-<script src="/assets/js/runtime~main.fb25744a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d21317f2.js" defer="defer"></script>
 <script src="/assets/js/main.5aa93ee0.js" defer="defer"></script>
 </head>
 <body>
@@ -27,8 +27,8 @@
 <li class="">ability to track the route of messages in order to detect errors</li>
 <li class="">optimized antivirus and antispam scan</li>
 </ul>
-<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Even if Software Center allows to install multiple instances of Mail on the same node, you can configure and start only one mail server instance per node, otherwise a TCP port conflict error occurs.</p></div></div>
-<p>A Mail instance can be integrated with other applications. For example:</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>The Software Center prevents you from installing more than one Mail application on the same node. However, other packages or applications binding the same TCP ports — such as Exim or Postfix installed by the Linux distribution — can still make Mail fail to start. Make sure no other service is using its ports before installing it.</p></div></div>
+<p>Other applications can integrate with Mail. For example:</p>
 <ul>
 <li class=""><a class="" href="/docs/administrator-manual/applications/webtop">WebTop</a> groupware.</li>
 <li class=""><a class="" href="/docs/administrator-manual/applications/roundcube">Roundcube</a> web mail client.</li>
@@ -69,14 +69,18 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mail-mailboxes-settings">Mailboxes<a href="#mail-mailboxes-settings" class="hash-link" aria-label="Direct link to Mailboxes" title="Direct link to Mailboxes" translate="no">​</a></h2>
 <p>The list of mailboxes is shown on the <code>Mailboxes</code> page. There are two types of mailboxes: users and public mailboxes.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="user-mailbox">User mailbox<a href="#user-mailbox" class="hash-link" aria-label="Direct link to User mailbox" title="Direct link to User mailbox" translate="no">​</a></h3>
-<p>Each user has a personal mailbox. By enabling the <code>Add user addresses from user domain</code> option under <a href="#email_domains" class="">Domains</a> any user name in the form <em>&lt;username&gt;@&lt;domain&gt;</em> is also a valid email address to deliver messages into it.</p>
-<p>You can disable each mailbox by selecting the <code>Disable</code> item from the three-dots menu on the mailbox line.</p>
-<p>By clicking the <code>Edit</code> item from the three-dots menu it&#x27;s possible to setup the following options:</p>
+<p>Each user has a personal mailbox. Enable the <code>Add user addresses from user domain</code> option under <a href="#email_domains" class="">Domains</a> to make any user name in the form <em>&lt;username&gt;@&lt;domain&gt;</em> a valid email address for delivering messages into it.</p>
+<p>To disable a mailbox, select the <code>Disable</code> item from the three-dots menu on the mailbox line.</p>
+<p>Click the <code>Edit</code> item from the three-dots menu to set up the following options:</p>
 <ul>
-<li class=""><code>Forward messages</code>: forward all messages to another email address</li>
+<li class=""><code>Forward messages</code>: forward messages to other email addresses (see below)</li>
 <li class=""><code>Custom mailbox quota</code>: override the quota configured from the <a href="#mail_settings-section" class="">Settings</a></li>
 <li class=""><code>Custom spam retention</code>: override the retention configured from the <a href="#mail_settings-section" class="">Settings</a></li>
 </ul>
+<p>After enabling the <code>Forward messages</code> switch, messages are not delivered to the user&#x27;s mailbox. They are sent to the <code>Forward addresses</code> list. This list can include both local users and groups, and external addresses. If you still want a local mailbox copy, enable <code>Keep a copy of messages on this server</code>.</p>
+<p>Mail rewrites the SMTP envelope sender address of any message whose sender domain is not one of the Mail local domains, applying a Sender Rewriting Scheme (SRS) transformation in the form <code>SRS0=...@&lt;local-domain&gt;</code>. This happens whether or not the message ends up being forwarded, and keeps forwarded messages from being rejected by the destination&#x27;s sender policy (SPF) checks.</p>
+<p>This rewrite changes only the hidden envelope sender, never the visible <code>From</code>, <code>Subject</code>, or body of the message, so it is generally invisible to users and DKIM signing is preserved. It is still worth knowing about in corner cases, for example if the message is also archived through <a class="" href="/docs/administrator-manual/applications/piler">Piler</a>, or if a Sieve rule filters on the envelope sender rather than on the <code>From</code> header.</p>
+<p>If a bounce or delivery status notification is later sent back to the rewritten address, Mail verifies it and translates it back to the original sender, so delivery failures reach the original sender.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="public-mailbox">Public mailbox<a href="#public-mailbox" class="hash-link" aria-label="Direct link to Public mailbox" title="Direct link to Public mailbox" translate="no">​</a></h3>
 <p>Public mailboxes can be shared among groups of users. The <strong>Create public mailbox</strong> button allows creating a new public mailbox and defining one or more owning groups and users. Public mailboxes can also be created by any IMAP client supporting IMAP ACL protocol extension (RFC 4314).</p>
 <p>When a new public mailbox is created, the mail server will automatically add a new wildcard address valid for all existing mail domains.</p>
@@ -85,7 +89,7 @@
 <div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>The procedure does not calculate the disk space usage required for the restore. Ensure sufficient disk space is available before proceeding.</p></div></div>
 <ol>
 <li class="">
-<p>Navigate to the Mail application instance and open the Mailboxes page. Choose the <code>User mailboxes</code> or <code>Public mailboxes</code> tab to view a list of mailboxes. From the three-dots menu of the desired mailbox, select <code>Restore folder</code>.</p>
+<p>Navigate to the Mail application and open the Mailboxes page. Choose the <code>User mailboxes</code> or <code>Public mailboxes</code> tab to view a list of mailboxes. From the three-dots menu of the desired mailbox, select <code>Restore folder</code>.</p>
 </li>
 <li class="">
 <p>Select the backup destination from which to restore the folder. Loading remote destinations may take some time.</p>
@@ -254,7 +258,7 @@
 <ul>
 <li class=""><code>A</code> record, resolving the Mail server hostname to the public and static IP address of the server.</li>
 <li class=""><code>PTR</code> record, resolving back the IP address to the Mail server hostname.</li>
-<li class=""><code>MX</code> records, one for each mail domain handled by the Mail application instance.</li>
+<li class=""><code>MX</code> records, one for each mail domain handled by the Mail application.</li>
 <li class=""><code>TXT</code> records, as specified by DKIM, SPF and DMARC.</li>
 </ul>
 </li>
