@@ -16,6 +16,11 @@ Automatic routes usually point their destination URL to local services (often us
 
 There is no special HTTP traffic handling for the cluster leader node: all nodes behave in the same way.
 
+The `HTTP routes` page has two tabs:
+
+- `Routes` lists the routes of every node, as described in this page.
+- `Frontend proxies` configures the nodes that receive HTTP traffic through another proxy. See [Frontend proxies](#frontend-proxies-section).
+
 Each route can have special attributes, visible in the main table:
 
 - `Automatic` for rules created and managed by applications
@@ -29,6 +34,7 @@ The route named `cluster-admin` is an automatic route, created during node setup
 
 - You may prevent a new worker from joining the cluster.
 - You may lose access to the cluster configuration if your own IP address is not allowed.
+- If the node has [frontend proxies](#frontend-proxies-section), you may lose access when you connect to the node directly, without passing through them.
 
 Refer to [Clear IP restrictions on cluster-admin route](#clear-cluster-admin-restrictions) to restore access if needed.
 
@@ -49,7 +55,7 @@ To add a custom route, click the **Create route** button and enter the following
 - `Host` + `Path`: if both fields are set, the request must match both the host name and the path. For example, with host `myapp.nethserver.org` and path `/mypath`, the route matches `https://myapp.nethserver.org/mypath/contents.html` but not `https://ns8leader.nethserver.org/mypath/contents.html`.
 - `Strip URL path prefix`: when `Path` is set, remove the prefix before routing the request to the target URL.
 - `Request Let's Encrypt certificate`: enable this option to automatically obtain a valid TLS certificate. See [Let's Encrypt certificate for HTTP routes](#lets_encrypt_routes) for important details if you disable this option later.
-- `Allow access from` (optional): restrict access to the route by listing allowed IPv4 addresses or CIDR networks, one per line. By default, the route is open to all networks.
+- `Allow access from` (optional): restrict access to the route by listing allowed IPv4/IPv6 addresses or CIDR networks, one per line. By default, the route is open to all networks. If the node has [frontend proxies](#frontend-proxies-section), list the addresses of the original clients, not the proxy addresses.
 
 Custom HTTP routes are added to Traefik's backup and can be restored from it.
 
@@ -64,6 +70,36 @@ When this option is disabled, the old TLS certificate is automatically removed f
 Restarting Traefik can forcibly disconnect users from applications. Avoid disabling the `Request Let's Encrypt certificate` option during office hours.
 
 :::
+
+## Frontend proxies {#frontend-proxies-section}
+
+A cluster node can stand behind another HTTP proxy, such as a reverse proxy, a load balancer, or a CDN. In that case, Traefik receives every connection from the proxy address, and the original client address is available only in the `X-Forwarded-For` HTTP header.
+
+Traefik accepts the `X-Forwarded-For` header only from the addresses listed as frontend proxies of the node. From any other source, the header is discarded, so that a client cannot forge its own address.
+
+To configure the frontend proxies of a node:
+
+1.  Go to `Settings` → `HTTP routes` and select the `Frontend proxies` tab.
+2.  Click **Add frontend proxy**.
+3.  Select the node.
+4.  In `Frontend proxies`, enter the IPv4 or IPv6 addresses of the proxies, one per line. CIDR networks are not accepted.
+5.  Set the `Trust depth`, the number of proxy levels in front of the node. The default is `1`, a single proxy. With a trust depth of 1, the client address is read from the last entry of the `X-Forwarded-For` header.
+6.  Click **Add frontend proxy** to confirm.
+
+Each node has one frontend proxies configuration. Use the **Edit** and **Delete** actions of the node row to change or remove it. When the configuration is deleted, Traefik no longer sees the real client address.
+
+:::warning
+
+Saving or deleting the frontend proxies configuration restarts Traefik on the node, and HTTP clients connected to it are briefly disconnected. Avoid changing it during office hours.
+
+:::
+
+When a node has frontend proxies, the `Allow access from` restriction of its routes checks the client address taken from the `X-Forwarded-For` header, instead of the address of the connection. As a consequence:
+
+- List the addresses of the original clients in `Allow access from`, not the proxy addresses.
+- Restricted routes reject requests that reach the node directly, without passing through a frontend proxy, because those requests carry no trusted `X-Forwarded-For` header. This also applies to the `cluster-admin` route. Unrestricted routes are not affected.
+
+The frontend proxies configuration is added to Traefik's backup and can be restored from it.
 
 ## Clear IP restrictions on cluster-admin route {#clear-cluster-admin-restrictions}
 
