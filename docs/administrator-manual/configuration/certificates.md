@@ -10,7 +10,10 @@ In NethServer 8, applications do not handle TLS directly. Each cluster node runs
 
 Upon installation, Traefik generates a self-signed certificate and uses it as the default for local applications, including the cluster web interface.
 
-The `TLS certificates` page lists certificates available on every node and in use by its applications. The table can be filtered by `Node`, `Status`, `Type`, or by typing a keyword that matches a certificate attribute.
+The `TLS certificates` page has two tabs:
+
+- `Certificates` lists certificates available on every node and in use by its applications. The table can be filtered by `Node`, `Status`, `Type`, or by typing a keyword that matches a certificate attribute.
+- `ACME settings` configures how each node obtains certificates from Let's Encrypt. See [ACME settings](#acme-settings-section).
 
 Certificates are not shared between cluster nodes. They are valid only on the node where they are requested or uploaded.
 
@@ -30,12 +33,12 @@ Both Automatic and Obsolete certificates are renewed automatically.
 
 [Let's Encrypt](https://letsencrypt.org) is a nonprofit CA that issues TLS certificates for free. NethServer 8 uses HTTP-based ACME challenges to obtain them, which require:
 
-1.  **The cluster node must be publicly reachable on port 443**.
+1.  **The cluster node must be publicly reachable on the port of its challenge type**. The challenge type is set per node in the [ACME settings](#acme-settings-section) tab:
 
-    - Ensure port 443 is open to the public internet. You can test it with sites like [CSM](http://www.canyouseeme.org/).
-    - Ensure there are no IP-based firewall rules on the node's network. Let's Encrypt uses unpredictable IPs for the TLS-ALPN-01 challenge, which may be blocked by geographic or custom filters.
+    - `TLS-ALPN-01` requires port 443. It is the default for nodes installed with Traefik 3.0.0 or later.
+    - `HTTP-01` requires port 80. Nodes installed before Traefik 3.0.0 still use it, unless the challenge type was changed.
 
-    Nodes installed before Traefik 3.0.0 used HTTP-01 challenges. In that case, port 80 must be open as well. See [release notes](../about/release_notes.md) for milestone 8.4.
+    Ensure the required port is open to the public internet. You can test it with sites like [CSM](http://www.canyouseeme.org/). Also ensure there are no IP-based firewall rules on the node's network. Let's Encrypt validates challenges from unpredictable IPs, which may be blocked by geographic or custom filters.
 
 2.  Certificate names must be public domains pointing to the server's public IP. Ensure you have **DNS records for both IPv4 and IPv6 addresses**. Sites like [VDNS](http://viewdns.info/) can help verify DNS.
 
@@ -62,6 +65,30 @@ If requirements are met, request a certificate as follows:
 Validation may take up to 60 seconds before a timeout.
 
 Certificates are renewed automatically by a daily process that begins 30 days before expiration. If renewal fails, an expiration alert is triggered (see [Receive certificate expiration alerts](#certificate-alerts-section)). See the [Let's Encrypt requirements](#lets-encrypt-requirements) to identify the cause.
+
+## ACME settings {#acme-settings-section}
+
+The `ACME settings` tab lists, for each cluster node, the parameters its Traefik instance uses to obtain certificates:
+
+- `ACME directory URL`: the URL of the ACME provider that issues certificates. The default is the Let's Encrypt production directory, `https://acme-v02.api.letsencrypt.org/directory`.
+- `Challenge type`: how the ACME provider verifies that the node controls the requested names. It is either `TLS-ALPN-01`, through port 443, or `HTTP-01`, through port 80.
+
+Choose `HTTP-01` if port 443 of the node is not reachable from the internet, for example because another service or device handles it. Otherwise, prefer `TLS-ALPN-01`: port 80 can stay closed.
+
+To change the settings of a node:
+
+1.  Go to `Settings` → `TLS certificates` and select the `ACME settings` tab.
+2.  Click **Edit** on the node row.
+3.  Enter the `ACME directory URL` and select the `Challenge type`.
+4.  Click **Save**.
+
+:::warning
+
+Saving the ACME settings restarts Traefik on the node, and HTTP clients connected to it are briefly disconnected. Avoid changing them during office hours.
+
+:::
+
+Because of the Traefik restart, the UI may not receive the result of the operation. In that case, check the node row in the table and repeat the change if needed.
 
 ## Upload custom TLS certificates {#custom-certificates-section}
 
@@ -97,7 +124,8 @@ If alert notifications are configured (see [Alerts notifications](metrics.md#ale
   Common **renewal failure causes** include:
 
   - DNS records for a certificate name were changed or removed.
-  - A firewall blocks HTTP challenges, either by network address or by geographic IP rules.
+  - A firewall blocks ACME challenges, either by network address or by geographic IP rules.
+  - The port required by the node's [challenge type](#acme-settings-section) is closed.
 
 ## Delete a TLS certificate {#delete-certificates-section}
 
