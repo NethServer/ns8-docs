@@ -44,7 +44,7 @@ To install a new application, click the **Install** button of the application ca
 
   The volume selector displays the volume mount directory, the filesystem label and space usage.
 
-To install more applications of the same type, click on the `Instances` link within the application's card. Then, select **Install new instance**. Note that in some cases, installation on certain cluster nodes may be restricted due to application policies or node resource limitations.
+To install more applications of the same type, click on the `Applications` link within the application's card. Then, select **Install new application**. Note that in some cases, installation on certain cluster nodes may be restricted due to application policies or node resource limitations.
 
 ### Configure additional volumes {#additional-volumes-section}
 
@@ -91,14 +91,15 @@ For advanced use cases, where an application does not enable the automatic volum
 
 ## Installed applications {#application-instances}
 
-Once an application has been installed, click on the `Instances` link within the application's card. You can perform various actions on each instance by clicking on its three-dots menu:
+Once an application has been installed, click on the `Applications` link within the application's card. It lists every installed application of that type. You can perform various actions on each application by clicking on its three-dots menu:
 
 - `Update to testing version`: This action is visible only when a testing version is available. Carefully review the pre-release documentation or consult the app developer before proceeding.
+- `Disable automatic updates` / `Enable automatic updates`: Exclude the application from automatic updates, or include it again. Available only with an active subscription. See [Automatic updates](#automatic-updates-section).
 - `Add to favorites`: Pin the application at the top of the **application drawer**.
-- `Edit instance label`: Add a custom name to the instance.
+- `Edit application label`: Add a custom name to the application.
 - `Clone`: Clone the application. See [Clone and move](modules.md#move_clone-section).
 - `Move`: Move the application to another node. See [Clone and move](modules.md#move_clone-section).
-- `Restart instance`: stop all application components and start them again, similar to a system reboot but limited to the application.
+- `Restart application`: stop all application components and start them again, similar to a system reboot but limited to the application.
 - `Uninstall`: Remove the application and all related data.
 
 The [Applications page](modules.md) is an alternative and comprehensive place where the applications installed in the cluster can be managed.
@@ -133,7 +134,7 @@ repositories** button.
 
 ## Updates {#updates-section}
 
-If the enabled repositories contain an update for an installed application instance or any core component, a warning message is displayed at the top of the Software center page. You can see if there are any available updates also by accessing the `Cluster status` page.
+If the enabled repositories contain an update for an installed application or any core component, a warning message is displayed at the top of the Software center page. You can see if there are any available updates also by accessing the `Cluster status` page.
 
 NethServer 8 can handle two different types of updates:
 
@@ -142,7 +143,7 @@ NethServer 8 can handle two different types of updates:
 
 [Operating system updates](../../tutorial/os_updates.md) are demanded to the underlying Linux distribution.
 
-If you have an active subscription, available updates (including operating system updates) are applied automatically as described in [Scheduled updates](../about/subscription.md#scheduled-updates).
+If you have an active subscription, available updates (including operating system updates) are applied automatically as described in [Scheduled updates](../about/subscription.md#scheduled-updates). You can opt out of them, either for the whole cluster or for single applications. See [Automatic updates](#automatic-updates-section).
 
 ### Core updates {#core_updates-section}
 
@@ -156,7 +157,7 @@ NS8 consists of the core and several modules. Each core component has its own ve
 - [Samba Active Directory](user_domains.md#active_directory-section) (optional)
 - [OpenLDAP](user_domains.md#openldap-section) (optional)
 
-You can review the components currently installed on each node of the cluster at any time. To do this, click on the three-dots menu in the top-right corner of the `Software Center` page, then select `Core apps`. Click on **Update core** to apply the updates.
+You can review the components currently installed on each node of the cluster at any time. To do this, click on the three-dots menu in the top-right corner of the `Software Center` page, then select `Core applications`. Click on **Update core** to apply the updates.
 
 Core module updates are always applied altogether to avoid version mismatches.
 
@@ -165,6 +166,26 @@ Core module updates are always applied altogether to avoid version mismatches.
 The list of available updates is listed inside the `Updates` tab of [Software center](#). The software center displays a card for each application with available updates.
 
 You can apply all application updates by clicking the **Update all
-apps** button.
+applications** button.
 
-By clicking the **Review and update** button on the application card, you will see all module instances that require an update. You can update each instance separately by clicking on the **Update** button. If you prefer to update all instances of the same module, just click **Update all instances** button.
+By clicking the **Review and update** button on the application card, you will see all applications of that type that require an update. You can update each application separately by clicking on the **Update** button. If you prefer to update all applications of the same type, just click **Update all applications** button.
+
+Updates applied manually from the Software Center ignore the automatic updates settings: they also apply to applications excluded from automatic updates.
+
+### Automatic updates {#automatic-updates-section}
+
+With an active subscription, a scheduled overnight task applies the available updates automatically, as described in [Scheduled updates](../about/subscription.md#scheduled-updates). Automatic updates are enabled by default. Without a subscription, updates are never applied automatically, and the controls described in this section are not displayed.
+
+To disable automatic updates for the whole cluster, click on the three-dots menu in the top-right corner of the `Software Center` or `Applications` page, then select `Disable automatic updates`. The scheduled task stops updating applications, core components, and operating system packages. While automatic updates are disabled, both pages display an `Automatic updates disabled` warning. To enable them again, click **Enable automatic updates** in the warning, or select the same entry in the three-dots menu.
+
+:::warning
+
+Disabling automatic updates may expose the cluster to security issues and reduced stability. Review and install updates manually on a regular basis.
+
+:::
+
+To exclude a single application from automatic updates, select `Disable automatic updates` from the three-dots menu of its row, in the `Applications` page or in the list of applications of the same type in the Software Center. The application gains the `Updates disabled` tag. The scheduled task skips it, while other applications, core components, and operating system packages are still updated. Select `Enable automatic updates` to include the application again.
+
+The setting of each application is kept when automatic updates are disabled and enabled again for the whole cluster: applications excluded before remain excluded.
+
+Excluded applications can still be updated manually, as described in [Application updates](#module_updates-section).

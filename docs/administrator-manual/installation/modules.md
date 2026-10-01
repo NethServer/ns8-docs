@@ -26,6 +26,10 @@ This internal, unique identifier is assigned by the cluster and cannot be change
 
 Furthermore, a small text note can be attached to the application with the `Edit note` action. When an application has an attached note, a small circled *i* with a tooltip appears next to the application name.
 
+## Automatic updates
+
+With an active subscription, the `Disable automatic updates` action excludes the application from automatic updates, and the application gains the `Updates disabled` tag. The `Enable automatic updates` action includes it again. The three-dots menu at the top of the `Applications` page provides the same actions for the whole cluster. See [Automatic updates](software_center.md#automatic-updates-section).
+
 ## Clone and move {#move_clone-section}
 
 The `Clone` and `Move` actions create a **destination** application that is a copy of the **source** one.
@@ -54,9 +58,9 @@ This action should be used sparingly and preferably during non-working hours, as
 
 Some unpredictable events, such as lack of disk space or memory exhaustion, may degrade application functionality. In these situations, `Restart` may resolve the issue, provided that sufficient resources are available again.
 
-## Core apps
+## Core applications
 
-From the `Applications` page, select the **Core apps** button to see a full list of installed Core applications and their versions. Core updates, when available, are always applied at the same time.
+From the `Applications` page, select the **Go to Core applications** button to see a full list of installed Core applications and their versions. Core updates, when available, are always applied at the same time.
 
 ## The *module* term
 
