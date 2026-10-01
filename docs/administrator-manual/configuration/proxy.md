@@ -98,6 +98,7 @@ When a node has frontend proxies, the `Allow access from` restriction of its rou
 
 - List the addresses of the original clients in `Allow access from`, not the proxy addresses.
 - Restricted routes reject requests that reach the node directly, without passing through a frontend proxy, because those requests carry no trusted `X-Forwarded-For` header. This also applies to the `cluster-admin` route. Unrestricted routes are not affected.
+- Adding the LAN network to `Allow access from` admits LAN clients only when they connect through a frontend proxy: a direct request carries no trusted client address to check.
 
 The frontend proxies configuration is added to Traefik's backup and can be restored from it.
 
