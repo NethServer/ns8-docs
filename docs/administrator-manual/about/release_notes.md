@@ -9,6 +9,18 @@ NethServer 8 releases
 - List of [known bugs](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) on GitHub
 - Discussions around [possible bugs](http://community.nethserver.org/c/bug) on our public forum
 
+## Major changes on 2026-10-02
+
+**Milestone 8.10**
+
+- **Opt-out of automatic updates** \[Core 3.22.0\] -- With an active subscription, automatic updates can now be disabled from the Software Center, either for the whole cluster or for single applications, without command-line procedures. Applications excluded from automatic updates are marked with the `Updates disabled` tag and can still be updated manually. A warning is displayed in the Software Center and Applications pages while automatic updates are disabled for the whole cluster. See [Automatic updates](../installation/software_center.md#automatic-updates-section).
+
+- **ACME settings in the TLS certificates page** \[Core 3.22.0\] -- The former `ACME servers` page is now the `ACME settings` tab of the `TLS certificates` page. Besides the ACME directory URL, it allows choosing the challenge type of each node, `TLS-ALPN-01` (port 443) or `HTTP-01` (port 80), so the command-line procedure described in the 8.4 release notes is no longer needed. See [ACME settings](../configuration/certificates.md#acme-settings-section).
+
+- **Frontend proxies in the HTTP routes page** \[Core 3.22.0\] -- A new `Frontend proxies` tab of the `HTTP routes` page configures the nodes that stand behind a reverse proxy, a load balancer, or a CDN. Previously available only through API calls, the configuration lists the trusted proxy addresses and the trust depth, so that Traefik recovers the original client address from the `X-Forwarded-For` header. See [Frontend proxies](../configuration/proxy.md#frontend-proxies-section).
+
+  When a node has frontend proxies, the `Allow access from` restriction of its HTTP routes checks the original client address instead of the proxy address. Allow lists must contain client addresses, and restricted routes, including `cluster-admin`, reject requests that reach the node directly without passing through a frontend proxy. Adding the LAN network to `Allow access from` admits LAN clients only when they connect through a frontend proxy.
+
 ## Major changes on 2026-06-30
 
 **Milestone 8.9**
