@@ -16,6 +16,11 @@ Le route automatiche di solito puntano il loro URL di destinazione a servizi loc
 
 Non esiste una gestione speciale del traffico HTTP per il nodo leader del cluster: tutti i nodi si comportano allo stesso modo.
 
+La pagina `HTTP routes` ha due schede:
+
+- `Routes` elenca le route di ogni nodo, come descritto in questa pagina.
+- `Frontend proxies` configura i nodi che ricevono il traffico HTTP attraverso un altro proxy. Consulta [Proxy frontend](#frontend-proxies-section).
+
 Ogni route può avere attributi speciali, visibili nella tabella principale:
 
 - `Automatic` per le regole create e gestite dalle applicazioni
@@ -29,6 +34,7 @@ La route chiamata `cluster-admin` è una route automatica, creata durante la con
 
 - Potresti impedire a un nuovo worker di unirsi al cluster.
 - Potresti perdere l'accesso alla configurazione del cluster se il tuo indirizzo IP non è consentito.
+- Se il nodo ha dei [proxy frontend](#frontend-proxies-section), potresti perdere l'accesso quando ti connetti direttamente al nodo, senza passare attraverso di essi.
 
 Fai riferimento a [Rimuovere le restrizioni IP sulla route cluster-admin](#clear-cluster-admin-restrictions) per ripristinare l'accesso, se necessario.
 
@@ -49,7 +55,7 @@ Per aggiungere una route personalizzata, fai clic sul pulsante **Create route** 
 - `Host` + `Path`: se entrambi i campi sono impostati, la richiesta deve corrispondere sia al nome host sia al percorso. Ad esempio, con host `myapp.nethserver.org` e percorso `/mypath`, la route corrisponde a `https://myapp.nethserver.org/mypath/contents.html` ma non a `https://ns8leader.nethserver.org/mypath/contents.html`.
 - `Strip URL path prefix`: quando `Path` è impostato, rimuove il prefisso prima di instradare la richiesta verso l'URL di destinazione.
 - `Request Let's Encrypt certificate`: abilita questa opzione per ottenere automaticamente un certificato TLS valido. Consulta [Certificato Let's Encrypt per le route HTTP](#lets_encrypt_routes) per dettagli importanti se disabiliti questa opzione in seguito.
-- `Allow access from` (facoltativo): limita l'accesso alla route elencando gli indirizzi IPv4 o le reti CIDR consentiti, uno per riga. Per impostazione predefinita, la route è aperta a tutte le reti.
+- `Allow access from` (facoltativo): limita l'accesso alla route elencando gli indirizzi IPv4/IPv6 o le reti CIDR consentiti, uno per riga. Per impostazione predefinita, la route è aperta a tutte le reti. Se il nodo ha dei [proxy frontend](#frontend-proxies-section), elenca gli indirizzi dei client originali, non quelli dei proxy.
 
 Le route HTTP personalizzate vengono aggiunte al backup di Traefik e possono essere ripristinate da esso.
 
@@ -64,6 +70,37 @@ Quando questa opzione è disabilitata, il vecchio certificato TLS viene rimosso 
 Il riavvio di Traefik può disconnettere forzatamente gli utenti dalle applicazioni. Evita di disabilitare l'opzione `Request Let's Encrypt certificate` durante l'orario d'ufficio.
 
 :::
+
+## Proxy frontend {#frontend-proxies-section}
+
+Un nodo del cluster può trovarsi dietro un altro proxy HTTP, come un reverse proxy, un load balancer o una CDN. In questo caso, Traefik riceve ogni connessione dall'indirizzo del proxy, e l'indirizzo del client originale è disponibile solo nell'header HTTP `X-Forwarded-For`.
+
+Traefik accetta l'header `X-Forwarded-For` solo dagli indirizzi elencati come proxy frontend del nodo. Da qualsiasi altra origine, l'header viene scartato, in modo che un client non possa falsificare il proprio indirizzo.
+
+Per configurare i proxy frontend di un nodo:
+
+1.  Vai in `Settings` → `HTTP routes` e seleziona la scheda `Frontend proxies`.
+2.  Fai clic su **Add frontend proxy**.
+3.  Seleziona il nodo.
+4.  In `Frontend proxies`, inserisci gli indirizzi IPv4 o IPv6 dei proxy, uno per riga. Le reti CIDR non sono accettate.
+5.  Imposta il `Trust depth`, il numero di livelli di proxy davanti al nodo. Il valore predefinito è `1`, un solo proxy. Con un trust depth pari a 1, l'indirizzo del client viene letto dall'ultima voce dell'header `X-Forwarded-For`.
+6.  Fai clic su **Add frontend proxy** per confermare.
+
+Ogni nodo ha una sola configurazione dei proxy frontend. Usa le azioni **Edit** e **Delete** della riga del nodo per modificarla o rimuoverla. Quando la configurazione viene eliminata, Traefik non vede più l'indirizzo reale del client.
+
+:::warning
+
+Il salvataggio o l'eliminazione della configurazione dei proxy frontend riavvia Traefik sul nodo, e i client HTTP connessi vengono brevemente disconnessi. Evita di modificarla durante l'orario d'ufficio.
+
+:::
+
+Quando un nodo ha dei proxy frontend, la restrizione `Allow access from` delle sue route verifica l'indirizzo del client preso dall'header `X-Forwarded-For`, invece dell'indirizzo della connessione. Di conseguenza:
+
+- Elenca in `Allow access from` gli indirizzi dei client originali, non quelli dei proxy.
+- Le route con restrizioni rifiutano le richieste che raggiungono il nodo direttamente, senza passare da un proxy frontend, perché queste richieste non hanno un header `X-Forwarded-For` attendibile. Questo vale anche per la route `cluster-admin`. Le route senza restrizioni non sono interessate.
+- Aggiungere la rete LAN in `Allow access from` consente l'accesso ai client della LAN solo quando si connettono attraverso un proxy frontend: una richiesta diretta non ha un indirizzo del client attendibile da verificare.
+
+La configurazione dei proxy frontend viene aggiunta al backup di Traefik e può essere ripristinata da esso.
 
 ## Rimuovere le restrizioni IP sulla route cluster-admin {#clear-cluster-admin-restrictions}
 
