@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The old Server Manager &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Legacy backup" href="backup_legacy.html" />
+    <link rel="prev" title="Index" href="genindex.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "base_system", "programming_language": "words", "project": "nethserver", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"nethserver-devel": "https://docs.nethserver.org/projects/nethserver-devel/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/base_system.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accessing the Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Users and groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">DHCP and PXE server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Shared folders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Web proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Bandwidth monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Backup customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Virtual machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">NethForge modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade from NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Email module transition to Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Documentation license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Old Server Manager</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The old Server Manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#login">Login</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-the-current-password">Change the current password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logout">Logout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session-timeouts">Session timeouts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dashboard">Dashboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#disk-analyzer">Disk analyzer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#network">Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#alias-ip">Alias IP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logical-interfaces">Logical interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#network-services">Network services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trusted-networks">Trusted networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#static-routes">Static routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#organization-contacts">Organization contacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#server-certificate">Server certificate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#disable-let-s-encrypt">Disable Let’s Encrypt</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#shutdown">Shutdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#log-viewer">Log viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#date-and-time">Date and time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inline-help">Inline help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">POP3 proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Fax server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">SOGo Groupware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>The old Server Manager</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/base_system.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-old-server-manager">
+<span id="legacy-server-manager-section"></span><h1>The old Server Manager<a class="headerlink" href="#the-old-server-manager" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes the <em class="dfn">old Server Manager</em> web interface. Since NethServer 7.9 it must be
+installed from the <a class="reference internal" href="packages.html#software-center-section"><span class="std std-ref">Software center</span></a> page as it is not included in the default
+installation procedure.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>New features of NethServer are not available in this web interface. Backward compatibility may break
+at any time. It is recommended to use the new Server Manager. See <a class="reference internal" href="access2.html#access-section"><span class="std std-ref">Accessing the Server Manager</span></a>
+and <a class="reference internal" href="base_system2.html#base-system-section"><span class="std std-ref">Base system</span></a>.</p>
+</div>
+<section id="getting-started">
+<span id="access-legacy-section"></span><h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>You need a web browser like Mozilla Firefox or Google Chrome to access the old Server Manager web interface using the address (URL)
+<code class="docutils literal notranslate"><span class="pre">https://a.b.c.d:980</span></code> or <code class="docutils literal notranslate"><span class="pre">https://server_name:980</span></code> where <em>a.b.c.d</em> and <em>server_name</em> respectively are the server IP address and name
+configured during installation.</p>
+<p>If the <em>Web server</em> module is installed, you can also access the web interface using the address <code class="docutils literal notranslate"><span class="pre">https://server_name/server-manager</span></code>.</p>
+<p>The Server Manager uses self-signed SSL certificates.
+You should explicitly accept them the first time you access the server.
+The connection is safe and encrypted.</p>
+<section id="login">
+<h3>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h3>
+<p>The login page allows selecting an alternative language among those already
+installed on the system. After logging in, additional language packs can
+be installed from the <span class="menuselection">Software center</span> page under the <span class="guilabel">Languages</span> category.</p>
+<p>The login page will give you a trusted access to the web interface. Log in
+as <strong>root</strong> and type the password chosen during NethServer installation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <em>unattended</em> install procedure sets the root password to the default
+<code class="docutils literal notranslate"><span class="pre">Nethesis,1234</span></code>.</p>
+</div>
+</section>
+<section id="change-the-current-password">
+<h3>Change the current password<a class="headerlink" href="#change-the-current-password" title="Permalink to this headline">¶</a></h3>
+<p>You can change the root password from the web interface by going to the
+<span class="guilabel">root&#64;host.domain.com</span> label on the upper right corner of the screen
+and clicking on <span class="guilabel">Profile</span>.</p>
+</section>
+<section id="logout">
+<h3>Logout<a class="headerlink" href="#logout" title="Permalink to this headline">¶</a></h3>
+<p>Terminate the current Server Manager session by going to the
+<span class="guilabel">root&#64;host.domain.com</span> label on the upper right corner of the screen
+and by clicking on <span class="guilabel">Logout</span>.</p>
+</section>
+<section id="session-timeouts">
+<span id="session-timeouts-section"></span><h3>Session timeouts<a class="headerlink" href="#session-timeouts" title="Permalink to this headline">¶</a></h3>
+<p>By default (starting from NethServer 7.5.1804), a Server Manager session
+terminates after <strong>60 minutes of inactivity</strong> (idle timeout) and <strong>expires
+8 hours after the login</strong> (session life time).</p>
+<p>The following shell command sets 2 hours of idle timeout, and 16 hours of
+maximum session life time. Time is expressed in seconds:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop httpd-admin MaxSessionIdleTime 7200 MaxSessionLifeTime 57600
+</pre></div>
+</div>
+<p>To disable the timeouts</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop httpd-admin MaxSessionIdleTime &#39;&#39; MaxSessionLifeTime &#39;&#39;
+</pre></div>
+</div>
+<p>The new timeout values will affect new sessions. They do not change any active
+session.</p>
+</section>
+</section>
+<section id="dashboard">
+<span id="dashboard-legacy-section"></span><h2>Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="target" id="index-0"></span>Dashboard page is the landing page after a successful login.
+The page will display the <span class="target" id="index-1"></span>status and configuration of the system.</p>
+<section id="disk-analyzer">
+<h3>Disk analyzer<a class="headerlink" href="#disk-analyzer" title="Permalink to this headline">¶</a></h3>
+<p>This tool is used to visualize <span class="target" id="index-2"></span>disk usage in a simple and nice graph in which you can interact with, click, and double click to navigate in the directories tree.</p>
+<p>After installation go to the <span class="guilabel">Dashboard</span>, and then <span class="guilabel">Disk usage</span> tab, and click <span class="guilabel">Update</span> in order
+to index the root directory and display the graph. This process can take several minutes depending on the occupied disk space.</p>
+<p>Well known folders are:</p>
+<ul class="simple">
+<li><p>Shared folders: <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/ibay</span></code></p></li>
+<li><p>User home directories: <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/home</span></code></p></li>
+<li><p>Mail: <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/vmail</span></code></p></li>
+<li><p>Faxes: <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/fax</span></code></p></li>
+<li><p>MySQL databases: <code class="file docutils literal notranslate"><span class="pre">/var/lib/mysql</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="network">
+<span id="index-3"></span><h2>Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Network</span> page configures how the server is connected to the
+local network (LAN) and/or other networks (i.e. Internet).</p>
+<p>If the server has firewall and gateway functionality, it will handle extra networks with special functions like
+DMZ (DeMilitarized Zone) and guests network.</p>
+<p>NethServer supports an unlimited number of network interfaces.
+Any network managed by the system must follow these rules:</p>
+<ul class="simple">
+<li><p>networks must be physically separated (multiple networks can’t be connected to the same switch/hub)</p></li>
+<li><p>networks must be logically separated: each network must have different addresses</p></li>
+<li><p>private networks, like LANs, must follow address’s convention from <a class="reference internal" href="base_system2.html#rfc1918-section"><span class="std std-ref">RFC1918</span></a> document</p></li>
+</ul>
+<p id="index-4">Every network interface has a specific <em>role</em> which determines its behavior. All roles are identified by colors.
+Each role corresponds to a well-known <em>zone</em> with special network traffic rules:</p>
+<ul class="simple">
+<li><p><em>green</em>: local network (green role/zone). Hosts on this network can access any other configured network</p></li>
+<li><p><em>blue</em>: guests network (blue role/zone). Hosts on this network can access orange and red networks, but can’t access the green network</p></li>
+<li><p><em>orange</em>: DMZ network (orange role/zone).  Hosts on this network can access red network, but can’t access to blue and green networks</p></li>
+<li><p><em>red</em>: public network (red role/zone). Hosts on this network can access only the server itself</p></li>
+</ul>
+<p>See <a class="reference internal" href="firewall.html#policy-section"><span class="std std-ref">Policy</span></a> for more information on roles and firewall rules.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The server must have at least one network interface. When the server has only one interface, this interface must have green role.</p>
+</div>
+<p>If the server is installed on a public VPS (Virtual Private Server), it should must be configured with a green interface.
+All critical services should be closed using <a class="reference internal" href="#network-services-legacy-section"><span class="std std-ref">Network services</span></a> panel.</p>
+<section id="alias-ip">
+<h3>Alias IP<a class="headerlink" href="#alias-ip" title="Permalink to this headline">¶</a></h3>
+<p>Use alias IP to assign more IP addresses to the same NIC.</p>
+<p>The most common use is with a red interface: when the ISP provides a pool of public IP addresses (within the same subnet) you can add some (or all) of them to the same red interface and manage them individually (e.g. in the port forward configuration).</p>
+<p>Alias IP section can be found in the dropdown menu of the related network interface.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Alias IPs on PPPoE interface could not work properly, due to different implementations of the service made by internet providers.</p>
+</div>
+</section>
+<section id="logical-interfaces">
+<h3>Logical interfaces<a class="headerlink" href="#logical-interfaces" title="Permalink to this headline">¶</a></h3>
+<p>In <span class="guilabel">Network</span> page press the <span class="guilabel">New interface</span> button to
+create a logical interface. Supported logical interfaces are:</p>
+<ul class="simple">
+<li><p><span class="target" id="index-5"></span>bond: arrange two or more network interfaces (provides load balancing and fault tolerance)</p></li>
+<li><p><span class="target" id="index-6"></span>bridge: connect two different networks (it’s often used for bridged VPN and virtual machine)</p></li>
+<li><p><span class="target" id="index-7"></span>VLAN (Virtual Local Area Network): create two or more logically separated networks using a single interface</p></li>
+<li><p><span class="target" id="index-8"></span>PPPoE (Point-to-Point Protocol over Ethernet): connect to Internet through a DSL modem</p></li>
+</ul>
+<p><strong>Bonds</strong> allow you to aggregate bandwidth or tolerate link faults. Bonds can be configured in multiple modes.</p>
+<p>Modes providing load balancing and fault tolerance:</p>
+<ul class="simple">
+<li><p>Balance Round Robin (recommended)</p></li>
+<li><p>Balance XOR</p></li>
+<li><p>802.3ad (LACP): it requires support at driver level and a switch with IEEE 802.3ad Dynamic link aggregation mode enabled</p></li>
+<li><p>Balance TLB: it requires support at driver level</p></li>
+<li><p>Balance ALB</p></li>
+</ul>
+<p>Modes providing fault tolerance only:</p>
+<ul class="simple">
+<li><p>Active backup (recommended)</p></li>
+<li><p>Broadcast policy</p></li>
+</ul>
+<p>A <strong>bridge</strong> has the function to connect different network segments, for example by allowing virtual machines, or client connected using a VPN,
+to access to the local network (green).</p>
+<p>When it is not possible to physically separate two different networks, you can use a tagged <strong>VLAN</strong>. The traffic of the two networks can
+be transmitted on the same cable, but it will be handled as if it were sent and received on separate network cards.
+The use of VLAN, requires properly configured switches.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>PPPoE</strong> logical interface must be assigned the red
+role, thus requires the gateway functionality. See
+<a class="reference internal" href="firewall.html#firewall-section"><span class="std std-ref">Firewall</span></a> for details.</p>
+</div>
+</section>
+</section>
+<section id="network-services">
+<span id="network-services-legacy-section"></span><h2>Network services<a class="headerlink" href="#network-services" title="Permalink to this headline">¶</a></h2>
+<p>A remote system can connect to a <span class="target" id="index-9"></span>network service, which is a software
+running on NethServer itself.</p>
+<p>Each service has a list of “open” ports on which it answers to connections.
+Connections can be accepted from selected zones. More fine-grained control of
+access to network services can be configured from the Firewall rules page.</p>
+</section>
+<section id="trusted-networks">
+<span id="trusted-networks-legacy-section"></span><span id="index-10"></span><h2>Trusted networks<a class="headerlink" href="#trusted-networks" title="Permalink to this headline">¶</a></h2>
+<p>Trusted networks are special networks (local, VPNs or remote)
+allowed to access special server’s services.</p>
+<p>For example, hosts inside trusted networks can access to:</p>
+<ul class="simple">
+<li><p>Server Manager</p></li>
+<li><p>Shared folders (SAMBA)</p></li>
+</ul>
+<p>If the remote network is reachable using a router, remember to add a
+static route inside <a class="reference internal" href="#static-routes-legacy-section"><span class="std std-ref">Static routes</span></a> page.</p>
+</section>
+<section id="static-routes">
+<span id="static-routes-legacy-section"></span><h2>Static routes<a class="headerlink" href="#static-routes" title="Permalink to this headline">¶</a></h2>
+<p>This page allow to create special <span class="target" id="index-11"></span>static routes which will use the specified gateway.
+These routes are usually used to connect private network.</p>
+<p>Remember to add the network to <a class="reference internal" href="#trusted-networks-legacy-section"><span class="std std-ref">Trusted networks</span></a>, if you wish to allow remote hosts to access local services.</p>
+</section>
+<section id="organization-contacts">
+<span id="organization-contacts-legacy-section"></span><h2>Organization contacts<a class="headerlink" href="#organization-contacts" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Organization contacts</span> page fields are used as default
+values for user accounts.  The organization name and address are also
+displayed on the old Server Manager login screen.</p>
+</section>
+<section id="server-certificate">
+<span id="index-12"></span><h2>Server certificate<a class="headerlink" href="#server-certificate" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Server certificate</span> page shows the currently installed X.509
+certificates, and the default one provided by system services for TLS/SSL
+encrypted communications.</p>
+<p>NethServer checks the certificates validity and sends an email to the root user
+if a certificate is near to expire.</p>
+<p>The <span class="guilabel">Set as default</span> button allows choosing the default certificate.
+When a new certificate is chosen, all services using TLS/SSL are restarted
+and network clients will be required to accept the new certificate.</p>
+<p>When NethServer is installed a default RSA self-signed certificate is generated.
+It should be edited by inserting proper values before configuring the network
+clients to use it. When the self-signed certificate is due to expire a new one
+is automatically generated from the same RSA key and with the same attributes.</p>
+<p>The <span class="guilabel">Server certificate</span> page also allows:</p>
+<ul>
+<li><p>uploading an existing certificate and private RSA/ECC key. Optionally a
+certificate chain file can be specified, too. All files must be PEM-encoded.</p></li>
+<li><p>requesting a new <em>Let’s Encrypt</em> <a class="footnote-reference brackets" href="#letsencrypt" id="id1">1</a> certificate.  This is
+possible if the following requirements are met:</p>
+<ol class="arabic">
+<li><p>The server must be reachable from outside at port 80. Make sure your port 80
+is open to the public Internet (you can check with sites like <a class="footnote-reference brackets" href="#csm" id="id2">2</a>);</p></li>
+<li><p>The domains that you want the certificate for must be public domain names
+associated to server own public IP. Make sure you have public DNS name
+pointing to your server (you can check with sites like <a class="footnote-reference brackets" href="#vdns" id="id3">3</a>).</p>
+<p>Wildcard certificates (i.e. <code class="docutils literal notranslate"><span class="pre">*.nethserver.org</span></code>) are not supported.</p>
+</li>
+</ol>
+<p>The <span class="guilabel">Notification email</span> will be used by Let’s Encrypt to send
+notifications about the certificate.</p>
+<p>The Let’s Encrypt certificate is automatically renewd 30 days before expiration date.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To avoid problems while importing the certificate in Internet Explorer,
+the Common Name (CN) field should match the server FQDN.</p>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="letsencrypt"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Let’s Encrypt website <a class="reference external" href="https://letsencrypt.org/">https://letsencrypt.org/</a></p>
+</dd>
+<dt class="label" id="csm"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Website <a class="reference external" href="http://www.canyouseeme.org/">http://www.canyouseeme.org/</a></p>
+</dd>
+<dt class="label" id="vdns"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Website <a class="reference external" href="http://viewdns.info/">http://viewdns.info/</a></p>
+</dd>
+</dl>
+<section id="disable-let-s-encrypt">
+<h3>Disable Let’s Encrypt<a class="headerlink" href="#disable-let-s-encrypt" title="Permalink to this headline">¶</a></h3>
+<p>Let’s Encrypt certificate can be disabled following these steps:</p>
+<ol class="arabic">
+<li><p>Access the <span class="guilabel">Server certificate</span> page, set as default the self-signed certificate or an uploaded one</p></li>
+<li><p>Open the shell and execute the following commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rm -rf /etc/letsencrypt/{accounts,archive,csr,keys,live,renewal}
+config setprop pki LetsEncryptDomains &#39;&#39;
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="shutdown">
+<h2>Shutdown<a class="headerlink" href="#shutdown" title="Permalink to this headline">¶</a></h2>
+<p>The machine where NethServer is installed can be rebooted or halted from the <span class="menuselection">Shutdown</span> page.
+Choose an option (reboot or halt) then click on submit button.</p>
+<p>Always use this module to avoid bad shutdown which can cause data damages.</p>
+</section>
+<section id="log-viewer">
+<h2>Log viewer<a class="headerlink" href="#log-viewer" title="Permalink to this headline">¶</a></h2>
+<p>All services will save operations inside files called <em class="dfn">logs</em>.
+The <span class="target" id="index-13"></span>log analysis is the main tool to find and resolve problems.
+To analyze log files click in <span class="menuselection">Log viewer</span>.</p>
+<p>This module allows to:</p>
+<ul class="simple">
+<li><p>start search on all server’s logs</p></li>
+<li><p>display a single log</p></li>
+<li><p>follow the content of a log in real time</p></li>
+</ul>
+</section>
+<section id="date-and-time">
+<span id="date-time-legacy-section"></span><h2>Date and time<a class="headerlink" href="#date-and-time" title="Permalink to this headline">¶</a></h2>
+<p>After installation, make sure the server is configured with the correct timezone.
+The machine clock can be configured manually or automatically using public NTP servers (preferred).</p>
+<p>The machine clock is very important in many protocols. To avoid problems, all hosts in LAN can be configured to use the server as NTP server.</p>
+</section>
+<section id="inline-help">
+<h2>Inline help<a class="headerlink" href="#inline-help" title="Permalink to this headline">¶</a></h2>
+<p>All packages inside the Server Manager contain an <span class="target" id="index-14"></span>inline help.
+The inline help explains how the module works and all available options.</p>
+<p>These help pages are available in all Server Manager’s languages.</p>
+<p>A list of all available inline help pages can be found at the address:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://&lt;server&gt;:980/&lt;language&gt;/Help
+</pre></div>
+</div>
+<p><strong>Example</strong></p>
+<p>If the server has address <code class="docutils literal notranslate"><span class="pre">192.168.1.2</span></code>, and you want to see all English help pages, use this address:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://192.168.1.2:980/en/Help
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="genindex.html" class="btn btn-neutral float-left" title="Index" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="backup_legacy.html" class="btn btn-neutral float-right" title="Legacy backup" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

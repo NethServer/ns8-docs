@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TLS policy &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Ricerca" href="search.html" />
+    <link rel="next" title="Backup" href="backup.html" />
+    <link rel="prev" title="Server DHCP e PXE" href="dhcp.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "it", "page": "tlspolicy", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/tlspolicy.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accesso al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurazione</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applicazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Autenticazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TLS policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#policy-2020-05-10">Policy 2020-05-10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#policy-2018-10-01">Policy 2018-10-01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#policy-2018-06-21">Policy 2018-06-21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#policy-2018-03-30">Policy 2018-03-30</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default-upstream-policy">Politica upstream predefinita</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applicazioni</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Altri moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Personalizzazione backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Macchine virtuali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Moduli NethForge</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Aggiornamento da NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Aggiornamento Email a Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vecchio Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Il vecchio Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">Groupware SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>TLS policy</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/tlspolicy.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tls-policy">
+<span id="tlspolicy-section"></span><h1>TLS policy<a class="headerlink" href="#tls-policy" title="Link a questa intestazione">¶</a></h1>
+<p>La pagina <span class="guilabel">TLS policy</span> controlla come i singoli servizi configurano il protocollo TLS (Transport Layer Security), selezionando un <em>identificativo di policy</em>.</p>
+<p>Se non diversamente specificato, le impostazioni TLS delle policy sono sempre <em>cumulative</em>: <strong>le nuove policy estendono quelle più vecchie</strong>.</p>
+<p>Ogni implementazione di modulo decide come implementare uno specifico identificatore di policy, fornendo un compromesso tra sicurezza e compatibilità con il client. Le politiche più recenti sono più orientate alla sicurezza, mentre quelle più vecchie offrono una migliore compatibilità con i vecchi client.</p>
+<p>Le seguenti sezioni descrivono ciascun identificatore di policy.</p>
+<section id="policy-2020-05-10">
+<h2>Policy 2020-05-10<a class="headerlink" href="#policy-2020-05-10" title="Link a questa intestazione">¶</a></h2>
+<p>Questo criterio disabilita le versioni 1.0 e 1.1 del protocollo TLS. Si applica al seguenti servizi:</p>
+<ul class="simple">
+<li><p>Apache (httpd, httpd-admin)</p></li>
+<li><p>Ejabberd</p></li>
+<li><p>Cockpit</p></li>
+<li><p>Slapd (openldap-servers)</p></li>
+<li><p>Postfix</p></li>
+<li><p>Dovecot</p></li>
+</ul>
+<p>Riferimento: <a class="reference external" href="https://access.redhat.com/articles/1462183">https://access.redhat.com/articles/1462183</a></p>
+</section>
+<section id="policy-2018-10-01">
+<h2>Policy 2018-10-01<a class="headerlink" href="#policy-2018-10-01" title="Link a questa intestazione">¶</a></h2>
+<p>Questo criterio limita le impostazioni TLS della configurazione predefinita di Ejabberd. Si applica solo a Ejabberd versione 18 e successivi.</p>
+<dl>
+<dt>Ejabberd (XMPP)</dt><dd><ul>
+<li><p>Vedi <a class="reference external" href="https://bettercrypto.org/">https://bettercrypto.org/</a></p></li>
+<li><p>Disabilitati SSLv3 e TLSv1.0</p></li>
+<li><p>Priorità di cifratura del server</p></li>
+<li><p>Certificato ECC</p></li>
+<li><p>Cifrari supportati:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="policy-2018-06-21">
+<h2>Policy 2018-06-21<a class="headerlink" href="#policy-2018-06-21" title="Link a questa intestazione">¶</a></h2>
+<p>Questa policy estende la <code class="docutils literal notranslate"><span class="pre">2018-03-30</span></code> aggiungendo il supporto per i certificati ECC a</p>
+<ul class="simple">
+<li><p>Apache</p></li>
+<li><p>Dovecot</p></li>
+<li><p>Postfix</p></li>
+</ul>
+<dl>
+<dt>Slapd (openldap-servers)</dt><dd><ul>
+<li><p>Riferimento <a class="reference external" href="https://access.redhat.com/articles/1474813">https://access.redhat.com/articles/1474813</a></p></li>
+<li><p>Disabilitati SSLv3 e TLSv1.0</p></li>
+<li><p>Cipher suite</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ECDHE:EDH:CAMELLIA:ECDH:RSA:ECDSA:!eNULL:!SSLv2:!RC4:!DES:!EXP:!SEED:!IDEA:!3DES:!ADH
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="policy-2018-03-30">
+<h2>Policy 2018-03-30<a class="headerlink" href="#policy-2018-03-30" title="Link a questa intestazione">¶</a></h2>
+<p>L’obiettivo di questa politica è di rafforzare il set di cifratura di default  fornito da upstream . Non è compatibile con IE 8 XP e Java 6u45 e 7u25 client. Non supporta i certificati ECC.</p>
+<dl>
+<dt>Apache</dt><dd><ul>
+<li><p>Vedi <a class="reference external" href="https://bettercrypto.org/">https://bettercrypto.org/</a></p></li>
+<li><p>Cipher suite</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+</pre></div>
+</div>
+</li>
+<li><p>Disabilita SSLv2 e SSLv3</p></li>
+<li><p>Ignora le impostazioni di <code class="docutils literal notranslate"><span class="pre">httpd/SSLCipherSuite</span></code> (vedi <a class="reference internal" href="#tlspolicy-default"><span class="std std-ref">Politica upstream predefinita</span></a>)</p></li>
+</ul>
+</dd>
+<dt>Dovecot</dt><dd><ul>
+<li><p>Vedi <a class="reference external" href="https://bettercrypto.org/">https://bettercrypto.org/</a></p></li>
+<li><p>Cipher suite</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA
+</pre></div>
+</div>
+</li>
+<li><p>Disabilita SSLv2 e SSLv3</p></li>
+</ul>
+</dd>
+<dt>Postfix</dt><dd><ul>
+<li><p>Vedi <a class="reference external" href="https://bettercrypto.org/">https://bettercrypto.org/</a></p></li>
+<li><p>Utilizza TLS per le connessioni in uscita, se il server remoto lo supporta</p></li>
+<li><p>Disabilita SSLv2 e SSLv3 sulle porte di submission</p></li>
+<li><p>Cipher suite</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA256:EECDH:+CAMELLIA128:+AES128:+SSLv3:kEDH:CAMELLIA128-SHA:AES128-SHA
+</pre></div>
+</div>
+</li>
+<li><p>Exclude ciphers</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>aNULL:eNULL:LOW:3DES:MD5:EXP:PSK:DSS:RC4:SEED:IDEA:ECDSA
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="default-upstream-policy">
+<span id="tlspolicy-default"></span><h2>Politica upstream predefinita<a class="headerlink" href="#default-upstream-policy" title="Link a questa intestazione">¶</a></h2>
+<p>L’obiettivo di questa policy è mantenere le impostazioni upstream. Questo è l’obiettivo principale dall’avvento di NethServer 7.</p>
+<p>Questa politica consente di personalizzare <code class="docutils literal notranslate"><span class="pre">httpd</span></code> (Apache) con una determinata lista di cifrature, eseguendo i seguenti comandi:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop httpd SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+signal-event nethserver-httpd-update
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dhcp.html" class="btn btn-neutral float-left" title="Server DHCP e PXE" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="backup.html" class="btn btn-neutral float-right" title="Backup" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

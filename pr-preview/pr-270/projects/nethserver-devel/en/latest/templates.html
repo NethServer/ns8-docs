@@ -1,0 +1,712 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Templates &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Actions and events" href="events.html" />
+    <link rel="prev" title="Databases" href="databases.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "templates", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/templates.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#design-of-the-template-system">Design of the template system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-text-template-module">The Text::Template module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#template-begin-and-template-end">template-begin and template-end</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#etc-e-smith-templates-default">/etc/e-smith/templates-default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#template-fragment-ordering">Template fragment ordering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#templates-for-user-home-directories-templates-user">Templates for user home directories: templates-user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-site-overrides-templates-custom-and-templates-user-custom">Local site overrides: templates-custom and templates-user-custom</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-resolve-conflicts-with-standard-templates">How to resolve conflicts with standard templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-expansion-of-templates">The expansion of templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subdirectory-templates">Subdirectory templates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#template-expansion">Template expansion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#template-permissions-and-ownership-templates-metadata">Template permissions and ownership: templates.metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#template-deletion-templates-metadata">Template deletion: templates.metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#perl-api-processtemplate">Perl API: processTemplate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Templates</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/templates.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="templates">
+<h1>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="design-of-the-template-system">
+<h2>Design of the template system<a class="headerlink" href="#design-of-the-template-system" title="Permalink to this headline">¶</a></h2>
+<p>Every piece of software has its own configuration format, and writing
+parsers for each one is a complex, time-consuming and error-prone
+process. The template system software avoids the whole issue by using
+templates which <em>generate</em>  the correct configuration.</p>
+<p>Configuration files are <strong>over-written</strong>
+when templates are expanded. In a few specific cases, the existing
+configuration file is parsed and rewritten in-place. This is done where
+the configuration file is also automatically updated
+by some other process.</p>
+<p>Templates are stored under <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates/</span></code> in a directory
+hierarchy which matches the standard filesystem. For example, the
+template for <code class="docutils literal notranslate"><span class="pre">/etc/inittab</span></code> is stored in the
+<code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates/etc/inittab/</span></code> directory. Each template is stored
+as a directory of template fragments and processed by the Perl
+<code class="docutils literal notranslate"><span class="pre">Text::Template</span></code> module.</p>
+<p>The template fragments are concatenated together in <em>ASCIIbetical</em>
+order (US-ASCII sort order) and the complete file is parsed to generate
+the appropriate configuration files for the service. The use of
+fragments is part of NethServer modular and extensible
+architecture; it allows third-party modules to add fragments to the
+configuration where necessary.</p>
+</div>
+<div class="section" id="the-text-template-module">
+<h2>The Text::Template module<a class="headerlink" href="#the-text-template-module" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Text::Template</span></code> module allows arbitary Perl code to be embedded in
+a template file by surrounding it in curly braces (<code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code>). The code
+inside the braces is interpreted and its return value replaces the
+section between, and including, the braces. For instance:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The answer is { 40 + 2 }
+</pre></div>
+</div>
+<p>becomes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The answer is 42
+</pre></div>
+</div>
+<p>Variables can be passed in from the program which is expanding the
+template, hence:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+    $OUT = &#39;;&#39;
+    for my $item ( qw(bread milk bananas) )
+    {
+         $OUT .= &quot;\* $item\n&quot;;
+    }
+}
+</pre></div>
+</div>
+<p>would expand to:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Shopping list
+* bread
+* milk
+* bananas
+</pre></div>
+</div>
+<p>The template system uses this mechanism to automatically pass
+in global configuration variables from the <em>configuration</em> database
+which can then be used to fill out the configuration files.</p>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> template could be fairly simple and composed of
+two fragments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@test hosts]$ ls /etc/e-smith/templates/etc/hosts
+10localhost  20hostname
+</pre></div>
+</div>
+<p>Fragments can have static content. For example, the first fragment:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>127.0.0.1       localhost
+</pre></div>
+</div>
+<p>The second is more complex and relies on values from the configuration database:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+    $OUT .= &quot;$LocalIP\t&quot;;
+    $OUT .= &quot; ${SystemName}.${DomainName}&quot;;
+    $OUT .= &quot; ${SystemName}&quot;;
+}
+</pre></div>
+</div>
+<p>Note that the whole fragment is enclosed in braces. Within those braces
+is a section of Perl code.</p>
+<p>When this template is expanded, it results in
+the following configuration file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># ================= DO NOT MODIFY THIS FILE =================
+#
+# Manual changes will be lost when this file is regenerated.
+#
+# Please read the developer&#39;s guide, which is available
+# at https://dev.nethesis.it/projects/nethserver/wiki/NethServer
+# original work from http://www.contribs.org/development/
+#
+# Copyright (C) 2015 Nethesis S.r.l.
+# http://www.nethesis.it - support@nethesis.it
+#
+127.0.0.1       localhost
+192.168.10.1    nsrv.nethesis.it nsrv
+</pre></div>
+</div>
+<p>The header block comes “for free” as part of the template system,
+courtesy of an optional file <code class="docutils literal notranslate"><span class="pre">template-begin</span></code>, which is always processed
+as the first fragment. If it isn’t provided, the text shown with #
+comments is included.
+If target configuration file do not support line comment beginning with #,
+please provide a custom or empty <code class="docutils literal notranslate"><span class="pre">template-begin</span></code>.</p>
+<p>The other lines are provided by the two fragments shown above. Note the
+use of the configuration database variables: <code class="docutils literal notranslate"><span class="pre">$LocalIP</span></code>, <code class="docutils literal notranslate"><span class="pre">$SystemName</span></code>
+and <code class="docutils literal notranslate"><span class="pre">$DomainName</span></code>. All simple entries in the configuration database are
+provided as global variables to the templates.</p>
+<p>Note that all of the template fragments are concatenated together before
+evaluation, so it is possible to set values in fragments which are used
+in later fragments. This is a very useful model for reducing the code in
+individual template fragments.</p>
+<p>The complex entries in the configuration database are also provided as
+global variables to the templates. However, they are provided as Perl
+hashes instead of simple scalars. For example, here is how you might
+configure the Network Time Protocol (NTP) server <code class="docutils literal notranslate"><span class="pre">/etc/ntp.conf</span></code> file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>server { $ntpd{NTPServer} }
+driftfile /etc/ntp/drift
+authenticate no
+</pre></div>
+</div>
+<p>The <em>NTPServer</em> setting is stored in the <em>ntpd</em> configuration database
+record, and so can be accessed via the hash accessor <code class="docutils literal notranslate"><span class="pre">$ntpd{NTPServer}</span></code>.</p>
+<div class="section" id="template-begin-and-template-end">
+<h3>template-begin and template-end<a class="headerlink" href="#template-begin-and-template-end" title="Permalink to this headline">¶</a></h3>
+<p>Each template directory can contain two optional files <code class="docutils literal notranslate"><span class="pre">template-begin</span></code>
+and <code class="docutils literal notranslate"><span class="pre">template-end</span></code> . The template-begin file is always processed as the
+first file of the template, and the template-end file is always
+processed as the last file.</p>
+<p>If the directory does not contain a <code class="docutils literal notranslate"><span class="pre">template-begin</span></code> file, the contents
+of <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates-default/template-begin</span></code> is used
+automatically.</p>
+<p>If the directory does not contain a <code class="docutils literal notranslate"><span class="pre">template-end</span></code> , nothing is appended
+to the template output. It is mostly used to provide the closing block
+for configuration files written in languages such as HTML and PHP,
+through a link to an entry in the <code class="docutils literal notranslate"><span class="pre">templates-default/</span></code> directory.</p>
+</div>
+<div class="section" id="etc-e-smith-templates-default">
+<h3>/etc/e-smith/templates-default<a class="headerlink" href="#etc-e-smith-templates-default" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates-default</span></code> directory contains a set of
+template-begin and template-end files for various languages. For
+example, if your template generates a perl script, you would link
+<code class="docutils literal notranslate"><span class="pre">template-begin</span></code> to <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates-default/template-begin-perl</span></code>
+and automatically get the <code class="docutils literal notranslate"><span class="pre">#!/usr/bin/perl</span> <span class="pre">-w</span></code> line and a comment
+containing the contents of the default template-begin file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may also need a <code class="docutils literal notranslate"><span class="pre">templates.metadata</span></code> configuration file if your generated file needs to be executable.</p>
+</div>
+</div>
+<div class="section" id="template-fragment-ordering">
+<h3>Template fragment ordering<a class="headerlink" href="#template-fragment-ordering" title="Permalink to this headline">¶</a></h3>
+<p>Template fragments are assembled in ASCII-betical order, with two
+exceptions: template-begin always comes first, and template-end always
+comes last. Template fragments are often named to start with a two digit
+number to make the ordering obvious, but this is not required.</p>
+</div>
+<div class="section" id="templates-for-user-home-directories-templates-user">
+<h3>Templates for user home directories: templates-user<a class="headerlink" href="#templates-for-user-home-directories-templates-user" title="Permalink to this headline">¶</a></h3>
+<p>Most of the templates on the system map to single, fixed output files,
+such as <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code>. However, templates are also used to generate
+configuration files such as mail delivery instructions for users. These
+templates are stored in the <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/template-user/</span></code> tree.</p>
+<p>As these templates have a variable
+output filename, they are expanded using small pieces of Perl code in
+action scripts.</p>
+</div>
+<div class="section" id="local-site-overrides-templates-custom-and-templates-user-custom">
+<h3>Local site overrides: templates-custom and templates-user-custom<a class="headerlink" href="#local-site-overrides-templates-custom-and-templates-user-custom" title="Permalink to this headline">¶</a></h3>
+<p>It is possible that the standard templates are not correct for a
+particular installation, and so the local system administrator can
+override the existing templates by placing files in the
+<code class="docutils literal notranslate"><span class="pre">templates-custom</span></code> tree. This is a parallel tree to the normal templates
+hierarchy, and is normally empty. There is also a <code class="docutils literal notranslate"><span class="pre">template-user-custom</span></code>
+tree for overriding entries in the templates-user tree.
+Be aware of overwriting all settings of a template if you copy the whole template to custom templates.
+This means, if there is an update at the original template it is overritten with your old version at custom template.
+If you only want to add a line to the config create an empty custom template and do it there.</p>
+<p>If a templates-custom entry exists for a template, it is merged with the
+standard templates directory during template expansion, using the
+following rules:</p>
+<ul class="simple">
+<li>If a fragment of the same name exists in both templates and
+templates-custom, the one from templates-custom is used, and the one
+from the standard templates tree is ignored.</li>
+<li>If the fragments in templates-custom have different names from those
+in templates, they are merged into the template as if they were in
+the templates directory.</li>
+<li>If the templates-custom entry is a file, rather than a directory, it
+completely overrides the standard template.</li>
+</ul>
+<p>To make this concrete, let’s assume we have the following template
+structure in <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates/etc/book.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10intro
+30chapter3
+40chapter4
+80synopsis
+</pre></div>
+</div>
+<p>and in <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates-custom/etc/book.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>30chapter3
+50chapter5
+</pre></div>
+</div>
+<p>The resulting template would be processed in this order:</p>
+<ul class="simple">
+<li>template-begin from /etc/e-smith/templates-default</li>
+<li>10intro from /etc/e-smith/templates/etc/book.conf</li>
+<li>30chapter3 from /etc/e-smith/templates-custom/etc/book.conf</li>
+<li>40chapter4 from /etc/e-smith/templates/etc/book.conf</li>
+<li>50chapter5 from /etc/e-smith/templates-custom/etc/book.conf</li>
+<li>80synopsis from /etc/e-smith/templates/etc/book.conf</li>
+<li>template-end (empty), nominally from /etc/e-smith/templates-default</li>
+</ul>
+<div class="section" id="how-to-resolve-conflicts-with-standard-templates">
+<h4>How to resolve conflicts with standard templates<a class="headerlink" href="#how-to-resolve-conflicts-with-standard-templates" title="Permalink to this headline">¶</a></h4>
+<p>It is possible that the standard templates may specify behaviour which
+is not appropriate for your application. In many cases the templates
+will be driven by configuration database settings which allow their
+behaviour to be customized, which should be the first thing to check.</p>
+<p>In many cases, your application only needs to extend the behaviour
+of the template by adding one or more fragments. This should be your
+second option and can be achieved by simply adding your fragment in the
+correct place in the list of fragments.</p>
+<p>In rare cases the standard template specifies a behaviour which
+conflicts with your application. In these cases, you should do <strong>all</strong>
+of the following:</p>
+<ul class="simple">
+<li>Create a templates-custom directory to match the existing one in the
+templates hierachy.</li>
+<li>Copy the conflicting fragment, and only that fragment, to the
+templates-custom directory. The fragment should have the same name in
+both directories. At this point you have not changed the behaviour of
+the system as the templates-custom entry will be preferred, but will
+behave identically.</li>
+<li>Modify the copy in templates-custom to suit your required behaviour.</li>
+<li>Inform the NethServer team about the problem.
+Please attach your modified template (or even better, a patch file)
+and provide details of why you think that the standard template
+should be changed.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-expansion-of-templates">
+<h3>The expansion of templates<a class="headerlink" href="#the-expansion-of-templates" title="Permalink to this headline">¶</a></h3>
+<p>To expand your custom templates to their destination you have to use the following command:</p>
+<blockquote>
+<div>expand-template &lt;template destination&gt;</div></blockquote>
+<p>where <em>template destination</em> has to be changed with the true path to the configuration file.</p>
+<p>For Example you want to add something to the samba configuration,
+then you have to build a custom template fragment under
+<code class="docutils literal notranslate"><span class="pre">/etc/e-smith/template-custom/etc/samba/smb.conf/</span></code> directory
+and execute the command:</p>
+<blockquote>
+<div>expand-template /etc/samba/smb.conf</div></blockquote>
+</div>
+<div class="section" id="subdirectory-templates">
+<h3>Subdirectory templates<a class="headerlink" href="#subdirectory-templates" title="Permalink to this headline">¶</a></h3>
+<p>It is also possible to split templates into further subdirectories. This
+can be very useful for evaluating the same fragments in a loop, for
+example for each virtual domain in <code class="docutils literal notranslate"><span class="pre">httpd.conf</span></code> or each ibay in
+<code class="docutils literal notranslate"><span class="pre">smb.conf</span></code>.</p>
+<p>Two examples of this can be found in
+<code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates/etc/httpd/conf/httpd.conf/80VirtualHosts</span></code> which
+loops over the
+<code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates/etc/httpd/conf/httpd.conf/VirtualHosts/</span></code>
+directory, and <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates/etc/smb.conf/90ibays</span></code> which
+performs a similar loop over the
+<code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates/etc/smb.conf/ibays/</span></code> directory.</p>
+</div>
+</div>
+<div class="section" id="template-expansion">
+<h2>Template expansion<a class="headerlink" href="#template-expansion" title="Permalink to this headline">¶</a></h2>
+<p>The system is designed to ensure consistent and reliable operation,
+without requiring command-line access. Whenever an event is signalled,
+the relevant templates for that event are expanded and the services are
+notified of the configuration changes.</p>
+<p>Requesting expansion of a template in an event is a simple matter of
+creating an empty file under the <code class="docutils literal notranslate"><span class="pre">templates2expand</span></code> hierarchy for that
+event.</p>
+<p>See <span class="xref std std-ref">events</span> manual chapter for further information.</p>
+</div>
+<div class="section" id="template-permissions-and-ownership-templates-metadata">
+<h2>Template permissions and ownership: templates.metadata<a class="headerlink" href="#template-permissions-and-ownership-templates-metadata" title="Permalink to this headline">¶</a></h2>
+<p>Templates are normally expanded to be owned by <code class="docutils literal notranslate"><span class="pre">root</span></code> and are not
+executable, which is a reasonable default for most configuration files.
+However, templates may need to generate configuration files which are
+owned by a different user, or which need to be executable or have other
+special permissions. This can be done by creating a <code class="docutils literal notranslate"><span class="pre">templates.metadata</span></code>
+file which defines the additional attributes for the expansion.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Configuration files should generally <strong>not</strong> be writable
+by any user other than root. In particular, configuration files should
+not normally be writable by the <em>www</em> user as this poses a significant
+security risk. Installation advice which says <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">777</span></code> is almost
+invariably wrong.</p>
+</div>
+<p>For example, here is the metadata file
+<code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates.metadata/etc/ppp/ip-up.local</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>UID=&quot;root&quot;
+GID=&quot;daemon&quot;
+PERMS=0755
+</pre></div>
+</div>
+<p>which sets the group to <code class="docutils literal notranslate"><span class="pre">daemon</span></code> and makes the script executable. Note
+that the file is readable by members of the <code class="docutils literal notranslate"><span class="pre">daemon</span></code> group, but it is
+not writable by anyone but root. It is also possible to use the same
+template to generate multiple output files, such as in this example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TEMPLATE_PATH=&quot;/etc/sysconfig/network-scripts/route-ethX&quot;
+OUTPUT_FILENAME=&quot;/etc/sysconfig/network-scripts/route-eth1&quot;
+MORE_DATA={ THIS_DEVICE =&gt; &quot;eth1&quot; }
+FILTER=sub { $_[0] =~ /^#/ ? &#39;&#39; : $_[0] } # Remove comments
+</pre></div>
+</div>
+<p>The templates.metadata file for route-eth0 just uses <code class="docutils literal notranslate"><span class="pre">eth0</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">eth1</span></code> on the second and third lines. Note also the <code class="docutils literal notranslate"><span class="pre">FILTER</span></code> setting
+which allows post-processing of the generated template.</p>
+<p>There are many examples under <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates.metadata/</span></code> and the
+full list of options can be seen with:</p>
+<p><code class="docutils literal notranslate"><span class="pre">perldoc&nbsp;esmith::templates</span></code></p>
+</div>
+<div class="section" id="template-deletion-templates-metadata">
+<h2>Template deletion: templates.metadata<a class="headerlink" href="#template-deletion-templates-metadata" title="Permalink to this headline">¶</a></h2>
+<p>A template once expanded in the file system cannot be deleted automatically,
+you can only change its content. The template will still exist until you delete
+it by a <code class="docutils literal notranslate"><span class="pre">templates.metadata</span></code> file.</p>
+<p>For example to delete <code class="docutils literal notranslate"><span class="pre">/etc/myExample</span></code>, create the file
+<code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates.metadata/etc/myExample</span></code> with just the following line</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DELETE=1
+</pre></div>
+</div>
+<p>Then</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>expand-template /etc/myExample
+</pre></div>
+</div>
+</div>
+<div class="section" id="perl-api-processtemplate">
+<h2>Perl API: processTemplate<a class="headerlink" href="#perl-api-processtemplate" title="Permalink to this headline">¶</a></h2>
+<p>In rare circumstances you may need to call <code class="docutils literal notranslate"><span class="pre">processTemplate</span></code> directly.
+Explicit calls to <code class="docutils literal notranslate"><span class="pre">processTemplate</span></code> are typically only used when the
+output filename is variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>use esmith::templates;
+foreach my $name (@names)
+{
+    [...]
+    processTemplate(
+    {
+      TEMPLATE_PATH =&gt; &quot;/etc/myservice/user.conf&quot;,
+      OUTPUT_FILENAME =&gt; &quot;/etc/myservice/$name.conf&quot;
+    );
+    [...]
+}
+</pre></div>
+</div>
+<p>bq. Content is available under GNU Free Documentation License 1.3 unless
+otherwise noted. Original document from: <a class="reference external" href="http://wiki.contribs.org/">http://wiki.contribs.org/</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="events.html" class="btn btn-neutral float-right" title="Actions and events" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="databases.html" class="btn btn-neutral float-left" title="Databases" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
