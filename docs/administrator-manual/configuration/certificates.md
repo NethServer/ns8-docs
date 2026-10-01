@@ -75,6 +75,14 @@ The `ACME settings` tab lists, for each cluster node, the parameters its Traefik
 
 Choose `HTTP-01` if port 443 of the node is not reachable from the internet, for example because another service or device handles it. Otherwise, prefer `TLS-ALPN-01`: port 80 can stay closed.
 
+For tests, you can set the Let's Encrypt staging directory, `https://acme-staging-v02.api.letsencrypt.org/directory`. It has much higher rate limits, but its certificates are signed by a test CA that clients do not trust.
+
+:::note
+
+Changing the `ACME directory URL` does not replace existing certificates. After switching back from staging to production, the staging certificates stay in use until they are renewed. To replace them sooner, [delete](#delete-certificates-section) them, or use `Manage names` to issue a new request.
+
+:::
+
 To change the settings of a node:
 
 1.  Go to `Settings` → `TLS certificates` and select the `ACME settings` tab.
