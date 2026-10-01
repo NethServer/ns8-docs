@@ -41,7 +41,7 @@ Per installare una nuova applicazione, fare clic sul pulsante **Installa** della
 
   Il selettore di volumi mostra la directory di montaggio del volume, l'etichetta del filesystem e l'utilizzo dello spazio.
 
-Per installare più applicazioni dello stesso tipo, fare clic sul link `Instances` all'interno della scheda dell'applicazione. Quindi, selezionare **Installa nuova istanza**. Si noti che in alcuni casi l'installazione su determinati nodi del cluster potrebbe essere limitata a causa di politiche dell'applicazione o limitazioni delle risorse del nodo.
+Per installare più applicazioni dello stesso tipo, fare clic sul link `Applications` all'interno della scheda dell'applicazione. Quindi, selezionare **Installa nuova applicazione**. Si noti che in alcuni casi l'installazione su determinati nodi del cluster potrebbe essere limitata a causa di politiche dell'applicazione o limitazioni delle risorse del nodo.
 
 ### Configurare volumi aggiuntivi {#additional-volumes-section}
 
@@ -87,14 +87,15 @@ Il nodo leader del cluster NS8, dove è in esecuzione il Software Center, richie
 Per casi d'uso avanzati, in cui un'applicazione non abilita la selezione automatica del volume, è comunque possibile assegnare un volume arbitrario seguendo [Reindirizzare i punti di montaggio dei volumi denominati di Podman](../../tutorial/disk_usage.md#named-volume-disk).
 ## Applicazioni installate {#application-instances}
 
-Una volta installata un'applicazione, fai clic sul link `Instances` all'interno della scheda dell'applicazione. È possibile eseguire varie azioni su ciascuna istanza facendo clic sul menu a tre punti:
+Una volta installata un'applicazione, fai clic sul link `Applications` all'interno della scheda dell'applicazione. Vengono elencate tutte le applicazioni installate di quel tipo. È possibile eseguire varie azioni su ciascuna applicazione facendo clic sul menu a tre punti:
 
 - `Update to testing version`: Questa azione è visibile solo quando è disponibile una versione di testing. Esamina attentamente la documentazione pre-release o consulta lo sviluppatore dell'app prima di procedere.
+- `Disable automatic updates` / `Enable automatic updates`: Escludi l'applicazione dagli aggiornamenti automatici, oppure includila di nuovo. Disponibile solo con un abbonamento attivo. Vedi [Aggiornamenti automatici](#automatic-updates-section).
 - `Add to favorites`: Fissa l'applicazione in cima al **cassetto delle applicazioni**.
-- `Edit instance label`: Aggiungi un nome personalizzato all'istanza.
+- `Edit application label`: Aggiungi un nome personalizzato all'applicazione.
 - `Clone`: Clona l'applicazione. Vedi [Clone and move](modules.md#move_clone-section).
 - `Move`: Sposta l'applicazione su un altro nodo. Vedi [Clone and move](modules.md#move_clone-section).
-- `Restart instance`: arresta tutti i componenti dell'applicazione e riavviali, simile a un riavvio del sistema ma limitato all'applicazione.
+- `Restart application`: arresta tutti i componenti dell'applicazione e riavviali, simile a un riavvio del sistema ma limitato all'applicazione.
 - `Uninstall`: Rimuovi l'applicazione e tutti i dati correlati.
 
 La [pagina delle applicazioni](modules.md) è un'alternativa completa per gestire le applicazioni installate nel cluster.
@@ -126,7 +127,7 @@ Nota che se la stessa applicazione è elencata in più repository, verrà consid
 Puoi aggiornare i metadati cliccando sul pulsante **Ricarica repository**.
 ## Aggiornamenti {#updates-section}
 
-Se i repository abilitati contengono un aggiornamento per un'istanza di applicazione installata o per qualsiasi componente principale, un messaggio di avviso viene visualizzato nella parte superiore della pagina del Software Center. È possibile verificare se ci sono aggiornamenti disponibili anche accedendo alla pagina `Cluster status`.
+Se i repository abilitati contengono un aggiornamento per un'applicazione installata o per qualsiasi componente principale, un messaggio di avviso viene visualizzato nella parte superiore della pagina del Software Center. È possibile verificare se ci sono aggiornamenti disponibili anche accedendo alla pagina `Cluster status`.
 
 NethServer 8 può gestire due diversi tipi di aggiornamenti:
 
@@ -135,7 +136,7 @@ NethServer 8 può gestire due diversi tipi di aggiornamenti:
 
 Gli [aggiornamenti del sistema operativo](../../tutorial/os_updates.md) sono delegati alla distribuzione Linux sottostante.
 
-Se si dispone di un abbonamento attivo, gli aggiornamenti disponibili (inclusi gli aggiornamenti del sistema operativo) vengono applicati automaticamente come descritto in [Aggiornamenti pianificati](../about/subscription.md#scheduled-updates).
+Se si dispone di un abbonamento attivo, gli aggiornamenti disponibili (inclusi gli aggiornamenti del sistema operativo) vengono applicati automaticamente come descritto in [Aggiornamenti pianificati](../about/subscription.md#scheduled-updates). È possibile rinunciarvi, per l'intero cluster o per singole applicazioni. Vedere [Aggiornamenti automatici](#automatic-updates-section).
 
 ### Aggiornamenti del core {#core_updates-section}
 
@@ -149,7 +150,7 @@ NS8 è composto dal core e da diversi moduli. Ogni componente del core ha il pro
 - [Samba Active Directory](user_domains.md#active_directory-section) (opzionale)
 - [OpenLDAP](user_domains.md#openldap-section) (opzionale)
 
-È possibile esaminare in qualsiasi momento i componenti attualmente installati su ciascun nodo del cluster. Per farlo, cliccare sul menu a tre punti nell'angolo in alto a destra della pagina `Software Center`, quindi selezionare `Core apps`. Cliccare su **Update core** per applicare gli aggiornamenti.
+È possibile esaminare in qualsiasi momento i componenti attualmente installati su ciascun nodo del cluster. Per farlo, cliccare sul menu a tre punti nell'angolo in alto a destra della pagina `Software Center`, quindi selezionare `Core applications`. Cliccare su **Update core** per applicare gli aggiornamenti.
 
 Gli aggiornamenti dei moduli core vengono sempre applicati tutti insieme per evitare incongruenze di versione.
 
@@ -157,6 +158,26 @@ Gli aggiornamenti dei moduli core vengono sempre applicati tutti insieme per evi
 
 L'elenco degli aggiornamenti disponibili è visualizzato nella scheda `Updates` del [Software center](#). Il Software Center mostra una scheda per ogni applicazione con aggiornamenti disponibili.
 
-È possibile applicare tutti gli aggiornamenti delle applicazioni cliccando sul pulsante **Update all apps**.
+È possibile applicare tutti gli aggiornamenti delle applicazioni cliccando sul pulsante **Update all applications**.
 
-Cliccando sul pulsante **Review and update** nella scheda dell'applicazione, si vedranno tutte le istanze del modulo che richiedono un aggiornamento. È possibile aggiornare ogni istanza separatamente cliccando sul pulsante **Update**. Se si preferisce aggiornare tutte le istanze dello stesso modulo, basta cliccare sul pulsante **Update all instances**.
+Cliccando sul pulsante **Review and update** nella scheda dell'applicazione, si vedranno tutte le applicazioni di quel tipo che richiedono un aggiornamento. È possibile aggiornare ogni applicazione separatamente cliccando sul pulsante **Update**. Se si preferisce aggiornare tutte le applicazioni dello stesso tipo, basta cliccare sul pulsante **Update all applications**.
+
+Gli aggiornamenti applicati manualmente dal Software Center ignorano le impostazioni degli aggiornamenti automatici: si applicano anche alle applicazioni escluse dagli aggiornamenti automatici.
+
+### Aggiornamenti automatici {#automatic-updates-section}
+
+Con un abbonamento attivo, un'attività pianificata notturna applica automaticamente gli aggiornamenti disponibili, come descritto in [Aggiornamenti pianificati](../about/subscription.md#scheduled-updates). Gli aggiornamenti automatici sono abilitati per impostazione predefinita. Senza abbonamento, gli aggiornamenti non vengono mai applicati automaticamente e i controlli descritti in questa sezione non vengono visualizzati.
+
+Per disattivare gli aggiornamenti automatici per l'intero cluster, cliccare sul menu a tre punti nell'angolo in alto a destra della pagina `Software Center` o `Applications`, quindi selezionare `Disable automatic updates`. L'attività pianificata smette di aggiornare applicazioni, componenti core e pacchetti del sistema operativo. Mentre gli aggiornamenti automatici sono disattivati, entrambe le pagine mostrano l'avviso `Automatic updates disabled`. Per riabilitarli, cliccare su **Enable automatic updates** nell'avviso, oppure selezionare la stessa voce nel menu a tre punti.
+
+:::warning
+
+La disattivazione degli aggiornamenti automatici può esporre il cluster a problemi di sicurezza e a una minore stabilità. Verificare e installare manualmente gli aggiornamenti con regolarità.
+
+:::
+
+Per escludere una singola applicazione dagli aggiornamenti automatici, selezionare `Disable automatic updates` dal menu a tre punti della sua riga, nella pagina `Applications` o nell'elenco delle applicazioni dello stesso tipo nel Software Center. L'applicazione riceve l'etichetta `Updates disabled`. L'attività pianificata la salta, mentre le altre applicazioni, i componenti core e i pacchetti del sistema operativo vengono comunque aggiornati. Selezionare `Enable automatic updates` per includere di nuovo l'applicazione.
+
+L'impostazione di ogni applicazione viene mantenuta quando gli aggiornamenti automatici vengono disattivati e riabilitati per l'intero cluster: le applicazioni escluse in precedenza restano escluse.
+
+Le applicazioni escluse possono comunque essere aggiornate manualmente, come descritto in [Aggiornamenti delle applicazioni](#module_updates-section).
