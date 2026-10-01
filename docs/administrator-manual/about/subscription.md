@@ -86,6 +86,8 @@ Managed repositories follow a conservative update policy to ensure stability and
 
 It is possible to override the managed update policy by manually installing or updating core components or applications via the Software Center page. The metadata for applications and core components from the `subscription` repository is refreshed hourly in the Software Center.
 
+Scheduled updates are enabled by default. You can disable them for the whole cluster, or exclude single applications from them, in the Software Center. See [Automatic updates](../installation/software_center.md#automatic-updates-section).
+
 Scheduled updates are inhibited when an NS7 node joins the cluster to migrate applications. This is necessary because the migration procedure requires specific application versions to function correctly. Scheduled updates will be re-enabled once the NS7 migration is finished and the NS7 node is automatically removed from the cluster.
 
 ## Remove the subscription

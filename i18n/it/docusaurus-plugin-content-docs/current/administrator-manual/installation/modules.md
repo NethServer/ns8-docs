@@ -24,6 +24,10 @@ Ogni volta che un'applicazione viene aggiunta al cluster, viene identificata in 
 Questo identificativo interno e univoco viene assegnato dal cluster e non può essere modificato, ma l'azione `Edit label` consente di assegnare un'etichetta personalizzata.
 
 Inoltre, è possibile allegare una breve nota di testo all'applicazione tramite l'azione `Edit note`. Quando un'applicazione ha una nota allegata, accanto al nome dell'applicazione appare una piccola *i* cerchiata con un tooltip.
+
+## Aggiornamenti automatici
+
+Con un abbonamento attivo, l'azione `Disable automatic updates` esclude l'applicazione dagli aggiornamenti automatici, e l'applicazione riceve l'etichetta `Updates disabled`. L'azione `Enable automatic updates` la include di nuovo. Il menu a tre punti in cima alla pagina `Applications` offre le stesse azioni per l'intero cluster. Vedere [Aggiornamenti automatici](software_center.md#automatic-updates-section).
 ## Clona e sposta {#move_clone-section}
 
 Le azioni `Clone` e `Move` creano un'applicazione **di destinazione** che è una copia di quella **di origine**.
@@ -52,7 +56,7 @@ Questa azione dovrebbe essere utilizzata con parsimonia e preferibilmente al di 
 Alcuni eventi imprevedibili, come la mancanza di spazio su disco o l'esaurimento della memoria, possono degradare la funzionalità dell'applicazione. In queste situazioni, `Restart` potrebbe risolvere il problema, a condizione che le risorse sufficienti siano nuovamente disponibili.
 ## Applicazioni principali
 
-Dalla pagina `Applications`, seleziona il pulsante **Core apps** per visualizzare un elenco completo delle applicazioni principali installate e delle loro versioni. Gli aggiornamenti delle applicazioni principali, quando disponibili, vengono sempre applicati contemporaneamente.
+Dalla pagina `Applications`, seleziona il pulsante **Go to Core applications** per visualizzare un elenco completo delle applicazioni principali installate e delle loro versioni. Gli aggiornamenti delle applicazioni principali, quando disponibili, vengono sempre applicati contemporaneamente.
 ## Il termine *modulo*
 
 Il termine *modulo* è spesso utilizzato dagli sviluppatori. Un'applicazione NS8 è implementata da un'unità chiamata *modulo*. Di solito è composta da uno o più container Linux e da un'interfaccia utente per la sua configurazione. Un modulo è l'unità distribuibile gestita dall'orchestratore del cluster.
