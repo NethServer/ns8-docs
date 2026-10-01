@@ -19,7 +19,7 @@ NethServer 8 releases
 
 - **Frontend proxies in the HTTP routes page** \[Core 3.22.0\] -- A new `Frontend proxies` tab of the `HTTP routes` page configures the nodes that stand behind a reverse proxy, a load balancer, or a CDN. Previously available only through API calls, the configuration lists the trusted proxy addresses and the trust depth, so that Traefik recovers the original client address from the `X-Forwarded-For` header. See [Frontend proxies](../configuration/proxy.md#frontend-proxies-section).
 
-  When a node has frontend proxies, the `Allow access from` restriction of its HTTP routes checks the original client address instead of the proxy address. Allow lists must contain client addresses, and restricted routes, including `cluster-admin`, reject requests that reach the node directly without passing through a frontend proxy.
+  When a node has frontend proxies, the `Allow access from` restriction of its HTTP routes checks the original client address instead of the proxy address. Allow lists must contain client addresses, and restricted routes, including `cluster-admin`, reject requests that reach the node directly without passing through a frontend proxy. Adding the LAN network to `Allow access from` admits LAN clients only when they connect through a frontend proxy.
 
 ## Major changes on 2026-06-30
 
