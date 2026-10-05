@@ -105,6 +105,8 @@ Questa riscrittura cambia solo il mittente nascosto della busta, mai gli intesta
 
 Se in seguito arriva un messaggio di bounce o una notifica di stato di consegna (DSN) indirizzata all'indirizzo riscritto, Mail la verifica e la traduce nuovamente nel mittente originale, in modo che gli errori di consegna raggiungano il mittente originale.
 
+Se è configurata una [regola di relay predefinita](#relay-rules-section) (uno smarthost), questa riscrittura viene invece saltata automaticamente: un'installazione che inoltra tutta la posta in uscita attraverso un altro server tipicamente non è un vero server di posta pubblico con consegna diretta, e il mittente riscritto verrebbe altrimenti respinto dallo smarthost stesso.
+
 ### Casella di posta pubblica
 
 Le caselle di posta pubbliche possono essere condivise tra gruppi di utenti. Il pulsante **Create public mailbox** consente di creare una nuova casella di posta pubblica e definire uno o più gruppi e utenti proprietari. Le caselle di posta pubbliche possono essere create anche da qualsiasi client IMAP che supporti l'estensione del protocollo IMAP ACL (RFC 4314).

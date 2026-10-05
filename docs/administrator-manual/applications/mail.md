@@ -105,6 +105,8 @@ This rewrite changes only the hidden envelope sender, never the visible `From`, 
 
 If a bounce or delivery status notification is later sent back to the rewritten address, Mail verifies it and translates it back to the original sender, so delivery failures reach the original sender.
 
+If a [default relay rule](#relay-rules-section) (a smarthost) is configured, this rewriting is automatically skipped instead: a deployment that relays all outgoing mail through another server is typically not a real, directly-delivering public mail server, and the rewritten sender would otherwise be rejected by the smarthost itself.
+
 ### Public mailbox
 
 Public mailboxes can be shared among groups of users. The **Create public mailbox** button allows creating a new public mailbox and defining one or more owning groups and users. Public mailboxes can also be created by any IMAP client supporting IMAP ACL protocol extension (RFC 4314).
