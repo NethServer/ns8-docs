@@ -83,6 +83,8 @@ I repository gestiti seguono una politica di aggiornamento conservativa per gara
 
 È possibile ignorare la politica di aggiornamento gestita installando o aggiornando manualmente i componenti principali o le applicazioni tramite la pagina del Software Center. I metadati per le applicazioni e i componenti principali provenienti dal repository `subscription` vengono aggiornati ogni ora nel Software Center.
 
+Gli aggiornamenti pianificati sono abilitati per impostazione predefinita. È possibile disattivarli per l'intero cluster, o escludere singole applicazioni, dal Software Center. Vedere [Aggiornamenti automatici](../installation/software_center.md#automatic-updates-section).
+
 Gli aggiornamenti pianificati vengono inibiti quando un nodo NS7 si unisce al cluster per migrare le applicazioni. Questo è necessario poiché la procedura di migrazione richiede versioni specifiche delle applicazioni per funzionare correttamente. Gli aggiornamenti pianificati saranno riattivati una volta completata la migrazione di NS7 e il nodo NS7 sarà automaticamente rimosso dal cluster.
 ## Rimuovere l'abbonamento
 
