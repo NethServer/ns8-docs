@@ -134,13 +134,9 @@ Limits:
 
 :::
 
-Troubleshooting:
+To refresh disk data immediately, run on the node:
 
-- Data comes from two node services: `refresh-container-metrics.service` (always running) and `refresh-volume-metrics.timer` (daily)
-- Check them with `systemctl status refresh-container-metrics` and `systemctl list-timers refresh-volume-metrics.timer`
-- To get disk data immediately, run on the node:
-
-      systemctl start refresh-volume-metrics.service
+    systemctl start refresh-volume-metrics.service
 
 :::warning
 

@@ -134,13 +134,9 @@ Limiti:
 
 :::
 
-Risoluzione dei problemi:
+Per aggiornare subito i dati del disco, esegui sul nodo:
 
-- I dati provengono da due servizi del nodo: `refresh-container-metrics.service` (sempre in esecuzione) e `refresh-volume-metrics.timer` (giornaliero)
-- Verificali con `systemctl status refresh-container-metrics` e `systemctl list-timers refresh-volume-metrics.timer`
-- Per ottenere subito i dati del disco, esegui sul nodo:
-
-      systemctl start refresh-volume-metrics.service
+    systemctl start refresh-volume-metrics.service
 
 :::warning
 
