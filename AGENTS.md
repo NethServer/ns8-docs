@@ -64,6 +64,18 @@ reports broken links and anchors.
   inline code: `` `Save` ``, `` `Settings` ``.
 - File paths, commands, config keys and volume names use inline code:
   `` `postgres-data` ``.
+- In Italian pages, UI labels use the Italian strings shown by the UI.
+  Take them from the
+  [ns8-core](https://github.com/NethServer/ns8-core) translation files:
+  1. Search `core/ui/public/i18n/en/translation.json` for the English
+     label and note its key (e.g. `settings_subscription.system_id` for
+     "System key").
+  2. Read the same key in `core/ui/public/i18n/it/translation.json`
+     ("Chiave sistema").
+
+  Labels of an application UI come from the same files in its own
+  repository, e.g. `ui/public/i18n/it/translation.json` in `ns8-mail`.
+  Copy the string as is, and use one label language for the whole page.
 - Admonitions use the Docusaurus syntax:
 
   ```markdown
