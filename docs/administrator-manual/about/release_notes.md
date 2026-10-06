@@ -9,7 +9,7 @@ NethServer 8 releases
 - List of [known bugs](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) on GitHub
 - Discussions around [possible bugs](http://community.nethserver.org/c/bug) on our public forum
 
-## Major changes on 2026-10-02
+## Major changes on 2026-10-09
 
 **Milestone 8.10**
 
