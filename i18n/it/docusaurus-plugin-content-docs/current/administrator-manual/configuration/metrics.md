@@ -130,7 +130,6 @@ Limiti:
 
 - I dati del disco sono aggiornati una volta al giorno, quindi possono avere fino a un giorno di ritardo. Subito dopo l'installazione o l'aggiornamento, i pannelli del disco possono essere vuoti fino alla prima esecuzione giornaliera.
 - I grafici di rete mostrano solo i container con una rete propria. La maggior parte dei container NS8 usa la rete dell'host: il loro traffico è nei grafici di rete del nodo in `Node Exporter Full`.
-- L'I/O a blocchi di un modulo rootless compare solo dopo che la sua sessione utente è stata riavviata una volta dopo l'aggiornamento del core, ad esempio dopo il riavvio del nodo.
 - Un file con hardlink tra due moduli viene contato per entrambi, quindi la somma può superare lo spazio realmente usato.
 
 :::

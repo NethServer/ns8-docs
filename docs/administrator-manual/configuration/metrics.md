@@ -130,7 +130,6 @@ Limits:
 
 - Disk figures are refreshed once a day, so they can be up to one day old. Right after install or update, disk panels can be empty until the first daily run.
 - Network graphs show only containers with their own network. Most NS8 containers use the host network: their traffic is in the node network graphs of `Node Exporter Full`.
-- Block I/O of a rootless module appears only after its user session restarts once after the core update, for example after a node reboot.
 - A file hardlinked across two modules is counted for both, so the sum can exceed the real used space.
 
 :::
