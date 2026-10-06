@@ -10,7 +10,10 @@ In NethServer 8, le applicazioni non gestiscono direttamente TLS. Ogni nodo del 
 
 Durante l'installazione, Traefik genera un certificato autofirmato e lo utilizza come predefinito per le applicazioni locali, inclusa l'interfaccia web del cluster.
 
-La pagina `Certificati TLS` elenca i certificati disponibili su ogni nodo e utilizzati dalle sue applicazioni. La tabella può essere filtrata per `Nodo`, `Stato`, `Tipo` o digitando una parola chiave che corrisponde a un attributo del certificato.
+La pagina `Certificati TLS` ha due schede:
+
+- `Certificati` elenca i certificati disponibili su ogni nodo e utilizzati dalle sue applicazioni. La tabella può essere filtrata per `Nodo`, `Stato`, `Tipo` o digitando una parola chiave che corrisponde a un attributo del certificato.
+- `Impostazioni ACME` configura il modo in cui ogni nodo ottiene i certificati da Let's Encrypt. Vedere [Impostazioni ACME](#acme-settings-section).
 
 I certificati non sono condivisi tra i nodi del cluster. Sono validi solo sul nodo in cui sono stati richiesti o caricati.
 
@@ -30,12 +33,12 @@ Sia i certificati Automatici che quelli Obsoleti vengono rinnovati automaticamen
 
 [Let's Encrypt](https://letsencrypt.org) è un'autorità di certificazione senza scopo di lucro che emette certificati TLS gratuitamente. NethServer 8 utilizza le sfide ACME basate su HTTP per ottenerli, che richiedono:
 
-1.  **Il nodo del cluster deve essere raggiungibile pubblicamente sulla porta 443**.
+1.  **Il nodo del cluster deve essere raggiungibile pubblicamente sulla porta del suo tipo di challenge**. Il tipo di challenge si imposta per ogni nodo nella scheda [Impostazioni ACME](#acme-settings-section):
 
-    - Assicurarsi che la porta 443 sia aperta verso Internet pubblico. È possibile testarla con siti come [CSM](http://www.canyouseeme.org/).
-    - Verificare che non ci siano regole firewall basate su IP nella rete del nodo. Let's Encrypt utilizza IP imprevedibili per la sfida TLS-ALPN-01, che potrebbero essere bloccati da filtri geografici o personalizzati.
+    - `TLS-ALPN-01` richiede la porta 443. È il valore predefinito per i nodi installati con Traefik 3.0.0 o successivo.
+    - `HTTP-01` richiede la porta 80. I nodi installati prima di Traefik 3.0.0 lo utilizzano ancora, a meno che il tipo di challenge non sia stato modificato.
 
-    I nodi installati prima di Traefik 3.0.0 utilizzavano le sfide HTTP-01. In tal caso, anche la porta 80 deve essere aperta. Consultare le [note di rilascio](../about/release_notes.md) per il traguardo 8.4.
+    Assicurarsi che la porta richiesta sia aperta verso Internet pubblico. È possibile testarla con siti come [CSM](http://www.canyouseeme.org/). Verificare inoltre che non ci siano regole firewall basate su IP nella rete del nodo. Let's Encrypt valida le challenge da IP imprevedibili, che potrebbero essere bloccati da filtri geografici o personalizzati.
 
 2.  I nomi dei certificati devono essere domini pubblici che puntano all'IP pubblico del server. Assicurarsi di avere **record DNS per indirizzi IPv4 e IPv6**. Siti come [VDNS](http://viewdns.info/) possono aiutare a verificare i DNS.
 
@@ -62,6 +65,38 @@ Se i requisiti sono soddisfatti, richiedere un certificato come segue:
 La validazione può richiedere fino a 60 secondi prima di un timeout.
 
 I certificati vengono rinnovati automaticamente da un processo giornaliero che inizia 30 giorni prima della scadenza. Se il rinnovo fallisce, viene generato un avviso di scadenza (vedere [Ricevere avvisi di scadenza dei certificati](#certificate-alerts-section)). Consultare i [requisiti di Let's Encrypt](#lets-encrypt-requirements) per identificare la causa.
+
+## Impostazioni ACME {#acme-settings-section}
+
+La scheda `Impostazioni ACME` elenca, per ogni nodo del cluster, i parametri che la sua istanza Traefik utilizza per ottenere i certificati:
+
+- `URL di ACME directory`: l'URL del provider ACME che emette i certificati. Il valore predefinito è la directory di produzione di Let's Encrypt, `https://acme-v02.api.letsencrypt.org/directory`.
+- `Tipo di challenge`: il modo in cui il provider ACME verifica che il nodo controlli i nomi richiesti. Può essere `TLS-ALPN-01`, tramite la porta 443, oppure `HTTP-01`, tramite la porta 80.
+
+Scegliere `HTTP-01` se la porta 443 del nodo non è raggiungibile da Internet, ad esempio perché è gestita da un altro servizio o dispositivo. Altrimenti, preferire `TLS-ALPN-01`: la porta 80 può rimanere chiusa.
+
+Per i test, è possibile impostare la directory di staging di Let's Encrypt, `https://acme-staging-v02.api.letsencrypt.org/directory`. Ha limiti di frequenza molto più alti, ma i suoi certificati sono firmati da una CA di test che i client non considerano attendibile.
+
+:::note
+
+La modifica dell'`URL di ACME directory` non sostituisce i certificati esistenti. Dopo il ritorno dalla directory di staging a quella di produzione, i certificati di staging restano in uso finché non vengono rinnovati. Per sostituirli prima, [eliminarli](#delete-certificates-section) oppure utilizzare `Gestisci nomi` per inviare una nuova richiesta.
+
+:::
+
+Per modificare le impostazioni di un nodo:
+
+1.  Accedere a `Impostazioni` → `Certificati TLS` e selezionare la scheda `Impostazioni ACME`.
+2.  Fare clic su **Modifica** nella riga del nodo.
+3.  Inserire l'`URL di ACME directory` e selezionare il `Tipo di challenge`.
+4.  Fare clic su **Salva**.
+
+:::warning
+
+Il salvataggio delle impostazioni ACME riavvia Traefik sul nodo, e i client HTTP connessi vengono brevemente disconnessi. Evitare di modificarle durante l'orario di lavoro.
+
+:::
+
+A causa del riavvio di Traefik, l'interfaccia potrebbe non ricevere l'esito dell'operazione. In tal caso, controllare la riga del nodo nella tabella e ripetere la modifica se necessario.
 
 ## Caricare certificati TLS personalizzati {#custom-certificates-section}
 
@@ -97,7 +132,8 @@ Se le notifiche di avviso sono configurate (vedere [Notifiche di avviso](metrics
   Cause comuni di **fallimento del rinnovo** includono:
 
   - I record DNS per un nome di certificato sono stati modificati o rimossi.
-  - Un firewall blocca le sfide HTTP, sia per indirizzo di rete che per regole IP geografiche.
+  - Un firewall blocca le challenge ACME, sia per indirizzo di rete che per regole IP geografiche.
+  - La porta richiesta dal [tipo di challenge](#acme-settings-section) del nodo è chiusa.
 
 ## Eliminare un certificato TLS {#delete-certificates-section}
 
