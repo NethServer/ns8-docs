@@ -117,7 +117,7 @@ Rows:
 - `Modules`: table with one row per module and node, plus CPU, memory and network graphs by module
   - `core` is the core itself: Redis, promtail, node_exporter, rclone-gateway, shared rootfull image store, cluster, node and api-server state
   - `unknown` is a container whose owner cannot be found, for example started by hand or exiting
-  - A module with disk usage but no containers is stopped
+  - If a module shows disk usage but zero containers, the module is installed but not running
 - `Containers`: table and graphs for the modules chosen in `Module`
   - CPU and memory top 10, block I/O, network
   - Container names are unique per module, not per node. For example `traefik` exists in both `traefik1` and `loki1`. Always read module and container together

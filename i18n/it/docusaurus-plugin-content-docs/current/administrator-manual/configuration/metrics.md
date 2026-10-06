@@ -117,7 +117,7 @@ Righe:
 - `Modules`: tabella con una riga per modulo e nodo, più grafici di CPU, memoria e rete per modulo
   - `core` è il core stesso: Redis, promtail, node_exporter, rclone-gateway, archivio immagini rootfull condiviso, stato di cluster, nodo e api-server
   - `unknown` è un container di cui non si trova il proprietario, ad esempio avviato a mano o in fase di uscita
-  - Un modulo con uso disco ma senza container è fermo
+  - Se un modulo mostra uso del disco ma zero container, il modulo è installato ma non in esecuzione
 - `Containers`: tabella e grafici per i moduli scelti in `Module`
   - Top 10 di CPU e memoria, I/O a blocchi, rete
   - I nomi dei container sono univoci per modulo, non per nodo. Ad esempio `traefik` esiste sia in `traefik1` sia in `loki1`. Leggi sempre insieme modulo e container
