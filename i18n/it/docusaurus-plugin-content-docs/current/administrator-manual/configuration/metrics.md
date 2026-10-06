@@ -37,12 +37,14 @@ Prometheus invia automaticamente gli avvisi ad Alertmanager quando una regola vi
 - Partizioni disco quasi piene
 - Software RAID (mdadm) degradato
 - Certificato TLS scaduto o in scadenza entro 28 giorni
+- Nodo del cluster offline da più di 5 minuti
+- Server dei log Loki offline da più di 5 minuti
 
 Se la macchina ha una sottoscrizione valida, gli avvisi vengono inoltrati ai portali Nethesis come [my.nethesis.it](https://my.nethesis.it) o [my.nethserver.com](https://my.nethserver.com).
 
 Puoi comunque configurare l'invio degli avvisi a indirizzi email personalizzati.
 
-Gli avvisi sono visibili anche in [Grafana](#grafana_access-section).
+Gli avvisi sono visibili anche dal menu `Alerting` di Grafana. Vedi [Dashboard predefinite](#grafana-dashboards-section).
 
 ### Notifiche degli avvisi {#alerts_notifications-section}
 
@@ -67,14 +69,79 @@ Quando è abilitato, Grafana è accessibile sul nodo leader all'indirizzo `https
 
 Per accedere a Grafana, devi autenticarti con le credenziali di amministrazione del cluster.
 
-Grafana mostrerà automaticamente alcune dashboard predefinite:
+### Dashboard predefinite {#grafana-dashboards-section}
 
-- cartella *core*: contiene le dashboard predefinite per il cluster. Le dashboard disponibili sono:
-  - una dashboard per le metriche di tutti i nodi, come carico CPU, uso della memoria e spazio disco
-  - una dashboard per gli avvisi attivati
-  - una dashboard sulle statistiche di Loki
-  - una dashboard per eseguire query sui log di Loki
-- cartella *modules*: contiene le dashboard predefinite per i moduli installati, come Samba Audit
+Grafana fornisce automaticamente alcune dashboard predefinite.
+
+Cartella `core`:
+
+- `Node Exporter Full`: metriche hardware e del sistema operativo di ogni nodo
+  - CPU, memoria, spazio disco, I/O disco, rete, unità systemd
+  - Scegli il nodo con il selettore `Host`. I nodi sono elencati per indirizzo IP della VPN e porta, ad esempio `10.5.4.1:9100`
+- `Containers`: uso di CPU, memoria, rete e disco di ogni modulo e dei suoi container. Vedi [Dashboard Containers](#containers-dashboard-section)
+- `Logs`: cerca nei log del cluster archiviati in Loki. Vedi [Log di sistema](log_server.md)
+  - Filtra per `Node ID`, `Module`, `Category`
+  - Ricerca testuale libera
+- `Loki metrics`: stato e throughput del server di log Loki
+
+Cartella `modules`: dashboard aggiunte dalle applicazioni installate. Esempi:
+
+- Samba: `Samba Audit search`, `Samba Audit statistics`. Vedi [File server](../applications/file_server.md)
+- CrowdSec: `CrowdSec Overview`, `CrowdSec Metrics`. Vedi [CrowdSec](../applications/crowdsec.md)
+
+Gli avvisi attivati sono visibili dal menu `Alerting` di Grafana. Un'origine dati Alertmanager è preconfigurata.
+
+### Dashboard Containers {#containers-dashboard-section}
+
+Disponibile da NethServer 8.10 (core 3.22.0, metrics 1.4.0).
+
+Usa la dashboard `Containers` per trovare quale modulo o container usa più CPU, memoria o disco su un nodo.
+
+Selettori in alto:
+
+- `Node`
+- `Module`
+
+Entrambi accettano più valori. `All` è consentito.
+
+Riepilogo in alto, per l'intervallo di tempo selezionato:
+
+- Numero di moduli e container
+- CPU totale (1.0 = un core completamente occupato)
+- Memoria totale (page cache inclusa)
+- Disco totale
+- OOM kill (processi terminati per memoria esaurita)
+
+Righe:
+
+- `Modules`: tabella con una riga per modulo e nodo, più grafici di CPU, memoria e rete per modulo
+  - `core` è il core stesso: Redis, promtail, node_exporter, rclone-gateway, archivio immagini rootfull condiviso, stato di cluster, nodo e api-server
+  - `unknown` è un container di cui non si trova il proprietario, ad esempio avviato a mano o in fase di uscita
+  - Un modulo con uso disco ma senza container è fermo
+- `Containers`: tabella e grafici per i moduli scelti in `Module`
+  - Top 10 di CPU e memoria, I/O a blocchi, rete
+  - I nomi dei container sono univoci per modulo, non per nodo. Ad esempio `traefik` esiste sia in `traefik1` sia in `loki1`. Leggi sempre insieme modulo e container
+- `Disk`: top 10 dei moduli per uso disco (volumi, immagini, stato del modulo), crescita del disco negli ultimi 14 giorni, tabella dei volumi
+- `Collector health` (compressa): età e durata dell'ultima raccolta, container e moduli saltati
+
+:::note
+
+Limiti:
+
+- I dati del disco sono aggiornati una volta al giorno, quindi possono avere fino a un giorno di ritardo. Subito dopo l'installazione o l'aggiornamento, i pannelli del disco possono essere vuoti fino alla prima esecuzione giornaliera.
+- I grafici di rete mostrano solo i container con una rete propria. La maggior parte dei container NS8 usa la rete dell'host: il loro traffico è nei grafici di rete del nodo in `Node Exporter Full`.
+- L'I/O a blocchi di un modulo rootless compare solo dopo che la sua sessione utente è stata riavviata una volta dopo l'aggiornamento del core, ad esempio dopo il riavvio del nodo.
+- Un file con hardlink tra due moduli viene contato per entrambi, quindi la somma può superare lo spazio realmente usato.
+
+:::
+
+Risoluzione dei problemi:
+
+- I dati provengono da due servizi del nodo: `refresh-container-metrics.service` (sempre in esecuzione) e `refresh-volume-metrics.timer` (giornaliero)
+- Verificali con `systemctl status refresh-container-metrics` e `systemctl list-timers refresh-volume-metrics.timer`
+- Per ottenere subito i dati del disco, esegui sul nodo:
+
+      systemctl start refresh-volume-metrics.service
 
 :::warning
 
