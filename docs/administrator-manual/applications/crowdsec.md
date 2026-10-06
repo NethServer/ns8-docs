@@ -23,7 +23,8 @@ Once installed, CrowdSec is already fully functional and starts protecting NS8 a
 ## Web interface
 
 The module's side menu gives access to the following pages: `Status`,
-`Detections`, `Collections`, `Blocklists`, `Settings`, and `About`.
+`Detections`, `Collections`, `Blocklists`, `Threat Shield`, `Settings`, and
+`About`.
 
 ### Status
 
@@ -98,6 +99,67 @@ blocked. Enter one entry per line, for example:
 192.168.1.0/24
 trusted.example.com
 ```
+
+### Threat Shield {#threat-shield}
+
+Attackers usually target many servers at once. NethServer and NethSecurity
+systems with a subscription share the attackers they block, so that each
+system can block them before they attack.
+
+It works this way:
+
+- When CrowdSec blocks an IP address, the server sends that address to
+  Nethesis.
+- When enough systems report the same address, Nethesis adds it to the
+  `Nethesis community - Level 2` blocklist.
+- Servers with the Threat Shield add-on can enable this blocklist and other
+  blocklists maintained by Nethesis. CrowdSec downloads the enabled
+  blocklists every 30 minutes and blocks their IP addresses in the firewall.
+
+Servers with a subscription also apply the Nethesis global allowlist. The
+addresses in this list, such as the Nethesis subscription servers, are never
+blocked.
+
+What happens depends on the [subscription](../about/subscription.md):
+
+| Server | Sends blocked addresses | Nethesis global allowlist | Threat Shield blocklists |
+|---|---|---|---|
+| Without subscription | No | No | Not available |
+| With subscription | Yes | Yes | Not available |
+| With subscription and the Threat Shield add-on | Yes | Yes | Available, disabled by default |
+
+The Threat Shield add-on is available for both Community and Enterprise
+subscriptions.
+
+No configuration is needed. Sending starts when the server has a
+subscription and stops when the subscription is removed. If the server loses
+the subscription or the add-on, the addresses imported from the Threat Shield
+blocklists are removed.
+
+#### Blocklist
+
+The table lists the available blocklists with `Status`, `Confidence`,
+`Entries` and `Last update`. Select the blocklists to enable and click
+`Save`. The import starts right after you save. Disabling a blocklist removes
+its addresses from the firewall.
+
+| Blocklist | Confidence |
+|---|---|
+| `Yoroi malware - Level 1` | 10 |
+| `Yoroi malware - Level 2` | 8 |
+| `Yoroi suspicious - Level 1` | 10 |
+| `Yoroi suspicious - Level 2` | 8 |
+| `Nethesis suspicious - Level 3` | 6 |
+| `Nethesis community - Level 2` | 8 |
+
+Confidence goes from 1 to 10. A higher value means a lower risk of blocking
+a legitimate address. Confidence is not shown with a Community subscription.
+
+#### Search IP in Threat Shield blocklists
+
+Enter an IP address and click `Search` to check whether it is blocked by an
+enabled Threat Shield blocklist. If it is, the result names the blocklists
+that contain it.
 
 ### Settings
 
