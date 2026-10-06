@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Release notes | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/pr-preview/pr-271/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/pr-preview/pr-271/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/pr-preview/pr-271/docs/administrator-manual/about/release_notes"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Release notes | NethServer 8 documentation"><meta data-rh="true" name="description" content="NethServer 8 releases"><meta data-rh="true" property="og:description" content="NethServer 8 releases"><link data-rh="true" rel="icon" href="/pr-preview/pr-271/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/pr-preview/pr-271/docs/administrator-manual/about/release_notes"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-271/docs/administrator-manual/about/release_notes" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-271/it/docs/administrator-manual/about/release_notes" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-271/docs/administrator-manual/about/release_notes" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Release notes","item":"https://docs.nethserver.org/pr-preview/pr-271/docs/administrator-manual/about/release_notes"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/pr-preview/pr-271/opensearch.xml">
 <script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/pr-preview/pr-271/assets/css/styles.d64e4b30.css">
-<script src="/pr-preview/pr-271/assets/js/runtime~main.6f5e8b5f.js" defer="defer"></script>
+<script src="/pr-preview/pr-271/assets/js/runtime~main.fc02ec64.js" defer="defer"></script>
 <script src="/pr-preview/pr-271/assets/js/main.4545aac6.js" defer="defer"></script>
 </head>
 <body>
@@ -22,6 +22,15 @@
 <p><strong>Milestone 8.10</strong></p>
 <ul>
 <li class="">
+<p><strong>Forwarding to external addresses</strong> [Mail 1.9.0] -- Messages forwarded from a mailbox to an external address now pass the SPF check of the destination server. Mail rewrites the envelope sender of messages whose sender domain is not a local mail domain with the Sender Rewriting Scheme (SRS), leaving the visible <code>From</code> header and the DKIM signature untouched. Bounces sent back to the rewritten address still reach the original sender. The rewriting is skipped when a default relay rule (smarthost) is configured [Mail 1.9.1]. See <a class="" href="/pr-preview/pr-271/docs/administrator-manual/applications/mail#mail-mailboxes-settings">Mailboxes</a>.</p>
+</li>
+<li class="">
+<p><strong>Alias addresses from the user domain</strong> [Mail 1.8.0] -- The new <code>Add alias addresses from user domain</code> option of mail domains treats the LDAP <code>mail</code> attribute of every user as a valid email address of the domain. When the sender/login correspondence is enforced, the address is also accepted as a sender for that user. See <a class="" href="/pr-preview/pr-271/docs/administrator-manual/applications/mail#email_domains">Domains</a>.</p>
+</li>
+<li class="">
+<p><strong>Phone extension of users</strong> [Core 3.22.0, OpenLDAP 2.8.0, Samba 3.5.0] -- Users of internal user domains have a new <code>Phone extension</code> field, stored in the LDAP <code>telephoneNumber</code> attribute. The field can be edited from cluster-admin and from the User Management portal. See <a class="" href="/pr-preview/pr-271/docs/administrator-manual/installation/user_domains#create-users-and-groups-section">Create users and groups</a>.</p>
+</li>
+<li class="">
 <p><strong>Opt-out of automatic updates</strong> [Core 3.22.0] -- With an active subscription, automatic updates can now be disabled from the Software Center, either for the whole cluster or for single applications, without command-line procedures. Applications excluded from automatic updates are marked with the <code>Updates disabled</code> tag and can still be updated manually. A warning is displayed in the Software Center and Applications pages while automatic updates are disabled for the whole cluster. See <a class="" href="/pr-preview/pr-271/docs/administrator-manual/installation/software_center#automatic-updates-section">Automatic updates</a>.</p>
 </li>
 <li class="">
@@ -30,6 +39,60 @@
 <li class="">
 <p><strong>Frontend proxies in the HTTP routes page</strong> [Core 3.22.0] -- A new <code>Frontend proxies</code> tab of the <code>HTTP routes</code> page configures the nodes that stand behind a reverse proxy, a load balancer, or a CDN. Previously available only through API calls, the configuration lists the trusted proxy addresses and the trust depth, so that Traefik recovers the original client address from the <code>X-Forwarded-For</code> header. See <a class="" href="/pr-preview/pr-271/docs/administrator-manual/configuration/proxy#frontend-proxies-section">Frontend proxies</a>.</p>
 <p>When a node has frontend proxies, the <code>Allow access from</code> restriction of its HTTP routes checks the original client address instead of the proxy address. Allow lists must contain client addresses, and restricted routes, including <code>cluster-admin</code>, reject requests that reach the node directly without passing through a frontend proxy. Adding the LAN network to <code>Allow access from</code> admits LAN clients only when they connect through a frontend proxy.</p>
+</li>
+<li class="">
+<p><strong>System logs search and highlighting</strong> [Core 3.20.1, 3.22.0] -- The <code>System logs</code> page has a new switch to search log lines with a regular expression instead of a plain text match. Error and warning lines are highlighted with different colors.</p>
+</li>
+<li class="">
+<p><strong>Quieter logs by default</strong> [Core 3.22.0, LDAP proxy 1.3.0] -- The node metrics exporter and the LDAP proxy log less during normal operation. The log level of the LDAP proxy can be raised temporarily for troubleshooting, as explained in its <a href="https://github.com/NethServer/ns8-ldapproxy#logging" target="_blank" rel="noopener noreferrer" class="">README</a>.</p>
+</li>
+<li class="">
+<p><strong>Faster pages without internet access</strong> [Core 3.20.1, 3.22.0] -- When the software repositories are unreachable, for example on a cluster without internet access, the <code>Cluster status</code>, <code>Applications</code>, and <code>Software Center</code> pages no longer wait for long network timeouts. Repositories are queried in parallel and their responses are cached.</p>
+</li>
+<li class="">
+<p><strong>Table page size is remembered</strong> [Core 3.23.0] -- The <code>Items per page</code> choice of tables is saved in the browser and survives page changes and reloads. Applications get this behavior when they update their UI library.</p>
+</li>
+<li class="">
+<p><strong>Per-container resource metrics</strong> [Core 3.22.0, Metrics 1.4.0] -- Node metrics now include the CPU and memory usage of every application container, so you can find which application is consuming the node resources. A new <code>Containers</code> Grafana dashboard displays them. See <a class="" href="/pr-preview/pr-271/docs/administrator-manual/configuration/metrics#grafana_access-section">Grafana access</a>.</p>
+</li>
+<li class="">
+<p><strong>Backup failures and alerts</strong> [Core 3.20.1, 3.21.1] -- A backup is reported as failed again when the removal of old snapshots (prune) fails, for example because of timeouts from a slow S3 destination: since Core 3.20.0 such backups were reported as successful, while the storage space was never reclaimed. The <code>BackupFailed</code> alert now persists across backup runs and node reboots, until a backup run succeeds.</p>
+</li>
+<li class="">
+<p><strong>CrowdSec web interface</strong> [CrowdSec 1.2.0] -- New CrowdSec pages make visible what was previously accessible only from the command line:</p>
+<ul>
+<li class=""><code>Detections</code> lists past suspicious activities with their scenario, source IP, country, and event log.</li>
+<li class=""><code>Collections</code> enables or disables the detection collections of each service.</li>
+<li class=""><code>Blocklists</code> groups the local blocklist, the community blocklist with the Central API connection status and IP search, and the allowlist.</li>
+</ul>
+<p>See <a class="" href="/pr-preview/pr-271/docs/administrator-manual/applications/crowdsec">CrowdSec</a>.</p>
+</li>
+<li class="">
+<p><strong>CrowdSec protection for NethVoice</strong> [CrowdSec 1.2.0] -- The new <code>nethesis/nethvoice</code> collection detects SIP brute-force attacks against Kamailio, and HTTP brute-force and exploit scans against the NethVoice web applications. The collection is enabled on new installations; after an upgrade, enable it from the <code>Collections</code> page.</p>
+</li>
+<li class="">
+<p><strong>Antivirus third-party signatures rating</strong> [Mail 1.7.13] -- The <code>Third-party signatures rating</code> setting of the Mail antivirus was not applied, and the <code>Medium</code> rating was always used. The setting is now effective, so detection results may change if a different rating was selected. See <a class="" href="/pr-preview/pr-271/docs/administrator-manual/applications/mail#anti-virus">Antivirus</a>.</p>
+</li>
+<li class="">
+<p><strong>Mail logins with Active Directory</strong> [Mail 1.7.13] -- Dovecot no longer follows LDAP referrals returned by Active Directory. This removes unexpected connections to port 636 and repeated DNS queries, and fixes login timeouts reported on some installations migrated from NethServer 7.</p>
+</li>
+<li class="">
+<p><strong>Default Roundcube folders</strong> [Roundcube 2.1.7] -- The <code>Drafts</code> and <code>Sent</code> folders are created at the first login of a user, instead of when the first message is sent. Mail clients configured afterwards find the standard folders and do not create localized ones, such as <code>Posta inviata</code>.</p>
+</li>
+<li class="">
+<p><strong>WebTop updates</strong> [WebTop 1.5.9] -- WebTop was updated to upstream release 5.35.6 and the PEC bridge to release 5.4.11. The Thunderbird autoconfiguration file now advertises IMAP on port 993 and SMTP on port 465 with implicit TLS, as already done for Outlook. See <a class="" href="/pr-preview/pr-271/docs/administrator-manual/applications/mail#email_clients">Client configuration</a>.</p>
+</li>
+<li class="">
+<p><strong>Dependency-Track 5</strong> [Dependency-Track 2.0.0] -- The Dependency-Track application was upgraded to major version 5, because version 4 has reached its end of life. Existing installations are not updated automatically: the database must be migrated with a manual procedure, and some settings must be reconfigured afterwards. See <a href="https://github.com/NethServer/ns8-dependencytrack#upgrading-from-dependency-track-v4-to-v5" target="_blank" rel="noopener noreferrer" class="">Upgrading from Dependency-Track v4 to v5</a>.</p>
+</li>
+<li class="">
+<p><strong>Debian 12 no longer supported</strong> [Core 3.23.0] -- As announced in the 8.8 release notes, the installer no longer accepts Debian 12. Existing Debian 12 nodes are not affected by this change, but should be upgraded to Debian 13 following the procedure described in the 8.8 release notes.</p>
+</li>
+<li class="">
+<p><strong>Instance limit per node on the command line</strong> [Core 3.23.0] -- The <code>add-module</code> command now honors the instance limit per node of an application, like the Software Center. For example, it refuses to install a second CrowdSec instance on the same node. The <code>--force</code> option skips the check.</p>
+</li>
+<li class="">
+<p><strong>Other application updates</strong> -- Loki 1.5.0 (upstream 3.7), Nextcloud 1.7.6.</p>
 </li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-changes-on-2026-06-30">Major changes on 2026-06-30<a href="#major-changes-on-2026-06-30" class="hash-link" aria-label="Direct link to Major changes on 2026-06-30" title="Direct link to Major changes on 2026-06-30" translate="no">​</a></h2>
