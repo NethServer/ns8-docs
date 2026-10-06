@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">CrowdSec | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/pr-preview/pr-274/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/pr-preview/pr-274/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/pr-preview/pr-274/docs/administrator-manual/applications/crowdsec"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="CrowdSec | NethServer 8 documentation"><meta data-rh="true" name="description" content="CrowdSec is a malicious activity detection tool. It looks for known patterns, like malicious login attempts, inside the applications logs and blocks the attacker IP address."><meta data-rh="true" property="og:description" content="CrowdSec is a malicious activity detection tool. It looks for known patterns, like malicious login attempts, inside the applications logs and blocks the attacker IP address."><link data-rh="true" rel="icon" href="/pr-preview/pr-274/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/pr-preview/pr-274/docs/administrator-manual/applications/crowdsec"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-274/docs/administrator-manual/applications/crowdsec" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-274/it/docs/administrator-manual/applications/crowdsec" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-274/docs/administrator-manual/applications/crowdsec" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CrowdSec","item":"https://docs.nethserver.org/pr-preview/pr-274/docs/administrator-manual/applications/crowdsec"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/pr-preview/pr-274/opensearch.xml">
 <script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/pr-preview/pr-274/assets/css/styles.d64e4b30.css">
-<script src="/pr-preview/pr-274/assets/js/runtime~main.52e061d1.js" defer="defer"></script>
+<script src="/pr-preview/pr-274/assets/js/runtime~main.6fb2fc62.js" defer="defer"></script>
 <script src="/pr-preview/pr-274/assets/js/main.8fb27a2f.js" defer="defer"></script>
 </head>
 <body>
@@ -82,27 +82,57 @@ decisions from this server automatically.</p>
 blocked. Enter one entry per line, for example:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">192.168.1.10</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">192.168.1.0/24</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">trusted.example.com</span><br></div></code></pre></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="threat-shield">Threat Shield<a href="#threat-shield" class="hash-link" aria-label="Direct link to Threat Shield" title="Direct link to Threat Shield" translate="no">​</a></h3>
-<p>Threat Shield adds blocklists maintained by Nethesis to CrowdSec. CrowdSec
-downloads the enabled blocklists every 30 minutes and blocks their IP
-addresses in the firewall.</p>
-<p>Threat Shield requires a <a class="" href="/pr-preview/pr-274/docs/administrator-manual/about/subscription">subscription</a> that
-includes the Threat Shield add-on:</p>
+<p>Attackers usually target many servers at once. NethServer and NethSecurity
+systems with a subscription share the attackers they block, so that each
+system can block them before they attack.</p>
+<p>It works this way:</p>
 <ul>
-<li class="">Without a subscription, the page shows <code>Subscription required</code> and all
-controls are disabled.</li>
-<li class="">With a subscription but without the add-on, the page shows
-<code>Threat Shield add-on required</code> and all controls are disabled. If you lose
-the add-on, the addresses imported from the blocklists are removed.</li>
+<li class="">When CrowdSec blocks an IP address, the server sends that address to
+Nethesis.</li>
+<li class="">When enough systems report the same address, Nethesis adds it to the
+<code>Nethesis community - Level 2</code> blocklist.</li>
+<li class="">Servers with the Threat Shield add-on can enable this blocklist and other
+blocklists maintained by Nethesis. CrowdSec downloads the enabled
+blocklists every 30 minutes and blocks their IP addresses in the firewall.</li>
 </ul>
-<p>When the system has a subscription, even without the add-on:</p>
-<ul>
-<li class="">CrowdSec sends the IP addresses it blocks to Nethesis. Nethesis collects
-them from all NethServer and NethSecurity systems with a subscription. When
-enough systems report the same address, it goes into the
-<code>Nethesis community - Level 2</code> blocklist. You cannot turn this off.</li>
-<li class="">CrowdSec applies the Nethesis global allowlist. The addresses in this list,
-such as the Nethesis subscription servers, are never blocked.</li>
-</ul>
+<p>Servers with a subscription also apply the Nethesis global allowlist. The
+addresses in this list, such as the Nethesis subscription servers, are never
+blocked.</p>
+<p>What happens depends on the <a class="" href="/pr-preview/pr-274/docs/administrator-manual/about/subscription">subscription</a>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Server</th><th>Sends blocked addresses</th><th>Nethesis global allowlist</th><th>Threat Shield blocklists</th></tr></thead><tbody><tr><td>Without subscription</td><td>No</td><td>No</td><td>Not available</td></tr><tr><td>With subscription</td><td>Yes</td><td>Yes</td><td>Not available</td></tr><tr><td>With subscription and the Threat Shield add-on</td><td>Yes</td><td>Yes</td><td>Available, disabled by default</td></tr></tbody></table>
+<p>No configuration is needed. Sending starts when the server has a
+subscription and stops when the subscription is removed. If the server loses
+the subscription or the add-on, the addresses imported from the Threat Shield
+blocklists are removed.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="blocklist">Blocklist<a href="#blocklist" class="hash-link" aria-label="Direct link to Blocklist" title="Direct link to Blocklist" translate="no">​</a></h4>
 <p>The table lists the available blocklists with <code>Status</code>, <code>Confidence</code>,
 <code>Entries</code> and <code>Last update</code>. Select the blocklists to enable and click
@@ -144,13 +174,6 @@ its addresses from the firewall.</p>
 <table><thead><tr><th>Blocklist</th><th>Confidence</th></tr></thead><tbody><tr><td><code>Yoroi malware - Level 1</code></td><td>10</td></tr><tr><td><code>Yoroi malware - Level 2</code></td><td>8</td></tr><tr><td><code>Yoroi suspicious - Level 1</code></td><td>10</td></tr><tr><td><code>Yoroi suspicious - Level 2</code></td><td>8</td></tr><tr><td><code>Nethesis suspicious - Level 3</code></td><td>6</td></tr><tr><td><code>Nethesis community - Level 2</code></td><td>8</td></tr></tbody></table>
 <p>Confidence goes from 1 to 10. A higher value means a lower risk of blocking
 a legitimate address.</p>
-<p>The <code>Nethesis community - Level 2</code> blocklist contains the attackers blocked
-by NethServer and NethSecurity systems, as described above.</p>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>CrowdSec cannot block whole networks with its firewall component, so only
-single addresses are imported. Network entries in the blocklists are skipped:
-for example, the <code>Nethesis suspicious - Level 3</code> blocklist contains about 3,000
-networks that are not imported. The <code>Entries</code> count and the search below
-cover single addresses only.</p></div></div>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="search-ip-in-threat-shield-blocklists">Search IP in Threat Shield blocklists<a href="#search-ip-in-threat-shield-blocklists" class="hash-link" aria-label="Direct link to Search IP in Threat Shield blocklists" title="Direct link to Search IP in Threat Shield blocklists" translate="no">​</a></h4>
 <p>Enter an IP address and click <code>Search</code> to check whether it is blocked by an
 enabled Threat Shield blocklist. If it is, the result names the blocklists
@@ -186,37 +209,7 @@ duration. Either way, enter the duration in minutes as free text.</li>
 <li class=""><code>cscli collections list</code> / <code>cscli scenarios list</code> — show which collections/scenarios are installed and enabled, useful to check what is being protected</li>
 <li class=""><code>cscli metrics</code> — show parser/bucket/bouncer metrics, useful to check CrowdSec is actually processing logs</li>
 <li class=""><code>cscli explain --file &lt;logfile&gt; --type &lt;log-type&gt;</code> — test a log line against parsers and scenarios, useful to debug why an attack was or wasn&#x27;t detected</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="threat-shield-cli">Threat Shield<a href="#threat-shield-cli" class="hash-link" aria-label="Direct link to Threat Shield" title="Direct link to Threat Shield" translate="no">​</a></h3>
-<p>Threat Shield can also be managed with <code>api-cli</code>. Run the commands below in a
-root shell.</p>
-<p>Enable some blocklists:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run module/crowdsec1/set-threat-shield --data &#x27;{&quot;feeds&quot;: [&quot;yoroimallvl1&quot;, &quot;nethesislvl3&quot;, &quot;nethesis-insights&quot;]}&#x27;</span><br></div></code></pre></div></div>
-<p>Disable all blocklists:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run module/crowdsec1/set-threat-shield --data &#x27;{&quot;feeds&quot;: []}&#x27;</span><br></div></code></pre></div></div>
-<p>The blocklist keys are: <code>yoroimallvl1</code>, <code>yoroimallvl2</code>, <code>yoroisusplvl1</code>,
-<code>yoroisusplvl2</code>, <code>nethesislvl3</code> and <code>nethesis-insights</code>
-(<code>Nethesis community - Level 2</code>).</p>
-<p>Show the blocklists, their entry counts and last update:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run module/crowdsec1/list-threat-shield</span><br></div></code></pre></div></div>
-<p>Check whether an IP address is blocked:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run module/crowdsec1/search-threat-shield-decision --data &#x27;{&quot;ip&quot;: &quot;203.0.113.5&quot;}&#x27;</span><br></div></code></pre></div></div>
-<p>Show the addresses imported from the blocklists into the firewall:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">nft list set crowdsec crowdsec-blacklists-cscli-import</span><br></div></code></pre></div></div>
-<p>Show the Nethesis global allowlist:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">runagent -m crowdsec1 cscli allowlists inspect nethesis_threat_shield</span><br></div></code></pre></div></div>
-<p>If an address of yours is wrongly listed in the <code>Nethesis community - Level 2</code>
-blocklist, ask Nethesis to remove it. This is available only from the command
-line and requires the Threat Shield add-on:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run module/crowdsec1/request-allowlist --data &#x27;{&quot;cidr&quot;: &quot;203.0.113.7&quot;, &quot;reason&quot;: &quot;This is our office public IP&quot;}&#x27;</span><br></div></code></pre></div></div>
-<ul>
-<li class=""><code>cidr</code>: an IP address or a network, at most <code>/24</code> for IPv4 or <code>/48</code> for
-IPv6.</li>
-<li class=""><code>reason</code>: why the address must not be blocked.</li>
-</ul>
-<p>The output looks like <code>{&quot;accepted&quot;: true, &quot;requests&quot;: 1}</code>, where <code>requests</code>
-is how many systems asked for the same address. Repeating a request has no
-effect.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/NethServer/ns8-docs/blob/main/docs/administrator-manual/applications/crowdsec.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer><div class="versionFooter_GEsS"><span class="versionText_BSdA">NethServer <span class="versionNumber_jKi7">8</span></span></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/pr-preview/pr-274/docs/administrator-manual/configuration/metrics"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Metrics and alerts</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/pr-preview/pr-274/docs/administrator-manual/applications/dnsmasq"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">DNSMasq</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#default-protections" class="table-of-contents__link toc-highlight">Default protections</a></li><li><a href="#web-interface" class="table-of-contents__link toc-highlight">Web interface</a><ul><li><a href="#status" class="table-of-contents__link toc-highlight">Status</a></li><li><a href="#detections" class="table-of-contents__link toc-highlight">Detections</a></li><li><a href="#collections" class="table-of-contents__link toc-highlight">Collections</a></li><li><a href="#blocklists" class="table-of-contents__link toc-highlight">Blocklists</a></li><li><a href="#threat-shield" class="table-of-contents__link toc-highlight">Threat Shield</a></li><li><a href="#settings" class="table-of-contents__link toc-highlight">Settings</a></li></ul></li><li><a href="#command-line-interface" class="table-of-contents__link toc-highlight">Command-line interface</a><ul><li><a href="#threat-shield-cli" class="table-of-contents__link toc-highlight">Threat Shield</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-274/docs/administrator-manual">Administrator manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-274/docs/user-manual">User manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-274/docs/tutorial">Tutorial</a></li><li class="footer__item"><a href="https://nethserver.github.io/ns8-core/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Developer manual<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legacy docs</div><ul class="footer__items clean-list"><li class="footer__item">
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/NethServer/ns8-docs/blob/main/docs/administrator-manual/applications/crowdsec.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer><div class="versionFooter_GEsS"><span class="versionText_BSdA">NethServer <span class="versionNumber_jKi7">8</span></span></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/pr-preview/pr-274/docs/administrator-manual/configuration/metrics"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Metrics and alerts</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/pr-preview/pr-274/docs/administrator-manual/applications/dnsmasq"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">DNSMasq</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#default-protections" class="table-of-contents__link toc-highlight">Default protections</a></li><li><a href="#web-interface" class="table-of-contents__link toc-highlight">Web interface</a><ul><li><a href="#status" class="table-of-contents__link toc-highlight">Status</a></li><li><a href="#detections" class="table-of-contents__link toc-highlight">Detections</a></li><li><a href="#collections" class="table-of-contents__link toc-highlight">Collections</a></li><li><a href="#blocklists" class="table-of-contents__link toc-highlight">Blocklists</a></li><li><a href="#threat-shield" class="table-of-contents__link toc-highlight">Threat Shield</a></li><li><a href="#settings" class="table-of-contents__link toc-highlight">Settings</a></li></ul></li><li><a href="#command-line-interface" class="table-of-contents__link toc-highlight">Command-line interface</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-274/docs/administrator-manual">Administrator manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-274/docs/user-manual">User manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-274/docs/tutorial">Tutorial</a></li><li class="footer__item"><a href="https://nethserver.github.io/ns8-core/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Developer manual<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legacy docs</div><ul class="footer__items clean-list"><li class="footer__item">
                 <div class="legacy-docs-link-container">
                 NethServer 7
                   <a class="footer__link-item" href="/en/v7/" target="_blank">en</a>
