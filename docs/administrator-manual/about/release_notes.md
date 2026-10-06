@@ -13,6 +13,12 @@ NethServer 8 releases
 
 **Milestone 8.10**
 
+- **Forwarding to external addresses** \[Mail 1.9.0\] -- Messages forwarded from a mailbox to an external address now pass the SPF check of the destination server. Mail rewrites the envelope sender of messages whose sender domain is not a local mail domain with the Sender Rewriting Scheme (SRS), leaving the visible `From` header and the DKIM signature untouched. Bounces sent back to the rewritten address still reach the original sender. The rewriting is skipped when a default relay rule (smarthost) is configured \[Mail 1.9.1\]. See [Mailboxes](../applications/mail.md#mail-mailboxes-settings).
+
+- **Alias addresses from the user domain** \[Mail 1.8.0\] -- The new `Add alias addresses from user domain` option of mail domains treats the LDAP `mail` attribute of every user as a valid email address of the domain. When the sender/login correspondence is enforced, the address is also accepted as a sender for that user. See [Domains](../applications/mail.md#email_domains).
+
+- **Phone extension of users** \[Core 3.22.0, OpenLDAP 2.8.0, Samba 3.5.0\] -- Users of internal user domains have a new `Phone extension` field, stored in the LDAP `telephoneNumber` attribute. The field can be edited from cluster-admin and from the User Management portal. See [Create users and groups](../installation/user_domains.md#create-users-and-groups-section).
+
 - **Opt-out of automatic updates** \[Core 3.22.0\] -- With an active subscription, automatic updates can now be disabled from the Software Center, either for the whole cluster or for single applications, without command-line procedures. Applications excluded from automatic updates are marked with the `Updates disabled` tag and can still be updated manually. A warning is displayed in the Software Center and Applications pages while automatic updates are disabled for the whole cluster. See [Automatic updates](../installation/software_center.md#automatic-updates-section).
 
 - **ACME settings in the TLS certificates page** \[Core 3.22.0\] -- The former `ACME servers` page is now the `ACME settings` tab of the `TLS certificates` page. Besides the ACME directory URL, it allows choosing the challenge type of each node, `TLS-ALPN-01` (port 443) or `HTTP-01` (port 80), so the command-line procedure described in the 8.4 release notes is no longer needed. See [ACME settings](../configuration/certificates.md#acme-settings-section).
@@ -20,6 +26,39 @@ NethServer 8 releases
 - **Frontend proxies in the HTTP routes page** \[Core 3.22.0\] -- A new `Frontend proxies` tab of the `HTTP routes` page configures the nodes that stand behind a reverse proxy, a load balancer, or a CDN. Previously available only through API calls, the configuration lists the trusted proxy addresses and the trust depth, so that Traefik recovers the original client address from the `X-Forwarded-For` header. See [Frontend proxies](../configuration/proxy.md#frontend-proxies-section).
 
   When a node has frontend proxies, the `Allow access from` restriction of its HTTP routes checks the original client address instead of the proxy address. Allow lists must contain client addresses, and restricted routes, including `cluster-admin`, reject requests that reach the node directly without passing through a frontend proxy. Adding the LAN network to `Allow access from` admits LAN clients only when they connect through a frontend proxy.
+
+- **System logs search and highlighting** \[Core 3.20.1, 3.22.0\] -- The `System logs` page has a new switch to search log lines with a regular expression instead of a plain text match. Error and warning lines are highlighted with different colors.
+
+- **Faster pages without internet access** \[Core 3.20.1, 3.22.0\] -- When the software repositories are unreachable, for example on a cluster without internet access, the `Cluster status`, `Applications`, and `Software Center` pages no longer wait for long network timeouts. Repositories are queried in parallel and their responses are cached.
+
+- **Table page size is remembered** \[Core 3.23.0\] -- The `Items per page` choice of tables is saved in the browser and survives page changes and reloads. Applications get this behavior when they update their UI library.
+
+- **Per-container resource metrics** \[Core 3.22.0, Metrics 1.4.0\] -- Node metrics now include the CPU and memory usage of every application container, so you can find which application is consuming the node resources. A new `Containers` Grafana dashboard displays them. See [Grafana access](../configuration/metrics.md#grafana_access-section).
+
+- **CrowdSec web interface** \[CrowdSec 1.2.0\] -- New CrowdSec pages make visible what was previously accessible only from the command line:
+  - `Detections` lists past suspicious activities with their scenario, source IP, country, and event log.
+  - `Collections` enables or disables the detection collections of each service.
+  - `Blocklists` groups the local blocklist, the community blocklist with the Central API connection status and IP search, and the allowlist.
+
+  See [CrowdSec](../applications/crowdsec.md).
+
+- **CrowdSec protection for NethVoice** \[CrowdSec 1.2.0\] -- The new `nethesis/nethvoice` collection detects SIP brute-force attacks against Kamailio, and HTTP brute-force and exploit scans against the NethVoice web applications. The collection is enabled on new installations; after an upgrade, enable it from the `Collections` page.
+
+- **Antivirus third-party signatures rating** \[Mail 1.7.13\] -- The `Third-party signatures rating` setting of the Mail antivirus was not applied, and the `Medium` rating was always used. The setting is now effective, so detection results may change if a different rating was selected. See [Antivirus](../applications/mail.md#anti-virus).
+
+- **Mail logins with Active Directory** \[Mail 1.7.13\] -- Dovecot no longer follows LDAP referrals returned by Active Directory. This removes unexpected connections to port 636 and repeated DNS queries, and fixes login timeouts reported on some installations migrated from NethServer 7.
+
+- **Default Roundcube folders** \[Roundcube 2.1.7\] -- The `Drafts` and `Sent` folders are created at the first login of a user, instead of when the first message is sent. Mail clients configured afterwards find the standard folders and do not create localized ones, such as `Posta inviata`.
+
+- **WebTop updates** \[WebTop 1.5.9\] -- WebTop was updated to upstream release 5.35.6 and the PEC bridge to release 5.4.11. The Thunderbird autoconfiguration file now advertises IMAP on port 993 and SMTP on port 465 with implicit TLS, as already done for Outlook. See [Client configuration](../applications/mail.md#email_clients).
+
+- **Dependency-Track 5** \[Dependency-Track 2.0.0\] -- The Dependency-Track application was upgraded to major version 5, because version 4 has reached its end of life. Existing installations are not updated automatically: the database must be migrated with a manual procedure, and some settings must be reconfigured afterwards. See [Upgrading from Dependency-Track v4 to v5](https://github.com/NethServer/ns8-dependencytrack#upgrading-from-dependency-track-v4-to-v5).
+
+- **Debian 12 no longer supported** \[Core 3.23.0\] -- As announced in the 8.8 release notes, the installer no longer accepts Debian 12. Existing Debian 12 nodes are not affected by this change, but should be upgraded to Debian 13 following the procedure described in the 8.8 release notes.
+
+- **Instance limit per node on the command line** \[Core 3.23.0\] -- The `add-module` command now honors the instance limit per node of an application, like the Software Center. For example, it refuses to install a second CrowdSec instance on the same node. The `--force` option skips the check.
+
+- **Other application updates** -- Loki 1.5.0 (upstream 3.7), Nextcloud 1.7.6.
 
 ## Major changes on 2026-06-30
 
