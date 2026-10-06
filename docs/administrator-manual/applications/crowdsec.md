@@ -102,27 +102,36 @@ trusted.example.com
 
 ### Threat Shield {#threat-shield}
 
-Threat Shield adds blocklists maintained by Nethesis to CrowdSec. CrowdSec
-downloads the enabled blocklists every 30 minutes and blocks their IP
-addresses in the firewall.
+Attackers usually target many servers at once. NethServer and NethSecurity
+systems with a subscription share the attackers they block, so that each
+system can block them before they attack.
 
-Threat Shield requires a [subscription](../about/subscription.md) that
-includes the Threat Shield add-on:
+It works this way:
 
-- Without a subscription, the page shows `Subscription required` and all
-  controls are disabled.
-- With a subscription but without the add-on, the page shows
-  `Threat Shield add-on required` and all controls are disabled. If you lose
-  the add-on, the addresses imported from the blocklists are removed.
+- When CrowdSec blocks an IP address, the server sends that address to
+  Nethesis.
+- When enough systems report the same address, Nethesis adds it to the
+  `Nethesis community - Level 2` blocklist.
+- Servers with the Threat Shield add-on can enable this blocklist and other
+  blocklists maintained by Nethesis. CrowdSec downloads the enabled
+  blocklists every 30 minutes and blocks their IP addresses in the firewall.
 
-When the system has a subscription, even without the add-on:
+Servers with a subscription also apply the Nethesis global allowlist. The
+addresses in this list, such as the Nethesis subscription servers, are never
+blocked.
 
-- CrowdSec sends the IP addresses it blocks to Nethesis. Nethesis collects
-  them from all NethServer and NethSecurity systems with a subscription. When
-  enough systems report the same address, it goes into the
-  `Nethesis community - Level 2` blocklist. You cannot turn this off.
-- CrowdSec applies the Nethesis global allowlist. The addresses in this list,
-  such as the Nethesis subscription servers, are never blocked.
+What happens depends on the [subscription](../about/subscription.md):
+
+| Server | Sends blocked addresses | Nethesis global allowlist | Threat Shield blocklists |
+|---|---|---|---|
+| Without subscription | No | No | Not available |
+| With subscription | Yes | Yes | Not available |
+| With subscription and the Threat Shield add-on | Yes | Yes | Available, disabled by default |
+
+No configuration is needed. Sending starts when the server has a
+subscription and stops when the subscription is removed. If the server loses
+the subscription or the add-on, the addresses imported from the Threat Shield
+blocklists are removed.
 
 #### Blocklist
 
@@ -142,17 +151,6 @@ its addresses from the firewall.
 
 Confidence goes from 1 to 10. A higher value means a lower risk of blocking
 a legitimate address.
-
-The `Nethesis community - Level 2` blocklist contains the attackers blocked
-by NethServer and NethSecurity systems, as described above.
-
-:::note
-CrowdSec cannot block whole networks with its firewall component, so only
-single addresses are imported. Network entries in the blocklists are skipped:
-for example, the `Nethesis suspicious - Level 3` blocklist contains about 3,000
-networks that are not imported. The `Entries` count and the search below
-cover single addresses only.
-:::
 
 #### Search IP in Threat Shield blocklists
 
@@ -200,50 +198,3 @@ Some useful commands:
 - `cscli collections list` / `cscli scenarios list` — show which collections/scenarios are installed and enabled, useful to check what is being protected
 - `cscli metrics` — show parser/bucket/bouncer metrics, useful to check CrowdSec is actually processing logs
 - `cscli explain --file <logfile> --type <log-type>` — test a log line against parsers and scenarios, useful to debug why an attack was or wasn't detected
-
-### Threat Shield {#threat-shield-cli}
-
-Threat Shield can also be managed with `api-cli`. Run the commands below in a
-root shell.
-
-Enable some blocklists:
-
-    api-cli run module/crowdsec1/set-threat-shield --data '{"feeds": ["yoroimallvl1", "nethesislvl3", "nethesis-insights"]}'
-
-Disable all blocklists:
-
-    api-cli run module/crowdsec1/set-threat-shield --data '{"feeds": []}'
-
-The blocklist keys are: `yoroimallvl1`, `yoroimallvl2`, `yoroisusplvl1`,
-`yoroisusplvl2`, `nethesislvl3` and `nethesis-insights`
-(`Nethesis community - Level 2`).
-
-Show the blocklists, their entry counts and last update:
-
-    api-cli run module/crowdsec1/list-threat-shield
-
-Check whether an IP address is blocked:
-
-    api-cli run module/crowdsec1/search-threat-shield-decision --data '{"ip": "203.0.113.5"}'
-
-Show the addresses imported from the blocklists into the firewall:
-
-    nft list set crowdsec crowdsec-blacklists-cscli-import
-
-Show the Nethesis global allowlist:
-
-    runagent -m crowdsec1 cscli allowlists inspect nethesis_threat_shield
-
-If an address of yours is wrongly listed in the `Nethesis community - Level 2`
-blocklist, ask Nethesis to remove it. This is available only from the command
-line and requires the Threat Shield add-on:
-
-    api-cli run module/crowdsec1/request-allowlist --data '{"cidr": "203.0.113.7", "reason": "This is our office public IP"}'
-
-- `cidr`: an IP address or a network, at most `/24` for IPv4 or `/48` for
-  IPv6.
-- `reason`: why the address must not be blocked.
-
-The output looks like `{"accepted": true, "requests": 1}`, where `requests`
-is how many systems asked for the same address. Repeating a request has no
-effect.
