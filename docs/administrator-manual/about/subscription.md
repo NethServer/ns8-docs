@@ -54,7 +54,7 @@ The subscription token is a secret: never communicate or share it with someone e
 
 Once you have copied the token to the clipboard, go to the `Settings` page and click the `Subscription` card. Paste the token in the `Authentication token` field, then click the **Register** button.
 
-If the procedure is successful the Subscription page displays the `System ID`, `Plan` type and `Expiration` date.
+If the registration succeeds, the `Subscription` page shows the `System key`, `Plan`, `Company`, and `Expiration` fields.
 
 ## Terms and Conditions {#terms-and-conditions}
 

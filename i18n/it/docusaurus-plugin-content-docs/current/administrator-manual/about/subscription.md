@@ -51,9 +51,10 @@ Il token di abbonamento è un segreto: non comunicarlo o condividerlo con nessun
 
 :::
 
-Una volta copiato il token negli appunti, vai alla pagina `Settings` e clicca sulla scheda `Subscription`. Incolla il token nel campo `Authentication token`, quindi clicca sul pulsante **Register**.
+Una volta copiato il token negli appunti, vai alla pagina `Impostazioni` e clicca sulla scheda `Subscription`. Incolla il token nel campo `Token di autenticazione`, quindi clicca sul pulsante **Registra**.
 
-Se la procedura ha successo, la pagina Subscription mostrerà il `System ID`, il tipo di `Plan` e la data di `Expiration`.
+Se la registrazione ha successo, la pagina `Subscription` mostra i campi `Chiave sistema`, `Piano`, `Azienda` e `Scadenza`.
+
 ## Termini e Condizioni {#terms-and-conditions}
 
 Si prega di leggere attentamente i Termini e Condizioni. Mantenendo un abbonamento attivo a NethServer 8, confermate di accettare i Termini e Condizioni e di rispettarli. Se non accettate questi Termini e Condizioni, non potrete attivare o continuare il vostro abbonamento.
@@ -88,9 +89,9 @@ Gli aggiornamenti pianificati sono abilitati per impostazione predefinita. È po
 Gli aggiornamenti pianificati vengono inibiti quando un nodo NS7 si unisce al cluster per migrare le applicazioni. Questo è necessario poiché la procedura di migrazione richiede versioni specifiche delle applicazioni per funzionare correttamente. Gli aggiornamenti pianificati saranno riattivati una volta completata la migrazione di NS7 e il nodo NS7 sarà automaticamente rimosso dal cluster.
 ## Rimuovere l'abbonamento
 
-Accedi alla pagina `Settings` e clicca sulla scheda `Subscription`. In alternativa, vai alla pagina del dashboard del cluster e clicca sul link `Go to Subscription`.
+Accedi alla pagina `Impostazioni` e clicca sulla scheda `Subscription`. In alternativa, vai alla pagina del dashboard del cluster e clicca sul link `Vai a Subscription`.
 
-Nella pagina `Subscription`, clicca sul pulsante **Remove subscription**. L'azione deve essere confermata.
+Nella pagina `Subscription`, clicca sul pulsante **Rimuovi subscription**. L'azione deve essere confermata.
 ## Supporto remoto
 
 :::note
@@ -103,11 +104,11 @@ Il supporto remoto è un servizio che consente al team di supporto Nethesis di a
 
 A seconda del tipo e del piano di sottoscrizione, la pagina `Subscription` consente di avviare e controllare una sessione di supporto remoto, a condizione che siano soddisfatti i [requisiti del servizio SSH](../installation/system_requirements.md#ssh-service-reqs).
 
-- Fare clic su **Start session** per attivare un accesso speciale per il team di supporto Nethesis. Sia l'accesso SSH che l'accesso amministrativo cluster-admin vengono concessi al team di supporto. Le connessioni di supporto sono instradate in un tunnel VPN privato.
+- Fare clic su **Avvia sessione** per attivare un accesso speciale per il team di supporto Nethesis. Sia l'accesso SSH che l'accesso amministrativo cluster-admin vengono concessi al team di supporto. Le connessioni di supporto sono instradate in un tunnel VPN privato.
 
-  Quando l'accesso è concesso, viene visualizzato un segreto univoco `Session ID`: copialo e incollalo nella tua richiesta di supporto.
+  Quando l'accesso è concesso, viene visualizzato un segreto univoco `ID sessione`: copialo e incollalo nella tua richiesta di supporto.
 
-- Per terminare la sessione di supporto, chiudere il tunnel VPN e revocare qualsiasi accesso concesso, fare clic su **End session**.
+- Per terminare la sessione di supporto, chiudere il tunnel VPN e revocare qualsiasi accesso concesso, fare clic su **Termina sessione**.
 
 La sessione di supporto è valida solo per accedere al nodo leader. Il team di supporto può accedere ai nodi worker avviando sessioni di supporto individuali sui nodi worker. Ad esempio, se il nodo 2 è un nodo worker, questo è un comando per avviare una sessione di supporto per esso:
 
