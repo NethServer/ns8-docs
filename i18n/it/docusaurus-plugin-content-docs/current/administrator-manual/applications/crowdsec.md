@@ -22,7 +22,7 @@ Una volta installato, CrowdSec è già completamente funzionante e inizia a prot
 
 ## Interfaccia web
 
-Il menu laterale del modulo offre accesso alle seguenti pagine: `Status`, `Detections`, `Collections`, `Blocklists`, `Settings` e `About`.
+Il menu laterale del modulo offre accesso alle seguenti pagine: `Status`, `Detections`, `Collections`, `Blocklists`, `Threat Shield`, `Settings` e `About`.
 
 ### Status
 
@@ -68,6 +68,45 @@ Indirizzi IP, intervalli CIDR e nomi di dominio attendibili che non devono mai e
 trusted.example.com
 ```
 
+### Threat Shield {#threat-shield}
+
+Threat Shield aggiunge a CrowdSec liste di blocco gestite da Nethesis. CrowdSec scarica le liste di blocco abilitate ogni 30 minuti e blocca i loro indirizzi IP nel firewall.
+
+Threat Shield richiede una [sottoscrizione](../about/subscription.md) che includa l'add-on Threat Shield:
+
+- Senza sottoscrizione, la pagina mostra `Subscription required` e tutti i controlli sono disabilitati.
+- Con una sottoscrizione ma senza l'add-on, la pagina mostra `Threat Shield add-on required` e tutti i controlli sono disabilitati. Se perdi l'add-on, gli indirizzi importati dalle liste di blocco vengono rimossi.
+
+Quando il sistema ha una sottoscrizione, anche senza l'add-on:
+
+- CrowdSec invia a Nethesis gli indirizzi IP che blocca. Nethesis li raccoglie da tutti i sistemi NethServer e NethSecurity con una sottoscrizione. Quando abbastanza sistemi segnalano lo stesso indirizzo, questo entra nella lista di blocco `Nethesis community - Level 2`. Non puoi disattivare questo invio.
+- CrowdSec applica la lista di permessi globale di Nethesis. Gli indirizzi in questa lista, come i server delle sottoscrizioni Nethesis, non vengono mai bloccati.
+
+#### Lista di blocco
+
+La tabella elenca le liste di blocco disponibili con `Status`, `Confidence`, `Entries` e `Last update`. Seleziona le liste di blocco da abilitare e fai clic su `Save`. L'importazione parte subito dopo il salvataggio. Disabilitare una lista di blocco rimuove i suoi indirizzi dal firewall.
+
+| Lista di blocco | Confidenza |
+|---|---|
+| `Yoroi malware - Level 1` | 10 |
+| `Yoroi malware - Level 2` | 8 |
+| `Yoroi suspicious - Level 1` | 10 |
+| `Yoroi suspicious - Level 2` | 8 |
+| `Nethesis suspicious - Level 3` | 6 |
+| `Nethesis community - Level 2` | 8 |
+
+La confidenza va da 1 a 10. Un valore più alto indica un rischio minore di bloccare un indirizzo legittimo.
+
+La lista di blocco `Nethesis community - Level 2` contiene gli attaccanti bloccati dai sistemi NethServer e NethSecurity, come descritto sopra.
+
+:::note
+CrowdSec non può bloccare intere reti con il suo componente firewall, quindi vengono importati solo indirizzi singoli. Le reti presenti nelle liste di blocco vengono ignorate: ad esempio, la lista di blocco `Nethesis suspicious - Level 3` contiene circa 3.000 reti che non vengono importate. Il conteggio `Entries` e la ricerca qui sotto riguardano solo indirizzi singoli.
+:::
+
+#### Cerca un IP nelle liste di blocco Threat Shield
+
+Inserisci un indirizzo IP e fai clic su `Search` per verificare se è bloccato da una lista di blocco Threat Shield abilitata. In caso affermativo, il risultato indica le liste di blocco che lo contengono.
+
 ### Impostazioni
 
 - `Blocco della rete locale`: disabilitato di default, il traffico privato/LAN non viene mai bloccato. Abilita questo interruttore se desideri che CrowdSec blocchi anche gli IP offensivi sulle tue reti locali.
@@ -104,3 +143,42 @@ Alcuni comandi utili:
 - `cscli collections list` / `cscli scenarios list` — mostra quali collezioni/scenari sono installati e abilitati, utile per verificare cosa viene protetto
 - `cscli metrics` — mostra le metriche di parser/bucket/bouncer, utile per verificare che CrowdSec stia effettivamente elaborando i log
 - `cscli explain --file <logfile> --type <log-type>` — testa una riga di log contro parser e scenari, utile per eseguire il debug del motivo per cui un attacco è stato rilevato o meno
+
+### Threat Shield {#threat-shield-cli}
+
+Threat Shield può essere gestito anche con `api-cli`. Esegui i comandi seguenti in una shell di root.
+
+Abilita alcune liste di blocco:
+
+    api-cli run module/crowdsec1/set-threat-shield --data '{"feeds": ["yoroimallvl1", "nethesislvl3", "nethesis-insights"]}'
+
+Disabilita tutte le liste di blocco:
+
+    api-cli run module/crowdsec1/set-threat-shield --data '{"feeds": []}'
+
+Le chiavi delle liste di blocco sono: `yoroimallvl1`, `yoroimallvl2`, `yoroisusplvl1`, `yoroisusplvl2`, `nethesislvl3` e `nethesis-insights` (`Nethesis community - Level 2`).
+
+Mostra le liste di blocco, il numero di elementi e l'ultimo aggiornamento:
+
+    api-cli run module/crowdsec1/list-threat-shield
+
+Verifica se un indirizzo IP è bloccato:
+
+    api-cli run module/crowdsec1/search-threat-shield-decision --data '{"ip": "203.0.113.5"}'
+
+Mostra gli indirizzi importati dalle liste di blocco nel firewall:
+
+    nft list set crowdsec crowdsec-blacklists-cscli-import
+
+Mostra la lista di permessi globale di Nethesis:
+
+    runagent -m crowdsec1 cscli allowlists inspect nethesis_threat_shield
+
+Se un tuo indirizzo è inserito per errore nella lista di blocco `Nethesis community - Level 2`, chiedi a Nethesis di rimuoverlo. Questa funzione è disponibile solo da riga di comando e richiede l'add-on Threat Shield:
+
+    api-cli run module/crowdsec1/request-allowlist --data '{"cidr": "203.0.113.7", "reason": "This is our office public IP"}'
+
+- `cidr`: un indirizzo IP o una rete, al massimo `/24` per IPv4 o `/48` per IPv6.
+- `reason`: il motivo per cui l'indirizzo non deve essere bloccato.
+
+L'output è simile a `{"accepted": true, "requests": 1}`, dove `requests` indica quanti sistemi hanno chiesto lo stesso indirizzo. Ripetere una richiesta non ha effetto.
