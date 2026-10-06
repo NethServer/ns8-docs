@@ -40,7 +40,7 @@ Prometheus invia automaticamente gli avvisi ad Alertmanager quando una regola vi
 - Nodo del cluster offline da più di 5 minuti
 - Server dei log Loki offline da più di 5 minuti
 
-Se la macchina ha una sottoscrizione valida, gli avvisi vengono inoltrati ai portali Nethesis come [my.nethesis.it](https://my.nethesis.it) o [my.nethserver.com](https://my.nethserver.com).
+Se il cluster ha una sottoscrizione Enterprise, gli avvisi vengono inoltrati anche a [my.nethesis.it](https://my.nethesis.it). I cluster con sottoscrizione Community non inoltrano gli avvisi.
 
 Puoi comunque configurare l'invio degli avvisi a indirizzi email personalizzati.
 
@@ -57,7 +57,7 @@ Per configurare le notifiche degli avvisi, accedi alla sezione `Metrics` della p
 - `Sender email address`: l'indirizzo email che verrà usato come mittente. Il valore predefinito è calcolato dall'FQDN del leader.
 - `Recipient email addresses`: gli indirizzi email a cui verranno inviati gli avvisi. Inserisci un indirizzo per riga. Sono supportati più destinatari.
 
-Tieni presente che, se il cluster ha una sottoscrizione valida, gli avvisi verranno inviati anche ai portali Nethesis.
+Se il cluster ha una sottoscrizione Enterprise, gli avvisi vengono inviati anche a [my.nethesis.it](https://my.nethesis.it).
 
 ## Accesso a Grafana {#grafana_access-section}
 

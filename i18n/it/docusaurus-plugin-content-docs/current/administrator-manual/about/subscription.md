@@ -27,7 +27,7 @@ Un cluster NethServer 8 può essere registrato su un portale web per abilitare s
 Quando un cluster ha un abbonamento attivo, i seguenti servizi sono abilitati:
 
 - Supporto remoto da parte di Nethesis
-- [Monitoraggio e avvisi](../configuration/metrics.md) delle risorse
+- [Monitoraggio e avvisi](../configuration/metrics.md) delle risorse. Gli avvisi sono inoltrati al portale solo con una sottoscrizione Enterprise
 - Caricamento dell'inventario del nodo leader
 - [Aggiornamenti programmati](../about/subscription.md#scheduled-updates) per i sistemi operativi dei nodi, i componenti core e le applicazioni
 - Caricamento del backup del cluster
