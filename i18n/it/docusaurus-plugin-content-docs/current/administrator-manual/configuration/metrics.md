@@ -44,7 +44,7 @@ Se il cluster ha una sottoscrizione Enterprise, gli avvisi vengono inoltrati anc
 
 Puoi comunque configurare l'invio degli avvisi a indirizzi email personalizzati.
 
-Gli avvisi sono visibili anche dal menu `Alerting` di Grafana. Vedi [Dashboard predefinite](#grafana-dashboards-section).
+Gli avvisi sono visibili anche dal menu `Alerting` di Grafana. Vedi [Dashboard di Grafana](#grafana_access-section).
 
 ### Notifiche degli avvisi {#alerts_notifications-section}
 
@@ -59,7 +59,7 @@ Per configurare le notifiche degli avvisi, accedi alla sezione `Metrics` della p
 
 Se il cluster ha una sottoscrizione Enterprise, gli avvisi vengono inviati anche a [my.nethesis.it](https://my.nethesis.it).
 
-## Accesso a Grafana {#grafana_access-section}
+## Dashboard di Grafana {#grafana_access-section}
 
 Grafana è una piattaforma open source per il monitoraggio e l'osservabilità. Ti permette di interrogare, visualizzare e comprendere le tue metriche indipendentemente da dove sono archiviate. Grafana ti fornisce strumenti per trasformare le serie temporali in grafici e visualizzazioni utili.
 
@@ -69,9 +69,12 @@ Quando è abilitato, Grafana è accessibile sul nodo leader all'indirizzo `https
 
 Per accedere a Grafana, devi autenticarti con le credenziali di amministrazione del cluster.
 
-### Dashboard predefinite {#grafana-dashboards-section}
+NS8 preconfigura solo le dashboard di Grafana. Le altre funzionalità di Grafana, come avvisi, regole di avviso, notifiche e silenziamenti, non sono controllate da NS8.
 
-Grafana fornisce automaticamente alcune dashboard predefinite.
+Le dashboard sono organizzate in due cartelle:
+
+- `core`: dashboard del cluster stesso
+- `modules`: dashboard delle applicazioni installate (o "moduli" in questo contesto, vedi [Il termine modulo](../installation/modules.md#il-termine-modulo)). Quando un'applicazione viene installata, le sue dashboard compaiono in questa cartella.
 
 Cartella `core`:
 
@@ -84,18 +87,14 @@ Cartella `core`:
   - Ricerca testuale libera
 - `Loki metrics`: stato e throughput del server di log Loki
 
-Cartella `modules`: dashboard aggiunte dalle applicazioni installate. Esempi:
+Esempi della cartella `modules`:
 
 - Samba: `Samba Audit search`, `Samba Audit statistics`. Vedi [File server](../applications/file_server.md)
 - CrowdSec: `CrowdSec Overview`, `CrowdSec Metrics`. Vedi [CrowdSec](../applications/crowdsec.md)
 
-Gli avvisi attivati sono visibili dal menu `Alerting` di Grafana. Un'origine dati Alertmanager è preconfigurata.
-
 ### Dashboard Containers {#containers-dashboard-section}
 
-Disponibile da NethServer 8.10 (core 3.22.0, metrics 1.4.0).
-
-Usa la dashboard `Containers` per trovare quale modulo o container usa più CPU, memoria o disco su un nodo.
+Usa la dashboard `Containers` per trovare quale container di un'applicazione (o "modulo" in questo contesto) usa più CPU, memoria o disco su un nodo.
 
 Selettori in alto:
 

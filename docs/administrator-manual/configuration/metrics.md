@@ -44,7 +44,7 @@ If the cluster has an Enterprise subscription, alerts are also forwarded to [my.
 
 Still, you can configure the alerts to be sent to custom email addresses.
 
-Alerts are also visible from the Grafana `Alerting` menu. See [Default dashboards](#grafana-dashboards-section).
+Alerts are also visible from the Grafana `Alerting` menu. See [Grafana dashboards](#grafana_access-section).
 
 ### Alerts notifications {#alerts_notifications-section}
 
@@ -59,7 +59,7 @@ To configure alert notifications, access the `Metrics` section in the `Settings`
 
 If the cluster has an Enterprise subscription, alerts are also sent to [my.nethesis.it](https://my.nethesis.it).
 
-## Grafana access {#grafana_access-section}
+## Grafana dashboards {#grafana_access-section}
 
 Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize and understand your metrics no matter where they are stored. Grafana provides you with tools to turn your time-series into insightful graphs and visualizations.
 
@@ -69,9 +69,12 @@ When enabled, Grafana will be accessible on the leader node at `https://<leader-
 
 To access Grafana, you need to authenticate with the cluster admin credentials.
 
-### Default dashboards {#grafana-dashboards-section}
+NS8 pre-configures only the Grafana dashboards. Other Grafana features, like alerts, alert rules, notifications and silences, are not controlled by NS8.
 
-Grafana automatically provides default dashboards.
+Dashboards are organized in two folders:
+
+- `core`: dashboards of the cluster itself
+- `modules`: dashboards of the installed applications (or "modules" in this context, see [The module term](../installation/modules.md#the-module-term)). When an application is installed, its dashboards appear in this folder.
 
 `core` folder:
 
@@ -84,18 +87,14 @@ Grafana automatically provides default dashboards.
   - Free-text search
 - `Loki metrics`: health and throughput of the Loki log server
 
-`modules` folder: dashboards added by installed applications. Examples:
+`modules` folder examples:
 
 - Samba: `Samba Audit search`, `Samba Audit statistics`. See [File server](../applications/file_server.md)
 - CrowdSec: `CrowdSec Overview`, `CrowdSec Metrics`. See [CrowdSec](../applications/crowdsec.md)
 
-Fired alerts are visible from the Grafana `Alerting` menu. An Alertmanager data source is preconfigured.
-
 ### Containers dashboard {#containers-dashboard-section}
 
-Available from NethServer 8.10 (core 3.22.0, metrics 1.4.0).
-
-Use the `Containers` dashboard to find which module or container uses most CPU, memory or disk on a node.
+Use the `Containers` dashboard to find which application (or "module" in this context) container uses most CPU, memory or disk on a node.
 
 Selectors at the top:
 

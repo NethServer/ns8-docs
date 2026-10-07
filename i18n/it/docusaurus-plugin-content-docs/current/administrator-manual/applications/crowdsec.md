@@ -77,7 +77,7 @@ trusted.example.com
 
 ## Dashboard Grafana {#dashboards-section}
 
-CrowdSec crea automaticamente tre dashboard in Grafana. Per aprirle, abilita Grafana come spiegato in [Accesso a Grafana](../configuration/metrics.md#grafana_access-section), poi apri la cartella *modules*.
+CrowdSec crea automaticamente tre dashboard in Grafana. Per aprirle, abilita Grafana come spiegato in [Dashboard di Grafana](../configuration/metrics.md#grafana_access-section), poi apri la cartella *modules*.
 
 - `CrowdSec Overview`: come lavora CrowdSec al suo interno. Mostra le righe di log lette, i parser riusciti o falliti, i bucket, le decisioni e i rilevamenti. Usala per verificare che i log siano letti e analizzati.
 - `CrowdSec Metrics`: righe lette e analizzate, bucket, decisioni, bouncer, CPU e memoria. Scegli l'istanza con il selettore `Instance`. Usala per vedere quali scenari scattano di più, per verificare che il bouncer del firewall sia connesso e per individuare un CrowdSec lento.

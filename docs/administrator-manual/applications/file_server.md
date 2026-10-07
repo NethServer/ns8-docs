@@ -67,7 +67,7 @@ In both creation and edit workflows, some additional settings are available unde
 
 If the `Audit logging` switch is enabled for a shared folder, access operations and permission changes are recorded in a database. For troubleshooting purposes, you can enable the recording of failed operations with the `Log failed events` switch.
 
-Recorded events are accessible from the `Samba Audit search` Grafana dashboard, as explained in [Grafana access](../configuration/metrics.md#grafana_access-section).
+Recorded events are accessible from the `Samba Audit search` Grafana dashboard, as explained in [Grafana dashboards](../configuration/metrics.md#grafana_access-section).
 
 More information about the audit database is available from the `Samba Audit statistics` Grafana dashboard.
 
