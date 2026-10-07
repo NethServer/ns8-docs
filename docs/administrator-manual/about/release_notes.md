@@ -33,7 +33,7 @@ NethServer 8 releases
 
 - **Table page size is remembered** \[Core 3.23.0\] -- The `Items per page` choice of tables is saved in the browser and survives page changes and reloads. Applications get this behavior when they update their UI library.
 
-- **Per-container resource metrics** \[Core 3.22.0, Metrics 1.4.0\] -- Node metrics now include the CPU and memory usage of every application container, so you can find which application is consuming the node resources. A new `Containers` Grafana dashboard displays them. See [Grafana access](../configuration/metrics.md#grafana_access-section).
+- **Per-container resource metrics** \[Core 3.22.0, Metrics 1.4.0\] -- Node metrics now include the CPU and memory usage of every application container, and the disk space used by every application, refreshed once a day. The new `Containers` Grafana dashboard displays them, so you can find which application is consuming the node resources. See [Grafana access](../configuration/metrics.md#grafana_access-section).
 
 - **CrowdSec web interface** \[CrowdSec 1.2.0\] -- New CrowdSec pages make visible what was previously accessible only from the command line:
   - `Detections` lists past suspicious activities with their scenario, source IP, country, and event log.
