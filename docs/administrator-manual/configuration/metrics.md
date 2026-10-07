@@ -71,12 +71,9 @@ To access Grafana, you need to authenticate with the cluster admin credentials.
 
 NS8 pre-configures only the Grafana dashboards. Other Grafana features, like alerts, alert rules, notifications and silences, are not controlled by NS8.
 
-Dashboards are organized in two folders:
+Dashboards are organized in two folders: `core` and `modules`. In this context, an application is called "module", see [The module term](../installation/modules.md#the-module-term).
 
-- `core`: dashboards of the cluster itself
-- `modules`: dashboards of the installed applications (or "modules" in this context, see [The module term](../installation/modules.md#the-module-term)). When an application is installed, its dashboards appear in this folder.
-
-`core` folder:
+`core` folder, dashboards of the cluster itself:
 
 - `Node Exporter Full`: hardware and OS metrics of each node
   - CPU, memory, disk space, disk I/O, network, systemd units
@@ -87,14 +84,14 @@ Dashboards are organized in two folders:
   - Free-text search
 - `Loki metrics`: health and throughput of the Loki log server
 
-`modules` folder examples:
+`modules` folder, dashboards of the installed applications. When an application is installed, its dashboards appear under `modules`. Examples:
 
 - Samba: `Samba Audit search`, `Samba Audit statistics`. See [File server](../applications/file_server.md)
 - CrowdSec: `CrowdSec Overview`, `CrowdSec Metrics`. See [CrowdSec](../applications/crowdsec.md)
 
 ### Containers dashboard {#containers-dashboard-section}
 
-Use the `Containers` dashboard to find which application (or "module" in this context) container uses most CPU, memory or disk on a node.
+Use the `Containers` dashboard to find which application (or "module" in this context, see [The module term](../installation/modules.md#the-module-term)) container uses most CPU, memory or disk on a node.
 
 Selectors at the top:
 

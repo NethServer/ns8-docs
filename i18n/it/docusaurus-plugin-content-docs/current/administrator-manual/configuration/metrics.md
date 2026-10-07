@@ -71,12 +71,9 @@ Per accedere a Grafana, devi autenticarti con le credenziali di amministrazione 
 
 NS8 preconfigura solo le dashboard di Grafana. Le altre funzionalità di Grafana, come avvisi, regole di avviso, notifiche e silenziamenti, non sono controllate da NS8.
 
-Le dashboard sono organizzate in due cartelle:
+Le dashboard sono organizzate in due cartelle: `core` e `modules`. In questo contesto, un'applicazione è chiamata "modulo", vedi [Il termine modulo](../installation/modules.md#il-termine-modulo).
 
-- `core`: dashboard del cluster stesso
-- `modules`: dashboard delle applicazioni installate (o "moduli" in questo contesto, vedi [Il termine modulo](../installation/modules.md#il-termine-modulo)). Quando un'applicazione viene installata, le sue dashboard compaiono in questa cartella.
-
-Cartella `core`:
+Cartella `core`, dashboard del cluster stesso:
 
 - `Node Exporter Full`: metriche hardware e del sistema operativo di ogni nodo
   - CPU, memoria, spazio disco, I/O disco, rete, unità systemd
@@ -87,14 +84,14 @@ Cartella `core`:
   - Ricerca testuale libera
 - `Loki metrics`: stato e throughput del server di log Loki
 
-Esempi della cartella `modules`:
+Cartella `modules`, dashboard delle applicazioni installate. Quando un'applicazione viene installata, le sue dashboard compaiono in `modules`. Esempi:
 
 - Samba: `Samba Audit search`, `Samba Audit statistics`. Vedi [File server](../applications/file_server.md)
 - CrowdSec: `CrowdSec Overview`, `CrowdSec Metrics`. Vedi [CrowdSec](../applications/crowdsec.md)
 
 ### Dashboard Containers {#containers-dashboard-section}
 
-Usa la dashboard `Containers` per trovare quale container di un'applicazione (o "modulo" in questo contesto) usa più CPU, memoria o disco su un nodo.
+Usa la dashboard `Containers` per trovare quale container di un'applicazione (o "modulo" in questo contesto, vedi [Il termine modulo](../installation/modules.md#il-termine-modulo)) usa più CPU, memoria o disco su un nodo.
 
 Selettori in alto:
 
