@@ -22,7 +22,7 @@ Una volta installato, CrowdSec è già completamente funzionante e inizia a prot
 
 ## Interfaccia web
 
-Il menu laterale del modulo offre accesso alle seguenti pagine: `Status`, `Detections`, `Collections`, `Blocklists`, `Settings` e `About`.
+Il menu laterale del modulo offre accesso alle seguenti pagine: `Status`, `Detections`, `Collections`, `Blocklists`, `Threat Shield`, `Settings` e `About`.
 
 ### Status
 
@@ -67,6 +67,49 @@ Indirizzi IP, intervalli CIDR e nomi di dominio attendibili che non devono mai e
 192.168.1.0/24
 trusted.example.com
 ```
+
+### Threat Shield {#threat-shield}
+
+Gli attaccanti di solito colpiscono molti server contemporaneamente. I sistemi NethServer e NethSecurity con una subscription condividono gli attaccanti che bloccano, così ogni sistema può bloccarli prima che attacchino.
+
+Funziona così:
+
+- Quando CrowdSec blocca un indirizzo IP, il server invia quell'indirizzo a Nethesis.
+- Quando abbastanza sistemi segnalano lo stesso indirizzo, Nethesis lo aggiunge alla lista di blocco `Nethesis community - Level 2`.
+- I server con l'add-on Threat Shield possono abilitare questa lista di blocco e altre liste di blocco gestite da Nethesis. CrowdSec scarica le liste di blocco abilitate ogni 30 minuti e blocca i loro indirizzi IP nel firewall.
+
+I server con una subscription applicano anche la lista di permessi globale di Nethesis. Gli indirizzi in questa lista, come i server delle subscription Nethesis, non vengono mai bloccati.
+
+Il comportamento dipende dalla [subscription](../about/subscription.md):
+
+| Server | Invia gli indirizzi bloccati | Lista di permessi globale Nethesis | Liste di blocco Threat Shield |
+|---|---|---|---|
+| Senza subscription | No | No | Non disponibili |
+| Con subscription | Sì | Sì | Non disponibili |
+| Con subscription e add-on Threat Shield | Sì | Sì | Disponibili, disabilitate di default |
+
+L'add-on Threat Shield è disponibile sia per la subscription Community sia per quella Enterprise.
+
+Non serve alcuna configurazione. L'invio parte quando il server ha una subscription e si ferma quando la subscription viene rimossa. Se il server perde la subscription o l'add-on, gli indirizzi importati dalle liste di blocco Threat Shield vengono rimossi.
+
+#### Lista di blocco
+
+La tabella elenca le liste di blocco disponibili con `Status`, `Confidence`, `Entries` e `Last update`. Seleziona le liste di blocco da abilitare e fai clic su `Save`. L'importazione parte subito dopo il salvataggio. Disabilitare una lista di blocco rimuove i suoi indirizzi dal firewall.
+
+| Lista di blocco | Confidenza |
+|---|---|
+| `Yoroi malware - Level 1` | 10 |
+| `Yoroi malware - Level 2` | 8 |
+| `Yoroi suspicious - Level 1` | 10 |
+| `Yoroi suspicious - Level 2` | 8 |
+| `Nethesis suspicious - Level 3` | 6 |
+| `Nethesis community - Level 2` | 8 |
+
+La confidenza va da 1 a 10. Un valore più alto indica un rischio minore di bloccare un indirizzo legittimo. Con una subscription Community la confidenza non viene mostrata.
+
+#### Cerca un IP nelle liste di blocco Threat Shield
+
+Inserisci un indirizzo IP e fai clic su `Search` per verificare se è bloccato da una lista di blocco Threat Shield abilitata. In caso affermativo, il risultato indica le liste di blocco che lo contengono.
 
 ### Impostazioni
 

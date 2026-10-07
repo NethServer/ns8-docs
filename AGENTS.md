@@ -97,3 +97,5 @@ reports broken links and anchors.
   structure when adding a new application.
 - When updating an example, also remove any notes that referred to the
   replaced behaviour as a future or planned feature.
+- In Italian pages, write "subscription" (feminine: "la subscription",
+  plural "le subscription"), never "sottoscrizione" or "abbonamento".
