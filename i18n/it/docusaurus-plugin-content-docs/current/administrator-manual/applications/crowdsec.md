@@ -70,7 +70,7 @@ trusted.example.com
 
 ### Threat Shield {#threat-shield}
 
-Gli attaccanti di solito colpiscono molti server contemporaneamente. I sistemi NethServer e NethSecurity con una sottoscrizione condividono gli attaccanti che bloccano, così ogni sistema può bloccarli prima che attacchino.
+Gli attaccanti di solito colpiscono molti server contemporaneamente. I sistemi NethServer e NethSecurity con una subscription condividono gli attaccanti che bloccano, così ogni sistema può bloccarli prima che attacchino.
 
 Funziona così:
 
@@ -78,17 +78,19 @@ Funziona così:
 - Quando abbastanza sistemi segnalano lo stesso indirizzo, Nethesis lo aggiunge alla lista di blocco `Nethesis community - Level 2`.
 - I server con l'add-on Threat Shield possono abilitare questa lista di blocco e altre liste di blocco gestite da Nethesis. CrowdSec scarica le liste di blocco abilitate ogni 30 minuti e blocca i loro indirizzi IP nel firewall.
 
-I server con una sottoscrizione applicano anche la lista di permessi globale di Nethesis. Gli indirizzi in questa lista, come i server delle sottoscrizioni Nethesis, non vengono mai bloccati.
+I server con una subscription applicano anche la lista di permessi globale di Nethesis. Gli indirizzi in questa lista, come i server delle subscription Nethesis, non vengono mai bloccati.
 
-Il comportamento dipende dalla [sottoscrizione](../about/subscription.md):
+Il comportamento dipende dalla [subscription](../about/subscription.md):
 
 | Server | Invia gli indirizzi bloccati | Lista di permessi globale Nethesis | Liste di blocco Threat Shield |
 |---|---|---|---|
-| Senza sottoscrizione | No | No | Non disponibili |
-| Con sottoscrizione | Sì | Sì | Non disponibili |
-| Con sottoscrizione e add-on Threat Shield | Sì | Sì | Disponibili, disabilitate di default |
+| Senza subscription | No | No | Non disponibili |
+| Con subscription | Sì | Sì | Non disponibili |
+| Con subscription e add-on Threat Shield | Sì | Sì | Disponibili, disabilitate di default |
 
-Non serve alcuna configurazione. L'invio parte quando il server ha una sottoscrizione e si ferma quando la sottoscrizione viene rimossa. Se il server perde la sottoscrizione o l'add-on, gli indirizzi importati dalle liste di blocco Threat Shield vengono rimossi.
+L'add-on Threat Shield è disponibile sia per la subscription Community sia per quella Enterprise.
+
+Non serve alcuna configurazione. L'invio parte quando il server ha una subscription e si ferma quando la subscription viene rimossa. Se il server perde la subscription o l'add-on, gli indirizzi importati dalle liste di blocco Threat Shield vengono rimossi.
 
 #### Lista di blocco
 
@@ -103,7 +105,7 @@ La tabella elenca le liste di blocco disponibili con `Status`, `Confidence`, `En
 | `Nethesis suspicious - Level 3` | 6 |
 | `Nethesis community - Level 2` | 8 |
 
-La confidenza va da 1 a 10. Un valore più alto indica un rischio minore di bloccare un indirizzo legittimo.
+La confidenza va da 1 a 10. Un valore più alto indica un rischio minore di bloccare un indirizzo legittimo. Con una subscription Community la confidenza non viene mostrata.
 
 #### Cerca un IP nelle liste di blocco Threat Shield
 

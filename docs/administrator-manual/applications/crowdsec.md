@@ -128,6 +128,9 @@ What happens depends on the [subscription](../about/subscription.md):
 | With subscription | Yes | Yes | Not available |
 | With subscription and the Threat Shield add-on | Yes | Yes | Available, disabled by default |
 
+The Threat Shield add-on is available for both Community and Enterprise
+subscriptions.
+
 No configuration is needed. Sending starts when the server has a
 subscription and stops when the subscription is removed. If the server loses
 the subscription or the add-on, the addresses imported from the Threat Shield
@@ -150,7 +153,7 @@ its addresses from the firewall.
 | `Nethesis community - Level 2` | 8 |
 
 Confidence goes from 1 to 10. A higher value means a lower risk of blocking
-a legitimate address.
+a legitimate address. Confidence is not shown with a Community subscription.
 
 #### Search IP in Threat Shield blocklists
 
