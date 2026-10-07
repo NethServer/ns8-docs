@@ -75,7 +75,13 @@ trusted.example.com
 - Notifica via email aggiungendo un indirizzo per riga nel campo `Email recipients for notifications`: le notifiche funzioneranno solo se [Email notifications](../configuration/email_notifications.md) è stato configurato — un link alle impostazioni email del cluster viene mostrato quando non è ancora configurato.
 - `Notification threshold`: CrowdSec invia un'email di notifica giornaliera elencando i nuovi IP bloccati ai destinatari configurati. Se questa soglia di nuovi IP bloccati viene raggiunta prima del report giornaliero, la notifica viene inviata immediatamente. Può essere impostata tra 1 e 10000 (100 di default).
 
-I dati di CrowdSec sono accessibili dalle dashboard `CrowdSec Overview` e `CrowdSec Metrics` di Grafana, come spiegato in [Accesso a Grafana](../configuration/metrics.md#grafana_access-section).
+## Dashboard Grafana {#dashboards-section}
+
+CrowdSec crea automaticamente tre dashboard in Grafana. Per aprirle, abilita Grafana come spiegato in [Accesso a Grafana](../configuration/metrics.md#grafana_access-section), poi apri la cartella *modules*.
+
+- `CrowdSec Overview`: come lavora CrowdSec al suo interno. Mostra le righe di log lette, i parser riusciti o falliti, i bucket, le decisioni e i rilevamenti. Usala per verificare che i log siano letti e analizzati.
+- `CrowdSec Metrics`: righe lette e analizzate, bucket, decisioni, bouncer, CPU e memoria. Scegli l'istanza con il selettore `Instance`. Usala per vedere quali scenari scattano di più, per verificare che il bouncer del firewall sia connesso e per individuare un CrowdSec lento.
+- `CrowdSec Bans`: da dove arrivano i blocchi locali. Mostra una mappa del mondo, i principali paesi, provider e scenari, le durate dei blocchi, gli IP bloccati più spesso e gli ultimi blocchi. Usa i selettori `CrowdSec`, `Country` e `IP` per filtrare. I blocchi ricevuti dalla Central API (CAPI) non sono conteggiati.
 
 ## Interfaccia a riga di comando
 
