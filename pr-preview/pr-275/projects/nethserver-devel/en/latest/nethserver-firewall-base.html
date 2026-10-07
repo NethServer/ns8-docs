@@ -1,0 +1,941 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-firewall-base &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-firewall-migration" href="nethserver-firewall-migration.html" />
+    <link rel="prev" title="nethserver-evebox" href="nethserver-evebox.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-firewall-base", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-firewall-base.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-firewall-base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#roles-and-zones">Roles and zones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general-configuration">General configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#events">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#policy">Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ip-mac-binding">IP/MAC binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rules">Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#template-fragment">Template Fragment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#firewall-objects">Firewall objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rules-based-on-mac-address">Rules based on mac address</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#port-forwarding">Port forwarding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-nat-snat">Source NAT (sNAT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#traffic-shaping">Traffic shaping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tc-classess">tc classess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assumptions-and-limitations">Assumptions and limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#divert-rules">Divert rules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-wan">Multi WAN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#balanced">Balanced</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#active-backup">Active-backup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#providers">Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-wan-example">Multi WAN example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#static-routes">Static routes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-firewall-base</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-firewall-base.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-firewall-base">
+<span id="firewall-gateway-section"></span><h1>nethserver-firewall-base<a class="headerlink" href="#nethserver-firewall-base" title="Permalink to this headline">¶</a></h1>
+<p>NethServer can work into two basic modes:</p>
+<ul class="simple">
+<li>server mode: the system will be a standard host inside the network offering services like e-mail or file server.</li>
+<li>gateway mode: the system is the gateway and firewall of the local network</li>
+</ul>
+<p>The system has an abstraction layer for firewall base functions, like opening ports for running services.
+Actually two implementations are available:</p>
+<ul class="simple">
+<li>server mode: standard <strong class="command">lokkit</strong> (default on CentOS)</li>
+<li>gateway mode: advanced Shorewall configuration</li>
+</ul>
+<p>The gateway functionality is built around three modules:</p>
+<ul class="simple">
+<li>nethserver-base: high-level abstraction of the firewall</li>
+<li>nethserver-firewall-base: Shorewall-based implementation</li>
+<li>nethserver-lsm: link status monitor for multi-wan configurations</li>
+</ul>
+<div class="section" id="roles-and-zones">
+<span id="section-roles-and-zones"></span><h2>Roles and zones<a class="headerlink" href="#roles-and-zones" title="Permalink to this headline">¶</a></h2>
+<p>Each network interface has a role which maps to a firewall zone.
+The firewall has the following built-in zones, ordered from the most to the least privileged:</p>
+<ul class="simple">
+<li><em>green</em>: local network, it’s considered almost trusted. Hosts in this network can access any other zone. Hosts connected via VPN can be considered in green zone.</li>
+<li><em>blue</em>: guest network.  Hosts in this network can access orange and red zones, can’t access green zone</li>
+<li><em>orange</em>: DMZ network. Hosts in this network can access red zone, can’t access green and blue zones</li>
+<li><em>red</em>: external/internet networks.  Hosts in this network can access only firewall zone</li>
+</ul>
+<p>There is also a special <em>firewall</em> zone which represents the firewall itself. The firewall can access any other zone.</p>
+<p>Each network interface with a configured role is a firewall zone. Roles are mapped to Shorewall zones as:</p>
+<ul class="simple">
+<li>green -&gt; loc</li>
+<li>red -&gt; net</li>
+<li>blue -&gt; blue</li>
+<li>orange -&gt; orang (in Shorewall, a zone name can’t be longer than 5 chars)</li>
+<li>firewall -&gt; FW</li>
+</ul>
+<p>Custom zone names are directly mapped to Shorewall respecting the limit of 5 chars.</p>
+<p>Red interfaces can be configured with static IP address or using DHCP. All other interfaces can be configured only with static IP addresses.</p>
+</div>
+<div class="section" id="general-configuration">
+<h2>General configuration<a class="headerlink" href="#general-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Properties of <code class="docutils literal notranslate"><span class="pre">firewall</span></code> key inside <code class="docutils literal notranslate"><span class="pre">configuration</span></code> db:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">event</span></code>: event to call when <code class="docutils literal notranslate"><span class="pre">firewall-adjust</span></code> event is fired</li>
+<li><code class="docutils literal notranslate"><span class="pre">ExternalPing</span></code>: if enabled, allow ping responses on external interface</li>
+<li><code class="docutils literal notranslate"><span class="pre">WanMode</span></code>: multi-wan mode. Default is <code class="docutils literal notranslate"><span class="pre">balance</span></code>, can be:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">balance</span></code>: traffic is balanced among red interfaces in weighted mode</li>
+<li><code class="docutils literal notranslate"><span class="pre">backup</span></code>: traffic is routed via wan interface with maximum weight, all other interfaces are used as fallback</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">nfq</span></code>: if enabled, traffic from external networks will be passed to NFQ and scanned with Snort. See <span class="xref std std-ref">ips</span>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Policy</span></code>: can be <code class="docutils literal notranslate"><span class="pre">permissive</span></code> or <code class="docutils literal notranslate"><span class="pre">strict</span></code>. See above.</li>
+<li><code class="docutils literal notranslate"><span class="pre">MACValidation</span></code>: if enabled, the firewall will check the traffic against a list of known MAC addresses (see: <a class="reference internal" href="#ipbinding-section"><span class="std std-ref">IP/MAC binding</span></a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">MACValidationPolicy</span></code>: can be <code class="docutils literal notranslate"><span class="pre">accept</span></code> or <code class="docutils literal notranslate"><span class="pre">drop</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">drop</span></code>. See <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">shorewall.conf</span></code> for all valid values</li>
+<li><code class="docutils literal notranslate"><span class="pre">InterfaceRoleList</span></code>: list of network interface roles configurable from web interface. Default is: <code class="docutils literal notranslate"><span class="pre">green,red,blue,orange</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">CheckIP</span></code>: comma-separeted list of IP monitored by LSM, to check if a provider is up or down</li>
+<li><code class="docutils literal notranslate"><span class="pre">MaxNumberPacketLoss</span></code>: number of maximum consecutive packets lost, over this threshold the provider is considered down</li>
+<li><code class="docutils literal notranslate"><span class="pre">MaxPercentPacketLoss</span></code>: percentage of maximum packet lost, over this threshold the provider is considered down</li>
+<li><code class="docutils literal notranslate"><span class="pre">PingInterval</span></code>: seconds between ICMP packets sent by LSM, default is <code class="docutils literal notranslate"><span class="pre">5</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">NotifyWan</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>, if <code class="docutils literal notranslate"><span class="pre">enabled</span></code> a mail is sent every time a provider changes its own state</li>
+<li><code class="docutils literal notranslate"><span class="pre">NotifyWanFrom</span></code>: sender address for mails sent if NotifyWAN is set to enabled</li>
+<li><code class="docutils literal notranslate"><span class="pre">NotifyWanTo</span></code>: recipient address for mails sent if NotifyWAN is set to enabled</li>
+<li><code class="docutils literal notranslate"><span class="pre">VpnPolicy</span></code>: can be <code class="docutils literal notranslate"><span class="pre">permissive</span></code> or <code class="docutils literal notranslate"><span class="pre">strict</span></code>. If set to <code class="docutils literal notranslate"><span class="pre">permissive</span></code> traffic between all VPNs (Rodwarrior OpenVPN, OpenVPN tunnels, IPSec tunnels)
+will be permitted</li>
+<li><code class="docutils literal notranslate"><span class="pre">SipAlg</span></code> can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> (default) or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. It enables/disables the application level gateway (ALG) for SIP|H323 protocol (the netfilter conntrack kernel modules for these protocols)</li>
+</ul>
+<p>Example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>firewall=configuration
+   CheckIP=8.8.8.8,208.67.222.222
+   Docker=disabled
+   ExternalPing=enabled
+   HairpinNat=disabled
+   MACValidation=disabled
+   MACValidationPolicy=drop
+   MaxNumberPacketLoss=10
+   MaxPercentPacketLoss=50
+   NotifyWan=disabled
+   NotifyWanFrom=root@localhost
+   NotifyWanTo=root@localhost
+   PingInterval=5
+   Policy=permissive
+   SipAlg=enabled
+   TCLinklayer=
+   VpnPolicy=strict
+   WanMode=balance
+</pre></div>
+</div>
+</div>
+<div class="section" id="events">
+<h2>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h2>
+<p>The main event for firewall configuration is <em>firewall-adjust</em>. The event contains a single action which fires the event named in the property <code class="docutils literal notranslate"><span class="pre">event</span></code> inside the <code class="docutils literal notranslate"><span class="pre">firewall</span></code> key into the <code class="docutils literal notranslate"><span class="pre">configuration</span></code> database.</p>
+<p>Other events:</p>
+<ul class="simple">
+<li>lokkit-save: base firewall implementation using lokkit</li>
+<li>nethserver-firewall-base-save:  firewall implementation using Shorewall</li>
+<li>wan-uplink-update:  fired when the status of an external interface changes</li>
+<li>conntrack-adjust: fired when we want to reset the conntrack and remove kernel modules used by shorewall</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">wan-uplink-event</span></code> event takes at least two parameters:</p>
+<ul class="simple">
+<li>provider name: name of the provider involved</li>
+<li>action: can be <code class="docutils literal notranslate"><span class="pre">up</span></code> or <code class="docutils literal notranslate"><span class="pre">down</span></code>, describing the new provider status</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event wan-uplink-update down myisp
+</pre></div>
+</div>
+</div>
+<div class="section" id="policy">
+<h2>Policy<a class="headerlink" href="#policy" title="Permalink to this headline">¶</a></h2>
+<p>For every network packet traveling between firewall zones, the system will evaluate a list of rules to allow/block the specific traffic.
+Policies are default firewall rules which will be applied only if no other rule matches the ongoing traffic.</p>
+<p>Firewall implements two standard policies:</p>
+<ul class="simple">
+<li><em class="dfn">Permissive</em>: will enable all traffic from green (loc) zone to red (net) zone.</li>
+<li><em class="dfn">Strict</em>: will block all traffic from green (loc) zone to red (net) zone. Permitted traffic should be explicitly allowed.</li>
+</ul>
+<p>The firewall configures 4 default zones with built-in policies (see above).
+In the schema below, traffic is permitted from left to right and blocked from right to left:</p>
+<p>GREEN -&gt; BLUE -&gt; ORANGE -&gt; RED</p>
+<p>To override a policy, you should create a firewall rule between zones.</p>
+</div>
+<div class="section" id="ip-mac-binding">
+<span id="ipbinding-section"></span><h2>IP/MAC binding<a class="headerlink" href="#ip-mac-binding" title="Permalink to this headline">¶</a></h2>
+<p>When <code class="docutils literal notranslate"><span class="pre">MACValidation</span></code> option is enabled, the firewall analyzes all the traffic based on a well-known list of IPs associated to MAC addresses.
+If the host generating the traffic is not inside the list, <code class="docutils literal notranslate"><span class="pre">MACValidationPolicy</span></code> will be applied.
+The list of IP/MAC association is created from DHCP reservations.</p>
+<p>Thus, enabling MACValidation and leaving MACValidationPolicy set to drop, will block all traffic from hosts without a DHCP reservation.</p>
+</div>
+<div class="section" id="rules">
+<h2>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h2>
+<p>Firewall rules can allow or deny traffic matching certain conditions.
+Rules are saved inside the <code class="docutils literal notranslate"><span class="pre">fwrules</span></code> database as records of type <code class="docutils literal notranslate"><span class="pre">rule</span></code>.</p>
+<p>Each rule record has the following fields:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">key</span></code>: a unique key identifier</li>
+<li><code class="docutils literal notranslate"><span class="pre">Position</span></code>: integer sorting key</li>
+<li><code class="docutils literal notranslate"><span class="pre">Src</span></code>, <code class="docutils literal notranslate"><span class="pre">Dst</span></code>: {<em>literal*|*reference</em>} where<ul>
+<li><em>literal</em> is an IP, a CIDR, <code class="docutils literal notranslate"><span class="pre">any</span></code> (any source/destination) or <code class="docutils literal notranslate"><span class="pre">fw</span></code> (the firewall itself)</li>
+<li><em>reference</em> has the form <code class="docutils literal notranslate"><span class="pre">prefix;value</span></code>, where prefix can be a DB type (<code class="docutils literal notranslate"><span class="pre">host</span></code>, <code class="docutils literal notranslate"><span class="pre">host-group</span></code>,  <code class="docutils literal notranslate"><span class="pre">zone</span></code>, <code class="docutils literal notranslate"><span class="pre">iprange</span></code>, <code class="docutils literal notranslate"><span class="pre">cidr</span></code>, <code class="docutils literal notranslate"><span class="pre">mac</span></code>) or the string <code class="docutils literal notranslate"><span class="pre">role</span></code>,
+<code class="docutils literal notranslate"><span class="pre">value</span></code> is a DB key or an interface role name (<code class="docutils literal notranslate"><span class="pre">green</span></code>, <code class="docutils literal notranslate"><span class="pre">red</span></code>…).  <code class="docutils literal notranslate"><span class="pre">mac</span></code> objects are <em>not</em> supported inside the <code class="docutils literal notranslate"><span class="pre">Dst</span></code> field.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">Action</span></code>: can be <code class="docutils literal notranslate"><span class="pre">ACCEPT</span></code>, <code class="docutils literal notranslate"><span class="pre">DROP</span></code> or <code class="docutils literal notranslate"><span class="pre">REJECT</span></code><ul>
+<li><code class="docutils literal notranslate"><span class="pre">ACCEPT</span></code> allows the traffic</li>
+<li><code class="docutils literal notranslate"><span class="pre">REJECT</span></code> denies the traffic, an ICMP port unreachable packet is sent to the source address</li>
+<li><code class="docutils literal notranslate"><span class="pre">DROP</span></code> discards the traffic without informing the source address (the connection will timeout)</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">Service</span></code>: (optional) can be a service object, a port number or a ndpi object. If a port number is used, both TCP and UDP protocols are matched.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Time</span></code>: (optional) can be a time object, the rule will be enabled only if the time conditions is matched</li>
+<li><code class="docutils literal notranslate"><span class="pre">Log</span></code>: can be <code class="docutils literal notranslate"><span class="pre">none</span></code> or <code class="docutils literal notranslate"><span class="pre">info</span></code>. If value is <code class="docutils literal notranslate"><span class="pre">info</span></code>, all matched packets will be logged in <code class="docutils literal notranslate"><span class="pre">/var/log/firewall.log</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">none</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">enabled</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">State</span></code>: (optional) select on which type of connection the rule will be applied to:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">new</span></code> or empty: default, the rule will be applied only to new connections</li>
+<li><code class="docutils literal notranslate"><span class="pre">all</span></code>: the rule will be applied to new and established/related connections</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">Description</span></code>: (optional)</li>
+</ul>
+<p>Example of a rule accepting traffic:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1=rule
+    Src=host;myhost
+    Dst=192.168.1.2
+    Service=service;ssh
+    Action=accept
+    Position=32
+</pre></div>
+</div>
+<p>Accept all traffic from myhost to myserver for ssh service (port 22):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db fwrules set 1 rule Src &quot;host;myhost&quot; Dst &quot;host;myserver&quot; Service ssh Action ACCEPT Log none status enabled Position 8765
+</pre></div>
+</div>
+<p>Drop all traffic from 192.168.1.0/24 to 192.168.4.1 on TCP and UDP port 25:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db fwrules set 2 rule Src  192.168.1.0/24 Dst 192.168.4.1 Service 22 Action DROP Log none status enabled Position 5469
+</pre></div>
+</div>
+<div class="section" id="template-fragment">
+<h3>Template Fragment<a class="headerlink" href="#template-fragment" title="Permalink to this headline">¶</a></h3>
+<p>Rules in the firewall can be added manually by a template fragment in the folder <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/templates/etc/shorewall/rules</span></code></p>
+<p>For example drop a file 40YourSpecificRule</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## 40nethvoice
+
+{
+    my $iax = $nethvoice{&#39;AllowExternalIAX&#39;} || &#39;disabled&#39;;
+
+    my $webrtc = $nethvoice{&#39;AllowExternalWebRTC&#39;} || &#39;disabled&#39;;
+
+    if ($iax eq &#39;enabled&#39;) {
+
+        $OUT .= &quot;# Enable IAX from red interfaces\n&quot;;
+
+        $OUT .= &quot;?COMMENT Enable IAX from red interfaces\n&quot;;
+
+        $OUT .= &quot;ACCEPT\tnet\t\$FW\tudp\t4569,5036\n&quot;;
+    }
+
+    if ($webrtc eq &#39;enabled&#39;) {
+
+        $OUT .= &quot;# Enable WebRTC from red interfaces\n&quot;;
+
+        $OUT .= &quot;?COMMENT Enable WebRTC from red interfaces\n&quot;;
+
+        $OUT .= &quot;ACCEPT\tnet\t\$FW\ttcp\t8089\n&quot;;
+    }
+
+    $OUT .= &quot;?COMMENT\n&quot;;
+}
+</pre></div>
+</div>
+<p>You can use all the settings below but you might be interested by the shorewall documentation also at <a class="reference external" href="http://shorewall.net/manpages/shorewall-rules.html">http://shorewall.net/manpages/shorewall-rules.html</a>)</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">\t</span></code>       -&gt; write a tab space (can be also written : <code class="docutils literal notranslate"><span class="pre">$OUT</span> <span class="pre">.=</span> <span class="pre">&quot;ACCEPT</span>&#160; <span class="pre">net</span>&#160; <span class="pre">$FW</span>&#160; <span class="pre">tcp</span>&#160; <span class="pre">8089\n&quot;;)</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ACCEPT</span></code>   -&gt; allows the traffic</li>
+<li><code class="docutils literal notranslate"><span class="pre">REJECT</span></code>   -&gt; denies the traffic, an ICMP port unreachable packet is sent to the source address</li>
+<li><code class="docutils literal notranslate"><span class="pre">DROP</span></code>     -&gt; discards the traffic without informing the source address (the connection will timeout)</li>
+<li><code class="docutils literal notranslate"><span class="pre">REDIRECT</span></code> -&gt; redirect the traffic to another firewall zone</li>
+</ul>
+<p>The target may optionally be followed by “:” and a syslog log level (e.g, REJECT:info or Web(ACCEPT):debug).</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">loc</span></code>      -&gt; green (Local network)</li>
+<li><code class="docutils literal notranslate"><span class="pre">net</span></code>      -&gt; red   (Internet network)</li>
+<li><code class="docutils literal notranslate"><span class="pre">blue</span></code>     -&gt; blue  (Guest network)</li>
+<li><code class="docutils literal notranslate"><span class="pre">orang</span></code>    -&gt; orange (DMZ network)</li>
+<li><code class="docutils literal notranslate"><span class="pre">$FW</span></code>      -&gt; firewall</li>
+<li><code class="docutils literal notranslate"><span class="pre">tcp</span></code>      -&gt; tcp port (comma separated list of ports)</li>
+<li><code class="docutils literal notranslate"><span class="pre">udp</span></code>      -&gt; udp port (comma separated list of ports)</li>
+</ul>
+<p>then you must expand your templates and restart your firewall by : <code class="docutils literal notranslate"><span class="pre">signal-event</span> <span class="pre">firewall-adjust</span></code></p>
+</div>
+</div>
+<div class="section" id="firewall-objects">
+<h2>Firewall objects<a class="headerlink" href="#firewall-objects" title="Permalink to this headline">¶</a></h2>
+<p>Firewall module uses objects to simplify rules creation. The use of objects is not mandatory but it’s strongly encouraged.</p>
+<p>Supported objects are:</p>
+<ul class="simple">
+<li>Host</li>
+<li>Group of host</li>
+<li>Service</li>
+<li>CIDR</li>
+<li>Ip range</li>
+<li>Zone</li>
+<li>Time</li>
+<li>MAC address</li>
+</ul>
+<p>A host is an already defined entry inside the <code class="docutils literal notranslate"><span class="pre">hosts</span></code> db, or a new key of type <code class="docutils literal notranslate"><span class="pre">host</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name=host
+    IpAddress=IP
+    Description=
+</pre></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">host-group</span></code> is a group of hosts inside the <code class="docutils literal notranslate"><span class="pre">hosts</span></code> db. Hosts in a <span class="target" id="index-0"></span>host-group should always be reachable using the same interface.
+For example: a group of host inside the LAN or on the Internet.
+A <code class="docutils literal notranslate"><span class="pre">host-group</span></code> db entry can be something like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name=host-group
+    Members=host1,host2
+</pre></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">CIDR</span></code> is a group of hosts defined as a CIDR network. It’s saved inside the <code class="docutils literal notranslate"><span class="pre">hosts</span></code> db:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mycidr=cidr
+    Address=192.168.100.0/24
+    Description=
+</pre></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">IP</span> <span class="pre">range</span></code> is a group of hosts defined as a range of IP. It’s saved inside the <code class="docutils literal notranslate"><span class="pre">hosts</span></code> db:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>myrange=iprange
+    Description=
+    End=192.168.100.20
+    Start=192.168.100.10
+</pre></div>
+</div>
+<p>A zone represents a network zone which can be associated to an interface or a set of IP address. A <code class="docutils literal notranslate"><span class="pre">zone</span></code> entry in <code class="docutils literal notranslate"><span class="pre">networks</span></code> database can be something like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name=zone
+   Network=CIDR
+   Interface=eth0
+</pre></div>
+</div>
+<p>A configured network interface is automatically a zone.</p>
+<p>A service can have a protocol and one or more ports. A <code class="docutils literal notranslate"><span class="pre">service</span></code> entry in <code class="docutils literal notranslate"><span class="pre">fwservices</span></code> database can be something like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name=fwservice
+   Protocol=tcp/udp/tcpudp/icmp
+   Ports=port/port range
+</pre></div>
+</div>
+<p>A service can also be a refence in the format <code class="docutils literal notranslate"><span class="pre">ndpi;&lt;protocol&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">protocol</span></code> is a supported protocol from nDPI kernel module.
+To see a list of supported protocols:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db NethServer::Database::Ndpi keys
+</pre></div>
+</div>
+<p>A time condition is a <code class="docutils literal notranslate"><span class="pre">time</span></code> record entry in <code class="docutils literal notranslate"><span class="pre">fwtimes</span></code> database.
+All times are saved in <em>local time</em> and converted to UTC on template expansion.</p>
+<p>Database example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db fwtimes setprop officehours WeekDays &#39;Mon,Tue,Wed,Thu&#39; TimeStart &#39;09:00&#39; TimeStop &#39;18:00&#39;
+</pre></div>
+</div>
+<p>A MAC address is a <code class="docutils literal notranslate"><span class="pre">mac</span></code> record entry inside <code class="docutils literal notranslate"><span class="pre">macs</span></code> database.
+The MAC must always have a <code class="docutils literal notranslate"><span class="pre">Zone</span></code> property which specifies the network segment where the device is connected.
+It’s something like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mac1=mac
+   Address=52:54:00:05:2d:c3
+   Description=My mac test
+   Zone=green
+</pre></div>
+</div>
+<div class="section" id="rules-based-on-mac-address">
+<h3>Rules based on mac address<a class="headerlink" href="#rules-based-on-mac-address" title="Permalink to this headline">¶</a></h3>
+<p>It’s possible to create rules based on MAC address only using a template-custom.
+For example to block internet access to a host on local network using its MAC address:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir -p /etc/e-smith/templates-custom/etc/shorewall/rules
+echo &quot;DROP      loc:~xx-xx-xx-xx-xx-xx          net&quot; &gt; /etc/e-smith/templates-custom/etc/shorewall/rules/90mymac
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">xx-xx-xx-xx-xx-xx</span></code> is the MAC address to block.</p>
+<p>See <strong class="command">man shorewall-rules</strong> for more information.</p>
+</div>
+</div>
+<div class="section" id="port-forwarding">
+<h2>Port forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this headline">¶</a></h2>
+<p>All port-forwards are saved inside the <code class="docutils literal notranslate"><span class="pre">portforward</span></code> db.</p>
+<p>Each record has:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">key</span></code>: auto-increment id</li>
+<li><code class="docutils literal notranslate"><span class="pre">type</span></code>: pf</li>
+<li><code class="docutils literal notranslate"><span class="pre">protocol</span></code>: tcp/udp</li>
+<li><code class="docutils literal notranslate"><span class="pre">src</span></code>: can be a port number or a range in the form xxxx:yyyy</li>
+<li><code class="docutils literal notranslate"><span class="pre">dst</span></code>: can be a port number, if empty the value of <code class="docutils literal notranslate"><span class="pre">src</span></code> is used</li>
+<li><code class="docutils literal notranslate"><span class="pre">dstHost</span></code>: destination host, can be an IP address or a hos firewall object</li>
+<li><code class="docutils literal notranslate"><span class="pre">allow</span></code>: allowed ip address or network, see SOURCE  at <a class="reference external" href="http://www.shorewall.net/4.2/manpages/shorewall-rules.html">http://www.shorewall.net/4.2/manpages/shorewall-rules.html</a></li>
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: enabled/disabled</li>
+<li><code class="docutils literal notranslate"><span class="pre">oriDst</span></code>: original destination ip, for example alias for a wan interface. If empty, the port forward is valid for all red interface</li>
+<li><code class="docutils literal notranslate"><span class="pre">description</span></code>: optional description</li>
+</ul>
+</div>
+<div class="section" id="source-nat-snat">
+<h2>Source NAT (sNAT)<a class="headerlink" href="#source-nat-snat" title="Permalink to this headline">¶</a></h2>
+<p>All NAT one-to-one configurations are stored in <code class="docutils literal notranslate"><span class="pre">networks</span></code> db.</p>
+<p>Each value is a new attribute for an existing alias key and the name of attribute is <code class="docutils literal notranslate"><span class="pre">FwObjectNat</span></code> that contains the reference of an associated host:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>eth1:0=alias
+    FwObjectNat=host;host_name
+    ipaddr=11.11.11.11
+    netmask=255.255.255.0
+    role=alias
+</pre></div>
+</div>
+<p>During template-expanding phase, the associated host is mapping with referenced IP and added in shorewall nat configuration. The file is <code class="docutils literal notranslate"><span class="pre">/etc/shorewall/nat</span></code>.</p>
+<p>More information are available here: <a class="reference external" href="http://shorewall.net/NAT.htm">http://shorewall.net/NAT.htm</a></p>
+</div>
+<div class="section" id="traffic-shaping">
+<span id="section-tc"></span><h2>Traffic shaping<a class="headerlink" href="#traffic-shaping" title="Permalink to this headline">¶</a></h2>
+<p>Traffic shaping is implemented using Shorewall mangle and FireQOS: each mangle rule sets a well-known marker,
+markers are used to match traffic inside FireQOS tc classes.</p>
+<p>The firewall needs to know how much inbound and outbound bandwidth has a red interface.
+The bandwidth value (expressed in kbit) is stored inside <code class="docutils literal notranslate"><span class="pre">FwInBandwidth</span></code> and <code class="docutils literal notranslate"><span class="pre">FwOutBandwidth</span></code> properties, wich are
+parts of the network interface record inside the <code class="docutils literal notranslate"><span class="pre">networks</span></code> db.
+Each red interface can have also the <code class="docutils literal notranslate"><span class="pre">TCLinklayer</span></code> property, see FireQoS documentation <cite>supported values &lt;https://firehol.org/fireqos-manual/fireqos-params-class/#linklayer-linklayer-name-ethernet-atm&gt;</cite>.</p>
+<p>FireQOS tutorial suggests to use 90% of the declared bandwidth to shape the inbound traffic faster.</p>
+<p>On red interfaces with <code class="docutils literal notranslate"><span class="pre">FwInBandwidth</span></code> and <code class="docutils literal notranslate"><span class="pre">FwOutBandwidth</span></code> set, ethernet offloading is automatically disabled.</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>enp0s20f2=ethernet
+   FwInBandwidth=30000
+   FwOutBandwidth=24000
+   TCLinklayer=ethernet
+   bootproto=none
+   gateway=1.2.3.4
+   ipaddr=1.2.3.5
+   netmask=255.255.255.0
+   role=red
+</pre></div>
+</div>
+<p>All traffic shaping rules are saved inside the <code class="docutils literal notranslate"><span class="pre">fwrules</span></code> database with the same format.
+Valid actions for traffic shaping rules are:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">class;&lt;name&gt;</span></code>: set associated tc class.</li>
+<li><code class="docutils literal notranslate"><span class="pre">provider;&lt;name&gt;</span></code>: force the traffic to the provider specified by <code class="docutils literal notranslate"><span class="pre">name</span></code></li>
+</ul>
+<div class="section" id="tc-classess">
+<h3>tc classess<a class="headerlink" href="#tc-classess" title="Permalink to this headline">¶</a></h3>
+<p>tc classes are saved inside the <code class="docutils literal notranslate"><span class="pre">tc</span></code> database with type <code class="docutils literal notranslate"><span class="pre">class</span></code>.</p>
+<p>Each tc class has the following properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">BindTo</span></code>: empty (default) or comma-separated list of red interfaces. If one ore more interface is listed,
+the class is applied only to given interface</li>
+<li><code class="docutils literal notranslate"><span class="pre">Description</span></code>: optional class description (used only in the UI)</li>
+<li><code class="docutils literal notranslate"><span class="pre">Mark</span></code>: integer value which identify the marker used for this class. Maximum is <code class="docutils literal notranslate"><span class="pre">63</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">MaxInputRate</span></code>: maximum download rate, expressed in percentage of the total download bandwidth</li>
+<li><code class="docutils literal notranslate"><span class="pre">MaxOutputRate</span></code>: maximum upload rate, expressed in percentage of the total upload bandwidth</li>
+<li><code class="docutils literal notranslate"><span class="pre">MinInputRate</span></code>: reserved download rate, expressed in percentage of the total download bandwidth</li>
+<li><code class="docutils literal notranslate"><span class="pre">MinOutputRate</span></code>: reserved upload rate, expressed in percentage of the total upload bandwidth</li>
+<li><code class="docutils literal notranslate"><span class="pre">Unit</span></code>: bandwidth unit of measure for TC classes, default to <code class="docutils literal notranslate"><span class="pre">%</span></code>, supported values are from FireQoS doc</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>high=class
+   BindTo=
+   Description=
+   Mark=2
+   MaxInputRate=
+   MaxOutputRate=
+   MinInputRate=10
+   MinOutputRate=10
+   Unit=%
+
+low=class
+   BindTo=ens1
+   Description=
+   Mark=2
+   MaxInputRate=
+   MaxOutputRate=
+   MinInputRate=10
+   MinOutputRate=10
+   Unit=kbps
+</pre></div>
+</div>
+</div>
+<div class="section" id="assumptions-and-limitations">
+<h3>Assumptions and limitations<a class="headerlink" href="#assumptions-and-limitations" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>All nDPI traffic is marked in forward chain.
+When a nDPI protocol is found, the whole connection is marked.</li>
+<li>Priority rules are in post chain and can use nDPI markers.
+If a priority rule uses a role (interface) as source, the rule can’t be added
+to postrouting chain since the packet is already natted: Shorewall will move the rule on top of forwarding chain.</li>
+<li>nDPI rules can’t block the http/https traffic if web proxy is enabled in transparent mode.</li>
+<li>All nDPI markers are read from <code class="docutils literal notranslate"><span class="pre">/proc/net/xt_ndpi/proto</span></code> and shifted by 8 bits.</li>
+<li>Divert rules can’t be used with nDPI, because an established TCP connection can’t be moved between providers.</li>
+<li>Prerouting table is reserved by Shorewall for handlind the multi wan scenario.</li>
+</ol>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/firehol/firehol/wiki/FireQOS">https://github.com/firehol/firehol/wiki/FireQOS</a></li>
+<li><a class="reference external" href="https://github.com/firehol/firehol/wiki/FireQOS-Tutorial">https://github.com/firehol/firehol/wiki/FireQOS-Tutorial</a></li>
+<li><a class="reference external" href="http://shorewall.net/manpages/shorewall.conf.html">http://shorewall.net/manpages/shorewall.conf.html</a></li>
+</ul>
+</div>
+<div class="section" id="divert-rules">
+<h3>Divert rules<a class="headerlink" href="#divert-rules" title="Permalink to this headline">¶</a></h3>
+<p>A divert rule is used to force traffic to a specific provider.</p>
+<p>For example, this rules will route all traffic to port 22 via the provider named myadsl:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1=rule
+    Src=192.168.1.0/24
+    Dst=0.0.0.0/0
+    Service=fwservice;ssh
+    Action=provider;myadsl
+    status=enabled
+    Position=2
+    Description=
+</pre></div>
+</div>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">key</span></code>: numeric id</li>
+<li><code class="docutils literal notranslate"><span class="pre">Src</span></code>: can be a ‘any’, role (execpt red), zone (not interface), host object, ip address, ip range or CIDR</li>
+<li><code class="docutils literal notranslate"><span class="pre">Dst</span></code>: can be a zone (not interface), host object, ip address, ip range  or CIDR</li>
+<li><code class="docutils literal notranslate"><span class="pre">Action</span></code>: provider object, in the form of “provider;&lt;name&gt;”</li>
+<li><code class="docutils literal notranslate"><span class="pre">Service</span></code>: (optional) can be a service object</li>
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code>: can be enabled or disabled. Default is enabled</li>
+<li><code class="docutils literal notranslate"><span class="pre">Position</span></code>: integer sorting key</li>
+<li><code class="docutils literal notranslate"><span class="pre">Description</span></code>: (optional)</li>
+</ul>
+<p>A rule is ignored during template expansion if:</p>
+<ul class="simple">
+<li>the source is red role</li>
+<li>the destination is a role which is not red</li>
+<li>source, destination and service are all set to any</li>
+<li>the provider doesn’t exists</li>
+<li>destination is set to any</li>
+</ul>
+</div>
+</div>
+<div class="section" id="multi-wan">
+<span id="section-multiwan"></span><h2>Multi WAN<a class="headerlink" href="#multi-wan" title="Permalink to this headline">¶</a></h2>
+<p>NethServer firewall can handle 15 red (WAN) interfaces. Implementation uses Shorewall with LSM (Link Status Monitor).
+The LSM daemon takes care of monitoring WAN connections (interface) using ICMP traffic and it informs Shorewall about interface up/down events.
+Each interface can be checked using multiple IPs (see <code class="docutils literal notranslate"><span class="pre">checkip</span></code> property below). At least one IP must be reachable to mark the WAN connection as usable.
+If no IP is specified (recommended option), the system will uses well-known default IPs (Google DNS and OpenDNS).</p>
+<p>For each configured provider, LSM will send ping to a configured IP (checkip).
+When a provider status changes, the system will signal a <code class="docutils literal notranslate"><span class="pre">wan-uplink-update</span></code> event.</p>
+<p>Inside the event, the action <code class="docutils literal notranslate"><span class="pre">nethserver-shorewall-wan-update</span></code> invokes:</p>
+<ul class="simple">
+<li>shorewall enable &lt;interface&gt; when a red interface is usable</li>
+<li>shorewall disable &lt;interface&gt; then a red interface is not usable</li>
+</ul>
+<p>When an interface is disabled, all associated routes will be deleted.</p>
+<p>When a new TCP connection is started, a route is selected and all successive packets will always be routed via same interface. If the used interfaces goes down, the connection is closed.</p>
+<p>Actually two behaviors are implemented: balanced and active-backup.</p>
+<div class="section" id="balanced">
+<h3>Balanced<a class="headerlink" href="#balanced" title="Permalink to this headline">¶</a></h3>
+<p>All red interfaces are simultaneously used accordingly to the configured weight (see below).</p>
+<p><strong>Example</strong>:</p>
+<p>Given a connection A with weight 2, and connection B with weight 1, the firewall will route a double number of connections via A over B.</p>
+</div>
+<div class="section" id="active-backup">
+<h3>Active-backup<a class="headerlink" href="#active-backup" title="Permalink to this headline">¶</a></h3>
+<p>Red interfaces are ordered using the configured weight: higher the weight, higher the route priority.
+The interface with maximum weight will be the active connection, all other interfaces will be used if the active one goes down.</p>
+<p><strong>Example</strong></p>
+<p>Given 3 wan connections:</p>
+<ul class="simple">
+<li>A with weight 3</li>
+<li>B with weight 2</li>
+<li>C with weight 1</li>
+</ul>
+<p>All traffic is routed via A. On failure of A, all traffic is routed via B. When B goes down, C is used.
+Whenever A comes backup, all traffic is again routed through it.</p>
+</div>
+<div class="section" id="providers">
+<h3>Providers<a class="headerlink" href="#providers" title="Permalink to this headline">¶</a></h3>
+<p>Providers are an abstraction over red interfaces (see <strong class="command">man shorewall-providers</strong>).
+All providers must have a weight which is used to select the route for packets.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">provider</span></code> record inside the <code class="docutils literal notranslate"><span class="pre">networks</span></code> database has following properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">key</span></code>: name of provider</li>
+<li><code class="docutils literal notranslate"><span class="pre">interface</span></code>: associated red interface, it’s mandatory</li>
+<li><code class="docutils literal notranslate"><span class="pre">weight</span></code>: weight of connection expressed with an integer number, it’s mandatory</li>
+<li><code class="docutils literal notranslate"><span class="pre">Description</span></code>: (optional) custom description</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>myisp=provider
+  interface=eth1
+  weight=5
+  Description=my fast provider
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-wan-example">
+<h3>Multi WAN example<a class="headerlink" href="#multi-wan-example" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Configure two interfaces as red, for example eth1 and eth2</li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db networks setprop eth1 role red
+db networks setprop eth2 role red
+signal-event interface-update
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Create two providers:</li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db networks set firstisp provider interface eth1 weight 2
+db networks set secondisp provider interface eth2 weight 1
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Re-configure the firewall:</li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event firewall-adjust
+</pre></div>
+</div>
+<p>See <code class="file docutils literal notranslate"><span class="pre">/var/log/firewall.log</span></code> to check for up/down events.</p>
+<p>Routes can be checked using:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>shorewall show routing
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="static-routes">
+<h2>Static routes<a class="headerlink" href="#static-routes" title="Permalink to this headline">¶</a></h2>
+<p>Static routes are saved inside the routes database with a record of type static. Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>8.8.4.4=static
+    Description=My route
+    Mask=255.255.255.255
+    Router=89.97.220.225
+</pre></div>
+</div>
+<p>Each record has the following properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">key</span></code>: network address</li>
+<li><code class="docutils literal notranslate"><span class="pre">Mask</span></code>: network mask</li>
+<li><code class="docutils literal notranslate"><span class="pre">Router</span></code>: gateway for the network</li>
+<li><code class="docutils literal notranslate"><span class="pre">Description</span></code>: a custom description (optional)</li>
+</ul>
+<p>There is also a special type of static route called <code class="docutils literal notranslate"><span class="pre">provider-static</span></code>.
+These routes have the same properties as described above and are used to correctly route traffic for link monitor.
+This type of rules should never be manually edited.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-firewall-migration.html" class="btn btn-neutral float-right" title="nethserver-firewall-migration" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-evebox.html" class="btn btn-neutral float-left" title="nethserver-evebox" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
