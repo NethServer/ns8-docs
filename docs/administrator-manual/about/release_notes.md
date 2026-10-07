@@ -44,6 +44,10 @@ NethServer 8 releases
 
 - **CrowdSec protection for NethVoice** \[CrowdSec 1.2.0\] -- The new `nethesis/nethvoice` collection detects SIP brute-force attacks against Kamailio, and HTTP brute-force and exploit scans against the NethVoice web applications. The collection is enabled on new installations; after an upgrade, enable it from the `Collections` page.
 
+- **CrowdSec Threat Shield** \[CrowdSec 1.3.0\] -- Systems with a subscription send the IP addresses blocked by CrowdSec to Nethesis, and addresses reported by enough systems are added to a shared blocklist. With the Threat Shield subscription add-on, the new `Threat Shield` page enables this blocklist and other blocklists maintained by Nethesis, and checks whether an IP address is listed in them. These blocklists are disabled by default. See [CrowdSec](../applications/crowdsec.md).
+
+- **CrowdSec bans history** \[CrowdSec 1.3.0\] -- The new `CrowdSec Bans` Grafana dashboard shows the bans recorded during the whole log retention period: a map per country, bans over time, top countries, providers, scenarios, ban durations, and the most banned IP addresses. Empty or wrong panels of the existing CrowdSec dashboards were also fixed. See [Grafana access](../configuration/metrics.md#grafana_access-section).
+
 - **Antivirus third-party signatures rating** \[Mail 1.7.13\] -- The `Third-party signatures rating` setting of the Mail antivirus was not applied, and the `Medium` rating was always used. The setting is now effective, so detection results may change if a different rating was selected. See [Antivirus](../applications/mail.md#anti-virus).
 
 - **Mail logins with Active Directory** \[Mail 1.7.13\] -- Dovecot no longer follows LDAP referrals returned by Active Directory. This removes unexpected connections to port 636 and repeated DNS queries, and fixes login timeouts reported on some installations migrated from NethServer 7.
@@ -51,6 +55,8 @@ NethServer 8 releases
 - **Default Roundcube folders** \[Roundcube 2.1.7\] -- The `Drafts` and `Sent` folders are created at the first login of a user, instead of when the first message is sent. Mail clients configured afterwards find the standard folders and do not create localized ones, such as `Posta inviata`.
 
 - **WebTop updates** \[WebTop 1.5.9\] -- WebTop was updated to upstream release 5.35.6 and the PEC bridge to release 5.4.11. The Thunderbird autoconfiguration file now advertises IMAP on port 993 and SMTP on port 465 with implicit TLS, as already done for Outlook. See [Client configuration](../applications/mail.md#email_clients).
+
+- **Piler container image** \[Piler 1.3.0\] -- The Piler application now runs on a container image built by the NethServer project instead of the upstream one, so security updates and new Piler releases are tested and shipped with the module. The container runs as an unprivileged user, and Piler logs, previously lost, are now sent to the system journal. The mail import action works again, as it now fetches messages over IMAP before importing them. See [Piler](../applications/piler.md).
 
 - **Dependency-Track 5** \[Dependency-Track 2.0.0\] -- The Dependency-Track application was upgraded to major version 5, because version 4 has reached its end of life. Existing installations are not updated automatically: the database must be migrated with a manual procedure, and some settings must be reconfigured afterwards. See [Upgrading from Dependency-Track v4 to v5](https://github.com/NethServer/ns8-dependencytrack#upgrading-from-dependency-track-v4-to-v5).
 
