@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import smartypants from 'remark-smartypants';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -80,7 +81,17 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/NethServer/ns8-docs/blob/main'
+          editUrl: 'https://github.com/NethServer/ns8-docs/blob/main',
+          // Convert "--" to an en dash and "---" to an em dash, as the
+          // former reStructuredText build did. Code is left untouched.
+          remarkPlugins: [
+            [smartypants, {
+              dashes: 'oldschool',
+              quotes: false,
+              backticks: false,
+              ellipses: false,
+            }],
+          ],
         },
         blog: {
           showReadingTime: true,
