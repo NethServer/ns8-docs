@@ -100,6 +100,8 @@ reports broken links and anchors.
   structure when adding a new application.
 - When updating an example, also remove any notes that referred to the
   replaced behaviour as a future or planned feature.
+- In Italian pages, write "subscription" (feminine: "la subscription",
+  plural "le subscription"), never "sottoscrizione" or "abbonamento".
 - Do not write which release introduced a feature (for example "Available
   from NethServer 8.10" or "core 3.22.0"). The docs always describe a cluster
   with the latest updates installed.
