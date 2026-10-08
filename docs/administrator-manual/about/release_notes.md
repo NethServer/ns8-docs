@@ -54,7 +54,7 @@ NethServer 8 releases
 
 - **Default Roundcube folders** \[Roundcube 2.1.7\] -- The `Drafts` and `Sent` folders are created at the first login of a user, instead of when the first message is sent. Mail clients configured afterwards find the standard folders and do not create localized ones, such as `Posta inviata`.
 
-- **WebTop updates** \[WebTop 1.5.9\] -- WebTop was updated to upstream release 5.35.6 and the PEC bridge to release 5.4.11. The Thunderbird autoconfiguration file now advertises IMAP on port 993 and SMTP on port 465 with implicit TLS, as already done for Outlook. See [Client configuration](../applications/mail.md#email_clients).
+- **WebTop updates** \[WebTop 1.5.11\] -- WebTop was updated to upstream release 5.35.7 and the PEC bridge to release 5.4.11. The Thunderbird autoconfiguration file now advertises IMAP on port 993 and SMTP on port 465 with implicit TLS, as already done for Outlook. See [Client configuration](../applications/mail.md#email_clients).
 
 - **Piler container image** \[Piler 1.3.0\] -- The Piler application now runs on a container image built by the NethServer project instead of the upstream one, so security updates and new Piler releases are tested and shipped with the module. The container runs as an unprivileged user, and Piler logs, previously lost, are now sent to the system journal. The mail import action works again, as it now fetches messages over IMAP before importing them. See [Piler](../applications/piler.md).
 

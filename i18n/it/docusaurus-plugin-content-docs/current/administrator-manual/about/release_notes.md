@@ -54,7 +54,7 @@ Rilasci di NethServer 8
 
 - **Cartelle predefinite di Roundcube** \[Roundcube 2.1.7\] -- Le cartelle `Drafts` e `Sent` vengono create al primo login di un utente, invece che all'invio del primo messaggio. I client di posta configurati in seguito trovano le cartelle standard e non ne creano di localizzate, come `Posta inviata`.
 
-- **Aggiornamenti di WebTop** \[WebTop 1.5.9\] -- WebTop è stato aggiornato alla release upstream 5.35.6 e il PEC bridge alla release 5.4.11. Il file di autoconfigurazione di Thunderbird indica ora IMAP sulla porta 993 e SMTP sulla porta 465 con TLS implicito, come già avveniva per Outlook. Vedere [Configurazione dei client](../applications/mail.md#email_clients).
+- **Aggiornamenti di WebTop** \[WebTop 1.5.11\] -- WebTop è stato aggiornato alla release upstream 5.35.7 e il PEC bridge alla release 5.4.11. Il file di autoconfigurazione di Thunderbird indica ora IMAP sulla porta 993 e SMTP sulla porta 465 con TLS implicito, come già avveniva per Outlook. Vedere [Configurazione dei client](../applications/mail.md#email_clients).
 
 - **Immagine container di Piler** \[Piler 1.3.0\] -- L'applicazione Piler usa ora un'immagine container costruita dal progetto NethServer invece di quella upstream, in modo che gli aggiornamenti di sicurezza e le nuove release di Piler vengano testati e distribuiti insieme al modulo. Il container viene eseguito come utente non privilegiato, e i log di Piler, prima persi, vengono ora inviati al journal di sistema. L'azione di importazione della posta funziona di nuovo, poiché ora scarica i messaggi tramite IMAP prima di importarli. Vedere [Piler](../applications/piler.md).
 
