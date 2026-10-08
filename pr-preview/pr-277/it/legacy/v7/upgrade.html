@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upgrade from NethServer 6 &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Email module transition to Rspamd" href="mail2.html" />
+    <link rel="prev" title="Migration from NethService/SME Server" href="migration.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "upgrade", "programming_language": "words", "project": "nethserver", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"nethserver-devel": "https://docs.nethserver.org/projects/nethserver-devel/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/upgrade.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accessing the Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Users and groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">DHCP and PXE server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Shared folders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Web proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Bandwidth monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Backup customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Virtual machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">NethForge modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Upgrade from NethServer 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#accounts-provider">Accounts provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#primary-domain-controller-and-workstation-upgrade">Primary Domain Controller and Workstation upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#active-directory-member-upgrade">Active Directory member upgrade</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#shared-folders">Shared folders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#smb-access">SMB access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#http-access">HTTP access</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mail-server">Mail server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tls-policy">TLS policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#let-s-encrypt">Let’s Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#owncloud-and-nextcloud">Owncloud and Nextcloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#perl-libraries">Perl libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-from-backup">Upgrade from backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-with-rsync">Upgrade with rsync</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sync-files">Sync files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sync-and-upgrade">Sync and upgrade</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-with-upgrade-tool">Upgrade with Upgrade tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Email module transition to Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Documentation license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Old Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">The old Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">POP3 proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Fax server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">SOGo Groupware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Upgrade from NethServer 6</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/upgrade.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="upgrade-from-product-6">
+<span id="upgrade-section"></span><span id="index-0"></span><h1>Upgrade from NethServer 6<a class="headerlink" href="#upgrade-from-product-6" title="Permalink to this headline">¶</a></h1>
+<p>The upgrade from NethServer 6 to NethServer 7 is obtained by means of three
+methods:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#upgrade-from-backup-section"><span class="std std-ref">backup</span></a> (see also <a class="reference internal" href="disaster_recovery.html#disaster-recovery-section"><span class="std std-ref">Disaster recovery</span></a>)</p></li>
+<li><p><a class="reference internal" href="#upgrade-with-rsync-section"><span class="std std-ref">rsync</span></a></p></li>
+<li><p><a class="reference internal" href="#upgrade-with-tool-section"><span class="std std-ref">upgrade-tool</span></a></p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before running the upgrade procedure, read carefully all the sections of this
+chapter. Please also read <a class="reference internal" href="release_notes.html#discontinued-section"><span class="std std-ref">Discontinued packages</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>During the whole upgrade process, all network services will be inaccessible.</p>
+</div>
+<section id="accounts-provider">
+<h2>Accounts provider<a class="headerlink" href="#accounts-provider" title="Permalink to this headline">¶</a></h2>
+<p>There are different upgrade scenarios, depending on how the source machine was configured.</p>
+<ul class="simple">
+<li><p>If the source system was a NT Primary Domain Controller (Samba server role was
+<span class="guilabel">Primary Domain Controller</span> – PDC) or a standalone file server
+(role was <span class="guilabel">Workstation</span> – WS), refer to <a class="reference internal" href="#pdc-upgrade-section"><span class="std std-ref">Primary Domain Controller and Workstation upgrade</span></a>.</p></li>
+<li><p>If the source system was joined to an Active Directory domain (Samba server
+role was <span class="guilabel">Active Directory member</span> – ADS), refer to
+<a class="reference internal" href="#ads-upgrade-section"><span class="std std-ref">Active Directory member upgrade</span></a>.</p></li>
+<li><p>In any other case, the LDAP server is upgraded automatically to <em>local
+LDAP accounts provider</em>, preserving existing users, passwords and groups.</p></li>
+</ul>
+<section id="primary-domain-controller-and-workstation-upgrade">
+<span id="pdc-upgrade-section"></span><h3>Primary Domain Controller and Workstation upgrade<a class="headerlink" href="#primary-domain-controller-and-workstation-upgrade" title="Permalink to this headline">¶</a></h3>
+<p>After the restore procedure, go to <span class="guilabel">Accounts provider</span> page and
+select the <span class="guilabel">Upgrade to Active Directory</span> procedure.
+The button will be available only if network configuration has already been
+fixed accordingly to the new hardware.</p>
+<p>The following accounts are ignored by the upgrade procedure because they are
+already provided by Samba Active Directory:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">administrator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">krbtgt</span></code></p></li>
+</ul>
+<p>An additional, free, IP address from the <em>green</em> network is required by the
+Linux container to run the local Active Directory accounts provider.</p>
+<p>For instance:</p>
+<ul class="simple">
+<li><p>server IP (green): <code class="docutils literal notranslate"><span class="pre">192.168.98.252</span></code></p></li>
+<li><p>free additional IP in green network: <code class="docutils literal notranslate"><span class="pre">192.168.98.7</span></code></p></li>
+</ul>
+<p>Ensure there is a working Internet connection:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># curl -I http://packages.nethserver.org/nethserver/
+HTTP/1.1 200 OK
+</pre></div>
+</div>
+<p>For more information about the local Active Directory accounts provider, see
+<a class="reference internal" href="accounts.html#ad-local-accounts-provider-section"><span class="std std-ref">Samba Active Directory local provider installation</span></a>.</p>
+<p>Shared folder connections may require further adjustment.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Read carefully the <a class="reference internal" href="#upgrade-shared-folders"><span class="std std-ref">Shared folders</span></a> section, because the connection
+credentials may change when upgrading to NethServer 7.</p>
+</div>
+<p>The upgrade procedure preserves user, group and computer accounts.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Users not enabled for Samba in NethServer 6 will be migrated as
+locked users. To enable these locked users, the administrator
+will have to set a new password.</p>
+</div>
+</section>
+<section id="active-directory-member-upgrade">
+<span id="ads-upgrade-section"></span><h3>Active Directory member upgrade<a class="headerlink" href="#active-directory-member-upgrade" title="Permalink to this headline">¶</a></h3>
+<p>After <strong>restoring the configuration</strong>, join the server to the existing Active
+Directory domain from the web interface. For more information see
+<a class="reference internal" href="accounts.html#join-existing-ad-section"><span class="std std-ref">Join an existing Active Directory domain</span></a>.</p>
+<p>At the end, proceed with <strong>data restore</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Mail aliases from AD server are not imported automatically!</p>
+</div>
+</section>
+</section>
+<section id="shared-folders">
+<span id="upgrade-shared-folders"></span><h2>Shared folders<a class="headerlink" href="#shared-folders" title="Permalink to this headline">¶</a></h2>
+<p>Shared folders have been split into two packages:</p>
+<ul class="simple">
+<li><p>“Shared folders” page configures only Samba SMB shares; it provides data access
+using CIFS/SMB protocol and can be used to share files among Windows and Linux
+workstations</p></li>
+<li><p>The “Virtual hosts” panel provides HTTP and FTP access, it has been designed
+to host web sites and web applications</p></li>
+</ul>
+<section id="smb-access">
+<span id="upgrade-smb-access"></span><h3>SMB access<a class="headerlink" href="#smb-access" title="Permalink to this headline">¶</a></h3>
+<p>In NethServer 7 the SMB security model is based on Active Directory. As
+consequence when upgrading (or migrating) a file server in Primary Domain
+Controller (PDC) or Standalone Workstation (WS) role the following rule apply:</p>
+<blockquote>
+<div><p>When connecting to a shared folder, the NetBIOS domain name must be either
+prefixed to the user name (i.e. <code class="docutils literal notranslate"><span class="pre">MYDOMAIN\username</span></code>), or inserted in the
+specific form field.</p>
+</div></blockquote>
+<p>The upgrade procedure enables the deprecated <a class="footnote-reference brackets" href="#badlock" id="id1">1</a> NTLM authentication method to
+preserve backward compatibility with legacy network clients, like printers and
+scanners.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Fix the legacy SMB clients configuration, then disable NTLM authentication.</p>
+<ul class="simple">
+<li><p>Edit <code class="docutils literal notranslate"><span class="pre">/var/lib/machines/nsdc/etc/samba/smb.conf</span></code></p></li>
+<li><p>Remove the <code class="docutils literal notranslate"><span class="pre">ntlm</span> <span class="pre">auth</span> <span class="pre">=</span> <span class="pre">yes</span></code> line</p></li>
+<li><p>Restart the samba DC with <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">-M</span> <span class="pre">nsdc</span> <span class="pre">restart</span> <span class="pre">samba</span></code></p></li>
+</ul>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="badlock"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Badlock vulnerability <a class="reference external" href="http://badlock.org/">http://badlock.org/</a></p>
+</dd>
+</dl>
+</section>
+<section id="http-access">
+<h3>HTTP access<a class="headerlink" href="#http-access" title="Permalink to this headline">¶</a></h3>
+<p>Every shared folder with web access configured in NethServer 6 can be migrated to
+a virtual host directly from the web interface by selecting the action
+<span class="guilabel">Migrate to virtual host</span>. After the migration, data inside the new
+virtual host will be accessible using only FTP and HTTP protocols.</p>
+<p>See also <a class="reference internal" href="web_server.html#virtual-hosts-section"><span class="std std-ref">Virtual hosts</span></a> for more information about
+<span class="guilabel">Virtual hosts</span> page.</p>
+</section>
+</section>
+<section id="mail-server">
+<h2>Mail server<a class="headerlink" href="#mail-server" title="Permalink to this headline">¶</a></h2>
+<p>All mailboxes options like SPAM retention and quota, along with ACLs, user shared
+mailboxes and subscriptions are preserved.</p>
+<p>Mailboxes associated to groups with <span class="guilabel">Deliver the message into a shared folder</span> option enabled,
+will be converted to public shared mailboxes.
+The public shared folder will be automatically subscribed by all group members,
+but all messages will be marked as unread.</p>
+</section>
+<section id="tls-policy">
+<h2>TLS policy<a class="headerlink" href="#tls-policy" title="Permalink to this headline">¶</a></h2>
+<p>In NethServer 7 the services configuration can adhere to
+<a class="reference internal" href="tlspolicy.html#tlspolicy-section"><span class="std std-ref">TLS policy</span></a>.  Before upgrading, the network clients must be checked
+against the available policy identifiers.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>An old network client can fail to connect if its TLS ciphers are considered
+invalid</p>
+</div>
+<p>The policy identifier selected by the upgrade procedure depends on the NethServer
+version and is documented in <a class="reference internal" href="release_notes.html#release-notes-section"><span class="std std-ref">Release notes 7</span></a>.</p>
+</section>
+<section id="let-s-encrypt">
+<h2>Let’s Encrypt<a class="headerlink" href="#let-s-encrypt" title="Permalink to this headline">¶</a></h2>
+<p>Let’s Encrypt certificates are restored during the process, but will not be
+automatically renewed.</p>
+<p>After the upgrade process has been completed, access the web interface
+and reconfigure Let’s Encrypt from the <span class="guilabel">Server certificate</span> page.</p>
+</section>
+<section id="owncloud-and-nextcloud">
+<h2>Owncloud and Nextcloud<a class="headerlink" href="#owncloud-and-nextcloud" title="Permalink to this headline">¶</a></h2>
+<p>In NethServer 7, Owncloud has officially been replaced by Nextcloud.</p>
+<p>However Owncloud 7 is still available to avoid service disruption after the upgrade.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case of <a class="reference internal" href="#pdc-upgrade-section"><span class="std std-ref">upgrade from local LDAP to Samba AD</span></a>,
+user data inside Owncloud will not be accessible either from the
+web interface or desktop/mobile clients. In such case, install and migrate to
+Nextcloud after the upgrade to Samba Active Directory has been completed.</p>
+</div>
+<p>From Nextcloud 13, the migration from Owncloud to Nextcloud is not supported anymore.</p>
+<p>Users should replace Owncloud clients with Nextcloud ones <a class="footnote-reference brackets" href="#downloadnc" id="id2">2</a>,
+then make sure to set the new application URL: <code class="docutils literal notranslate"><span class="pre">https://&lt;your_server_address&gt;/nextcloud</span></code>.</p>
+<dl class="footnote brackets">
+<dt class="label" id="downloadnc"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Nextcloud clients download <a class="reference external" href="https://nextcloud.com/install/#install-clients#install-clients">https://nextcloud.com/install/#install-clients</a></p>
+</dd>
+</dl>
+</section>
+<section id="perl-libraries">
+<h2>Perl libraries<a class="headerlink" href="#perl-libraries" title="Permalink to this headline">¶</a></h2>
+<p>In NethServer 7, perl library <code class="docutils literal notranslate"><span class="pre">NethServer::Directory</span></code> has been replaced
+by <code class="docutils literal notranslate"><span class="pre">NethServer::Password</span></code>.
+Please update your custom scripts accordingly.</p>
+<p>Example of old code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>use NethServer::Directory;
+NethServer::Directory::getUserPassword(&#39;myservice&#39;, 0);
+</pre></div>
+</div>
+<p>New code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>use NethServer::Password;
+my $password = NethServer::Password::store(&#39;myservice&#39;);
+</pre></div>
+</div>
+<p>Documentation available via perldoc command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>perldoc NethServer::Password
+</pre></div>
+</div>
+</section>
+<section id="upgrade-from-backup">
+<span id="upgrade-from-backup-section"></span><h2>Upgrade from backup<a class="headerlink" href="#upgrade-from-backup" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Make sure to have an updated backup of the original installation.</p></li>
+<li><p>Install NethServer 7 <strong>using the most recent ISO</strong> and complete the initial steps using
+the first configuration wizard.
+The new machine must have the same hostname of the old one, to access the backup set correctly.
+Install and configure the backup module.</p></li>
+<li><p>Restore the configuration backup using the web interface. The network configuration is restored, too!
+If any error occurs, check the <code class="file docutils literal notranslate"><span class="pre">/var/log/messages</span></code> log file for further information:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep -E &#39;(FAIL|ERROR)&#39; /var/log/messages
+</pre></div>
+</div>
+</li>
+<li><p>If needed, go to <span class="guilabel">Network</span> page and fix the network configuration
+accordingly to the new hardware.
+If the machine was joined to an existing Active Directory domain,
+read <a class="reference internal" href="#ads-upgrade-section"><span class="std std-ref">Active Directory member upgrade</span></a>.</p></li>
+<li><p>Complete the restore procedure with the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>restore-data -b &lt;name&gt;
+</pre></div>
+</div>
+<p>where <em>name</em> is the name of the configured data backup.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, the name of the <em>backup-data</em> configured on NethServer 6 is <code class="docutils literal notranslate"><span class="pre">backup-data</span></code></p>
+</div>
+</li>
+<li><p>Check the restore logs:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/var/log/restore-data.log
+/var/log/messages
+</pre></div>
+</div>
+</li>
+<li><p>Each file under <code class="file docutils literal notranslate"><span class="pre">/etc/e-smith/templates-custom/</span></code> must be manually checked for
+compatibility with version 7.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not reboot the machine before executing the restore-data procedure.</p>
+</div>
+</section>
+<section id="upgrade-with-rsync">
+<span id="upgrade-with-rsync-section"></span><h2>Upgrade with rsync<a class="headerlink" href="#upgrade-with-rsync" title="Permalink to this headline">¶</a></h2>
+<p>The process is much faster than a traditional backup and restore, also it minimizes the downtime for the users.</p>
+<p>Before starting make sure to have:</p>
+<ul class="simple">
+<li><p>a running NethServer 6 installation, we will call it original server or source server</p></li>
+<li><p>a running NethServer 7 installation with at least the same disk space of the source server, and <strong>latest updates installed</strong>; we will call it destination server</p></li>
+<li><p>a working network connection between the two severs</p></li>
+</ul>
+<p>Please also make sure the source server allows root login via SSH key and password.</p>
+<section id="sync-files">
+<h3>Sync files<a class="headerlink" href="#sync-files" title="Permalink to this headline">¶</a></h3>
+<p>The synchronization script copies all data using rsync over SSH.
+If the destination server doesn’t have any SSH keys, the script will also a pair of RSA keys and copy the public key to the source server.
+All directories excluded from the backup data will not be synced.</p>
+<p>On the target machine, execute the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>screen rsync-upgrade &lt;source_server_name&gt; [ssh_port]
+</pre></div>
+</div>
+<p>Where</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source_server_name</span></code> is the host name or IP of the original server</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh_port</span></code> is the SSH port of the original server (default is 22)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>screen rsync-upgrade mail.nethserver.org 2222
+</pre></div>
+</div>
+<p>When asked, insert the root password of the source server, make a coffee and wait patiently.</p>
+<p>The script will not perform any action on the source machine and can be invoked multiple times.</p>
+</section>
+<section id="sync-and-upgrade">
+<h3>Sync and upgrade<a class="headerlink" href="#sync-and-upgrade" title="Permalink to this headline">¶</a></h3>
+<p>If called with <code class="docutils literal notranslate"><span class="pre">-u</span></code> option, <code class="docutils literal notranslate"><span class="pre">rsync-upgrade</span></code> will execute a final synchronization and upgrade
+the target machine.</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>screen rsync-upgrade -u mail.nethserver.org 2222
+</pre></div>
+</div>
+<p>The script will:</p>
+<ul class="simple">
+<li><p>close access to every network service on the source machine (except for SSH and httpd-admin)</p></li>
+<li><p>execute <code class="docutils literal notranslate"><span class="pre">pre-backup-config</span></code> and <code class="docutils literal notranslate"><span class="pre">pre-backup-data</span></code> event on the source machine</p></li>
+<li><p>sync all remaining data</p></li>
+<li><p>execute <code class="docutils literal notranslate"><span class="pre">restore-config</span></code> on the destination machine</p></li>
+</ul>
+<p>If <code class="docutils literal notranslate"><span class="pre">rsync-upgrade</span></code> terminates without loosing the network connection,</p>
+<ol class="arabic simple">
+<li><p>Disconnect the original ns6 from network, to avoid IP conflict with the destination server</p></li>
+<li><p>Access the server manager UI and fix the network configuration from the <span class="guilabel">Network</span> page</p></li>
+</ol>
+<p>Otherwise, if during <code class="docutils literal notranslate"><span class="pre">rsync-upgrade</span></code> <strong>the network connection is lost</strong>, it is likely
+that the source and destination servers have an <strong>IP conflict</strong>:</p>
+<ol class="arabic">
+<li><p>Disconnect the original ns6 from network,</p></li>
+<li><p>From a ns7 root console run the command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>systemctl restart network
+</pre></div>
+</div>
+</li>
+<li><p>Then grab the screen device:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>screen -r -D
+</pre></div>
+</div>
+</li>
+</ol>
+<p>At the end of <code class="docutils literal notranslate"><span class="pre">rsync-upgrade</span></code> run the following steps:</p>
+<ol class="arabic">
+<li><p>If the source system was a NT Primary Domain Controller (Samba server role was
+<span class="guilabel">Primary Domain Controller</span> – PDC) or a standalone file server
+(role was <span class="guilabel">Workstation</span> – WS), refer to <a class="reference internal" href="#pdc-upgrade-section"><span class="std std-ref">Primary Domain Controller and Workstation upgrade</span></a>.</p></li>
+<li><p>If the source system was joined to an Active Directory domain (Samba server
+role was <span class="guilabel">Active Directory member</span> – ADS), refer to
+<a class="reference internal" href="#ads-upgrade-section"><span class="std std-ref">Active Directory member upgrade</span></a>.</p></li>
+<li><p>Go back to the CLI and call the <code class="docutils literal notranslate"><span class="pre">post-restore-data</span></code> event on the destination machine:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event post-restore-data
+</pre></div>
+</div>
+</li>
+<li><p>Check the restore logs for any <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> or <code class="docutils literal notranslate"><span class="pre">FAIL</span></code> message:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/var/log/restore-data.log
+/var/log/messages
+</pre></div>
+</div>
+</li>
+<li><p>Each file under <code class="file docutils literal notranslate"><span class="pre">/etc/e-smith/templates-custom/</span></code> must be manually checked for
+compatibility with version 7.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not reboot the machine before executing the post-restore-data event.</p>
+</div>
+</section>
+</section>
+<section id="upgrade-with-upgrade-tool">
+<span id="upgrade-with-tool-section"></span><h2>Upgrade with Upgrade tool<a class="headerlink" href="#upgrade-with-upgrade-tool" title="Permalink to this headline">¶</a></h2>
+<p>The Upgrade tool module make it possible an <strong>in-place upgrade</strong> of NethServer from
+version 6 to version 7 with an automated procedure.</p>
+<p>Please refer to the <a class="reference external" href="http://docs.nethserver.org/en/v6/upgrade_tool.html">Upgrade tool page</a> of NethServer 6 Administrator Manual.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="migration.html" class="btn btn-neutral float-left" title="Migration from NethService/SME Server" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="mail2.html" class="btn btn-neutral float-right" title="Email module transition to Rspamd" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
