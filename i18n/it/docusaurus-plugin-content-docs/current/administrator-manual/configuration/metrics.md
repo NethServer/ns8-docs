@@ -24,7 +24,7 @@ Le metriche e gli avvisi non vengono preservati quando cambia il nodo leader.
 
 Puoi configurare metriche e avvisi dalla pagina `Settings`, nella sezione `Metrics`. La pagina ti permette di configurare i seguenti parametri:
 
-- [Accesso a Grafana](#grafana_access-section)
+- [Dashboard di Grafana](#grafana_access-section)
 - [Notifiche degli avvisi](#alerts_notifications-section)
 
 ## Avvisi {#alerts-section}

@@ -24,7 +24,7 @@ Metrics and alerts are not preserved when the leader node is switched.
 
 Metrics and alerts can be configured from the `Settings` page, under the `Metrics` section. The page will allow you to configure the following parameters:
 
-- [Grafana access](#grafana_access-section)
+- [Grafana dashboards](#grafana_access-section)
 - [Alert notifications](#alerts_notifications-section)
 
 ## Alerts {#alerts-section}
