@@ -27,7 +27,7 @@ A NethServer 8 cluster can be registered to a web portal to enable additional se
 When a cluster has an active subscription, the following services are enabled:
 
 - Remote support by Nethesis
-- Resources [monitoring and alerting](../configuration/metrics.md)
+- Resources [monitoring and alerting](../configuration/metrics.md). Alerts are forwarded to the portal only with an Enterprise subscription
 - Upload of leader node inventory
 - [Scheduled updates](../about/subscription.md#scheduled-updates) for node operating systems, core components, and applications
 - Upload of cluster backup

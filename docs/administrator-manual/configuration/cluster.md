@@ -34,7 +34,7 @@ The **See details** button opens a detailed view of the selected node.
 - `Applications` and `Network interfaces` link to pages that provide further details about the applications running on the node and the full list of IP addresses.
 - `VPN` shows a summary of the node’s internal WireGuard network parameters. The `Endpoint` value is important in case of [new leader promotion](#node-promotion-section). To change the WireGuard listening port number, refer to [VPN Custom Setup](../../tutorial/vpn.md).
 - The `Alerts` panel lists active node alerts, collected every minute. See how to configure email notifications in [Alerts](metrics.md#alerts-section).
-- The following sections summarize CPU, load, memory, and disk usage. Metrics are collected every minute, and averages are calculated over a two-minute interval. For a detailed view of collected system metrics, refer to [Grafana access](metrics.md#grafana_access-section).
+- The following sections summarize CPU, load, memory, and disk usage. Metrics are collected every minute, and averages are calculated over a two-minute interval. For a detailed view of collected system metrics, refer to [Grafana dashboards](metrics.md#grafana_access-section).
 
 ### Add a node
 

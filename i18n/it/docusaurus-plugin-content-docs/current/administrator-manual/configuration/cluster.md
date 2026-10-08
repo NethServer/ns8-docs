@@ -34,7 +34,7 @@ Il pulsante **See details** apre una vista dettagliata del nodo selezionato.
 - `Applications` e `Network interfaces` sono collegamenti a pagine che forniscono ulteriori dettagli sulle applicazioni in esecuzione sul nodo e l'elenco completo degli indirizzi IP.
 - `VPN` mostra un riepilogo dei parametri di rete interni di WireGuard del nodo. Il valore `Endpoint` è importante in caso di [promozione di un nuovo leader](#node-promotion-section). Per modificare il numero di porta di ascolto di WireGuard, fare riferimento a [Configurazione personalizzata VPN](../../tutorial/vpn.md).
 - Il pannello `Alerts` elenca gli avvisi attivi del nodo, raccolti ogni minuto. Vedere come configurare le notifiche email in [Alerts](metrics.md#alerts-section).
-- Le sezioni seguenti riassumono l'utilizzo di CPU, carico, memoria e disco. Le metriche vengono raccolte ogni minuto e le medie sono calcolate su un intervallo di due minuti. Per una vista dettagliata delle metriche di sistema raccolte, fare riferimento a [Accesso a Grafana](metrics.md#grafana_access-section).
+- Le sezioni seguenti riassumono l'utilizzo di CPU, carico, memoria e disco. Le metriche vengono raccolte ogni minuto e le medie sono calcolate su un intervallo di due minuti. Per una vista dettagliata delle metriche di sistema raccolte, fare riferimento a [Dashboard di Grafana](metrics.md#grafana_access-section).
 
 ### Aggiungere un nodo
 

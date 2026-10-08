@@ -67,7 +67,7 @@ Sia nel flusso di creazione sia in quello di modifica, nella sezione `Advanced` 
 
 Se l'interruttore `Audit logging` è abilitato per una cartella condivisa, le operazioni di accesso e le modifiche ai permessi vengono registrate in un database. Per scopi di risoluzione dei problemi, puoi abilitare la registrazione delle operazioni non riuscite con l'interruttore `Log failed events`.
 
-Gli eventi registrati sono accessibili dalla dashboard Grafana `Samba Audit search`, come spiegato in [Accesso a Grafana](../configuration/metrics.md#grafana_access-section).
+Gli eventi registrati sono accessibili dalla dashboard Grafana `Samba Audit search`, come spiegato in [Dashboard di Grafana](../configuration/metrics.md#grafana_access-section).
 
 Ulteriori informazioni sul database di audit sono disponibili nella dashboard Grafana `Samba Audit statistics`.
 

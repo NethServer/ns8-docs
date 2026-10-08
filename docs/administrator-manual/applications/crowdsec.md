@@ -112,7 +112,7 @@ trusted.example.com
 
 ## Grafana dashboards {#dashboards-section}
 
-CrowdSec provisions three Grafana dashboards automatically. To open them, enable Grafana as explained in [Grafana access](../configuration/metrics.md#grafana_access-section), then open the *modules* folder.
+CrowdSec provisions three Grafana dashboards automatically. To open them, enable Grafana as explained in [Grafana dashboards](../configuration/metrics.md#grafana_access-section), then open the *modules* folder.
 
 - `CrowdSec Overview`: how CrowdSec works inside. It shows the log lines read, parsers ok or failed, buckets, decisions and alerts. Use it to check that your logs are read and parsed.
 - `CrowdSec Metrics`: lines read and parsed, buckets, decisions, bouncers, CPU and memory. Pick the instance with the `Instance` selector. Use it to see which scenarios trigger most, to check that the firewall bouncer is connected, and to spot a slow CrowdSec.

@@ -24,7 +24,7 @@ Metrics and alerts are not preserved when the leader node is switched.
 
 Metrics and alerts can be configured from the `Settings` page, under the `Metrics` section. The page will allow you to configure the following parameters:
 
-- [Grafana access](#grafana_access-section)
+- [Grafana dashboards](#grafana_access-section)
 - [Alert notifications](#alerts_notifications-section)
 
 ## Alerts {#alerts-section}
@@ -37,12 +37,14 @@ Prometheus automatically sends alerts to the Alertmanager when a rule is trigger
 - Disk partitions nearly full
 - Software RAID (mdadm) degraded
 - TLS certificate expired or expiring within 28 days
+- Cluster node offline for more than 5 minutes
+- Loki log server offline for more than 5 minutes
 
-If the machine has a valid subscription, the alerts will be forwarded to the Nethesis portal like [my.nethesis.it](https://my.nethesis.it) or [my.nethserver.com](https://my.nethserver.com).
+If the cluster has an Enterprise subscription, alerts are also forwarded to [my.nethesis.it](https://my.nethesis.it). Clusters with a Community subscription do not forward alerts.
 
 Still, you can configure the alerts to be sent to custom email addresses.
 
-Alerts are also be visible inside in the [Grafana](#grafana_access-section).
+Alerts are also visible from the Grafana `Alerting` menu. See [Grafana dashboards](#grafana_access-section).
 
 ### Alerts notifications {#alerts_notifications-section}
 
@@ -55,9 +57,9 @@ To configure alert notifications, access the `Metrics` section in the `Settings`
 - `Sender email address`: the email address that will be used as the sender. The default is calculated from the leader FQDN.
 - `Recipient email addresses`: the email addresses to which alerts will be sent. Enter one address per line. Multiple recipients are supported.
 
-Please note that if the cluster has a valid subscription, the alerts will also be sent to the Nethesis portals.
+If the cluster has an Enterprise subscription, alerts are also sent to [my.nethesis.it](https://my.nethesis.it).
 
-## Grafana access {#grafana_access-section}
+## Grafana dashboards {#grafana_access-section}
 
 Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize and understand your metrics no matter where they are stored. Grafana provides you with tools to turn your time-series into insightful graphs and visualizations.
 
@@ -67,14 +69,70 @@ When enabled, Grafana will be accessible on the leader node at `https://<leader-
 
 To access Grafana, you need to authenticate with the cluster admin credentials.
 
-Grafana will automatically display some default dashboards:
+NS8 pre-configures only the Grafana dashboards. Other Grafana features, like alerts, alert rules, notifications and silences, are not controlled by NS8.
 
-- *core* folder: it contains the default dashboards for the cluster. Available dashboards are:
-  - a dashboard for all nodes metrics like CPU load, memory usage, and disk space
-  - a dashboard for fired alerts
-  - a dashboard about Loki statistics
-  - a dashboard to execute query on Loki logs
-- *modules* folder: it contains the default dashboards for the installed modules, like Samba Audit
+Dashboards are organized in two folders: `core` and `modules`. In this context, an application is called "module", see [The module term](../installation/modules.md#the-module-term).
+
+`core` folder, dashboards of the cluster itself:
+
+- `Node Exporter Full`: hardware and OS metrics of each node
+  - CPU, memory, disk space, disk I/O, network, systemd units
+  - Pick the node with the `Host` selector. Nodes are listed by VPN IP address and port, for example `10.5.4.1:9100`
+- `Containers`: CPU, memory, network and disk usage of each module and its containers. See [Containers dashboard](#containers-dashboard-section)
+- `Logs`: search the cluster logs stored in Loki. See [Log server](log_server.md)
+  - Filter by `Node ID`, `Module`, `Category`
+  - Free-text search
+- `Loki metrics`: health and throughput of the Loki log server
+
+`modules` folder, dashboards of the installed applications. When an application is installed, its dashboards appear under `modules`. Examples:
+
+- Samba: `Samba Audit search`, `Samba Audit statistics`. See [File server](../applications/file_server.md)
+- CrowdSec: `CrowdSec Overview`, `CrowdSec Metrics`. See [CrowdSec](../applications/crowdsec.md)
+
+### Containers dashboard {#containers-dashboard-section}
+
+Use the `Containers` dashboard to find which application (or "module" in this context, see [The module term](../installation/modules.md#the-module-term)) container uses most CPU, memory or disk on a node.
+
+Selectors at the top:
+
+- `Node`
+- `Module`
+
+Both accept multiple values. `All` is allowed.
+
+Summary at the top, for the selected time range:
+
+- Number of modules and containers
+- Total CPU (1.0 = one core fully busy)
+- Total memory (page cache included)
+- Total disk
+- OOM kills (processes killed for out of memory)
+
+Rows:
+
+- `Modules`: table with one row per module and node, plus CPU, memory and network graphs by module
+  - `core` is the core itself: Redis, promtail, node_exporter, rclone-gateway, shared rootfull image store, cluster, node and api-server state
+  - `unknown` is a container whose owner cannot be found, for example started by hand or exiting
+  - If a module shows disk usage but zero containers, the module is installed but not running
+- `Containers`: table and graphs for the modules chosen in `Module`
+  - CPU and memory top 10, block I/O, network
+  - Container names are unique per module, not per node. For example `traefik` exists in both `traefik1` and `loki1`. Always read module and container together
+- `Disk`: top 10 modules by disk usage (volumes, images, module state), disk growth over the last 14 days, volumes table
+- `Collector health` (collapsed): age and duration of the last collection, skipped containers and modules
+
+:::note
+
+Limits:
+
+- Disk figures are refreshed once a day, so they can be up to one day old. Right after install or update, disk panels can be empty until the first daily run.
+- Network graphs show only containers with their own network. Most NS8 containers use the host network: their traffic is in the node network graphs of `Node Exporter Full`.
+- A file hardlinked across two modules is counted for both, so the sum can exceed the real used space.
+
+:::
+
+To refresh disk data immediately, run on the node:
+
+    systemctl start refresh-volume-metrics.service
 
 :::warning
 
