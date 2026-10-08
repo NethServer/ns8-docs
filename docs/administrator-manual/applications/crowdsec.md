@@ -110,7 +110,13 @@ trusted.example.com
 - mail notification by adding one address per line inside the `Email recipients for notifications` field: notifications will work only if [Email notifications](../configuration/email_notifications.md) has been configured — a link to the cluster email settings is shown when none is configured yet.
 - `Notification threshold`: CrowdSec sends a daily notification email listing newly blocked IPs to the configured recipients. If this threshold of new blocked IPs is reached before the daily report, the notification is sent immediately. Can be set between 1 and 10000 (100 as default).
 
-CrowdSec data is accessible from the `CrowdSec Overview` and `CrowdSec Metrics` Grafana dashboards, as explained in [Grafana access](../configuration/metrics.md#grafana_access-section).
+## Grafana dashboards {#dashboards-section}
+
+CrowdSec provisions three Grafana dashboards automatically. To open them, enable Grafana as explained in [Grafana access](../configuration/metrics.md#grafana_access-section), then open the *modules* folder.
+
+- `CrowdSec Overview`: how CrowdSec works inside. It shows the log lines read, parsers ok or failed, buckets, decisions and alerts. Use it to check that your logs are read and parsed.
+- `CrowdSec Metrics`: lines read and parsed, buckets, decisions, bouncers, CPU and memory. Pick the instance with the `Instance` selector. Use it to see which scenarios trigger most, to check that the firewall bouncer is connected, and to spot a slow CrowdSec.
+- `CrowdSec Bans`: where the local bans come from. It shows a world map, top countries, providers and scenarios, ban durations, most banned IP addresses and latest bans. Use the `CrowdSec`, `Country` and `IP` selectors to filter. Bans received from the Central API (CAPI) are not counted.
 
 ## Command-line interface
 
