@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Metrics and alerts | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/docs/administrator-manual/configuration/metrics"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Metrics and alerts | NethServer 8 documentation"><meta data-rh="true" name="description" content="The monitoring stack is automatically installed on the leader node."><meta data-rh="true" property="og:description" content="The monitoring stack is automatically installed on the leader node."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/docs/administrator-manual/configuration/metrics"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/configuration/metrics" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/it/docs/administrator-manual/configuration/metrics" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/configuration/metrics" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Metrics and alerts","item":"https://docs.nethserver.org/docs/administrator-manual/configuration/metrics"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/opensearch.xml">
 <script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/assets/css/styles.d64e4b30.css">
-<script src="/assets/js/runtime~main.d3bdc8c7.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.c43e636d.js" defer="defer"></script>
 <script src="/assets/js/main.b333a5e6.js" defer="defer"></script>
 </head>
 <body>
@@ -25,7 +25,7 @@
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Metrics and alerts are not preserved when the leader node is switched.</p></div></div>
 <p>Metrics and alerts can be configured from the <code>Settings</code> page, under the <code>Metrics</code> section. The page will allow you to configure the following parameters:</p>
 <ul>
-<li class=""><a href="#grafana_access-section" class="">Grafana access</a></li>
+<li class=""><a href="#grafana_access-section" class="">Grafana dashboards</a></li>
 <li class=""><a href="#alerts_notifications-section" class="">Alert notifications</a></li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alerts-section">Alerts<a href="#alerts-section" class="hash-link" aria-label="Direct link to Alerts" title="Direct link to Alerts" translate="no">​</a></h2>
@@ -37,10 +37,12 @@
 <li class="">Disk partitions nearly full</li>
 <li class="">Software RAID (mdadm) degraded</li>
 <li class="">TLS certificate expired or expiring within 28 days</li>
+<li class="">Cluster node offline for more than 5 minutes</li>
+<li class="">Loki log server offline for more than 5 minutes</li>
 </ul>
-<p>If the machine has a valid subscription, the alerts will be forwarded to the Nethesis portal like <a href="https://my.nethesis.it" target="_blank" rel="noopener noreferrer" class="">my.nethesis.it</a> or <a href="https://my.nethserver.com" target="_blank" rel="noopener noreferrer" class="">my.nethserver.com</a>.</p>
+<p>If the cluster has an Enterprise subscription, alerts are also forwarded to <a href="https://my.nethesis.it" target="_blank" rel="noopener noreferrer" class="">my.nethesis.it</a>. Clusters with a Community subscription do not forward alerts.</p>
 <p>Still, you can configure the alerts to be sent to custom email addresses.</p>
-<p>Alerts are also be visible inside in the <a href="#grafana_access-section" class="">Grafana</a>.</p>
+<p>Alerts are also visible from the Grafana <code>Alerting</code> menu. See <a href="#grafana_access-section" class="">Grafana dashboards</a>.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="alerts_notifications-section">Alerts notifications<a href="#alerts_notifications-section" class="hash-link" aria-label="Direct link to Alerts notifications" title="Direct link to Alerts notifications" translate="no">​</a></h3>
 <p>Mail notifications can be sent to users when an alert is fired or resolved.</p>
 <p>The cluster needs an SMTP server to send the notifications. So first, make sure to enable the <a class="" href="/docs/administrator-manual/configuration/email_notifications">Email notifications</a> feature.</p>
@@ -49,30 +51,83 @@
 <li class=""><code>Sender email address</code>: the email address that will be used as the sender. The default is calculated from the leader FQDN.</li>
 <li class=""><code>Recipient email addresses</code>: the email addresses to which alerts will be sent. Enter one address per line. Multiple recipients are supported.</li>
 </ul>
-<p>Please note that if the cluster has a valid subscription, the alerts will also be sent to the Nethesis portals.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="grafana_access-section">Grafana access<a href="#grafana_access-section" class="hash-link" aria-label="Direct link to Grafana access" title="Direct link to Grafana access" translate="no">​</a></h2>
+<p>If the cluster has an Enterprise subscription, alerts are also sent to <a href="https://my.nethesis.it" target="_blank" rel="noopener noreferrer" class="">my.nethesis.it</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="grafana_access-section">Grafana dashboards<a href="#grafana_access-section" class="hash-link" aria-label="Direct link to Grafana dashboards" title="Direct link to Grafana dashboards" translate="no">​</a></h2>
 <p>Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize and understand your metrics no matter where they are stored. Grafana provides you with tools to turn your time-series into insightful graphs and visualizations.</p>
 <p>By default, Grafana is disabled. You can enable it using the <code>Access Grafana</code> option in the <code>Settings</code> page, under the <code>Metrics</code> section.</p>
 <p>When enabled, Grafana will be accessible on the leader node at <code>https://&lt;leader-node&gt;/grafana</code>.</p>
 <p>To access Grafana, you need to authenticate with the cluster admin credentials.</p>
-<p>Grafana will automatically display some default dashboards:</p>
+<p>NS8 pre-configures only the Grafana dashboards. Other Grafana features, like alerts, alert rules, notifications and silences, are not controlled by NS8.</p>
+<p>Dashboards are organized in two folders: <code>core</code> and <code>modules</code>. In this context, an application is called &quot;module&quot;, see <a class="" href="/docs/administrator-manual/installation/modules#the-module-term">The module term</a>.</p>
+<p><code>core</code> folder, dashboards of the cluster itself:</p>
 <ul>
-<li class=""><em>core</em> folder: it contains the default dashboards for the cluster. Available dashboards are:
+<li class=""><code>Node Exporter Full</code>: hardware and OS metrics of each node
 <ul>
-<li class="">a dashboard for all nodes metrics like CPU load, memory usage, and disk space</li>
-<li class="">a dashboard for fired alerts</li>
-<li class="">a dashboard about Loki statistics</li>
-<li class="">a dashboard to execute query on Loki logs</li>
+<li class="">CPU, memory, disk space, disk I/O, network, systemd units</li>
+<li class="">Pick the node with the <code>Host</code> selector. Nodes are listed by VPN IP address and port, for example <code>10.5.4.1:9100</code></li>
 </ul>
 </li>
-<li class=""><em>modules</em> folder: it contains the default dashboards for the installed modules, like Samba Audit</li>
+<li class=""><code>Containers</code>: CPU, memory, network and disk usage of each module and its containers. See <a href="#containers-dashboard-section" class="">Containers dashboard</a></li>
+<li class=""><code>Logs</code>: search the cluster logs stored in Loki. See <a class="" href="/docs/administrator-manual/configuration/log_server">Log server</a>
+<ul>
+<li class="">Filter by <code>Node ID</code>, <code>Module</code>, <code>Category</code></li>
+<li class="">Free-text search</li>
 </ul>
+</li>
+<li class=""><code>Loki metrics</code>: health and throughput of the Loki log server</li>
+</ul>
+<p><code>modules</code> folder, dashboards of the installed applications. When an application is installed, its dashboards appear under <code>modules</code>. Examples:</p>
+<ul>
+<li class="">Samba: <code>Samba Audit search</code>, <code>Samba Audit statistics</code>. See <a class="" href="/docs/administrator-manual/applications/file_server">File server</a></li>
+<li class="">CrowdSec: <code>CrowdSec Overview</code>, <code>CrowdSec Metrics</code>. See <a class="" href="/docs/administrator-manual/applications/crowdsec">CrowdSec</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="containers-dashboard-section">Containers dashboard<a href="#containers-dashboard-section" class="hash-link" aria-label="Direct link to Containers dashboard" title="Direct link to Containers dashboard" translate="no">​</a></h3>
+<p>Use the <code>Containers</code> dashboard to find which application (or &quot;module&quot; in this context, see <a class="" href="/docs/administrator-manual/installation/modules#the-module-term">The module term</a>) container uses most CPU, memory or disk on a node.</p>
+<p>Selectors at the top:</p>
+<ul>
+<li class=""><code>Node</code></li>
+<li class=""><code>Module</code></li>
+</ul>
+<p>Both accept multiple values. <code>All</code> is allowed.</p>
+<p>Summary at the top, for the selected time range:</p>
+<ul>
+<li class="">Number of modules and containers</li>
+<li class="">Total CPU (1.0 = one core fully busy)</li>
+<li class="">Total memory (page cache included)</li>
+<li class="">Total disk</li>
+<li class="">OOM kills (processes killed for out of memory)</li>
+</ul>
+<p>Rows:</p>
+<ul>
+<li class=""><code>Modules</code>: table with one row per module and node, plus CPU, memory and network graphs by module
+<ul>
+<li class=""><code>core</code> is the core itself: Redis, promtail, node_exporter, rclone-gateway, shared rootfull image store, cluster, node and api-server state</li>
+<li class=""><code>unknown</code> is a container whose owner cannot be found, for example started by hand or exiting</li>
+<li class="">If a module shows disk usage but zero containers, the module is installed but not running</li>
+</ul>
+</li>
+<li class=""><code>Containers</code>: table and graphs for the modules chosen in <code>Module</code>
+<ul>
+<li class="">CPU and memory top 10, block I/O, network</li>
+<li class="">Container names are unique per module, not per node. For example <code>traefik</code> exists in both <code>traefik1</code> and <code>loki1</code>. Always read module and container together</li>
+</ul>
+</li>
+<li class=""><code>Disk</code>: top 10 modules by disk usage (volumes, images, module state), disk growth over the last 14 days, volumes table</li>
+<li class=""><code>Collector health</code> (collapsed): age and duration of the last collection, skipped containers and modules</li>
+</ul>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Limits:</p><ul>
+<li class="">Disk figures are refreshed once a day, so they can be up to one day old. Right after install or update, disk panels can be empty until the first daily run.</li>
+<li class="">Network graphs show only containers with their own network. Most NS8 containers use the host network: their traffic is in the node network graphs of <code>Node Exporter Full</code>.</li>
+<li class="">A file hardlinked across two modules is counted for both, so the sum can exceed the real used space.</li>
+</ul></div></div>
+<p>To refresh disk data immediately, run on the node:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">systemctl start refresh-volume-metrics.service</span><br></div></code></pre></div></div>
 <div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>If the leader node is switched, Grafana will be accessible on the new leader node but dashboard customizations will be lost.</p></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="access-prometheus-web-interface">Access Prometheus web interface<a href="#access-prometheus-web-interface" class="hash-link" aria-label="Direct link to Access Prometheus web interface" title="Direct link to Access Prometheus web interface" translate="no">​</a></h2>
 <p>By default, Prometheus web interface is not exposed to the public network.</p>
 <p>If you need to troubleshoot the Prometheus configuration, you can enable it on <code>https://&lt;leader-node&gt;/prometheus</code>. As for Grafana, you will need to authenticate with cluster admin credentials.</p>
 <p>To enable Prometheus web interface access, run the following command on the leader node:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run module/metrics1/configure-module --data &#x27;{&quot;prometheus_path&quot;: &quot;prometheus&quot;, &quot;grafana_path&quot;: &quot;grafana&quot;}&#x27;</span><br></div></code></pre></div></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/NethServer/ns8-docs/blob/main/docs/administrator-manual/configuration/metrics.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer><div class="versionFooter_GEsS"><span class="versionText_BSdA">NethServer <span class="versionNumber_jKi7">8</span></span></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/administrator-manual/configuration/email_notifications"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Email notifications</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/administrator-manual/applications/crowdsec"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">CrowdSec</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#alerts-section" class="table-of-contents__link toc-highlight">Alerts</a><ul><li><a href="#alerts_notifications-section" class="table-of-contents__link toc-highlight">Alerts notifications</a></li></ul></li><li><a href="#grafana_access-section" class="table-of-contents__link toc-highlight">Grafana access</a></li><li><a href="#access-prometheus-web-interface" class="table-of-contents__link toc-highlight">Access Prometheus web interface</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/administrator-manual">Administrator manual</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/user-manual">User manual</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/tutorial">Tutorial</a></li><li class="footer__item"><a href="https://nethserver.github.io/ns8-core/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Developer manual<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legacy docs</div><ul class="footer__items clean-list"><li class="footer__item">
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">api-cli run module/metrics1/configure-module --data &#x27;{&quot;prometheus_path&quot;: &quot;prometheus&quot;, &quot;grafana_path&quot;: &quot;grafana&quot;}&#x27;</span><br></div></code></pre></div></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/NethServer/ns8-docs/blob/main/docs/administrator-manual/configuration/metrics.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer><div class="versionFooter_GEsS"><span class="versionText_BSdA">NethServer <span class="versionNumber_jKi7">8</span></span></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/administrator-manual/configuration/email_notifications"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Email notifications</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/administrator-manual/applications/crowdsec"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">CrowdSec</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#alerts-section" class="table-of-contents__link toc-highlight">Alerts</a><ul><li><a href="#alerts_notifications-section" class="table-of-contents__link toc-highlight">Alerts notifications</a></li></ul></li><li><a href="#grafana_access-section" class="table-of-contents__link toc-highlight">Grafana dashboards</a><ul><li><a href="#containers-dashboard-section" class="table-of-contents__link toc-highlight">Containers dashboard</a></li></ul></li><li><a href="#access-prometheus-web-interface" class="table-of-contents__link toc-highlight">Access Prometheus web interface</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/administrator-manual">Administrator manual</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/user-manual">User manual</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/tutorial">Tutorial</a></li><li class="footer__item"><a href="https://nethserver.github.io/ns8-core/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Developer manual<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legacy docs</div><ul class="footer__items clean-list"><li class="footer__item">
                 <div class="legacy-docs-link-container">
                 NethServer 7
                   <a class="footer__link-item" href="/en/v7/" target="_blank">en</a>
