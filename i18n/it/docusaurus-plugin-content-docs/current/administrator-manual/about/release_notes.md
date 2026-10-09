@@ -9,6 +9,63 @@ Rilasci di NethServer 8
 - Elenco dei [bug conosciuti](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) su GitHub
 - Discussioni sui [possibili bug](http://community.nethserver.org/c/bug) nel nostro forum pubblico
 
+## Modifiche principali del 09-10-2026
+
+**Milestone 8.10**
+
+- **Inoltro verso indirizzi esterni** \[Mail 1.9.0\] -- I messaggi inoltrati da una casella di posta verso un indirizzo esterno superano ora il controllo SPF del server di destinazione. Mail riscrive il mittente della busta dei messaggi il cui dominio mittente non è un dominio di posta locale, usando il Sender Rewriting Scheme (SRS), senza modificare l'intestazione `From` visibile né la firma DKIM. I messaggi di mancata consegna inviati all'indirizzo riscritto raggiungono comunque il mittente originale. La riscrittura non viene applicata se è configurata una regola di relay predefinita (smarthost) \[Mail 1.9.1\]. Vedere [Caselle di posta](../applications/mail.md#mail-mailboxes-settings).
+
+- **Indirizzi alias dal dominio utente** \[Mail 1.8.0\] -- La nuova opzione `Aggiungi indirizzi alias dal dominio utente` dei domini di posta considera l'attributo LDAP `mail` di ogni utente come un indirizzo email valido del dominio. Se la corrispondenza tra mittente e login è obbligatoria, l'indirizzo è accettato anche come mittente per quell'utente. Vedere [Domini](../applications/mail.md#email_domains).
+
+- **Interno telefonico degli utenti** \[Core 3.22.0, OpenLDAP 2.8.0, Samba 3.5.0\] -- Gli utenti dei domini utente interni hanno un nuovo campo `Interno telefonico`, memorizzato nell'attributo LDAP `telephoneNumber`. Il campo può essere modificato da cluster-admin e dal Portale di gestione utenti. Vedere [Creare utenti e gruppi](../installation/user_domains.md#create-users-and-groups-section).
+
+- **Disattivazione degli aggiornamenti automatici** \[Core 3.22.0\] -- Con una subscription attiva, gli aggiornamenti automatici possono ora essere disattivati dal `Software center`, per l'intero cluster o per singole applicazioni, senza procedure da riga di comando. Le applicazioni escluse dagli aggiornamenti automatici sono contrassegnate dall'etichetta `Aggiornamenti disabilitati` e possono comunque essere aggiornate manualmente. Quando gli aggiornamenti automatici sono disattivati per l'intero cluster, le pagine `Software center` e `Applicazioni` mostrano un avviso. Vedere [Aggiornamenti automatici](../installation/software_center.md#automatic-updates-section).
+
+- **Impostazioni ACME nella pagina dei certificati TLS** \[Core 3.22.0\] -- La precedente pagina dei server ACME è ora la scheda `Impostazioni ACME` della pagina `Certificati TLS`. Oltre all'URL della directory ACME, permette di scegliere il tipo di challenge di ogni nodo, `TLS-ALPN-01` (porta 443) o `HTTP-01` (porta 80): la procedura da riga di comando descritta nelle note di rilascio della 8.4 non è quindi più necessaria. Vedere [Impostazioni ACME](../configuration/certificates.md#acme-settings-section).
+
+- **Proxy frontend nella pagina delle rotte HTTP** \[Core 3.22.0\] -- Una nuova scheda `Proxy frontend` della pagina `Rotte HTTP` configura i nodi che si trovano dietro un reverse proxy, un load balancer o una CDN. La configurazione, prima disponibile solo tramite chiamate API, elenca gli indirizzi dei proxy fidati e la profondità di fiducia (`Trust depth`), in modo che Traefik ricavi l'indirizzo originale del client dall'intestazione `X-Forwarded-For`. Vedere [Proxy frontend](../configuration/proxy.md#frontend-proxies-section).
+
+  Quando un nodo ha dei proxy frontend, la restrizione `Consenti l'accesso da` delle sue rotte HTTP controlla l'indirizzo originale del client invece dell'indirizzo del proxy. Le liste di accesso devono contenere gli indirizzi dei client, e le rotte con restrizioni, incluso `cluster-admin`, rifiutano le richieste che raggiungono il nodo direttamente senza passare da un proxy frontend. Aggiungere la rete LAN a `Consenti l'accesso da` ammette i client della LAN solo quando si collegano tramite un proxy frontend.
+
+- **Ricerca ed evidenziazione nei log di sistema** \[Core 3.20.1, 3.22.0\] -- La pagina `Log di sistema` ha un nuovo interruttore per cercare le righe di log con un'espressione regolare invece che con una semplice corrispondenza di testo. Le righe di errore e di avviso sono evidenziate con colori diversi.
+
+- **Pagine più veloci senza accesso a internet** \[Core 3.20.1, 3.22.0\] -- Quando i repository software non sono raggiungibili, ad esempio in un cluster senza accesso a internet, le pagine `Stato del cluster`, `Applicazioni` e `Software center` non attendono più lunghi timeout di rete. I repository vengono interrogati in parallelo e le loro risposte vengono memorizzate in cache.
+
+- **Dimensione delle pagine delle tabelle ricordata** \[Core 3.23.0\] -- La scelta `Elementi per pagina` delle tabelle viene salvata nel browser e viene mantenuta tra un cambio di pagina e l'altro e dopo un ricaricamento. Le applicazioni ottengono questo comportamento quando aggiornano la loro libreria UI.
+
+- **Metriche delle risorse per container** \[Core 3.22.0, Metrics 1.4.0\] -- Le metriche dei nodi includono ora l'uso di CPU e memoria di ogni container delle applicazioni e lo spazio su disco usato da ogni applicazione, aggiornato una volta al giorno. La nuova dashboard Grafana `Containers` le mostra, così è possibile individuare quale applicazione sta consumando le risorse del nodo. Vedere [Accesso a Grafana](../configuration/metrics.md#grafana_access-section).
+
+- **Interfaccia web di CrowdSec** \[CrowdSec 1.2.0\] -- Nuove pagine di CrowdSec rendono visibile ciò che prima era accessibile solo da riga di comando:
+  - `Rilevamenti` elenca le attività sospette passate con il loro scenario, l'IP di origine, il paese e il log degli eventi.
+  - `Raccolte` abilita o disabilita le raccolte di rilevamento di ogni servizio.
+  - `Blocklist` raggruppa la blocklist locale, la blocklist community con lo stato di connessione alla Central API e la ricerca degli IP, e l'allowlist.
+
+  Vedere [CrowdSec](../applications/crowdsec.md).
+
+- **Protezione CrowdSec per NethVoice** \[CrowdSec 1.2.0\] -- La nuova raccolta `nethesis/nethvoice` rileva gli attacchi brute-force SIP contro Kamailio, e gli attacchi brute-force HTTP e le scansioni di exploit contro le applicazioni web di NethVoice. La raccolta è abilitata nelle nuove installazioni; dopo un aggiornamento, abilitarla dalla pagina `Raccolte`.
+
+- **CrowdSec Threat Shield** \[CrowdSec 1.3.0\] -- I sistemi con una subscription inviano a Nethesis gli indirizzi IP bloccati da CrowdSec, e gli indirizzi segnalati da un numero sufficiente di sistemi vengono aggiunti a una blocklist condivisa. Con il componente aggiuntivo Threat Shield della subscription, la nuova pagina `Threat Shield` abilita questa blocklist e altre blocklist mantenute da Nethesis, e verifica se un indirizzo IP è presente in esse. Queste blocklist sono disabilitate per impostazione predefinita. Vedere [CrowdSec](../applications/crowdsec.md).
+
+- **Storico dei ban di CrowdSec** \[CrowdSec 1.3.0\] -- La nuova dashboard Grafana `CrowdSec Bans` mostra i ban registrati durante l'intero periodo di conservazione dei log: una mappa per paese, i ban nel tempo, i paesi principali, i provider, gli scenari, la durata dei ban e gli indirizzi IP bloccati più spesso. Sono stati inoltre corretti i pannelli vuoti o errati delle dashboard CrowdSec esistenti. Vedere [Accesso a Grafana](../configuration/metrics.md#grafana_access-section).
+
+- **Classificazione delle firme antivirus di terze parti** \[Mail 1.7.13\] -- L'impostazione `Classificazione firme di terze parti` dell'antivirus di Mail non veniva applicata, e veniva sempre usata la classificazione `Medio`. L'impostazione è ora effettiva, quindi i risultati del rilevamento possono cambiare se era stata selezionata una classificazione diversa. Vedere [Antivirus](../applications/mail.md#anti-virus).
+
+- **Login di posta con Active Directory** \[Mail 1.7.13\] -- Dovecot non segue più i referral LDAP restituiti da Active Directory. Questo elimina connessioni inattese alla porta 636 e query DNS ripetute, e risolve i timeout di login segnalati in alcune installazioni migrate da NethServer 7.
+
+- **Cartelle predefinite di Roundcube** \[Roundcube 2.1.7\] -- Le cartelle `Drafts` e `Sent` vengono create al primo login di un utente, invece che all'invio del primo messaggio. I client di posta configurati in seguito trovano le cartelle standard e non ne creano di localizzate, come `Posta inviata`.
+
+- **Aggiornamenti di WebTop** \[WebTop 1.5.11\] -- WebTop è stato aggiornato alla release upstream 5.35.7 e il PEC bridge alla release 5.4.11. Il file di autoconfigurazione di Thunderbird indica ora IMAP sulla porta 993 e SMTP sulla porta 465 con TLS implicito, come già avveniva per Outlook. Vedere [Configurazione dei client](../applications/mail.md#email_clients).
+
+- **Immagine container di Piler** \[Piler 1.3.0\] -- L'applicazione Piler usa ora un'immagine container costruita dal progetto NethServer invece di quella upstream, in modo che gli aggiornamenti di sicurezza e le nuove release di Piler vengano testati e distribuiti insieme al modulo. Il container viene eseguito come utente non privilegiato, e i log di Piler, prima persi, vengono ora inviati al journal di sistema. L'azione di importazione della posta funziona di nuovo, poiché ora scarica i messaggi tramite IMAP prima di importarli. Vedere [Piler](../applications/piler.md).
+
+- **Dependency-Track 5** \[Dependency-Track 2.0.0\] -- L'applicazione Dependency-Track è stata aggiornata alla versione principale 5, poiché la versione 4 ha raggiunto la fine del supporto. Le installazioni esistenti non vengono aggiornate automaticamente: il database deve essere migrato con una procedura manuale, e alcune impostazioni devono essere configurate di nuovo. Vedere [Upgrading from Dependency-Track v4 to v5](https://github.com/NethServer/ns8-dependencytrack#upgrading-from-dependency-track-v4-to-v5).
+
+- **Debian 12 non più supportata** \[Core 3.23.0\] -- Come annunciato nelle note di rilascio della 8.8, l'installer non accetta più Debian 12. I nodi Debian 12 esistenti non sono interessati da questa modifica, ma dovrebbero essere aggiornati a Debian 13 seguendo la procedura descritta nelle note di rilascio della 8.8.
+
+- **Limite di istanze per nodo da riga di comando** \[Core 3.23.0\] -- Il comando `add-module` rispetta ora il limite di istanze per nodo di un'applicazione, come il `Software center`. Ad esempio, rifiuta di installare una seconda istanza di CrowdSec sullo stesso nodo. L'opzione `--force` salta il controllo.
+
+- **Altri aggiornamenti delle applicazioni** -- Loki 1.5.0 (upstream 3.7), Nextcloud 1.7.6.
+
 ## Modifiche principali del 30-06-2026
 
 **Milestone 8.9**
