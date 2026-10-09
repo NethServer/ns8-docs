@@ -76,6 +76,9 @@ reports broken links and anchors.
   Labels of an application UI come from the same files in its own
   repository, e.g. `ui/public/i18n/it/translation.json` in `ns8-mail`.
   Copy the string as is, and use one label language for the whole page.
+- Table captions are a paragraph right after the table, written as
+  `<p class="table-caption">Caption text</p>`. The `table-caption` class
+  (centered, italic) is defined in `src/css/custom.css`.
 - Admonitions use the Docusaurus syntax:
 
   ```markdown
