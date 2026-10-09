@@ -123,11 +123,12 @@ Un nodo NethServer 8 (NS8) richiede connettività di rete in uscita verso una se
 | Scopo | Nome host | Porta | Protocollo | Note |
 |----|----|----|----|----|
 | Validazione abbonamenti e feed | subscription.nethserver.com | 443 | HTTPS | Aggiornamenti e patch del core per l'abbonamento |
-| Portale abbonamenti | my.nethserver.com | 443 | HTTPS | Gestione del sistema e degli abbonamenti |
-| Portale abbonamenti per rivenditori | my.nethesis.it | 443 | HTTPS | Inventario, heartbeat, controlli delle autorizzazioni |
+| Servizio abbonamento Community | my.nethserver.com | 443 | HTTPS | Registrazione, inventario, heartbeat |
+| Portale abbonamenti per rivenditori | my.nethesis.it | 443 | HTTPS | Portale e servizi abbonamento |
+| Servizio abbonamento Enterprise | proxy.my.nethesis.it | 443 | HTTPS | Registrazione, inventario, heartbeat, backup del cluster, allarmi |
 | Peer VPN di supporto | sos.nethesis.it | 1194 | UDP | VPN di supporto remoto (opzionale) |
 | Peer VPN di supporto | sos.nethesis.it | 443 | TCP | VPN di supporto remoto (opzionale) |
-| Servizio di backup cloud | backupd.nethesis.it | 443 | HTTPS | Backup e ripristino off-site per la configurazione del cluster |
+| Servizio di backup cloud | backupd.nethesis.it | 443 | HTTPS | Backup off-site della configurazione del cluster, solo abbonamento Community |
 | Cloud Log Manager | nar.nethesis.it | 443 | HTTPS | Archiviazione e gestione cloud per i log di sicurezza (opzionale) |
 
 <p class="table-caption">Endpoint utilizzati dal nodo leader del cluster con un abbonamento attivo</p>
