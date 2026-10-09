@@ -1,0 +1,838 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-backup-data &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-base" href="nethserver-base.html" />
+    <link rel="prev" title="nethserver-backup-config" href="nethserver-backup-config.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-backup-data", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-backup-data.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-backup-data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#global-properties">Global properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-properties">Local properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#backward-compatibility">Backward compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backup">Backup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#logs-and-wrapper">Logs and wrapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#default-hooks">Default hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-backup">Adding a backup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-a-backup">Start a backup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#disk-usage">Disk usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#indexing">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customization">Customization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#global">Global</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local">Local</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#retention-policy">Retention policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restore">Restore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#restore-from-command-line">Restore from command line</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#list-backup-contents">List backup contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#duplicity">Duplicity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extra-options">Extra options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storage-backends">Storage backends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#listing-backup-sets">Listing backup sets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#restic">Restic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Extra options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Storage backends</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sftp">sftp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#s3">s3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#b2">b2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rest">Rest</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rest-server">REST server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rsync">rsync</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Retention policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Storage backends</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">sftp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nextcloud.html">nethserver-nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-backup-data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-backup-data.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-backup-data">
+<h1>nethserver-backup-data<a class="headerlink" href="#nethserver-backup-data" title="Permalink to this headline">¶</a></h1>
+<p>This module implements data backup for NethServer using different engines.</p>
+<p>Available engines:</p>
+<ul class="simple">
+<li>duplicity: execute a full backup once a week, an incremental snapshot all other days of the week. Compression is enabled by default, encryption is not currently supported.
+It supports only storage backend which can be mounted on a local directory.  Used also for the single backup.</li>
+<li>restic: always execute incremental backups using file deduplication. Encryption is always enabled, compression is not implemented.
+It supports local and remote backends.</li>
+<li>rsync: Time Machine-style backup using rsync. Very fast and reliable, the destination contains just regular files which can be easily accessed.</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">nethserver-backup-data</span></code> package requires <code class="docutils literal notranslate"><span class="pre">nethserver-backup-config</span></code>.</p>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Backups can be scheduled in different hours to multiple storage backends.</p>
+<div class="section" id="global-properties">
+<h3>Global properties<a class="headerlink" href="#global-properties" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is applied to all backups.
+It uses the key <code class="docutils literal notranslate"><span class="pre">backup-data</span></code> inside <code class="docutils literal notranslate"><span class="pre">configuration</span></code> database.</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">IncludeLogs</span></code>: if enabled, add <code class="docutils literal notranslate"><span class="pre">/var/log</span></code> directory to backup, can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">disabled</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="local-properties">
+<h3>Local properties<a class="headerlink" href="#local-properties" title="Permalink to this headline">¶</a></h3>
+<p>This configuration is applied only to the selected backups.
+Every backup record is saved inside the <code class="docutils literal notranslate"><span class="pre">backups</span></code> database. Each record can have 3 different types:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">duplicity</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">restic</span></code></li>
+</ul>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">rsync</span></code></li>
+</ul>
+<p>The key of the record is referred as the backup <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p>Common properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">status</span></code> : enable or disable the automatic backup, can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">enabled</span></code>. Regardless of this property, the backup is always executed if started manually</li>
+<li><code class="docutils literal notranslate"><span class="pre">BackupTime</span></code>: time of the scheduled backup. Must be in the cron-style syntax: Es. <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">7</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span></code>. Runs on 7:15.</li>
+<li><code class="docutils literal notranslate"><span class="pre">VFSType</span></code> : set the backup medium, can be <code class="docutils literal notranslate"><span class="pre">usb</span></code>, <code class="docutils literal notranslate"><span class="pre">cifs</span></code>, <code class="docutils literal notranslate"><span class="pre">nfs</span></code> or <code class="docutils literal notranslate"><span class="pre">webdav</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">SMBShare</span></code>: contains the Samba share name</li>
+<li><code class="docutils literal notranslate"><span class="pre">SMBHost</span></code> : host name of the SMB server</li>
+<li><code class="docutils literal notranslate"><span class="pre">SMBLogin</span></code> : login user for the SMB server</li>
+<li><code class="docutils literal notranslate"><span class="pre">SMBPassword</span></code> : password for the SMB server</li>
+<li><code class="docutils literal notranslate"><span class="pre">USBLabel</span></code> : contains the filesystem label</li>
+<li><code class="docutils literal notranslate"><span class="pre">NFSHost</span></code> : host name of the NFS server</li>
+<li><code class="docutils literal notranslate"><span class="pre">NFShare</span></code> : contains the NFS share name</li>
+<li><code class="docutils literal notranslate"><span class="pre">Notify</span></code>: if set to <code class="docutils literal notranslate"><span class="pre">always</span></code>, always send a notification with backup status; if set to <code class="docutils literal notranslate"><span class="pre">error</span></code>, send a notification only on error; if set to <code class="docutils literal notranslate"><span class="pre">never</span></code>, never send a notification</li>
+<li><code class="docutils literal notranslate"><span class="pre">NotifyTo</span></code>: send the notification to given mail address, default is <code class="docutils literal notranslate"><span class="pre">root&#64;localhost</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">WebDAVUrl</span></code> : contains the WebDAV URL address</li>
+<li><code class="docutils literal notranslate"><span class="pre">WebDAVLogin</span></code> : login user for the WebDAV server</li>
+<li><code class="docutils literal notranslate"><span class="pre">WebDAVPassword</span></code> : password for the WebDAV server</li>
+<li><code class="docutils literal notranslate"><span class="pre">CleanupOlderThan</span></code> : time to retain backups, accept duplicity syntax (eg. 7D, 1M). Default is: never (keep all backups)</li>
+</ul>
+<p>Supported VFSType:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">cifs</span></code> : save the backup on a remote SMB server. Authentication is mandatory.</li>
+<li><code class="docutils literal notranslate"><span class="pre">nfs</span></code> : save the backup on a remote NFS server. No authentication supported.</li>
+<li><code class="docutils literal notranslate"><span class="pre">usb</span></code> : save the backup on a USB device. The device must have a writable filesystem with a custom label.
+When the backup is started, the system will search for an USB device with the filesystem label saved in <code class="docutils literal notranslate"><span class="pre">USBLabel</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">webdav</span></code> : save the backup on a WebDAV server. When using a secure connection make sure the target WebDAV server has a valid SSL certificate, otherwise the system will fail mounting the filesystem.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="backward-compatibility">
+<h2>Backward compatibility<a class="headerlink" href="#backward-compatibility" title="Permalink to this headline">¶</a></h2>
+<p>To retain the backward compatibility with the old “single backup” feature, a backup named <code class="docutils literal notranslate"><span class="pre">backup-data</span></code> has the following special features:</p>
+<ul class="simple">
+<li>can have a <code class="docutils literal notranslate"><span class="pre">NotifyFrom</span></code> prop to specify the sender address of notification mail</li>
+<li>the backup can be modified from the old Server Manger and the status is reported inside the dashboard</li>
+<li>can be selectively restored using nethserver-restore-data package</li>
+</ul>
+</div>
+<div class="section" id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">¶</a></h2>
+<p>The main command is <code class="docutils literal notranslate"><span class="pre">/sbin/e-smith/backup-data</span> <span class="pre">-b</span> <span class="pre">&lt;name&gt;</span></code> which starts the backup process. The backup is composed of three parts:</p>
+<ul class="simple">
+<li><em>pre-backup-data</em> event: prepare the system (eg. dump of mysql tables)</li>
+<li><em>/etc/e-smith/events/actions/backup-data-&lt;program&gt;</em> action: execute the backup
+This actions must implement full/incremental logic and should also take care to mount and umount the destination</li>
+<li><em>post-backup-data</em>: cleanup. Actions in this event can also implement retention policies</li>
+</ul>
+<div class="section" id="logs-and-wrapper">
+<h3>Logs and wrapper<a class="headerlink" href="#logs-and-wrapper" title="Permalink to this headline">¶</a></h3>
+<p>Everything is logged to standard output and standard error.</p>
+<p>If the backup is executed using <code class="docutils literal notranslate"><span class="pre">backup-data-wrapper</span></code>,
+a new log will be created inside <code class="docutils literal notranslate"><span class="pre">/var/log/backup</span></code>.</p>
+<p>After backup execution, the wrapper will also call
+all executable scripts inside <code class="docutils literal notranslate"><span class="pre">/etc/backup-data.hooks/</span></code> directory.</p>
+<p>Each script is invoked with the following parameters:</p>
+<ul class="simple">
+<li>backup name</li>
+<li>log file</li>
+<li>backup exit code</li>
+</ul>
+<div class="section" id="default-hooks">
+<h4>Default hooks<a class="headerlink" href="#default-hooks" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">backup-dashboard-status</span></code>: save the status of the backup <code class="docutils literal notranslate"><span class="pre">/var/spool/backup/status-&lt;backup_name&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">backup-notify</span></code>: send backup notifications mails</li>
+</ul>
+</div>
+</div>
+<div class="section" id="adding-a-backup">
+<h3>Adding a backup<a class="headerlink" href="#adding-a-backup" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Create a backup record with all required options. Example: create a restic backup named <code class="docutils literal notranslate"><span class="pre">t1</span></code> using sFTP backend:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db backups set t1 restic VFSType sftp SftpHost 192.168.1.123 SftpUser root SftpPort 22 SftpDirectory /mnt/t1 status enabled BackupTime 3:00 CleanupOlderThan 30D Notify error NotifyTo root@localhost
+</pre></div>
+</div>
+</li>
+<li><p class="first">Enable the configuration:</p>
+</li>
+</ol>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo -e &quot;Nethesis,1234&quot; &gt; /tmp/t1-password; signal-event nethserver-backup-data-save t1  /tmp/t1-password
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="start-a-backup">
+<h3>Start a backup<a class="headerlink" href="#start-a-backup" title="Permalink to this headline">¶</a></h3>
+<p>Start the backup, by passing the name of the backup to <code class="docutils literal notranslate"><span class="pre">backup-data</span></code> command. Example:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>backup-data -b t1
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="disk-usage">
+<h2>Disk usage<a class="headerlink" href="#disk-usage" title="Permalink to this headline">¶</a></h2>
+<p>Each backup script creates statistics about disk utilization on the backup destination.
+Statistics are available only for: cifs, nfs and usb.</p>
+<p>Data are saved inside <code class="docutils literal notranslate"><span class="pre">/var/spool/backup/disk_usage-&lt;backup_name&gt;</span></code>.</p>
+</div>
+<div class="section" id="indexing">
+<h2>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h2>
+<p>In the <em>pre-backup-data</em> event the disk analyzer (Duc) make an indexing of filesystem, useful to create the graphical tree.</p>
+<p>The name of the actions is <code class="docutils literal notranslate"><span class="pre">/etc/e-smith/events/actions/nethserver-restore-data-duc-index</span></code> and it compose the JSON file to create
+the navigable graphic tree.</p>
+<p>The indexing feature is limited to the backup named <code class="docutils literal notranslate"><span class="pre">backup-data</span></code>.</p>
+</div>
+<div class="section" id="customization">
+<h2>Customization<a class="headerlink" href="#customization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="global">
+<h3>Global<a class="headerlink" href="#global" title="Permalink to this headline">¶</a></h3>
+<p>Add custom include/exclude inside following files:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/etc/backup-data.d/custom.include</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/backup-data.d/custom.exclude</span></code></li>
+</ul>
+<p>This configuration is applied to all backups.</p>
+</div>
+<div class="section" id="local">
+<h3>Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h3>
+<p>Each backup can <strong>override</strong> the global list of include/exclude by creating two special files:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/etc/backup-data/&lt;name&gt;.include</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/backup-data/&lt;name&gt;.exclude</span></code></li>
+</ul>
+<p>Where <code class="docutils literal notranslate"><span class="pre">name</span></code> is the name of the backup.</p>
+</div>
+</div>
+<div class="section" id="retention-policy">
+<h2>Retention policy<a class="headerlink" href="#retention-policy" title="Permalink to this headline">¶</a></h2>
+<p>All backups can be deleted after a certain amount of time. Cleanup process takes place in post-backup-data event.
+See <code class="docutils literal notranslate"><span class="pre">CleanupOlderThan</span></code> property.</p>
+</div>
+<div class="section" id="restore">
+<h2>Restore<a class="headerlink" href="#restore" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="restore-from-command-line">
+<h3>Restore from command line<a class="headerlink" href="#restore-from-command-line" title="Permalink to this headline">¶</a></h3>
+<p>The main command is <code class="docutils literal notranslate"><span class="pre">/sbin/e-smith/restore-data</span> <span class="pre">-b</span> <span class="pre">&lt;name&gt;</span></code> which starts the restore process:</p>
+<ul class="simple">
+<li><em>pre-restore-data</em> event: used to prepare the system (Eg. mysql stop)</li>
+<li><em>restore-data-&lt;program&gt;</em> action: search for a backup in the configuration database and restore it</li>
+<li><em>post-restore-data</em> event: used to inform programs about new available data (eg. mysql restart)</li>
+</ul>
+<p>To restore all data into the original location, use:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>restore-data -b &lt;name&gt;
+</pre></div>
+</div>
+<p>To restore a file or directory, use:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>restore-file -b &lt;name&gt; &lt;position&gt; &lt;path&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="list-backup-contents">
+<h2>List backup contents<a class="headerlink" href="#list-backup-contents" title="Permalink to this headline">¶</a></h2>
+<p>The list of file inside each backup can be obtained using:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/sbin/e-smith/backup-data-list -b &lt;name&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="duplicity">
+<h2>Duplicity<a class="headerlink" href="#duplicity" title="Permalink to this headline">¶</a></h2>
+<p>The default program used for backup is duplicity using the globbing file list feature. Encryption is disabled and duplicity cache is stored in <code class="docutils literal notranslate"><span class="pre">/var/lib/nethserver/backup/duplicity/</span> <span class="pre">directory</span></code>.
+We plan to support all duplicity features in the near future.</p>
+<p>See <a class="reference external" href="http://duplicity.nongnu.org/">http://duplicity.nongnu.org/</a> for more information.</p>
+<div class="section" id="extra-options">
+<h3>Extra options<a class="headerlink" href="#extra-options" title="Permalink to this headline">¶</a></h3>
+<p>Properties valid only for duplicity engine, see “Single backup” section for an explanation of each property:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Type</span></code> : can be <code class="docutils literal notranslate"><span class="pre">full</span></code> or <code class="docutils literal notranslate"><span class="pre">incremental</span></code>. If <code class="docutils literal notranslate"><span class="pre">full</span></code>, a full backup will be executed every time.
+If <code class="docutils literal notranslate"><span class="pre">incremental</span></code>, a full backup will be executed once a week at <code class="docutils literal notranslate"><span class="pre">FullDay</span></code>, all other backups will be incremental</li>
+<li><code class="docutils literal notranslate"><span class="pre">FullDay</span></code> : number of day of the week when a full backup will be executed. Can be a number from 0 (Sunday) to 6 (Saturday). Defaults is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">VolSize</span></code> : size of chunks in MB, if supported by <code class="docutils literal notranslate"><span class="pre">Program</span></code>. Default is 250</li>
+</ul>
+</div>
+<div class="section" id="storage-backends">
+<h3>Storage backends<a class="headerlink" href="#storage-backends" title="Permalink to this headline">¶</a></h3>
+<p>Supported <code class="docutils literal notranslate"><span class="pre">VFSType</span></code> :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">usb</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">cifs</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">nfs</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">webdav</span></code></li>
+</ul>
+</div>
+<div class="section" id="listing-backup-sets">
+<h3>Listing backup sets<a class="headerlink" href="#listing-backup-sets" title="Permalink to this headline">¶</a></h3>
+<p>To list current backup sets:</p>
+<ol class="arabic simple">
+<li>Mount the backup directory</li>
+<li>Query duplicity status</li>
+<li>Umount the backup directory</li>
+</ol>
+<p>Just execute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/etc/e-smith/events/actions/mount-`config getprop backup-data VFSType`
+duplicity collection-status --no-encryption --archive-dir /var/lib/nethserver/backup/duplicity/ file:///mnt/backup/`config get SystemName`
+/etc/e-smith/events/actions/umount-`config getprop backup-data VFSType`
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="restic">
+<h2>Restic<a class="headerlink" href="#restic" title="Permalink to this headline">¶</a></h2>
+<p>Implement backup engine using restic (<a class="reference external" href="https://restic.net/">https://restic.net/</a>), it can be used as duplicity replacement for standard
+backup or as multiple backup.</p>
+<p>In restic, cleanup operations are composed by two commands: forget, to remove a snapshot, and prune, to actually remove the data
+that was referenced by the deleted snapshot.
+The prune operation is quite slow and should be executed at least once a week.</p>
+<div class="section" id="id1">
+<h3>Extra options<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Prune</span></code>: execute the pruning on the specified time. Valid values are:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">always</span></code>: run the prune every time at the end of backup</li>
+<li>a number between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">6</span></code>: run the prune on the selected week day (0 is Sunday, 1 is Monday)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Storage backends<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Supported <code class="docutils literal notranslate"><span class="pre">VFSType</span></code> :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">usb</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">cifs</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">nfs</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">webdav</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">s3</span></code>: Amazon S3 (or compatible server like Minio)</li>
+<li><code class="docutils literal notranslate"><span class="pre">sftp</span></code>: FTP over SSH</li>
+<li><code class="docutils literal notranslate"><span class="pre">b2</span></code>: BackBlaze B2</li>
+<li><code class="docutils literal notranslate"><span class="pre">rest</span></code>: Restic REST server</li>
+</ul>
+<div class="section" id="sftp">
+<h4>sftp<a class="headerlink" href="#sftp" title="Permalink to this headline">¶</a></h4>
+<p>SFTP</p>
+<p>Connection to remote host uses a specific public key. A password is needed only once to copy the public key to the remote host.
+SSH client configuration is added to <code class="docutils literal notranslate"><span class="pre">/etc/ssh/sshd_config</span></code>.</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">SftpHost</span></code>: SSH host name or IP address</li>
+<li><code class="docutils literal notranslate"><span class="pre">SftpUser</span></code>: SSH user</li>
+<li><code class="docutils literal notranslate"><span class="pre">SftpPort</span></code>: SSH port</li>
+<li><code class="docutils literal notranslate"><span class="pre">SftpDirectory</span></code>: destination directory, must be writable by SSH user</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db backups set t1 restic status enabled BackupTime &#39;15 7 * * *&#39; CleanupOlderThan 30D Notify error NotifyTo root@localhost Prune 1 \
+VFSType sftp SftpHost 192.168.1.2 SftpUser root SftpPort 22 SftpDirectory /mnt/t1
+echo -e &quot;Nethesis,1234&quot; &gt; /tmp/t1-password; signal-event nethserver-backup-data-save t1  /tmp/t1-password
+</pre></div>
+</div>
+<p>The temporary file containing the password will be deleted at the end of <code class="docutils literal notranslate"><span class="pre">nethserver-backup-data-save</span></code> event.</p>
+</div>
+<div class="section" id="s3">
+<h4>s3<a class="headerlink" href="#s3" title="Permalink to this headline">¶</a></h4>
+<p>Amazon S3 (<a class="reference external" href="https://aws.amazon.com/s3/">https://aws.amazon.com/s3/</a>) compatible (like <a class="reference external" href="https://www.minio.io/">https://www.minio.io/</a>).</p>
+<p>Properties</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">S3AccessKey</span></code>: user access key</li>
+<li><code class="docutils literal notranslate"><span class="pre">S3Bucket</span></code>: bucket (directory) name</li>
+<li><code class="docutils literal notranslate"><span class="pre">S3Host</span></code>: S3 host, use s3.amazonaws.com for Amazon</li>
+<li><code class="docutils literal notranslate"><span class="pre">S3SecretKey</span></code>: secret access key</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db backups set t1 restic VFSType s3 BackupTime &#39;15 7 * * *&#39; CleanupOlderThan never Notify error NotifyTo root@localhost status enabled Prune always\
+S3AccessKey XXXXXXXXXXXXXXXXXXXX S3Bucket restic-demo S3Host s3.amazonaws.com S3SecretKey xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx status enabled
+signal-event nethserver-backup-data-save t1
+</pre></div>
+</div>
+<p>How to setup Amazon S3 access keys: <a class="reference external" href="https://restic.readthedocs.io/en/stable/080_examples.html">https://restic.readthedocs.io/en/stable/080_examples.html</a></p>
+</div>
+<div class="section" id="b2">
+<h4>b2<a class="headerlink" href="#b2" title="Permalink to this headline">¶</a></h4>
+<p>BackBlaze B2 (<a class="reference external" href="https://www.backblaze.com/b2/cloud-storage.html">https://www.backblaze.com/b2/cloud-storage.html</a>)</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">B2AccountId</span></code>: B2 account name</li>
+<li><code class="docutils literal notranslate"><span class="pre">B2AccountKey</span></code>: B2 account secret key</li>
+<li><code class="docutils literal notranslate"><span class="pre">B2Bucket</span></code>: B2 bucket (directory)</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db backups set t1 restic VFSType b2 BackupTime &#39;15 7 * * *&#39; CleanupOlderThan never Notify error NotifyTo root@localhost status enabled \
+B2AccountId B2AccountId xxxxxxxxxxxx B2AccountKey xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx B2Bucket restic-demo
+signal-event nethserver-backup-data-save t1
+</pre></div>
+</div>
+</div>
+<div class="section" id="rest">
+<h4>Rest<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></h4>
+<p>Restic REST server (<a class="reference external" href="https://github.com/restic/rest-server">https://github.com/restic/rest-server</a>)</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">RestDirectory</span></code>: destination directory</li>
+<li><code class="docutils literal notranslate"><span class="pre">RestHost</span></code>: REST server host name or IP address</li>
+<li><code class="docutils literal notranslate"><span class="pre">RestPort</span></code>: REST server port (default for server is 8000)</li>
+<li><code class="docutils literal notranslate"><span class="pre">RestProtocol</span></code>: REST protocol, can be <code class="docutils literal notranslate"><span class="pre">http</span></code> or <code class="docutils literal notranslate"><span class="pre">https</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">RestUser</span></code>: user for authentication (optional)</li>
+<li><code class="docutils literal notranslate"><span class="pre">RestPassword</span></code>: password for authentication (optional)</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db backups set t1 restic VFSType rest BackupTime &#39;15 7 * * *&#39; CleanupOlderThan never Notify error NotifyTo root@localhost status enabled \
+RestDirectory t1 RestHost 192.168.1.2 RestPassword mypass RestPort 8000 RestProtocol http RestUser myuser
+signal-event nethserver-backup-data-save t1
+</pre></div>
+</div>
+<p>Database example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>t2=restic
+   BackupTime=1 7 * * *
+   CleanupOlderThan=never
+   Notify=error
+   NotifyTo=root@localhost
+   SMBHost=192.168.1.234
+   SMBLogin=test
+   SMBPassword=test
+   SMBShare=test
+   VFSType=cifs
+   status=enabled
+t3=restic
+   BackupTime=15 7 * * *
+   CleanupOlderThan=never
+   NFSHost=192.168.1.234
+   NFSShare=/test
+   Notify=error
+   NotifyTo=root@localhost
+   VFSType=nfs
+   status=enabled
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rest-server">
+<h3>REST server<a class="headerlink" href="#rest-server" title="Permalink to this headline">¶</a></h3>
+<p>To manually install the REST server, download it from <a class="reference external" href="https://github.com/restic/rest-server/releases">https://github.com/restic/rest-server/releases</a> and save it
+under <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/rest-server</span></code>, example Linux 64bit:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R=0.9.7; wget https://github.com/restic/rest-server/releases/download/v$R/rest-server-$R-linux-amd64.gz -O - | zcat &gt; /usr/local/bin/rest-server
+chmod a+x /usr/local/bin/rest-server
+</pre></div>
+</div>
+<p>Then configure it for NethServer:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/restic/rest-server/master/examples/systemd/rest-server.service -O - | sed &#39;s/www\-data/apache/g&#39; &gt; /etc/systemd/system/rest-server.service
+systemctl daemon-reload
+systemctl start rest-server
+systemctl enable rest-server
+config set rest-server service TCPPort 8000 access green status enabled
+signal-event firewall-adjust
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rsync">
+<h2>rsync<a class="headerlink" href="#rsync" title="Permalink to this headline">¶</a></h2>
+<p>Implement Time machine-style backup engine using <code class="docutils literal notranslate"><span class="pre">rsync_tmbackup.sh</span></code> (<a class="reference external" href="https://github.com/laurent22/rsync-time-backup">https://github.com/laurent22/rsync-time-backup</a>),
+based on rsync (<a class="reference external" href="https://rsync.samba.org/">https://rsync.samba.org/</a>). It can be used as duplicity replacement for standard
+backup or as multiple backup.</p>
+<div class="section" id="id3">
+<h3>Retention policy<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Backup sets are automatically deleted when the disk is getting full.</p>
+<p>More info on expiration strategy: <a class="reference external" href="https://github.com/laurent22/rsync-time-backup#backup-expiration-logic#backup-expiration-logic">https://github.com/laurent22/rsync-time-backup#backup-expiration-logic</a></p>
+</div>
+<div class="section" id="id4">
+<h3>Storage backends<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Supported <code class="docutils literal notranslate"><span class="pre">VFSType</span></code> :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">usb</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">cifs</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">nfs</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">webdav</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">sftp</span></code>: FTP over SSH</li>
+</ul>
+<div class="section" id="id5">
+<h4>sftp<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>SFTP</p>
+<p>Connection to remote host uses a specific public key. A password is needed only once to copy the public key to the remote host.
+SSH client configuration is added to <code class="docutils literal notranslate"><span class="pre">/etc/ssh/sshd_config</span></code>.</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">SftpHost</span></code>: SSH host name or IP address</li>
+<li><code class="docutils literal notranslate"><span class="pre">SftpUser</span></code>: SSH user</li>
+<li><code class="docutils literal notranslate"><span class="pre">SftpPort</span></code>: SSH port</li>
+<li><code class="docutils literal notranslate"><span class="pre">SftpDirectory</span></code>: destination directory, must be writable by SSH user</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>db backups set t1 rsync status enabled BackupTime &#39;15 7 * * *&#39; Notify error NotifyTo root@localhost \
+VFSType sftp SftpHost 192.168.1.2 SftpUser root SftpPort 22 SftpDirectory /mnt/t1
+echo -e &quot;Nethesis,1234&quot; &gt; /tmp/t1-password; signal-event nethserver-backup-data-save t1  /tmp/t1-password
+</pre></div>
+</div>
+<p>The temporary file containing the password will be deleted at the end of <code class="docutils literal notranslate"><span class="pre">nethserver-backup-data-save</span></code> event.</p>
+<p>Database example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>t2=rsync
+   BackupTime=1 7 * * *
+   Notify=error
+   NotifyTo=root@localhost
+   SMBHost=192.168.1.234
+   SMBLogin=test
+   SMBPassword=test
+   SMBShare=test
+   VFSType=cifs
+   status=enabled
+t3=rsync
+   BackupTime=15 7 * * *
+   NFSHost=192.168.1.234
+   NFSShare=/test
+   Notify=error
+   NotifyTo=root@localhost
+   VFSType=nfs
+   status=enabled
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-base.html" class="btn btn-neutral float-right" title="nethserver-base" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-backup-config.html" class="btn btn-neutral float-left" title="nethserver-backup-config" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
