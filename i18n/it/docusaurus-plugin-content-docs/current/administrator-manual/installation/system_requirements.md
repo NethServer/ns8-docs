@@ -26,7 +26,7 @@ Mescolare distribuzioni o versioni di distribuzioni diverse tra i nodi del clust
 
 * Puoi trovare supporto volontario nel forum pubblico della comunità NethServer per tutte le distribuzioni compatibili.
 
-* La [Sottoscrizione Nethesis](../about/subscription.md#subscription-section) (incluso il piano "Enterprise") è disponibile solo per **Rocky Linux 9**.
+* La [subscription Nethesis](../about/subscription.md#subscription-section) (incluso il piano "Enterprise") è disponibile solo per **Rocky Linux 9**.
 
 Leggi la sezione [Aggiornamenti del sistema operativo](../../tutorial/os_updates.md#neth-mirror) per mantenere aggiornata la distribuzione Linux e per saperne di più sui repository DNF gestiti da Nethesis, che sono abilitati di default su Rocky Linux.
 
@@ -50,7 +50,7 @@ I filesystem locali supportati sono XFS ed EXT4. Anche iSCSI e i dispositivi di 
 
 ## Indirizzo IP statico {#static-ip-reqs}
 
-È necessaria una connessione internet funzionante per l'installazione, la configurazione e l'aggiornamento del nodo. È richiesta anche in presenza di un [abbonamento](../about/subscription.md) attivo.
+È necessaria una connessione internet funzionante per l'installazione, la configurazione e l'aggiornamento del nodo. È richiesta anche in presenza di una [subscription](../about/subscription.md) attiva.
 
 Assegna un indirizzo IP statico al nodo. DHCP e qualsiasi altro protocollo di rilevamento IP dinamico non sono consentiti.
 
@@ -95,13 +95,13 @@ Assicurarsi che siano soddisfatti i seguenti requisiti:
 
 ## Requisiti del servizio SSH {#ssh-service-reqs}
 
-Un servizio SSH in esecuzione non è strettamente richiesto da NS8, a meno che non sia attivo un [abbonamento](../about/subscription.md). In tal caso, `sshd` deve essere in ascolto sulla porta TCP standard 22 per integrarsi correttamente con il servizio di supporto remoto.
+Un servizio SSH in esecuzione non è strettamente richiesto da NS8, a meno che non sia attiva una [subscription](../about/subscription.md). In tal caso, `sshd` deve essere in ascolto sulla porta TCP standard 22 per integrarsi correttamente con il servizio di supporto remoto.
 
 Se desideri modificare la porta pubblica SSH, configura un reindirizzamento di porta senza alterare la configurazione della porta di ascolto di `sshd`. Consulta [Gestire il reindirizzamento della porta SSH](../configuration/firewall.md#ssh-redirection) per le istruzioni.
 
 ## Connettività di rete esterna {#external-services}
 
-Un nodo NethServer 8 (NS8) richiede connettività di rete in uscita verso una serie di servizi esterni per funzionare correttamente. Questi servizi sono utilizzati per aggiornamenti di sistema, distribuzione delle applicazioni, operazioni del cluster, gestione degli abbonamenti, backup, supporto e rilascio di certificati TLS.
+Un nodo NethServer 8 (NS8) richiede connettività di rete in uscita verso una serie di servizi esterni per funzionare correttamente. Questi servizi sono utilizzati per aggiornamenti di sistema, distribuzione delle applicazioni, operazioni del cluster, gestione delle subscription, backup, supporto e rilascio di certificati TLS.
 
 | Scopo | Nome host | Porta | Protocollo | Note |
 |----|----|----|----|----|
@@ -122,15 +122,16 @@ Un nodo NethServer 8 (NS8) richiede connettività di rete in uscita verso una se
 
 | Scopo | Nome host | Porta | Protocollo | Note |
 |----|----|----|----|----|
-| Validazione abbonamenti e feed | subscription.nethserver.com | 443 | HTTPS | Aggiornamenti e patch del core per l'abbonamento |
-| Portale abbonamenti | my.nethserver.com | 443 | HTTPS | Gestione del sistema e degli abbonamenti |
-| Portale abbonamenti per rivenditori | my.nethesis.it | 443 | HTTPS | Inventario, heartbeat, controlli delle autorizzazioni |
+| Validazione delle subscription e feed | subscription.nethserver.com | 443 | HTTPS | Aggiornamenti e patch del core per la subscription |
+| Servizio subscription Community | my.nethserver.com | 443 | HTTPS | Registrazione, inventario, heartbeat |
+| Portale subscription per rivenditori | my.nethesis.it | 443 | HTTPS | Portale e servizi della subscription |
+| Servizio subscription Enterprise | proxy.my.nethesis.it | 443 | HTTPS | Registrazione, inventario, heartbeat, backup del cluster, allarmi |
 | Peer VPN di supporto | sos.nethesis.it | 1194 | UDP | VPN di supporto remoto (opzionale) |
 | Peer VPN di supporto | sos.nethesis.it | 443 | TCP | VPN di supporto remoto (opzionale) |
-| Servizio di backup cloud | backupd.nethesis.it | 443 | HTTPS | Backup e ripristino off-site per la configurazione del cluster |
+| Servizio di backup cloud | backupd.nethesis.it | 443 | HTTPS | Backup off-site della configurazione del cluster, solo subscription Community |
 | Cloud Log Manager | nar.nethesis.it | 443 | HTTPS | Archiviazione e gestione cloud per i log di sicurezza (opzionale) |
 
-<p class="table-caption">Endpoint utilizzati dal nodo leader del cluster con un abbonamento attivo</p>
+<p class="table-caption">Endpoint utilizzati dal nodo leader del cluster con una subscription attiva</p>
 
 I componenti del core di NS8 includono Loki, usato per la [persistenza dei log](../configuration/log_server.md#logs-persistence-section), e Grafana, usato per le [dashboard Grafana](../configuration/metrics.md#grafana_access-section). Entrambi sono sviluppati da Grafana Labs e inviano statistiche di utilizzo anonime. NS8 lascia deliberatamente attiva questa telemetria. I controlli degli aggiornamenti di Grafana e la telemetria del raccoglitore dei log sono disattivati.
 
@@ -146,7 +147,7 @@ Se un filtro DNS, come Pi-hole, blocca `stats.grafana.org`, le richieste fallite
 Note
 
 - Tutte le connessioni elencate sono avviate dal nodo NS8.
-- Bloccare l'accesso a questi servizi può impedire aggiornamenti, installazione di applicazioni, backup, formazione del cluster o validazione degli abbonamenti.
+- Bloccare l'accesso a questi servizi può impedire aggiornamenti, installazione di applicazioni, backup, formazione del cluster o validazione delle subscription.
 - Potrebbero essere necessarie connessioni in uscita aggiuntive per funzionalità specifiche, come le notifiche email e i percorsi HTTP, e per le applicazioni installate, a seconda della loro configurazione e dei servizi upstream.
 
 ## Requisiti del browser web
