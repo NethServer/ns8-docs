@@ -103,8 +103,6 @@ Se desideri modificare la porta pubblica SSH, configura un reindirizzamento di p
 
 Un nodo NethServer 8 (NS8) richiede connettività di rete in uscita verso una serie di servizi esterni per funzionare correttamente. Questi servizi sono utilizzati per aggiornamenti di sistema, distribuzione delle applicazioni, operazioni del cluster, gestione degli abbonamenti, backup, supporto e rilascio di certificati TLS.
 
-Salvo diversa indicazione, le connessioni sono solo in uscita e utilizzano HTTPS sulla porta TCP 443.
-
 | Scopo | Nome host | Porta | Protocollo | Note |
 |----|----|----|----|----|
 | Risoluzione dei nomi | \<Indirizzo del server dei nomi\> | 53 | UDP/TCP | Indirizzo IP del server DNS primario e, opzionalmente, secondario |
@@ -120,7 +118,7 @@ Salvo diversa indicazione, le connessioni sono solo in uscita e utilizzano HTTPS
 | Registro delle immagini dei container | quay.io | 443 | HTTPS | Immagini di container di terze parti |
 | Servizio di phone-home del cluster | phonehome.nethserver.org | 443 | HTTPS | Registrazione del cluster e metadati |
 
-Servizi ed endpoint esterni richiesti da NS8
+<p class="table-caption">Servizi ed endpoint esterni richiesti da NS8</p>
 
 | Scopo | Nome host | Porta | Protocollo | Note |
 |----|----|----|----|----|
@@ -132,7 +130,18 @@ Servizi ed endpoint esterni richiesti da NS8
 | Servizio di backup cloud | backupd.nethesis.it | 443 | HTTPS | Backup e ripristino off-site per la configurazione del cluster |
 | Cloud Log Manager | nar.nethesis.it | 443 | HTTPS | Archiviazione e gestione cloud per i log di sicurezza (opzionale) |
 
-Endpoint utilizzati dal nodo leader del cluster con un abbonamento attivo
+<p class="table-caption">Endpoint utilizzati dal nodo leader del cluster con un abbonamento attivo</p>
+
+I componenti del core di NS8 includono Loki, usato per la [persistenza dei log](../configuration/log_server.md#logs-persistence-section), e Grafana, usato per le [dashboard Grafana](../configuration/metrics.md#grafana_access-section). Entrambi sono sviluppati da Grafana Labs e inviano statistiche di utilizzo anonime. NS8 lascia deliberatamente attiva questa telemetria. I controlli degli aggiornamenti di Grafana e la telemetria del raccoglitore dei log sono disattivati.
+
+| Scopo | Nome host | Porta | Protocollo | Note |
+|----|----|----|----|----|
+| Statistiche di utilizzo di Loki | stats.grafana.org | 443 | HTTPS | Inviate da ogni istanza di Loki |
+| Statistiche di utilizzo di Grafana | stats.grafana.org | 443 | HTTPS | Inviate solo se le dashboard Grafana sono attive |
+
+<p class="table-caption">Endpoint di telemetria dei componenti di Grafana Labs</p>
+
+Se un filtro DNS, come Pi-hole, blocca `stats.grafana.org`, le richieste fallite possono generare un numero elevato di query DNS. Per disattivare la telemetria, segui le istruzioni dei moduli [Loki](https://github.com/NethServer/ns8-loki#disable-telemetry) e [Metrics](https://github.com/NethServer/ns8-metrics#disable-telemetry).
 
 Note
 

@@ -110,8 +110,6 @@ If you want to change the public SSH port, configure a port redirect without alt
 
 A NethServer 8 (NS8) node requires outbound network connectivity to a number of external services to operate correctly. These services are used for system updates, application distribution, cluster operations, subscription management, backup, support, and TLS certificate issuance.
 
-Unless otherwise stated, connections are outbound only and use HTTPS over TCP port 443.
-
 | Purpose | Host name | Port | Protocol | Notes |
 |----|----|----|----|----|
 | Name resolution | \<Name server address\> | 53 | UDP/TCP | IP address of primary and, optionally, secondary DNS servers |
@@ -127,7 +125,7 @@ Unless otherwise stated, connections are outbound only and use HTTPS over TCP po
 | Container image registry | quay.io | 443 | HTTPS | Third-party container images |
 | Cluster phone-home service | phonehome.nethserver.org | 443 | HTTPS | Cluster registration and metadata |
 
-External services and endpoints required by NS8
+<p class="table-caption">External services and endpoints required by NS8</p>
 
 | Purpose | Host name | Port | Protocol | Notes |
 |----|----|----|----|----|
@@ -139,7 +137,18 @@ External services and endpoints required by NS8
 | Cloud backup service | backupd.nethesis.it | 443 | HTTPS | Off-site backup and restore for cluster configuration |
 | Cloud Log Manager | nar.nethesis.it | 443 | HTTPS | Cloud storage and management for security logs (optional) |
 
-Endpoints used by cluster leader node with an active Subscription
+<p class="table-caption">Endpoints used by cluster leader node with an active Subscription</p>
+
+NS8 core components include Loki, used for [logs persistence](../configuration/log_server.md#logs-persistence-section), and Grafana, used for [Grafana dashboards](../configuration/metrics.md#grafana_access-section). Both are developed by Grafana Labs and send anonymous usage statistics. NS8 deliberately leaves this telemetry enabled. The update checks of Grafana and the telemetry of the log collector are disabled.
+
+| Purpose | Host name | Port | Protocol | Notes |
+|----|----|----|----|----|
+| Loki usage statistics | stats.grafana.org | 443 | HTTPS | Sent by every Loki instance |
+| Grafana usage statistics | stats.grafana.org | 443 | HTTPS | Sent only if Grafana dashboards are enabled |
+
+<p class="table-caption">Telemetry endpoints of Grafana Labs components</p>
+
+If a DNS filter, such as Pi-hole, blocks `stats.grafana.org`, the failed requests can generate a high number of DNS queries. To disable the telemetry, follow the instructions of the [Loki](https://github.com/NethServer/ns8-loki#disable-telemetry) and [Metrics](https://github.com/NethServer/ns8-metrics#disable-telemetry) modules.
 
 Notes
 
