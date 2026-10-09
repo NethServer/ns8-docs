@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proxy web &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Ricerca" href="search.html" />
+    <link rel="next" title="Fail2ban" href="fail2ban.html" />
+    <link rel="prev" title="Firewall" href="firewall.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "it", "page": "web_proxy", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/web_proxy.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accesso al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applicazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Autenticazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applicazioni</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Proxy web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#authenticated-mode">Modalità autenticata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-configuration">Configurazione client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssl-proxy">Proxy SSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bypass">Bypass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bypass-by-domains">Bypass per domini</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bypass-by-source-and-destinations">Bypass per origine e destinazione</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#priority-and-divert-rules">Regole di priorità e di instradamento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#content-filter">Filtro contenuti</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#filters">Filtri</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#report">Report</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cleanup-old-reports">Eliminare i vecchi report</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cache">Cache</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sites-without-cache">Siti senza cache</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#safe-ports">Porte sicure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logs">Log</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Altri moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Personalizzazione backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Macchine virtuali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Moduli NethForge</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Aggiornamento da NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Aggiornamento Email a Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vecchio Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Il vecchio Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">Groupware SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Proxy web</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/web_proxy.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="web-proxy">
+<span id="proxy-section"></span><h1>Proxy web<a class="headerlink" href="#web-proxy" title="Link a questa intestazione">¶</a></h1>
+<p>Il <span class="target" id="index-6"></span>proxy web è un server che si interpone fra i PC della LAN e i siti Internet.
+I client effettuano le richieste al proxy che comunica con i siti esterni, quindi
+trasmette le risposte al client.</p>
+<p>I vantaggi del proxy web sono due:</p>
+<ul class="simple">
+<li><p>possibilità di filtrare i contenuti</p></li>
+<li><p>ridurre l’utilizzo della banda facendo cache delle pagine visitate</p></li>
+</ul>
+<p>Il proxy può essere attivato per le zone green e blue.
+Le modalità supportate sono:</p>
+<ul class="simple">
+<li><p>Manuale: tutti i client devono essere manualmente configurati</p></li>
+<li><p>Autenticato: gli utenti devono inserire nome utente e password per poter navigare</p></li>
+<li><p>Trasparente: tutti i client sono automaticamente forzati ad usare il proxy per le connessioni HTTP</p></li>
+<li><p>Trasparente SSL: tutti i client sono automaticamente forzati ad usare il proxy per le connessioni HTTP e HTTPS</p></li>
+</ul>
+<section id="authenticated-mode">
+<h2>Modalità autenticata<a class="headerlink" href="#authenticated-mode" title="Link a questa intestazione">¶</a></h2>
+<p>Prima di abilitare il proxy web in modalità autenticata, assicurarsi di aver configurato un account provider locale o remoto.</p>
+<p>Quando viene installato Samba Active Directory o il server è attestato ad un dominio remoto Active Directory, le postazioni Windows possono utilizzare l’autenticazione integrata Kerberos. Su tutti i client Windows <strong>è necessario</strong> configurare il proxy utilizzando l’FQDN del server.</p>
+<p>Tutti gli altri client possono utilizzare il meccanismo di basic authentication.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>L’autenticazione NTLM è deprecata e non è più supportata.</p>
+</div>
+</section>
+<section id="client-configuration">
+<h2>Configurazione client<a class="headerlink" href="#client-configuration" title="Link a questa intestazione">¶</a></h2>
+<p>Il proxy è sempre in ascolto sulla porta <strong>3128</strong>. Quando si utilizzano le modalità Manuale o Autenticato,
+tutti i client devono essere esplicitamente configurati per utilizzare il proxy.
+La configurazione è accessibile dal pannello impostazioni del browser.
+La maggior parte dei client verranno comunque configurati automaticamente attraverso il protocollo WPAD.
+In questo caso è utile attivare l’opzione <span class="guilabel">Blocca porta HTTP e HTTPS</span> per evitare il bypass del proxy.</p>
+<p>Se il proxy è installato in modalità trasparente, tutto il traffico web proveniente dai client viene intercettato dal firewall
+e indirizzato attraverso il proxy. Nessuna configurazione è necessaria sui singoli client.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Per rendere accessibile il file WPAD dalla rete ospiti, aggiungere l’indirizzo della rete blue nel campo <span class="guilabel">Consenti host</span> per il servizio httpd nella pagina <span class="guilabel">Servizi di rete</span>.</p>
+</div>
+</section>
+<section id="ssl-proxy">
+<span id="proxy-ssl-section"></span><h2>Proxy SSL<a class="headerlink" href="#ssl-proxy" title="Link a questa intestazione">¶</a></h2>
+<p>In modalità trasparente SSL, il proxy implementa la cosiddetta tecnica «peek and splice»: stabilisce la connessione SSL con i siti remoti e verifica la validità dei certificati senza decifrare il traffico. Quindi il server può filtrare gli URL richiesti utilizzando il filtro web e ritornare la risposta al client.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Non è necessario installare alcun certificato sui client, è sufficiente abilitare il proxy SSL.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se c’è il web proxy è attivo sulla rete blue questo consente ai devices della blue di raggiungere i devices della green sui protocolli http e https.
+Per evitare questo comportamento è sufficiente creare un bypass per destinazione inserendo la rete greeen in formato CIDR come spiegato in precedenza.</p>
+</div>
+</section>
+<section id="bypass">
+<h2>Bypass<a class="headerlink" href="#bypass" title="Link a questa intestazione">¶</a></h2>
+<p>In alcuni casi può essere necessario fare in modo che il traffico originato
+da specifici ip della rete o verso alcune destinazioni non passi per il proxy HTTP/HTTPS, ma sia instradato direttamente; il traffico in questione non sarà più sottoposto a proxy.</p>
+<p>Il proxy consente di creare:</p>
+<ul class="simple">
+<li><p>bypass per domini</p></li>
+<li><p>bypass per sorgente</p></li>
+<li><p>bypass per destinazione</p></li>
+</ul>
+<section id="bypass-by-domains">
+<h3>Bypass per domini<a class="headerlink" href="#bypass-by-domains" title="Link a questa intestazione">¶</a></h3>
+<p>I bypass per i domini possono essere configurati dalla sezione <span class="guilabel">Domini senza proxy</span>. Tutti i domini elencati all’interno di questa pagina possono essere acceduti direttamente dai client LAN. Nessun filtro antivirus o dei contenuti viene applicato a questi domini.</p>
+<p>Ogni dominio elencato sarà espanso anche per i relativi sotto-domini. Ad esempio, aggiungendo <em>nethserver.org</em> verranno bypassati anche <em>www.nethserver.org</em>, <em>mirror.nethserver.org</em>, e così via.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Tutti i client della LAN <strong>devono</strong> utilizzare il server stesso come DNS, direttamente o come <em>forwarder</em>.</p>
+</div>
+</section>
+<section id="bypass-by-source-and-destinations">
+<h3>Bypass per origine e destinazione<a class="headerlink" href="#bypass-by-source-and-destinations" title="Link a questa intestazione">¶</a></h3>
+<p>Un bypass per origine consente l’accesso diretto a tutti i siti HTTP/HTTPS da host selezionati, gruppi host, intervalli IP e CIDR di rete. I bypass per origine sono configurabili dalla sezione <span class="guilabel">Host senza proxy</span>.</p>
+<p>Un bypass per destinazione consente l’accesso diretto da qualsiasi client della LAN a siti HTTP/HTTPS ospitati su host specifici, gruppi host o CIDR di rete. I bypass per destinazione sono configurabili dalla sezione <span class="guilabel">Siti senza proxy</span>.</p>
+<p>Queste regole di bypass vengono configurate anche all’interno del file WPAD.</p>
+</section>
+</section>
+<section id="priority-and-divert-rules">
+<span id="squid-rules-section"></span><h2>Regole di priorità e di instradamento<a class="headerlink" href="#priority-and-divert-rules" title="Link a questa intestazione">¶</a></h2>
+<p>Le regole del firewall per il routing del traffico su un provider specifico o per la modifica della priorità del traffico vengono applicate solo al traffico di rete che attraversa il gateway. Queste regole non si applicano se il traffico passa attraverso il proxy perché il traffico viene generato dal gateway stesso.</p>
+<p>In uno scenario in cui il proxy web è abilitato in modalità trasparente e il firewall contiene una regola per abbassare la priorità di un host specifico, la regola si applica solo ai servizi non HTTP, come SSH.</p>
+<p>La scheda <span class="guilabel">Regole</span> consente la creazione di regole di priorità e di instradamento anche per il traffico intercettato dal proxy.</p>
+<p>L’interfaccia web consente di creare regole per il traffico HTTP/S per:</p>
+<ul class="simple">
+<li><p>aumentare la priorità di un host o una rete</p></li>
+<li><p>abbassare la priorità di un host o di una rete</p></li>
+<li><p>Instradare la sorgente su un provider specifico con failover automatico se il provider dovesse andare fuori servizio</p></li>
+<li><p>forzare la sorgente su uno specifico provider senza failover automatico</p></li>
+</ul>
+</section>
+<section id="content-filter">
+<span id="web-content-filter-section"></span><h2>Filtro contenuti<a class="headerlink" href="#content-filter" title="Link a questa intestazione">¶</a></h2>
+<p>Il <span class="target" id="index-7"></span>filtro contenuti analizza il traffico web ed è in grado di bloccare siti pericolosi o contenenti virus. I siti proibiti sono selezionati da una lista di categorie che è possibile anche scaricare da sorgenti esterne e salvare sul sistema.</p>
+<p>Il sistema consente di creare un numero illimitato di profili. Ciascun profilo è composto da tre parti:</p>
+<ul class="simple">
+<li><p><strong>Chi</strong>: il client associato al profilo. Può essere un utente, un gruppo di utenti, un host, un gruppo di host, una zona o un ruolo (es. green, blue, ecc).</p></li>
+<li><p><strong>Cosa</strong>: quali siti può vedere il client associato al profilo E” un filtro creato nella pagina <span class="guilabel">Filtri</span>.</p></li>
+<li><p><strong>Quando</strong>: il profilo può essere sempre attivo o essere valido solo in alcuni periodi. Le condizioni temporali possono essere create nella sezione <span class="guilabel">Condizioni temporali</span>.</p></li>
+</ul>
+<p>Si consiglia di procedere in questo ordine per la configurazione del filtro contenuti:</p>
+<ol class="arabic simple">
+<li><p>Selezionare una lista di categorie dalla pagina <span class="guilabel">Blacklist</span> ed avviare il download</p></li>
+<li><p>Creare una o più condizioni temporali (opzionale)</p></li>
+<li><p>Creare eventuali categorie personalizzate (opzionale)</p></li>
+<li><p>Creare un nuovo filtro o modificare quello di default</p></li>
+<li><p>Creare un nuovo profilo associato ad un utente o un host, selezionare quindi un filtro e una condizione temporale (se abilitata)</p></li>
+</ol>
+<p>Il sistema prevede un profilo di default che viene applicato a tutti i client qualora non rientrino in nessun altro profilo.</p>
+<section id="filters">
+<h3>Filtri<a class="headerlink" href="#filters" title="Link a questa intestazione">¶</a></h3>
+<p>Un filtro consente di:</p>
+<ul class="simple">
+<li><p>bloccare l’accesso a categorie di siti</p></li>
+<li><p>bloccare l’accesso ai siti raggiunti usando l’indirizzo IP (consigliato)</p></li>
+<li><p>filtrare gli URL con espressioni regolari</p></li>
+<li><p>bloccare file con specifiche estensioni</p></li>
+<li><p>abilitare blacklist e whitelist globali</p></li>
+</ul>
+<p>Ogni filtro può lavorare in due modalità:</p>
+<ul class="simple">
+<li><p>Permetti tutto: consente l’accesso a tutti i siti, ad eccezione di quelli esplicitamente bloccati</p></li>
+<li><p>Blocca tutto: blocca l’accesso a tutti i siti, ad eccezione di quelli esplicitamente consentiti</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>La lista delle categorie compare solo al termine del download della lista selezionata nella pagina <span class="guilabel">Blacklist</span>.</p>
+</div>
+</section>
+</section>
+<section id="report">
+<h2>Report<a class="headerlink" href="#report" title="Link a questa intestazione">¶</a></h2>
+<p>Installando il modulo <code class="docutils literal notranslate"><span class="pre">nethserver-lightsquid</span></code> il sistema genererà automaticamente i <span class="target" id="index-8"></span>report di navigazione web.</p>
+<p>LightSquid è un analizzatore di log per Squid leggero e veloce che ogni giorno genera un nuovo report HTML, riassumendo le abitudini di navigazione degli utenti del proxy. L’interfaccia di Lightsquid è accessibile dal tab <span class="menuselection">Applicazioni</span> della <span class="guilabel">Dashboard</span>.</p>
+<section id="cleanup-old-reports">
+<h3>Eliminare i vecchi report<a class="headerlink" href="#cleanup-old-reports" title="Link a questa intestazione">¶</a></h3>
+<p>I report di LightSquid vengono salvati come directory di file di testo all’interno del percorso <code class="docutils literal notranslate"><span class="pre">/var/lightsquid/</span></code>. Poiché tutti i report vengono conservati per sempre, la dimensione della directory può aumentare notevolmente nel corso degli anni.</p>
+<p>Per eliminare i report più vecchi di un 1 anno, eseguire:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>find /var/lightsquid/  -maxdepth 1 -mindepth 1 -type d -name &#39;????????&#39; -mtime +360 -exec rm -rf {} \;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="cache">
+<h2>Cache<a class="headerlink" href="#cache" title="Link a questa intestazione">¶</a></h2>
+<p>Nel pannello <span class="guilabel">Cache</span> è presente un form per configurare i parametri di cache:</p>
+<ul class="simple">
+<li><p>La cache può essere abilitata o disabilitata (<em>disabilitata</em> di default)</p></li>
+<li><p><strong>Dimensione cache disco</strong>: valore massimo della cache di squid sul disco (in MB)</p></li>
+<li><p><strong>Dimensione minima oggetto</strong>: può essere lasciato a 0 per mettere in cache tutto, ma può essere alzato se gli oggetti piccoli non sono desiderati in cache (in kB)</p></li>
+<li><p><strong>Dimensione massima oggetto</strong>: gli oggetti più grandi di questa dimensione non vengono salvati in cache. Se si preferisce la velocità al salvataggio della banda, può essere impostato ad un valore basso (in kB)</p></li>
+</ul>
+<p>Il pulsante <span class="guilabel">Svuota cache</span> funziona anche se il proxy è disabilitato, potrebbe essere utile per liberare spazio su disco.</p>
+<section id="sites-without-cache">
+<h3>Siti senza cache<a class="headerlink" href="#sites-without-cache" title="Link a questa intestazione">¶</a></h3>
+<p>A volte il proxy non è in grado di fare cache di alcuni siti mal costruiti.
+Per escludere uno o più domini dalla cache, usare l’opzione <code class="docutils literal notranslate"><span class="pre">NoCache</span></code>.</p>
+<p>Esempio:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop squid NoCache www.nethserver.org,www.google.com
+signal-event nethserver-squid-save
+</pre></div>
+</div>
+</section>
+</section>
+<section id="safe-ports">
+<h2>Porte sicure<a class="headerlink" href="#safe-ports" title="Link a questa intestazione">¶</a></h2>
+<p>Le porte sicure sono una lista di porte accessibili attraverso il proxy.
+Se una porta non è all’interno della lista delle porte sicure, il proxy si rifiuterà di collegarsi al server.
+Per esempio, dato un servizio HTTP che gira sulla porta 1234, tale servizio non sarebbe accessibile usando il proxy.</p>
+<p>L’opzione <code class="docutils literal notranslate"><span class="pre">SafePorts</span></code> è una lista di porte separata da virgole.
+Le porte elencate saranno aggiunte alla lista preconfigurata di porte sicure.</p>
+<p>Per esempio, per aprire l’accesso alle porte 446 e 1234:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop squid SafePorts 446,1234
+signal-event nethserver-squid-save
+</pre></div>
+</div>
+</section>
+<section id="logs">
+<h2>Log<a class="headerlink" href="#logs" title="Link a questa intestazione">¶</a></h2>
+<p>I log di Squid vengono conservati in formato compresso per 5 settimane, per gestire l’utilizzo dello spazio su disco. I log del proxy Web sono molto dettagliati e sono una insostituibile risorsa per approfondire gli eventuali  problemi. Le attività di navigazione Web sono registrate in formato aggregato e leggibile attraverso Lightsquid.</p>
+<p>Negli ambienti in cui sia necessario conservare i log per più di 5 settimane, è possibile modificare manualmente la configurazione di logrotate <code class="file docutils literal notranslate"><span class="pre">/etc/logrotate.d/squid</span></code>. E” inoltre necessario rammentare di aggiungere <code class="file docutils literal notranslate"><span class="pre">/etc/</span> <span class="pre">logrotate.d/squid</span></code> al backup della configurazione usando l’inclusione personalizzata.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &#39;/etc/logrotate.d/squid&#39; &gt;&gt; /etc/backup-config.d/custom.include
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="firewall.html" class="btn btn-neutral float-left" title="Firewall" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="fail2ban.html" class="btn btn-neutral float-right" title="Fail2ban" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
