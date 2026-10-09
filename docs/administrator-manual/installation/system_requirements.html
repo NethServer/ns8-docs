@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">System requirements | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/docs/administrator-manual/installation/system_requirements"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="System requirements | NethServer 8 documentation"><meta data-rh="true" name="description" content="NethServer 8 (NS8) can be deployed on a single node or across multiple nodes. In both cases it is called &quot;cluster&quot;. A node can be either a physical or virtual machine. Deployment on container-based virtualization solutions, such as Proxmox LXC, is not supported."><meta data-rh="true" property="og:description" content="NethServer 8 (NS8) can be deployed on a single node or across multiple nodes. In both cases it is called &quot;cluster&quot;. A node can be either a physical or virtual machine. Deployment on container-based virtualization solutions, such as Proxmox LXC, is not supported."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/docs/administrator-manual/installation/system_requirements"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/installation/system_requirements" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/it/docs/administrator-manual/installation/system_requirements" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/installation/system_requirements" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"System requirements","item":"https://docs.nethserver.org/docs/administrator-manual/installation/system_requirements"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/opensearch.xml">
-<script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/assets/css/styles.d64e4b30.css">
-<script src="/assets/js/runtime~main.c43e636d.js" defer="defer"></script>
+<script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/assets/css/styles.c61e80aa.css">
+<script src="/assets/js/runtime~main.dc3e4888.js" defer="defer"></script>
 <script src="/assets/js/main.b333a5e6.js" defer="defer"></script>
 </head>
 <body>
@@ -87,7 +87,6 @@ after checking that the installed applications do not already require them.</p>
 <p>If you want to change the public SSH port, configure a port redirect without altering the <code>sshd</code> listening port configuration. See <a class="" href="/docs/administrator-manual/configuration/firewall#ssh-redirection">Manage SSH port redirection</a> for instructions.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="external-services">External network connectivity<a href="#external-services" class="hash-link" aria-label="Direct link to External network connectivity" title="Direct link to External network connectivity" translate="no">​</a></h2>
 <p>A NethServer 8 (NS8) node requires outbound network connectivity to a number of external services to operate correctly. These services are used for system updates, application distribution, cluster operations, subscription management, backup, support, and TLS certificate issuance.</p>
-<p>Unless otherwise stated, connections are outbound only and use HTTPS over TCP port 443.</p>
 
 
 
@@ -185,7 +184,7 @@ after checking that the installed applications do not already require them.</p>
 
 
 <table><thead><tr><th>Purpose</th><th>Host name</th><th>Port</th><th>Protocol</th><th>Notes</th></tr></thead><tbody><tr><td>Name resolution</td><td>&lt;Name server address&gt;</td><td>53</td><td>UDP/TCP</td><td>IP address of primary and, optionally, secondary DNS servers</td></tr><tr><td>Cluster VPN and node communication</td><td>&lt;leader node address&gt;</td><td>55820</td><td>UDP</td><td>Inter-node VPN and cluster traffic</td></tr><tr><td>Cluster-admin leader API</td><td>&lt;leader node address&gt;</td><td>443</td><td>HTTPS</td><td>Join a new worker to the cluster</td></tr><tr><td>OS and NS8 repositories mirror resolution</td><td>mirrorlist.nethserver.org</td><td>80</td><td>HTTP</td><td>Used to resolve Rocky Linux and NS8 mirrors</td></tr><tr><td>Rocky Linux DNF repositories</td><td>u4.nethesis.it, u5.nethesis.it</td><td>443</td><td>HTTPS</td><td>Nethesis-managed mirror of BaseOS and AppStream repositories</td></tr><tr><td>TLS certificate issuance</td><td>acme-v02.api.letsencrypt.org</td><td>443</td><td>HTTPS</td><td>Let&#x27;s Encrypt ACME v2 endpoint</td></tr><tr><td>NS8 core and updates repository</td><td>distfeed.nethserver.org</td><td>443</td><td>HTTPS</td><td>Core updates and patches</td></tr><tr><td>Community application repository</td><td>forge.nethserver.org</td><td>443</td><td>HTTPS</td><td>Optional community modules</td></tr><tr><td>Container image registry</td><td>ghcr.io</td><td>443</td><td>HTTPS</td><td>Official NS8 application and container images</td></tr><tr><td>Container image registry</td><td>docker.io</td><td>443</td><td>HTTPS</td><td>Third-party container images</td></tr><tr><td>Container image registry</td><td>quay.io</td><td>443</td><td>HTTPS</td><td>Third-party container images</td></tr><tr><td>Cluster phone-home service</td><td>phonehome.nethserver.org</td><td>443</td><td>HTTPS</td><td>Cluster registration and metadata</td></tr></tbody></table>
-<p>External services and endpoints required by NS8</p>
+<p class="table-caption">External services and endpoints required by NS8</p>
 
 
 
@@ -248,7 +247,37 @@ after checking that the installed applications do not already require them.</p>
 
 
 <table><thead><tr><th>Purpose</th><th>Host name</th><th>Port</th><th>Protocol</th><th>Notes</th></tr></thead><tbody><tr><td>Subscription validation and feeds</td><td>subscription.nethserver.com</td><td>443</td><td>HTTPS</td><td>Core updates and patches for Subscription</td></tr><tr><td>Subscription portal</td><td>my.nethserver.com</td><td>443</td><td>HTTPS</td><td>System and subscription management</td></tr><tr><td>Subscription portal for resellers</td><td>my.nethesis.it</td><td>443</td><td>HTTPS</td><td>Inventory, heartbeat, entitlement checks</td></tr><tr><td>Support VPN peer</td><td>sos.nethesis.it</td><td>1194</td><td>UDP</td><td>Remote support VPN (optional)</td></tr><tr><td>Support VPN peer</td><td>sos.nethesis.it</td><td>443</td><td>TCP</td><td>Remote support VPN (optional)</td></tr><tr><td>Cloud backup service</td><td>backupd.nethesis.it</td><td>443</td><td>HTTPS</td><td>Off-site backup and restore for cluster configuration</td></tr><tr><td>Cloud Log Manager</td><td>nar.nethesis.it</td><td>443</td><td>HTTPS</td><td>Cloud storage and management for security logs (optional)</td></tr></tbody></table>
-<p>Endpoints used by cluster leader node with an active Subscription</p>
+<p class="table-caption">Endpoints used by cluster leader node with an active Subscription</p>
+<p>NS8 core components include Loki, used for <a class="" href="/docs/administrator-manual/configuration/log_server#logs-persistence-section">logs persistence</a>, and Grafana, used for <a class="" href="/docs/administrator-manual/configuration/metrics#grafana_access-section">Grafana dashboards</a>. Both are developed by Grafana Labs and send anonymous usage statistics. NS8 deliberately leaves this telemetry enabled. The update checks of Grafana and the telemetry of the log collector are disabled.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Purpose</th><th>Host name</th><th>Port</th><th>Protocol</th><th>Notes</th></tr></thead><tbody><tr><td>Loki usage statistics</td><td>stats.grafana.org</td><td>443</td><td>HTTPS</td><td>Sent by every Loki instance</td></tr><tr><td>Grafana usage statistics</td><td>stats.grafana.org</td><td>443</td><td>HTTPS</td><td>Sent only if Grafana dashboards are enabled</td></tr></tbody></table>
+<p class="table-caption">Telemetry endpoints of Grafana Labs components</p>
+<p>If a DNS filter, such as Pi-hole, blocks <code>stats.grafana.org</code>, the failed requests can generate a high number of DNS queries. To disable the telemetry, follow the instructions of the <a href="https://github.com/NethServer/ns8-loki#disable-telemetry" target="_blank" rel="noopener noreferrer" class="">Loki</a> and <a href="https://github.com/NethServer/ns8-metrics#disable-telemetry" target="_blank" rel="noopener noreferrer" class="">Metrics</a> modules.</p>
 <p>Notes</p>
 <ul>
 <li class="">All listed connections are initiated by the NS8 node.</li>

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Requisiti di sistema | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/it/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/it/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/it/docs/administrator-manual/installation/system_requirements"><meta data-rh="true" property="og:locale" content="it_IT"><meta data-rh="true" property="og:locale:alternate" content="en_US"><meta data-rh="true" name="docusaurus_locale" content="it"><meta data-rh="true" name="docsearch:language" content="it"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Requisiti di sistema | NethServer 8 documentation"><meta data-rh="true" name="description" content="NethServer 8 (NS8) può essere distribuito su un singolo nodo o su più nodi. In entrambi i casi viene chiamato &quot;cluster&quot;. Un nodo può essere una macchina fisica o virtuale. La distribuzione su soluzioni di virtualizzazione basate su container, come Proxmox LXC, non è supportata."><meta data-rh="true" property="og:description" content="NethServer 8 (NS8) può essere distribuito su un singolo nodo o su più nodi. In entrambi i casi viene chiamato &quot;cluster&quot;. Un nodo può essere una macchina fisica o virtuale. La distribuzione su soluzioni di virtualizzazione basate su container, come Proxmox LXC, non è supportata."><link data-rh="true" rel="icon" href="/it/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/it/docs/administrator-manual/installation/system_requirements"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/installation/system_requirements" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/it/docs/administrator-manual/installation/system_requirements" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/installation/system_requirements" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Requisiti di sistema","item":"https://docs.nethserver.org/it/docs/administrator-manual/installation/system_requirements"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/it/opensearch.xml">
-<script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/it/assets/css/styles.d64e4b30.css">
-<script src="/it/assets/js/runtime~main.1cda3625.js" defer="defer"></script>
+<script src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="a3fcede4-cdb3-46f3-84b2-e4464a416e83" data-project-name="NethServer" data-project-color="#000000" data-project-logo="https://docs.nethserver.org/img/favicon.ico" data-source-group-ids-include="eae9b182-9aad-45f7-a616-30c91dd2e019" data-modal-disclaimer="This is an AI bot that will give you answers only about **NethServer 8**. Older NethServer versions are not supported" async></script><link rel="stylesheet" href="/it/assets/css/styles.c61e80aa.css">
+<script src="/it/assets/js/runtime~main.5e0f9dbe.js" defer="defer"></script>
 <script src="/it/assets/js/main.a570aaa1.js" defer="defer"></script>
 </head>
 <body>
@@ -80,7 +80,6 @@
 <p>Se desideri modificare la porta pubblica SSH, configura un reindirizzamento di porta senza alterare la configurazione della porta di ascolto di <code>sshd</code>. Consulta <a class="" href="/it/docs/administrator-manual/configuration/firewall#ssh-redirection">Gestire il reindirizzamento della porta SSH</a> per le istruzioni.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="external-services">Connettività di rete esterna<a href="#external-services" class="hash-link" aria-label="Link diretto a Connettività di rete esterna" title="Link diretto a Connettività di rete esterna" translate="no">​</a></h2>
 <p>Un nodo NethServer 8 (NS8) richiede connettività di rete in uscita verso una serie di servizi esterni per funzionare correttamente. Questi servizi sono utilizzati per aggiornamenti di sistema, distribuzione delle applicazioni, operazioni del cluster, gestione degli abbonamenti, backup, supporto e rilascio di certificati TLS.</p>
-<p>Salvo diversa indicazione, le connessioni sono solo in uscita e utilizzano HTTPS sulla porta TCP 443.</p>
 
 
 
@@ -178,7 +177,7 @@
 
 
 <table><thead><tr><th>Scopo</th><th>Nome host</th><th>Porta</th><th>Protocollo</th><th>Note</th></tr></thead><tbody><tr><td>Risoluzione dei nomi</td><td>&lt;Indirizzo del server dei nomi&gt;</td><td>53</td><td>UDP/TCP</td><td>Indirizzo IP del server DNS primario e, opzionalmente, secondario</td></tr><tr><td>VPN del cluster e comunicazione tra nodi</td><td>&lt;Indirizzo del nodo leader&gt;</td><td>55820</td><td>UDP</td><td>Traffico VPN tra nodi e del cluster</td></tr><tr><td>API del leader amministratore del cluster</td><td>&lt;Indirizzo del nodo leader&gt;</td><td>443</td><td>HTTPS</td><td>Aggiunta di un nuovo worker al cluster</td></tr><tr><td>Risoluzione dei mirror dei repository OS e NS8</td><td>mirrorlist.nethserver.org</td><td>80</td><td>HTTP</td><td>Utilizzato per risolvere i mirror di Rocky Linux e NS8</td></tr><tr><td>Repository DNF di Rocky Linux</td><td>u4.nethesis.it, u5.nethesis.it</td><td>443</td><td>HTTPS</td><td>Mirror gestito da Nethesis dei repository BaseOS e AppStream</td></tr><tr><td>Rilascio dei certificati TLS</td><td>acme-v02.api.letsencrypt.org</td><td>443</td><td>HTTPS</td><td>Endpoint ACME v2 di Let&#x27;s Encrypt</td></tr><tr><td>Repository core e aggiornamenti di NS8</td><td>distfeed.nethserver.org</td><td>443</td><td>HTTPS</td><td>Aggiornamenti e patch del core</td></tr><tr><td>Repository delle applicazioni della community</td><td>forge.nethserver.org</td><td>443</td><td>HTTPS</td><td>Moduli opzionali della community</td></tr><tr><td>Registro delle immagini dei container</td><td>ghcr.io</td><td>443</td><td>HTTPS</td><td>Immagini ufficiali delle applicazioni e dei container di NS8</td></tr><tr><td>Registro delle immagini dei container</td><td>docker.io</td><td>443</td><td>HTTPS</td><td>Immagini di container di terze parti</td></tr><tr><td>Registro delle immagini dei container</td><td>quay.io</td><td>443</td><td>HTTPS</td><td>Immagini di container di terze parti</td></tr><tr><td>Servizio di phone-home del cluster</td><td>phonehome.nethserver.org</td><td>443</td><td>HTTPS</td><td>Registrazione del cluster e metadati</td></tr></tbody></table>
-<p>Servizi ed endpoint esterni richiesti da NS8</p>
+<p class="table-caption">Servizi ed endpoint esterni richiesti da NS8</p>
 
 
 
@@ -241,7 +240,37 @@
 
 
 <table><thead><tr><th>Scopo</th><th>Nome host</th><th>Porta</th><th>Protocollo</th><th>Note</th></tr></thead><tbody><tr><td>Validazione abbonamenti e feed</td><td>subscription.nethserver.com</td><td>443</td><td>HTTPS</td><td>Aggiornamenti e patch del core per l&#x27;abbonamento</td></tr><tr><td>Portale abbonamenti</td><td>my.nethserver.com</td><td>443</td><td>HTTPS</td><td>Gestione del sistema e degli abbonamenti</td></tr><tr><td>Portale abbonamenti per rivenditori</td><td>my.nethesis.it</td><td>443</td><td>HTTPS</td><td>Inventario, heartbeat, controlli delle autorizzazioni</td></tr><tr><td>Peer VPN di supporto</td><td>sos.nethesis.it</td><td>1194</td><td>UDP</td><td>VPN di supporto remoto (opzionale)</td></tr><tr><td>Peer VPN di supporto</td><td>sos.nethesis.it</td><td>443</td><td>TCP</td><td>VPN di supporto remoto (opzionale)</td></tr><tr><td>Servizio di backup cloud</td><td>backupd.nethesis.it</td><td>443</td><td>HTTPS</td><td>Backup e ripristino off-site per la configurazione del cluster</td></tr><tr><td>Cloud Log Manager</td><td>nar.nethesis.it</td><td>443</td><td>HTTPS</td><td>Archiviazione e gestione cloud per i log di sicurezza (opzionale)</td></tr></tbody></table>
-<p>Endpoint utilizzati dal nodo leader del cluster con un abbonamento attivo</p>
+<p class="table-caption">Endpoint utilizzati dal nodo leader del cluster con un abbonamento attivo</p>
+<p>I componenti del core di NS8 includono Loki, usato per la <a class="" href="/it/docs/administrator-manual/configuration/log_server#logs-persistence-section">persistenza dei log</a>, e Grafana, usato per le <a class="" href="/it/docs/administrator-manual/configuration/metrics#grafana_access-section">dashboard Grafana</a>. Entrambi sono sviluppati da Grafana Labs e inviano statistiche di utilizzo anonime. NS8 lascia deliberatamente attiva questa telemetria. I controlli degli aggiornamenti di Grafana e la telemetria del raccoglitore dei log sono disattivati.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Scopo</th><th>Nome host</th><th>Porta</th><th>Protocollo</th><th>Note</th></tr></thead><tbody><tr><td>Statistiche di utilizzo di Loki</td><td>stats.grafana.org</td><td>443</td><td>HTTPS</td><td>Inviate da ogni istanza di Loki</td></tr><tr><td>Statistiche di utilizzo di Grafana</td><td>stats.grafana.org</td><td>443</td><td>HTTPS</td><td>Inviate solo se le dashboard Grafana sono attive</td></tr></tbody></table>
+<p class="table-caption">Endpoint di telemetria dei componenti di Grafana Labs</p>
+<p>Se un filtro DNS, come Pi-hole, blocca <code>stats.grafana.org</code>, le richieste fallite possono generare un numero elevato di query DNS. Per disattivare la telemetria, segui le istruzioni dei moduli <a href="https://github.com/NethServer/ns8-loki#disable-telemetry" target="_blank" rel="noopener noreferrer" class="">Loki</a> e <a href="https://github.com/NethServer/ns8-metrics#disable-telemetry" target="_blank" rel="noopener noreferrer" class="">Metrics</a>.</p>
 <p>Note</p>
 <ul>
 <li class="">Tutte le connessioni elencate sono avviate dal nodo NS8.</li>
