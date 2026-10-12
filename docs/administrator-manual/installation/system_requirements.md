@@ -130,11 +130,12 @@ A NethServer 8 (NS8) node requires outbound network connectivity to a number of 
 | Purpose | Host name | Port | Protocol | Notes |
 |----|----|----|----|----|
 | Subscription validation and feeds | subscription.nethserver.com | 443 | HTTPS | Core updates and patches for Subscription |
-| Subscription portal | my.nethserver.com | 443 | HTTPS | System and subscription management |
-| Subscription portal for resellers | my.nethesis.it | 443 | HTTPS | Inventory, heartbeat, entitlement checks |
+| Community subscription service | my.nethserver.com | 443 | HTTPS | Registration, inventory, heartbeat |
+| Subscription portal for resellers | my.nethesis.it | 443 | HTTPS | Subscription portal and services |
+| Enterprise subscription service | proxy.my.nethesis.it | 443 | HTTPS | Registration, inventory, heartbeat, cluster backup, alerts |
 | Support VPN peer | sos.nethesis.it | 1194 | UDP | Remote support VPN (optional) |
 | Support VPN peer | sos.nethesis.it | 443 | TCP | Remote support VPN (optional) |
-| Cloud backup service | backupd.nethesis.it | 443 | HTTPS | Off-site backup and restore for cluster configuration |
+| Cloud backup service | backupd.nethesis.it | 443 | HTTPS | Off-site backup of the cluster configuration, Community subscription only |
 | Cloud Log Manager | nar.nethesis.it | 443 | HTTPS | Cloud storage and management for security logs (optional) |
 
 <p class="table-caption">Endpoints used by cluster leader node with an active Subscription</p>
