@@ -9,6 +9,12 @@ Rilasci di NethServer 8
 - Elenco dei [bug conosciuti](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) su GitHub
 - Discussioni sui [possibili bug](http://community.nethserver.org/c/bug) nel nostro forum pubblico
 
+## Modifiche principali del GG-MM-AAAA
+
+**Milestone 8.11**
+
+- **Avviso spazio disco rinominato** \[Metrics 1.7.0\] -- L'avviso generato quando una partizione è piena oltre l'80% si chiama ora `DiskSpaceWarning` invece di `DiskSpaceLow`, lo stesso nome usato da NethSecurity per lo stesso avviso. I silenziamenti di Alertmanager associati al vecchio nome non sono più applicati e devono essere ricreati. Se l'avviso è attivo durante l'aggiornamento, viene inviata una notifica di risoluzione per `DiskSpaceLow`, seguita dopo 5 minuti da una nuova notifica `DiskSpaceWarning`. Vedere [Avvisi](../configuration/metrics.md#alerts-section).
+
 ## Modifiche principali del 09-10-2026
 
 **Milestone 8.10**

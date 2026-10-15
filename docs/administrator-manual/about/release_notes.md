@@ -9,6 +9,12 @@ NethServer 8 releases
 - List of [known bugs](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) on GitHub
 - Discussions around [possible bugs](http://community.nethserver.org/c/bug) on our public forum
 
+## Major changes on YYYY-MM-DD
+
+**Milestone 8.11**
+
+- **Disk space alert renamed** \[Metrics 1.7.0\] -- The alert raised when a partition is more than 80% full is now named `DiskSpaceWarning` instead of `DiskSpaceLow`, the name used by NethSecurity for the same alert. Alertmanager silences that match the old name no longer apply and must be created again. If the alert is active during the update, a resolved notification for `DiskSpaceLow` is sent, followed by a new `DiskSpaceWarning` notification after 5 minutes. See [Alerts](../configuration/metrics.md#alerts-section).
+
 ## Major changes on 2026-10-09
 
 **Milestone 8.10**
