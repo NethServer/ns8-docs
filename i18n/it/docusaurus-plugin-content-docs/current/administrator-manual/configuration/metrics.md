@@ -69,6 +69,14 @@ Quando è abilitato, Grafana è accessibile sul nodo leader all'indirizzo `https
 
 Per accedere a Grafana, devi autenticarti con le credenziali di amministrazione del cluster.
 
+Al primo accesso di un amministratore del cluster, Grafana crea l'utente con il ruolo `Viewer`. Chi ha il ruolo `Viewer` può usare le dashboard, ma non i menu `Drilldown` ed `Explore`. Solo l'utente `admin` ha accesso completo. Per assegnare a un utente il ruolo `Editor`, accedi a Grafana come `admin` e:
+
+1. Vai in `Administration` > `Users and access` > `Users`
+2. Passa alla scheda `Organization users`
+3. Cambia il selettore `Role` dell'utente in `Editor`
+
+L'utente compare nell'elenco solo dopo aver effettuato almeno un accesso a Grafana.
+
 NS8 preconfigura solo le dashboard di Grafana. Le altre funzionalità di Grafana, come avvisi, regole di avviso, notifiche e silenziamenti, non sono controllate da NS8.
 
 Le dashboard sono organizzate in due cartelle: `core` e `modules`. In questo contesto, un'applicazione è chiamata "modulo", vedi [Il termine modulo](../installation/modules.md#il-termine-modulo).

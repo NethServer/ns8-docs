@@ -69,6 +69,14 @@ When enabled, Grafana will be accessible on the leader node at `https://<leader-
 
 To access Grafana, you need to authenticate with the cluster admin credentials.
 
+The first time a cluster admin accesses Grafana, Grafana creates the user with the `Viewer` role. Viewers can use the dashboards, but not the `Drilldown` and `Explore` menus. Only the `admin` user has full access. To grant a user the `Editor` role, access Grafana as `admin` and:
+
+1. Go to `Administration` > `Users and access` > `Users`
+2. Switch to the `Organization users` tab
+3. Change the user's `Role` selector to `Editor`
+
+The user appears in the list only after accessing Grafana at least once.
+
 NS8 pre-configures only the Grafana dashboards. Other Grafana features, like alerts, alert rules, notifications and silences, are not controlled by NS8.
 
 Dashboards are organized in two folders: `core` and `modules`. In this context, an application is called "module", see [The module term](../installation/modules.md#the-module-term).
