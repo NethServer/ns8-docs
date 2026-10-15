@@ -176,6 +176,8 @@ Updates applied manually from the Software Center ignore the automatic updates s
 
 With an active subscription, a scheduled overnight task applies the available updates automatically, as described in [Scheduled updates](../about/subscription.md#scheduled-updates). Automatic updates are enabled by default. Without a subscription, updates are never applied automatically, and the controls described in this section are not displayed.
 
+Automatic updates come only from the `subscription` repository. Applications installed from other repositories, like `nethforge` or custom repositories, are not updated automatically: update them manually.
+
 To disable automatic updates for the whole cluster, click on the three-dots menu in the top-right corner of the `Software Center` or `Applications` page, then select `Disable automatic updates`. The scheduled task stops updating applications, core components, and operating system packages. While automatic updates are disabled, both pages display an `Automatic updates disabled` warning. To enable them again, click **Enable automatic updates** in the warning, or select the same entry in the three-dots menu.
 
 :::warning
