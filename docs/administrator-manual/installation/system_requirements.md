@@ -163,7 +163,7 @@ Some NS8 components are developed by third parties and contact their vendor's se
 
 If a DNS filter, such as Pi-hole, blocks `stats.grafana.org`, the failed requests can generate a high number of DNS queries. To disable the telemetry, follow the instructions of the [Loki](https://github.com/NethServer/ns8-loki#disable-telemetry) and [Metrics](https://github.com/NethServer/ns8-metrics#disable-telemetry) modules.
 
-If `update.traefik.io` is not reachable, Traefik only writes a warning in its log once a day.
+If `update.traefik.io` is not reachable, Traefik only writes a warning in its log once a day. To disable the check, follow the instructions of the [Traefik](https://github.com/NethServer/ns8-traefik#disable-telemetry) module.
 
 ## Web browser requirements
 
