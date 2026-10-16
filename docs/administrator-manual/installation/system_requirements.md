@@ -151,6 +151,16 @@ NS8 core components include Loki, used for [logs persistence](../configuration/l
 
 If a DNS filter, such as Pi-hole, blocks `stats.grafana.org`, the failed requests can generate a high number of DNS queries. To disable the telemetry, follow the instructions of the [Loki](https://github.com/NethServer/ns8-loki#disable-telemetry) and [Metrics](https://github.com/NethServer/ns8-metrics#disable-telemetry) modules.
 
+Each NS8 node runs Traefik, the proxy that handles [HTTP routes](../configuration/proxy.md). It is developed by Traefik Labs and checks once a day for new Traefik releases. NS8 deliberately leaves this check enabled: when a new release exists, Traefik writes a warning in its log. Some applications, such as Loki and NethSecurity controller, run their own internal copy of Traefik: in those copies the check is disabled. The anonymous usage statistics of Traefik are always disabled.
+
+| Purpose | Host name | Port | Protocol | Notes |
+|----|----|----|----|----|
+| Traefik new version check | update.traefik.io | 443 | HTTPS | Sent once a day by the Traefik instance of every node |
+
+<p class="table-caption">Telemetry endpoints of Traefik Labs components</p>
+
+If `update.traefik.io` is not reachable, Traefik only writes a warning in its log once a day.
+
 Notes
 
 - All listed connections are initiated by the NS8 node.
