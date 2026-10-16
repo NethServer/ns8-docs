@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Windows network &mdash; NethServer 6.10 Final</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="Chat" href="chat.html" />
+    <link rel="prev" title="Cartelle condivise" href="shared_folder.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="https://docs.nethserver.org/it/v7/samba.html" />
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2020-12-02T08:39:32Z", "builder": "sphinx", "canonical_url": "https://docs.nethserver.org/it/v7/", "commit": "edf78e88", "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "it", "page": "samba", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-3", "version": "v6"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v6" /><meta name="readthedocs-resolver-filename" content="/samba.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                v6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access.html">Accedere al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_connector.html">Connettore POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Windows network</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#workstation">Workstation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#primary-domain-controller">Primary domain controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#active-directory-member">Active Directory member</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content_filter.html">Filtro contenuti web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall e gateway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flashstart.html">Cloud content filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proxy_pass.html">Proxy pass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snort.html">IPS (Snort)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda (ntopng)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp.html">FTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="owncloud.html">ownCloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webvirtmgr.html">WebVirtMgr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webtop4.html">WebTop 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adagios.html">Adagios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocs.html">OCS Inventory NG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ha.html">HA (High Availability)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_tool.html">Upgrade tool</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Windows network</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/docs/blob/v6/administrator-manual/en/samba.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="windows-network">
+<h1>Windows network<a class="headerlink" href="#windows-network" title="Link a questa intestazione">¶</a></h1>
+<p>Microsoft Windows™ interoperability is provided by Samba
+<a class="footnote-reference" href="#sambaorg" id="id1">[1]</a>. To install it, select the <em class="dfn">File Server</em> module, or
+any other module that requires it.</p>
+<p>NethServer configures Samba to act in a Windows network according to
+its <em>role</em>. You can choose the role from the Server Manager, in the
+<span class="menuselection">Windows network</span> page.</p>
+<p>Currently the following roles are available:</p>
+<ul class="simple">
+<li>Workstation</li>
+<li>Primary Domain Controller</li>
+<li>Active Directory Member</li>
+</ul>
+<p>The differences between these roles concern <cite>where</cite> user database is
+stored and <cite>which hosts</cite> can access it.  The user database contains
+the list of users of the system, their passwords, group membership and
+other information.</p>
+<p>Workstation</p>
+<blockquote>
+<div>In this role NethServer uses only its own local user database. Only
+local users can access its resources, by providing the correct user
+name and password credentials.  This is the behaviour of a Windows
+standalone workstation.</div></blockquote>
+<p>Primary Domain Controller</p>
+<blockquote>
+<div>When acting as <cite>Primary Domain Controller</cite> (PDC), NethServer
+emulates a Windows 2000/NT domain controller, by providing access
+to the local user database only from trusted workstations.  People
+can log on any trusted workstation by typing their domain
+credentials, then have access to shared files and printers.</div></blockquote>
+<p>Active Directory member</p>
+<blockquote>
+<div>In this role NethServer becomes a trusted server of an existing
+Active Directory domain.  When accessing a resource from a domain
+workstation, user credentials are checked against a domain
+controller, and the access to the resource is granted.</div></blockquote>
+<div class="section" id="workstation">
+<span id="samba-ws"></span><h2>Workstation<a class="headerlink" href="#workstation" title="Link a questa intestazione">¶</a></h2>
+<p>When acting as a workstation, NethServer registers itself as member of
+the <em>Windows workgroup</em> specified by the <span class="guilabel">Workgroup
+name</span> field. The default value is <code class="docutils literal notranslate"><span class="pre">WORKGROUP</span></code>.</p>
+<p>From the other hosts of the Windows network, NethServer will be listed
+in <em>Network resources</em>, under the node named after the
+<span class="guilabel">Workgroup name</span> field value.</p>
+<p>As stated before, to access the server resources, clients
+must provide the authentication credentials of a valid local account.</p>
+</div>
+<div class="section" id="primary-domain-controller">
+<span id="samba-pdc"></span><h2>Primary domain controller<a class="headerlink" href="#primary-domain-controller" title="Link a questa intestazione">¶</a></h2>
+<p>The Primary Domain Controller (PDC) is a centralized place where users
+and hosts accounts are stored. To setup a Windows network where
+NethServer acts in PDC role follow these steps.</p>
+<ol class="arabic">
+<li><p class="first">From the Server Manager, <span class="menuselection">Windows Network</span> page,
+select <span class="guilabel">Primary Domain Controller</span>, then
+<span class="guilabel">SUBMIT</span> the change.</p>
+<p>The Domain name by default is assumed to be the second domain part
+of the host name in capital letters (e.g. if the FQDN server host
+name is <code class="docutils literal notranslate"><span class="pre">server.example.com</span></code> the default domain name will be
+<code class="docutils literal notranslate"><span class="pre">EXAMPLE</span></code>. If the default does not fit your needs, choose a
+simple name respecting the rules:</p>
+<ul class="simple">
+<li>length between 1 and 15 characters;</li>
+<li>begin with a letter, then only letters, numbers, or the minus
+<code class="docutils literal notranslate"><span class="pre">-</span></code> char;</li>
+<li>only capital letters.</li>
+</ul>
+<p>For more information refer to Microsoft Naming conventions <a class="footnote-reference" href="#ms909264" id="id2">[2]</a>.</p>
+</li>
+<li><p class="first">For each workstation of the Windows network, join the new domain.
+This step requires privileged credentials.  In NethServer, members
+of the <code class="docutils literal notranslate"><span class="pre">domadmins</span></code> group can join workstations to the domain.
+Moreover, <code class="docutils literal notranslate"><span class="pre">domadmins</span></code> members are granted administrative
+privileges on domain workstations.  By default, only the <code class="docutils literal notranslate"><span class="pre">admin</span></code>
+user is member of the <code class="docutils literal notranslate"><span class="pre">domadmins</span></code> group.</p>
+<p>Some versions of Windows may require applying a system registry
+patch to join the domain.  From the Server Manager, follow
+<span class="guilabel">Client registry settings</span> link to download the
+appropriate <code class="docutils literal notranslate"><span class="pre">.reg</span></code> file.  Refer to the official Samba
+documentation <a class="footnote-reference" href="#sambaregistry" id="id3">[3]</a> for more information.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="active-directory-member">
+<span id="samba-ads"></span><h2>Active Directory member<a class="headerlink" href="#active-directory-member" title="Link a questa intestazione">¶</a></h2>
+<p>The Active Directory member role (ADS) configures NethServer
+as an Active Directory domain member, delegating authentication to domain
+controllers.  When operating in ADS mode, Samba is configured to map
+domain accounts into NethServer, thus files and directories access can
+be shared across the whole domain.</p>
+<p>Joining an Active Directory domain has some pre-requisites:</p>
+<ol class="arabic simple">
+<li>In <span class="menuselection">DNS and DHCP</span> page, set the domain controller
+as DNS. If a second DC exists, it can be set as secondary DNS.</li>
+<li>In <span class="menuselection">Date and time</span> page, set the DC as NTP time
+source; the Kerberos protocol requires the difference between
+systems clocks is less than 5 minutes.</li>
+</ol>
+<p>After pre-requisites are set, proceed in <span class="menuselection">Windows
+network</span> page, by selecting the <span class="guilabel">Active Directory member</span>
+role:</p>
+<ul class="simple">
+<li>Fill <span class="guilabel">Realm</span> and <span class="guilabel">Domain</span> fields with proper
+values. Defaults come from FQDN host name: maybe they do not fit
+your environment so <strong>make sure Realm and Domain fields are set
+correctly</strong>.</li>
+<li><span class="guilabel">LDAP accounts branch</span> must be set to the LDAP branch
+containing your domain accounts if you plan to install the
+<a class="reference internal" href="mail.html#email-section"><span class="std std-ref">Email</span></a> module. It is not actually required by Samba.</li>
+<li><span class="guilabel">SUBMIT</span> changes. You will be prompted for an user name and
+password: provide AD <code class="docutils literal notranslate"><span class="pre">administrator</span></code> or any other account
+credentials with permissions to join the machine to the domain.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">For Email integration with AD, refer also to
+<a class="reference internal" href="mail.html#email-ads"><span class="std std-ref">Email in Active Directory</span></a>.</p>
+</div>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="sambaorg" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Samba official website <a class="reference external" href="http://www.samba.org/">http://www.samba.org/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="ms909264" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Naming conventions in Active Directory for computers,
+domains, sites, and OUs
+<a class="reference external" href="http://support.microsoft.com/kb/909264">http://support.microsoft.com/kb/909264</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="sambaregistry" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Registry changes for NT4-style domains
+<a class="reference external" href="https://wiki.samba.org/index.php/Registry_changes_for_NT4-style_domains">https://wiki.samba.org/index.php/Registry_changes_for_NT4-style_domains</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chat.html" class="btn btn-neutral float-right" title="Chat" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="shared_folder.html" class="btn btn-neutral float-left" title="Cartelle condivise" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Nethesis Srl and the NethServer project contributors
+      
+        <span class="commit">
+          Revision <code>edf78e88</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
