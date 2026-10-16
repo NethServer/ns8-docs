@@ -133,32 +133,30 @@ Un nodo NethServer 8 (NS8) richiede connettività di rete in uscita verso una se
 
 <p class="table-caption">Endpoint utilizzati dal nodo leader del cluster con una subscription attiva</p>
 
-I componenti del core di NS8 includono Loki, usato per la [persistenza dei log](../configuration/log_server.md#logs-persistence-section), e Grafana, usato per le [dashboard Grafana](../configuration/metrics.md#grafana_access-section). Entrambi sono sviluppati da Grafana Labs e inviano statistiche di utilizzo anonime. NS8 lascia deliberatamente attiva questa telemetria. I controlli degli aggiornamenti di Grafana e la telemetria del raccoglitore dei log sono disattivati.
-
-| Scopo | Nome host | Porta | Protocollo | Note |
-|----|----|----|----|----|
-| Statistiche di utilizzo di Loki | stats.grafana.org | 443 | HTTPS | Inviate da ogni istanza di Loki |
-| Statistiche di utilizzo di Grafana | stats.grafana.org | 443 | HTTPS | Inviate solo se le dashboard Grafana sono attive |
-
-<p class="table-caption">Endpoint di telemetria dei componenti di Grafana Labs</p>
-
-Se un filtro DNS, come Pi-hole, blocca `stats.grafana.org`, le richieste fallite possono generare un numero elevato di query DNS. Per disattivare la telemetria, segui le istruzioni dei moduli [Loki](https://github.com/NethServer/ns8-loki#disable-telemetry) e [Metrics](https://github.com/NethServer/ns8-metrics#disable-telemetry).
-
-Ogni nodo NS8 esegue Traefik, il proxy che gestisce le [route HTTP](../configuration/proxy.md). È sviluppato da Traefik Labs e controlla una volta al giorno se esistono nuove versioni di Traefik. NS8 lascia deliberatamente attivo questo controllo: quando esiste una nuova versione, Traefik scrive un avviso nel suo log. Alcune applicazioni, come Loki e NethSecurity controller, eseguono una propria copia interna di Traefik: in queste copie il controllo è disattivato. Le statistiche di utilizzo anonime di Traefik sono sempre disattivate.
-
-| Scopo | Nome host | Porta | Protocollo | Note |
-|----|----|----|----|----|
-| Controllo nuove versioni di Traefik | update.traefik.io | 443 | HTTPS | Inviato una volta al giorno dall'istanza di Traefik di ogni nodo |
-
-<p class="table-caption">Endpoint di telemetria dei componenti di Traefik Labs</p>
-
-Se `update.traefik.io` non è raggiungibile, Traefik scrive solo un avviso nel suo log una volta al giorno.
-
 Note
 
 - Tutte le connessioni elencate sono avviate dal nodo NS8.
 - Bloccare l'accesso a questi servizi può impedire aggiornamenti, installazione di applicazioni, backup, formazione del cluster o validazione delle subscription.
 - Potrebbero essere necessarie connessioni in uscita aggiuntive per funzionalità specifiche, come le notifiche email e i percorsi HTTP, e per le applicazioni installate, a seconda della loro configurazione e dei servizi upstream.
+
+## Endpoint di telemetria di terze parti {#third-party-telemetry}
+
+Alcuni componenti di NS8 sono sviluppati da terze parti e contattano i server del loro produttore, per inviare statistiche di utilizzo anonime o per controllare se esistono nuove versioni. Queste connessioni non sono necessarie al funzionamento di NS8. NS8 ne lascia deliberatamente attive alcune, come previsto dalle impostazioni predefinite dei produttori, e disattiva le altre:
+
+- Loki, usato per la [persistenza dei log](../configuration/log_server.md#logs-persistence-section), e Grafana, usato per le [dashboard Grafana](../configuration/metrics.md#grafana_access-section), sono sviluppati da Grafana Labs e inviano statistiche di utilizzo anonime. I controlli degli aggiornamenti di Grafana e la telemetria del raccoglitore dei log sono disattivati.
+- Traefik, il proxy che gestisce le [route HTTP](../configuration/proxy.md), è sviluppato da Traefik Labs e controlla una volta al giorno se esistono nuove versioni: quando esiste una nuova versione, Traefik scrive un avviso nel suo log. Le sue statistiche di utilizzo anonime sono disattivate. Alcune applicazioni, come Loki e NethSecurity controller, eseguono una propria copia interna di Traefik: in queste copie il controllo è disattivato.
+
+| Scopo | Nome host | Porta | Protocollo | Note |
+|----|----|----|----|----|
+| Statistiche di utilizzo di Loki | stats.grafana.org | 443 | HTTPS | Inviate da ogni istanza di Loki |
+| Statistiche di utilizzo di Grafana | stats.grafana.org | 443 | HTTPS | Inviate solo se le dashboard Grafana sono attive |
+| Controllo nuove versioni di Traefik | update.traefik.io | 443 | HTTPS | Inviato una volta al giorno dall'istanza di Traefik di ogni nodo |
+
+<p class="table-caption">Endpoint di telemetria di terze parti dei componenti di NS8</p>
+
+Se un filtro DNS, come Pi-hole, blocca `stats.grafana.org`, le richieste fallite possono generare un numero elevato di query DNS. Per disattivare la telemetria, segui le istruzioni dei moduli [Loki](https://github.com/NethServer/ns8-loki#disable-telemetry) e [Metrics](https://github.com/NethServer/ns8-metrics#disable-telemetry).
+
+Se `update.traefik.io` non è raggiungibile, Traefik scrive solo un avviso nel suo log una volta al giorno.
 
 ## Requisiti del browser web
 
