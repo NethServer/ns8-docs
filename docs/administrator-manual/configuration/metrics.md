@@ -40,9 +40,9 @@ Prometheus automatically sends alerts to the Alertmanager when a rule is trigger
 - Cluster node offline for more than 5 minutes
 - Loki log server offline for more than 5 minutes
 
-If the cluster has an Enterprise subscription, alerts are also forwarded to [my.nethesis.it](https://my.nethesis.it). Clusters with a Community subscription do not forward alerts.
+With an Enterprise subscription, all alerts are forwarded to [my.nethesis.it](https://my.nethesis.it), which sends the notifications by mail, webhook or Telegram. See the my.nethesis.it manual to choose the recipients.
 
-Still, you can configure the alerts to be sent to custom email addresses.
+With the Community plan, or without a subscription, alerts are not forwarded anywhere and no notification is sent. To receive alerts by email, configure [Alerts notifications](#alerts_notifications-section).
 
 Alerts are also visible from the Grafana `Alerting` menu. See [Grafana dashboards](#grafana_access-section).
 
@@ -56,8 +56,6 @@ To configure alert notifications, access the `Metrics` section in the `Settings`
 
 - `Sender email address`: the email address that will be used as the sender. The default is calculated from the leader FQDN.
 - `Recipient email addresses`: the email addresses to which alerts will be sent. Enter one address per line. Multiple recipients are supported.
-
-If the cluster has an Enterprise subscription, alerts are also sent to [my.nethesis.it](https://my.nethesis.it).
 
 ## Grafana dashboards {#grafana_access-section}
 
