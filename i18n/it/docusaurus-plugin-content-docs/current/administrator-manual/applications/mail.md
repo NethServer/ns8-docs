@@ -113,6 +113,12 @@ Le caselle di posta pubbliche possono essere condivise tra gruppi di utenti. Il 
 
 Quando viene creata una nuova casella di posta pubblica, il server di posta aggiunge automaticamente un nuovo indirizzo wildcard valido per tutti i domini di posta esistenti.
 
+La casella di posta pubblica `postmaster` viene creata automaticamente. Per impostazione predefinita riceve la posta inviata all'indirizzo `postmaster` di ogni dominio di posta. Riceve anche gli avvisi del server di posta stesso sui messaggi che non è stato possibile consegnare per problemi di risorse o software, come un disco pieno o un dominio utenti non raggiungibile.
+
+:::warning
+Gli avvisi del server di posta possono contenere dati riservati della sessione SMTP fallita. Concedi l'accesso alla casella di posta pubblica `postmaster` solo agli amministratori.
+:::
+
 ### Ripristinare una cartella della casella di posta da un backup {#mailbox-selective-restore}
 
 Se l'applicazione ha una o più destinazioni di backup configurate e almeno un backup è già stato eseguito, puoi cercare e ripristinare una cartella della casella di posta da una precedente istantanea di backup di una specifica casella utente o pubblica.
