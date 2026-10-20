@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Ricerca" href="search.html" />
+    <link rel="next" title="Webmail" href="webmail.html" />
+    <link rel="prev" title="Web server" href="web_server.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "it", "page": "mail", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/mail.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accesso al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applicazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Autenticazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applicazioni</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Email</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#domains">Domini</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#append-a-legal-notice">Aggiungere un avviso legale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dkim-signature">Firma DKIM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#filter">Filtro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#attachments">Allegati</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antivirus">Antivirus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antispam">Antispam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rules-for-white-and-black-lists">Regole per le liste bianche e nere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rspamd-web-interface">Interfaccia web di Rspamd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quarantine-beta">Quarantena (beta)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mailboxes">Caselle di posta</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#users-mailboxes">Caselle di posta utenti</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#groups-mailboxes">Caselle di posta gruppi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#public-mailboxes">Cartelle di posta pubbliche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-settings">Impostazioni generali</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shared-seen-configuration">Configurazione <em>visti condivisi</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#addresses">Indirizzi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connectors">Connettori</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#synchronization">Sincronizzazione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#queue">Coda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relay">Relay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#special-smtp-access-policies">Politiche SMTP di invio speciali</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-helo">HELO personalizzato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#relay-hosts">Relay host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-relay-host-settings">Impostazioni del relay host di default</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Impostazioni</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logs">Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-configuration">Configurazione client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kerberos-based-authentication">Autenticazione basata su Kerberos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Altri moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Personalizzazione backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Macchine virtuali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Moduli NethForge</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Aggiornamento da NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Aggiornamento Email a Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vecchio Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Il vecchio Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">Groupware SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Email</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/mail.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="email">
+<span id="email-section"></span><h1>Email<a class="headerlink" href="#email" title="Link a questa intestazione">¶</a></h1>
+<p>Il modulo Email è composto da tre parti principali:</p>
+<ul class="simple">
+<li><p>server SMTP per l’invio e la ricezione <a class="footnote-reference brackets" href="#postfix" id="id1">1</a></p></li>
+<li><p>server IMAP e POP3 per la lettura della posta <a class="footnote-reference brackets" href="#dovecot" id="id2">2</a>, e linguaggio Sieve per organizzarla <a class="footnote-reference brackets" href="#sieve" id="id3">3</a></p></li>
+<li><p>Filtro antispam, antivirus e blocco degli allegati <a class="footnote-reference brackets" href="#rspamd" id="id4">4</a></p></li>
+</ul>
+<p>Vantaggi</p>
+<ul class="simple">
+<li><p>Completa autonomia nella gestione della posta</p></li>
+<li><p>Esclusione di eventuali problemi dovuti al provider</p></li>
+<li><p>Possibilità di ricostruire tutto il tragitto dei messaggi al fine di individuare eventuali errori</p></li>
+<li><p>Scansione antispam ed antivirus ottimizzata</p></li>
+</ul>
+<p>Vedi anche gli argomenti correlati:</p>
+<ul class="simple">
+<li><p>Come funziona la posta elettronica <a class="footnote-reference brackets" href="#id24" id="id5">5</a></p></li>
+<li><p>Record DNS di tipo MX <a class="footnote-reference brackets" href="#mxrecord" id="id6">6</a></p></li>
+<li><p>Simple Mail Transfer Protocol (SMTP) <a class="footnote-reference brackets" href="#smtp" id="id7">7</a></p></li>
+<li><p>firma DKIM <a class="footnote-reference brackets" href="#dkim" id="id8">8</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Con il rilascio di NethServer 7.5.1804 le nuove installazioni di <a class="reference internal" href="#email-section"><span class="std std-ref">Email</span></a>, <a class="reference internal" href="#pop3-connector-section"><span class="std std-ref">Connettori</span></a> e <a class="reference internal" href="pop3_proxy.html#pop3-proxy-section"><span class="std std-ref">Proxy POP3</span></a> sono basate sul motore di filtraggio Rspamd. Le precedenti installazioni di NethServer verranno automaticamente aggiornate a Rspamd come descritto nella sezione <a class="reference internal" href="mail2.html#email2-section"><span class="std std-ref">Aggiornamento Email a Rspamd</span></a></p>
+</div>
+<section id="domains">
+<span id="email-domains"></span><span id="index-0"></span><h2>Domini<a class="headerlink" href="#domains" title="Link a questa intestazione">¶</a></h2>
+<p>NethServer può gestire un numero illimitato di domini di posta, configurabili dalla pagina <span class="guilabel">Email &gt; Domini</span>. Per ogni dominio ci sono due alternative:</p>
+<ul class="simple">
+<li><p><em>Consegna</em> dei messaggi alle caselle di posta locali, secondo il formato Maildir <a class="footnote-reference brackets" href="#maildirformat" id="id9">9</a>.</p></li>
+<li><p><em>Relay</em> dei messaggi ad un altro mail server</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Eliminando un dominio, non verranno eliminate e-mail, ma solo inibita la ricezione di mail indirizzate al dominio. Eventuali mail già ricevute rimarranno conservate sul server.</p>
+</div>
+<p id="index-1">NethServer consente di conservare una <em class="dfn">copia nascosta</em> di tutti i messaggi diretti ad un certo dominio: saranno consegnati al destinatario finale <em>e in più</em> ad un indirizzo email personalizzabile. La copia nascosta è abilitata dall’interruttore <span class="guilabel">Copia messaggi in ingresso</span> (precedentemente <span class="guilabel">Spedisci sempre una copia (Bcc)</span>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>In alcuni paesi abilitare l’opzione <em>Copia messaggi in ingresso</em> può essere contro le leggi sulla privacy.</p>
+</div>
+<p>Se il destinatario finale non può essere raggiunto (ad esempio se l’indirizzo del destinatario non esiste), il messaggio viene normalmente rifiutato. A volte (ad esempio quando viene migrato un dominio di posta elettronica) potrebbe essere utile accettare e consegnare il messaggio ad una casella di posta di tipo <em>catch-all</em>. Questo comportamento può essere ottenuto abilitando l’opzione :guilabel:<a href="#id1"><span class="problematic" id="id2">`</span></a>Accetta messaggi a destinatari ignoti <a href="#id3"><span class="problematic" id="id4">`</span></a>.</p>
+<section id="append-a-legal-notice">
+<span id="index-2"></span><h3>Aggiungere un avviso legale<a class="headerlink" href="#append-a-legal-notice" title="Link a questa intestazione">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Dal NethServer 7.5.1804 questa funzionalità è distribuita in un pacchetto separato e opzionale: <code class="docutils literal notranslate"><span class="pre">nethserver-mail-disclaimer</span></code>. Questo pacchetto è <em>deprecato</em> perché il progetto alterMIME <a class="footnote-reference brackets" href="#altermime" id="id10">10</a> su cui si basa l’attuale implementazione, non è più sviluppato e potrebbe smettere di funzionare in qualsiasi momento.</p>
+</div>
+<p>Se l’RPM opzionale <code class="docutils literal notranslate"><span class="pre">nethserver-mail-disclaimer</span></code> è stato installato dal terminale, NethServer può automaticamente aggiungere una nota legale ai messaggi inviati. Questo testo è anche conosciuto come «disclaimer» e serve per ottemperare a determinati requisiti legali.</p>
+<p>Per configurare ed abilitare la nota legale allegata, abilitare l’interruttore dell’opzione <span class="guilabel">Email &gt; Domini [Elemento lista] &gt; Modifica &gt; Aggiungi una nota legale in calce ai messaggi inviati</span>.</p>
+<p>Il disclaimer può contenere codice Markdown <a class="footnote-reference brackets" href="#markdown" id="id11">11</a> che consente la formattazione del testo.</p>
+<p>Notare che <em class="dfn">signature</em> e <em class="dfn">disclaimer</em> sono concetti diversi.</p>
+<p>In generale, il <strong>disclaimer</strong> è un testo statico e deve essere <em>allegato</em> (non aggiunto) ai messaggi dal server di posta. Questa tecnica aiuta a mantenere l’integrità del messaggio in caso di firma digitale.</p>
+<p>Esempio di disclaimer:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>This email and any files transmitted with it are confidential and
+intended solely for the use of the individual or entity to whom they
+are addressed. If you have received this email in error please
+notify the system manager. This message contains confidential
+information and is intended only for the individual named.
+</pre></div>
+</div>
+<p>La <strong>signature</strong> deve essere inserita nel testo del messaggio solo dal client di posta (MUA): Outlook, Thunderbird, ecc. Di solito è un testo definito dall’utente che contiene informazioni come indirizzi mittente e numeri di telefono.</p>
+<p>Esempio di firma:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>John Smith
+President | My Mighty Company | Middle Earth
+555-555-5555 | john@mydomain.com | http://www.mydomain.com
+</pre></div>
+</div>
+</section>
+<section id="dkim-signature">
+<h3>Firma DKIM<a class="headerlink" href="#dkim-signature" title="Link a questa intestazione">¶</a></h3>
+<p>DomainKeys Identified Mail (DKIM) <a class="footnote-reference brackets" href="#dkim" id="id12">8</a> fornisce un modo per convalidare l’MTA di invio, che aggiunge una firma crittografata alle intestazioni MIME dei messaggi in uscita.</p>
+<p>Per attivare la firma DKIM per un dominio di posta, abilitare l’interruttore <span class="guilabel">Firma</span> sotto <span class="guilabel">Email &gt; Domini &gt; [elemento lista] &gt; Configura DKIM</span>.</p>
+<p>Le intestazioni delle firme DKIM vengono aggiunte solo ai messaggi inviati tramite le porte TCP 587 (submission) e 465 (smtps).</p>
+<p>Per funzionare efficacemente, il DNS pubblico deve essere configurato correttamente. Fare riferimento alle istruzioni del proprio provider DNS per eseguire le seguenti operazioni:</p>
+<ol class="arabic simple">
+<li><p>Aggiungere un record TXT al provider DNS pubblico con la chiave «default._domainKey»</p></li>
+<li><p>Copia e incolla della chiave assegnata nella sezione Dati del record DNS (RDATA)</p></li>
+</ol>
+</section>
+</section>
+<section id="filter">
+<span id="email-filter"></span><span id="index-3"></span><h2>Filtro<a class="headerlink" href="#filter" title="Link a questa intestazione">¶</a></h2>
+<p>Tutta la posta in transito è sottoposta ad una serie di controlli che possono essere abilitati selettivamente dalla pagina <span class="guilabel">Email &gt; Filtro</span>:</p>
+<ul class="simple">
+<li><p>Allegati</p></li>
+<li><p>Antivirus</p></li>
+<li><p>Antispam</p></li>
+</ul>
+<section id="attachments">
+<span id="index-4"></span><h3>Allegati<a class="headerlink" href="#attachments" title="Link a questa intestazione">¶</a></h3>
+<p>Il sistema può ispezionare le email, negando l’accesso a messaggi che contengono file in formati proibiti dalle politiche aziendali. È possibile bloccare i seguenti tipi:</p>
+<ul class="simple">
+<li><p><em class="dfn">file eseguibili</em> (es. exe, msi)</p></li>
+<li><p><span class="target" id="index-30"></span>archivi di file (es. zip, tar.gz, docx)</p></li>
+<li><p>lista personalizzata di estensioni</p></li>
+</ul>
+<p>Il sistema riconosce il tipo del file analizzandone il contenuto, indipendentemente dal nome del file. Quindi è possibile che file MS Word (docx) e OpenOffice (odt) siano bloccati perché sono in realtà anche degli archivi zip.</p>
+</section>
+<section id="antivirus">
+<span id="anti-virus"></span><span id="index-7"></span><h3>Antivirus<a class="headerlink" href="#antivirus" title="Link a questa intestazione">¶</a></h3>
+<p>Il componente antivirus individua i messaggi di posta elettronica contenenti virus. I messaggi infetti vengono scartati. Il database contenente le impronte dei virus è aggiornato periodicamente.</p>
+</section>
+<section id="antispam">
+<span id="anti-spam"></span><span id="index-8"></span><h3>Antispam<a class="headerlink" href="#antispam" title="Link a questa intestazione">¶</a></h3>
+<p>Il filtro antispam <a class="footnote-reference brackets" href="#rspamd" id="id13">4</a> analizza i messaggi rilevando e classificando lo <em class="dfn">spam</em> <a class="footnote-reference brackets" href="#spam" id="id14">15</a> tramite criteri euristici, regole predeterminate e valutazioni statistiche sul contenuto dei messaggi.</p>
+<p>Il filtro può anche verificare se il server mittente è elencato in una o più black list (<span class="target" id="index-31"></span>DNSBL <a class="footnote-reference brackets" href="#dnsbl" id="id15">14</a>). Un punteggio è associato a ciascuna regola.</p>
+<p>il punteggio totale raggiunto alla fine dell’analisi permette al server di decidere cosa fare di un messaggio, in accordo con tre <strong>thresholds</strong> che possono essere impostate in <span class="guilabel">Email &gt; Filter &gt; Anti spam</span>.</p>
+<ol class="arabic simple">
+<li><p>Se il punteggio spam è superiore a <span class="guilabel">Soglia di greylist</span> il messaggio è <strong>temporarily rejected</strong>. La tecnica <em class="dfn">greylisting</em> <a class="footnote-reference brackets" href="#grey" id="id16">16</a> presuppone che uno spammer abbia fretta e molto probabilmente non invii di nuovo la mail, mentre un MTA conforme allo standard SMTP tenterà di recapitare nuovamente il messaggio posticipato.</p></li>
+<li><p>Se il punteggio spam è superiore a <span class="guilabel">Soglia spam</span> il messaggio viene <strong>marcato come spam</strong> con l’aggiunta dello speciale header <code class="docutils literal notranslate"><span class="pre">X-Spam:</span> <span class="pre">Yes</span></code> usato per la gestione specifica dello spam, quindi viene recapitato come gli altri messaggi. In alternativa, l’opzione <span class="guilabel">Aggiunta prefisso all’oggetto dei messaggi spam</span> rende visibile il flag di spam nell’oggetto del messaggio, anteponendo la stringa data al header <code class="docutils literal notranslate"><span class="pre">Subject</span></code>.</p></li>
+<li><p>Se il punteggio di spam è sopra <span class="guilabel">Soglia di rifiuto dei messaggi</span> Il messaggio è <strong>rejected</strong>.</p></li>
+</ol>
+<p id="index-10">I filtri statistici, chiamati <em class="dfn">bayesiani</em> <a class="footnote-reference brackets" href="#bayes" id="id17">17</a>, sono regole speciali che evolvono e adattano rapidamente l’esito dell’analisi dei messaggi marcandoli come <strong>spam</strong> o <strong>ham</strong>.</p>
+<p>I filtri statistici possono quindi essere addestrati con qualsiasi client IMAP semplicemente spostando un messaggio dentro e fuori da <em class="dfn">Junk folder</em>. Come prerequisito, la cartella Junk deve essere abilitata con l’opzione <span class="guilabel">Email &gt; Caselle di posta [Impostazioni generali] &gt; Configura [Opzioni Avanzate] &gt; Sposta lo spam nella cartella «Junk»</span> (precedentemente <span class="guilabel">Email &gt; Caselle di posta &gt; Spostare nella cartella «Junk»</span>).</p>
+<ul class="simple">
+<li><p><em>Spostando un messaggio dentro la cartella «Junk»</em>, i filtri apprendono che il messaggio è spam e assegneranno un punteggio più alto ad altri messaggi simili.</p></li>
+<li><p>Al contrario, <em>spostando un messaggio fuori di «Junk»</em>, i filtri apprendono che è <em>ham</em>: a messaggi simili sarà assegnato un punteggio più basso.</p></li>
+</ul>
+<p>Per impostazione predefinita, tutti gli utenti possono addestrare i filtri utilizzando questa tecnica. Se esiste un gruppo chiamato <code class="docutils literal notranslate"><span class="pre">spamtrainers</span></code>, solo gli utenti di questo gruppo potranno addestrare i filtri.</p>
+<p>L’allenamento dei filtri bayesiani si riflette su tutti gli utenti del sistema, non solo sull’utente che ha contrassegnato un’e-mail come spam o ham.</p>
+<p>È importante capire come funzionino i test bayesiani:</p>
+<ul>
+<li><p>Non contrassegnano i messaggi come spam se questi contengono un argomento specifico od uno specifico indirizzo mittente. Si occupano di identificare le caratteristiche specifiche del messaggio.</p></li>
+<li><p>Un messaggio può essere contrassegnato solo una volta. Se lo stesso messaggio viene contrassegnato più volte, non avrà alcun effetto in quanto i test dinamici sono già stati addestrati da quel messaggio.</p></li>
+<li><p>I test bayesiani <strong>non sono attivi fino a quando non hanno ricevuto informazioni sufficienti. Queste prevedono un minimo di 200 mail di spam e 200 mail di ham (falsi positivi).</strong></p>
+<p>Mentre il sistema riceve dati, l’avanzamento dell’addestramento dei filtri bayesiani può essere osservato dalla barra di progresso <span class="guilabel">Email &gt; Filtro [Statistiche] &gt; Allenamento bayesiani</span>.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>È buona norma controllare costantemente la propria cartella «Junk» per non correre il rischio di perdere messaggi riconosciuti erroneamente come spam.</p>
+</div>
+</section>
+<section id="rules-for-white-and-black-lists">
+<span id="index-11"></span><h3>Regole per le liste bianche e nere<a class="headerlink" href="#rules-for-white-and-black-lists" title="Link a questa intestazione">¶</a></h3>
+<p>Se il sistema fallisce nel riconoscere lo spam anche dopo alcuni tentativi di allenamento, la <em>whitelist</em> e la <em>blacklist</em> possono venire in aiuto. Queste sono liste di indirizzi di posta elettronica che vengono o sempre ammessi o sempre rifiutati a spedire o ricevere un messaggio.</p>
+<p>La sezione <span class="guilabel">Email &gt; Filtro [Regole] &gt; Dettagli</span> (precedentemente <span class="guilabel">Regole di accesso per indirizzi email</span>) consente la creazione di tre tipi di regole:</p>
+<ul class="simple">
+<li><p><span class="guilabel">Accetta da</span>: tutti i messaggi provenienti dal mittente indicato vengono sempre accettati</p></li>
+<li><p><span class="guilabel">Accetta a</span>: tutti i messaggi destinati all’indirizzo indicato vengono sempre accettati</p></li>
+<li><p><span class="guilabel">Blocca da</span>: tutti i messaggi provenienti dal mittente indicato vengono sempre bloccati</p></li>
+</ul>
+<p>Le regole di tipo <em>Accetta</em> hanno una precedenza maggiore rispetto a quelle di tipo <em>Blocca</em>. Se una regola <em>Accetta</em> corrisponde, i controlli antispam e antivirus vengono ignorati, la regola <em>Blocca</em> non viene valutata e il messaggio viene accettato.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p><strong>I controlli antivirus e antispam vengono ignorati</strong> se una regola <em>Accetta</em> corrisponde.</p>
+</div>
+<p>È possibile creare una regola <em>Accetta</em> o <em>Blocca</em> anche per un intero dominio, non solo per un singolo indirizzo e-mail: è sufficiente specificare il nome del dominio (ad esempio <code class="docutils literal notranslate"><span class="pre">dev.nethserver.org</span></code>).</p>
+<p>Quando viene specificato un nome di dominio di secondo livello, la regola corrisponde anche per i suoi sottodomini. Per esempio <code class="docutils literal notranslate"><span class="pre">nethserver.org</span></code> include <code class="docutils literal notranslate"><span class="pre">nethserver.org</span></code> stesso, ma anche <code class="docutils literal notranslate"><span class="pre">dev.nethserver.org</span></code>, <code class="docutils literal notranslate"><span class="pre">demo.nethserver.org</span></code> e così via.</p>
+</section>
+<section id="rspamd-web-interface">
+<span id="rspamd-web-interface-section"></span><h3>Interfaccia web di Rspamd<a class="headerlink" href="#rspamd-web-interface" title="Link a questa intestazione">¶</a></h3>
+<p>Il modulo antispam è implementato da Rspamd <a class="footnote-reference brackets" href="#rspamd" id="id18">4</a> che è corredato della sua interfaccia web di amministrazione, disponibile all’URL</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://&lt;HOST_IP&gt;:980/rspamd
+</pre></div>
+</div>
+<p>Per maggiori informazioni su Rspamd, fare riferimento alla sezione <a class="reference internal" href="rspamd.html#rspamd-section"><span class="std std-ref">Rspamd</span></a>.</p>
+</section>
+<section id="quarantine-beta">
+<span id="quarantine"></span><h3>Quarantena (beta)<a class="headerlink" href="#quarantine-beta" title="Link a questa intestazione">¶</a></h3>
+<p>NethServer esegue la scansione di tutti i messaggi di posta elettronica in arrivo prima che vengano recapitati alla casella postale dell’utente. I messaggi identificati come spam verranno inviati a una casella di posta utente specifica. Lo scopo di questa funzione è di verificare l’e-mail prima di eliminarla. È possibile inviare una notifica e-mail anche al postmaster (alias di root) per ogni e-mail in quarantena abilitando una opzione dedicata.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>È possibile accedere ai messaggi in quarantena tramite web mail o con un account IMAP</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>La casella di posta utilizzata per la quarantena deve essere in grado di accettare lo spam. Dovrebbe essere una casella di posta condivisa locale o dell’utente. Se si utilizza un account esterno, assicurarsi che l’account esista sul server remoto. Sincerarsi che la casella di quarantena sia stata creata solo per questo scopo specifico, altrimenti sarà sovraccaricata di spam indesiderato.</p>
+</div>
+<p>La quarantena è fornita da un modulo opzionale chiamato``nethserver-mail-quarantine``. Una volta installato dal terminale sarà necessario impostare manualmente le proprietà del suo database.</p>
+<p>Le proprietà sono disponibili sotto la chiave <code class="docutils literal notranslate"><span class="pre">rspamd</span></code> (database di configurazione):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rspamd=service
+...
+QuarantineAccount=spam@domain.org
+QuarantineStatus=enabled
+SpamNotificationStatus=disabled
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QuarantineAccount</span></code>: L’utente o la casella di posta condivisa in cui inviare tutti i messaggi di spam (il controllo dello spam è disabilitato automaticamente su questo account). Deve essere creato manualmente. È possibile utilizzare una casella di posta esterna, in tal caso accertarsi di disabilitare il controllo dello spam sul server remoto</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QuarantineStatus</span></code>: abilita la quarantena, lo spam non viene più respinto. I valori ammessi sono enabled/disabled. L’impostazione predefinita è disabled</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SpamNotificationStatus</span></code>: Abilita la notifica via email quando la posta elettronica viene messa in quarantena. I valori ammessi sono enabled/disabled. L’impostazione predefinita è disabled</p></li>
+</ul>
+<p>Ad esempio, i seguenti comandi abilitano la quarantena e la notifica a root:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop rspamd QuarantineAccount spam@domain.org QuarantineStatus enabled SpamNotificationStatus enabled
+signal-event nethserver-mail-quarantine-save
+</pre></div>
+</div>
+</section>
+</section>
+<section id="mailboxes">
+<h2>Caselle di posta<a class="headerlink" href="#mailboxes" title="Link a questa intestazione">¶</a></h2>
+<p id="index-12">Ogni utente ha un propria casella di posta e ogni nome utente nella forma <em>&lt;username&gt;&#64;&lt;domain&gt;</em> è anche un indirizzo email valido a cui inviare messaggi.</p>
+<p>La lista delle caselle di posta è visibile nella pagina <span class="guilabel">Email &gt; Caselle di posta</span>. Ci sono tre tipi di caselle di posta: Utenti, Gruppi, Cartelle pubbliche.</p>
+<section id="users-mailboxes">
+<h3>Caselle di posta utenti<a class="headerlink" href="#users-mailboxes" title="Link a questa intestazione">¶</a></h3>
+<p>Il pulsante <span class="guilabel">Modifica</span> consente di disabilitare l”<span class="guilabel">Accesso ai servizi email</span> (IMAP, POP3, SMTP/AUTH) per un utente specifico. I messaggi inviati a questo utente posso essere inoltrati a indirizzi email esterni multipli.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Se il sistema è collegato a un <a class="reference internal" href="accounts.html#account-providers"><span class="std std-ref">account provider remoto</span></a> dove viene rimosso un account utente, la mailbox associata deve essere cancellata manualmente. Il percorso in cui si trova è <code class="file docutils literal notranslate"><span class="pre">/var/lib/nethserver/vmail/</span></code>.</p>
+</div>
+</section>
+<section id="groups-mailboxes">
+<h3>Caselle di posta gruppi<a class="headerlink" href="#groups-mailboxes" title="Link a questa intestazione">¶</a></h3>
+<p>Gli <em>alias automatici per le caselle di posta dei gruppi</em> sono inizialmente disabilitati. Se abilitati, gli indirizzi come <em>&lt;groupname&gt;&#64;&lt;domain&gt;</em> diventano indirizzi email validi. Un certo indirizzo di gruppo può essere disabilitato ed abilitato nuovamente in un momento successivo, una volta che le caselle di posta dei gruppi sono abilitate. Per disabilitare gli alias automatici globalmente fare riferimento a <a class="reference internal" href="#email-mailboxes-settings"><span class="std std-ref">Impostazioni generali</span></a>.</p>
+<p>Una casella di gruppo non occupa spazio disco. Quando un messaggio viene spedito a una casella di gruppo, la copia di esso è consegnata a ciascun membro del gruppo, secondo le individuali preferenze di consegna ed inoltro.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Se il sistema è collegato a un <a class="reference internal" href="accounts.html#account-providers"><span class="std std-ref">account provider Active Directory</span></a> la casella di posta di gruppo funziona solo se il gruppo è un <em>gruppo di sicurezza</em>. Se il gruppo è un <em>gruppo di distribuzione</em> la casella di posta non funziona.</p>
+</div>
+</section>
+<section id="public-mailboxes">
+<h3>Cartelle di posta pubbliche<a class="headerlink" href="#public-mailboxes" title="Link a questa intestazione">¶</a></h3>
+<div class="admonition note" id="index-13">
+<p class="admonition-title">Nota</p>
+<p>Nel vecchio Server Manager la dicitura <span class="guilabel">Mailbox condivise</span> era impiegata al posto di <span class="guilabel">Cartelle pubbliche</span>.</p>
+</div>
+<p id="index-14">Le cartelle di posta pubbliche possono essere condivise tra gruppi di utenti. La pagina <span class="guilabel">Email &gt;  Caselle di posta &gt; Cartelle pubbliche</span> consente la creazione di una nuova cartella pubblica e la definizione di uno o più gruppi proprietari. Le cartelle pubbliche possono anche essere create da un qualsiasi client IMAP che supporta l’estensione del protocollo IMAP ACL (RFC 4314).</p>
+</section>
+<section id="general-settings">
+<span id="email-mailboxes-settings"></span><h3>Impostazioni generali<a class="headerlink" href="#general-settings" title="Link a questa intestazione">¶</a></h3>
+<p>La pagina <span class="guilabel">Email &gt; Caselle di posta [Impostazioni generali]</span> mostra l’elenco dei protocolli disponibili per l’accesso alle caselle di posta degli utenti:</p>
+<ul class="simple">
+<li><p>IMAP <a class="footnote-reference brackets" href="#imap" id="id19">12</a> (raccomandato)</p></li>
+<li><p>POP3 <a class="footnote-reference brackets" href="#pop3" id="id20">13</a> (sconsigliato)</p></li>
+</ul>
+<p>Per motivi di sicurezza, di base tutti i protocolli richiedono la connessione cifrata in modalità STARTTLS. Anche se fortemente sconsigliato, è possibile disabilitare la cifratura abilitando l’opzione <span class="guilabel">Consenti connessioni non cifrate</span>. In questo modo le password e i contenuti dei messaggi possono transitare in chiaro nella rete.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Non consentire le connessioni in chiaro negli ambienti di produzione!</p>
+</div>
+<p id="index-15">Dalla stessa pagina il <span class="guilabel">Limite quota</span> di una casella di posta può essere impostato ad un valore comune di base. Se alle caselle di posta è applicata una quota, la pagina <span class="guilabel">Email &gt; Caselle di posta</span> riassume l’utilizzo dello spazio disco di ogni utente. Il valore mostrato è aggiornato quando un utente accede alla casella di posta o un nuovo messaggio viene consegnato. La quota può essere personalizzata per un utente particolare mediante <span class="guilabel">Email &gt; Caselle di posta [utente] &gt; Modifica &gt; Quota email personalizzata</span>.</p>
+<p id="index-16">I messaggi marcati come <strong>spam</strong> (vedi <a class="reference internal" href="#email-filter"><span class="std std-ref">Filtro</span></a>) possono essere spostati automaticamente nella cartella <em class="dfn">Junk</em> abilitando l’opzione <span class="guilabel">Sposta lo spam nella cartella «Junk»</span>. I messaggi di spam vengono automaticamente rimossi trascorso il periodo <span class="guilabel">Conserva spam per</span>. Tale periodo può essere personalizzato per un utente particolare dal controllo <span class="guilabel">Email &gt; Caselle di posta [Utenti] &gt; Modifica &gt; Eliminazione automatica spam</span>.</p>
+<p id="index-17">L’utente <code class="docutils literal notranslate"><span class="pre">root</span></code> può impersonare un altro utente, acquisendo pieni diritti sui contenuti della casella di posta e sui permessi delle cartelle di quest’ultimo. L’opzione <span class="guilabel">Root può accedere impersonando un altro utente</span> controlla questa facoltà, conosciuta con il nome di <em>master user</em> in Dovecot <a class="footnote-reference brackets" href="#dovecot" id="id21">2</a>.</p>
+<p>Quando <span class="guilabel">Root può accedere impersonando un altro utente</span> è abilitata, le seguenti credenziali sono accettate dal server IMAP:</p>
+<ul class="simple">
+<li><p>nome utente al quale sia aggiunto il suffisso <code class="docutils literal notranslate"><span class="pre">*root</span></code></p></li>
+<li><p>password di root</p></li>
+</ul>
+<p>Per esempio, per accedere come <code class="docutils literal notranslate"><span class="pre">john</span></code> con la password di root <code class="docutils literal notranslate"><span class="pre">secr3t</span></code>, utilizzare le seguenti credenziali:</p>
+<ul class="simple">
+<li><p>nome utente: <code class="docutils literal notranslate"><span class="pre">john*root</span></code></p></li>
+<li><p>password: <code class="docutils literal notranslate"><span class="pre">secr3t</span></code></p></li>
+</ul>
+<p>Opzioni aggiuntive:</p>
+<ul class="simple">
+<li><p>Se le <em>caselle di posta gruppi</em> sono state abilitate in <span class="guilabel">Email &gt; Caselle di posta &gt; Gruppi</span> deselezionare l’opzione <span class="guilabel">Alias automatici per i gruppi</span> per disabilitarli di nuovo.</p></li>
+<li><p>È possibile registrare le azioni IMAP abilitando <span class="guilabel">Registra le azioni IMAP</span>. Vedere inoltre <a class="reference internal" href="#email-log"><span class="std std-ref">Log</span></a>.</p></li>
+</ul>
+<ul id="email-outlook-deleted">
+<li><p>A differenza della quasi totalità dei client IMAP, Outlook non sposta i messaggi eliminati nel cestino, ma si limita a marcarli «cancellati».</p>
+<p>È possibile spostare automaticamente i messaggi nella cartella cestino abilitando <span class="guilabel">Sposta le mail cancellate nel cestino (Outlook)</span>.</p>
+<p>Si consiglia quindi di modificare la configurazione di Outlook in modo che nasconda i messaggi eliminati dalla posta in arrivo. La funzione è disponibile nel menu delle opzioni di visualizzazione.</p>
+</li>
+<li><p><span class="guilabel">Massimo di connessioni per IP</span> cambia il limite di connessioni per utente provenienti dal medesimo indirizzo IP. Questo limite può essere aumentato se messaggi come  <em>Maximum number of connections</em> compaiono nei file di log (vedere <a class="reference internal" href="#email-log"><span class="std std-ref">Log</span></a>).</p></li>
+</ul>
+</section>
+<section id="shared-seen-configuration">
+<h3>Configurazione <em>visti condivisi</em><a class="headerlink" href="#shared-seen-configuration" title="Link a questa intestazione">¶</a></h3>
+<p>Gli utenti possono condividere la propria casella di posta (o parte di essa, cioè specifiche cartelle) con account selezionati del sistema. Chiunque abbia accesso a una casella di posta condivisa può leggerne o eliminarne i messaggi in base alle autorizzazioni concesse dal proprietario.</p>
+<p>Il flag IMAP <code class="docutils literal notranslate"><span class="pre">/Seen</span></code> viene utilizzato per contrassegnare se un messaggio è stato letto o meno. In una casella di posta condivisa, ogni utente ha la propria copia dei messaggi letti, ma a volte un team che condivide una casella di posta potrebbe preferire sapere se un messaggio è già stato letto da qualcun altro. Per abilitare la condivisione del flag <code class="docutils literal notranslate"><span class="pre">Seen</span></code> per tutte le caselle di posta condivise, utilizzare i seguenti comandi:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop dovecot SharedSeen enabled
+signal-event nethserver-mail-server-save
+</pre></div>
+</div>
+<p>È opportuno sottolineare che la modifica dello stato di <code class="docutils literal notranslate"><span class="pre">SharedSeen</span></code> ripristina il flag <code class="docutils literal notranslate"><span class="pre">/Seen</span></code> per tutti gli utenti su tutte le cassette postali.</p>
+<p>Le cartelle pubbliche vengono create dall’amministratore e in genere sono visibili a tutti gli utenti (o ai grandi gruppi). Il flag <code class="docutils literal notranslate"><span class="pre">/Seen</span></code> viene gestito per ciascun utente e non può essere condiviso.</p>
+</section>
+</section>
+<section id="addresses">
+<span id="email-addresses"></span><span id="index-18"></span><h2>Indirizzi<a class="headerlink" href="#addresses" title="Link a questa intestazione">¶</a></h2>
+<p>In aggiunta alle caselle di posta Utenti, Gruppi e Pubbliche, descritte nella sezione precedente, il sistema consente la creazione di un numero illimitato di indirizzi di posta dalla pagina <span class="guilabel">Email &gt; Indirizzi</span>. Ogni <em class="dfn">indirizzo  email</em> è associato con una o più destinazioni. Una <em class="dfn">destinazione</em> può essere dei seguenti tipi:</p>
+<ul class="simple">
+<li><p>casella utente</p></li>
+<li><p>casella gruppo</p></li>
+<li><p>cartella pubblica</p></li>
+<li><p>indirizzo email esterno</p></li>
+</ul>
+<p>Un indirizzo email può essere legato a qualsiasi dominio di posta o essere specifico per un certo dominio. Per esempio:</p>
+<ul class="simple">
+<li><p>Primo dominio: <code class="docutils literal notranslate"><span class="pre">miodominio.it</span></code></p></li>
+<li><p>Secondo dominio: <code class="docutils literal notranslate"><span class="pre">esempio.com</span></code></p></li>
+<li><p>L’indirizzo email <em>info</em> collegato a qualsiasi dominio: <code class="docutils literal notranslate"><span class="pre">info&#64;mydomain.net</span></code>, <code class="docutils literal notranslate"><span class="pre">info&#64;example.com</span></code></p></li>
+<li><p>L’indirizzo email <em>goofy</em> specifico per un solo dominio: <code class="docutils literal notranslate"><span class="pre">goofy&#64;example.com</span></code></p></li>
+</ul>
+<p id="index-19">A volte le aziende proibiscono l’uso di indirizzi e-mail personali per le comunicazioni dell’organizzazione verso l’esterno. L’opzione <span class="guilabel">Interna</span> (precedentemente <span class="guilabel">Solo reti locali</span>) e i pulsanti <span class="guilabel">Rendi interno</span> e <span class="guilabel">Rendi pubblico</span> impediscono ad un indirizzo di ricevere e-mail dall’esterno. Tuttavia un indirizzo <em>interno</em> può ancora essere utilizzato per scambiare messaggi con gli altri account del sistema.</p>
+</section>
+<section id="connectors">
+<span id="pop3-connector-section"></span><h2>Connettori<a class="headerlink" href="#connectors" title="Link a questa intestazione">¶</a></h2>
+<p>La pagina di configurazione dei <span class="target" id="index-32"></span>connettori POP3/IMAP è disponibile nella pagina <span class="guilabel">Email &gt; Connettori</span>.</p>
+<p>Gli account esterni configurati verranno controllati regolarmente e i messaggi scaricati saranno consegnati agli utenti locali.</p>
+<p>Non è consigliabile utilizzare il connettore POP3 come metodo principale per la gestione della posta elettronica. Il recapito della posta può essere influenzato dallo spazio su disco e dai problemi di connettività del server del provider. Inoltre, il filtro antispam sarà meno efficace a causa della perdita delle informazioni contenute nell’envelope della mail originale.</p>
+<p>Gli account POP3/IMAP sono configurabili dalla pagina <span class="guilabel">Connettore POP3 &gt; Indirizzi esterni</span>. Per ogni account possono essere specificati:</p>
+<ul class="simple">
+<li><p>l’indirizzo email (come identificativo univoco per l’account)</p></li>
+<li><p>il protocollo (IMAP/POP3/IMAP con SSL/POP3 con SSL)</p></li>
+<li><p>l’indirizzo del server remoto</p></li>
+<li><p>le credenziali dell’account</p></li>
+<li><p>l’utente locale a cui consegnare i messaggi</p></li>
+<li><p>se un messaggio vada eliminato dal server remoto dopo la consegna</p></li>
+<li><p>controlli antispam e antivirus</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>È consentito associare più account esterni ad uno locale. L’eliminazione di un account <em>non</em> cancellerà i messaggi già consegnati.</p>
+</div>
+<p>Completata la configurazione di un account, questo viene automaticamente controllato per rilevare la presenza di nuovi messaggi di posta.</p>
+<p id="index-21">L’implementazione è basata su <a class="reference external" href="http://pyropus.ca/software/getmail/">Getmail</a>. Dopo aver scaricato i messaggi dal provider POP3/IMAP remoto, Getmail applica tutti i filtri attivati (SPAM e virus), quindi consegna il messaggio localmente. I messaggi vengono filtrati in base alle <a class="reference internal" href="#email-filter"><span class="std std-ref">regole configurate</span></a>.</p>
+<p>Tutte le operazioni di download sono riportate nel file <code class="file docutils literal notranslate"><span class="pre">/var/log/maillog</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Se un account scelto per la consegna venisse successivamente eliminato, la configurazione diventerebbe inconsistente. Se questo dovesse accadere la relativa configurazione esistente nella pagina <span class="guilabel">Connettore POP3</span> dovrà essere disabilitata o eliminata.</p>
+</div>
+</section>
+<section id="synchronization">
+<span id="email-imap-synchronization"></span><h2>Sincronizzazione<a class="headerlink" href="#synchronization" title="Link a questa intestazione">¶</a></h2>
+<p>La pagina <span class="guilabel">Email &gt; Sincronizzazione</span> si basa su uno tool di migrazione IMAP chiamato Imapsync. Lo scopo è migrare i messaggi e-mail da un account IMAP remoto a uno locale.</p>
+<p>La migrazione è ricorsiva e incrementale e può essere ripetuta tutte le volte che è necessario. Le e-mail verranno copiate solo se non esistono sul server locale.</p>
+<p>L’amministratore di sistema del NethServer locale non necessità di conoscere la password dell’utente locale. Tuttavia, l’amministratore deve conoscere la password dell’account IMAP remoto, a meno che l’autenticazione dell’amministratore IMAP sia implementata anche per il server di posta remoto.</p>
+<p>Se anche il server IMAP remoto è un NethServer, l’utente amministratore IMAP è <code class="docutils literal notranslate"><span class="pre">vmail</span></code> e la sua password può essere ricavata da :file: <cite>/var/lib/nethserver/secrets/vmail</cite>. Il nome utente con il suffisso <code class="docutils literal notranslate"><span class="pre">*vmail</span></code> (ad es. <code class="docutils literal notranslate"><span class="pre">nomeutente&#64;dominio.com*vmail</span></code>) e la password di <code class="docutils literal notranslate"><span class="pre">vmail</span></code> dovranno essere impostati nel pannello di sincronizzazione IMAP.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Un elenco di <a class="reference external" href="https://imapsync.lamiral.info/FAQ.d/FAQ.Admin_Authentication.txt">Server IMAP con autenticazione admin</a> è disponibile nella documentazione di Imapsync</p>
+</div>
+</section>
+<section id="queue">
+<span id="email-queue"></span><span id="index-22"></span><h2>Coda<a class="headerlink" href="#queue" title="Link a questa intestazione">¶</a></h2>
+<p>La pagina <span class="guilabel">Email &gt; Coda</span> elenca i messaggi in attesa di essere trasferiti nella coda di posta SMTP. In condizioni normali questa coda dovrebbe essere vuota o  contenere al più alcuni messaggi.</p>
+<p>Il link <span class="guilabel">Email &gt; Coda [Grafici] &gt; Mostra grafici</span> mostra in tempo reale lo stato della coda di posta degli ultimi minuti, aggiornato finché la pagina viene lasciata aperta. Il grafico mostra il numero dei messaggi nella coda e le dimensioni totali della coda in kilobyte.</p>
+<p>Mentre i messaggi sono nella coda, l’amministratore può richiedere un tentativo immediato di spedizione, premendo il pulsante <span class="guilabel">Rispedisci tutti</span> (precedentemente <span class="guilabel">Tenta l’invio</span>), o svuotare completamente la coda mediante il pulsante <span class="guilabel">Elimina tutti</span>.</p>
+<p>È anche possibile eseguire su un singolo messaggio in coda <span class="guilabel">Rispedisci</span> o <span class="guilabel">Elimina</span> dai pulsanti azione degli elementi di <span class="guilabel">Email &gt; Coda [Lista]</span>.</p>
+</section>
+<section id="relay">
+<span id="email-relay"></span><span id="index-23"></span><h2>Relay<a class="headerlink" href="#relay" title="Link a questa intestazione">¶</a></h2>
+<p>La pagina <span class="guilabel">Email &gt; Relay</span> configura come i messaggi sono accettati e instradati dal server SMTP di NethServer ad altri server SMTP.</p>
+<section id="special-smtp-access-policies">
+<span id="email-policies"></span><h3>Politiche SMTP di invio speciali<a class="headerlink" href="#special-smtp-access-policies" title="Link a questa intestazione">¶</a></h3>
+<p>La configurazione predefinita di NethServer richiede che tutti i client utilizzino la porta submission (587) con cifratura e autenticazione abilitate per inviare messaggi attraverso il server SMTP. Vedere anche <a class="reference internal" href="#email-clients"><span class="std std-ref">Configurazione client</span></a>.</p>
+<p>Per semplificare la configurazione di ambienti preesistenti, la sezione <span class="guilabel">Email &gt; Relay [Configurazione] &gt; Details</span> (precedentemente <span class="guilabel">Email &gt; SMTP access</span>) consente di specificare delle eccezioni ai criteri di accesso SMTP di default.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Non modificare i criteri di accesso di default in nuove installazioni!</p>
+</div>
+<p>Per esempio, ci sono alcuni dispositivi (stampanti, scanner, …) che non supportano l’autenticazione SMTP, la cifratura o l’uso di porte personalizzate. Questi possono essere abilitati all’invio di messaggi email elencando il loro indirizzo IP nell’area di testo <span class="guilabel">Consenti relay dai seguenti indirizzi IP</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Gli indirizzi IP elencati sono esclusi da tutti i controlli di filtraggio della posta: utilizzare questa funzione solo come ultima possibile risorsa</p>
+</div>
+<p>In più nella stessa sezione ci sono ulteriori opzioni:</p>
+<ul>
+<li><p>L’opzione <span class="guilabel">Consenti relay dalle reti fidate</span>, che abilita la spedizione di messaggi da qualsiasi client connesso dalle reti fidate.</p></li>
+<li><p>L’opzione <span class="guilabel">Abilita autenticazione sulla porta 25</span>, che consente l’autenticazione dei client SMTP e l’invio (relay) di messaggi anche sulla porta 25.</p></li>
+<li><p>Per impostazione predefinita, un client SMTP autenticato non ha particolari restrizioni sull’impostazione dell’indirizzo del mittente SMTP.</p>
+<p>Per evitare l’uso non autorizzato degli indirizzi e-mail e lo spoofing dell’indirizzo del mittente, abilitare l’opzione <span class="guilabel">Forza corrispondenza mittente/login</span>.</p>
+<p>Se abilitata, solo gli indirizzi associati al login SMTP corrente sono consentiti.</p>
+</li>
+</ul>
+</section>
+<section id="custom-helo">
+<span id="email-helo"></span><span id="index-24"></span><h3>HELO personalizzato<a class="headerlink" href="#custom-helo" title="Link a questa intestazione">¶</a></h3>
+<p>Il primo passo di una sessione SMTP è lo scambio del comando <em class="dfn">HELO</em> (o <em class="dfn">EHLO</em>). Tale comando richiede come parametro il nome del server completo di dominio valido (RFC 1123).</p>
+<p>NethServer ed altri server di posta, nel tentativo di ridurre lo spam, non accettano HELO con domini non registrati nel DNS pubblico.</p>
+<p>Quando comunica con un altro server di posta, NethServer utilizza il nome host completo di dominio (FQDN) come valore per il comando HELO. Se questo non è registrato nel DNS pubblico, tale valore può essere cambiato nel campo di testo <span class="guilabel">HELO personalizzato</span>.</p>
+<p>Tale configurazione è utilizzabile anche quando non si è proprio in possesso di un dominio registrato, in questo caso è possibile registrare gratuitamente un DNS dinamico, associarlo all’IP pubblico del server ed utilizzare questo dominio come parametro HeloHost del precedente comando.</p>
+</section>
+<section id="relay-hosts">
+<span id="email-multi-relay"></span><h3>Relay host<a class="headerlink" href="#relay-hosts" title="Link a questa intestazione">¶</a></h3>
+<p>La pagina <span class="guilabel">Email &gt; Relay</span> consente di descrivere la rotta di un messaggio e-mail spedendolo attraverso un relay host esterno specificando porta, autenticazione e impostazioni TLS.</p>
+<p>Creare una descrizione dell’host di inoltro sotto <span class="guilabel">Email &gt; Relay &gt; Crea relay host</span>.</p>
+<p>Il relay host è identificato <strong>dall’indirizzo del mittente SMTP</strong>. È possibile abbinare l’indirizzo completo del mittente o solo il suo dominio.</p>
+</section>
+<section id="default-relay-host-settings">
+<span id="smarthost-configuration"></span><h3>Impostazioni del relay host di default<a class="headerlink" href="#default-relay-host-settings" title="Link a questa intestazione">¶</a></h3>
+<p>Se l’indirizzo del mittente non corrisponde ad alcuna delle regole di relay descritte nella sezione precedente è possibile (anche se non raccomandato) configurare un relay host di default invece di basarsi sulle regole di relay dello standard SMTP.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Spedire tramite uno <em>smarthost</em> è in genere sconsigliato, a meno che il server non sia temporaneamente in una blacklist <a class="footnote-reference brackets" href="#dnsbl" id="id22">14</a>, o il traffico SMTP sia bloccato dall’ISP.</p>
+</div>
+<p>La sezione <span class="guilabel">Sistema &gt; Impostazioni &gt; Smart host</span> consente di affidare l’invio di tutti i messaggi in uscita ad uno speciale server SMTP, tecnicamente denominato <em class="dfn">smarthost</em>. Uno smarthost consente l’inoltro dei messaggi se sono verificate determinate condizioni. È possibile che verifichi:</p>
+<ul class="simple">
+<li><p>l’indirizzo IP del client</p></li>
+<li><p>le credenziali SMTP AUTH del client</p></li>
+</ul>
+<p>Fare riferimento anche a <a class="reference internal" href="base_system2.html#smart-host"><span class="std std-ref">Smart host</span></a> per maggiori informazioni.</p>
+</section>
+</section>
+<section id="settings">
+<span id="email-settings"></span><span id="email-messages"></span><h2>Impostazioni<a class="headerlink" href="#settings" title="Link a questa intestazione">¶</a></h2>
+<p id="index-25">Dalla pagina <span class="guilabel">Email &gt; Impostazioni</span>, il controllo <span class="guilabel">Dimensione massima messaggio</span> (precedentemente <span class="guilabel">Accetta messaggi fino a</span>) imposta la dimensione massima dei messaggi che attraversano il sistema. Se questo limite è superato, un messaggio non entra affatto nel sistema e viene rifiutato.</p>
+<p>Quando un messaggio entra in NethServer, viene registrato nella <em class="dfn">coda messaggi</em>, in attesa di essere consegnato o inoltrato altrove (relay). Quando NethServer inoltra un messaggio ad un server remoto, possono verificarsi degli errori. Per esempio:</p>
+<ul class="simple">
+<li><p>la connessione di rete fallisce, oppure</p></li>
+<li><p>l’altro server è spento, o è in sovraccarico</p></li>
+</ul>
+<p>Questi ed altri errori sono <em>temporanei</em>: in questi casi, NethServer tenta di riconnettersi all’host remoto ad intervalli regolari, finché viene raggiunto un limite. Il controllo <span class="guilabel">Ritenta l’invio per</span> (precedentemente <span class="guilabel">Tenta l’invio per</span>) cambia questo limite. Di default è impostato a <em>4 giorni</em>.</p>
+<p id="index-26">L’opzione <span class="guilabel">Inoltra una copia di tutti i messaggi</span> (precedentemente <span class="guilabel">Spedisci sempre una copia (Bcc)</span>) abilita la copia nascosta di qualsiasi messaggio attraversi il server di posta. Questa funzionalità è differente dall’opzione simile nella scheda <span class="guilabel">Email &gt; Domain</span> perché non fa differenza tra i domini di posta e in più cattura i messaggi in uscita.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>In alcuni paesi abilitare l’opzione <em>Inoltra una copia di tutti i messaggi</em> può essere contro le leggi sulla privacy.</p>
+</div>
+</section>
+<section id="logs">
+<span id="email-log"></span><h2>Log<a class="headerlink" href="#logs" title="Link a questa intestazione">¶</a></h2>
+<p>Ogni operazione eseguita dal server di posta è trascritta nei seguenti file di log:</p>
+<ul class="simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">/var/log/maillog</span></code>: contiene tutte le operazioni di invio e consegna</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">/var/log/imap</span></code>: contiene tutte le azioni di login/logout alle caselle di posta e in più le azioni IMAP, se abilitate secondo <a class="reference internal" href="#email-mailboxes-settings"><span class="std std-ref">Impostazioni generali</span></a>.</p></li>
+</ul>
+<p>Un transazione registrata nel file <code class="file docutils literal notranslate"><span class="pre">maillog</span></code> di solito coinvolge diversi componenti del server di posta. Ogni riga contiene rispettivamente</p>
+<ul class="simple">
+<li><p>la data e l’ora</p></li>
+<li><p>il nome host</p></li>
+<li><p>il nome del componente e l’id del processo dell’istanza</p></li>
+<li><p>il testo che descrive l’operazione</p></li>
+</ul>
+<p>La configurazione di NethServer utilizza Rspamd come milter. Esegue un  proxy worker Rspamd in modalità «self-scan» <a class="footnote-reference brackets" href="#selfscan" id="id23">19</a>.</p>
+<p>La chiave per tracciare l’intera transazione SMTP, incluse le decisioni di Rspamd, è l’intestazione ID messaggio o il Postfix Queue ID (QID). Entrambi sono disponibili nel sorgente del messaggio. L’intestazione <code class="docutils literal notranslate"><span class="pre">Message-ID</span></code> è generata dal mittente, mentre il QID è assegnato dal MTA ricevente. Per esempio</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Received: from my.example.com (my.example.com [10.154.200.17])
+      by mail.mynethserver.org (Postfix) with ESMTP id A785B308622AB
+      for &lt;jsmith@example.com&gt;; Tue, 15 May 2018 02:05:02 +0200 (CEST)
+...
+Message-ID: &lt;5afa242e.hP5p/mry+fTNNjms%no-reply@example.com&gt;
+User-Agent: Heirloom mailx 12.5 7/5/10
+</pre></div>
+</div>
+<p>Qui <code class="docutils literal notranslate"><span class="pre">A785B308622AB</span></code> e il QID, mentre <code class="docutils literal notranslate"><span class="pre">5afa242e.hP5p/mry+fTNNjms%no-reply&#64;example.com</span></code> è il ID del messagio.</p>
+<p>Entrambe le stringhe possono essere usate con il comando <code class="docutils literal notranslate"><span class="pre">grep</span></code> per trovare righe di log rilevanti in <code class="docutils literal notranslate"><span class="pre">/var/log/maillog*</span></code> (notare il  «*» finale  per cercare anche nei file di log archiviati). Per esempio</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep -F &#39;A785B308622AB&#39; /var/log/maillog*
+</pre></div>
+</div>
+<p>Resa</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/var/log/maillog:May 15 02:05:02 mail postfix/smtpd[25846]: A785B308622AB: client=my.example.com[10.154.200.17]
+/var/log/maillog:May 15 02:05:02 mail postfix/cleanup[25849]: A785B308622AB: message-id=&lt;5afa242e.hP5p/mry+fTNNjms%no-reply@example.com&gt;
+/var/log/maillog:May 15 02:05:02 mail rspamd[27538]: &lt;8ae27d&gt;; proxy; rspamd_message_parse: loaded message; id: &lt;5afa242e.hP5p/mry+fTNNjms%no-reply@example.com&gt;; queue-id: &lt;A785B308622AB&gt;; size: 2348; checksum: &lt;b1035f4fb07162ba88053d9e38df9c93&gt;
+/var/log/maillog:May 15 02:05:03 mail rspamd[27538]: &lt;8ae27d&gt;; proxy; rspamd_task_write_log: id: &lt;5afa242e.hP5p/mry+fTNNjms%no-reply@example.com&gt;, qid: &lt;A785B308622AB&gt;, ip: 10.154.200.17, from: &lt;no-reply@example.com&gt;, (default: F (no action): [-0.64/20.00] [BAYES_HAM(-3.00){100.00%;},AUTH_NA(1.00){},MID_CONTAINS_FROM(1.00){},MX_INVALID(0.50){},MIME_GOOD(-0.10){text/plain;},IP_SCORE(-0.04){ip: (0.22), ipnet: 10.154.192.0/20(0.18), asn: 14061(0.23), country: US(-0.81);},ASN(0.00){asn:14061, ipnet:10.154.192.0/20, country:US;},DMARC_NA(0.00){example.com;},FROM_EQ_ENVFROM(0.00){},FROM_NO_DN(0.00){},NEURAL_HAM(-0.00){-0.656;0;},RCPT_COUNT_ONE(0.00){1;},RCVD_COUNT_TWO(0.00){2;},RCVD_NO_TLS_LAST(0.00){},R_DKIM_NA(0.00){},R_SPF_NA(0.00){},TO_DN_NONE(0.00){},TO_DOM_EQ_FROM_DOM(0.00){},TO_MATCH_ENVRCPT_ALL(0.00){}]), len: 2348, time: 750.636ms real, 5.680ms virtual, dns req: 47, digest: &lt;b1035f4fb07162ba88053d9e38df9c93&gt;, rcpts: &lt;jsmith@example.com&gt;, mime_rcpts: &lt;jsmith@example.com&gt;
+/var/log/maillog:May 15 02:05:03 mail postfix/qmgr[27757]: A785B308622AB: from=&lt;no-reply@example.com&gt;, size=2597, nrcpt=1 (queue active)
+/var/log/maillog:May 15 02:05:03 mail postfix/lmtp[25854]: A785B308622AB: to=&lt;vmail+jsmith@mail.mynethserver.org&gt;, orig_to=&lt;jsmith@example.com&gt;, relay=mail.mynethserver.org[/var/run/dovecot/lmtp], delay=0.82, delays=0.8/0.01/0.01/0.01, dsn=2.0.0, status=sent (250 2.0.0 &lt;vmail+jsmith@mail.mynethserver.org&gt; gK8pHS8k+lr/ZAAAJc5BcA Saved)
+/var/log/maillog:May 15 02:05:03 mail postfix/qmgr[27757]: A785B308622AB: removed
+</pre></div>
+</div>
+</section>
+<section id="client-configuration">
+<span id="email-clients"></span><h2>Configurazione client<a class="headerlink" href="#client-configuration" title="Link a questa intestazione">¶</a></h2>
+<p>NethServer supporta client per la posta elettronica aderenti agli standard che utilizzano le seguenti porte IANA:</p>
+<ul class="simple">
+<li><p>imap/143</p></li>
+<li><p>pop3/110</p></li>
+<li><p>smtp/587</p></li>
+<li><p>sieve/4190</p></li>
+</ul>
+<p>L’autenticazione richiede la cifratura in modalità STARTTLS e supporta le seguenti varianti:</p>
+<ul class="simple">
+<li><p>LOGIN</p></li>
+<li><p>PLAIN</p></li>
+<li><p><a class="reference internal" href="#kerberos-auth"><span class="std std-ref">GSSAPI</span></a> (solo se NethServer è collegato con Samba/Microsoft Active Directory)</p></li>
+</ul>
+<p>Inoltre le seguenti porte SSL sono disponibili per software datato che ancora non supporta STARTTLS:</p>
+<ul class="simple">
+<li><p>imaps/993</p></li>
+<li><p>pop3s/995</p></li>
+<li><p>smtps/465</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>La porta SMTP standard 25 è riservata ai trasferimenti di posta tra server MTA. I client di posta (MUA) devono utilizzare la porta submission per l’invio.</p>
+</div>
+</section>
+<section id="kerberos-based-authentication">
+<span id="kerberos-auth"></span><h2>Autenticazione basata su Kerberos<a class="headerlink" href="#kerberos-based-authentication" title="Link a questa intestazione">¶</a></h2>
+<p>I servizi di posta possono autenticare gli utenti di Active Directory con il protocollo di single-sign-on Kerberos.</p>
+<p>L’account provider Active Directory, sia locale che remoto, richiede un passo aggiuntivo e manuale per completare la configurazione di GSSAPI/Kerberos dei servizi IMAP, POP e SMTP.</p>
+<ol class="arabic">
+<li><p>In una shell di NethServer autenticarsi come amministratore del dominio AD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>kinit some_domain_admin
+</pre></div>
+</div>
+</li>
+<li><p>Aggiungere i service principal per i servizi di posta all’account del server</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>net ads setspn add $(hostname -s) imap/$(hostname -f)
+net ads setspn add $(hostname -s) pop/$(hostname -f)
+net ads setspn add $(hostname -s) smtp/$(hostname -f)
+</pre></div>
+</div>
+</li>
+<li><p>Terminare la sessione</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>kdestroy
+</pre></div>
+</div>
+</li>
+</ol>
+<p class="rubric">Riferimenti</p>
+<dl class="footnote brackets">
+<dt class="label" id="postfix"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Postfix mail server <a class="reference external" href="http://www.postfix.org/">http://www.postfix.org/</a></p>
+</dd>
+<dt class="label" id="dovecot"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id21">2</a>)</span></dt>
+<dd><p>(1, 2) Dovecot Secure IMAP server <a class="reference external" href="http://www.dovecot.org/">http://www.dovecot.org/</a></p>
+</dd>
+<dt class="label" id="sieve"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Sieve mail filtering language <a class="reference external" href="https://en.wikipedia.org/wiki/Sieve_(mail_filtering_language">https://en.wikipedia.org/wiki/Sieve_(mail_filtering_language</a>)</p>
+</dd>
+<dt class="label" id="rspamd"><span class="brackets">4</span><span class="fn-backref">(<a href="#id4">1</a>,<a href="#id13">2</a>,<a href="#id18">3</a>)</span></dt>
+<dd><p>Rspamd: sistema di filtraggio di spam veloce, gratuito e open source. <a class="reference external" href="https://rspamd.com/">https://rspamd.com/</a></p>
+</dd>
+<dt class="label" id="id24"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>Posta elettronica, <a class="reference external" href="https://it.wikipedia.org/wiki/Posta_elettronica">https://it.wikipedia.org/wiki/Posta_elettronica</a></p>
+</dd>
+<dt class="label" id="mxrecord"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>Il record DNS MX, <a class="reference external" href="https://it.wikipedia.org/wiki/MX_record">https://it.wikipedia.org/wiki/MX_record</a></p>
+</dd>
+<dt class="label" id="smtp"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p>SMTP, <a class="reference external" href="https://it.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">https://it.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol</a></p>
+</dd>
+<dt class="label" id="dkim"><span class="brackets">8</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id12">2</a>)</span></dt>
+<dd><p>Domain Keys Identified Mail (DKIM) è un metodo di autenticazione e-mail progettato per rilevare lo spoofing delle e-mail – <cite>Wikipedia &lt;https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail&gt;</cite> _</p>
+</dd>
+<dt class="label" id="maildirformat"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
+<dd><p>The Maildir format, <a class="reference external" href="https://en.wikipedia.org/wiki/Maildir">https://en.wikipedia.org/wiki/Maildir</a></p>
+</dd>
+<dt class="label" id="altermime"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
+<dd><p>alterMIME è un piccolo programma che viene utilizzato per modificare il tuo mailpack con codifica mime – <a class="reference external" href="https://pldaniels.com/altermime/">https://pldaniels.com/altermime/</a></p>
+</dd>
+<dt class="label" id="markdown"><span class="brackets"><a class="fn-backref" href="#id11">11</a></span></dt>
+<dd><p>The Markdown plain text formatting syntax, <a class="reference external" href="https://en.wikipedia.org/wiki/Markdown">https://en.wikipedia.org/wiki/Markdown</a></p>
+</dd>
+<dt class="label" id="imap"><span class="brackets"><a class="fn-backref" href="#id19">12</a></span></dt>
+<dd><p>IMAP <a class="reference external" href="https://it.wikipedia.org/wiki/Internet_Message_Access_Protocol">https://it.wikipedia.org/wiki/Internet_Message_Access_Protocol</a></p>
+</dd>
+<dt class="label" id="pop3"><span class="brackets"><a class="fn-backref" href="#id20">13</a></span></dt>
+<dd><p>POP3 <a class="reference external" href="https://it.wikipedia.org/wiki/Post_Office_Protocol">https://it.wikipedia.org/wiki/Post_Office_Protocol</a></p>
+</dd>
+<dt class="label" id="dnsbl"><span class="brackets">14</span><span class="fn-backref">(<a href="#id15">1</a>,<a href="#id22">2</a>)</span></dt>
+<dd><p>DNSBL <a class="reference external" href="https://it.wikipedia.org/wiki/DNSBL">https://it.wikipedia.org/wiki/DNSBL</a></p>
+</dd>
+<dt class="label" id="spam"><span class="brackets"><a class="fn-backref" href="#id14">15</a></span></dt>
+<dd><p>SPAM <a class="reference external" href="https://it.wikipedia.org/wiki/Spam">https://it.wikipedia.org/wiki/Spam</a></p>
+</dd>
+<dt class="label" id="grey"><span class="brackets"><a class="fn-backref" href="#id16">16</a></span></dt>
+<dd><p>Il greylisting è un metodo per proteggere  gli utenti e-mail dallo spam. Un agente di trasferimento posta (MTA) che utilizza il greylisting «temporarily reject» qualsiasi e-mail da un mittente che non riconosce –<a class="reference external" href="https://en.wikipedia.org/wiki/Greylisting">Wikipedia</a></p>
+</dd>
+<dt class="label" id="bayes"><span class="brackets"><a class="fn-backref" href="#id17">17</a></span></dt>
+<dd><p>Filtro bayesiano <a class="reference external" href="https://it.wikipedia.org/wiki/Filtro_bayesiano">https://it.wikipedia.org/wiki/Filtro_bayesiano</a></p>
+</dd>
+<dt class="label" id="mailcomponents"><span class="brackets">18</span></dt>
+<dd><p>The wondrous Ways of an Email <a class="reference external" href="https://workaround.org/ispmail/wheezybig-picture/">https://workaround.org/ispmail/wheezybig-picture/</a></p>
+</dd>
+<dt class="label" id="selfscan"><span class="brackets"><a class="fn-backref" href="#id23">19</a></span></dt>
+<dd><p><a class="reference external" href="https://rspamd.com/doc/workers/rspamd_proxy.html">https://rspamd.com/doc/workers/rspamd_proxy.html</a></p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="web_server.html" class="btn btn-neutral float-left" title="Web server" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="webmail.html" class="btn btn-neutral float-right" title="Webmail" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
