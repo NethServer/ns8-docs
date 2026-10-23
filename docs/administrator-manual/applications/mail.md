@@ -180,11 +180,13 @@ All transiting email messages are subjected to a list of checks that fall into t
 - Antivirus
 - Antispam
 
+[Bypass rules](#bypass-rules) can exclude messages from both kinds of checks.
+
 Navigate to the `Filter` page to adjust their settings.
 
 ### Antivirus {#anti-virus}
 
-The ClamAV antivirus component finds email messages containing viruses. Infected messages are discarded. The virus signature database is checked for updates every hour.
+The ClamAV antivirus component finds email messages containing viruses. Infected messages are discarded. Messages that match a [bypass rule](#bypass-rules) are not scanned. The virus signature database is checked for updates every hour.
 
 The default ClamAV signatures database is normally disabled because it consumes a large amount of memory. Select the `Enable ClamAV official signatures` checkbox if desired.
 
@@ -208,17 +210,7 @@ The spam score thresholds can be configured under the `Antispam` section of the 
 - `Deny message spam threshold` instead regulates the score that is considered too high to accept a message. If the score exceeds this value, the filter rejects the message completely.
 - Under the `Advanced` section it is possible to enable the `Greylist threshold`. When the message score exceeds this limit the filter asks the sender to try again the message delivery at later time. The *Greylist* spam-fighting method assumes that spammers dislike delivery retries. It is disabled by default because it introduces delivery delays also for legitimate senders.
 
-In some cases an email client, recipient, or sender must bypass the filter checks: the `Bypass rules` section allows to define a set of rules based on the follwing criteria:
-
-- Sender IP address or network (CIDR format).
-- Complete sender email address.
-- Sender email domain (exact match).
-- Complete recipient email address.
-- Recipient email domain (exact match).
-
-Note that address and domain-based rules match the *envelope sender address*, which may differ from the message's "From" address in some cases (e.g. mailing lists).
-
-To view message details such as the envelope sender address, access advanced settings, or review recent Rspamd activity, see [Rspamd web interface](#rspamd-web-interface).
+To view message details, access advanced settings, or review recent Rspamd activity, see [Rspamd web interface](#rspamd-web-interface).
 
 The Bayesian statistical filters can then be trained with any IMAP client by simply moving a message in and out of the Junk folder. As a prerequisite, the Junk folder must be enabled, as explained in [Mailboxes](#mail-mailboxes-settings).
 
@@ -245,6 +237,32 @@ It is important to understand how the Bayesian tests really work:
 
   As the system receives that information, the progress of bayesian filter training can be monitored from the Rspamd web UI.
 
+### Bypass rules {#bypass-rules}
+
+Bypass rules are a temporary workaround for exceptional cases, to receive messages that the filter would otherwise reject, for example because the sender's mail server is misconfigured. A message that matches a bypass rule skips both the antivirus and the antispam checks.
+
+Needing a bypass rule for a long time is a symptom that something else needs fixing, for example the sender's SPF, DKIM or DMARC records, or the spam thresholds. Remove each rule as soon as the problem is solved.
+
+Open the `Bypass rules` page from the `Filter` page to define a set of rules based on the following criteria:
+
+- Sender IP address or network (CIDR format).
+- Complete sender email address.
+- Sender email domain (exact match).
+- Complete recipient email address.
+- Recipient email domain (exact match).
+
+:::warning
+
+A message that matches a bypass rule is delivered even if it contains a virus. Use bypass rules sparingly, temporarily, and only in exceptional cases.
+
+:::
+
+Sender address and domain rules match both the *envelope sender address* and the address in the message's "From" header. The two addresses differ, for example, when a newsletter service or a mailing list sends a message on behalf of the sender. Recipient rules match the envelope recipient addresses.
+
+Both sender addresses are easy to forge: anybody can send a message that appears to come from a sender listed in a bypass rule. Add only senders you trust, and prefer complete email addresses to whole domains. Never add your own mail domains, or the domains of public email providers.
+
+To find the envelope sender address of a message, or to check which rule matched it (symbols starting with `BYPASS_`), see the **History** tab of the [Rspamd web interface](#rspamd-web-interface).
+
 ### Rspamd web interface {#rspamd-web-interface}
 
 The Rspamd web interface can be opened by clicking the **Open Rspamd** button in the top-right corner of the Filter page or by browsing to `https://<yourIP>/rspamd` or `https://<yourFQDN>/rspamd`. You will need your cluster-admin credentials to log in.
@@ -258,6 +276,8 @@ To reject emails by specific sender email addresses, the `/var/lib/rspamd/block_
 To reject emails by domain, add for example `domain.tld` to the `/var/lib/rspamd/block_sender_domain.map` list.
 
 To reject emails by top-level domain or domain suffix, `.tld` or `.domain.tld` may be added to the `/var/lib/rspamd/block_sender_domain_suffix.map` list.
+
+Unlike bypass rules, these lists match only the envelope sender address, not the "From" header.
 
 Do not modify the other lists, as they are preconfigured.
 

@@ -180,11 +180,13 @@ Tutti i messaggi email in transito sono sottoposti a un elenco di controlli che 
 - Antivirus
 - Antispam
 
+Le [regole di bypass](#bypass-rules) possono escludere i messaggi da entrambi i tipi di controllo.
+
 Vai alla pagina `Filter` per modificarne le impostazioni.
 
 ### Antivirus {#anti-virus}
 
-Il componente antivirus ClamAV individua i messaggi email che contengono virus. I messaggi infetti vengono scartati. Il database delle firme dei virus viene controllato ogni ora per gli aggiornamenti.
+Il componente antivirus ClamAV individua i messaggi email che contengono virus. I messaggi infetti vengono scartati. I messaggi che corrispondono a una [regola di bypass](#bypass-rules) non vengono analizzati. Il database delle firme dei virus viene controllato ogni ora per gli aggiornamenti.
 
 Il database predefinito delle firme ufficiali di ClamAV è normalmente disabilitato perché consuma molta memoria. Se vuoi usarlo, seleziona la casella `Enable ClamAV official signatures`.
 
@@ -208,17 +210,7 @@ Le soglie del punteggio spam possono essere configurate nella sezione `Antispam`
 - `Deny message spam threshold` regola invece il punteggio considerato troppo alto per accettare un messaggio. Se il punteggio supera questo valore, il filtro rifiuta completamente il messaggio.
 - Nella sezione `Advanced` è possibile abilitare `Greylist threshold`. Quando il punteggio del messaggio supera questo limite, il filtro chiede al mittente di ritentare la consegna più tardi. Il metodo antispam *Greylist* presuppone che gli spammer non gradiscano i nuovi tentativi di consegna. È disabilitato per impostazione predefinita perché introduce ritardi di consegna anche per i mittenti legittimi.
 
-In alcuni casi un client email, un destinatario o un mittente devono bypassare i controlli del filtro: la sezione `Bypass rules` consente di definire un insieme di regole basate sui seguenti criteri:
-
-- indirizzo IP o rete del mittente (formato CIDR)
-- indirizzo email completo del mittente
-- dominio email del mittente (corrispondenza esatta)
-- indirizzo email completo del destinatario
-- dominio email del destinatario (corrispondenza esatta)
-
-Tieni presente che le regole basate su indirizzo e dominio corrispondono all'*envelope sender address*, che in alcuni casi può differire dall'indirizzo "From" del messaggio, ad esempio nelle mailing list.
-
-Per visualizzare dettagli del messaggio come l'envelope sender address, per accedere alle impostazioni avanzate o per controllare l'attività recente di Rspamd, consulta [Interfaccia web di Rspamd](#rspamd-web-interface).
+Per visualizzare i dettagli dei messaggi, accedere alle impostazioni avanzate o controllare l'attività recente di Rspamd, consulta [Interfaccia web di Rspamd](#rspamd-web-interface).
 
 I filtri statistici bayesiani possono poi essere addestrati con qualsiasi client IMAP semplicemente spostando un messaggio dentro e fuori dalla cartella Junk. Come prerequisito, la cartella Junk deve essere abilitata, come spiegato in [Caselle di posta](#mail-mailboxes-settings).
 
@@ -245,6 +237,32 @@ L'addestramento del filtro bayesiano si applica a tutti gli utenti del sistema, 
 
   Man mano che il sistema riceve queste informazioni, l'avanzamento dell'addestramento del filtro bayesiano può essere monitorato dall'interfaccia web di Rspamd.
 
+### Regole di bypass {#bypass-rules}
+
+Le regole di bypass sono una soluzione temporanea per casi eccezionali, per ricevere messaggi che altrimenti il filtro rifiuterebbe, per esempio perché il server di posta del mittente è configurato in modo errato. Un messaggio che corrisponde a una regola di bypass salta sia i controlli antivirus sia quelli antispam.
+
+Se una regola di bypass serve a lungo, è il sintomo che c'è qualcos'altro da correggere, per esempio i record SPF, DKIM o DMARC del mittente, oppure le soglie antispam. Rimuovi ogni regola appena il problema è risolto.
+
+Apri la pagina `Bypass rules` dalla pagina `Filter` per definire un insieme di regole basate sui seguenti criteri:
+
+- indirizzo IP o rete del mittente (formato CIDR)
+- indirizzo email completo del mittente
+- dominio email del mittente (corrispondenza esatta)
+- indirizzo email completo del destinatario
+- dominio email del destinatario (corrispondenza esatta)
+
+:::warning
+
+Un messaggio che corrisponde a una regola di bypass viene consegnato anche se contiene un virus. Usa le regole di bypass con moderazione, solo temporaneamente e solo in casi eccezionali.
+
+:::
+
+Le regole basate su indirizzo e dominio del mittente corrispondono sia all'*envelope sender address* sia all'indirizzo nell'intestazione "From" del messaggio. I due indirizzi sono diversi, per esempio, quando un servizio di newsletter o una mailing list invia un messaggio per conto del mittente. Le regole del destinatario corrispondono agli indirizzi dei destinatari della busta SMTP.
+
+Entrambi gli indirizzi del mittente sono facili da falsificare: chiunque può inviare un messaggio che sembra provenire da un mittente presente in una regola di bypass. Aggiungi solo mittenti di cui ti fidi, e preferisci gli indirizzi email completi ai domini interi. Non aggiungere mai i tuoi domini di posta, né i domini dei provider email pubblici.
+
+Per trovare l'envelope sender address di un messaggio, o per verificare quale regola gli è stata applicata (simboli che iniziano con `BYPASS_`), consulta la scheda **History** dell'[interfaccia web di Rspamd](#rspamd-web-interface).
+
 ### Interfaccia web di Rspamd {#rspamd-web-interface}
 
 L'interfaccia web di Rspamd può essere aperta facendo clic sul pulsante **Open Rspamd** nell'angolo in alto a destra della pagina Filter oppure visitando `https://<yourIP>/rspamd` o `https://<yourFQDN>/rspamd`. Per accedere ti serviranno le credenziali di cluster-admin.
@@ -258,6 +276,8 @@ Per rifiutare email da specifici indirizzi email mittenti, devi configurare l'el
 Per rifiutare email in base al dominio, aggiungi per esempio `domain.tld` all'elenco `/var/lib/rspamd/block_sender_domain.map`.
 
 Per rifiutare email in base al dominio di primo livello o al suffisso del dominio, puoi aggiungere `.tld` oppure `.domain.tld` all'elenco `/var/lib/rspamd/block_sender_domain_suffix.map`.
+
+A differenza delle regole di bypass, questi elenchi corrispondono solo all'envelope sender address, non all'intestazione "From".
 
 Non modificare gli altri elenchi, perché sono preconfigurati.
 
