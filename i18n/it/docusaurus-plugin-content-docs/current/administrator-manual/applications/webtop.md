@@ -59,6 +59,20 @@ Accedere a WebTop utilizzando l'utente `admin`, quindi aprire le impostazioni de
 
 Andare in **Impostazioni** quindi fare clic su **Cambia password**.
 
+## Delega del ruolo di amministratore
+
+È possibile delegare a un utente il ruolo di amministratore, concedendogli l'accesso alle configurazioni di dominio nel pannello di amministrazione.
+
+Per farlo, aggiungere il ruolo `domain-admin` all'utente:
+
+`Pannello di amministrazione` > `Elenco utenti` > fare doppio clic sull'utente da delegare > `Ruoli` > `+ Aggiungi` > selezionare `domain-admin`.
+
+Al successivo accesso, l'utente trova un nuovo servizio nella barra laterale sinistra, identificato dall'icona di una chiave inglese, per accedere alle impostazioni del dominio.
+
+Tra le configurazioni disponibili, l'utente non è autorizzato a visualizzare il registro degli accessi (`Audit di dominio`).
+
+Per impostazione predefinita, l'utente delegato non può accedere alle proprietà di sistema, dove sono configurabili le impostazioni globali.
+
 ## Modifica del logo
 
 Per modificare e personalizzare il logo iniziale che appare nella pagina di login di WebTop, è necessario caricare il file immagine personalizzato sulle immagini pubbliche dell'utente amministratore e rinominarlo `login.png`.

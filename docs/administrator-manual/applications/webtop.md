@@ -59,6 +59,20 @@ Access WebTop using the `admin` user, then open user settings by clicking on the
 
 Go to **Settings** then click on **Change password**.
 
+## Delegating the administrator role
+
+You can delegate the administrator role to a user, granting access to domain configuration in the administration panel.
+
+To do this, add the `domain-admin` role to the user:
+
+`Administration panel` > `User list` > double-click the user to delegate > `Roles` > `+ Add` > select `domain-admin`.
+
+At the next login, the user finds a new service in the left sidebar, identified by a wrench icon, to access domain settings.
+
+Among the available configurations, the user is not authorized to view the access log (`Domain audit`).
+
+By default, the delegated user cannot access the system properties, where global settings are configured.
+
 ## Changing the logo
 
 To modify and customize the initial logo that appears on the login page of WebTop, you must upload the custom image file on the public images of the admin user and rename it `login.png`.
