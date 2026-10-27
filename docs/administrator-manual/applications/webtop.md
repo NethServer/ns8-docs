@@ -69,8 +69,6 @@ To do this, add the `domain-admin` role to the user:
 
 At the next login, the user finds a new service in the left sidebar, identified by a wrench icon, to access domain settings.
 
-Among the available configurations, the user is not authorized to view the access log (`Domain audit`).
-
 By default, the delegated user cannot access the system properties, where global settings are configured.
 
 ## Changing the logo
