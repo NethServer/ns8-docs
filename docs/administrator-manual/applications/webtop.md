@@ -59,6 +59,18 @@ Access WebTop using the `admin` user, then open user settings by clicking on the
 
 Go to **Settings** then click on **Change password**.
 
+## Delegating the administrator role
+
+You can delegate the administrator role to a user, granting access to domain configuration in the administration panel.
+
+To do this, add the `domain-admin` role to the user:
+
+`Administration panel` > `User list` > double-click the user to delegate > `Roles` > `+ Add` > select `domain-admin`.
+
+At the next login, the user finds a new service in the left sidebar, identified by a wrench icon, to access domain settings.
+
+By default, the delegated user cannot access the system properties, where global settings are configured.
+
 ## Changing the logo
 
 To modify and customize the initial logo that appears on the login page of WebTop, you must upload the custom image file on the public images of the admin user and rename it `login.png`.
@@ -143,6 +155,42 @@ This enables clients to locate the Autodiscover service using a SRV-type record.
 - Weight: `10`
 - Port: `443`
 - Target: `autodiscover.example.org` -- the DNS A record pointing to the WebTop server.
+
+## Required two-factor authentication (2FA)
+
+WebTop allows administrators to make two-factor authentication (2FA) mandatory for users, improving account security and helping meet NIS2 Directive requirements.
+
+The administrator can enable or disable this feature and set a deadline by which users must configure two-factor authentication. Users who do not complete the configuration by the deadline are automatically disabled.
+
+To require 2FA starting from a specific date, add the following global setting from the administration panel:
+
+- Service: `com.sonicle.webtop.core`
+- Key: `otp.required.since`
+- Value: a date in ISO `yyyy-mm-dd` format, for example `2026-10-30`
+
+You can also change the default duration of the cookie that marks a device as trusted. The default value is `0`, which means no expiration. Add the following global setting:
+
+- Service: `com.sonicle.webtop.core`
+- Key: `otp.trust.device.duration`
+- Value: duration in days, for example `30`
+
+To manage exceptions, the administrator can:
+
+- exclude a user from the 2FA requirement, allowing them to continue logging in without this protection
+- grant a temporary three-day exemption, during which the user can reconfigure 2FA; if they do not complete the configuration within this period, they are disabled again
+
+The temporary exemption is useful for new users who log in after the deadline set by the administrator to activate 2FA.
+
+To apply these exceptions, open the user settings:
+
+`Administration panel` > `User list` > select the user and click the gear icon, or right-click and select `Settings` > `Security (2FA)`.
+
+- To permanently exclude the user from the requirement, enable `Requirement exempt`.
+- To temporarily exclude the user for three days, enable `Temporarily exempt`.
+
+Administrative accounts, including the global administrator, are always exempt from the requirement but can still choose to enable 2FA voluntarily.
+
+The user management interface displays the 2FA configuration status of each account in a side column. This lets administrators quickly identify non-compliant users, check exemptions, and take action when needed.
 
 ## Custom labels
 
