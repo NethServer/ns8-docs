@@ -69,8 +69,6 @@ Per farlo, aggiungere il ruolo `domain-admin` all'utente:
 
 Al successivo accesso, l'utente trova un nuovo servizio nella barra laterale sinistra, identificato dall'icona di una chiave inglese, per accedere alle impostazioni del dominio.
 
-Tra le configurazioni disponibili, l'utente non è autorizzato a visualizzare il registro degli accessi (`Audit di dominio`).
-
 Per impostazione predefinita, l'utente delegato non può accedere alle proprietà di sistema, dove sono configurabili le impostazioni globali.
 
 ## Modifica del logo
