@@ -158,6 +158,42 @@ Questo consente ai client di individuare il servizio Autodiscover tramite un rec
 - Porta: `443`
 - Target: `autodiscover.example.org` -- il record DNS A che punta al server WebTop.
 
+## Autenticazione a due fattori (2FA) obbligatoria
+
+WebTop consente agli amministratori di rendere obbligatoria l'autenticazione a due fattori (2FA) per gli utenti, migliorando la sicurezza degli account e contribuendo al rispetto dei requisiti della direttiva NIS2.
+
+L'amministratore può abilitare o disabilitare questa funzionalità e stabilire una scadenza entro la quale gli utenti devono configurare l'autenticazione a due fattori. Gli utenti che non completano la configurazione entro il termine vengono automaticamente disabilitati.
+
+Per rendere obbligatoria la 2FA a partire da una data, aggiungere la seguente impostazione globale dal pannello di amministrazione:
+
+- Servizio: `com.sonicle.webtop.core`
+- Chiave: `otp.required.since`
+- Valore: una data nel formato ISO `yyyy-mm-dd`, ad esempio `2026-10-30`
+
+È inoltre possibile modificare la durata predefinita del cookie che considera attendibile un dispositivo. Il valore predefinito è `0`, ossia senza scadenza. Aggiungere la seguente impostazione globale:
+
+- Servizio: `com.sonicle.webtop.core`
+- Chiave: `otp.trust.device.duration`
+- Valore: durata espressa in giorni, ad esempio `30`
+
+Per gestire eventuali eccezioni, l'amministratore può:
+
+- escludere un utente dall'obbligo di 2FA, consentendogli di continuare ad accedere senza questa protezione
+- concedere un'esenzione temporanea di tre giorni, durante i quali l'utente può riconfigurare la 2FA; se non completa la configurazione entro questo periodo, viene nuovamente disabilitato
+
+L'esenzione temporanea è utile per i nuovi utenti che accedono dopo la data limite stabilita dall'amministratore per attivare la 2FA.
+
+Per applicare queste eccezioni, aprire le impostazioni dell'utente:
+
+`Pannello di amministrazione` > `Elenco utenti` > selezionare l'utente e fare clic sull'icona dell'ingranaggio, oppure fare clic con il pulsante destro e selezionare `Impostazioni` > `Sicurezza (2FA)`.
+
+- Per escludere sempre l'utente dal requisito, abilitare `Esente dal requisito`.
+- Per escludere temporaneamente l'utente per tre giorni, abilitare `Esente temporaneamente`.
+
+Gli account amministrativi, incluso l'amministratore globale, sono sempre esentati dall'obbligo, ma possono comunque scegliere di attivare volontariamente la 2FA.
+
+L'interfaccia di gestione degli utenti mostra in una colonna laterale lo stato della configurazione 2FA di ogni account. Questo consente agli amministratori di individuare rapidamente gli utenti non conformi, verificare eventuali esenzioni e intervenire quando necessario.
+
 ## Etichette personalizzate
 
 È possibile aggiungere una o più etichette nelle e-mail, in un evento di calendario o un'attività.
