@@ -92,6 +92,19 @@ L'add-on Threat Shield è disponibile sia per la subscription Community sia per 
 
 Non serve alcuna configurazione. L'invio parte quando il server ha una subscription e si ferma quando la subscription viene rimossa. Se il server perde la subscription o l'add-on, gli indirizzi importati dalle liste di blocco Threat Shield vengono rimossi.
 
+#### Interrompere l'invio degli indirizzi bloccati {#threat-shield-push}
+
+L'invio degli indirizzi bloccati a Nethesis è abilitato di default. Per disattivarlo, esegui questi comandi in una shell di root del nodo, sostituendo `crowdsec1` con il nome dell'istanza dell'applicazione:
+
+```
+runagent -m crowdsec1 sh -c 'echo NETHESIS_INSIGHTS_PUSH=False >> "$AGENT_STATE_DIR/environment"'
+systemctl reload crowdsec1
+```
+
+Questa impostazione è disponibile solo da riga di comando. Le liste di blocco Threat Shield, compresa `Nethesis community - Level 2`, e la lista di permessi globale di Nethesis continuano a funzionare.
+
+Per riprendere l'invio degli indirizzi bloccati, rimuovi la riga `NETHESIS_INSIGHTS_PUSH=False` dal file `/var/lib/nethserver/crowdsec1/state/environment` ed esegui `systemctl reload crowdsec1`.
+
 #### Lista di blocco
 
 La tabella elenca le liste di blocco disponibili con `Status`, `Confidence`, `Entries` e `Last update`. Seleziona le liste di blocco da abilitare e fai clic su `Save`. L'importazione parte subito dopo il salvataggio. Disabilitare una lista di blocco rimuove i suoi indirizzi dal firewall.

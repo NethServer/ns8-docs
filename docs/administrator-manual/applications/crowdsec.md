@@ -136,6 +136,25 @@ subscription and stops when the subscription is removed. If the server loses
 the subscription or the add-on, the addresses imported from the Threat Shield
 blocklists are removed.
 
+#### Stop sending blocked addresses {#threat-shield-push}
+
+Sending blocked addresses to Nethesis is enabled by default. To turn it off,
+run these commands in a root shell of the node, replacing `crowdsec1` with
+the application instance name:
+
+```
+runagent -m crowdsec1 sh -c 'echo NETHESIS_INSIGHTS_PUSH=False >> "$AGENT_STATE_DIR/environment"'
+systemctl reload crowdsec1
+```
+
+This setting is available only from the command line. The Threat Shield
+blocklists, including `Nethesis community - Level 2`, and the Nethesis global
+allowlist keep working.
+
+To send blocked addresses again, remove the `NETHESIS_INSIGHTS_PUSH=False`
+line from `/var/lib/nethserver/crowdsec1/state/environment` and run
+`systemctl reload crowdsec1`.
+
 #### Blocklist
 
 The table lists the available blocklists with `Status`, `Confidence`,
