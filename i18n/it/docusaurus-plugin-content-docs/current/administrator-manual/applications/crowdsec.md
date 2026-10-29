@@ -94,7 +94,7 @@ Non serve alcuna configurazione. L'invio parte quando il server ha una subscript
 
 #### Interrompere l'invio degli indirizzi bloccati {#threat-shield-push}
 
-L'invio degli indirizzi bloccati a Nethesis è abilitato di default. Per disattivarlo, esegui questi comandi in una shell di root del nodo, sostituendo `crowdsec1` con il nome dell'istanza dell'applicazione:
+L'invio degli indirizzi bloccati a Nethesis è abilitato di default per i cluster con una subscription. Per disattivarlo, esegui questi comandi in una shell di root del nodo, sostituendo `crowdsec1` con il nome dell'istanza dell'applicazione:
 
 ```
 runagent -m crowdsec1 sh -c 'echo NETHESIS_INSIGHTS_PUSH=False >> "$AGENT_STATE_DIR/environment"'
@@ -103,7 +103,12 @@ systemctl reload crowdsec1
 
 Questa impostazione è disponibile solo da riga di comando. Le liste di blocco Threat Shield, compresa `Nethesis community - Level 2`, e la lista di permessi globale di Nethesis continuano a funzionare.
 
-Per riprendere l'invio degli indirizzi bloccati, rimuovi la riga `NETHESIS_INSIGHTS_PUSH=False` dal file `/var/lib/nethserver/crowdsec1/state/environment` ed esegui `systemctl reload crowdsec1`.
+Per riprendere l'invio degli indirizzi bloccati, rimuovi l'impostazione e ricarica il servizio:
+
+```
+runagent -m crowdsec1 sh -c 'sed -i "/^NETHESIS_INSIGHTS_PUSH=/d" "$AGENT_STATE_DIR/environment"'
+systemctl reload crowdsec1
+```
 
 #### Lista di blocco
 

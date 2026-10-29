@@ -138,9 +138,9 @@ blocklists are removed.
 
 #### Stop sending blocked addresses {#threat-shield-push}
 
-Sending blocked addresses to Nethesis is enabled by default. To turn it off,
-run these commands in a root shell of the node, replacing `crowdsec1` with
-the application instance name:
+Sending blocked addresses to Nethesis is enabled by default for clusters with
+a subscription. To turn it off, run these commands in a root shell of the
+node, replacing `crowdsec1` with the application instance name:
 
 ```
 runagent -m crowdsec1 sh -c 'echo NETHESIS_INSIGHTS_PUSH=False >> "$AGENT_STATE_DIR/environment"'
@@ -151,9 +151,13 @@ This setting is available only from the command line. The Threat Shield
 blocklists, including `Nethesis community - Level 2`, and the Nethesis global
 allowlist keep working.
 
-To send blocked addresses again, remove the `NETHESIS_INSIGHTS_PUSH=False`
-line from `/var/lib/nethserver/crowdsec1/state/environment` and run
-`systemctl reload crowdsec1`.
+To send blocked addresses again, remove the setting and reload the
+service:
+
+```
+runagent -m crowdsec1 sh -c 'sed -i "/^NETHESIS_INSIGHTS_PUSH=/d" "$AGENT_STATE_DIR/environment"'
+systemctl reload crowdsec1
+```
 
 #### Blocklist
 
