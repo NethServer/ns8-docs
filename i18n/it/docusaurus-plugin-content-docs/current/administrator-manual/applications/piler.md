@@ -23,7 +23,7 @@ Una volta installata, apri la pagina Settings dell'applicazione e compila i camp
 - **Mail server**: scegli una delle istanze di Mail server nel cluster. Sono etichettate come segue:
   1.  *Archiving can be configured*: significa che il Mail server al momento non ha alcun archivio configurato e può essere selezionato in sicurezza.
   2.  *The archive destination is…*: indica che il Mail server sta già copiando ogni messaggio inviato o ricevuto verso un altro archivio o indirizzo email esterno. Se selezioni una voce di questo tipo e salvi il modulo, la configurazione precedente viene sovrascritta, quindi usala con cautela. Vedi anche l'impostazione Mail [Always BCC](mail.md#mail-archive-section).
-- **Retention duration**: questo campo contiene il numero di giorni per cui un messaggio email viene conservato nell'archivio. Dopo quel periodo, un cron job giornaliero elimina il messaggio dall'archivio.
+- **Retention duration**: questo campo contiene il numero di giorni per cui un messaggio email viene conservato nell'archivio. Dopo quel periodo, un cron job giornaliero elimina il messaggio dall'archivio. Piler fissa la data di scadenza di un messaggio quando lo archivia, quindi un nuovo valore vale solo per i messaggi archiviati dopo la modifica.
 
 È importante capire che la selezione del Mail server è consentita una sola volta durante la configurazione di un'istanza Piler. In altre parole, non puoi cambiare la selezione del Mail server una volta completata la configurazione iniziale dell'istanza Piler.
 
@@ -50,7 +50,7 @@ Gli amministratori possono cambiare la password di altri utenti tramite l'azione
 
 Gli utenti auditor possono cercare e recuperare i messaggi email archiviati.
 
-Quando un messaggio viene gestito dal Mail server, una copia viene inviata all'archivio. Tuttavia, Piler non indicizza immediatamente i messaggi ricevuti. Vengono inseriti in una coda di archiviazione e, ogni mezz'ora, un'attività pianificata indicizza un lotto di messaggi in coda. I messaggi duplicati contano come uno solo.
+Quando un messaggio viene gestito dal Mail server, una copia viene inviata all'archivio. Piler lo indicizza subito, quindi può essere cercato pochi istanti dopo. I messaggi duplicati contano come uno solo.
 
 Una volta che un messaggio è stato indicizzato, gli auditor possono cercarlo. I messaggi trovati possono essere scaricati oppure inoltrati a un indirizzo email arbitrario.
 
@@ -77,6 +77,14 @@ Sostituisci `piler1` con l'identificatore corretto dell'istanza applicativa Pile
 Gli argomenti facoltativi `-A` (after) e `-B` (before) possono limitare l'intervallo temporale dell'importazione. Poiché i tempi devono essere espressi nel formato timestamp Unix, puoi usare il comando `date` per ottenere il timestamp desiderato da una stringa data, per esempio:
 
     date -d 2024-05-01 +%s
+
+## Accesso degli utenti con il proprio account di posta
+
+Per impostazione predefinita possono accedere solo gli account `admin@local` e `auditor@local`, quindi un utente che perde un messaggio deve rivolgersi a un auditor, che può leggere tutti i messaggi archiviati.
+
+Piler può anche verificare gli accessi tramite il Mail server. Ogni utente accede allora con il proprio indirizzo email completo e la password di posta, e ritrova da solo i propri messaggi archiviati. Gli account locali continuano a funzionare.
+
+Questa opzione è disattivata per impostazione predefinita. I passaggi per attivarla sono nel [README del modulo Piler](https://github.com/NethServer/ns8-piler#let-mail-users-log-in).
 
 ## Ottimizzare la configurazione di Piler
 
