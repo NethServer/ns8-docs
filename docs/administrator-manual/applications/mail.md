@@ -113,6 +113,12 @@ Public mailboxes can be shared among groups of users. The **Create public mailbo
 
 When a new public mailbox is created, the mail server will automatically add a new wildcard address valid for all existing mail domains.
 
+The `postmaster` public mailbox is created automatically. By default it receives the mail sent to the `postmaster` address of every mail domain. It also receives the notices of the mail server itself about mail that could not be delivered because of resource or software problems, such as a full disk or an unreachable user domain.
+
+:::warning
+Mail server notices can contain sensitive data of the failed SMTP session. Grant access to the `postmaster` public mailbox only to administrators.
+:::
+
 ### Restore a mailbox folder from a backup {#mailbox-selective-restore}
 
 If the application has one or more backup destinations configured and a backup has already been executed, you can search for and restore a mailbox folder from a past backup snapshot of a specific user or public mailbox.
