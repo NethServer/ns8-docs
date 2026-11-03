@@ -23,7 +23,7 @@ Once installed, navigate to the application Settings page and fill in the requir
 - **Mail server**: Choose one of the Mail server instances in the cluster. They are labeled as follows:
   1.  *Archiving can be configured*: This means the Mail server currently has no archive configured and can be safely selected.
   2.  *The archive destination is…*: This indicates that the Mail server already copies any message sent or received to another archive or external email address. If such an entry is selected and the form is saved, the previous configuration is overwritten, so use it with caution. See also the Mail [Always BCC](mail.md#mail-archive-section) setting.
-- **Retention duration**: This field contains the number of days an email message is retained in the archive. After that period, a daily cron job purges the message from the archive. Piler sets the expiry date of a message when it archives it, so a new value applies only to messages archived after the change.
+- **Retention duration**: This field contains the number of days an email message is retained in the archive. After that period, a daily cron job purges the message from the archive. Piler sets the expiry date of a message when it archives it, so a new value applies only to messages archived after the change. To free space now, the auditor can remove older emails from the web interface. This option is off by default. The steps to enable it are in the [Piler module README](https://github.com/NethServer/ns8-piler#remove-archived-emails).
 
 It is important to understand that the Mail server selection is allowed only once during the configuration of a Piler instance. In other words, you cannot change the Mail server selection once the Piler instance is initially configured.
 
