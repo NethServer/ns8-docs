@@ -111,6 +111,21 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        // Keep links to moved or removed pages working
+        redirects: [
+          {
+            from: '/docs/tutorial/rocky_linux/manage-ssh-access-rocky-linux',
+            to: '/docs/administrator-manual/configuration/firewall#ssh-source-ip',
+          },
+        ],
+      },
+    ],
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
