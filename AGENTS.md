@@ -44,6 +44,14 @@ reports broken links and anchors.
   `i18n/it/docusaurus-plugin-content-docs/current/`. Keep the two sides in sync: when you change an English page, update its Italian mirror too.
 - Images are served from `static/` and referenced with absolute paths such as
   `/_static/image.png`.
+- When you move, rename or remove a page, add a `{from, to}` entry to the
+  `@docusaurus/plugin-client-redirects` `redirects` list in
+  `docusaurus.config.ts`, so existing links keep working. Paths omit the
+  locale prefix: one entry covers both English and Italian. The target can
+  include a heading anchor, such as `#ssh-source-ip`.
+- Keep `@docusaurus/plugin-client-redirects` at the same version as
+  `@docusaurus/core`, otherwise the build fails. Upgrade all `@docusaurus/*`
+  packages together.
 
 ## CI
 
