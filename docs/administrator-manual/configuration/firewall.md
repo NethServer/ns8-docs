@@ -71,7 +71,7 @@ If you later decide to change the port (for example, from 2222 to 2019), the old
 
 To accept SSH connections only from specific IP addresses, replace the `ssh` service with a rich rule for each allowed address. For example, to allow only `203.0.113.7`:
 
-    firewall-cmd --permanent --add-rich-rule='rule family=ipv4 source address=203.0.113.7 service name=ssh accept'
+    firewall-cmd --permanent --add-rich-rule='rule family=ipv4 source address=203.0.113.7 port port=22 protocol=tcp accept'
     firewall-cmd --permanent --remove-service=ssh
     firewall-cmd --reload
 
