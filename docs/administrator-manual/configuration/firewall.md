@@ -86,6 +86,8 @@ To allow another address, run the `--add-rich-rule` command again with the new a
 
 The same procedure works for any other TCP service, such as Cockpit: replace `ssh` with the firewalld service name, and `22` with the service port.
 
+The `Firewall` page does not show rich rules, so the restricted service disappears from its list. To see the rules, run `firewall-cmd --list-all`.
+
 :::warning
 Keep your current SSH session open and check that you can still open a new connection before you close it. A wrong rule can lock you out of the node.
 :::

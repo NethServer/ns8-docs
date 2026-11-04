@@ -84,6 +84,8 @@ Per consentire un altro indirizzo, eseguire di nuovo il comando `--add-rich-rule
 
 La stessa procedura vale per qualsiasi altro servizio TCP, come Cockpit: sostituire `ssh` con il nome del servizio di firewalld e `22` con la porta del servizio.
 
+La pagina `Firewall` non mostra le regole avanzate, quindi il servizio limitato scompare dal suo elenco. Per vedere le regole, eseguire `firewall-cmd --list-all`.
+
 :::warning
 Mantenere aperta la sessione SSH corrente e verificare di poter aprire una nuova connessione prima di chiuderla. Una regola errata può impedire l'accesso al nodo.
 :::
