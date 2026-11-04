@@ -66,3 +66,26 @@ If you later decide to change the port (for example, from 2222 to 2019), the old
     firewall-cmd --permanent --remove-forward-port=port=2222:proto=tcp:toport=22
     firewall-cmd --permanent --service=ssh --remove-port=2222/tcp
     firewall-cmd --reload
+
+## Restrict SSH access by source IP {#ssh-source-ip}
+
+To accept SSH connections only from specific IP addresses, replace the `ssh` service with a rich rule for each allowed address. For example, to allow only `203.0.113.7`:
+
+    firewall-cmd --permanent --add-rich-rule='rule family=ipv4 source address=203.0.113.7 service name=ssh accept'
+    firewall-cmd --permanent --remove-service=ssh
+    firewall-cmd --reload
+
+If SSH uses a redirected port, as described in the previous section, the port forward accepts connections from any address. Replace it with a rich rule for each allowed address:
+
+    firewall-cmd --permanent --remove-forward-port=port=2222:proto=tcp:toport=22
+    firewall-cmd --permanent --add-rich-rule='rule family=ipv4 source address=203.0.113.7 forward-port port=2222 protocol=tcp to-port=22'
+    firewall-cmd --permanent --remove-service=ssh
+    firewall-cmd --reload
+
+To allow another address, run the `--add-rich-rule` command again with the new address, then reload. The address can also be a network, such as `203.0.113.0/24`. For IPv6 addresses, use `family=ipv6`. To revoke an address, run `--remove-rich-rule` with the same rule text.
+
+The same procedure works for any other TCP service, such as Cockpit: replace `ssh` with the firewalld service name, and `22` with the service port.
+
+:::warning
+Keep your current SSH session open and check that you can still open a new connection before you close it. A wrong rule can lock you out of the node.
+:::
