@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WebTop 4 &mdash; NethServer 6.10 Final</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="Adagios" href="adagios.html" />
+    <link rel="prev" title="SNMP" href="snmp.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="https://docs.nethserver.org/it/v7/webtop4.html" />
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2020-12-02T08:39:33Z", "builder": "sphinx", "canonical_url": "https://docs.nethserver.org/it/v7/", "commit": "edf78e88", "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "it", "page": "webtop4", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-3", "version": "v6"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v6" /><meta name="readthedocs-resolver-filename" content="/webtop4.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                v6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access.html">Accedere al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_connector.html">Connettore POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samba.html">Windows network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content_filter.html">Filtro contenuti web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall e gateway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flashstart.html">Cloud content filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proxy_pass.html">Proxy pass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snort.html">IPS (Snort)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda (ntopng)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp.html">FTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="owncloud.html">ownCloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webvirtmgr.html">WebVirtMgr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WebTop 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#authentication">Autenticazione</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#web-interface">Interfaccia web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#active-sync">Active Sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#admin-user">Utente admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#webtop-vs-sogo">WebTop vs SOGo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#active-directory-authentication">Autenticazione Active Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-from-sogo">Importazione da SOGo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-from-outlook-pst">Importazione da Outlook PST</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mail">Mail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contacts">Contatti</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calendars">Calendari</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#google-and-dropbox-integration">Integrazione Google e Dropbox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#google-api">Google API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dropbox-api">Dropbox API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="adagios.html">Adagios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocs.html">OCS Inventory NG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ha.html">HA (High Availability)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_tool.html">Upgrade tool</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>WebTop 4</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/docs/blob/v6/administrator-manual/en/webtop4.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="webtop-4">
+<h1>WebTop 4<a class="headerlink" href="#webtop-4" title="Link a questa intestazione">¶</a></h1>
+<p>WebTop è un groupware completo che implementa il protocollo ActiveSync.</p>
+<p>L’indirizzo per accedere all’interfaccia web è: <code class="docutils literal notranslate"><span class="pre">https://&lt;nome_server&gt;/webtop</span></code>.</p>
+<div class="section" id="authentication">
+<h2>Autenticazione<a class="headerlink" href="#authentication" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="web-interface">
+<h3>Interfaccia web<a class="headerlink" href="#web-interface" title="Link a questa intestazione">¶</a></h3>
+<p>Il login all’applicazione web è sempre effettuato usando utente semplice e password, a prescindere da quanti domini di posta siano configurati.</p>
+<p><strong>Esempio</strong></p>
+<ul class="simple">
+<li>Nome server: mymail.mightydomain.com</li>
+<li>Dominio di posta alternativo: baddomain.net</li>
+<li>Utente: goofy</li>
+<li>Login: goofy</li>
+</ul>
+</div>
+<div class="section" id="active-sync">
+<h3>Active Sync<a class="headerlink" href="#active-sync" title="Link a questa intestazione">¶</a></h3>
+<p>Il login ad Active Sync è invece &lt;utente&gt;&#64;&lt;dominio&gt; dove <code class="docutils literal notranslate"><span class="pre">&lt;dominio&gt;</span></code> è il dominio del server che fa parte del FQDN.</p>
+<p><strong>Esempio</strong></p>
+<ul class="simple">
+<li>Nome server: mymail.mightydomain.com</li>
+<li>Dominio di posta alternativo: baddomain.net</li>
+<li>Utente: goofy</li>
+<li>Login: <a class="reference external" href="mailto:goofy&#37;&#52;&#48;mightydomain&#46;com">goofy<span>&#64;</span>mightydomain<span>&#46;</span>com</a></li>
+</ul>
+<p>Quando si configura un account Active Sync, assicurarsi di specificare l’indirizzo del server e lasciare vuoto il campo dominio.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Il protocollo Active Sync è supportato solo su dispositivi Android e iOS. Outlook non è supportato. La sincronizzazione della posta non è al momento supportata.</p>
+</div>
+</div>
+<div class="section" id="admin-user">
+<span id="webtop-admin-section"></span><h3>Utente admin<a class="headerlink" href="#admin-user" title="Link a questa intestazione">¶</a></h3>
+<p>Dopo l’installazione, NethTop è accessibile con un utente amministrativo. L’utente amministrativo può cambiare le impostazioni globali ed effettuare login come un altro utente, ma non è un utente di sistema e non può accedere agli altri servizi come Mail, Calendario, ecc.</p>
+<p>Le credenziali di default sono:</p>
+<ul class="simple">
+<li>Utente: admin</li>
+<li>Password: admin</li>
+</ul>
+<p>La password del’utente admin deve essere cambiata dall’interfaccia di NethTop.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avvertimento</p>
+<p class="last">E” fortemente consigliato cambiare la password di admin dopo l’installazione.</p>
+</div>
+<p>E” possibile controllare la posta dell’utente admin di sistema usando questo login: admin&#64;&lt;dominio&gt; dove <code class="docutils literal notranslate"><span class="pre">&lt;dominio&gt;</span></code> è il dominio del server che fa parte del FQDN.</p>
+<p><strong>Esempio</strong></p>
+<ul class="simple">
+<li>Nome server: mymail.mightydomain.com</li>
+<li>Utente: admin</li>
+<li>Login: <a class="reference external" href="mailto:admin&#37;&#52;&#48;mightydomain&#46;com">admin<span>&#64;</span>mightydomain<span>&#46;</span>com</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="webtop-vs-sogo">
+<h2>WebTop vs SOGo<a class="headerlink" href="#webtop-vs-sogo" title="Link a questa intestazione">¶</a></h2>
+<p>WebTop e SOGo possono essere installati sulla stessa macchina.</p>
+<p>ActiveSync è abilitato di default sia su SOGo che su WebTop, ma se sono entrambi installati, SOGo avrà la precedenza.</p>
+<p>Per disabilitare ActiveSync su SOGo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod ActiveSync disabled
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+<p>Per disabilitare ActiveSync su WebTop:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop webtop ActiveSync disabled
+signal-event nethserver-webtop4-update
+</pre></div>
+</div>
+<p>Tutti i filtri di posta configurati da SOGo, devono essere ricreati manualmente all’interno dell’interfaccia di NethTop. La stessa cosa si applica se l’utente sta effettuando il passaggio inverso da NethTop a SOGo.</p>
+</div>
+<div class="section" id="active-directory-authentication">
+<h2>Autenticazione Active Directory<a class="headerlink" href="#active-directory-authentication" title="Link a questa intestazione">¶</a></h2>
+<p>Dopo aver eseguito il join al dominio Active Directory, accedere alla pagina di amministrazione di WebTop, dall’albero di sinistra selezionare <span class="guilabel">Domini</span> -&gt; <span class="guilabel">NethServer</span>.</p>
+<p>Modificare i campi nella pagina come segue:</p>
+<ul class="simple">
+<li>Authentication Uri: selezionare la modalità <code class="docutils literal notranslate"><span class="pre">ldapAD</span></code> e indicare il nome FQDN completo del server e la porta 389. Esempio: w2k8.nethserver.org:389</li>
+<li>Admin LDAP: nome dell’utente amministratore del dominio AD</li>
+<li>Password LDAP: password dell’utente amministratore del dominio AD</li>
+</ul>
+<p>Dopo il salvataggio, nella pagina <span class="guilabel">Utenti</span> saranno visualizzati gli utenti di Active Directory.</p>
+</div>
+<div class="section" id="importing-from-sogo">
+<h2>Importazione da SOGo<a class="headerlink" href="#importing-from-sogo" title="Link a questa intestazione">¶</a></h2>
+<p>E” possibile migrare alcuni dati da SOGo a WebTop utilizzando i seguenti script:</p>
+<ul class="simple">
+<li>Calendari: <code class="file docutils literal notranslate"><span class="pre">/usr/share/webtop/doc/sogo2webtop_cal.php</span></code></li>
+<li>Rubriche: <code class="file docutils literal notranslate"><span class="pre">/usr/share/webtop/doc/sogo2webtop_card.php</span></code></li>
+</ul>
+<p>Prima di utilizzare gli script è necessario installare questo pacchetto:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install php-mysql -y
+</pre></div>
+</div>
+<p>Entrambi gli script vanno eseguiti indicando il nome utente di cui si vuole eseguire l’importazione da SOGo: :.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>php /usr/share/webtop/doc/sogo2webtop_cal.php &lt;user&gt;
+php /usr/share/webtop/doc/sogo2webtop_card.php &lt;user&gt;
+</pre></div>
+</div>
+<p>Dove <code class="docutils literal notranslate"><span class="pre">user</span></code> può essere un nome utente oppure <code class="docutils literal notranslate"><span class="pre">all</span></code>.</p>
+<p><strong>Esempi</strong></p>
+<p>Importare tutte le rubriche presenti su SOGo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>php /usr/share/webtop/doc/sogo2webtop_card.php all
+</pre></div>
+</div>
+<p>Importare il calendario dell’utente «foo»:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>php /usr/share/webtop/doc/sogo2webtop_cal.php foo
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Se lo script viene eseguito più volte verranno importati più volte sia calendari che rubriche. Attualmente non è supportata l’importazione sia delle liste di distribuzione dalle rubriche che degli eventi ricorrenti dai calendari.</p>
+</div>
+</div>
+<div class="section" id="importing-from-outlook-pst">
+<h2>Importazione da Outlook PST<a class="headerlink" href="#importing-from-outlook-pst" title="Link a questa intestazione">¶</a></h2>
+<p>E’ possibile importare email, calendari e rubriche da un archivio <span class="target" id="index-4"></span>PST <span class="target" id="index-5"></span>Outlook .</p>
+<p>Prima di utilizzare lo script installare il pacchetto <em>libpst</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install libpst -y
+</pre></div>
+</div>
+<div class="section" id="mail">
+<h3>Mail<a class="headerlink" href="#mail" title="Link a questa intestazione">¶</a></h3>
+<p>Script per importare i messaggi di posta: <code class="file docutils literal notranslate"><span class="pre">/usr/share/webtop/doc/pst2webtop.sh</span></code></p>
+<p>Per iniziare l’importazione eseguire lo script indicando il file PST e l’utente di sistema:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/webtop/doc/pst2webtop.sh &lt;filename.pst&gt; &lt;user&gt;
+</pre></div>
+</div>
+<p>Verranno importati tutti i messaggi di posta. Contatti e calendari verranno salvati all’interno di file temporanei per successiva importazione. Lo script elencherà tutti i file temporanei creati.</p>
+</div>
+<div class="section" id="contacts">
+<h3>Contatti<a class="headerlink" href="#contacts" title="Link a questa intestazione">¶</a></h3>
+<p>Script importazione Contatti: <code class="file docutils literal notranslate"><span class="pre">/usr/share/webtop/doc/pst2webtop_card.php</span></code>.</p>
+<p>Lo script utilizzerà i file generati nella fase di importazione della posta</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/webtop/doc/pst2webtop_card.php &lt;user&gt; &lt;file_to_import&gt; &lt;phonebook_category&gt;
+</pre></div>
+</div>
+<p><strong>Esempio</strong></p>
+<p>Ipotizziamo che lo script precedente pst2webtop.sh abbia generato il seguente output  a seguito dell’importazione delle mail:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Contacts Folder found: Cartelle personali/Contatti/contacts
+ Import to webtop:
+./pst2webtop_card.php foo &#39;/tmp/tmp.0vPbWYf8Uo/Cartelle personali/Contatti/contacts&#39; &lt;foldername&gt;
+</pre></div>
+</div>
+<p>Per importare nella Rubrica predefinita (WebTop) dell’utente <em>foo</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/webtop/doc/pst2webtop_card.php foo &#39;/tmp/tmp.0vPbWYf8Uo/Cartelle personali/Contatti/contacts&#39; WebTop
+</pre></div>
+</div>
+</div>
+<div class="section" id="calendars">
+<h3>Calendari<a class="headerlink" href="#calendars" title="Link a questa intestazione">¶</a></h3>
+<p>Script importazione Calendari: <code class="file docutils literal notranslate"><span class="pre">/usr/share/webtop/doc/pst2webtop_cal.php</span></code></p>
+<p>Lo script utilizzerà i file generati nella fase di importazione della posta</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/webtop/doc/pst2webtop_cal.php &lt;user&gt; &lt;file_to_import&gt; &lt;foldername&gt;
+</pre></div>
+</div>
+<p><strong>Esempio</strong></p>
+<p>Ipotizziamo che lo script precedente pst2webtop.sh abbia generato il seguente output  a seguito dell’importazione delle mail:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Events Folder found: Cartelle personali/Calendario/calendar
+ Import to webtop:
+./pst2webtop_cal.php foo &#39;/tmp/tmp.0vPbWYf8Uo/Cartelle personali/Calendario/calendar&#39; &lt;foldername&gt;
+</pre></div>
+</div>
+<p>Per importare nel Calendario predefinito (WebTop) dell’utente <em>foo</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/webtop/doc/pst2webtop_cal.php foo &#39;/tmp/tmp.0vPbWYf8Uo/Cartelle personali/Calendario/calendar&#39; WebTop
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Lo script importa gli eventi utilizzando il fuso orario dall’utente WebTop, se configurato. Altrimenti verrà utilizzato il fuso orario del sistema.</p>
+</div>
+</div>
+</div>
+<div class="section" id="google-and-dropbox-integration">
+<h2>Integrazione Google e Dropbox<a class="headerlink" href="#google-and-dropbox-integration" title="Link a questa intestazione">¶</a></h2>
+<p>Ogni utente può integrare i propri account Google Drive e Dropbox all’interno di WebTop. Prima di procedere, l’amministratore deve creare una coppia di credenziali per l’accesso alle API.</p>
+<div class="section" id="google-api">
+<h3>Google API<a class="headerlink" href="#google-api" title="Link a questa intestazione">¶</a></h3>
+<ul>
+<li><p class="first">Accedere a <a class="reference external" href="https://console.developers.google.com/project">https://console.developers.google.com/project</a> e creare un nuovo progetto</p>
+</li>
+<li><p class="first">Creare una nuova coppia di credenziali di tipo “OAuth 2.0 clientID” avendo cura di compilare la sezione “OAuth consent screen”</p>
+</li>
+<li><p class="first">Inserire la coppia di credenziali appena create (Client ID e Client Secret) nella configurazione di WebTop</p>
+<p>Da shell accedere al database webtop:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>su - postgres -c &quot;psql webtop&quot;
+</pre></div>
+</div>
+<p>Eseguire le query, sostituendo al campo <code class="docutils literal notranslate"><span class="pre">__value__</span></code> il valore corrispondente:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>INSERT INTO settings (idsetting,value) VALUES (&#39;main.googledrive.clientid&#39;, &#39;__value__&#39;);
+INSERT INTO settings (idsetting,value) VALUES (&#39;main.googledrive.clientsecret&#39;, &#39;__value__&#39;);
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="dropbox-api">
+<h3>Dropbox API<a class="headerlink" href="#dropbox-api" title="Link a questa intestazione">¶</a></h3>
+<ul>
+<li><p class="first">Accedere a <a class="reference external" href="https://www.dropbox.com/developers/apps">https://www.dropbox.com/developers/apps</a> e creare una nuova app</p>
+</li>
+<li><p class="first">Inserire la coppia di credenziali appena create (App key e App secret) nella configurazione di WebTop.</p>
+<p>Da shell accedere al database webtop:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>su - postgres -c &quot;psql webtop&quot;
+</pre></div>
+</div>
+<p>Eseguire le query, sostituendo al campo <code class="docutils literal notranslate"><span class="pre">__value__</span></code> il valore corrispondente:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>INSERT INTO settings (idsetting,value) VALUES (&#39;main.googledrive.clientsecret&#39;, &#39;__value__&#39;);
+INSERT INTO settings (idsetting,value) VALUES (&#39;main.dropbox.appsecret&#39;, &#39;__value__&#39;);
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Se si desidera cambiare il limite massimo di utenti, verificare la procedura corretta nella documentazione ufficiale di Dropbox.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">La versione Enteprise è già integrata con Google e Dropbox.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="adagios.html" class="btn btn-neutral float-right" title="Adagios" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="snmp.html" class="btn btn-neutral float-left" title="SNMP" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Nethesis Srl and the NethServer project contributors
+      
+        <span class="commit">
+          Revision <code>edf78e88</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

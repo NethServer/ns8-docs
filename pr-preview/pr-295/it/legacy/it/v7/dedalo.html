@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotspot (Dedalo) &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Ricerca" href="search.html" />
+    <link rel="next" title="FreePBX" href="freepbx.html" />
+    <link rel="prev" title="Monitor banda" href="bandwidth_monitor.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "it", "page": "dedalo", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/dedalo.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accesso al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applicazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Autenticazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applicazioni</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hotspot (Dedalo)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-it-works">Come funziona?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-install-it">Installazione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configurazione</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hotspot-manager-interface">Interfaccia hotspot manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hotspot-unit-on-product">Unità Hotspot su NethServer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-point-configuration">Configurazione Access Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#free-mode-and-voucher-mode">Modalità Free e Modalità Voucher</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Altri moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webtop5.html">WebTop 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Personalizzazione backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Macchine virtuali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Moduli NethForge</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Aggiornamento da NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Aggiornamento Email a Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vecchio Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Il vecchio Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">Groupware SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Hotspot (Dedalo)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/dedalo.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hotspot-dedalo">
+<span id="dedalo-section"></span><h1>Hotspot (Dedalo)<a class="headerlink" href="#hotspot-dedalo" title="Link a questa intestazione">¶</a></h1>
+<p>L’obiettivo principale di un hotspot è fornire connettività internet via wi-fi agli utenti occasionali. Gli utenti vengono inviati a un captive portal attraverso il quale possono accedere alla rete autenticandosi tramite social, sms o email. Il servizio di hotspot consente la regolamentazione, la responsabilità e il prezzo dell’accesso a internet in luoghi pubblici, come punti internet, hotel e fiere.</p>
+<p>Funzioni principali:</p>
+<ul class="simple">
+<li><p>Separazione rete aziendale e rete ospiti</p></li>
+<li><p>gli ospiti possono autenticarsi utilizzando l’accesso social (Facebook, Instagram, Linkedin) così come gli sms od una e-mail</p></li>
+<li><p>servizio a pagamento basato su voucher</p></li>
+<li><p>hotspot manager con livelli di accesso diversi (amministratore, cliente, desk)</p></li>
+<li><p>limitazione di banda per ciascun utente</p></li>
+<li><p>Esportazione elenco account e report delle connessioni (non ancora implementato)</p></li>
+</ul>
+<section id="how-it-works">
+<h2>Come funziona?<a class="headerlink" href="#how-it-works" title="Link a questa intestazione">¶</a></h2>
+<p>L’implementazione è basata su 2 componenti:</p>
+<ul class="simple">
+<li><p>un hotspot manager remoto con una Web GUI in esecuzione su un server cloud che consente di:</p>
+<ul>
+<li><p>creare un’istanza hotspot: in genere ogni istanza viene indirizzata a una posizione specifica (ad esempio Art Cafè, Ritz Hotel e così via)</p></li>
+<li><p>modificare la pagina del captive portal</p></li>
+<li><p>scegliere il tipo di login da utilizzare</p></li>
+<li><p>vedere le sessioni e gli utenti collegati</p></li>
+</ul>
+</li>
+<li><p>una parte client (dedalo) installata su un NethServer fisicamente connesso alla rete di access point: consente di assegnare gli indirizzi IP ai client della rete Wi-Fi e li reindirizza al captive portal per l’autenticazione.</p></li>
+</ul>
+<p>Per informazioni più dettagliate, consultare <a class="reference external" href="https://nethesis.github.io/icaro/docs/components/">https://nethesis.github.io/icaro/docs/components/</a>.</p>
+</section>
+<section id="how-to-install-it">
+<h2>Installazione<a class="headerlink" href="#how-to-install-it" title="Link a questa intestazione">¶</a></h2>
+<ul class="simple">
+<li><p>installare il componente server: <a class="reference external" href="https://nethesis.github.io/icaro/docs/provisioning/">https://nethesis.github.io/icaro/docs/provisioning/</a> Questa procedura utilizza Vagrant per fornire un droplet Digital Ocean (DO). Se si preferisse utilizzare un altro provider cloud, il file Vagrant andrà modificato di conseguenza.</p></li>
+<li><p>configurare il server in modo da rendere possibile l’accesso: <a class="reference external" href="https://nethesis.github.io/icaro/docs/configuration/">https://nethesis.github.io/icaro/docs/configuration/</a></p></li>
+<li><p>installare il componente client nel proprio NethServer: <a class="reference external" href="https://nethesis.github.io/icaro/docs/client_installation/">https://nethesis.github.io/icaro/docs/client_installation/</a></p></li>
+<li><p>è importante ricordare che per l’installazione sono necessarie almeno 3 interfacce Ethernet:</p>
+<ul>
+<li><p>1 per i client LAN, contrassegnata con il ruolo green (necessaria anche se non utilizzata, può essere una VLAN)</p></li>
+<li><p>1 (o più) per la connessione Internet, contrassegnato con il ruolo red</p></li>
+<li><p>1 per Dedalo, con il ruolo hotspot</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="configuration">
+<h2>Configurazione<a class="headerlink" href="#configuration" title="Link a questa intestazione">¶</a></h2>
+<section id="hotspot-manager-interface">
+<h3>Interfaccia hotspot manager<a class="headerlink" href="#hotspot-manager-interface" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>accedere all’hotspot manager</p></li>
+<li><p>spostarsi nella sezione <em>Manager</em> e creare un nuovo <em>Manager</em> di tipo <em>Rivenditore</em> o <em>Cliente</em>. Maggiori informazioni su possibili <em>Ruoli</em> sono disponibili qui: <a class="reference external" href="https://nethesis.github.io/icaro/docs/manager/">https://nethesis.github.io/icaro/docs/manager/</a>.</p></li>
+<li><p>eseguire il logout e accedere con il nuovo manager appena creato</p></li>
+<li><p>spostarsi nella sezione <em>Hotspot</em> e creare una nuova istanza hotspot</p></li>
+<li><p>fare clic sul nome dell’hotspot e configurare il captive portal</p></li>
+</ul>
+</section>
+<section id="hotspot-unit-on-product">
+<h3>Unità Hotspot su NethServer<a class="headerlink" href="#hotspot-unit-on-product" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>spostarsi nella sezione <em>Unità Hotspot</em> su NethServer</p></li>
+<li><p>modificare i parametri nella pagina <cite>Registrazione unità hotspot</cite>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Nome</span> <span class="pre">host</span></code>: nome pubblico dell’Hotspot Manager</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Nome</span> <span class="pre">utente</span></code>: account utente funzionante (rivenditore o cliente)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Password</span></code> : password</p></li>
+</ul>
+</li>
+</ul>
+<p>Successivamente, scegliere l’interfaccia ethernet su cui l’hotspot sarà attivato.</p>
+<p>Se il proxy web è attivo, un flag specifico nella pagina dell’unità hotspot consentirà di inoltrare tutto il traffico hotspot (protocolli HTTP e HTTPs) al proxy web per scopi di registrazione (attenzione alle implicazioni sulla privacy!).</p>
+<p>Infine collegare un Access Point (AP) all’interfaccia hotspot.</p>
+</section>
+<section id="access-point-configuration">
+<h3>Configurazione Access Point<a class="headerlink" href="#access-point-configuration" title="Link a questa intestazione">¶</a></h3>
+<p>L “Access Point (AP) deve svolgere la sola funzione di abilitare la connessione con il firewall, dove comportarsi come un normale switch di rete. E” necessario ricordare di:</p>
+<ul class="simple">
+<li><p>configurare l’access point senza autenticazione e senza DHCP</p></li>
+<li><p>disabilitare qualsiasi servizio (servizi di sicurezza, ecc.) per evitare interferenze con il comportamento dell’hotspot</p></li>
+<li><p>se si usano più AP configurali con SSID diversi (es: 1-SCUOLA / SCUOLA-2 / …) per identificare facilmente eventuali AP malfunzionanti</p></li>
+<li><p>configurare l’AP con un indirizzo IP statico su un segmento di rete (rfc-1918) diverso da quello utilizzato dall’hotspot</p></li>
+<li><p>se possibile, abilitare la «client isolation», per evitare il traffico tra i client connessi all’access point</p></li>
+<li><p>configurare l’AP per lavorare su diversi canali per ridurre al minimo le interferenze, un buon AP consente di gestire i canali automaticamente o di selezionarli manualmente</p></li>
+<li><p>non utilizzare prodotti troppo scadenti, AP di bassa qualità possono provocare frequenti disconnessioni che poi impattano sulla qualità del servizio generale, la raccomandazione è ancora più importante nel caso si utilizzino dei repeater</p></li>
+</ul>
+<p>A scopo di test, è possibile collegare un laptop o un PC tramite cavo ethernet all’interfaccia hotspot invece di una rete Wi-Fi. Questo può essere molto utile se si verificano problemi e si desidera verificare se siano causati dal servizio hotspot o dalla rete AP.</p>
+</section>
+<section id="free-mode-and-voucher-mode">
+<h3>Modalità Free e Modalità Voucher<a class="headerlink" href="#free-mode-and-voucher-mode" title="Link a questa intestazione">¶</a></h3>
+<p>La modalità Free (predefinita) consente di effettuare il login in autonomia senza la necessità di alcun codice, cliccando sul social desiderato (o tramite sms od e-mail).</p>
+<p>La modalità Voucher obbliga a creare un voucher (in pratica «un codice») che andrà utilizzato da tutti gli utenti, solo gli utenti con il voucher potranno effettuare il login.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bandwidth_monitor.html" class="btn btn-neutral float-left" title="Monitor banda" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="freepbx.html" class="btn btn-neutral float-right" title="FreePBX" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
