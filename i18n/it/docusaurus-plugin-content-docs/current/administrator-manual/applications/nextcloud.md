@@ -42,6 +42,35 @@ La procedura di aggiornamento/upgrade di Nextcloud può disabilitare le app per 
 
 Tutti gli utenti sono elencati nel pannello amministratore di Nextcloud usando un identificatore univoco contenente lettere e numeri. Questo perché il sistema garantisce che non esistano nomi utente interni duplicati, come riportato nella sezione `Internal Username` della [documentazione ufficiale di Nextcloud](https://docs.nextcloud.com).
 
+### Autenticazione a due fattori (TOTP)
+
+Nextcloud supporta l'autenticazione a due fattori con un'app TOTP. Gli utenti la attivano da **Impostazioni personali > Sicurezza**.
+
+Accedere come root al nodo dove è installata l'applicazione Nextcloud. Nei comandi seguenti, sostituire `nextcloud1` con l'identificativo dell'applicazione.
+
+Per rendere obbligatoria l'autenticazione a due fattori per tutti gli utenti, eseguire:
+
+    runagent -m nextcloud1 occ twofactorauth:enforce --on
+
+Gli utenti senza un secondo fattore dovranno configurare il TOTP al prossimo accesso. Usare `--off` per togliere l'obbligo.
+
+L'amministratore di Nextcloud può anche renderla obbligatoria per tutti dall'interfaccia web: andare in **Impostazioni di amministrazione > Sicurezza** e attivare **Applica l'autenticazione a due fattori**. Questa pagina permette anche di limitare l'obbligo ad alcuni gruppi o di escluderne alcuni.
+
+Se un utente ha perso la sua app di autenticazione, l'amministratore può disattivare il TOTP per quell'utente. Gli utenti LDAP hanno un identificativo interno, come spiegato nella sezione [Elenco utenti](#elenco-utenti), quindi occorre prima trovarlo:
+
+    runagent -m nextcloud1 occ user:list
+
+Poi disattivare il TOTP e verificare il risultato:
+
+    runagent -m nextcloud1 occ twofactorauth:disable <user_id> totp
+    runagent -m nextcloud1 occ twofactorauth:state <user_id>
+
+Questo elimina anche il vecchio segreto TOTP. L'utente configura di nuovo il TOTP con un nuovo codice QR: al prossimo accesso se la 2FA è obbligatoria, altrimenti da **Impostazioni personali > Sicurezza**. I codici di backup non contano come secondo fattore, quindi non permettono di saltare questo passaggio.
+
+Non usare `occ twofactorauth:cleanup totp`: elimina i dati TOTP di tutti gli utenti.
+
+Consultare il [README del modulo](https://github.com/NethServer/ns8-nextcloud#two-factor-authentication-totp) per esempi di output dei comandi e la [documentazione ufficiale di Nextcloud](https://docs.nextcloud.com/server/stable/admin_manual/configuration_user/two_factor-auth.html) per tutte le opzioni.
+
 ### Campo email LDAP alternativo (Samba AD)
 
 Quando il provider di account è un Active Directory, puoi cambiare il campo email usato da Nextcloud tramite una variabile d'ambiente. Il campo email LDAP predefinito è `userPrincipalName`, che corrisponde al nome di dominio AD e non all'indirizzo email dell'utente (ad esempio `user@ad.example.org` invece di `user@example.org`). Questo può creare confusione per gli utenti, perché dovranno usare `userPrincipalName` per accedere invece del proprio indirizzo email. Il campo Email address può essere impostato nella pagina [Utenti e gruppi](../installation/user_domains.md#user_groups-section) se Samba AD è configurato come provider account locale.
