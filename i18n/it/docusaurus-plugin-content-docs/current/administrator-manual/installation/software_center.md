@@ -90,7 +90,7 @@ Per casi d'uso avanzati, in cui un'applicazione non abilita la selezione automat
 Una volta installata un'applicazione, fai clic sul link `Applications` all'interno della scheda dell'applicazione. Vengono elencate tutte le applicazioni installate di quel tipo. È possibile eseguire varie azioni su ciascuna applicazione facendo clic sul menu a tre punti:
 
 - `Update to testing version`: Questa azione è visibile solo quando è disponibile una versione di testing. Esamina attentamente la documentazione pre-release o consulta lo sviluppatore dell'app prima di procedere.
-- `Disable automatic updates` / `Enable automatic updates`: Escludi l'applicazione dagli aggiornamenti automatici, oppure includila di nuovo. Disponibile solo con un abbonamento attivo. Vedi [Aggiornamenti automatici](#automatic-updates-section).
+- `Disable automatic updates` / `Enable automatic updates`: Escludi l'applicazione dagli aggiornamenti automatici, oppure includila di nuovo. Disponibile solo con un abbonamento attivo, per le applicazioni del repository `subscription`. Vedi [Aggiornamenti automatici](#automatic-updates-section).
 - `Add to favorites`: Fissa l'applicazione in cima al **cassetto delle applicazioni**.
 - `Edit application label`: Aggiungi un nome personalizzato all'applicazione.
 - `Clone`: Clona l'applicazione. Vedi [Clone and move](modules.md#move_clone-section).
@@ -168,6 +168,8 @@ Gli aggiornamenti applicati manualmente dal Software Center ignorano le impostaz
 
 Con un abbonamento attivo, un'attività pianificata notturna applica automaticamente gli aggiornamenti disponibili, come descritto in [Aggiornamenti pianificati](../about/subscription.md#scheduled-updates). Gli aggiornamenti automatici sono abilitati per impostazione predefinita. Senza abbonamento, gli aggiornamenti non vengono mai applicati automaticamente e i controlli descritti in questa sezione non vengono visualizzati.
 
+Gli aggiornamenti automatici provengono solo dal repository `subscription`. Le applicazioni installate da altri repository, come `nethforge` o repository personalizzati, non vengono aggiornate automaticamente: aggiornarle manualmente.
+
 Per disattivare gli aggiornamenti automatici per l'intero cluster, cliccare sul menu a tre punti nell'angolo in alto a destra della pagina `Software Center` o `Applications`, quindi selezionare `Disable automatic updates`. L'attività pianificata smette di aggiornare applicazioni, componenti core e pacchetti del sistema operativo. Mentre gli aggiornamenti automatici sono disattivati, entrambe le pagine mostrano l'avviso `Automatic updates disabled`. Per riabilitarli, cliccare su **Enable automatic updates** nell'avviso, oppure selezionare la stessa voce nel menu a tre punti.
 
 :::warning
@@ -178,6 +180,8 @@ La disattivazione degli aggiornamenti automatici può esporre il cluster a probl
 
 Per escludere una singola applicazione dagli aggiornamenti automatici, selezionare `Disable automatic updates` dal menu a tre punti della sua riga, nella pagina `Applications` o nell'elenco delle applicazioni dello stesso tipo nel Software Center. L'applicazione riceve l'etichetta `Updates disabled`. L'attività pianificata la salta, mentre le altre applicazioni, i componenti core e i pacchetti del sistema operativo vengono comunque aggiornati. Selezionare `Enable automatic updates` per includere di nuovo l'applicazione.
 
-L'impostazione di ogni applicazione viene mantenuta quando gli aggiornamenti automatici vengono disattivati e riabilitati per l'intero cluster: le applicazioni escluse in precedenza restano escluse.
+La voce `Disable automatic updates` è disponibile solo per le applicazioni del repository `subscription`, le uniche aggiornate dall'attività pianificata. Un'applicazione esclusa in precedenza mantiene l'etichetta `Updates disabled` e la voce `Enable automatic updates`, qualunque sia il suo repository.
+
+L'impostazione di ogni applicazione viene mantenuta quando gli aggiornamenti automatici vengono disattivati e riabilitati per l'intero cluster: le applicazioni escluse in precedenza restano escluse. L'impostazione non viene salvata nel backup del cluster: dopo un [ripristino di emergenza](../configuration/backup.md#disaster_recovery-section), tutte le applicazioni ripristinate vengono di nuovo incluse negli aggiornamenti automatici.
 
 Le applicazioni escluse possono comunque essere aggiornate manualmente, come descritto in [Aggiornamenti delle applicazioni](#module_updates-section).

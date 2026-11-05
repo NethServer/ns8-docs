@@ -94,7 +94,7 @@ For advanced use cases, where an application does not enable the automatic volum
 Once an application has been installed, click on the `Applications` link within the application's card. It lists every installed application of that type. You can perform various actions on each application by clicking on its three-dots menu:
 
 - `Update to testing version`: This action is visible only when a testing version is available. Carefully review the pre-release documentation or consult the app developer before proceeding.
-- `Disable automatic updates` / `Enable automatic updates`: Exclude the application from automatic updates, or include it again. Available only with an active subscription. See [Automatic updates](#automatic-updates-section).
+- `Disable automatic updates` / `Enable automatic updates`: Exclude the application from automatic updates, or include it again. Available only with an active subscription, for applications from the `subscription` repository. See [Automatic updates](#automatic-updates-section).
 - `Add to favorites`: Pin the application at the top of the **application drawer**.
 - `Edit application label`: Add a custom name to the application.
 - `Clone`: Clone the application. See [Clone and move](modules.md#move_clone-section).
