@@ -9,6 +9,14 @@ Rilasci di NethServer 8
 - Elenco dei [bug conosciuti](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) su GitHub
 - Discussioni sui [possibili bug](http://community.nethserver.org/c/bug) nel nostro forum pubblico
 
+## Modifiche principali del GG-MM-AAAA
+
+**Milestone 8.11**
+
+- **Aggiornamenti pianificati solo dal repository subscription** \[Core 3.25.0\] -- Con una subscription attiva, gli aggiornamenti pianificati provengono ora sempre dal repository `subscription`, gestito e verificato da Nethesis, qualunque sia la configurazione dei repository software. Le applicazioni installate dal repository `nethforge` o da repository personalizzati non vengono più aggiornate automaticamente e devono essere aggiornate dal `Software center`. Per lo stesso motivo, la voce `Disattiva aggiornamenti automatici` delle singole applicazioni è disponibile solo per le applicazioni del repository `subscription`. Vedere [Aggiornamenti pianificati](subscription.md#scheduled-updates).
+
+- **Il ripristino del cluster recupera i repository software** \[Core 3.25.0\] -- Un cluster ripristinato dal proprio backup su un nuovo nodo ottiene ora i repository software del cluster originale. In precedenza, un cluster con subscription ripristinato in questo modo manteneva i repository di una nuova installazione e riceveva gli aggiornamenti pianificati dal repository `default` della community. Vedere [Ripristino di emergenza](../configuration/backup.md#disaster_recovery-section).
+
 ## Modifiche principali del 09-10-2026
 
 **Milestone 8.10**

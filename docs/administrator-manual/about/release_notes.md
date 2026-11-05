@@ -9,6 +9,14 @@ NethServer 8 releases
 - List of [known bugs](https://github.com/NethServer/dev/issues?q=is%3Aissue%20is%3Aopen%20type%3Abug%20project%3ANethServer%2F8) on GitHub
 - Discussions around [possible bugs](http://community.nethserver.org/c/bug) on our public forum
 
+## Major changes on YYYY-MM-DD
+
+**Milestone 8.11**
+
+- **Scheduled updates only from the subscription repository** \[Core 3.25.0\] -- With an active subscription, scheduled updates now always come from the `subscription` repository, managed and reviewed by Nethesis, whatever the configuration of the software repositories. Applications installed from `nethforge` or custom repositories are no longer updated automatically and must be updated from the Software Center. For the same reason, the `Disable automatic updates` entry of single applications is offered only for applications from the `subscription` repository. See [Scheduled updates](subscription.md#scheduled-updates).
+
+- **Cluster restore brings back the software repositories** \[Core 3.25.0\] -- A cluster restored from its backup on a new node now gets the software repositories of the original cluster. Previously, a subscribed cluster restored this way kept the repositories of a fresh installation and received scheduled updates from the community `default` repository. See [Disaster recovery](../configuration/backup.md#disaster_recovery-section).
+
 ## Major changes on 2026-10-09
 
 **Milestone 8.10**
