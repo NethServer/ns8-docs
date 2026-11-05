@@ -69,7 +69,7 @@ This also deletes the old TOTP secret. The user then sets up TOTP again with a n
 
 Do not use `occ twofactorauth:cleanup totp`: it removes TOTP data for all users.
 
-See the [module README](https://github.com/NethServer/ns8-nextcloud#two-factor-authentication-totp) for command output examples, and the [official Nextcloud documentation](https://docs.nextcloud.com/server/stable/admin_manual/configuration_user/two_factor-auth.html) for all options.
+See the [official Nextcloud documentation](https://docs.nextcloud.com/server/stable/admin_manual/configuration_user/two_factor-auth.html) for all options.
 
 ### Alternative LDAP mail field (Samba AD)
 
