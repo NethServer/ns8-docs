@@ -40,6 +40,7 @@ Le modifiche alla configurazione del firewall vengono perse dopo un riavvio del 
 Per visualizzare l'elenco dei servizi e delle porte consentiti, eseguire:
 
     firewall-cmd --list-all
+
 ## Gestire il reindirizzamento della porta SSH {#ssh-redirection}
 
 Quando un nodo è accessibile pubblicamente, come un VPS cloud, è consigliabile modificare la porta SSH predefinita 22 con una porta personalizzata. Tuttavia, cambiare la porta a livello di configurazione di `sshd` presenta due svantaggi:
@@ -63,3 +64,28 @@ Se successivamente si decide di cambiare porta (ad esempio, da 2222 a 2019), è 
     firewall-cmd --permanent --remove-forward-port=port=2222:proto=tcp:toport=22
     firewall-cmd --permanent --service=ssh --remove-port=2222/tcp
     firewall-cmd --reload
+
+## Limitare l'accesso SSH per indirizzo IP di origine {#ssh-source-ip}
+
+Per accettare connessioni SSH solo da indirizzi IP specifici, sostituire il servizio `ssh` con una regola avanzata (*rich rule*) per ogni indirizzo consentito. Ad esempio, per consentire solo `203.0.113.7`:
+
+    firewall-cmd --permanent --add-rich-rule='rule family=ipv4 source address=203.0.113.7 port port=22 protocol=tcp accept'
+    firewall-cmd --permanent --remove-service=ssh
+    firewall-cmd --reload
+
+Se SSH usa una porta reindirizzata, come descritto nella sezione precedente, il reindirizzamento accetta connessioni da qualsiasi indirizzo. Sostituirlo con una regola avanzata per ogni indirizzo consentito:
+
+    firewall-cmd --permanent --remove-forward-port=port=2222:proto=tcp:toport=22
+    firewall-cmd --permanent --add-rich-rule='rule family=ipv4 source address=203.0.113.7 forward-port port=2222 protocol=tcp to-port=22'
+    firewall-cmd --permanent --remove-service=ssh
+    firewall-cmd --reload
+
+Per consentire un altro indirizzo, eseguire di nuovo il comando `--add-rich-rule` con il nuovo indirizzo, quindi ricaricare. L'indirizzo può anche essere una rete, ad esempio `203.0.113.0/24`. Per gli indirizzi IPv6, usare `family=ipv6`. Per revocare un indirizzo, eseguire `--remove-rich-rule` con lo stesso testo della regola.
+
+La stessa procedura vale per qualsiasi altro servizio TCP, come Cockpit: sostituire `ssh` con il nome del servizio di firewalld e `22` con la porta del servizio.
+
+La pagina `Firewall` non mostra le regole avanzate, quindi il servizio limitato scompare dal suo elenco. Per vedere le regole, eseguire `firewall-cmd --list-all`.
+
+:::warning
+Mantenere aperta la sessione SSH corrente e verificare di poter aprire una nuova connessione prima di chiuderla. Una regola errata può impedire l'accesso al nodo.
+:::

@@ -11,5 +11,4 @@ Practical guides for Rocky Linux systems used with NethServer 8.
 - [Manual partitioning of Rocky Linux with a single disk and LVM](./rocky-linux-manual-partitioning-single-disk-lvm.md)
 - [Manual partitioning of Rocky Linux with a single disk and no LVM](./rocky-linux-manual-partitioning-single-disk-no-lvm.md)
 - [Enable SSH password authentication on Rocky Linux](./ssh-password-authentication-rocky-linux.md)
-- [Manage SSH access on Rocky Linux](./manage-ssh-access-rocky-linux.md)
 - [Change Rocky Linux network configuration](./rocky-linux-network-configuration.md)
