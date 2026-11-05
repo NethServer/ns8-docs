@@ -68,7 +68,7 @@ When configuring an additional volume on a NS8 node, observe the following check
 
       findmnt --real
 
-- If the volume does not exist yet, format it with `xfs` or `ext4` filesystems. Their features and defaults match NS8 expectations.
+- If the volume does not exist yet, format it with the `xfs` filesystem, as recommended in [Disk and partitions](system_requirements.md#disk-partitions). Keep `ext4` only on volumes already formatted with it.
 
   Use `lsblk` to list the block devices (disks or partitions) available on the node, and the `mkfs` command to create a new file system on one of them. Be careful, formatting the wrong device will destroy your data.
 

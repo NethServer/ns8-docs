@@ -124,7 +124,7 @@ Poiché NS8 non gestisce il mount dei dischi, l'amministratore di sistema deve g
 Ipotesi:
 
 - Monta il disco sotto i percorsi base `/mnt` o `/srv`. Sono comunemente usati per questo scopo.
-- Formatta il disco con filesystem `xfs` o `ext4`. Le loro funzionalità e impostazioni predefinite corrispondono alle aspettative di NS8.
+- Formatta il disco con il filesystem `xfs`, come consigliato in [Disco e partizioni](../administrator-manual/installation/system_requirements.md#disk-partitions). Usa `ext4` solo se il disco è già formattato con esso.
 - Imposta un'etichetta del filesystem (ad esempio `LABDISK0`) per riconoscere facilmente il disco. Può anche semplificare la configurazione di `/etc/fstab`.
 - Dopo un riavvio del sistema, una voce in `/etc/fstab` oppure un'unità `.mount` di systemd monta correttamente il disco su `/srv/disk0`.
 - Il disco non è montato altrove. Più punti di mount per lo stesso disco possono causare problemi di relabel SELinux.
