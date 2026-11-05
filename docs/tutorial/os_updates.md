@@ -39,13 +39,17 @@ For updates to NS8 core and modules, refer to [Updates](../administrator-manual/
 
 The command to update the operating system depends on the distribution:
 
-- [APT](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html#apt-get) (Debian): ::
+- [APT](https://www.debian.org/doc/manuals/debian-faq/pkgtools.en.html#apt-get) (Debian):
 
-    apt update && apt upgrade
+  ```
+  apt update && apt upgrade
+  ```
 
-- [DNF](https://docs.rockylinux.org/9/guides/package_management/dnf_package_manager/#update-and-upgrade) (Rocky Linux, AlmaLinux and similar): ::
+- [DNF](https://docs.rockylinux.org/9/guides/package_management/dnf_package_manager/#update-and-upgrade) (Rocky Linux, AlmaLinux and similar):
 
-    dnf update
+  ```
+  dnf update
+  ```
 
 ## Node reboot
 
