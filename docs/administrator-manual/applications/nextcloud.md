@@ -48,6 +48,12 @@ Nextcloud supports two-factor authentication with a TOTP authenticator app. User
 
 Log in as root on the node where the Nextcloud application is installed. In the following commands, replace `nextcloud1` with your application identifier.
 
+The TOTP app is disabled by default. Enable it first:
+
+    runagent -m nextcloud1 occ app:enable twofactor_totp
+
+You can also enable it from the Nextcloud web interface: go to **Apps > Disabled apps** and enable **Two-Factor TOTP Provider**.
+
 To require two-factor authentication for all users, run:
 
     runagent -m nextcloud1 occ twofactorauth:enforce --on
