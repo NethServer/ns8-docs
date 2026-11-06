@@ -413,6 +413,8 @@ Per impostazione predefinita, i login effettuati tramite impersonate (`admin!<us
 > - `chiave` = `audit.logimpersonated`
 > - `valore` = `true`
 
+Se [CrowdSec](crowdsec.md) è installato, blocca l'IP del client dopo ripetuti login falliti su WebTop.
+
 ## Limite massimo della dimensione del file
 
 Ci sono limiti predefiniti relativi alla dimensione massima del file:

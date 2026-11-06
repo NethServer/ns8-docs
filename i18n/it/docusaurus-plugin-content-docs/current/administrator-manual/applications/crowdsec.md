@@ -18,6 +18,7 @@ Una volta installato, CrowdSec è già completamente funzionante e inizia a prot
 - **Database**: rilevamento di tentativi di accesso forzato per MariaDB e PostgreSQL.
 - **FTP**: rilevamento di tentativi di accesso forzato e enumerazione utenti per ProFTPD e vsftpd.
 - **NethVoice**: forza bruta HTTP contro l'API middleware, l'API dei report e il login amministrativo, oltre alla scansione dei percorsi di exploit; forza bruta SIP contro Kamailio. Abilitato di default su una nuova installazione di NethVoice insieme a CrowdSec; in caso di aggiornamento, rimane disabilitato fino a quando non lo abiliti dalla pagina `Collections` (vedi sotto).
+- **WebTop**: forza bruta contro la pagina di login di WebTop. La collection `nethesis/webtop` blocca il vero IP del client dopo ripetuti login falliti. È abilitata di default e puoi disabilitarla dalla pagina `Collections`.
 - **Whitelist di attori legittimi**: crawler/bot legittimi noti sono automaticamente esclusi dai blocchi.
 
 ## Interfaccia web

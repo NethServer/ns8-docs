@@ -413,6 +413,8 @@ By default, the logins made through impersonate (`admin!<user>`) are not shown i
 > - `key` = `audit.logimpersonated`
 > - `value` = `true`
 
+If [CrowdSec](crowdsec.md) is installed, it bans the client IP after repeated failed WebTop logins.
+
 ## Maximum file size limit
 
 There are pre-configured limits related to the maximum file size:
