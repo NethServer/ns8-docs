@@ -18,6 +18,7 @@ Once installed, CrowdSec is already fully functional and starts protecting NS8 a
 - **Database**: MariaDB and PostgreSQL brute-force login detection.
 - **FTP**: ProFTPD and vsftpd brute force and user enumeration.
 - **NethVoice**: HTTP brute force against the middleware API, reports API, and admin login, plus exploit-path scanning; SIP brute force against Kamailio. Enabled by default on a fresh install of NethVoice alongside CrowdSec; on an upgrade it stays off until you enable it from the `Collections` page (see below).
+- **WebTop**: brute force against the WebTop login page. The `nethesis/webtop` collection bans the real client IP after repeated failed logins. It is enabled by default and you can disable it from the `Collections` page.
 - **Good-actor whitelist**: known legitimate crawlers/bots are automatically excluded from bans.
 
 ## Web interface
