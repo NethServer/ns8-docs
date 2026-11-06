@@ -28,6 +28,21 @@ For comparative analysis of logs from two nodes or applications, follow these st
 
 For example, comparing logs can be useful to see the Traefik log from one side, to see incoming HTTP requests, and Nextcloud logs on the other side to see that application activity.
 
+To share search results, for example in a support ticket or with an AI
+assistant, click the `Copy output` button of the search view. The button
+copies the search results to the clipboard as plain text, with a header
+that describes the search that ran:
+
+- the nodes of the search context, with their FQDN and core version; in
+  application context, the application instance with its version and node
+- the search query, the mode, the time range, the Loki instance and the
+  `Max lines` value; follow mode has no time range and no `Max lines`
+- the number of lines shown, compared to the `Max lines` value
+
+A `----` line separates the header from the log lines shown on screen.
+The header always describes the last search: if you change the search
+fields without running the search again, the header does not change.
+
 :::note
 
 By default, log searches are directed to the active Loki instance. If there are [inactive Loki instances](#inactive-loki-section) within the cluster, it is possible to select them to search past log entries.

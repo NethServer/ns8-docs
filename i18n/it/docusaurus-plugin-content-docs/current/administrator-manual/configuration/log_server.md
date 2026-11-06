@@ -27,6 +27,24 @@ Per un'analisi comparativa dei log provenienti da due nodi o applicazioni, segui
 
 Ad esempio, confrontare i log può essere utile per visualizzare i log di Traefik da un lato, per vedere le richieste HTTP in entrata, e i log di Nextcloud dall'altro lato per osservare l'attività dell'applicazione.
 
+Per condividere i risultati di una ricerca, ad esempio in un ticket di
+supporto o con un assistente AI, fai clic sul pulsante `Copy output` della
+vista di ricerca. Il pulsante copia negli appunti i risultati come testo
+semplice, con un'intestazione che descrive la ricerca eseguita:
+
+- i nodi del contesto di ricerca, con il loro FQDN e la versione del core;
+  nel contesto applicazione, l'istanza dell'applicazione con la sua
+  versione e il suo nodo
+- la query di ricerca, la modalità, l'intervallo di tempo, l'istanza Loki
+  e il valore di `Max lines`; la modalità follow non ha intervallo di tempo
+  né `Max lines`
+- il numero di righe mostrate, confrontato con il valore di `Max lines`
+
+Una riga `----` separa l'intestazione dalle righe di log mostrate a
+schermo. L'intestazione descrive sempre l'ultima ricerca eseguita: se
+modifichi i campi di ricerca senza eseguire di nuovo la ricerca,
+l'intestazione non cambia.
+
 :::note
 
 Per impostazione predefinita, le ricerche nei log sono indirizzate all'istanza Loki attiva. Se ci sono [istanze Loki inattive](#inactive-loki-section) all'interno del cluster, è possibile selezionarle per cercare voci di log passate.
