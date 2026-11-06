@@ -231,7 +231,7 @@ La procedura di ripristino di emergenza è progettata per il ripristino di un **
 5.  Inserire il segreto di crittografia nel campo `Backup password`.
 6.  Selezionare le applicazioni da ripristinare.
 
-Il cluster ripristinato ottiene l'abbonamento e i repository software del cluster originale. Il backup del cluster non include le applicazioni escluse dagli aggiornamenti automatici: dopo il ripristino, escluderle di nuovo come descritto in [Aggiornamenti automatici](../installation/software_center.md#automatic-updates-section).
+Il cluster ripristinato ottiene la subscription e i repository software del cluster originale. Il backup del cluster non include le applicazioni escluse dagli aggiornamenti automatici: dopo il ripristino, escluderle di nuovo come descritto in [Aggiornamenti automatici](../installation/software_center.md#automatic-updates-section).
 
 Per ulteriori informazioni, fare riferimento alle note di backup e ripristino per ciascuna applicazione. Ad esempio:
 

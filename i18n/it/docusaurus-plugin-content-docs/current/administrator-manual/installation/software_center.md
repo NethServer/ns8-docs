@@ -90,7 +90,7 @@ Per casi d'uso avanzati, in cui un'applicazione non abilita la selezione automat
 Una volta installata un'applicazione, fai clic sul link `Applications` all'interno della scheda dell'applicazione. Vengono elencate tutte le applicazioni installate di quel tipo. È possibile eseguire varie azioni su ciascuna applicazione facendo clic sul menu a tre punti:
 
 - `Update to testing version`: Questa azione è visibile solo quando è disponibile una versione di testing. Esamina attentamente la documentazione pre-release o consulta lo sviluppatore dell'app prima di procedere.
-- `Disable automatic updates` / `Enable automatic updates`: Escludi l'applicazione dagli aggiornamenti automatici, oppure includila di nuovo. Disponibile solo con un abbonamento attivo, per le applicazioni del repository `subscription`. Vedi [Aggiornamenti automatici](#automatic-updates-section).
+- `Disable automatic updates` / `Enable automatic updates`: Escludi l'applicazione dagli aggiornamenti automatici, oppure includila di nuovo. Disponibile solo con una subscription attiva, per le applicazioni del repository `subscription`. Vedi [Aggiornamenti automatici](#automatic-updates-section).
 - `Add to favorites`: Fissa l'applicazione in cima al **cassetto delle applicazioni**.
 - `Edit application label`: Aggiungi un nome personalizzato all'applicazione.
 - `Clone`: Clona l'applicazione. Vedi [Clone and move](modules.md#move_clone-section).
@@ -180,7 +180,7 @@ La disattivazione degli aggiornamenti automatici può esporre il cluster a probl
 
 Per escludere una singola applicazione dagli aggiornamenti automatici, selezionare `Disable automatic updates` dal menu a tre punti della sua riga, nella pagina `Applications` o nell'elenco delle applicazioni dello stesso tipo nel Software Center. L'applicazione riceve l'etichetta `Updates disabled`. L'attività pianificata la salta, mentre le altre applicazioni, i componenti core e i pacchetti del sistema operativo vengono comunque aggiornati. Selezionare `Enable automatic updates` per includere di nuovo l'applicazione.
 
-La voce `Disable automatic updates` è disponibile solo per le applicazioni del repository `subscription`, le uniche aggiornate dall'attività pianificata. Un'applicazione esclusa in precedenza mantiene l'etichetta `Updates disabled` e la voce `Enable automatic updates`, qualunque sia il suo repository.
+La voce `Disable automatic updates` è disponibile solo per le applicazioni del repository `subscription`, le uniche aggiornate dall'attività pianificata. Queste applicazioni hanno il [livello di certificazione](#certification-levels) 5/5. Un'applicazione esclusa in precedenza mantiene l'etichetta `Updates disabled` e la voce `Enable automatic updates`, qualunque sia il suo repository.
 
 L'impostazione di ogni applicazione viene mantenuta quando gli aggiornamenti automatici vengono disattivati e riabilitati per l'intero cluster: le applicazioni escluse in precedenza restano escluse. L'impostazione non viene salvata nel backup del cluster: dopo un [ripristino di emergenza](../configuration/backup.md#disaster_recovery-section), tutte le applicazioni ripristinate vengono di nuovo incluse negli aggiornamenti automatici.
 

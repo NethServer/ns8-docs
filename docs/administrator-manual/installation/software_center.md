@@ -188,7 +188,7 @@ Disabling automatic updates may expose the cluster to security issues and reduce
 
 To exclude a single application from automatic updates, select `Disable automatic updates` from the three-dots menu of its row, in the `Applications` page or in the list of applications of the same type in the Software Center. The application gains the `Updates disabled` tag. The scheduled task skips it, while other applications, core components, and operating system packages are still updated. Select `Enable automatic updates` to include the application again.
 
-The `Disable automatic updates` entry is available only for applications from the `subscription` repository, the only ones updated by the scheduled task. An application excluded before keeps the `Updates disabled` tag and the `Enable automatic updates` entry, whatever its repository.
+The `Disable automatic updates` entry is available only for applications from the `subscription` repository, the only ones updated by the scheduled task. These applications have the [certification level](#certification-levels) 5/5. An application excluded before keeps the `Updates disabled` tag and the `Enable automatic updates` entry, whatever its repository.
 
 The setting of each application is kept when automatic updates are disabled and enabled again for the whole cluster: applications excluded before remain excluded. The setting is not saved in the cluster backup: after a [disaster recovery](../configuration/backup.md#disaster_recovery-section), every restored application is included in automatic updates again.
 

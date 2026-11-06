@@ -27,7 +27,7 @@ Inoltre, è possibile allegare una breve nota di testo all'applicazione tramite 
 
 ## Aggiornamenti automatici
 
-Con un abbonamento attivo, l'azione `Disable automatic updates` esclude l'applicazione dagli aggiornamenti automatici, e l'applicazione riceve l'etichetta `Updates disabled`. L'azione `Enable automatic updates` la include di nuovo. Il menu a tre punti in cima alla pagina `Applications` offre le stesse azioni per l'intero cluster. Vedere [Aggiornamenti automatici](software_center.md#automatic-updates-section).
+Con una subscription attiva, l'azione `Disable automatic updates` esclude l'applicazione dagli aggiornamenti automatici, e l'applicazione riceve l'etichetta `Updates disabled`. L'azione è disponibile solo per le applicazioni del repository `subscription`, le uniche aggiornate automaticamente. L'azione `Enable automatic updates` la include di nuovo. Il menu a tre punti in cima alla pagina `Applications` offre le stesse azioni per l'intero cluster. Vedere [Aggiornamenti automatici](software_center.md#automatic-updates-section).
 ## Clona e sposta {#move_clone-section}
 
 Le azioni `Clone` e `Move` creano un'applicazione **di destinazione** che è una copia di quella **di origine**.
