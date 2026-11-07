@@ -32,7 +32,7 @@ When a cluster has an active subscription, the following services are enabled:
 - [Scheduled updates](../about/subscription.md#scheduled-updates) for node operating systems, core components, and applications
 - Upload of cluster backup
 
-Regarding software repositories, only the `subscription` repository remains enabled.
+Regarding software repositories, the `subscription` repository is added and enabled, and the other repositories are disabled.
 
 :::tip
 
@@ -75,6 +75,8 @@ A scheduled overnight task automatically installs software updates available fro
 - **Operating system**: Updates are sourced from the DNF repositories labeled `ns-baseos` and `ns-appstream`. These repositories provide delayed snapshots of Rocky Linux repositories to avoid distributing updates that could cause unexpected issues (see [Nethesis-managed Rocky Linux mirror](../../tutorial/os_updates.md#neth-mirror)).
 - **Core components**: Updates are fetched from the `subscription` repository.
 - **Applications**: Updates are also sourced from the `subscription` repository.
+
+Only the `subscription` repository is managed and reviewed by Nethesis, so the scheduled task always fetches core and application updates from it, regardless of the configuration of the `Software repositories` page. Applications installed from other repositories, like `nethforge` or custom repositories, are never updated by the scheduled task: update them manually from the Software Center.
 
 :::note
 

@@ -94,7 +94,7 @@ For advanced use cases, where an application does not enable the automatic volum
 Once an application has been installed, click on the `Applications` link within the application's card. It lists every installed application of that type. You can perform various actions on each application by clicking on its three-dots menu:
 
 - `Update to testing version`: This action is visible only when a testing version is available. Carefully review the pre-release documentation or consult the app developer before proceeding.
-- `Disable automatic updates` / `Enable automatic updates`: Exclude the application from automatic updates, or include it again. Available only with an active subscription. See [Automatic updates](#automatic-updates-section).
+- `Disable automatic updates` / `Enable automatic updates`: Exclude the application from automatic updates, or include it again. Available only with an active subscription, for applications from the `subscription` repository. See [Automatic updates](#automatic-updates-section).
 - `Add to favorites`: Pin the application at the top of the **application drawer**.
 - `Edit application label`: Add a custom name to the application.
 - `Clone`: Clone the application. See [Clone and move](modules.md#move_clone-section).
@@ -176,6 +176,8 @@ Updates applied manually from the Software Center ignore the automatic updates s
 
 With an active subscription, a scheduled overnight task applies the available updates automatically, as described in [Scheduled updates](../about/subscription.md#scheduled-updates). Automatic updates are enabled by default. Without a subscription, updates are never applied automatically, and the controls described in this section are not displayed.
 
+Automatic updates come only from the `subscription` repository. Applications installed from other repositories, like `nethforge` or custom repositories, are not updated automatically: update them manually.
+
 To disable automatic updates for the whole cluster, click on the three-dots menu in the top-right corner of the `Software Center` or `Applications` page, then select `Disable automatic updates`. The scheduled task stops updating applications, core components, and operating system packages. While automatic updates are disabled, both pages display an `Automatic updates disabled` warning. To enable them again, click **Enable automatic updates** in the warning, or select the same entry in the three-dots menu.
 
 :::warning
@@ -186,6 +188,8 @@ Disabling automatic updates may expose the cluster to security issues and reduce
 
 To exclude a single application from automatic updates, select `Disable automatic updates` from the three-dots menu of its row, in the `Applications` page or in the list of applications of the same type in the Software Center. The application gains the `Updates disabled` tag. The scheduled task skips it, while other applications, core components, and operating system packages are still updated. Select `Enable automatic updates` to include the application again.
 
-The setting of each application is kept when automatic updates are disabled and enabled again for the whole cluster: applications excluded before remain excluded.
+The `Disable automatic updates` entry is available only for applications from the `subscription` repository, the only ones updated by the scheduled task. These applications have the [certification level](#certification-levels) 5/5. An application excluded before keeps the `Updates disabled` tag and the `Enable automatic updates` entry, whatever its repository.
+
+The setting of each application is kept when automatic updates are disabled and enabled again for the whole cluster: applications excluded before remain excluded. The setting is not saved in the cluster backup: after a [disaster recovery](../configuration/backup.md#disaster_recovery-section), every restored application is included in automatic updates again.
 
 Excluded applications can still be updated manually, as described in [Application updates](#module_updates-section).

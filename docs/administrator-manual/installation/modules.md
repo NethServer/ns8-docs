@@ -28,7 +28,7 @@ Furthermore, a small text note can be attached to the application with the `Edit
 
 ## Automatic updates
 
-With an active subscription, the `Disable automatic updates` action excludes the application from automatic updates, and the application gains the `Updates disabled` tag. The `Enable automatic updates` action includes it again. The three-dots menu at the top of the `Applications` page provides the same actions for the whole cluster. See [Automatic updates](software_center.md#automatic-updates-section).
+With an active subscription, the `Disable automatic updates` action excludes the application from automatic updates, and the application gains the `Updates disabled` tag. The action is available only for applications from the `subscription` repository, the only ones updated automatically. The `Enable automatic updates` action includes it again. The three-dots menu at the top of the `Applications` page provides the same actions for the whole cluster. See [Automatic updates](software_center.md#automatic-updates-section).
 
 ## Clone and move {#move_clone-section}
 

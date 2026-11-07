@@ -230,6 +230,8 @@ The disaster recovery procedure is designed for the restoration of a **single-no
 5.  Enter the encryption secret in the `Backup password` field.
 6.  Select the applications to restore.
 
+The restored cluster gets the subscription and the software repositories of the original cluster. The cluster backup does not include the applications excluded from automatic updates: after the restore, exclude them again as described in [Automatic updates](../installation/software_center.md#automatic-updates-section).
+
 For more information, refer to the backup and restore notes for each application. For example:
 
 - [Restore file server from backup](../applications/file_server.md#file-server-restore)

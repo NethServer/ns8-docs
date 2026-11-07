@@ -32,7 +32,7 @@ Quando un cluster ha un abbonamento attivo, i seguenti servizi sono abilitati:
 - [Aggiornamenti programmati](../about/subscription.md#scheduled-updates) per i sistemi operativi dei nodi, i componenti core e le applicazioni
 - Caricamento del backup del cluster
 
-Per quanto riguarda i repository software, rimane abilitato solo il repository `subscription`.
+Per quanto riguarda i repository software, il repository `subscription` viene aggiunto e abilitato, mentre gli altri repository vengono disabilitati.
 
 :::tip
 
@@ -73,6 +73,8 @@ Un'attività pianificata notturna installa automaticamente gli aggiornamenti sof
 - **Sistema operativo**: Gli aggiornamenti provengono dai repository DNF denominati `ns-baseos` e `ns-appstream`. Questi repository forniscono snapshot ritardati dei repository di Rocky Linux per evitare la distribuzione di aggiornamenti che potrebbero causare problemi imprevisti (vedi [Mirror Rocky Linux gestito da Nethesis](../../tutorial/os_updates.md#neth-mirror)).
 - **Componenti principali**: Gli aggiornamenti vengono recuperati dal repository `subscription`.
 - **Applicazioni**: Gli aggiornamenti provengono anch'essi dal repository `subscription`.
+
+Solo il repository `subscription` è gestito e verificato da Nethesis, quindi l'attività pianificata recupera sempre da esso gli aggiornamenti dei componenti principali e delle applicazioni, indipendentemente dalla configurazione della pagina `Repository software`. Le applicazioni installate da altri repository, come `nethforge` o repository personalizzati, non vengono mai aggiornate dall'attività pianificata: aggiornarle manualmente dal Software Center.
 
 :::note
 
