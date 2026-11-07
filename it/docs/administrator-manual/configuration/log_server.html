@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Log di sistema | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/it/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/it/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/it/docs/administrator-manual/configuration/log_server"><meta data-rh="true" property="og:locale" content="it_IT"><meta data-rh="true" property="og:locale:alternate" content="en_US"><meta data-rh="true" name="docusaurus_locale" content="it"><meta data-rh="true" name="docsearch:language" content="it"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Log di sistema | NethServer 8 documentation"><meta data-rh="true" name="description" content="I registri generati da qualsiasi nodo del cluster vengono raccolti e archiviati nel nodo leader. Consulta Persistenza dei log per ulteriori informazioni."><meta data-rh="true" property="og:description" content="I registri generati da qualsiasi nodo del cluster vengono raccolti e archiviati nel nodo leader. Consulta Persistenza dei log per ulteriori informazioni."><link data-rh="true" rel="icon" href="/it/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/it/docs/administrator-manual/configuration/log_server"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/configuration/log_server" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/it/docs/administrator-manual/configuration/log_server" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/docs/administrator-manual/configuration/log_server" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Log di sistema","item":"https://docs.nethserver.org/it/docs/administrator-manual/configuration/log_server"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/it/opensearch.xml"><link rel="stylesheet" href="/it/assets/css/styles.c61e80aa.css">
-<script src="/it/assets/js/runtime~main.36b9ba71.js" defer="defer"></script>
+<script src="/it/assets/js/runtime~main.6c98a9ed.js" defer="defer"></script>
 <script src="/it/assets/js/main.b64d539e.js" defer="defer"></script>
 </head>
 <body>
@@ -32,6 +32,23 @@
 <li class="">Facoltativamente, passare alla modalità <code>Vertical layout</code> dal menu a tre punti per un confronto affiancato.</li>
 </ul>
 <p>Ad esempio, confrontare i log può essere utile per visualizzare i log di Traefik da un lato, per vedere le richieste HTTP in entrata, e i log di Nextcloud dall&#x27;altro lato per osservare l&#x27;attività dell&#x27;applicazione.</p>
+<p>Per condividere i risultati di una ricerca, ad esempio in un ticket di
+supporto o con un assistente AI, fai clic sul pulsante <code>Copy output</code> della
+vista di ricerca. Il pulsante copia negli appunti i risultati come testo
+semplice, con un&#x27;intestazione che descrive la ricerca eseguita:</p>
+<ul>
+<li class="">i nodi del contesto di ricerca, con il loro FQDN e la versione del core;
+nel contesto applicazione, l&#x27;istanza dell&#x27;applicazione con la sua
+versione e il suo nodo</li>
+<li class="">la query di ricerca, la modalità, l&#x27;intervallo di tempo, l&#x27;istanza Loki
+e il valore di <code>Max lines</code>; la modalità follow non ha intervallo di tempo
+né <code>Max lines</code></li>
+<li class="">il numero di righe mostrate, confrontato con il valore di <code>Max lines</code></li>
+</ul>
+<p>Una riga <code>----</code> separa l&#x27;intestazione dalle righe di log mostrate a
+schermo. L&#x27;intestazione descrive sempre l&#x27;ultima ricerca eseguita: se
+modifichi i campi di ricerca senza eseguire di nuovo la ricerca,
+l&#x27;intestazione non cambia.</p>
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>nota</div><div class="admonitionContent_BuS1"><p>Per impostazione predefinita, le ricerche nei log sono indirizzate all&#x27;istanza Loki attiva. Se ci sono <a href="#inactive-loki-section" class="">istanze Loki inattive</a> all&#x27;interno del cluster, è possibile selezionarle per cercare voci di log passate.</p></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="interfaccia-a-riga-di-comando">Interfaccia a riga di comando<a href="#interfaccia-a-riga-di-comando" class="hash-link" aria-label="Link diretto a Interfaccia a riga di comando" title="Link diretto a Interfaccia a riga di comando" translate="no">​</a></h2>
 <p>Oltre ad accedere ai log tramite la pagina web <strong>System Logs</strong>, gli utenti possono utilizzare il comando <code>api-server-logs</code> per cercare nei log. Di seguito sono riportati esempi che illustrano il suo utilizzo:</p>
