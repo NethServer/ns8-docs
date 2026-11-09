@@ -47,13 +47,15 @@ Una volta avviate, le azioni `Clone` e `Move` seguono questi passaggi:
    - *Per Move*, **avviare l'applicazione di destinazione** e **rimuovere quella di origine**.
 
 Se l'applicazione spostata è referenziata da un fully qualified domain name (FQDN), assicurarsi che i record DNS esterni siano aggiornati per puntare al nodo di destinazione. Il reverse proxy del cluster viene riconfigurato automaticamente.
-## Riavvia applicazione
+## Riavvia applicazione {#restart-application}
 
 L'azione `Restart` interrompe completamente l'applicazione e riavvia i suoi servizi, eseguendo le stesse operazioni normalmente effettuate al momento dell'avvio del nodo.
 
 Questa azione dovrebbe essere utilizzata con parsimonia e preferibilmente al di fuori degli orari lavorativi, poiché interrompe il funzionamento dell'applicazione con effetti imprevedibili sull'esperienza dell'utente finale.
 
 Alcuni eventi imprevedibili, come la mancanza di spazio su disco o l'esaurimento della memoria, possono degradare la funzionalità dell'applicazione. In queste situazioni, `Restart` potrebbe risolvere il problema, a condizione che le risorse sufficienti siano nuovamente disponibili.
+
+Riavvia anche le applicazioni che usano i server DNS del nodo dopo averli cambiati; vedi [Risoluzione dei nomi](system_requirements.md#resolv-conf).
 ## Applicazioni principali
 
 Dalla pagina `Applications`, seleziona il pulsante **Go to Core applications** per visualizzare un elenco completo delle applicazioni principali installate e delle loro versioni. Gli aggiornamenti delle applicazioni principali, quando disponibili, vengono sempre applicati contemporaneamente.

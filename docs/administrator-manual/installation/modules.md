@@ -50,13 +50,15 @@ Once started, `Clone` and `Move` actions run through these steps:
 
 If the moved application is referenced by a fully qualified domain name (FQDN), ensure that external DNS records are updated to point to the target node. The cluster reverse proxy is automatically reconfigured.
 
-## Restart application
+## Restart application {#restart-application}
 
 The `Restart` action fully stops the application and starts its services again, performing the same operations normally executed at node boot time.
 
 This action should be used sparingly and preferably during non-working hours, as it interrupts application operation with unpredictable effects on the end-user experience.
 
 Some unpredictable events, such as lack of disk space or memory exhaustion, may degrade application functionality. In these situations, `Restart` may resolve the issue, provided that sufficient resources are available again.
+
+Also restart the applications that use the DNS servers of the node after you change them; see [Name resolution](system_requirements.md#resolv-conf).
 
 ## Core applications
 

@@ -206,6 +206,14 @@ Il componente antispam Rspamd analizza le email rilevando e classificando i [mes
 
 Il filtro può anche controllare se il server mittente è elencato in una o più block list basate su DNS (o [DNSBL](https://en.wikipedia.org/wiki/Domain_Name_System_blocklist)). A ogni regola è associato un punteggio. Il controllo genera query DNS in uscita verso server DNS di terze parti; vedi [Connessioni in uscita di Mail](#mail-outbound-connections).
 
+Rspamd non usa i server DNS configurati sul nodo. Invia le sue query DNS a un resolver ricorsivo Unbound locale, che risolve ogni nome percorrendo la gerarchia DNS, dai root server fino ai server autorevoli della zona. Anche altri controlli si basano sul DNS, come la ricerca dei record MX del dominio mittente.
+
+:::warning
+
+Per un corretto filtraggio dello spam, altri dispositivi di rete, come i firewall, non devono bloccare né redirigere le query DNS in uscita del resolver Unbound. Se le ricerche DNS falliscono, i risultati dei controlli basati sul DNS sono errati. Per esempio, Rspamd aggiunge il simbolo `MX_MISSING` quando la ricerca MX del dominio mittente fallisce, anche se il dominio ha record MX validi, e alza il punteggio di spam di messaggi legittimi.
+
+:::
+
 I filtri statistici (o [bayesiani](https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering)) sono regole speciali che evolvono e si adattano rapidamente analizzando i messaggi contrassegnati come **spam** o **ham**.
 
 Il punteggio spam totale raccolto al termine dell'analisi consente al server di decidere cosa fare con un messaggio.
@@ -507,7 +515,7 @@ L'applicazione Mail genera traffico SMTP in uscita verso altri server di posta, 
 | Scopo | Nome host | Porta | Protocollo | Note |
 |----|----|----|----|----|
 | Sessione SMTP | \<any\> | 25 | SMTP | Connessione in uscita verso l'MTA remoto |
-| Query DNSBL | \<any\> | 53 | DNS | Query DNS di Rspamd e query DNS ricorsive del resolver |
+| Query DNS | \<any\> | 53 | DNS | Query DNS ricorsive del resolver locale di Rspamd (Unbound), dai root server ai server autorevoli |
 | Query DQS | \<any\> | 53 | DNS | Query DNS del servizio Spamhaus Data Query Service |
 | Aggiornamenti DB di ClamAV | database.clamav.net, sigs.interserver.net, cdn.rfxn.com, signatures.malware.expert, lists.malwarepatrol.net, www.sanesecurity.com, www.securiteinfo.com, urlhaus.abuse.ch, raw.githubusercontent.com | 443 | HTTPS | Scarica firme ufficiali e non ufficiali di ClamAV |
 | Aggiornamenti DB di ClamAV | rsync.sanesecurity.net | 873 | RSYNC | Scarica firme ufficiali e non ufficiali di ClamAV |
@@ -516,10 +524,12 @@ Riepilogo delle connessioni in uscita di Mail
 
 Note
 
+- Rspamd invia tutte le sue query DNS, comprese le query DNSBL e DQS, a un resolver ricorsivo Unbound locale. Unbound non le inoltra ai server DNS configurati sul nodo: interroga direttamente la gerarchia DNS, partendo dai root server fino ai server autorevoli di ogni zona. Consenti il traffico DNS in uscita (porta 53, UDP e TCP) verso qualsiasi destinazione e assicurati che altri dispositivi di rete non lo blocchino né lo redirigano, altrimenti il filtraggio dello spam non è accurato; vedi [Antispam](#antispam-section).
+
+- Postfix e Dovecot non usano Unbound: risolvono i nomi con i server DNS configurati sul nodo, per esempio per trovare i record MX dei domini destinatari. Dopo aver cambiato questi server DNS, riavvia l'applicazione Mail; vedi [Risoluzione dei nomi](../installation/system_requirements.md#resolv-conf).
+
 - L'elenco completo dei nomi host è stato estratto dal codice sorgente di [clamav-unofficial-sigs](https://github.com/extremeshok/clamav-unofficial-sigs).
 
 - Ottieni l'elenco completo dei server DNSBL/DQS con questo comando sul nodo in cui è installata Mail:
 
       runagent -m mail1 podman exec rspamd rspamadm configdump rbl | grep "rbl = "
-
-  Per risolvere i loro indirizzi IP, il resolver DNS ricorsivo di Rspamd (Unbound) interroga direttamente i server DNS autorevoli.
