@@ -66,6 +66,8 @@ Evitare le seguenti configurazioni:
 - Non utilizzare alcuna applicazione NS8 che fornisca un servizio DNS come risolutore dei nomi del nodo, ad esempio Samba Active Directory o DNSMasq. Questo potrebbe causare loop nella risoluzione dei nomi o impedire gli aggiornamenti del nodo.
 - Non mescolare server DNS appartenenti a ambiti di rete diversi, ad esempio, `1.1.1.1` (pubblico, Cloudflare) e `192.168.1.1` (privato). Questo potrebbe portare a risultati incoerenti nelle query DNS.
 
+I container delle applicazioni ricevono una copia del file `/etc/resolv.conf` quando si avviano e non vedono le modifiche successive. Dopo aver cambiato i server DNS del nodo, [riavvia](modules.md#restart-application) le applicazioni che li usano. Per esempio, riavvia [Mail](../applications/mail.md#mail-outbound-connections), perché Postfix e Dovecot usano i server DNS del nodo.
+
 ## Configurazione DNS {#dns-reqs}
 
 Per garantire che i client di rete possano connettersi al nodo, il suo fully qualified domain name (FQDN) deve risolversi in un indirizzo IP instradabile tramite DNS. Registra l'FQDN con un record DNS di tipo A per gli indirizzi IPv4 e di tipo AAAA per gli indirizzi IPv6.

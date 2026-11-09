@@ -526,6 +526,8 @@ Note
 
 - Rspamd invia tutte le sue query DNS, comprese le query DNSBL e DQS, a un resolver ricorsivo Unbound locale. Unbound non le inoltra ai server DNS configurati sul nodo: interroga direttamente la gerarchia DNS, partendo dai root server fino ai server autorevoli di ogni zona. Consenti il traffico DNS in uscita (porta 53, UDP e TCP) verso qualsiasi destinazione e assicurati che altri dispositivi di rete non lo blocchino né lo redirigano, altrimenti il filtraggio dello spam non è accurato; vedi [Antispam](#antispam-section).
 
+- Postfix e Dovecot non usano Unbound: risolvono i nomi con i server DNS configurati sul nodo, per esempio per trovare i record MX dei domini destinatari. Dopo aver cambiato questi server DNS, riavvia l'applicazione Mail; vedi [Risoluzione dei nomi](../installation/system_requirements.md#resolv-conf).
+
 - L'elenco completo dei nomi host è stato estratto dal codice sorgente di [clamav-unofficial-sigs](https://github.com/extremeshok/clamav-unofficial-sigs).
 
 - Ottieni l'elenco completo dei server DNSBL/DQS con questo comando sul nodo in cui è installata Mail:

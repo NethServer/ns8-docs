@@ -73,6 +73,8 @@ Avoid the following configurations:
 - Do not use any NS8 application providing DNS service as the node name resolver, such as Samba Active Directory or DNSMasq. This can cause name resolution loops or prevent node updates.
 - Do not mix DNS servers from different network scopes, for example, `1.1.1.1` (public, Cloudflare) and `192.168.1.1` (private). Doing so can lead to inconsistent DNS query results.
 
+Application containers receive a copy of the `/etc/resolv.conf` file when they start, and do not see later changes to it. After you change the DNS servers of the node, [restart](modules.md#restart-application) the applications that use them. For example, restart [Mail](../applications/mail.md#mail-outbound-connections), because Postfix and Dovecot use the DNS servers of the node.
+
 ## DNS configuration {#dns-reqs}
 
 To ensure network clients can connect to the node, its fully qualified domain name (FQDN) must resolve to a routable IP address via DNS. Register the FQDN with DNS record type A for IPv4 addresses and type AAAA for IPv6 addresses.

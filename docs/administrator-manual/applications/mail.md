@@ -526,6 +526,8 @@ Notes
 
 - Rspamd sends all its DNS queries, including DNSBL and DQS queries, to a local Unbound recursive resolver. Unbound does not forward them to the DNS servers configured on the node: it queries the DNS hierarchy directly, starting from the root servers down to the authoritative servers of each zone. Allow outbound DNS traffic (port 53, UDP and TCP) to any destination, and make sure other network devices do not block or redirect it, otherwise spam filtering is not accurate; see [Antispam](#antispam-section).
 
+- Postfix and Dovecot do not use Unbound: they resolve names with the DNS servers configured on the node, for example to find the MX records of recipient domains. After you change those DNS servers, restart the Mail application; see [Name resolution](../installation/system_requirements.md#resolv-conf).
+
 - The complete list of host names has been extracted from the [clamav-unofficial-sigs](https://github.com/extremeshok/clamav-unofficial-sigs) source code.
 
 - Obtain a complete list of DNSBL/DQS servers with this command on the node where Mail is installed:
