@@ -23,7 +23,7 @@ Once installed, navigate to the application Settings page and fill in the requir
 - **Mail server**: Choose one of the Mail server instances in the cluster. They are labeled as follows:
   1.  *Archiving can be configured*: This means the Mail server currently has no archive configured and can be safely selected.
   2.  *The archive destination is…*: This indicates that the Mail server already copies any message sent or received to another archive or external email address. If such an entry is selected and the form is saved, the previous configuration is overwritten, so use it with caution. See also the Mail [Always BCC](mail.md#mail-archive-section) setting.
-- **Retention duration**: This field contains the number of days an email message is retained in the archive. After that period, a daily cron job purges the message from the archive.
+- **Retention duration**: This field contains the number of days an email message is retained in the archive. After that period, a daily cron job purges the message from the archive. Piler sets the expiry date of a message when it archives it, so a new value applies only to messages archived after the change.
 
 It is important to understand that the Mail server selection is allowed only once during the configuration of a Piler instance. In other words, you cannot change the Mail server selection once the Piler instance is initially configured.
 
@@ -50,7 +50,7 @@ Administrators can change the password of other users from the **Users** action 
 
 Auditor users can search for and recover archived email messages.
 
-When a message is handled by the Mail server, a copy is sent to the archive. However, Piler does not index the received messages immediately. They are placed in an archive queue, and every half hour, a scheduled task indexes a batch of queued messages. Duplicate messages count as one.
+When a message is handled by the Mail server, a copy is sent to the archive. Piler indexes it right away, so it can be searched a few moments later. Duplicate messages count as one.
 
 Once a message is indexed, auditors can search for it. Found messages can be downloaded or forwarded to an arbitrary email address.
 
@@ -77,6 +77,14 @@ Replace `piler1` with the correct Piler application instance identifier, visible
 The optional command arguments `-A` (after) and `-B` (before) can limit the time range for the import. As times must be expressed in Unix timestamp format, the `date` command can be invoked to obtain the desired timestamp from a date string, for example:
 
     date -d 2024-05-01 +%s
+
+## Let users log in with their mail account
+
+By default only the `admin@local` and `auditor@local` accounts can log in, so a user who loses a message must ask an auditor, who can read every archived message.
+
+Piler can also check logins against the Mail server. Each user then logs in with their full email address and mail password, and finds their own archived messages without help. The local accounts keep working.
+
+This option is off by default. The steps to enable it are in the [Piler module README](https://github.com/NethServer/ns8-piler#let-mail-users-log-in).
 
 ## Fine-tune Piler's configuration
 
