@@ -206,6 +206,14 @@ The antispam component Rspamd analyzes emails by detecting and classifying [spam
 
 The filter can also check if the sending server is listed in one or more DNS-based block lists (or [DNSBL](https://en.wikipedia.org/wiki/Domain_Name_System_blocklist)). A score is associated with each rule. The check generates outbound DNS queries to third-party DNS servers; see [Mail outbound connections](#mail-outbound-connections).
 
+Rspamd does not use the DNS servers configured on the node. It sends its DNS queries to a local Unbound recursive resolver, which resolves each name by walking the DNS hierarchy, from the root servers down to the authoritative servers of the zone. Other checks rely on DNS too, such as the lookup of the sender domain's MX records.
+
+:::warning
+
+For correct spam filtering, other network devices, such as firewalls, must not block or redirect the outbound DNS queries of the Unbound resolver. If DNS lookups fail, the results of the DNS-based checks are wrong. For example, Rspamd adds the `MX_MISSING` symbol when the MX lookup of the sender domain fails, even if the domain has valid MX records, and raises the spam score of legitimate messages.
+
+:::
+
 Statistical (or [Bayesian](https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering)) filters, are special rules that evolve and quickly adapt analyzing messages marked as **spam** or **ham**.
 
 Total spam score collected at the end of the analysis allows the server to decide what to do with a message.
@@ -507,7 +515,7 @@ The Mail application generates outbound SMTP traffic towards other mail servers,
 | Purpose | Host name | Port | Protocol | Notes |
 |----|----|----|----|----|
 | SMTP session | \<any\> | 25 | SMTP | Outbound connection to remote MTA |
-| DNSBL queries | \<any\> | 53 | DNS | Rspamd DNS queries and resolver recursive DNS queries |
+| DNS queries | \<any\> | 53 | DNS | Recursive DNS queries of the Rspamd local resolver (Unbound), from root servers to authoritative servers |
 | DQS queries | \<any\> | 53 | DNS | Spamhaus Data Query Service DNS queries |
 | ClamAV DB updates | database.clamav.net, sigs.interserver.net, cdn.rfxn.com, signatures.malware.expert, lists.malwarepatrol.net, www.sanesecurity.com, www.securiteinfo.com, urlhaus.abuse.ch, raw.githubusercontent.com | 443 | HTTPS | Fetch official and unofficial ClamAV signatures |
 | ClamAV DB updates | rsync.sanesecurity.net | 873 | RSYNC | Fetch official and unofficial ClamAV signatures |
@@ -516,10 +524,10 @@ Summary of Mail outbound connections
 
 Notes
 
+- Rspamd sends all its DNS queries, including DNSBL and DQS queries, to a local Unbound recursive resolver. Unbound does not forward them to the DNS servers configured on the node: it queries the DNS hierarchy directly, starting from the root servers down to the authoritative servers of each zone. Allow outbound DNS traffic (port 53, UDP and TCP) to any destination, and make sure other network devices do not block or redirect it, otherwise spam filtering is not accurate; see [Antispam](#antispam-section).
+
 - The complete list of host names has been extracted from the [clamav-unofficial-sigs](https://github.com/extremeshok/clamav-unofficial-sigs) source code.
 
 - Obtain a complete list of DNSBL/DQS servers with this command on the node where Mail is installed:
 
       runagent -m mail1 podman exec rspamd rspamadm configdump rbl | grep "rbl = "
-
-  To resolve their IP addresses, the Rspamd DNS recursive resolver (Unbound) queries authoritative DNS servers directly.
