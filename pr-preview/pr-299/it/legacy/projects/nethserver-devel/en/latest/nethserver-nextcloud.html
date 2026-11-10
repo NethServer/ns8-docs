@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nethserver-nextcloud &mdash; NethServer 7 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nethserver-ns8-migration" href="nethserver-ns8-migration.html" />
+    <link rel="prev" title="nethserver-netdata" href="nethserver-netdata.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/developer-manual/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "en", "page": "nethserver-nextcloud", "programming_language": "other", "project": "nethserver-devel", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-devel" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/nethserver-nextcloud.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Rules and conventions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_process.html">Development process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpm_rules.html">RPM package rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Actions and events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_url.html">Auto-generated random URL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificate_management.html">Certificate Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yum_plugin.html">Yum plugin</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_interface.html">Web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_interface_module.html">Creating web UI module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inline_help.html">Creating inline help pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todos_api.html">TODO API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_rpms.html">Building RPMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_iso.html">Building ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_groups.html">Package groups</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nethserver-antivirus.html">nethserver-antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-avahi.html">nethserver-avahi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-config.html">nethserver-backup-config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-backup-data.html">nethserver-backup-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-base.html">nethserver-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-blacklist.html">nethserver-blacklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cgp.html">nethserver-cgp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cockpit.html">nethserver-cockpit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-collectd.html">nethserver-collectd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-cups.html">nethserver-cups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dc.html">nethserver-dc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-directory.html">nethserver-directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-dnsmasq.html">nethserver-dnsmasq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-duc.html">nethserver-duc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ejabberd.html">nethserver-ejabberd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-evebox.html">nethserver-evebox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-base.html">nethserver-firewall-base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-firewall-migration.html">nethserver-firewall-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-freepbx.html">nethserver-freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hotsync.html">nethserver-hotsync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd.html">nethserver-httpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-httpd-admin.html">nethserver-httpd-admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-hylafax.html">nethserver-hylafax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-iaxmodem.html">nethserver-iaxmodem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ipsec-tunnels.html">nethserver-ipsec-tunnels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-janus.html">nethserver-janus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lang.html">nethserver-lang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-lightsquid.html">nethserver-lightsquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mail.html">nethserver-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-makerpms.html">nethserver-makerpms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mattermost.html">nethserver-mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mock.html">nethserver-mock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-mysql.html">nethserver-mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-net-snmp.html">nethserver-net-snmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-netdata.html">nethserver-netdata</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nethserver-nextcloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#admin-user">Admin user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customize-virtual-host">Customize virtual host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backup">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#occ">OCC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#log-of-php80-fpm">Log of php80-fpm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cockpit-api">Cockpit API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#read">read</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#validate">validate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Input</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#update">update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#full-reinstall">Full reinstall</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ns8-migration.html">nethserver-ns8-migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntopng.html">nethserver-ntopng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-ntp.html">nethserver-ntp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-nut.html">nethserver-nut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openssh.html">nethserver-openssh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-openvpn.html">nethserver-openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-phonehome.html">nethserver-phonenehome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-postgresql.html">nethserver-postgres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-pulledpork.html">nethserver-pulledpork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-release.html">nethserver-release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php56-php-fpm.html">nethserver-rh-php56-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-rh-php71-php-fpm.html">nethserver-rh-php71-php-fpm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-roundcubemail.html">nethserver-roundcubemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba.html">nethserver-samba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-samba-audit.html">nethserver-samba-audit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-smartd.html">nethserver-smartd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squid.html">nethserver-squid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-squidguard.html">nethserver-squidguard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-sssd.html">nethserver-sssd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-subscription.html">nethserver-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-suricata.html">nethserver-suricata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unbound.html">nethserver-unbonund</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-unixODBC.html">nethserver-unixODBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-vsftpd.html">nethserver-vsftpd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop4.html">nethserver-webtop4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nethserver-webtop5.html">nethserver-webtop5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license_headers.html">License Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebranding_manual.html">Rebranding Administrator Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>nethserver-nextcloud</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/dev/blob/master/developer-manual/nethserver-nextcloud.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nethserver-nextcloud">
+<h1>nethserver-nextcloud<a class="headerlink" href="#nethserver-nextcloud" title="Permalink to this headline">¶</a></h1>
+<p>This package can be installed before or after any user provider like nethserver-dc
+and nethserver-directory.</p>
+<p>If nethserver-dc or nethserver-directory are installed, the nethserver-nextcloud-save
+event will automatically enable all local users.</p>
+<p>The package does the following:</p>
+<ul class="simple">
+<li>create <code class="docutils literal notranslate"><span class="pre">nextcloud</span></code> mysql database</li>
+<li>create default database credentials: user <cite>nextcloud</cite> and password stored in <code class="docutils literal notranslate"><span class="pre">/var/lib/nethserver/secrets/nextcloud</span></code></li>
+<li>add trusted domains to use with web access</li>
+<li>create default credentials for web login: user <cite>“admin”</cite> and password <cite>“Nethesis,1234”</cite></li>
+<li>set english as the default language</li>
+<li>set the user data directory as <code class="docutils literal notranslate"><span class="pre">/var/lib/nethserver/nextcloud</span></code></li>
+</ul>
+<p>The configuration is stored inside the <code class="docutils literal notranslate"><span class="pre">configuration</span></code> db, under the <code class="docutils literal notranslate"><span class="pre">nextcloud</span></code> key. To show it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config show nextcloud
+</pre></div>
+</div>
+<p>Properties:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">TrustedDomains</span></code>: list of trusted domains added to Nextcloud config file</li>
+<li><code class="docutils literal notranslate"><span class="pre">VirtualHost</span></code>: set custom virtual host, e.g. <cite>mycloud.mydomain.it</cite></li>
+<li><code class="docutils literal notranslate"><span class="pre">Wellknown</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>. If enabled, add redirects for calDAV and cardDAV.
+This property has effect only if <code class="docutils literal notranslate"><span class="pre">VirtualHost</span></code> is empty.</li>
+<li><code class="docutils literal notranslate"><span class="pre">HonorAdStartTls</span></code>: can be <code class="docutils literal notranslate"><span class="pre">enabled</span></code> or <code class="docutils literal notranslate"><span class="pre">disabled</span></code>.  The StartTLS option from SSSD
+configuration was historyically ignored. If set to <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, the <code class="docutils literal notranslate"><span class="pre">sssd/StartTls</span></code> prop value
+is honored.</li>
+</ul>
+<div class="section" id="admin-user">
+<h2>Admin user<a class="headerlink" href="#admin-user" title="Permalink to this headline">¶</a></h2>
+<p>After installation the application is accesible using the following credentials:</p>
+<ul class="simple">
+<li>User: admin</li>
+<li>Password: Nethesis,1234</li>
+</ul>
+<p>Please, remember to change the default password after the first login!</p>
+</div>
+<div class="section" id="customize-virtual-host">
+<h2>Customize virtual host<a class="headerlink" href="#customize-virtual-host" title="Permalink to this headline">¶</a></h2>
+<p>Set custom virtual host and add it to trusted domains as follow:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop nextcloud VirtualHost &lt;VHOST&gt;.&lt;DOMAIN_NAME&gt;
+config setprop nextcloud TrustedDomains &lt;VHOST&gt;.&lt;DOMAIN_NAME&gt;
+signal-event nethserver-nextcloud-update
+</pre></div>
+</div>
+</div>
+<div class="section" id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">¶</a></h2>
+<p>The Nextcloud backup includes the configuration file and all data of the users:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/var/lib/nethserver/nextcloud
+/usr/share/nextcloud/config/config.php
+</pre></div>
+</div>
+<p>The database is automatically saved by <code class="docutils literal notranslate"><span class="pre">nethserver-mysql</span></code>.</p>
+</div>
+<div class="section" id="occ">
+<h2>OCC<a class="headerlink" href="#occ" title="Permalink to this headline">¶</a></h2>
+<p>When using <code class="docutils literal notranslate"><span class="pre">occ</span></code> command, PHP 7.3 should be enabled inside the environment.</p>
+<p>Invocation example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>occ ldap:show-config&quot;
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">occ</span></code> command is just a wrapper around:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>su - apache -s /bin/bash -c &quot;source /opt/remi/php80/enable; cd /usr/share/nextcloud/; php occ ldap:show-config&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="log-of-php80-fpm">
+<h2>Log of php80-fpm<a class="headerlink" href="#log-of-php80-fpm" title="Permalink to this headline">¶</a></h2>
+<p>The log of php80-fpm can be found at <cite>/opt/remi/php80/log/php-fpm/error-nextcloud.log</cite></p>
+</div>
+<div class="section" id="cockpit-api">
+<h2>Cockpit API<a class="headerlink" href="#cockpit-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="read">
+<h3>read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h3>
+<p>Return mattermost status and configuration.</p>
+<div class="section" id="input">
+<h4>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">app-info</span></code> or <code class="docutils literal notranslate"><span class="pre">configuration</span></code></li>
+</ul>
+</div>
+<div class="section" id="output">
+<h4>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h4>
+<p>Example (<code class="docutils literal notranslate"><span class="pre">app-info</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+ &quot;url&quot;: &quot;https://your.host.domain&quot;
+}
+</pre></div>
+</div>
+<p>Example (<code class="docutils literal notranslate"><span class="pre">configuration</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+ &quot;props&quot;: {
+   &quot;Wellknown&quot;: &quot;enabled&quot;,
+   &quot;VirtualHost&quot;: &quot;eccoci.rva.org&quot;,
+   &quot;TrustedDomains&quot;: &quot;a.b,b.c&quot;
+ },
+ &quot;stats&quot;: {
+   &quot;version&quot;: &quot;16.0.2.1&quot;,
+   &quot;admin_pass_warn&quot;: true,
+   &quot;users&quot;: &quot;3&quot;
+ }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="validate">
+<h3>validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h3>
+<p>Constraints:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">VirtualHost</span></code>: must be a valid FQDN or EMPTY</li>
+<li><code class="docutils literal notranslate"><span class="pre">TrustedDomains</span></code>: must be an array of valid FQDN</li>
+</ul>
+<div class="section" id="id1">
+<h4>Input<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+ &quot;props&quot;: {
+   &quot;Wellknown&quot;: &quot;enabled&quot;,
+   &quot;VirtualHost&quot;: &quot;eccoci.rva.org&quot;,
+   &quot;TrustedDomains&quot;: &quot;a.b,b.c&quot;
+ }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="update">
+<h3>update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h3>
+<p>Same input as validate.</p>
+</div>
+</div>
+<div class="section" id="full-reinstall">
+<h2>Full reinstall<a class="headerlink" href="#full-reinstall" title="Permalink to this headline">¶</a></h2>
+<p>As with many other applications in NethServer, un-installing the Nextcloud application <strong>does not</strong> remove the settings, stored files, or the database. Here are the suggested steps to do a full un-install and re-install with a fresh configuration:</p>
+<ol class="arabic simple">
+<li>Uninstall Nextcloud using the admin page</li>
+<li>Drop the MySQL database: <code class="docutils literal notranslate"><span class="pre">/opt/rh/rh-mariadb105/root/bin/mysql</span> <span class="pre">--socket=&quot;/var/run/rh-mariadb105-mariadb/nextcloud-mysql.sock&quot;</span> <span class="pre">-e</span> <span class="pre">&quot;drop</span> <span class="pre">database</span> <span class="pre">nextcloud;&quot;</span></code></li>
+<li>Remove the packages: <code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">remove</span> <span class="pre">nethserver-nextcloud</span></code></li>
+<li>Remove the whole Nextcloud directory: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/usr/share/nextcloud/</span></code></li>
+<li>Remove the e-smith DB configuration: <code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">delete</span> <span class="pre">nextcloud</span></code></li>
+<li>Remove the NethServer config directory (WARNING: will remove user data): <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/var/lib/nethserver/nextcloud</span></code></li>
+<li>Install Nextcloud from the Software Center</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nethserver-ns8-migration.html" class="btn btn-neutral float-right" title="nethserver-ns8-migration" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="nethserver-netdata.html" class="btn btn-neutral float-left" title="nethserver-netdata" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Nethesis Srl
+      
+        <span class="commit">
+          Revision <code>f7d8c0f9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
