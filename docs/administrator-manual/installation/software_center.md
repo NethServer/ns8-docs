@@ -132,6 +132,14 @@ Note that if the same application is listed in multiple repositories, the one fr
 You can refresh the metadata by clicking on the **Reload
 repositories** button.
 
+### Find applications in other repositories {#ns8-apps-section}
+
+[NS8 Apps](https://nethserver.github.io/ns8-apps/) is a public catalog of the applications published in known NS8 repositories, official and community. It is rebuilt four times a day.
+
+Use it to find an application that is not in your configured repositories, and to compare the versions of the same application published by different developers. Each application page shows the repository URL to add with the **Add repository** button, and a quality score.
+
+NS8 Apps lists applications but does not review them. Check the [certification level](#certification-levels) and the source of an application before you install it.
+
 ## Updates {#updates-section}
 
 If the enabled repositories contain an update for an installed application or any core component, a warning message is displayed at the top of the Software center page. You can see if there are any available updates also by accessing the `Cluster status` page.

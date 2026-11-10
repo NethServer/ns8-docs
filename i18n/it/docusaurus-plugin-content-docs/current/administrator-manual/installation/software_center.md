@@ -125,6 +125,15 @@ Per aggiungere un repository personalizzato, clicca sul pulsante **Aggiungi repo
 Nota che se la stessa applicazione è elencata in più repository, verrà considerata quella proveniente dal repository con la priorità più alta. La priorità del repository è determinata dall'ordine alfabetico dei nomi dei repository, con quelli più avanti nell'alfabeto (es. "Z") che hanno una priorità più alta rispetto a quelli più indietro (es. "A").
 
 Puoi aggiornare i metadati cliccando sul pulsante **Ricarica repository**.
+
+### Trovare applicazioni in altri repository {#ns8-apps-section}
+
+[NS8 Apps](https://nethserver.github.io/ns8-apps/) è un catalogo pubblico delle applicazioni pubblicate nei repository NS8 conosciuti, ufficiali e della comunità. Viene aggiornato quattro volte al giorno.
+
+Usalo per trovare un'applicazione che non è nei repository configurati, e per confrontare le versioni della stessa applicazione pubblicate da sviluppatori diversi. La pagina di ogni applicazione mostra l'URL del repository da aggiungere con il pulsante **Aggiungi repository**, e un punteggio di qualità.
+
+NS8 Apps elenca le applicazioni ma non le verifica. Controlla il [livello di certificazione](#certification-levels) e l'origine di un'applicazione prima di installarla.
+
 ## Aggiornamenti {#updates-section}
 
 Se i repository abilitati contengono un aggiornamento per un'applicazione installata o per qualsiasi componente principale, un messaggio di avviso viene visualizzato nella parte superiore della pagina del Software Center. È possibile verificare se ci sono aggiornamenti disponibili anche accedendo alla pagina `Cluster status`.
