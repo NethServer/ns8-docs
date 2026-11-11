@@ -46,7 +46,14 @@ NS8 non ha requisiti speciali di partizionamento. L'[immagine preconfigurata](..
 
 Le applicazioni che archiviano grandi quantità di dati possono essere configurate per usare un volume aggiuntivo come descritto in [Configurare volumi aggiuntivi](software_center.md#additional-volumes-section). Per i volumi aggiuntivi, i dischi meccanici e i dispositivi iSCSI sono scelte appropriate.
 
-I filesystem locali supportati sono XFS ed EXT4. Anche iSCSI e i dispositivi di rete a blocchi equivalenti sono adatti, perché si presentano come dispositivi a blocchi che possono essere formattati localmente. NFS non è supportato: gestisce il filesystem in remoto e non gestisce il mapping degli ID utente richiesto dalle applicazioni containerizzate.
+Il filesystem locale consigliato è XFS. Alloca gli inode dinamicamente, quindi
+i numerosi piccoli file delle immagini dei container non possono esaurirli, ed
+è il filesystem predefinito di Rocky Linux e delle distribuzioni basate su RHEL. EXT4 è ancora supportato, ma
+mantienilo solo sui sistemi esistenti già formattati con esso. Su Debian,
+l'installer propone EXT4 come predefinito: seleziona XFS durante il
+partizionamento del disco.
+
+Anche iSCSI e i dispositivi di rete a blocchi equivalenti sono adatti, perché si presentano come dispositivi a blocchi che possono essere formattati localmente. NFS non è supportato: gestisce il filesystem in remoto e non gestisce il mapping degli ID utente richiesto dalle applicazioni containerizzate.
 
 ## Indirizzo IP statico {#static-ip-reqs}
 
