@@ -126,13 +126,17 @@ Nota che se la stessa applicazione è elencata in più repository, verrà consid
 
 Puoi aggiornare i metadati cliccando sul pulsante **Ricarica repository**.
 
-### Trovare applicazioni in altri repository {#ns8-apps-section}
+### Trovare applicazioni e repository di terze parti {#ns8-app-catalog}
 
-[NS8 Apps](https://nethserver.github.io/ns8-apps/) è un catalogo pubblico delle applicazioni pubblicate nei repository NS8 conosciuti, ufficiali e della comunità. Viene aggiornato quattro volte al giorno.
+[NS8 Apps](https://nethserver.github.io/ns8-apps/) è un catalogo pubblico delle applicazioni NS8. Viene generato automaticamente dai repository ufficiali e dai repository di terze parti trovati su Internet, come i fork dei repository ufficiali e i repository GitHub con il topic `ns8`.
 
-Usalo per trovare un'applicazione che non è nei repository configurati, e per confrontare le versioni della stessa applicazione pubblicate da sviluppatori diversi. La pagina di ogni applicazione mostra l'URL del repository da aggiungere con il pulsante **Aggiungi repository**, e un punteggio di qualità.
+:::warning
+Le applicazioni dei repository di terze parti non sono verificate da Nethesis né dalla comunità NethServer. Hanno [livello di certificazione](#certification-levels) 1/5 e possono essere non mantenute, non funzionanti o dannose. Prima di aggiungere un repository, controlla chi lo mantiene, il suo repository del codice e il registry delle sue immagini container.
+:::
 
-NS8 Apps elenca le applicazioni ma non le verifica. Controlla il [livello di certificazione](#certification-levels) e l'origine di un'applicazione prima di installarla.
+La pagina di ogni applicazione mostra l'URL del repository da aggiungere con il pulsante **Aggiungi repository**.
+
+Un repository di terze parti può anche elencare applicazioni di altri repository. Quando due repository abilitati elencano la stessa applicazione, prevale quello il cui nome viene dopo in ordine alfabetico, come spiegato in [priorità dei repository](#software_repositories-section). Fai iniziare il nome di un repository di terze parti con una cifra, per esempio `1-myrepo`, così non sostituisce mai i repository preconfigurati.
 
 ## Aggiornamenti {#updates-section}
 
