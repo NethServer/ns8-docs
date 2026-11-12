@@ -125,6 +125,19 @@ Per aggiungere un repository personalizzato, clicca sul pulsante **Aggiungi repo
 Nota che se la stessa applicazione è elencata in più repository, verrà considerata quella proveniente dal repository con la priorità più alta. La priorità del repository è determinata dall'ordine alfabetico dei nomi dei repository, con quelli più avanti nell'alfabeto (es. "Z") che hanno una priorità più alta rispetto a quelli più indietro (es. "A").
 
 Puoi aggiornare i metadati cliccando sul pulsante **Ricarica repository**.
+
+### Trovare applicazioni e repository di terze parti {#ns8-app-catalog}
+
+[NS8 Apps](https://nethserver.github.io/ns8-apps/) è un catalogo pubblico delle applicazioni NS8. Viene generato automaticamente dai repository ufficiali e dai repository di terze parti trovati su Internet, come i fork dei repository ufficiali e i repository GitHub con il topic `ns8`.
+
+:::warning
+Le applicazioni dei repository di terze parti non sono verificate da Nethesis né dalla comunità NethServer. Hanno [livello di certificazione](#certification-levels) 1/5 e possono essere non mantenute, non funzionanti o dannose. Prima di aggiungere un repository, controlla chi lo mantiene, il suo repository del codice e il registry delle sue immagini container.
+:::
+
+La pagina di ogni applicazione mostra l'URL del repository da aggiungere con il pulsante **Aggiungi repository**.
+
+Un repository di terze parti può anche elencare applicazioni di altri repository. Quando due repository abilitati elencano la stessa applicazione, prevale quello il cui nome viene dopo in ordine alfabetico, come spiegato in [priorità dei repository](#software_repositories-section). Fai iniziare il nome di un repository di terze parti con una cifra, per esempio `1-myrepo`, così non sostituisce mai i repository preconfigurati.
+
 ## Aggiornamenti {#updates-section}
 
 Se i repository abilitati contengono un aggiornamento per un'applicazione installata o per qualsiasi componente principale, un messaggio di avviso viene visualizzato nella parte superiore della pagina del Software Center. È possibile verificare se ci sono aggiornamenti disponibili anche accedendo alla pagina `Cluster status`.

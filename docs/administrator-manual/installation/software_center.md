@@ -132,6 +132,18 @@ Note that if the same application is listed in multiple repositories, the one fr
 You can refresh the metadata by clicking on the **Reload
 repositories** button.
 
+### Find applications and third-party repositories {#ns8-app-catalog}
+
+[NS8 Apps](https://nethserver.github.io/ns8-apps/) is a public catalog of NS8 applications. It is built automatically from the official repositories and from third-party repositories found on the Internet, such as forks of official repositories and GitHub repositories with the `ns8` topic.
+
+:::warning
+Applications from third-party repositories are not reviewed by Nethesis or by the NethServer community. They have [certification level](#certification-levels) 1/5 and may be unmaintained, broken or harmful. Before adding a repository, check who maintains it, its code repository, and the registry of its container images.
+:::
+
+Each application page shows the repository URL to add with the **Add repository** button.
+
+A third-party repository can also list applications from other repositories. When two enabled repositories list the same application, the one whose name comes later in alphabetical order wins, as explained in [repository priority](#software_repositories-section). Start the name of a third-party repository with a digit, for example `1-myrepo`, so that it never overrides the preconfigured repositories.
+
 ## Updates {#updates-section}
 
 If the enabled repositories contain an update for an installed application or any core component, a warning message is displayed at the top of the Software center page. You can see if there are any available updates also by accessing the `Cluster status` page.
