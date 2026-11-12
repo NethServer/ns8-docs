@@ -132,7 +132,7 @@ Note that if the same application is listed in multiple repositories, the one fr
 You can refresh the metadata by clicking on the **Reload
 repositories** button.
 
-### Find applications in other repositories {#ns8-apps-section}
+### Find applications and third-party repositories {#ns8-app-catalog}
 
 [NS8 Apps](https://nethserver.github.io/ns8-apps/) is a public catalog of the applications published in known NS8 repositories, official and community. It is rebuilt four times a day.
 
