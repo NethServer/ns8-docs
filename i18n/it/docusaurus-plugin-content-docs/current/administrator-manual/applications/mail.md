@@ -101,7 +101,7 @@ Dopo aver abilitato l'interruttore `Forward messages`, i messaggi non vengono re
 
 Mail riscrive l'indirizzo del mittente nella busta SMTP di qualsiasi messaggio il cui dominio del mittente non sia uno dei domini locali di Mail, applicando una trasformazione Sender Rewriting Scheme (SRS) nella forma `SRS0=...@<local-domain>`. Questo avviene indipendentemente dal fatto che il messaggio venga poi effettivamente inoltrato, ed evita che i messaggi inoltrati vengano respinti dai controlli sulla sender policy (SPF) del destinatario.
 
-Questa riscrittura cambia solo il mittente nascosto della busta, mai gli intestatari visibili `From`, `Subject` o il corpo del messaggio, quindi in genere è invisibile agli utenti e la firma DKIM resta valida. Vale comunque la pena conoscerlo in alcuni casi particolari, per esempio se il messaggio viene anche archiviato tramite [Piler](piler.md), oppure se una regola Sieve filtra in base al mittente della busta anziché all'intestazione `From`.
+Questa riscrittura cambia solo il mittente nascosto della busta, mai gli intestatari visibili `From`, `Subject` o il corpo del messaggio, quindi in genere è invisibile agli utenti e la firma DKIM resta valida.
 
 Se in seguito arriva un messaggio di bounce o una notifica di stato di consegna (DSN) indirizzata all'indirizzo riscritto, Mail la verifica e la traduce nuovamente nel mittente originale, in modo che gli errori di consegna raggiungano il mittente originale.
 
