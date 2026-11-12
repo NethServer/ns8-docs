@@ -142,6 +142,8 @@ Applications from third-party repositories are not reviewed by Nethesis or by th
 
 Each application page shows the repository URL to add with the **Add repository** button.
 
+A third-party repository can also list applications from other repositories. When two enabled repositories list the same application, the one whose name comes later in alphabetical order wins, as explained in [repository priority](#software_repositories-section). Start the name of a third-party repository with a digit, for example `1-myrepo`, so that it never overrides the preconfigured repositories.
+
 ## Updates {#updates-section}
 
 If the enabled repositories contain an update for an installed application or any core component, a warning message is displayed at the top of the Software center page. You can see if there are any available updates also by accessing the `Cluster status` page.
