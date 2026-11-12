@@ -101,7 +101,7 @@ After enabling the `Forward messages` switch, messages are not delivered to the 
 
 Mail rewrites the SMTP envelope sender address of any message whose sender domain is not one of the Mail local domains, applying a Sender Rewriting Scheme (SRS) transformation in the form `SRS0=...@<local-domain>`. This happens whether or not the message ends up being forwarded, and keeps forwarded messages from being rejected by the destination's sender policy (SPF) checks.
 
-This rewrite changes only the hidden envelope sender, never the visible `From`, `Subject`, or body of the message, so it is generally invisible to users and DKIM signing is preserved. It is still worth knowing about in corner cases, for example if the message is also archived through [Piler](piler.md), or if a Sieve rule filters on the envelope sender rather than on the `From` header.
+This rewrite changes only the hidden envelope sender, never the visible `From`, `Subject`, or body of the message, so it is generally invisible to users and DKIM signing is preserved.
 
 If a bounce or delivery status notification is later sent back to the rewritten address, Mail verifies it and translates it back to the original sender, so delivery failures reach the original sender.
 
