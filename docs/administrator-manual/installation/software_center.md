@@ -134,11 +134,13 @@ repositories** button.
 
 ### Find applications and third-party repositories {#ns8-app-catalog}
 
-[NS8 Apps](https://nethserver.github.io/ns8-apps/) is a public catalog of the applications published in known NS8 repositories, official and community. It is rebuilt four times a day.
+[NS8 Apps](https://nethserver.github.io/ns8-apps/) is a public catalog of NS8 applications. It is built automatically from the official repositories and from third-party repositories found on the Internet, such as forks of official repositories and GitHub repositories with the `ns8` topic.
 
-Use it to find an application that is not in your configured repositories, and to compare the versions of the same application published by different developers. Each application page shows the repository URL to add with the **Add repository** button, and a quality score.
+:::warning
+Applications from third-party repositories are not reviewed by Nethesis or by the NethServer community. They have [certification level](#certification-levels) 1/5 and may be unmaintained, broken or harmful. Before adding a repository, check who maintains it, its code repository, and the registry of its container images.
+:::
 
-NS8 Apps lists applications but does not review them. Check the [certification level](#certification-levels) and the source of an application before you install it.
+Each application page shows the repository URL to add with the **Add repository** button.
 
 ## Updates {#updates-section}
 
