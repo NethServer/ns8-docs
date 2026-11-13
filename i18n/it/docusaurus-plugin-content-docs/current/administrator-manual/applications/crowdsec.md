@@ -23,17 +23,23 @@ Una volta installato, CrowdSec è già completamente funzionante e inizia a prot
 
 ## Interfaccia web
 
-Il menu laterale del modulo offre accesso alle seguenti pagine: `Status`, `Detections`, `Collections`, `Blocklists`, `Threat Shield`, `Settings` e `About`.
+Il menu laterale del modulo offre accesso alle seguenti pagine: `Status`, `Activity`, `Collections`, `Threat Shield IP`, `Settings` e `About`.
 
 ### Status
 
 Mostra una panoramica dell'applicazione (azione di riavvio), il nodo di installazione, lo stato del backup e un link ai log.
 
-### Rilevamenti
+### Attività {#activity}
 
 I rilevamenti sono attività sospette individuate da CrowdSec, come ripetuti fallimenti di login o schemi di attacco noti. Un rilevamento non comporta sempre il blocco di un IP.
 
-La tabella elenca `Rilevato il`, `Scenario`, `IP sorgente`, `Paese`, `Azione` (`Blocked`, `Block expired` o `-` quando non è stata presa alcuna decisione) e il conteggio degli `Eventi`. Usa il campo di ricerca per filtrare per IP o scenario e il selettore `Eventi da mostrare` per limitare il numero di eventi recenti caricati. Ogni riga ha un link `Details` che apre il log completo degli eventi per quel rilevamento. Un pulsante `Delete all detections` cancella l'intero elenco. Questa pagina espone ciò che in precedenza era visibile solo con il comando `cscli alerts list`.
+La tabella elenca `Detected at`, `Scenario`, `Source IP`, `Country`, `Action` (`Banned` finché il blocco è attivo, `Ban expired` quando è scaduto, oppure `-` quando non è stato applicato alcun blocco) e il conteggio degli `Events`. Usa il campo `Filter detections` per filtrare per IP o scenario, il selettore `Action` (`All`, `Banned` o `Expired`) per mostrare solo i blocchi attivi o scaduti e il selettore `Events to show` per limitare il numero di eventi recenti caricati. Fai clic su `Refresh` per ricaricare l'elenco.
+
+Ogni riga ha un link `Details` che apre il log completo degli eventi per quel rilevamento. Le righe bloccate hanno anche un pulsante `Unban`, presente anche nella finestra dei dettagli di un rilevamento bloccato. `Unban all` sblocca tutti gli indirizzi bloccati dai rilevamenti di CrowdSec. Un indirizzo sbloccato può essere bloccato di nuovo se CrowdSec rileva nuove attività sospette.
+
+`Unban` e `Unban all` rimuovono solo i blocchi temporanei. Gli indirizzi della [Local blocklist](#local-blocklist) e delle liste di blocco di Threat Shield IP restano bloccati.
+
+`Delete all detections` elimina definitivamente dal database tutti i rilevamenti e i blocchi che hanno creato. Gli indirizzi bloccati restano nel firewall fino alla scadenza del blocco. I blocchi di Threat Shield IP, della lista di blocco della community e della Local blocklist vengono riapplicati automaticamente; gli altri blocchi aggiunti a mano, per esempio con `cscli`, vengono persi.
 
 ### Collezioni
 
@@ -41,27 +47,99 @@ Le collezioni aggiungono supporto per il rilevamento di servizi specifici, come 
 
 La tabella elenca `Nome`, `Stato`, `Versione` e `Descrizione`, con un'azione `Enable`/`Disable` per riga. Ad esempio, la collezione `nethesis/nethvoice` rileva attacchi di forza bruta e scansioni di exploit contro l'applicazione NethVoice (SIP e HTTP); viene fornita disabilitata dopo un aggiornamento e deve essere abilitata da questa pagina.
 
-### Liste di blocco
+### Threat Shield IP {#threat-shield}
 
-Questa pagina sostituisce la precedente pagina `Banned IP` ed è organizzata in tre schede.
+Questa pagina gestisce le liste di indirizzi IP sempre bloccati o mai bloccati. È organizzata in cinque schede: `Blocklist feeds`, `Allowlist feeds`, `Local blocklist`, `Local allowlist` e `CrowdSec community blocklist`.
 
-#### Lista di blocco locale
+Gli attaccanti di solito colpiscono molti server contemporaneamente. I sistemi NethServer e NethSecurity con una subscription condividono gli attaccanti che bloccano, così ogni sistema può bloccarli prima che attacchino.
 
-Indirizzi IP attualmente bloccati da questo server in base alle decisioni locali di CrowdSec. La tabella elenca `Bloccato il`, `Indirizzo IP`, `Tempo rimanente` e `Motivo`, con un campo di ricerca e un'azione `Unblock` per riga, oltre a un'azione `Unblock all`.
+Funziona così:
 
-#### Lista di blocco della community
+- Quando CrowdSec blocca un indirizzo IP, il server invia quell'indirizzo a Nethesis.
+- Quando abbastanza sistemi segnalano lo stesso indirizzo, Nethesis lo aggiunge alla lista di blocco `Nethesis collective defense - Level 2`.
+- I server con l'add-on Threat Shield possono abilitare questa lista di blocco e altre liste di blocco gestite da Nethesis. CrowdSec scarica le liste di blocco abilitate ogni 30 minuti e blocca i loro indirizzi IP nel firewall.
 
-Indirizzi IP condivisi dalla community di CrowdSec e ricevuti tramite l'API centrale (CAPI). Di default, CrowdSec invia alcune telemetrie ai server di proprietà di CrowdSec; i server utilizzano tali dati per comporre una lista di blocco della community che viene restituita alla tua installazione. Se non desideri condividere tali dati, disabilita l'interruttore `Central API and signal sharing` — ciò disabilita anche l'interruttore `Community blocklist` sottostante.
+I server con una subscription applicano anche la `Nethesis global allowlist`. Gli indirizzi in questa lista, come i server delle subscription Nethesis, non vengono mai bloccati.
 
-Puoi connettere la tua istanza alla [console di CrowdSec](https://app.crowdsec.net) compilando il campo opzionale `Enroll key`. Il tag `Central API status` mostra se l'istanza è connessa. Il numero di IP attualmente elencati nella lista di blocco della community è mostrato accanto a un campo di ricerca che consente di verificare se un determinato IP è incluso.
+Il comportamento dipende dalla [subscription](../about/subscription.md):
 
-Disabilitare la Central API o la lista di blocco della community elimina automaticamente le decisioni provenienti dalla CAPI da questo server.
+| Server | Invia gli indirizzi bloccati | Nethesis global allowlist | Liste di blocco Enterprise |
+|---|---|---|---|
+| Senza subscription | No | No | Non disponibili |
+| Con subscription | Sì | Sì | Non disponibili |
+| Con subscription e add-on Threat Shield | Sì | Sì | Disponibili, disabilitate di default |
 
-CrowdSec fornisce una [lista di blocco della community](https://docs.crowdsec.net/docs/next/central_api/community_blocklist) condivisa tra tutti gli utenti; abilitare `Central API and signal sharing` e iscrivere la tua istanza nella console la attiva. Per accedere alla lista di blocco completa (oltre alla versione Lite), devi condividere almeno alcune decisioni di blocco con la Central API ogni 24 ore. Se il tuo server ha pochi o nessun blocco, sarà considerato in uno stato di blocco, impedendo l'accesso alla lista di blocco completa.
+L'add-on Threat Shield è disponibile sia per la subscription Community sia per quella Enterprise. Le liste personalizzate, la Local blocklist e la Local allowlist funzionano anche senza subscription.
 
-#### Lista di permessi
+Non serve alcuna configurazione. L'invio parte quando il server ha una subscription e si ferma quando la subscription viene rimossa. Se il server perde la subscription o l'add-on, gli indirizzi importati dalle liste di blocco Enterprise vengono rimossi.
 
-Indirizzi IP, intervalli CIDR e nomi di dominio attendibili che non devono mai essere bloccati. Inserisci un elemento per riga, ad esempio:
+#### Liste di blocco
+
+Threat Shield IP blocca gli indirizzi IP delle liste di blocco abilitate. La tabella elenca `Name`, `Type`, `Description`, `Status`, `Confidence`, `Entries`, `Banned` e `Last update`. `Banned` conta i pacchetti di rete provenienti dagli indirizzi della lista e bloccati dal firewall nelle ultime 24 ore. Un indirizzo presente in più liste viene conteggiato per quella con la confidenza più alta.
+
+La colonna `Type` distingue i due tipi di lista:
+
+- `Enterprise`: liste di blocco gestite da Nethesis e Yoroi. Richiedono una subscription con l'add-on Threat Shield.
+- `Custom`: liste di blocco scaricate da un URL a tua scelta, vedi [Liste personalizzate](#custom-feeds).
+
+Attiva l'interruttore `Status` delle liste da abilitare e fai clic su `Save`. L'importazione parte subito dopo il salvataggio. Tutte le liste vengono aggiornate ogni 30 minuti. Disabilitare una lista rimuove i suoi indirizzi dal firewall. Se una lista non può essere aggiornata, un errore sopra la tabella la indica.
+
+| Lista di blocco | Confidenza |
+|---|---|
+| `Yoroi malware - Level 1` | 10 |
+| `Yoroi malware - Level 2` | 8 |
+| `Yoroi suspicious - Level 1` | 10 |
+| `Yoroi suspicious - Level 2` | 8 |
+| `Nethesis suspicious - Level 3` | 6 |
+| `Nethesis collective defense - Level 2` | 8 |
+
+La confidenza va da 1 a 10. Un valore più alto indica un rischio minore di bloccare un indirizzo legittimo. Con una subscription Community la confidenza non viene mostrata. Le liste personalizzate mostrano `Unknown`.
+
+Per verificare se un indirizzo è bloccato da una lista di blocco abilitata, inseriscilo in `Search IP in blocklists` e fai clic su `Search`. In caso affermativo, il risultato indica le liste di blocco che lo contengono. La ricerca richiede l'add-on Threat Shield.
+
+#### Liste di permessi
+
+Threat Shield IP non blocca mai gli indirizzi IP e le reti delle liste di permessi abilitate. La tabella elenca `Name`, `Description` e `Status`.
+
+La `Nethesis global allowlist` contiene gli indirizzi IP dei servizi Nethesis. È abilitata automaticamente con una subscription e non può essere disabilitata, modificata o eliminata. Con una subscription, le liste di blocco vengono importate solo dopo che questa lista di permessi è stata scaricata.
+
+Aggiungi le tue liste di permessi con `Create custom feed`, vedi [Liste personalizzate](#custom-feeds). Attiva l'interruttore `Status` delle liste da abilitare e fai clic su `Save`. Tutte le liste di permessi vengono aggiornate ogni 30 minuti. Se una lista non può essere aggiornata, un errore sopra la tabella la indica.
+
+#### Liste personalizzate {#custom-feeds}
+
+Le liste personalizzate sono liste di blocco o di permessi scaricate da un URL. Funzionano anche senza subscription. Per aggiungerne una, fai clic su `Create custom feed` nella scheda `Blocklist feeds` o `Allowlist feeds`, compila il modulo e fai clic su `Create`:
+
+- `Status`: abilita o disabilita la lista.
+- `Name`: da 3 a 16 lettere minuscole e cifre, iniziando con una lettera. I nomi che iniziano con `nethesis`, `yoroi` o `crowdsec` sono riservati. Il nome non può essere cambiato in seguito.
+- `Description (optional)`: un breve testo mostrato nella tabella.
+- `List URL`: un URL `http://` o `https://` di un file di testo con una voce per riga. Le voci IPv4 e IPv6 possono essere mescolate. Una lista di blocco contiene singoli indirizzi IP: le reti vengono ignorate. Una lista di permessi contiene indirizzi IP e reti.
+
+Di ogni lista vengono importate fino a 100.000 voci. Se il file non può essere scaricato, viene usata l'ultima copia scaricata.
+
+Per modificare una lista personalizzata, fai clic su `Edit` nella sua riga. Per rimuoverla, seleziona `Delete` dal menu della riga. Gli indirizzi di una lista di blocco eliminata non vengono più bloccati; gli indirizzi di una lista di permessi eliminata possono essere bloccati di nuovo.
+
+Se il server che ospita la lista richiede l'autenticazione HTTP Basic, scrivi nome utente e password nell'URL, per esempio `https://user:password@example.com/blocklist.txt`. Codifica con la percent-encoding gli eventuali caratteri `@` o `:` al loro interno.
+
+:::warning
+Il nome utente e la password nell'URL sono salvati in chiaro. Chiunque abbia accesso alla configurazione del sistema o ai suoi backup può leggerli.
+:::
+
+#### Lista di blocco locale {#local-blocklist}
+
+Indirizzi IP sempre bloccati da questo server. Inserisci un indirizzo IPv4 o IPv6 per riga in `Local blocklist entries` e fai clic su `Save`, per esempio:
+
+```
+203.0.113.25
+2001:db8::7
+```
+
+Le reti non sono supportate e un indirizzo presente in una lista di permessi viene rifiutato. La lista contiene fino a 1000 indirizzi. Gli indirizzi sono bloccati in modo permanente: restano bloccati dopo `Unban all`, `Delete all detections` e i riavvii. Per sbloccare un indirizzo, rimuovilo dalla lista e fai clic su `Save`.
+
+I blocchi temporanei impostati da CrowdSec si gestiscono dalla pagina [Activity](#activity).
+
+#### Lista di permessi locale
+
+Indirizzi IP, intervalli CIDR e nomi di dominio attendibili che non devono mai essere bloccati. Inserisci un elemento per riga in `Local allowlist entries` e fai clic su `Save`, per esempio:
 
 ```
 192.168.1.10
@@ -69,29 +147,15 @@ Indirizzi IP, intervalli CIDR e nomi di dominio attendibili che non devono mai e
 trusted.example.com
 ```
 
-### Threat Shield {#threat-shield}
+#### Lista di blocco della community di CrowdSec
 
-Gli attaccanti di solito colpiscono molti server contemporaneamente. I sistemi NethServer e NethSecurity con una subscription condividono gli attaccanti che bloccano, così ogni sistema può bloccarli prima che attacchino.
+Indirizzi IP condivisi dalla community di CrowdSec e ricevuti tramite l'API centrale (CAPI). Di default, CrowdSec invia alcune telemetrie ai server di proprietà di CrowdSec; i server utilizzano tali dati per comporre una lista di blocco della community che viene restituita alla tua installazione. Se non desideri condividere tali dati, disabilita l'interruttore `Central API and signal sharing` — ciò disabilita anche l'interruttore `Community blocklist` sottostante.
 
-Funziona così:
+Puoi connettere la tua istanza alla [console di CrowdSec](https://app.crowdsec.net) compilando il campo `Enroll key (optional)`. Il tag `Central API status` mostra se l'istanza è connessa. Il numero di IP attualmente elencati nella lista di blocco della community è mostrato accanto a un campo di ricerca che consente di verificare se un determinato IP è incluso.
 
-- Quando CrowdSec blocca un indirizzo IP, il server invia quell'indirizzo a Nethesis.
-- Quando abbastanza sistemi segnalano lo stesso indirizzo, Nethesis lo aggiunge alla lista di blocco `Nethesis community - Level 2`.
-- I server con l'add-on Threat Shield possono abilitare questa lista di blocco e altre liste di blocco gestite da Nethesis. CrowdSec scarica le liste di blocco abilitate ogni 30 minuti e blocca i loro indirizzi IP nel firewall.
+Disabilitare la Central API o la lista di blocco della community elimina automaticamente le decisioni provenienti dalla CAPI da questo server.
 
-I server con una subscription applicano anche la lista di permessi globale di Nethesis. Gli indirizzi in questa lista, come i server delle subscription Nethesis, non vengono mai bloccati.
-
-Il comportamento dipende dalla [subscription](../about/subscription.md):
-
-| Server | Invia gli indirizzi bloccati | Lista di permessi globale Nethesis | Liste di blocco Threat Shield |
-|---|---|---|---|
-| Senza subscription | No | No | Non disponibili |
-| Con subscription | Sì | Sì | Non disponibili |
-| Con subscription e add-on Threat Shield | Sì | Sì | Disponibili, disabilitate di default |
-
-L'add-on Threat Shield è disponibile sia per la subscription Community sia per quella Enterprise.
-
-Non serve alcuna configurazione. L'invio parte quando il server ha una subscription e si ferma quando la subscription viene rimossa. Se il server perde la subscription o l'add-on, gli indirizzi importati dalle liste di blocco Threat Shield vengono rimossi.
+CrowdSec fornisce una [lista di blocco della community](https://docs.crowdsec.net/docs/next/central_api/community_blocklist) condivisa tra tutti gli utenti; abilitare `Central API and signal sharing` e iscrivere la tua istanza nella console la attiva. Per accedere alla lista di blocco completa (oltre alla versione Lite), devi condividere almeno alcune decisioni di blocco con la Central API ogni 24 ore. Se il tuo server ha pochi o nessun blocco, sarà considerato in uno stato di blocco, impedendo l'accesso alla lista di blocco completa.
 
 #### Interrompere l'invio degli indirizzi bloccati {#threat-shield-push}
 
@@ -102,7 +166,7 @@ runagent -m crowdsec1 sh -c 'echo NETHESIS_INSIGHTS_PUSH=False >> "$AGENT_STATE_
 systemctl reload crowdsec1
 ```
 
-Questa impostazione è disponibile solo da riga di comando. Le liste di blocco Threat Shield, compresa `Nethesis community - Level 2`, e la lista di permessi globale di Nethesis continuano a funzionare.
+Questa impostazione è disponibile solo da riga di comando. Le liste di blocco, compresa `Nethesis collective defense - Level 2`, e la Nethesis global allowlist continuano a funzionare.
 
 Per riprendere l'invio degli indirizzi bloccati, rimuovi l'impostazione e ricarica il servizio:
 
@@ -110,25 +174,6 @@ Per riprendere l'invio degli indirizzi bloccati, rimuovi l'impostazione e ricari
 runagent -m crowdsec1 sh -c 'sed -i "/^NETHESIS_INSIGHTS_PUSH=/d" "$AGENT_STATE_DIR/environment"'
 systemctl reload crowdsec1
 ```
-
-#### Lista di blocco
-
-La tabella elenca le liste di blocco disponibili con `Status`, `Confidence`, `Entries` e `Last update`. Seleziona le liste di blocco da abilitare e fai clic su `Save`. L'importazione parte subito dopo il salvataggio. Disabilitare una lista di blocco rimuove i suoi indirizzi dal firewall.
-
-| Lista di blocco | Confidenza |
-|---|---|
-| `Yoroi malware - Level 1` | 10 |
-| `Yoroi malware - Level 2` | 8 |
-| `Yoroi suspicious - Level 1` | 10 |
-| `Yoroi suspicious - Level 2` | 8 |
-| `Nethesis suspicious - Level 3` | 6 |
-| `Nethesis community - Level 2` | 8 |
-
-La confidenza va da 1 a 10. Un valore più alto indica un rischio minore di bloccare un indirizzo legittimo. Con una subscription Community la confidenza non viene mostrata.
-
-#### Cerca un IP nelle liste di blocco Threat Shield
-
-Inserisci un indirizzo IP e fai clic su `Search` per verificare se è bloccato da una lista di blocco Threat Shield abilitata. In caso affermativo, il risultato indica le liste di blocco che lo contengono.
 
 ### Impostazioni
 
@@ -166,7 +211,7 @@ Alcuni comandi utili:
 - `cscli decisions list` — elenca i divieti attuali (IP, motivo, durata, ID decisione)
 - `cscli decisions delete --id <id>` — rimuove un divieto tramite il suo ID decisione, ad esempio `cscli decisions delete --id 630190`
 - `cscli decisions delete --ip <ip>` — rimuove un divieto tramite indirizzo IP
-- `cscli decisions add --ip <ip> --duration 4h --reason "manual ban"` — vieta manualmente un indirizzo IP
+- `cscli decisions add --ip <ip> --duration 4h --reason "manual ban"` — vieta manualmente un indirizzo IP per un tempo limitato; per bloccare un IP in modo permanente, usa la [Local blocklist](#local-blocklist)
 - `cscli alerts list` — elenca gli avvisi attivati (attacchi rilevati), inclusi quelli che non hanno portato a un divieto
 - `cscli bouncers list` — elenca i bouncer registrati (ad esempio il bouncer del firewall) e il loro stato
 - `cscli collections list` / `cscli scenarios list` — mostra quali collezioni/scenari sono installati e abilitati, utile per verificare cosa viene protetto
