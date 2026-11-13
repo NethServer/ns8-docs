@@ -501,7 +501,7 @@ Le nuove funzionalità introdotte con RC1 sono:
 - **Recupero email da altri server** -- [Imapsync](../applications/imapsync.md) è una nuova applicazione avanzata progettata per recuperare i messaggi email da server IMAP remoti a intervalli programmati e per sincronizzare interi account IMAP.
 - **Lista mirror per i nodi Rocky Linux** -- Se Rocky Linux è la distribuzione del sistema operativo del nodo, la configurazione DNF predefinita viene sovrascritta e i mirror vengono restituiti da `mirrorlist.nethserver.org`. I pacchetti RPM di Rocky Linux saranno ospitati da mirror specifici di NethServer nelle versioni future.
 
-L'aggiornamento delle installazioni Beta 2 esistenti può essere avviato dalla pagina del Centro Software come di consueto. Dopo che i componenti principali sono aggiornati, eseguire le seguenti procedure manuali per completare l'aggiornamento.
+L'aggiornamento delle installazioni Beta 2 esistenti può essere avviato dalla pagina `Software center` come di consueto. Dopo che i componenti principali sono aggiornati, eseguire le seguenti procedure manuali per completare l'aggiornamento.
 
 - **Procedura di aggiornamento del core** -- Per aggiornare le installazioni Beta 2, eseguire il seguente comando sul nodo leader. Questo definisce il nuovo ruolo di autorizzazione `tunadm`, disponibile nelle nuove installazioni dalla versione core 2.1.0:
 
