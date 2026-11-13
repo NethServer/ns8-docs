@@ -24,7 +24,7 @@ Once installed, CrowdSec is already fully functional and starts protecting NS8 a
 ## Web interface
 
 The module's side menu gives access to the following pages: `Status`,
-`Activity`, `Collections`, `Threat Shield IP`, `Settings`, and `About`.
+`Activity`, `Threat Shield IP`, `Collections`, `Settings`, and `About`.
 
 ### Status
 
@@ -37,17 +37,21 @@ Detections are suspicious activities found by CrowdSec, such as repeated login
 failures or known attack patterns. A detection does not always result in a
 banned IP.
 
+The toolbar above the table holds `Unban all`, `Delete all detections`, and
+`Refresh`, which reloads the list.
+
 The table lists `Detected at`, `Scenario`, `Source IP`, `Country`,
 `Action` (`Banned` while the ban is active, `Ban expired` once it is over, or
 `-` when no ban was applied), and `Events` count. Use the `Filter detections`
-box to filter by IP or scenario, the `Action` selector (`All`, `Banned`, or
-`Expired`) to show only the active or the expired bans, and the
-`Events to show` selector to limit how many recent events are loaded. Click `Refresh` to reload the list.
+box to filter by IP or scenario, the `Action` selector (`All`, `No action`,
+`Banned`, or `Ban expired`) to show only the detections with that action, and
+the `Events to show` selector to limit how many recent events are loaded. If
+no detection matches the filters, click `Reset filters` to clear them.
 
-Each row has a `Details` link that opens the full event log for that
-detection. Banned rows also have an `Unban` button, and so does the details
-window of a banned detection. `Unban all` unbans all the addresses banned by
-CrowdSec detections. An unbanned address may be banned again if CrowdSec
+To open the full event log of a detection, select `Show details` from its row
+menu. Banned rows also have an `Unban` link, and the details window of a
+banned detection has an `Unban` button. `Unban all` unbans all the addresses
+banned by CrowdSec detections. An unbanned address may be banned again if CrowdSec
 detects new suspicious activity.
 
 `Unban` and `Unban all` remove only temporary bans. Addresses in the
@@ -59,19 +63,6 @@ created from the database. Banned addresses stay in the firewall until their
 ban expires. Threat Shield IP, community blocklist and Local blocklist bans
 are applied again automatically; other bans added by hand, for example with
 `cscli`, are lost.
-
-### Collections
-
-Collections add detection support for specific services, such as SSH, Nginx,
-or WordPress. Enable only the collections that match the services installed
-on this server; a link to the [CrowdSec Hub](https://app.crowdsec.net/hub)
-lets you check what each collection detects before enabling it.
-
-The table lists `Name`, `Status`, `Version`, and `Description`, with
-an `Enable`/`Disable` action per row. For example, the `nethesis/nethvoice`
-collection detects brute-force and exploit-scan attacks against the NethVoice
-application (SIP and HTTP); it ships disabled after an upgrade and must be
-enabled from this page.
 
 ### Threat Shield IP {#threat-shield}
 
@@ -125,7 +116,9 @@ several feeds is counted for the one with the highest confidence.
 The `Type` column tells the two kinds of feeds apart:
 
 - `Enterprise`: blocklists maintained by Nethesis and Yoroi. They require a
-  subscription with the Threat Shield add-on.
+  subscription with the Threat Shield add-on. Without the add-on, their
+  `Status` switch is off and their counts show `-`; the feeds you selected
+  are kept.
 - `Custom`: blocklists downloaded from a URL of your choice, see
   [Custom feeds](#custom-feeds).
 
@@ -149,7 +142,9 @@ Custom feeds show `Unknown`.
 
 To check whether an address is banned by an enabled blocklist, enter it in
 `Search IP in blocklists` and click `Search`. If it is, the result names the
-blocklists that contain it. The search requires the Threat Shield add-on.
+blocklists that contain it. The search takes a single IPv4 or IPv6 address,
+not a network, and works without a subscription, so custom feeds can be
+searched too.
 
 #### Allowlist feeds
 
@@ -180,8 +175,10 @@ without a subscription. To add one, click `Create custom feed` in the
 - `Description (optional)`: a short text shown in the table.
 - `List URL`: an `http://` or `https://` URL of a plain text file with one
   entry per line. IPv4 and IPv6 entries can be mixed. A blocklist holds single
-  IP addresses: networks are skipped. An allowlist holds IP addresses and
-  networks.
+  IP addresses: networks are skipped, and so are loopback, link-local,
+  multicast and reserved addresses. Private addresses are skipped too, unless
+  `Local network blocking` is enabled in `Settings`. An allowlist
+  holds IP addresses and networks.
 
 Up to 100,000 entries of each feed are imported. If the file can't be
 downloaded, the last downloaded copy is used.
@@ -272,6 +269,19 @@ service:
 runagent -m crowdsec1 sh -c 'sed -i "/^NETHESIS_INSIGHTS_PUSH=/d" "$AGENT_STATE_DIR/environment"'
 systemctl reload crowdsec1
 ```
+
+### Collections
+
+Collections add detection support for specific services, such as SSH, Nginx,
+or WordPress. Enable only the collections that match the services installed
+on this server; a link to the [CrowdSec Hub](https://app.crowdsec.net/hub)
+lets you check what each collection detects before enabling it.
+
+The table lists `Name`, `Status`, `Version`, and `Description`, with
+an `Enable`/`Disable` action per row. For example, the `nethesis/nethvoice`
+collection detects brute-force and exploit-scan attacks against the NethVoice
+application (SIP and HTTP); it ships disabled after an upgrade and must be
+enabled from this page.
 
 ### Settings
 
