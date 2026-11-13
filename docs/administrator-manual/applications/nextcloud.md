@@ -42,6 +42,35 @@ Nextcloud update/upgrade procedure may disable the apps to avoid incompatibility
 
 All users are listed inside the administrator panel of Nextcloud using a unique identifier containing letters and numbers. This is because the system ensures that there are no duplicate internal user names as reported in section `Internal Username` of [Official Nextcloud documentation](https://docs.nextcloud.com).
 
+### Two-factor authentication (TOTP)
+
+Nextcloud supports two-factor authentication with a TOTP authenticator app. Users enable it from **Personal settings > Security**.
+
+Log in as root on the node where the Nextcloud application is installed. In the following commands, replace `nextcloud1` with your application identifier.
+
+To require two-factor authentication for all users, run:
+
+    runagent -m nextcloud1 occ twofactorauth:enforce --on
+
+Users without a second factor must set up TOTP at their next login. Use `--off` to stop enforcing it.
+
+The Nextcloud administrator can also enforce it globally from the web interface: go to **Administration settings > Security** and enable **Enforce two-factor authentication**. This page can also limit the requirement to some groups or exclude some groups.
+
+If a user lost their authenticator app, the administrator can disable TOTP for that user. LDAP users have an internal identifier, as explained in the [User list](#user-list) section, so find it first:
+
+    runagent -m nextcloud1 occ user:list
+
+Then disable TOTP and check the result:
+
+    runagent -m nextcloud1 occ twofactorauth:disable <user_id> totp
+    runagent -m nextcloud1 occ twofactorauth:state <user_id>
+
+This also deletes the old TOTP secret. The user then sets up TOTP again with a new QR code: at the next login if 2FA is enforced, otherwise from **Personal settings > Security**. Backup codes do not count as a second factor, so they do not bypass this step.
+
+Do not use `occ twofactorauth:cleanup totp`: it removes TOTP data for all users.
+
+See the [official Nextcloud documentation](https://docs.nextcloud.com/server/stable/admin_manual/configuration_user/two_factor-auth.html) for all options.
+
 ### Alternative LDAP mail field (Samba AD)
 
 When the account provider is an Active Directory, you can change the mail field used by Nextcloud with an environment variable. The default LDAP mail field is `userPrincipalName`, which corresponds to the AD domain name and not the user's email address (e.g. `user@ad.example.org` vs `user@example.org`). This can be confusing for users, as they will have to use the `userPrincipalName` to login instead of their email address. The Email address field can be set in the [User and groups](../installation/user_domains.md#user_groups-section) page if the Samba AD is configured as the local account provider.
