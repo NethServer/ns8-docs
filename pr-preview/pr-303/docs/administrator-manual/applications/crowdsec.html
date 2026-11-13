@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">CrowdSec | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/pr-preview/pr-303/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/pr-preview/pr-303/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/pr-preview/pr-303/docs/administrator-manual/applications/crowdsec"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="CrowdSec | NethServer 8 documentation"><meta data-rh="true" name="description" content="CrowdSec is a malicious activity detection tool. It looks for known patterns, like malicious login attempts, inside the applications logs and blocks the attacker IP address."><meta data-rh="true" property="og:description" content="CrowdSec is a malicious activity detection tool. It looks for known patterns, like malicious login attempts, inside the applications logs and blocks the attacker IP address."><link data-rh="true" rel="icon" href="/pr-preview/pr-303/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/pr-preview/pr-303/docs/administrator-manual/applications/crowdsec"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-303/docs/administrator-manual/applications/crowdsec" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-303/it/docs/administrator-manual/applications/crowdsec" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-303/docs/administrator-manual/applications/crowdsec" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CrowdSec","item":"https://docs.nethserver.org/pr-preview/pr-303/docs/administrator-manual/applications/crowdsec"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/pr-preview/pr-303/opensearch.xml"><link rel="stylesheet" href="/pr-preview/pr-303/assets/css/styles.c61e80aa.css">
-<script src="/pr-preview/pr-303/assets/js/runtime~main.1994f557.js" defer="defer"></script>
+<script src="/pr-preview/pr-303/assets/js/runtime~main.c523f609.js" defer="defer"></script>
 <script src="/pr-preview/pr-303/assets/js/main.c09c9638.js" defer="defer"></script>
 </head>
 <body>
@@ -29,7 +29,7 @@
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="web-interface">Web interface<a href="#web-interface" class="hash-link" aria-label="Direct link to Web interface" title="Direct link to Web interface" translate="no">​</a></h2>
 <p>The module&#x27;s side menu gives access to the following pages: <code>Status</code>,
-<code>Activity</code>, <code>Collections</code>, <code>Threat Shield IP</code>, <code>Settings</code>, and <code>About</code>.</p>
+<code>Activity</code>, <code>Threat Shield IP</code>, <code>Collections</code>, <code>Settings</code>, and <code>About</code>.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="status">Status<a href="#status" class="hash-link" aria-label="Direct link to Status" title="Direct link to Status" translate="no">​</a></h3>
 <p>Shows an overview of the application (restart action), the installation node,
 backup status, and a link to the logs.</p>
@@ -37,16 +37,19 @@ backup status, and a link to the logs.</p>
 <p>Detections are suspicious activities found by CrowdSec, such as repeated login
 failures or known attack patterns. A detection does not always result in a
 banned IP.</p>
+<p>The toolbar above the table holds <code>Unban all</code>, <code>Delete all detections</code>, and
+<code>Refresh</code>, which reloads the list.</p>
 <p>The table lists <code>Detected at</code>, <code>Scenario</code>, <code>Source IP</code>, <code>Country</code>,
 <code>Action</code> (<code>Banned</code> while the ban is active, <code>Ban expired</code> once it is over, or
 <code>-</code> when no ban was applied), and <code>Events</code> count. Use the <code>Filter detections</code>
-box to filter by IP or scenario, the <code>Action</code> selector (<code>All</code>, <code>Banned</code>, or
-<code>Expired</code>) to show only the active or the expired bans, and the
-<code>Events to show</code> selector to limit how many recent events are loaded. Click <code>Refresh</code> to reload the list.</p>
-<p>Each row has a <code>Details</code> link that opens the full event log for that
-detection. Banned rows also have an <code>Unban</code> button, and so does the details
-window of a banned detection. <code>Unban all</code> unbans all the addresses banned by
-CrowdSec detections. An unbanned address may be banned again if CrowdSec
+box to filter by IP or scenario, the <code>Action</code> selector (<code>All</code>, <code>No action</code>,
+<code>Banned</code>, or <code>Ban expired</code>) to show only the detections with that action, and
+the <code>Events to show</code> selector to limit how many recent events are loaded. If
+no detection matches the filters, click <code>Reset filters</code> to clear them.</p>
+<p>To open the full event log of a detection, select <code>Show details</code> from its row
+menu. Banned rows also have an <code>Unban</code> link, and the details window of a
+banned detection has an <code>Unban</code> button. <code>Unban all</code> unbans all the addresses
+banned by CrowdSec detections. An unbanned address may be banned again if CrowdSec
 detects new suspicious activity.</p>
 <p><code>Unban</code> and <code>Unban all</code> remove only temporary bans. Addresses in the
 <a href="#local-blocklist" class="">Local blocklist</a> and in the Threat Shield IP blocklist
@@ -56,16 +59,6 @@ created from the database. Banned addresses stay in the firewall until their
 ban expires. Threat Shield IP, community blocklist and Local blocklist bans
 are applied again automatically; other bans added by hand, for example with
 <code>cscli</code>, are lost.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="collections">Collections<a href="#collections" class="hash-link" aria-label="Direct link to Collections" title="Direct link to Collections" translate="no">​</a></h3>
-<p>Collections add detection support for specific services, such as SSH, Nginx,
-or WordPress. Enable only the collections that match the services installed
-on this server; a link to the <a href="https://app.crowdsec.net/hub" target="_blank" rel="noopener noreferrer" class="">CrowdSec Hub</a>
-lets you check what each collection detects before enabling it.</p>
-<p>The table lists <code>Name</code>, <code>Status</code>, <code>Version</code>, and <code>Description</code>, with
-an <code>Enable</code>/<code>Disable</code> action per row. For example, the <code>nethesis/nethvoice</code>
-collection detects brute-force and exploit-scan attacks against the NethVoice
-application (SIP and HTTP); it ships disabled after an upgrade and must be
-enabled from this page.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="threat-shield">Threat Shield IP<a href="#threat-shield" class="hash-link" aria-label="Direct link to Threat Shield IP" title="Direct link to Threat Shield IP" translate="no">​</a></h3>
 <p>This page manages the lists of IP addresses that are always banned or never
 banned. It is organized in five tabs: <code>Blocklist feeds</code>, <code>Allowlist feeds</code>,
@@ -133,7 +126,9 @@ several feeds is counted for the one with the highest confidence.</p>
 <p>The <code>Type</code> column tells the two kinds of feeds apart:</p>
 <ul>
 <li class=""><code>Enterprise</code>: blocklists maintained by Nethesis and Yoroi. They require a
-subscription with the Threat Shield add-on.</li>
+subscription with the Threat Shield add-on. Without the add-on, their
+<code>Status</code> switch is off and their counts show <code>-</code>; the feeds you selected
+are kept.</li>
 <li class=""><code>Custom</code>: blocklists downloaded from a URL of your choice, see
 <a href="#custom-feeds" class="">Custom feeds</a>.</li>
 </ul>
@@ -180,7 +175,9 @@ a legitimate address. Confidence is not shown with a Community subscription.
 Custom feeds show <code>Unknown</code>.</p>
 <p>To check whether an address is banned by an enabled blocklist, enter it in
 <code>Search IP in blocklists</code> and click <code>Search</code>. If it is, the result names the
-blocklists that contain it. The search requires the Threat Shield add-on.</p>
+blocklists that contain it. The search takes a single IPv4 or IPv6 address,
+not a network, and works without a subscription, so custom feeds can be
+searched too.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="allowlist-feeds">Allowlist feeds<a href="#allowlist-feeds" class="hash-link" aria-label="Direct link to Allowlist feeds" title="Direct link to Allowlist feeds" translate="no">​</a></h4>
 <p>Threat Shield IP never bans the IP addresses and networks in the enabled
 allowlist feeds. The table lists <code>Name</code>, <code>Description</code>, and <code>Status</code>.</p>
@@ -205,8 +202,10 @@ name can&#x27;t be changed later.</li>
 <li class=""><code>Description (optional)</code>: a short text shown in the table.</li>
 <li class=""><code>List URL</code>: an <code>http://</code> or <code>https://</code> URL of a plain text file with one
 entry per line. IPv4 and IPv6 entries can be mixed. A blocklist holds single
-IP addresses: networks are skipped. An allowlist holds IP addresses and
-networks.</li>
+IP addresses: networks are skipped, and so are loopback, link-local,
+multicast and reserved addresses. Private addresses are skipped too, unless
+<code>Local network blocking</code> is enabled in <code>Settings</code>. An allowlist
+holds IP addresses and networks.</li>
 </ul>
 <p>Up to 100,000 entries of each feed are imported. If the file can&#x27;t be
 downloaded, the last downloaded copy is used.</p>
@@ -260,6 +259,16 @@ allowlist keep working.</p>
 <p>To send banned addresses again, remove the setting and reload the
 service:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">runagent -m crowdsec1 sh -c &#x27;sed -i &quot;/^NETHESIS_INSIGHTS_PUSH=/d&quot; &quot;$AGENT_STATE_DIR/environment&quot;&#x27;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">systemctl reload crowdsec1</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="collections">Collections<a href="#collections" class="hash-link" aria-label="Direct link to Collections" title="Direct link to Collections" translate="no">​</a></h3>
+<p>Collections add detection support for specific services, such as SSH, Nginx,
+or WordPress. Enable only the collections that match the services installed
+on this server; a link to the <a href="https://app.crowdsec.net/hub" target="_blank" rel="noopener noreferrer" class="">CrowdSec Hub</a>
+lets you check what each collection detects before enabling it.</p>
+<p>The table lists <code>Name</code>, <code>Status</code>, <code>Version</code>, and <code>Description</code>, with
+an <code>Enable</code>/<code>Disable</code> action per row. For example, the <code>nethesis/nethvoice</code>
+collection detects brute-force and exploit-scan attacks against the NethVoice
+application (SIP and HTTP); it ships disabled after an upgrade and must be
+enabled from this page.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="settings">Settings<a href="#settings" class="hash-link" aria-label="Direct link to Settings" title="Direct link to Settings" translate="no">​</a></h3>
 <ul>
 <li class=""><code>Local network blocking</code>: disabled as default, private/LAN traffic is
@@ -297,7 +306,7 @@ duration. Either way, enter the duration in minutes as free text.</li>
 <li class=""><code>cscli collections list</code> / <code>cscli scenarios list</code> — show which collections/scenarios are installed and enabled, useful to check what is being protected</li>
 <li class=""><code>cscli metrics</code> — show parser/bucket/bouncer metrics, useful to check CrowdSec is actually processing logs</li>
 <li class=""><code>cscli explain --file &lt;logfile&gt; --type &lt;log-type&gt;</code> — test a log line against parsers and scenarios, useful to debug why an attack was or wasn&#x27;t detected</li>
-</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/NethServer/ns8-docs/blob/main/docs/administrator-manual/applications/crowdsec.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer><div class="versionFooter_GEsS"><span class="versionText_BSdA">NethServer <span class="versionNumber_jKi7">8</span></span></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/pr-preview/pr-303/docs/administrator-manual/configuration/metrics"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Metrics and alerts</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/pr-preview/pr-303/docs/administrator-manual/applications/dnsmasq"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">DNSMasq</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#default-protections" class="table-of-contents__link toc-highlight">Default protections</a></li><li><a href="#web-interface" class="table-of-contents__link toc-highlight">Web interface</a><ul><li><a href="#status" class="table-of-contents__link toc-highlight">Status</a></li><li><a href="#activity" class="table-of-contents__link toc-highlight">Activity</a></li><li><a href="#collections" class="table-of-contents__link toc-highlight">Collections</a></li><li><a href="#threat-shield" class="table-of-contents__link toc-highlight">Threat Shield IP</a></li><li><a href="#settings" class="table-of-contents__link toc-highlight">Settings</a></li></ul></li><li><a href="#dashboards-section" class="table-of-contents__link toc-highlight">Grafana dashboards</a></li><li><a href="#command-line-interface" class="table-of-contents__link toc-highlight">Command-line interface</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-303/docs/administrator-manual">Administrator manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-303/docs/user-manual">User manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-303/docs/tutorial">Tutorial</a></li><li class="footer__item"><a href="https://nethserver.github.io/ns8-core/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Developer manual<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legacy docs</div><ul class="footer__items clean-list"><li class="footer__item">
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/NethServer/ns8-docs/blob/main/docs/administrator-manual/applications/crowdsec.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer><div class="versionFooter_GEsS"><span class="versionText_BSdA">NethServer <span class="versionNumber_jKi7">8</span></span></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/pr-preview/pr-303/docs/administrator-manual/configuration/metrics"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Metrics and alerts</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/pr-preview/pr-303/docs/administrator-manual/applications/dnsmasq"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">DNSMasq</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#default-protections" class="table-of-contents__link toc-highlight">Default protections</a></li><li><a href="#web-interface" class="table-of-contents__link toc-highlight">Web interface</a><ul><li><a href="#status" class="table-of-contents__link toc-highlight">Status</a></li><li><a href="#activity" class="table-of-contents__link toc-highlight">Activity</a></li><li><a href="#threat-shield" class="table-of-contents__link toc-highlight">Threat Shield IP</a></li><li><a href="#collections" class="table-of-contents__link toc-highlight">Collections</a></li><li><a href="#settings" class="table-of-contents__link toc-highlight">Settings</a></li></ul></li><li><a href="#dashboards-section" class="table-of-contents__link toc-highlight">Grafana dashboards</a></li><li><a href="#command-line-interface" class="table-of-contents__link toc-highlight">Command-line interface</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-303/docs/administrator-manual">Administrator manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-303/docs/user-manual">User manual</a></li><li class="footer__item"><a class="footer__link-item" href="/pr-preview/pr-303/docs/tutorial">Tutorial</a></li><li class="footer__item"><a href="https://nethserver.github.io/ns8-core/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Developer manual<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legacy docs</div><ul class="footer__items clean-list"><li class="footer__item">
                 <div class="legacy-docs-link-container">
                 NethServer 7
                   <a class="footer__link-item" href="/en/v7/" target="_blank">en</a>
