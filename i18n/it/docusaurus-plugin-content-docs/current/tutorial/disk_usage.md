@@ -79,7 +79,7 @@ In qualsiasi momento della vita del nodo NS8, puoi montare un nuovo disco su un 
 
 ## Migrare i dati di /home su un nuovo disco
 
-Se la sezione precedente non è applicabile, valuta di aggiungere un nuovo disco e migrare i dati esistenti con uno script Bash incluso nel core: `migrate-home-disk.sh`. Questo script illustra i passaggi di base richiesti per la migrazione dei dati.
+Se la sezione precedente non è applicabile, e spostare su un altro disco i volumi di singole applicazioni non basta (vedi [Spostare i dati di un named volume su un altro disco](#move-volume)), valuta di aggiungere un nuovo disco e migrare i dati esistenti con uno script Bash incluso nel core: `migrate-home-disk.sh`. Questo script illustra i passaggi di base richiesti per la migrazione dei dati.
 
 :::warning
 
@@ -113,7 +113,7 @@ Reindirizzare i named volume aiuta a ottenere una migliore organizzazione dello 
 
 :::note
 
-Configura l'assegnazione del named volume *prima* di installare, ripristinare o clonare l'applicazione rootless.
+Configura l'assegnazione del named volume *prima* di installare, ripristinare o clonare l'applicazione rootless. Per spostare i dati di un'applicazione già installata, vedi [Spostare i dati di un named volume su un altro disco](#move-volume).
 
 :::
 
@@ -168,13 +168,41 @@ Per rimuovere un'assegnazione, elimina la riga corrispondente da `/etc/nethserve
 
 La rimozione dell'assegnazione non elimina alcun dato; aggiorna solo il file `volumes.conf`.
 
-### Spostare i dati di un named volume su un nuovo disco
+### Spostare i dati di un named volume su un altro disco {#move-volume}
 
-:::note
+Le assegnazioni in `volumes.conf` hanno effetto solo quando un volume viene creato. Per spostare su un altro disco i dati di un volume di un'applicazione già installata, usa il comando `volumectl move-volume`. L'applicazione mantiene il suo nome e la sua configurazione, e si ferma solo per poco tempo. Il comando funziona solo con le applicazioni rootless.
 
-Il comando `volumectl` non supporta ancora lo spostamento dei dati di un volume su un disco diverso. Questa funzionalità è prevista per versioni future.
+Supponiamo che Mattermost sia già installato come `mattermost1` e che il suo volume `postgres-data` si trovi sul disco root. Elenca i volumi dell'applicazione con:
 
-:::
+    runagent -m mattermost1 podman volume ls
+
+Lo spostamento avviene in due passaggi.
+
+1.  Copia i dati del volume sul disco di destinazione mentre l'applicazione è in esecuzione:
+
+        volumectl move-volume postgres-data --for mattermost1 --target /srv/disk0 --sync
+
+    La prima copia può richiedere molto tempo. Puoi eseguire di nuovo il comando tutte le volte che serve: ogni esecuzione copia solo le modifiche avvenute dalla precedente.
+
+2.  Completa lo spostamento:
+
+        volumectl move-volume postgres-data --for mattermost1 --target /srv/disk0
+
+    Il comando arresta l'applicazione, copia le ultime modifiche, sposta il volume nella nuova posizione e avvia di nuovo l'applicazione. Eseguilo subito dopo un passaggio di copia, in modo che l'ultima copia, e quindi il fermo dell'applicazione, siano brevi.
+
+La destinazione è uno dei percorsi base mostrati da `volumectl list-base-paths`. Per riportare un volume sul disco root, usa `--target /`.
+
+Entrambi i passaggi verificano che il disco di destinazione abbia spazio libero sufficiente. I dati vengono copiati mantenendo proprietario, permessi, ACL, attributi estesi ed etichette SELinux.
+
+Per completare lo spostamento, il comando arresta tutti i servizi dell'applicazione, compreso il suo agent. Se l'agent sta eseguendo un task, il comando si rifiuta di arrestarlo: riprova più tardi. L'opzione `--force` arresta comunque l'agent, ma il task in esecuzione viene interrotto e non restituisce mai il suo risultato.
+
+Se il secondo passaggio fallisce, oppure lo interrompi con `Ctrl-C`, il comando ripristina il volume originale e avvia di nuovo l'applicazione. Quando lo spostamento è completato, i vecchi dati vengono rimossi in background. Il comando mostra il nome dell'unità Systemd `volumectl-trash-*` che li rimuove: controllane l'avanzamento con `journalctl -u <nome unità>`.
+
+Finché non esegui il secondo passaggio, il volume originale non viene modificato. Per annullare lo spostamento, rimuovi i dati copiati dal disco di destinazione, ad esempio:
+
+    rm -rf /srv/disk0/mattermost1/postgres-data
+
+Quando la destinazione è il disco root, la copia si trova nella home directory dell'applicazione, ad esempio `/home/mattermost1/.local/share/volumectl-staging/postgres-data`.
 
 ## Recupero dello spazio SSD {#fstrim-periodic}
 

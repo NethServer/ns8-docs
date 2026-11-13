@@ -79,7 +79,7 @@ At any time in the NS8 node's life, you can mount a new disk on an alternative p
 
 ## Migrate /home data to a new disk
 
-If the previous section is not applicable, consider adding a new disk and migrating existing data with a Bash script included in the core: `migrate-home-disk.sh`. This script illustrates the basic steps required for data migration.
+If the previous section is not applicable, and moving the volumes of single applications to another disk is not enough (see [Move named volume data to another disk](#move-volume)), consider adding a new disk and migrating existing data with a Bash script included in the core: `migrate-home-disk.sh`. This script illustrates the basic steps required for data migration.
 
 :::warning
 
@@ -113,7 +113,7 @@ Redirecting named volumes helps achieve better storage organization, reduces pre
 
 :::note
 
-Configure the named volume assignment *before* installing, restoring, or cloning the rootless application.
+Configure the named volume assignment *before* installing, restoring, or cloning the rootless application. To move the data of an installed application, see [Move named volume data to another disk](#move-volume).
 
 :::
 
@@ -168,13 +168,41 @@ To remove an assignment, delete the corresponding line from `/etc/nethserver/vol
 
 Removing the assignment does not remove any data; it only updates the `volumes.conf` file.
 
-### Move named volume data to a new disk
+### Move named volume data to another disk {#move-volume}
 
-:::note
+Assignments in `volumes.conf` take effect only when a volume is created. To move the data of a volume of an installed application to another disk, use the `volumectl move-volume` command. The application keeps its name and configuration, and stops only for a short time. The command works only with rootless applications.
 
-The `volumectl` command does not yet support moving volume data to a different disk. This feature is planned for future releases.
+Let's assume Mattermost is already installed as `mattermost1`, and its `postgres-data` volume is on the root disk. List the volumes of the application with:
 
-:::
+    runagent -m mattermost1 podman volume ls
+
+The move has two steps.
+
+1.  Copy the volume data to the target disk while the application is running:
+
+        volumectl move-volume postgres-data --for mattermost1 --target /srv/disk0 --sync
+
+    The first copy can take a long time. You can run the command again as many times as needed: each run copies only the changes since the previous one.
+
+2.  Complete the move:
+
+        volumectl move-volume postgres-data --for mattermost1 --target /srv/disk0
+
+    The command stops the application, copies the last changes, switches the volume to the new location, and starts the application again. Run it right after a copy step, so the last copy, and the downtime, are short.
+
+The target is one of the base paths printed by `volumectl list-base-paths`. To move a volume back to the root disk, use `--target /`.
+
+Both steps check that the target disk has enough free space. The data is copied with its ownership, permissions, ACLs, extended attributes, and SELinux labels.
+
+While completing the move, the command stops all services of the application, including its agent. If the agent is running a task, the command refuses to stop it: retry later. The `--force` option stops the agent anyway, but the running task is interrupted and never returns its result.
+
+If the second step fails, or you interrupt it with `Ctrl-C`, the command puts back the original volume and starts the application again. When the move completes, the old data is removed in the background. The command prints the name of the `volumectl-trash-*` Systemd unit that removes it: check its progress with `journalctl -u <unit name>`.
+
+Until you run the second step, the original volume is not changed. To cancel the move, remove the copied data from the target disk, for example:
+
+    rm -rf /srv/disk0/mattermost1/postgres-data
+
+When the target is the root disk, the copy is under the home directory of the application, for example `/home/mattermost1/.local/share/volumectl-staging/postgres-data`.
 
 ## SSD space reclamation {#fstrim-periodic}
 
