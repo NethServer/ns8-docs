@@ -23,7 +23,7 @@ Una volta installato, CrowdSec è già completamente funzionante e inizia a prot
 
 ## Interfaccia web
 
-Il menu laterale del modulo offre accesso alle seguenti pagine: `Status`, `Activity`, `Collections`, `Threat Shield IP`, `Settings` e `About`.
+Il menu laterale del modulo offre accesso alle seguenti pagine: `Status`, `Activity`, `Threat Shield IP`, `Collections`, `Settings` e `About`.
 
 ### Status
 
@@ -33,19 +33,15 @@ Mostra una panoramica dell'applicazione (azione di riavvio), il nodo di installa
 
 I rilevamenti sono attività sospette individuate da CrowdSec, come ripetuti fallimenti di login o schemi di attacco noti. Un rilevamento non comporta sempre il blocco di un IP.
 
-La tabella elenca `Detected at`, `Scenario`, `Source IP`, `Country`, `Action` (`Banned` finché il blocco è attivo, `Ban expired` quando è scaduto, oppure `-` quando non è stato applicato alcun blocco) e il conteggio degli `Events`. Usa il campo `Filter detections` per filtrare per IP o scenario, il selettore `Action` (`All`, `Banned` o `Expired`) per mostrare solo i blocchi attivi o scaduti e il selettore `Events to show` per limitare il numero di eventi recenti caricati. Fai clic su `Refresh` per ricaricare l'elenco.
+La barra sopra la tabella contiene `Unban all`, `Delete all detections` e `Refresh`, che ricarica l'elenco.
 
-Ogni riga ha un link `Details` che apre il log completo degli eventi per quel rilevamento. Le righe bloccate hanno anche un pulsante `Unban`, presente anche nella finestra dei dettagli di un rilevamento bloccato. `Unban all` sblocca tutti gli indirizzi bloccati dai rilevamenti di CrowdSec. Un indirizzo sbloccato può essere bloccato di nuovo se CrowdSec rileva nuove attività sospette.
+La tabella elenca `Detected at`, `Scenario`, `Source IP`, `Country`, `Action` (`Banned` finché il blocco è attivo, `Ban expired` quando è scaduto, oppure `-` quando non è stato applicato alcun blocco) e il conteggio degli `Events`. Usa il campo `Filter detections` per filtrare per IP o scenario, il selettore `Action` (`All`, `No action`, `Banned` o `Ban expired`) per mostrare solo i rilevamenti con quell'azione e il selettore `Events to show` per limitare il numero di eventi recenti caricati. Se nessun rilevamento corrisponde ai filtri, fai clic su `Reset filters` per azzerarli.
+
+Per aprire il log completo degli eventi di un rilevamento, seleziona `Show details` dal menu della sua riga. Le righe bloccate hanno anche un link `Unban` e la finestra dei dettagli di un rilevamento bloccato ha un pulsante `Unban`. `Unban all` sblocca tutti gli indirizzi bloccati dai rilevamenti di CrowdSec. Un indirizzo sbloccato può essere bloccato di nuovo se CrowdSec rileva nuove attività sospette.
 
 `Unban` e `Unban all` rimuovono solo i blocchi temporanei. Gli indirizzi della [Local blocklist](#local-blocklist) e delle liste di blocco di Threat Shield IP restano bloccati.
 
 `Delete all detections` elimina definitivamente dal database tutti i rilevamenti e i blocchi che hanno creato. Gli indirizzi bloccati restano nel firewall fino alla scadenza del blocco. I blocchi di Threat Shield IP, della lista di blocco della community e della Local blocklist vengono riapplicati automaticamente; gli altri blocchi aggiunti a mano, per esempio con `cscli`, vengono persi.
-
-### Collezioni
-
-Le collezioni aggiungono supporto per il rilevamento di servizi specifici, come SSH, Nginx o WordPress. Abilita solo le collezioni che corrispondono ai servizi installati su questo server; un link al [CrowdSec Hub](https://app.crowdsec.net/hub) consente di verificare cosa rileva ogni collezione prima di abilitarla.
-
-La tabella elenca `Nome`, `Stato`, `Versione` e `Descrizione`, con un'azione `Enable`/`Disable` per riga. Ad esempio, la collezione `nethesis/nethvoice` rileva attacchi di forza bruta e scansioni di exploit contro l'applicazione NethVoice (SIP e HTTP); viene fornita disabilitata dopo un aggiornamento e deve essere abilitata da questa pagina.
 
 ### Threat Shield IP {#threat-shield}
 
@@ -79,7 +75,7 @@ Threat Shield IP blocca gli indirizzi IP delle liste di blocco abilitate. La tab
 
 La colonna `Type` distingue i due tipi di lista:
 
-- `Enterprise`: liste di blocco gestite da Nethesis e Yoroi. Richiedono una subscription con l'add-on Threat Shield.
+- `Enterprise`: liste di blocco gestite da Nethesis e Yoroi. Richiedono una subscription con l'add-on Threat Shield. Senza l'add-on, il loro interruttore `Status` è spento e i loro conteggi mostrano `-`; le liste selezionate vengono mantenute.
 - `Custom`: liste di blocco scaricate da un URL a tua scelta, vedi [Liste personalizzate](#custom-feeds).
 
 Attiva l'interruttore `Status` delle liste da abilitare e fai clic su `Save`. L'importazione parte subito dopo il salvataggio. Tutte le liste vengono aggiornate ogni 30 minuti. Disabilitare una lista rimuove i suoi indirizzi dal firewall. Se una lista non può essere aggiornata, un errore sopra la tabella la indica.
@@ -95,7 +91,7 @@ Attiva l'interruttore `Status` delle liste da abilitare e fai clic su `Save`. L'
 
 La confidenza va da 1 a 10. Un valore più alto indica un rischio minore di bloccare un indirizzo legittimo. Con una subscription Community la confidenza non viene mostrata. Le liste personalizzate mostrano `Unknown`.
 
-Per verificare se un indirizzo è bloccato da una lista di blocco abilitata, inseriscilo in `Search IP in blocklists` e fai clic su `Search`. In caso affermativo, il risultato indica le liste di blocco che lo contengono. La ricerca richiede l'add-on Threat Shield.
+Per verificare se un indirizzo è bloccato da una lista di blocco abilitata, inseriscilo in `Search IP in blocklists` e fai clic su `Search`. In caso affermativo, il risultato indica le liste di blocco che lo contengono. La ricerca accetta un singolo indirizzo IPv4 o IPv6, non una rete, e funziona anche senza subscription, quindi si possono cercare anche le liste personalizzate.
 
 #### Liste di permessi
 
@@ -112,7 +108,7 @@ Le liste personalizzate sono liste di blocco o di permessi scaricate da un URL. 
 - `Status`: abilita o disabilita la lista.
 - `Name`: da 3 a 16 lettere minuscole e cifre, iniziando con una lettera. I nomi che iniziano con `nethesis`, `yoroi` o `crowdsec` sono riservati. Il nome non può essere cambiato in seguito.
 - `Description (optional)`: un breve testo mostrato nella tabella.
-- `List URL`: un URL `http://` o `https://` di un file di testo con una voce per riga. Le voci IPv4 e IPv6 possono essere mescolate. Una lista di blocco contiene singoli indirizzi IP: le reti vengono ignorate. Una lista di permessi contiene indirizzi IP e reti.
+- `List URL`: un URL `http://` o `https://` di un file di testo con una voce per riga. Le voci IPv4 e IPv6 possono essere mescolate. Una lista di blocco contiene singoli indirizzi IP: le reti vengono ignorate, come pure gli indirizzi di loopback, link-local, multicast e riservati. Anche gli indirizzi privati vengono ignorati, a meno che `Local network blocking` sia abilitato in `Settings`. Una lista di permessi contiene indirizzi IP e reti.
 
 Di ogni lista vengono importate fino a 100.000 voci. Se il file non può essere scaricato, viene usata l'ultima copia scaricata.
 
@@ -174,6 +170,12 @@ Per riprendere l'invio degli indirizzi bloccati, rimuovi l'impostazione e ricari
 runagent -m crowdsec1 sh -c 'sed -i "/^NETHESIS_INSIGHTS_PUSH=/d" "$AGENT_STATE_DIR/environment"'
 systemctl reload crowdsec1
 ```
+
+### Collezioni
+
+Le collezioni aggiungono supporto per il rilevamento di servizi specifici, come SSH, Nginx o WordPress. Abilita solo le collezioni che corrispondono ai servizi installati su questo server; un link al [CrowdSec Hub](https://app.crowdsec.net/hub) consente di verificare cosa rileva ogni collezione prima di abilitarla.
+
+La tabella elenca `Nome`, `Stato`, `Versione` e `Descrizione`, con un'azione `Enable`/`Disable` per riga. Ad esempio, la collezione `nethesis/nethvoice` rileva attacchi di forza bruta e scansioni di exploit contro l'applicazione NethVoice (SIP e HTTP); viene fornita disabilitata dopo un aggiornamento e deve essere abilitata da questa pagina.
 
 ### Impostazioni
 
