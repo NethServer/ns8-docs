@@ -42,34 +42,27 @@ La procedura di aggiornamento/upgrade di Nextcloud può disabilitare le app per 
 
 Tutti gli utenti sono elencati nel pannello amministratore di Nextcloud usando un identificatore univoco contenente lettere e numeri. Questo perché il sistema garantisce che non esistano nomi utente interni duplicati, come riportato nella sezione `Internal Username` della [documentazione ufficiale di Nextcloud](https://docs.nextcloud.com).
 
-### Autenticazione a due fattori (TOTP)
+### Eseguire comandi occ
 
-Nextcloud supporta l'autenticazione a due fattori con un'app TOTP. Gli utenti la attivano da **Impostazioni personali > Sicurezza**.
+`occ` è lo strumento da riga di comando di Nextcloud. Il [manuale ufficiale di amministrazione di Nextcloud](https://docs.nextcloud.com/server/stable/admin_manual/occ_command.html) lo usa per molte operazioni. Su NethServer 8, eseguirlo tramite `runagent`.
 
 Accedere come root al nodo dove è installata l'applicazione Nextcloud. Nei comandi seguenti, sostituire `nextcloud1` con l'identificativo dell'applicazione.
 
-Per rendere obbligatoria l'autenticazione a due fattori per tutti gli utenti, eseguire:
+Qualsiasi comando `occ` della documentazione ufficiale diventa:
 
-    runagent -m nextcloud1 occ twofactorauth:enforce --on
+    runagent -m nextcloud1 occ <comando> [argomenti]
 
-Gli utenti senza un secondo fattore dovranno configurare il TOTP al prossimo accesso. Usare `--off` per togliere l'obbligo.
+Ad esempio, per elencare tutti i comandi disponibili:
 
-L'amministratore di Nextcloud può anche renderla obbligatoria per tutti dall'interfaccia web: andare in **Impostazioni di amministrazione > Sicurezza** e attivare **Applica l'autenticazione a due fattori**. Questa pagina permette anche di limitare l'obbligo ad alcuni gruppi o di escluderne alcuni.
+    runagent -m nextcloud1 occ list
 
-Se un utente ha perso la sua app di autenticazione, l'amministratore può disattivare il TOTP per quell'utente. Gli utenti LDAP hanno un identificativo interno, come spiegato nella sezione [Elenco utenti](#elenco-utenti), quindi occorre prima trovarlo:
+Per mostrare l'aiuto di un comando:
+
+    runagent -m nextcloud1 occ help user:list
+
+Per elencare gli utenti con il loro identificativo interno, come spiegato nella sezione [Elenco utenti](#elenco-utenti):
 
     runagent -m nextcloud1 occ user:list
-
-Poi disattivare il TOTP e verificare il risultato:
-
-    runagent -m nextcloud1 occ twofactorauth:disable <user_id> totp
-    runagent -m nextcloud1 occ twofactorauth:state <user_id>
-
-Questo elimina anche il vecchio segreto TOTP. L'utente configura di nuovo il TOTP con un nuovo codice QR: al prossimo accesso se la 2FA è obbligatoria, altrimenti da **Impostazioni personali > Sicurezza**. I codici di backup non contano come secondo fattore, quindi non permettono di saltare questo passaggio.
-
-Non usare `occ twofactorauth:cleanup totp`: elimina i dati TOTP di tutti gli utenti.
-
-Consultare la [documentazione ufficiale di Nextcloud](https://docs.nextcloud.com/server/stable/admin_manual/configuration_user/two_factor-auth.html) per tutte le opzioni.
 
 ### Campo email LDAP alternativo (Samba AD)
 
