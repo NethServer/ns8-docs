@@ -105,6 +105,31 @@ subscription and stops when the subscription is removed. If the server loses
 the subscription or the add-on, the addresses imported from the Enterprise
 blocklist feeds are removed.
 
+#### Free collective defense blocklist {#collective-defense-free}
+
+Servers with a subscription but without the Threat Shield add-on can use a
+free version of the `Nethesis collective defense - Level 2` blocklist. It
+holds the same addresses, but 48 hours later.
+
+To use it, add a [custom blocklist](#custom-feeds), for example named
+`collective`, with this `List URL`:
+
+```
+https://<system_id>:<auth_token>@insights.nethesis.it/blocklist/v1/basic-feed
+```
+
+Replace `<system_id>` and `<auth_token>` with the subscription credentials.
+To read them, run these commands in a root shell of the leader node:
+
+```
+redis-cli hget cluster/subscription system_id
+redis-cli hget cluster/subscription auth_token
+```
+
+If the subscription is removed and registered again, the credentials change:
+edit the feed and update the URL. With the Threat Shield add-on, enable
+`Nethesis collective defense - Level 2` instead, which has no delay.
+
 #### Blocklist feeds
 
 Threat Shield IP bans the IP addresses in the enabled blocklist feeds. The
