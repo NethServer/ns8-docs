@@ -41,7 +41,7 @@ Per aprire il log completo degli eventi di un rilevamento, seleziona `Show detai
 
 `Unban` e `Unban all` rimuovono solo i blocchi temporanei. Gli indirizzi della [Local blocklist](#local-blocklist) e delle liste di blocco di Threat Shield IP restano bloccati.
 
-`Delete all detections` elimina definitivamente dal database tutti i rilevamenti e i blocchi che hanno creato. Gli indirizzi bloccati restano nel firewall fino alla scadenza del blocco. I blocchi di Threat Shield IP, della lista di blocco della community e della Local blocklist vengono riapplicati automaticamente; gli altri blocchi aggiunti a mano, per esempio con `cscli`, vengono persi.
+`Delete all detections` elimina definitivamente i rilevamenti senza un blocco attivo. I rilevamenti degli indirizzi bloccati restano nell'elenco, così puoi ancora controllarli e sbloccarli con `Unban` o `Unban all`. I blocchi non vengono modificati, compresi quelli di Threat Shield IP, della lista di blocco della community e della Local blocklist.
 
 ### Threat Shield IP {#threat-shield}
 

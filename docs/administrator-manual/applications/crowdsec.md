@@ -58,11 +58,10 @@ detects new suspicious activity.
 [Local blocklist](#local-blocklist) and in the Threat Shield IP blocklist
 feeds stay banned.
 
-`Delete all detections` permanently removes all detections and the bans they
-created from the database. Banned addresses stay in the firewall until their
-ban expires. Threat Shield IP, community blocklist and Local blocklist bans
-are applied again automatically; other bans added by hand, for example with
-`cscli`, are lost.
+`Delete all detections` permanently removes the detections without an active
+ban. Detections of banned addresses stay in the list, so you can still review
+them and unban them with `Unban` or `Unban all`. Bans are not changed,
+including the Threat Shield IP, community blocklist and Local blocklist ones.
 
 ### Threat Shield IP {#threat-shield}
 
