@@ -69,6 +69,25 @@ L'add-on Threat Shield è disponibile sia per la subscription Community sia per 
 
 Non serve alcuna configurazione. L'invio parte quando il server ha una subscription e si ferma quando la subscription viene rimossa. Se il server perde la subscription o l'add-on, gli indirizzi importati dalle liste di blocco Enterprise vengono rimossi.
 
+#### Lista di blocco collettiva gratuita {#collective-defense-free}
+
+I server con una subscription ma senza l'add-on Threat Shield possono usare una versione gratuita della lista di blocco `Nethesis collective defense - Level 2`. Contiene gli stessi indirizzi, ma con 48 ore di ritardo.
+
+Per usarla, aggiungi una [lista di blocco personalizzata](#custom-feeds), per esempio chiamata `collective`, con questo `List URL`:
+
+```
+https://<system_id>:<auth_token>@insights.nethesis.it/blocklist/v1/basic-feed
+```
+
+Sostituisci `<system_id>` e `<auth_token>` con le credenziali della subscription. Per leggerle, esegui questi comandi in una shell di root del nodo leader:
+
+```
+redis-cli hget cluster/subscription system_id
+redis-cli hget cluster/subscription auth_token
+```
+
+Se la subscription viene rimossa e registrata di nuovo, le credenziali cambiano: modifica la lista e aggiorna l'URL. Con l'add-on Threat Shield, abilita invece `Nethesis collective defense - Level 2`, che non ha ritardo.
+
 #### Liste di blocco
 
 Threat Shield IP blocca gli indirizzi IP delle liste di blocco abilitate. La tabella elenca `Name`, `Type`, `Description`, `Status`, `Confidence`, `Entries`, `Banned` e `Last update`. `Banned` conta i pacchetti di rete provenienti dagli indirizzi della lista e bloccati dal firewall nelle ultime 24 ore. Un indirizzo presente in più liste viene conteggiato per quella con la confidenza più alta.
