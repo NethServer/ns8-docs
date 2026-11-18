@@ -37,8 +37,8 @@ Detections are suspicious activities found by CrowdSec, such as repeated login
 failures or known attack patterns. A detection does not always result in a
 banned IP.
 
-The toolbar above the table holds `Unban all`, `Delete all detections`, and
-`Refresh`, which reloads the list.
+The toolbar above the table holds `Unban all`, `Delete all detections`,
+`Refresh`, which reloads the list, and `Export to CSV`.
 
 The table lists `Detected at`, `Scenario`, `Source IP`, `Country`,
 `Action` (`Banned` while the ban is active, `Ban expired` once it is over, or
@@ -47,6 +47,11 @@ box to filter by IP or scenario, the `Action` selector (`All`, `No action`,
 `Banned`, or `Ban expired`) to show only the detections with that action, and
 the `Events to show` selector to limit how many recent events are loaded. If
 no detection matches the filters, click `Reset filters` to clear them.
+
+`Export to CSV` saves the detections that match the current filters as a CSV
+file, including those on other pages of the table. The file has the same columns as
+the table. Dates are in UTC. An unknown `Country` and a detection with no
+action leave the cell empty.
 
 To open the full event log of a detection, select `Show details` from its row
 menu. Banned rows also have an `Unban` link, and the details window of a

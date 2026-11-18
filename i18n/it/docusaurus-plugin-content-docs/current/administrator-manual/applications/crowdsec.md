@@ -33,9 +33,11 @@ Mostra una panoramica dell'applicazione (azione di riavvio), il nodo di installa
 
 I rilevamenti sono attività sospette individuate da CrowdSec, come ripetuti fallimenti di login o schemi di attacco noti. Un rilevamento non comporta sempre il blocco di un IP.
 
-La barra sopra la tabella contiene `Unban all`, `Delete all detections` e `Refresh`, che ricarica l'elenco.
+La barra sopra la tabella contiene `Unban all`, `Delete all detections`, `Refresh`, che ricarica l'elenco, e `Export to CSV`.
 
 La tabella elenca `Detected at`, `Scenario`, `Source IP`, `Country`, `Action` (`Banned` finché il blocco è attivo, `Ban expired` quando è scaduto, oppure `-` quando non è stato applicato alcun blocco) e il conteggio degli `Events`. Usa il campo `Filter detections` per filtrare per IP o scenario, il selettore `Action` (`All`, `No action`, `Banned` o `Ban expired`) per mostrare solo i rilevamenti con quell'azione e il selettore `Events to show` per limitare il numero di eventi recenti caricati. Se nessun rilevamento corrisponde ai filtri, fai clic su `Reset filters` per azzerarli.
+
+`Export to CSV` salva in un file CSV i rilevamenti che corrispondono ai filtri attuali, compresi quelli nelle altre pagine della tabella. Il file ha le stesse colonne della tabella. Le date sono in UTC. Un `Country` sconosciuto e un rilevamento senza azione lasciano la cella vuota.
 
 Per aprire il log completo degli eventi di un rilevamento, seleziona `Show details` dal menu della sua riga. Le righe bloccate hanno anche un link `Unban` e la finestra dei dettagli di un rilevamento bloccato ha un pulsante `Unban`. `Unban all` sblocca tutti gli indirizzi bloccati dai rilevamenti di CrowdSec. Un indirizzo sbloccato può essere bloccato di nuovo se CrowdSec rileva nuove attività sospette.
 
