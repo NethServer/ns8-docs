@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">CrowdSec | NethServer 8 documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nethserver.org/pr-preview/pr-303/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nethserver.org/pr-preview/pr-303/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nethserver.org/pr-preview/pr-303/docs/administrator-manual/applications/crowdsec"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="it_IT"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="CrowdSec | NethServer 8 documentation"><meta data-rh="true" name="description" content="CrowdSec is a malicious activity detection tool. It looks for known patterns, like malicious login attempts, inside the applications logs and blocks the attacker IP address."><meta data-rh="true" property="og:description" content="CrowdSec is a malicious activity detection tool. It looks for known patterns, like malicious login attempts, inside the applications logs and blocks the attacker IP address."><link data-rh="true" rel="icon" href="/pr-preview/pr-303/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nethserver.org/pr-preview/pr-303/docs/administrator-manual/applications/crowdsec"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-303/docs/administrator-manual/applications/crowdsec" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-303/it/docs/administrator-manual/applications/crowdsec" hreflang="it-IT"><link data-rh="true" rel="alternate" href="https://docs.nethserver.org/pr-preview/pr-303/docs/administrator-manual/applications/crowdsec" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://SVYGK2UNEY-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CrowdSec","item":"https://docs.nethserver.org/pr-preview/pr-303/docs/administrator-manual/applications/crowdsec"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="NethServer 8 documentation" href="/pr-preview/pr-303/opensearch.xml"><link rel="stylesheet" href="/pr-preview/pr-303/assets/css/styles.c61e80aa.css">
-<script src="/pr-preview/pr-303/assets/js/runtime~main.e4988ad8.js" defer="defer"></script>
+<script src="/pr-preview/pr-303/assets/js/runtime~main.fe4a5911.js" defer="defer"></script>
 <script src="/pr-preview/pr-303/assets/js/main.c09c9638.js" defer="defer"></script>
 </head>
 <body>
@@ -37,8 +37,8 @@ backup status, and a link to the logs.</p>
 <p>Detections are suspicious activities found by CrowdSec, such as repeated login
 failures or known attack patterns. A detection does not always result in a
 banned IP.</p>
-<p>The toolbar above the table holds <code>Unban all</code>, <code>Delete all detections</code>, and
-<code>Refresh</code>, which reloads the list.</p>
+<p>The toolbar above the table holds <code>Unban all</code>, <code>Delete all detections</code>,
+<code>Refresh</code>, which reloads the list, and <code>Export to CSV</code>.</p>
 <p>The table lists <code>Detected at</code>, <code>Scenario</code>, <code>Source IP</code>, <code>Country</code>,
 <code>Action</code> (<code>Banned</code> while the ban is active, <code>Ban expired</code> once it is over, or
 <code>-</code> when no ban was applied), and <code>Events</code> count. Use the <code>Filter detections</code>
@@ -46,6 +46,10 @@ box to filter by IP or scenario, the <code>Action</code> selector (<code>All</co
 <code>Banned</code>, or <code>Ban expired</code>) to show only the detections with that action, and
 the <code>Events to show</code> selector to limit how many recent events are loaded. If
 no detection matches the filters, click <code>Reset filters</code> to clear them.</p>
+<p><code>Export to CSV</code> saves the detections that match the current filters as a CSV
+file, including those on other pages of the table. The file has the same columns as
+the table. Dates are in UTC. An unknown <code>Country</code> and a detection with no
+action leave the cell empty.</p>
 <p>To open the full event log of a detection, select <code>Show details</code> from its row
 menu. Banned rows also have an <code>Unban</code> link, and the details window of a
 banned detection has an <code>Unban</code> button. <code>Unban all</code> unbans all the addresses
