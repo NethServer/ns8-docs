@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Upgrade tool &mdash; NethServer 6.10 Final</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Third-party software" href="third_party.html" />
+    <link rel="prev" title="HA (High Availability)" href="ha.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="https://docs.nethserver.org/en/v7/upgrade_tool.html" />
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2020-12-01T11:43:47Z", "builder": "sphinx", "canonical_url": "https://docs.nethserver.org/en/v7/", "commit": "edf78e88", "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "upgrade_tool", "programming_language": "words", "project": "nethserver", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"nethserver-devel": "https://docs.nethserver.org/projects/nethserver-devel/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-3", "version": "v6"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver" /><meta name="readthedocs-version-slug" content="v6" /><meta name="readthedocs-resolver-filename" content="/upgrade_tool.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NethServer
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                v6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access.html">Accessing the Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Users and groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_connector.html">POP3 connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">POP3 proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Shared folders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samba.html">Windows network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Fax server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Web proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content_filter.html">Web content filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall and gateway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flashstart.html">Cloud content filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proxy_pass.html">Proxy pass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snort.html">IPS (Snort)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Bandwidth monitor (ntopng)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">DHCP and PXE server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp.html">FTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="owncloud.html">ownCloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webvirtmgr.html">WebVirtMgr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webtop4.html">WebTop 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adagios.html">Adagios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocs.html">OCS Inventory NG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ha.html">HA (High Availability)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Upgrade tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preparation-step">Preparation step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-step">Upgrade step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#post-upgrade-step">Post-upgrade step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#post-upgrade-checklist">Post-upgrade checklist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#upgrade-completed-check">Upgrade completed check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upgrade-errors-check">Upgrade errors check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installed-modules-check">Installed modules check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#let-s-encrypt-certificate-check">Let’s Encrypt certificate check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-to-active-directory">Upgrade to Active Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-risks-and-how-to-reduce-them">Upgrade risks and how to reduce them</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration from NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Documentation license</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Upgrade tool</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/NethServer/docs/blob/v6/administrator-manual/en/upgrade_tool.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="upgrade-tool">
+<span id="upgrade-tool-section"></span><h1>Upgrade tool<a class="headerlink" href="#upgrade-tool" title="Permalink to this headline">¶</a></h1>
+<p>The <span class="guilabel">Upgrade tool</span> module upgrades NethServer from version 6 to version
+7 with an automated procedure that acts in three steps:</p>
+<ol class="arabic simple">
+<li><strong>preparation</strong>: downloads all required packages from the configured software
+repositories</li>
+<li><strong>upgrade</strong>: at next reboot runs the packages upgrade transaction, the
+upgrade tasks, then reboots automatically</li>
+<li><strong>post-upgrade</strong>: completes by fully re-configuring the system</li>
+</ol>
+<p>Each step is described in the sections below. The time estimations depend on the
+number of packages, internet connection, CPU and disks speed.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Read carefully <a class="reference internal" href="#upgrade-risks-section"><span class="std std-ref">Upgrade risks and how to reduce them</span></a></p>
+</div>
+<div class="section" id="preparation-step">
+<h2>Preparation step<a class="headerlink" href="#preparation-step" title="Permalink to this headline">¶</a></h2>
+<p>Estimated time: 1 hour</p>
+<p>The (1) <strong>preparation</strong> step can be started from the <span class="guilabel">Upgrade tool</span>
+page of the Server Manager.</p>
+<p>If the File server module is present and the Samba server role is
+<span class="guilabel">Primary Domain Controller</span> or <span class="guilabel">Workstation</span> the system has
+to be configured with a local Active Directory accounts provider. See
+<a class="reference internal" href="#upgrade-to-ad"><span class="std std-ref">Upgrade to Active Directory</span></a>.</p>
+<p>The Upgrade tool does not work if the Samba server role is set to
+<span class="guilabel">Active Directory Member</span>.</p>
+<p>During the preparation step the system is still operational as usual. The
+package download runs in background. It requires some time, depending on the
+available network bandwidth.</p>
+<p>The available disk space is checked twice, before and after the preparation
+step, to ensure the next steps do not run in short of disk space.</p>
+<p>At the end of the download the web page asks to abort the procedure or continue
+with the system reboot to the upgrade step.</p>
+</div>
+<div class="section" id="upgrade-step">
+<h2>Upgrade step<a class="headerlink" href="#upgrade-step" title="Permalink to this headline">¶</a></h2>
+<p>Estimated time: 30 minutes</p>
+<p>The (2) <strong>upgrade</strong> step starts at the next system reboot.  The upgrade
+procedure boots the Linux kernel of version 7 by default. If the disk controller
+is not compatible with it, the procedure fails at this point.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">It is possible to select the old kernel and boot the system in the previous
+state, actually aborting the upgrade</p>
+</div>
+<p>If the new kernel boots and mounts the disks correctly the system is
+<strong>disconnected from the network</strong> and the packages upgrade starts. From this
+point there is no way back. During the upgrade the system can be accessed from
+the system console.</p>
+<p>It takes some time to upgrade all the packages, depending on the system speed
+and the number of the packages. At the end of the upgrade step the system is
+automatically rebooted.</p>
+</div>
+<div class="section" id="post-upgrade-step">
+<h2>Post-upgrade step<a class="headerlink" href="#post-upgrade-step" title="Permalink to this headline">¶</a></h2>
+<p>Estimated time: 15 minutes</p>
+<p>The (3) <strong>post-upgrade</strong> step starts at the second reboot.</p>
+<p>The basic system was completely upgraded by the previous step; the post-upgrade
+step renames the network interfaces according to the new NIC naming rules and
+re-configures the installed modules.</p>
+<p>In this last step a fault can be recovered safely through the system console. At
+the end of the post-upgrade step SSH, Server Manager and the other services are
+available again.</p>
+<p>Any daily, weekly and monthly scheduled cron job will be started again within
+one hour since the system boot ends.</p>
+</div>
+<div class="section" id="post-upgrade-checklist">
+<span id="post-upgrade-checks"></span><h2>Post-upgrade checklist<a class="headerlink" href="#post-upgrade-checklist" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<ol class="last arabic simple">
+<li>Some modules, like ownCloud, need to be upgraded or replaced manually.
+Refer to the Upgrade documentation of NethServer 7</li>
+<li>Once the Server Manager is accessible again remember to refresh the
+browser cache with <kbd class="kbd docutils literal notranslate">Ctrl + Shift + R</kbd> to fix display issues caused by the
+upgraded style sheets (CSS)</li>
+</ol>
+</div>
+<div class="section" id="upgrade-completed-check">
+<h3>Upgrade completed check<a class="headerlink" href="#upgrade-completed-check" title="Permalink to this headline">¶</a></h3>
+<p>To ensure the upgrade procedure has finished run <code class="docutils literal notranslate"><span class="pre">systemd-analyze</span></code>. The output
+should begin like</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Startup finished
+</pre></div>
+</div>
+</div>
+<div class="section" id="upgrade-errors-check">
+<h3>Upgrade errors check<a class="headerlink" href="#upgrade-errors-check" title="Permalink to this headline">¶</a></h3>
+<p>To check if any error occurred, run</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep -B 5 -E &#39;(ERROR|FAILED)&#39; /var/log/messages
+</pre></div>
+</div>
+</div>
+<div class="section" id="installed-modules-check">
+<h3>Installed modules check<a class="headerlink" href="#installed-modules-check" title="Permalink to this headline">¶</a></h3>
+<p>In <span class="guilabel">Software center</span>, check if the previously installed modules  are
+still marked as installed on the upgraded system. Each module is composed by
+some packages: as the module compositions has changed from version 6 to 7, some
+module may appear as not installed. To fix it, try to install it again with the
+<span class="guilabel">add</span> button.</p>
+</div>
+<div class="section" id="let-s-encrypt-certificate-check">
+<h3>Let’s Encrypt certificate check<a class="headerlink" href="#let-s-encrypt-certificate-check" title="Permalink to this headline">¶</a></h3>
+<p>A Let’s Encrypt certificate, if present, must be requested again from the
+<span class="guilabel">Server certificate</span> page. Then set it as the default system
+certificate from the same page. For more information, refer to the “Server
+certificate”  manual page of NethServer 7.</p>
+</div>
+</div>
+<div class="section" id="upgrade-to-active-directory">
+<span id="upgrade-to-ad"></span><h2>Upgrade to Active Directory<a class="headerlink" href="#upgrade-to-active-directory" title="Permalink to this headline">¶</a></h2>
+<p>If the system requires a local Active Directory (AD) accounts provider, the
+Upgrade tool expects some additional parameters to be issued:</p>
+<ul class="simple">
+<li>The AD <span class="guilabel">DNS domain name</span></li>
+<li>The <span class="guilabel">NetBIOS domain name</span> (read only)</li>
+<li>A green bridge interface</li>
+<li>The <span class="guilabel">Domain Controller IP address</span>: an additional, free IP address
+that AD services binds to. The IP must be in the same subnet of the green
+bridge</li>
+</ul>
+<p>If a green bridge interface is not present go to the <span class="guilabel">Network</span> page
+and create one with <span class="guilabel">Create new logical interface</span>.</p>
+<p>The <span class="guilabel">NetBIOS domain name</span> is a read-only field. To change it, refer to
+the <span class="guilabel">Windows Network</span> page.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">In virtualized systems, remember to enable <strong>promiscuous mode</strong> in the
+hypervisor settings, otherwise access to AD will be blocked from LAN clients</p>
+</div>
+<p>For more information refer also to the NethServer 7 documentation, especially:</p>
+<ul class="simple">
+<li>the “Samba Active Directory local provider installation” section, under the
+“Users and groups” chapter</li>
+<li>the “Upgrade from NethServer 6” chapter</li>
+</ul>
+</div>
+<div class="section" id="upgrade-risks-and-how-to-reduce-them">
+<span id="upgrade-risks-section"></span><h2>Upgrade risks and how to reduce them<a class="headerlink" href="#upgrade-risks-and-how-to-reduce-them" title="Permalink to this headline">¶</a></h2>
+<p>A major system version upgrade is a risky operation and must be planned
+carefully.</p>
+<ul class="simple">
+<li>Ensure the system has enough free <strong>disk space</strong>. The procedure checks the
+free disk space, but it is always a good idea to check it early, even before
+installing the <span class="guilabel">Upgrade tool</span> module.</li>
+<li>Prepare a complete backup or snapshot of the whole system. A <strong>power outage</strong>
+or an <strong>hardware fault</strong> during the upgrade step, as long as an <strong>unknown
+bug</strong> in this procedure could compromise the system</li>
+<li>Consider the <strong>system downtime</strong> and how it impacts on the end-users</li>
+<li>Make a list of the modules that need to be configured, replaced, <strong>upgraded
+manually</strong> after the automated procedure completes. Refer to the Upgrade
+documentation of NethServer 7</li>
+<li>During the upgrade any existing <strong>custom template</strong> is archived into
+<code class="docutils literal notranslate"><span class="pre">/root/templates-custom.upgrade/</span></code>. It is recommended to check the existing
+customized templates before starting the upgrade procedure and decide if and
+how to restore them</li>
+<li>The system is <strong>disconnected from the network</strong> during the upgrade step and
+until the post-upgrade step completes. If any error occurs during those steps
+a direct <strong>console access</strong> is required.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="third_party.html" class="btn btn-neutral float-right" title="Third-party software" accesskey="n" rel="next">Next &gt;</a>
+      
+      
+        <a href="ha.html" class="btn btn-neutral float-left" title="HA (High Availability)" accesskey="p" rel="prev">&lt; Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Nethesis Srl and the NethServer project contributors
+      
+        <span class="commit">
+          Revision <code>edf78e88</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
