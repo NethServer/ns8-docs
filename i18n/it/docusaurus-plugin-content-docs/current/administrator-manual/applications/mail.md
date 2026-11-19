@@ -111,7 +111,7 @@ Se è configurata una [regola di relay predefinita](#relay-rules-section) (uno s
 
 Le caselle di posta pubbliche possono essere condivise tra gruppi di utenti. Il pulsante **Create public mailbox** consente di creare una nuova casella di posta pubblica e definire uno o più gruppi e utenti proprietari. Le caselle di posta pubbliche possono essere create anche da qualsiasi client IMAP che supporti l'estensione del protocollo IMAP ACL (RFC 4314).
 
-Quando viene creata una nuova casella di posta pubblica, il server di posta aggiunge automaticamente un nuovo indirizzo wildcard valido per tutti i domini di posta esistenti.
+Quando viene creata una nuova casella di posta pubblica, il server di posta aggiunge automaticamente un nuovo indirizzo wildcard valido per tutti i domini di posta esistenti, a meno che il nome della casella contenga spazi o altri caratteri non validi in un indirizzo.
 
 La casella di posta pubblica `postmaster` viene creata automaticamente. Per impostazione predefinita riceve la posta inviata all'indirizzo `postmaster` di ogni dominio di posta. Riceve anche gli avvisi del server di posta stesso sui messaggi che non è stato possibile consegnare per problemi di risorse o software, come un disco pieno o un dominio utenti non raggiungibile.
 
