@@ -110,6 +110,8 @@ reports broken links and anchors.
   replaced behaviour as a future or planned feature.
 - In Italian pages, write "subscription" (feminine: "la subscription",
   plural "le subscription"), never "sottoscrizione" or "abbonamento".
+- In Italian pages, the `Software center` page name and label stays in
+  English, as in the Italian UI: never translate it as "Centro software".
 - Do not write which release introduced a feature (for example "Available
   from NethServer 8.10" or "core 3.22.0"). The docs always describe a cluster
   with the latest updates installed.

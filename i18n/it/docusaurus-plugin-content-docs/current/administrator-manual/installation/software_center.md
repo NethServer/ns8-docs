@@ -1,10 +1,10 @@
 ---
-title: Centro software
+title: Software center
 sidebar_position: 4
 ---
-# Centro software
+# Software center
 
-La pagina Centro Software visualizza e gestisce le applicazioni disponibili da tutti i repository configurati.
+La pagina `Software center` visualizza e gestisce le applicazioni disponibili da tutti i repository configurati.
 ## Informazioni sull'applicazione
 
 Ogni applicazione è rappresentata da una scheda che mostra il suo nome, il livello di certificazione e la categoria. Fare clic sul nome dell'applicazione per visualizzare informazioni dettagliate come screenshot, autore, ultima versione, immagini del container e link alla documentazione, al codice sorgente e al bug tracker.
@@ -108,7 +108,7 @@ Un repository software di NS8 è un indice di applicazioni e una raccolta dei lo
 Puoi accedere alla lista dei repository configurati in diversi modi:
 
 - Nella pagina `Impostazioni`: clicca sulla scheda `Repository software`.
-- Nella pagina `Centro software`: clicca sull'elemento `Repository software` nel menu a tre punti nell'angolo in alto a destra.
+- Nella pagina `Software center`: clicca sull'elemento `Repository software` nel menu a tre punti nell'angolo in alto a destra.
 
 NS8 include un set predefinito di repository software, alcuni abilitati e altri disabilitati:
 

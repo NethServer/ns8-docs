@@ -12,7 +12,7 @@ La pagina `Applicazioni` elenca le applicazioni installate nel cluster. L'elenco
 
 Un singolo clic sul **nome** dell'applicazione apre la sua pagina di configurazione.
 
-Un clic sul **tipo** dell'applicazione mostra informazioni dettagliate sull'applicazione stessa. Queste informazioni, inclusa la **versione**, sono disponibili anche nella pagina [Centro software](software_center.md).
+Un clic sul **tipo** dell'applicazione mostra informazioni dettagliate sull'applicazione stessa. Queste informazioni, inclusa la **versione**, sono disponibili anche nella pagina [`Software center`](software_center.md).
 
 Ogni elemento nell'elenco dispone di un **menu a tre punti** con le **azioni** disponibili per quella specifica applicazione.
 
