@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebTop 5 &mdash; NethServer 7 Final</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Ricerca" href="search.html" />
+    <link rel="next" title="Phone Home" href="phone_home.html" />
+    <link rel="prev" title="Report" href="report.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/administrator-manual/en/", "features": {"docsearch_disabled": false}, "global_analytics_code": null, "language": "it", "page": "webtop5", "programming_language": "words", "project": "nethserver-it", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-37499928-4", "version": "v7"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="https://docs.nethserver.org/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="nethserver-it" /><meta name="readthedocs-version-slug" content="v7" /><meta name="readthedocs-resolver-filename" content="/webtop5.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NethServer
+          </a>
+              <div class="version">
+                v7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Note di rilascio 7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access2.html">Accesso al Server Manager</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurazione</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html">Sistema base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#applications">Applicazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base_system2.html#authentication">Autenticazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Software center</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Utenti e gruppi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">Server DHCP e PXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tlspolicy.html">TLS policy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applicazioni</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backup.html">Backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_server.html">Web server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail.html">Email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webmail.html">Webmail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_folder.html">Cartelle condivise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team_chat.html">Team chat (Mattermost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">Antivirus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_proxy.html">Proxy web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn.html">VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="suricata.html">IPS (Suricata)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blacklist.html">Threat shield</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth_monitor.html">Monitor banda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedalo.html">Hotspot (Dedalo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freepbx.html">FreePBX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ups.html">UPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistiche (collectd)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Altri moduli</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WebTop 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#authentication">Autenticazione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-user">Utente admin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-admin-password">Cambio della password di admin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changing-the-logo">Modifica del logo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-the-public-url">Modifica dell’URL pubblico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-settings-management">Gestione impostazioni utente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#two-factor-authentication-2fa">Autenticazione a due fattori (2FA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#synchronization-with-activesync-eas">Sincronizzazione con ActiveSync (EAS)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apple-ios">Apple iOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google-android">Google Android</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-calendars-and-contacts">Calendari e Rubriche multiple</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#synchronization-with-caldav-and-carddav">Sincronizzazione con CalDAV e CardDAV</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Google Android</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Apple iOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#desktop-clients">Client per desktop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sharing-email-folders-or-the-entire-account">Condividere le cartelle e-mail o l’intero account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sharing-calendars-and-contacts">Condivisione di calendari e rubriche</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-calendar">Condivisione Calendario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-contacts">Condivisione Rubrica</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#resource-calendars">Calendari di risorse</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-resource">Creazione di una nuova risorsa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#booking-a-resource">Prenotazione di una risorsa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-reservation-of-a-resource">Modificare la prenotazione di una risorsa</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-labels">Etichette personalizzate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-fields">Campi personalizzati</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#searches-on-custom-fields">Ricerche su campi personalizzati</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-panels">Pannelli personalizzati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-identities">Gestisci identità</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mailcards-of-user-and-domain">Gestione firme utenti e di dominio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-multiple-mailcards-for-a-single-user">Configurare più firme per un singolo utente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mail-inline-preview">Anteprima mail sulla riga del messaggio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mail-archiving">Archiviazione mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subscription-of-imap-folders">Sottoscrizione di cartelle IMAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customize-proactive-security-on-emails">Personalizzare la sicurezza proattiva sulle e-mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#export-events-csv">Esportazione eventi (CSV)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tasks">Attività</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quick-view-filters">Filtri di visualizzazione rapida</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recurring-tasks">Attività ricorrenti</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sub-tasks">Attività secondarie (sotto-attività)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-searches">Ricerche multiple</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nextcloud-integration">Integrazione con Nextcloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-personal-cloud-to-send-and-receive-documents">Usa il Cloud personale per inviare e ricevere documenti</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-create-a-link-to-send-a-document">Come creare un link per inviare un documento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#request-for-a-document">Richiesta di un documento</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#chat-integration">Integrazione chat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jitsi-integration-and-support-for-links-to-third-party-video-calls">Integrazione Jitsi e supporto per collegamenti a videochiamate di terze parti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-sms-from-contacts">Invio SMS dai contatti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-link-buttons-in-launcher">Pulsanti di collegamento personalizzati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#browser-notifications">Notifiche del browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#external-imap-accounts-beta">Account IMAP esterni (Beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subscribing-remote-resources">Sottoscrizione di risorse remote</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#remote-calendars">Calendari remoti</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-of-google-cal-remote-calendar-webcal-only-ics">Esempio di calendario remoto Google Cal (solo Webcal - ICS)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-contacts-directory">Rubrica remota</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-of-google-carddav-remote-address-book">Esempio di rubrica remota CarDAV Google</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-synchronization">Sincronizzazione automatica</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual-synchronization">Sincronizzazione manuale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#user-access-and-user-session-logs">Accesso utente e log delle sessioni utente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login-notification-for-each-new-device">Notifica di accesso per ogni nuovo dispositivo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-default-limit-maximum-file-size">Modifica il limite predefinito «Dimensione massima del file»</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-contacts-and-calendars">Importazione di contatti e calendari</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#contacts">Contatti</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calendars">Calendari</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hide-auto-suggested-recipient-in-lookups">Nascondi il destinatario suggerito automaticamente nelle ricerche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#edit-subject-of-a-mail-and-save-it">Modificare l’oggetto di una mail e salvarlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-from-outlook-pst">Importazione da PST Outlook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mail">Mail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Contatti</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Calendari</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#blank-page-after-login">Pagina vuota dopo il login</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#synchronized-events-have-different-time">Gli eventi sincronizzati mostrano una differenza di orario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-automatically-suggested-email-addresses">Eliminare gli indirizzi email suggeriti automaticamente</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#webtop-vs-sogo">WebTop vs SOGo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#google-integration">Integrazione Google</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#google-api">Google API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="phone_home.html">Phone Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rspamd.html">Rspamd</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Best practice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disaster_recovery.html">Disaster recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_customization.html">Personalizzazione backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Macchine virtuali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party.html">Third-party software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Moduli NethForge</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collabora.html">Collabora Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sogo.html">SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phpVirtualBox.html">PhpVirtualBox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hotsync.html">HotSync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mssql.html">Microsoft SQL Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendice</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrazione da NethService/SME Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Aggiornamento da NethServer 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail2.html">Aggiornamento Email a Rspamd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenza della documentazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nscom_releases.html">List of NethServer 7 ISO releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issue_trackers.html">Public issue trackers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vecchio Server Manager</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base_system.html">Il vecchio Server Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_legacy.html">Legacy backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop3_proxy.html">Proxy POP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snmp.html">SNMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax_server.html">Server FAX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/Ejabberd.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/FileServer.html">Windows file server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/ProxyPass.html">Reverse proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/SOGo.html">Groupware SOGo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui/TlsPolicy.html">TLS policy</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NethServer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>WebTop 5</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NethServer/docs/blob/v7/administrator-manual/en/webtop5.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="webtop-5">
+<h1>WebTop 5<a class="headerlink" href="#webtop-5" title="Link a questa intestazione">¶</a></h1>
+<p>WebTop è un groupware completo che implementa il protocollo ActiveSync.</p>
+<p>L’indirizzo per accedere all’interfaccia web è: <code class="docutils literal notranslate"><span class="pre">https://&lt;nome_server&gt;/webtop</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se NethServer è attestato ad un account provider remoto Active Directory, un account utente AD aggiuntivo e dedicato è necessario al modulo per essere pienamente operativo! Fare riferimento alla sezione <a class="reference internal" href="accounts.html#join-existing-ad-section"><span class="std std-ref">Join ad un dominio Active Directory esistente</span></a>.</p>
+</div>
+<section id="authentication">
+<h2>Autenticazione<a class="headerlink" href="#authentication" title="Link a questa intestazione">¶</a></h2>
+<p>Usa sempre il nome utente completo in formato <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;&#64;&lt;domain&gt;</span></code> per accedere all’applicazione web e via Active Sync.</p>
+<p><strong>Esempio</strong></p>
+<ul class="simple">
+<li><p>Nome server: mymail.mightydomain.com</p></li>
+<li><p>Dominio di posta alternativo: baddomain.net</p></li>
+<li><p>Utente: goofy</p></li>
+<li><p>Login: <a class="reference external" href="mailto:goofy&#37;&#52;&#48;mightydomain&#46;com">goofy<span>&#64;</span>mightydomain<span>&#46;</span>com</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Il protocollo Active Sync è supportato solo su Android e IOS. Outlook non è supportato.</p>
+</div>
+</section>
+<section id="admin-user">
+<span id="webtop5-admin-section"></span><h2>Utente admin<a class="headerlink" href="#admin-user" title="Link a questa intestazione">¶</a></h2>
+<p>Dopo l’installazione, WebTop sarà accessibile utilizzando il suo utente amministrativo. L’utente amministrativo può cambiare le impostazioni globali ed effettuare login come un altro utente, ma non è un utente di sistema e non può accedere agli altri servizi come Mail, Calendario, ecc.</p>
+<p>Le credenziali di default sono:</p>
+<ul class="simple">
+<li><p>Utente: admin</p></li>
+<li><p>Password: admin</p></li>
+</ul>
+<p>La password del’utente admin deve essere cambiata dall’interfaccia di WebTop.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p><strong>E” fondamentale cambiare la password dell’amministratore subito dopo l’installazione!</strong></p>
+</div>
+<p>E’ possibile controllare la posta dell’utente admin di sistema usando questo login: admin&#64;&lt;dominio&gt; dove <code class="docutils literal notranslate"><span class="pre">&lt;dominio&gt;</span></code> è il dominio del server che fa parte del FQDN.</p>
+<p><strong>Esempio</strong></p>
+<ul class="simple">
+<li><p>Nome server: mymail.mightydomain.com</p></li>
+<li><p>Utente: admin</p></li>
+<li><p>Login: <a class="reference external" href="mailto:admin&#37;&#52;&#48;mightydomain&#46;com">admin<span>&#64;</span>mightydomain<span>&#46;</span>com</a></p></li>
+</ul>
+</section>
+<section id="change-admin-password">
+<h2>Cambio della password di admin<a class="headerlink" href="#change-admin-password" title="Link a questa intestazione">¶</a></h2>
+<p>Accedere a WebTop usando l’utente <code class="docutils literal notranslate"><span class="pre">admin</span></code>, quindi aprire le impostazioni utente facendo clic dal menu nell’angolo in alto a destra.</p>
+<img alt="_static/webtop-settings.png" src="_static/webtop-settings.png" />
+<p>Selezionare <span class="guilabel">Impostazioni</span> quindi cliccare sul tasto  guilabel:<cite>Cambia password</cite>.</p>
+<p>Se si desidera reimpostare la password dell’amministratore da riga di comando, utilizzare i seguenti comandi:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>curl -sL https://git.io/fjhn8 -o webtop-set-admin-password
+bash webtop-set-admin-password &lt;newpassword&gt;
+</pre></div>
+</div>
+<p>Ricordarsi di sostituire  <code class="docutils literal notranslate"><span class="pre">&lt;newpassword&gt;</span></code> con la nuova password che si vuole impostare, esempio:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bash webtop-set-admin-password VeryInsecurePass
+</pre></div>
+</div>
+</section>
+<section id="changing-the-logo">
+<h2>Modifica del logo<a class="headerlink" href="#changing-the-logo" title="Link a questa intestazione">¶</a></h2>
+<p>Per modificare e personalizzare il logo iniziale visualizzato nella pagina di accesso di WebTop, è necessario caricare il file immagine personalizzato sulle immagini pubbliche dell’utente amministratore e rinominarlo con «login.png».</p>
+<p>Procedere come segue:</p>
+<ol class="arabic">
+<li><p>accedere con l’utente admin di WebTop</p></li>
+<li><p>selezionare il servizio cloud e le immagini pubbliche:</p>
+<img alt="_static/webtop-public_images.png" src="_static/webtop-public_images.png" />
+</li>
+<li><p>caricare l’immagine (tramite il pulsante Upload in basso a sinistra o semplicemente trascinando con un drag &amp; drop)</p></li>
+<li><p>rinominare l’immagine caricata in modo che il suo nome sia <strong>«login.png»</strong> (usare il tasto destro del mouse -&gt; Rinomina):</p>
+<img alt="_static/webtop-login_page.png" src="_static/webtop-login_page.png" />
+</li>
+<li><p>il prossimo login mostrerà il nuovo logo sulla pagina di login</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Il logo personalizzato verrà mostrato solo quando si accede a Webtop utilizzando il suo URL pubblico. L’URL pubblico predefinito è l’FQDN del server, ma potrebbe essere modificato come descritto nella sezione seguente.</p>
+</div>
+</section>
+<section id="change-the-public-url">
+<h2>Modifica dell’URL pubblico<a class="headerlink" href="#change-the-public-url" title="Link a questa intestazione">¶</a></h2>
+<p>Per impostazione predefinita, l’URL pubblico di WebTop è configurato con il nome FQDN impostato nel server-manager.</p>
+<p>Per cambiare URL da: <code class="docutils literal notranslate"><span class="pre">http://server.domain.local/webtop</span></code> a: <code class="docutils literal notranslate"><span class="pre">http://mail.publicdomain.com/webtop</span></code></p>
+<p>eseguire i seguenti comandi</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop webtop PublicUrl http://mail.publicdomain.com/webtop
+signal-event nethserver-webtop5-update
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Quando si utilizza un certificato SSL valido, ad esempio Let’s Encrypt, si consiglia di configurare l’URL pubblico utilizzando <code class="docutils literal notranslate"><span class="pre">https</span></code></p>
+</div>
+</section>
+<section id="user-settings-management">
+<h2>Gestione impostazioni utente<a class="headerlink" href="#user-settings-management" title="Link a questa intestazione">¶</a></h2>
+<p>La maggior parte delle impostazioni utente può essere gestita direttamente dall’utente stesso tramite il menu delle impostazioni. Le impostazioni bloccate richiedono privilegi di amministrazione.</p>
+<p>L’amministratore può <span class="target" id="index-16"></span>impersonare altri utenti, per controllare gli account esistenti utilizzando speciali credenziali di accesso:</p>
+<ul class="simple">
+<li><p><strong>User name</strong>: <code class="docutils literal notranslate"><span class="pre">admin!&lt;username&gt;</span></code></p></li>
+<li><p><strong>Password</strong>: <code class="docutils literal notranslate"><span class="pre">&lt;WebTop</span> <span class="pre">admin</span> <span class="pre">password&gt;</span></code></p></li>
+</ul>
+<p>Durante l”<span class="guilabel">impersonate</span> l’admin assume i privilegi dell’utente, potendo così di controllare esattamente ciò che l’utente può vedere. L’amministrazione completa delle impostazioni utente è disponibile direttamente nell’interfaccia di amministrazione, facendo clic con il pulsante destro del mouse su un utente: il menu delle impostazioni aprirà il pannello delle impostazioni utente completo, con tutte le opzioni sbloccate.</p>
+<p>È anche possibile effettuare una modifica massiva del dominio di posta elettronica degli utenti selezionati: selezionare gli utenti (Clic + CTRL per selezione multipla) a cui si desidera applicare questa modifica, quindi fare clic con il pulsante destro del mouse su <span class="guilabel">Bulk update email domain</span>.</p>
+</section>
+<section id="two-factor-authentication-2fa">
+<h2>Autenticazione a due fattori (2FA)<a class="headerlink" href="#two-factor-authentication-2fa" title="Link a questa intestazione">¶</a></h2>
+<p>WebTop supporta <span class="target" id="index-17"></span>l’autenticazione a due fattori. L’utente può scegliere tra:</p>
+<ul class="simple">
+<li><p>Google Authenticator: il codice verrà generato utilizzando l’app Google Authenticator (<a class="reference external" href="https://support.google.com/accounts/answer/1066447?co=GENIE.Platform=Android">https://support.google.com/accounts/answer/1066447?co=GENIE.Platform%3DAndroid</a>)</p></li>
+<li><p>Mail secondaria: il codice di accesso verrà inviato all’indirizzo di posta selezionato</p></li>
+</ul>
+<p>Per abilitare 2FA:</p>
+<ul class="simple">
+<li><p>Fare clic sul pulsante del menu nell’angolo in alto a destra e selezionare <span class="guilabel">Impostazioni</span></p></li>
+<li><p>Quini selezionare <span class="guilabel">Sicurezza (OTP)</span> e cliccare sul pulsante <span class="guilabel">Attiva</span>.</p></li>
+</ul>
+<img alt="_static/webtop-2fa.png" src="_static/webtop-2fa.png" />
+</section>
+<section id="synchronization-with-activesync-eas">
+<h2>Sincronizzazione con ActiveSync (EAS)<a class="headerlink" href="#synchronization-with-activesync-eas" title="Link a questa intestazione">¶</a></h2>
+<p>I dispositivi mobili possono essere sincronizzati utilizzando ActiveSync. <span class="target" id="index-18"></span>ActiveSync può essere utilizzato solo per <strong>contatti</strong> e <strong>calendari</strong>.</p>
+<section id="apple-ios">
+<h3>Apple iOS<a class="headerlink" href="#apple-ios" title="Link a questa intestazione">¶</a></h3>
+<p>Accedere al <span class="target" id="index-19"></span>iOS device, poi su Impostazioni e aggiungere un account Exchange seguendo la guida ufficiale: <a class="reference external" href="https://support.apple.com/en-us/HT201729">https://support.apple.com/en-us/HT201729</a></p>
+<p>Compilare i campi richiesti con:</p>
+<ul class="simple">
+<li><p><strong>E-mail</strong>: aggiungere indirizzo e-mail, es: <a class="reference external" href="mailto:pippo&#37;&#52;&#48;nethserver&#46;org">pippo<span>&#64;</span>nethserver<span>&#46;</span>org</a></p></li>
+<li><p><strong>Server</strong>: aggiungere il nome pubblico del server, es: mail.nethserver.org</p></li>
+<li><p><strong>Dominio</strong>: lasciare vuoto</p></li>
+<li><p><strong>User name</strong>: Inserire il nome utente completo, es: <a class="reference external" href="mailto:pippo&#37;&#52;&#48;nethserver&#46;org">pippo<span>&#64;</span>nethserver<span>&#46;</span>org</a></p></li>
+<li><p><strong>Password</strong>: inserire la password</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>I device iOS richiedono un certificato SSL valido sul server. Vedi <a class="reference internal" href="base_system2.html#server-certificate-section"><span class="std std-ref">Certificati</span></a></p>
+</div>
+</section>
+<section id="google-android">
+<h3>Google Android<a class="headerlink" href="#google-android" title="Link a questa intestazione">¶</a></h3>
+<p>Accedere al <span class="target" id="index-20"></span>device Android, navigare su Impostazioni, quindi selezionare <span class="guilabel">Aggiungi account</span> -&gt; <span class="guilabel">Exchange</span> (o «Aziendale» per vecchie versioni).</p>
+<p>Compilare i campi richiesti con:</p>
+<ul class="simple">
+<li><p><strong>User name</strong>: Inserire il nome utente completo, es: <a class="reference external" href="mailto:pippo&#37;&#52;&#48;nethserver&#46;org">pippo<span>&#64;</span>nethserver<span>&#46;</span>org</a></p></li>
+<li><p><strong>Password</strong>: inserire la password</p></li>
+</ul>
+<p>Selezionare <span class="guilabel">Configurazione manuale</span> e cambiare il nome del <em>Server</em> impostando il nome pubblico corretto. In fine, se si utilizza un certificato auto-firmato sul server, selezionare l’opzione <span class="guilabel">SSL/TLS (accetta ogni certificato)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Su alcune versioni Android (es. Samsung), il nome utente e il dominio devono essere inseriti sulla stessa riga. In questo caso, lasciare vuoto il campo prima del carattere backslash () ed inserire il nome utente nel seguente formato: `` <a class="reference external" href="mailto:pippo&#37;&#52;&#48;nethserver">pippo<span>&#64;</span>nethserver</a>.org``</p>
+</div>
+</section>
+<section id="multiple-calendars-and-contacts">
+<h3>Calendari e Rubriche multiple<a class="headerlink" href="#multiple-calendars-and-contacts" title="Link a questa intestazione">¶</a></h3>
+<p>Calendari e rubriche condivise con l’utente possono essere sincronizzati utilizzando il protocollo ActiveSync.</p>
+<p>Le risorse condivise sono visualizzate con il nome e la categoria del proprietario (il numero tra parentesi quadre è l’ID interno). Gli eventi privati non vengono sincronizzati.</p>
+<p>I device mobili basati su Apple iOS supportano integralmente le cartelle/categorie per calendario, contatti e attività (chiamati promemoria), inclusi i colori originali.</p>
+<p>I dispositivi mobili basati su Android supportano solo calendari e contatti (le attività non sono supportate), ma utilizzando l’applicazione Google Calendar tutti gli elementi avranno lo stesso colore.</p>
+<p>Installando e utilizzando l’applicazione <a class="reference external" href="https://pselis.com/cloudcal/">CloudCal</a> è possibile modificare i colori associati ad ogni calendario, inclusi quelli condivisi.</p>
+<p>Sui dispositivi Android, i contatti delle rubriche condivise vengono uniti a quelli della rubrica personale e visualizzati in un’unica vista. I contatti possono essere modificati e le modifiche verranno recepite dalla sorgente originale.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Per ricevere i dati tramite EAS sui dispositivi mobili, è necessario verificare che le risorse condivise (Calendari e Contatti) abbiano la sincronizzazione abilitata (completa o di sola lettura):</p>
+<img alt="Sincronizzazione multipla" src="_static/webtop-multiple_sync.png" />
+</div>
+<p>È possibile abilitare o disabilitare la sincronizzazione per ogni risorsa condivisa (calendari e contatti). L’utente può personalizzare ogni risorsa condividendo con lui decidendo il tipo di sincronizzazione.</p>
+<p>Per farlo, basta fare clic con il pulsante destro del mouse sulla risorsa condivisa → Personalizza → Sincronizza dispositivi:</p>
+<blockquote>
+<div><img alt="Sincronizzazione EAS condivisa" src="_static/webtop-sync_shared_eas.png" />
+</div></blockquote>
+<p>L’impostazione predefinita è «Disattiva».</p>
+</section>
+</section>
+<section id="synchronization-with-caldav-and-carddav">
+<h2>Sincronizzazione con CalDAV e CardDAV<a class="headerlink" href="#synchronization-with-caldav-and-carddav" title="Link a questa intestazione">¶</a></h2>
+<p>Calendari e rubriche possono essere sincronizzati anche attraverso i <span class="target" id="index-21"></span>protocolli CalDAV e CardDAV.</p>
+<p>Per sincronizzare un calendario, copiare il suo link <code class="docutils literal notranslate"><span class="pre">URL</span></code> cliccando con il tasto destro sul calendario e selezionando <span class="guilabel">Link a questo calendario</span>, quindi usarlo per configurare il client di terze parti.</p>
+<p>Per sincronizzare una rubrica, copiare il suo link <code class="docutils literal notranslate"><span class="pre">URL</span></code> cliccando con il tasto destro sulla rubrica e selezionando <span class="guilabel">Link a questa rubrica</span>, quindi usarlo per configurare il client di terze parti.</p>
+<p>Per l’autenticazione, fornire le credenziali nel seguente formato:</p>
+<ul class="simple">
+<li><p><strong>Nome utente</strong>: inserire il nome utente completo (es. <em>pippo&#64;nethserver.org</em>)</p></li>
+<li><p><strong>Password</strong>: inserire la password</p></li>
+</ul>
+<p>Alcuni client di terze parti consentono di semplificare la configurazione tramite la funzione di <em>autodiscovery</em> che rileva automaticamente le risorse sincronizzabili, come nel caso dei client di dispositivi mobili (ad esempio dispositivi Android o iOS).</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se si utilizzano client che non supportano l’autodiscovery, è necessario utilizzare l’URL completo: <code class="docutils literal notranslate"><span class="pre">https://&lt;server_name&gt;/webtop-dav/server.php</span></code></p>
+<p>Se si utilizzano client che supportano l’autodiscovery, utilizzare l’URL: <code class="docutils literal notranslate"><span class="pre">https://&lt;server_name&gt;</span></code></p>
+</div>
+<section id="id1">
+<h3>Google Android<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<p>Un buon client di terze parti Android gratuito è <a class="reference external" href="https://deependhulla.com/android-apps/opensync-app">Opensync</a>.</p>
+<ul class="simple">
+<li><p>installare dal market l’app suggerita;</p></li>
+<li><p>aggiungere un nuovo account cliccando sul tasto <span class="guilabel">+</span> e selezionare <span class="guilabel">Login with URL and username</span>;</p></li>
+<li><p>inserire l”<code class="docutils literal notranslate"><span class="pre">URL</span></code> (<code class="docutils literal notranslate"><span class="pre">https://&lt;server_name&gt;</span></code>), il nome utente completo (es. <em>pippo&#64;nethserver.org</em>) e la password;</p></li>
+<li><p>cliccare sul nuovo profilo e selezionare le risorse che si vogliono sincronizzare.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Apple iOS<a class="headerlink" href="#id2" title="Link a questa intestazione">¶</a></h3>
+<p>Il supporto CalDAV/CardDAV è integrato su iOS, quindi per configurarlo:</p>
+<ul class="simple">
+<li><p>spostarsi su Impostazioni -&gt; Account e password -&gt; Aggiungi account;</p></li>
+<li><p>selezionare <span class="guilabel">Altro</span> -&gt; Aggiungere un account <span class="guilabel">CalDAV</span> o :guilabel: <cite>CardDAV</cite>;</p></li>
+<li><p>inserire il nome del server (ad esempio <em>server.nethserver.org</em>), nome utente completo (ad esempio <em>pippo&#64;nethserver.org</em>) e password.</p></li>
+</ul>
+<p>Per impostazione predefinita, l”<code class="docutils literal notranslate"><span class="pre">URL</span></code> di sincronizzazione utilizza il nome principale del server (<code class="docutils literal notranslate"><span class="pre">FQDN</span></code>), se fosse necessario modificarlo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop webtop DavServerUrl https://&lt;new_name_server&gt;/webtop-dav/server.php
+signal-event nethserver-webtop5-update
+</pre></div>
+</div>
+</section>
+<section id="desktop-clients">
+<h3>Client per desktop<a class="headerlink" href="#desktop-clients" title="Link a questa intestazione">¶</a></h3>
+<p><strong>Thunderbird</strong></p>
+<p>Per utilizzare CalDAV e CardDAV su Thunderbird sono necessari degli add-on di terze parti come <span class="guilabel">Cardbook</span> (per i contatti) e <span class="guilabel">Lightning</span> (per i calendari).</p>
+<ul class="simple">
+<li><p>L’add-on <span class="guilabel">Cardbook</span> funziona bene, il setup è semplice e supporta l’autodiscovery.</p></li>
+<li><p>Il componente aggiuntivo <span class="guilabel">Lightning</span> non supporta l’autodiscovery: qualsiasi calendario deve essere aggiunto manualmente.</p></li>
+</ul>
+<p><strong>Outlook</strong></p>
+<ul class="simple">
+<li><p>Il client open source <span class="guilabel">Outlook CalDav Synchronizer</span> funziona bene, e supporta sia CardDAV che CalDAV.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Webtop è concepito come <strong>groupware clientless</strong>: tutte le sue funzionalità sono unicamente disponibili <strong>tramite l’interfaccia web</strong>!</p>
+<p>L’utilizzo di CalDAV/CardDAV tramite client di terze parti <strong>non può essere considerato un’alternativa di interfaccia Web</strong>.</p>
+</div>
+</section>
+</section>
+<section id="sharing-email-folders-or-the-entire-account">
+<h2>Condividere le cartelle e-mail o l’intero account<a class="headerlink" href="#sharing-email-folders-or-the-entire-account" title="Link a questa intestazione">¶</a></h2>
+<p>È possibile condividere una singola cartella o l’intero account con tutte le sottocartelle incluse. Selezionare la cartella da condividere -&gt; tasto destro -&gt; <span class="guilabel">Gestisci condivisione</span>:</p>
+<img alt="_static/webtop-sharing_mail_folder_1.png" src="_static/webtop-sharing_mail_folder_1.png" />
+<ul class="simple">
+<li><p>selezionare l’utente a cui condividere la risorsa (1).</p></li>
+<li><p>selezionare se si vuole condividere anche l’identità con l’utente e se forzare la propria firma (2).</p></li>
+<li><p>scegliere il livello di permessi associati a questa condivisione (3).</p></li>
+<li><p>se è necessario modificare i livelli di autorizzazione in modo più granulare, selezionare «Avanzate» (4).</p></li>
+<li><p>infine, scegliere se applicare la condivisione solo alla cartella da cui si è iniziato, o solo al ramo di sottocartelle o all’intero account (5).</p></li>
+</ul>
+<img alt="_static/webtop-sharing_mail_folder_2.png" src="_static/webtop-sharing_mail_folder_2.png" />
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>L’opzione <span class="guilabel">Forza firma</span> può essere usata solo se la mailcard è stata associata all’indirizzo di posta.</p>
+</div>
+</section>
+<section id="sharing-calendars-and-contacts">
+<h2>Condivisione di calendari e rubriche<a class="headerlink" href="#sharing-calendars-and-contacts" title="Link a questa intestazione">¶</a></h2>
+<section id="sharing-calendar">
+<h3>Condivisione Calendario<a class="headerlink" href="#sharing-calendar" title="Link a questa intestazione">¶</a></h3>
+<p>E” possibile condividere ogni calendario personale individualmente. Selezionare il calendario da condividere -&gt; tasto destro -&gt; <span class="guilabel">Condivisione e permessi</span>:</p>
+<img alt="_static/webtop-sharing_cal_1.png" src="_static/webtop-sharing_cal_1.png" />
+<p>Selezionare l’utente destinatario della condivisione (o gruppo) e attivare le autorizzazioni sia per la cartella che per i singoli elementi:</p>
+<img alt="_static/webtop-sharing_cal_2.png" src="_static/webtop-sharing_cal_2.png" />
+</section>
+<section id="sharing-contacts">
+<h3>Condivisione Rubrica<a class="headerlink" href="#sharing-contacts" title="Link a questa intestazione">¶</a></h3>
+<p>Allo stesso modo, puoi sempre condividere i tuoi contatti selezionando la directory che vuoi condividere -&gt; tasto destro -&gt; «Condivisione e permessi». Selezionare l’utente destinatario della condivisione (o gruppo) e abilitare le autorizzazioni sia per la cartella che per i singoli elementi.</p>
+</section>
+</section>
+<section id="resource-calendars">
+<h2>Calendari di risorse<a class="headerlink" href="#resource-calendars" title="Link a questa intestazione">¶</a></h2>
+<p>Con i calendari di risorse è possibile prenotare in maniera esclusiva auto aziendali, sale riunioni e altre attrezzature condivise. Per prenotare una risorsa, devi creare un evento e aggiungere la risorsa tra gli invitati, verificando che la risorsa sia disponibile per l’intervallo di tempo richiesto.</p>
+<section id="creating-a-new-resource">
+<h3>Creazione di una nuova risorsa<a class="headerlink" href="#creating-a-new-resource" title="Link a questa intestazione">¶</a></h3>
+<p>È necessario creare un account dedicato per ogni risorsa nell’account provider di NethServer.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se l’utente appena creato non viene utilizzato per altri scopi, è consigliabile bloccarlo e rendere l’indirizzo email built-in disponibile solo per uso interno</p>
+</div>
+<p>Una volta creato l’account, puoi accedere al pannello di amministrazione di WebTop per creare la nuova risorsa e compilare i campi richiesti:</p>
+<p><span class="guilabel">Nome:</span> nome della risorsa che deve coincidere con l’utente creato sull’account provider</p>
+<p><span class="guilabel">Nome visualizzato:</span> descrizione della risorsa che verrà visualizzata come calendario</p>
+<p><span class="guilabel">Tipo:</span> scegli il tipo di risorsa tra Stanza e Attrezzatura</p>
+<p><span class="guilabel">Risorsa disponibile:</span> selezionare per rendere disponibile la risorsa</p>
+<p><span class="guilabel">Email:</span> lasciare come suggerito (<a class="reference external" href="mailto:resource&#37;&#52;&#48;domain&#46;ext">resource<span>&#64;</span>domain<span>&#46;</span>ext</a>)</p>
+<p><span class="guilabel">Permessi:</span> aggiungere gli utenti o i gruppi che potranno prenotare la risorsa (ad esempio, per consentire a tutti gli utenti di utilizzare la risorsa, aggiungere il gruppo «users»)</p>
+<p><span class="guilabel">Manager:</span> indicare se assegnare un utente (o gruppo) «manager» che potrà cancellare o spostare le prenotazioni effettuate da altri utenti su questa risorsa</p>
+<p>Cliccando il tasto <span class="guilabel">Salva &amp; Chiudi</span> la risorsa verrà creata e aggiunta automaticamente ai calendari condivisi degli utenti specificati nei permessi.</p>
+</section>
+<section id="booking-a-resource">
+<h3>Prenotazione di una risorsa<a class="headerlink" href="#booking-a-resource" title="Link a questa intestazione">¶</a></h3>
+<p>Gli utenti che avranno il permesso di prenotare una risorsa potranno farlo creando un evento del calendario e aggiungendo la risorsa tra gli invitati utilizzando il tasto <span class="guilabel">Aggiungi risorsa</span>.</p>
+<p>Tramite il tasto <span class="guilabel">Mostra disponibilità</span> viene mostrata una tabella con gli intervalli di tempo occupati e liberi delle risorse aggiunte.</p>
+<p>E” possibile modificare la risoluzione dell’intervallo di tempo mostrata nella tabella utilizzando questo tasto:</p>
+<img alt="_static/webtop-resource_cal.png" src="_static/webtop-resource_cal.png" />
+</section>
+<section id="change-reservation-of-a-resource">
+<h3>Modificare la prenotazione di una risorsa<a class="headerlink" href="#change-reservation-of-a-resource" title="Link a questa intestazione">¶</a></h3>
+<p>Solo il proprietario dell’evento può modificare la prenotazione della risorsa. L’utente definito come <span class="guilabel">Manager</span> della risorsa ha il permesso di modificare (cancellare o spostare) le prenotazioni effettuate anche da altri utenti.</p>
+</section>
+</section>
+<section id="custom-labels">
+<h2>Etichette personalizzate<a class="headerlink" href="#custom-labels" title="Link a questa intestazione">¶</a></h2>
+<p>È possibile aggiungere una o più etichette a un’e-mail, un evento del calendario o un’attività.</p>
+<p>Esistono due tipi di etichette:</p>
+<ul class="simple">
+<li><p><strong>Privata</strong>: non utilizzabile per campi personalizzati e non visibile ad altri utenti</p></li>
+<li><p><strong>Condivisa</strong>: utilizzabile per pannelli di campi personalizzati e visibile ad altri utenti</p></li>
+</ul>
+<p>L’utente può normalmente gestire solo etichette private. Per poter gestire le etichette condivise è necessario attivare una specifica autorizzazione tramite il pannello di amministrazione:</p>
+<ul class="simple">
+<li><p>accedere al menu Amministrazione e selezionare <span class="guilabel">Domini</span> -&gt; <span class="guilabel">NethServer</span> -&gt; <span class="guilabel">Gruppi</span> -&gt; <span class="guilabel">Utenti</span> -&gt; <span class="guilabel">Autorizzazioni</span></p></li>
+<li><p>Aggiungi (+) -&gt; <span class="guilabel">Servizio</span> -&gt; <span class="guilabel">com.sonicle.webtop.core (WebTop)</span> -&gt; <span class="guilabel">Contesto</span> -&gt; <span class="guilabel">TAGS</span> -&gt; <span class="guilabel">Azione</span> -&gt; <span class="guilabel">MANAGE</span></p></li>
+<li><p>cliccare <span class="guilabel">OK</span> poi <span class="guilabel">Salva &amp; Chiudi</span></p></li>
+</ul>
+<p>La gestione delle etichette è raggiungibile da questo pulsante in alto a destra:</p>
+<img alt="_static/webtop-tags1.png" src="_static/webtop-tags1.png" />
+<p>La stessa funzionalità è raggiungibile anche dai singoli moduli (Posta, Contatti, Calendario e Attività) facendo clic con il tasto destro -&gt; <span class="guilabel">Etichette</span> -&gt; <span class="guilabel">Gestisci etichette</span>.</p>
+<p>La visibilità può essere impostata solo durante la creazione dell’etichetta. Per modificare la visibilità dell’etichetta è necessario eliminare l’etichetta e ricrearla di nuovo.</p>
+<p>Le etichette create (sia private che condivise) possono essere utilizzate su qualsiasi altro modulo (Posta, Contatti, Calendario e Attività).</p>
+</section>
+<section id="custom-fields">
+<h2>Campi personalizzati<a class="headerlink" href="#custom-fields" title="Link a questa intestazione">¶</a></h2>
+<p>Con i campi personalizzati è possibile fornire informazioni e dati aggiuntivi per ogni contatto, evento o attività.</p>
+<p>I campi personalizzati sono disponibili solo per i moduli Contatti, Calendario e Attività e sono specifici di ciascun modulo.</p>
+<p>Per poter gestire i campi personalizzati e i relativi pannelli, l’utente deve disporre di una specifica autorizzazione, ottenuta tramite il pannello di amministrazione:</p>
+<ul class="simple">
+<li><p>accedere al menu Amministrazione e selezionare <span class="guilabel">Domini</span> -&gt; <span class="guilabel">NethServer</span> -&gt; <span class="guilabel">Gruppi</span> -&gt; <span class="guilabel">Utenti</span> -&gt; <span class="guilabel">Autorizzazioni</span></p></li>
+<li><p>Aggiungi (+) -&gt; <span class="guilabel">Servizio</span> -&gt; <span class="guilabel">com.sonicle.webtop.core (WebTop)</span> -&gt; <span class="guilabel">Contesto</span> -&gt; <span class="guilabel">CUSTOM_FIELDS</span> -&gt; <span class="guilabel">Azione</span> -&gt; <span class="guilabel">MANAGE</span></p></li>
+<li><p>cliccare <span class="guilabel">OK</span> poi <span class="guilabel">Salva &amp; Chiudi</span></p></li>
+</ul>
+<p>Gli utenti con questa autorizzazione troveranno disponibile in alto a destra l’apposito pulsante:</p>
+<img alt="_static/webtop-cf1.png" src="_static/webtop-cf1.png" />
+<p>Per creare un nuovo campo personalizzato è necessario compilare almeno il campo <span class="guilabel">Nome</span> e selezionare il <span class="guilabel">Tipo</span>:</p>
+<img alt="_static/webtop-cf2.png" src="_static/webtop-cf2.png" />
+<p>Per il campo <span class="guilabel">Nome</span> sono ammessi solo caratteri alfanumerici (incluso <code class="docutils literal notranslate"><span class="pre">-</span></code> e <code class="docutils literal notranslate"><span class="pre">_</span></code>). <strong>Gli spazi non sono ammessi</strong>. Il campo <span class="guilabel">Descrizione</span> viene utilizzato per aggiungere dettagli e il campo <span class="guilabel">Etichetta</span> verrà mostrato in corrispondenza del campo all’interno del pannello in cui verrà utilizzata.</p>
+<p>Per ogni campo è possibile abilitare queste due opzioni:</p>
+<img alt="_static/webtop-cf3.png" src="_static/webtop-cf3.png" />
+<ul class="simple">
+<li><p><span class="guilabel">Mostra nella barra di ricerca</span>: ll campo viene aggiunto nella finestra di ricerca multipla (sarà necessario un nuovo accesso)</p></li>
+<li><p><span class="guilabel">Mostra in anteprima</span>: il campo viene mostrato nella finestra di anteprima di un contatto</p></li>
+</ul>
+<p>Per ogni tipologia sono disponibili ulteriori proprietà specifiche, anch’esse personalizzabili.</p>
+<p>Per il tipo <span class="guilabel">Elenco a discesa</span> è necessario inserire i valori da selezionare:</p>
+<img alt="_static/webtop-cf4.png" src="_static/webtop-cf4.png" />
+<p>Usando il tasto <span class="guilabel">Clona</span> è possibile copiare il campo personalizzato per crearne uno simile:</p>
+<img alt="_static/webtop-cf5.png" src="_static/webtop-cf5.png" />
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Con la <strong>versione FREE</strong>, installata per default, è possibile creare fino al <strong>massimo of 3 campi personalizzati</strong> per ogni diverso modulo (3 in Contatti + 3 in Calendario + 3 in Attività). Per rimuovere questo limite è necessario effettuare l’upgrade alla <strong>versione PREMIUM</strong> acquistando una licenza dedicata su <a class="reference external" href="https://nethshop.nethesis.it/product/campi-custom-webtop/">Nethesis shop</a></p>
+</div>
+<section id="searches-on-custom-fields">
+<h3>Ricerche su campi personalizzati<a class="headerlink" href="#searches-on-custom-fields" title="Link a questa intestazione">¶</a></h3>
+<p>Una delle migliori funzionalità dei campi personalizzati è la possibilità di eseguire ricerche multiple su tutti i moduli e campi per i quali l’opzione <span class="guilabel">Mostra nella barra di ricerca</span> è stata attivata.</p>
+</section>
+</section>
+<section id="custom-panels">
+<h2>Pannelli personalizzati<a class="headerlink" href="#custom-panels" title="Link a questa intestazione">¶</a></h2>
+<p>Con i pannelli personalizzati è possibile utilizzare i campi personalizzati già creati e associarli alle risorse presenti in ogni modulo (contatti, eventi e attività).</p>
+<p>Gli utenti con autorizzazione alla gestione dei campi personalizzati possono accedere al pannello di configurazione tramite il pulsante in alto a destra:</p>
+<img alt="_static/webtop-panels.png" src="_static/webtop-panels.png" />
+<p>Quando si crea un nuovo pannello è obbligatorio indicare il <span class="guilabel">Nome</span> che apparirà nella risorsa. E” possibile inserire anche una  <span class="guilabel">Descrizione</span> e un <span class="guilabel">Titolo</span>.</p>
+<p>Utilizzando le etichette condivise, si può facilmente assegnare i pannelli a specifiche categorie di risorse. Ad ogni risorsa disponibile (tutti i contatti, tutti gli eventi o tutte le attività) verrà assegnato un pannello senza alcuna etichetta associata.</p>
+<p>Tramite il tasto <span class="guilabel">Aggiungi</span> è possibile selezionare quali campi personalizzati utilizzare tra quelli già creati nel pannello..</p>
+</section>
+<section id="manage-identities">
+<h2>Gestisci identità<a class="headerlink" href="#manage-identities" title="Link a questa intestazione">¶</a></h2>
+<p>In <span class="menuselection">Impostazioni ‣ Posta Elettronica ‣ Identità</span> cliccare su <span class="guilabel">Aggiungi</span> quindi compilare i campi</p>
+<img alt="_static/webtop_manageident1.png" src="_static/webtop_manageident1.png" />
+<p>È possibile associare la nuova identità a una cartella del proprio account o di un account condiviso</p>
+<p><strong>Account Locale</strong></p>
+<img alt="_static/webtop_manageident2.png" src="_static/webtop_manageident2.png" />
+<p><strong>Account condiviso</strong></p>
+<img alt="_static/webtop_manageident3.png" src="_static/webtop_manageident3.png" />
+<p>In alternativa le mail inviate finiranno sempre nella cartella «Posta inviata» dell’account personale.</p>
+</section>
+<section id="mailcards-of-user-and-domain">
+<h2>Gestione firme utenti e di dominio<a class="headerlink" href="#mailcards-of-user-and-domain" title="Link a questa intestazione">¶</a></h2>
+<p>Una delle caratteristiche principali della gestione delle firme su WebTop, è l’opportunità di integrare immagini o campi personalizzati profilati per utente.</p>
+<p>Per utilizzare le immagini è necessario caricarle sul cloud pubblico attraverso l’utente admin di WebTop in questo modo:</p>
+<img alt="_static/webtop-public_images.png" src="_static/webtop-public_images.png" />
+<p>Per caricare una immagine è possibile usare il tasto <span class="guilabel">Carica</span>  che si trova in basso oppure semplicemente tramite un drag &amp; drop.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>si ricorda che le immagini pubbliche inserite nella firma vengono in realtà collegate con un link pubblico. Per risultare visibili ai destinatari delle mail è necessario che il server sia raggiungibile da remoto sulla porta 80 (http) e che il suo nome FQDN sia risolvibile pubblicamente.</p>
+</div>
+<p>In alternativa, è possibile configurare un’impostazione globale per trasformare automaticamente le immagini in allegati inline anziché in collegamenti Internet pubblici</p>
+<p>È possibile farlo dall’interfaccia web accedendo al pannello di amministrazione -&gt; <span class="guilabel">Proprietà (sistema)</span> -&gt; <span class="guilabel">Aggiungi</span> -&gt; selezionando <span class="guilabel">com.sonicle.webtop.mail (Mail)</span> ed inserendo i dati nei campi <span class="guilabel">Chiave</span> e <span class="guilabel">Valore</span> in base alla chiave da configurare:</p>
+<p><code class="docutils literal notranslate"><span class="pre">public.resource.links.as.inline.attachments</span></code> = true (default = false)</p>
+<p>Per cambiare la propria firma, ogni utente può accedere a <span class="menuselection">Impostazioni -&gt; Posta Elettronica -&gt; Composizione -&gt; Modifica Firma utente</span>:</p>
+<img alt="_static/webtop-edit_mailcard.png" src="_static/webtop-edit_mailcard.png" />
+<p>È possibile utilizzare l’immagine caricata all’interno della firma con questo pulsante:</p>
+<img alt="_static/webtop-public_signature.png" src="_static/webtop-public_signature.png" />
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>La firma personale può essere associata all’utente o all’indirizzo di posta. Gli utenti con accesso all’indirizzo di posta, potranno utilizzare anche la firma.</p>
+</div>
+<p>Accedendo le impostazioni dell’utente dalla pagina di amministrazione di WebTop (<span class="menuselection">Domains ‣ NethServer ‣ Utenti ‣ Click destro sull’utente</span> ) è inoltre possibile impostare una mailcard generale per il dominio che verrà impostata automaticamente per tutti gli utenti che non hanno configurato la propria mailcard personale:</p>
+<img alt="_static/webtop-domain_mailcard.png" src="_static/webtop-domain_mailcard.png" />
+<p>Inoltre, sarà anche possibile modificare le informazioni personali:</p>
+<img alt="_static/webtop-personal_information.png" src="_static/webtop-personal_information.png" />
+<p>che potranno essere utilizzate all’interno dei campi parametrizzati all’interno dell’editor della firma di dominio:</p>
+<img alt="_static/webtop-mailcard_editor.png" src="_static/webtop-mailcard_editor.png" />
+<p>In questo modo è possibile creare un’unica firma che verrà automaticamente personalizzata per ogni utente che non utilizzi la propria firma.</p>
+</section>
+<section id="configure-multiple-mailcards-for-a-single-user">
+<h2>Configurare più firme per un singolo utente<a class="headerlink" href="#configure-multiple-mailcards-for-a-single-user" title="Link a questa intestazione">¶</a></h2>
+<p>È possibile configurare più firme HTML per ogni singolo utente.</p>
+<p>Accedere a <span class="menuselection">Impostazioni -&gt; Posta -&gt; Identità</span> e creare identità multiple:</p>
+<img alt="_static/webtop-sig_sig1.png" src="_static/webtop-sig_sig1.png" />
+<p>Per modificare ogni singola firma selezionare <span class="menuselection">Impostazioni -&gt; Posta Elettronica -&gt; Identità</span>, quindi selezionare ogni singola firma e cliccare sul pulsante <span class="guilabel">modifica firma</span></p>
+<img alt="_static/webtop-sig_sig2.png" src="_static/webtop-sig_sig2.png" />
+<img alt="_static/webtop-sig_sig3.png" src="_static/webtop-sig_sig3.png" />
+<p>Al termine, chiudere la finestra e fai clic su SÌ:</p>
+<img alt="_static/webtop-sig_sig4.png" src="_static/webtop-sig_sig4.png" />
+<p>per utilizzare più firme, creare una nuova e-mail e scegliere la firma:</p>
+<img alt="_static/webtop-sig_sig5.png" src="_static/webtop-sig_sig5.png" />
+</section>
+<section id="mail-inline-preview">
+<h2>Anteprima mail sulla riga del messaggio<a class="headerlink" href="#mail-inline-preview" title="Link a questa intestazione">¶</a></h2>
+<p>Per impostazione predefinita, nella pagina della posta elettronica verrà visualizzata un’anteprima del contenuto degli ultimi messaggi ricevuti.</p>
+<p>Questa funzione può essere abilitata o disabilitata dal menù <span class="guilabel">Impostazioni</span> -&gt; <span class="guilabel">Posta Elettronica</span>, la casella di controllo è denominata <span class="guilabel">Mostra anteprima sulla riga del messaggio</span>.</p>
+</section>
+<section id="mail-archiving">
+<h2>Archiviazione mail<a class="headerlink" href="#mail-archiving" title="Link a questa intestazione">¶</a></h2>
+<p>L’archiviazione è utile per mantenere organizzata la cartella della posta in arrivo spostando manualmente i messaggi.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Archivio mail non è un backup</p>
+</div>
+<p>Il sistema crea automaticamente una nuova cartella speciale di archivi</p>
+<img alt="_static/webtop-archive_archive1.png" src="_static/webtop-archive_archive1.png" />
+<p>Se la cartella <span class="guilabel">Archivi</span> non viene visualizzata immediatamente al momento dell’accesso, verrà visualizzata alla prima archiviazione.</p>
+<blockquote>
+<div><p>Esistono tre criteri di archiviazione in <span class="menuselection">Impostazioni -&gt; Posta -&gt; Archiviazione</span></p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Cartella singola</strong> una cartella principale per tutte l’email archiviate</p></li>
+<li><p><strong>Per anno</strong> un  alberatura per ogni anno</p></li>
+<li><p><strong>Per anno/mese</strong> un alberatura per ogni anno e mese</p></li>
+</ul>
+<img alt="_static/webtop-archive_archive2.png" src="_static/webtop-archive_archive2.png" />
+<p>Per mantenere la struttura originale delle cartelle è possibile attivare <span class="guilabel">Mantieni struttura cartelle</span></p>
+<img alt="_static/webtop-archive_archive3.png" src="_static/webtop-archive_archive3.png" />
+<p>L’operazione di archiviazione è accessibile dal menu contestuale (tasto destro). Clicca su :guilabel: <cite>Archivia</cite></p>
+<img alt="_static/webtop-archive_archive4.png" src="_static/webtop-archive_archive4.png" />
+<p>Il sistema elaborerà l’archiviazione in base alle ultime impostazioni scelte.</p>
+</section>
+<section id="subscription-of-imap-folders">
+<h2>Sottoscrizione di cartelle IMAP<a class="headerlink" href="#subscription-of-imap-folders" title="Link a questa intestazione">¶</a></h2>
+<p>Su WebTop, per impostazione predefinita, tutte le cartelle IMAP sul server vengono automaticamente sottoscritte e sono quindi visibili dal primo accesso.</p>
+<p>Se si vuole nascondere dalla vista alcune cartelle, che equivale a rimuovere la sottoscrizione, è possibile farlo semplicemente cliccando con il tasto destro del mouse sulla cartella per nasconderla e selezionare dal menu interattivo la voce «Nascondi dall’elenco».</p>
+<p>Ad esempio, se si desidera nascondere la sottocartella «cartella1» da questo elenco, è sufficiente fare clic con il pulsante destro del mouse su di essa e selezionare «Nascondi dall’elenco»:</p>
+<img alt="_static/webtop-sub_imap_folder1.png" src="_static/webtop-sub_imap_folder1.png" />
+<p>È possibile gestire la visibilità delle cartelle nascoste attraverso la funzionalità <span class="guilabel">Gestisci visibilità</span>:</p>
+<img alt="_static/webtop-sub_imap_folder2.png" src="_static/webtop-sub_imap_folder2.png" />
+<p>Ad esempio, se si desidera ripristinare la sottoscrizione della <span class="guilabel">folder1</span> appena nascosta, basta selezionarla dall’elenco delle cartelle nascoste e fare clic sull’icona a sinistra:</p>
+<img alt="_static/webtop-sub_imap_folder3.png" src="_static/webtop-sub_imap_folder3.png" />
+</section>
+<section id="customize-proactive-security-on-emails">
+<h2>Personalizzare la sicurezza proattiva sulle e-mail<a class="headerlink" href="#customize-proactive-security-on-emails" title="Link a questa intestazione">¶</a></h2>
+<p>La funzione di sicurezza proattiva sui messaggi di posta elettronica consente alcune personalizzazioni sia per l”<strong>utente finale</strong> che per l”<strong>amministratore</strong> di WebTop.</p>
+<p>Per l”<strong>utente finale</strong> è possibile contrassegnare un mittente come attendibile quando viene riconosciuto come tale dallo scudo giallo. Per farlo, è sufficiente cliccare direttamente sullo scudo o cliccare con il tasto destro sul mittente e selezionare la voce <span class="guilabel">Marca come affidabile</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Questo tipo di personalizzazione è valido solo per l’utente che ha eseguito l’azione. È possibile contrassegnare un mittente come attendibile solo se lo scudo è giallo.</p>
+</div>
+<p>L”<strong>utente admin</strong> può disabilitare tutte o solo alcune delle regole che fanno parte della PAS (ProActive Security), sia per singoli utenti che per gruppi. Per fare ciò è necessario aggiungere una specifica autorizzazione (al singolo utente o al gruppo di utenti) per il Servizio <code class="docutils literal notranslate"><span class="pre">com.sonicle.webtop.mail</span> <span class="pre">(Mail)</span></code> e per la risorsa <code class="docutils literal notranslate"><span class="pre">PRO_ACTIVE_SECURITY</span></code>:</p>
+<img alt="_static/webtop-pas1.png" src="_static/webtop-pas1.png" />
+<p>Di seguito è riportata una spiegazione di ogni singola voce disponibile come <code class="docutils literal notranslate"><span class="pre">Azione</span></code> :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DISABLED</span></code>: disabilita completamente il PAS</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NO_LINK_DOMAIN_CHECK</span></code>: non controllare domini diversi dal dominio del mittente</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NO_MY_DOMAIN_CHECK</span></code>: non verificare se il dominio del mittente è nel mio dominio</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NO_FREQUENT_CONTACT_CHECK</span></code>: non controllare se il mittente è nei miei contatti che vengono salvati automaticamente</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NO_ANY_CONTACTS_CHECK</span></code>: non controllare se il mittente è tra i miei contatti</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NO_FAKE_PATTERNS_CHECK</span></code>: non verificare la presenza di pattern falsi nel mittente (es. indirizzo email del nome riportato è diverso dall’indirizzo email del mittente)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NO_UNSUBSCRIBE_DIRECTIVES_CHECK</span></code>: non spuntare la voce per le direttive di disiscrizione alla mailing list (solo se lo stato spam è verde)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NO_DISPLAYNAME_CHECK</span></code>: non confrontare il nome visualizzato del contatto con il contatto nella mia rubrica con la stessa email</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NO_SPAM_SCORE_VISUALIZATION</span></code>: non mostrare/controllare il punteggio di spam visualizzato nell’intestazione del messaggio</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NO_LINK_CLICK_PROMPT</span></code>: non controllare l’azione di clic sui collegamenti</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NO_ZIP_CHECK</span></code>: non dare avvisi sugli allegati zip</p></li>
+</ul>
+<p>In questo modo è possibile personalizzare e creare profili speciali per alcuni utenti che potrebbero non volere che tutte le azioni siano attive.</p>
+<p>L’amministratore può anche scegliere l’elenco delle <strong>estensioni di file per gli allegati</strong> considerate una minaccia. Per impostazione predefinita, queste sono le estensioni considerate pericolose: <code class="docutils literal notranslate"><span class="pre">exe,bat,dll,com,cmd,bin,cab,js,jar</span></code></p>
+<p>Per modificare questo elenco è necessario aggiungere questa impostazione globale:</p>
+<ul class="simple">
+<li><p><span class="guilabel">Servizio</span> = <code class="docutils literal notranslate"><span class="pre">com.sonicle.webtop.mail</span></code></p></li>
+<li><p><span class="guilabel">Chiave</span> = <code class="docutils literal notranslate"><span class="pre">pas.dangerous.extensions</span></code></p></li>
+</ul>
+<p>Ad esempio, se si volesse aggiungere l’estensione HTML tra quelle considerate pericolose, il campo valore dovrà contenere quanto segue:</p>
+<ul class="simple">
+<li><p><span class="guilabel">Valore</span> = <code class="docutils literal notranslate"><span class="pre">exe,bat,dll,com,cmd,bin,cab,js,jar,html</span></code>  (I valori devono sempre essere separati da una virgola)</p></li>
+</ul>
+</section>
+<section id="export-events-csv">
+<h2>Esportazione eventi (CSV)<a class="headerlink" href="#export-events-csv" title="Link a questa intestazione">¶</a></h2>
+<p>Per esportare gli eventi dei calendari nel formato CSV (Comma Separated Value), fare clic sull’icona nell’angolo in alto a destra.</p>
+<img alt="_static/webtop-export_calendar_csv.png" src="_static/webtop-export_calendar_csv.png" />
+<p>Infine, seleziona un intervallo di tempo e clicca su: guilabel: <cite>Avanti</cite> per esportare in un file CSV.</p>
+</section>
+<section id="tasks">
+<h2>Attività<a class="headerlink" href="#tasks" title="Link a questa intestazione">¶</a></h2>
+<section id="quick-view-filters">
+<h3>Filtri di visualizzazione rapida<a class="headerlink" href="#quick-view-filters" title="Link a questa intestazione">¶</a></h3>
+<p>Nella barra degli strumenti sopra la griglia sono presenti 7 pulsanti che permettono di selezionare la visualizzazione rapida più adatta. I primi due pulsanti si riferiscono alle attività di oggi o a quelle pianificate nei prossimi 7 giorni:</p>
+<img alt="_static/webtop-task1.png" src="_static/webtop-task1.png" />
+<ul class="simple">
+<li><p><strong>Oggi</strong>: mostra le attività non completate senza una data di inizio o con una data di inizio fino a oggi (inclusa) e quelle completate con una data di fine fino a oggi (inclusa)</p></li>
+<li><p><strong>Prossimi 7 giorni</strong>: mostra le attività non completate senza data di inizio o che iniziano fino a 7 giorni da oggi e le attività completate con data di completamento fino ad ora (incluso)</p></li>
+</ul>
+<p>I restanti 5 pulsanti permettono di ottenere questi altri tipi di visualizzazioni rapide:</p>
+<img alt="_static/webtop-task2.png" src="_static/webtop-task2.png" />
+<ul class="simple">
+<li><p><strong>Non iniziate</strong>: mostra solo le attività con stato «Da iniziare» e che iniziano oggi (incluso)</p></li>
+<li><p><strong>In ritardo</strong>: mostra solo le attività non completate con data di inizio fino a oggi (incluso) e data di completamento precedente a quella corrente</p></li>
+<li><p><strong>Completate</strong>: mostra tutte le attività con stato completato e con qualsiasi intervallo di date</p></li>
+<li><p><strong>Non completate</strong>: mostra tutte le attività con stato diverso da completato e data di inizio entro 1 anno (per le attività ricorrenti, viene mostrata solo la prima istanza della serie ancora da completare)</p></li>
+<li><p><strong>Tutte</strong>: mostra tutte le attività in qualsiasi stato (per le attività ricorrenti viene mostrata l’icona principale della serie)</p></li>
+</ul>
+</section>
+<section id="recurring-tasks">
+<h3>Attività ricorrenti<a class="headerlink" href="#recurring-tasks" title="Link a questa intestazione">¶</a></h3>
+<p>È possibile configurare qualsiasi tipo di ricorrenza:</p>
+<img alt="_static/webtop-task3.png" src="_static/webtop-task3.png" />
+<p>La modifica di un’attività ricorrente può essere eseguita in due modi diversi:</p>
+<ol class="arabic simple">
+<li><p>sulla singola attività aprendola con un doppio clic da una vista diversa da <span class="guilabel">Tutte</span> In questo caso l’attività verrà <strong>rimossa</strong> dalla ricorrenza e la sua icona diventerà questa:</p></li>
+</ol>
+<img alt="_static/webtop-task4.png" src="_static/webtop-task4.png" />
+<ol class="arabic simple" start="2">
+<li><p>sull’intera serie con un doppio clic dalla vista <span class="guilabel">Tutte</span> o utilizzando il seguente pulsante sulla singola attività già aperta:</p></li>
+</ol>
+<img alt="_static/webtop-task5.png" src="_static/webtop-task5.png" />
+</section>
+<section id="sub-tasks">
+<h3>Attività secondarie (sotto-attività)<a class="headerlink" href="#sub-tasks" title="Link a questa intestazione">¶</a></h3>
+<p>Su qualsiasi attività è sempre possibile aggiungere sotto-attività correlate (un solo livello Master/Slave) semplicemente usando il tasto destro e selezionando <span class="guilabel">Aggiungi sotto-attività</span> All’interno delle attività collegate, sia nella master che nella slave, è disponibile un link in basso a destra per aprire le relative attività:</p>
+<img alt="_static/webtop-task6.png" src="_static/webtop-task6.png" />
+<p>È possibile <strong>Spostare</strong> o <strong>Copiare</strong> questo tipo di attività (tasto destro -&gt; <span class="guilabel">Sposta/Copia</span>) scegliendo di copiare o spostare le sotto-attività tramite un’opzione attiva di default.</p>
+</section>
+<section id="multiple-searches">
+<h3>Ricerche multiple<a class="headerlink" href="#multiple-searches" title="Link a questa intestazione">¶</a></h3>
+<p>Nella barra in alto è presente una ricerca rapida che viene eseguita su tutti i campi. Puoi anche restringere la ricerca riempiendo più campi di ricerca.</p>
+<img alt="_static/webtop-task7.png" src="_static/webtop-task7.png" />
+</section>
+</section>
+<section id="nextcloud-integration">
+<h2>Integrazione con Nextcloud<a class="headerlink" href="#nextcloud-integration" title="Link a questa intestazione">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Prima di procedere, verificare che il modulo <strong>Nextcloud</strong> sia stato installato da <span class="guilabel">Software Center</span></p>
+</div>
+<p>Per impostazione predefinita, l’integrazione con Nextcloud è disabilitata per tutti gli utenti. Per abilitarla, utilizzare il pannello di amministrazione a cui è possibile accedere utilizzando la password dell’amministratore di Webtop</p>
+<p>Ad esempio, se si desidera attivare il servizio per tutti gli utenti di WebTop, procedere come segue:</p>
+<ol class="arabic simple">
+<li><p>accedere al pannello amministrativo e selezionare <span class="guilabel">Gruppi</span>:</p></li>
+</ol>
+<img alt="_static/webtop-admin_panel_groups.png" src="_static/webtop-admin_panel_groups.png" />
+<ol class="arabic simple" start="2">
+<li><p>modificare le proprietà del gruppo «utenti» facendo doppio clic e selezionare il pulsante relativo alle autorizzazioni:</p></li>
+</ol>
+<img alt="_static/webtop-admin_panel_permission.png" src="_static/webtop-admin_panel_permission.png" />
+<ol class="arabic simple" start="3">
+<li><p>aggiungere alle autorizzazioni già presenti quelle relative sia alla risorsa <code class="docutils literal notranslate"><span class="pre">STORE_CLOUD</span></code> che a <code class="docutils literal notranslate"><span class="pre">STORE_OTHER</span></code> selezionando le voci come illustrate qui sotto:</p></li>
+</ol>
+<img alt="_static/webtop-admin_panel_nextcloud_auth_1.png" src="_static/webtop-admin_panel_nextcloud_auth_1.png" />
+<img alt="_static/webtop-admin_panel_nextcloud_auth_2.png" src="_static/webtop-admin_panel_nextcloud_auth_2.png" />
+<p>in modo da ottenere questo:</p>
+<img alt="_static/webtop-admin_panel_nextcloud_auth_3.png" src="_static/webtop-admin_panel_nextcloud_auth_3.png" />
+<ol class="arabic simple" start="4">
+<li><p>salvare e chiudere.</p></li>
+</ol>
+<p>A questo punto da qualsiasi utente sarà possibile inserire la risorsa Nextcloud (locale o remota) nel proprio Cloud personale.</p>
+<p>Per farlo basterà selezionare il pulsante relativo al Cloud e aggiungere una nuova risorsa <strong>«Nextcloud»</strong> cliccando con il tasto destro su <strong>«My resources»</strong> e successivamente <strong>«Add resource»</strong> in questo modo:</p>
+<img alt="_static/webtop-nextcloud_1.png" src="_static/webtop-nextcloud_1.png" />
+<p>Si aprirà una procedura guidata precompilata:</p>
+<img alt="_static/webtop-nextcloud_2.png" src="_static/webtop-nextcloud_2.png" />
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ricordarsi di compilare i campi Nome utente e Password relativi all’accesso alla risorsa Nextcloud, altrimenti non sarà possibile utilizzare il link pubblico ai file condivisi</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se Nextcloud è stato configurato con un virtual host personalizzato (es. <code class="docutils literal notranslate"><span class="pre">nextcloud.mydomain.com</span></code>) il <span class="guilabel">Path</span> deve essere cambiato da <cite>/nextcloud/remote.php/webdav</cite> a <cite>/remote.php/webdav</cite> (il prefisso <cite>/nextcloud</cite> va rimosso). Assicurarsi di inserire il nome del virtual host personalizzato anche all’interno del campo <span class="guilabel">Host</span> (es.``nextcloud.mydomain.com``). Infine, ricordarsi di configurare il nome del virtual host come alias del server, accedendo alla Dashboard del Server Manager, facendo clic sull’FQDN del server e aggiungendo un nuovo alias all’interno della finestra di dialogo.</p>
+</div>
+<p>Procedere con il tasto Next fino a completamento del Wizard.</p>
+</section>
+<section id="use-the-personal-cloud-to-send-and-receive-documents">
+<h2>Usa il Cloud personale per inviare e ricevere documenti<a class="headerlink" href="#use-the-personal-cloud-to-send-and-receive-documents" title="Link a questa intestazione">¶</a></h2>
+<p>Il modulo Cloud consente di inviare e ricevere documenti tramite link web.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Il server deve essere raggiungibile sulla porta HTTP 80</p>
+</div>
+<section id="how-to-create-a-link-to-send-a-document">
+<h3>Come creare un link per inviare un documento<a class="headerlink" href="#how-to-create-a-link-to-send-a-document" title="Link a questa intestazione">¶</a></h3>
+<p>Per creare un link, selezionare  il pulsante in alto a destra:</p>
+<img alt="_static/webtop-doc_cloud1.png" src="_static/webtop-doc_cloud1.png" />
+<p>Seguire la procedura guidata per generare il collegamento, utilizzare il campo <span class="guilabel">date</span> per impostare la scadenza.</p>
+<img alt="_static/webtop-doc_cloud2.png" src="_static/webtop-doc_cloud2.png" />
+<p>è possibile impostare una <span class="guilabel">password</span> per proteggerlo:</p>
+<img alt="_static/webtop-doc_cloud3.png" src="_static/webtop-doc_cloud3.png" />
+<p>Il link verrà generato e verrà inserito nella nuova mail:</p>
+<img alt="_static/webtop-doc_cloud4.png" src="_static/webtop-doc_cloud4.png" />
+<img alt="_static/webtop-doc_cloud5.png" src="_static/webtop-doc_cloud5.png" />
+<p>Il download del file genera una notifica al mittente:</p>
+<img alt="_static/webtop-doc_cloud6.png" src="_static/webtop-doc_cloud6.png" />
+</section>
+<section id="request-for-a-document">
+<h3>Richiesta di un documento<a class="headerlink" href="#request-for-a-document" title="Link a questa intestazione">¶</a></h3>
+<p>Per creare la richiesta, inserire l’oggetto della e-mail quindi selezionare il pulsante in alto a destra:</p>
+<img alt="_static/webtop-doc_cloud7.png" src="_static/webtop-doc_cloud7.png" />
+<p>Seguire il wizard. È possibile impostare sia una data di scadenza che una password. Il link verrà automaticamente inserito nel messaggio:</p>
+<img alt="_static/webtop-doc_cloud8.png" src="_static/webtop-doc_cloud8.png" />
+<p>Una mail di richiesta verrà inviata per caricare il documento sul Cloud:</p>
+<img alt="_static/webtop-doc_cloud9.png" src="_static/webtop-doc_cloud9.png" />
+<p>Il mittente riceverà una notifica per ogni file che verrà caricato:</p>
+<img alt="_static/webtop-doc_cloud10.png" src="_static/webtop-doc_cloud10.png" />
+<p>Per scaricare i file ricevuti accedere al <span class="menuselection">Cloud -&gt; Uploads -&gt; Cartella</span> con data e nome:</p>
+<img alt="_static/webtop-doc_cloud11.png" src="_static/webtop-doc_cloud11.png" />
+</section>
+</section>
+<section id="chat-integration">
+<h2>Integrazione chat<a class="headerlink" href="#chat-integration" title="Link a questa intestazione">¶</a></h2>
+<p>Per default il servizio di webchat è disabilitato per tutti gli utenti.</p>
+<p>Per abilitare l’integrazione con il server chat:</p>
+<ol class="arabic simple">
+<li><p>Installare il modulo «Messaggistica istantanea» dal <span class="guilabel">Software Center</span>.</p></li>
+<li><p>Accedere a WebTop con l’utente admin quindi abilitare l’autorizzazione per la chat:</p>
+<ul class="simple">
+<li><p>Accedere al menu <span class="guilabel">Administration</span>, quindi  scegliere <span class="menuselection">Domains ‣ NethServer ‣ Groups ‣ Users ‣ Authorizations</span></p></li>
+<li><p><span class="menuselection">Add (+) ‣ Services ‣ com.sonicle.webtop.core (WebTop) ‣ Resource ‣ WEBCHAT ‣ Action ‣ ACCESS</span></p></li>
+<li><p>Cliccare  <span class="guilabel">OK</span> quindi salvare ed uscire</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="jitsi-integration-and-support-for-links-to-third-party-video-calls">
+<h2>Integrazione Jitsi e supporto per collegamenti a videochiamate di terze parti<a class="headerlink" href="#jitsi-integration-and-support-for-links-to-third-party-video-calls" title="Link a questa intestazione">¶</a></h2>
+<p>Con questa integrazione è possibile avviare una nuova videoconferenza e inviare l’invito via email, oppure programmarne una creando l’evento direttamente dal calendario. Per attivare l’integrazione è necessario configurare l’istanza <a class="reference external" href="https://jitsi.org/">Jitsi</a> che si desidera utilizzare direttamente dall’interfaccia del cockpit, nelle impostazioni avanzate di WebTop:</p>
+<img alt="_static/webtop_cockpit_panel_jitsi.png" src="_static/webtop_cockpit_panel_jitsi.png" />
+<p>Cliccando sul pulsante <span class="guilabel">Salva</span>, la nuova configurazione verrà applicata e WebTop verrà riavviato.</p>
+<p>Per default, il servizio di videoconferenza è disabilitato per tutti gli utenti. Per abilitarlo, è necessario aggiungere a tutti gli utenti una specifica autorizzazione dal pannello di amministrazione:</p>
+<ul class="simple">
+<li><p>Accedere al menu <span class="guilabel">Administration</span>, quindi  scegliere <span class="menuselection">Domains ‣ NethServer ‣ Groups ‣ Users ‣ Authorizations</span></p></li>
+<li><p><span class="menuselection">Aggiungi (+) ‣ Servizi ‣ com.sonicle.webtop.core (WebTop) ‣ Contesto MEETING ‣ Azione ‣ CREATE</span></p></li>
+<li><p>Cliccare  <span class="guilabel">OK</span> quindi salvare ed uscire</p></li>
+</ul>
+<p>La conferenza sarà disponibile per gli utenti dopo un nuovo accesso.</p>
+<p>Per creare una nuova riunione in videoconferenza, puoi iniziare da questi due pulsanti:</p>
+<p>(in alto a sinistra)</p>
+<img alt="_static/webtop_jitsi1.png" src="_static/webtop_jitsi1.png" />
+<p>(in alto a destra)</p>
+<img alt="_static/webtop_jitsi2.png" src="_static/webtop_jitsi2.png" />
+<p>È anche possibile farlo da una nuova finestra di posta elettronica o da un nuovo evento del calendario.</p>
+<p>Per ogni nuova riunione va deciso se deve iniziare subito (incontro istantaneo) o se deve essere programmato su invito.</p>
+<p>Esistono diversi modi per condividere il nuovo collegamento alla riunione:</p>
+<img alt="_static/webtop_jitsi3.png" src="_static/webtop_jitsi3.png" />
+<ul class="simple">
+<li><p><span class="guilabel">Avvia adesso</span> consente di accedere immediatamente alla sala riunioni appena creata e di copiare il collegamento tramite il pulsante disponibile accanto all’URL</p></li>
+<li><p><span class="guilabel">Invia invito</span> -&gt; <span class="guilabel">Copia invito alla riunione</span>: in questo caso verrà copiato un messaggio di invito, che include anche il link della riunione, (es.: per partecipare alla riunione su Jitsi Meet, fare clic su questo collegamento: …)</p></li>
+<li><p><span class="guilabel">Invia invito</span> -&gt; <span class="guilabel">Condividi via email</span>: verrà chiesto se si vuole modificare l’oggetto e la data dell’incontro, che verranno poi inseriti nella mail appena generata:</p></li>
+</ul>
+<img alt="_static/webtop_jitsi4.png" src="_static/webtop_jitsi4.png" />
+<ul class="simple">
+<li><p><span class="guilabel">Invia invito</span> -&gt; <span class="guilabel">Pianifica evento</span>: anche in questo caso verrà chiesto se si vuole modificare l’oggetto e la data/ora dell’incontro prima di creare l’evento del calendario che permetterà di invitare altri partecipanti.</p></li>
+</ul>
+<p>Se un evento contiene un collegamento a una videoconferenza di terze parti, i pulsanti dedicati permetteranno di accedere direttamente alla riunione:</p>
+<img alt="_static/webtop_jitsi5.png" src="_static/webtop_jitsi5.png" />
+<p>I servizi di videoconferenza attualmente supportati, oltre a Jitsi, sono: Google Meet, MS Teams e Zoom. È possibile aggiungere ulteriori piattaforme tramite questo  <a class="reference external" href="https://www.sonicle.com/docs/webtop5/core.html#meeting-integration-settings#meeting-integration-settings">setting globale</a>.</p>
+</section>
+<section id="send-sms-from-contacts">
+<h2>Invio SMS dai contatti<a class="headerlink" href="#send-sms-from-contacts" title="Link a questa intestazione">¶</a></h2>
+<p>È possibile inviare messaggi SMS a un contatto che ha il numero di cellulare nella rubrica. Per attivare l’invio di SMS, è necessario scegliere uno dei due provider supportati: <a class="reference external" href="../../it">SMSHOSTING</a> o <a class="reference external" href="https://www.twilio.com/">TWILIO</a>.</p>
+<p>Una volta registrati al servizio del provider scelto, recuperare le chiavi API (AUTH_KEY e AUTH_SECRET) da inserire nel db di configurazione di WebTop. Le impostazioni da configurare sono quelle indicate <a class="reference external" href="https://www.sonicle.com/docs/webtop5/core.html#sms-settings#sms-settings">qui</a> .</p>
+<p>È possibile farlo dall’interfaccia web accedendo al pannello di amministrazione -&gt; :guilabel: <cite>Proprietà (sistema)</cite> -&gt; :guilabel: <cite>Aggiungi</cite> -&gt; selezionando <span class="guilabel">com.sonicle.webtop.core (WebTop)</span> ed inserendo i dati nei campi <span class="guilabel">Chiave</span> e <span class="guilabel">Valore</span> in base alla chiave da configurare:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sms.provider</span></code> = smshosting o twilio</p>
+<p><code class="docutils literal notranslate"><span class="pre">sms.provider.webrest.user</span></code> = API AUTH_KEY</p>
+<p><code class="docutils literal notranslate"><span class="pre">sms.provider.webrest.password</span></code> = API AUTH_SECRET</p>
+<p><code class="docutils literal notranslate"><span class="pre">sms.sender</span></code> = (default opzionale)</p>
+<p>La chiave <code class="docutils literal notranslate"><span class="pre">sms.sender</span></code> è facoltativa e viene utilizzata per specificare il mittente predefinito quando si invia un SMS. È possibile indicare un numero (massimo 16 caratteri) od una stringa di testo (max 11 caratteri).</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ogni utente ha sempre la possibilità di sovrascrivere il mittente personalizzandolo come desiderato attraverso il suo pannello delle impostazioni: <span class="guilabel">WebTop</span> -&gt; <span class="guilabel">Centralino VOIP e SMS</span> -&gt; <span class="guilabel">Servizio SMS Hosting configurato</span> -&gt; <span class="guilabel">Mittente predefinito</span></p>
+</div>
+<p>Per inviare un SMS dalla rubrica, fare clic con il tasto destro del mouse su un contatto con il campo mobile valorizzato -&gt; <span class="guilabel">Invia SMS</span></p>
+</section>
+<section id="custom-link-buttons-in-launcher">
+<h2>Pulsanti di collegamento personalizzati<a class="headerlink" href="#custom-link-buttons-in-launcher" title="Link a questa intestazione">¶</a></h2>
+<p>Per configurare i pulsanti accedere al pannello di amministrazione di WebTop e selezionare -&gt; <span class="guilabel">Domini</span> -&gt; <span class="guilabel">NethServer</span> -&gt; <span class="guilabel">Barra di avvio</span> :</p>
+<img alt="_static/webtop_launchers.png" src="_static/webtop_launchers.png" />
+<p>Per ciascun pulsante, inserisci questi tre valori</p>
+<p><code class="docutils literal notranslate"><span class="pre">Nome</span></code> : testo descrittivo che appare con il mouseover</p>
+<p>`` URL link``: URL aperto in un nuovo browser</p>
+<p><code class="docutils literal notranslate"><span class="pre">Icona</span> <span class="pre">URL</span></code> : icona immagine URL (per evitare problemi di ridimensionamento, usare immagini vettoriali)</p>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>L’URL da cui recuperare l’immagine vettoriale dell’icona deve essere sempre raggiungibile pubblicamente dal browser con cui ci si connette.</p>
+</div>
+<p>Se non è possibile recuperare un link Internet per immagine dell’icona, è possibile copiare l’immagine localmente sul server in due modi diversi:</p>
+<ol class="arabic simple">
+<li><p>copiare il file (ad esempio <code class="docutils literal notranslate"><span class="pre">icon.svg</span></code>) direttamente nella directory <code class="docutils literal notranslate"><span class="pre">/var/www/html/</span></code> del server e usare questo tipo di URL per il campo “URL Icona”: <code class="docutils literal notranslate"><span class="pre">https://&lt;public_name_server&gt;/&lt;icon.svg&gt;</span></code></p></li>
+<li><p>caricare il file icona sul cloud pubblico di WebTop (dove le immagini vengono caricate per le mailcards) tramite il pannello di amministrazione -&gt;: guilabel: <cite>Cloud</cite> -&gt;: guilabel:` Immagini pub.` e inserire un URL di questo tipo nel campo “URL Icona”: <code class="docutils literal notranslate"><span class="pre">https:</span> <span class="pre">//&lt;public_name_server&gt;/webtop/resources/156c0407/images/&lt;icon.svg&gt;</span></code></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>I pulsanti di collegamento personalizzati configurati verranno mostrati a tutti gli utenti al successivo accesso.</p>
+</div>
+</section>
+<section id="browser-notifications">
+<h2>Notifiche del browser<a class="headerlink" href="#browser-notifications" title="Link a questa intestazione">¶</a></h2>
+<p>Con WebTop è stata introdotta la modalità di notifica desktop integrata con il browser.</p>
+<p>Per attivarla, accedere semplicemente alle impostazioni generali dell’utente:</p>
+<img alt="_static/webtop-desktop_notifications.png" src="_static/webtop-desktop_notifications.png" />
+<p>È possibile abilitare la notifica sul desktop in due modalità:</p>
+<ul class="simple">
+<li><p><strong>Sempre</strong>: le notifiche verranno sempre mostrate, anche con il browser aperto</p></li>
+<li><p><strong>Auto (solo in background)</strong>: le notifiche verranno visualizzate solo quando il browser è in background</p></li>
+</ul>
+<p>Una volta selezionata la modalità, verrà visualizzata una richiesta di autorizzazione del browser in alto a sinistra:</p>
+<img alt="_static/webtop-chrome_notifications.png" src="_static/webtop-chrome_notifications.png" />
+<p>Se è necessario abilitare questo consenso più tardi su un altro browser, basta fare clic sul pulsante appropriato:</p>
+<img alt="_static/webtop-button_desktop_notifications.png" src="_static/webtop-button_desktop_notifications.png" />
+</section>
+<section id="external-imap-accounts-beta">
+<h2>Account IMAP esterni (Beta)<a class="headerlink" href="#external-imap-accounts-beta" title="Link a questa intestazione">¶</a></h2>
+<p>È possibile accedere agli account IMAP esterni in modalità di sola lettura. Ogni utente può avere massimo 3 account esterni.</p>
+<p>Per abilitare la funzione:</p>
+<ol class="arabic simple">
+<li><p>accedere al pannello amministrativo e selezionare <span class="guilabel">Proprietà (sistema)</span>:</p></li>
+<li><p>Fare clic sul pulsante <span class="guilabel">Aggiungi</span> e selezionare <span class="guilabel">com.sonicle.webtop.mail</span></p></li>
+<li><p>Creare questa nuova chiave  <code class="docutils literal notranslate"><span class="pre">external-account.enabled</span></code> con valore <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p>Assegnare un’autorizzazione specifica all’utente impostando:</p>
+<ul class="simple">
+<li><p>Servizio: <code class="docutils literal notranslate"><span class="pre">com.sonicle.webtop-mail</span></code></p></li>
+<li><p>Contesto: <code class="docutils literal notranslate"><span class="pre">EXTERNAL_ACCOUNT_SETTINGS</span></code></p></li>
+<li><p>Azione: <code class="docutils literal notranslate"><span class="pre">CHANGE</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p>Gli utenti possono ora configurare account esterni personali accedendo alla sezione <span class="guilabel">Impostazioni</span></p>
+</section>
+<section id="subscribing-remote-resources">
+<h2>Sottoscrizione di risorse remote<a class="headerlink" href="#subscribing-remote-resources" title="Link a questa intestazione">¶</a></h2>
+<p>WebTop supporta la sottoscrizione di calendari e contatti remoti utilizzando CardDAV, CalDav e iCal.</p>
+<section id="remote-calendars">
+<h3>Calendari remoti<a class="headerlink" href="#remote-calendars" title="Link a questa intestazione">¶</a></h3>
+<p>E’ possibile aggiungere e sincronizzare un Calendario Internet. Per farlo basta cliccare il tasto dx su calendari personali <span class="guilabel">Aggiungi calendario internet</span>. Sono supportate due tipologie di calendari remoti: Webcal (formato ics) e CalDAV.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>La sincronizzazione dei calendari Webcal (ics) avviene sempre scaricando ogni evento sulla risorsa remota ogni volta, mentre solo le differenze sono sincronizzate con la modalità CalDAV</p>
+</div>
+<section id="example-of-google-cal-remote-calendar-webcal-only-ics">
+<h4>Esempio di calendario remoto Google Cal (solo Webcal - ICS)<a class="headerlink" href="#example-of-google-cal-remote-calendar-webcal-only-ics" title="Link a questa intestazione">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Prelevare dal proprio calendario Google il link ICS (formato iCal) di accesso pubblico: <span class="guilabel">Opzioni del calendario -&gt; Impostazioni e condivisione -&gt; Indirizzo segreto in formato iCal</span></p></li>
+<li><p>Su WebTop, aggiungere un calendario Internet di tipo Webcal ed incollare l’URL copiato senza inserire le credenziali di autenticazione nel passo 1 del wizard.</p></li>
+<li><p>Il wizard effettuerà la connessione al calendario, dando la possibilità di modificarne il nome e il colore, quindi effettuerà la prima sincronizzazione.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>La prima sincronizzazione potrebbe fallire a causa delle impostazioni di sicurezza di Google. Se si riceve una notifica che avvisa del tentativo di accesso alle proprie risorse è necessario consentirne l’utilizzo confermando che si tratta di un tentativo legittimo.</p>
+</div>
+</section>
+</section>
+<section id="remote-contacts-directory">
+<h3>Rubrica remota<a class="headerlink" href="#remote-contacts-directory" title="Link a questa intestazione">¶</a></h3>
+<section id="example-of-google-carddav-remote-address-book">
+<h4>Esempio di rubrica remota CarDAV Google<a class="headerlink" href="#example-of-google-carddav-remote-address-book" title="Link a questa intestazione">¶</a></h4>
+<p>1) On Webtop, configure a new Internet address book, right-click on <span class="guilabel">Personal Categories -&gt; Add Internet address book</span> and enter a URL of this type in step 1 of the wizard:
+<a class="reference external" href="https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX@gmail.XXX/lists/default/">https://www.googleapis.com/carddav/v1/principals/XXXXXXXXXX&#64;gmail.XXX/lists/default/</a>
+(replace the X your gmail account)</p>
+<ol class="arabic simple" start="2">
+<li><p>Inserire le credenziali di autenticazione (come username usare l’indirizzo completo di gmail):</p></li>
+</ol>
+<img alt="_static/webtop-remote_phonebook.png" src="_static/webtop-remote_phonebook.png" />
+<ol class="arabic simple" start="3">
+<li><p>La procedura guidata nei passaggi seguenti si collegherà alla rubrica, dando la possibilità di cambiare il nome e il colore, quindi eseguirà la prima sincronizzazione.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Per riuscire a completare la sincronizzazione è necessario abilitare sul proprio account Google, nelle impostazioni di sicurezza, l’uso di app considerate meno sicure (a questo link una guida su come fare: <a class="reference external" href="https://support.google.com/accounts/answer/6010255?hl=it">https://support.google.com/accounts/answer/6010255?hl=it</a>).</p>
+</div>
+<p>La sincronizzazione delle risorse remote può essere eseguita manualmente o automaticamente.</p>
+</section>
+<section id="automatic-synchronization">
+<h4>Sincronizzazione automatica<a class="headerlink" href="#automatic-synchronization" title="Link a questa intestazione">¶</a></h4>
+<p>Per la sincronizzazione automaticamente è possibile scegliere tra tre intervalli di tempo: 15, 30 e 60 minuti. La scelta dell’intervallo di tempo può essere effettuata nella fase di creazione o modificando successivamente le opzioni. Per farlo è sufficente un clic con il tasto destro sulla rubrica (o sul calendario), <span class="guilabel">Modifica categoria</span>, <span class="guilabel">Rubrica Internet</span> (o <span class="guilabel">Calendario Internet</span>):</p>
+<img alt="_static/webtop-sync_automatic.png" src="_static/webtop-sync_automatic.png" />
+</section>
+<section id="manual-synchronization">
+<h4>Sincronizzazione manuale<a class="headerlink" href="#manual-synchronization" title="Link a questa intestazione">¶</a></h4>
+<p>Per aggiornare ad esempio una rubrica remota, fare clic su di essa con il tasto destro del mouse e selezionare la voce «Sincronizza»:</p>
+<img alt="_static/webtop-sync_google.png" src="_static/webtop-sync_google.png" />
+<p>Per le rubriche di CardDav e per i calendari CalDAV remoti, è possibile selezionare se eseguire una sincronizzazione completa o solo per le modifiche. Per fare ciò, fare clic con il tasto destro sulla rubrica (o sul calendario), <span class="guilabel">Modifica categoria</span>:</p>
+<img alt="_static/webtop-edit_sync_google.png" src="_static/webtop-edit_sync_google.png" />
+<p>Selezionare la modalità desiderata accanto al pulsante di sincronizzazione:</p>
+<img alt="_static/webtop-edit_sync_google2.png" src="_static/webtop-edit_sync_google2.png" />
+</section>
+</section>
+</section>
+<section id="user-access-and-user-session-logs">
+<h2>Accesso utente e log delle sessioni utente<a class="headerlink" href="#user-access-and-user-session-logs" title="Link a questa intestazione">¶</a></h2>
+<p>Nel pannello di amministrazione è disponibile la tabella che riporta l’intero storico degli accessi e delle sessioni per ciascun utente. Accedere al menù <span class="guilabel">Amministrazione</span>, poi <span class="guilabel">Domini</span> –&gt; <span class="guilabel">NethServer</span> –&gt; <span class="guilabel">Audit (dominio)</span> –&gt; <span class="guilabel">Log Accessi</span>.</p>
+<p>Per ogni accesso la tabella riporta in colonne i seguenti dati: ID sessione, nome utente, data e ora, durata sessione, stato autenticazione ed eventuali errori di login. È possibile attivare la geolocalizzazione per l’accesso da indirizzi IP pubblici rilevati. Per attivare questa funzionalità è necessario registrare un account su <a class="reference external" href="https://ipstack.com/">ipstack</a> (attualmente è supportato solo questo provider) e ottenere l’API KEY da inserire nel db di configurazione.</p>
+<p>Accedere al pannello di amministrazione -&gt; <span class="guilabel">Proprietà (sistema)</span> -&gt; <span class="guilabel">aggiungi</span> -&gt; <span class="guilabel">com.sonicle.webtop.core (WebTop)</span> -&gt; inserire questi dati nei campi <span class="guilabel">Chiave</span> e <span class="guilabel">Valore</span> :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">geolocation.provider</span></code> = <code class="docutils literal notranslate"><span class="pre">ipstack</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">geolocation.ipstack.apikey</span></code>  = <code class="docutils literal notranslate"><span class="pre">&lt;API</span> <span class="pre">KEY</span> <span class="pre">FROM</span> <span class="pre">PROVIDER&gt;</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Quindi, dopo un logout e un login, per visualizzare la geolocalizzazione degli IP pubblici, fare clic sull’icona all’estrema destra della riga:</p>
+<img alt="_static/webtop_geologip.png" src="_static/webtop_geologip.png" />
+<p>Attraverso la ricerca multipla è possibile trovare rapidamente i dati di interesse:</p>
+<img alt="_static/webtop_search_access_log.png" src="_static/webtop_search_access_log.png" />
+<p><strong>Impersonate login</strong></p>
+<p>Per default, gli accessi effettuati tramite impersonate (<code class="docutils literal notranslate"><span class="pre">admin!&lt;user&gt;</span></code>) non vengono visualizzati nella tabella dei log di accesso. Per aggiungere anche questo tipo di accesso, è necessario aggiungere la seguente chiave per il servizio principale:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">chiave</span></code> = <code class="docutils literal notranslate"><span class="pre">audit.logimpersonated</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">valore</span></code> = <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="login-notification-for-each-new-device">
+<h2>Notifica di accesso per ogni nuovo dispositivo<a class="headerlink" href="#login-notification-for-each-new-device" title="Link a questa intestazione">¶</a></h2>
+<p>Con questa funzione è possibile ricevere un’e-mail che notifica con un avviso di sicurezza ogni volta che un nuovo dispositivo accede per la prima volta all’account.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Per default, questa funzione è disabilitata per tutti gli utenti per evitare troppi falsi positivi «non intenzionali» al primo accesso.</p>
+</div>
+<p>Per attivare la notifica per tutti gli utenti è necessario impartire questi comandi dalla shell:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop webtop KnownDeviceVerification enabled
+</pre></div>
+</div>
+<p>Se, oltre all’utente a cui si accede, è necessario inviare questa email di notifica anche ad altri indirizzi in BCC (per ulteriore controllo amministrativo), è possibile farlo indicando i destinatari nel seguente modo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop webtop KnownDeviceVerification enabled
+config setprop webtop KnownDeviceVerificationRecipients admin1@example.com,admin2@example.com
+</pre></div>
+</div>
+<p>Se vuoi evitare di inviare la notifica per tutti i nuovi accessi effettuati da una (o più) sottoreti, puoi farlo attraverso una white list, come puoi vedere nell’esempio qui sotto:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop webtop KnownDeviceVerification enabled
+config setprop webtop KnownDeviceVerificationNetWhitelist 192.168.1.0/24,10.8.8.0/24
+</pre></div>
+</div>
+<p>Per applicare le modifiche mostrate nei comandi precedenti e riavviare l’applicazione, eseguire il comando finale di seguito:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event nethserver-webtop5-update
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Accessi effettuati tramite impersonate (<code class="docutils literal notranslate"><span class="pre">admin!&lt;user&gt;</span></code>) non invierà mai una notifica via email</p>
+</div>
+</section>
+<section id="change-default-limit-maximum-file-size">
+<h2>Modifica il limite predefinito «Dimensione massima del file»<a class="headerlink" href="#change-default-limit-maximum-file-size" title="Link a questa intestazione">¶</a></h2>
+<p>Esistono limiti configurati hard-coded relativi alla dimensione massima del file:</p>
+<ul class="simple">
+<li><p>Dimensione massima del file per upload di chat (default interno = 10 MB)</p></li>
+<li><p>Massima dimensione del file allegato al singolo messaggio di posta (predefinito interno = 10 MB)</p></li>
+<li><p>Dimensione massima del file per i caricamenti interni al cloud (default interno = 500 MB)</p></li>
+<li><p>Dimensione massima del file per i caricamenti pubblici (predefinito interno = 100 MB)</p></li>
+</ul>
+<p>Per modificare questi valori predefiniti per tutti gli utenti, è possibile aggiungere le seguenti chiavi tramite l’interfaccia di amministrazione: :guilabel: <cite>Proprietà (sistema) -&gt; Aggiungi</cite></p>
+<p><strong>Dimensione massima del file per i caricamenti della chat</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Servizio: <code class="docutils literal notranslate"><span class="pre">com.sonicle.webtop.core</span></code></p></li>
+<li><p>Chiave: <code class="docutils literal notranslate"><span class="pre">im.upload.maxfilesize</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><strong>Dimensione massima del file allegato per un singolo messaggio di posta</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Servizio: <code class="docutils literal notranslate"><span class="pre">com.sonicle.webtop.mail</span></code></p></li>
+<li><p>Chiave: <code class="docutils literal notranslate"><span class="pre">attachment.maxfilesize</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><strong>Dimensione massima del file per i caricamenti interni al cloud</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Servizio: <code class="docutils literal notranslate"><span class="pre">com.sonicle.webtop.vfs</span></code></p></li>
+<li><p>Chiave: <code class="docutils literal notranslate"><span class="pre">upload.private.maxfilesize</span></code></p></li>
+</ul>
+</div></blockquote>
+<p><strong>Dimensione massima del file per i caricamenti pubblici su cloud</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Servizio: <code class="docutils literal notranslate"><span class="pre">com.sonicle.webtop.vfs</span></code></p></li>
+<li><p>Chaive: <code class="docutils literal notranslate"><span class="pre">upload.public.maxfilesize</span></code></p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Il valore deve essere espresso in Byte (Esempio 10MB = 10485760)</p>
+</div>
+</section>
+<section id="importing-contacts-and-calendars">
+<h2>Importazione di contatti e calendari<a class="headerlink" href="#importing-contacts-and-calendars" title="Link a questa intestazione">¶</a></h2>
+<p>WebTop supporta l’importazione di contatti e calendari da vari formati di file.</p>
+<section id="contacts">
+<h3>Contatti<a class="headerlink" href="#contacts" title="Link a questa intestazione">¶</a></h3>
+<p>Formato dei contatti supportati:</p>
+<ul class="simple">
+<li><p>CSV  - Comma Separated values (*.txt, *.csv)</p></li>
+<li><p>Excel (.*xls, *.xlsx)</p></li>
+<li><p>VCard (*.vcf, *.vcard)</p></li>
+<li><p>LDIF (*.ldif)</p></li>
+</ul>
+<p>Per importare i contatti:</p>
+<ol class="arabic">
+<li><p>Fare clic con il tasto destro sulla rubrica di destinazione, quindi selezionare: <span class="guilabel">Importa contatti</span></p>
+<img alt="_static/webtop-import_contacts1.png" src="_static/webtop-import_contacts1.png" />
+</li>
+<li><p>Selezionare il formato di importazione assicurandosi che i campi del file corrispondano a quelli disponibili su WebTop</p>
+<img alt="_static/webtop-import_contacts2.png" src="_static/webtop-import_contacts2.png" />
+</li>
+</ol>
+<p>Se stai importando una rubrica esportata da Outlook, assicurarsi di impostare: guilabel: <cite>Qualificatore di testo</cite> con questo valore <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>.</p>
+<img alt="_static/webtop-import_contacts3.png" src="_static/webtop-import_contacts3.png" />
+</section>
+<section id="calendars">
+<h3>Calendari<a class="headerlink" href="#calendars" title="Link a questa intestazione">¶</a></h3>
+<p>Formato del calendario supportato: iCalendar (*.ics, *.ical, *.icalendar)</p>
+<p>Per importare eventi:</p>
+<ol class="arabic">
+<li><p>Fare clic con il tasto destro sul calendario di destinazione, quindi selezionare  <span class="guilabel">Importa eventi</span></p>
+<img alt="_static/webtop-import_calendars1.png" src="_static/webtop-import_calendars1.png" />
+</li>
+<li><p>Selezionare il formato di importazione</p>
+<img alt="_static/webtop-import_calendars2.png" src="_static/webtop-import_calendars2.png" />
+</li>
+<li><p>Quindi scegli se desideri eliminare tutti gli eventi esistenti e importarne di nuovi o semplicemente aggiungere i dati importati agli eventi del calendario esistenti</p>
+<img alt="_static/webtop-import_calendars3.png" src="_static/webtop-import_calendars3.png" />
+</li>
+</ol>
+</section>
+</section>
+<section id="hide-auto-suggested-recipient-in-lookups">
+<h2>Nascondi il destinatario suggerito automaticamente nelle ricerche<a class="headerlink" href="#hide-auto-suggested-recipient-in-lookups" title="Link a questa intestazione">¶</a></h2>
+<p>Per disabilitare il suggerimento di indirizzi salvati automaticamente, accedere al pannello di amministrazione -&gt;: guilabel: <cite>Proprietà (sistema)</cite> -&gt;: guilabel: <cite>Aggiungi</cite> -&gt; selezionare: guilabel: <cite>com.sonicle.webtop.core (WebTop)</cite> e inserire i dati nei campi: guilabel: <cite>Chiave</cite> e: guilabel: <cite>Valore</cite> in base alla chiave da configurare:</p>
+<p><code class="docutils literal notranslate"><span class="pre">recipient.provider.auto.enabled</span></code> = false  (default is true)</p>
+</section>
+<section id="edit-subject-of-a-mail-and-save-it">
+<h2>Modificare l’oggetto di una mail e salvarlo<a class="headerlink" href="#edit-subject-of-a-mail-and-save-it" title="Link a questa intestazione">¶</a></h2>
+<p>Per abilitare la modifica dell’oggetto nelle e-mail ricevute e inviate, accedere al pannello di amministrazione -&gt;: guilabel: <cite>Proprietà (sistema)</cite> -&gt;: guilabel: <cite>Aggiungi</cite> -&gt; selezionare: guilabel: <cite>com.sonicle.webtop.mail (Posta Elettronica)</cite> e inserire i dati nei campi: guilabel: <cite>Chiave</cite> e: guilabel: <cite>Valore</cite> in base alla chiave da configurare:</p>
+<p><code class="docutils literal notranslate"><span class="pre">message.edit.subject</span></code> = true  (default is false)</p>
+</section>
+<section id="importing-from-outlook-pst">
+<h2>Importazione da PST Outlook<a class="headerlink" href="#importing-from-outlook-pst" title="Link a questa intestazione">¶</a></h2>
+<p>E” possibile importare email, calendari e rubriche da un archivio <span class="target" id="index-22"></span>PST di <span class="target" id="index-23"></span>Outlook .</p>
+<p>Prima di utilizzare lo script, è necessario installare il pacchetto <em>libpst</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install libpst -y
+</pre></div>
+</div>
+<p>Assicurarsi inoltre che la timezone di PHP corrisponda a quella del server:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config getprop php DateTimezone
+</pre></div>
+</div>
+<p>La time zone di PHP può essere modificata utilizzando il comando seguente:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop php DateTimezone Europe/Rome
+signal-event nethserver-php-update
+</pre></div>
+</div>
+<section id="mail">
+<h3>Mail<a class="headerlink" href="#mail" title="Link a questa intestazione">¶</a></h3>
+<p>Script iniziale per l’importazione dei messaggi mail: <code class="file docutils literal notranslate"><span class="pre">/usr/share/webtop/doc/pst2webtop.sh</span></code></p>
+<p>Per iniziare l’importazione, lanciare lo script specificando il file PST e l’utente di sistema:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/webtop/doc/pst2webtop.sh &lt;filename.pst&gt; &lt;user&gt;
+</pre></div>
+</div>
+<p>Esempio:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># /usr/share/webtop/doc/pst2webtop.sh data.pst goofy
+Do you wish to import email? [Y]es/[N]o:
+</pre></div>
+</div>
+<p>Tutti i messaggi mail saranno importati. Contatti e calendari saranno salvati in un file temporaneo e lo script genererà a schermo gli ulteriori comandi da utilizzare per importare contatti e calendari.</p>
+<p>Esempio:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Events Folder found: Outlook/Calendar/calendar
+pst2webtop_cal.php goody &#39;/tmp/tmp.Szorhi5nUJ/Outlook/Calendar/calendar&#39; &lt;foldername&gt;
+
+...
+
+log created: /tmp/pst2webtop14271.log
+</pre></div>
+</div>
+<p>Tutti i comandi saranno riportati anche nel file di log generato dallo script.</p>
+</section>
+<section id="id3">
+<h3>Contatti<a class="headerlink" href="#id3" title="Link a questa intestazione">¶</a></h3>
+<p>Script importazione Contatti: <code class="file docutils literal notranslate"><span class="pre">/usr/share/webtop/doc/pst2webtop_card.php</span></code>.</p>
+<p>Lo script utilizzerà i file generati nella fase di importazione della posta:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/webtop/doc/pst2webtop_card.php &lt;user&gt; &lt;file_to_import&gt; &lt;phonebook_category&gt;
+</pre></div>
+</div>
+<p><strong>Esempio</strong></p>
+<p>Ipotizziamo che lo script pst2webtop.sh abbia generato il seguente output a seguito dell’importazione delle mail:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Contacts Folder found: Personal folders/Contacts/contacts
+ Import to webtop:
+./pst2webtop_card.php foo &#39;/tmp/tmp.0vPbWYf8Uo/Personal folders/Contacts/contacts&#39; &lt;foldername&gt;
+</pre></div>
+</div>
+<p>Per importare nella Rubrica predefinita (WebTop) dell’utente <em>foo</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/webtop/doc/pst2webtop_card.php foo &#39;/tmp/tmp.0vPbWYf8Uo/Personal folders/Contacts/contacts&#39; WebTop
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>Calendari<a class="headerlink" href="#id4" title="Link a questa intestazione">¶</a></h3>
+<p>Script importazione Calendari: <code class="file docutils literal notranslate"><span class="pre">/usr/share/webtop/doc/pst2webtop_cal.php</span></code></p>
+<p>Lo script utilizzerà i file generati nella fase di importazione della posta:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/webtop/doc/pst2webtop_cal.php &lt;user&gt; &lt;file_to_import&gt; &lt;foldername&gt;
+</pre></div>
+</div>
+<p><strong>Esempio</strong></p>
+<p>Ipotizziamo che lo script pst2webtop.sh abbia generato il seguente output a seguito dell’importazione delle mail:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Events Folder found: Personal folders/Calendar/calendar
+ Import to webtop:
+./pst2webtop_cal.php foo &#39;/tmp/tmp.0vPbWYf8Uo/Personal folders/Calendar/calendar&#39; &lt;foldername&gt;
+</pre></div>
+</div>
+<p>Per importare gli eventi nel Calendario predefinito (WebTop) dell’utente <em>foo</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/webtop/doc/pst2webtop_cal.php foo &#39;/tmp/tmp.0vPbWYf8Uo/Personal folders/Calendar/calendar&#39; WebTop
+</pre></div>
+</div>
+<p>Limitazioni note:</p>
+<ul class="simple">
+<li><p>verrà importata solamente la prima occorrenza di eventi ricorrenti</p></li>
+<li><p>I promemoria di Outlook verranno ignorati</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Lo script importerà gli eventi utilizzando il fuso orario dall’utente WebTop, se configurato. Altrimenti verrà utilizzato il fuso orario del sistema.</p>
+</div>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link a questa intestazione">¶</a></h2>
+<section id="blank-page-after-login">
+<h3>Pagina vuota dopo il login<a class="headerlink" href="#blank-page-after-login" title="Link a questa intestazione">¶</a></h3>
+<p>È possibile accedere a WebTop utilizzando l’utente amministratore di sistema  (NethServer Administrator) utilizzando il nome di accesso completo, ad es .: <cite>admin&#64;nethserver.org`</cite>.</p>
+<p>Se l’accesso fallisce, soprattutto quando si aggiorna da WebTop 4, significa che l’utente admin non ha un indirizzo mail</p>
+<p>Per risolvere il problema, eseguire il seguente comando:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>curl -s https://git.io/vNuPf | bash -x
+</pre></div>
+</div>
+</section>
+<section id="synchronized-events-have-different-time">
+<h3>Gli eventi sincronizzati mostrano una differenza di orario<a class="headerlink" href="#synchronized-events-have-different-time" title="Link a questa intestazione">¶</a></h3>
+<p>Può capitare che gli eventi di calendario creati sui device mobili e sincronizzati tramite EAS vengano riportati sull’interfaccia con una differenza di orario di 1 o 2 ore.</p>
+<p>Il problema è dovuto al Time Zone di PHP che può risultare disallineato rispetto a quello di sistema.</p>
+<p>Con questo comando è possibile vedere l’attuale Time Zone impostato per il PHP:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config getprop php DateTimezone
+</pre></div>
+</div>
+<p>Esempio di output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># config getprop php DateTimezone
+UTC
+</pre></div>
+</div>
+<p>Se il Time Zone non fosse quello desiderato (ad esempio Europe/Rome) è possibile correggere in questo modo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop php DateTimezone &quot;Europe/Rome&quot;
+signal-event nethserver-php-update
+</pre></div>
+</div>
+<p>Per mettere in produzione la modifica eseguire:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signal-event nethserver-httpd-update
+signal-event nethserver-webtop5-update
+</pre></div>
+</div>
+<p>Elenco dei time zone supportati da PHP: <a class="reference external" href="http://php.net/manual/it/timezones.php">http://php.net/manual/it/timezones.php</a></p>
+</section>
+<section id="delete-automatically-suggested-email-addresses">
+<h3>Eliminare gli indirizzi email suggeriti automaticamente<a class="headerlink" href="#delete-automatically-suggested-email-addresses" title="Link a questa intestazione">¶</a></h3>
+<p>Quando si compila il destinatario di una mail, vengono suggeriti alcuni indirizzi email salvati automaticamente. Se è necessario eliminarne qualcuno perché è sbagliato, spostarsi con i tasti freccia finché non si seleziona quello che si vuole eliminare (senza fare clic su di esso), quindi eliminarlo con <span class="guilabel">Shift + Canc</span></p>
+</section>
+</section>
+<section id="webtop-vs-sogo">
+<span id="id5"></span><h2>WebTop vs SOGo<a class="headerlink" href="#webtop-vs-sogo" title="Link a questa intestazione">¶</a></h2>
+<p>WebTop e SOGo possono essere installati sulla stessa macchina, anche se è sconsigliato mantenere tale configurazione a lungo termine.</p>
+<p>ActiveSync è abilitato per impostazione predefinita sia su SOGo che su WebTop, ma se entrambi i pacchetti sono installati, SOGo avrà la precedenza.</p>
+<p>Per disabilitare ActiveSync su SOGo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config setprop sogod ActiveSync disabled
+signal-event nethserver-sogo-update
+</pre></div>
+</div>
+<p>Per disabilitare ActiveSync su WebTop modificare il file di configurazione  <code class="file docutils literal notranslate"><span class="pre">/etc/httpd/conf.d/webtop5-zpush.conf</span></code>.</p>
+<p>Tutti i filtri di posta configurati da SOGo, devono essere ricreati manualmente all’interno dell’interfaccia di WebTop. La stessa cosa si applica se l’utente sta effettuando il passaggio inverso da WebTop a SOGo.</p>
+</section>
+<section id="google-integration">
+<h2>Integrazione Google<a class="headerlink" href="#google-integration" title="Link a questa intestazione">¶</a></h2>
+<p>Gli utenti possono aggiungere i propri account Google Drive all’interno di WebTop. Prima di procedere, l’amministratore deve creare una coppia di credenziali di accesso API.</p>
+<section id="google-api">
+<h3>Google API<a class="headerlink" href="#google-api" title="Link a questa intestazione">¶</a></h3>
+<ul class="simple">
+<li><p>Accedere a <a class="reference external" href="https://console.developers.google.com/project">https://console.developers.google.com/project</a> e creare un nuovo progetto</p></li>
+<li><p>Creare una nuova coppia di credenziali di tipo “OAuth 2.0 clientID” avendo cura di compilare la sezione “OAuth consent screen”</p></li>
+<li><p>Inserire la coppia di credenziali appena create (Client ID e Client Secret) nella configurazione di WebTop</p></li>
+</ul>
+<p>È possibile farlo dall’interfaccia web accedendo al pannello di amministrazione -&gt; :guilabel: <cite>Proprietà (sistema)</cite> -&gt; :guilabel: <cite>Aggiungi</cite> -&gt; selezionando <span class="guilabel">com.sonicle.webtop.core (WebTop)</span> ed inserendo i dati nei campi <span class="guilabel">Chiave</span> e <span class="guilabel">Valore</span> in base alla chiave da configurare:</p>
+<p><code class="docutils literal notranslate"><span class="pre">googledrive.clientid</span></code> = (Google API client_ID)</p>
+<p><code class="docutils literal notranslate"><span class="pre">googledrive.clientsecret</span></code> = (Google API client_secret)</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="report.html" class="btn btn-neutral float-left" title="Report" accesskey="p" rel="prev">&lt; Previous</a>
+        <a href="phone_home.html" class="btn btn-neutral float-right" title="Phone Home" accesskey="n" rel="next">Next &gt;</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Nethesis Srl and the NethServer project contributors.
+      <span class="commit">Revision <code>b268d3b9</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
