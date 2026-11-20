@@ -111,7 +111,7 @@ If a [default relay rule](#relay-rules-section) (a smarthost) is configured, thi
 
 Public mailboxes can be shared among groups of users. The **Create public mailbox** button allows creating a new public mailbox and defining one or more owning groups and users. Public mailboxes can also be created by any IMAP client supporting IMAP ACL protocol extension (RFC 4314).
 
-When a new public mailbox is created, the mail server will automatically add a new wildcard address valid for all existing mail domains.
+When a new public mailbox is created, the mail server will automatically add a new wildcard address valid for all existing mail domains, unless the mailbox name contains spaces or other characters not valid in an address.
 
 The `postmaster` public mailbox is created automatically. By default it receives the mail sent to the `postmaster` address of every mail domain. It also receives the notices of the mail server itself about mail that could not be delivered because of resource or software problems, such as a full disk or an unreachable user domain.
 
