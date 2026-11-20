@@ -42,6 +42,28 @@ Nextcloud update/upgrade procedure may disable the apps to avoid incompatibility
 
 All users are listed inside the administrator panel of Nextcloud using a unique identifier containing letters and numbers. This is because the system ensures that there are no duplicate internal user names as reported in section `Internal Username` of [Official Nextcloud documentation](https://docs.nextcloud.com).
 
+### Run occ commands
+
+`occ` is the Nextcloud command line tool. The [official Nextcloud administration manual](https://docs.nextcloud.com/server/stable/admin_manual/occ_command.html) uses it for many operations. On NethServer 8, run it through `runagent`.
+
+Log in as root on the node where the Nextcloud application is installed. In the following commands, replace `nextcloud1` with your application identifier.
+
+Any `occ` command from the official documentation becomes:
+
+    runagent -m nextcloud1 occ <command> [arguments]
+
+For example, to list all available commands:
+
+    runagent -m nextcloud1 occ list
+
+To show the help of a command:
+
+    runagent -m nextcloud1 occ help user:list
+
+To list the users with their internal identifier, as explained in the [User list](#user-list) section:
+
+    runagent -m nextcloud1 occ user:list
+
 ### Alternative LDAP mail field (Samba AD)
 
 When the account provider is an Active Directory, you can change the mail field used by Nextcloud with an environment variable. The default LDAP mail field is `userPrincipalName`, which corresponds to the AD domain name and not the user's email address (e.g. `user@ad.example.org` vs `user@example.org`). This can be confusing for users, as they will have to use the `userPrincipalName` to login instead of their email address. The Email address field can be set in the [User and groups](../installation/user_domains.md#user_groups-section) page if the Samba AD is configured as the local account provider.

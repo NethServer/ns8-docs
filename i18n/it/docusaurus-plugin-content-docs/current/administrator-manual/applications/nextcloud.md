@@ -42,6 +42,28 @@ La procedura di aggiornamento/upgrade di Nextcloud può disabilitare le app per 
 
 Tutti gli utenti sono elencati nel pannello amministratore di Nextcloud usando un identificatore univoco contenente lettere e numeri. Questo perché il sistema garantisce che non esistano nomi utente interni duplicati, come riportato nella sezione `Internal Username` della [documentazione ufficiale di Nextcloud](https://docs.nextcloud.com).
 
+### Eseguire comandi occ
+
+`occ` è lo strumento da riga di comando di Nextcloud. Il [manuale ufficiale di amministrazione di Nextcloud](https://docs.nextcloud.com/server/stable/admin_manual/occ_command.html) lo usa per molte operazioni. Su NethServer 8, eseguirlo tramite `runagent`.
+
+Accedere come root al nodo dove è installata l'applicazione Nextcloud. Nei comandi seguenti, sostituire `nextcloud1` con l'identificativo dell'applicazione.
+
+Qualsiasi comando `occ` della documentazione ufficiale diventa:
+
+    runagent -m nextcloud1 occ <comando> [argomenti]
+
+Ad esempio, per elencare tutti i comandi disponibili:
+
+    runagent -m nextcloud1 occ list
+
+Per mostrare l'aiuto di un comando:
+
+    runagent -m nextcloud1 occ help user:list
+
+Per elencare gli utenti con il loro identificativo interno, come spiegato nella sezione [Elenco utenti](#elenco-utenti):
+
+    runagent -m nextcloud1 occ user:list
+
 ### Campo email LDAP alternativo (Samba AD)
 
 Quando il provider di account è un Active Directory, puoi cambiare il campo email usato da Nextcloud tramite una variabile d'ambiente. Il campo email LDAP predefinito è `userPrincipalName`, che corrisponde al nome di dominio AD e non all'indirizzo email dell'utente (ad esempio `user@ad.example.org` invece di `user@example.org`). Questo può creare confusione per gli utenti, perché dovranno usare `userPrincipalName` per accedere invece del proprio indirizzo email. Il campo Email address può essere impostato nella pagina [Utenti e gruppi](../installation/user_domains.md#user_groups-section) se Samba AD è configurato come provider account locale.
