@@ -50,7 +50,7 @@ Replace `mattermost0` with the actual Mattermost instance name, `MY_USER` with t
 
 ## Upgrade to Mattermost 11
 
-The module follows the Mattermost Extended Support Releases (ESR). Mattermost 10.11 ESR reached end of support on August 15, 2026. The module update installs Mattermost 11.7 ESR, which is supported until May 15, 2027.
+The module follows the Mattermost Extended Support Releases (ESR). The module update installs Mattermost 11.7 ESR, which is supported until May 15, 2027.
 
 Mattermost 11 changes the limits of Team Edition. Check them before you update:
 

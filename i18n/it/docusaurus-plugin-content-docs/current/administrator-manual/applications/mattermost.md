@@ -50,7 +50,7 @@ Sostituisci `mattermost0` con il nome effettivo dell'istanza Mattermost, `MY_USE
 
 ## Aggiornamento a Mattermost 11
 
-Il modulo segue le versioni Extended Support Release (ESR) di Mattermost. Il supporto di Mattermost 10.11 ESR è terminato il 15 agosto 2026. L'aggiornamento del modulo installa Mattermost 11.7 ESR, supportato fino al 15 maggio 2027.
+Il modulo segue le versioni Extended Support Release (ESR) di Mattermost. L'aggiornamento del modulo installa Mattermost 11.7 ESR, supportato fino al 15 maggio 2027.
 
 Mattermost 11 cambia i limiti della Team Edition. Verificali prima di aggiornare:
 
