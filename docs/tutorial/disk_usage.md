@@ -124,7 +124,7 @@ Since NS8 does not manage disk mounting, the system administrator must ensure di
 Assumptions:
 
 - Mount the disk under `/mnt` or `/srv` base paths. They are commonly used for this purpose.
-- Format the disk with `xfs` or `ext4` filesystems. Their features and defaults match NS8 expectations.
+- Format the disk with the `xfs` filesystem, as recommended in [Disk and partitions](../administrator-manual/installation/system_requirements.md#disk-partitions). Use `ext4` only if the disk is already formatted with it.
 - Set a filesystem label (e.g. `LABDISK0`) to easily recognize the disk. It may also simplify the `/etc/fstab` configuration.
 - After a system reboot, an entry in `/etc/fstab` or a Systemd `.mount` unit correctly mounts the disk on `/srv/disk0`.
 - The disk is not mounted elsewhere. Multiple mount points for the same disk may lead to SELinux relabeling issues.
