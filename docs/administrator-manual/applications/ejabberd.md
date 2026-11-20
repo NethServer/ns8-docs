@@ -63,6 +63,8 @@ The XMPP system is federated by nature. If S2S is enabled, users with accounts o
 
 For this purpose, the SRV DNS record must be configured for your domain (<https://wiki.xmpp.org/web/SRV_Records#XMPP_SRV_records>) and the server must have a valid SSL/TLS certificate.
 
+S2S is also required for mobile push notifications. When S2S is enabled, ejabberd loads the push modules (`mod_push` and `mod_push_keepalive`). Mobile clients like Monal or Conversations can then receive messages while the app runs in background. The push servers of these apps connect back to your server on port 5269, so the server must be reachable from the internet on this port, with a trusted certificate and a public DNS record for the domain.
+
 ### Message Archive Management
 
 Message Archive Management (mod_mam) implements Message Archive Management as described in [XEP-0313](http://xmpp.org/extensions/xep-0313.html). When enabled, all messages will be stored inside the server and compatible XMPP clients can use it to store their chat history on the server.
