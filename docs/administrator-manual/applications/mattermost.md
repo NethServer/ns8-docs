@@ -57,7 +57,7 @@ Mattermost 11 changes the limits of Team Edition. Check them before you update:
 - Team Edition allows up to 250 activated users. The previous limit was 1000.
 - GitLab single sign-on (SSO) is no longer available.
 - The Playbooks plugin no longer works.
-- The Bleve search engine is removed. The module now uses the database search.
+- The Bleve search engine is removed. The module now uses the database search and removes the old index volume.
 
 :::warning
 
@@ -71,8 +71,5 @@ To count the activated users, run the following command as `root` on the node:
 
 Replace `mattermost1` with the actual Mattermost instance name.
 
-After the update, the `mattermost-bleve-indexes` volume is no longer used. You can remove it to free disk space:
-
-    runagent -m mattermost1 podman volume rm mattermost-bleve-indexes
 
 See the [Mattermost upgrade notes](https://docs.mattermost.com/administration-guide/upgrade/important-upgrade-notes) for the full list of changes.
