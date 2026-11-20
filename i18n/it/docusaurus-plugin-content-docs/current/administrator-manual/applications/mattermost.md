@@ -57,19 +57,12 @@ Mattermost 11 cambia i limiti della Team Edition. Verificali prima di aggiornare
 - La Team Edition consente al massimo 250 utenti attivati. Il limite precedente era 1000.
 - Il single sign-on (SSO) con GitLab non è più disponibile.
 - Il plugin Playbooks non funziona più.
-- Il motore di ricerca Bleve è stato rimosso. Il modulo ora usa la ricerca nel database e rimuove il vecchio volume dell'indice.
-
-:::warning
-
-L'aggiornamento non può essere annullato. Mattermost 11 converte le password degli utenti in un nuovo formato al loro accesso successivo. Dopo un ritorno alla versione 10.11, questi utenti non possono accedere finché un amministratore non reimposta la loro password. Esegui un [backup](../configuration/backup.md) prima di aggiornare il modulo.
-
-:::
+- Il motore di ricerca Bleve è stato rimosso.
 
 Per contare gli utenti attivati, esegui il seguente comando come `root` sul nodo:
 
     runagent -m mattermost1 podman exec mattermost-app mmctl --local --json user list --all | jq '[.[] | select(.delete_at == 0 and (.is_bot | not))] | length'
 
 Sostituisci `mattermost1` con il nome effettivo dell'istanza Mattermost.
-
 
 Consulta le [note di aggiornamento di Mattermost](https://docs.mattermost.com/administration-guide/upgrade/important-upgrade-notes) per l'elenco completo delle modifiche.
