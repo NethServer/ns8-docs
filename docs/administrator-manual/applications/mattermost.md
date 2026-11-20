@@ -47,3 +47,32 @@ Run the following command as `root` on the NS8 node that hosts the Mattermost in
     runagent -m mattermost0 podman exec -ti mattermost-app mmctl --local user change-password MY_USER --password NEW_PASSWORD
 
 Replace `mattermost0` with the actual Mattermost instance name, `MY_USER` with the target user name or email address, and `NEW_PASSWORD` with the new password.
+
+## Upgrade to Mattermost 11
+
+The module follows the Mattermost Extended Support Releases (ESR). Mattermost 10.11 ESR reached end of support on August 15, 2026. The module update installs Mattermost 11.7 ESR, which is supported until May 15, 2027.
+
+Mattermost 11 changes the limits of Team Edition. Check them before you update:
+
+- Team Edition allows up to 250 activated users. The previous limit was 1000.
+- GitLab single sign-on (SSO) is no longer available.
+- The Playbooks plugin no longer works.
+- The Bleve search engine is removed. The module now uses the database search.
+
+:::warning
+
+The update cannot be rolled back. Mattermost 11 converts user passwords to a new format at their next login. After a downgrade to 10.11, those users cannot log in until an administrator resets their password. Run a [backup](../configuration/backup.md) before you update the module.
+
+:::
+
+To count the activated users, run the following command as `root` on the node:
+
+    runagent -m mattermost1 podman exec mattermost-app mmctl --local --json user list --all | jq '[.[] | select(.delete_at == 0 and (.is_bot | not))] | length'
+
+Replace `mattermost1` with the actual Mattermost instance name.
+
+After the update, the `mattermost-bleve-indexes` volume is no longer used. You can remove it to free disk space:
+
+    runagent -m mattermost1 podman volume rm mattermost-bleve-indexes
+
+See the [Mattermost upgrade notes](https://docs.mattermost.com/administration-guide/upgrade/important-upgrade-notes) for the full list of changes.
