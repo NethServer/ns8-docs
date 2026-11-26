@@ -89,7 +89,7 @@ The list of mailboxes is shown on the `Mailboxes` page. There are two types of m
 
 Each user has a personal mailbox. Enable the `Add user addresses from user domain` option under [Domains](#email_domains) to make any user name in the form *\<username\>@\<domain\>* a valid email address for delivering messages into it.
 
-To disable a mailbox, select the `Disable` item from the three-dots menu on the mailbox line.
+To disable a mailbox, select the `Disable` item from the three-dots menu on the mailbox line. See [Disabled mailboxes](#mail-disabled-mailboxes) for its effects.
 
 Click the `Edit` item from the three-dots menu to set up the following options:
 
@@ -106,6 +106,20 @@ This rewrite changes only the hidden envelope sender, never the visible `From`, 
 If a bounce or delivery status notification is later sent back to the rewritten address, Mail verifies it and translates it back to the original sender, so delivery failures reach the original sender.
 
 If a [default relay rule](#relay-rules-section) (a smarthost) is configured, this rewriting is automatically skipped instead: a deployment that relays all outgoing mail through another server is typically not a real, directly-delivering public mail server, and the rewritten sender would otherwise be rejected by the smarthost itself.
+
+### Disabled mailboxes {#mail-disabled-mailboxes}
+
+Disable the mailbox of the user accounts that do not need mail, such as the accounts of devices and services. A disabled mailbox gets no messages, and its user cannot access it:
+
+- Messages sent to its user name address, or to the address in its LDAP `mail` attribute, are handled like messages to an address that does not exist: they are rejected, or delivered to the domain catch-all if `Accept unknown recipients` is enabled (see [Domains](#email_domains)).
+- Group addresses skip it. A group whose members all have a disabled mailbox is handled like an address that does not exist.
+- An address of the [Addresses](#email_addresses) page or a catch-all can still have it among its destinations: the other destinations receive the message, while the copy for the disabled mailbox is dropped, without notifying the sender.
+- Its `Forward messages` settings are ignored.
+- Its user cannot log in with IMAP, POP3 or SMTP. [Master users](#mail-master-users-settings) can still access its contents.
+
+The mailbox contents are kept. To enable the mailbox again, select the `Enable` item from the three-dots menu: like disabling, the change applies at once.
+
+A disabled mailbox is not the same as a disabled user account. To block the access of a person who leaves the organization, disable their account in the user domain instead (see [User and groups](../installation/user_domains.md#user_groups-section)): their mailbox still receives messages and applies its forward settings, so an administrator can access or forward them.
 
 ### Public mailbox
 
