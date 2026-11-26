@@ -17,6 +17,8 @@ Rilasci di NethServer 8
 
 - **Il ripristino del cluster recupera i repository software** \[Core 3.25.0\] -- Un cluster ripristinato dal proprio backup su un nuovo nodo ottiene ora i repository software del cluster originale. In precedenza, un cluster con subscription ripristinato in questo modo manteneva i repository di una nuova installazione e riceveva gli aggiornamenti pianificati dal repository `default` della community. Vedere [Ripristino di emergenza](../configuration/backup.md#disaster_recovery-section).
 
+- **Limite sperimentale di invio per gli utenti mail** \[Mail 2.0.0\] -- Una password rubata viene spesso usata per inviare grandi quantità di spam attraverso il server di posta. Mail può ora limitare il numero di messaggi che ogni utente autenticato invia in un'ora: i messaggi oltre il limite ricevono un errore temporaneo, così i server di posta e le applicazioni li ritrasmettono più tardi, mentre i client di posta mostrano l'errore. Alcuni utenti possono essere esclusi o ricevere un limite più alto. La funzionalità è disattivata in modo predefinito e si attiva con una configurazione manuale. Vedere le [note del README di Mail](https://github.com/NethServer/ns8-mail#rspamd-rate-limit-for-authenticated-users).
+
 ## Modifiche principali del 09-10-2026
 
 **Milestone 8.10**

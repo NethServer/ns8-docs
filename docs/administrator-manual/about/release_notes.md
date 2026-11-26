@@ -17,6 +17,8 @@ NethServer 8 releases
 
 - **Cluster restore brings back the software repositories** \[Core 3.25.0\] -- A cluster restored from its backup on a new node now gets the software repositories of the original cluster. Previously, a subscribed cluster restored this way kept the repositories of a fresh installation and received scheduled updates from the community `default` repository. See [Disaster recovery](../configuration/backup.md#disaster_recovery-section).
 
+- **Experimental sending rate limit for mail users** \[Mail 2.0.0\] -- A stolen password is often used to send large amounts of spam through the mail server. Mail can now limit how many messages each authenticated user sends per hour: messages over the limit get a temporary error, so mail servers and applications retry them later, while mail clients show the error. Some users can be exempted or given a higher limit. The feature is disabled by default and is enabled with manual configuration. See [Mail README notes](https://github.com/NethServer/ns8-mail#rspamd-rate-limit-for-authenticated-users).
+
 ## Major changes on 2026-10-09
 
 **Milestone 8.10**
