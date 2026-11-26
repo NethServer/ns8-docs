@@ -89,7 +89,7 @@ L'elenco delle caselle di posta è mostrato nella pagina `Mailboxes`. Esistono d
 
 Ogni utente ha una casella di posta personale. Abilita l'opzione `Add user addresses from user domain` in [Domini](#email_domains) per rendere valido come indirizzo email, per il recapito dei messaggi, qualsiasi nome utente nel formato *\<username\>@\<domain\>*.
 
-Per disabilitare una casella di posta, seleziona la voce `Disable` dal menu a tre punti della riga corrispondente.
+Per disabilitare una casella di posta, seleziona la voce `Disable` dal menu a tre punti della riga corrispondente. Per i suoi effetti vedi [Caselle di posta disabilitate](#mail-disabled-mailboxes).
 
 Fai clic sulla voce `Edit` del menu a tre punti per configurare le seguenti opzioni:
 
@@ -106,6 +106,20 @@ Questa riscrittura cambia solo il mittente nascosto della busta, mai gli intesta
 Se in seguito arriva un messaggio di bounce o una notifica di stato di consegna (DSN) indirizzata all'indirizzo riscritto, Mail la verifica e la traduce nuovamente nel mittente originale, in modo che gli errori di consegna raggiungano il mittente originale.
 
 Se è configurata una [regola di relay predefinita](#relay-rules-section) (uno smarthost), questa riscrittura viene invece saltata automaticamente: un'installazione che inoltra tutta la posta in uscita attraverso un altro server tipicamente non è un vero server di posta pubblico con consegna diretta, e il mittente riscritto verrebbe altrimenti respinto dallo smarthost stesso.
+
+### Caselle di posta disabilitate {#mail-disabled-mailboxes}
+
+Disabilita la casella di posta degli account utente che non hanno bisogno della posta, come gli account di dispositivi e servizi. Una casella di posta disabilitata non riceve messaggi, e il suo utente non può accedervi:
+
+- I messaggi inviati all'indirizzo del suo nome utente, o all'indirizzo nel suo attributo LDAP `mail`, sono gestiti come messaggi a un indirizzo che non esiste: vengono rifiutati, o recapitati alla casella catch-all del dominio se `Accept unknown recipients` è abilitato (vedi [Domini](#email_domains)).
+- Gli indirizzi dei gruppi la escludono. Un gruppo i cui membri hanno tutti la casella di posta disabilitata è gestito come un indirizzo che non esiste.
+- Un indirizzo della pagina [Indirizzi](#email_addresses) o un catch-all può ancora averla tra le sue destinazioni: le altre destinazioni ricevono il messaggio, mentre la copia per la casella disabilitata viene scartata, senza avvisare il mittente.
+- Le sue impostazioni di `Forward messages` sono ignorate.
+- Il suo utente non può accedere con IMAP, POP3 o SMTP. Gli [utenti master](#mail-master-users-settings) possono ancora accedere al suo contenuto.
+
+Il contenuto della casella di posta viene mantenuto. Per abilitare di nuovo la casella di posta, seleziona la voce `Enable` dal menu a tre punti: come per la disabilitazione, la modifica si applica subito.
+
+Una casella di posta disabilitata non equivale a un account utente disabilitato. Per bloccare l'accesso di una persona che lascia l'organizzazione, disabilita invece il suo account nel dominio utente (vedi [Utenti e gruppi](../installation/user_domains.md#user_groups-section)): la sua casella di posta continua a ricevere i messaggi e ad applicare le impostazioni di inoltro, così un amministratore può accedervi o inoltrarli.
 
 ### Casella di posta pubblica
 
