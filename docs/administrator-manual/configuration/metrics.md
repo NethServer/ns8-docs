@@ -46,6 +46,10 @@ Still, you can configure the alerts to be sent to custom email addresses.
 
 Alerts are also visible from the Grafana `Alerting` menu. See [Grafana dashboards](#grafana_access-section).
 
+Prometheus and Alertmanager listen only on the leader node, at `127.0.0.1:9091` and `127.0.0.1:9093`, and ask for a password. To query them directly, for example while troubleshooting, use the user `metrics` and the password stored in the module, shown by this command run on the leader node:
+
+    runagent -m metrics1 cat basic_auth.json
+
 ### Alerts notifications {#alerts_notifications-section}
 
 Mail notifications can be sent to users when an alert is fired or resolved.
@@ -150,10 +154,10 @@ If the leader node is switched, Grafana will be accessible on the new leader nod
 
 ## Access Prometheus web interface
 
-By default, Prometheus web interface is not exposed to the public network.
+The Prometheus web interface is not exposed to the public network. It listens only on the leader node, at `127.0.0.1:9091`.
 
-If you need to troubleshoot the Prometheus configuration, you can enable it on `https://<leader-node>/prometheus`. As for Grafana, you will need to authenticate with cluster admin credentials.
+If you need to troubleshoot the Prometheus configuration, open an SSH tunnel to the leader node, browse `http://127.0.0.1:9091` and log in with the user `metrics` and the password above:
 
-To enable Prometheus web interface access, run the following command on the leader node:
+    ssh -L 9091:127.0.0.1:9091 root@<leader-node>
 
-    api-cli run module/metrics1/configure-module --data '{"prometheus_path": "prometheus", "grafana_path": "grafana"}'
+For other options, see the [metrics module README](https://github.com/NethServer/ns8-metrics#prometheus-web-interface-debug).
